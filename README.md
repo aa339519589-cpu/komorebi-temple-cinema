@@ -6,6 +6,8 @@
 
 ## 源码与完整档案
 
+**源码已公开；六个大文件分包正在上传。远端核验完成后会提交核验记录并更新此状态。**
+
 - 项目原创代码采用 [MIT](LICENSE) 许可；第三方音乐和用户参考图分别保留其自身许可，见 [THIRD_PARTY.md](THIRD_PARTY.md)。
 - 本仓库保留当前源码、历史源码快照、参考图、测试截图、脚本与检查记录。
 - 所有既有大视频、无损渲染中间文件和完整项目档案放在同仓库的 [公开 checkpoint Release](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/checkpoint-2026-10-16)。[文件清单](archives/checkpoint-manifest.json) 记录原始路径、大小、SHA-256 和所属压缩包。将所有 ZIP 分包解压到同一目录即可恢复档案。
