@@ -4,7 +4,16 @@ import {resolve} from 'node:path';
 const root=resolve(new URL('..',import.meta.url).pathname);process.chdir(root);
 const revision=process.env.REVISION||'v3';if(!/^v[0-9]+(?:-[a-z0-9]+)*$/.test(revision))throw Error('Invalid revision');
 const dest=`qa/${revision}/frozen-src`,hashes={},contents={};
-for(const name of (await readdir('src')).filter(x=>x.endsWith('.js')).sort()){
+const available=(await readdir('src')).filter(x=>x.endsWith('.js'));
+const selected=new Set();
+async function visit(name){
+ if(selected.has(name))return;
+ if(!available.includes(name))throw Error('Missing active source: '+name);
+ selected.add(name);const text=await readFile('src/'+name,'utf8');
+ for(const match of text.matchAll(/(?:from\s*|import\s*)['"]\.\/([a-z][a-z0-9-]*\.js)['"]/g))await visit(match[1]);
+}
+if(process.env.ACTIVE_ONLY==='1')await visit('main.js');else for(const name of available)selected.add(name);
+for(const name of [...selected].sort()){
  const bytes=await readFile('src/'+name);hashes[name]=createHash('sha256').update(bytes).digest('hex');contents[name]=bytes;
 }
 const sourceHash=createHash('sha256').update(JSON.stringify(hashes)).digest('hex');

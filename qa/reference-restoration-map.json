@@ -1,0 +1,230 @@
+{
+  "scope": "Restore all ten supplied references, not redesign. Still frames only for current work. No completed/accepted view yet.",
+  "baselineCommit": "fa057445c28e4b965fe8c896aac7030af659bccf",
+  "method": [
+    "Match camera, field of view and subject proportions first.",
+    "Compare left reference and right actual renderer output; keep original images and source hashes.",
+    "Audit full composition and corresponding close crops.",
+    "Match geometry, material scale, source-light direction, actual occlusion and reflections together.",
+    "Do not replace detail with repeated decoration, brightness, blur or generated imagery."
+  ],
+  "references": [
+    {
+      "reference": 1,
+      "name": "廊下黄金时刻全景",
+      "referenceFile": "F70095CF-7325-49D3-96C8-89208E9052C2.jpeg",
+      "sha256": "eeca09b0a3110989293bb865575a6355f144eedb05515a92e3e0a288c18f11ab",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "左前廊柱/灯笼；红桥；池塘；左塔右殿",
+      "assetsAndLight": [
+        "前景木构与金属连接件",
+        "桥拱与栏杆连续曲线",
+        "池岸石、苔与落差水流",
+        "层次清楚的逆光树冠"
+      ],
+      "legacyShotHint": 1,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 2,
+      "name": "右侧廊下黄金时刻",
+      "referenceFile": "95431516-0CC9-4B57-B129-0531D7079D89.jpeg",
+      "sha256": "4460d0df86af40d627ae10fc8f198f0603e779222563ef5919f4692ab66d8d5d",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "右前廊柱/栏杆；左侧太阳；桥与殿塔远景",
+      "assetsAndLight": [
+        "栏杆柱头与镂空金饰",
+        "殿堂两重屋顶与门廊",
+        "多层植被/樱花",
+        "湿木板与池水反射"
+      ],
+      "legacyShotHint": 2,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 3,
+      "name": "低池面日景",
+      "referenceFile": "11C15770-1AD1-491B-AA4E-184EE53B02B2.jpeg",
+      "sha256": "fd23240d3fdbaf64ed02ba12f22e59224c2b7718ec7727c66ddfb74fc3854918",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "近景莲叶；红桥横穿中景；右殿左塔",
+      "assetsAndLight": [
+        "莲叶厚度/叶脉/卷缘",
+        "花瓣与花蕊分层",
+        "桥梁连接/木纹尺度",
+        "石岸与小花草"
+      ],
+      "legacyShotHint": 3,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 4,
+      "name": "正殿轴线日景",
+      "referenceFile": "4DC83F7C-BB34-4892-AEE0-E5A52E379169.jpeg",
+      "sha256": "44d69c3574ce190ce78fde8188e470a4b6e3af94e63bf19161b7ba6897f9b762",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "对称石灯/石路/台阶；正殿中央",
+      "assetsAndLight": [
+        "不规则石板接缝与湿斑",
+        "石灯风化与苔边",
+        "中央唐破风/瓦当/斗栱",
+        "楼梯栏杆与庭园配植"
+      ],
+      "legacyShotHint": 4,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 5,
+      "name": "塔楼檐部近景",
+      "referenceFile": "EEAD2A70-8586-4E92-8068-874A7DB37107.jpeg",
+      "sha256": "c5fc85a569cbae7d436960a0eb279b8073dc2bab71b12a76c05bfa8979613524",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "仰视转角；重复楼层逐级缩小",
+      "assetsAndLight": [
+        "斗栱各层出挑与接触",
+        "椽/飞椽/檐口瓦当",
+        "转角金属包头浮雕",
+        "朱木纹与灰瓦颗粒"
+      ],
+      "legacyShotHint": 5,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 6,
+      "name": "佛堂内景",
+      "referenceFile": "4A9E3B32-CDAD-4818-8E3E-E78C2D1D815F.jpeg",
+      "sha256": "e335f2ddb029dbbe7fbd7f6c80b9db7b5bed5304e56b8e850e527827d2c887fc",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "三像和佛坛居中景；大面积前景木地面",
+      "assetsAndLight": [
+        "脸/耳/手指/衣褶/坐姿",
+        "多层真实莲座与尖形背光",
+        "分框佛坛浮雕/供具",
+        "层叠细吊饰/梁枋/窗格",
+        "左侧窗光遮挡、暗部可读、地面倒影"
+      ],
+      "legacyShotHint": 6,
+      "cameraMatch": "v7 candidate, not yet visually verified",
+      "renderEvidence": [
+        "qa/v6-sanctuary/reference6-diagnostic-comparison.png",
+        "qa/v6-sanctuary/material-diagnostic-no-local-env.png"
+      ],
+      "candidateView": {
+        "position": [
+          6,
+          7.1,
+          -3.1
+        ],
+        "target": [
+          6,
+          10,
+          -15.4
+        ],
+        "fov": 78
+      }
+    },
+    {
+      "reference": 7,
+      "name": "柱间庭院",
+      "referenceFile": "22DF5F61-08C2-4BB2-8C0A-07DD25D2432D.jpeg",
+      "sha256": "2ea59f73e914bf4cfca4d2d85ae59d1af74aedeafcb221c6a139ba083766ae9c",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "左右近柱框景；层层屋檐；塔在纵深",
+      "assetsAndLight": [
+        "柱础与包金接合",
+        "檐口结构与多层遮挡",
+        "红桥/小水道/石灯",
+        "松与红枫枝叶层次"
+      ],
+      "legacyShotHint": 7,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 8,
+      "name": "高处庭院总览",
+      "referenceFile": "47523FF5-5AE6-415B-B916-8F831374C89C.jpeg",
+      "sha256": "441c45acf8b6752a8399caf10e5e7d14b9f198e104ac61122ddecdf33fe737f5",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "左下近屋瓦；殿塔桥池整体关系",
+      "assetsAndLight": [
+        "同一场景建筑相对尺度",
+        "近屋瓦搭接与端盖",
+        "园林分区与路径连通",
+        "夕阳方向及水面连贯反射"
+      ],
+      "legacyShotHint": 8,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 9,
+      "name": "蓝调夜景",
+      "referenceFile": "D302FAF0-9439-498A-AC0B-72572284700F.jpeg",
+      "sha256": "84a4cfdb94fe95b33ffd4be151dafd99daf5199e9829a307e834dd9813a204e0",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "同一寺院；冷天光与暖窗/灯笼",
+      "assetsAndLight": [
+        "窗与灯笼的真实发光范围",
+        "殿塔高光层次不泛白",
+        "水反射与岸线遮挡",
+        "暗处植被仍有形体"
+      ],
+      "legacyShotHint": 9,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    },
+    {
+      "reference": 10,
+      "name": "雨景",
+      "referenceFile": "649603CE-B331-4D5B-ACBC-7AD9EE7E2EB0.jpeg",
+      "sha256": "4eb5222cec9d0c53463d8de487457e1f96f508438ce77e6e91fa55ae5d4834b1",
+      "size": [
+        1254,
+        1254
+      ],
+      "composition": "低位湿石路；朱桥殿塔；红枫",
+      "assetsAndLight": [
+        "石板积水与雨圈",
+        "瓦面/木柱湿润变化",
+        "近雨与远雾分层",
+        "阴天漫射及暖灯反射"
+      ],
+      "legacyShotHint": 10,
+      "cameraMatch": "unverified",
+      "renderEvidence": []
+    }
+  ]
+}

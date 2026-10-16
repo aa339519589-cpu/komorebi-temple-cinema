@@ -1,4 +1,6 @@
 import * as T from 'three';
+import {stableBumpChunk} from './stable-normals.js';
+T.ShaderChunk.bumpmap_pars_fragment=stableBumpChunk(T.ShaderChunk.bumpmap_pars_fragment);
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
@@ -6,7 +8,7 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { buildWorld } from './world.js';
-import {atmospherePass} from './atmosphere.js';
+import {createRestorationScatteringPass} from './restoration-lighting.js';
 import {shots,cameraPose,cameraPoseForShot} from './cinematography.js';
 const params = new URLSearchParams(location.search),
   renderMode = params.has('render');
@@ -27,7 +29,7 @@ renderer.toneMapping = params.get('tone')==='agx'?T.AgXToneMapping:T.ACESFilmicT
 renderer.toneMappingExposure=Number(params.get('exposure')||1.12);
 renderer.outputColorSpace = T.SRGBColorSpace;
 document.body.prepend(renderer.domElement);
-const world = buildWorld(renderer,{sunDirection:({back:[-.72,.17,-.51],side:[-.92,.22,.15]})[params.get('sun')],daylightFill:params.has('fill')}),
+const world = buildWorld(renderer,{sunDirection:({back:[-.72,.17,-.51],side:[-.92,.22,.15]})[params.get('sun')],daylightFill:params.has('fill'),reflectionAudit:params.has('audit-reflection')}),
   {
     scene
   } = world;
@@ -66,16 +68,14 @@ gtao.updatePdMaterial({
 });
 if (!params.has('noao')) composer.addPass(gtao);
 const previousBefore = gtao._renderOverride.bind(gtao);
-gtao._renderOverride = (...args) => {
-  world.water.visible = false;
-  world.puddles.visible = false;
+gtao._renderOverride = (...args) => world.restorationLighting.withReflectionsHidden(()=>{
+  const visible=world.foliageMeshes.map(o=>o.visible);
   world.foliageMeshes.forEach(o=>o.visible=false);
-  previousBefore(...args);
-  world.foliageMeshes.forEach(o=>o.visible=true);
-  const clear=renderer.autoClear;renderer.autoClear=false;renderer.setRenderTarget(gtao.normalRenderTarget);renderer.render(world.foliageNormalScene,camera);renderer.autoClear=clear;
-  world.water.visible = true;
-  world.puddles.visible = true;
-};
+  try{previousBefore(...args)}finally{world.foliageMeshes.forEach((o,i)=>o.visible=visible[i])}
+  const clear=renderer.autoClear;renderer.autoClear=false;renderer.setRenderTarget(gtao.normalRenderTarget);
+  try{renderer.render(world.foliageNormalScene,camera)}finally{renderer.autoClear=clear}
+});
+
 const dof = new ShaderPass({
   uniforms: {
     tDiffuse: {
@@ -106,8 +106,8 @@ float distanceAt(vec2 uv){float z=texture2D(tDepth,uv).x;return nearClip*farClip
 void main(){float z=distanceAt(vUv),blur=min(.0075,aperture*abs(z-focus)/max(1.0,z));vec4 c=texture2D(tDiffuse,vUv)*4.0;float w=4.0;for(int i=0;i<24;i++){float a=float(i)*2.3999632,r=sqrt((float(i)+.5)/24.0);vec2 uv=vUv+vec2(cos(a)/aspect,sin(a))*r*blur;float zz=distanceAt(uv);float weight=zz<z*.72?.15:1.0;c+=texture2D(tDiffuse,uv)*weight;w+=weight;}gl_FragColor=c/w;}`
 });
 dof.uniforms.tDepth.value = gtao.normalRenderTarget.depthTexture;
-const atmosphere=atmospherePass(camera,world.sun,gtao.normalRenderTarget.depthTexture);
-if(params.has('volume'))composer.addPass(atmosphere);
+const atmosphere=createRestorationScatteringPass(camera,world.sun,gtao.normalRenderTarget.depthTexture);
+if(!params.has('noao'))composer.addPass(atmosphere);
 composer.addPass(dof);
 const grade = new ShaderPass({
   uniforms: {
@@ -124,6 +124,8 @@ const exposureTarget=new T.WebGLRenderTarget(width,height,{type:T.HalfFloatType,
 const accumulateMaterial=new T.ShaderMaterial({uniforms:{tDiffuse:{value:null},weight:{value:1}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',fragmentShader:'uniform sampler2D tDiffuse;uniform float weight;varying vec2 vUv;void main(){gl_FragColor=texture2D(tDiffuse,vUv)*weight;}',transparent:true,blending:T.CustomBlending,blendSrc:T.OneFactor,blendDst:T.OneFactor,blendEquation:T.AddEquation,depthTest:false,depthWrite:false});
 const accumulateQuad=new FullScreenQuad(accumulateMaterial);
 let last=-1;
+let lastFrameStats=null;
+renderer.info.autoReset=false;
 function drawPose(p,time){
  camera.position.copy(p.position);camera.lookAt(p.target);camera.fov=p.fov;camera.updateProjectionMatrix();
  const focus=p.position.distanceTo(p.target),focal=camera.getFocalLength()/1000,sensorHeight=camera.getFilmHeight()/1000;
@@ -132,7 +134,10 @@ function drawPose(p,time){
  // Thin-lens circle of confusion, expressed as a radius in image-height units.
  // Inspection views have no blur so that the ground and joinery can be judged.
  dof.uniforms.aperture.value=p.index<0?0:focal*focal/(2*fStop*sensorHeight*Math.max(.05,focus-focal));
- world.update(time);atmosphere.uniforms.tShadow.value=world.sun.shadow.map?.texture||null;composer.render();renderer.shadowMap.autoUpdate=false;last=time;
+ world.update(time);atmosphere.sync(world.restorationLighting.profile);
+ renderer.info.reset();composer.render();
+ lastFrameStats={...renderer.info.render,scope:"All passes including reflections and AO, not unique scene triangles"};
+ renderer.shadowMap.autoUpdate=false;last=time;
  return{shot:p.index,position:p.position.toArray(),target:p.target.toArray(),fStop,focalLengthMm:focal*1000};
 }
 function renderAt(time){return drawPose(cameraPose(time),time);}
@@ -187,10 +192,12 @@ function info() {
     instances,
     meshes,
     materials: world.stats,
+    lastFrameStats,
+    reflectionAudit:world.reflectionAudit,
     gpu: ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : 'unknown',
     resolution: [width, height],
     shadows: 'fixed 8192 × 8192 PCF map',
-    reflectors: 2,
+    reflectors: 3,
     procedural: true,
     scaleReference:world.scaleReference,
     cameraPolicy:"low viewpoints; sanctuary 0.65 m above floor",
@@ -198,7 +205,9 @@ function info() {
     shots: shots.map(s => s.name)
   };
 }
-renderAt(5.8);
+// Offline still jobs request their own first pose. Do not waste a full
+// exterior render before every interior diagnostic. Interactive default stays.
+if(!renderMode||!params.has('defer'))renderAt(5.8);
 document.getElementById('loading').remove();
 window.temple = {
   ready: true,

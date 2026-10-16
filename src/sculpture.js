@@ -13,7 +13,8 @@ export function seatedFigure(){
  ];
  const arms=[[-.60,3.38,.015,-.86,2.70,.29,.20,.15],[-.86,2.70,.29,-.25,2.34,.64,.155,.105],
              [.60,3.38,.015,.86,2.73,.29,.19,.145],[.86,2.73,.29,.73,3.48,.57,.14,.092]];
- const capsules=arms.map(([ax,ay,az,bx,by,bz,ra,rb])=>{
+ // The reference raises the figure's anatomical right hand (viewer-left).
+ const capsules=arms.map(([ax,ay,az,bx,by,bz,ra,rb])=>[-ax,ay,az,-bx,by,bz,ra,rb]).map(([ax,ay,az,bx,by,bz,ra,rb])=>{
   const dx=bx-ax,dy=by-ay,dz=bz-az;return[ax,ay,az,dx,dy,dz,ra,rb,1/(dx*dx+dy*dy+dz*dz)];
  });
  const smoothMin=(a,b,k)=>{const h=Math.max(k-Math.abs(a-b),0)/k;return Math.min(a,b)-h*h*k*.25;};

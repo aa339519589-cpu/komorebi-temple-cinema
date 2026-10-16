@@ -1,4 +1,6 @@
 import * as T from 'three';
+import {spatialBatches} from './batching.js';
+import {auditHalfFloatTarget} from './render-audit.js';
 import { Sky } from 'three/addons/objects/Sky.js';
 import { Reflector } from 'three/addons/objects/Reflector.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -8,9 +10,15 @@ import {carvedBracket,carvedLeaf,archHeight,flowerCrest} from './ornaments.js';
 import {seatedFigure,reliefPetal} from './sculpture.js';
 import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
 import {granite,grassTuft,flagstone,timberSweep} from './natural-forms.js';
+import {emitRestoredBuddha} from './restoration-buddha.js';
+import {createRestorationLighting} from './restoration-lighting.js';
+import {createRestorationArchitecture} from './restoration-architecture.js';
+import {buildRestorationAltar,buildRestorationHangingOrnaments} from './restoration-altar.js';
 
 // Every visible surface, texture, plant and ornament in this world is generated here.
 export function buildWorld(renderer,options={}) {
+  const buildStarted=performance.now();
+  const stage=name=>console.info(JSON.stringify({stage:name,seconds:(performance.now()-buildStarted)/1000}));
   const scene = new T.Scene();
   scene.background = new T.Color('#b9cccf');
   scene.fog = new T.FogExp2('#b9bcad', .0028);
@@ -27,6 +35,7 @@ export function buildWorld(renderer,options={}) {
     stats = {};
   const roofAudit=[],columns=[];
   const mat = (name, color, roughness = .7, metalness = 0, extra = {}) => materials[name] = new T.MeshStandardMaterial({
+    name,
     color,
     roughness,
     metalness,
@@ -360,36 +369,8 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
     mesh.applyMatrix4(stack[stack.length - 1]);
     scene.add(mesh);
   }
-  function footColumn(x, z, bottom, h, r = .28) {
-    const a=v(x,bottom+.3,z).applyMatrix4(stack.at(-1)),b=v(x,bottom+h+.3,z).applyMatrix4(stack.at(-1)),sx=new T.Vector3().setFromMatrixColumn(stack.at(-1),0).length(),sz=new T.Vector3().setFromMatrixColumn(stack.at(-1),2).length();
-    columns.push({x:a.x,z:a.z,bottom:a.y,top:b.y,radius:r*Math.max(sx,sz)});
-    cylinder(x, bottom + .14, z, r * 1.7, .28, 'stone');
-    cylinder(x, bottom + .35, z, r * 1.17, .15, 'black');
-    cylinder(x, bottom + h / 2 + .3, z, r, h, 'cedar');
-    cylinder(x, bottom + h + .27, z, r * 1.18, .18, 'gold');
-    for (let a = 0; a < 4; a++) {
-      const angle = a * Math.PI / 2;
-      box(x + Math.sin(angle) * r * .98, bottom + .53, z + Math.cos(angle) * r * .98, .1, .28, .03, 'gold', angle);
-    }
-  }
-  function brackets(x,y,z,s=1){
-    group(x,y,z,0,()=>{
-      for(let axis=0;axis<2;axis++)group(0,0,0,axis*Math.PI/2,()=>{
-        for(let level=0;level<3;level++){
-          const extent=(.45+level*.18)*s,cy=level*.24*s;
-          instance('carvedBracket',level===1?'red':'cedar',0,cy,0,extent*2,.24*s,.29*s);
-          for(const side of [-1,1]){
-            box(side*extent,cy+.17*s,0,.22*s,.20*s,.35*s,'red');
-            box(side*extent,cy+.28*s,0,.29*s,.06*s,.41*s,'oldgold');
-            for(const front of [-1,1]){
-              sphere(side*extent,cy+.17*s,front*.19*s,.057*s,.057*s,.013*s,'oldgold');
-              instance('carvedLeaf','endwood',side*extent*.58,cy-.01*s,front*.157*s,.16*s,.18*s,.30*s,[0,front<0?Math.PI:0,side*.78]);
-            }
-          }
-        }
-      });
-    });
-  }
+  function footColumn(x,z,bottom,h,r=.28){architecture.footColumn(x,z,bottom,h,r);}
+  function brackets(x,y,z,s=1){architecture.brackets(x,y,z,s);}
   function railing(a, b, y, h = .95) {
     const d = b.clone().sub(a),
       len = d.length(),
@@ -584,6 +565,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
       sphere(0,rise+.21,0,.12,.19,.12,'oldgold');
     });
   }
+  const architecture=createRestorationArchitecture({instance,group,box,stack,columns,roofAudit});
   // Terrain, irregular pond, and a continuous hand-laid stone surface.
   box(0, -1.15, 0, 200, 1.5, 200, 'earth');
   const pondRadius = a => 1+.115*Math.sin(a*3)+.055*Math.cos(a*7)+.026*Math.sin(a*11);
@@ -725,9 +707,14 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     box(0, .15, 0, 18.8, .24, 14.6, 'darkwood');
     for (let x = -9; x < 9; x += .28) box(x, .3, 0, .268, .07, 14.2, 'cedar', 0, rand(.85, 1.07));
     for (let x of [-8.6, -5.15, -1.72, 1.72, 5.15, 8.6]) for (let z of [-6.8, 0, 6.8]) {
+      // Keep a clear central sanctuary nave, as in reference 6. The two
+      // central interior posts are replaced by a deep transfer beam; facade
+      // and rear columns remain, and the side aisles carry the roof load.
+      if(z===0&&Math.abs(x)<2)continue;
       footColumn(x, z, .3, 5.9, .43);
       brackets(x, 6.45, z, 1.35);
     }
+    architecture.sanctuaryTransferBeam();
     for (let z of [-6.8, 6.8]) {
       for (let j = 0; j < 4; j++) box(0, 5.2 + j * .4, z, 18.5, .17, .38, j % 2 ? 'red' : 'darkwood');
       box(0, 6.95, z, 19.5, .25, .45, 'red');
@@ -774,15 +761,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       torus(x, .83, 6.91, .24, .016);
     }
     plaque(0, 6.08, 7.1, 2.6, .8);
-    // Coffered ceiling with rosettes and gold corner fasteners.
-    for (let ix = -8; ix <= 8; ix += 1.05) for (let iz = -6.4; iz <= 6.4; iz += 1.05) {
-      box(ix, 6.6, iz, .95, .1, .95, 'darkwood');
-      box(ix, 6.53, iz, .76, .06, .76, 'red');
-      const flowerMatrix=new T.Matrix4().makeTranslation(ix,6.47,iz).multiply(new T.Matrix4().makeRotationX(Math.PI/2));
-      transformed(flowerMatrix,()=>floralMedallion(0,0,0,.28,'oldgold'));
-    }
-    for (let x = -8.5; x <= 8.5; x += 1.05) box(x, 6.45, 0, .065, .18, 13.8, 'oldgold');
-    for (let z = -6.8; z <= 6.8; z += 1.05) box(0, 6.45, z, 17.4, .18, .065, 'oldgold');
+    architecture.sanctuaryCeiling();
     for (let x of [-9.4, 9.4]) railing(v(x, 0, -7.5), v(x, 0, 7.4), .3, 1);
     railing(v(-9.4, 0, 7.4), v(-2.5, 0, 7.4), .3, 1);
     railing(v(2.5, 0, 7.4), v(9.4, 0, 7.4), .3, 1);
@@ -1024,166 +1003,19 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   smallShrine(25, -25, .9, .15);
   smallShrine(1, -31, 1.1, 0);
 
-  // A sculpted seated Buddha, lotus throne, aureole and a densely ornamented altar.
-  function lotusPetalGeometry() {
-    const p = [],
-      ids = [],uv=[];
-    for (let j = 0; j <= 12; j++) for (let i = 0; i <= 8; i++) {
-      const t = j / 12,
-        u = i / 8 * 2 - 1,
-        width = Math.pow(Math.sin(t * Math.PI), .58) * .38;
-      p.push(u * width, .055*t+Math.pow(t, 2) * .65 + u * u * .12*Math.sin(t*Math.PI), t * .85-u*u*.07*Math.sin(t*Math.PI));uv.push(i/8,t);
-      if (j < 12 && i < 8) {
-        let a = j * 9 + i;
-        ids.push(a, a + 9, a + 1, a + 1, a + 9, a + 10);
-      }
-    }
-    let g = new T.BufferGeometry();
-    g.setAttribute('position', new T.Float32BufferAttribute(p, 3));
-    g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
-    g.setIndex(ids);
-    g.computeVertexNormals();
-    return g;
+  // Reference 6 reconstruction: sculpture and furnishing own distinct geometry.
+  // Bodies are seated on the altar module's lotus contact planes, not floating
+  // giant knees on a thin repeated terrace. Old v10 remains frozen unchanged.
+  transformed(hallMatrix,()=>group(6,3.48,-14.5,0,()=>{
+    emitRestoredBuddha(instance,{x:0,y:3.00,z:0,scale:2.1/3.26});
+    for(const side of [-1,1])emitRestoredBuddha(instance,{x:side*2.78,y:2.85,z:-.08,scale:1.45/3.26});
+  }));
+  const furnishingTransform=hallMatrix.clone().multiply(new T.Matrix4().makeTranslation(6,3.48,-14.5));
+  for(const furnishing of [buildRestorationAltar({materials}),buildRestorationHangingOrnaments({materials})]){
+    furnishing.applyMatrix4(furnishingTransform);scene.add(furnishing);
   }
-  const petalGeo = lotusPetalGeometry();
-  const figureGeo = seatedFigure();
   transformed(hallMatrix,()=>{
-  group(6, 3.48, -14.5, 0, () => {
-    for (let j = 0; j < 5; j++) {
-      box(0, .15 + j * .2, 0, 7 - j * .36, .24, 3.4 - j * .17, 'black');
-      box(0,.245+j*.2,1.72-j*.085,7-j*.36,.025,.05,'gold');
-      box(0,.065+j*.2,1.72-j*.085,7-j*.36,.018,.05,'oldgold');
-      for (let x = -3 + j * .18; x <= 3 - j * .18; x += .31) {
-        floralMedallion(x,.15+j*.2,1.73-j*.085,.065,'oldgold');
-      }
-    }
-    box(0, 1.1, 0, 5.8, .2, 2.9, 'gold');
-    box(0, 1.3, 0, 5.4, .25, 2.65, 'black');
-    for (let j = 0; j < 2; j++) for (let i = 0; i < 24; i++) {
-      let a = i / 24 * Math.PI * 2;
-      instance(petalGeo, 'gold', Math.sin(a) * 1.07, 1.38 + j * .15, Math.cos(a) * .65, .63, .49, .63, [-.4, a, 0]);
-    }
-    instance(figureGeo,'buddha',0,0,0,1,1,1);
-    // A continuous sculpted face: cheeks, eye sockets, brow, nose and lips are relief in one mesh.
-    const head = new T.SphereGeometry(1, 128, 96),
-      hp = head.attributes.position;
-    for (let i = 0; i < hp.count; i++) {
-      let nx = hp.getX(i),
-        ny = hp.getY(i),
-        nz = hp.getZ(i),
-        xx = nx * .43,
-        yy = ny * .58,
-        zz = nz * .39;
-      const gauss = (x, y, sx, sy) => Math.exp(-Math.pow((xx - x) / sx, 2) - Math.pow((yy - y) / sy, 2));
-      if (nz > 0) {
-        let relief = .057 * gauss(0, .035, .065, .20) + .093 * gauss(0, -.105, .083, .066) + .022 * gauss(-.19, -.09, .14, .15) + .022 * gauss(.19, -.09, .14, .15) - .019 * gauss(-.18, .07, .12, .055) - .019 * gauss(.18, .07, .12, .055) + .021 * gauss(0, -.235, .135, .035) + .019 * gauss(0, -.33, .17, .09);
-        zz += relief * Math.pow(nz, .5);
-      }
-      hp.setXYZ(i, xx, yy*.78 + 4.2, zz);
-    }
-    head.computeVertexNormals();
-    instance(head, 'buddha', 0, 0, 0, 1, 1, 1);
-    const faceY=y=>4.2+(y-4.2)*.78;
-    sphere(0, faceY(4.76), -.025, .20, .172, .20, 'oldgold');
-    sphere(0, faceY(4.96), -.025, .075, .094, .075, 'buddha');
-    for (let side of [-1, 1]) {
-      sphere(side * .43, faceY(4.09), -.015, .075, .19, .09, 'buddha');
-      line([[side * .45, 4.28, .035], [side * .49, 4.16, .065], [side * .47, 3.94, .055], [side * .42, 3.92, .055]].map(p=>[p[0],faceY(p[1]),p[2]]), .018, 'oldgold', 20);
-      line([[side * .075, 4.28, .362], [side * .18, 4.255, .365], [side * .275, 4.275, .32]].map(p=>[p[0],faceY(p[1]),p[2]]), .007, 'oldgold', 16);
-      line([[side * .065, 4.37, .365], [side * .18, 4.39, .356], [side * .29, 4.35, .31]].map(p=>[p[0],faceY(p[1]),p[2]]), .008, 'oldgold', 16);
-    }
-    line([[-.11, 3.965, .368], [0, 3.953, .397], [.11, 3.965, .368]].map(p=>[p[0],faceY(p[1]),p[2]]), .006, 'oldgold', 22);
-    sphere(0, faceY(4.44), .358, .023, .018, .013, 'gold');
-    // Tight curls are confined to the crown, keeping the face free of separate beads.
-    for (let row = 0; row < 6; row++) {
-      let yy = 4.53 + row * .047,
-        rr = .439 * Math.sqrt(Math.max(.01, 1 - Math.pow((yy - 4.2) / .59, 2))),
-        count = Math.round(rr * 95);
-      for (let k = 0; k < count; k++) {
-        let a = k / count * Math.PI * 2 + row * .12;
-        sphere(Math.sin(a) * rr, faceY(yy), Math.cos(a) * rr - .014, .031, .022, .031, 'oldgold', rand(.8, 1.15));
-      }
-    }
-    // Mudra palms and tapered curved fingers; all limb joints are part of the body mesh.
-    sphere(-.17,2.32,.68,.24,.075,.14,'buddha');
-    for(let i=0;i<4;i++)line([[-.32+i*.055,2.33,.70],[-.20+i*.055,2.34,.81],[-.09+i*.055,2.32,.80]],.021,'buddha',20,true);
-    sphere(.73,3.54,.59,.116,.176,.074,'buddha');
-    for(let i=0;i<4;i++)line([[.653+i*.05,3.57,.61],[.646+i*.053,3.76-Math.abs(i-1.2)*.025,.63],[.650+i*.052,3.91-Math.abs(i-1.2)*.05,.60]],.024,'buddha',20,true);
-    line([[.66,3.47,.63],[.58,3.56,.66],[.55,3.65,.64]],.032,'buddha',20,true);
-    // Filigree aureole: concentric rings, beaded rims and 48 raised flame tongues.
-    for (let r of [1.72, 1.86, 2.04]) torus(0, 3.1, -.72, r, .035, 'gold');
-    for (let i = 0; i < 72; i++) {
-      const a = i / 72 * Math.PI * 2;
-      sphere(Math.cos(a) * 1.92, 3.1 + Math.sin(a) * 1.92, -.71, .047, .047, .035, 'gold');
-    }
-    for (let i = 0; i < 48; i++) {
-      let a = i / 48 * Math.PI * 2;
-      group(Math.cos(a) * 2.06, 3.1 + Math.sin(a) * 2.06, -.72, -a, () => {});
-      const dx = Math.cos(a),
-        dy = Math.sin(a);
-      line([[dx * 2.02, 3.1 + dy * 2.02, -.72], [dx * 2.26 - dy * .08, 3.1 + dy * 2.26 + dx * .08, -.72], [dx * 2.45, 3.1 + dy * 2.45, -.72]], .034, 'gold', 12);
-    }
-    // An architectural shrine around the aureole: chased pillars, layered
-    // black lacquer beams and a carved canopy, rather than isolated rings.
-    for(const side of [-1,1]){
-      const xx=side*2.45;
-      cylinder(xx,2.80,-.94,.12,3.65,'oldgold');
-      for(let j=0;j<9;j++){
-        cylinder(xx,1.25+j*.40,-.94,.17,.055,'gold');
-        for(const sg of [-1,1])instance('carvedLeaf','gold',xx+sg*.09,1.44+j*.40,-.79,.13,.23,.45,[0,0,sg*.6]);
-      }
-      for(let j=0;j<3;j++){
-        const yy=2.85+j*.34,w=1.24-j*.11;
-        box(side*3.25,yy,-.38,w,.12,.92,'black');box(side*3.25,yy+.08,.10,w+.13,.04,.08,'gold');
-        const pp=[];for(let k=0;k<=24;k++){const u=-1+2*k/24;pp.push([side*3.25+u*w*.63,yy+.12+.26*(1-u*u)+.10*u**8,.04]);}line(pp,.040,'oldgold',24);
-        for(let k=-3;k<=3;k++)instance('carvedLeaf','gold',side*3.25+k*.16,yy+.18,.08,.11,.19,.35,[0,0,k*.12]);
-      }
-      cylinder(side*3.25,3.96,-.38,.08,.65,'gold');sphere(side*3.25,4.29,-.38,.12,.20,.12,'gold');
-      for(let i=0;i<6;i++){
-        const x=side*(2.18+i*.31);cylinder(x,1.95,.95,.035,.62,'oldgold');cylinder(x,2.32,.95,.025,.24,'paper');sphere(x,2.48,.95,.018,.055,.018,'flame');
-      }
-    }
-    for(let j=0;j<3;j++){
-      const pp=[];for(let k=0;k<=60;k++){const u=-1+2*k/60;pp.push([u*(2.73+j*.05),4.83+j*.17+.63*Math.exp(-u*u*4)+.17*u**8,-1.0]);}
-      line(pp,.10,'black',60);line(pp.map(p=>[p[0],p[1]+.08,p[2]+.08]),.032,'gold',60);
-      for(let k=-10;k<=10;k++)floralMedallion(k*.25,4.93+j*.17+.63*Math.exp(-4*(k/10)**2),-.87,.095,'oldgold');
-    }
-    // Side shrines and altar vessels.
-    for (let s of [-1, 1]) {
-      for (let j = 0; j < 3; j++) {
-        const xx = s * (2.5 + j * .65);
-        cylinder(xx, 1.4, .15, .22, .35, 'gold');
-        instance(figureGeo,'oldgold',xx,.98,.12,.25,.25,.25);
-        instance(head,'gold',xx,.98,.12,.25,.25,.25);
-        torus(xx, 2.05, -.09, .37, .025);
-      }
-      for (let x of [s * 2.2, s * 3.1]) {
-        cylinder(x, 1.7, 1.2, .075, 1.1, 'gold');
-        cylinder(x, 2.25, 1.2, .18, .08, 'gold');
-        cylinder(x, 2.44, 1.2, .06, .32, 'paper');
-        sphere(x, 2.67, 1.2, .035, .1, .035, 'flame');
-      }
-    }
-    box(0, 1.22, 2.0, 6.8, .23, 1.1, 'black');
-    box(0, 1.35, 2.0, 6.9, .06, 1.16, 'gold');
-    for (let x of [-2.9, 2.9]) box(x, .65, 2.0, .3, 1.1, .5, 'black');
-    sphere(0, 1.65, 2.1, .4, .3, .27, 'oldgold');
-    cylinder(0, 1.9, 2.1, .27, .12, 'gold');
-    for (let a = 0; a < 6; a++) cylinder(Math.sin(a) * .11, 2.13, 2.1 + Math.cos(a) * .08, .008, .4, 'darkwood');
-  });
-  });
-  transformed(hallMatrix,()=>{
-  // Hanging gold garlands and sanctuary lights, all static to eliminate temporal sparkle.
-  for (let sx of [-1, 1]) for (let j = 0; j < 8; j++) {
-    const x = 6 + sx * (.7 + j * .25),
-      z = -13 + Math.sin(j) * .3;
-    for (let k = 0; k < 8; k++) {
-      let yy = 9.32 - k * .22 - j * .04;
-      sphere(x, yy, z, .035, .07, .035, 'gold');
-      if (k % 2 === 0) torus(x, yy - .09, z, .065, .012);
-    }
-  }
-  for (let x of [1.3, 10.7]) for (let z of [-14, -8]) hangingLantern(x, 8.5, z, .65);
+    for (const x of [1.3,10.7])for(const z of [-14,-8])hangingLantern(x,8.5,z,.65);
   });
   const altarLight = new T.SpotLight('#ffdeb0',180,25,.62,.72,2);
   altarLight.position.copy(hallPoint([3.6,8.6,-9.5]));
@@ -1334,6 +1166,28 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       }
     }
   }
+  // Retained pond-flower geometry is independent of the replaced altar.
+  function lotusPetalGeometry() {
+    const p = [],
+      ids = [],uv=[];
+    for (let j = 0; j <= 12; j++) for (let i = 0; i <= 8; i++) {
+      const t = j / 12,
+        u = i / 8 * 2 - 1,
+        width = Math.pow(Math.sin(t * Math.PI), .58) * .38;
+      p.push(u * width, .055*t+Math.pow(t, 2) * .65 + u * u * .12*Math.sin(t*Math.PI), t * .85-u*u*.07*Math.sin(t*Math.PI));uv.push(i/8,t);
+      if (j < 12 && i < 8) {
+        let a = j * 9 + i;
+        ids.push(a, a + 9, a + 1, a + 1, a + 9, a + 10);
+      }
+    }
+    let g = new T.BufferGeometry();
+    g.setAttribute('position', new T.Float32BufferAttribute(p, 3));
+    g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
+    g.setIndex(ids);
+    g.computeVertexNormals();
+    return g;
+  }
+  const petalGeo = lotusPetalGeometry();
   function lilyGeo() {
     let p = [0, .03, 0],
       idx = [],
@@ -1546,7 +1400,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     mesh.receiveShadow = true;
     scene.add(mesh);
   }
-  for (const b of buckets.values()) {
+  for (const b of spatialBatches(buckets.values())) {
     let mesh = new T.InstancedMesh(b.geometry, b.material, b.transforms.length);
     for (let i = 0; i < b.transforms.length; i++) {
       mesh.setMatrixAt(i, b.transforms[i]);
@@ -1564,20 +1418,37 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     }
     stats[b.name] = (stats[b.name] || 0) + b.transforms.length;
   }
-  scene.updateMatrixWorld(true);
+  const restorationLighting=createRestorationLighting({scene,sun,renderer,materials,hallMatrix,water,puddles,sky,altarLight,altarBounce,fillLight,hemisphere:hemi},{mode:'sanctuary',reflectionSize:1536,waterResponse:false});
+  scene.updateMatrixWorld(true);stage('geometry-built');
   // Bake a local reflection from the built sanctuary itself. No downloaded
   // environment map: the sculpture reflects its wooden room and fixtures.
   const reflectionCube=new T.WebGLCubeRenderTarget(512,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter});
   const probe=new T.CubeCamera(.12,140,reflectionCube);probe.position.set(6,12.6,-13.9);
   const previousTarget=renderer.getRenderTarget(),previousShadowUpdate=renderer.shadowMap.autoUpdate;
   const reflectedSculpture=[];scene.traverse(o=>{if(o.isMesh&&o.material===materials.buddha)reflectedSculpture.push(o)});
-  water.visible=false;puddles.visible=false;
   const bootstrap=new T.WebGLRenderTarget(8,8),bootstrapCamera=new T.PerspectiveCamera(60,1,.1,160);bootstrapCamera.position.set(6,10,8);bootstrapCamera.lookAt(6,12,-15);
-  renderer.setRenderTarget(bootstrap);renderer.render(scene,bootstrapCamera);renderer.shadowMap.autoUpdate=false;
-  reflectedSculpture.forEach(o=>o.visible=false);probe.update(renderer,scene);reflectedSculpture.forEach(o=>o.visible=true);
+  restorationLighting.withReflectionsHidden(()=>{
+    renderer.setRenderTarget(bootstrap);renderer.render(scene,bootstrapCamera);stage('shadow-bootstrap-complete');renderer.shadowMap.autoUpdate=false;
+    reflectedSculpture.forEach(o=>o.visible=false);
+    try{probe.update(renderer,scene);stage('sanctuary-cubemap-complete');}finally{reflectedSculpture.forEach(o=>o.visible=true)}
+  });
   const localPmrem=new T.PMREMGenerator(renderer),sanctuaryReflection=localPmrem.fromCubemap(reflectionCube.texture);
-  materials.buddha.envMap=sanctuaryReflection.texture;materials.buddha.envMapIntensity=1.3;materials.buddha.needsUpdate=true;
-  renderer.setRenderTarget(previousTarget);renderer.shadowMap.autoUpdate=previousShadowUpdate;water.visible=true;puddles.visible=true;bootstrap.dispose();localPmrem.dispose();reflectionCube.dispose();
+  const reflectionAudit=options.reflectionAudit?{rawCube:auditHalfFloatTarget(renderer,reflectionCube,[0,1,2,3,4,5]),filtered:auditHalfFloatTarget(renderer,sanctuaryReflection)}:null;
+  if(reflectionAudit){
+    const ray=new T.Raycaster(),ndc=new T.Vector2(),candidates=[];
+    scene.traverse(o=>{if(o.isMesh&&o.visible&&o.material!==materials.buddha)candidates.push(o)});
+    reflectionAudit.sourceHits=[];
+    for(const face of reflectionAudit.rawCube)for(const pixel of face.invalidPixels){
+      ndc.set((pixel.x+.5)/face.width*2-1,(pixel.y+.5)/face.height*2-1);
+      ray.setFromCamera(ndc,probe.children[face.face]);
+      const hits=ray.intersectObjects(candidates,false).slice(0,2).map(h=>({material:h.object.material?.name,geometry:h.object.geometry.type,instanceId:h.instanceId??null,distance:h.distance,point:h.point.toArray(),normal:h.face?.normal?.toArray()}));
+      reflectionAudit.sourceHits.push({face:face.face,pixel,hits});
+    }
+    console.info(JSON.stringify({stage:'reflection-audit',...reflectionAudit}));
+  }
+  materials.buddha.envMap=sanctuaryReflection.texture;materials.buddha.envMapIntensity=1.02;materials.buddha.needsUpdate=true;
+  renderer.setRenderTarget(previousTarget);renderer.shadowMap.autoUpdate=previousShadowUpdate;bootstrap.dispose();localPmrem.dispose();reflectionCube.dispose();
+  stage('world-ready');
   return {
     scene,
     water,
@@ -1585,10 +1456,13 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     sun,
     stats,
     roofAudit,
+    reflectionAudit,
+    restorationLighting,
     columns,
     scaleReference:{mainHallHeight:34.475,pagodaHeight:47.21,hallColumnHeight:10.33,eyeHeight:1.7},
     foliageMeshes,foliageNormalScene,
     update(t) {
+      restorationLighting.update(t);
       water.material.uniforms.time.value = t;
       sky.material.uniforms.uAerialHaze.value = Math.floor(t / 7) === 6 ? 1 : 0;
     }
