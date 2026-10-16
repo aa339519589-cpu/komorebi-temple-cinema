@@ -127,7 +127,7 @@ let last=-1;
 function drawPose(p,time){camera.position.copy(p.position);camera.lookAt(p.target);camera.fov=p.fov;camera.updateProjectionMatrix();dof.uniforms.focus.value=p.position.distanceTo(p.target);dof.uniforms.aperture.value=(p.index===5?.0015:.0038)*(1-T.MathUtils.clamp(p.u,0,1))+.00065;world.update(time);atmosphere.uniforms.tShadow.value=world.sun.shadow.map?.texture||null;composer.render();renderer.shadowMap.autoUpdate=false;last=time;return{shot:p.index,position:p.position.toArray(),target:p.target.toArray()};}
 function renderAt(time){return drawPose(cameraPose(time),time);}
 function renderShot(index,localTime,worldTime=index*7+localTime){return drawPose(cameraPoseForShot(index,localTime),worldTime);}
-function renderView(position,target,time=0){return drawPose({position:new T.Vector3(...position),target:new T.Vector3(...target),fov:48,u:1,index:-1},time);}
+function renderView(position,target,time=0,fov=48){return drawPose({position:new T.Vector3(...position),target:new T.Vector3(...target),fov,u:1,index:-1},time);}
 function renderExposure(index,localTime,worldTime,samples=3,shutter=1/60){
   const previousScreen=composer.renderToScreen,clearColor=renderer.getClearColor(new T.Color()),clearAlpha=renderer.getClearAlpha();outputPass.enabled=false;composer.renderToScreen=false;
   renderer.setRenderTarget(exposureTarget);renderer.setClearColor(0,0);renderer.clear();

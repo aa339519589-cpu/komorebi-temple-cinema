@@ -19,7 +19,7 @@ const {
 } = await import('./server.mjs');
 const mode = process.argv[2] || 'preview',
   width = +(process.env.WIDTH || (mode === 'preview' ? 1600 : 3840)),
-  height = Math.round(width * 9 / 16);
+  height = +(process.env.HEIGHT||Math.round(width * 9 / 16));
 const localChrome = homedir() + '/Library/Caches/ms-playwright/chromium-1187/chrome-mac/Chromium.app/Contents/MacOS/Chromium';
 let executablePath = process.env.CHROME_PATH;
 try {
@@ -93,6 +93,10 @@ if (mode === 'preview') {
 } else if(mode==='ground'){
   await page.evaluate(()=>window.temple.renderView([0,78,8],[0,-.2,2],12));
   await page.screenshot({path:process.env.FILE||'qa/v3/ground-inspection.png',type:'png',timeout:120000});
+} else if(mode==='view'){
+  const pose=JSON.parse(process.env.VIEW||'{"position":[6,.9,42],"target":[6,5.52,-6],"fov":64}');
+  await page.evaluate(p=>window.temple.renderView(p.position,p.target,p.time||0,p.fov||48),pose);
+  await page.screenshot({path:process.env.FILE||'qa/v5/reference-view.png',type:'png',timeout:120000});
 } else {
   await mkdir('output', {
     recursive: true
