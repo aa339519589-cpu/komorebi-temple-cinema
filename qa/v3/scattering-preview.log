@@ -1,0 +1,75 @@
+Temple cinema: http://127.0.0.1:4318
+warning [.WebGL-0x10c01932a00] GL_INVALID_VALUE: glTexStorage2D: Texture dimensions must all be greater than zero.
+{
+  "triangles": 20498311,
+  "instances": 1139153,
+  "meshes": 220,
+  "materials": {
+    "earth": 4,
+    "waterbed": 1,
+    "gold": 2289,
+    "oldgold": 17032,
+    "endwood": 9380,
+    "red": 3241,
+    "tileEdge": 177,
+    "darkwood": 618,
+    "cedar": 1369,
+    "slate": 30,
+    "black": 884,
+    "buddha": 16,
+    "bark": 2804,
+    "moss": 8221,
+    "stone": 4977,
+    "paving": 2154,
+    "wetStone": 331,
+    "leafDark": 40686,
+    "plaster": 31,
+    "lichen": 32,
+    "paper": 62,
+    "flame": 16,
+    "foliageGold": 153720,
+    "foliageRed": 109800,
+    "foliageGreen": 153720,
+    "needleGreen": 96900,
+    "foliageDark": 527040,
+    "leaf": 3471,
+    "petalWhite": 802,
+    "pollen": 144,
+    "lily": 204,
+    "petal": 1916,
+    "leafGold": 563,
+    "leafRed": 264
+  },
+  "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+  "resolution": [
+    1600,
+    900
+  ],
+  "shadows": "fixed 8192 × 8192 PCF map",
+  "reflectors": 2,
+  "procedural": true,
+  "scaleReference": {
+    "mainHallHeight": 30.54,
+    "pagodaHeight": 47.21,
+    "hallColumnHeight": 10.33,
+    "eyeHeight": 1.7
+  },
+  "cameraPolicy": "low viewpoints; sanctuary 0.65 m above floor",
+  "roofAudit": {
+    "rafters": 2288,
+    "priorWorstPenetration": 0.7763340336429491,
+    "correctedMaxTopOffset": -0.18
+  },
+  "shots": [
+    "灯火与巨构 · Threshold",
+    "廊下仰望 · Veranda",
+    "莲与殿影 · Lotus",
+    "朝殿 · Procession",
+    "仰见五重 · Pagoda",
+    "礼佛 · Reverence",
+    "柱间伽蓝 · Great hall",
+    "深院高檐 · Passage",
+    "水映高殿 · Reflection",
+    "雨后朝光 · Ascension"
+  ]
+}

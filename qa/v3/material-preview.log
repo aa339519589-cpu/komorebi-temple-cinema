@@ -1,0 +1,80 @@
+Temple cinema: http://127.0.0.1:4318
+{
+  "triangles": 19268295,
+  "instances": 1158411,
+  "meshes": 210,
+  "materials": {
+    "earth": 4,
+    "waterbed": 1,
+    "gold": 2119,
+    "oldgold": 15408,
+    "endwood": 8948,
+    "red": 3105,
+    "tileEdge": 170,
+    "darkwood": 616,
+    "cedar": 1243,
+    "slate": 30,
+    "black": 759,
+    "buddha": 16,
+    "bark": 2853,
+    "moss": 8246,
+    "stone": 4969,
+    "paving": 2154,
+    "wetStone": 331,
+    "leafDark": 40299,
+    "plaster": 31,
+    "lichen": 32,
+    "paper": 46,
+    "flame": 4,
+    "foliageGold": 153720,
+    "foliageRed": 109800,
+    "foliageGreen": 175680,
+    "needleGreen": 96900,
+    "foliageDark": 527040,
+    "leaf": 3590,
+    "petalWhite": 777,
+    "pollen": 141,
+    "lily": 198,
+    "petal": 1815,
+    "leafRed": 290,
+    "leafGold": 563
+  },
+  "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+  "resolution": [
+    1600,
+    900
+  ],
+  "shadows": "fixed 8192 × 8192 PCF map",
+  "reflectors": 2,
+  "procedural": true,
+  "scaleReference": {
+    "mainHallHeight": 30.54,
+    "pagodaHeight": 47.21,
+    "hallColumnHeight": 10.33,
+    "eyeHeight": 1.7
+  },
+  "cameraPolicy": "low viewpoints; sanctuary 0.65 m above floor",
+  "roofAudit": {
+    "rafters": 2048,
+    "priorWorstPenetration": 0.7763340336429491,
+    "correctedMaxTopOffset": -0.18
+  },
+  "shots": [
+    "灯火与巨构 · Threshold",
+    "廊下仰望 · Veranda",
+    "莲与殿影 · Lotus",
+    "朝殿 · Procession",
+    "仰见五重 · Pagoda",
+    "礼佛 · Reverence",
+    "柱间伽蓝 · Great hall",
+    "深院高檐 · Passage",
+    "水映高殿 · Reflection",
+    "雨后朝光 · Ascension"
+  ]
+}
+qa/shot-04-start.png
+qa/shot-04-mid.png
+qa/shot-04-end.png
+qa/shot-06-start.png
+qa/shot-06-mid.png
+qa/shot-06-end.png

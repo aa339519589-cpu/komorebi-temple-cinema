@@ -1,0 +1,210 @@
+{
+  "scope": "Frozen review snapshot: deterministic repeated exposure, stationary architecture over changing water time, shader validity, scene requests and generated-column clearance. This is not a certification of full-film quality or reference similarity.",
+  "createdAt": "2026-10-16T11:40:20.763Z",
+  "sourceHash": "fd150a80d4fed96be4d270a9b223ce05d154f8a67c8c388c21ddb6fe3f007164",
+  "info": {
+    "triangles": 21943063,
+    "instances": 1164980,
+    "meshes": 222,
+    "materials": {
+      "earth": 4,
+      "waterbed": 1,
+      "gold": 2289,
+      "oldgold": 17028,
+      "endwood": 9380,
+      "red": 3235,
+      "tileEdge": 177,
+      "darkwood": 618,
+      "cedar": 1369,
+      "slate": 30,
+      "black": 876,
+      "buddha": 16,
+      "bark": 2706,
+      "moss": 8171,
+      "stone": 5579,
+      "paving": 2157,
+      "wetStone": 331,
+      "leafDark": 85611,
+      "plaster": 31,
+      "lichen": 32,
+      "paper": 62,
+      "flame": 16,
+      "foliageGold": 153720,
+      "foliageRed": 87840,
+      "foliageGreen": 131760,
+      "needleGreen": 96900,
+      "foliageDark": 527040,
+      "leaf": 27903,
+      "petalWhite": 782,
+      "pollen": 142,
+      "lily": 204,
+      "petal": 1852,
+      "leafRed": 288,
+      "leafGold": 550
+    },
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+    "resolution": [
+      1600,
+      900
+    ],
+    "shadows": "fixed 8192 × 8192 PCF map",
+    "reflectors": 2,
+    "procedural": true,
+    "scaleReference": {
+      "mainHallHeight": 30.54,
+      "pagodaHeight": 47.21,
+      "hallColumnHeight": 10.33,
+      "eyeHeight": 1.7
+    },
+    "cameraPolicy": "low viewpoints; sanctuary 0.65 m above floor",
+    "roofAudit": {
+      "rafters": 2288,
+      "priorWorstPenetration": 0.7763340336429491,
+      "correctedMaxTopOffset": -0.18
+    },
+    "shots": [
+      "灯火与巨构 · Threshold",
+      "廊下仰望 · Veranda",
+      "莲与殿影 · Lotus",
+      "朝殿 · Procession",
+      "仰见五重 · Pagoda",
+      "礼佛 · Reverence",
+      "柱间伽蓝 · Great hall",
+      "深院高檐 · Passage",
+      "水映高殿 · Reflection",
+      "雨后朝光 · Ascension"
+    ]
+  },
+  "repeatExposureIdentical": true,
+  "repeatHash": "ab91412787a2ec39210f23407464c79c6ee365f9a359264a0ec141ab84390f4d",
+  "stationaryArchitecture": {
+    "inspectedRegion": [
+      0,
+      0,
+      1600,
+      520
+    ],
+    "changedPixels": 0,
+    "maxChannelDifference": 0
+  },
+  "glError": 0,
+  "shaderErrors": [],
+  "consoleErrors": [],
+  "externalSceneRequests": [],
+  "cameras": {
+    "scope": "Camera path, orientation and actual generated column clearance, including transition handles; does not certify visual similarity or complete geometry clearance.",
+    "shots": [
+      {
+        "index": 1,
+        "maxTurnDegreesPerSecond": 2.2635700397993275,
+        "maxMetresPerSecond": 4.563479181389569,
+        "minimumColumnClearance": 1.7918879532536174,
+        "viewPitchRange": [
+          15.039489352581738,
+          17.48386357087843
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 2,
+        "maxTurnDegreesPerSecond": 2.3828342102038,
+        "maxMetresPerSecond": 3.5131620043742546,
+        "minimumColumnClearance": 0.3896802287990746,
+        "viewPitchRange": [
+          17.60115704336609,
+          30.997043720780525
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 3,
+        "maxTurnDegreesPerSecond": 4.1231375173138405,
+        "maxMetresPerSecond": 1.366908475331327,
+        "minimumColumnClearance": 11.019763479846663,
+        "viewPitchRange": [
+          7.608806136918127,
+          26.3670104191206
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 4,
+        "maxTurnDegreesPerSecond": 2.9681829909685087,
+        "maxMetresPerSecond": 4.401999256751996,
+        "minimumColumnClearance": 8.619024786574439,
+        "viewPitchRange": [
+          -3.1389227396069432,
+          14.984821413177958
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 5,
+        "maxTurnDegreesPerSecond": 5.214421292856325,
+        "maxMetresPerSecond": 3.323582399220144,
+        "minimumColumnClearance": 16.585379659746522,
+        "viewPitchRange": [
+          34.53236205287937,
+          66.05352125925731
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 6,
+        "maxTurnDegreesPerSecond": 4.318544367599984,
+        "maxMetresPerSecond": 1.1807742784798987,
+        "minimumColumnClearance": 1.576295116304038,
+        "viewPitchRange": [
+          21.210158242267855,
+          47.46679307705106
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 7,
+        "maxTurnDegreesPerSecond": 3.5391112973112167,
+        "maxMetresPerSecond": 2.5801622868305247,
+        "minimumColumnClearance": 1.3604094566330085,
+        "viewPitchRange": [
+          1.0895239189071355,
+          21.609578389564764
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 8,
+        "maxTurnDegreesPerSecond": 4.001091810187309,
+        "maxMetresPerSecond": 4.927754675345125,
+        "minimumColumnClearance": 4.690016274550763,
+        "viewPitchRange": [
+          21.76302205138074,
+          28.47147314492694
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 9,
+        "maxTurnDegreesPerSecond": 2.7775610071485524,
+        "maxMetresPerSecond": 1.4531425152859747,
+        "minimumColumnClearance": 17.147454566432707,
+        "viewPitchRange": [
+          5.341602380705343,
+          18.4679994740616
+        ],
+        "columnCollisions": []
+      },
+      {
+        "index": 10,
+        "maxTurnDegreesPerSecond": 4.496184568721662,
+        "maxMetresPerSecond": 3.627833878173078,
+        "minimumColumnClearance": 1.5686022509684752,
+        "viewPitchRange": [
+          -8.448697251967582,
+          17.853864650642752
+        ],
+        "columnCollisions": []
+      }
+    ]
+  },
+  "passed": true
+}

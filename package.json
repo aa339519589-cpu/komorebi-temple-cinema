@@ -1,0 +1,26 @@
+{
+  "name": "komorebi-temple-cinema",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/server.mjs",
+    "preview": "node tools/render.mjs preview",
+    "render": "node tools/render.mjs full",
+    "verify": "node tools/verify.mjs",
+    "audit": "node tools/audit-browser.mjs",
+    "master": "node tools/master.mjs",
+    "package": "node tools/package.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aa339519589-cpu/komorebi-temple-cinema.git"
+  }
+}

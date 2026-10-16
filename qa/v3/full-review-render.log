@@ -1,0 +1,29 @@
+Temple cinema: http://127.0.0.1:4318
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","scene":{"triangles":20375151,"instances":1094573,"meshes":220,"materials":{"earth":4,"waterbed":1,"gold":2289,"oldgold":17024,"endwood":9380,"red":3231,"tileEdge":177,"darkwood":618,"cedar":1369,"slate":30,"black":876,"buddha":16,"bark":2706,"moss":8171,"stone":4959,"paving":2154,"wetStone":331,"leafDark":40111,"plaster":31,"lichen":32,"paper":62,"flame":16,"foliageGold":153720,"foliageRed":87840,"foliageGreen":131760,"needleGreen":96900,"foliageDark":527040,"leaf":3471,"petalWhite":810,"pollen":145,"lily":204,"petal":1950,"leafRed":278,"leafGold":587},"gpu":"ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)","resolution":[1920,1080],"shadows":"fixed 8192 × 8192 PCF map","reflectors":2,"procedural":true,"scaleReference":{"mainHallHeight":30.54,"pagodaHeight":47.21,"hallColumnHeight":10.33,"eyeHeight":1.7},"cameraPolicy":"low viewpoints; sanctuary 0.65 m above floor","roofAudit":{"rafters":2288,"priorWorstPenetration":0.7763340336429491,"correctedMaxTopOffset":-0.18},"shots":["灯火与巨构 · Threshold","廊下仰望 · Veranda","莲与殿影 · Lotus","朝殿 · Procession","仰见五重 · Pagoda","礼佛 · Reverence","柱间伽蓝 · Great hall","深院高檐 · Passage","水映高殿 · Reflection","雨后朝光 · Ascension"]},"samples":3,"shutter":0.016666666666666666}
+Rendering output/draft-v3/70s/shot-01.mkv
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","shot":1,"duration":70,"coreSeconds":7,"frames":220,"fps":30,"handles":5,"samples":3,"shutter":0.016666666666666666,"renderResolution":[1920,1080],"encodedResolution":[1920,1080],"format":"FFV1 lossless 10-bit 4:4:4 intermediate","reviewOnly":true,"frame":1,"totalFrames":220,"elapsedSeconds":0.7645008750000006,"createdAt":"2026-10-16T11:31:31.200Z"}
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","shot":1,"duration":70,"coreSeconds":7,"frames":220,"fps":30,"handles":5,"samples":3,"shutter":0.016666666666666666,"renderResolution":[1920,1080],"encodedResolution":[1920,1080],"format":"FFV1 lossless 10-bit 4:4:4 intermediate","reviewOnly":true,"frame":16,"totalFrames":220,"elapsedSeconds":12.327970167,"createdAt":"2026-10-16T11:31:42.764Z"}
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","shot":1,"duration":70,"coreSeconds":7,"frames":220,"fps":30,"handles":5,"samples":3,"shutter":0.016666666666666666,"renderResolution":[1920,1080],"encodedResolution":[1920,1080],"format":"FFV1 lossless 10-bit 4:4:4 intermediate","reviewOnly":true,"frame":31,"totalFrames":220,"elapsedSeconds":23.830683042,"createdAt":"2026-10-16T11:31:54.267Z"}
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","shot":1,"duration":70,"coreSeconds":7,"frames":220,"fps":30,"handles":5,"samples":3,"shutter":0.016666666666666666,"renderResolution":[1920,1080],"encodedResolution":[1920,1080],"format":"FFV1 lossless 10-bit 4:4:4 intermediate","reviewOnly":true,"frame":46,"totalFrames":220,"elapsedSeconds":35.166475041999995,"createdAt":"2026-10-16T11:32:05.602Z"}
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","shot":1,"duration":70,"coreSeconds":7,"frames":220,"fps":30,"handles":5,"samples":3,"shutter":0.016666666666666666,"renderResolution":[1920,1080],"encodedResolution":[1920,1080],"format":"FFV1 lossless 10-bit 4:4:4 intermediate","reviewOnly":true,"frame":61,"totalFrames":220,"elapsedSeconds":47.109305417,"createdAt":"2026-10-16T11:32:17.545Z"}
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","shot":1,"duration":70,"coreSeconds":7,"frames":220,"fps":30,"handles":5,"samples":3,"shutter":0.016666666666666666,"renderResolution":[1920,1080],"encodedResolution":[1920,1080],"format":"FFV1 lossless 10-bit 4:4:4 intermediate","reviewOnly":true,"frame":76,"totalFrames":220,"elapsedSeconds":59.875132042000004,"createdAt":"2026-10-16T11:32:30.311Z"}
+{"sourceHash":"24964e66b30ddec7d7a93d77c18ea85f95fc9be053ca74e308fa24ec294dfad0","shot":1,"duration":70,"coreSeconds":7,"frames":220,"fps":30,"handles":5,"samples":3,"shutter":0.016666666666666666,"renderResolution":[1920,1080],"encodedResolution":[1920,1080],"format":"FFV1 lossless 10-bit 4:4:4 intermediate","reviewOnly":true,"frame":91,"totalFrames":220,"elapsedSeconds":72.5191565,"createdAt":"2026-10-16T11:32:42.955Z"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.screenshot: Target page, context or browser has been closed
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at /Users/mima1234/temple-cinema/tools/render-film.mjs:32:25 {
+  log: [
+    '  - taking page screenshot',
+    '  - waiting for fonts to load...',
+    '  - fonts loaded'
+  ]
+}
+
+Node.js v24.19.0

@@ -1,0 +1,1819 @@
+{
+  "createdAt": "2026-10-16T12:04:57.017200+00:00",
+  "status": "work-in-progress checkpoint; includes rejected drafts and incomplete renders",
+  "repository": "https://github.com/aa339519589-cpu/komorebi-temple-cinema",
+  "releaseTag": "checkpoint-2026-10-16",
+  "restore": "Extract every ZIP part into the same empty project directory. Each ZIP is independently readable and preserves original relative paths.",
+  "excluded": [
+    ".git/",
+    "node_modules/",
+    ".publication/",
+    "this manifest (available separately and in Git)"
+  ],
+  "fileCount": 295,
+  "originalBytes": 4114065529,
+  "assets": [
+    {
+      "file": "komorebi-checkpoint-part-01.zip",
+      "bytes": 584467248,
+      "sha256": "512eaa0b5fa3c3e385d3708af6ae17b8f93ee0255f0feba6b9bcdb9704e56cef"
+    },
+    {
+      "file": "komorebi-checkpoint-part-02.zip",
+      "bytes": 510353241,
+      "sha256": "f0cb05f5c0db0899de3ab57ba511d4fde78fc518969e811ad2011a2aa7d3d94d"
+    },
+    {
+      "file": "komorebi-checkpoint-part-03.zip",
+      "bytes": 514679470,
+      "sha256": "08ff225568b124fa5bed709d3d26137f10d8abbaded0fe573b61905092c3bbe0"
+    },
+    {
+      "file": "komorebi-checkpoint-part-04.zip",
+      "bytes": 842869572,
+      "sha256": "a3dd073ba8a2cdc1ff096c5a5569a66359ee0b1a910ed93a59362bce47171a93"
+    },
+    {
+      "file": "komorebi-checkpoint-part-05.zip",
+      "bytes": 847201600,
+      "sha256": "f9bdfe1f7b883e7c6ca7e006c212a99156543867e87d2663cc69a7f66ad4d4bd"
+    },
+    {
+      "file": "komorebi-checkpoint-part-06.zip",
+      "bytes": 814531662,
+      "sha256": "b630823cf585efbcb76fc4f19694db78038b4310281b150fbb80dafcff575c2a"
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 101,
+      "sha256": "34feb12ac718b313d8ea7343b790e1f4329fa93874e5f27944a9487d43ba8848",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "CREDITS.txt",
+      "bytes": 1660,
+      "sha256": "b88c279bb7e5855232b8166dadde090cb522fc7fe5bdcc2737675180a657e8ac",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1072,
+      "sha256": "df4f0b8edc912fc083ad8a41281e3b4b701f8e7200603622a2cfb6183184d4aa",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4047,
+      "sha256": "121e2c838d3b143d144f5d91d2edd3ccf71d19ba4a16884ac2a4139b1ec26893",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "THIRD_PARTY.md",
+      "bytes": 1539,
+      "sha256": "3db7268c29a4a12bf64766b845030e46cda392d29abf28f65fc0ac9ef0fcda88",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "compare.html",
+      "bytes": 5671,
+      "sha256": "3f69adf586bee60dbd05ef4b9a5cef3318e6c5bd3bb7b2ceb6f9d34cd7d5bb01",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "docs/history-v1.md",
+      "bytes": 4468,
+      "sha256": "297b5cce66c2e810f570d4cf061c4974dd89d53cb07c84cb46a77940816ab5ca",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "film.html",
+      "bytes": 379,
+      "sha256": "cf2640ad0aa26f784aa2cf14c7d96fad58e5e5b866d4c9433123ef16d66c31d3",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1750,
+      "sha256": "aa12d4e11a1bcfc503690050c7b01723b52a4730ee7d7f14060e79fd8dfb8053",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "music/ATTRIBUTION.json",
+      "bytes": 674,
+      "sha256": "ca12ee310080719de5a42e1e243abb0020ef944e6baa59908fd6e4c248c5483c",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "music/PerituneMaterial_Oboro.mp3",
+      "bytes": 6890056,
+      "sha256": "202587393bef469e0e90ed337a26368b14ee9a42ccef6e8ab8d1b292231a2cec",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "output/README.md",
+      "bytes": 712,
+      "sha256": "0b7bb832be56af8e071243030ae84a10fbfe44ea26c4ef9bc4c4f0a16752cac9",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "output/contact-sheet.jpg",
+      "bytes": 1315359,
+      "sha256": "173a0876162d9b7929cb73ba048e9f99f7ae84a32677c178f5b0971b1a98889e",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-01.mkv",
+      "bytes": 576237668,
+      "sha256": "bc16e86742d40b57cf9878709b3f801d5d89fd63177efea87d564ed5b4f83391",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-01.mkv.json",
+      "bytes": 408,
+      "sha256": "6d98fcebe859ec5008123ee50e21bd7195c2405290caf1b71ecacb6a34e90357",
+      "archive": "komorebi-checkpoint-part-01.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-02.mkv",
+      "bytes": 510352525,
+      "sha256": "a7e6547227b1245ef138c7dcad022198a72fb6ef4cbf2ecda47f19fd3c07a0cc",
+      "archive": "komorebi-checkpoint-part-02.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-02.mkv.json",
+      "bytes": 408,
+      "sha256": "76e33aeb3833fa17004bd7294c7c8b8b260f7063c7c5519e94f1952d36fd0831",
+      "archive": "komorebi-checkpoint-part-02.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-03.mkv",
+      "bytes": 514678754,
+      "sha256": "1d2f5ea4c3b01633c251d7c92975791b3ca401062c247749a65ef12d054fe60c",
+      "archive": "komorebi-checkpoint-part-03.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-03.mkv.json",
+      "bytes": 408,
+      "sha256": "bb247b5eb621a57ce470cfa7d8e879592c95de7ca6b13e290a15809214bfe959",
+      "archive": "komorebi-checkpoint-part-03.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-04.mkv",
+      "bytes": 542840578,
+      "sha256": "63ab5a6a89727e81bb0dcc049e60e9eadb967d880e220eeb3a017e7909fd3dea",
+      "archive": "komorebi-checkpoint-part-04.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-04.mkv.json",
+      "bytes": 408,
+      "sha256": "b2750d46ad97724f6cb3bbd0aa6a84db405f2f225bec66cccb560be44be1961c",
+      "archive": "komorebi-checkpoint-part-04.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-05.mkv",
+      "bytes": 280548877,
+      "sha256": "87b1c74a76afa62a039fe785933b444a52bf2e172f14f8b5fdf4135da7ff0804",
+      "archive": "komorebi-checkpoint-part-04.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-05.mkv.json",
+      "bytes": 408,
+      "sha256": "ed42e6cf1a146cca3b94e6d4d7287d04bfcded9f73a816f989e4023d8cec434d",
+      "archive": "komorebi-checkpoint-part-04.zip"
+    },
+    {
+      "path": "output/draft-v3/70s/shot-06.mkv",
+      "bytes": 19478569,
+      "sha256": "a45e76e0c418800098ed29eb301b02051ca13751db02174eac6bcfce584fe465",
+      "archive": "komorebi-checkpoint-part-04.zip"
+    },
+    {
+      "path": "output/komorebi-60s.mp4",
+      "bytes": 119028468,
+      "sha256": "07393ea31f9cc608a652606954a365309aa489bd7f64398606beceb7663a68ab",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/komorebi-60s.webm",
+      "bytes": 81981931,
+      "sha256": "998d64f5d1c0fc45a91120f2e003468ebfdc70a8648916b036a1ac1f30dc1127",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/komorebi-70s.mp4",
+      "bytes": 132385972,
+      "sha256": "5928fbabcae2fdd38af3482960b674de62279e8c8dd379c2321db2a116c490a8",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/komorebi-70s.webm",
+      "bytes": 91393986,
+      "sha256": "22e46ec996d70a5812766b325eea0a0148fd1559a3b2dd7d09d5c93d2bc417f7",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/komorebi-picture-60s.mp4",
+      "bytes": 116779679,
+      "sha256": "bdf09ae1bd40107e70d2336687fa4e596ed9be5bc9815d6eba0ef9642a9b2ae3",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/komorebi-picture-70s.mp4",
+      "bytes": 129739061,
+      "sha256": "f5f0917fbc422373c1bbd71ec2b70855dcb90e786b0817be19c57f1ce91ff47d",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/komorebi-source.zip",
+      "bytes": 14294488,
+      "sha256": "fd7e2bf0d0362a9e771c6e43b86f5afecf2b888312f2179307566f12e3d36adf",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/oboro-review.webm",
+      "bytes": 689881,
+      "sha256": "1c3e2f5e604ba4fdcd23f08d5b179b4677fa9e721c25a69477e86fd777028111",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/patch-60s-shot-01.mp4",
+      "bytes": 11341719,
+      "sha256": "daaa74397cb38e2d19c5743e637190e2482d9144af736011252a66085f7bf079",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/patch-60s-shot-07.mp4",
+      "bytes": 14289005,
+      "sha256": "134f39a9a0436a82e1762d3ba1520e33816f946ea146a28097af1da828020372",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/patch-60s-shot-10.mp4",
+      "bytes": 10991188,
+      "sha256": "d8652daae67808e596763548bb2381f89b3c30799f4848d5af9c8f468d9dd7d5",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/patch-70s-shot-01.mp4",
+      "bytes": 12613543,
+      "sha256": "0b3a372281703916e783a726efe3f74a9cbbbb90398c60d78274b33e3fdfd26b",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/patch-70s-shot-07.mp4",
+      "bytes": 15847852,
+      "sha256": "46750631055b18ebe5fde3bd5fdfda7aab123c3d40b321ee920bc7f376bec7db",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/patch-70s-shot-10.mp4",
+      "bytes": 12245242,
+      "sha256": "8f6493c61cc21781c3d4aaab137566311ff4ead664b20ee276359467ff46dd7a",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/poster.png",
+      "bytes": 2227946,
+      "sha256": "cf97b95159c34c2db9866496ce3e9046d8544c9de4b0fc6b0e7b9dc01bbf9bfa",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/review-low-angle-v2.webm",
+      "bytes": 23611932,
+      "sha256": "83b2b444aa0228ba9a61dc8b9b811423401b5cfa837d88dd11fa5fb9ed2d06ba",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/review-low-angle.webm",
+      "bytes": 23881817,
+      "sha256": "dce397e4f7b9ba402bc85991197f612e2c3266c88ca8ba4a42541699ed056d25",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/review-shot-04.mp4",
+      "bytes": 18776565,
+      "sha256": "a475fd4d84fc2244d56dff2923b10038998c264030252303f726c9f005e708c2",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/review-shot-06.mp4",
+      "bytes": 14142719,
+      "sha256": "8636d47e4b3a0d9936a5088cc3a6ca94dab545cca881833aa1d0d6d024c48b8a",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "output/review-status.json",
+      "bytes": 64,
+      "sha256": "c2a1eef89022f18e291a1ca01f004992a2fdd73396c5ed28fd099c209309c504",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "package.json",
+      "bytes": 653,
+      "sha256": "cd9315c82bdc5c4a19a45426cb7268c983c4c0e30657fb72c9d84ecb6fd664db",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/audit-log.txt",
+      "bytes": 4979,
+      "sha256": "ef6d9ec308e9f966ad7b78ae863494bb05c5a45df9f044550f2f7584a0ea8877",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/browser-errors.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/close-starts.jpg",
+      "bytes": 113619,
+      "sha256": "0db132beec9cec99cdc518dab22577f39843780ba76243f7dfa8da6a75b38f54",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/concat-60.txt",
+      "bytes": 314,
+      "sha256": "12a1c45e9993b3d77e885808cf2e5cc03a3c28f4381453fa3085a2caa63c48c6",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/concat-70.txt",
+      "bytes": 314,
+      "sha256": "cd06414936c942c7d7009353102478f33bb2eb19ecc05d5b802956305561c870",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/contact-v1.jpg",
+      "bytes": 514352,
+      "sha256": "e261e684c79133fbb2dca168fdc0a7a582f78a8a473976659639422b331a5fd2",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/contact-v4.jpg",
+      "bytes": 300839,
+      "sha256": "60bbb68f29daf412379b70ce44b9a5615fe9df4cd543b2ab739832ff1648b331",
+      "archive": "komorebi-checkpoint-part-05.zip"
+    },
+    {
+      "path": "qa/corrected-picture-60s.mp4",
+      "bytes": 116779679,
+      "sha256": "bdf09ae1bd40107e70d2336687fa4e596ed9be5bc9815d6eba0ef9642a9b2ae3",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/corrected-picture-70s.mp4",
+      "bytes": 129739061,
+      "sha256": "f5f0917fbc422373c1bbd71ec2b70855dcb90e786b0817be19c57f1ce91ff47d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/diagnose-player.mjs",
+      "bytes": 1047,
+      "sha256": "c1511e412953747738cb8cc8361ead39628f86067c00df2cb49b71c6e1de118f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-01.png",
+      "bytes": 2190773,
+      "sha256": "246ef0845c94b01b45a07c3e03aedb3057787787c87d3899cc468127df867c13",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-02.png",
+      "bytes": 2636944,
+      "sha256": "1c3559f705a2631bdf3a252b6184e9d11a48b7eb6b51ba86d388ba11a1eaa2bc",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-03.png",
+      "bytes": 2303086,
+      "sha256": "d456a05705697849ba44e44696084bb2cc7199f75a61626e4f1c9207d68de02c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-04.png",
+      "bytes": 2523366,
+      "sha256": "0b7853174665b4e2a943b804c84e068e5d6bbb23e55377d4f72b3fd8cfc7e72d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-05.png",
+      "bytes": 1723986,
+      "sha256": "9e204bcda23d5341d27cab2515a0c23b9f8bd2cb9ad97fea7e24a34e0fd1135d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-06.png",
+      "bytes": 1914200,
+      "sha256": "979dc20f75d735d600ee012f957990360bd745ee3649c054167d1757d0c62f01",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-07.png",
+      "bytes": 2478208,
+      "sha256": "03129fd8b5c4f572f661ccf0b9121420d0176f2bc63095fda18fe879e60c3481",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-08.png",
+      "bytes": 2569206,
+      "sha256": "774979479a345cd08dcfc08c1ac45703ece6573db7820d0cbd36ff0ef4de9531",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-09.png",
+      "bytes": 2542547,
+      "sha256": "303e41608d43c51f2ef372f6e5f754ff0ea8cebcf1b34235a94695d6590e6011",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/final-10.png",
+      "bytes": 2208097,
+      "sha256": "748f0e326b6e61ffd7318021e3dd6abd12ecdac45af44f78015be4e367d0a708",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/iterations.md",
+      "bytes": 2239,
+      "sha256": "bb8b4e97eb1b917d89cfa05c0dd6222752448e78bf83b8c29099d63cf5107b5b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/master-log.txt",
+      "bytes": 70,
+      "sha256": "dec5efc0ee624ec410e53fa11d8599342dca86f2859cfd0862e854c7fe51395c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/motion-test.mp4",
+      "bytes": 2660411,
+      "sha256": "8375c464ca53f4c3c47bb103df5a5af3947c02a76f66d6420bd270c5d1a7e018",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/original-picture-60s.mp4",
+      "bytes": 117537545,
+      "sha256": "163b6da3b071168a43e611b17f8ae6eb7f5c2e981582364d08e89ab5d924c55b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/original-picture-70s.mp4",
+      "bytes": 130477160,
+      "sha256": "9916e27c2da68b3e572fb81b598b4f90e4b907c57a70118331a38d7b7d53a710",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/patch-assembly.log",
+      "bytes": 184,
+      "sha256": "dd24da5311862de265e6824d68c70eed11d3c8022ae8177939de082234b69361",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/player.png",
+      "bytes": 1021949,
+      "sha256": "c0f68e6f017abe014946fb574e8a167a2b5143fb0627434bb442814bbf872521",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/preview-encoding.log",
+      "bytes": 84,
+      "sha256": "e3280eef712e1fcb51cc98252ec8b6d17008a68026352c131ff9ca4e57347269",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/process/diagnose.mjs",
+      "bytes": 1565,
+      "sha256": "4e95e2b127b92ba57cc3cf6fa6b8dcfd21c4eda141689e68d439bbb4fd0bde00",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/process/refine-final.py",
+      "bytes": 5834,
+      "sha256": "15494a7cc6458696d44197b06dd2e5479a43e9e6a1d1fa0570de5e373caf3f38",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/process/refine-sculpture.py",
+      "bytes": 3223,
+      "sha256": "a13f15f784340972490fe3db3e5b94d09bc8836f77b540043b303ecb743e0c28",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/process/refine.py",
+      "bytes": 5964,
+      "sha256": "4c8df9f5c12c9957952a40c4c980bc016005a1d065767b45b277da805a8ecf62",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/publication-stop.json",
+      "bytes": 876,
+      "sha256": "959fe6f99448fea6b03a8c2cdfef26390d8ae916d61f6f9e11a6a0e958cd818f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/render-60.log",
+      "bytes": 5238,
+      "sha256": "c5404de65afe7885a91b537c6cb34e6a296bdbdd52d3a4ca08c027acc9641248",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/render-70.log",
+      "bytes": 5890,
+      "sha256": "27ffed630091efddad1a86c524198ec0fa3bf274efc0b662746a96108d18cb8c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/render-corrections.log",
+      "bytes": 4566,
+      "sha256": "340ea15a5cfeb4ed1be03e8ad56d21dc931e6253a40f29e0cde3fc228c2e8d2b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/retained-60-B.mp4",
+      "bytes": 51468435,
+      "sha256": "ce134c9c1e323c0252019599a991fc407f8fecfc6e46eb1a8ac421058d475179",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/retained-60-D.mp4",
+      "bytes": 28694164,
+      "sha256": "28fa15d7b3af11cfe2376c2daafee3d0eaebd348686f4ee645d7db42bc5c1f69",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/retained-70-B.mp4",
+      "bytes": 57262717,
+      "sha256": "cabb7dd70b4cd3c266e3c6e69c3406b24364350c56de1c3b58ca84c607c8f874",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/retained-70-D.mp4",
+      "bytes": 31774611,
+      "sha256": "d122e342abc5ed95e9854d6df648101b65e6a967aa819c86c8254aac7c140911",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/scene-manifest.json",
+      "bytes": 1686,
+      "sha256": "241ae9c4c41e652ed06d435bc0323b581c63e09a66e4b049b6eee83c5727af55",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shadow-diff.png",
+      "bytes": 757264,
+      "sha256": "b3b8ac4848832104d05b34f91125facbdfd0625cac220939fba95b53d9ba8cda",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shadow-off.png",
+      "bytes": 1871344,
+      "sha256": "92dc891ca130d61711a1cb2be880678f209a0f8f9db1d8cbf22edb0283a42767",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shadow-on.png",
+      "bytes": 1904803,
+      "sha256": "5cfd9710225b606734b917af9729755caa8d353ee440e4d0c459913b2e79e343",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-01-end.png",
+      "bytes": 1777591,
+      "sha256": "edd222a7f9b8ce0d25407910a1a3dd551529787939a4eba02c07c30c30ec405c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-01-mid.png",
+      "bytes": 1945001,
+      "sha256": "6c554b0229c1c10f20fc54f495a08ef467a8ffc8d26d373dac32c023d630a32e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-01-start.png",
+      "bytes": 1942365,
+      "sha256": "95e511250875a5e9da2847f33de26910a91bdd68ae6795fd7675d9f30b06982a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-02-end.png",
+      "bytes": 1887230,
+      "sha256": "b6df016231dd4256c234d752d7cc23c92f78b2178c9520aa3a855bc313cc6851",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-02-mid.png",
+      "bytes": 1752946,
+      "sha256": "64cb77f9874d70bcabde28a112ba92e566b3cb91e8760c973cc1d504d31040cc",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-02-start.png",
+      "bytes": 1456063,
+      "sha256": "8efc99ad4d0208d4ca9cd96622156683b92d6af22eb1f73838c8d3d13319a83f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-03-end.png",
+      "bytes": 1529794,
+      "sha256": "caf97013a0c3c9ff89fd2f6bfc91b5eed88133cec2e2b29b8bf2c50191f0c39f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-03-mid.png",
+      "bytes": 1818021,
+      "sha256": "67fc57c9f6610c10aabdcbe80c20d9af03a5de29e00eb9d1fe34e7563c0622bf",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-03-start.png",
+      "bytes": 1484431,
+      "sha256": "375b2a22803719bcac837b1d6f0c9237a39d16ff33074d6a6bf5c38bff404d2e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-04-end.png",
+      "bytes": 1988413,
+      "sha256": "e3e280c16f0a2cfa38bbe87fa3b86838924dfb686d51031d2debefddb692e9e2",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-04-mid.png",
+      "bytes": 1849055,
+      "sha256": "a8da9e2cf65615e26e2974c843da4e5a1e392e1993b26e19664cc192278c2e88",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-04-start.png",
+      "bytes": 1298009,
+      "sha256": "c95ea9fde0f73b4d132d93af8f26d8c4d10169798f9ccdc467ca77202d0b0295",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-05-end.png",
+      "bytes": 1223559,
+      "sha256": "8884e38d343b081444c5a99f25973e394e69044f0df6ef3d40c5c2babb835e54",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-05-mid.png",
+      "bytes": 816741,
+      "sha256": "2735bb2e410745df12008398c6ca74742ae71e3f4ed78c3562c9cc081783e748",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-05-start.png",
+      "bytes": 722157,
+      "sha256": "26b064f1974519359ea1b0091b08d8be2365a09b07b67d274be7de9ecabf09ff",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-06-end.png",
+      "bytes": 1626633,
+      "sha256": "429e55c453e90550503f0f5427c3f42e3cb11c8967f6777eba1688d560747119",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-06-mid.png",
+      "bytes": 1621895,
+      "sha256": "720f120b918edb0d591536fa4346089dca741394e8de7a6a0ec8607bca1c0138",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-06-start.png",
+      "bytes": 1312338,
+      "sha256": "7e13332205782bfa0fb2a483b525bf9adbdcbfeb532906779139e9ec4bded58c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-07-end.png",
+      "bytes": 1868754,
+      "sha256": "ad74bdc2dbb15b0d609cdfcf3f8f389bbe3e955975075655847cddfc482139fb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-07-mid.png",
+      "bytes": 1595608,
+      "sha256": "2edc63ea1f2b9863be36c6600c5cce96a47b446330bc958a3b711ec6e64f53f4",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-07-start.png",
+      "bytes": 1125194,
+      "sha256": "fbe96644ca370f54ebcf60f7ce367ff296e8903c308191aa7206da51ce01f842",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-08-end.png",
+      "bytes": 1808076,
+      "sha256": "beecdbb46c63db5ca24c8386222f76fc0afdd6d9a1364d42c34ff828201fcc0f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-08-mid.png",
+      "bytes": 1896302,
+      "sha256": "f02ce0639720fcf0d460e0afb2b432d452dde705602062e93ac4889dd735b5f4",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-08-start.png",
+      "bytes": 1545357,
+      "sha256": "52736461df654e384ffb74108a28425930e61a77df5fe2cbbf5f7dff7dcc8672",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-09-end.png",
+      "bytes": 1856488,
+      "sha256": "ff03494da750b3a4e84bdbe6da59300dbc39aac51d9edc78dcbce10282414d34",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-09-mid.png",
+      "bytes": 1758432,
+      "sha256": "d4eb9c99f183c3aa0307a5ad57f27ffd6708cda727d4624aea50285a4231a26c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-09-start.png",
+      "bytes": 1469415,
+      "sha256": "ffa3eaec5de316a682793931095c1ebf5c8403cb49c570a70f4f0761b86387c1",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-10-end.png",
+      "bytes": 1902652,
+      "sha256": "2d8a951dfa11bc4a830cd6987d9a210c364fe8ace7b85a15d9743bfba97aae17",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-10-mid.png",
+      "bytes": 1888426,
+      "sha256": "5a761e9359f4b9675361d020b1b075646df75c12ac101d12ea96fcd957568a40",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/shot-10-start.png",
+      "bytes": 1442350,
+      "sha256": "77bdd994659dd36ebef892565a63abe3687dcc423a9b44c7c3dcf0c6e8e66c0a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/still.png",
+      "bytes": 4394406,
+      "sha256": "d5944bf8b4e7229c2cd746ec28b0182fbb670be9eacb7bc232c2ab2ae0ae662d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/browser-audit.json",
+      "bytes": 4941,
+      "sha256": "5c846782fc0b1928770b49eb6a83789e5d07c8a69c1b7d001fcf4b7d7c9aa536",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/contact-sheet.jpg",
+      "bytes": 1315359,
+      "sha256": "173a0876162d9b7929cb73ba048e9f99f7ae84a32677c178f5b0971b1a98889e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/film.html",
+      "bytes": 2644,
+      "sha256": "4bcea8d6084265560fbe81ec28a0927eefd2ca6ff171b4d6bffc8d96414040a7",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/main.js",
+      "bytes": 8836,
+      "sha256": "09c5da449e347b27b0c9794194794c0ac767a3f7aabf7b5aff21fdc91e493274",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/player-audit.json",
+      "bytes": 303,
+      "sha256": "45c75bf937b9c86847bc5351c6cf6a4d2b95b0345a6a63fe9fcf0617d8591351",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/poster.png",
+      "bytes": 2227946,
+      "sha256": "cf97b95159c34c2db9866496ce3e9046d8544c9de4b0fc6b0e7b9dc01bbf9bfa",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/sb_hiraeth.mp3",
+      "bytes": 13851302,
+      "sha256": "f790c7d53b8d802981ff7cdd8c59e22cdfe103ea66aba296c6cf1a65fe7fcf01",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/source-hashes.json",
+      "bytes": 323,
+      "sha256": "376d116b43ed94855be786d41938c68d3f3e13576d49d862a44d08543f7c22e5",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/video-verification.json",
+      "bytes": 1283,
+      "sha256": "5dd3549f5c294360ff5c60db2d1b128d34d2d1b1df5d95478533d8ed08490607",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v1-baseline/world.js",
+      "bytes": 62551,
+      "sha256": "436dece377833c8dae4515a2828179adb36ae42fabb28df4e5e02067cbeb1d87",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/agx-hall.png",
+      "bytes": 1721948,
+      "sha256": "96ef18569e488a495158105b9c302b6628a0faf39db4e1f383457e619b94eaf2",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/agx-test.log",
+      "bytes": 1679,
+      "sha256": "9b0f2c340abb978b68b3c77dca4f961266e2575737396b7c7e1e81fcf4829615",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/all-shot-preview.log",
+      "bytes": 2269,
+      "sha256": "0a2cefc35728c5892d52225d3af5269d9416771d52127080a17509f2cfd9df42",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/alternate-framing.log",
+      "bytes": 1797,
+      "sha256": "34a451fa25692b00fedda85b0601d24bc0c1111fc2ccf80a53e6531f57fd270c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/architecture-preview.log",
+      "bytes": 1825,
+      "sha256": "ce767396dffe6df568841229fe8a63afbdd0d6a0eb31d66fef20960c5390c69a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/botanical-preview.log",
+      "bytes": 1763,
+      "sha256": "ad5bab364b6c778370c77b0ce70dbd81f7695f55f198e2a15aa5293950ac1016",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/camera-angular-audit.json",
+      "bytes": 1816,
+      "sha256": "c1c0595852a3c72a426bb1f5b4ced0e9d6bc6d6f0d30b3bc6668d1b139efbac0",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/camera-before-direction-slerp.js",
+      "bytes": 2212,
+      "sha256": "44e1d3339319a5f60ad98c6bdd9db69770f44f80243d29dc986947725233cbbd",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/ground-corrected-preview.log",
+      "bytes": 1856,
+      "sha256": "70a016357dd0292b1d83ead07fbd6582a4e215de3e363c923c5f6b0aeafc7c01",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/low-angle-framing.jpg",
+      "bytes": 1325358,
+      "sha256": "6f15228722515b2ce7befea50bba76cfe2db5108f593552f0b3cac02e1b480ce",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/main-before-monumental.js",
+      "bytes": 9324,
+      "sha256": "18c7390a37ecaaff454ec5a2d4da0bbb60d29a98d04bd3d93ae4fa5bd595fec7",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/monumental-hall.png",
+      "bytes": 1851085,
+      "sha256": "e295c5bfcf37039c8a9121bd38a9efbdabe1f3f1b45917f56a372d4c80c6cf47",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/monumental-pagoda.png",
+      "bytes": 1696083,
+      "sha256": "0d5375819a7d5a085766260608f1f2a528b4902bd79e71ecc5e405a137e1e6fc",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/monumental-preview.log",
+      "bytes": 1915,
+      "sha256": "14d7f275cf6189f57ac0e2a7e1a4bfbb6d5997b79936160c36c46f620d1e93ad",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/progress.json",
+      "bytes": 1571,
+      "sha256": "b9dbc6faef4e7039dd7ab825fe946055d16c38df4e41ad105f30ec5293e7afea",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/reverent-sanctuary.png",
+      "bytes": 1494862,
+      "sha256": "308e8acdba389bd10bef8eefb3f3c285620dd24b11e36338f6d6f6aaa0f26173",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/review-encode-v2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/review-encode.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/review-ground-correction.log",
+      "bytes": 2833,
+      "sha256": "75a8f447171d34544e5850ca1b62b65a10c1834688fcfaa2b78023294c2597fb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/review-render-final-test.log",
+      "bytes": 2834,
+      "sha256": "11f046ba717f7ffd22337ba84c9b2e383227f120f30c878e4a0f9991ac75d946",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/review-render-smooth.log",
+      "bytes": 2834,
+      "sha256": "25fb6f50d6f3249f1bfff80aa7796741df9de9bf5ef4613ea4795cb54d3787d8",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/review-render.log",
+      "bytes": 2836,
+      "sha256": "655ade83a1dd6c153582f5cb2777a756d6f6753e5ca8fc3ef6c809bddb50d85a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/rework-architecture.py",
+      "bytes": 8529,
+      "sha256": "16a6c0364a3c82bb9917104fe96b17804968b56a63b9f3af3a6ef40e35d14509",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/roof-preview.log",
+      "bytes": 1558,
+      "sha256": "6add63d61fba156e9994b2afebcaa085afa13d6b8f0cba53661b7bad64ef4fb7",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/slerp-preview.log",
+      "bytes": 1797,
+      "sha256": "ff4b70c6dfca083cccdb658985290ff82e05ed693a2d312186a7698618dc99c3",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/trees-aerial-test.png",
+      "bytes": 1973476,
+      "sha256": "20e4a26b9d5c15fe6bb7c5e40aeb16d98b39046543d69aef4978c88e123c107d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/trees-hero-test.png",
+      "bytes": 1799633,
+      "sha256": "59b416748d6dbbc4281ea8a5a66de5eae85f753bbc33f11f2e156e3ce1cc29bf",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v2/world-before-monumental.js",
+      "bytes": 66123,
+      "sha256": "4e803b1c9c1275bb5fb9787861af299aa3cf31ff6a492c4317c4ad25faa40ae5",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/architecture-stability-a.png",
+      "bytes": 2040761,
+      "sha256": "be76725dc85376799c8ee2f5337d3cd0767b939a91974df617de57048f35ec0e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/architecture-stability-b.png",
+      "bytes": 2040778,
+      "sha256": "76dc742b59afcb1f89208136a73e5e468703d6a63e04518f3ecfee74d43aa3f8",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/architecture-stability-difference.png",
+      "bytes": 2499,
+      "sha256": "0aeb14325dc1dacf31c67b6fd68ba69b4d0b9ff61bc216e9fd4ec582729895ee",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/camera-audit.json",
+      "bytes": 3197,
+      "sha256": "76c9bb95d78fa739068595f21d9a976112cbf5e69e161cdff8f5d0e9b5ac64ac",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/camera-before-handles.js",
+      "bytes": 2616,
+      "sha256": "689ce4051d731f84d41ef9c04218f862f09fdbc67f50dcc0d6675225d9ebcbf8",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/comparison-04.jpg",
+      "bytes": 381817,
+      "sha256": "6d950da1037ea94b1858dec58f0a5455b5937eb476ccc112e5d9784fe4e51971",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/comparison-06.jpg",
+      "bytes": 337062,
+      "sha256": "200d93363fd98327a5e44aa338a69fe65225d7a85b3fcd6f6643d07a59c9149c",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/comparisons-1.jpg",
+      "bytes": 943079,
+      "sha256": "b41a83b5bbec279fc9422d306b29ff38c4c6a2fceaf3f46fd2834b28fac5502b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/comparisons-2.jpg",
+      "bytes": 937647,
+      "sha256": "7484805b86aefbbafa8668352db687e51da2883ab6d06e90feeaaad9cc12ff57",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/exposure-preview.log",
+      "bytes": 1681,
+      "sha256": "f91c905dc120c766ff65ac47f5b312b27dd616b553a86155979f60c75c40d735",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-camera-audit.json",
+      "bytes": 3197,
+      "sha256": "76c9bb95d78fa739068595f21d9a976112cbf5e69e161cdff8f5d0e9b5ac64ac",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-comparison-frames.log",
+      "bytes": 2270,
+      "sha256": "15dd1d131963852776974d5bbcd8fffeae23ea01b3f335a0e7d204ab31230de1",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-manifest.json",
+      "bytes": 918,
+      "sha256": "9be62ff61682453193103a3b1577b53c6a7b8d59c558a83eb95a78a96bc21714",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/atmosphere.js",
+      "bytes": 2206,
+      "sha256": "8112547c516509bfdf3e616f236d996cc26698719efb4b1502a6843bf424fa99",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/botany.js",
+      "bytes": 5347,
+      "sha256": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/cinematography.js",
+      "bytes": 2964,
+      "sha256": "b7b0ca0faa34f01de9e9936977773249a4f4ebd1336adf8d1dbbaec2e83d6e0d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/main.js",
+      "bytes": 11233,
+      "sha256": "7f28f1a9e7890239766ebff2d1f985d606c063cc038c209e8eea2db0da596297",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/natural-forms.js",
+      "bytes": 1149,
+      "sha256": "f773f9278a810b5b30ae2b6d08af8e9e722e728411f48694a290821b33b1c970",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/ornaments.js",
+      "bytes": 989,
+      "sha256": "b561bcfcec61436e0d3eb3fa256cb48506a8e214634d4e039c2fc6cc7a19201a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/sculpture.js",
+      "bytes": 3365,
+      "sha256": "d71ed1de539b09032151f4045e123b427ece21e898dd39e71ba42a67d069b114",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/frozen-src/world.js",
+      "bytes": 77784,
+      "sha256": "4fdfad6495573f5b6fc43f5e76b9306920d06228e0602bc83906f8f17c2933bb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/full-review-render-fd150.log",
+      "bytes": 37212,
+      "sha256": "74d2abd38675ada0d6ddfbed33ee09b3c7d24d12b51d741053ed1c3ac8edf17b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/full-review-render.log",
+      "bytes": 4942,
+      "sha256": "01a6b87eadbe5db7d23a2142c8638fff621a8224c0f00baf4b3b6202d59afb3a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ground-corrected-2.log",
+      "bytes": 1681,
+      "sha256": "53bf0104009a38d8f6dd32a82727a5bdf9b02553342a697e157f4680c31e9c83",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ground-corrected.log",
+      "bytes": 3548,
+      "sha256": "da0cb61375e084b7879f440793c5f6ad876b8369df7e6c59e96937d7fe18bda0",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ground-inspection.log",
+      "bytes": 1680,
+      "sha256": "7470f7bd6ee5af4a9d4b6f8462899eac5c3d606b2e8d0fbf1fc845eecef68138",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ground-inspection.png",
+      "bytes": 2409051,
+      "sha256": "ecdd5e7171b216a98d84c49f787fc53db1e83b0805ab5063bedd01063fd79185",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/last-framing-corrections.log",
+      "bytes": 1916,
+      "sha256": "8db04d2cd00522e0175759591c80fb3b36e72cc0ca332c06c55cf0a4f37b3558",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/local-reflection-preview.log",
+      "bytes": 1680,
+      "sha256": "b648e74eb0a955a396c8f5a5538083c54d8e69568a8aab6a7d78dc448f58e013",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/local-reflection-sanctuary.png",
+      "bytes": 1576862,
+      "sha256": "390af38a03762ad2c63e1914c6ef1371e558132e563045353f932b50249381f4",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/main-before-sculpture.js",
+      "bytes": 7518,
+      "sha256": "a1946de02fcda6a1deb377548fced170edcf40f8b0069fc552e8d17deff2f91b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/material-preview.log",
+      "bytes": 1798,
+      "sha256": "db0f775bac3b4b8e31de3d7c760ebe4767f0438ccf29e5d967590db361abb92d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/motion-exposure-test.png",
+      "bytes": 1861752,
+      "sha256": "2fb61cc22f985365ff4136b9052f8bd6489e229235f8cfd22d3e32ff11773e20",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/refined-frozen-comparison.log",
+      "bytes": 2271,
+      "sha256": "40f521b2e39218149bb6948e5a39dc2aba748e670311b8627b349c3bcb4db8bf",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/render-progress.json",
+      "bytes": 527,
+      "sha256": "ab5da5346efd32a51ebe10bb5905d1e9f50cda38b8b002eb8aeccac40cd661d1",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/repeat-a.png",
+      "bytes": 1575284,
+      "sha256": "ab91412787a2ec39210f23407464c79c6ee365f9a359264a0ec141ab84390f4d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/repeat-b.png",
+      "bytes": 1575284,
+      "sha256": "ab91412787a2ec39210f23407464c79c6ee365f9a359264a0ec141ab84390f4d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/reverence-preview.log",
+      "bytes": 1798,
+      "sha256": "cbfd81e7151b0371dbdcb6efa116254fdf000cc692eeb41f8022117d2dd36947",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/roof-enclosure-preview.log",
+      "bytes": 1798,
+      "sha256": "7c1c48d6038c8856a23abf409ccd20d2f0752e67ffa1ad13d227d71023933912",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/roof-ground-low-angle.log",
+      "bytes": 1799,
+      "sha256": "7e3a2592dcefb9ffe3ca228e9417d5da26af1e33bae58658ca97edcdde2b432a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/scattering-preview.log",
+      "bytes": 1796,
+      "sha256": "06fe16355f4ea32cada71eaaae49e9391da4d395c7a2b9dcc5766672525a9dfa",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/scattering-sanctuary.png",
+      "bytes": 1592120,
+      "sha256": "e4d7d507050ddafd9b10e4ab9706bcb74e983907c9a1ffb6530f4e9b3c63583e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/scene-audit.json",
+      "bytes": 6017,
+      "sha256": "9c6a00ffb325a1f04c0ce75bfaf7ac1b09ba5fb6d06869fcdf349e08ad7ff8d7",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/scene-audit.log",
+      "bytes": 357,
+      "sha256": "665ca4c1364929ff8f2ac557e2b22eb9c12e628a999b5cd1ddce452f4186fdeb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/sculpture-preview.log",
+      "bytes": 1798,
+      "sha256": "cbfd81e7151b0371dbdcb6efa116254fdf000cc692eeb41f8022117d2dd36947",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/structural-audit.json",
+      "bytes": 636,
+      "sha256": "9203cb73f2853fc10b65647873e8f04b2512442401fe74b21d1bcbaf447afb81",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/superseded-24964-manifest.json",
+      "bytes": 918,
+      "sha256": "008337381a26ac3cf0420700edd25496a7d3fdd4f7e59fdcedf6e1b1e26f4046",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ten-shot-audited.log",
+      "bytes": 2271,
+      "sha256": "5a43c9f8da86cd30f80c76ec787939a3ea92e7874e03e36e8c388a64e774db2f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ten-shot-clear-paths.log",
+      "bytes": 2270,
+      "sha256": "15dd1d131963852776974d5bbcd8fffeae23ea01b3f335a0e7d204ab31230de1",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ten-shot-comparison.log",
+      "bytes": 2271,
+      "sha256": "f8cd4f4556985de531ccd9d5f8d6d9e232e8973e1eff57dc2e2d2b0a6e4c159e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ten-shot-framing-correction.log",
+      "bytes": 2271,
+      "sha256": "5a43c9f8da86cd30f80c76ec787939a3ea92e7874e03e36e8c388a64e774db2f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/ten-shot-refined.log",
+      "bytes": 2271,
+      "sha256": "5a43c9f8da86cd30f80c76ec787939a3ea92e7874e03e36e8c388a64e774db2f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/water-preview.log",
+      "bytes": 1857,
+      "sha256": "14674b2362e4301df2165b19d8a5c61caa41b08b33f1ee3ee4f52cd794c842f8",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v3/world-before-sculpture.js",
+      "bytes": 67447,
+      "sha256": "675a35aa0b4241e360ad10f60cea52d7344a60a1c40b495967c4d7a23b97c32a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/backlight-04.png",
+      "bytes": 1818273,
+      "sha256": "1d752d62a883377fa29e2c5913b21fe0d3c083bff8faf375125e6bf2fc42d544",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/backlight-test.log",
+      "bytes": 1681,
+      "sha256": "f180143bbf679044912c17c8476efe8ffc54664bd8ab0edf8e47cd4df71ceaf9",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/flagstone-approach.png",
+      "bytes": 1388651,
+      "sha256": "200a405ad1df6daf0b7bc0e7aac63a6472b811a7014629873808f61bd9986b2a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/flagstone-test.log",
+      "bytes": 1681,
+      "sha256": "4e9c97ef91c37b9601b911ce75f0903bde08db1a28ea3e1504837269b6dfb737",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/side-key-04.png",
+      "bytes": 1931359,
+      "sha256": "f13b27f0b2316769e3a8c281955b3bc12f81776f9350b2547cff52444fa731bb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/side-key-test.log",
+      "bytes": 1681,
+      "sha256": "f180143bbf679044912c17c8476efe8ffc54664bd8ab0edf8e47cd4df71ceaf9",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/slatted-window-beams.log",
+      "bytes": 1681,
+      "sha256": "ed5478926b324177f701dd21b972e74c77f60581ccd77a17e532426f6b86a780",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/slatted-window-beams.png",
+      "bytes": 1565609,
+      "sha256": "b73c232d605be18a46682303c7ae083d5830c0349816dc76aa44133ffdaff104",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/window-light-corrected.log",
+      "bytes": 1681,
+      "sha256": "2a9d58cd6b235a87d810fda052730505d05ed17bce8cd0b2382de5341283b979",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/window-light-corrected.png",
+      "bytes": 1357050,
+      "sha256": "60ef4b01cc4a825ee192f1dd58d6a65673b6d23370adb10c4163c23e728ab1d2",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/window-light-sanctuary.png",
+      "bytes": 1699795,
+      "sha256": "850be3e995e9fc29cdcaf7c2ddf68c886df952e6a95e867ef24824db387109f1",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/v4/window-light-test.log",
+      "bytes": 1796,
+      "sha256": "c38b6ac1e07ea33bc60ae245b57b4c816edeb71a5307b94b923a17ca5a783eb0",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "qa/verify-log.txt",
+      "bytes": 1284,
+      "sha256": "b8390f8c61ab6ce4896a771c0623a7d89d566d0dbc2288fc63d1d909cfe7a7e8",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/01.png",
+      "bytes": 117799,
+      "sha256": "150236587ade5c790db87a9953cf63c5cbf32b4552a9911233ea4fb477fca89e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/02.png",
+      "bytes": 116161,
+      "sha256": "d64c10a3bb418e2fbd0c72820111796ad0570fc125bf4caadbcda58b4cf93875",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/03.png",
+      "bytes": 120668,
+      "sha256": "30ae9c647510b65c8643cecdb7c2354e1025981561d4b13040e87fe3dc8d3b4b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/04.png",
+      "bytes": 124179,
+      "sha256": "1da124a3169d10fcd941b5bdfe41dac0b709580d573fb2b82bab401a3c522757",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/05.png",
+      "bytes": 120095,
+      "sha256": "2a1a88443a73729a39f19dfa8e5f347254ae39d1dde6e0d967130786a19d3fa8",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/06.png",
+      "bytes": 114642,
+      "sha256": "2fe593b9690ba36ffe7c25ddd0bd10aa7089d1961c6bcfb677943de968f61732",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/07.png",
+      "bytes": 115807,
+      "sha256": "fb056c63f1266ad70e3595cf2f2a41c4a46a431ed3303a9162cf93e9cb07f422",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/08.png",
+      "bytes": 116416,
+      "sha256": "ccd3c347fe419a8c0e9ba91a18ff97c174eec950eb04ca40a2c0d3fa6d116794",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/09.png",
+      "bytes": 105424,
+      "sha256": "521aa558b37adfda5e70b28cccdfe5387fa792e92ce94a76f0c72e10d1b45457",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/10.png",
+      "bytes": 106757,
+      "sha256": "06810d9c4055c8057261e07ad0afa18779fd005b1eb42de956f63220b7a9cd76",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/README.md",
+      "bytes": 713,
+      "sha256": "2f9d3406fa80b39d274079a65abdd36aa3cde2a230a47fd77cd45dbb86a6e622",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/1-照片-2.jpg",
+      "bytes": 630939,
+      "sha256": "111de4b92dc2955b037d0a62b589edb6ab20275a600bd4c89286c3efba0dd167",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/2-照片-3.jpg",
+      "bytes": 655273,
+      "sha256": "875eb1373b4a31ae7c189f25ed1a990305f5e4575fff164494411b4251bdf2a1",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/3-照片-4.jpg",
+      "bytes": 773039,
+      "sha256": "0b0272948960514bfd6278847e6dc512bfce2b127c69415f0e5ce949a9c0ffcb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/4-照片-5.jpg",
+      "bytes": 699793,
+      "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/5-照片-6.jpg",
+      "bytes": 661830,
+      "sha256": "f377888cf752d1e51ff36654a734fd91c97cfd5a1a42f13beb6e0c934588b871",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/6-照片-7.jpg",
+      "bytes": 695629,
+      "sha256": "580daa56c7d0378ea163bf24b96f8d5380749609a421a740f62eb0dc627ba428",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/7-照片-8.jpg",
+      "bytes": 602067,
+      "sha256": "798dd84173dff9d39fa4b3e229e95db4ca56b5b267d1f7f8c206c1248ee7f1d2",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/8-照片-9.jpg",
+      "bytes": 679674,
+      "sha256": "64ec05737d50618e7db10164d1a8b51e3db7619b677746c9aeea5223f64043fb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "references/hd/9-照片-10.jpg",
+      "bytes": 692215,
+      "sha256": "04313fb3029a075a2dbf00bf32f811fb95b8d28c4f3e3b1f4af5f0e5f65bffa9",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "render-v3.html",
+      "bytes": 1763,
+      "sha256": "2cf274afac00a1327c4808798c5e01126611a2ecb6a312268431c82bfaed4ba9",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "review.html",
+      "bytes": 2694,
+      "sha256": "ebf7ce21d6ac3ccdcd4a655c0b6da0859061b444cfe4c8b23dbaf20eea4f6c31",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/atmosphere.js",
+      "bytes": 2584,
+      "sha256": "8dd7e87426c0c5ac20eaf1ae8658c24ec05bdcfb5437e92a610e8a01e25d0b3a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/botany.js",
+      "bytes": 5347,
+      "sha256": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/cinematography.js",
+      "bytes": 2964,
+      "sha256": "b7b0ca0faa34f01de9e9936977773249a4f4ebd1336adf8d1dbbaec2e83d6e0d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/main.js",
+      "bytes": 11344,
+      "sha256": "54b72f538a487591550f21fe300d4527d113c280ec48ef326a68144fa48b9702",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/natural-forms.js",
+      "bytes": 1719,
+      "sha256": "97580c6b4002c80e30865a342a3aed15801beebd19836ae0ae372b9e53e40878",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/ornaments.js",
+      "bytes": 989,
+      "sha256": "b561bcfcec61436e0d3eb3fa256cb48506a8e214634d4e039c2fc6cc7a19201a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/sculpture.js",
+      "bytes": 3365,
+      "sha256": "d71ed1de539b09032151f4045e123b427ece21e898dd39e71ba42a67d069b114",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "src/world.js",
+      "bytes": 80011,
+      "sha256": "d8b304c18ad772614222906432f992c2aa281f004899a62927c3f96ae21f436f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/apply-patches.mjs",
+      "bytes": 1952,
+      "sha256": "a40ccdb1e3d3fa905b5a40dd36a5d8ab97c6b6ccabc47fb7f3cf49ebd25468e8",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/archive-publication.py",
+      "bytes": 2431,
+      "sha256": "70fb277d796117b51daa1190c4aff84f89b3ddd34f4e6145cc68ec4bedd0115f",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/assemble-film.mjs",
+      "bytes": 2205,
+      "sha256": "04fbdcb8e86a5c77744f6768517ed4ea6059b46478ae96285789cc7efc5299c7",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/audit-browser.mjs",
+      "bytes": 3553,
+      "sha256": "3cc8c3a862daeed24bc18f2115103264cbf48f8dc7c8e0b8f016cd4b8c50a0ea",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/audit-v3.mjs",
+      "bytes": 4147,
+      "sha256": "8968f824a26501c815e0109c617d7ba840dc0534f1d209e37b722c8113caeb55",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/check-player.mjs",
+      "bytes": 2666,
+      "sha256": "0a47fc0e2a3ef04cf8942eb6f1fe2d69701a2b251829852e872347e3dbbd1b39",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/compare-frames.py",
+      "bytes": 1229,
+      "sha256": "04ea696a3fabefbd186c56fe3e7c54a52421fa05e6f3b5d12e98404c802231e5",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/contact-sheet.py",
+      "bytes": 849,
+      "sha256": "cf785cafb16055249d18b55414ee8b79384730258e5381591b141446984ec082",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/create-previews.mjs",
+      "bytes": 780,
+      "sha256": "73f0a6d1619cc139a3f927fb5093213eca60919ca849a4168aac924ba1e66b75",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/freeze-source.mjs",
+      "bytes": 1516,
+      "sha256": "9ccc291f62bcb6e7b6f311ef0b0db28819411a8d3557274bbdcfd0fb8f2bebe9",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/master.mjs",
+      "bytes": 1253,
+      "sha256": "66d4c492563f613a4df2f35f23f0f0ff63391b8ea9a05d94576358ab8fabb311",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/package.mjs",
+      "bytes": 703,
+      "sha256": "c7a9ac4c13348fdb62d6b654bdd7d94a8360f9479011bef741ad41f2be33edaa",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/render-film.mjs",
+      "bytes": 4374,
+      "sha256": "31029c497e887a8e95acfe0bec26f9414f49c784dd0840b1e14d684eeb16e979",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/render.mjs",
+      "bytes": 6128,
+      "sha256": "fec594e0132b750a5ff0eb93e20f18073c1230aabeac76a3e3aba205e0b86858",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/server.mjs",
+      "bytes": 2382,
+      "sha256": "48f6f032395f8f4d3821ce4722abaf5237810b143c128252b9d321daacf21ca4",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/vendor.mjs",
+      "bytes": 1198,
+      "sha256": "04083d7598eb91bf69a6726307bb2af0d4e91cf62a5f836943879da8fd859525",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/verify-review.mjs",
+      "bytes": 3281,
+      "sha256": "27b031a45045dd2813d95b9d72edb9652a45138c90f50ed15ff8e3e5666ff113",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "tools/verify.mjs",
+      "bytes": 3026,
+      "sha256": "c7bbd87045256022eeb55ccc39c7bbc3bacccfa858cb8fc42dd76435c81a9068",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/build/three.core.js",
+      "bytes": 1458113,
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/build/three.module.js",
+      "bytes": 662772,
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+      "bytes": 6470,
+      "sha256": "c5feab96123858ed8823c889b238dc8734adab7e760e3cfd21e7f3f2f3e348e3",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/lights/RectAreaLightTexturesLib.js",
+      "bytes": 314764,
+      "sha256": "6dd4043bb052594357a5eeff13dc0519f0a80b100b97ec80c12808f887897bc1",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/lights/RectAreaLightUniformsLib.js",
+      "bytes": 1014,
+      "sha256": "494fef2d731ff1689050cc6040ad78d927c22b9125a12f532beb0374c2811c6e",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/math/SimplexNoise.js",
+      "bytes": 15148,
+      "sha256": "4b1455617135e6b477de76244de07547d95570643379b72f4758e50161b06072",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/objects/MarchingCubes.js",
+      "bytes": 40408,
+      "sha256": "fe9c6ace2c079bf540befd164ce492de98c820d8b86a722b1060833d42ad9c80",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/objects/Reflector.js",
+      "bytes": 10943,
+      "sha256": "57836df976f02a474b2dcfbb6609bca8bde0ccc6e77159ad8e418fa11c065d3b",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/objects/Sky.js",
+      "bytes": 11526,
+      "sha256": "34121b60a3bd9adc004a5a637f6135e9d2b72757eeb9e476ae1988fe2db6a9fb",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/postprocessing/EffectComposer.js",
+      "bytes": 8501,
+      "sha256": "4e079a5886152d7e529a59aef644e968ab4d32c6a33ce016b36bf29b2eac26f7",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/postprocessing/GTAOPass.js",
+      "bytes": 19910,
+      "sha256": "a277f848d1035c751c54d9706e579aeb74689126ced25723e53d52ac3f26f445",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/postprocessing/MaskPass.js",
+      "bytes": 4694,
+      "sha256": "7cd08eee9d5d6f5578beaddbdcbe9c384f6873810af27f22ab7db3ceeb127aa3",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/postprocessing/OutputPass.js",
+      "bytes": 4184,
+      "sha256": "02e4a261af34de71338185e9e87f0cbe5cba9115608d984363e1269dec1d2272",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/postprocessing/Pass.js",
+      "bytes": 4218,
+      "sha256": "444b409c235ead986893c472e720da1b779a56985c7d10b279c7944b52bd61c5",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/postprocessing/RenderPass.js",
+      "bytes": 4280,
+      "sha256": "817f6c3cdcd0fd41515d112359ea0532568eefb5aabd3b33903957ebca1b8a6a",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/postprocessing/ShaderPass.js",
+      "bytes": 3228,
+      "sha256": "e2500a5913b26bbf5148ceaae644c6edcff06a18b01494ee37bf856353d2ab9d",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/shaders/CopyShader.js",
+      "bytes": 729,
+      "sha256": "a33057d5ac91c43304c186ac0e8816e62bb2ed471d3a00ff3018dfd5c0389718",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/shaders/GTAOShader.js",
+      "bytes": 12166,
+      "sha256": "cdea7be60452f61105375d2c18e4da2e8ce7b39a89246b1bb8fbf79319d58cfd",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/shaders/OutputShader.js",
+      "bytes": 1876,
+      "sha256": "353479f77a8d7e2629d49ccac9fc2f5dbfdda5442e0adf867b00377a2fcb0cb2",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+      "bytes": 7080,
+      "sha256": "61da074a9ad8b2139dd164c96b8b62c299f056ce06c216e1f707c5151d997602",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    },
+    {
+      "path": "vendor/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 37712,
+      "sha256": "9fb63427ce6641fa14fd0baff9cc4d1b5f9c3d85fd084bf2e90e803c44ec1797",
+      "archive": "komorebi-checkpoint-part-06.zip"
+    }
+  ]
+}

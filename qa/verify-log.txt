@@ -1,0 +1,50 @@
+{
+  "verifiedAt": "2026-10-16T09:48:56.253Z",
+  "nativeFrameSampling": "Both versions separately sampled at 30 fps from the continuous 70 s timeline",
+  "sceneAuditPassed": true,
+  "videos": [
+    {
+      "file": "output/komorebi-60s.mp4",
+      "duration": 60,
+      "frames": 1800,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2
+      },
+      "colorSpace": "bt709",
+      "frameTimestampsContinuous": true,
+      "decodeErrors": 0,
+      "blackSegments": 0,
+      "bytes": 119028468,
+      "sha256": "07393ea31f9cc608a652606954a365309aa489bd7f64398606beceb7663a68ab",
+      "passed": true
+    },
+    {
+      "file": "output/komorebi-70s.mp4",
+      "duration": 70,
+      "frames": 2100,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2
+      },
+      "colorSpace": "bt709",
+      "frameTimestampsContinuous": true,
+      "decodeErrors": 0,
+      "blackSegments": 0,
+      "bytes": 132385972,
+      "sha256": "5928fbabcae2fdd38af3482960b674de62279e8c8dd379c2321db2a116c490a8",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

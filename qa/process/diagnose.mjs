@@ -1,0 +1,7 @@
+import './server.mjs';
+import {chromium} from '/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+const browser=await chromium.launch({headless:true,executablePath:'/Users/mima1234/Library/Caches/ms-playwright/chromium-1187/chrome-mac/Chromium.app/Contents/MacOS/Chromium',args:['--use-angle=metal','--enable-gpu','--ignore-gpu-blocklist']});const page=await browser.newPage({viewport:{width:1600,height:900}});page.on('pageerror',e=>console.log(e.stack));await page.goto('http://127.0.0.1:4317/?render=1&w=1600&h=900');await page.waitForFunction(()=>window.temple?.ready,{timeout:120000});
+console.log(await page.evaluate(()=>{const a=window.temple,s=a.scene.children.find(o=>o.isDirectionalLight);return {cast:s.castShadow,map:!!s.shadow.map,size:s.shadow.map?.width,depth:!!s.shadow.map?.depthTexture,near:s.shadow.camera.near,far:s.shadow.camera.far,left:s.shadow.camera.left,projection:s.shadow.camera.projectionMatrix.elements,enabled:a.renderer.shadowMap.enabled,update:a.renderer.shadowMap.autoUpdate,light:s.position.toArray()}}));
+await page.evaluate(()=>{window.temple.renderer.shadowMap.needsUpdate=true;window.temple.renderAt(25)});await page.screenshot({path:'qa/shadow-on.png'});
+await page.evaluate(()=>{const s=window.temple.scene.children.find(o=>o.isDirectionalLight);s.castShadow=false;window.temple.scene.traverse(o=>{if(o.material)o.material.needsUpdate=true});window.temple.renderAt(25)});await page.screenshot({path:'qa/shadow-off.png'});
+await browser.close();process.exit(0);
