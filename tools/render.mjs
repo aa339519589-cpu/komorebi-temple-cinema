@@ -94,7 +94,7 @@ if (mode === 'preview') {
   await page.evaluate(()=>window.temple.renderView([0,78,8],[0,-.2,2],12));
   await page.screenshot({path:process.env.FILE||'qa/v3/ground-inspection.png',type:'png',timeout:120000});
 } else if(mode==='view'){
-  const pose=JSON.parse(process.env.VIEW||'{"position":[6,.9,42],"target":[6,5.52,-6],"fov":64}');
+  const pose=JSON.parse(process.env.VIEW||'{"position":[6,0.9,42],"target":[6,5.52,-6],"fov":64}');
   await page.evaluate(p=>window.temple.renderView(p.position,p.target,p.time||0,p.fov||48),pose);
   await page.screenshot({path:process.env.FILE||'qa/v5/reference-view.png',type:'png',timeout:120000});
 } else {

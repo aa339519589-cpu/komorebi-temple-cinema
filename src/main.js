@@ -124,7 +124,17 @@ const exposureTarget=new T.WebGLRenderTarget(width,height,{type:T.HalfFloatType,
 const accumulateMaterial=new T.ShaderMaterial({uniforms:{tDiffuse:{value:null},weight:{value:1}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',fragmentShader:'uniform sampler2D tDiffuse;uniform float weight;varying vec2 vUv;void main(){gl_FragColor=texture2D(tDiffuse,vUv)*weight;}',transparent:true,blending:T.CustomBlending,blendSrc:T.OneFactor,blendDst:T.OneFactor,blendEquation:T.AddEquation,depthTest:false,depthWrite:false});
 const accumulateQuad=new FullScreenQuad(accumulateMaterial);
 let last=-1;
-function drawPose(p,time){camera.position.copy(p.position);camera.lookAt(p.target);camera.fov=p.fov;camera.updateProjectionMatrix();dof.uniforms.focus.value=p.position.distanceTo(p.target);dof.uniforms.aperture.value=(p.index===5?.0015:.0038)*(1-T.MathUtils.clamp(p.u,0,1))+.00065;world.update(time);atmosphere.uniforms.tShadow.value=world.sun.shadow.map?.texture||null;composer.render();renderer.shadowMap.autoUpdate=false;last=time;return{shot:p.index,position:p.position.toArray(),target:p.target.toArray()};}
+function drawPose(p,time){
+ camera.position.copy(p.position);camera.lookAt(p.target);camera.fov=p.fov;camera.updateProjectionMatrix();
+ const focus=p.position.distanceTo(p.target),focal=camera.getFocalLength()/1000,sensorHeight=camera.getFilmHeight()/1000;
+ const fStop=T.MathUtils.lerp(p.index===5?3.5:4.5,8,T.MathUtils.clamp(p.u,0,1));
+ dof.uniforms.focus.value=focus;
+ // Thin-lens circle of confusion, expressed as a radius in image-height units.
+ // Inspection views have no blur so that the ground and joinery can be judged.
+ dof.uniforms.aperture.value=p.index<0?0:focal*focal/(2*fStop*sensorHeight*Math.max(.05,focus-focal));
+ world.update(time);atmosphere.uniforms.tShadow.value=world.sun.shadow.map?.texture||null;composer.render();renderer.shadowMap.autoUpdate=false;last=time;
+ return{shot:p.index,position:p.position.toArray(),target:p.target.toArray(),fStop,focalLengthMm:focal*1000};
+}
 function renderAt(time){return drawPose(cameraPose(time),time);}
 function renderShot(index,localTime,worldTime=index*7+localTime){return drawPose(cameraPoseForShot(index,localTime),worldTime);}
 function renderView(position,target,time=0,fov=48){return drawPose({position:new T.Vector3(...position),target:new T.Vector3(...target),fov,u:1,index:-1},time);}

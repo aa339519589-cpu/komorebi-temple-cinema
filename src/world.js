@@ -4,10 +4,10 @@ import { Reflector } from 'three/addons/objects/Reflector.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import {createBotany,foliageNormalMaterial} from './botany.js';
-import {carvedBracket,carvedLeaf,archHeight} from './ornaments.js';
+import {carvedBracket,carvedLeaf,archHeight,flowerCrest} from './ornaments.js';
 import {seatedFigure,reliefPetal} from './sculpture.js';
 import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
-import {granite,grassTuft,flagstone} from './natural-forms.js';
+import {granite,grassTuft,flagstone,timberSweep} from './natural-forms.js';
 
 // Every visible surface, texture, plant and ornament in this world is generated here.
 export function buildWorld(renderer,options={}) {
@@ -211,6 +211,8 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
     carvedBracket:carvedBracket(),
     carvedLeaf:carvedLeaf(),
     reliefPetal:reliefPetal(),
+    flowerCrest:flowerCrest(),
+    tileEnd:new T.CylinderGeometry(1,1,.30,20,1,false).rotateX(Math.PI/2),
     cylinder: new T.CylinderGeometry(.97, 1, 1, 32),
     thinCylinder: new T.CylinderGeometry(1, 1, 1, 8),
     cone: new T.ConeGeometry(1, 1, 12),
@@ -508,10 +510,19 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
             oldIntersection=Math.max(oldIntersection,chordY+.055-surface.y);
             curvePoints.push([surface.x,surface.y-.235,surface.z]);
           }
-          line(curvePoints,.055,'endwood',24);
+          instance(timberSweep(curvePoints),'endwood',0,0,0,1,1,1);
           roofAudit.push({roof:[x,y,z],face,u,oldPenetration:oldIntersection,newMaximumTopOffset:-.18});
           let pe = evalP(face, 1.02, u);
-          sphere(pe.x, pe.y - .02, pe.z, .066, .066, .066, 'oldgold');
+          const last=v(...curvePoints.at(-1)),tangent=last.clone().sub(v(...curvePoints.at(-2))).normalize();
+          const endRotation=new T.Quaternion().setFromUnitVectors(v(0,0,1),tangent);
+          const cap=last.clone().addScaledVector(tangent,.012);
+          instance('box','oldgold',cap.x,cap.y,cap.z,.112,.112,.022,endRotation);
+          const crest=cap.clone().addScaledVector(tangent,.014);
+          instance('flowerCrest','gold',crest.x,crest.y,crest.z,.040,.040,.030,endRotation);
+          const angle=face===0?0:face===1?Math.PI:face===2?Math.PI/2:-Math.PI/2;
+          instance('tileEnd','tileEdge',pe.x,pe.y-.015,pe.z,.078,.078,.078,[0,angle,0]);
+          const outward=v(Math.sin(angle),0,Math.cos(angle));
+          instance('flowerCrest','oldgold',pe.x+outward.x*.015,pe.y-.015,pe.z+outward.z*.015,.044,.044,.024,[0,angle,0]);
         }
         const pts = [];
         for (let j = 0; j <= 24; j++) {
@@ -791,7 +802,34 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     for(let k=-3;k<=3;k++)floralMedallion(k*.42,Math.sin(k*.7)*.035,.11,k===0?.21:.15,k===0?'oldgold':'endwood');
     for(let k=-6;k<=6;k++)for(const side of [-1,1])instance('carvedLeaf','endwood',k*.21,side*.14,.08,.14,.20,.40,[0,0,side*(.8+k*.11)]);
   });
-  hipRoof(6, 10.65, -11, 23, 19, 6.8);
+  // Two distinct eave lines and an inhabited upper gallery, derived from the
+  // full-resolution garden views. The monumental columns remain full-height.
+  hipRoof(6,10.65,-11,24.8,19.9,1.8);
+  group(6,11.12,-11,0,()=>{
+    box(0,.04,0,18.3,.16,13.0,'darkwood');
+    for(const x of [-8.6,-5.15,-1.72,1.72,5.15,8.6])for(const z of [-5.7,5.7]){
+      footColumn(x,z,.08,2.50,.19);brackets(x,2.78,z,.72);
+    }
+    for(const z of [-5.7,5.7]){
+      box(0,1.28,z-.10*Math.sign(z),17.4,1.85,.17,'plaster');
+      for(let x=-7.8;x<8.0;x+=1.30){
+        box(x,1.24,z,1.13,1.32,.12,'darkwood');
+        for(let k=0;k<7;k++)box(x-.48+k*.16,1.24,z+.09*Math.sign(z),.043,1.26,.045,'endwood');
+        for(let k=0;k<6;k++)box(x,.69+k*.22,z+.11*Math.sign(z),1.08,.033,.045,'endwood');
+      }
+      for(const yy of [.34,1.98,2.19,2.63,2.88])box(0,yy,z,18.6,.10,.24,yy>1?'red':'darkwood');
+      box(0,2.55,z,18.3,.56,.18,'darkwood');
+      for(let x=-8.1;x<=8.2;x+=.9)floralMedallion(x,2.55,z+Math.sign(z)*.13,.19,'oldgold');
+    }
+    for(const side of [-1,1]){
+      box(side*8.65,1.24,0,.18,1.85,11.4,'plaster');
+      for(let z=-5.3;z<5.4;z+=1.3){box(side*8.76,1.24,z,.08,1.30,1.12,'darkwood');for(let k=0;k<7;k++)box(side*8.82,1.24,z-.47+k*.156,.06,1.25,.04,'endwood');}
+      railing(v(side*9.25,0,-6.3),v(side*9.25,0,6.3),.10,.58);
+    }
+    railing(v(-9.25,0,6.3),v(9.25,0,6.3),.10,.58);
+    railing(v(-9.25,0,-6.3),v(9.25,0,-6.3),.10,.58);
+  });
+  hipRoof(6,13.4,-11,21.2,16.4,6.3);
   gableRoof(6, 10.1, -2.9, 8.2, 5.8, 2.8);
   });
   // Suspended corner wind chimes, flame pendants and chains.
@@ -1548,7 +1586,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     stats,
     roofAudit,
     columns,
-    scaleReference:{mainHallHeight:30.54,pagodaHeight:47.21,hallColumnHeight:10.33,eyeHeight:1.7},
+    scaleReference:{mainHallHeight:34.475,pagodaHeight:47.21,hallColumnHeight:10.33,eyeHeight:1.7},
     foliageMeshes,foliageNormalScene,
     update(t) {
       water.material.uniforms.time.value = t;

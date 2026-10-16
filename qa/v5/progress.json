@@ -1,0 +1,41 @@
+{
+  "status": "work-in-progress",
+  "createdAt": "2026-10-16T13:24:15.923181+00:00",
+  "primaryReferences": "references/hd/manifest.json",
+  "implemented": [
+    "HD reference mapping in the comparison page",
+    "Separate lower eave roof, upper gallery, and upper roof mass",
+    "Curved timber rafters with rectangular bevelled sections",
+    "Raised floral rafter plates and individual ceramic eave caps",
+    "Thin-lens depth-of-field calculation; inspection views remain sharp"
+  ],
+  "preview": {
+    "file": "qa/v5/hall-reference-study.png",
+    "width": 1600,
+    "height": 1600,
+    "cameraPosition": [
+      6,
+      0.9,
+      42
+    ],
+    "cameraTarget": [
+      6,
+      5.52,
+      -6
+    ],
+    "verticalFov": 64,
+    "depthOfField": false
+  },
+  "validation": "The native square study rendered with no logged JavaScript or shader errors. This is not a full moving-film or fidelity certification.",
+  "next": [
+    "Rebuild the sanctuary triad, raised hand orientation, pointed aureoles and tiered altar from HD reference",
+    "Reflective sanctuary floor and dense hanging ornament",
+    "Cherry blossom trees, shaped pines and garden beds",
+    "Continue reference comparisons before a new full-film render"
+  ],
+  "doNotClaim": [
+    "Final product",
+    "99.9% similarity",
+    "Full film complete"
+  ]
+}

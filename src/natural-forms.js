@@ -35,3 +35,24 @@ export function flagstone(seed=1){
  outline.forEach(([x,y],i)=>{const dx=.009*Math.sin(seed*5.1+i*8.3),dy=.009*Math.cos(seed*4.9+i*7.6);if(i)s.lineTo(x+dx,y+dy);else s.moveTo(x+dx,y+dy)});s.closePath();
  const g=new T.ExtrudeGeometry(s,{depth:.96,steps:1,bevelEnabled:true,bevelThickness:.020,bevelSize:.009,bevelSegments:2});g.rotateX(-Math.PI/2);g.translate(0,-.48,0);return g;
 }
+
+export function timberSweep(points,width=.11,height=.11){
+ const path=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),segments=24;
+ const hw=width/2,hh=height/2,b=.0075;
+ const rim=[[-hw+b,-hh],[hw-b,-hh],[hw,-hh+b],[hw,hh-b],[hw-b,hh],[-hw+b,hh],[-hw,hh-b],[-hw,-hh+b]];
+ const frames=Array.from({length:segments+1},(_,j)=>{
+   const t=j/segments,centre=path.getPoint(t),tangent=path.getTangent(t).normalize();
+   const side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize();
+   return{centre,tangent,side,up};
+ });
+ const p=[],n=[],uv=[];
+ const emit=(j,k,normal)=>{
+   const f=frames[j],c=rim[k],v=f.centre.clone().addScaledVector(f.side,c[0]).addScaledVector(f.up,c[1]);
+   p.push(...v.toArray());const nn=f.side.clone().multiplyScalar(normal[0]).addScaledVector(f.up,normal[1]).normalize();n.push(...nn.toArray());uv.push(k/8,j/segments);
+ };
+ for(let j=0;j<segments;j++)for(let k=0;k<8;k++){
+   const next=(k+1)%8,a=rim[k],b=rim[next],nn=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+   for(const [jj,kk] of [[j,k],[j,next],[j+1,next],[j,k],[j+1,next],[j+1,k]])emit(jj,kk,nn);
+ }
+ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('normal',new T.Float32BufferAttribute(n,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));return g;
+}
