@@ -59,23 +59,23 @@ try{
   }
   receipt.status='rendering';save();const began=performance.now();
   const result=await page.evaluate(async j=>{
-   const t=window.temple;if(j.camera){const c=j.camera;if(![...c.position,...c.target,c.fov,c.time].every(Number.isFinite))throw Error('Invalid study camera');}
-   const draw=()=>j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time,j.camera.fov):t.renderReference(j.reference);
-   const pose=draw();if(j.exposure!==undefined){if(!Number.isFinite(j.exposure)||j.exposure<=0||j.exposure>3)throw Error('Invalid exposure');t.renderer.toneMappingExposure=j.exposure;t.composer.render();}
-   t.renderer.getContext().finish();const gl=t.renderer.getContext(),glError=gl.getError(),canvas=t.renderer.domElement;
-   const state={contextLost:gl.isContextLost(),attributes:gl.getContextAttributes(),canvas:[canvas.width,canvas.height],drawingBuffer:[gl.drawingBufferWidth,gl.drawingBufferHeight],activeTarget:t.renderer.getRenderTarget()?.texture.name??null,viewport:Array.from(gl.getParameter(gl.VIEWPORT)),scissorTest:gl.isEnabled(gl.SCISSOR_TEST)};
-   const current=t.renderer.getRenderTarget();t.renderer.setRenderTarget(null);const pixels=new Uint8Array(canvas.width*canvas.height*4);gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,pixels);state.readError=gl.getError();t.renderer.setRenderTarget(current);
-   let sum=0,nonzero=0,alpha=0,min=255,max=0;for(let i=0;i<pixels.length;i+=4){const v=Math.max(pixels[i],pixels[i+1],pixels[i+2]);sum+=v;min=Math.min(min,v);max=Math.max(max,v);if(v>2)nonzero++;if(pixels[i+3])alpha++;}state.pixels={min,max,mean:sum/(pixels.length/4),nonzeroFraction:nonzero/(pixels.length/4),alphaFraction:alpha/(pixels.length/4)};
+   const t=window.temple;
+   if(j.camera){const c=j.camera;if(![...c.position,...c.target,c.fov,c.time].every(Number.isFinite))throw Error('Invalid study camera');}
+   if(j.samples!==undefined){if(![0,2,4].includes(j.samples))throw Error('Invalid sample diagnostic');for(const target of [t.composer.renderTarget1,t.composer.renderTarget2]){if(target.samples!==j.samples){target.dispose();target.samples=j.samples;}}}
+   const {capturePixelFrame}=await import('/src/pixel-capture.js');
+   const draw=()=>{const pose=j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time,j.camera.fov):t.renderReference(j.reference);return pose;};
+   if(j.exposure!==undefined){if(!Number.isFinite(j.exposure)||j.exposure<=0||j.exposure>3)throw Error('Invalid exposure');t.renderer.toneMappingExposure=j.exposure;}
+   const capture=capturePixelFrame(t,draw,{diagnose:true}),gl=t.renderer.getContext();
    const samplerTypes=[gl.SAMPLER_2D,gl.SAMPLER_CUBE,gl.SAMPLER_2D_SHADOW,gl.SAMPLER_CUBE_SHADOW,gl.SAMPLER_2D_ARRAY];
    const programs=t.renderer.info.programs.map(p=>{const linked=gl.getProgramParameter(p.program,gl.LINK_STATUS),samplers=[];if(linked)for(let i=0;i<gl.getProgramParameter(p.program,gl.ACTIVE_UNIFORMS);i++){const u=gl.getActiveUniform(p.program,i);if(samplerTypes.includes(u.type))samplers.push({name:u.name,size:u.size});}return{linked,log:gl.getProgramInfoLog(p.program),samplers,count:samplers.reduce((a,b)=>a+b.size,0)};});
-   return{pose,info:t.info(),glError,captureState:state,png:canvas.toDataURL('image/png'),programs,atlas:t.renderer.brdfLookupAtlasInfo?.()||null,materialSharing:t.renderer.materialSamplerSharingInfo?.()||null};
+   return{pose:capture.pose,capture,info:t.info(),glError:gl.getError(),programs,atlas:t.renderer.brdfLookupAtlasInfo?.()||null,materialSharing:t.renderer.materialSamplerSharingInfo?.()||null};
   },job);
   receipt.renderSeconds=(performance.now()-began)/1000;
-  const canvasPng=Buffer.from(result.png.slice(result.png.indexOf(',')+1),'base64');delete result.png;Object.assign(receipt,result);await writeFile(out+'/'+job.id+'-canvas-export.png',canvasPng);receipt.canvasPngSha256=hash(canvasPng);
-  await page.locator('canvas').first().screenshot({path:out+'/'+job.id+'.png',type:'png',timeout:120000});const png=await readFile(out+'/'+job.id+'.png');receipt.png=job.id+'.png';receipt.pngSha256=hash(png);receipt.pngBytes=png.length;
-  receipt.afterScreenshot=await page.evaluate(()=>{const t=window.temple,gl=t.renderer.getContext();return{contextLost:gl.isContextLost(),glError:gl.getError(),png:t.renderer.domElement.toDataURL('image/png')};});
-  const after=Buffer.from(receipt.afterScreenshot.png.split(',')[1],'base64');delete receipt.afterScreenshot.png;await writeFile(out+'/'+job.id+'-canvas-after-screenshot.png',after);receipt.afterScreenshot.pngSha256=hash(after);
-  receipt.status=receipt.errors.length||receipt.glError||receipt.captureState.contextLost||receipt.programs.some(p=>!p.linked)?'rendered-with-errors':'rendered-review';receipt.finishedAt=new Date().toISOString();save();event('frame-saved',{id:job.id,status:receipt.status,renderSeconds:receipt.renderSeconds});
+  const png=Buffer.from(result.capture.png.split(',')[1],'base64'),canvasPng=Buffer.from(result.capture.canvasPng.split(',')[1],'base64');delete result.capture.png;delete result.capture.canvasPng;
+  Object.assign(receipt,result);await writeFile(out+'/'+job.id+'.png',png);await writeFile(out+'/'+job.id+'-canvas.png',canvasPng);receipt.png=job.id+'.png';receipt.pngSha256=hash(png);receipt.pngBytes=png.length;receipt.canvasPngSha256=hash(canvasPng);save();
+  try{await page.screenshot({path:out+'/'+job.id+'-browser.png',type:'png',clip:{x:0,y:0,width,height:width},timeout:15000});receipt.browserScreenshot=job.id+'-browser.png';}catch(e){receipt.presentationWarning=String(e.message);}
+  const pixels=receipt.capture.pixelStats;
+  receipt.status=receipt.errors.length||receipt.glError||receipt.capture.readError||receipt.capture.contextLost||receipt.capture.stages.some(s=>s.errors.length)||receipt.programs.some(p=>!p.linked)||pixels.max-pixels.min<12||pixels.nonzeroFraction<.01?'rendered-with-errors':'rendered-review';receipt.finishedAt=new Date().toISOString();save();event('frame-saved',{id:job.id,status:receipt.status,renderSeconds:receipt.renderSeconds,pixels});
   const refs={1:'0-照片-1.jpg',2:'1-照片-2.jpg',3:'2-照片-3.jpg',4:'3-照片-4.jpg',5:'5-照片-6.jpg',6:'4-照片-5.jpg',7:'6-照片-7.jpg',8:'7-照片-8.jpg',9:'8-照片-9.jpg',10:'9-照片-10.jpg'};
   const reference='references/hd/'+refs[job.reference];receipt.referenceSha256=hash(await readFile(reference));
   execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',reference,'-i',out+'/'+job.id+'.png','-filter_complex',`[0:v]scale=${width}:${width}:force_original_aspect_ratio=decrease,pad=${width}:${width}:(ow-iw)/2:(oh-ih)/2:black[a];[1:v]scale=${width}:${width}[b];[a][b]hstack[out]`,'-map','[out]','-frames:v','1',out+'/'+job.id+'-comparison.png']);receipt.comparison=job.id+'-comparison.png';save();
