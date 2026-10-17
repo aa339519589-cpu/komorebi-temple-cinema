@@ -12,10 +12,19 @@ body.render canvas{margin:auto}#ui{display:none}
 </style>
 <script type="importmap">{"imports":{"three":"/src/three-render-compat.js","three/addons/":"/vendor/examples/jsm/"}}</script>
 <script>
-addEventListener('error', e => parent!==window && parent.postMessage({kind:'komorebi-runtime-error',message:String(e.message||e.error)},location.origin));
-addEventListener('unhandledrejection', e => parent!==window && parent.postMessage({kind:'komorebi-runtime-error',message:String(e.reason)},location.origin));
+addEventListener('error',e=>parent!==window&&parent.postMessage({kind:'komorebi-runtime-error',message:String(e.message||e.error)},location.origin));
+addEventListener('unhandledrejection',e=>parent!==window&&parent.postMessage({kind:'komorebi-runtime-error',message:String(e.reason)},location.origin));
 addEventListener('pagehide',()=>{try{const t=window.temple;if(!t)return;t.disposeRoomEnvironment();t.composer.dispose();t.renderer.dispose();t.renderer.forceContextLoss();}catch{}});
 </script>
 </head>
-<body><div id="loading">正在从源码构建真实 3D 场景…</div><div id="ui"></div><script type="module" src="/src/main.js"></script></body>
-</html>
+<body><div id="loading">正在从源码构建真实 3D 场景…</div><div id="ui"></div>
+<script type="module">
+import './src/main.js';
+import {captureReferenceFrame,capturedPixelsToPng} from './src/live-frame-capture.js';
+window.captureValidatedReference=options=>{
+ const result=captureReferenceFrame(window.temple,options),png=capturedPixelsToPng(result);
+ delete result.rgbaBase64;
+ return {...result,png};
+};
+</script>
+</body></html>
