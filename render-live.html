@@ -19,8 +19,25 @@ addEventListener('pagehide',()=>{try{const t=window.temple;if(!t)return;t.dispos
 </head>
 <body><div id="loading">正在从源码构建真实 3D 场景…</div><div id="ui"></div>
 <script type="module">
-import './src/main.js';
+await import('./src/main.js');
 import {captureReferenceFrame,capturedPixelsToPng} from './src/live-frame-capture.js';
+const params = new URLSearchParams(location.search);
+if(params.has('r14')){
+ const temple=window.temple;
+ if(!temple?.ready)throw Error('Current temple geometry is unavailable.');
+ temple.ready=false;
+ const [{applySanctuaryCarvedDetail},{applySanctuaryPiercedFiligree}]=await Promise.all([
+  import('/src/sanctuary-carved-detail.js'),
+  import('/src/sanctuary-pierced-filigree-r14.js')
+ ]);
+ const carving=applySanctuaryCarvedDetail({scene:temple.scene});
+ const filigree=applySanctuaryPiercedFiligree({scene:temple.scene},{enabled:params.get('r14')==='1'});
+ temple.r14Stage={carving,filigree};
+ const originalInfo=temple.info;
+ temple.info=()=>({...originalInfo(),reference6PiercedStudy:filigree.report(),castRestoration:carving.report});
+ temple.ready=true;
+}
+
 window.captureValidatedReference=options=>{
  const result=captureReferenceFrame(window.temple,options),png=capturedPixelsToPng(result);
  delete result.rgbaBase64;
