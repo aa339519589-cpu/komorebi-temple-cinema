@@ -1,0 +1,10 @@
+{
+  "label":"sanctuary-dense-carving-and-contact-shadow-r12",
+  "width":640,"height":640,"details":true,"ao":true,
+  "framePolicy":{"noReset":true},
+  "jobs":[
+    {"id":"r12-carved-original-camera","reference":6,"config":{"exposure":1.4,"environmentGain":1,"metalGain":1.1,"sunGain":1.6,"practicalGain":1.35,"floorLod":0.6,"floorStrength":1.1,"hazeGain":0.8,"redWood":true,"warmTimber":true,"giltColor":"#c58b29","agedGoldColor":"#815021","statueGoldColor":"#b98021","backingColor":"#81421b","metalRoughnessGain":0.95,"key":7,"rim":2,"front":1}},
+    {"id":"r12-carved-corrected-lens","reference":6,"camera":{"position":[-1.540726762,4.26,-2.375090396],"target":[-1.540726762,5.25,-9.755090396],"fov":78,"time":41.95,"shiftY":-0.06}},
+    {"id":"r12-carved-return","reference":6}
+  ]
+}
