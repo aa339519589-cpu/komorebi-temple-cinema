@@ -1,8 +1,10 @@
-name: Current-source real WebGL review
+name: Independent software scene review
 on:
   push:
     branches: [work/live-reference-render-20261017]
-    paths: ['.github/workflows/real-render-review.yml']
+    paths:
+      - '.github/workflows/real-render-review.yml'
+      - 'tools/software-review-request.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -10,12 +12,43 @@ concurrency:
   group: komorebi-real-review-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  software-fallback-retired:
+  full-scene-review:
     runs-on: ubuntu-24.04
-    timeout-minutes: 2
+    timeout-minutes: 45
     steps:
-      - name: Keep completed evidence; do not waste a second software render
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Prepare identical source and isolated software WebGL
         run: |
-          echo 'This startup supersedes the earlier software-WebGL fallback job.'
-          echo 'Real hosted Metal has been measured; subsequent image reviews use hosted-metal-review.yml.'
-          echo 'Prior uploaded runtime artifacts remain unchanged. This job does not render or alter scene source.'
+          node verify.mjs
+          node --check tools/render-output-target.mjs
+          node --check tools/playwright-render-platform.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install --with-deps chromium
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: Independently render full geometry, lights and reflections
+        timeout-minutes: 35
+        env:
+          REAL_PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          WEBGL_PLATFORM_BACKEND: swiftshader
+          REQUEST_FILE: tools/software-review-request.json
+          OUTPUT_DIR: output/software-review
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          set -o pipefail
+          export PLAYWRIGHT_MODULE="$GITHUB_WORKSPACE/tools/playwright-render-platform.mjs"
+          mkdir -p output/software-review
+          uname -a > output/software-review/platform.txt
+          node tools/render-output-target.mjs 2>&1 | tee output/software-review/execution.log
+      - name: Preserve actual pixels and errors without treating empty output as completion
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: software-review-${{ github.sha }}
+          path: output/software-review/
+          retention-days: 7
+          if-no-files-found: warn
