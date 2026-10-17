@@ -1,0 +1,82 @@
+name: Existing geometry Cycles review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/existing-geometry-cycles.yml','tools/export-existing-sanctuary.mjs','tools/render-existing-cycles.py']
+permissions:
+  contents: read
+concurrency:
+  group: existing-cycles-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  export:
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Prepare exact scene runtime
+        run: |
+          node verify.mjs
+          node --check tools/export-existing-sanctuary.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Export current vertex buffers and instance matrices without rebuilding
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        run: |
+          set -o pipefail
+          mkdir -p output/sanctuary-geometry
+          node tools/export-existing-sanctuary.mjs 2>&1 | tee output/sanctuary-geometry/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: existing-scene-buffers-${{ github.sha }}
+          path: output/sanctuary-geometry/
+          retention-days: 7
+          if-no-files-found: error
+  cycles:
+    needs: export
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: existing-scene-buffers-${{ github.sha }}
+          path: output/sanctuary-geometry/
+      - name: Install CPU path-tracing renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y blender ffmpeg
+          blender --version
+      - name: Render original geometry with ray-traced light transport
+        timeout-minutes: 23
+        env:
+          LIGHTING_MODE: upper-window
+          CYCLES_SAMPLES: '64'
+          CYCLES_SIZE: '720'
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -o pipefail
+          mkdir -p output/cycles-review
+          blender -b -t 4 --python-exit-code 1 --python tools/render-existing-cycles.py --python-expr "import bpy;bpy.ops.file.pack_all();bpy.ops.wm.save_as_mainfile(filepath=bpy.data.filepath,compress=True)" 2>&1 | tee output/cycles-review/execution.log
+          ffmpeg -y -hide_banner -loglevel error -i references/hd/4-照片-5.jpg -i output/cycles-review/sanctuary-cycles.png -filter_complex '[0:v]scale=720:720[a];[a][1:v]hstack[out]' -map '[out]' -frames:v 1 output/cycles-review/reference-left-pathtrace-right.png
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: existing-geometry-cycles-${{ github.sha }}
+          path: |
+            output/cycles-review/*.png
+            output/cycles-review/*.json
+            output/cycles-review/*.log
+            output/cycles-review/*.blend
+          retention-days: 7
+          if-no-files-found: warn
