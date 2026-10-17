@@ -485,7 +485,11 @@ function buildTerraces(b,layout) {
       // Small relieved edge fittings, not another full-height drawer row.
       for(let i=-4;i<=4;i++){b.box(i*.78,2.12,.98,.075,.10,.045,'oldgold');b.ball(i*.78,2.12,1.012,.022,.026,.014,'gold');}
     }else{
-      const weights=[[1,1,1],[1.0,1.8,.72,1.8,1.0],[2.7,.72,.95,.72,2.7],[1.05,.65,1.2,.85,1.2,.65,1.05],[1.25,1.15,.75,1.15,1.25]][level];
+      // The original lower front has broader outer fields and shorter inner
+      // neighbors. Keep the total front span, central field and all ledges;
+      // redistribute only each outer/inner pair, using a bounded 4:3 choice.
+      // The partially masked lower dragon heads do not justify new anatomy.
+      const weights=[[1,1,1],[1.6,1.2,.72,1.2,1.6],[2.7,.72,.95,.72,2.7],[1.05,.65,1.2,.85,1.2,.65,1.05],[1.25,1.15,.75,1.15,1.25]][level];
       const gap=.105,total=weights.reduce((a,v)=>a+v,0),available=frontWidth-.22-gap*(weights.length-1);
       let cursor=-frontWidth/2+.11;
       weights.forEach((weight,i)=>{
