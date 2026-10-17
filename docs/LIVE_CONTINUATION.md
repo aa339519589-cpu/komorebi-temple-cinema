@@ -6,7 +6,7 @@ This addition **does not replace** `render-v3.html` (which exists, but loads a f
 
 With Node.js >=24.2, start `node serve.mjs`, then open `http://127.0.0.1:4317/compare-live.html` on the rendering Mac. The left image is one of the supplied reference files; the right image is created by the current Three.js WebGL scene at a reproducible camera. Camera position, target, FOV and time are editable; use **Export camera JSON** to preserve a visual-fit candidate, or save a side-by-side PNG.
 
-The ten reference images in the latest user message are in a different order from the repository's original stable IDs: `10,9,7,8,4,6,5,2,3,1`. Both the comparison page and runner use this explicit mapping. The current repository only has a low-resolution file for canonical reference 1; replace the left image temporarily through the file picker if the full-resolution photo is available locally. No photograph is sent to a server.
+The ten reference images in the latest user message are in a different order from the repository's original stable IDs: `10,9,7,8,4,6,5,2,3,1`. Both the comparison page and runner use this explicit mapping. Canonical reference 1 is now accompanied by the newly supplied 1254 × 1254 JPEG at `references/hd/0-照片-1.jpg`. The live page still allows temporary local replacement of any reference image. No photograph is sent to a server.
 
 ## Mac-only scripted rendering
 
