@@ -1708,3 +1708,97 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`,'hair e
     }
   };
 }
+
+// Isolated opt-in owner for the nine original reference10 threshold roof faces.
+// Preserve the old GTAO MeshNormalMaterial's GEOMETRIC normal semantics, adding
+// only DoubleSide coverage. Do not import beauty maps/bump/procedural shaders.
+const reference10RoofNormalOwners=new WeakMap();
+export function createRestorationReference10RoofNormalOwner({referenceMode,scene,normalScene,normalExclusions,meshes}={}) {
+  if(referenceMode!=='reference10'||!scene?.isScene||!normalScene?.isScene||scene===normalScene
+    ||!Array.isArray(normalExclusions)||!Array.isArray(meshes)||meshes.length!==9||new Set(meshes).size!==9)
+    throw new TypeError('Register exactly the nine explicit reference10 roof meshes in distinct beauty/normal scenes.');
+  const sources=[...meshes],normalMeshes=[],token={},layers=['slate','slate','darkwood','slate','darkwood','slate','darkwood','slate','darkwood'];
+  const originals=sources.map(mesh=>({mesh,geometry:mesh?.geometry,material:mesh?.material}));
+  let material=null,disposed=false,running=false;
+  const active=()=>{if(disposed)throw new Error('Roof normal owner was disposed; retire this world before rendering or updating.');};
+  const idle=()=>{active();if(running)throw new Error('Roof normal pass cannot recurse, update, sync or dispose while active.');};
+  function validateSource({mesh,geometry,material:beauty},i) {
+    if(!mesh?.isMesh||mesh.isInstancedMesh||mesh.parent!==scene||mesh.geometry!==geometry||mesh.material!==beauty
+      ||!geometry?.isBufferGeometry||!geometry.attributes.position||!geometry.attributes.normal||!geometry.attributes.uv
+      ||!beauty?.isMeshStandardMaterial||beauty.name!==layers[i]||beauty.side!==T.DoubleSide||beauty.transparent!==false
+      ||beauty.opacity!==1||beauty.alphaTest!==0||beauty.depthWrite!==true||beauty.depthTest!==true
+      ||mesh.castShadow!==true||mesh.receiveShadow!==true||mesh.userData.excludeFromOpaqueDepth===true)
+      throw new Error('Only the existing opaque casting/receiving direct threshold roof records may own these normal twins.');
+  }
+  originals.forEach((record,i)=>{
+    validateSource(record,i);
+    if(normalExclusions.includes(record.mesh)||reference10RoofNormalOwners.has(record.mesh))throw new Error('Roof normal ownership must not duplicate an exclusion or another owner.');
+  });
+  const geometries=new Set(originals.map(record=>record.geometry));
+  function auditNormalScene(allowed){
+    normalScene.traverse(object=>{if(object.isMesh&&(geometries.has(object.geometry)||(material&&object.material===material))&&!allowed.has(object))
+      throw new Error('Existing or escaped roof normal geometry/material would create duplicate normal ownership.');});
+  }
+  auditNormalScene(new Set());
+  // Reserve the source set before attachment callbacks can re-enter construction.
+  sources.forEach(mesh=>reference10RoofNormalOwners.set(mesh,token));
+  function cleanup(hasPrimary=false,primaryError) {
+    disposed=true;const errors=[];if(hasPrimary)errors.push(primaryError);
+    const attempt=callback=>{try{callback();}catch(error){errors.push(error);}};
+    for(const mesh of sources)attempt(()=>{
+      for(let i=normalExclusions.length-1;i>=0;i--)if(normalExclusions[i]===mesh)normalExclusions.splice(i,1);
+    });
+    for(const twin of normalMeshes)attempt(()=>twin.removeFromParent());
+    for(const mesh of sources)if(reference10RoofNormalOwners.get(mesh)===token)reference10RoofNormalOwners.delete(mesh);
+    if(material)attempt(()=>material.dispose());
+    if(errors.length===1)throw errors[0];
+    if(errors.length>1)throw new AggregateError(errors,'Roof normal ownership cleanup reported errors.',{cause:hasPrimary?primaryError:errors[0]});
+  }
+  function sync() {
+    idle();
+    // Validate and compute all records before mutating any normal mesh. Geometry
+    // replacement requires a new owner, never silently leaving a stale twin.
+    originals.forEach(validateSource);
+    if(normalExclusions.filter(mesh=>sources.includes(mesh)).length!==9
+      ||sources.some(mesh=>normalExclusions.filter(x=>x===mesh).length!==1)
+      ||normalMeshes.some((twin,i)=>twin.parent!==normalScene||twin.material!==material||twin.geometry!==originals[i].geometry)
+      ||material.side!==T.DoubleSide||material.blending!==T.NoBlending||material.transparent||material.opacity!==1
+      ||!material.depthWrite||!material.depthTest||material.bumpMap!==null||material.normalMap!==null||material.displacementMap!==null)
+      throw new Error('Roof normal registration changed outside its explicit owner.');
+    auditNormalScene(new Set(normalMeshes));
+    normalScene.updateWorldMatrix(true,false);
+    if(!normalScene.matrixWorld.elements.every(Number.isFinite)||Math.abs(normalScene.matrixWorld.determinant())<1e-12)
+      throw new Error('Normal scene requires an invertible finite world transform.');
+    const inverse=normalScene.matrixWorld.clone().invert(),updates=originals.map(({mesh})=>{
+      mesh.updateWorldMatrix(true,false);
+      if(!mesh.matrixWorld.elements.every(Number.isFinite)||Math.abs(mesh.matrixWorld.determinant())<1e-12)
+        throw new Error('Roof requires an invertible finite actual world transform.');
+      let visible=mesh.material.visible;for(let ancestor=mesh;ancestor;ancestor=ancestor.parent)visible=visible&&ancestor.visible;
+      return {matrix:inverse.clone().multiply(mesh.matrixWorld),visible,layers:mesh.layers.mask,frustumCulled:mesh.frustumCulled,renderOrder:mesh.renderOrder};
+    });
+    updates.forEach((update,i)=>{const twin=normalMeshes[i];twin.matrix.copy(update.matrix);twin.matrixWorldNeedsUpdate=true;
+      twin.visible=update.visible;twin.layers.mask=update.layers;twin.frustumCulled=update.frustumCulled;twin.renderOrder=update.renderOrder;});
+    return {sources:9,normalMeshes:9,normalMaterials:1};
+  }
+  try {
+    material=new T.MeshNormalMaterial({name:'reference10-roof-geometric-normal-owner',side:T.DoubleSide,blending:T.NoBlending});
+    for(const source of sources){
+      const twin=new T.Mesh(source.geometry,material);twin.name='reference10-roof-normal:'+source.id;
+      twin.matrixAutoUpdate=false;twin.castShadow=false;twin.receiveShadow=false;
+      normalMeshes.push(twin);normalExclusions.push(source);normalScene.add(twin);
+    }
+    sync();
+  } catch(error) {cleanup(true,error);}
+  return {
+    sources:Object.freeze(sources),normalMeshes:Object.freeze(normalMeshes),material,get disposed(){return disposed;},
+    parameters:Object.freeze({referenceMode,coverage:'nine-original-threshold-roof-faces',normalMeaning:'geometric-only-like-existing-GTAO-override',side:T.DoubleSide,borrowedGeometry:true,ownedNormalMaterials:1}),
+    assertActive:idle,sync,
+    withNormalPass(callback){
+      idle();if(typeof callback!=='function'||callback.constructor?.name==='AsyncFunction')throw new TypeError('Roof normal pass requires a synchronous callback.');
+      sync();running=true;
+      try{const result=callback();if(result&&typeof result.then==='function')throw new TypeError('Roof normal pass must not return a promise.');return result;}
+      finally{running=false;}
+    },
+    dispose(){if(disposed)return;idle();cleanup();}
+  };
+}

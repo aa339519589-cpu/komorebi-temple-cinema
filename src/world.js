@@ -15,7 +15,7 @@ import {seatedFigure,reliefPetal} from './sculpture.js';
 import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
 import {granite,grassTuft,flagstone,timberSweep} from './natural-forms.js';
 import {emitRestoredBuddha} from './restoration-buddha.js';
-import {createRestorationLighting,RESTORATION_LIGHTING_PROFILES,buildReferenceProfileProposal,applySanctuaryPortalVisibility,applyRestorationLeafTranslucency,applyRestorationFlowNormals,createRestorationWindowPaper,createRestorationWindowLighting,captureRestorationRoomEnvironment,createRestorationRoomEnvironmentCache,createRestorationPrivateRoomMetals,createRestorationRoomGlassOwnership,createRestorationRoomCaptureCameras,createRestorationSculptureHairFinish,mergeRestorationPuddleGeometry,applyRestorationPuddleResponse,createRestorationLanternPaper,createRestorationLanternLighting,createRestorationHangingLanternPaper,createRestorationHangingLanternLighting} from './restoration-lighting.js';
+import {createRestorationLighting,RESTORATION_LIGHTING_PROFILES,buildReferenceProfileProposal,applySanctuaryPortalVisibility,applyRestorationLeafTranslucency,applyRestorationFlowNormals,createRestorationWindowPaper,createRestorationWindowLighting,captureRestorationRoomEnvironment,createRestorationRoomEnvironmentCache,createRestorationPrivateRoomMetals,createRestorationRoomGlassOwnership,createRestorationRoomCaptureCameras,createRestorationSculptureHairFinish,mergeRestorationPuddleGeometry,applyRestorationPuddleResponse,createRestorationLanternPaper,createRestorationLanternLighting,createRestorationHangingLanternPaper,createRestorationHangingLanternLighting,createRestorationReference10RoofNormalOwner} from './restoration-lighting.js';
 import {createRestorationArchitecture} from './restoration-architecture.js';
 import {buildRestorationEntranceStair} from './restoration-entrance-stair.js';
 import {buildRestorationReference10ThresholdSurface} from './restoration-reference10-threshold-surface.js';
@@ -49,6 +49,8 @@ export function buildWorld(renderer,options={}) {
   const initialMode=reference10Porch?'rain':'sanctuary';
   let thresholdSupport=null,thresholdSurface=null,reference10Finial=null,restoredTowerBase=null,restoredPorchLantern=null,restoredSidePorch=null,restoredNearColumn=null,restoredNearColumnRoof=null;
   let nearColumnRoofSourceCollector=null;
+  const reference10RoofNormalSources=[];
+  let roofNormalOwner=null,roofNormalOwnerDisposed=false;
   const {profiles:lightingProfiles,referenceModes}=buildReferenceProfileProposal(RESTORATION_LIGHTING_PROFILES,referenceViews);
   for(const shot of shots)if(referenceModes[shot.reference]!==shot.lightingMode)throw new Error('Reference camera and light-mode registration disagree.');
   // Low bounded paper-source candidates derived from the existing practical-light
@@ -511,7 +513,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
       mesh.applyMatrix4(stack[stack.length - 1]);
       mesh.castShadow = true;
       mesh.receiveShadow = true;
-      if(emitGeometry)scene.add(mesh);else{g.dispose();roofMat.dispose();}
+      if(emitGeometry){scene.add(mesh);if(nearColumnRoofSourceCollector)reference10RoofNormalSources.push(mesh);}else{g.dispose();roofMat.dispose();}
       // Continuous ceramic backing and a sealed timber soffit below the individually modeled tiles.
       for (let face = 0; face < 4; face++) {
         for (const [offset, ma] of [[-.035, 'slate'], [-.18, 'darkwood']]) {
@@ -539,7 +541,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
           roofBacking.castShadow = true;
           roofBacking.receiveShadow = true;
           if(emitGeometry&&nearColumnRoofSourceCollector&&ma==='darkwood')nearColumnRoofSourceCollector.push({geometry:gg,matrixWorld:roofBacking.matrix.clone(),kind:'backing'});
-          if(emitGeometry)scene.add(roofBacking);else{gg.dispose();mm.dispose();}
+          if(emitGeometry){scene.add(roofBacking);if(nearColumnRoofSourceCollector)reference10RoofNormalSources.push(roofBacking);}else{gg.dispose();mm.dispose();}
         }
       }
       // Nested main/flying rafters and separate ceramic tile-end row.
@@ -1648,6 +1650,23 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   // This is a mode cache, not per-frame dynamic global illumination.
   const roomEnvironmentCache=createRestorationRoomEnvironmentCache({materials:roomMaterials,initial:{mode:initialMode,target:sanctuaryReflection},capture:mode=>captureRoom(mode)},{intensity:1.02,intensityByMaterial:roomIntensityByMaterial,profiles:lightingProfiles,maxEntries:2});
   stage('world-ready');
+  // Installation is explicit/lazy only AFTER buildWorld has returned. A failed
+  // normal-owner factory must not make an already completed world inaccessible.
+  function installRoofNormalOwner(){
+    if(!reference10Porch)return null;
+    if(roofNormalOwner?.disposed)roofNormalOwnerDisposed=true;
+    if(roofNormalOwnerDisposed)throw Error('Roof normal owner was disposed; retire this world.');
+    if(!roofNormalOwner)roofNormalOwner=createRestorationReference10RoofNormalOwner({referenceMode:'reference10',scene,normalScene:foliageNormalScene,normalExclusions:foliageMeshes,meshes:reference10RoofNormalSources});
+    roofNormalOwner.assertActive();return roofNormalOwner;
+  }
+  function withRoofNormalPass(callback){
+    const owner=installRoofNormalOwner();return owner?owner.withNormalPass(callback):callback();
+  }
+  function disposeRoofNormalOwner(){
+    if(!reference10Porch||roofNormalOwnerDisposed)return;
+    if(roofNormalOwner?.disposed){roofNormalOwnerDisposed=true;return;}
+    roofNormalOwner?.assertActive();roofNormalOwnerDisposed=true;roofNormalOwner?.dispose();
+  }
   return {
     scene,
     referenceScene:{variant:sceneVariant,initialMode,allowedReferences:reference10Porch?[10]:[1,2,3,4,5,6,7,8,9,10],status:reference10Porch?reference10Scene.status:'Shared reconstruction candidate',towerTaperStep:reference10Porch?reference10Scene.taperStep:.115,towerYaw:reference10Porch?reference10Scene.towerYaw:0,treeRelocationApplied:reference10Porch,treeRelocationPlan:reference10Porch?restorationReference10EMaplePlan:null,towerBase:restoredTowerBase?.plan??null,excludedUnanchoredAssets:reference10Porch?[{asset:'legacy-rear-left-shrine',sourceCall:'smallShrine(-18,-33,1.0,.05)',reason:'Confirmed solid intersection with tower; no independent reference10 anchor. Conditional correction of guessed legacy layout, not proof the photograph contains no shrine.',defaultPreserved:true,randomStreamPreserved:true}]:[]},thresholdSupport,thresholdSurface,reference10Finial,
@@ -1660,12 +1679,15 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     restorationLighting,lightingProfiles,referenceModes,windowRadianceByMode,lanternRadianceByMode,
     restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,restoredNearColumn,restoredNearColumnRoof,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,pathShellClosure,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredProcessionalLastCurbJoin,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
     columns,
+    get roofNormalOwner(){return roofNormalOwner;},installRoofNormalOwner,withRoofNormalPass,disposeRoofNormalOwner,
     disposePracticalLanterns,
     // Only owned room maps/portal wrappers/private materials; not whole-scene disposal.
     disposeRoomEnvironment(){roomEnvironmentCache.dispose();sanctuaryPortalVisibility.dispose();roomGlass.dispose();roomHair.dispose();roomMetals.dispose();roomCaptureCameras.dispose();},
     scaleReference:{mainHallHeight:20.685,pagodaHeight:reference10Porch?23.613096:21.0054,hallColumnHeight:6.198,eyeHeight:1.7,hardscapeScale:.6},
     foliageMeshes,foliageNormalScene,transparentNormalExclusions,restoredSpillway,flowNormals,
     update(t) {
+      if(roofNormalOwnerDisposed)throw Error('Roof normal owner was disposed; retire this world before further updates.');
+      roofNormalOwner?.assertActive();
       if(practicalLanternsDisposed)throw Error('Practical lanterns were disposed; retire this world before further updates.');
       const mode=reference10Porch?'rain':lightingModeForTime(t);
       // Set the visible Sky before any first-entry PMREM capture of this mode.

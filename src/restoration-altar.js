@@ -1457,6 +1457,19 @@ function lobedVesselGeometry(profile,lobes=6,fluting=.075,segments=72) {
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(indices);g.computeVertexNormals();g.userData.revolvedProfile={rows:profile.length,segments};return smoothRevolvedSeamNormals(g);
 }
 
+
+// Exterior of the two existing three-lobed corner inlays. Keep the original
+// sampled lobes and their bounding silhouette; remove only folded waist sheets.
+// Every fragment is anchored to the original Float32 vertex or parent face.
+const KNEELING_INLAY_EXTERIOR = {"remove":[223,224,225,226,227,228,229,230,231,232,234,235,236,237,238,239,312,313,314,315,316,317,319,320,321,322,323,324,325,326,327,328],"a":[["v",684],["f",223,0.7873872016520859,7.708836740745894e-08,1.9249380198540014e-10],["f",223,0.5702754079014765,0.42972437379301376,-3.0873067247971244e-10],["v",672],["f",224,0.5702756236449409,0.4297243631184031,-4.3661104050761457e-10],["v",678],["f",224,0.5702756236449409,0.22451138162631,-4.3661104050761457e-10],["f",225,0.5702756236449408,0.42972437635505917,-4.3661104039919435e-10],["v",683],["f",226,0.7833378072713197,0.21666195088384452,4.2392482590709185e-10],["v",701],["f",227,0.4141229545783768,0.005101090701416859,3.2240389835115364e-10],["f",227,0.4230090208580421,1.0027027668063013e-08,1.95803609518699e-10],["f",228,0.29415105415762993,0.7024643149124176,-1.1443576040113049e-10],["v",702],["f",232,0.002608745880777395,0.42300197992427574,-3.781327682884309e-10],["v",714],["v",720],["v",726],["v",732],["v",719],["v",737],["f",312,0.41922414808809627,0.5807756637789446,-2.13789438843065e-10],["v",942],["v",936],["v",954],["f",312,0.42300183167388805,0.5769983429109775,2.898770272281273e-10],["f",312,0.42190411571250475,0.5769908027256624,-1.249569904200696e-10],["v",960],["f",313,0.10848010890346195,0.6748577017759662,-5.093053482909112e-10],["f",313,0.22451138363162085,0.775488616189719,4.394675048777947e-10],["f",314,0.22451138384911232,0.5702756701431163,4.3946754097129795e-10],["v",948],["f",314,0.22451138384911232,0.7754886017429302,4.3946754097129795e-10],["f",315,0.2245113838491123,0.7754886161508878,4.3946754091708784e-10],["v",953],["f",316,0.5006702801943019,0.21261295266968494,-1.340368945121264e-10],["f",316,0.7024644024759298,0.29753548780564654,6.523629911010104e-11],["v",971],["v",972],["v",989],["v",990],["v",996],["v",1002]],"i":[0,1,2,0,2,3,4,5,3,3,2,6,3,6,4,7,5,4,8,5,7,7,9,8,10,8,9,10,9,11,12,10,11,13,1,0,0,14,13,15,16,10,10,12,15,14,17,13,17,18,2,17,2,1,17,1,13,2,18,6,19,7,4,18,19,4,18,4,6,16,15,20,11,9,19,9,7,19,11,19,21,21,20,15,12,11,21,21,15,12,22,23,24,24,25,26,27,22,24,24,26,27,25,28,26,22,29,23,29,30,23,23,30,31,32,23,31,31,33,32,34,32,33,35,32,34,35,34,36,36,37,35,38,35,37,26,28,39,39,27,26,37,36,40,40,38,37,39,41,29,39,29,22,39,22,27,41,42,30,41,30,29,30,42,31,31,42,43,43,34,33,43,33,31,40,36,34,34,43,40],"f":[223,223,224,224,224,225,226,226,227,227,227,228,228,232,232,234,235,235,235,236,237,237,237,238,238,238,239,239,239,239,312,312,312,312,313,313,313,314,314,314,315,316,316,316,317,319,319,323,323,324,324,324,325,325,326,327,327,327,328,328]};
+function rebuildKneelingCornerInlayExterior(original) {
+  // ExtrudeGeometry is nonindexed: this identity index preserves every triangle.
+  original.setIndex(Array.from({length:original.attributes.position.count},(_,i)=>i));
+  const g=rebuildMandorlaInscrollExterior(original,KNEELING_INLAY_EXTERIOR);
+  delete g.userData.regularizedMandorlaInscrollExterior;
+  g.userData.regularizedKneelingCornerInlay=true;return g;
+}
+
 function buildOfferingTable(b,layout) {
   const floorY=layout.floorContactY;
   b.withTransform(0,0,.62,[.84,1,1],()=>{
@@ -1829,7 +1842,7 @@ function buildOfferingTable(b,layout) {
     q.bezierCurveTo(.013,.018,.019,.026,.027,.018);q.bezierCurveTo(.038,.008,.033,-.007,.015,.002);
     q.bezierCurveTo(.012,-.006,.010,-.014,0,-.022);q.closePath();
     const g=new T.ExtrudeGeometry(q,{depth:.0035,bevelEnabled:true,bevelSize:.001,bevelThickness:.001,bevelSegments:1,curveSegments:7});
-    g.userData.kneelingCornerInlay=true;return g;
+    g.userData.kneelingCornerInlay=true;return rebuildKneelingCornerInlayExterior(g);
   });
   const cornerBorder=b.geometry('kneeling-base-oval-corner-border',()=>{
     const points=[];for(let k=0;k<64;k++){const a=k/64*Math.PI*2;points.push(new T.Vector3(.103*Math.cos(a),.040*Math.sin(a),0));}

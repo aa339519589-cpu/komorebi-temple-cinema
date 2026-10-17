@@ -60,6 +60,20 @@ function chartStoneCap(g){
   }
   return g;
 }
+// Closed stone mounting boss under the existing cap, confined to the original
+// cap envelope. Its top follows actual emitted lower-cap grid vertices +3 mm;
+// its .655-square bottom seats 5 mm into the existing upper frame's flat top.
+// This is an authored physical join, not a dimension recovered from the photo.
+function capBearing(cap){
+  const source=cap.attributes.position,n=32,row=n+1,layer=row*row,lo=8,hi=24,m=hi-lo+1,p=[],ids=[];
+  if(source.count!==layer*2)throw Error('Unexpected original cap vertex grid');
+  for(let z=lo;z<=hi;z++)for(let x=lo;x<=hi;x++){const k=layer+z*row+x;p.push(source.getX(k),source.getY(k)+.003,source.getZ(k));}
+  for(let z=0;z<m-1;z++)for(let x=0;x<m-1;x++){const a=z*m+x,b=a+1,c=a+m,d=c+1;ids.push(a,c,b,b,c,d);}
+  const edge=[...Array.from({length:m-1},(_,i)=>i),...Array.from({length:m-1},(_,i)=>i*m+m-1),...Array.from({length:m-1},(_,i)=>(m-1)*m+m-1-i),...Array.from({length:m-1},(_,i)=>(m-1-i)*m)],base=p.length/3;
+  for(const k of edge)p.push(p[k*3],2.535,p[k*3+2]);const centre=p.length/3;p.push(0,2.535,0);
+  for(let i=0;i<edge.length;i++){const j=(i+1)%edge.length,a=edge[i],b=edge[j],aa=base+i,bb=base+j;ids.push(a,b,aa,b,bb,aa,centre,aa,bb);}
+  const indexed=new T.BufferGeometry();indexed.setAttribute('position',new T.Float32BufferAttribute(p,3));indexed.setIndex(ids);const g=indexed.toNonIndexed();indexed.dispose();g.computeVertexNormals();return g;
+}
 function surfaceMoss(g,seed){
   const p=g.attributes.position,n=g.attributes.normal,ix=g.index,verts=[],uv=[],colors=[],count=ix?.count??p.count;
   for(let i=0;i<count;i+=3){
@@ -139,11 +153,12 @@ export function buildRestorationStoneLanterns({materials:source={},options={}}={
     stoneParts.push(profile([[0,2.91],[.105,2.91],[.145,2.94],[.15,2.975],[.116,3.005],[.102,3.025],[.147,3.055],[.174,3.11],[.161,3.17],[.112,3.215],[.071,3.245],[.052,3.285],[.015,3.335],[0,3.34]],24));
     // Moss is extracted from the upper faces, never represented by floating balls.
     for(const g of stoneParts.slice(0,1))mossParts.push(surfaceMoss(g,seed+3));
+    stoneParts.push(capBearing(roof));
     const baked=stoneParts.map(g=>{const baked=bakeStone(g,seed);return g===roof?chartStoneCap(baked):baked;});
     addMerged(baked,stone,body,'carved-shaft-window-stone-and-curved-cap');const paperMesh=addMerged(windowParts,paper,body,'existing-controlled-warm-paper-windows');addMerged(barParts,lattice,body,'fine-recessed-window-grilles');addMerged(shadowParts,shadow,body,'dark-interior-with-open-window-faces');addMerged(mossParts.filter(g=>g.attributes.position.count),moss,body,'surface-following-broken-moss');
     emitterRecords.push({index,object:body,localPosition:new T.Vector3(0,2.228,0),paperMesh,material:paper});
   }
-  group.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(group),stats={version:'stone-lantern-ref4-v2-open-lamp-chamber',lanterns:anchors.length,meshes:0,triangles:0,buildMilliseconds:performance.now()-started};group.traverse(o=>{if(o.isMesh){stats.meshes++;stats.triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;}});
+  group.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(group),stats={version:'stone-lantern-ref4-v4-closed-cap-bearing',lanterns:anchors.length,meshes:0,triangles:0,buildMilliseconds:performance.now()-started};group.traverse(o=>{if(o.isMesh){stats.meshes++;stats.triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;}});
   function getEmitterMetadata(){
     group.updateMatrixWorld(true);
     return emitterRecords.map(record=>{

@@ -71,14 +71,17 @@ gtao.updatePdMaterial({
 });
 if (!params.has('noao')) composer.addPass(gtao);
 const previousBefore = gtao._renderOverride.bind(gtao);
-gtao._renderOverride = (...args) => world.restorationLighting.withReflectionsHidden(()=>{
+gtao._renderOverride = (...args) => {
+  const renderNormal=()=>world.restorationLighting.withReflectionsHidden(()=>{
   const normalExclusions=[...world.foliageMeshes,...world.transparentNormalExclusions];
   const visible=normalExclusions.map(o=>o.visible);
   normalExclusions.forEach(o=>o.visible=false);
   try{previousBefore(...args)}finally{normalExclusions.forEach((o,i)=>o.visible=visible[i])}
-  const clear=renderer.autoClear;renderer.autoClear=false;renderer.setRenderTarget(gtao.normalRenderTarget);
-  try{renderer.render(world.foliageNormalScene,camera)}finally{renderer.autoClear=clear}
-});
+  const clear=renderer.autoClear;renderer.autoClear=false;
+  try{renderer.setRenderTarget(gtao.normalRenderTarget);renderer.render(world.foliageNormalScene,camera)}finally{renderer.autoClear=clear}
+  });
+  return world.withRoofNormalPass(renderNormal);
+};
 
 const dof = new ShaderPass({
   uniforms: {
