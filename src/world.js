@@ -28,7 +28,8 @@ import {buildRestorationWetPath} from './restoration-landscape-path.js';
 import {referenceProcessionalDryBankRockDelta} from './restoration-processional-dry-bank-rock.js';
 import {buildRestorationProcessionalRightCurbBearing} from './restoration-processional-right-curb-bearing.js';
 import {buildRestorationProcessionalLeftReachBearing} from './restoration-processional-left-reach-bearing.js';
-import {installRestorationProcessionalLastCurbJoin} from './restoration-processional-last-curb-join-uv-v4.js';
+import {installRestorationProcessionalLastCurbJoin as installLegacyRestorationProcessionalLastCurbJoin} from './restoration-processional-last-curb-join-uv-v4.js';
+import {installRestorationProcessionalLastCurbJoin} from './restoration-processional-last-curb-join-shell-v1.js';
 import {buildRestorationBridgeSpillway} from './restoration-bridge-spillway-v2.js';
 import {buildRestorationStoneLanterns} from './restoration-landscape-lanterns-v2.js';
 import {restorationSupportedLanternAnchors,restorationLanternSupportPlan} from './restoration-lantern-support-plan.js';
@@ -40,6 +41,8 @@ export function buildWorld(renderer,options={}) {
   const reference10Porch=sceneVariant==='reference10-porch';
   // Both scene variants share this same original4-style path. The named
   // false option is a reproducible same-assets control, not the scene default.
+  const pathShellClosure=options.pathShellClosure??true;
+  if(typeof pathShellClosure!=='boolean')throw new TypeError('Path shell closure must be boolean.');
   const processionalSupportRepair=options.processionalSupportRepair??true;
   if(typeof processionalSupportRepair!=='boolean')throw new TypeError('Processional support repair must be boolean.');
   const processionalRockMoves=[];
@@ -1428,12 +1431,12 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   puddles.material.vertexShader=puddles.material.vertexShader.replace('void main()','varying vec3 vPuddleWorld;void main()').replace('gl_Position =','vPuddleWorld=(modelMatrix*vec4(position,1.0)).xyz;gl_Position =');
   puddles.material.fragmentShader = puddles.material.fragmentShader.replace('void main()','varying vec3 vPuddleWorld;void main()').replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );', 'float f=.0204+.9796*pow(1.0-max(0.0,normalize(cameraPosition-vPuddleWorld).y),5.0);gl_FragColor = vec4(base.rgb*.91,.025+f*.70);');
   scene.add(puddles);
-  const restoredWetPath=buildRestorationWetPath({options:{variant:'procession',origin:[-1.540726762,0,17.775909604],width:3.012,length:15.288,yaw:0,stoneTop:.0284,wetness:.45}});
+  const restoredWetPath=buildRestorationWetPath({options:{variant:'procession',origin:[-1.540726762,0,17.775909604],width:3.012,length:15.288,yaw:0,stoneTop:.0284,wetness:.45,closedStoneShells:pathShellClosure}});
   scene.add(restoredWetPath.group);
   // Reversible local stone/rock join: only left row 8 changes, not the shore rocks.
   // Its visible notch is a construction hypothesis, not a recovered photo dimension.
   const restoredProcessionalLastCurbJoin=processionalSupportRepair?
-    installRestorationProcessionalLastCurbJoin({wetPath:restoredWetPath,supportMaterial:materials.stone}):null;
+    (pathShellClosure?installRestorationProcessionalLastCurbJoin:installLegacyRestorationProcessionalLastCurbJoin)({wetPath:restoredWetPath,supportMaterial:materials.stone}):null;
   if(restoredProcessionalLastCurbJoin)scene.add(restoredProcessionalLastCurbJoin.group);
   const restoredProcessionalCurbBearing=processionalSupportRepair?
     buildRestorationProcessionalRightCurbBearing({wetPath:restoredWetPath,material:materials.stone}):null;
@@ -1653,7 +1656,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     roofAudit,
     reflectionAudit,
     restorationLighting,lightingProfiles,referenceModes,windowRadianceByMode,lanternRadianceByMode,
-    restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,restoredNearColumn,restoredNearColumnRoof,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredProcessionalLastCurbJoin,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
+    restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,restoredNearColumn,restoredNearColumnRoof,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,pathShellClosure,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredProcessionalLastCurbJoin,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
     columns,
     disposePracticalLanterns,
     // Only owned room maps/portal wrappers/private materials; not whole-scene disposal.

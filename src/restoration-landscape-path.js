@@ -33,7 +33,7 @@ function stoneMaps(seed,size=192){
   function tex(bytes,srgb=false){const t=new T.DataTexture(bytes,size,size,T.RGBAFormat);t.colorSpace=srgb?T.SRGBColorSpace:T.NoColorSpace;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.generateMipmaps=true;t.anisotropy=8;t.needsUpdate=true;return t;}
   return {map:tex(c,true),roughnessMap:tex(r),normalMap:tex(n)};
 }
-function slabGeometry(width,depth,thickness,seed){
+function slabGeometry(width,depth,thickness,seed,closedShell=false){
   const random=rng(seed),rand=(a,b)=>a+(b-a)*random(),hw=width*.5,hd=depth*.5;
   const cut=()=>rand(.012,.035);
   const boundary=[[-hw+cut(),-hd],[-hw*.55,-hd+rand(-.003,.004)],[hw*.32,-hd+rand(-.004,.004)],[hw-cut(),-hd],
@@ -60,7 +60,27 @@ function slabGeometry(width,depth,thickness,seed){
     p.push(a[0],-.002,a[1],b[0],-.002,b[1],a[0],-thickness,a[1],b[0],-thickness,b[1]);
     uv.push(0,1,1,1,0,0,1,0);colors.push(.84,.87,.82,.84,.87,.82,.71,.74,.69,.71,.74,.69);ids.push(start,start+2,start+1,start+1,start+2,start+3);
   }
-  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.setIndex(ids);g.computeVertexNormals();return g;
+  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.setIndex(ids);g.computeVertexNormals();if(closedShell)closeSlabShell(g,width,depth,thickness,count,rings);return g;
+}
+// Full shell successor: the original top and its normals/UV/colors are retained.
+// Side-upper Y is reconciled to the actual top rim; inward legacy sides are
+// reversed with outward normals, and a separate bottom fan closes the solid.
+// Per-stone top attributes remain exact. Side UV/colors remain exact; merged
+// global offsets legitimately change from the original 155-vertex blocks.
+function closeSlabShell(g,width,depth,thickness,count,rings){
+  const old=g.attributes,oldCount=old.position.count,outer=1+(rings-1)*count,side=1+rings*count;
+  if(count!==14||rings!==7||oldCount!==155||g.index.count!==630)throw Error('Unexpected slab shell source contract');
+  const arrays=Object.fromEntries(Object.entries(old).map(([key,a])=>[key,Array.from(a.array)]));
+  for(let k=0;k<count;k++)for(const[at,rim]of[[side+4*k,outer+k],[side+4*k+1,outer+(k+1)%count]])arrays.position[at*3+1]=old.position.getY(rim);
+  for(let k=side;k<oldCount;k++)for(let j=0;j<3;j++)arrays.normal[k*3+j]=-old.normal.array[k*3+j];
+  const bottom=[];for(let k=0;k<count;k++)bottom.push([old.position.getX(side+4*k+2),old.position.getY(side+4*k+2),old.position.getZ(side+4*k+2)]);
+  const minX=Math.min(...bottom.map(p=>p[0])),maxX=Math.max(...bottom.map(p=>p[0])),minZ=Math.min(...bottom.map(p=>p[2])),maxZ=Math.max(...bottom.map(p=>p[2]));
+  const append=(p,u,v)=>{arrays.position.push(...p);arrays.normal.push(0,-1,0);arrays.uv.push(u,v);arrays.color.push(.71,.74,.69);};
+  append([0,bottom[0][1],0],-minX/(maxX-minX),-minZ/(maxZ-minZ));
+  for(const p of bottom)append(p,(p[0]-minX)/(maxX-minX),(p[2]-minZ)/(maxZ-minZ));
+  const index=Array.from(g.index.array);for(let at=182*3;at<630;at+=3)[index[at+1],index[at+2]]=[index[at+2],index[at+1]];for(let k=0;k<count;k++)index.push(oldCount,oldCount+1+k,oldCount+1+(k+1)%count);
+  for(const[key,a]of Object.entries(old))g.setAttribute(key,new T.BufferAttribute(new a.array.constructor(arrays[key]),a.itemSize,a.normalized));
+  g.setIndex(index);g.userData.closedStoneShell={version:'original-top-shell-v1',originalVertices:155,originalTriangles:210,vertices:170,triangles:224,topAttributesUnchanged:true,sideUpperYAligned:true,sideWindingAndNormalsReversed:true};
 }
 function fallenMaple(){
   const shape=new T.Shape(),rim=[[0,-.45],[-.10,-.23],[-.28,-.25],[-.21,-.07],[-.46,.02],[-.27,.15],[-.32,.43],[-.10,.26],[0,.57],[.10,.26],[.32,.43],[.27,.15],[.46,.02],[.21,-.07],[.28,-.25],[.10,-.23]];
@@ -72,7 +92,7 @@ function puddleShape(x,z,rx,rz,random){
 }
 
 export function buildRestorationWetPath({options={}}={}){
-  const start=performance.now(),variant=options.variant??'procession',rain=variant==='rain-threshold';
+  const start=performance.now(),variant=options.variant??'procession',rain=variant==='rain-threshold',closedStoneShells=options.closedStoneShells??true;
   const width=options.width??5.02,length=options.length??24.44,origin=options.origin??[6,0,30.22],yaw=options.yaw??0,top=options.stoneTop??.05;
   const random=rng(options.seed??(rain?1010610:41016)),rr=(a,b)=>a+(b-a)*random();
   const group=new T.Group();group.name=`reference-${rain?'10':'4'}-wet-stone-path`;group.position.fromArray(origin);group.rotation.y=yaw;
@@ -108,7 +128,7 @@ export function buildRestorationWetPath({options={}}={}){
     let x=-width/2;
     for(let col=0;col<proportions.length;col++){
       const w=proportions[col]*width,gap=.025,matIndex=(row*3+col*5)%8,cx=x+w/2;
-      const slab=slabGeometry(w-gap,step-.028,.16,123+row*19+col*7);slab.translate(cx,top,z);stoneParts[matIndex].push(slab);
+      const slab=slabGeometry(w-gap,step-.028,.16,123+row*19+col*7,closedStoneShells);slab.translate(cx,top,z);stoneParts[matIndex].push(slab);
       slabs.push({x:cx,z,width:w-gap,depth:step-.028,top});
       if(col>0)mossRun(x,z,'z',step);
       if(random()<.57)mossRun(cx,z+step/2,'x',w);
@@ -126,7 +146,7 @@ export function buildRestorationWetPath({options={}}={}){
   add(box,soilMat,joints,0,top-.13,0,width+.03,.12,length+.02);
   const curbs=options.curbs??!rain;
   if(curbs)for(const side of[-1,1])for(let row=0;row<rows;row++){
-    const z=-length/2+(row+.5)*step,g=slabGeometry(.20,step-.025,.20,181+row*3+(side+1)*17);g.translate(side*(width/2+.13),top+.035,z);curbParts[row%8].push(g);
+    const z=-length/2+(row+.5)*step,g=slabGeometry(.20,step-.025,.20,181+row*3+(side+1)*17,closedStoneShells);g.translate(side*(width/2+.13),top+.035,z);curbParts[row%8].push(g);
     if(row%2===0)mossRun(side*(width/2+.025),z,'z',step);
   }
   const drainSide=options.drainSide??(rain?-1:0),drainX=drainSide*(width/2+.095),drainWidth=.145;
@@ -161,9 +181,10 @@ export function buildRestorationWetPath({options={}}={}){
   group.traverse(o=>{if(!o.isMesh)return;stats.meshes++;stats.instances+=o.count??1;stats.triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3*(o.count??1);});
   function setWetness(amount){const wetness=clamp(amount,0,1);for(const m of stoneMaterials){m.color.copy(dry).lerp(wet,wetness);m.roughness=T.MathUtils.lerp(.64,.24,wetness);m.clearcoat=wetness*.45;m.clearcoatRoughness=T.MathUtils.lerp(.29,.12,wetness);}return wetness;}
   setWetness(options.wetness??(rain?1:.45));
-  return {group,groups:{surface,joints,edges,drain,leaves},materials:{stone:stoneMaterials,moss:mossMat,iron:ironMat},stats,
+  const ownedGeometries=new Set([box,mossGeometry,leafGeometry,puddleGeometry]);group.traverse(o=>{if(o.isMesh)ownedGeometries.add(o.geometry);});let disposed=false;
+  return {stoneShellClosure:{version:'original-top-shell-v1',enabled:closedStoneShells,perStoneOriginalVertices:155,perStoneVertices:closedStoneShells?170:155,perStoneOriginalTriangles:210,perStoneTriangles:closedStoneShells?224:210},group,groups:{surface,joints,edges,drain,leaves},materials:{stone:stoneMaterials,moss:mossMat,iron:ironMat},stats,
     puddleGeometry,puddlePlaneY:origin[1]+top+.004,puddleDefinitions,slabs,setWetness,
     replacementBounds:{origin:[...origin],width,length,yaw,localX:[-width/2,width/2],localZ:[-length/2,length/2]},
-    dispose(){const gs=new Set();group.traverse(o=>{if(o.isMesh)gs.add(o.geometry);});gs.forEach(g=>g.dispose());puddleGeometry.dispose();ownedMaterials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());group.removeFromParent();}
+    dispose(){if(disposed)return;disposed=true;const errors=[];for(const object of[...ownedGeometries,...ownedMaterials,...textures])try{object.dispose();}catch(error){errors.push(error);}try{group.removeFromParent();}catch(error){errors.push(error);}if(errors.length)throw new AggregateError(errors,'All owned path cleanup actions were attempted; listener errors are not hidden');}
   };
 }
