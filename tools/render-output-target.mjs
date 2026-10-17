@@ -27,7 +27,7 @@ try{
  for(const job of request.jobs){
   const width=job.width??640,scene=job.scene??'shared';
   if(!/^[a-z0-9-]{1,80}$/.test(job.id)||!Number.isInteger(width)||width<320||width>1600||!Number.isInteger(job.reference)||job.reference<1||job.reference>10||!['shared','reference10-porch'].includes(scene))throw Error('Invalid job');
-  if(job.finish&&(job.reference!==6||scene!=='shared'))throw Error('Sanctuary finish study is restricted to reference six');
+  if((job.finish||job.floor)&&(job.reference!==6||scene!=='shared'))throw Error('Sanctuary finish and floor studies are restricted to reference six');
   active={job,status:'building',errors:[],startedAt:new Date().toISOString()};report.jobs.push(active);event('job-start',{id:job.id});
   const identity=width+':'+scene+':'+(job.query||'');const begin=performance.now();
   if(key!==identity){if(page)await bounded(page.close(),'Old page close',10000);page=await browser.newPage({viewport:{width,height:width},deviceScaleFactor:1});attach(page);await page.route('**/*',r=>{const u=new URL(r.request().url());return u.protocol==='data:'||(u.hostname==='127.0.0.1'&&u.port==='4317')?r.continue():r.abort('blockedbyclient')});
@@ -36,9 +36,11 @@ try{
   active.buildSeconds=(performance.now()-begin)/1000;active.status='rendering';event('ready',{id:job.id,seconds:active.buildSeconds});
   const result=await bounded(page.evaluate(async j=>{
    const {captureOutputTarget}=await import('/src/capture-output-target.js'),t=window.temple;
-   if(j.finish){const {createSanctuaryFinishStudy}=await import('/src/sanctuary-reference-finish.js');window.sanctuaryFinishStudy??=createSanctuaryFinishStudy(t);window.sanctuaryFinishStudy.apply(j.finish);}else window.sanctuaryFinishStudy?.restore();
+   window.sanctuaryFloorStudy?.restore();window.sanctuaryFinishStudy?.restore();
+   if(j.finish){const {createSanctuaryFinishStudy}=await import('/src/sanctuary-reference-finish.js');window.sanctuaryFinishStudy??=createSanctuaryFinishStudy(t);window.sanctuaryFinishStudy.apply(j.finish);}
+   if(j.floor){const {createSanctuaryFloorPanelStudy}=await import('/src/reference6-floor-panels.js');window.sanctuaryFloorStudy??=createSanctuaryFloorPanelStudy(t);window.sanctuaryFloorStudy.apply(j.floor);}
    const capture=captureOutputTarget(t,()=>{if(Number.isFinite(j.exposure))t.renderer.toneMappingExposure=j.exposure;return j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time??0,j.camera.fov??48):t.renderReference(j.reference)});
-   capture.finish=window.sanctuaryFinishStudy?.info()||null;capture.actualExposure=t.renderer.toneMappingExposure;return capture;
+   capture.finish=window.sanctuaryFinishStudy?.info()||null;capture.floor=window.sanctuaryFloorStudy?.info()||null;capture.actualExposure=t.renderer.toneMappingExposure;return capture;
   },job),'Full output target render/readback');
   const rgba=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;if(rgba.length!==width*width*4)throw Error('Wrong pixel byte count');
   active.capture=result;const raw=join(out,job.id+'.rgba'),png=join(out,job.id+'.png');await writeFile(raw,rgba);
