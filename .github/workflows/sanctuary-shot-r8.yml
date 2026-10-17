@@ -1,0 +1,56 @@
+name: Verified R8 sanctuary real-motion shot
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/sanctuary-shot-r8.yml'
+      - 'tools/sanctuary-shot-request.json'
+      - 'tools/produce-sanctuary-shot.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sanctuary-shot-r8-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  shot:
+    runs-on: macos-14
+    timeout-minutes: 36
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify frozen scene and script syntax
+        run: |
+          node verify.mjs
+          node --check tools/produce-sanctuary-shot.mjs
+          node -e "const x=require('./tools/sanctuary-shot-request.json');if(x.fps!==30||x.duration!==6||x.size!==720)throw Error('invalid request')"
+      - name: Install pinned isolated browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render every native 3D frame and master the test shot
+        timeout-minutes: 30
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          set -o pipefail
+          mkdir -p output/sanctuary-shot
+          node tools/produce-sanctuary-shot.mjs 2>&1 | tee output/sanctuary-shot/execution.log
+      - name: Preserve validated movie and source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanctuary-6-second-real-film-${{ github.sha }}
+          path: |
+            output/sanctuary-shot/*.mp4
+            output/sanctuary-shot/*.png
+            output/sanctuary-shot/*.json
+            output/sanctuary-shot/*.log
+          retention-days: 7
+          if-no-files-found: warn
