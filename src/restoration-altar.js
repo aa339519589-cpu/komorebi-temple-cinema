@@ -490,7 +490,10 @@ function buildTerraces(b,layout) {
       let cursor=-frontWidth/2+.11;
       weights.forEach((weight,i)=>{
         const pw=available*weight/total,x=cursor+pw/2;
-        framedScrollPanel(b,x,t.y,front+.018,pw,t.h-.083,(level+i)%2,t.d/2);
+        // The two longest middle panels each carry one inward-facing
+        // long-bodied dragon in reference 6, not two heads around a pearl.
+        const singleDirection=level===2&&(i===0||i===weights.length-1)?-Math.sign(x):0;
+        framedScrollPanel(b,x,t.y,front+.018,pw,t.h-.083,(level+i)%2,t.d/2,singleDirection);
         cursor+=pw+gap;
         if(i<weights.length-1){
           b.box(cursor-gap/2,t.y,front+.022,.052,t.h-.045,.098,'oldgold');
@@ -540,7 +543,7 @@ function buildTerraces(b,layout) {
   }
 }
 
-function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ) {
+function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   // Keep the photographed front face and relief fixed while the hidden board
   // back enters its real cabinet, rather than hanging off neighboring trim.
   const faceZ=z+.0125,backZ=Number.isFinite(bearingZ)?Math.min(z-.0125,bearingZ-.002):z-.0125;
@@ -550,19 +553,23 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ) {
     b.box(x,y+side*h/2,z+.021,w,.013,.021,'gold');
     b.box(x+side*(w/2-.042),y,z+.021,.009,h-.04,.021,'oldgold');
   }
-  // One coherent bilateral vine relief per framed field. Geometry is shared.
-  const g=b.geometry('scroll-relief:'+variant,()=>scrollReliefGeometry(variant));
+  // Preserve the established paired field on all other panels. The two
+  // long middle fields instead share one existing creature apiece, facing
+  // inward. No new horns, digits or unresolved scale patterns are invented.
+  const key='scroll-relief:'+variant+(singleDirection?':single-facing:'+singleDirection:'');
+  const g=b.geometry(key,()=>scrollReliefGeometry(variant,singleDirection));
   // Sink the cast relief's concealed back into its actual lacquer panel.
   // Previously every part hovered ahead of the board; the central pearl
   // now overlaps it by .00025 while all carved fronts remain raised.
-  b.add(g,'gold',x,y,z+.004,w*.91,h*1.12,.55);
+  const reliefWidth=w*.91;
+  b.add(g,'gold',x+singleDirection*.49*reliefWidth,y,z+.004,reliefWidth*(singleDirection?2:1),h*1.12,.55);
   for(const side of [-1,1]) b.ball(x+side*(w/2-.045),y,z+.04,.018,Math.min(.027,h*.16),.012,'oldgold');
 }
 
-function scrollReliefGeometry(variant) {
+function scrollReliefGeometry(variant,singleDirection=0) {
   // Reference cabinet relief: bilateral long-bodied creatures among cloud
   // scrolls, with heads facing a central pearl. Avoid an X-shaped leaf glyph.
-  const parts=[];
+  const parts=[],creatureRanges=[];
   const tube=(ps,r=.014,n=22)=>{
     const path=new T.CatmullRomCurve3(ps.map(p=>new T.Vector3(...p))),g=new T.TubeGeometry(path,n,r,5,false);
     // These ridges, horns and claw tips are solid casting, not open pipes.
@@ -589,6 +596,7 @@ function scrollReliefGeometry(variant) {
   };
   const ellipse=(x,y,z,rx,ry,rz)=>parts.push(new T.SphereGeometry(1,12,8).scale(rx,ry,rz).translate(x,y,z));
   for(const side of [-1,1]){
+    const creatureStart=parts.length;
     const body=[];
     for(let i=0;i<=36;i++){
       const t=i/36;body.push([side*(.13+.30*t),.15*Math.sin(t*Math.PI*2.8+variant*.4),.035+.018*Math.sin(t*Math.PI)]);
@@ -619,10 +627,23 @@ function scrollReliefGeometry(variant) {
     for(const sign of [-1,1]){
       const ps=[];for(let k=0;k<=24;k++){const t=k/24,a=t*Math.PI*2.25,r=.068*(1-t*.72);ps.push([side*(.405+Math.cos(a)*r),sign*(.22+Math.sin(a)*r*1.7),.025]);}tube(ps,.022,24);
     }
+    creatureRanges.push({side,start:creatureStart,end:parts.length});
   }
   ellipse(0,0,.050,.029,.10,.035);
-  const normalized=parts.map(g=>g.index?g.toNonIndexed():g),merged=mergeGeometries(normalized,false);
-  normalized.forEach(g=>g.dispose());parts.forEach(g=>g.dispose());return merged;
+  // Keep the same closed cast components and their existing fine detail.
+  // Select the one facing the center aisle. The instance applies the long
+  // panel's horizontal affine transform; these original prototype coordinates
+  // remain exact. Other panels retain the whole pair and central pearl.
+  let active=parts;
+  if(singleDirection){
+    if(Math.abs(singleDirection)!==1)throw new RangeError('Single dragon direction must be -1 or +1.');
+    const range=creatureRanges.find(r=>r.side===-singleDirection);
+    active=parts.slice(range.start,range.end);
+  }
+  const normalized=active.map(g=>g.index?g.toNonIndexed():g),merged=mergeGeometries(normalized,false);
+  normalized.forEach(g=>g.dispose());parts.forEach(g=>g.dispose());
+  if(singleDirection)merged.userData.singleInwardDragon={direction:singleDirection,components:active.length};
+  return merged;
 }
 
 
