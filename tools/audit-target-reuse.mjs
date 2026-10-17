@@ -15,11 +15,14 @@ const config={exposure:1.4,environmentGain:1,metalGain:1.1,sunGain:1.6,practical
 try{
  browser=await chromium.launch({headless:true,args:['--use-angle=metal','--enable-gpu','--ignore-gpu-blocklist','--disable-gpu-watchdog']});
  for(const reuse of [false,true]){
+  if(browser)await browser.close().catch(()=>{});
+  browser=await chromium.launch({headless:true,args:['--use-angle=metal','--enable-gpu','--ignore-gpu-blocklist','--disable-gpu-watchdog']});
   const page=await browser.newPage({viewport:{width:640,height:640}}),errors=[];
   page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
   await page.route('**/*',r=>{const u=new URL(r.request().url());return u.protocol==='data:'||(u.hostname==='127.0.0.1'&&u.port==='4317')?r.continue():r.abort('blockedbyclient')});
   await page.goto('http://127.0.0.1:4317/sanctuary-production.html?w=640&h=640&scope=interior'+(reuse?'&reuseTargets=1':''),{waitUntil:'load',timeout:300000});
   await page.waitForFunction(()=>window.production?.ready,null,{timeout:300000});
+  await page.evaluate(()=>{window.production.renderer.resetState=()=>{}});
   await page.evaluate(c=>window.production.configure(c),config);
   const mode={reuse,info:await page.evaluate(()=>window.production.info()),frames:[],errors};
   for(let i=0;i<poses.length;i++){
