@@ -1,0 +1,50 @@
+name: Exterior reference rendering studies
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/exterior-studies.yml'
+      - 'tools/exterior-study-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: exterior-reference-studies-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: macos-14
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify source and prepare isolated renderer
+        run: |
+          node verify.mjs
+          node --check tools/raw-webgl-readback.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render actual exterior cameras
+        timeout-minutes: 16
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REQUEST_FILE: tools/exterior-study-request.json
+          OUTPUT_DIR: output/exterior-studies
+          MAX_JOBS: '6'
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          mkdir -p output/exterior-studies
+          node tools/render-raw-review.mjs 2>&1 | tee output/exterior-studies/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exterior-studies-${{ github.sha }}
+          path: output/exterior-studies/
+          retention-days: 7
+          if-no-files-found: warn
