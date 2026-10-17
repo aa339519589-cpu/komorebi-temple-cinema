@@ -29,7 +29,13 @@ export function createSanctuaryFloorPanelStudy(temple){
  const m=reflector.material,original={fragment:m.fragmentShader,origin:m.uniforms.floorOrigin.value.clone(),pitch:m.uniforms.plankPitch.value,lod:m.uniforms.floorReflectionLod.value};
  const marker='float alpha = clamp(fresnel * floorStrength, 0.0, .78) * seam;';
  if(m.fragmentShader.split(marker).length!==2){scene.remove(panels);geometry.dispose();mat.dispose();throw Error('Pinned floor reflection seam shader changed');}
- const patched=original.fragment.replace(marker,`float across=fract((vFloorWorld.z-${zMin.toFixed(9)})/${length.toFixed(9)});\nfloat acrossDistance=min(across,1.0-across)*${length.toFixed(9)};\nfloat acrossAA=max(fwidth(acrossDistance),.0003);\nseam*=smoothstep(.002- acrossAA,.005+acrossAA,acrossDistance);\n${marker}`);
+ // Signed world coordinates must be parenthesized. Otherwise subtracting a
+ // negative zMin creates GLSL's decrement token (z--12.56), not subtraction.
+ const patched=original.fragment.replace(marker,`float across=fract((vFloorWorld.z-(${zMin.toFixed(9)}))/(${length.toFixed(9)}));
+float acrossDistance=min(across,1.0-across)*${length.toFixed(9)};
+float acrossAA=max(fwidth(acrossDistance),.0003);
+seam*=smoothstep(.002- acrossAA,.005+acrossAA,acrossDistance);
+${marker}`);
  let applied=false,disposed=false;
  function restore(){
   if(disposed)return;
