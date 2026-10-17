@@ -1,0 +1,47 @@
+name: Exterior matching-mode startup
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/site-start-mode.yml','tools/prepare-site-mode.mjs']
+permissions:
+  contents: read
+jobs:
+  daylight:
+    runs-on: macos-14
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Prepare matching source mode and check closure
+        run: |
+          node verify.mjs
+          node tools/prepare-site-mode.mjs
+          node --check src/world-site-start.js
+          node --check src/site-production.js
+          node --check tools/render-site-start.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Capture direct-daylight full scene
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REFERENCE: '3'
+        run: |
+          set -o pipefail
+          mkdir -p output/site-start-3
+          node tools/render-site-start.mjs 2>&1 | tee output/site-start-3/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-start-daylight-${{ github.sha }}
+          path: |
+            output/site-start-3/
+            src/world-site-start.js
+            src/site-production.js
+            site-production.html
+          retention-days: 7
+          if-no-files-found: warn
