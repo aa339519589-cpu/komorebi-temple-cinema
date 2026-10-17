@@ -14,7 +14,7 @@ concurrency:
 jobs:
   metal-review:
     runs-on: macos-14
-    timeout-minutes: 35
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,7 +25,8 @@ jobs:
       - name: Verify source and install isolated renderer
         run: |
           node verify.mjs
-          node --check tools/render-review-session.mjs
+          node --check tools/render-raw-review.mjs
+          node --check tools/raw-webgl-readback.mjs
           node --check tools/probe-hosted-webgl.mjs
           npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
           "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
@@ -58,22 +59,20 @@ jobs:
           path: review-runtime/
           retention-days: 7
           if-no-files-found: error
-      - name: Run actual current-source frames on verified backend
+      - name: Render and directly read actual WebGL pixels
         if: steps.probe.outputs.usable == 'true'
         timeout-minutes: 12
         env:
           PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
-          RENDER_BACKEND: metal
-          RENDER_HEADLESS: ${{ steps.probe.outputs.headless }}
           REQUEST_FILE: tools/render-hosted-request.json
           OUTPUT_DIR: output/hosted-metal-review
-          RENDER_TIMEOUT_MS: '300000'
+          MAX_JOBS: '1'
           NODE_OPTIONS: --max-old-space-size=4096
         run: |
           set -o pipefail
           mkdir -p output/hosted-metal-review
-          node tools/render-review-session.mjs 2>&1 | tee output/hosted-metal-review/execution.log
-      - name: Preserve actual image review
+          node tools/render-raw-review.mjs 2>&1 | tee output/hosted-metal-review/execution.log
+      - name: Preserve actual pixels and execution receipt
         if: always()
         uses: actions/upload-artifact@v4
         with:
