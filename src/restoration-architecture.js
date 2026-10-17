@@ -6,7 +6,7 @@ import {timberSweep} from './natural-forms.js';
  * LOCAL to world.js's current group. Never bake hallMatrix / towerMatrix here.
  * The geometry is shared between instances, not regenerated for every post.
  */
-export const ARCHITECTURE_REVISION = 'reference-joinery-27-near-column-roof-bearing-candidate';
+export const ARCHITECTURE_REVISION = 'reference-joinery-29-reference10-roof-surface-uv-candidate';
 
 /** Optional dedicated architectural surfaces. Existing shared materials are
  * never recolored. Their procedural grain/stone shaders are retained, while
@@ -865,6 +865,99 @@ export function createRestorationArchitecture(ctx) {
     instance(geometry, materialKey(material), ...p, ...scale, rot, tint);
   const v = p => new T.Vector3(...p);
   const stats = {columns:0,bracketSets:0,roofFaces:0,rafters:0,tileEnds:0};
+
+  /** Only the one original reference10 threshold hipRoof. Input is its actual
+   * once-generated indexed geometry BEFORE the existing opening clip, still
+   * in roof-parent coordinates. Backing charts share all four hip phases;
+   * separate ceramic tiles use their actual grid lengths with shared nominal
+   * centre-phase anchors. This never adds roof construction. One world metre
+   * is the nominal effective texture period, not an isometry. Wood's existing
+   * repeat(4,1) is compensated, not mutated. Grain follows the continuous V
+   * field; that hidden board direction is an assumption, not a photo finding.
+   */
+  function reference10RoofSurfaceUV({geometry,referenceMode,layer}={}) {
+    if(referenceMode!=='reference10'||!['darkwood','slate','ceramics'].includes(layer))
+      throw new RangeError('Roof UV is limited to the reference10 threshold surface layers.');
+    const expected=[.6,0,0,0,0,.6,0,0,0,0,.6,0,-13.840726762,4.26,22.584909603999996,1];
+    const parent=stack?.at(-1)?.elements;
+    if(!parent||parent.some((x,i)=>!Number.isFinite(x)||Math.abs(x-expected[i])>1e-10))
+      throw new RangeError('Roof UV requires the actual unchanged threshold hipRoof parent.');
+    const wood=layer==='darkwood',material=ctx.materials?.[wood?'darkwood':'slate'],texture=material?.bumpMap;
+    if(!texture||texture.channel!==0||!texture.matrixAutoUpdate||texture.wrapS!==T.RepeatWrapping||texture.wrapT!==T.RepeatWrapping
+      ||texture.repeat.x!==(wood?4:1)||texture.repeat.y!==1||texture.offset.x!==0||texture.offset.y!==0
+      ||texture.rotation!==0||texture.center.x!==0||texture.center.y!==0
+      ||(wood?material.map!==texture:!!material.map))
+      throw new RangeError('Roof UV requires the unchanged actual wood/stone channel0 repeat transform.');
+    const p=geometry?.attributes?.position;
+    if(!geometry?.isBufferGeometry||!p||p.itemSize!==3||p.isInterleavedBufferAttribute||!(p.array instanceof Float32Array)
+      ||geometry.getAttribute('uv')||geometry.morphAttributes.position?.length)
+      throw new TypeError('Roof UV expects an original Float32 roof surface without a UV attribute.');
+    if(!geometry.index||geometry.index.itemSize!==1||(layer==='ceramics'?(p.count%15!==0||geometry.index.count!==p.count/15*48):(p.count!==861||geometry.index.count!==4800)))
+      throw new TypeError('Roof UV must run on the original indexed surface before the existing opening clip.');
+    const uv=new Float32Array(p.count*2),nominal=new Float64Array(p.count*2),ridge=27*.245,run=27/2-ridge,halfDepth=6.2/2;
+    // Integrate metric length down the current analytic roof generator, not
+    // its XZ projection. A split at t=1 handles the derivative's endpoint.
+    // At every hip, |u|=1 gives the SAME run and integral from either face.
+    const arc=(t,u,horizontal)=>{
+      const f=q=>Math.hypot(horizontal,-3.1*1.43*Math.pow(Math.max(0,1-q),.43)
+        +.48*9*Math.pow(q,8)*(.25+Math.pow(Math.abs(u),7)));
+      const integrate=(a,b)=>{if(b<=a)return 0;const n=64,h=(b-a)/n;let total=f(a)+f(b);
+        for(let j=1;j<n;j++)total+=(j%2?4:2)*f(a+j*h);return total*h/3;};
+      return integrate(0,Math.min(1,t))+integrate(1,t);
+    };
+    const cache=new Map();
+    for(let i=0;i<p.count;i++) {
+      const x=p.getX(i),y=p.getY(i),z=p.getZ(i),ax=Math.abs(x),az=Math.abs(z);
+      if(![x,y,z].every(Number.isFinite)||ax>13.53||az>3.12||y<-.25||y>3.75)
+        throw new RangeError('Roof UV input exceeds the unchanged threshold roof domain.');
+      const key=x+':'+z;let mapped=cache.get(key);
+      if(!mapped){
+        const front=ax<=ridge+run*az/halfDepth;
+        const t=front?az/halfDepth:(ax-ridge)/run,u=front?x/(ridge+run*t):z/(halfDepth*t);
+        if(!(t>=0&&t<=1.006&&Math.abs(u)<=1.000001))throw new RangeError('Roof UV input is not on the original four-face domain.');
+        const horizontal=front?Math.hypot(run*u,halfDepth):Math.hypot(run,halfDepth*u),q=arc(t,u,horizontal)/horizontal;
+        const xx=front?u*(ridge+run*q):Math.sign(x)*(ridge+run*q);
+        const zz=front?Math.sign(z)*halfDepth*q:halfDepth*u*q;
+        mapped=[xx*.6/(wood?4:1),zz*.6];cache.set(key,mapped);
+      }
+      uv[i*2]=nominal[i*2]=mapped[0];uv[i*2+1]=nominal[i*2+1]=mapped[1];
+    }
+    if(layer==='ceramics') {
+      // Each real tile is a separate 3x5 curved grid. Its corrugated narrow
+      // crown can be nearly vertical even when the nominal roof is not.
+      // Measure both directions ON that actual grid, then let the unchanged
+      // opening clip interpolate these coordinates with every other attribute.
+      const point=i=>new T.Vector3(p.getX(i),p.getY(i),p.getZ(i));
+      for(let start=0;start<p.count;start+=15) {
+        const tile=start/15;
+        for(let j=0;j<2;j++)for(let k=0;k<4;k++) {
+          const a=start+j*5+k,expectedIndices=[a,a+5,a+1,a+1,a+5,a+6];
+          for(let q=0;q<6;q++)if(geometry.index.getX(tile*48+(j*4+k)*6+q)!==expectedIndices[q])
+            throw new TypeError('Ceramic UV requires the exact original per-tile index order.');
+        }
+        const cross=new T.Vector2(nominal[(start+8)*2]-nominal[(start+6)*2],nominal[(start+8)*2+1]-nominal[(start+6)*2+1]);
+        if(!(cross.lengthSq()>0))throw new RangeError('Ceramic cross-section has no finite chart direction.');
+        cross.normalize();const down=new T.Vector2(-cross.y,cross.x),delta=new T.Vector2(nominal[(start+12)*2]-nominal[(start+2)*2],nominal[(start+12)*2+1]-nominal[(start+2)*2+1]);
+        if(down.dot(delta)<0)down.negate();
+        const anchor=new T.Vector2(nominal[(start+7)*2],nominal[(start+7)*2+1]);
+        const physicalCross=point(start+8).sub(point(start+6)).normalize(),centre=point(start+7);
+        for(let j=0;j<3;j++) {
+          const centreDelta=point(start+j*5+2).sub(centre),shear=centreDelta.dot(physicalCross);
+          const longitudinal=(j===0?-1:j===2?1:0)*Math.sqrt(Math.max(0,centreDelta.lengthSq()-shear*shear))*.6;
+          const distance=[0];for(let k=1;k<5;k++)distance.push(distance[k-1]+point(start+j*5+k).distanceTo(point(start+j*5+k-1)));
+          for(let k=0;k<5;k++) {
+            const transverse=(distance[k]-distance[2]+shear)*.6;
+            const value=anchor.clone().addScaledVector(cross,transverse).addScaledVector(down,longitudinal),i=start+j*5+k;
+            uv[i*2]=value.x;uv[i*2+1]=value.y;
+          }
+        }
+      }
+    }
+    const result=geometry.clone();result.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
+    result.userData.reference10RoofUV={kind:layer==='ceramics'?'actual-tile-grid-arclength-chart':'continuous-radial-arclength-chart',layer,effectiveTexturePeriodWorld:1,
+      originalGeometryUnchanged:true,nominalRoof:[27,6.2,3.1],integrationIntervals:64};
+    return result;
+  }
 
   function flower(x,y,z,r,ma='oldgold',rot=null,tint=1) {
     draw(g.rosette,ma,[x,y,z],[r,r,r],rot,tint);
@@ -3515,7 +3608,7 @@ export function createRestorationArchitecture(ctx) {
     return{kind:'reference10-side-porch22-physical-candidate',completeConstructionAcceptance:false,referenceMode:'reference10',parts,contacts,rafterCount,newPost:{world:B.toArray(),checkedDisk:originalDisk,footRadius},oldRoofOpenings:{wood:opening,tile:opening,backing:opening},columnSeats,ceilingPiercings:{column:columnHole,unchangedLampRod:rodHole},roofInterface:{cutWorldZ:C.cutZ,xInterval:C.clipX,oldFrontBackingSourceGrid:'actual Float32 front face,20x40',sideApronWidth:apronWidth,requiresPairedOldRoofCut:true},limits:['Isolated geometry candidate, not accepted installation or photo correspondence.','Closed underlay and support solids are emitted; paired old roof/shaft cuts and complete contact/overlap checks are mandatory before integration.','Old21 lamp body, six apertures, full suspension and all three legacy lamps remain untouched.','No camera, other layout, original observations, source gain or global RNG changes.']};
   }
 
-  return {reference10NearColumnRoofReceivers,reference10NearColumn,reference10NearColumnFrontRail,reference10SidePorch,pagodaBalcony,hallGallerySubstructure,hallGalleryRoof,hallFrontFrame,hallFrontDoors,hallFrontFrieze,hangingPorchLantern,pagodaFinial,thresholdPorchSupport,clipRoofOpening:clipRestorationRoofOpening,karahafuEntrance,hallColumnAssembly,pagodaStoreyFrame,pagodaRoof,footColumn,brackets,eaves,tileEnd,squareFitting,sanctuaryTransferBeam,
+  return {reference10RoofSurfaceUV,reference10NearColumnRoofReceivers,reference10NearColumn,reference10NearColumnFrontRail,reference10SidePorch,pagodaBalcony,hallGallerySubstructure,hallGalleryRoof,hallFrontFrame,hallFrontDoors,hallFrontFrieze,hangingPorchLantern,pagodaFinial,thresholdPorchSupport,clipRoofOpening:clipRestorationRoofOpening,karahafuEntrance,hallColumnAssembly,pagodaStoreyFrame,pagodaRoof,footColumn,brackets,eaves,tileEnd,squareFitting,sanctuaryTransferBeam,
     sanctuaryCeiling,sanctuarySideWalls,sanctuaryFloorMats,pagodaWindowBackings,materialKey,
     materialAliases,stats,revision:ARCHITECTURE_REVISION};
 }

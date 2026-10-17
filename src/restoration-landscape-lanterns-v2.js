@@ -40,6 +40,26 @@ function curvedCap(){
   for(const e of edges)for(let j=0;j<n;j++){const a=e[j],b=e[j+1];ids.push(a,b,a+side,b,b+side,a+side);}
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);g.computeVertexNormals();return g;
 }
+// Attribute-only charts for the already non-indexed closed stone cap. Geometry,
+// normals, colours and all non-cap parts retain their original bytes. The top
+// and underside use one X/Z chart each; the rim uses a continuous eight-repeat
+// perimeter phase with the same 1.5-unit/metre vertical scale as the stone maps.
+function chartStoneCap(g){
+  const p=g.attributes.position,uv=g.attributes.uv,half=.655,eps=2e-6;
+  if(g.index||p.count!==4352*3)throw Error('Unexpected original stone-cap topology');
+  for(let i=0;i<p.count;i+=3){
+    const ids=[i,i+1,i+2],top=ids.every(k=>Math.abs(p.getY(k)-capHeight(p.getX(k),p.getZ(k)))<eps),bottom=ids.every(k=>Math.abs(p.getY(k)-(capHeight(p.getX(k),p.getZ(k))-.085))<eps);
+    if(top||bottom){for(const k of ids)uv.setXY(k,p.getX(k)*1.5,p.getZ(k)*1.5);continue;}
+    let side=-1;
+    if(ids.every(k=>Math.abs(p.getZ(k)+half)<eps))side=0;
+    else if(ids.every(k=>Math.abs(p.getX(k)-half)<eps))side=1;
+    else if(ids.every(k=>Math.abs(p.getZ(k)-half)<eps))side=2;
+    else if(ids.every(k=>Math.abs(p.getX(k)+half)<eps))side=3;
+    if(side<0)throw Error('Unclassified original stone-cap rim triangle');
+    for(const k of ids){const x=p.getX(k),z=p.getZ(k),along=side===0?x+half:side===1?2*half+z+half:side===2?4*half+half-x:6*half+half-z;const phase=along<eps?0:along>8*half-eps?8:along/half;uv.setXY(k,phase,p.getY(k)*1.5);}
+  }
+  return g;
+}
 function surfaceMoss(g,seed){
   const p=g.attributes.position,n=g.attributes.normal,ix=g.index,verts=[],uv=[],colors=[],count=ix?.count??p.count;
   for(let i=0;i<count;i+=3){
@@ -119,7 +139,7 @@ export function buildRestorationStoneLanterns({materials:source={},options={}}={
     stoneParts.push(profile([[0,2.91],[.105,2.91],[.145,2.94],[.15,2.975],[.116,3.005],[.102,3.025],[.147,3.055],[.174,3.11],[.161,3.17],[.112,3.215],[.071,3.245],[.052,3.285],[.015,3.335],[0,3.34]],24));
     // Moss is extracted from the upper faces, never represented by floating balls.
     for(const g of stoneParts.slice(0,1))mossParts.push(surfaceMoss(g,seed+3));
-    const baked=stoneParts.map(g=>bakeStone(g,seed));
+    const baked=stoneParts.map(g=>{const baked=bakeStone(g,seed);return g===roof?chartStoneCap(baked):baked;});
     addMerged(baked,stone,body,'carved-shaft-window-stone-and-curved-cap');const paperMesh=addMerged(windowParts,paper,body,'existing-controlled-warm-paper-windows');addMerged(barParts,lattice,body,'fine-recessed-window-grilles');addMerged(shadowParts,shadow,body,'dark-interior-with-open-window-faces');addMerged(mossParts.filter(g=>g.attributes.position.count),moss,body,'surface-following-broken-moss');
     emitterRecords.push({index,object:body,localPosition:new T.Vector3(0,2.228,0),paperMesh,material:paper});
   }

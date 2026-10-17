@@ -500,6 +500,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
       g.setAttribute('color', new T.Float32BufferAttribute(colors, 3));
       g.setIndex(indices);
       g.computeVertexNormals();
+      if(nearColumnRoofSourceCollector){const original=g;g=architecture.reference10RoofSurfaceUV({geometry:g,referenceMode:'reference10',layer:'ceramics'});original.dispose();}
       if(openings?.tile){const clipped=architecture.clipRoofOpening(g,openings.tile);if(clipped!==g)g.dispose();g=clipped;}
       const roofMat = materials.slate.clone();
       roofMat.onBeforeCompile = materials.slate.onBeforeCompile;
@@ -527,6 +528,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
           gg.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
           gg.setIndex(ids);
           gg.computeVertexNormals();
+          if(nearColumnRoofSourceCollector){const original=gg;gg=architecture.reference10RoofSurfaceUV({geometry:gg,referenceMode:'reference10',layer:ma});original.dispose();}
           if(openings?.backing){const clipped=architecture.clipRoofOpening(gg,openings.backing);if(clipped!==gg)gg.dispose();gg=clipped;}
           const mm = materials[ma].clone();
           mm.onBeforeCompile = materials[ma].onBeforeCompile;
