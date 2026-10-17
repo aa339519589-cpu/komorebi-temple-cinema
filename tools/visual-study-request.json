@@ -1,8 +1,8 @@
 {
-  "revision":"v60-visual-study-r4",
-  "goal":"Fresh single-sample contexts, bounded reflection/refraction buffers, preserved complete geometry and lights; measure GPU/host resources and actual exported pixels",
+  "revision":"v60-visual-study-r5",
+  "goal":"Keep every geometry/light operation but bound pending virtual-GPU commands; verify sanctuary and a 960px real rainy courtyard frame",
   "jobs":[
-    {"id":"room-r4-memory-preview","group":"room","reference":6,"scene":"shared","width":480,"quality":"preview","samples":0},
-    {"id":"rain-r4-memory-preview","group":"rain","reference":10,"scene":"reference10-porch","width":480,"quality":"preview","samples":0}
+    {"id":"room-r5-bounded","group":"room","reference":6,"scene":"shared","width":480,"quality":"preview","samples":0},
+    {"id":"rain-r5-960","group":"rain","reference":10,"scene":"reference10-porch","width":960,"quality":"preview","samples":0}
   ]
 }
