@@ -5,6 +5,7 @@ import {resolve,join} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
+import {captureRenderCanvas} from './capture-render-canvas.mjs';
 process.chdir(fileURLToPath(new URL('..',import.meta.url)));
 const out=resolve(process.env.OUTPUT_DIR||'output/real-review');await mkdir(out,{recursive:true});
 const hash=b=>createHash('sha256').update(b).digest('hex'),sourceFiles={};
@@ -51,8 +52,8 @@ try{
   }
   active.buildSeconds=(performance.now()-began)/1000;active.status='rendering';await save();const frameStart=performance.now();
   active.camera=await check(page.evaluate(j=>{const t=window.temple,draw=()=>j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time??0,j.camera.fov??48):t.renderReference(j.reference);let pose=draw();if(j.review){if(!t.configureVisualReview)throw Error('Review controls missing');t.configureVisualReview(j.review);pose=draw()}if(Number.isFinite(j.exposure)){t.renderer.toneMappingExposure=j.exposure;pose=draw()}t.renderer.getContext().finish();return pose},job),'Frame');
-  active.renderSeconds=(performance.now()-frameStart)/1000;active.status='capturing';await save();const file=join(out,job.id+'.png');await check(page.locator('canvas').first().screenshot({path:file,type:'png',timeout}),'PNG');
-  active.info=await check(page.evaluate(()=>window.temple.info()),'Info');active.glError=await page.evaluate(()=>window.temple.renderer.getContext().getError());active.atlas=await page.evaluate(()=>window.temple.renderer.brdfLookupAtlasInfo?.()??null);
+  active.renderSeconds=(performance.now()-frameStart)/1000;active.status='capturing';await save();const file=join(out,job.id+'.png');active.capture=await check(captureRenderCanvas(page,file),'PNG output-buffer export',60000);
+  active.info=await check(page.evaluate(()=>window.temple.info()),'Info');active.glError=await page.evaluate(()=>window.temple.renderer.getContext().getError());active.atlas=await page.evaluate(()=>window.temple.renderer.brdfLookupAtlasInfo?.()??null);active.samplerPacking=await page.evaluate(()=>window.temple.renderer.materialSamplerPackingInfo?.()??null);
   const png=await readFile(file);active.png=job.id+'.png';active.pngSha256=hash(png);active.pngBytes=png.length;
   const ref=join('references/hd',refs[job.reference]);if(existsSync(ref)){const pair=job.id+'-left-reference-right-render.png';execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',ref,'-i',file,'-filter_complex',`[0:v]scale=${width}:${width}:force_original_aspect_ratio=decrease,pad=${width}:${width}:(ow-iw)/2:(oh-ih)/2:black[a];[1:v]scale=${width}:${width}[b];[a][b]hstack[out]`,'-map','[out]','-frames:v','1',join(out,pair)],{timeout:60000});active.referenceFile=ref;active.referenceSha256=hash(await readFile(ref));active.comparison=pair}
   active.status=active.errors.length||active.glError?'rendered-with-errors':'rendered-review';active.completedAt=new Date().toISOString();await save();console.log(JSON.stringify({event:'rendered',id:job.id,status:active.status,renderSeconds:active.renderSeconds,gpu:active.info.gpu}));
