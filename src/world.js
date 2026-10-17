@@ -142,8 +142,8 @@ export function buildWorld(renderer,options={}) {
   mat('endwood', '#57402a', .64, 0, {
     map: woodTex
   });
-  mat('gold','#c5a567',.40,.96);
-  mat('oldgold', '#88632e', .43, .7);
+  mat('gold','#ffe09a',.40,.96);
+  mat('oldgold', '#e6c57e', .43, .7);
   mat('black', '#1d2320', .47, .28);
   mat('slate', '#414d51', .69, .045);
   mat('tileEdge', '#6c7779', .5, .2);
@@ -208,7 +208,7 @@ export function buildWorld(renderer,options={}) {
   mat('waterbed', '#2b4130', .85);
   mat('koiWhite', '#d3c6a8', .4);
   mat('koiRed', '#bd5026', .4);
-  mat('buddha','#c9aa70',.42,.96);
+  mat('buddha','#ffdf98',.42,.96);
   const procNoise = `
 varying vec3 vProc;
 float phash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453123);}
@@ -237,7 +237,7 @@ float pfbm(vec3 p){return .57*pnoise(p)+.28*pnoise(p*2.03)+.15*pnoise(p*4.07);}`
  vProc=(modelMatrix*pp).xyz;vStoneOrigin=(modelMatrix*stoneOrigin).xyz;`);
       shader.uniforms.restorationRoomInverse={value:siteInverse};
       shader.fragmentShader = 'uniform mat4 restorationRoomInverse;varying vec3 vLocalStone;varying vec3 vStoneOrigin;\n'+procNoise + '\n' + shader.fragmentShader;
-      let surface = name==='earth'?`float gpat=pfbm(vProc*.42),soil=pfbm(vProc*5.0);diffuseColor.rgb*=mix(vec3(.34,.51,.29),vec3(1.05,1.0,.69),gpat)*mix(.78,1.15,soil);`:isStone ? `float pat=pfbm(vProc*3.0);float footprint=max(length(dFdx(vProc)),length(dFdy(vProc)))*90.0;float fine=mix(pnoise(vProc*90.0),.5,smoothstep(.35,1.3,footprint));diffuseColor.rgb*=mix(.53,1.18,pat)*mix(.81,1.16,fine);float age=smoothstep(.6,.78,pfbm(vProc*5.3));diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*vec3(.77,.91,.54),age*.38);` : name==='moss'||name==='lichen'?`float mossPat=pfbm(vProc*9.0);diffuseColor.rgb*=mix(vec3(.44,.57,.26),vec3(1.08,1.04,.68),mossPat);` : isMetal ? `float pat=pfbm(vProc*17.0);diffuseColor.rgb*=mix(.66,1.09,pat);` : `float grain=pfbm(vProc*vec3(18.0,.7,18.0));float phase=(vProc.x+vProc.z*.17)*100.0+grain*11.0;float grain2=sin(phase)*(1.0-smoothstep(.7,2.7,fwidth(phase)));diffuseColor.rgb*=mix(.63,1.08,grain)*(1.0+grain2*.018);`;
+      let surface = name==='earth'?`float gpat=pfbm(vProc*.42),soil=pfbm(vProc*5.0);diffuseColor.rgb*=mix(vec3(.34,.51,.29),vec3(1.05,1.0,.69),gpat)*mix(.78,1.15,soil);`:isStone ? `float pat=pfbm(vProc*3.0);float footprint=max(length(dFdx(vProc)),length(dFdy(vProc)))*90.0;float fine=mix(pnoise(vProc*90.0),.5,smoothstep(.35,1.3,footprint));diffuseColor.rgb*=mix(.53,1.18,pat)*mix(.81,1.16,fine);float age=smoothstep(.6,.78,pfbm(vProc*5.3));diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*vec3(.77,.91,.54),age*.38);` : name==='moss'||name==='lichen'?`float mossPat=pfbm(vProc*9.0);diffuseColor.rgb*=mix(vec3(.44,.57,.26),vec3(1.08,1.04,.68),mossPat);` : isMetal ? `float pat=pfbm(vProc*17.0);diffuseColor.rgb*=mix(.96,1.0,pat);` : `float grain=pfbm(vProc*vec3(18.0,.7,18.0));float phase=(vProc.x+vProc.z*.17)*100.0+grain*11.0;float grain2=sin(phase)*(1.0-smoothstep(.7,2.7,fwidth(phase)));diffuseColor.rgb*=mix(.63,1.08,grain)*(1.0+grain2*.018);`;
       shader.fragmentShader = shader.fragmentShader.replace('#include <color_fragment>', '#include <color_fragment>\n' + surface);
       if(name==='paving'||name==='wetStone')shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
 float stoneSeed=phash(vStoneOrigin*1.91),crackDistance=vLocalStone.z-sin(stoneSeed*6.283)*vLocalStone.x*.62-(stoneSeed-.5)*.63+.019*sin(vLocalStone.x*31.0+stoneSeed*27.0);
