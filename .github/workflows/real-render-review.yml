@@ -1,0 +1,62 @@
+name: Current-source real WebGL review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/real-render-review.yml'
+      - 'tools/render-review-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-real-review-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify unchanged current scene source
+        run: |
+          node verify.mjs
+          node --check tools/render-review-worker.mjs
+          node --check tools/render-current.mjs
+      - name: Preserve exact runtime for reproducible review
+        run: |
+          mkdir -p review-runtime
+          git rev-parse HEAD > review-runtime/COMMIT.txt
+          tar -czf review-runtime/current-source.tar.gz src vendor tools references music render-live.html compare-live.html render-v3.html qa/v3/frozen-src index.html viewer.mjs serve.mjs verify.mjs package.json checksums.json frozen-manifest.json README.md PUBLICATION_NOTES.md LICENSE .gitignore
+          sha256sum review-runtime/current-source.tar.gz > review-runtime/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exact-current-runtime-${{ github.sha }}
+          path: review-runtime/
+          retention-days: 7
+          if-no-files-found: error
+      - name: Install isolated rendering runtime
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install --with-deps chromium
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: Render actual current-source comparison frames
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          mkdir -p output/real-review
+          node tools/render-review-worker.mjs 2>&1 | tee output/real-review/execution.log
+      - name: Preserve rendered pixels and execution receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-render-review-${{ github.sha }}
+          path: output/real-review/
+          retention-days: 7
+          if-no-files-found: warn
