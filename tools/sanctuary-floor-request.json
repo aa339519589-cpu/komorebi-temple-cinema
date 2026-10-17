@@ -1,0 +1,9 @@
+{
+ "label":"wide-floor-panels-and-finish-r1",
+ "jobs":[
+  {"id":"floor-original-same-camera","reference":6,"width":960,"scene":"shared"},
+  {"id":"floor-wide-panels-only","reference":6,"width":960,"scene":"shared","floor":{"reflectionLod":0.8}},
+  {"id":"floor-and-gilt-finish-a","reference":6,"width":960,"scene":"shared","floor":{"reflectionLod":0.7},"finish":{"panels":true,"exposure":1.6,"environmentGain":1.25,"metalGain":1.55,"sunGain":1.5,"practicalGain":1.4,"floorLod":0.7,"floorStrength":1.05,"redWood":true}},
+  {"id":"floor-original-restored","reference":6,"width":960,"scene":"shared"}
+ ]
+}
