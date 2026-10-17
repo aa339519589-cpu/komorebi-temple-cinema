@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="icon" href="data:,"><script type="importmap">{"imports":{"three":"/vendor/build/three.module.js","three/addons/":"/vendor/examples/jsm/"}}</script></head><body><script type="module">
+import * as T from 'three';
+import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import {installBrdfLookupAtlas} from '/src/brdf-lookup-atlas.js';
+import {installMaterialSamplerSharing} from '/src/material-sampler-sharing.js';
+RectAreaLightUniformsLib.init();
+function build(stress){
+ const scene=new T.Scene();scene.background=new T.Color('#151b24');const owned=[];
+ const envData=new Float32Array(64*32*4);for(let y=0;y<32;y++)for(let x=0;x<64;x++){const k=(y*64+x)*4,v=.18+2.4*Math.exp(-Math.pow((x-19)/7,2)-Math.pow((y-9)/6,2));envData.set([v*1.1,v,v*.85,1],k);}
+ const env=new T.DataTexture(envData,64,32,T.RGBAFormat,T.FloatType);env.mapping=T.EquirectangularReflectionMapping;env.needsUpdate=true;scene.environment=env;owned.push(env);
+ const size=32,colors=new Uint8Array(size*size*4),normals=new Uint8Array(colors.length),roughness=new Uint8Array(colors.length);
+ for(let y=0;y<size;y++)for(let x=0;x<size;x++){const k=(y*size+x)*4;colors.set([40+(x*17+y*13)%120,75+(x*31+y*19)%145,25+(x*11+y*7)%80,Math.abs(x-16)+Math.abs(y-16)>27?0:255],k);normals.set([125+Math.round(16*Math.sin(x*.6)),128+Math.round(13*Math.cos(y*.7)),251,255],k);const r=40+(x*9+y*15)%206;roughness.set([r,r,r,255],k);}
+ const texture=(bytes,colorSpace=T.NoColorSpace)=>{const t=new T.DataTexture(bytes,size,size,T.RGBAFormat);t.colorSpace=colorSpace;t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(3,2);t.anisotropy=4;t.needsUpdate=true;owned.push(t);return t;};
+ const leaf=texture(colors,T.SRGBColorSpace),normal=texture(normals),rough=texture(roughness),stoneMap=texture(colors,T.SRGBColorSpace);
+ const foliage=new T.MeshStandardMaterial({name:'foliageDark',map:leaf,bumpMap:leaf,bumpScale:.002,emissiveMap:leaf,emissive:0xffffff,emissiveIntensity:.035,roughness:.78,side:T.DoubleSide,alphaTest:.18});
+ const stone=new T.MeshPhysicalMaterial({name:'wet-flagstone-0',map:stoneMap,normalMap:normal,normalScale:new T.Vector2(.28,.28),roughnessMap:rough,roughness:.25,clearcoat:.36,clearcoatRoughness:.13});
+ for(const m of [foliage,stone]){m.onBeforeCompile=s=>{s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.r *= .993;');};m.customProgramCacheKey=()=> 'native-custom-map-callback';owned.push(m);}
+ const geometry=new T.SphereGeometry(.65,40,32);owned.push(geometry);
+ for(let y=0;y<2;y++)for(let x=0;x<3;x++){const mesh=new T.Mesh(geometry,x%2?stone:foliage);mesh.position.set((x-1)*1.55,(y-.5)*1.55,0);mesh.castShadow=mesh.receiveShadow=true;scene.add(mesh);}
+ const planeG=new T.PlaneGeometry(12,8),planeM=new T.MeshStandardMaterial({color:'#766e5c',roughness:.7});owned.push(planeG,planeM);const ground=new T.Mesh(planeG,planeM);ground.position.z=-1;ground.receiveShadow=true;scene.add(ground);
+ const sun=new T.DirectionalLight(0xffffff,2);sun.position.set(-3,4,5);sun.castShadow=true;sun.shadow.mapSize.set(128,128);scene.add(sun);
+ const area=new T.RectAreaLight(0xffe6bc,3,4,2);area.position.set(1,2,3);area.lookAt(0,0,0);scene.add(area);
+ for(let i=0;i<(stress?7:1);i++){const s=new T.SpotLight(0xffdfb0,3,12,.75,.3,2);s.position.set(-3+i,3,3);s.target.position.set(-1+i*.3,0,0);s.castShadow=true;s.shadow.mapSize.set(64,64);scene.add(s,s.target);}
+ for(let i=0;i<(stress?4:0);i++){const p=new T.PointLight(0xd5e1ff,2,10,2);p.position.set(-2+i*1.3,-1,2);p.castShadow=true;p.shadow.mapSize.set(64,64);scene.add(p);}
+ const camera=new T.PerspectiveCamera(44,384/256,.1,30);camera.position.set(0,.1,6.5);camera.lookAt(0,0,0);return{scene,camera,owned};
+}
+window.testMaterialSamplerSharing=()=>{
+ const results=[];
+ for(const mode of ['original','shared','shared-stress']){
+  const r=new T.WebGLRenderer({antialias:false,preserveDrawingBuffer:true});r.setSize(384,256);r.shadowMap.enabled=true;r.shadowMap.type=T.PCFShadowMap;r.toneMapping=T.ACESFilmicToneMapping;const atlas=installBrdfLookupAtlas(r);if(mode!=='original')installMaterialSamplerSharing(r);
+  const {scene,camera,owned}=build(mode==='shared-stress');r.render(scene,camera);const gl=r.getContext();gl.finish();const pixels=new Uint8Array(384*256*4);gl.readPixels(0,0,384,256,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
+  const types=[gl.SAMPLER_2D,gl.SAMPLER_CUBE,gl.SAMPLER_2D_SHADOW,gl.SAMPLER_CUBE_SHADOW];const programs=r.info.programs.map(p=>{const linked=gl.getProgramParameter(p.program,gl.LINK_STATUS);let samplers=0;if(linked)for(let i=0;i<gl.getProgramParameter(p.program,gl.ACTIVE_UNIFORMS);i++){const u=gl.getActiveUniform(p.program,i);if(types.includes(u.type))samplers+=u.size;}return{linked,samplers,log:gl.getProgramInfoLog(p.program)};});
+  let min=255,max=0,alpha=0;for(let i=0;i<pixels.length;i+=4){min=Math.min(min,pixels[i],pixels[i+1],pixels[i+2]);max=Math.max(max,pixels[i],pixels[i+1],pixels[i+2]);if(pixels[i+3])alpha++;}
+  results.push({mode,png:r.domElement.toDataURL('image/png'),pixels,range:[min,max],alphaFraction:alpha/(384*256),glError:gl.getError(),contextLost:gl.isContextLost(),programs});
+  for(const resource of owned)resource.dispose();r.dispose();r.forceContextLoss();atlas.dispose();
+ }
+ const a=results[0].pixels,b=results[1].pixels;let sum=0,max=0,changed=0,n=0;for(let i=0;i<a.length;i++){if(i%4===3)continue;const d=Math.abs(a[i]-b[i]);sum+=d;max=Math.max(max,d);changed+=d>0;n++;}const comparison={meanAbsolute8bit:sum/n,maxAbsolute8bit:max,changed,total:n};results.forEach(r=>delete r.pixels);
+ return{comparison,results,passed:comparison.meanAbsolute8bit<.03&&max<=2&&results.every(r=>!r.contextLost&&r.glError===0&&r.range[1]-r.range[0]>30&&r.alphaFraction>.99&&r.programs.every(p=>p.linked&&p.samplers<=16))};
+};window.samplerTestReady=true;
+</script></body></html>
