@@ -4,10 +4,10 @@ import {pathToFileURL} from 'node:url';
 import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
-const out=resolve('output/output-target-review');await mkdir(out,{recursive:true});
+const out=resolve(process.env.OUTPUT_DIR||'output/output-target-review');await mkdir(out,{recursive:true});
 const hash=b=>createHash('sha256').update(b).digest('hex'),sourceFiles={};
 for(const f of (await readdir('src')).filter(f=>f.endsWith('.js')).sort())sourceFiles['src/'+f]=hash(await readFile('src/'+f));
-const requestFile='tools/output-target-request.json';
+const requestFile=process.env.REQUEST_FILE||'tools/output-target-request.json';
 const request=existsSync(requestFile)?JSON.parse(await readFile(requestFile)):{jobs:[{id:'sanctuary-fbo-baseline',reference:6,width:640,scene:'shared'}]};
 const report={startedAt:new Date().toISOString(),commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceHash:hash(JSON.stringify(sourceFiles)),sourceFiles,request,status:'starting',jobs:[],events:[],notOwnerMac:true,referenceFidelityAccepted:false};
 function event(stage,data={}){const e={at:new Date().toISOString(),stage,...data};report.events.push(e);writeFileSync(join(out,'report.json'),JSON.stringify(report,null,2));appendFileSync(join(out,'events.ndjson'),JSON.stringify(e)+'\n');console.log(JSON.stringify(e));}
@@ -27,19 +27,26 @@ try{
  for(const job of request.jobs){
   const width=job.width??640,scene=job.scene??'shared';
   if(!/^[a-z0-9-]{1,80}$/.test(job.id)||!Number.isInteger(width)||width<320||width>1600||!Number.isInteger(job.reference)||job.reference<1||job.reference>10||!['shared','reference10-porch'].includes(scene))throw Error('Invalid job');
+  if(job.finish&&(job.reference!==6||scene!=='shared'))throw Error('Sanctuary finish study is restricted to reference six');
   active={job,status:'building',errors:[],startedAt:new Date().toISOString()};report.jobs.push(active);event('job-start',{id:job.id});
   const identity=width+':'+scene+':'+(job.query||'');const begin=performance.now();
   if(key!==identity){if(page)await bounded(page.close(),'Old page close',10000);page=await browser.newPage({viewport:{width,height:width},deviceScaleFactor:1});attach(page);await page.route('**/*',r=>{const u=new URL(r.request().url());return u.protocol==='data:'||(u.hostname==='127.0.0.1'&&u.port==='4317')?r.continue():r.abort('blockedbyclient')});
    await bounded(page.goto(`http://127.0.0.1:4317/render-live.html?render&defer&w=${width}&h=${width}&scene=${scene}${job.query||''}`,{waitUntil:'load',timeout:300000}),'Scene load');await bounded(page.waitForFunction(()=>window.temple?.ready,null,{timeout:300000}),'Scene ready');key=identity;
   }
   active.buildSeconds=(performance.now()-begin)/1000;active.status='rendering';event('ready',{id:job.id,seconds:active.buildSeconds});
-  const result=await bounded(page.evaluate(async j=>{const {captureOutputTarget}=await import('/src/capture-output-target.js');const t=window.temple;return captureOutputTarget(t,()=>{if(Number.isFinite(j.exposure))t.renderer.toneMappingExposure=j.exposure;return j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time??0,j.camera.fov??48):t.renderReference(j.reference)});},job),'Full output target render/readback');
+  const result=await bounded(page.evaluate(async j=>{
+   const {captureOutputTarget}=await import('/src/capture-output-target.js'),t=window.temple;
+   if(j.finish){const {createSanctuaryFinishStudy}=await import('/src/sanctuary-reference-finish.js');window.sanctuaryFinishStudy??=createSanctuaryFinishStudy(t);window.sanctuaryFinishStudy.apply(j.finish);}else window.sanctuaryFinishStudy?.restore();
+   const capture=captureOutputTarget(t,()=>{if(Number.isFinite(j.exposure))t.renderer.toneMappingExposure=j.exposure;return j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time??0,j.camera.fov??48):t.renderReference(j.reference)});
+   capture.finish=window.sanctuaryFinishStudy?.info()||null;capture.actualExposure=t.renderer.toneMappingExposure;return capture;
+  },job),'Full output target render/readback');
   const rgba=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;if(rgba.length!==width*width*4)throw Error('Wrong pixel byte count');
   active.capture=result;const raw=join(out,job.id+'.rgba'),png=join(out,job.id+'.png');await writeFile(raw,rgba);
   execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${width}x${width}`,'-i',raw,'-frames:v','1',png],{timeout:60000});
   active.png=job.id+'.png';active.pngSha256=hash(await readFile(png));active.info=await bounded(page.evaluate(()=>window.temple.info()),'Scene info');
   active.shaderAudit=await bounded(page.evaluate(()=>{const r=window.temple.renderer,g=r.getContext();return{glError:g.getError(),programs:r.info.programs.map(p=>({linked:g.getProgramParameter(p.program,g.LINK_STATUS),log:g.getProgramInfoLog(p.program)})),atlas:r.brdfLookupAtlasInfo?.(),packing:r.materialSamplerPackingInfo?.()};}),'Shader info');
   active.groups=await bounded(page.evaluate(()=>{const result=[];window.temple.scene.traverse(o=>{if(o.isGroup&&o.name)result.push({name:o.name,parent:o.parent?.name||'',matrix:o.matrixWorld.toArray()})});return result;}),'Scene groups');
+  active.materials=await bounded(page.evaluate(()=>{const seen=new Set(),result=[];window.temple.scene.traverse(o=>{if(!o.isMesh)return;for(const m of Array.isArray(o.material)?o.material:[o.material])if(m?.isMeshStandardMaterial&&!seen.has(m)){seen.add(m);result.push({name:m.name,color:m.color.getHexString(),roughness:m.roughness,metalness:m.metalness,envMapIntensity:m.envMapIntensity,localEnvironment:!!m.envMap});}});return result;}),'Material receipt');
   const ref='references/hd/'+refFiles[job.reference],pair=job.id+'-left-reference-right-render.png';execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',ref,'-i',png,'-filter_complex',`[0:v]scale=${width}:${width}[a];[a][1:v]hstack[out]`,'-map','[out]','-frames:v','1',join(out,pair)],{timeout:60000});active.comparison=pair;active.referenceSha256=hash(await readFile(ref));
   active.status=active.errors.length||active.shaderAudit.glError||active.shaderAudit.programs.some(p=>!p.linked)?'rendered-with-errors':'rendered-review';event('job-finished',{id:job.id,status:active.status});
  }
