@@ -31,9 +31,9 @@ const references=[
   {canonical:4,file:'references/hd/3-照片-4.jpg',scene:'shared'},
   {canonical:6,file:'references/hd/4-照片-5.jpg',scene:'shared'},
   {canonical:5,file:'references/hd/5-照片-6.jpg',scene:'shared'},
-  {canonical:2,file:'references/hd/1-照片-2.jpg',scene:'shared'},
+  {canonical:1,file:'references/hd/0-照片-1.jpg',scene:'shared'},
   {canonical:3,file:'references/hd/2-照片-3.jpg',scene:'shared'},
-  {canonical:1,file:'references/hd/0-照片-1.jpg',scene:'shared'}
+  {canonical:2,file:'references/hd/1-照片-2.jpg',scene:'shared'}
 ];
 async function sourceHash(){
   const files=[];async function walk(dir){for(const e of await readdir(dir,{withFileTypes:true})){const path=join(dir,e.name);if(e.isDirectory())await walk(path);else if(e.name.endsWith('.js'))files.push(path);}}
