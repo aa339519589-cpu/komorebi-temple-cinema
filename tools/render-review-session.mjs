@@ -16,7 +16,7 @@ const save=()=>writeFileSync(join(output,'report.json'),JSON.stringify(report,nu
 const event=(kind,data={})=>{const e={at:new Date().toISOString(),kind,...data};report.events.push(e);appendFileSync(join(output,'events.ndjson'),JSON.stringify(e)+'\n');save();console.log(JSON.stringify(e));};
 const references={1:'0-照片-1.jpg',2:'1-照片-2.jpg',3:'2-照片-3.jpg',4:'3-照片-4.jpg',5:'5-照片-6.jpg',6:'4-照片-5.jpg',7:'6-照片-7.jpg',8:'7-照片-8.jpg',9:'8-照片-9.jpg',10:'9-照片-10.jpg'};
 const {chromium}=await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);const {server}=await import('./server.mjs');let browser,page,key='',active=null,rejectFatal;
-let fatal=new Promise(()=>{});let timer;
+let fatal=new Promise(()=>{});
 async function timed(promise,label){let t;try{return await Promise.race([promise,fatal,new Promise((_,reject)=>{t=setTimeout(()=>reject(Error(label+' timeout')),timeout);})]);}finally{clearTimeout(t)}}
 try{
  const backend=process.env.RENDER_BACKEND||'metal';const args=['--enable-gpu','--ignore-gpu-blocklist','--disable-gpu-watchdog','--force-color-profile=srgb','--disable-background-timer-throttling','--disable-renderer-backgrounding'];
@@ -44,16 +44,24 @@ try{
   const start=performance.now();
   active.camera=await timed(page.evaluate(j=>{const t=window.temple;const draw=()=>j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time??0,j.camera.fov??48):t.renderReference(j.reference);let result=draw();if(Number.isFinite(j.exposure)){t.renderer.toneMappingExposure=j.exposure;result=draw();}t.renderer.getContext().finish();return result;},job),'Frame');
   active.renderSeconds=(performance.now()-start)/1000;event('frame-drawn',{id:job.id,seconds:active.renderSeconds});
-  const file=join(output,job.id+'.png');await timed(page.locator('canvas').first().screenshot({path:file,type:'png',timeout}),'Screenshot');
-  active.info=await page.evaluate(()=>window.temple.info());active.glError=await page.evaluate(()=>window.temple.renderer.getContext().getError());active.brdfAtlas=await page.evaluate(()=>window.temple.renderer.brdfLookupAtlasInfo?.()??null);active.png=job.id+'.png';active.pngSha256=hash(await readFile(file));
+  // The renderer is created with preserveDrawingBuffer=true. Export its native
+  // buffer directly, without screenshots' scroll/stability/font waits.
+  const captureStarted=performance.now();
+  const url=await timed(page.evaluate(()=>window.temple.renderer.domElement.toDataURL('image/png')),'Native PNG export');
+  if(!url.startsWith('data:image/png;base64,'))throw Error('WebGL canvas did not export a PNG');
+  const bytes=Buffer.from(url.slice('data:image/png;base64,'.length),'base64');
+  if(bytes.length<100||bytes.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw Error('Invalid actual canvas PNG');
+  const file=join(output,job.id+'.png');await writeFile(file,bytes);active.captureSeconds=(performance.now()-captureStarted)/1000;active.captureMethod='preserved WebGL drawing buffer to PNG';
+  active.info=await page.evaluate(()=>window.temple.info());active.glError=await page.evaluate(()=>window.temple.renderer.getContext().getError());active.brdfAtlas=await page.evaluate(()=>window.temple.renderer.brdfLookupAtlasInfo?.()??null);active.materialPacking=await page.evaluate(()=>window.temple.renderer.materialSamplerPackingInfo?.()??null);
+  active.shaderAudit=await page.evaluate(()=>{const r=window.temple.renderer,g=r.getContext(),types=[g.SAMPLER_2D,g.SAMPLER_CUBE,g.SAMPLER_2D_SHADOW,g.SAMPLER_CUBE_SHADOW,g.SAMPLER_2D_ARRAY,g.SAMPLER_2D_ARRAY_SHADOW];return {maxTextureUnits:g.getParameter(g.MAX_TEXTURE_IMAGE_UNITS),programs:r.info.programs.map(p=>{const linked=g.getProgramParameter(p.program,g.LINK_STATUS);const samplers=[];if(linked)for(let i=0;i<g.getProgramParameter(p.program,g.ACTIVE_UNIFORMS);i++){const u=g.getActiveUniform(p.program,i);if(types.includes(u.type))samplers.push({name:u.name,size:u.size});}return{linked,samplers,count:samplers.reduce((s,x)=>s+x.size,0),log:linked?'':g.getProgramInfoLog(p.program)};})};});
+  active.png=job.id+'.png';active.pngSha256=hash(bytes);
   const reference=join('references/hd',references[job.reference]);if(existsSync(reference)){const pair=join(output,job.id+'-left-reference-right-render.png');execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',reference,'-i',file,'-filter_complex',`[0:v]scale=${width}:${width}:force_original_aspect_ratio=decrease,pad=${width}:${width}:(ow-iw)/2:(oh-ih)/2:black[a];[1:v]scale=${width}:${width}[b];[a][b]hstack[out]`,'-map','[out]','-frames:v','1',pair]);active.comparison=job.id+'-left-reference-right-render.png';active.referenceSha256=hash(await readFile(reference));}
-  active.status=active.glError||active.errors.length?'rendered-with-errors':'rendered-review';active.completedAt=new Date().toISOString();event('job-finished',{id:job.id,status:active.status,gpu:active.info.gpu});
+  active.status=active.glError||active.errors.length||active.shaderAudit.programs.some(p=>!p.linked)?'rendered-with-errors':'rendered-review';active.completedAt=new Date().toISOString();event('job-finished',{id:job.id,status:active.status,gpu:active.info.gpu});
  }
  report.status=report.jobs.every(j=>j.status==='rendered-review')?'rendered-review':'errors';if(report.status==='errors')process.exitCode=1;
 }catch(error){report.status='failed';report.error=String(error.stack||error);event('failure',{message:report.error});process.exitCode=1;}finally{
  report.finishedAt=new Date().toISOString();save();server.close();
- // A GPU driver may stall browser teardown; never withhold already-written evidence.
- timer=setTimeout(()=>process.exit(process.exitCode||0),5000);timer.unref();
+ const killer=setTimeout(()=>process.exit(process.exitCode||0),6000);
  if(browser)await Promise.race([browser.close().catch(()=>{}),new Promise(r=>setTimeout(r,4500))]);
- clearTimeout(timer);
+ clearTimeout(killer);process.exit(process.exitCode||0);
 }
