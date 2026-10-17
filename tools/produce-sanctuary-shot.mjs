@@ -26,6 +26,10 @@ try{
  await page.route('**/*',r=>{const u=new URL(r.request().url());return u.protocol==='data:'||(u.hostname==='127.0.0.1'&&u.port==='4317')?r.continue():r.abort('blockedbyclient')});
  await page.goto('http://127.0.0.1:4317/sanctuary-production.html?w='+cfg.size+'&h='+cfg.size+'&scope=interior',{waitUntil:'load',timeout:300000});
  await page.waitForFunction(()=>window.production?.ready,null,{timeout:300000});
+ // R7's pixel-reproducible 3-pose GPU receipt proved that the native context must not
+ // invalidate its custom FBO state between frames; ordinary resetState produces zero pixels.
+ await page.evaluate(()=>{window.production.renderer.resetState=()=>{}});
+ report.framePolicy='R7 verified native noReset: distinct moved frame and bit-identical returned pose';
  report.scene=await page.evaluate(()=>window.production.info());
  demand(!report.scene.contextLost&&report.scene.programs.every(p=>p.linked),'Invalid baseline WebGL shaders');
  await page.evaluate(options=>window.production.configure(options),cfg.finish);
