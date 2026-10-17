@@ -1,0 +1,48 @@
+name: Current runtime startup trace
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/runtime-trace.yml', 'tools/trace-current-runtime.mjs']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-startup-trace-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  trace:
+    runs-on: macos-14
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Preserve reproducible current source
+        run: |
+          mkdir -p runtime-source
+          git rev-parse HEAD > runtime-source/COMMIT.txt
+          tar -czf runtime-source/current-source.tar.gz src vendor tools references music qa/brdf-atlas-test.html render-live.html compare-live.html index.html viewer.mjs serve.mjs verify.mjs package.json checksums.json frozen-manifest.json README.md PUBLICATION_NOTES.md LICENSE .gitignore
+      - uses: actions/upload-artifact@v4
+        with:
+          name: traced-current-source-${{ github.sha }}
+          path: runtime-source/
+          retention-days: 7
+      - name: Prepare browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Trace production constructor and first frame
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: node tools/trace-current-runtime.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: current-runtime-trace-${{ github.sha }}
+          path: output/runtime-trace/
+          retention-days: 7
+          if-no-files-found: warn
