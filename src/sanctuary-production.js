@@ -9,7 +9,7 @@ import {createSanctuaryFinishStudy} from './sanctuary-reference-finish.js';
 import {createSanctuaryFloorPanelStudy} from './reference6-floor-panels.js';
 import {createSanctuaryFabricStudy} from './sanctuary-fabric-detail.js';
 T.ShaderChunk.bumpmap_pars_fragment=stableBumpChunk(T.ShaderChunk.bumpmap_pars_fragment);
-const params=new URLSearchParams(location.search),width=Number(params.get('w')||640),height=Number(params.get('h')||width),interiorScope=params.get('scope')!=='site';
+const params=new URLSearchParams(location.search),width=Number(params.get('w')||640),height=Number(params.get('h')||width),interiorScope=params.get('scope')!=='site',reuseTargets=params.get('reuseTargets')==='1';
 if(!Number.isInteger(width)||!Number.isInteger(height)||width<128||height<128||width>3840||height>3840)throw Error('Invalid output dimensions');
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
 renderer.setSize(width,height);renderer.setPixelRatio(1);renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;
@@ -62,7 +62,7 @@ function render(view=getReferenceView(6)){
  const time=view.time??41.95;if(configuration&&(time<35||time>=42))restore();
  // Isolated targets prevent an old completed color attachment from being
  // returned as a newly requested frame. Scene geometry and room probes persist.
- if(frameSerial){renderer.setRenderTarget(null);hdr.dispose();scattered.dispose();finalTarget.dispose();createTargets();atmosphere.uniforms.tDepth.value=hdr.depthTexture;}
+ if(frameSerial&&!reuseTargets){renderer.setRenderTarget(null);hdr.dispose();scattered.dispose();finalTarget.dispose();createTargets();atmosphere.uniforms.tDepth.value=hdr.depthTexture;}
  frameSerial++;
  world.update(time);camera.position.fromArray(view.position);camera.lookAt(new T.Vector3(...view.target));camera.fov=view.fov||78;camera.updateProjectionMatrix();camera.updateMatrixWorld();
  renderer.resetState();renderer.autoClear=true;renderer.setScissorTest(false);renderer.setViewport(0,0,width,height);renderer.setRenderTarget(hdr);renderer.clear();renderer.render(scene,camera);
@@ -80,5 +80,5 @@ function capture(view){
  const c=document.createElement('canvas');c.width=width;c.height=height;c.getContext('2d').putImageData(new ImageData(topDown,width,height),0,0);
  return{png:c.toDataURL('image/png'),pose,targetState:lastTargetState,readback:audit,seconds:(performance.now()-start)/1000,pixels:{nonzero,total:width*height,min,max,mean:sum/(width*height)},glError:gl.getError()};
 }
-function info(){const gl=renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');return{revision:'v60-native-sanctuary-r5',gpu:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),glError:gl.getError(),contextLost:gl.isContextLost(),programs:renderer.info.programs.map(p=>({name:p.name,linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)})),memory:renderer.info.memory,renderCalls,shadowPolicy:[...shadowPolicy.values()],interiorScope,skippedExteriorReflectionPasses:skippedReflectors.size,buildMs,width,height,lastView,lastTargetState,configuration,finish:finish?.info(),floor:floorPanels?.info(),fabric:fabric?.info(),lightingMode:world.restorationLighting.mode,scattering:configuration?.scattering?{type:'existing shadow-occluded volume integration',density:atmosphere.uniforms.density.value}:false,referencePixelsUsedInScene:false};}
+function info(){const gl=renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');return{revision:'v60-native-sanctuary-r5',gpu:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),glError:gl.getError(),contextLost:gl.isContextLost(),programs:renderer.info.programs.map(p=>({name:p.name,linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)})),memory:renderer.info.memory,renderCalls,shadowPolicy:[...shadowPolicy.values()],interiorScope,skippedExteriorReflectionPasses:skippedReflectors.size,reuseTargetsExperimental:reuseTargets,buildMs,width,height,lastView,lastTargetState,configuration,finish:finish?.info(),floor:floorPanels?.info(),fabric:fabric?.info(),lightingMode:world.restorationLighting.mode,scattering:configuration?.scattering?{type:'existing shadow-occluded volume integration',density:atmosphere.uniforms.density.value}:false,referencePixelsUsedInScene:false};}
 window.production={ready:true,scene,renderer,camera,world,render,capture,configure,restore,info,T,getReferenceView};console.info('PRODUCTION_READY',buildMs);
