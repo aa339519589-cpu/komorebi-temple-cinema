@@ -1612,6 +1612,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     throw error;
   }
   const windowLighting=createRestorationWindowLighting({scene,material:materials.pagodaPaper,windows:pagodaWindows,litWindows:pagodaWindows.filter(w=>w.bay===1&&(w.face===0||w.face===2)&&w.level<3)},{mode:initialMode,profiles:lightingProfiles,radianceByMode:windowRadianceByMode});
+  options.windowShadowArrayOwner?.register(windowLighting.sources.map(source=>source.light));
   if(reference10Porch){thresholdSurface=buildRestorationReference10ThresholdSurface({materials});scene.add(thresholdSurface.group);}
   sky.material.uniforms.uAerialHaze.value=initialMode==='rain'?1:0;
   if(reference10Porch){restoredWetPath.setWetness(1);restoredPuddleResponse.update(0,1);flowNormals.update(0);}

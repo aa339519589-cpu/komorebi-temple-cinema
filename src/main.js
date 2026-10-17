@@ -8,6 +8,8 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { buildWorld } from './world.js';
+import {createRestorationWindowShadowArray} from './restoration-window-shadow-array.js';
+import {installRestorationRenderDiagnostics} from './restoration-render-diagnostics.js';
 import {createRestorationScatteringPass} from './restoration-lighting.js';
 import {shots,cameraPose,cameraPoseForShot} from './cinematography.js';
 import {referenceViews,getReferenceView} from './reference-views.js';
@@ -24,6 +26,8 @@ const renderer = new T.WebGLRenderer({
   preserveDrawingBuffer: true,
   powerPreference: 'high-performance'
 });
+const renderDiagnostics=installRestorationRenderDiagnostics(renderer);
+window.templeDiagnostics=Object.freeze({snapshot:renderDiagnostics.snapshot});
 renderer.setSize(width, height);
 renderer.setPixelRatio(renderMode ? 1 : Math.min(devicePixelRatio, 1.5));
 renderer.shadowMap.enabled = true;
@@ -32,10 +36,27 @@ renderer.toneMapping = params.get('tone')==='agx'?T.AgXToneMapping:T.ACESFilmicT
 renderer.toneMappingExposure=Number(params.get('exposure')||1.12);
 renderer.outputColorSpace = T.SRGBColorSpace;
 document.body.prepend(renderer.domElement);
-const world = buildWorld(renderer,{sceneVariant,sunDirection:({back:[-.72,.17,-.51],side:[-.92,.22,.15]})[params.get('sun')],daylightFill:params.has('fill'),reflectionAudit:params.has('audit-reflection')}),
-  {
-    scene
-  } = world;
+// Persistent shader diagnostics are installed at this pre-build boundary.
+// Candidate adoption opts this renderer into the six-window array. A fresh
+// renderer with ?window-shadow-array=0 remains an explicit old-source control.
+const windowShadowArrayEnabled=params.get('window-shadow-array')!=='0';
+let world, windowShadowArrayOwner=null;
+try {
+  world=renderDiagnostics.run('world-build-and-initial-captures',()=>{
+    if(windowShadowArrayEnabled)windowShadowArrayOwner=createRestorationWindowShadowArray(renderer);
+    return buildWorld(renderer,{sceneVariant,windowShadowArrayOwner,sunDirection:({back:[-.72,.17,-.51],side:[-.92,.22,.15]})[params.get('sun')],daylightFill:params.has('fill'),reflectionAudit:params.has('audit-reflection')});
+  });
+}catch(error){
+  const failures=[error];
+  // No world handle exists on failed startup. Retire only the renderer-owned
+  // resources we can actually reach; this is not a per-mesh world disposer.
+  if(windowShadowArrayEnabled){
+    for(const cleanup of [()=>windowShadowArrayOwner?.dispose(),()=>renderer.dispose()])try{cleanup();}catch(cleanupError){failures.push(cleanupError);}
+  }
+  if(failures.length===1)throw error;
+  throw new AggregateError(failures,'World startup and renderer-owner retirement failed.',{cause:error});
+}
+const {scene}=world;
 const camera = new T.PerspectiveCamera(44, width / height, .12, 550);
 const composer = new EffectComposer(renderer);
 composer.renderTarget1.samples = 4;
@@ -134,6 +155,7 @@ let last=-1;
 let lastFrameStats=null;
 renderer.info.autoReset=false;
 function drawPose(p,time){
+ return renderDiagnostics.run('render-frame',()=>{
  camera.position.copy(p.position);camera.lookAt(p.target);camera.fov=p.fov;camera.updateProjectionMatrix();
  const focus=p.position.distanceTo(p.target),focal=camera.getFocalLength()/1000,sensorHeight=camera.getFilmHeight()/1000;
  const fStop=T.MathUtils.lerp(p.index===5?3.5:4.5,8,T.MathUtils.clamp(p.u,0,1));
@@ -146,6 +168,8 @@ function drawPose(p,time){
  lastFrameStats={...renderer.info.render,scope:"All passes including reflections and AO, not unique scene triangles"};
  renderer.shadowMap.autoUpdate=false;last=time;
  return{shot:p.index,position:p.position.toArray(),target:p.target.toArray(),fStop,focalLengthMm:focal*1000};
+
+ });
 }
 function sitePose(p){return {...p,position:p.position.clone().applyMatrix4(world.siteMatrix),target:p.target.clone().applyMatrix4(world.siteMatrix)};}
 function renderAt(time){if(reference10Only){const v=getReferenceView(10,{sceneVariant});return renderView(v.position,v.target,time,v.fov);}return drawPose(sitePose(cameraPose(time)),time);}
@@ -153,6 +177,7 @@ function renderShot(index,localTime,worldTime=index*7+localTime){if(reference10O
 function renderView(position,target,time=0,fov=48){return drawPose({position:new T.Vector3(...position),target:new T.Vector3(...target),fov,u:1,index:-1},time);}
 function renderReference(reference){const view=getReferenceView(reference,{sceneVariant});const frame=renderView(view.position,view.target,view.time,view.fov);return{...frame,reference:view.reference,cameraStatus:view.status,sceneVariant};}
 function renderExposure(index,localTime,worldTime,samples=3,shutter=1/60){
+ return renderDiagnostics.run('render-exposure',()=>{
   if(reference10Only&&index!==9)throw new RangeError('Conditional scene is reference10 only.');
   const previousScreen=composer.renderToScreen,clearColor=renderer.getClearColor(new T.Color()),clearAlpha=renderer.getClearAlpha();outputPass.enabled=false;composer.renderToScreen=false;
   renderer.setRenderTarget(exposureTarget);renderer.setClearColor(0,0);renderer.clear();
@@ -165,6 +190,8 @@ function renderExposure(index,localTime,worldTime,samples=3,shutter=1/60){
   }
   outputPass.enabled=true;composer.renderToScreen=previousScreen;outputPass.renderToScreen=true;
   outputPass.render(renderer,null,exposureTarget);renderer.setRenderTarget(null);renderer.setClearColor(clearColor,clearAlpha);
+
+ });
 }
 function auditCameras(){
  if(reference10Only)return{scope:world.referenceScene.status,staticView:getReferenceView(10,{sceneVariant}),animatedCameraPath:false};
@@ -227,6 +254,7 @@ if(!renderMode||!params.has('defer')){if(reference10Only)renderReference(10);els
 document.getElementById('loading').remove();
 window.temple = {
   ready: true,
+  getRenderDiagnostics:renderDiagnostics.snapshot,
   sceneVariant,
   disposeRoomEnvironment:()=>world.disposeRoomEnvironment(),
   renderAt,
