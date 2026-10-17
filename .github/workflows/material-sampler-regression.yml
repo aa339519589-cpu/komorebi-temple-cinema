@@ -1,0 +1,42 @@
+name: Exact material sampler GPU regression
+on:
+  push:
+    branches: [work/visual-calibration-20261017]
+    paths:
+      - '.github/workflows/material-sampler-regression.yml'
+      - 'qa/material-sampler-regression.html'
+      - 'src/material-sampler-sharing.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: material-sampler-test-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  pixels:
+    runs-on: macos-14
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Prepare isolated test runtime
+        run: |
+          node --check src/material-sampler-sharing.js
+          node --check tools/test-material-samplers.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Compare native and shared-map GPU pixels
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        run: node tools/test-material-samplers.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: material-sampler-pixels-${{ github.sha }}
+          path: output/material-sampler-regression/
+          retention-days: 7
+          if-no-files-found: warn
