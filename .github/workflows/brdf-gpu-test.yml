@@ -1,11 +1,13 @@
-name: Native BRDF atlas GPU regression
+name: Native BRDF and material GPU regression
 on:
   push:
     branches: [work/live-reference-render-20261017]
     paths:
       - '.github/workflows/brdf-gpu-test.yml'
       - 'qa/brdf-atlas-test.html'
+      - 'qa/material-packing-gpu.html'
       - 'src/brdf-lookup-atlas.js'
+      - 'src/material-sampler-packing.js'
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,6 +33,12 @@ jobs:
         env:
           PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
         run: node tools/test-brdf-atlas-gpu.mjs
+      - name: Compare leaf and wet-stone native material channels
+        if: always()
+        timeout-minutes: 3
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        run: node tools/test-material-packing-gpu.mjs
       - name: Test actual live entry import graph
         if: always()
         timeout-minutes: 3
@@ -43,6 +51,7 @@ jobs:
           name: brdf-gpu-test-${{ github.sha }}
           path: |
             output/brdf-gpu-test/
+            output/material-packing-gpu/
             output/live-entry-test/
           if-no-files-found: warn
           retention-days: 7
