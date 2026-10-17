@@ -1,0 +1,32 @@
+{
+  "revision": "reference6-foundation-v3",
+  "entry": "src/reference6-main.js",
+  "automaticSingleFrame": "Open index.html without defer; no animation loop.",
+  "harness": "?render&defer&w=960&h=960, then temple.renderReference(6)",
+  "status": "Actual cloud render completed with no recorded shader/context diagnostic errors; visual reconstruction not accepted.",
+  "files": {
+    "index.html": "2929680852fdc0de24c5a940db761974c443eeda4119016b9dee3fa7302d1e1b",
+    "src/reference6-main.js": "8c830cd6a1338f4e46ca561ed3ec9e3e8bd06b3913b6dc42b3909aef23e3efdd",
+    "src/reference6-scene.js": "f34b171324f480ca25978f8b36f7383ef03c678a958629ce7c93c55a4e605c19",
+    "src/restoration-altar.js": "d0ce34fc90d1e52e7c61883a791dfc68fdeb5e2fdc4b94776e7cc27c74ba8504",
+    "src/restoration-buddha.js": "435ffe31aae10050ba5d93835f2e97dbc850006931f29b3c12e213aecfba3500",
+    "src/restoration-lighting.js": "23063b312965d240d6b808bd45079f7a34e44a7a4f7b11d15122ff93b02e9fb7",
+    "src/restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25"
+  },
+  "sharedVendor": {
+    "build/three.module.js": "f1dcb4819f74cfb8bfa84c0823154d9b4f5a5eb2e3432bd08c5c89d959499096",
+    "build/three.core.js": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+  },
+  "actualRenderCompleted": true,
+  "visualAccepted": false,
+  "renderConfiguration": {
+    "width": 960,
+    "height": 960,
+    "exposure": 1.05,
+    "sunShadow": 2048,
+    "pointShadow": 256,
+    "roomCube": 128,
+    "floorReflection": 768,
+    "roomProbeCount": 2
+  }
+}
