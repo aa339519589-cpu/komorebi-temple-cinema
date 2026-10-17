@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="icon" href="data:,"><script type="importmap">{"imports":{"three":"/src/three-render-compat.js","three/addons/":"/vendor/examples/jsm/"}}</script></head><body><script type="module">
+import * as T from 'three';
+import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
+RectAreaLightUniformsLib.init();
+const renderer=new T.WebGLRenderer({preserveDrawingBuffer:true});renderer.setSize(128,128);document.body.append(renderer.domElement);
+const scene=new T.Scene(),camera=new T.PerspectiveCamera(45,1,.1,20);camera.position.z=4;
+const mesh=new T.Mesh(new T.SphereGeometry(1,24,16),new T.MeshStandardMaterial({color:0xc5a354,metalness:.6,roughness:.28}));scene.add(mesh,new T.HemisphereLight(0xffffff,0x443322,3));
+const area=new T.RectAreaLight(0xffffff,6,3,3);area.position.set(1,2,3);area.lookAt(0,0,0);scene.add(area);renderer.render(scene,camera);renderer.getContext().finish();
+const gl=renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');
+window.compatSmoke={ready:true,threeRevision:T.REVISION,atlas:renderer.brdfLookupAtlasInfo(),glError:gl.getError(),programs:renderer.info.programs.map(p=>({linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)})),gpu:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown'};
+console.info('COMPAT_SMOKE_READY '+JSON.stringify(window.compatSmoke));
+</script></body></html>
