@@ -1,0 +1,72 @@
+name: Actual visual calibration
+on:
+  push:
+    branches: [work/visual-calibration-20261017]
+    paths:
+      - '.github/workflows/visual-calibration.yml'
+      - 'tools/visual-study-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-visual-calibration-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  compare:
+    runs-on: macos-14
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        group: [room, rain]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify source and install isolated renderer
+        run: |
+          node verify.mjs
+          node --check tools/study-render.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Run original geometry with explicit intermediate-map preview settings
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          STUDY_GROUP: ${{ matrix.group }}
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          python3 - <<'PY'
+          import subprocess,os,signal,pathlib
+          out=pathlib.Path('output/visual-study')/os.environ['STUDY_GROUP']
+          out.mkdir(parents=True,exist_ok=True)
+          with (out/'execution.log').open('w') as f:
+              p=subprocess.Popen(['node','tools/study-render.mjs'],stdout=f,stderr=subprocess.STDOUT,start_new_session=True)
+              try:
+                  code=p.wait(timeout=720)
+              except subprocess.TimeoutExpired:
+                  os.killpg(p.pid,signal.SIGTERM)
+                  try:p.wait(timeout=8)
+                  except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL)
+                  (out/'watchdog.txt').write_text('Study exceeded 12 minutes. No image-completion claim. Existing receipts retained.')
+                  code=124
+          raise SystemExit(code)
+          PY
+      - name: Preserve exact reviewed source and comparison recipe
+        if: always()
+        run: |
+          mkdir -p output/visual-study/${{ matrix.group }}/recipe
+          cp tools/study-render.mjs tools/visual-study-request.json output/visual-study/${{ matrix.group }}/recipe/
+          git rev-parse HEAD > output/visual-study/${{ matrix.group }}/recipe/COMMIT.txt
+          tar -czf output/visual-study/${{ matrix.group }}/recipe/source.tar.gz src vendor render-live.html tools/server.mjs references/hd checksums.json frozen-manifest.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-study-${{ matrix.group }}-${{ github.sha }}
+          path: output/visual-study/${{ matrix.group }}/
+          retention-days: 7
+          if-no-files-found: error
