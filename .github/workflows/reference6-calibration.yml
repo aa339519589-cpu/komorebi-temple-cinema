@@ -2,7 +2,7 @@ name: Sanctuary visual calibration
 on:
   push:
     branches: [work/reference6-visual-fidelity-20261017]
-    paths: ['.github/workflows/reference6-calibration.yml', 'tools/render-reference6-calibration.json']
+    paths: ['.github/workflows/reference6-calibration.yml', 'tools/render-reference6-calibration.json', 'tools/render-reference6-raw.mjs']
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,7 +24,7 @@ jobs:
         run: |
           node verify.mjs
           node --check src/material-sampler-packing.js
-          node --check tools/render-review-session.mjs
+          node --check tools/render-reference6-raw.mjs
           npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
           "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
           command -v ffmpeg || brew install ffmpeg
@@ -44,7 +44,7 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=4096
         run: |
           set -o pipefail
-          node tools/render-review-session.mjs 2>&1 | tee output/reference6-calibration/execution.log
+          node tools/render-reference6-raw.mjs 2>&1 | tee output/reference6-calibration/execution.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
