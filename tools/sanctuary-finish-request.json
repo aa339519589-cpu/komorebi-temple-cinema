@@ -1,9 +1,9 @@
 {
-  "label":"reference-six-finish-r2-verified-target-size",
+  "label":"reference-six-finish-r3-warm-gilt-clear-room",
   "jobs":[
-    {"id":"sanctuary-finish-baseline-r2","reference":6,"width":640,"scene":"shared"},
-    {"id":"sanctuary-chased-panels-only-r2","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.1,"environmentGain":1,"metalGain":1,"sunGain":1,"practicalGain":1,"floorLod":2.4,"floorStrength":0.88,"redWood":false}},
-    {"id":"sanctuary-finish-a-r2","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.6,"environmentGain":1.25,"metalGain":1.55,"sunGain":1.5,"practicalGain":1.4,"floorLod":0.7,"floorStrength":1.05,"redWood":true}},
-    {"id":"sanctuary-finish-b-r2","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.85,"environmentGain":1.35,"metalGain":1.85,"sunGain":1.75,"practicalGain":1.7,"floorLod":0.5,"floorStrength":1.15,"redWood":true}}
+    {"id":"sanctuary-neutral-r3","reference":6,"width":640,"scene":"shared"},
+    {"id":"sanctuary-finish-c-r3","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.65,"environmentGain":1.1,"metalGain":1.65,"sunGain":1.25,"practicalGain":1.65,"floorLod":0.9,"floorStrength":1.1,"redWood":true,"warmTimber":true,"hazeGain":0.25,"giltColor":"#e0ad43","agedGoldColor":"#a87428","statueGoldColor":"#dbac45","backingColor":"#bf8b31","metalRoughnessGain":0.82}},
+    {"id":"sanctuary-finish-d-r3","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":2.1,"environmentGain":1.15,"metalGain":1.8,"sunGain":1.55,"practicalGain":2.0,"floorLod":0.9,"floorStrength":1.1,"redWood":true,"warmTimber":true,"hazeGain":0.4,"giltColor":"#e0ad43","agedGoldColor":"#a87428","statueGoldColor":"#dbac45","backingColor":"#bf8b31","metalRoughnessGain":0.82}},
+    {"id":"sanctuary-finish-e-r3","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.8,"environmentGain":0.8,"metalGain":1.8,"sunGain":1.6,"practicalGain":2.2,"floorLod":0.9,"floorStrength":1.1,"redWood":true,"warmTimber":true,"hazeGain":0.18,"giltColor":"#e0ad43","agedGoldColor":"#a87428","statueGoldColor":"#dbac45","backingColor":"#bf8b31","metalRoughnessGain":0.78}}
   ]
 }
