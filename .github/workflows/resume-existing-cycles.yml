@@ -1,0 +1,54 @@
+name: Continue existing Cycles source
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/resume-existing-cycles.yml','tools/render-existing-cycles.py']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: continue-existing-cycles-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  cycles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: existing-scene-buffers-6b89e756b5af63b0d55919c2d497506d4e763dc7
+          run-id: 39057277850
+          github-token: ${{ github.token }}
+          path: output/sanctuary-geometry/
+      - name: Install verified distribution renderer and array dependency
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y blender ffmpeg python3-numpy
+          blender -b --python-exit-code 1 --python-expr 'import numpy,bpy;print(bpy.app.version_string,numpy.__version__)'
+      - name: Path trace existing exported geometry
+        timeout-minutes: 28
+        env:
+          LIGHTING_MODE: upper-window
+          CYCLES_SAMPLES: '64'
+          CYCLES_SIZE: '720'
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -o pipefail
+          mkdir -p output/cycles-review
+          blender -b -t 4 --python-exit-code 1 --python tools/render-existing-cycles.py --python-expr "import bpy;bpy.ops.file.pack_all();bpy.ops.wm.save_as_mainfile(filepath=bpy.data.filepath,compress=True)" 2>&1 | tee output/cycles-review/execution.log
+          ffmpeg -y -hide_banner -loglevel error -i references/hd/4-照片-5.jpg -i output/cycles-review/sanctuary-cycles.png -filter_complex '[0:v]scale=720:720[a];[a][1:v]hstack[out]' -map '[out]' -frames:v 1 output/cycles-review/reference-left-pathtrace-right.png
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resumed-cycles-${{ github.sha }}
+          path: |
+            output/cycles-review/*.png
+            output/cycles-review/*.json
+            output/cycles-review/*.log
+            output/cycles-review/*.blend
+          retention-days: 7
+          if-no-files-found: warn
