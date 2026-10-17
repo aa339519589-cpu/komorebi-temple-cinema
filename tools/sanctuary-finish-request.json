@@ -1,9 +1,9 @@
 {
-  "label":"reference-six-finish-r1",
+  "label":"reference-six-finish-r2-verified-target-size",
   "jobs":[
-    {"id":"sanctuary-finish-baseline","reference":6,"width":960,"scene":"shared"},
-    {"id":"sanctuary-chased-panels-only","reference":6,"width":960,"scene":"shared","finish":{"panels":true,"exposure":1.1,"environmentGain":1,"metalGain":1,"sunGain":1,"practicalGain":1,"floorLod":2.4,"floorStrength":0.88,"redWood":false}},
-    {"id":"sanctuary-finish-a","reference":6,"width":960,"scene":"shared","finish":{"panels":true,"exposure":1.6,"environmentGain":1.25,"metalGain":1.55,"sunGain":1.5,"practicalGain":1.4,"floorLod":0.7,"floorStrength":1.05,"redWood":true}},
-    {"id":"sanctuary-finish-b","reference":6,"width":960,"scene":"shared","finish":{"panels":true,"exposure":1.85,"environmentGain":1.35,"metalGain":1.85,"sunGain":1.75,"practicalGain":1.7,"floorLod":0.5,"floorStrength":1.15,"redWood":true}}
+    {"id":"sanctuary-finish-baseline-r2","reference":6,"width":640,"scene":"shared"},
+    {"id":"sanctuary-chased-panels-only-r2","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.1,"environmentGain":1,"metalGain":1,"sunGain":1,"practicalGain":1,"floorLod":2.4,"floorStrength":0.88,"redWood":false}},
+    {"id":"sanctuary-finish-a-r2","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.6,"environmentGain":1.25,"metalGain":1.55,"sunGain":1.5,"practicalGain":1.4,"floorLod":0.7,"floorStrength":1.05,"redWood":true}},
+    {"id":"sanctuary-finish-b-r2","reference":6,"width":640,"scene":"shared","finish":{"panels":true,"exposure":1.85,"environmentGain":1.35,"metalGain":1.85,"sunGain":1.75,"practicalGain":1.7,"floorLod":0.5,"floorStrength":1.15,"redWood":true}}
   ]
 }
