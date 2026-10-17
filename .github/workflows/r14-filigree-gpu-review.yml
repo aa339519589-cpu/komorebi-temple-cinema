@@ -1,0 +1,59 @@
+name: R14 pierced gold real GPU A-B review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/r14-filigree-gpu-review.yml'
+      - 'tools/render-r14-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-r14-filigree-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  metal-ab:
+    runs-on: macos-14
+    timeout-minutes: 27
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify real geometry and clean rollback
+        run: |
+          node verify.mjs
+          node --check src/sanctuary-pierced-filigree-r14.js
+          node tools/test-filigree-r14.mjs | tee r14-filigree-geometry-verification.json
+          node --check tools/render-review-worker.mjs
+      - name: Install isolated actual WebGL browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render exact-camera original and new 3D filigree
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REQUEST_FILE: tools/render-r14-request.json
+          OUTPUT_DIR: output/r14-filigree-review
+          RENDER_BACKEND: metal
+          RENDER_TIMEOUT_MS: '600000'
+          NODE_OPTIONS: --max-old-space-size=8192
+        timeout-minutes: 20
+        run: |
+          set -o pipefail
+          mkdir -p output/r14-filigree-review
+          node tools/render-review-worker.mjs 2>&1 | tee output/r14-filigree-review/execution.log
+      - name: Preserve native PNG pairs, geometry evidence and source version
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r14-native-3d-ab-${{ github.sha }}
+          path: |
+            output/r14-filigree-review/
+            r14-filigree-geometry-verification.json
+            tools/render-r14-request.json
+          retention-days: 7
+          if-no-files-found: warn
