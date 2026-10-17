@@ -1,0 +1,50 @@
+name: Sanctuary floor geometry review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/sanctuary-floor-review.yml'
+      - 'tools/sanctuary-floor-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-sanctuary-floor-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: macos-14
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify and prepare isolated renderer
+        run: |
+          node verify.mjs
+          node --check src/reference6-floor-panels.js
+          node --check tools/render-output-target.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render floor geometry and finish comparison
+        timeout-minutes: 18
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+          REQUEST_FILE: tools/sanctuary-floor-request.json
+          OUTPUT_DIR: output/sanctuary-floor-review
+        run: |
+          set -o pipefail
+          mkdir -p output/sanctuary-floor-review
+          node tools/render-output-target.mjs 2>&1 | tee output/sanctuary-floor-review/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sanctuary-floor-review-${{ github.sha }}
+          path: output/sanctuary-floor-review/
+          retention-days: 7
+          if-no-files-found: warn
