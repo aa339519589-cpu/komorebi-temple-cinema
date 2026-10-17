@@ -1,5 +1,5 @@
 {
-  "label": "native-sanctuary-matched-optical-studies-r9",
+  "label": "native-sanctuary-single-profile-sunbeams-r10",
   "width": 640,
   "height": 640,
   "framePolicy": {
@@ -7,31 +7,7 @@
   },
   "jobs": [
     {
-      "id": "r9-deep-gold-contrast",
-      "reference": 6,
-      "config": {
-        "exposure": 1.4,
-        "environmentGain": 1,
-        "metalGain": 1.1,
-        "sunGain": 1.6,
-        "practicalGain": 1.35,
-        "floorLod": 0.6,
-        "floorStrength": 1.1,
-        "hazeGain": 0.25,
-        "redWood": true,
-        "warmTimber": true,
-        "giltColor": "#c58b29",
-        "agedGoldColor": "#815021",
-        "statueGoldColor": "#b98021",
-        "backingColor": "#81421b",
-        "metalRoughnessGain": 0.88,
-        "key": 7,
-        "rim": 2,
-        "front": 1
-      }
-    },
-    {
-      "id": "r9-sunbeams-and-altar",
+      "id": "r10-sunbeams-gold-current-geometry",
       "reference": 6,
       "config": {
         "exposure": 1.6,
@@ -52,24 +28,6 @@
         "key": 6,
         "rim": 2,
         "front": 0.4
-      }
-    },
-    {
-      "id": "r9-optics-fov74",
-      "reference": 6,
-      "camera": {
-        "position": [
-          -1.540726762,
-          4.26,
-          -2.375090396
-        ],
-        "target": [
-          -1.540726762,
-          6,
-          -9.755090396
-        ],
-        "fov": 74,
-        "time": 41.95
       }
     }
   ]
