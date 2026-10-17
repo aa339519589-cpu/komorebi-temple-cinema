@@ -1,4 +1,4 @@
-name: Verified R8 sanctuary real-motion shot
+name: Sanctuary real-motion shot
 on:
   push:
     branches: [work/live-reference-render-20261017]
@@ -27,7 +27,7 @@ jobs:
         run: |
           node verify.mjs
           node --check tools/produce-sanctuary-shot.mjs
-          node -e "const x=require('./tools/sanctuary-shot-request.json');if(x.fps!==30||x.duration!==6||x.size!==720)throw Error('invalid request')"
+          node -e "const x=require('./tools/sanctuary-shot-request.json');if(x.fps!==30||!Number.isInteger(x.duration)||x.duration<2||x.duration>12||!Number.isInteger(x.size)||x.size<320||x.size>1080||x.size%2)throw Error('invalid request')"
       - name: Install pinned isolated browser
         run: |
           npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
@@ -46,7 +46,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: sanctuary-6-second-real-film-${{ github.sha }}
+          name: sanctuary-real-film-${{ github.sha }}
           path: |
             output/sanctuary-shot/*.mp4
             output/sanctuary-shot/*.png
