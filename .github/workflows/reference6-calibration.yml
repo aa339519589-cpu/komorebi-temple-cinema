@@ -1,0 +1,54 @@
+name: Sanctuary visual calibration
+on:
+  push:
+    branches: [work/reference6-visual-fidelity-20261017]
+    paths: ['.github/workflows/reference6-calibration.yml', 'tools/render-reference6-calibration.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-sanctuary-calibration-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  calibrate:
+    runs-on: macos-14
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Check retained scene and prepare renderer
+        run: |
+          node verify.mjs
+          node --check src/material-sampler-packing.js
+          node --check tools/render-review-session.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Record exact source
+        run: |
+          mkdir -p output/reference6-calibration
+          git rev-parse HEAD > output/reference6-calibration/COMMIT.txt
+          tar -czf output/reference6-calibration/exact-source.tar.gz src tools render-live.html compare-live.html checksums.json frozen-manifest.json package.json
+      - name: Render controlled reference6 comparisons
+        timeout-minutes: 12
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          RENDER_BACKEND: metal
+          REQUEST_FILE: tools/render-reference6-calibration.json
+          OUTPUT_DIR: output/reference6-calibration
+          RENDER_TIMEOUT_MS: '300000'
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          node tools/render-review-session.mjs 2>&1 | tee output/reference6-calibration/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sanctuary-calibration-${{ github.sha }}
+          path: output/reference6-calibration/
+          retention-days: 7
+          if-no-files-found: error
