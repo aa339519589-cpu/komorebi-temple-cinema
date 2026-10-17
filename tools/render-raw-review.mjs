@@ -6,9 +6,11 @@ import {pathToFileURL} from 'node:url';
 import {renderAndReadRgba,encodeRgbaPng} from './raw-webgl-readback.mjs';
 const out=process.env.OUTPUT_DIR||'output/raw-reference-review';await mkdir(out,{recursive:true});
 const request=JSON.parse(await readFile(process.env.REQUEST_FILE||'tools/render-hosted-request.json','utf8'));
-const maxJobs=Number(process.env.MAX_JOBS||1),jobs=request.jobs.slice(0,maxJobs),hash=b=>createHash('sha256').update(b).digest('hex');
+const maxJobs=Number(request.maxJobs??process.env.MAX_JOBS??1);
+if(!Array.isArray(request.jobs)||!Number.isInteger(maxJobs)||maxJobs<1||maxJobs>12)throw Error('Require an explicit bounded batch of 1 to 12 jobs');
+const jobs=request.jobs.slice(0,maxJobs),hash=b=>createHash('sha256').update(b).digest('hex');
 const sourceFiles={};for(const name of (await readdir('src')).filter(n=>n.endsWith('.js')).sort())sourceFiles['src/'+name]=hash(await readFile('src/'+name));
-const report={commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceHash:hash(JSON.stringify(sourceFiles)),sourceFiles,startedAt:new Date().toISOString(),status:'running',jobs:[],events:[],environment:'Hosted Mac Metal, not owner Mac',referenceFidelityAccepted:false};
+const report={commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceHash:hash(JSON.stringify(sourceFiles)),sourceFiles,request,startedAt:new Date().toISOString(),status:'running',jobs:[],events:[],environment:'Hosted Mac Metal, not owner Mac',referenceFidelityAccepted:false};
 const save=()=>writeFileSync(out+'/report.json',JSON.stringify(report,null,2));
 function event(type,data){report.events.push({at:new Date().toISOString(),type,data});save();console.log(JSON.stringify({type,data}));}
 const {chromium}=await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href),{server}=await import('./server.mjs');let browser,page,active;
@@ -25,6 +27,7 @@ try{
    if(page)await page.close();page=await browser.newPage({viewport:{width,height:width},deviceScaleFactor:1});let fail;const fatal=new Promise((_,reject)=>{fail=reject});fatal.catch(()=>{});
    page.on('pageerror',e=>{active.errors.push(String(e));event('pageerror',String(e));fail(e)});page.on('console',m=>{event('browser-'+m.type(),m.text().slice(0,3000));if(m.type()==='error')active.errors.push(m.text())});
    page.on('crash',()=>fail(Error('Renderer crashed')));
+   await page.route('**/*',route=>{const u=new URL(route.request().url());return u.protocol==='data:'||(u.hostname==='127.0.0.1'&&u.port==='4317')?route.continue():route.abort('blockedbyclient')});
    await Promise.race([page.goto(`http://127.0.0.1:4317/render-live.html?render=1&defer=1&w=${width}&h=${width}&scene=${scene}`,{waitUntil:'load',timeout:300000}),fatal]);
    await Promise.race([page.waitForFunction(()=>window.temple?.ready,null,{timeout:300000}),fatal]);identity=next;
   }
