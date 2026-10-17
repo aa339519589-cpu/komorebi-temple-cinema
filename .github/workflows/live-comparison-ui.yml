@@ -5,6 +5,9 @@ on:
     paths:
       - '.github/workflows/live-comparison-ui.yml'
       - 'tools/test-live-comparison.mjs'
+      - 'src/read-framebuffer-rgba.js'
+      - 'src/capture-output-target.js'
+      - 'src/live-frame-capture.js'
   workflow_dispatch:
 permissions:
   contents: read
@@ -36,6 +39,7 @@ jobs:
         run: |
           node verify.mjs
           node --check src/live-frame-capture.js
+          node --check src/read-framebuffer-rgba.js
           node --check tools/test-live-comparison.mjs
           npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
           "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
