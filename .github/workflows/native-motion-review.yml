@@ -1,0 +1,48 @@
+name: Actual sanctuary motion review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/native-motion-review.yml'
+      - 'tools/native-motion-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-native-motion-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  film:
+    runs-on: macos-14
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Prepare verified source and native renderer
+        run: |
+          node verify.mjs
+          node --check tools/render-native-motion.mjs
+          node tools/encode-webgl-png.mjs --self-test
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render real moving camera from the current scene
+        timeout-minutes: 31
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          mkdir -p output/native-motion
+          node tools/render-native-motion.mjs 2>&1 | tee output/native-motion/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actual-native-motion-${{ github.sha }}
+          path: output/native-motion/
+          retention-days: 7
+          if-no-files-found: warn
