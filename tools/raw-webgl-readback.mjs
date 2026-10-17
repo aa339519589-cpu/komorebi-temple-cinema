@@ -1,12 +1,15 @@
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 
-/** Render and read the actual framebuffer in one browser task. */
+/** Keep the draw and the actual default-framebuffer read in the same browser task. */
 export async function renderAndReadRgba(page,job){
+ // Module loading precedes the synchronous draw/read task, never separates its operations.
+ if(job.look)await page.evaluate(async()=>{window.__reference6Looks=await import('/src/reference6-lighting-study.js');});
  const result=await page.evaluate(j=>{
   const t=window.temple,r=t.renderer,gl=r.getContext();
   const draw=()=>j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time??0,j.camera.fov??48):t.renderReference(j.reference);
-  const started=performance.now();let camera=draw();
+  const started=performance.now();let camera=draw(),look=null;
+  if(j.look){if(j.reference!==6)throw Error('Reference6 look cannot apply to another view');look=window.__reference6Looks.applyReference6Look(t,j.look);camera=draw();}
   if(Number.isFinite(j.exposure)){r.toneMappingExposure=j.exposure;camera=draw();}
   gl.finish();const rendered=performance.now();
   console.info(JSON.stringify({readbackStage:'rendered',id:j.id,renderSeconds:(rendered-started)/1000}));
@@ -18,15 +21,21 @@ export async function renderAndReadRgba(page,job){
   const afterError=gl.getError(),read=performance.now();
   console.info(JSON.stringify({readbackStage:'rgba-read',id:j.id,seconds:(read-rendered)/1000,beforeError,afterError}));
   let binary='';for(let i=0;i<bytes.length;i+=16384)binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+16384,bytes.length)));
-  return {camera,width,height,beforeError,afterError,renderSeconds:(rendered-started)/1000,readSeconds:(read-rendered)/1000,rgbaBase64:btoa(binary),renderer:r.brdfLookupAtlasInfo?.()||null,info:t.info()};
+  const programs=r.info.programs.map(p=>({linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)}));
+  return {camera,look,width,height,beforeError,afterError,programs,renderSeconds:(rendered-started)/1000,readSeconds:(read-rendered)/1000,rgbaBase64:btoa(binary),renderer:r.brdfLookupAtlasInfo?.()||null,info:t.info()};
  },job);
  const bytes=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;
  if(bytes.length!==result.width*result.height*4)throw Error('Framebuffer transfer byte count mismatch');
+ let sum=[0,0,0],black=0,opaque=0,max=0,min=255;
+ for(let i=0;i<bytes.length;i+=4){for(let c=0;c<3;c++)sum[c]+=bytes[i+c];const v=Math.max(bytes[i],bytes[i+1],bytes[i+2]);max=Math.max(max,v);min=Math.min(min,v);if(v<3)black++;if(bytes[i+3]>250)opaque++;}
+ const n=bytes.length/4;result.pixelCheck={rgbMean:sum.map(s=>s/n),blackFraction:black/n,opaqueFraction:opaque/n,min,max};
+ if(max-min<8||black/n>.999||opaque/n<.80)throw Error('Rejected empty, uniform or transparent framebuffer: '+JSON.stringify(result.pixelCheck));
+ if(result.beforeError||result.afterError||result.programs.some(p=>!p.linked))throw Error('Rejected invalid GPU frame');
  result.rgbaSha256=createHash('sha256').update(bytes).digest('hex');
  return {receipt:result,bytes};
 }
 
-/** ffmpeg only encodes the existing bytes and flips WebGL's bottom-up rows. */
+/** CPU encoder only flips WebGL rows and encodes these actual pixel bytes. */
 export function encodeRgbaPng({receipt,bytes},file){
- execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${receipt.width}x${receipt.height}`,'-i','pipe:0','-vf','vflip','-frames:v','1','-c:v','png',file],{input:bytes,maxBuffer:16*1024*1024});
+ execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${receipt.width}x${receipt.height}`,'-i','pipe:0','-vf','vflip','-frames:v','1','-c:v','png',file],{input:bytes,maxBuffer:16*1024*1024,timeout:60000});
 }
