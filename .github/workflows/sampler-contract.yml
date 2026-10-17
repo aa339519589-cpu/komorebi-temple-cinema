@@ -1,0 +1,27 @@
+name: Sampler channel and clone contracts
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/sampler-contract.yml', 'tools/test-sampler-clone-contract.mjs', 'src/material-sampler-packing.js']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - run: node tools/test-sampler-clone-contract.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sampler-contract-${{ github.sha }}
+          path: output/sampler-contract/
+          retention-days: 7
+          if-no-files-found: warn
