@@ -1,10 +1,10 @@
 {
-  "label":"native-sanctuary-frame-continuity-r6",
+  "label":"native-sanctuary-bounded-memory-r7",
   "width":640,"height":640,
-  "framePolicy":{"noReset":true,"updateShadows":true},
+  "framePolicy":{"noReset":true},
   "jobs":[
-    {"id":"sanctuary-first-r6","reference":6,"config":{"exposure":1.6,"metalGain":1.4,"environmentGain":1.05,"sunGain":1.4,"practicalGain":1.25,"floorLod":1.5,"floorStrength":0.8,"hazeGain":0.12,"redWood":true,"warmTimber":true,"giltColor":"#d6ad60","agedGoldColor":"#a97632","statueGoldColor":"#d3a351","backingColor":"#b0792c","metalRoughnessGain":0.92,"key":4,"rim":1.5,"front":0.4}},
-    {"id":"sanctuary-move-r6","reference":6,"camera":{"position":[-2.140726762,4.36,-1.975090396],"target":[-1.540726762,6.0,-9.755090396],"fov":78,"time":41.95}},
-    {"id":"sanctuary-return-r6","reference":6}
+    {"id":"sanctuary-first-r7","reference":6,"config":{"exposure":1.6,"metalGain":1.4,"environmentGain":1.05,"sunGain":1.4,"practicalGain":1.25,"floorLod":1.5,"floorStrength":0.8,"hazeGain":0.12,"redWood":true,"warmTimber":true,"giltColor":"#d6ad60","agedGoldColor":"#a97632","statueGoldColor":"#d3a351","backingColor":"#b0792c","metalRoughnessGain":0.92,"key":4,"rim":1.5,"front":0.4}},
+    {"id":"sanctuary-move-r7","reference":6,"camera":{"position":[-2.140726762,4.36,-1.975090396],"target":[-1.540726762,6.0,-9.755090396],"fov":78,"time":41.95}},
+    {"id":"sanctuary-return-r7","reference":6}
   ]
 }
