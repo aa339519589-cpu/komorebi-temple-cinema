@@ -1,8 +1,8 @@
 {
-  "revision":"v60-visual-study-r5",
-  "goal":"Keep every geometry/light operation but bound pending virtual-GPU commands; verify sanctuary and a 960px real rainy courtyard frame",
+  "revision":"v60-visual-study-r6",
+  "goal":"Restore original high-resolution shadow/reflection buffers and inspect actual source-based appearance changes, not reduced preview quality",
   "jobs":[
-    {"id":"room-r5-bounded","group":"room","reference":6,"scene":"shared","width":480,"quality":"preview","samples":0},
-    {"id":"rain-r5-960","group":"rain","reference":10,"scene":"reference10-porch","width":960,"quality":"preview","samples":0}
+    {"id":"room-r6-full-quality","group":"room","reference":6,"scene":"shared","width":960,"quality":"full","samples":4},
+    {"id":"rain-r6-full-quality","group":"rain","reference":10,"scene":"reference10-porch","width":960,"quality":"full","samples":4}
   ]
 }
