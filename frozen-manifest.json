@@ -1,0 +1,194 @@
+{
+  "revision": "v54-left-reach-bearing-and-complete-altar",
+  "createdAt": "2026-10-17T05:48:03Z",
+  "timestampSource": "clock.curr_time sampled during final metadata preparation",
+  "parents": [
+    "v53-paired-foreground-side-porch"
+  ],
+  "sourceHash": "61a414e80fdd23ab56616c656b04786e127f72eb93c051ee34d50e3f1db1e7a5",
+  "hashes": {
+    "batching.js": "10efb607f3af80771681ce2203e1763cd84350553b0ee55bf5b702c9e6f5ff41",
+    "botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+    "cinematography.js": "9d65045534af50bba89ca9b9f804e15596ea3e1e8cb5b1da1e96fd8c49dcd7f4",
+    "main.js": "e9fcc7ba3c0fb7ef1a7ba12477b471cf0dfea4e44f9ddd5077d9071e0d943bf5",
+    "natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+    "ornaments.js": "83cc048facf46c1edcc4ac122489792cd1d3ac5a37c70bfe2f5f7fd5efa62549",
+    "reference-views.js": "142e9161587ff92cbc355c01400be6b7feeaca89a176c9716ad7ef42c740d458",
+    "render-audit.js": "32d65ff312f3a2e183be3246b573af153543b4720854404a869031b1e219948a",
+    "restoration-altar.js": "e1e4bb41a3a78f00c1ee6b94cff8f5d023d14abde5235e005ba78ebe6cfc1923",
+    "restoration-architecture.js": "3710f361011a0d9f196ee576685de4045acd367df5fe496f03fdfa12962fe59a",
+    "restoration-bridge-spillway-v2.js": "3f9df9433b320a86e48f2a8f344fbc860376a8fd90ec9b1436d35b967c371af4",
+    "restoration-buddha.js": "687a28e3c316648414b7b5183a3d6308327994cda02b5067139f7eec7e0e0791",
+    "restoration-entrance-stair.js": "a2e536918865dd3650c4d36d4cbc645dce69b19d231032001c564abf27d29a53",
+    "restoration-island-planting.js": "135ed45210bd53acce7556c99d0696eeaefa54d36db5b012fb2aabbec9e1a8b3",
+    "restoration-landscape-blossom-v2.js": "5c6dffe5c4560304a07deb443d51813e12a3fdde82238cb556ceee007b4c4ffe",
+    "restoration-landscape-lanterns-v2.js": "6e42ee5495618e26d9c2c278110a72d79936d402261f8bee6e1b413167f6c3aa",
+    "restoration-landscape-layout.js": "c3aaeb5312e85f57b0bfc47d7ebc70a30d4eabcb11162c6b87450a5660f15441",
+    "restoration-landscape-path.js": "9f2ca7a6ffe7b2ccdc03a9bc2321662c3af0e0329250e96043239effdc87df93",
+    "restoration-landscape-v7.js": "84329b14f5cedf5d81265fda2a5b6b3b5b6a179a9dbc6785de227a2c33484455",
+    "restoration-lantern-support-plan.js": "b6c5a287d329629cac63c4beb353a1c26c79ea54c0ea755c809d7e09c788d8dc",
+    "restoration-lighting.js": "ac2198e7e92f228887f416fe670aad81fb7fa3a03a763619e78dbe079db261fb",
+    "restoration-lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+    "restoration-lotus-petal.js": "e7be770ab06d39791666e1e236c4d4445853b8706f086de33bc0650b003eb7ff",
+    "restoration-processional-dry-bank-rock.js": "6f5cccbf6ca51acbca7e3dc1a1c29227c6336d9504f3be36feeb5154dd3a85d7",
+    "restoration-processional-left-reach-bearing.js": "906a3b26e8f2aeb3702ebfd455ffc23a6ac4bad2c653983da8f8dff5c4811b22",
+    "restoration-processional-right-curb-bearing.js": "61141adca4c36ec74d70796bfaa37eade9d74664fc36f478ea97de15830fab7b",
+    "restoration-reference10-e-maple-plan.js": "71750843b6d46a04dd7b546de57387a93a405611744bc78c8c77e9eb1aeb20f1",
+    "restoration-reference10-threshold-plan.js": "001b97a7b39ed2829c5e4e8f1633c8c830c2015f698c4e236728415ed97beba6",
+    "restoration-reference10-threshold-surface.js": "9b06dcafdab1f0d34056ef9521bc7d89eac61f871f5e79c10a7f46bfd84856e4",
+    "restoration-thin-leaf.js": "90075165b80ce2cb2b7f6129419c23548f9fd82edf1d0d150a7f86e1c1653cf4",
+    "restoration-tower-base.js": "b1a23350ae919f51b1aa036d5629530618f9a488854703dfedfc27df782ef7e1",
+    "sculpture.js": "d11ac1921cdc7e0fd18e862aa7677f16b05f994017ee2627b6190e1b77f92a49",
+    "stable-normals.js": "efeee16b271b22fcabab7f4a20afc78f356afbafc812d88a592b31be7263fcd6",
+    "world.js": "2bb8e46bd05a6da051d0b09104edac22518c2121c440de90e401c7de40958c95"
+  },
+  "changedFiles": [
+    "restoration-altar.js",
+    "restoration-processional-left-reach-bearing.js",
+    "world.js"
+  ],
+  "lockedModules": {
+    "batching.js": "10efb607f3af80771681ce2203e1763cd84350553b0ee55bf5b702c9e6f5ff41",
+    "botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+    "cinematography.js": "9d65045534af50bba89ca9b9f804e15596ea3e1e8cb5b1da1e96fd8c49dcd7f4",
+    "main.js": "e9fcc7ba3c0fb7ef1a7ba12477b471cf0dfea4e44f9ddd5077d9071e0d943bf5",
+    "natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+    "ornaments.js": "83cc048facf46c1edcc4ac122489792cd1d3ac5a37c70bfe2f5f7fd5efa62549",
+    "reference-views.js": "142e9161587ff92cbc355c01400be6b7feeaca89a176c9716ad7ef42c740d458",
+    "render-audit.js": "32d65ff312f3a2e183be3246b573af153543b4720854404a869031b1e219948a",
+    "restoration-architecture.js": "3710f361011a0d9f196ee576685de4045acd367df5fe496f03fdfa12962fe59a",
+    "restoration-bridge-spillway-v2.js": "3f9df9433b320a86e48f2a8f344fbc860376a8fd90ec9b1436d35b967c371af4",
+    "restoration-buddha.js": "687a28e3c316648414b7b5183a3d6308327994cda02b5067139f7eec7e0e0791",
+    "restoration-entrance-stair.js": "a2e536918865dd3650c4d36d4cbc645dce69b19d231032001c564abf27d29a53",
+    "restoration-island-planting.js": "135ed45210bd53acce7556c99d0696eeaefa54d36db5b012fb2aabbec9e1a8b3",
+    "restoration-landscape-blossom-v2.js": "5c6dffe5c4560304a07deb443d51813e12a3fdde82238cb556ceee007b4c4ffe",
+    "restoration-landscape-lanterns-v2.js": "6e42ee5495618e26d9c2c278110a72d79936d402261f8bee6e1b413167f6c3aa",
+    "restoration-landscape-layout.js": "c3aaeb5312e85f57b0bfc47d7ebc70a30d4eabcb11162c6b87450a5660f15441",
+    "restoration-landscape-path.js": "9f2ca7a6ffe7b2ccdc03a9bc2321662c3af0e0329250e96043239effdc87df93",
+    "restoration-landscape-v7.js": "84329b14f5cedf5d81265fda2a5b6b3b5b6a179a9dbc6785de227a2c33484455",
+    "restoration-lantern-support-plan.js": "b6c5a287d329629cac63c4beb353a1c26c79ea54c0ea755c809d7e09c788d8dc",
+    "restoration-lighting.js": "ac2198e7e92f228887f416fe670aad81fb7fa3a03a763619e78dbe079db261fb",
+    "restoration-lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+    "restoration-lotus-petal.js": "e7be770ab06d39791666e1e236c4d4445853b8706f086de33bc0650b003eb7ff",
+    "restoration-processional-dry-bank-rock.js": "6f5cccbf6ca51acbca7e3dc1a1c29227c6336d9504f3be36feeb5154dd3a85d7",
+    "restoration-processional-right-curb-bearing.js": "61141adca4c36ec74d70796bfaa37eade9d74664fc36f478ea97de15830fab7b",
+    "restoration-reference10-e-maple-plan.js": "71750843b6d46a04dd7b546de57387a93a405611744bc78c8c77e9eb1aeb20f1",
+    "restoration-reference10-threshold-plan.js": "001b97a7b39ed2829c5e4e8f1633c8c830c2015f698c4e236728415ed97beba6",
+    "restoration-reference10-threshold-surface.js": "9b06dcafdab1f0d34056ef9521bc7d89eac61f871f5e79c10a7f46bfd84856e4",
+    "restoration-thin-leaf.js": "90075165b80ce2cb2b7f6129419c23548f9fd82edf1d0d150a7f86e1c1653cf4",
+    "restoration-tower-base.js": "b1a23350ae919f51b1aa036d5629530618f9a488854703dfedfc27df782ef7e1",
+    "sculpture.js": "d11ac1921cdc7e0fd18e862aa7677f16b05f994017ee2627b6190e1b77f92a49",
+    "stable-normals.js": "efeee16b271b22fcabab7f4a20afc78f356afbafc812d88a592b31be7263fcd6"
+  },
+  "status": "Complete left-reach bearing and coherent altar successor integrated; finite CPU checks passed; photo alignment remains unresolved.",
+  "worldCounts": {
+    "shared": {
+      "triangles": 28054141,
+      "instances": 1174966,
+      "meshes": 1561,
+      "seed": 3024524996,
+      "nonfinite": 0
+    },
+    "reference10": {
+      "triangles": 27710696,
+      "instances": 1174242,
+      "meshes": 1588,
+      "seed": 3024524996,
+      "nonfinite": 0
+    }
+  },
+  "sceneVariants": {
+    "shared": {
+      "processionalSupportRepairDefault": true,
+      "leftBearingRows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unresolvedLeftRow": 8
+    },
+    "reference10-porch": {
+      "processionalSupportRepairDefault": true,
+      "leftBearingRows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unresolvedLeftRow": 8,
+      "sidePorchSourceUnchangedFromV53": true
+    }
+  },
+  "assetChanges": {
+    "altar": {
+      "before": "221c8b5bdcba6ee7d1734c4aa3e4c998ff0713af36e0e8a8f21f305cb03db3f6",
+      "after": "e1e4bb41a3a78f00c1ee6b94cff8f5d023d14abde5235e005ba78ebe6cfc1923",
+      "main": {
+        "batches": 140,
+        "logicalInstances": 5978,
+        "triangles": 2242226
+      },
+      "hanging": {
+        "batches": 28,
+        "logicalInstances": 5026,
+        "triangles": 997032
+      },
+      "newTriangles": 27170,
+      "naturalCaps": 1700,
+      "smallRitualCaps": 280,
+      "remainingMetalCaps": 25190,
+      "logicalMatricesUnchanged": 11004,
+      "leafCount": 96,
+      "leafRootPrototypes": 67,
+      "runtimeLeafBatchBefore": "InstancedMesh(count=96)",
+      "runtimeLeafBatchAfter": "Mesh merged from original96 placements",
+      "fullWorldInstanceCountDeltaIncludingNewLeftBox": -94
+    },
+    "leftBearing": {
+      "sha256": "906a3b26e8f2aeb3702ebfd455ffc23a6ac4bad2c653983da8f8dff5c4811b22",
+      "worldSpace": true,
+      "boxes": 1,
+      "triangles": 12,
+      "borrowedMaterial": "stone",
+      "side": "FrontSide",
+      "ordinaryOpaqueNormal": true,
+      "noRNG": true,
+      "waterAboveTopMetersApprox": 0.005,
+      "supportedRows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unresolvedRow": 8
+    }
+  },
+  "limits": [
+    "CPU-only finite geometric/source checkpoint, not photographic, GPU or structural-engineering acceptance. No desktop/Codex, GitHub push, Site/queue or paid operation.",
+    "Two scene variants default to the same shared-path repair. One new continuous left box bears only rows0..7; it is not eight separate foundations. Top5mm below water does not prove invisibility.",
+    "Left row8 still has original shore-stone/moss intrusion and partial unsupported area. No shore-pair, bridge, camera, tree or terrain relocation is included. A prior tiny-stone contact in the existing dry-bank repair remains.",
+    "Existing right bearing and six-part dry-bank rock transform are unchanged. Same-final-assets gate-off control is not identical to v53 because the altar asset changed.",
+    "Natural root adjustments and tiny metal end caps may be visible. Preserved full bounds and logical matrices do not imply identical normals, shadows, highlights, topology or pixel appearance.",
+    "Ninety-six leaves remain, but change from96 instances to one ordinary merged foliage mesh. Full scene instance-plus-mesh count falls94 after adding the left box; this is not object deletion.",
+    "Architecture3710/sculpture687a/lightingac2198/cameras and all other31 old modules remain exactv53. Its finite original-source roof observations and final Float32 checks stay historical, not newly executed.",
+    "Bridge4/8 original rail first hits, tower layer residuals, bridge width/west-path and conditional E correspondence remain unresolved. Inherited30.403m original-maple relocation remains a substantial nonunique layout hypothesis.",
+    "Current side-porch3.3m edge and hidden framing/drainage are nonunique reconstruction choices. Original internal timber/contrast line family remains under classification, not installed or accepted as a new plane.",
+    "Five room bindings include borrowed glass; seven camera keys/two-mode cache are not totalGPUmemory bounds. Thin-wall screen-space transmission and opaque background depth are explicit approximations.",
+    "No added light or exposure. The current porch point cannot directly reach broad floor/pond surfaces; do not claim a new warm floor pool.",
+    "Practical-owner cleanup remains terminal partial-scene disposal only; factory rollback does not include later window/rig/room-capture startup failures.",
+    "Old snapshots/ZIPs and Mac018 remain untouched; this checkpoint supplies no new rendered image or render completion."
+  ]
+}

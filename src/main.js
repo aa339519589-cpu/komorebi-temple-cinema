@@ -10,8 +10,11 @@ import { FullScreenQuad } from 'three/addons/postprocessing/Pass.js';
 import { buildWorld } from './world.js';
 import {createRestorationScatteringPass} from './restoration-lighting.js';
 import {shots,cameraPose,cameraPoseForShot} from './cinematography.js';
+import {referenceViews,getReferenceView} from './reference-views.js';
 const params = new URLSearchParams(location.search),
-  renderMode = params.has('render');
+  renderMode = params.has('render'),sceneVariant=params.get('scene')||'shared';
+if(!['shared','reference10-porch'].includes(sceneVariant))throw new RangeError('Unknown scene variant.');
+const reference10Only=sceneVariant==='reference10-porch';
 if (renderMode) document.body.classList.add('render');
 const width = +(params.get('w') || innerWidth),
   height = +(params.get('h') || innerHeight);
@@ -29,7 +32,7 @@ renderer.toneMapping = params.get('tone')==='agx'?T.AgXToneMapping:T.ACESFilmicT
 renderer.toneMappingExposure=Number(params.get('exposure')||1.12);
 renderer.outputColorSpace = T.SRGBColorSpace;
 document.body.prepend(renderer.domElement);
-const world = buildWorld(renderer,{sunDirection:({back:[-.72,.17,-.51],side:[-.92,.22,.15]})[params.get('sun')],daylightFill:params.has('fill'),reflectionAudit:params.has('audit-reflection')}),
+const world = buildWorld(renderer,{sceneVariant,sunDirection:({back:[-.72,.17,-.51],side:[-.92,.22,.15]})[params.get('sun')],daylightFill:params.has('fill'),reflectionAudit:params.has('audit-reflection')}),
   {
     scene
   } = world;
@@ -69,9 +72,10 @@ gtao.updatePdMaterial({
 if (!params.has('noao')) composer.addPass(gtao);
 const previousBefore = gtao._renderOverride.bind(gtao);
 gtao._renderOverride = (...args) => world.restorationLighting.withReflectionsHidden(()=>{
-  const visible=world.foliageMeshes.map(o=>o.visible);
-  world.foliageMeshes.forEach(o=>o.visible=false);
-  try{previousBefore(...args)}finally{world.foliageMeshes.forEach((o,i)=>o.visible=visible[i])}
+  const normalExclusions=[...world.foliageMeshes,...world.transparentNormalExclusions];
+  const visible=normalExclusions.map(o=>o.visible);
+  normalExclusions.forEach(o=>o.visible=false);
+  try{previousBefore(...args)}finally{normalExclusions.forEach((o,i)=>o.visible=visible[i])}
   const clear=renderer.autoClear;renderer.autoClear=false;renderer.setRenderTarget(gtao.normalRenderTarget);
   try{renderer.render(world.foliageNormalScene,camera)}finally{renderer.autoClear=clear}
 });
@@ -106,7 +110,7 @@ float distanceAt(vec2 uv){float z=texture2D(tDepth,uv).x;return nearClip*farClip
 void main(){float z=distanceAt(vUv),blur=min(.0075,aperture*abs(z-focus)/max(1.0,z));vec4 c=texture2D(tDiffuse,vUv)*4.0;float w=4.0;for(int i=0;i<24;i++){float a=float(i)*2.3999632,r=sqrt((float(i)+.5)/24.0);vec2 uv=vUv+vec2(cos(a)/aspect,sin(a))*r*blur;float zz=distanceAt(uv);float weight=zz<z*.72?.15:1.0;c+=texture2D(tDiffuse,uv)*weight;w+=weight;}gl_FragColor=c/w;}`
 });
 dof.uniforms.tDepth.value = gtao.normalRenderTarget.depthTexture;
-const atmosphere=createRestorationScatteringPass(camera,world.sun,gtao.normalRenderTarget.depthTexture);
+const atmosphere=createRestorationScatteringPass(camera,world.sun,gtao.normalRenderTarget.depthTexture,{hallMatrix:world.hallMatrix});
 if(!params.has('noao'))composer.addPass(atmosphere);
 composer.addPass(dof);
 const grade = new ShaderPass({
@@ -140,10 +144,13 @@ function drawPose(p,time){
  renderer.shadowMap.autoUpdate=false;last=time;
  return{shot:p.index,position:p.position.toArray(),target:p.target.toArray(),fStop,focalLengthMm:focal*1000};
 }
-function renderAt(time){return drawPose(cameraPose(time),time);}
-function renderShot(index,localTime,worldTime=index*7+localTime){return drawPose(cameraPoseForShot(index,localTime),worldTime);}
+function sitePose(p){return {...p,position:p.position.clone().applyMatrix4(world.siteMatrix),target:p.target.clone().applyMatrix4(world.siteMatrix)};}
+function renderAt(time){if(reference10Only){const v=getReferenceView(10,{sceneVariant});return renderView(v.position,v.target,time,v.fov);}return drawPose(sitePose(cameraPose(time)),time);}
+function renderShot(index,localTime,worldTime=index*7+localTime){if(reference10Only){if(index!==9)throw new RangeError('Conditional scene is reference10 only.');return renderAt(worldTime);}return drawPose(sitePose(cameraPoseForShot(index,localTime)),worldTime);}
 function renderView(position,target,time=0,fov=48){return drawPose({position:new T.Vector3(...position),target:new T.Vector3(...target),fov,u:1,index:-1},time);}
+function renderReference(reference){const view=getReferenceView(reference,{sceneVariant});const frame=renderView(view.position,view.target,view.time,view.fov);return{...frame,reference:view.reference,cameraStatus:view.status,sceneVariant};}
 function renderExposure(index,localTime,worldTime,samples=3,shutter=1/60){
+  if(reference10Only&&index!==9)throw new RangeError('Conditional scene is reference10 only.');
   const previousScreen=composer.renderToScreen,clearColor=renderer.getClearColor(new T.Color()),clearAlpha=renderer.getClearAlpha();outputPass.enabled=false;composer.renderToScreen=false;
   renderer.setRenderTarget(exposureTarget);renderer.setClearColor(0,0);renderer.clear();
   for(let sample=0;sample<samples;sample++){
@@ -157,11 +164,12 @@ function renderExposure(index,localTime,worldTime,samples=3,shutter=1/60){
   outputPass.render(renderer,null,exposureTarget);renderer.setRenderTarget(null);renderer.setClearColor(clearColor,clearAlpha);
 }
 function auditCameras(){
+ if(reference10Only)return{scope:world.referenceScene.status,staticView:getReferenceView(10,{sceneVariant}),animatedCameraPath:false};
  const result=[];
  for(let index=0;index<10;index++){
   let clearance=Infinity,maxTurn=0,maxSpeed=0,previous=null,minPitch=90,maxPitch=-90;const collisions=[];
   for(let f=-10;f<=430;f++){
-   const p=cameraPoseForShot(index,f/60),d=p.target.clone().sub(p.position).normalize(),pitch=Math.asin(d.y)*180/Math.PI;
+   const p=sitePose(cameraPoseForShot(index,f/60)),d=p.target.clone().sub(p.position).normalize(),pitch=Math.asin(d.y)*180/Math.PI;
    minPitch=Math.min(minPitch,pitch);maxPitch=Math.max(maxPitch,pitch);
    if(previous){maxTurn=Math.max(maxTurn,Math.acos(T.MathUtils.clamp(d.dot(previous.d),-1,1))*180/Math.PI*60);maxSpeed=Math.max(maxSpeed,p.position.distanceTo(previous.position)*60)}
    for(const c of world.columns)if(p.position.y>c.bottom-.14&&p.position.y<c.top+.14){
@@ -200,20 +208,28 @@ function info() {
     reflectors: 3,
     procedural: true,
     scaleReference:world.scaleReference,
-    cameraPolicy:"low viewpoints; sanctuary 0.65 m above floor",
+    referenceScene:world.referenceScene,
+    cameraPolicy:"Legacy paths transformed with the shared hardscape; explicit renderView coordinates are already world-space",
+    lightingMode:world.restorationLighting.mode,
+    referenceViews:(reference10Only?[getReferenceView(10,{sceneVariant})]:referenceViews).map(v=>({reference:v.reference,time:v.time,status:v.status})),
+    referenceModes:(reference10Only?shots.filter(s=>s.reference===10):shots).map(s=>({reference:s.reference,mode:s.lightingMode})),
+    registeredLighting:{pagodaWindows:world.pagodaWindows.length,stoneLanterns:world.stoneLanternEmitters.length,activeWindowSources:world.windowLighting.group.visible?world.windowLighting.sources.length:0,activeStoneSources:world.lanternLighting.group.visible?world.lanternLighting.sources.length:0,cachedRoomModes:world.roomEnvironmentCache.cachedModes},
     roofAudit:{rafters:world.roofAudit.length,priorWorstPenetration:Math.max(...world.roofAudit.map(x=>x.oldPenetration)),correctedMaxTopOffset:Math.max(...world.roofAudit.map(x=>x.newMaximumTopOffset))},
     shots: shots.map(s => s.name)
   };
 }
 // Offline still jobs request their own first pose. Do not waste a full
 // exterior render before every interior diagnostic. Interactive default stays.
-if(!renderMode||!params.has('defer'))renderAt(5.8);
+if(!renderMode||!params.has('defer')){if(reference10Only)renderReference(10);else renderAt(5.8);}
 document.getElementById('loading').remove();
 window.temple = {
   ready: true,
+  sceneVariant,
+  disposeRoomEnvironment:()=>world.disposeRoomEnvironment(),
   renderAt,
   renderShot,
   renderView,
+  renderReference,
   renderExposure,
   auditCameras,
   info,
@@ -256,7 +272,7 @@ if (!renderMode) {
     if (playing) t = (t + dt) % 70;
     renderAt(t);
     input.value = t;
-    label.textContent = shots[Math.min(9,Math.floor(t / 7))].name;
+    label.textContent = reference10Only?'参考10条件场景 · 固定可站机位，未标定':shots[Math.min(9,Math.floor(t / 7))].name;
     requestAnimationFrame(animate);
   }
   requestAnimationFrame(animate);

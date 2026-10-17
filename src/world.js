@@ -1,3 +1,7 @@
+import {restorationReference10EMaplePlan,createRestorationReference10EMapleTransform} from './restoration-reference10-e-maple-plan.js';
+import {buildRestorationTowerBase} from './restoration-tower-base.js';
+import {lightingModeForTime,shots} from './cinematography.js';
+import {referenceViews,reference10Scene} from './reference-views.js';
 import * as T from 'three';
 import {spatialBatches} from './batching.js';
 import {auditHalfFloatTarget} from './render-audit.js';
@@ -11,17 +15,47 @@ import {seatedFigure,reliefPetal} from './sculpture.js';
 import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
 import {granite,grassTuft,flagstone,timberSweep} from './natural-forms.js';
 import {emitRestoredBuddha} from './restoration-buddha.js';
-import {createRestorationLighting} from './restoration-lighting.js';
+import {createRestorationLighting,RESTORATION_LIGHTING_PROFILES,buildReferenceProfileProposal,applySanctuaryPortalVisibility,applyRestorationLeafTranslucency,applyRestorationFlowNormals,createRestorationWindowPaper,createRestorationWindowLighting,captureRestorationRoomEnvironment,createRestorationRoomEnvironmentCache,createRestorationPrivateRoomMetals,createRestorationRoomGlassOwnership,createRestorationRoomCaptureCameras,createRestorationSculptureHairFinish,mergeRestorationPuddleGeometry,applyRestorationPuddleResponse,createRestorationLanternPaper,createRestorationLanternLighting,createRestorationHangingLanternPaper,createRestorationHangingLanternLighting} from './restoration-lighting.js';
 import {createRestorationArchitecture} from './restoration-architecture.js';
+import {buildRestorationEntranceStair} from './restoration-entrance-stair.js';
+import {buildRestorationReference10ThresholdSurface} from './restoration-reference10-threshold-surface.js';
 import {buildRestorationAltar,buildRestorationHangingOrnaments} from './restoration-altar.js';
+import {buildRestorationLandscape,createRestorationUnderstoryLeaf} from './restoration-landscape-v7.js';
+import {createReferenceExteriorMatrix,referenceExteriorPlan} from './restoration-landscape-layout.js';
+import {buildRestorationIslandPlanting} from './restoration-island-planting.js';
+import {buildRestorationReference3FloweringTree,restorationFlankTreePlan,restorationFlankTreeOffset} from './restoration-landscape-blossom-v2.js';
+import {buildRestorationWetPath} from './restoration-landscape-path.js';
+import {referenceProcessionalDryBankRockDelta} from './restoration-processional-dry-bank-rock.js';
+import {buildRestorationProcessionalRightCurbBearing} from './restoration-processional-right-curb-bearing.js';
+import {buildRestorationProcessionalLeftReachBearing} from './restoration-processional-left-reach-bearing.js';
+import {buildRestorationBridgeSpillway} from './restoration-bridge-spillway-v2.js';
+import {buildRestorationStoneLanterns} from './restoration-landscape-lanterns-v2.js';
+import {restorationSupportedLanternAnchors,restorationLanternSupportPlan} from './restoration-lantern-support-plan.js';
 
 // Every visible surface, texture, plant and ornament in this world is generated here.
 export function buildWorld(renderer,options={}) {
+  const sceneVariant=options.sceneVariant??'shared';
+  if(!['shared','reference10-porch'].includes(sceneVariant))throw new RangeError('Unknown scene variant.');
+  const reference10Porch=sceneVariant==='reference10-porch';
+  // Both scene variants share this same original4-style path. The named
+  // false option is a reproducible same-assets control, not the scene default.
+  const processionalSupportRepair=options.processionalSupportRepair??true;
+  if(typeof processionalSupportRepair!=='boolean')throw new TypeError('Processional support repair must be boolean.');
+  const processionalRockMoves=[];
+  const initialMode=reference10Porch?'rain':'sanctuary';
+  let thresholdSupport=null,thresholdSurface=null,reference10Finial=null,restoredTowerBase=null,restoredPorchLantern=null,restoredSidePorch=null;
+  const {profiles:lightingProfiles,referenceModes}=buildReferenceProfileProposal(RESTORATION_LIGHTING_PROFILES,referenceViews);
+  for(const shot of shots)if(referenceModes[shot.reference]!==shot.lightingMode)throw new Error('Reference camera and light-mode registration disagree.');
+  // Low bounded paper-source candidates derived from the existing practical-light
+  // control scale, not measured photographic radiance or per-window switch recovery.
+  const windowRadianceByMode=Object.fromEntries(Object.entries(lightingProfiles).map(([mode,p])=>[mode,p.baseMode==='rain'?.65:p.baseMode==='night'?3.2:p.practical]));
+  const lanternRadianceByMode=Object.fromEntries(Object.entries(lightingProfiles).map(([mode,p])=>[mode,p.baseMode==='rain'?1:p.baseMode==='night'?3.2:p.practical]));
   const buildStarted=performance.now();
   const stage=name=>console.info(JSON.stringify({stage:name,seconds:(performance.now()-buildStarted)/1000}));
   const scene = new T.Scene();
   scene.background = new T.Color('#b9cccf');
   scene.fog = new T.FogExp2('#b9bcad', .0028);
+  let emitGeometry=true;
   let seed = 237148;
   const random = () => {
       seed = 1664525 * seed + 1013904223 >>> 0;
@@ -33,7 +67,8 @@ export function buildWorld(renderer,options={}) {
     geometries = new Map(),
     stack = [new T.Matrix4()],
     stats = {};
-  const roofAudit=[],columns=[];
+  const roofAudit=[],columns=[],pagodaWindows=[];
+  const understoryLeaf=createRestorationUnderstoryLeaf();
   const mat = (name, color, roughness = .7, metalness = 0, extra = {}) => materials[name] = new T.MeshStandardMaterial({
     name,
     color,
@@ -158,6 +193,7 @@ export function buildWorld(renderer,options={}) {
     emissive: '#ffab42',
     emissiveIntensity: 3
   });
+  materials.pagodaPaper=createRestorationWindowPaper();
   mat('waterbed', '#2b4130', .85);
   mat('koiWhite', '#d3c6a8', .4);
   mat('koiRed', '#bd5026', .4);
@@ -188,7 +224,8 @@ float pfbm(vec3 p){return .57*pnoise(p)+.28*pnoise(p*2.03)+.15*pnoise(p*4.07);}`
  pp=instanceMatrix*pp;stoneOrigin=instanceMatrix*stoneOrigin;
  #endif
  vProc=(modelMatrix*pp).xyz;vStoneOrigin=(modelMatrix*stoneOrigin).xyz;`);
-      shader.fragmentShader = 'varying vec3 vLocalStone;varying vec3 vStoneOrigin;\n'+procNoise + '\n' + shader.fragmentShader;
+      shader.uniforms.restorationRoomInverse={value:siteInverse};
+      shader.fragmentShader = 'uniform mat4 restorationRoomInverse;varying vec3 vLocalStone;varying vec3 vStoneOrigin;\n'+procNoise + '\n' + shader.fragmentShader;
       let surface = name==='earth'?`float gpat=pfbm(vProc*.42),soil=pfbm(vProc*5.0);diffuseColor.rgb*=mix(vec3(.34,.51,.29),vec3(1.05,1.0,.69),gpat)*mix(.78,1.15,soil);`:isStone ? `float pat=pfbm(vProc*3.0);float footprint=max(length(dFdx(vProc)),length(dFdy(vProc)))*90.0;float fine=mix(pnoise(vProc*90.0),.5,smoothstep(.35,1.3,footprint));diffuseColor.rgb*=mix(.53,1.18,pat)*mix(.81,1.16,fine);float age=smoothstep(.6,.78,pfbm(vProc*5.3));diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*vec3(.77,.91,.54),age*.38);` : name==='moss'||name==='lichen'?`float mossPat=pfbm(vProc*9.0);diffuseColor.rgb*=mix(vec3(.44,.57,.26),vec3(1.08,1.04,.68),mossPat);` : isMetal ? `float pat=pfbm(vProc*17.0);diffuseColor.rgb*=mix(.66,1.09,pat);` : `float grain=pfbm(vProc*vec3(18.0,.7,18.0));float phase=(vProc.x+vProc.z*.17)*100.0+grain*11.0;float grain2=sin(phase)*(1.0-smoothstep(.7,2.7,fwidth(phase)));diffuseColor.rgb*=mix(.63,1.08,grain)*(1.0+grain2*.018);`;
       shader.fragmentShader = shader.fragmentShader.replace('#include <color_fragment>', '#include <color_fragment>\n' + surface);
       if(name==='paving'||name==='wetStone')shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
@@ -198,11 +235,12 @@ diffuseColor.rgb*=1.0-crack*.54;roughnessFactor=min(1.0,roughnessFactor+crack*.1
       // The outdoor sky is occluded by the hall enclosure. Attenuate only
       // indirect illumination, preserving the actual direct-light shadows.
       shader.fragmentShader=shader.fragmentShader.replace('#include <aomap_fragment>',`#include <aomap_fragment>
-float roomX=1.0-smoothstep(10.6,13.1,abs(vProc.x-6.0));
-float roomZ=smoothstep(-22.0,-19.5,vProc.z)*(1.0-smoothstep(-2.2,1.5,vProc.z));
-float roomY=smoothstep(4.8,6.1,vProc.y)*(1.0-smoothstep(17.5,18.9,vProc.y));
+vec3 roomProc=(restorationRoomInverse*vec4(vProc,1.0)).xyz;
+float roomX=1.0-smoothstep(10.6,13.1,abs(roomProc.x-6.0));
+float roomZ=smoothstep(-22.0,-19.5,roomProc.z)*(1.0-smoothstep(-2.2,1.5,roomProc.z));
+float roomY=smoothstep(4.8,6.1,roomProc.y)*(1.0-smoothstep(17.5,18.9,roomProc.y));
 float roomMask=roomX*roomZ*roomY;
-float portalLight=mix(.22,.65,smoothstep(-17.0,-1.5,vProc.z));
+float portalLight=mix(.22,.65,smoothstep(-17.0,-1.5,roomProc.z));
 float skyVisibility=mix(1.0,portalLight,roomMask);
 reflectedLight.indirectDiffuse*=skyVisibility;
 reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
@@ -247,6 +285,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
     m = new T.Matrix4(),
     color = new T.Color();
   function instance(geo, material, x, y, z, sx, sy, sz, rotation = null, tint = 1) {
+    if(!emitGeometry)return;
     const g = typeof geo === 'string' ? unit[geo] : geo;
     const key = g.uuid + material;
     let b = buckets.get(key);
@@ -277,8 +316,12 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
     fn();
     stack.pop();
   }
+  const siteMatrix=createReferenceExteriorMatrix();
+  const siteInverse=siteMatrix.clone().invert();
+  const sitePoint=a=>v(...a).applyMatrix4(siteMatrix);
   const hallMatrix=new T.Matrix4().makeTranslation(6,0,-11).scale(v(1.35,1.75,1.28)).multiply(new T.Matrix4().makeTranslation(-6,0,11));
-  const towerMatrix=new T.Matrix4().makeTranslation(-21.5,0,-25).scale(v(1.30,1.75,1.30)).multiply(new T.Matrix4().makeTranslation(12.8,0,14.5));
+  const towerMatrix=new T.Matrix4().makeTranslation(-21.5,0,-25).multiply(new T.Matrix4().makeRotationY(reference10Porch?reference10Scene.towerYaw:0)).scale(v(1.30,1.30,1.30)).multiply(new T.Matrix4().makeTranslation(12.8,0,14.5));
+  hallMatrix.premultiply(siteMatrix);towerMatrix.premultiply(siteMatrix);
   const hallPoint=a=>v(...a).applyMatrix4(hallMatrix);
   function transformed(matrix,fn){stack.push(stack[stack.length-1].clone().multiply(matrix));fn();stack.pop();}
   const box = (x, y, z, w, h, d, ma = 'cedar', rot = 0, tint = 1) => {
@@ -337,6 +380,19 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
     }
   }
   function rock(x, y, z, s = 1) {
+    // Identify the unchanged incoming world anchor before any translation.
+    // Preserve original arguments, shape selection, random calls and all six
+    // stone/moss parts. This is one bounded clearance repair, not a new rock.
+    const originalMatrix=stack[stack.length-1];
+    const originalWorldAnchor=v(x,y,z).applyMatrix4(originalMatrix).toArray();
+    const delta=processionalSupportRepair&&emitGeometry?referenceProcessionalDryBankRockDelta(originalWorldAnchor):null;
+    if(!delta)return emitOriginalProcessionalRock(x,y,z,s);
+    stack[stack.length-1]=new T.Matrix4().makeTranslation(...delta).multiply(originalMatrix);
+    try { emitOriginalProcessionalRock(x,y,z,s); }
+    finally { stack[stack.length-1]=originalMatrix; }
+    processionalRockMoves.push({originalWorldAnchor,worldDelta:[...delta],originalArgs:[x,y,z,s]});
+  }
+  function emitOriginalProcessionalRock(x, y, z, s = 1) {
     const t = rand(.68, 1.15);
     const variant=Math.floor(Math.abs(Math.sin(x*71.3+z*47.7+y)*657.2))%4;
     instance(['rock','rock1','rock2','rock3'][variant], 'stone', x, y, z, s * rand(.75, 1.3), s * rand(.55, 1), s * rand(.65, 1.3), [random() * .45, random() * 6, random() * .45], t);
@@ -385,7 +441,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
   }
 
   // Curved hip roofs, including every overlapping ceramic tile as actual geometry.
-  function hipRoof(x, y, z, w, d, rise, detail = 1) {
+  function hipRoof(x, y, z, w, d, rise, detail = 1, openings = null) {
     group(x, y, z, 0, () => {
       const ridge = w * .245,
         curl = .48;
@@ -438,6 +494,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
       g.setAttribute('color', new T.Float32BufferAttribute(colors, 3));
       g.setIndex(indices);
       g.computeVertexNormals();
+      if(openings?.tile){const clipped=architecture.clipRoofOpening(g,openings.tile);if(clipped!==g)g.dispose();g=clipped;}
       const roofMat = materials.slate.clone();
       roofMat.onBeforeCompile = materials.slate.onBeforeCompile;
       roofMat.customProgramCacheKey = materials.slate.customProgramCacheKey;
@@ -447,7 +504,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
       mesh.applyMatrix4(stack[stack.length - 1]);
       mesh.castShadow = true;
       mesh.receiveShadow = true;
-      scene.add(mesh);
+      if(emitGeometry)scene.add(mesh);else{g.dispose();roofMat.dispose();}
       // Continuous ceramic backing and a sealed timber soffit below the individually modeled tiles.
       for (let face = 0; face < 4; face++) {
         for (const [offset, ma] of [[-.035, 'slate'], [-.18, 'darkwood']]) {
@@ -460,10 +517,11 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
               ids.push(a, a + 41, a + 1, a + 1, a + 41, a + 42);
             }
           }
-          const gg = new T.BufferGeometry();
+          let gg = new T.BufferGeometry();
           gg.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
           gg.setIndex(ids);
           gg.computeVertexNormals();
+          if(openings?.backing){const clipped=architecture.clipRoofOpening(gg,openings.backing);if(clipped!==gg)gg.dispose();gg=clipped;}
           const mm = materials[ma].clone();
           mm.onBeforeCompile = materials[ma].onBeforeCompile;
           mm.customProgramCacheKey = materials[ma].customProgramCacheKey;
@@ -472,48 +530,11 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
           roofBacking.applyMatrix4(stack[stack.length - 1]);
           roofBacking.castShadow = true;
           roofBacking.receiveShadow = true;
-          scene.add(roofBacking);
+          if(emitGeometry)scene.add(roofBacking);else{gg.dispose();mm.dispose();}
         }
       }
-      // True wooden soffit follows the same broad sweep, with rafters at 23 cm centres.
-      for (let face = 0; face < 4; face++) {
-        let count = Math.round((face < 2 ? w : d) / .28);
-        for (let i = 0; i <= count; i++) {
-          let u = -1 + 2 * i / count,
-            p1 = evalP(face, .35, u),
-            p2 = evalP(face, 1.02, u);
-          p1.y -= .21;
-          p2.y -= .21;
-          const curvePoints=[];
-          let oldIntersection=-Infinity;
-          for(let n=0;n<=16;n++){
-            const t=.35+(1.02-.35)*n/16, surface=evalP(face,t,u), chordY=p1.y+(p2.y-p1.y)*n/16;
-            oldIntersection=Math.max(oldIntersection,chordY+.055-surface.y);
-            curvePoints.push([surface.x,surface.y-.235,surface.z]);
-          }
-          instance(timberSweep(curvePoints),'endwood',0,0,0,1,1,1);
-          roofAudit.push({roof:[x,y,z],face,u,oldPenetration:oldIntersection,newMaximumTopOffset:-.18});
-          let pe = evalP(face, 1.02, u);
-          const last=v(...curvePoints.at(-1)),tangent=last.clone().sub(v(...curvePoints.at(-2))).normalize();
-          const endRotation=new T.Quaternion().setFromUnitVectors(v(0,0,1),tangent);
-          const cap=last.clone().addScaledVector(tangent,.012);
-          instance('box','oldgold',cap.x,cap.y,cap.z,.112,.112,.022,endRotation);
-          const crest=cap.clone().addScaledVector(tangent,.014);
-          instance('flowerCrest','gold',crest.x,crest.y,crest.z,.040,.040,.030,endRotation);
-          const angle=face===0?0:face===1?Math.PI:face===2?Math.PI/2:-Math.PI/2;
-          instance('tileEnd','tileEdge',pe.x,pe.y-.015,pe.z,.078,.078,.078,[0,angle,0]);
-          const outward=v(Math.sin(angle),0,Math.cos(angle));
-          instance('flowerCrest','oldgold',pe.x+outward.x*.015,pe.y-.015,pe.z+outward.z*.015,.044,.044,.024,[0,angle,0]);
-        }
-        const pts = [];
-        for (let j = 0; j <= 24; j++) {
-          const p = evalP(face, 1.015, -1 + 2 * j / 24, -.075);
-          pts.push(p.toArray());
-        }
-        line(pts, .11, 'red', 36);
-        const pts2 = pts.map(p => [p[0], p[1] + .12, p[2]]);
-        line(pts2, .035, 'gold', 36);
-      }
+      // Nested main/flying rafters and separate ceramic tile-end row.
+      architecture.eaves({w,d,evalP,roofOrigin:[x,y,z],detail:w>=10,opening:openings?.wood});
       line([[-ridge, rise + .12, 0], [0, rise + .19, 0], [ridge, rise + .12, 0]], .15, 'tileEdge', 30);
       line([[-ridge, rise + .3, 0], [0, rise + .37, 0], [ridge, rise + .3, 0]], .028, 'gold', 30);
       for (let sx of [-1, 1]) for (let sz of [-1, 1]) {
@@ -565,7 +586,11 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
       sphere(0,rise+.21,0,.12,.19,.12,'oldgold');
     });
   }
-  const architecture=createRestorationArchitecture({instance,group,box,stack,columns,roofAudit});
+  // One conditional paper identity; the shared scene and other legacy lamps stay exact.
+  const porchLanternPaper=reference10Porch?createRestorationHangingLanternPaper():null;
+  if(porchLanternPaper)materials.architecture_hangingLanternPaper=porchLanternPaper;
+  const architecture=createRestorationArchitecture({instance,group,box,stack,columns,roofAudit,materials});
+  let sanctuaryApertures=[],sanctuaryColumnAssemblies=[],restorationEntrance=null;
   // Terrain, irregular pond, and a continuous hand-laid stone surface.
   box(0, -1.15, 0, 200, 1.5, 200, 'earth');
   const pondRadius = a => 1+.115*Math.sin(a*3)+.055*Math.cos(a*7)+.026*Math.sin(a*11);
@@ -624,36 +649,37 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     const x=br(-22,22),z=br(-8,18);if(!inPond(x,z,.90)||(x>2.7&&x<9.3))continue;
     const s=br(.045,.17);instance('rock','stone',x,-.57,z,s,s*.55,s*1.15,[0,br(0,6.28),0],br(.65,1.03));
   }
-  for (let i = 0; i < 235; i++) {
-    let a = i / 235 * Math.PI * 2,
-      r = pondRadius(a),
-      x = Math.cos(a) * 22.4 * r,
-      z = Math.sin(a) * 14.3 * r + 4.8;
-    rock(x, -.18, z, rand(.35, .88));
-  }
+  // Preserve the legacy random stream for untouched trees and paving.
+  // Old perimeter: one scale draw plus 32 draws per rock, now replaced below.
+  for(let i=0;i<235*33;i++)random();
+  transformed(siteMatrix,()=>{
+  // Replace a fixed physical section only; preserve all original random draws.
+  const replacedApproach=(x,z)=>x>3.4&&x<8.6&&z>=17.745&&z<=43.225;
   // Stone approach and temple courtyard: individual joints remain visible in overhead shots.
   for (let ix = -33; ix <= 33; ix++) for (let iz = -28; iz <= 25; iz++) {
     let x = ix * 1.04 + iz % 2 * .5,
       z = iz * .91;
-    let pond=inPond(x,z,1.025);
+    const mapped=sitePoint([x,0,z]),oldPond=inPond(x,z,1.025),newPond=inPond(mapped.x,mapped.z,1.025),oldAxis=x>3.4&&x<8.6&&z<20,newAxis=x>3.4&&x<8.6;
     const path=(x>3.4&&x<8.6)||(z>18&&Math.abs(x)<25)||(z<-20&&z>-28&&x>-24&&x<24)||(z<-7.8&&z>-10.5)||(x>20.8&&x<26.6)||(x<-24&&x>-29);
-    if (path && (!pond || x>3.4&&x<8.6&&z<20)) {
-      let top = z > 17.5 ? .08 : .04;
-      box(x, top - .15, z, rand(.94, 1.01), .24, rand(.8, .87), z > 17 ? 'wetStone' : 'paving', rand(-.014, .014), rand(.78, 1.18));
+    if (path && (!oldPond || oldAxis)) {
+      const top=z>17.5?.08:.04,w=rand(.94,1.01),depth=rand(.8,.87),angle=rand(-.014,.014),tint=rand(.78,1.18);
+      if((!newPond||newAxis)&&!replacedApproach(x,z))box(x,top-.15,z,w,.24,depth,z>17?'wetStone':'paving',angle,tint);
     }
   }
   // The processional approach continues beyond the camera; it has no exposed display-base edge.
-  for(let iz=26;iz<=54;iz++)for(let ix=1;ix<=10;ix++){const xx=ix*1.04+(iz%2)*.5,zz=iz*.91;box(xx,-.07,zz,.98,.24,.86,'paving',rand(-.006,.006),rand(.86,1.10));}
+  for(let iz=26;iz<=54;iz++)for(let ix=1;ix<=10;ix++){const xx=ix*1.04+(iz%2)*.5,zz=iz*.91,angle=rand(-.006,.006),tint=rand(.86,1.10);if(xx>3.4&&xx<8.6&&!replacedApproach(xx,zz))box(xx,-.07,zz,.98,.24,.86,'paving',angle,tint);}
   // Real masonry below the procession path, plus landings at both ends of the red bridge.
   box(6,-.33,12.0,5.0,.74,16.0,'stone');
-  box(2.55,.15,11,2.15,.70,3.75,'stone');
-  for(let i=0;i<3;i++)box(2.15+i*.48,.46-i*.13,11,.50,.18,3.1,'paving');
-  for(let i=0;i<28;i++){const zz=5.8+i*.48;for(const side of [-1,1]){box(6+side*2.52,-.06,zz,.08,.28,.46,'stone',0,rand(.75,1.05));if(i%4===0)fern(6+side*2.7,.06,zz,.40);}}
+  // Replaced by the supported, hollow east bridge-head and spillway below.
+  // These two former emission statements consumed no world random numbers.
+  for(let i=0;i<28;i++){const zz=5.8+i*.48,priorEmit=emitGeometry;emitGeometry=priorEmit&&!(zz>=17.745&&zz<=43.225);try{for(const side of [-1,1]){box(6+side*2.52,-.06,zz,.08,.28,.46,'stone',0,rand(.75,1.05));if(i%4===0)fern(6+side*2.7,.06,zz,.40);}}finally{emitGeometry=priorEmit;}}
   // Approach inset pavers, curbs and moss seams.
   for (let i = 0; i < 22; i++) {
+    if(17.8-i*1.07>=17.745&&17.8-i*1.07<=43.225)continue;
     box(3, .14, 17.8 - i * 1.07, .2, .25, .98, 'stone');
     box(9, .14, 17.8 - i * 1.07, .2, .25, .98, 'stone');
   }
+  });
   for (let i = 0; i < 2500; i++) {
     let x = rand(-34, 34),
       z = rand(-29, 25),
@@ -697,25 +723,38 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     }
   }
 
+  // Foundations connect the retained north-bank platform and axis path to
+  // the existing pond bed. No new broad land apron is created.
+  box(-1.540726762,-.435,-7.115090396,16.2,.93,12.288,'stone',0,.92);
+  // Retain the full load-bearing axis, below worn walking slabs rather than coplanar with them.
+  box(-1.540726762,-.507,15.244909604,3.0,.786,26.4,'stone',0,.92);
+  const restoredEntranceStair=buildRestorationEntranceStair({materials,hallMatrix});
+  scene.add(restoredEntranceStair.group);
   transformed(hallMatrix,()=>{
   // Main hall: six bays, patterned shutters, carved brackets, gold hardware and ceramic roof.
   // A raised main terrace gives the hall a commanding mass above the garden.
   platform(6,-11,20,16,2.7);
   const mainDeckHeight=3.1+.3+.035,mainStepHeight=(mainDeckHeight-.018-.035/2)/32;
-  stairs(6,5.2,4.6,32,mainStepHeight,.275);
+  // Preserve all 64 original random draws while replacing only main-hall stair geometry.
+  const priorStairEmission=emitGeometry;emitGeometry=false;
+  try{stairs(6,5.2,4.6,32,mainStepHeight,.275);}finally{emitGeometry=priorStairEmission;}
+  let entranceRoof, gallerySubstructure;
   group(6, 3.1, -11, 0, () => {
     box(0, .15, 0, 18.8, .24, 14.6, 'darkwood');
     for (let x = -9; x < 9; x += .28) box(x, .3, 0, .268, .07, 14.2, 'cedar', 0, rand(.85, 1.07));
-    for (let x of [-8.6, -5.15, -1.72, 1.72, 5.15, 8.6]) for (let z of [-6.8, 0, 6.8]) {
+    const hallColumns=[];sanctuaryColumnAssemblies=hallColumns;
+    for (let x of [-8.6, -5.15, -1.72, 1.72, 5.15, 8.6]) for (let z of [-6.8, -2.8, 6.8]) {
       // Keep a clear central sanctuary nave, as in reference 6. The two
       // central interior posts are replaced by a deep transfer beam; facade
       // and rear columns remain, and the side aisles carry the roof load.
-      if(z===0&&Math.abs(x)<2)continue;
-      footColumn(x, z, .3, 5.9, .43);
-      brackets(x, 6.45, z, 1.35);
+      if(z===6.8||(z===-2.8&&Math.abs(x)<2))continue;
+      if(z===-2.8)hallColumns.push(architecture.hallColumnAssembly({x,z,bottom:.3,height:5.9,radius:.43,transferBeam:Math.abs(x)<6}));
+      else{footColumn(x,z,.3,5.9,.43);brackets(x,6.45,z,1.35);}
     }
-    architecture.sanctuaryTransferBeam();
-    for (let z of [-6.8, 6.8]) {
+    const frontFrame=architecture.hallFrontFrame();
+    hallColumns.push(...frontFrame.columns);
+    architecture.sanctuaryTransferBeam({frameZ:-2.8,columnAssemblies:hallColumns});
+    for (let z of [-6.8]) {
       for (let j = 0; j < 4; j++) box(0, 5.2 + j * .4, z, 18.5, .17, .38, j % 2 ? 'red' : 'darkwood');
       box(0, 6.95, z, 19.5, .25, .45, 'red');
       box(0, 7.17, z, 19.9, .08, .54, 'gold');
@@ -724,21 +763,8 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
         box(i * .3, 6.5, z + .25, .13, .15, .12, 'gold');
       }
     }
-    for (let x of [-8.6, 8.6]) {
-      // Real openings, not black panels placed over a solid wall: sunlight
-      // reaches the sanctuary through the timber lattice.
-      box(x,5.86,0,.3,1.48,13.5,'plaster');
-      box(x,.53,0,.3,.50,13.5,'darkwood');
-      for (let z = -6.6; z < 6.7; z += 1.1) {
-        box(x, 1.22, z, .34, 1.8, 1.04, 'darkwood');
-        const bay=Math.round((z+6.6)/1.1);
-        if(![4,7,10].includes(bay))box(x,3.70,z,.28,2.82,1.00,'darkwood');
-        for(const yy of [2.25,5.14])box(x,yy,z,.36,.14,1.10,'darkwood');
-        for(const zz of [-.53,.53])box(x,3.70,z+zz,.36,2.90,.10,'darkwood');
-        for (let a = 0; a < 7; a++) box(x + Math.sign(x) * .2, 3.7, z - .48 + a * .16, .075, 2.75, .035, 'endwood');
-        for (let a = 0; a < 9; a++) box(x + Math.sign(x) * .21, 2.35 + a * .33, z, .07, .04, 1.04, 'endwood');
-      }
-    }
+    // Real reference6 window bays replace old opaque backing panels.
+    sanctuaryApertures=architecture.sanctuarySideWalls({frontFrame});
     // Rear wall, embroidered-looking geometric panels generated entirely as timber and metal.
     box(0, 3.45, -7.03, 17.4, 6.4, .23, 'darkwood');
     for (let x = -7.8; x <= 8; x += 1.3) {
@@ -750,21 +776,30 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
         for(const side of [-1,1])line([[x,yy-.30,-6.70],[x+side*.36,yy-.12,-6.72],[x+side*.42,yy+.18,-6.70],[x+side*.2,yy+.34,-6.70]],.018,'gold',20);
       }
     }
-    // Lattice doors flank a clear central view to the altar.
-    for (let s of [-1, 1]) for (let k = 0; k < 2; k++) {
-      let x = s * (4.15 + k * 2);
-      box(x, 2.7, 6.73, 1.8, 4.8, .13, 'darkwood');
-      box(x, 3.0, 6.83, 1.62, 3.7, .04, 'black');
-      for (let i = 0; i < 10; i++) box(x - .72 + i * .16, 3.0, 6.9, .045, 3.7, .05, 'oldgold');
-      for (let j = 0; j < 19; j++) box(x, 1.2 + j * .195, 6.91, 1.6, .035, .05, 'oldgold');
-      box(x, .83, 6.85, 1.65, .7, .04, 'red');
-      torus(x, .83, 6.91, .24, .016);
-    }
-    plaque(0, 6.08, 7.1, 2.6, .8);
-    architecture.sanctuaryCeiling();
+    // Infill the actual retained bays without crossing the front shafts.
+    // No invented text is transcribed from the original carved ornament.
+    architecture.hallFrontDoors({frontFrame});
+    architecture.hallFrontFrieze({frontFrame});
+    architecture.sanctuaryCeiling({frameZ:-2.8,paintedPanels:true,columnAssemblies:hallColumns});
+    architecture.sanctuaryFloorMats();
     for (let x of [-9.4, 9.4]) railing(v(x, 0, -7.5), v(x, 0, 7.4), .3, 1);
     railing(v(-9.4, 0, 7.4), v(-2.5, 0, 7.4), .3, 1);
     railing(v(2.5, 0, 7.4), v(9.4, 0, 7.4), .3, 1);
+    // Four retained front capital receivers carry this open curved entrance.
+    // Roof skins and actual eave timbers are opened together at the call sites below.
+    if(reference10Porch){
+      gallerySubstructure=architecture.hallGallerySubstructure({referenceMode:'reference10',frontFrame});
+    }else{
+    restorationEntrance=entranceRoof=architecture.karahafuEntrance({
+      x:0,z:8.265,w:16.4,d:3.37,rise:2.78,endRise:.42,backRise:0,
+      beamWidth:.28,tileCount:46,tileRadius:.14,
+      hostRoof:{w:24.8,d:19.9,rise:1.8,datum:7.55},
+      alignHostEave:true,ceilingClearanceY:7.5027,
+      retainedGallery:{frontZ:6.5,floorBottomY:7.98},
+      upperWoodOpening:{minX:-1.9,maxX:1.9,minZ:7.30,maxZ:Infinity},
+      supportColumns:frontFrame.entranceSupports
+    });
+    }
   });
   // Deep carved transoms, floral scrolls and joinery pins along all six bays.
   for (let bx of [-.88, 2.55, 6, 9.45, 12.9]) group(bx, 8.9, -3.88, 0, () => {
@@ -783,7 +818,13 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   });
   // Two distinct eave lines and an inhabited upper gallery, derived from the
   // full-resolution garden views. The monumental columns remain full-height.
-  hipRoof(6,10.65,-11,24.8,19.9,1.8);
+  if(reference10Porch){
+    group(6,3.1,-11,0,()=>{
+      architecture.hallGalleryRoof({referenceMode:'reference10',substructure:gallerySubstructure,tileShade:()=>rand(.89,1.11)});
+    });
+  }else{
+  hipRoof(6,10.65,-11,24.8,19.9,1.8,1,{tile:entranceRoof.hostTileOpening,backing:entranceRoof.hostOpening,wood:entranceRoof.hostOpening});
+  }
   group(6,11.12,-11,0,()=>{
     box(0,.04,0,18.3,.16,13.0,'darkwood');
     for(const x of [-8.6,-5.15,-1.72,1.72,5.15,8.6])for(const z of [-5.7,5.7]){
@@ -808,8 +849,8 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     railing(v(-9.25,0,6.3),v(9.25,0,6.3),.10,.58);
     railing(v(-9.25,0,-6.3),v(9.25,0,-6.3),.10,.58);
   });
-  hipRoof(6,13.4,-11,21.2,16.4,6.3);
-  gableRoof(6, 10.1, -2.9, 8.2, 5.8, 2.8);
+  hipRoof(6,13.4,-11,21.2,16.4,6.3,1,reference10Porch?null:{wood:entranceRoof.upperWoodOpening});
+  // The old solid main-hall pediment is replaced above; gate gables remain.
   });
   // Suspended corner wind chimes, flame pendants and chains.
   function pendant(x, y, z, s = .65) {
@@ -822,43 +863,48 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
 
   transformed(towerMatrix,()=>{
   // Five-storey pagoda with steadily diminishing eaves and a nine-ring bronze finial.
+  if(reference10Porch){
+    const wasEmitting=emitGeometry;emitGeometry=false;
+    try{platform(-12.8,-14.5,11,11,1.05);stairs(-12.8,-7.7,3.7,6,.23,.5);}finally{emitGeometry=wasEmitting;}
+    restoredTowerBase=buildRestorationTowerBase({materials,towerMatrix});scene.add(restoredTowerBase.group);
+  }else{
   platform(-12.8, -14.5, 11, 11, 1.05);
   stairs(-12.8, -7.7, 3.7, 6, .23, .5);
+  }
   group(-12.8, 1.43, -14.5, 0, () => {
     for (let level = 0; level < 5; level++) {
-      const scale = 1 - level * .115,
+      const scale = 1 - level * (reference10Porch?reference10Scene.taperStep:.115),
         w = 7.8 * scale,
         d = w,
         h = 3.55,
         y = level * 4.12;
-      box(0, y + .17, 0, w + .5, .3, d + .5, 'darkwood');
-      for (let x = -w / 2 + .45; x < w / 2; x += 1.15) for (let z of [-d / 2, d / 2]) {
-        footColumn(x, z, y + .2, 2.55, .19 * scale);
-        brackets(x, y + 2.87, z, .72 * scale);
+      if (!reference10Porch || level === 0) {
+        box(0, y + .17, 0, w + .5, .3, d + .5, 'darkwood');
       }
-      for (let x of [-w / 2, w / 2]) for (let z = -d / 2 + .65; z < d / 2; z += 1.15) {
-        footColumn(x, z, y + .2, 2.55, .19 * scale);
-        brackets(x, y + 2.87, z, .72 * scale);
-      }
-      box(0, y + 1.57, 0, w - .45, 2.7, d - .45, 'plaster');
-      for (let s of [-1, 1]) {
-        for (let i = -2; i <= 2; i++) {
-          let xx = i * w * .16;
-          box(xx, y + 1.5, s * (d / 2 - .15), w * .12, 1.85, .11, 'darkwood');
-          for (let k = 0; k < 5; k++) box(xx - w * .05 + k * w * .025, y + 1.5, s * (d / 2 - .08), .035, 1.7, .03, 'endwood');
-          for (let k = 0; k < 4; k++) box(xx, y + .85 + k * .4, s * (d / 2 - .06), w * .115, .03, .035, 'oldgold');
-        }
-        for (let j = 0; j < 3; j++) box(0, y + 2.6 + j * .22, s * (d / 2 + .03), w + .7, .12, .2, j % 2 ? 'oldgold' : 'red');
-      }
+      const storeyFrame=architecture.pagodaStoreyFrame({w,d,y,level,scale,detail:level<2,windowMaterial:'pagodaPaper'});
+      pagodaWindows.push(...storeyFrame.windows);
       if (level > 0) {
-        for (let s of [-1, 1]) {
-          railing(v(-w / 2 - .35, 0, s * (d / 2 + .4)), v(w / 2 + .35, 0, s * (d / 2 + .4)), y + .3, .73);
-          railing(v(s * (w / 2 + .4), 0, -d / 2 - .3), v(s * (w / 2 + .4), 0, d / 2 + .3), y + .3, .73);
+        if (reference10Porch) {
+          architecture.pagodaBalcony({referenceMode:'reference10',w,d,y,level,scale,storeyFrame});
+        } else {
+          for (let s of [-1, 1]) {
+            railing(v(-w / 2 - .35, 0, s * (d / 2 + .4)), v(w / 2 + .35, 0, s * (d / 2 + .4)), y + .3, .73);
+            railing(v(s * (w / 2 + .4), 0, -d / 2 - .3), v(s * (w / 2 + .4), 0, d / 2 + .3), y + .3, .73);
+          }
         }
       }
-      hipRoof(0, y + 3.55, 0, w + 3.3 * scale, d + 3.3 * scale, 2.18 * scale);
+      architecture.pagodaRoof({x:0,y:y+3.55,z:0,w:w+3.3*scale,d:d+3.3*scale,rise:2.18*scale,wallWidth:w,wallDepth:d,frameScale:scale,detail:level<2,soffitMaterial:'cedar',...(reference10Porch?(level===4?{referenceMode:'reference10',apexOpeningHalf:.14}:{referenceMode:'reference10',upperFloor:{width:7.8*(1-(level+1)*reference10Scene.taperStep)+.5,depth:7.8*(1-(level+1)*reference10Scene.taperStep)+.5,bottomY:(level+1)*4.12+.02,topY:(level+1)*4.12+.32},upperBalcony:{width:7.8*(1-(level+1)*reference10Scene.taperStep)+.96,depth:7.8*(1-(level+1)*reference10Scene.taperStep)+.96,bottomY:(level+1)*4.12+.02,topY:(level+1)*4.12+.32}}):{})});
+      // Preserve former tile-tint draws so later vegetation does not move.
+      for(let i=0;i<[1734,1422,1084,840,624][level];i++)random();
       for (let s of [-1, 1]) for (let t of [-1, 1]) pendant(s * (w / 2 + 1.35 * scale), y + 3.7, t * (d / 2 + 1.35 * scale), .4 * scale);
     }
+    if(reference10Porch){
+      const topScale=1-4*reference10Scene.taperStep,topRoofY=4*4.12+3.55,topRoofRise=2.18*topScale;
+      reference10Finial=architecture.pagodaFinial({referenceMode:'reference10',x:0,z:0,
+        baseY:topRoofY+topRoofRise,height:reference10Scene.finialHeight,floorTopY:4*4.12+.32,
+        roofWidth:11.1*topScale,roofDepth:11.1*topScale,roofRise:topRoofRise,
+        ringCount:reference10Scene.finialRingCount,baseWidth:1.35,openingHalf:.14});
+    }else{
     let sy = 22.05;
     cylinder(0, sy + .95, 0, .075, 3.8, 'oldgold');
     for (let i = 0; i < 9; i++) {
@@ -867,44 +913,13 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     sphere(0, sy + 2.5, 0, .26, .33, .26, 'gold');
     instance('cone', 'gold', 0, sy + 3.05, 0, .15, .8, .15);
     for (let s of [-1, 1]) line([[0, sy + 2.3, 0], [s * 1.05, sy - .8, s * 1.05], [s * 1.6, sy - 2.1, s * 1.6]], .018, 'black');
+    }
   });
 
   });
-  // The red arched bridge is a real curved deck, down to plank seams and bronze post caps.
-  group(-6, 0, 11, .08, () => {
-    const L = 15.6,
-      W = 3.25,
-      arch = x => .55 + 1.85 * Math.cos(x / L * Math.PI);
-    for (let i = 0; i < 90; i++) {
-      let x = -L / 2 + (i + .5) * L / 90,
-        yy = arch(x);
-      box(x, yy, 0, L / 90 - .018, .18, W, 'darkwood');
-      box(x, yy + .1, 0, L / 90 - .022, .055, W - .12, 'red', 0, rand(.72, 1.08));
-    }
-    for (let s of [-1, 1]) {
-      let pts = [];
-      for (let i = 0; i <= 80; i++) {
-        let x = -L / 2 + L * i / 80;
-        pts.push([x, arch(x) - .25, s * W * .47]);
-      }
-      line(pts, .2, 'darkwood', 80);
-      for (let h of [.43, 1.05]) line(pts.map(p => [p[0], p[1] + h + .25, p[2] + s * .15]), .09, 'red', 80);
-      line(pts.map(p => [p[0], p[1] + 1.38, p[2] + s * .15]), .025, 'gold', 80);
-      for (let i = 0; i <= 18; i++) {
-        let x = -L / 2 + L * i / 18,
-          y = arch(x);
-        box(x, y + .68, s * (W / 2 + .02), .17, 1.38, .18, 'red');
-        box(x, y + .13, s * (W / 2 + .02), .29, .16, .3, 'black');
-        cylinder(x, y + 1.43, s * (W / 2 + .02), .13, .12, 'black');
-        sphere(x, y + 1.6, s * (W / 2 + .02), .11, .15, .11, 'oldgold');
-        for (let a = 0; a < 4; a++) sphere(x + Math.sin(a * 1.57) * .08, y + 1.56, s * (W / 2 + .02) + Math.cos(a * 1.57) * .08, .025, .07, .025, 'gold');
-      }
-    }
-    for (let x of [-L / 2, L / 2]) for (let s of [-1, 1]) {
-      cylinder(x, .1, s * 1.35, .42, 1.6, 'stone');
-      rock(x, -.05, s * 1.6, .75);
-    }
-  });
+  // The reference bridge is built by restoration-landscape. Preserve 90
+  // deck-tint + four 32-draw foundation-rock RNG advances for unchanged assets.
+  for(let i=0;i<218;i++)random();
   function lantern(x, y, z, s = 1) {
     group(x, y, z, 0, () => {
       box(0, .08, 0, .9 * s, .16 * s, .9 * s, 'stone');
@@ -929,7 +944,11 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       }
     });
   }
-  for (let p of [[-17, 10, 1.25], [15, 7, 1.2], [1.1,16,1.1],[10.9,16,1.1], [-19, -1, 1.05], [18, -7, 1.15], [-6, -7, .9], [22, 14, 1.2]]) lantern(p[0], 0, p[1], p[2]);
+  transformed(siteMatrix,()=>{
+  // Keep all144 original random draws, but replace these eight lamps rather than overlaying them.
+  const lanternEmitBefore=emitGeometry;emitGeometry=false;
+  try{for (let p of [[-17, 10, 1.25], [15, 7, 1.2], [1.1,16,1.1],[10.9,16,1.1], [-19, -1, 1.05], [18, -7, 1.15], [-6, -7, .9], [22, 14, 1.2]]) lantern(p[0], 0, p[1], p[2]);}finally{emitGeometry=lanternEmitBefore;}
+  });
   function hangingLantern(x, y, z, s = 1) {
     group(x, y, z, 0, () => {
       cylinder(0, 0, 0, .018, 1.2 * s, 'black');
@@ -947,6 +966,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       sphere(0, -1.63 * s, 0, .1 * s, .14 * s, .1 * s, 'gold');
     });
   }
+  transformed(siteMatrix,()=>{
   // Verandas framing the views without enclosing the camera routes.
   group(24, 0, 0, 0, () => {
     box(0, .25, 0, 5, .5, 43, 'stone');
@@ -975,14 +995,43 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   // Foreground covered threshold used by the final pullback. The central
   // eleven-metre bay stays clear along the complete camera path.
   group(-14.5,0,38.5,0,()=>{
+    if(reference10Porch){
+      // Complete conditional side porch: actual new frame, matched old roof
+      // openings and near-column seats are one coupled construction change.
+      restoredSidePorch=architecture.reference10SidePorch({referenceMode:'reference10'});
+      thresholdSupport=architecture.thresholdPorchSupport({
+        referenceMode:'reference10',bounds:{minX:-12.1325,maxX:12.10,minZ:-2.8,maxZ:2.8},
+        foundationTop:.08,finishTop:.18,embed:.02/.6,holeClearance:.005/.6,
+        supportColumns:[-11.5,-5.5,5.5,11.5].flatMap(x=>[-2,2].map(z=>({x,z,bottom:.12,radius:.32}))),
+        terrainEnvelope:{min:-.08349285212601731/.6,max:-.06454485650130672/.6,
+          worldBounds:{minX:-21.120226762,maxX:-6.580726762,minZ:20.904909604,maxZ:24.264909604},
+          worldHeightRange:[-.08349285212601731,-.06454485650130672],
+          source:'355920ae060e2de3150c1ca3f0f359dae04eddd836db9f76e9ded02a56e7472c',primitiveCount:95}
+      });
+    }else{
     for(let x=-12;x<12;x+=.28)box(x,.13,0,.265,.10,5.6,'cedar',0,.88+.10*Math.sin(x*3));
+    }
     for(const x of [-11.5,-5.5,5.5,11.5])for(const z of [-2,2]){
-      footColumn(x,z,.12,6.2,.32);brackets(x,6.7,z,1.05);
+      architecture.footColumn(x,z,.12,6.2,.32,reference10Porch?{referenceMode:'reference10',plainShoe:true,...(x===-5.5&&z===-2?{porchColumnSeats:restoredSidePorch.columnSeats}:{})}:{});brackets(x,6.7,z,1.05);
     }
     for(const z of [-2,2]){box(0,6.55,z,24,.32,.40,'darkwood');box(0,6.78,z,24,.06,.48,'oldgold');}
-    for(const x of [-9,9])for(const z of [-1.8,1.8])hangingLantern(x,6.15,z,.9);
-    hipRoof(0,7.1,0,27,6.2,3.1);
+    for(const x of [-9,9])for(const z of [-1.8,1.8]){
+      if(reference10Porch&&x===-9&&z===-1.8){
+        // Replace one old call, never overlay it. The real threshold parent and
+        // retained front beam carry the corrected original10 three-facet hypothesis.
+        restoredPorchLantern=architecture.hangingPorchLantern({
+          referenceMode:'reference10',bodyProfile:'reference10-three-facet',
+          x:-4.652288501743041,z:-1.8,bodyCenterY:3.329311105535976,
+          scale:.2758996988020105,anchorY:6.39,
+          paperMaterial:'architecture_hangingLanternPaper',
+          supportBeam:{centerX:0,centerZ:-2,bottomY:6.39,topY:6.71,width:24,depth:.40}
+        });
+      }else hangingLantern(x,6.15,z,.9);
+    }
+    if(reference10Porch)hipRoof(0,7.1,0,27,6.2,3.1,1,restoredSidePorch.oldRoofOpenings);
+    else hipRoof(0,7.1,0,27,6.2,3.1);
     railing(v(5.7,0,2.5),v(11.8,0,2.5),.12,1.05);
+  });
   });
   function smallShrine(x, z, s, rot = 0) {
     group(x, 0, z, rot, () => {
@@ -999,21 +1048,34 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       stairs(0, 4.3 * s, 2 * s, 5, .15 * s, .38 * s);
     });
   }
+  transformed(siteMatrix,()=>{
   smallShrine(-26, -6, 1.25, -.1);
   smallShrine(25, -25, .9, .15);
   smallShrine(1, -31, 1.1, 0);
 
+  });
   // Reference 6 reconstruction: sculpture and furnishing own distinct geometry.
   // Bodies are seated on the altar module's lotus contact planes, not floating
   // giant knees on a thin repeated terrace. Old v10 remains frozen unchanged.
+  const roomMetals=createRestorationPrivateRoomMetals(materials);
+  const roomHair=createRestorationSculptureHairFinish({hypothesis:'dark-dielectric-coating',hallMatrix});
+  for(const key of ['sculptureGold','sculptureHair'])if(Object.hasOwn(materials,key))throw Error('Duplicate sculpture material key: '+key);
+  materials.sculptureGold=roomMetals.materials.gold;
+  materials.sculptureHair=roomHair.material;
+  const sculptureMaterialKeys=Object.freeze({buddha:'buddha',gold:'sculptureGold',oldgold:'sculptureHair'});
+  const sculptureEmitter=(geometry,key,...transform)=>{
+    if(!Object.hasOwn(sculptureMaterialKeys,key))throw Error('Unexpected sculpture material key: '+key);
+    instance(geometry,sculptureMaterialKeys[key],...transform);
+  };
   transformed(hallMatrix,()=>group(6,3.48,-14.5,0,()=>{
-    emitRestoredBuddha(instance,{x:0,y:3.00,z:0,scale:2.1/3.26});
-    for(const side of [-1,1])emitRestoredBuddha(instance,{x:side*2.78,y:2.85,z:-.08,scale:1.45/3.26});
+    emitRestoredBuddha(sculptureEmitter,{x:0,y:3.00,z:0,scale:2.1/3.26,widthScale:1.75/1.35,depthScale:1.75/1.28});
+    for(const side of [-1,1])emitRestoredBuddha(sculptureEmitter,{variant:side<0?'left':'right',x:side*2.63,y:2.85,z:-.08,scale:1.45/3.26,widthScale:1.75/1.35,depthScale:1.75/1.28});
   }));
   const furnishingTransform=hallMatrix.clone().multiply(new T.Matrix4().makeTranslation(6,3.48,-14.5));
-  for(const furnishing of [buildRestorationAltar({materials}),buildRestorationHangingOrnaments({materials})]){
-    furnishing.applyMatrix4(furnishingTransform);scene.add(furnishing);
-  }
+  // Explicit private reflection ownership for these two furnishing roots only.
+  const restoredFurnishings=[buildRestorationAltar({materials:roomMetals.materials,layout:{sideFigureX:2.63,headHaloCenters:[4.813,4.208819]}}),buildRestorationHangingOrnaments({materials:roomMetals.materials})];
+  for(const furnishing of restoredFurnishings){furnishing.applyMatrix4(furnishingTransform);scene.add(furnishing);}
+  // Register explicit owners only after the sculpture batches are committed.
   transformed(hallMatrix,()=>{
     for (const x of [1.3,10.7])for(const z of [-14,-8])hangingLantern(x,8.5,z,.65);
   });
@@ -1024,7 +1086,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   scene.add(altarLight,altarLight.target);
   RectAreaLightUniformsLib.init();
   const altarBounce=new T.RectAreaLight('#ffe1b2',6.0,7,5);
-  altarBounce.position.set(6,13.8,-7);altarBounce.lookAt(6,11.6,-15.4);scene.add(altarBounce);
+  altarBounce.position.copy(sitePoint([6,13.8,-7]));altarBounce.lookAt(sitePoint([6,11.6,-15.4]));altarBounce.width*=.6;altarBounce.height*=.6;scene.add(altarBounce);
   const fillLight = new T.PointLight('#e6a75f', 55, 12, 2);
   fillLight.position.copy(hallPoint([6,5,-5]));
   scene.add(fillLight);
@@ -1072,13 +1134,23 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   }
   // Foreground crown and flank trees are deliberately asymmetrical, as in the reference.
   tree(-25, 15, 12, 'maple', 'leafGold', 1.1);
-  tree(19, 12, 9.4, 'maple', 'leafRed', -.6);
-  tree(-24, 1, 10.5, 'maple', 'leaf', 1.2);
-  tree(18, -2, 8, 'maple', 'leafGold', .3);
+  // A distinct conditional layout hypothesis, not a new tree or shared-world relocation.
+  if(reference10Porch){
+    transformed(createRestorationReference10EMapleTransform(),()=>{
+      tree(19, 12, 9.4, 'maple', 'leafRed', -.6);
+    });
+  }else{
+    tree(19, 12, 9.4, 'maple', 'leafRed', -.6);
+  }
+  transformed(siteMatrix,()=>{
+  const flankEmitBefore=emitGeometry;emitGeometry=false;
+  try{tree(-24,1,10.5,'maple','leaf',1.2);}finally{emitGeometry=flankEmitBefore;}
+  transformed(restorationFlankTreeOffset(restorationFlankTreePlan[1],{beforeSiteMatrix:true}),()=>tree(18,-2,8,'maple','leafGold',.3));
   tree(-7, -4, 5.5, 'pine', 'leafDark', .7);
   tree(12, 3, 5.2, 'pine', 'leafDark', -.4);
   tree(-18, 5, 6.5, 'pine', 'leafDark', 1.2);
   tree(20, -14, 7.1, 'maple', 'leafRed');
+  });
   tree(22.5,16,17,'maple','leafGold',-1.2);
   for (let i = 0; i < 42; i++) {
     let x = rand(-55, 55),
@@ -1086,6 +1158,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     if ((x + 13) * (x + 13) + (z + 14) * (z + 14) > 60) tree(x, z, rand(7, 15), i % 3 ? 'maple' : 'pine', i % 7 === 0 ? 'leafGold' : 'leafDark', rand(-1, 1));
   }
   for (const [i,p] of [[-39,18],[-37,12],[-32,17],[-31,-29],[-38,-32],[-44,-18],[-43,4]].entries())tree(p[0],p[1],rand(7,12),'maple',i%4===0?'leafRed':'leaf',rand(-.5,1));
+  transformed(siteMatrix,()=>{
   // Rock garden islands, surface ground cover, fern fronds and fine grasses.
   for (let p of [[-17, 1, 3.3], [-10, -2, 2.4], [14, 4, 3], [17, -1, 2.5], [-19, 12, 2.1]]) {
     let [x, z, s] = p;
@@ -1095,6 +1168,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       rock(x + Math.cos(a) * rr, rand(-.3, .05), z + Math.sin(a) * rr, rand(.28, .8));
     }
   }
+  });
   function fern(x, y, z, s = 1) {
     for (let k = 0; k < 6; k++) {
       let a = k * 2.4;
@@ -1103,17 +1177,23 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
           xx = x + Math.sin(a) * t * s,
           zz = z + Math.cos(a) * t * s,
           yy = y + Math.sin(t * Math.PI * .8) * .55 * s;
-        for (let side of [-1, 1]) instance('leaf', 'leafDark', xx, yy, zz, .25 * s * (1 - t), .6, .45 * s * (1 - t), [-.15, a + side * 1.1, side * .25], rand(.8, 1.2));
+        for (let side of [-1, 1]) instance(understoryLeaf, 'leafDark', xx, yy, zz, .25 * s * (1 - t), .6, .45 * s * (1 - t), [-.15, a + side * 1.1, side * .25], rand(.8, 1.2));
       }
     }
   }
+  transformed(siteMatrix,()=>{
   // Foreground garden beds: the approach is embedded in planting, not a bare plaza.
   for(let side of [-1,1])for(let j=0;j<155;j++){
     const x=side<0?rand(-1.8,2.8):rand(10.3,15.4),z=rand(24,48);
+    const mapped=sitePoint([x,0,z]);emitGeometry=!inPond(mapped.x,mapped.z,1.025);
+    // Execute every seeded draw, but no dry-bed geometry inside retained pond.
     if(j%3===0)rock(x,-.07,z,rand(.18,.52));
     if(j%2===0)fern(x,.05,z,rand(.38,.85));
     for(let k=0;k<3;k++)sphere(x+rand(-.35,.35),.015,z+rand(-.3,.3),rand(.08,.25),.035,rand(.08,.24),'moss',rand(.75,1.15));
+    emitGeometry=true;
   }
+  });
+  // Shoreline and water are not scaled: their old fringe stays in world space.
   for (let i = 0; i < 550; i++) {
     let a = rand(0, 6.28),
       r = pondRadius(a),
@@ -1129,13 +1209,14 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       }
     }
   }
+  transformed(siteMatrix,()=>{
   for (const [ix, iz, rx, rz] of [[-8,-3,3.4,2.2],[13,3,3.4,2.4],[-18,5,5.6,3.5],[1.1,16,2.0,2.7],[10.9,16,2.1,3.4],[-17.4,10.8,6,4.4]]) {
     const p = [ix, .5, iz],
       ids = [];
     for (let k = 0; k <= 64; k++) {
       let a = k / 64 * Math.PI * 2,
         r = 1 + .1 * Math.sin(a * 5);
-      p.push(ix + Math.cos(a) * rx * r, -.13, iz + Math.sin(a) * rz * r);
+      p.push(ix + Math.cos(a) * rx * r, -.23, iz + Math.sin(a) * rz * r);
       if (k < 64) ids.push(0, k + 2, k + 1);
     }
     let g = new T.BufferGeometry();
@@ -1147,13 +1228,16 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       let a = k / 35 * Math.PI * 2;
       rock(ix + Math.cos(a) * rx, 0, iz + Math.sin(a) * rz, rand(.23, .55));
     }
+    // Preserve all legacy random draws while replacing only island understory.
+    const islandEmitBefore=emitGeometry;emitGeometry=false;
+    try {
     for (let k = 0; k < 100; k++) {
       let a = rand(0, 6.28),
         r = Math.sqrt(random()) * .9,
         xx = ix + Math.cos(a) * rx * r,
         zz = iz + Math.sin(a) * rz * r,
         yy = .46 * (1 - r) + .08;
-      instance('leaf', 'leafDark', xx, yy, zz, rand(.25, .45), .6, rand(.3, .7), [0, rand(0, 6.28), rand(-.2, .2)]);
+      instance(understoryLeaf, 'leafDark', xx, yy, zz, rand(.25, .45), .6, rand(.3, .7), [0, rand(0, 6.28), rand(-.2, .2)]);
       if (k % 7 === 0) {
         fern(xx, yy, zz, .65);
         let h = rand(.24, .45);
@@ -1165,80 +1249,31 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
         sphere(xx, yy + h + .02, zz, .021, .02, .021, 'pollen');
       }
     }
+    } finally {emitGeometry=islandEmitBefore;}
   }
-  // Retained pond-flower geometry is independent of the replaced altar.
-  function lotusPetalGeometry() {
-    const p = [],
-      ids = [],uv=[];
-    for (let j = 0; j <= 12; j++) for (let i = 0; i <= 8; i++) {
-      const t = j / 12,
-        u = i / 8 * 2 - 1,
-        width = Math.pow(Math.sin(t * Math.PI), .58) * .38;
-      p.push(u * width, .055*t+Math.pow(t, 2) * .65 + u * u * .12*Math.sin(t*Math.PI), t * .85-u*u*.07*Math.sin(t*Math.PI));uv.push(i/8,t);
-      if (j < 12 && i < 8) {
-        let a = j * 9 + i;
-        ids.push(a, a + 9, a + 1, a + 1, a + 9, a + 10);
-      }
-    }
-    let g = new T.BufferGeometry();
-    g.setAttribute('position', new T.Float32BufferAttribute(p, 3));
-    g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
-    g.setIndex(ids);
-    g.computeVertexNormals();
-    return g;
-  }
-  const petalGeo = lotusPetalGeometry();
-  function lilyGeo() {
-    let p = [0, .03, 0],
-      idx = [],
-      n = 40;
-    for (let i = 0; i <= n; i++) {
-      let a = .13 + i / n * (Math.PI * 2 - .26),
-        r = .65 * (1 - .12 * Math.cos(a));
-      p.push(Math.cos(a) * r, .03 * Math.sin(a * 6) + .065 * Math.pow(r, 2), Math.sin(a) * r);
-    }
-    for (let i = 0; i < n; i++) idx.push(0, i + 1, i + 2);
-    let g = new T.BufferGeometry();
-    g.setAttribute('position', new T.Float32BufferAttribute(p, 3));
-    g.setIndex(idx);
-    g.computeVertexNormals();
-    return g;
-  }
-  const lily = lilyGeo();
-  function lotus(x, z, size = 1, flower = false) {
-    let y = -.04;
-    instance(lily, 'lily', x, y, z, size*.70, 1, size*.70, [rand(-.05, .05), rand(0, 6.28), rand(-.05, .05)], rand(.65, 1.1));
-    if (flower) {
-      let fy = rand(.25, .7) * size;
-      beam(v(x, -.2, z), v(x + .12, fy, z - .14), .018, 'leafDark');
-      const xx = x + .12,
-        zz = z - .14;
-      for (let row = 0; row < 3; row++) for (let i = 0; i < (row === 2 ? 10 : 16); i++) {
-        const a = i / (row === 2 ? 10 : 16) * Math.PI * 2 + row * .3;
-        instance(petalGeo, random() > .15 ? 'petal' : 'petalWhite', xx, fy + row * .02, zz, size * (.48 - row * .08)*.65, size * (.30 + row * .2)*.70, size * (.48 - row * .08)*.65, [.65 - row * .38, a, 0], rand(.85, 1.12));
-      }
-      sphere(xx, fy + .12, zz, .08 * size, .06 * size, .08 * size, 'pollen');
+  });
+  // Replace the old slit lily pads and flowers, but keep all later seeded
+  // fallen leaves identical. These scalar draws emit no old geometry.
+  const consumeOldLotus = flower => {
+    for(let k=0;k<4;k++)random();
+    if(flower)for(let k=0;k<85;k++)random();
+  };
+  for(let i=0;i<270;i++){
+    const x=rand(-20,20),z=rand(-7,17);
+    const avoidBridge=x>-14&&x<3&&z>8.7&&z<13.4,path=x>2.5&&x<9.5&&z<6;
+    if(inPond(x,z,.86)&&!avoidBridge&&!path&&!(x>2.7&&x<9.3)){
+      random();const flower=random()<.37;consumeOldLotus(flower);
+      if(random()<.5){random();random();random();consumeOldLotus(false);}
     }
   }
-  for (let i = 0; i < 270; i++) {
-    let x = rand(-20, 20),
-      z = rand(-7, 17),
-      rr = x * x / 484 + (z - 4.8) * (z - 4.8) / 199;
-    const avoidBridge = x > -14 && x < 3 && z > 8.7 && z < 13.4;
-    const path = x > 2.5 && x < 9.5 && z < 6;
-    if(inPond(x,z,.86)&&!avoidBridge&&!path&&!(x>2.7&&x<9.3)) {
-      lotus(x, z, rand(.38, 1.05), random() < .37);
-      if (random() < .5) lotus(x + rand(-.5, .5), z + rand(-.5, .5), rand(.4, .85), false);
-    }
-  }
-  // Large foreground flowers provide a low camera subject and clean parallax.
-  for (let p of [[-3, 14], [0, 16], [-1.5, 16], [14.5,16], [-14, 15]]) lotus(p[0], p[1], 1.5, true);
+  for(let i=0;i<5;i++)consumeOldLotus(true);
   // Fallen leaves, moss between pavers, gravel and tiny flowers are modeled from above too.
   for (let i = 0; i < 1400; i++) {
     let x = rand(-29, 28),
       z = rand(-22, 24);
     if (x * x / 484 + (z - 4.8) * (z - 4.8) / 199 > 1.08 || z > 18) {
-      instance(mapleGeo, i % 3 ? 'leafGold' : 'leafRed', x, .18, z, rand(.08, .2), .15, rand(.09, .24), [0, rand(0, 6.28), 0], rand(.7, 1.1));
+      const fallenEmitBefore=emitGeometry;emitGeometry=fallenEmitBefore&&!(x>=-3.046726762&&x<=-.034726762&&z>=10.131909604&&z<=25.419909604);
+      try{instance(mapleGeo, i % 3 ? 'leafGold' : 'leafRed', x, .18, z, rand(.08, .2), .15, rand(.09, .24), [0, rand(0, 6.28), 0], rand(.7, 1.1));}finally{emitGeometry=fallenEmitBefore;}
     }
   }
   for (let i = 0; i < 2500; i++) {
@@ -1251,19 +1286,30 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   const grassRandom=botany.rng(914731),gr=(a,b)=>a+(b-a)*grassRandom();
   for(let i=0;i<105000;i++){
     const x=gr(-57,57),z=gr(-54,52);
-    const paved=(x>1.0&&x<11.4&&z>24)||(x>3.0&&x<9.1)||(z>17.4&&z<24.1&&Math.abs(x)<26)||(z<-20&&z>-28&&x>-24&&x<24)||(z<-7.8&&z>-10.5)||(x>20.8&&x<27.0&&z<23)||(x<-24&&x>-29);
-    const building=(x>-9&&x<21&&z>-23&&z<.2)||(x>-30&&x<-13&&z>-34&&z<-16)||(x>-33&&x<-19&&z>-13&&z<1.5)||(x>-29&&x<.5&&z>34&&z<43);
+    const local=sitePoint([0,0,0]);local.set(x,0,z).applyMatrix4(siteInverse);const lx=local.x,lz=local.z;
+    const paved=(lx>1.0&&lx<11.4&&lz>24)||(lx>3.0&&lx<9.1)||(lz>17.4&&lz<24.1&&Math.abs(lx)<26)||(lz<-20&&lz>-28&&lx>-24&&lx<24)||(lz<-7.8&&lz>-10.5)||(lx>20.8&&lx<27.0&&lz<23)||(lx<-24&&lx>-29);
+    const building=(lx>-9&&lx<21&&lz>-23&&lz<.2)||(lx>-30&&lx<-13&&lz>-34&&lz<-16)||(lx>-33&&lx<-19&&lz>-13&&lz<1.5)||(lx>-29&&lx<.5&&lz>34&&lz<43);
     if(inPond(x,z,1.025)||paved||building)continue;
     const s=gr(.36,.92);instance('grass',grassRandom()>.65?'leaf':'leafDark',x,-.075,z,s,s,s,[0,gr(0,6.28),0],gr(.6,1.2));
   }
   box(0, -10, 0, 1400, 2, 1400, 'earth');
+  transformed(siteMatrix,()=>{
   // Three terraced banks behind the hall: planted retaining walls, rather than an empty flat apron.
   for(let course=0;course<3;course++)for(let i=0;i<66;i++){const xx=-33+i*1.02,zz=-23-course*.76+.5*Math.sin(xx*.17);rock(xx,course*.43,zz,rand(.42,.72));}
   box(0,.15,-31,65,1.8,15,'earth');
   for(let i=0;i<170;i++){const xx=rand(-32,32),zz=rand(-22,-36);sphere(xx,1.1,zz,rand(.4,1),.12,rand(.4,1),'moss',rand(.75,1.1));if(i%2===0)fern(xx,1.25,zz,rand(.65,1.4));}
   // Roof layers and a continuous enclosing wall make the garden read as a temple compound.
-  group(0,1.10,0,0,()=>{smallShrine(17,-32,1.1,-.05);smallShrine(-18,-33,1.0,.05);});
+  group(0,1.10,0,0,()=>{
+    smallShrine(17,-32,1.1,-.05);
+    // This legacy guessed annex intersects the actual tower floor. Reference10
+    // has no independently identified anchor for it. Exclude only this variant,
+    // not the reusable asset or shared scene; consume every legacy RNG draw.
+    const shrineEmission=emitGeometry;
+    if(reference10Porch)emitGeometry=false;
+    try{smallShrine(-18,-33,1.0,.05);}finally{emitGeometry=shrineEmission;}
+  });
   for(let i=0;i<24;i++){const xx=-34+i*3.0;box(xx,2.35,-40,2.94,2.7,.55,'plaster');box(xx,3.78,-40,3.0,.16,.74,'slate');footColumn(xx-1.5,-40,1,2.9,.12);}
+  });
   // Layered distant hills, generated with coherent trigonometric terrain, never an image.
   for (let layer = 0; layer < 3; layer++) {
     let geo = new T.PlaneGeometry(480, 280, 160, 70);
@@ -1336,13 +1382,17 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   }
   const puddleParts = [];
   for (const [px, pz, rx, rz] of [[-7, 20, 2.3, 1.25], [-1, 22, 2, 1.6], [6, 20.4, 1.7, .9], [11, 23, 2.8, 1.5], [-12, 23, 1.2, .7], [3, 24, 1.2, .8]]) {
+    // Only this retained axis-paving puddle remains on a solid surface.
+    // The other old-plaza puddles now lie over pond water after layout clipping.
+    if(px!==6)continue;
     const sh = new T.Shape();
     for (let i = 0; i <= 60; i++) {
       let a = i / 60 * 6.283185,
         r = 1 + .16 * Math.sin(a * 4 + .7) + .08 * Math.cos(a * 7),
         xx = px + Math.cos(a) * rx * r,
         zz = pz + Math.sin(a) * rz * r;
-      if (i === 0) sh.moveTo(xx, -zz);else sh.lineTo(xx, -zz);
+      const pp=sitePoint([xx,0,zz]);
+      if (i === 0) sh.moveTo(pp.x, -pp.z);else sh.lineTo(pp.x, -pp.z);
     }
     puddleParts.push(new T.ShapeGeometry(sh));
   }
@@ -1354,11 +1404,38 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     color: 0x7a8073
   });
   puddles.rotation.x = -Math.PI / 2;
-  puddles.position.y = .054;
+  puddles.position.y = .0324;
   puddles.material.transparent = true;
   puddles.material.vertexShader=puddles.material.vertexShader.replace('void main()','varying vec3 vPuddleWorld;void main()').replace('gl_Position =','vPuddleWorld=(modelMatrix*vec4(position,1.0)).xyz;gl_Position =');
   puddles.material.fragmentShader = puddles.material.fragmentShader.replace('void main()','varying vec3 vPuddleWorld;void main()').replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );', 'float f=.0204+.9796*pow(1.0-max(0.0,normalize(cameraPosition-vPuddleWorld).y),5.0);gl_FragColor = vec4(base.rgb*.91,.025+f*.70);');
   scene.add(puddles);
+  const restoredWetPath=buildRestorationWetPath({options:{variant:'procession',origin:[-1.540726762,0,17.775909604],width:3.012,length:15.288,yaw:0,stoneTop:.0284,wetness:.45}});
+  scene.add(restoredWetPath.group);
+  const restoredProcessionalCurbBearing=processionalSupportRepair?
+    buildRestorationProcessionalRightCurbBearing({wetPath:restoredWetPath,material:materials.stone}):null;
+  if(restoredProcessionalCurbBearing){
+    // Already world-space, never under siteMatrix. The borrowed opaque
+    // FrontSide masonry participates in the ordinary scene normal/depth pass;
+    // it is neither a foliage replacement nor a transparent exclusion.
+    if(materials.stone.transparent||materials.stone.alphaTest!==0||materials.stone.side!==T.FrontSide)
+      throw new Error('Processional bearing requires the retained opaque stone normal/depth contract.');
+    scene.add(restoredProcessionalCurbBearing.group);
+  }
+  // The same reversible shared-path repair supports only left rows 0..7.
+  // Left row 8 retains its separate shore-rock intrusion/support limitation.
+  const restoredProcessionalLeftReachBearing=processionalSupportRepair?
+    buildRestorationProcessionalLeftReachBearing({wetPath:restoredWetPath,material:materials.stone}):null;
+  if(restoredProcessionalLeftReachBearing)scene.add(restoredProcessionalLeftReachBearing.group);
+  const mergedPuddleGeometry=mergeRestorationPuddleGeometry(puddles,restoredWetPath);
+  const restoredPuddleResponse=applyRestorationPuddleResponse(puddles,{reflectorGeometry:mergedPuddleGeometry});mergedPuddleGeometry.dispose();
+  // Double-sided fallen leaves must participate in the same normal/depth pass.
+  restoredWetPath.group.updateMatrixWorld(true);
+  const wetPathNormalMeshes=[];
+  restoredWetPath.group.traverse(o=>{if(!o.isMesh||!(o.material.alphaTest>0||o.material.side===T.DoubleSide))return;
+    const n=o.isInstancedMesh?new T.InstancedMesh(o.geometry,foliageNormalMaterial(o.material),o.count):new T.Mesh(o.geometry,foliageNormalMaterial(o.material));
+    if(o.isInstancedMesh){n.instanceMatrix=o.instanceMatrix;n.instanceColor=o.instanceColor;n.boundingSphere=o.boundingSphere;}
+    n.matrix.copy(o.matrixWorld);n.matrixAutoUpdate=false;n.castShadow=false;wetPathNormalMeshes.push(n);foliageMeshes.push(o);foliageNormalScene.add(n);
+  });
   const reflectors = [water, puddles];
   for (const r of reflectors) {
     const original = r.onBeforeRender;
@@ -1379,13 +1456,25 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     };
   }
   // Commit geometry to a small number of instanced draw calls.
+  // Collect by emitter key, not material identity: furnishings share these
+  // private materials but must remain visible inside the room probe.
+  const reflectedSculpture=[],sculpturePrivateMeshes=[],sculptureHairMeshes=[];
+  const porchLanternPaperMeshes=[],porchLanternNormalMeshes=[];
+  const collectSculptureBatch=(mesh,key)=>{
+    if(['buddha','sculptureGold','sculptureHair'].includes(key))reflectedSculpture.push(mesh);
+    if(key==='sculptureGold')sculpturePrivateMeshes.push(mesh);
+    if(key==='sculptureHair')sculptureHairMeshes.push(mesh);
+  };
   const unique = new Map();
   for (const [key, b] of [...buckets]) {
     if (b.transforms.length === 1) {
       let g = b.geometry.clone().applyMatrix4(b.transforms[0]);
       if (g.index) g = g.toNonIndexed();
       if (!g.attributes.uv) g.setAttribute('uv', new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2));
-      g.deleteAttribute('color');
+      // Gallery tiles already carry the original 7010 per-tile shade draws.
+      // Preserve that attribute only for this dedicated new batch.
+      if(b.name!=='architecture_galleryTiles')g.deleteAttribute('color');
+      else if(!g.attributes.color)throw Error('Missing gallery tile vertex colors');
       let list = unique.get(b.name) || [];
       list.push(g);
       unique.set(b.name, list);
@@ -1396,9 +1485,18 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   for (const [name, list] of unique) {
     let g = mergeGeometries(list);
     let mesh = new T.Mesh(g, materials[name]);
-    mesh.castShadow = true;
+    mesh.castShadow = name!=='architecture_hangingLanternPaper';
     mesh.receiveShadow = true;
-    scene.add(mesh);
+    scene.add(mesh);collectSculptureBatch(mesh,name);
+    if(name==='architecture_hangingLanternPaper')porchLanternPaperMeshes.push(mesh);
+    if(name==='architecture_galleryTiles'||name==='architecture_hangingLanternPaper'){
+      // Unique geometry is already transformed to world space. Keep the
+      // double-sided tile skin in the same exact opaque normal/depth pass.
+      foliageMeshes.push(mesh);
+      const normalMesh=new T.Mesh(g,foliageNormalMaterial(materials[name]));
+      normalMesh.castShadow=false;foliageNormalScene.add(normalMesh);
+      if(name==='architecture_hangingLanternPaper')porchLanternNormalMeshes.push(normalMesh);
+    }
   }
   for (const b of spatialBatches(buckets.values())) {
     let mesh = new T.InstancedMesh(b.geometry, b.material, b.transforms.length);
@@ -1408,35 +1506,102 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     }
     mesh.instanceMatrix.needsUpdate = true;
     mesh.instanceColor.needsUpdate = true;
-    mesh.castShadow = !['flame', 'paper', 'waterbed'].includes(b.name);
+    mesh.castShadow = !['flame', 'paper', 'waterbed', 'architecture_hangingLanternPaper'].includes(b.name);
     mesh.receiveShadow = true;
     mesh.computeBoundingSphere();
-    scene.add(mesh);
-    if(b.name.startsWith('foliage')||b.name==='needleGreen'){
+    scene.add(mesh);collectSculptureBatch(mesh,b.name);
+    if(b.name==='architecture_hangingLanternPaper')porchLanternPaperMeshes.push(mesh);
+    if(b.name.startsWith('foliage')||b.name==='needleGreen'||b.material.side===T.DoubleSide){
       foliageMeshes.push(mesh);
       const normalMesh=new T.InstancedMesh(b.geometry,foliageNormalMaterial(b.material),mesh.count);normalMesh.instanceMatrix=mesh.instanceMatrix;normalMesh.instanceColor=mesh.instanceColor;normalMesh.boundingSphere=mesh.boundingSphere;normalMesh.castShadow=false;foliageNormalScene.add(normalMesh);
+      if(b.name==='architecture_hangingLanternPaper')porchLanternNormalMeshes.push(normalMesh);
     }
     stats[b.name] = (stats[b.name] || 0) + b.transforms.length;
   }
-  const restorationLighting=createRestorationLighting({scene,sun,renderer,materials,hallMatrix,water,puddles,sky,altarLight,altarBounce,fillLight,hemisphere:hemi},{mode:'sanctuary',reflectionSize:1536,waterResponse:false});
+  roomMetals.registerOwners(scene,[...restoredFurnishings,...sculpturePrivateMeshes]);
+  roomHair.registerOwners(scene,sculptureHairMeshes);
+  const restoredLandscape=buildRestorationLandscape({materials,options:{bridge:true,lotus:true,shore:true,garden:false,path:false,reference3Foreground:false,islandPlanting:false,layout:true,...(reference10Porch?{referenceMode:'reference10'}:{})}});
+  const leafResponses=[],leafMaterials=new Set();
+  restoredLandscape.group.traverse(o=>{if(o.isMesh&&o.material?.name==='restoration-leaf')leafMaterials.add(o.material)});
+  for(const material of leafMaterials)leafResponses.push(applyRestorationLeafTranslucency(material));
+  scene.add(restoredLandscape.group);foliageMeshes.push(...restoredLandscape.foliageMeshes);foliageNormalScene.add(...restoredLandscape.normalMeshes);
+  // This local cascade is transparent flowing water, not a second reflective pond.
+  // Do not apply siteMatrix twice or register it as an opaque GTAO receiver.
+  const flowWater=new T.MeshPhysicalMaterial({name:'restoration-short-flow-water',color:'#c1d9ce',metalness:0,roughness:.10,ior:1.333,clearcoat:0,emissive:0,transparent:true,opacity:.34,depthWrite:false,side:T.DoubleSide});
+  const restoredSpillway=buildRestorationBridgeSpillway({materials:{...materials,flowWater}});
+  scene.add(restoredSpillway.group);
+  const flowNormals=applyRestorationFlowNormals(restoredSpillway.flowSurfaces);
+  const transparentNormalExclusions=[];
+  // This one true transmissive shell belongs to beauty and room capture, not opaque depth.
+  const ritualGlassMeshes=[];
+  for(const root of restoredFurnishings)root.traverse(object=>{
+    if(object.isMesh&&object.userData.excludeFromOpaqueDepth===true){
+      if(object.material?.name!=='restoration-clear-ritual-chimney')throw Error('Unexpected opaque-depth excluded furnishing material');
+      ritualGlassMeshes.push(object);
+    }
+  });
+  if(ritualGlassMeshes.length!==1)throw Error('Expected exactly one explicit ritual glass shell');
+  transparentNormalExclusions.push(...ritualGlassMeshes);
+  const roomGlass=createRestorationRoomGlassOwnership({scene,meshes:ritualGlassMeshes});
+  restoredSpillway.groups.water.traverse(o=>{if(o.isMesh)transparentNormalExclusions.push(o)});
+  const restoredIslandPlanting=buildRestorationIslandPlanting({materials,islands:referenceExteriorPlan.islands});
+  scene.add(restoredIslandPlanting.group);foliageMeshes.push(...restoredIslandPlanting.foliageMeshes);foliageNormalScene.add(...restoredIslandPlanting.normalMeshes);
+  const restoredFloweringTree=buildRestorationReference3FloweringTree({materials});
+  scene.add(restoredFloweringTree.group);foliageMeshes.push(...restoredFloweringTree.foliageMeshes);foliageNormalScene.add(...restoredFloweringTree.normalMeshes);
+  const lanternPaper=createRestorationLanternPaper();
+  const restoredStoneLanterns=buildRestorationStoneLanterns({materials:{...materials,paper:lanternPaper},options:{anchors:restorationSupportedLanternAnchors}});
+  scene.add(restoredStoneLanterns.group);restoredStoneLanterns.group.updateMatrixWorld(true);
+  const stoneLanternNormalMeshes=[];
+  restoredStoneLanterns.group.traverse(o=>{if(!o.isMesh||!(o.material.alphaTest>0||o.material.side===T.DoubleSide))return;
+    const n=new T.Mesh(o.geometry,foliageNormalMaterial(o.material));n.matrix.copy(o.matrixWorld);n.matrixAutoUpdate=false;n.castShadow=false;
+    stoneLanternNormalMeshes.push(n);foliageMeshes.push(o);foliageNormalScene.add(n);
+  });
+  // Final transforms first: emitted power derives from actual paper surface area.
+  const stoneLanternEmitters=restoredStoneLanterns.getEmitterMetadata();
+  let lanternLighting=null,porchLanternLighting=null,practicalLanternsDisposed=false;
+  // Terminal partial-scene teardown only. Geometry, normal materials, windows,
+  // room owners and the rest of the world remain caller-owned; retire this world.
+  function disposePracticalLanterns(){
+    if(practicalLanternsDisposed)return;
+    practicalLanternsDisposed=true;
+    const errors=[];
+    for(const release of [()=>porchLanternLighting?.dispose(),()=>lanternLighting?.dispose(),()=>porchLanternPaper?.dispose(),()=>lanternPaper.dispose()]){
+      try{release();}catch(error){errors.push(error);}
+    }
+    if(errors.length)throw new AggregateError(errors,'Practical lantern teardown failed after all owners were visited.');
+  }
+  try{
+    lanternLighting=createRestorationLanternLighting({scene,material:lanternPaper,emitters:stoneLanternEmitters,litEmitters:(reference10Porch?[0,2,3]:[0,2,3,7]).map(i=>stoneLanternEmitters[i])},{mode:initialMode,profiles:lightingProfiles,radianceByMode:lanternRadianceByMode});
+    if(reference10Porch){
+      if(!restoredPorchLantern)throw Error('Missing reference10 porch cavity.');
+      porchLanternLighting=createRestorationHangingLanternLighting({scene,material:porchLanternPaper,emitters:[restoredPorchLantern],litEmitters:[restoredPorchLantern],paperMeshes:porchLanternPaperMeshes},{mode:initialMode,profiles:lightingProfiles,radianceByMode:lanternRadianceByMode});
+    }
+  }catch(error){
+    try{disposePracticalLanterns();}catch(cleanupError){throw new AggregateError([error,cleanupError],'Practical lantern construction and rollback failed.',{cause:error});}
+    throw error;
+  }
+  const windowLighting=createRestorationWindowLighting({scene,material:materials.pagodaPaper,windows:pagodaWindows,litWindows:pagodaWindows.filter(w=>w.bay===1&&(w.face===0||w.face===2)&&w.level<3)},{mode:initialMode,profiles:lightingProfiles,radianceByMode:windowRadianceByMode});
+  if(reference10Porch){thresholdSurface=buildRestorationReference10ThresholdSurface({materials});scene.add(thresholdSurface.group);}
+  sky.material.uniforms.uAerialHaze.value=initialMode==='rain'?1:0;
+  if(reference10Porch){restoredWetPath.setWetness(1);restoredPuddleResponse.update(0,1);flowNormals.update(0);}
+  const restorationLighting=createRestorationLighting({scene,sun,renderer,materials,hallMatrix,water,puddles,sky,altarLight,altarBounce,fillLight,hemisphere:hemi},{mode:initialMode,profiles:lightingProfiles,maxSkyEnvironments:3,reflectionSize:1536,waterResponse:true,sceneScale:.6,syncSanctuaryEnvironment:true,lotusDaySkyRadiance:.42,lotusDayGroundReflection:true,sunIntensityScale:{sanctuary:2},sunDirectionByMode:{sanctuary:[-.87,.42,-.24],lotusDay:[-.30,.65,.70],pagodaDay:[-.50,.60,.62]}});
+  // Rig first sets final shared PBR responses; copy only those surface values.
+  roomMetals.syncSurfaceParameters();
+  const roomMaterials=[materials.buddha,...roomMetals.localMaterials,...roomGlass.materials,...roomHair.materials];
+  const roomIntensityByMaterial=new Map([...roomMetals.intensityByMaterial,...roomGlass.intensityByMaterial,...roomHair.intensityByMaterial]);
+  const sanctuaryPortalVisibility=applySanctuaryPortalVisibility([...Object.values(materials),...roomMaterials],sanctuaryApertures,{localEnvironmentMaterials:roomMaterials,unmaskLocalDiffuse:true});
   scene.updateMatrixWorld(true);stage('geometry-built');
   // Bake a local reflection from the built sanctuary itself. No downloaded
   // environment map: the sculpture reflects its wooden room and fixtures.
-  const reflectionCube=new T.WebGLCubeRenderTarget(512,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter});
-  const probe=new T.CubeCamera(.12,140,reflectionCube);probe.position.set(6,12.6,-13.9);
-  const previousTarget=renderer.getRenderTarget(),previousShadowUpdate=renderer.shadowMap.autoUpdate;
-  const reflectedSculpture=[];scene.traverse(o=>{if(o.isMesh&&o.material===materials.buddha)reflectedSculpture.push(o)});
-  const bootstrap=new T.WebGLRenderTarget(8,8),bootstrapCamera=new T.PerspectiveCamera(60,1,.1,160);bootstrapCamera.position.set(6,10,8);bootstrapCamera.lookAt(6,12,-15);
-  restorationLighting.withReflectionsHidden(()=>{
-    renderer.setRenderTarget(bootstrap);renderer.render(scene,bootstrapCamera);stage('shadow-bootstrap-complete');renderer.shadowMap.autoUpdate=false;
-    reflectedSculpture.forEach(o=>o.visible=false);
-    try{probe.update(renderer,scene);stage('sanctuary-cubemap-complete');}finally{reflectedSculpture.forEach(o=>o.visible=true)}
-  });
-  const localPmrem=new T.PMREMGenerator(renderer),sanctuaryReflection=localPmrem.fromCubemap(reflectionCube.texture);
-  const reflectionAudit=options.reflectionAudit?{rawCube:auditHalfFloatTarget(renderer,reflectionCube,[0,1,2,3,4,5]),filtered:auditHalfFloatTarget(renderer,sanctuaryReflection)}:null;
-  if(reflectionAudit){
+  // All three explicitly committed sculpture batches are excluded together.
+  const bootstrapCamera=new T.PerspectiveCamera(60,1,.1,160);bootstrapCamera.position.copy(sitePoint([6,10,8]));bootstrapCamera.lookAt(sitePoint([6,12,-15]));
+  const roomCaptureCameras=createRestorationRoomCaptureCameras({scene,renderer,bootstrapCamera});
+  let reflectionAudit=null;
+  const auditRoom=options.reflectionAudit?({rawCube,filtered,probe})=>{
+    reflectionAudit={rawCube:auditHalfFloatTarget(renderer,rawCube,[0,1,2,3,4,5]),filtered:auditHalfFloatTarget(renderer,filtered)};
     const ray=new T.Raycaster(),ndc=new T.Vector2(),candidates=[];
-    scene.traverse(o=>{if(o.isMesh&&o.visible&&o.material!==materials.buddha)candidates.push(o)});
+    const excludedAudit=new Set([...reflectedSculpture,...restorationLighting.reflectionExclusions]);
+    scene.traverse(o=>{if(!o.isMesh||o.material===materials.buddha)return;for(let p=o;p;p=p.parent)if(!p.visible||excludedAudit.has(p))return;candidates.push(o)});
     reflectionAudit.sourceHits=[];
     for(const face of reflectionAudit.rawCube)for(const pixel of face.invalidPixels){
       ndc.set((pixel.x+.5)/face.width*2-1,(pixel.y+.5)/face.height*2-1);
@@ -1445,26 +1610,45 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
       reflectionAudit.sourceHits.push({face:face.face,pixel,hits});
     }
     console.info(JSON.stringify({stage:'reflection-audit',...reflectionAudit}));
-  }
-  materials.buddha.envMap=sanctuaryReflection.texture;materials.buddha.envMapIntensity=1.02;materials.buddha.needsUpdate=true;
-  renderer.setRenderTarget(previousTarget);renderer.shadowMap.autoUpdate=previousShadowUpdate;bootstrap.dispose();localPmrem.dispose();reflectionCube.dispose();
+  }:undefined;
+  // Startup uses the same exception-safe lifecycle as later mode captures.
+  // Stage/audit callbacks are synchronous while their required targets are alive.
+  const captureRoom=(mode,hooks={})=>roomMetals.withCurrentGlobalEnvironment(()=>roomGlass.withCurrentGlobalEnvironment(()=>roomHair.withCurrentGlobalEnvironment(()=>captureRestorationRoomEnvironment({scene,renderer,position:sitePoint([6,12.6,-13.9]),excludedObjects:reflectedSculpture,reflectionExclusions:restorationLighting.reflectionExclusions,bootstrapCamera,captureCameras:roomCaptureCameras},{mode,resolution:512,near:.12,far:140,...hooks}))));
+  const sanctuaryReflection=captureRoom(initialMode,{onStage:name=>stage(name),onAudit:auditRoom});
+  // Adopt the completed initial probe, then capture each genuinely new lighting mode once.
+  // This is a mode cache, not per-frame dynamic global illumination.
+  const roomEnvironmentCache=createRestorationRoomEnvironmentCache({materials:roomMaterials,initial:{mode:initialMode,target:sanctuaryReflection},capture:mode=>captureRoom(mode)},{intensity:1.02,intensityByMaterial:roomIntensityByMaterial,profiles:lightingProfiles,maxEntries:2});
   stage('world-ready');
   return {
     scene,
+    referenceScene:{variant:sceneVariant,initialMode,allowedReferences:reference10Porch?[10]:[1,2,3,4,5,6,7,8,9,10],status:reference10Porch?reference10Scene.status:'Shared reconstruction candidate',towerTaperStep:reference10Porch?reference10Scene.taperStep:.115,towerYaw:reference10Porch?reference10Scene.towerYaw:0,treeRelocationApplied:reference10Porch,treeRelocationPlan:reference10Porch?restorationReference10EMaplePlan:null,towerBase:restoredTowerBase?.plan??null,excludedUnanchoredAssets:reference10Porch?[{asset:'legacy-rear-left-shrine',sourceCall:'smallShrine(-18,-33,1.0,.05)',reason:'Confirmed solid intersection with tower; no independent reference10 anchor. Conditional correction of guessed legacy layout, not proof the photograph contains no shrine.',defaultPreserved:true,randomStreamPreserved:true}]:[]},thresholdSupport,thresholdSurface,reference10Finial,
     water,
     puddles,
     sun,
     stats,
     roofAudit,
     reflectionAudit,
-    restorationLighting,
+    restorationLighting,lightingProfiles,referenceModes,windowRadianceByMode,lanternRadianceByMode,
+    restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
     columns,
-    scaleReference:{mainHallHeight:34.475,pagodaHeight:47.21,hallColumnHeight:10.33,eyeHeight:1.7},
-    foliageMeshes,foliageNormalScene,
+    disposePracticalLanterns,
+    // Only owned room maps/portal wrappers/private materials; not whole-scene disposal.
+    disposeRoomEnvironment(){roomEnvironmentCache.dispose();sanctuaryPortalVisibility.dispose();roomGlass.dispose();roomHair.dispose();roomMetals.dispose();roomCaptureCameras.dispose();},
+    scaleReference:{mainHallHeight:20.685,pagodaHeight:reference10Porch?23.613096:21.0054,hallColumnHeight:6.198,eyeHeight:1.7,hardscapeScale:.6},
+    foliageMeshes,foliageNormalScene,transparentNormalExclusions,restoredSpillway,flowNormals,
     update(t) {
+      if(practicalLanternsDisposed)throw Error('Practical lanterns were disposed; retire this world before further updates.');
+      const mode=reference10Porch?'rain':lightingModeForTime(t);
+      // Set the visible Sky before any first-entry PMREM capture of this mode.
+      sky.material.uniforms.uAerialHaze.value=mode==='rain'?1:0;
+      restorationLighting.setMode(mode);windowLighting.setMode(mode);lanternLighting.setMode(mode);porchLanternLighting?.setMode(mode);
+      if(restorationLighting.floorReflector)restorationLighting.floorReflector.visible=mode==='sanctuary';
       restorationLighting.update(t);
       water.material.uniforms.time.value = t;
-      sky.material.uniforms.uAerialHaze.value = Math.floor(t / 7) === 6 ? 1 : 0;
+      restoredWetPath.setWetness(mode==='rain'?1:mode==='night'?.75:.45);
+      restoredPuddleResponse.update(t,mode==='rain'?1:0);
+      flowNormals.update(t);
+      roomEnvironmentCache.setMode(mode);
     }
   };
 }
