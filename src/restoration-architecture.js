@@ -6,7 +6,7 @@ import {timberSweep} from './natural-forms.js';
  * LOCAL to world.js's current group. Never bake hallMatrix / towerMatrix here.
  * The geometry is shared between instances, not regenerated for every post.
  */
-export const ARCHITECTURE_REVISION = 'reference-joinery-24-porch-face-uv';
+export const ARCHITECTURE_REVISION = 'reference-joinery-26-perimeter-bearing-candidate';
 
 /** Optional dedicated architectural surfaces. Existing shared materials are
  * never recolored. Their procedural grain/stone shaders are retained, while
@@ -3197,7 +3197,8 @@ export function createRestorationArchitecture(ctx) {
       if (!triangles.length) return;
       const charts = [], axes = [new T.Vector3(1, 0, 0), new T.Vector3(0, 1, 0), new T.Vector3(0, 0, 1), U, V];
       const grain = role === 'front-header-half-lap' ? U
-        : role === 'rear-header-half-lap' ? new T.Vector3(1, 0, 0)
+        : ['rear-header-half-lap', 'rear-perimeter-header-half-lap'].includes(role) ? new T.Vector3(1, 0, 0)
+        : ['west-perimeter-header-half-lap', 'east-return-header-half-lap'].includes(role) ? new T.Vector3(0, 0, 1)
         : ['tapered-rafter', 'soffit-plank', 'continuous-weather-deck', 'weather-ceramic'].includes(role) ? V
         : new T.Vector3(0, 1, 0);
       // A common porch origin prevents phase resets between fragments of a
@@ -3270,10 +3271,27 @@ export function createRestorationArchitecture(ctx) {
     for(let i=-40;i<=40;i++){const s=i*boardPitch,span=lineSpan(s,ceilingPlan);if(!span)continue;const t0=Math.max(C.inset,span[0]),t1=span[1];if(t1<=t0)continue;
       emitPierced(prism(clipPlan(strip(s,boardPitch,t0,t1),ceilingPlan),rafterTop,rafterTop+.028),'endwood','soffit-plank');}
     // Two real crossing headers use complementary half-lap housings.
-    const frontMid=A.clone().addScaledVector(U,1.1),frontPlan=rect(frontMid.x,frontMid.z,4.0,.18,U),rearPlan=rect((ex+sx)/2,A.z,sx-ex,.18,new T.Vector3(1,0,0)),lap=(beamTop+beamBottom)/2;
-    for(const g of remove(prism(frontPlan,beamBottom,beamTop),rearPlan,lap,beamTop+.01))emit(g,'darkwood','front-header-half-lap');
-    for(const g of remove(prism(rearPlan,beamBottom,beamTop),frontPlan,beamBottom-.01,lap))emit(g,'darkwood','rear-header-half-lap');
+    // A real three-sided perimeter closes the lower bearing frame. The west
+    // carrier receives the four short forward rafters; the rear carrier and
+    // east return receive the clipped rear rafters. These are finite beams,
+    // not a top-board contact mislabeled as downward rafter bearing.
+    // The existing column uses the unchanged local housing mask. The new
+    // front carrier extension is outside that column, independently paired
+    // against its actual retained seated shaft, not a new column cut.
+    const columnFrontMid=A.clone().addScaledVector(U,1.1),frontPlan=rect(columnFrontMid.x,columnFrontMid.z,4.0,.18,U);
+    const frontMid=A.clone().addScaledVector(U,1.55),extendedFrontPlan=clipPlan(rect(frontMid.x,frontMid.z,4.9,.18,U),ceilingPlan),rearPlan=rect((ex+sx)/2,A.z,sx-ex,.18,new T.Vector3(1,0,0)),lap=(beamTop+beamBottom)/2;
+    const perimeterFrontZ=Math.min(...ceilingPlan.map(p=>p[1]));
+    const westPlan=clipPlan(rect(ex+.09,(C.ceilingBackZ+perimeterFrontZ)/2,C.ceilingBackZ-perimeterFrontZ,.18,new T.Vector3(0,0,1)),ceilingPlan);
+    const eastPlan=rect(sx-.09,(C.ceilingBackZ+A.z-.09)/2,C.ceilingBackZ-A.z+.09,.18,new T.Vector3(0,0,1));
+    const backPlan=rect((ex+sx)/2,C.ceilingBackZ-.09,sx-ex,.18,new T.Vector3(1,0,0));
+    function frameMember(poly,role,cuts){let pieces=[prism(poly,beamBottom,beamTop)];for(const cut of cuts)pieces=pieces.flatMap(g=>remove(g,cut.poly,cut.low,cut.high));for(const g of pieces)emit(g,'darkwood',role);}
+    frameMember(extendedFrontPlan,'front-header-half-lap',[{poly:rearPlan,low:lap,high:beamTop+.01},{poly:westPlan,low:lap,high:beamTop+.01},{poly:backPlan,low:lap,high:beamTop+.01}]);
+    frameMember(rearPlan,'rear-header-half-lap',[{poly:extendedFrontPlan,low:beamBottom-.01,high:lap},{poly:westPlan,low:lap,high:beamTop+.01},{poly:eastPlan,low:lap,high:beamTop+.01}]);
+    frameMember(westPlan,'west-perimeter-header-half-lap',[{poly:extendedFrontPlan,low:beamBottom-.01,high:lap},{poly:rearPlan,low:beamBottom-.01,high:lap},{poly:backPlan,low:lap,high:beamTop+.01}]);
+    frameMember(eastPlan,'east-return-header-half-lap',[{poly:rearPlan,low:beamBottom-.01,high:lap},{poly:backPlan,low:lap,high:beamTop+.01}]);
+    frameMember(backPlan,'rear-perimeter-header-half-lap',[{poly:westPlan,low:beamBottom-.01,high:lap},{poly:eastPlan,low:beamBottom-.01,high:lap},{poly:extendedFrontPlan,low:beamBottom-.01,high:lap}]);
     contacts.push({kind:'header-half-lap',worldY:lap,lower:'front-header',upper:'rear-header'});
+    contacts.push({kind:'perimeter-frame-half-laps',worldY:lap,pairs:[['front-header','west-perimeter-header'],['rear-header','west-perimeter-header'],['rear-header','east-return-header'],['west-perimeter-header','rear-perimeter-header'],['east-return-header','rear-perimeter-header'],['front-header','rear-perimeter-header']],limit:'Finite opposing timber bearing surfaces, not a structural engineering certification.'});
     // The only new ground support stays inside the previously checked .35m disk.
     const originalDisk=[-18.57560996318,19.2167052319],footRadius=.28;
     if(Math.hypot(B.x-originalDisk[0],B.z-originalDisk[1])+footRadius>.35)throw new Error('New post exceeds the checked soil disk.');

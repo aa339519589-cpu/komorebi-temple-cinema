@@ -782,7 +782,23 @@ function offeringNaturalPetal(b) {
       if(j<rows&&i<cols){const q=surface*stride+j*(cols+1)+i;if(surface===0)idx.push(q,q+1,q+cols+1,q+1,q+cols+2,q+cols+1);else idx.push(q,q+cols+1,q+1,q+1,q+cols+1,q+cols+2);}
     }
     closeCarvedShell(idx,rows,cols,stride);
-    const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(idx);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.offeringNaturalPart='petal';return g;
+    const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(idx);
+    // The existing tip curls back in Y. A fixed Z extrusion makes its two
+    // skins cross there even though the mesh is closed. Keep every outer
+    // point and the lower/root half fixed; turn only the upper inner layer
+    // with the actual outer meridian's inward normal and nominal .003 thickness.
+    const position=g.attributes.position;
+    for(let row=9;row<=rows;row++){
+      const before=Math.max(0,row-1)*(cols+1)+cols/2,after=Math.min(rows,row+1)*(cols+1)+cols/2;
+      const dy=position.getY(after)-position.getY(before),dz=position.getZ(after)-position.getZ(before),length=Math.hypot(dy,dz);
+      const weight=T.MathUtils.smoothstep(row/rows,8/rows,11/rows);
+      for(let col=0;col<=cols;col++){
+        const outer=row*(cols+1)+col,inner=stride+outer;
+        position.setY(inner,T.MathUtils.lerp(position.getY(inner),position.getY(outer)+.003*dz/length,weight));
+        position.setZ(inner,T.MathUtils.lerp(position.getZ(inner),position.getZ(outer)-.003*dy/length,weight));
+      }
+    }
+    g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.offeringNaturalPart='petal';return g;
   });
 }
 
