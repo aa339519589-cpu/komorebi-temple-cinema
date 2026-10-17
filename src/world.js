@@ -10,6 +10,7 @@ import { Reflector } from 'three/addons/objects/Reflector.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import {createBotany,foliageNormalMaterial} from './botany.js';
+import {buildRestorationPrunedPine,RESTORATION_PRUNED_PINE_SCOPE} from './restoration-pruned-pines-v1.js';
 import {carvedBracket,carvedLeaf,archHeight,flowerCrest} from './ornaments.js';
 import {seatedFigure,reliefPetal} from './sculpture.js';
 import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
@@ -46,6 +47,9 @@ export function buildWorld(renderer,options={}) {
   const processionalSupportRepair=options.processionalSupportRepair??true;
   if(typeof processionalSupportRepair!=='boolean')throw new TypeError('Processional support repair must be boolean.');
   const processionalRockMoves=[];
+  const prunedPineForms=options.prunedPineForms??true;
+  if(typeof prunedPineForms!=='boolean')throw new TypeError('Pruned pine forms must be boolean.');
+  const restoredPrunedPines=[];
   const initialMode=reference10Porch?'rain':'sanctuary';
   let thresholdSupport=null,thresholdSurface=null,reference10Finial=null,restoredTowerBase=null,restoredPorchLantern=null,restoredSidePorch=null,restoredNearColumn=null,restoredNearColumnRoof=null;
   let nearColumnRoofSourceCollector=null;
@@ -1138,6 +1142,16 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     const leafRandom=botany.rng((Math.round((x+120)*937+(z+120)*9731+height*331))>>>0),lr=(a,b)=>a+(b-a)*leafRandom();
     const foliageName=style==='pine'?'needleGreen':({leaf:'foliageGreen',leafDark:'foliageDark',leafGold:'foliageGold',leafRed:'foliageRed'}[hue]);
     group(x,-.2,z,rand(0,6.28),()=>{
+      const pinePlan=prunedPineForms?RESTORATION_PRUNED_PINE_SCOPE.find(p=>p.oldCall.every((value,i)=>value===[x,z,height,style,hue,lean][i])):null;
+      if(pinePlan){
+        if(emitGeometry){
+          const restoredPine=buildRestorationPrunedPine({materials,needleGeometry:unit.leafCard,options:{id:pinePlan.id}});
+          restoredPine.group.matrix.copy(stack[stack.length-1]);restoredPine.group.matrixAutoUpdate=false;
+          scene.add(restoredPine.group);restoredPine.syncNormalWorldMatrix();
+          foliageMeshes.push(...restoredPine.foliageMeshes);foliageNormalScene.add(...restoredPine.normalMeshes);
+          restoredPrunedPines.push(restoredPine);
+        }
+      }else{
       const trunkH=height*.57,spread=height*.43;
       line([[0,0,0],[lean*.4,height*.23,.1],[lean,trunkH,-.2],[lean+height*.09,height*.91,.1]],height*.032,'bark',22,true);
       const branches=style==='pine'?10:12;
@@ -1154,6 +1168,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
             instance('leafCard',foliageName,lx,ly,lz,size,1,size,[lr(-.9,.9),lr(0,6.283),lr(-.9,.9)],lr(.74,1.25));
           }
         }
+      }
       }
       for(let i=0;i<5;i++)rock(rand(-.6,.6),-.05,rand(-.6,.6),rand(.2,.45));
     });
@@ -1669,7 +1684,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     roofNormalOwner?.assertActive();roofNormalOwnerDisposed=true;roofNormalOwner?.dispose();
   }
   return {
-    scene,
+    scene,prunedPineForms,restoredPrunedPines,
     referenceScene:{variant:sceneVariant,initialMode,allowedReferences:reference10Porch?[10]:[1,2,3,4,5,6,7,8,9,10],status:reference10Porch?reference10Scene.status:'Shared reconstruction candidate',towerTaperStep:reference10Porch?reference10Scene.taperStep:.115,towerYaw:reference10Porch?reference10Scene.towerYaw:0,treeRelocationApplied:reference10Porch,treeRelocationPlan:reference10Porch?restorationReference10EMaplePlan:null,towerBase:restoredTowerBase?.plan??null,excludedUnanchoredAssets:reference10Porch?[{asset:'legacy-rear-left-shrine',sourceCall:'smallShrine(-18,-33,1.0,.05)',reason:'Confirmed solid intersection with tower; no independent reference10 anchor. Conditional correction of guessed legacy layout, not proof the photograph contains no shrine.',defaultPreserved:true,randomStreamPreserved:true}]:[]},thresholdSupport,thresholdSurface,reference10Finial,
     water,
     puddles,
