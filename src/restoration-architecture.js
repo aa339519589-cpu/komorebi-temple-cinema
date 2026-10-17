@@ -6,7 +6,7 @@ import {timberSweep} from './natural-forms.js';
  * LOCAL to world.js's current group. Never bake hallMatrix / towerMatrix here.
  * The geometry is shared between instances, not regenerated for every post.
  */
-export const ARCHITECTURE_REVISION = 'reference-joinery-22-physical-candidate';
+export const ARCHITECTURE_REVISION = 'reference-joinery-24-porch-face-uv';
 
 /** Optional dedicated architectural surfaces. Existing shared materials are
  * never recolored. Their procedural grain/stone shaders are retained, while
@@ -3178,7 +3178,58 @@ export function createRestorationArchitecture(ctx) {
     const P=new T.Vector3(...C.edgeOrigin),U=new T.Vector3(...C.u),V=new T.Vector3(...C.v),A=new T.Vector3(...C.nearColumn),B=new T.Vector3(...C.newPost);
     const H=C.height,tip=C.tipHeight,rafterTop=H+tip/2,mainDepth=.22,beamTop=rafterTop-mainDepth,beamBottom=beamTop-.20;
     const parts=[],contacts=[],toWorld=p=>new T.Vector3(...p),local=p=>toWorld(p).applyMatrix4(inverse).toArray();
-    const emit=(geometry,material,role)=>{geometry=conformTierTimber(geometry);const source=geometry.index?geometry.toNonIndexed():geometry,attrs=Object.entries(source.attributes),kept=[];for(let i=0;i<source.attributes.position.count;i+=3){const q=[0,1,2].map(k=>new T.Vector3().fromBufferAttribute(source.attributes.position,i+k).applyMatrix4(inverse)).map(p=>new T.Vector3(Math.fround(p.x),Math.fround(p.y),Math.fround(p.z)));if(q[1].clone().sub(q[0]).cross(q[2].clone().sub(q[0])).lengthSq()>1e-20)kept.push(i,i+1,i+2);}if(kept.length!==source.attributes.position.count){geometry=new T.BufferGeometry();for(const[key,a]of attrs)geometry.setAttribute(key,new T.Float32BufferAttribute(kept.flatMap(i=>Array.from({length:a.itemSize},(_,k)=>a.array[i*a.itemSize+k])),a.itemSize));}if(!geometry.attributes.position.count)return;geometry.userData.architectureJoint='reference10-side-porch22-'+role;
+    // Only the new side-porch prisms need this chart repair. Their original
+    // world-XZ chart collapses on vertical sides. Preserve every well-conditioned
+    // chart, all position/normal data and every inherited optical value.
+    function repairPrismUV(geometry, role) {
+      const p = geometry.attributes.position, uv = geometry.attributes.uv;
+      const triangles = [];
+      for (let i = 0; i < p.count; i += 3) {
+        const q = [0, 1, 2].map(k => new T.Vector3().fromBufferAttribute(p, i + k));
+        const ab = q[1].clone().sub(q[0]), ac = q[2].clone().sub(q[0]);
+        const cross = ab.clone().cross(ac), area2 = cross.length();
+        const du1 = uv.getX(i + 1) - uv.getX(i), dv1 = uv.getY(i + 1) - uv.getY(i);
+        const du2 = uv.getX(i + 2) - uv.getX(i), dv2 = uv.getY(i + 2) - uv.getY(i);
+        if (area2 > 0 && Math.abs(du1 * dv2 - du2 * dv1) < area2 * 1e-4) {
+          triangles.push({i, q, area2, n: cross.divideScalar(area2)});
+        }
+      }
+      if (!triangles.length) return;
+      const charts = [], axes = [new T.Vector3(1, 0, 0), new T.Vector3(0, 1, 0), new T.Vector3(0, 0, 1), U, V];
+      const grain = role === 'front-header-half-lap' ? U
+        : role === 'rear-header-half-lap' ? new T.Vector3(1, 0, 0)
+        : ['tapered-rafter', 'soffit-plank', 'continuous-weather-deck', 'weather-ceramic'].includes(role) ? V
+        : new T.Vector3(0, 1, 0);
+      // A common porch origin prevents phase resets between fragments of a
+      // member. Largest faces supply charts for their small clipped triangles.
+      // Only the chart basis is aligned to a nearby modeled member axis;
+      // stored geometry normals are never replaced or smoothed.
+      triangles.sort((a, b) => b.area2 - a.area2);
+      for (const t of triangles) {
+        const constant = -t.n.dot(t.q[0]);
+        let chart = charts.find(c => c.n.dot(t.n) > 1 - 1e-8 && Math.abs(c.constant - constant) < 1e-5);
+        if (!chart) {
+          const aligned = axes.find(axis => Math.abs(axis.dot(t.n)) > 1 - 1e-6);
+          const n = aligned ? aligned.clone().multiplyScalar(Math.sign(aligned.dot(t.n))) : t.n;
+          let longitudinal = grain.clone().addScaledVector(n, -grain.dot(n));
+          if (longitudinal.lengthSq() < 1e-12) {
+            // An end face has no projected longitudinal grain. Use a finite
+            // least-aligned axis rather than inventing a historical end-grain map.
+            const fallback = [new T.Vector3(1, 0, 0), new T.Vector3(0, 1, 0), new T.Vector3(0, 0, 1)];
+            fallback.sort((a, b) => Math.abs(a.dot(n)) - Math.abs(b.dot(n)));
+            longitudinal = fallback[0].addScaledVector(n, -fallback[0].dot(n));
+          }
+          longitudinal.normalize();
+          chart = {n: t.n, constant, longitudinal, across: longitudinal.clone().cross(n).normalize()};
+          charts.push(chart);
+        }
+        for (let k = 0; k < 3; k++) {
+          const relative = t.q[k].clone().sub(P);
+          uv.setXY(t.i + k, relative.dot(chart.across), relative.dot(chart.longitudinal));
+        }
+      }
+    }
+    const emit=(geometry,material,role)=>{geometry=conformTierTimber(geometry);const source=geometry.index?geometry.toNonIndexed():geometry,attrs=Object.entries(source.attributes),kept=[];for(let i=0;i<source.attributes.position.count;i+=3){const q=[0,1,2].map(k=>new T.Vector3().fromBufferAttribute(source.attributes.position,i+k).applyMatrix4(inverse)).map(p=>new T.Vector3(Math.fround(p.x),Math.fround(p.y),Math.fround(p.z)));if(q[1].clone().sub(q[0]).cross(q[2].clone().sub(q[0])).lengthSq()>1e-20)kept.push(i,i+1,i+2);}if(kept.length!==source.attributes.position.count){geometry=new T.BufferGeometry();for(const[key,a]of attrs)geometry.setAttribute(key,new T.Float32BufferAttribute(kept.flatMap(i=>Array.from({length:a.itemSize},(_,k)=>a.array[i*a.itemSize+k])),a.itemSize));}if(!geometry.attributes.position.count)return;repairPrismUV(geometry,role);geometry.userData.architectureJoint='reference10-side-porch22-'+role;
       geometry.computeBoundingBox();parts.push({role,material,worldBounds:[geometry.boundingBox.min.toArray(),geometry.boundingBox.max.toArray()]});
       geometry.applyMatrix4(inverse);draw(geometry,material,[0,0,0],[1,1,1]);};
     const polygonArea=poly=>poly.reduce((s,a,i)=>{const b=poly[(i+1)%poly.length];return s+a[0]*b[1]-a[1]*b[0];},0)/2;

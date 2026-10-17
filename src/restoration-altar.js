@@ -1511,6 +1511,59 @@ function buildOfferingTable(b,layout) {
   // reliefs repeated from the wooden altar panels.
   const brocade=b.geometry('cushion-floral-brocade',()=>{
     const parts=[];
+    // Woven marks follow the existing faceted cloth, not an ideal smooth
+    // surface bridged by large flat flower triangles. Partition only the
+    // existing pattern at the cushion's real triangle edges; retain its
+    // planar outlines and UVs and the existing .003 thread relief.
+    const clothSheets={};
+    for(const plane of ['front','top']){
+      const axes=plane==='front'?[0,1,2]:[0,2,1],p=cushion.attributes.position,n=cushion.attributes.normal,ix=cushion.index;
+      const faces=[];
+      for(let k=0;k<ix.count;k+=3){
+        const ids=[ix.getX(k),ix.getX(k+1),ix.getX(k+2)];
+        const v=ids.map(i=>[p.getX(i)*1.02,.27+p.getY(i)*.18,3.28+p.getZ(i)*.47]);
+        const [a,c,d]=v,det=(c[axes[0]]-a[axes[0]])*(d[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(d[axes[0]]-a[axes[0]]);
+        if((plane==='front'?det:-det)<=1e-14)continue;
+        const normal=ids.map(i=>new T.Vector3(n.getX(i)/1.02,n.getY(i)/.18,n.getZ(i)/.47).normalize());
+        faces.push({v,normal,det,min:axes.slice(0,2).map(q=>Math.min(...v.map(p=>p[q]))),max:axes.slice(0,2).map(q=>Math.max(...v.map(p=>p[q])))});
+      }
+      clothSheets[plane]={axes,faces};
+    }
+    const conformToCloth=(g,plane)=>{
+      const {axes,faces}=clothSheets[plane],p=g.attributes.position,uv=g.attributes.uv,ix=g.index,positions=[],normals=[],uvs=[],indices=[];
+      for(let k=0;k<ix.count;k+=3){
+        const input=[0,1,2].map(j=>{const i=ix.getX(k+j);return[p.getX(i),p.getY(i),p.getZ(i),uv.getX(i),uv.getY(i)];});
+        const low=axes.slice(0,2).map(q=>Math.min(...input.map(p=>p[q]))),high=axes.slice(0,2).map(q=>Math.max(...input.map(p=>p[q])));
+        for(const f of faces){
+          if(low.some((v,i)=>v>f.max[i])||high.some((v,i)=>v<f.min[i]))continue;
+          let polygon=input;
+          for(let edge=0;edge<3&&polygon.length;edge++){
+            const a=f.v[edge],c=f.v[(edge+1)%3],side=q=>Math.sign(f.det)*((c[axes[0]]-a[axes[0]])*(q[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(q[axes[0]]-a[axes[0]])),clipped=[];
+            for(let i=0;i<polygon.length;i++){
+              const v=polygon[i],w=polygon[(i+1)%polygon.length],dv=side(v),dw=side(w),inside=dv>=0,next=dw>=0;
+              if(inside)clipped.push(v);
+              if(inside!==next){const t=dv/(dv-dw);clipped.push(v.map((q,j)=>q+(w[j]-q)*t));}
+            }
+            polygon=clipped;
+          }
+          if(polygon.length<3)continue;
+          const mapped=polygon.map(q=>{
+            const [a,c,d]=f.v,u=((q[axes[0]]-a[axes[0]])*(d[axes[1]]-a[axes[1]])-(q[axes[1]]-a[axes[1]])*(d[axes[0]]-a[axes[0]]))/f.det;
+            const v=((c[axes[0]]-a[axes[0]])*(q[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(q[axes[0]]-a[axes[0]]))/f.det,w=1-u-v;
+            const point=q.slice(0,3);point[axes[2]]=a[axes[2]]*w+c[axes[2]]*u+d[axes[2]]*v+.003;
+            const normal=f.normal[0].clone().multiplyScalar(w).addScaledVector(f.normal[1],u).addScaledVector(f.normal[2],v).normalize();
+            return{point:point.map(Math.fround),normal,uv:q.slice(3)};
+          });
+          for(let i=1;i<mapped.length-1;i++){
+            const triangle=[mapped[0],mapped[i],mapped[i+1]],a=triangle[0].point,c=triangle[1].point,d=triangle[2].point;
+            const area=(c[axes[0]]-a[axes[0]])*(d[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(d[axes[0]]-a[axes[0]]);
+            if(Math.abs(area)<=1e-14)continue;
+            for(const q of triangle){indices.push(positions.length/3);positions.push(...q.point);normals.push(...q.normal.toArray());uvs.push(...q.uv);}
+          }
+        }
+      }
+      g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('normal',new T.Float32BufferAttribute(normals,3));g.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));g.setIndex(indices);
+    };
     const place=(shape,cx,cy,angle=0,plane='front')=>{
       const g=new T.ShapeGeometry(shape,8),p=g.attributes.position,ca=Math.cos(angle),sa=Math.sin(angle);
       for(let i=0;i<p.count;i++){
@@ -1524,7 +1577,7 @@ function buildOfferingTable(b,layout) {
         }
       }
       if(plane==='top'&&g.index)for(let i=0;i<g.index.count;i+=3){const a=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,a);}
-      g.computeVertexNormals();parts.push(g);
+      conformToCloth(g,plane);parts.push(g);
     };
     const ribbon=(points,width,plane='front')=>{
       const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(p[0],p[1],0))),left=[],right=[];

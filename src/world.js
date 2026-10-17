@@ -28,6 +28,7 @@ import {buildRestorationWetPath} from './restoration-landscape-path.js';
 import {referenceProcessionalDryBankRockDelta} from './restoration-processional-dry-bank-rock.js';
 import {buildRestorationProcessionalRightCurbBearing} from './restoration-processional-right-curb-bearing.js';
 import {buildRestorationProcessionalLeftReachBearing} from './restoration-processional-left-reach-bearing.js';
+import {installRestorationProcessionalLastCurbJoin} from './restoration-processional-last-curb-join-uv-v4.js';
 import {buildRestorationBridgeSpillway} from './restoration-bridge-spillway-v2.js';
 import {buildRestorationStoneLanterns} from './restoration-landscape-lanterns-v2.js';
 import {restorationSupportedLanternAnchors,restorationLanternSupportPlan} from './restoration-lantern-support-plan.js';
@@ -1411,6 +1412,11 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
   scene.add(puddles);
   const restoredWetPath=buildRestorationWetPath({options:{variant:'procession',origin:[-1.540726762,0,17.775909604],width:3.012,length:15.288,yaw:0,stoneTop:.0284,wetness:.45}});
   scene.add(restoredWetPath.group);
+  // Reversible local stone/rock join: only left row 8 changes, not the shore rocks.
+  // Its visible notch is a construction hypothesis, not a recovered photo dimension.
+  const restoredProcessionalLastCurbJoin=processionalSupportRepair?
+    installRestorationProcessionalLastCurbJoin({wetPath:restoredWetPath,supportMaterial:materials.stone}):null;
+  if(restoredProcessionalLastCurbJoin)scene.add(restoredProcessionalLastCurbJoin.group);
   const restoredProcessionalCurbBearing=processionalSupportRepair?
     buildRestorationProcessionalRightCurbBearing({wetPath:restoredWetPath,material:materials.stone}):null;
   if(restoredProcessionalCurbBearing){
@@ -1422,7 +1428,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     scene.add(restoredProcessionalCurbBearing.group);
   }
   // The same reversible shared-path repair supports only left rows 0..7.
-  // Left row 8 retains its separate shore-rock intrusion/support limitation.
+  // Its plan and original rows remain independent of the separate row 8 join above.
   const restoredProcessionalLeftReachBearing=processionalSupportRepair?
     buildRestorationProcessionalLeftReachBearing({wetPath:restoredWetPath,material:materials.stone}):null;
   if(restoredProcessionalLeftReachBearing)scene.add(restoredProcessionalLeftReachBearing.group);
@@ -1629,7 +1635,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     roofAudit,
     reflectionAudit,
     restorationLighting,lightingProfiles,referenceModes,windowRadianceByMode,lanternRadianceByMode,
-    restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
+    restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredProcessionalLastCurbJoin,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
     columns,
     disposePracticalLanterns,
     // Only owned room maps/portal wrappers/private materials; not whole-scene disposal.
