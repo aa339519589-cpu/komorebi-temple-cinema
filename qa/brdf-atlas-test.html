@@ -5,7 +5,7 @@ import {installBrdfLookupAtlas} from '/src/brdf-lookup-atlas.js';
 RectAreaLightUniformsLib.init();
 function makeScene(stress){
  const scene=new T.Scene();scene.background=new T.Color(.025,.03,.04);const resources=[];
- const data=new Float32Array(64*32*4);for(let y=0;y<32;y++)for(let x=0;x<64;x++){const i=(y*64+x)*4,v=.2+2*Math.pow(Math.max(0,Math.cos((x-16)/64*Math.PI*2)),32)*Math.exp(-((y-10)/5)**2);data.set([v*1.1,v,v*.8,1],i);}
+ const data=new Float32Array(64*32*4);for(let y=0;y<32;y++)for(let x=0;x<64;x++){const i=(y*64+x)*4,v=.2+2*Math.pow(Math.max(0,Math.cos((x-16)/64*Math.PI*2)),32)*Math.exp(-Math.pow((y-10)/5,2));data.set([v*1.1,v,v*.8,1],i);}
  const env=new T.DataTexture(data,64,32,T.RGBAFormat,T.FloatType);env.mapping=T.EquirectangularReflectionMapping;env.needsUpdate=true;scene.environment=env;resources.push(env);
  const texels=new Uint8Array(8*8*4);for(let y=0;y<8;y++)for(let x=0;x<8;x++){const c=(x+y)%2?150:220;texels.set([c,c,c,255],(y*8+x)*4)}
  const map=new T.DataTexture(texels,8,8);map.needsUpdate=true;map.wrapS=map.wrapT=T.RepeatWrapping;resources.push(map);
