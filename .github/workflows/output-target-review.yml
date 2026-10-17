@@ -13,8 +13,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   render:
-    runs-on: macos-14
-    timeout-minutes: 25
+    runs-on: macos-15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,11 +27,12 @@ jobs:
           node verify.mjs
           node --check src/capture-output-target.js
           node --check tools/render-output-target.mjs
+          sw_vers
           npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
           "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
           command -v ffmpeg || brew install ffmpeg
       - name: Render unmodified final output pass to readable target
-        timeout-minutes: 15
+        timeout-minutes: 20
         env:
           PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
           NODE_OPTIONS: --max-old-space-size=4096
