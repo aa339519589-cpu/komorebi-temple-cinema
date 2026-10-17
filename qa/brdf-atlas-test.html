@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="icon" href="data:,"><script type="importmap">{"imports":{"three":"/vendor/build/three.module.js","three/addons/":"/vendor/examples/jsm/"}}</script><style>body{margin:0}canvas{display:block}</style></head><body><script type="module">
+import * as T from 'three';
+import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import {installBrdfLookupAtlas} from '/src/brdf-lookup-atlas.js';
+RectAreaLightUniformsLib.init();
+function makeScene(stress){
+ const scene=new T.Scene();scene.background=new T.Color(.025,.03,.04);const resources=[];
+ const data=new Float32Array(64*32*4);for(let y=0;y<32;y++)for(let x=0;x<64;x++){const i=(y*64+x)*4,v=.2+2*Math.pow(Math.max(0,Math.cos((x-16)/64*Math.PI*2)),32)*Math.exp(-((y-10)/5)**2);data.set([v*1.1,v,v*.8,1],i);}
+ const env=new T.DataTexture(data,64,32,T.RGBAFormat,T.FloatType);env.mapping=T.EquirectangularReflectionMapping;env.needsUpdate=true;scene.environment=env;resources.push(env);
+ const texels=new Uint8Array(8*8*4);for(let y=0;y<8;y++)for(let x=0;x<8;x++){const c=(x+y)%2?150:220;texels.set([c,c,c,255],(y*8+x)*4)}
+ const map=new T.DataTexture(texels,8,8);map.needsUpdate=true;map.wrapS=map.wrapT=T.RepeatWrapping;resources.push(map);
+ const geom=new T.SphereGeometry(.43,32,24);resources.push(geom);
+ for(let y=0;y<3;y++)for(let x=0;x<5;x++){
+  const mat=new T.MeshPhysicalMaterial({color:y===0?0xe8b34c:y===1?0x8499aa:0xf5e4c4,roughness:.06+.21*x,metalness:y===0?1:y===1?.5:0,clearcoat:y===2?.65:0,clearcoatRoughness:.25,map,bumpMap:map,bumpScale:.008});resources.push(mat);const m=new T.Mesh(geom,mat);m.position.set(x-2,1-y,0);m.castShadow=m.receiveShadow=true;scene.add(m);
+ }
+ const groundGeo=new T.PlaneGeometry(12,9),groundMat=new T.MeshStandardMaterial({color:0x504a44,roughness:.7,map,bumpMap:map,bumpScale:.006});resources.push(groundGeo,groundMat);const ground=new T.Mesh(groundGeo,groundMat);ground.position.z=-.6;ground.receiveShadow=true;scene.add(ground);
+ const area=new T.RectAreaLight(0xffd7a1,5,4,2);area.position.set(0,2,3);area.lookAt(0,0,0);scene.add(area);
+ const dir=new T.DirectionalLight(0xffffff,1.5);dir.position.set(-3,5,4);dir.castShadow=true;dir.shadow.mapSize.set(128,128);scene.add(dir);
+ const spots=stress?7:1;for(let i=0;i<spots;i++){const l=new T.SpotLight(0xffe3be,6,20,.75,.3,2);l.position.set(-3+i,3,3);l.target.position.set(-1+i/3,0,0);l.castShadow=true;l.shadow.mapSize.set(64,64);scene.add(l,l.target)}
+ const points=stress?4:0;for(let i=0;i<points;i++){const l=new T.PointLight(0xc8d9ff,3,10,2);l.position.set(-2+i*1.3,-1,2);l.castShadow=true;l.shadow.mapSize.set(64,64);scene.add(l)}
+ const camera=new T.PerspectiveCamera(42,384/256,.1,50);camera.position.set(0,0,6.5);camera.lookAt(0,0,0);
+ return{scene,camera,resources};
+}
+window.auditBrdf=async function(){
+ const outputs=[],originalChunks=['lights_pars_begin','lights_physical_pars_fragment','lights_fragment_begin'].map(k=>T.ShaderChunk[k]);
+ for(const mode of ['original','atlas','atlas-stress']){
+  const renderer=new T.WebGLRenderer({antialias:false,preserveDrawingBuffer:true});renderer.setSize(384,256);renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1;document.body.append(renderer.domElement);
+  const lease=mode==='original'?null:installBrdfLookupAtlas(renderer);const {scene,camera,resources}=makeScene(mode==='atlas-stress');
+  renderer.render(scene,camera);renderer.getContext().finish();const gl=renderer.getContext(),pixels=new Uint8Array(384*256*4);gl.readPixels(0,0,384,256,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
+  const samplerTypes=[gl.SAMPLER_2D,gl.SAMPLER_CUBE,gl.SAMPLER_2D_SHADOW,gl.SAMPLER_CUBE_SHADOW,gl.SAMPLER_2D_ARRAY,gl.SAMPLER_2D_ARRAY_SHADOW];
+  const programs=renderer.info.programs.map(p=>{const linked=gl.getProgramParameter(p.program,gl.LINK_STATUS),samplers=[];if(linked)for(let i=0;i<gl.getProgramParameter(p.program,gl.ACTIVE_UNIFORMS);i++){const u=gl.getActiveUniform(p.program,i);if(samplerTypes.includes(u.type))samplers.push({name:u.name,size:u.size,type:u.type})}return{linked,samplers,count:samplers.reduce((s,u)=>s+u.size,0),log:gl.getProgramInfoLog(p.program)}});
+  outputs.push({mode,pixels:Array.from(pixels),png:renderer.domElement.toDataURL('image/png'),glError:gl.getError(),maxTextureUnits:gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS),programs,atlas:lease?.info()||null});
+  resources.forEach(r=>r.dispose());renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();lease?.dispose();
+ }
+ const a=outputs[0].pixels,b=outputs[1].pixels;let sum=0,max=0,changed=0,n=0;for(let i=0;i<a.length;i++){if(i%4===3)continue;const d=Math.abs(a[i]-b[i]);sum+=d;max=Math.max(max,d);if(d)changed++;n++;}
+ const comparison={meanAbsolute8bit:sum/n,maxAbsolute8bit:max,changedRgbSamples:changed,totalRgbSamples:n};
+ outputs.forEach(o=>delete o.pixels);
+ const restored=['lights_pars_begin','lights_physical_pars_fragment','lights_fragment_begin'].every((k,i)=>T.ShaderChunk[k]===originalChunks[i]);
+ return{comparison,restored,outputs,passed:restored&&comparison.meanAbsolute8bit<.15&&comparison.maxAbsolute8bit<=4&&outputs.every(o=>o.glError===0&&o.programs.every(p=>p.linked&&p.count<=o.maxTextureUnits))};
+};
+window.ready=true;
+</script></body></html>
