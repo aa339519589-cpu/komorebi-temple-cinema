@@ -41,7 +41,7 @@ input[type=file]{max-width:220px;font-size:12px}
 <label>视角 FOV<input data-camera="fov" type="number" min="10" max="140" step="0.1"></label><label>场景时间<input data-camera="time" type="number" min="0" max="70" step="0.1"></label>
 </div>
 <output id="status" role="status">等待加载场景。</output>
-<div class="note">场景代码：仓库当前 src/main.js；参考 01 使用独立 reference10-porch 条件场景，其余使用共享场景。参考 10 如仓库尚无高清原图，则以原有低清参考占位，可在上方直接选择你发送的高清图。高保真程度仍需要逐帧验收。</div>
+<div class="note">场景代码：仓库当前 src/main.js；参考 01 使用独立 reference10-porch 条件场景，其余使用共享场景。参考 10 已补充此次提供的高清原图，允许用本机文件选择替换左图；文件不会上传。高保真程度仍需要逐帧验收。</div>
 </main><iframe id="runtime" title="后台运行的真实 3D WebGL 场景"></iframe>
 <script>
 'use strict';
@@ -57,7 +57,7 @@ const shots=[
  {source:5,path:'/references/hd/5-照片-6.jpg',name:'屋檐木构近景'},
  {source:2,path:'/references/hd/1-照片-2.jpg',name:'池塘与塔殿'},
  {source:3,path:'/references/hd/2-照片-3.jpg',name:'莲池与桥'},
- {source:1,path:'/references/01.png',name:'落日廊道塔殿'}
+ {source:1,path:'/references/hd/0-照片-1.jpg',name:'落日廊道塔殿'}
 ];
 const $=id=>document.getElementById(id), frame=$('runtime'), status=$('status');
 let active=0,variant='',ready=false,operation=0,renderedData='',custom=new Map(),overrides=new Map();
