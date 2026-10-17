@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   render:
-    runs-on: macos-14
+    runs-on: macos-15
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -33,12 +33,14 @@ jobs:
       - name: Render floor geometry and finish comparison
         timeout-minutes: 18
         env:
-          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REAL_PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          WEBGL_PLATFORM_BACKEND: metal
           NODE_OPTIONS: --max-old-space-size=4096
           REQUEST_FILE: tools/sanctuary-floor-request.json
           OUTPUT_DIR: output/sanctuary-floor-review
         run: |
           set -o pipefail
+          export PLAYWRIGHT_MODULE="$GITHUB_WORKSPACE/tools/playwright-render-platform.mjs"
           mkdir -p output/sanctuary-floor-review
           node tools/render-output-target.mjs 2>&1 | tee output/sanctuary-floor-review/execution.log
       - uses: actions/upload-artifact@v4
