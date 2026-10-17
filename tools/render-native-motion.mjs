@@ -22,23 +22,23 @@ try{
  page.on('pageerror',e=>{report.errors.push(String(e));save();fail(e)});page.on('crash',()=>fail(Error('GPU renderer crashed')));page.on('console',m=>{if(m.type()==='error'){report.errors.push(m.text());save();}console.log(m.type(),m.text().slice(0,600));});
  await bounded(page.goto(`http://127.0.0.1:4317/render-live.html?render&defer&w=${size}&h=${size}&scene=shared`,{waitUntil:'load',timeout:300000}),'Scene load',300000);await bounded(page.waitForFunction(()=>window.temple?.ready,null,{timeout:300000}),'Scene ready',300000);
  report.scene=await page.evaluate(()=>window.temple.info());
- await page.evaluate(()=>{const t=window.temple,original=t.composer.render;t.composer.render=function(...args){t.renderer.toneMappingExposure=window.motionExposure;return original.apply(this,args)};window.motionOriginalRender=original;});
+ await page.evaluate(async()=>{window.readNativeMotionRGBA=(await import('/src/read-framebuffer-rgba.js')).readFramebufferRGBA;const t=window.temple,original=t.composer.render;t.composer.render=function(...args){t.renderer.toneMappingExposure=window.motionExposure;return original.apply(this,args)};window.motionOriginalRender=original;});
  async function frame(index){
   const u=n===1?0:index/(n-1),s=u*u*(3-2*u),position=request.from.map((v,i)=>v+(request.to[i]-v)*s);
   const result=await bounded(page.evaluate(j=>{
    const t=window.temple,g=t.renderer.getContext();window.motionExposure=j.exposure;
-   const pose=t.renderView(j.position,j.target,j.time,j.fov);g.finish();
-   const width=g.drawingBufferWidth,height=g.drawingBufferHeight,rgba=new Uint8Array(width*height*4);g.readPixels(0,0,width,height,g.RGBA,g.UNSIGNED_BYTE,rgba);const error=g.getError();
+   const pose=t.renderView(j.position,j.target,j.time,j.fov),width=g.drawingBufferWidth,height=g.drawingBufferHeight;
+   const readback=window.readNativeMotionRGBA(t.renderer,{width,height}),rgba=readback.pixels,error=readback.audit.glError;
    let visible=0,alpha=0,min=255,max=0,sum=0;for(let k=0;k<rgba.length;k+=4){const r=rgba[k],b=rgba[k+1],c=rgba[k+2];if(r||b||c)visible++;if(rgba[k+3])alpha++;min=Math.min(min,r,b,c);max=Math.max(max,r,b,c);sum+=r+b+c;}
    const pixels={visible,alpha,min,max,meanRgb:sum/(width*height*3)};
-   if(error||g.isContextLost()||alpha<width*height*.9||visible<width*height*.8||max-min<8)throw Error('Rejected invalid motion frame '+j.index+': '+JSON.stringify({error,pixels}));
+   if(error||g.isContextLost()||alpha<width*height*.9||visible<width*height*.8||max-min<8)throw Error('Rejected invalid motion frame '+j.index+': '+JSON.stringify({error,pixels,readback:readback.audit}));
    if(t.renderer.info.programs.some(p=>!g.getProgramParameter(p.program,g.LINK_STATUS)))throw Error('Shader link failure during actual video render');
    let binary='';for(let k=0;k<rgba.length;k+=16384)binary+=String.fromCharCode(...rgba.subarray(k,k+16384));
-   return{pose,width,height,error,pixels,rgba:btoa(binary),exposure:t.renderer.toneMappingExposure};
+   return{pose,width,height,error,pixels,readback:readback.audit,rgba:btoa(binary),exposure:t.renderer.toneMappingExposure};
   },{index,position,target:request.target,time:request.time,fov:request.fov,exposure:request.exposure}),'Actual motion frame');
   const rgba=Buffer.from(result.rgba,'base64');delete result.rgba;if(rgba.length!==size*size*4||result.width!==size||result.height!==size)throw Error('Wrong native frame size');return{result,rgba};
  }
- // Render true start/middle/end positions before launching the full sequence.
+ // True start/middle/end renders must all be valid before starting video encoding.
  const previews=new Map();for(const index of[0,Math.floor((n-1)/2),n-1]){const f=await frame(index);previews.set(index,f);await writeFile(out+`/preview-${String(index).padStart(4,'0')}.png`,encodeWebglPng(size,size,f.rgba));}
  report.preflight={positions:[...previews].map(([index,f])=>({index,pose:f.result.pose,pixels:f.result.pixels})),passed:true};report.status='rendering';save();
  encoder=spawn('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${size}x${size}`,'-framerate','30','-i','pipe:0','-an','-vf','vflip','-c:v','libx264','-preset','medium','-crf','17','-pix_fmt','yuv420p','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','bt709','-movflags','+faststart',video],{stdio:['pipe','inherit','inherit']});
