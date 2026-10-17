@@ -1,10 +1,8 @@
 {
-  "revision":"v60-visual-study-r3",
-  "goal":"Actual GPU frame export and per-pass diagnosis; compare multisample and single-sample intermediate buffers without changing geometry or lights",
+  "revision":"v60-visual-study-r4",
+  "goal":"Fresh single-sample contexts, bounded reflection/refraction buffers, preserved complete geometry and lights; measure GPU/host resources and actual exported pixels",
   "jobs":[
-    {"id":"room-r3-msaa4","group":"room","reference":6,"scene":"shared","width":640,"quality":"preview","samples":4},
-    {"id":"room-r3-single","group":"room","reference":6,"scene":"shared","width":640,"quality":"preview","samples":0},
-    {"id":"rain-r3-msaa4","group":"rain","reference":10,"scene":"reference10-porch","width":640,"quality":"preview","samples":4},
-    {"id":"rain-r3-single","group":"rain","reference":10,"scene":"reference10-porch","width":640,"quality":"preview","samples":0}
+    {"id":"room-r4-memory-preview","group":"room","reference":6,"scene":"shared","width":480,"quality":"preview","samples":0},
+    {"id":"rain-r4-memory-preview","group":"rain","reference":10,"scene":"reference10-porch","width":480,"quality":"preview","samples":0}
   ]
 }
