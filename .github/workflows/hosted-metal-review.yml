@@ -10,11 +10,11 @@ permissions:
   contents: read
 concurrency:
   group: komorebi-hosted-metal-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   metal-review:
     runs-on: macos-14
-    timeout-minutes: 70
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,7 +25,7 @@ jobs:
       - name: Verify source and install isolated renderer
         run: |
           node verify.mjs
-          node --check tools/render-review-worker.mjs
+          node --check tools/render-review-session.mjs
           node --check tools/probe-hosted-webgl.mjs
           npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
           "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
@@ -46,19 +46,33 @@ jobs:
       - name: Prepare video utility
         if: steps.probe.outputs.usable == 'true'
         run: command -v ffmpeg || brew install ffmpeg
+      - name: Archive exact tested source
+        run: |
+          mkdir -p review-runtime
+          git rev-parse HEAD > review-runtime/COMMIT.txt
+          tar -czf review-runtime/current-source.tar.gz src vendor tools references music render-live.html compare-live.html index.html viewer.mjs serve.mjs verify.mjs package.json checksums.json frozen-manifest.json README.md LICENSE
+          shasum -a 256 review-runtime/current-source.tar.gz > review-runtime/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: current-metal-runtime-${{ github.sha }}
+          path: review-runtime/
+          retention-days: 7
+          if-no-files-found: error
       - name: Run actual current-source frames on verified backend
         if: steps.probe.outputs.usable == 'true'
+        timeout-minutes: 12
         env:
           PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
           RENDER_BACKEND: metal
           RENDER_HEADLESS: ${{ steps.probe.outputs.headless }}
           REQUEST_FILE: tools/render-hosted-request.json
           OUTPUT_DIR: output/hosted-metal-review
+          RENDER_TIMEOUT_MS: '300000'
           NODE_OPTIONS: --max-old-space-size=4096
         run: |
           set -o pipefail
           mkdir -p output/hosted-metal-review
-          node tools/render-review-worker.mjs 2>&1 | tee output/hosted-metal-review/execution.log
+          node tools/render-review-session.mjs 2>&1 | tee output/hosted-metal-review/execution.log
       - name: Preserve actual image review
         if: always()
         uses: actions/upload-artifact@v4
