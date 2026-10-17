@@ -1,0 +1,69 @@
+name: Hosted Metal reference review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/hosted-metal-review.yml'
+      - 'tools/render-hosted-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-hosted-metal-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  metal-review:
+    runs-on: macos-14
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify source and install isolated renderer
+        run: |
+          node verify.mjs
+          node --check tools/render-review-worker.mjs
+          node --check tools/probe-hosted-webgl.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Test real WebGL backend
+        id: probe
+        timeout-minutes: 6
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        run: node tools/probe-hosted-webgl.mjs
+      - name: Preserve backend evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hosted-metal-probe-${{ github.sha }}
+          path: output/hosted-mac/
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Prepare video utility
+        if: steps.probe.outputs.usable == 'true'
+        run: command -v ffmpeg || brew install ffmpeg
+      - name: Run actual current-source frames on verified backend
+        if: steps.probe.outputs.usable == 'true'
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          RENDER_BACKEND: metal
+          RENDER_HEADLESS: ${{ steps.probe.outputs.headless }}
+          REQUEST_FILE: tools/render-hosted-request.json
+          OUTPUT_DIR: output/hosted-metal-review
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          mkdir -p output/hosted-metal-review
+          node tools/render-review-worker.mjs 2>&1 | tee output/hosted-metal-review/execution.log
+      - name: Preserve actual image review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hosted-metal-review-${{ github.sha }}
+          path: output/hosted-metal-review/
+          retention-days: 7
+          if-no-files-found: warn
