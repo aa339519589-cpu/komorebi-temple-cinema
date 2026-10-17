@@ -44,7 +44,8 @@ export function buildWorld(renderer,options={}) {
   if(typeof processionalSupportRepair!=='boolean')throw new TypeError('Processional support repair must be boolean.');
   const processionalRockMoves=[];
   const initialMode=reference10Porch?'rain':'sanctuary';
-  let thresholdSupport=null,thresholdSurface=null,reference10Finial=null,restoredTowerBase=null,restoredPorchLantern=null,restoredSidePorch=null;
+  let thresholdSupport=null,thresholdSurface=null,reference10Finial=null,restoredTowerBase=null,restoredPorchLantern=null,restoredSidePorch=null,restoredNearColumn=null,restoredNearColumnRoof=null;
+  let nearColumnRoofSourceCollector=null;
   const {profiles:lightingProfiles,referenceModes}=buildReferenceProfileProposal(RESTORATION_LIGHTING_PROFILES,referenceViews);
   for(const shot of shots)if(referenceModes[shot.reference]!==shot.lightingMode)throw new Error('Reference camera and light-mode registration disagree.');
   // Low bounded paper-source candidates derived from the existing practical-light
@@ -306,6 +307,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
     dummy.updateMatrix();
     m.multiplyMatrices(stack[stack.length - 1], dummy.matrix);
     b.transforms.push(m.clone());
+    if(nearColumnRoofSourceCollector&&['architecture_cedar','architecture_endwood','architecture_red','architecture_darkwood'].includes(material))nearColumnRoofSourceCollector.push({geometry:g,matrixWorld:m.clone(),kind:'timber'});
     color.setRGB(tint, tint, tint);
     b.colors.push(color.clone());
   }
@@ -531,6 +533,7 @@ reflectedLight.indirectSpecular*=mix(1.0,sqrt(skyVisibility),roomMask);`);
           roofBacking.applyMatrix4(stack[stack.length - 1]);
           roofBacking.castShadow = true;
           roofBacking.receiveShadow = true;
+          if(emitGeometry&&nearColumnRoofSourceCollector&&ma==='darkwood')nearColumnRoofSourceCollector.push({geometry:gg,matrixWorld:roofBacking.matrix.clone(),kind:'backing'});
           if(emitGeometry)scene.add(roofBacking);else{gg.dispose();mm.dispose();}
         }
       }
@@ -1013,9 +1016,17 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     for(let x=-12;x<12;x+=.28)box(x,.13,0,.265,.10,5.6,'cedar',0,.88+.10*Math.sin(x*3));
     }
     for(const x of [-11.5,-5.5,5.5,11.5])for(const z of [-2,2]){
+      if(reference10Porch&&x===-5.5&&z===-2){
+        restoredNearColumn=architecture.reference10NearColumn({referenceMode:'reference10',porchColumnSeats:restoredSidePorch.columnSeats});
+      }else{
       architecture.footColumn(x,z,.12,6.2,.32,reference10Porch?{referenceMode:'reference10',plainShoe:true,...(x===-5.5&&z===-2?{porchColumnSeats:restoredSidePorch.columnSeats}:{})}:{});brackets(x,6.7,z,1.05);
+      }
     }
-    for(const z of [-2,2]){box(0,6.55,z,24,.32,.40,'darkwood');box(0,6.78,z,24,.06,.48,'oldgold');}
+    for(const z of [-2,2]){
+      box(0,6.55,z,24,.32,.40,'darkwood');
+      if(reference10Porch&&z===-2)architecture.reference10NearColumnFrontRail({nearColumn:restoredNearColumn});
+      else box(0,6.78,z,24,.06,.48,'oldgold');
+    }
     for(const x of [-9,9])for(const z of [-1.8,1.8]){
       if(reference10Porch&&x===-9&&z===-1.8){
         // Replace one old call, never overlay it. The real threshold parent and
@@ -1029,7 +1040,14 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
         });
       }else hangingLantern(x,6.15,z,.9);
     }
-    if(reference10Porch)hipRoof(0,7.1,0,27,6.2,3.1,1,restoredSidePorch.oldRoofOpenings);
+    if(reference10Porch){
+      // Capture the actual clipped roof exactly once; never recreate a receiver input.
+      const actualNearColumnRoofSources=[];
+      nearColumnRoofSourceCollector=actualNearColumnRoofSources;
+      try{hipRoof(0,7.1,0,27,6.2,3.1,1,restoredSidePorch.oldRoofOpenings);}
+      finally{nearColumnRoofSourceCollector=null;}
+      restoredNearColumnRoof=architecture.reference10NearColumnRoofReceivers({nearColumn:restoredNearColumn,roofSurfaces:actualNearColumnRoofSources});
+    }
     else hipRoof(0,7.1,0,27,6.2,3.1);
     railing(v(5.7,0,2.5),v(11.8,0,2.5),.12,1.05);
   });
@@ -1635,7 +1653,7 @@ gl_FragColor=vec4(mix(transmitted,base.rgb*.96,fresnel),1.0);`);
     roofAudit,
     reflectionAudit,
     restorationLighting,lightingProfiles,referenceModes,windowRadianceByMode,lanternRadianceByMode,
-    restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredProcessionalLastCurbJoin,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
+    restoredTowerBase,sanctuaryPortalVisibility,sanctuaryColumnAssemblies,restorationEntrance,restoredEntranceStair,roomMetals,roomGlass,roomHair,sculptureHairMeshes,ritualGlassMeshes,roomCaptureCameras,restoredFurnishings,reflectedSculpture,sculpturePrivateMeshes,restoredStoneLanterns,stoneLanternNormalMeshes,lanternLighting,stoneLanternEmitters,restoredPorchLantern,restoredSidePorch,restoredNearColumn,restoredNearColumnRoof,porchLanternPaperMeshes,porchLanternNormalMeshes,porchLanternLighting,restorationLanternSupportPlan,leafResponses,restoredIslandPlanting,restoredFloweringTree,restoredWetPath,processionalSupportRepair,processionalRockMoves,restoredProcessionalCurbBearing,restoredProcessionalLeftReachBearing,restoredProcessionalLastCurbJoin,restoredPuddleResponse,roomEnvironmentCache,windowLighting,pagodaWindows,siteMatrix,hallMatrix,towerMatrix,
     columns,
     disposePracticalLanterns,
     // Only owned room maps/portal wrappers/private materials; not whole-scene disposal.

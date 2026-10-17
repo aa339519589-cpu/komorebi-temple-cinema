@@ -6,7 +6,7 @@ import {timberSweep} from './natural-forms.js';
  * LOCAL to world.js's current group. Never bake hallMatrix / towerMatrix here.
  * The geometry is shared between instances, not regenerated for every post.
  */
-export const ARCHITECTURE_REVISION = 'reference-joinery-26-perimeter-bearing-candidate';
+export const ARCHITECTURE_REVISION = 'reference-joinery-27-near-column-roof-bearing-candidate';
 
 /** Optional dedicated architectural surfaces. Existing shared materials are
  * never recolored. Their procedural grain/stone shaders are retained, while
@@ -888,6 +888,152 @@ export function createRestorationArchitecture(ctx) {
     });
   }
 
+  // Explicit reference10 near-column prototype. This is not a general hall
+  // radius change: the source shoe, foot and upper low-roof bearing datum stay.
+  function assertReference10NearParent(referenceMode) {
+    const expected=new T.Matrix4().makeScale(.6,.6,.6).setPosition(-13.840726762,0,22.584909603999996);
+    if(referenceMode!=='reference10'||!stack?.length||stack.at(-1).elements.some((x,i)=>Math.abs(x-expected.elements[i])>1e-10))
+      throw new RangeError('The near column requires the unchanged reference10 threshold parent.');
+  }
+  let nearColumnShaft;
+  const nearColumnRecords=new WeakSet();
+  function assertReference10NearSeats(seats) {
+    // Frozen26 actual seat metadata, not a second generator or a free fit.
+    const plans=[[-4.551264774551861,-.8285046000970127,-8.210607724861397,-6.401085116919031,-8.461373848118388,-6.236414684155104,-4.8020308978088515,-.6638341673330856],
+      [-8.932122063333328,-1.8500000000000014,-3.7654553966666704,-1.8500000000000014,-3.7654553966666704,-2.1499999999999986,-8.932122063333328,-2.1499999999999986]];
+    if(!Array.isArray(seats)||seats.length!==2||seats.some((s,i)=>!Array.isArray(s?.plan)||s.plan.length!==4||s.plan.some(p=>!Array.isArray(p)||p.length!==2)||s.plan.flat().some((v,j)=>!Number.isFinite(v)||Math.abs(v-plans[i][j])>1e-10)||!Number.isFinite(s.bottomY)||!Number.isFinite(s.topY)||Math.abs(s.bottomY-4.904133656269012)>1e-10||Math.abs(s.topY-5.237466989602345)>1e-10))
+      throw new RangeError('The near column requires the exact unchanged26 paired low-frame seats before emitting.');
+  }
+  function freezeNearRecord(value){if(value&&typeof value==='object'){for(const child of Object.values(value))freezeNearRecord(child);Object.freeze(value);}return value;}
+
+  function buildReference10NearShaft() {
+    if(nearColumnShaft)return nearColumnShaft;
+    const base=g.column,pp=base.attributes.position,nn=base.attributes.normal,tt=base.attributes.uv;
+    const ys=[0,.06,.23,.48,.69],guard=pp.getY(5),shoe=.4401600022315979;
+    const controls=[shoe,.75,1.5,2.3,2.8188],offsets=[0,.017150398395269908,.02473386817136323,.032622433959095594,0],
+      derivatives=[0,.018908034800151883,.009985775307976799,0,0];
+    const addAt=worldY=>{
+      if(worldY<=shoe||worldY>=controls.at(-1))return[0,0];
+      let i=0;while(worldY>controls[i+1])i++;
+      const h=controls[i+1]-controls[i],t=(worldY-controls[i])/h,a=offsets[i],b=offsets[i+1],m=derivatives[i],n=derivatives[i+1];
+      return[(2*t**3-3*t*t+1)*a+(t**3-2*t*t+t)*h*m+(-2*t**3+3*t*t)*b+(t**3-t*t)*h*n,
+        ((6*t*t-6*t)*a+(-6*t*t+6*t)*b)/h+(3*t*t-4*t+1)*m+(3*t*t-2*t)*n];
+    };
+    const rings=[...new Set([0,...ys.slice(1).map(y=>Math.fround(y)),...controls.slice(0,-1).map(y=>(y-.252)/3.72),
+      ...Array.from({length:65},(_,i)=>(shoe+(2.8188-shoe)*i/64-.252)/3.72)].filter(y=>y<guard).map(y=>+y.toFixed(12))),guard].sort((a,b)=>a-b);
+    const positions=[],normals=[],uv=[],ring=[],axis=new T.Vector3(-5.5,0,-2).applyMatrix4(stack.at(-1));let maximumRadius=0;
+    for(const y of rings){let j=1;while(j<ys.length-1&&y>pp.getY(j+1))j++;
+      const y0=pp.getY(j),y1=pp.getY(j+1),t=(y-y0)/(y1-y0),worldY=.252+3.72*y,
+        [offset,derivative]=y===guard?[0,0]:addAt(worldY),delta=offset/.192,dSlope=derivative*3.72/.192;
+      ring.push(Array.from({length:49},(_,k)=>{const a=k*9+j,b=a+1,p=new T.Vector3().fromBufferAttribute(pp,a).lerp(new T.Vector3().fromBufferAttribute(pp,b),t),
+        n=new T.Vector3().fromBufferAttribute(nn,a).lerp(new T.Vector3().fromBufferAttribute(nn,b),t),u=new T.Vector2().fromBufferAttribute(tt,a).lerp(new T.Vector2().fromBufferAttribute(tt,b),t),r=Math.hypot(p.x,p.z);
+        if(offset!==0||derivative!==0){p.x*=1+delta/r;p.z*=1+delta/r;n.y-=dSlope*Math.hypot(n.x,n.z);n.normalize();}
+        p.y=y;maximumRadius=Math.max(maximumRadius,Math.hypot(Math.fround(Math.fround(p.x)*.192+axis.x)-axis.x,Math.fround(Math.fround(p.z)*.192+axis.z)-axis.z));return{p,n,u};}));
+    }
+    const tri=(a,b,c)=>{for(const q of[a,b,c]){positions.push(...q.p.toArray());normals.push(...q.n.toArray());uv.push(...q.u.toArray());}};
+    for(let i=0;i+1<rings.length;i++)for(let k=0;k<48;k++){tri(ring[i][k],ring[i][k+1],ring[i+1][k]);tri(ring[i+1][k+1],ring[i+1][k],ring[i][k+1]);}
+    for(const [row,sign]of[[0,-1],[rings.length-1,1]])for(let k=0;k<48;k++){
+      const cap=q=>({p:q.p,n:new T.Vector3(0,sign,0),u:new T.Vector2(q.p.x,q.p.z)}),a=cap(ring[row][k]),b=cap(ring[row][k+1]),c={p:new T.Vector3(0,rings[row],0),n:new T.Vector3(0,sign,0),u:new T.Vector2(0,0)};
+      if(sign<0)tri(c,b,a);else tri(c,a,b);
+    }
+    const lower=new T.BufferGeometry();lower.setAttribute('position',new T.Float32BufferAttribute(positions,3));lower.setAttribute('normal',new T.Float32BufferAttribute(normals,3));lower.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
+    lower.userData.architectureJoint='reference10-near-column27-bounded-shaft';
+    nearColumnShaft={lower,maximumRadius:maximumRadius*(1+Number.EPSILON),guardY:guard*3.72+.252,controls,offsets,derivatives};return nearColumnShaft;
+  }
+  function reference10NearColumn({referenceMode,porchColumnSeats}={}) {
+    assertReference10NearParent(referenceMode);
+    assertReference10NearSeats(porchColumnSeats);
+    footColumn(-5.5,-2,.12,6.2,.32,{referenceMode,plainShoe:true,porchColumnSeats,reference10NearHead:true});
+    const x=-5.5,z=-2,s=1.05,rootBottom=6.71,rootTop=6.91,rootLap=6.81;stats.bracketSets++;
+    const member=(geometry,role,rotation=0)=>{geometry.userData.architectureJoint='reference10-near-column27-'+role;draw(geometry,'red',[x,0,z],[1,1,1],[0,rotation,0]);};
+    member(joineryBox(1.4,.22,rootBottom,rootTop,[{x:0,width:.22,side:'top',y:rootLap}]),'root-x-girder');
+    member(joineryBox(1.3,.22,rootBottom,rootTop,[{x:0,width:.22,side:'bottom',y:rootLap}]),'root-z-girder',PI/2);
+    // The old high beam remains an unchanged solid and still supports every
+    // original suspension. Small actual timber pads bear the cut trim ends.
+    for(const offset of[-.82,1.07]){const geo=new T.BoxGeometry(.14,.04,.48);geo.userData.architectureJoint='reference10-near-column27-rail-end-bearer';draw(geo,'darkwood',[x+offset,6.73,z],[1,1,1]);}
+    const profile=buildReference10NearShaft();
+    const record={kind:'reference10-near-column27',referenceMode,nearColumn:[x,z],shaftMaximumWorldRadius:profile.maximumRadius,
+      fixedShoeTopWorldY:.4401600022315979,protectedProfileRingWorldY:profile.guardY,
+      retainedSupportBeam:{centerX:0,centerZ:-2,bottomY:6.39,topY:6.71,width:24,depth:.4},
+      frontRailCut:{minX:x-.75,maxX:x+1,y:6.78,z:-2,w:24,h:.06,d:.48},
+      roofReceivers:[['front',z-.415*s],['rear',z+.415*s]].map(([name,cz])=>({name,minX:x-.7,maxX:x+.7,minZ:cz-.05/.6,maxZ:cz+.05/.6,rootTop})),
+      originalSideIntervalsAreManual:true,lowerSideResidualRetained:true};
+    nearColumnRecords.add(record);return freezeNearRecord(record);
+  }
+  function reference10NearColumnRoofReceivers({nearColumn,roofSurfaces}={}) {
+    assertReference10NearParent(nearColumn?.referenceMode);
+    if(!nearColumnRecords.has(nearColumn)||nearColumn?.kind!=='reference10-near-column27'||!Array.isArray(roofSurfaces)||!roofSurfaces.length)
+      throw new RangeError('Near roof receivers need the actual retained roof backing and timber emissions.');
+    const parent=stack.at(-1),inverse=parent.clone().invert(),faces=[];
+    if(!roofSurfaces.some(s=>s.kind==='backing')||!roofSurfaces.some(s=>s.kind==='timber'))throw new RangeError('Both actual old backing and real timber are required.');
+    const area=poly=>poly.reduce((s,a,i)=>{const b=poly[(i+1)%poly.length];return s+a[0]*b[1]-a[1]*b[0];},0)/2;
+    const clip=(poly,evalLine)=>{const out=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],da=evalLine(a),db=evalLine(b);if(da>=0)out.push(a);if((da>=0)!==(db>=0)){const t=da/(da-db);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}}return out.filter((p,i)=>!i||Math.hypot(p[0]-out[i-1][0],p[1]-out[i-1][1])>1e-12);};
+    const insideLines=poly=>poly.map((a,i)=>{const b=poly[(i+1)%poly.length];return p=>(b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0]);});
+    for(const [sourceId,source]of roofSurfaces.entries()){
+      if(!source.geometry?.attributes?.position||source.geometry.attributes.position.itemSize!==3||!source.matrixWorld?.isMatrix4||source.matrixWorld.elements.some(v=>!Number.isFinite(v))||!['backing','timber'].includes(source.kind))throw new RangeError('Roof receiver input is not an actual positioned roof emission.');
+      if(Array.from(source.geometry.attributes.position.array).some(v=>!Number.isFinite(v))||(source.geometry.index?.count??source.geometry.attributes.position.count)%3!==0)throw new RangeError('Roof surfaces need finite complete real triangles.');
+      const p=source.geometry.attributes.position,ix=source.geometry.index,matrix=inverse.clone().multiply(source.matrixWorld);
+      for(let i=0,N=ix?.count??p.count;i<N;i+=3){const q=[0,1,2].map(k=>new T.Vector3().fromBufferAttribute(p,ix?ix.getX(i+k):i+k).applyMatrix4(matrix)),n=q[1].clone().sub(q[0]).cross(q[2].clone().sub(q[0]));if(Math.abs(n.y)<1e-12)continue;
+        let poly=q.map(v=>[v.x,v.z]);if(area(poly)<0)poly.reverse();const plane=[-n.x/n.y,-n.z/n.y,n.dot(q[0])/n.y];faces.push({poly,plane,sourceId,triangle:i/3,kind:source.kind,minX:Math.min(...poly.map(p=>p[0])),maxX:Math.max(...poly.map(p=>p[0])),minZ:Math.min(...poly.map(p=>p[1])),maxZ:Math.max(...poly.map(p=>p[1]))});}
+    }
+    const height=(f,p)=>f[0]*p[0]+f[1]*p[1]+f[2],records=[],pending=[];
+    for(const spec of nearColumn.roofReceivers){const {name,minX,maxX,minZ,maxZ,rootTop}=spec,R=[[minX,minZ],[maxX,minZ],[maxX,maxZ],[minX,maxZ]],lines=insideLines(R),near=faces.filter(f=>f.maxX>minX&&f.minX<maxX&&f.maxZ>minZ&&f.minZ<maxZ);let cells=[];
+      for(const face of near.filter(f=>f.kind==='backing')){let poly=face.poly;for(const line of lines)poly=clip(poly,line);if(poly.length>=3&&area(poly)>1e-14)cells.push({poly,plane:face.plane,sourceId:face.sourceId,triangle:face.triangle,kind:face.kind});}
+      const fullArea=(maxX-minX)*(maxZ-minZ),initialArea=cells.reduce((s,c)=>s+area(c.poly),0);
+      if(Math.abs(initialArea-fullArea)>1e-8)throw new Error('The real darkwood roof does not cover this finite receiver footprint exactly.');
+      for(const face of near.filter(f=>f.kind==='timber')){const next=[],cutLines=insideLines(face.poly);for(const cell of cells){
+        if(cell.poly.every(p=>p[0]<=face.minX)||cell.poly.every(p=>p[0]>=face.maxX)||cell.poly.every(p=>p[1]<=face.minZ)||cell.poly.every(p=>p[1]>=face.maxZ)){next.push(cell);continue;}
+        let overlap=cell.poly;for(const line of cutLines){overlap=clip(overlap,line);if(overlap.length<3)break;}
+        if(overlap.length<3||area(overlap)<1e-14||overlap.every(p=>height(cell.plane,p)<=height(face.plane,p)+1e-10)){next.push(cell);continue;}
+        let rest=cell.poly;for(const line of insideLines(face.poly)){const outside=clip(rest,p=>-line(p));if(outside.length>=3&&area(outside)>1e-14)next.push({...cell,poly:outside});rest=clip(rest,line);if(rest.length<3||area(rest)<1e-14){rest=[];break;}}
+        if(rest.length){const difference=p=>height(cell.plane,p)-height(face.plane,p),low=clip(rest,difference),high=clip(rest,p=>-difference(p));
+          if(low.length>=3&&area(low)>1e-14)next.push({poly:low,plane:face.plane,sourceId:face.sourceId,triangle:face.triangle,kind:face.kind});
+          if(high.length>=3&&area(high)>1e-14)next.push({...cell,poly:high});}
+      }cells=next;}
+      const finalArea=cells.reduce((s,c)=>s+area(c.poly),0);if(Math.abs(finalArea-fullArea)>1e-8)throw new Error('Actual lower-envelope partition lost or duplicated positive footprint area.');
+      const minimumHeight=Math.min(...cells.flatMap(c=>c.poly.map(p=>height(c.plane,p)))),beamTop=minimumHeight-.004/.6,
+        beamBottom=name==='front'?rootTop:beamTop-.065/.6;
+      if(beamTop-beamBottom<.035/.6||beamBottom<rootTop-1e-8)throw new Error('The untouched actual roof leaves no finite supported receiver section.');
+      const centreX=(minX+maxX)/2,centreZ=(minZ+maxZ)/2;
+      const emitBox=(w,h,d,x,y,z,role)=>{const geometry=new T.BoxGeometry(w,h,d);geometry.userData.architectureJoint='reference10-near-column27-'+name+'-'+role;pending.push(()=>draw(geometry,'red',[x,y,z],[1,1,1]));};
+      emitBox(maxX-minX,beamTop-beamBottom,maxZ-minZ,centreX,(beamTop+beamBottom)/2,centreZ,'receiver-body');
+      if(name==='rear')emitBox(.22,beamBottom-rootTop,maxZ-minZ,centreX,(beamBottom+rootTop)/2,centreZ,'support-post');
+      // Select broad interior real source patches. The receiver body remains
+      // below EVERY old roof face in its footprint; these few closed pads
+      // supply positive bearing without filling the complete rafter voids.
+      const candidates=cells.map((c,cellId)=>{let poly=c.poly;
+        for(let i=0;i<c.poly.length;i++){const a=c.poly[i],b=c.poly[(i+1)%c.poly.length],len=Math.hypot(b[0]-a[0],b[1]-a[1]);if(len<1e-10)continue;poly=clip(poly,p=>(b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0])-.002/.6*len);if(poly.length<3)break;}
+        const planArea=poly.length>=3?area(poly):0,centre=poly.length?poly.reduce((a,p)=>[a[0]+p[0]/poly.length,a[1]+p[1]/poly.length],[0,0]):[0,0];return{...c,cellId,poly,planArea,centre};}).filter(c=>c.planArea>1e-4).sort((a,b)=>b.planArea-a.planArea);
+      const chosen=[];for(const kind of['backing','timber','timber']){const candidate=candidates.find(c=>c.kind===kind&&!chosen.includes(c)&&(kind==='backing'||chosen.filter(x=>x.kind==='timber').every(x=>Math.abs(x.centre[0]-c.centre[0])>.15/.6)));if(!candidate)throw new Error('The actual roof lacks three broad separated bearing patches.');chosen.push(candidate);}
+      const interfaces=[];
+      for(const [padId,cell]of chosen.entries()){
+        const poly=cell.poly,top=poly.map(p=>[p[0],height(cell.plane,p),p[1]]),bottom=poly.map(p=>[p[0],beamTop,p[1]]),positions=[],uv=[];
+        const tri=(a,b,c,normal)=>{const cross=new T.Vector3(...b).sub(new T.Vector3(...a)).cross(new T.Vector3(...c).sub(new T.Vector3(...a)));if(cross.dot(normal)<0)[b,c]=[c,b];const axes=Math.abs(normal.y)>.5?[0,2]:Math.abs(normal.x)>.5?[2,1]:[0,1];for(const p of[a,b,c]){positions.push(...p);uv.push(p[axes[0]],p[axes[1]]);}};
+        const ids=T.ShapeUtils.triangulateShape(poly.map(p=>new T.Vector2(...p)),[]),normal=new T.Vector3(-cell.plane[0],1,-cell.plane[1]).normalize();
+        for(const q of ids){tri(...q.map(i=>top[i]),normal);tri(...q.map(i=>bottom[i]),new T.Vector3(0,-1,0));}
+        for(let i=0;i<poly.length;i++){const j=(i+1)%poly.length,n=new T.Vector3(poly[j][1]-poly[i][1],0,poly[i][0]-poly[j][0]);tri(bottom[i],bottom[j],top[i],n);tri(bottom[j],top[j],top[i],n);}
+        const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));geometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));geometry.computeVertexNormals();geometry.userData.architectureJoint='reference10-near-column27-'+name+'-actual-roof-bearing-pad';pending.push(()=>draw(geometry,'red',[0,0,0],[1,1,1]));
+        interfaces.push({padId,sourceId:cell.sourceId,triangle:cell.triangle,kind:cell.kind,planArea:cell.planArea,topPlane:cell.plane,plan:poly});
+      }
+      records.push({name,fullArea,initialArea,finalArea,envelopeCells:cells.length,minimumHeight,bodyBottom:beamBottom,bodyTop:beamTop,minimumRoofGap:minimumHeight-beamTop,parts:name==='rear'?5:4,interfaces});
+    }
+    for(const emit of pending)emit();
+    return{kind:'reference10-near-column27-actual-roof-receivers',records,retainedRoofChanged:false,limits:['Finite hidden-construction hypothesis under the actual source roof, not historical or rendered acceptance.','Darkwood is an existing two-sided surface, not a newly certified thick closed roof deck.','Every receiver has positive volume and its own bottom support; actual roof inputs must be the once-generated production objects.']};
+  }
+
+  function reference10NearColumnFrontRail({nearColumn}={}) {
+    assertReference10NearParent(nearColumn?.referenceMode);
+    if(!nearColumnRecords.has(nearColumn)||nearColumn?.kind!=='reference10-near-column27'||nearColumn.frontRailCut?.minX!==-6.25||nearColumn.frontRailCut?.maxX!==-4.5)throw new RangeError('The front trim must pair with the actual near-column successor.');
+    const {minX,maxX,y,z,w,h,d}=nearColumn.frontRailCut,base=new T.BoxGeometry(1,1,1),pieces=[
+      clipTierTimber(base,new T.Plane(new T.Vector3(-1,0,0),minX/w)),
+      clipTierTimber(base,new T.Plane(new T.Vector3(1,0,0),-maxX/w))];
+    for(const [i,geometry]of pieces.entries()){geometry.userData.architectureJoint='reference10-near-column27-retained-front-rail-'+i;
+      // Raw original key, tint and normalized box transform, not the optional
+      // architectural oldgold clone. Existing exterior surface UVs survive.
+      instance(geometry,'oldgold',0,y,z,w,h,d,null,1);}
+    return{kind:'reference10-near-column27-front-rail',parts:2,replacesOriginalFrontRail:true};
+  }
+
   function footColumn(x,z,bottom,h,r=.28,options={}) {
     const square=h<=3.0 && r<=.24;
     const plainShoe=options.plainShoe===true;
@@ -916,15 +1062,17 @@ export function createRestorationArchitecture(ctx) {
         top=slot.top;
       }
     }
+    const nearHead=options.reference10NearHead===true;
+    if(nearHead){assertReference10NearParent(options.referenceMode);assertReference10NearSeats(options.porchColumnSeats);if(x!==-5.5||z!==-2||bottom!==.12||h!==6.2||r!==.32||!plainShoe||!options.porchColumnSeats)throw new RangeError('The near-head option is restricted to its paired physical assembly.');}
     stats.columns++;
     if (columns && stack) {
       const matrix=stack[stack.length-1];
       const a=new T.Vector3(x,bottom+.3,z).applyMatrix4(matrix);
-      const b=new T.Vector3(x,bottom+h+.3,z).applyMatrix4(matrix);
+      const b=new T.Vector3(x,nearHead?6.39:bottom+h+.3,z).applyMatrix4(matrix);
       const sx=new T.Vector3().setFromMatrixColumn(matrix,0).length();
       const sz=new T.Vector3().setFromMatrixColumn(matrix,2).length();
       columns.push({x:a.x,z:a.z,bottom:a.y,top:b.y,
-        radius:r*(square?Math.SQRT2:1.012)*Math.max(sx,sz)});
+        radius:nearHead?buildReference10NearShaft().maximumRadius:r*(square?Math.SQRT2:1.012)*Math.max(sx,sz)});
     }
     // Same foundation and shaft datum as the old footColumn, so existing
     // rails, floor height, transoms and capital centres remain registered.
@@ -948,6 +1096,7 @@ export function createRestorationArchitecture(ctx) {
       shaft=hallShaftSlots.get(key);shaft.userData.architectureJoint='slotted-hall-column';
     }
 
+    if(nearHead){const near=buildReference10NearShaft();draw(near.lower,'red',[x,bottom+.3,z],[r,h,r]);}
     if(options.porchColumnSeats) {
       if(options.referenceMode!=='reference10'||!plainShoe||Math.abs(x+5.5)>1e-10||Math.abs(z+2)>1e-10||Math.abs(bottom-.12)>1e-10||Math.abs(h-6.2)>1e-10||Math.abs(r-.32)>1e-10)
         throw new RangeError('Porch seats belong only to the unchanged source near-column.');
@@ -960,7 +1109,13 @@ export function createRestorationArchitecture(ctx) {
         const planes=physical.map(p=>new T.Plane(new T.Vector3(p.normal.x*r,p.normal.y*h,p.normal.z*r),p.constant+p.normal.x*x+p.normal.y*(bottom+.3)+p.normal.z*z).normalize());
         pieces=pieces.flatMap(original=>{const out=[];let rest=original;for(const plane of planes){const outside=clipTierTimber(rest,plane.clone().negate());if(outside.attributes.position.count)out.push(outside);rest=clipTierTimber(rest,plane);if(!rest.attributes.position.count)break;}return out;});
       }
-      for(const part of pieces){part.userData.architectureJoint='reference10-preserved-profile-upper-seated-shaft';draw(part,'red',[x,bottom+.3,z],[r,h,r]);}
+      for(let part of pieces){
+        if(nearHead){part.computeBoundingBox();const size=part.boundingBox.getSize(new T.Vector3());if(size.x===0||size.y===0||size.z===0)continue;
+          part=clipTierTimber(part,new T.Plane(new T.Vector3(0,1,0),Math.fround(-.69)));
+          part=clipTierTimber(part,new T.Plane(new T.Vector3(0,-1,0),(6.39-.42)/6.2));
+          if(!part.attributes.position.count)continue;
+        }
+        part.userData.architectureJoint='reference10-preserved-profile-upper-seated-shaft';draw(part,'red',[x,bottom+.3,z],[r,h,r]);}
     } else if(throughSlots) {
       const slots=throughSlots.map(s=>({bottom:s.bottom-bottom-.3,top:s.top-bottom-.3,depth:s.depth}));
       const blindSlots=(options.blindSlots||[]).map(s=>({...s,bottom:s.bottom-bottom-.3,top:s.top-bottom-.3}));
@@ -1010,7 +1165,7 @@ export function createRestorationArchitecture(ctx) {
     }
     // A through-beam at the neck replaces the old filled decorative collar
     // and four fake tenon stubs; they must not seal or overlap the real joint.
-    if(throughSlots)return;
+    if(throughSlots||nearHead)return;
     const neck=bottom+h+.20;
     draw(square?g.squareShoe:g.collar,'darkwood',[x,neck-.065,z],
       square?[r*.94,.14,r*.94]:[r*.99,.14,r*.99]);
@@ -3360,7 +3515,7 @@ export function createRestorationArchitecture(ctx) {
     return{kind:'reference10-side-porch22-physical-candidate',completeConstructionAcceptance:false,referenceMode:'reference10',parts,contacts,rafterCount,newPost:{world:B.toArray(),checkedDisk:originalDisk,footRadius},oldRoofOpenings:{wood:opening,tile:opening,backing:opening},columnSeats,ceilingPiercings:{column:columnHole,unchangedLampRod:rodHole},roofInterface:{cutWorldZ:C.cutZ,xInterval:C.clipX,oldFrontBackingSourceGrid:'actual Float32 front face,20x40',sideApronWidth:apronWidth,requiresPairedOldRoofCut:true},limits:['Isolated geometry candidate, not accepted installation or photo correspondence.','Closed underlay and support solids are emitted; paired old roof/shaft cuts and complete contact/overlap checks are mandatory before integration.','Old21 lamp body, six apertures, full suspension and all three legacy lamps remain untouched.','No camera, other layout, original observations, source gain or global RNG changes.']};
   }
 
-  return {reference10SidePorch,pagodaBalcony,hallGallerySubstructure,hallGalleryRoof,hallFrontFrame,hallFrontDoors,hallFrontFrieze,hangingPorchLantern,pagodaFinial,thresholdPorchSupport,clipRoofOpening:clipRestorationRoofOpening,karahafuEntrance,hallColumnAssembly,pagodaStoreyFrame,pagodaRoof,footColumn,brackets,eaves,tileEnd,squareFitting,sanctuaryTransferBeam,
+  return {reference10NearColumnRoofReceivers,reference10NearColumn,reference10NearColumnFrontRail,reference10SidePorch,pagodaBalcony,hallGallerySubstructure,hallGalleryRoof,hallFrontFrame,hallFrontDoors,hallFrontFrieze,hangingPorchLantern,pagodaFinial,thresholdPorchSupport,clipRoofOpening:clipRestorationRoofOpening,karahafuEntrance,hallColumnAssembly,pagodaStoreyFrame,pagodaRoof,footColumn,brackets,eaves,tileEnd,squareFitting,sanctuaryTransferBeam,
     sanctuaryCeiling,sanctuarySideWalls,sanctuaryFloorMats,pagodaWindowBackings,materialKey,
     materialAliases,stats,revision:ARCHITECTURE_REVISION};
 }
