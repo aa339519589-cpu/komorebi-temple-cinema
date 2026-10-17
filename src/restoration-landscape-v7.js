@@ -14,7 +14,7 @@ import {referenceExteriorPlan,createReferenceExteriorMatrix,mapReferenceExterior
  * World units are metres. This module owns no water, lights or render targets.
  * It replaces the old bridge and lotus blocks; shore/garden are independent.
  * Sources viewed: refs 1, 2, 3, 4, 7, 8, 9, 10 (actual supplied pixels).
- * V7: opt-in reference10 six-primary topology. Default refs2/3 geometry is unchanged.
+ * V8: join raised petioles to actual leaf centres; existing bridge topology stays unchanged.
  * Reference10 uniform fractions are an explicit initial model, not fitted photo spacing.
  */
 export const landscapePlacement = Object.freeze({
@@ -308,8 +308,18 @@ export function buildRestorationLandscape({ materials: source = {}, options = {}
     beginSection('lotus');
     function lotus(x,z,diameter,raised,flowering,seed,hero=false){
       const y=raised?rr(.16,.65):-.064,lx=x+(raised?rr(-.10,.10):0),lz=z+(raised?rr(-.10,.10):0);
-      if(raised)tube([[x,-.23,z],[x+.035,y*.42,z-.03],[lx,y-.018,lz]],.0045+diameter*.003,'stalk',10);
-      emit(lotusLeaves[seed%3],'leaf',[lx,y,lz],[diameter,diameter,diameter],[raised?rr(-.27,.27):rr(-.045,.045),rr(0,TAU),raised?rr(-.24,.24):rr(-.025,.025)],rr(.80,1.14));
+      // Preserve original random draw order and leaf transform; join the actual
+      // scaled/tilted peltate centre rather than the untransformed y-.018 point.
+      const leaf=lotusLeaves[seed%3],rotation=[raised?rr(-.27,.27):rr(-.045,.045),rr(0,TAU),raised?rr(-.24,.24):rr(-.025,.025)],shade=rr(.80,1.14);
+      if(raised){
+        const matrix=new T.Matrix4().makeRotationFromEuler(new T.Euler(...rotation)).scale(v(diameter,diameter,diameter)).setPosition(lx,y,lz);
+        const centre=new T.Vector3().fromBufferAttribute(leaf.attributes.position,0).applyMatrix4(matrix),normal=new T.Vector3().fromBufferAttribute(leaf.attributes.normal,0).transformDirection(matrix);
+        // 2 mm above the existing thin lamina makes a finite surface crossing;
+        // this is an authored local junction, not a measured photo dimension.
+        centre.addScaledVector(normal,.002);
+        tube([[x,-.23,z],[x+.035,y*.42,z-.03],centre.toArray()],.0045+diameter*.003,'stalk',10);
+      }
+      emit(leaf,'leaf',[lx,y,lz],[diameter,diameter,diameter],rotation,shade);
       if(!flowering)return;
       const fx=x+rr(-.20,.20),fz=z+rr(-.20,.20),fy=hero?rr(.39,.59):rr(.29,.69),size=hero?.225:rr(.15,.215);
       tube([[fx-.06,-.22,fz+.025],[fx-.04,fy*.5,fz],[fx,fy,fz]],.0065,'stalk',12);
@@ -456,7 +466,7 @@ export function buildRestorationLandscape({ materials: source = {}, options = {}
   }
   if(layout)groups.bridge.applyMatrix4(layoutMatrix);
   root.updateMatrixWorld(true);
-  const stats={version:'landscape-ref-v7-conditional-reference10-bridge-topology',buildMilliseconds:performance.now()-started,meshes:0,instances:0,triangles:0,sections:{}};
+  const stats={version:'landscape-ref-v8-lotus-leaf-petiole-junction',buildMilliseconds:performance.now()-started,meshes:0,instances:0,triangles:0,sections:{}};
   root.traverse(o=>{if(!o.isMesh)return;stats.meshes++;const count=o.count??1,tri=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;stats.instances+=count;stats.triangles+=tri*count;const key=o.parent.name;stats.sections[key]=(stats.sections[key]??0)+count;
     if(o.material.alphaTest>0||o.material.side===T.DoubleSide){foliageMeshes.push(o);const normal=o.isInstancedMesh?new T.InstancedMesh(o.geometry,foliageNormalMaterial(o.material),o.count):new T.Mesh(o.geometry,foliageNormalMaterial(o.material));if(o.isInstancedMesh){normal.instanceMatrix=o.instanceMatrix;normal.instanceColor=o.instanceColor;}normal.matrix.copy(o.matrixWorld);normal.matrixAutoUpdate=false;normalMeshes.push(normal);}
   });

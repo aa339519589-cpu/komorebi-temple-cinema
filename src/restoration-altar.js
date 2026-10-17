@@ -5,7 +5,10 @@ export const RESTORATION_ALTAR_LAYOUT = Object.freeze({
   terraceWidths: [5.56,6.47,6.72,6.98,7.25],
   carvedFrontWidths: [5.28,5.58,5.97],
   centralCanopy: [0,6.57,2.35,1.12,.75,.2678571429,true],
-  floorLampX: 3.35, floorLampScale: .72, floorLampYaw: .4,
+  // Finite original-photo window-frame reconstruction, not camera calibration.
+  // Keep floor contact, depth, height and fixed yaw; only horizontal placement
+  // and the six-sided chamber width are adjusted within the broad dark-frame evidence.
+  floorLampX: 3.20, floorLampCenterOffsetX: -.025, floorLampScale: .72, floorLampYaw: .4, floorLampChamberRadialScale: .93,
   floorContactY: -.045, floorUrnX: 4.40, floorVaseX: 5.05,
   upperVaseX: 3.52, upperVaseY: 2.175, upperVaseZ: .815,
   mainThroneHeight: .50, sideThroneHeight: .40,
@@ -61,7 +64,7 @@ export function buildRestorationAltar(options = {}) {
   root.userData.rearRitualStandAnchors = options.ritualObjects===false?[]:[-1,1].flatMap(side=>[[side*1.92,2.4545,.19],[side*3.30,2.4545,.03]]);
   root.userData.floorContactPlaneY = layout.floorContactY;
   root.userData.floorObjectAnchors = options.ritualObjects===false?[]:[-1,1].flatMap(side=>[
-    {kind:'floor-lantern',center:[side*layout.floorLampX,layout.floorContactY,2.18],rotationY:-side*layout.floorLampYaw},
+    {kind:'floor-lantern',center:[side*layout.floorLampX+layout.floorLampCenterOffsetX,layout.floorContactY,2.18],rotationY:-side*layout.floorLampYaw},
     {kind:'floor-censer',center:[side*layout.floorUrnX,layout.floorContactY,1.75]},
     {kind:'floor-flower-vase',center:[side*layout.floorVaseX,layout.floorContactY,1.90]},
   ]);
@@ -902,7 +905,7 @@ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],dep
 function buildRitualObjects(b,layout) {
   for(const side of [-1,1]) {
     // The foreground lamps are taller than the rear tabletop lamps.
-    buildLantern(b,side*layout.floorLampX,layout.floorContactY,2.18,layout.floorLampScale,true,-side*layout.floorLampYaw);
+    buildLantern(b,side*layout.floorLampX+layout.floorLampCenterOffsetX,layout.floorContactY,2.18,layout.floorLampScale,true,-side*layout.floorLampYaw,layout.floorLampChamberRadialScale);
     buildLantern(b,side*2.45,1.8295,1.01,.35);
     buildUpperOfferingVase(b,side*layout.upperVaseX,layout.upperVaseY,layout.upperVaseZ,side);
     buildFloorOfferingVase(b,side*layout.floorVaseX,layout.floorContactY,1.90);
@@ -1307,7 +1310,7 @@ function buildLotusOffering(b,x,y,z,s,inward=1,branched=false,supportY=y) {
   });
 }
 
-function buildLantern(b,x,y,z,s,openFloorStand=false,fixedYaw=0) {
+function buildLantern(b,x,y,z,s,openFloorStand=false,fixedYaw=0,chamberRadialScale=1) {
   b.withTransform(x,y,z,s,()=>{
     // The photograph shows two rounded lacquer-and-gilt urn bodies joined by
     // a slender column, not a cone pedestal topped by a second funnel.
@@ -1363,6 +1366,9 @@ function buildLantern(b,x,y,z,s,openFloorStand=false,fixedYaw=0) {
             });
           });
         }
+        // Narrow only the six existing window faces, not the roof, tray,
+        // bulb, bowed supports or ground-bearing feet. Rear lamps retain 1.
+        b.withTransform(0,0,0,[chamberRadialScale,1,chamberRadialScale],()=>{
         // Paper enters the frame rebates at both ends; the old height left
         // two thin open gaps between its edges and the horizontal rails.
         b.box(0,1.680,.340,.370,.570,.016,'paper');
@@ -1396,6 +1402,7 @@ function buildLantern(b,x,y,z,s,openFloorStand=false,fixedYaw=0) {
           const g=mergeGeometries(parts,false);parts.forEach(p=>p.dispose());return g;
         });
         b.add(lattice,'oldgold');
+        });
       },a);
     }
     // Closed hexagonal double-shell roof. The former center-to-eave-only
