@@ -1,8 +1,10 @@
 {
-  "revision":"v60-visual-study-r2",
-  "goal":"Check all material programs and compare framebuffer/canvas/browser capture before accepting any render",
+  "revision":"v60-visual-study-r3",
+  "goal":"Actual GPU frame export and per-pass diagnosis; compare multisample and single-sample intermediate buffers without changing geometry or lights",
   "jobs":[
-    {"id":"room-r2-preview","group":"room","reference":6,"scene":"shared","width":640,"quality":"preview"},
-    {"id":"rain-r2-preview","group":"rain","reference":10,"scene":"reference10-porch","width":640,"quality":"preview"}
+    {"id":"room-r3-msaa4","group":"room","reference":6,"scene":"shared","width":640,"quality":"preview","samples":4},
+    {"id":"room-r3-single","group":"room","reference":6,"scene":"shared","width":640,"quality":"preview","samples":0},
+    {"id":"rain-r3-msaa4","group":"rain","reference":10,"scene":"reference10-porch","width":640,"quality":"preview","samples":4},
+    {"id":"rain-r3-single","group":"rain","reference":10,"scene":"reference10-porch","width":640,"quality":"preview","samples":0}
   ]
 }
