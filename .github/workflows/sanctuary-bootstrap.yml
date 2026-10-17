@@ -1,0 +1,37 @@
+name: Sanctuary-only execution bootstrap
+on:
+  push:
+    branches: [work/sanctuary-only-20261017]
+    paths: ['.github/workflows/sanctuary-bootstrap.yml']
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preserve exact source for sanctuary-only work
+        run: |
+          mkdir -p isolated-source
+          git rev-parse HEAD > isolated-source/COMMIT.txt
+          tar -czf isolated-source/sanctuary-source.tar.gz src vendor tools references package.json checksums.json frozen-manifest.json verify.mjs serve.mjs index.html viewer.mjs LICENSE README.md
+          sha256sum isolated-source/sanctuary-source.tar.gz > isolated-source/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sanctuary-v64-source
+          path: isolated-source/
+          retention-days: 7
+      - name: Acquire pinned offline path tracer from the Blender project
+        run: |
+          mkdir -p isolated-runtime
+          curl -fL --retry 2 --connect-timeout 20 --max-time 480 https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz -o isolated-runtime/blender-4.5.3-linux-x64.tar.xz
+          sha256sum isolated-runtime/blender-4.5.3-linux-x64.tar.xz > isolated-runtime/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-blender-4-5-3-linux-runtime
+          path: isolated-runtime/
+          compression-level: 0
+          retention-days: 2
