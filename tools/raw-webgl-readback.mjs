@@ -4,13 +4,22 @@ import {createHash} from 'node:crypto';
 /** Keep the draw and the actual default-framebuffer read in the same browser task. */
 export async function renderAndReadRgba(page,job){
  // Module loading precedes the synchronous draw/read task, never separates its operations.
- if(job.look)await page.evaluate(async()=>{window.__reference6Looks=await import('/src/reference6-lighting-study.js');});
+ if(job.look||job.details)await page.evaluate(async j=>{
+  if(j.look)window.__reference6Looks=await import('/src/reference6-lighting-study.js');
+  if(j.details)window.__reference6Details=await import('/src/reference6-detail-study.js');
+ },job);
  const result=await page.evaluate(j=>{
   const t=window.temple,r=t.renderer,gl=r.getContext();
+  // A new ordinary view must not inherit the prior study's added lights,
+  // private material response, floor varnish or fine metal geometry.
+  if(!j.look&&t.reference6LookInfo){window.__reference6Looks.disposeReference6Look(t);delete t.reference6LookInfo;if(j.reference===6)r.toneMappingExposure=1.10;}
+  if(!j.details&&t.reference6DetailInfo){window.__reference6Details.disposeReference6DetailStudy(t);delete t.reference6DetailInfo;r.shadowMap.needsUpdate=true;t.scene.traverse(o=>{if(o.isLight&&o.castShadow&&o.shadow)o.shadow.needsUpdate=true;});}
   const draw=()=>j.camera?t.renderView(j.camera.position,j.camera.target,j.camera.time??0,j.camera.fov??48):t.renderReference(j.reference);
-  const started=performance.now();let camera=draw(),look=null;
-  if(j.look){if(j.reference!==6)throw Error('Reference6 look cannot apply to another view');look=window.__reference6Looks.applyReference6Look(t,j.look);camera=draw();}
-  if(Number.isFinite(j.exposure)){r.toneMappingExposure=j.exposure;camera=draw();}
+  const started=performance.now();let camera=draw(),look=null,detail=null,redraw=false;
+  if(j.look){if(j.reference!==6)throw Error('Reference6 look cannot apply to another view');look=window.__reference6Looks.applyReference6Look(t,j.look);redraw=true;}
+  if(j.details){if(j.reference!==6||j.details!=='filigree')throw Error('Unknown or mismatched reference6 detail study');detail=window.__reference6Details.applyReference6DetailStudy(t,true);redraw=true;}
+  if(Number.isFinite(j.exposure)){if(j.exposure<=0||j.exposure>4)throw Error('Exposure is outside review bounds');r.toneMappingExposure=j.exposure;redraw=true;}
+  if(redraw)camera=draw();
   gl.finish();const rendered=performance.now();
   console.info(JSON.stringify({readbackStage:'rendered',id:j.id,renderSeconds:(rendered-started)/1000}));
   const width=gl.drawingBufferWidth,height=gl.drawingBufferHeight;
@@ -22,7 +31,7 @@ export async function renderAndReadRgba(page,job){
   console.info(JSON.stringify({readbackStage:'rgba-read',id:j.id,seconds:(read-rendered)/1000,beforeError,afterError}));
   let binary='';for(let i=0;i<bytes.length;i+=16384)binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+16384,bytes.length)));
   const programs=r.info.programs.map(p=>({linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)}));
-  return {camera,look,width,height,beforeError,afterError,programs,renderSeconds:(rendered-started)/1000,readSeconds:(read-rendered)/1000,rgbaBase64:btoa(binary),renderer:r.brdfLookupAtlasInfo?.()||null,info:t.info()};
+  return {camera,look,detail,exposure:r.toneMappingExposure,width,height,beforeError,afterError,programs,renderSeconds:(rendered-started)/1000,readSeconds:(read-rendered)/1000,rgbaBase64:btoa(binary),renderer:r.brdfLookupAtlasInfo?.()||null,info:t.info()};
  },job);
  const bytes=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;
  if(bytes.length!==result.width*result.height*4)throw Error('Framebuffer transfer byte count mismatch');
