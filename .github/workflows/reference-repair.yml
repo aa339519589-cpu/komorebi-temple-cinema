@@ -1,0 +1,35 @@
+name: Restore exact supplied reference one
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/reference-repair.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/live-reference-render-20261017
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify incoming JPEG and replace only known duplicate
+        env:
+          REFERENCE_SOURCE_URL: https://at.adobe.com/dG0nf6uRn5TJfoFl
+        run: node tools/repair-reference-one.mjs
+      - name: Preserve corrected reference
+        run: |
+          if git diff --quiet -- 'references/hd/0-照片-1.jpg'; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- 'references/hd/0-照片-1.jpg'
+          git commit -m 'Replace duplicated reference 1 with exact supplied left-lantern JPEG'
+          git pull --rebase origin work/live-reference-render-20261017
+          git push origin HEAD:work/live-reference-render-20261017
