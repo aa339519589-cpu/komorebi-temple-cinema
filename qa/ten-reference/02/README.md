@@ -36,3 +36,16 @@ Second candidate changes:
 - Added blue upper atmosphere, directional cloud shading and a discrete visible solar disc. No image assets are used.
 
 CPU build for the second candidate: 55,338 architecture instances, 71,645 garden instances, 526 buckets, approximately 6.29 million triangles, zero non-finite vertex components. Shot positions stay over the actual deck (x=14.42…20.3), with eye height 1.13…1.37 above the deck. GPU/visual validation of this candidate remains pending.
+
+
+## Third candidate after the stable integrated second GPU image
+
+Inspected the integrated actual PNG and side-by-side comparison, followed by four high-resolution original crops (main eaves/gable, suspended lamp, bridge/pond, close balustrade/floor). The second image is stable render evidence but is not visually accepted.
+
+Third candidate replaces the visible low-poly crown shells entirely with approximately 300,000 small leaves on actual branched shoots; moves the framing branches above the sun opening; smooths deformed rock normals; removes oversized foreground boulders and reduces lotus flower scale. A clear water area is retained at the solar reflection direction.
+
+Architecture changes include a higher connected stone terrace and 24-step approach, open central entry (centre front column and two large front grille panels removed), finer emitting rear lattice, five-tier curved bracket arms, timber gable trusses with smaller cloud relief, compact carved-bronze lower railing inserts, and new six-sided emitting lanterns with closely spaced scroll tracery. Stone lanterns have hexagonal pierced fireboxes, tapering weathered shafts, curved six-sided ridged stone roofs and layered finials.
+
+Red wood now uses a varnish clear coat and finer generated grain. A fixed 128px radiance probe captures the actual constructed scene for the gold and wood reflection environment. Water and polished-floor captures use stronger view-dependent reflections with deterministic fine ripples. The static directional shadow map is generated once and reused for the fixed lighting. No models, texture images, HDR maps, photographs or AI visuals are imported into the scene.
+
+Third CPU build: 48,200 architecture instances, 345,819 garden instances, 906 buckets, approximately 6.53 million triangles; all JS syntax checks pass and vertex scan reports zero non-finite components. Runtime probe and visual validation await the third GPU capture. The entry and camera interface are unchanged.
