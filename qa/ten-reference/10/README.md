@@ -83,3 +83,12 @@ Iteration-09 rendered without reported errors and was reviewed in full and in th
 ## Actual iteration-10 review and iteration 11
 
 Iteration-10 rendered without reported errors. Its long-range light paths produced the missing foreground specular response, but the actual crop showed excessive broad gold illumination. Iteration 11 keeps the propagation distances while reducing practical energies approximately fourfold, restores a filtered minimum clearcoat roughness, and adds a mip-filtered procedural mineral aggregate albedo. The intended result is dark granular stone with small bright reflections rather than a gold wash. Directional shadows increase to 4096 and update only for the static scene setup/cubemap capture; the seven-second camera path reuses those fixed world shadows. `dispose()` also releases scene geometry, materials, procedural textures, reflection targets and shadow target. Syntax/full CPU/low-camera checks pass; actual iteration-11 review remains required.
+
+
+## Sloped roofs and rain-light separation (parallel44, 2026-10-18)
+
+Inspected the HD original and integrated-02 actual comparison, then four actual 1254px full frames through the shared GPU queue. No test suite was run. The first raised-roof image revealed a concrete geometric problem: the custom hall rafters were long straight chords across a concave roof and penetrated the tile skin. Each is now sixteen short timber segments following the actual roof curvature below the tiles. The main upper ridge is higher while its existing eave anchors stay fixed, making the blue-gray roof slope visible. Pagoda roofs are taller and their small recessed windows warmer. Cooler reduced ambient fill, darker timber and adjusted fog separate the lit architecture from the overcast sky.
+
+The existing foreground overhead frame, physical camera, near column and metal fitting transforms remain. Wet stone has darker aggregate, less continuous film, finer normal breakup and lower clearcoat/specular gain. Rain rings are smaller and much thinner. All four actual candidates and reports are retained.
+
+`iteration-parallel44/comparison.png` shows original, baseline and this actual candidate. The broad smooth slabs and coherent amber reflection bands remain visibly unlike the photograph. Foliage, terrain, lanterns, doorway carvings, bridge and tower proportions also remain simplified. This is a reviewed draft, not visual acceptance.
