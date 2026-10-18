@@ -34,15 +34,15 @@ export function buildArchedGardenBridge({emit,box,between,lantern,materials:M}){
   // Narrow outer cheeks enclose each through-mortise instead of drawing rods
   // over an uninterrupted solid post.
   for(const z of[.17,3.03]){
-    curvedMember(z,.19,1.00,.13,M.red,.012);
-    curvedMember(z,.145,.61,.095,M.red);
-    curvedMember(z,.16,.28,.10,M.red);
+    curvedMember(z,.19,1.00,.13,M.bridgeRed,.012);
+    curvedMember(z,.145,.61,.095,M.bridgeRed);
+    curvedMember(z,.16,.28,.10,M.bridgeRed);
     curvedMember(z,.205,.867,.028,M.bridgeTimber,.003);
     const bays=12;
     for(let i=0;i<=bays;i++){
       const x=-8+i*16/bays,y=height(x);
-      for(const [lo,hi]of[[-.045,.18],[.28,.515],[.61,.867],[1.00,1.105]])box(x,y+(lo+hi)/2,z,.22,hi-lo,.235,M.red);
-      for(const side of[-1,1])box(x,y+.53,z+side*.105,.22,1.15,.025,M.red);
+      for(const [lo,hi]of[[-.045,.18],[.28,.515],[.61,.867],[1.00,1.105]])box(x,y+(lo+hi)/2,z,.22,hi-lo,.235,M.bridgeRed);
+      for(const side of[-1,1])box(x,y+.53,z+side*.105,.22,1.15,.025,M.bridgeRed);
       box(x,y+.04,z,.285,.115,.285,M.bridgeTimber);
       box(x,y+1.14,z,.28,.09,.29,M.bridgeTimber);
       box(x,y+1.198,z,.20,.025,.22,M.bronze);
@@ -53,7 +53,7 @@ export function buildArchedGardenBridge({emit,box,between,lantern,materials:M}){
       for(const yy of[-.18,-.36])emit(peg,M.black,x,y+yy,face+(z>1?.014:-.014),.025,.018,.025,[Math.PI/2,0,0]);
       if(i<bays)for(const t of[1/3,2/3]){
         const xx=x+16/bays*t;
-        box(xx,height(xx)+.577,z,.058,.585,.075,M.red);
+        box(xx,height(xx)+.577,z,.058,.585,.075,M.bridgeRed);
       }
     }
   }

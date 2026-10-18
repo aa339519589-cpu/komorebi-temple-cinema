@@ -1,0 +1,74 @@
+{
+  "status": "bounded-shared-source-material-correction-for-primary-review",
+  "visualAccepted": false,
+  "sourceHash": "5109096178a2da9cd7ef9b0de721335a260a6e31f2a88fcff982a8e50152a390",
+  "physicalSourceHash": "5109096178a2da9cd7ef9b0de721335a260a6e31f2a88fcff982a8e50152a390",
+  "sourceHashesMatch": true,
+  "priorEvidence": "cycles-73/findings.json",
+  "diagnosis": "Source furniture-lacquer effective roughness around.226 caused dominant achromatic/cool glossy reflection. Base-color, UV, color-space, metalness, zero-emission classification and normal transfer were preserved.",
+  "change": "One common native source roughness PNG assigned to bridge structural/deck wood and a bridge-only clone of the original red material.",
+  "formula": "roughness=.50+.20*originalScanG; material factor=1",
+  "processedImageSha256": "0d46b0bfe3ed488f9855f51ec917355642d20afc45b5cbd1f6afad202ac747b6",
+  "roughnessRange": {
+    "min": 0.5333333611488342,
+    "median": 0.5490196347236633,
+    "max": 0.6980392336845398
+  },
+  "preservedBaseFields": "See cycles-74/material-invariants.json for identical albedo/normal file hashes, colors, IOR/specular fields, camera and source lights.",
+  "geometryStatistics": {
+    "meshes": 4402,
+    "geometries": 4352,
+    "materials": 122,
+    "textures": 17,
+    "instances": 349366,
+    "triangles": 12712005
+  },
+  "frames": [
+    {
+      "type": "native",
+      "path": "iteration-mesh74/reference.png",
+      "sha256": "845b8b97b364b091b853609686829e8679ac4d615317cf516ab043ebda9035f1",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "type": "physical",
+      "path": "cycles-74/render/scene09-cycles74.png",
+      "sha256": "a891f3b78c812886e3bf2dc3da9b42aeca8e37efde9e6ef51098ebc6a48af0cc",
+      "size": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "actualConfirmationCounts": {
+    "native1254": 1,
+    "physical1254": 1,
+    "extraArtIterations": 0
+  },
+  "physicalSettings": {
+    "samples": 48,
+    "device": "Metal",
+    "denoiser": "OIDN",
+    "seed": 907071,
+    "lighting": "Exactly cycles72 parameters",
+    "paperKelvin": 2450,
+    "paperGain": 8,
+    "sunGain": 0.2,
+    "worldGain": 0.7,
+    "exposure": 0.5
+  },
+  "visualInspection": "Both actual frames were viewed. Bridge remains dark red/brown; the silver/blue right-side band in physical72/73 is substantially reduced.",
+  "remainingLimits": [
+    "Paper still reads too white and the main roof remains dark.",
+    "Architecture/garden repetition and overall reference fidelity remain unresolved."
+  ],
+  "localLargeCaches": [
+    "cycles-74/source-package/assets/",
+    "cycles-74/source-package/scene.json",
+    "cycles-74/render/scene09-cycles74.blend"
+  ],
+  "verification": "Shared mutex for source processing/native/verified export/Cycles. No test suite or movie."
+}
