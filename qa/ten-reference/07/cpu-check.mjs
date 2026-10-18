@@ -9,7 +9,7 @@ source=source.replace("from 'three'",`from '${pathToFileURL(root+'/vendor/build/
 .replace("from 'three/addons/objects/Reflector.js'",`from '${pathToFileURL(root+'/reconstructions/scene-07/src/cpu-reflector.mjs')}'`)
 .replace("from './boulder.js'",`from '${pathToFileURL(root+'/reconstructions/scene-07/src/boulder.js')}'`)
 .replace("new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'})","({setSize(){},setPixelRatio(){},shadowMap:{},domElement:{},setRenderTarget(){},render(){},dispose(){}})");
-source=source.replace("from './architecture-kernel.js'",`from '${pathToFileURL(root+'/reconstructions/scene-07/src/architecture-kernel.js')}'`).replace("from './sanctuary.js'",`from '${pathToFileURL(root+'/reconstructions/scene-07/src/sanctuary.js')}'`);
+source=source.replace("from './natural-details.js'",`from '${pathToFileURL(root+'/reconstructions/scene-07/src/natural-details.js')}'`).replace("from './architecture-kernel.js'",`from '${pathToFileURL(root+'/reconstructions/scene-07/src/architecture-kernel.js')}'`).replace("from './sanctuary.js'",`from '${pathToFileURL(root+'/reconstructions/scene-07/src/sanctuary.js')}'`);
 source=source.replace("import {Reflector} from '"+pathToFileURL(root+'/reconstructions/scene-07/src/cpu-reflector.mjs')+"';",`class Reflector extends T.Mesh{constructor(g){super(g,new T.MeshBasicMaterial());this.material.uniforms={color:{value:new T.Color()}};}}`);
 globalThis.location={search:'?render&defer&w=768&h=768'};globalThis.document={body:{append(){}},createElement(){return {getContext(){return {createLinearGradient(){return {addColorStop(){}}},fillRect(){}}}}}};globalThis.window={};
 await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
