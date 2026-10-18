@@ -28,15 +28,25 @@ export function createSculptedJoinery(){
   [...topPoints,...bottomPoints].forEach(([x,y],i)=>i?s.lineTo(x,y):s.moveTo(x,y));s.closePath();return extrude(s,depth,.008);
  }
  function cushion(radius=.28,height=.12){
-  const p=[],uv=[],idx=[],levels=10,N=32;
-  for(let j=0;j<=levels;j++){
-   const t=j/levels,r=radius*(.64+.36*Math.sin(t*Math.PI/2)),y=height*t;
-   for(let i=0;i<N;i++){const a=i/N*Math.PI*2,ca=Math.cos(a),sa=Math.sin(a),power=7,x=r*Math.sign(ca)*Math.pow(Math.abs(ca),2/power),z=r*Math.sign(sa)*Math.pow(Math.abs(sa),2/power);p.push(x,y,z);uv.push(i/N,t);}
+  // The old continuously bulging superellipse and shared cap normals made
+  // these bearing blocks read as cushions. Keep their actual seat datums and
+  // nominal envelope, with a short foot, planar tapered cheeks and a flat
+  // upper bearing band. The2mm arrises are geometry, not a broad normal roll.
+  const bevel=Math.min(.002,height*.07),foot=radius*.64,corner=Math.min(.0035,radius*.025);
+  const profile=[[foot,0],[foot+bevel,bevel],[foot+bevel,height*.14],
+   [radius*.70,height*.26],[radius*.96,height*.76],[radius,height*.85],
+   [radius,height-bevel],[radius-bevel,height]];
+  const p=[],uv=[],idx=[],N=8;
+  for(const [r,y]of profile){const c=Math.min(corner,r*.05),ring=[[-r+c,-r],[r-c,-r],[r,-r+c],[r,r-c],[r-c,r],[-r+c,r],[-r,r-c],[-r,-r+c]];
+   for(const [x,z]of ring){p.push(x,y,z);uv.push(x,z);}
   }
-  for(let j=0;j<levels;j++)for(let i=0;i<N;i++){const a=j*N+i,b=j*N+(i+1)%N,c=(j+1)*N+i,d=(j+1)*N+(i+1)%N;idx.push(a,c,b,b,c,d);}
-  p.push(0,0,0,0,height,0);uv.push(.5,.5,.5,.5);const lo=p.length/3-2,hi=lo+1;
-  for(let i=0;i<N;i++){idx.push(lo,i,(i+1)%N);idx.push(hi,levels*N+(i+1)%N,levels*N+i);}
-  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(idx);g.computeVertexNormals();return keep(g);
+  for(let j=0;j<profile.length-1;j++)for(let i=0;i<N;i++){const a=j*N+i,b=j*N+(i+1)%N,c=(j+1)*N+i,d=(j+1)*N+(i+1)%N;idx.push(a,c,b,b,c,d);}
+  p.push(0,0,0,0,height,0);uv.push(0,0,0,0);const lo=p.length/3-2,hi=lo+1;
+  for(let i=0;i<N;i++){idx.push(lo,i,(i+1)%N);idx.push(hi,(profile.length-1)*N+(i+1)%N,(profile.length-1)*N+i);}
+  const indexed=new T.BufferGeometry();indexed.setAttribute('position',new T.Float32BufferAttribute(p,3));indexed.setAttribute('uv',new T.Float32BufferAttribute(uv,2));indexed.setIndex(idx);
+  const g=indexed.toNonIndexed();indexed.dispose();g.computeVertexNormals();
+  g.userData.bearingBlock={kind:'closed-planar-tapered-clipped-square-dou',radius,height,baseHalfWidth:foot,arrisMetres:bevel,capSideNormalsSeparated:true,profile};
+  return keep(g);
  }
  // Retained shaft/purlin contacts, with a rounded, flaring daito and genuinely
  // half-lapped first cross. Each later arm bears on a separate curved block.
@@ -86,5 +96,5 @@ export function createSculptedJoinery(){
  const bridge=new T.Shape();bridge.moveTo(-.017,.29);bridge.lineTo(.017,.29);bridge.quadraticCurveTo(.027,.195,.058,.142);bridge.lineTo(.029,.113);bridge.lineTo(-.029,.113);bridge.lineTo(-.058,.142);bridge.quadraticCurveTo(-.027,.195,-.017,.29);const ng=extrude(bridge,.067,.008);ng.translate(0,0,.175);mask.push({geometry:ng,material:'slate'});
  const crest=new T.Shape();crest.moveTo(-.055,.365);crest.quadraticCurveTo(-.078,.47,0,.565);crest.quadraticCurveTo(.078,.47,.055,.365);crest.closePath();const cg=extrude(crest,.075,.008);cg.translate(0,0,.015);mask.push({geometry:cg,material:'slate'});
  for(const xx of[-.07,-.026,.026,.07]){const tooth=keep(new T.ConeGeometry(.009,.030,6));tooth.rotateZ(Math.PI);tooth.translate(xx,.056,.145);mask.push({geometry:tooth,material:'slate'});}
- return {bracket:parts,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 photo-anchored closed curve-profile timber, half laps, stepped cushions, raked corner ang, deep open foliate gilt and recessed ceramic mask',guideRole:'Authored 3D curves and solid profiles; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
+ return {bracket:parts,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 closed curved half-lapped timber, planar tapered square bearing blocks with2mm arrises, raked corner ang, pierced gilt and ceramic masks',bearingCorrection:'Only the formerly bulging support blocks changed; flat bearing planes and hard planar cheek normals retain the existing seat/top/nominal-width datums. Unresolved actual corner wear remains interpreted.',guideRole:'Authored 3D curves and solid profiles; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
 }

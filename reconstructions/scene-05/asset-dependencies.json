@@ -9,5 +9,13 @@
   ],
   "sourceBuilder": "tools/build-temple-joinery-kit.py",
   "provenance": "lookdev/gilded-kiku-v01/README.md",
-  "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18."
+  "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
+  "revision": "mesh74a",
+  "bearingBlockCorrection": {
+    "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
+    "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5照片6 has flatter bearing planes and sharper tapered sides.",
+    "construction": "Closed clipped-square tapered blocks with short foot/upper bands and actual~2mm arrises. Render cap, cheek and bottom vertices split for hard planar normals. Existing nominal radii/heights, bottom seatY/top bearingY and all assembly transforms retained.",
+    "referencePhotoUse": "Visible silhouette comparison only. No reference RGB, image projection or inferred whole-photo depth. Fine corner wear/metric bevel details remain interpreted.",
+    "visualAccepted": false
+  }
 }
