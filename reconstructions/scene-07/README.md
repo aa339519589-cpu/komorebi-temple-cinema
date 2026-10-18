@@ -1,6 +1,6 @@
 # Reference 07: elevated veranda garden
 
-Independent reconstruction of `references/hd/6-照片-7.jpg` using authored Three.js geometry, procedural materials, deterministic vegetation, and a planar reflection of the actual 3D scene. No external models, textures, HDR maps, photographic cards, or image generation are used.
+Independent reconstruction of `references/hd/6-照片-7.jpg` using authored Three.js geometry, procedural garden/sky materials, deterministic vegetation, and a planar reflection of the actual 3D scene. The current timber pass uses the user-authorized Poly Haven CC0 lacquered cherry wood PBR scan on actual modeled members. No reference-photo plane, replacement frame, external model, or HDR map is used.
 
 Serve the repository and open `reconstructions/scene-07/index.html?render&defer&w=768&h=768`. `defer` performs construction without drawing or requesting animation frames. Call `window.temple.renderReference(7)` for the fixed reference camera; `renderShot(0..7)` performs the veranda-level pullback. `renderView(position,target,time,fov)`, `info()`, and `dispose()` are also exposed.
 
@@ -19,3 +19,10 @@ Actual GPU iterations 1, 2 and 4 have been inspected and rejected. Revision 5 ch
 
 
 `iteration-parallel39-candidate` replaces the coarse camera-facing mountain strips with a connected, shaded terrain grid and anchors the hillside trees to the new slope. It also lowers the stylized sky contour highlight and cools the pond absorption. The 1254px actual frame and unchanged-original comparison were inspected. Relative to the newly rendered baseline, the foreground ceramic shows directional warm highlights against cool bluegray shadows, the hall ridge is shorter, the pagoda eaves deeper, the pine trunks and horizontal crown layers are legible, and the rocky garden has more color separation. The frame remains visibly synthetic: facade repetition, large stone masses, sparse/patchy distant forest, and weak water/sunset detail still differ materially from the photograph. This is a bounded improvement candidate for primary-agent review, not a photographic match or final acceptance. The first candidate, failed mountain candidate, baseline, and their reports remain in Git.
+
+
+## Scanned timber material follow-up, 2026-10-18
+
+`iteration-parallel45` is an actual 1254px full-frame render after replacing the old procedural timber texture with the existing public CC0 [Poly Haven lacquered cherry wood scan](https://polyhaven.com/a/lacquered_cherry_wood). Diffuse, OpenGL normal and roughness channels are loaded from the project asset directory, with the scan's documented one-metre tile mapped using each instance's member dimensions. This keeps the existing geometry/material buckets instead of cloning geometry per timber. Scene-local provenance is saved in `assets/scanned-timber-provenance.json`; `asset-dependencies.json` includes the global PBR files in the rendered source identity. The scan is surface detail on the actual model, never a photographic background or scene replacement.
+
+The actual frame was inspected against candidate39 and the unchanged original. Foreground rails, bridge, tower and hall now show darker aged brown grain and varied roughness in the existing golden lighting, against unchanged bluegray ceramic roofs. The plastic red reading is reduced. Geometry positions, camera, pine geometry, exposure and lighting are preserved; the instance and triangle counts remain 196,794 and 19,896,062. Both candidate39 and candidate45 remain available. No test suites were run. The reconstruction remains visibly simplified and is submitted for primary review, with no photographic acceptance claim.

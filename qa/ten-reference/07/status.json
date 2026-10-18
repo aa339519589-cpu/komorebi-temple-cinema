@@ -1,6 +1,6 @@
 {
   "reference": 7,
-  "revision": "scene-07-connected-garden-sunset-r39",
+  "revision": "scene-07-scanned-aged-timber-r45",
   "source": "references/hd/6-\u7167\u7247-7.jpg",
   "entry": "reconstructions/scene-07/index.html?render&defer&w=1254&h=1254",
   "gpu": {
@@ -12,11 +12,14 @@
     "parallel37-baseline": "unchanged integrated source, actual baseline retained",
     "parallel37-candidate": "superseded: excessive orange timber and conical pines",
     "parallel38-candidate": "rejected: mountain slope triangular ribbing",
-    "parallel39-candidate": "bounded improvement candidate: primary review pending, no photographic acceptance"
+    "parallel39-candidate": "preserved before scanned timber material follow-up",
+    "parallel45": "actual full-frame CC0 timber PBR candidate: primary review pending"
   },
   "claims": {
     "photographicMatchAccepted": false,
-    "externalAssets": false
+    "externalAssets": true,
+    "licensedScannedTimber": "Poly Haven lacquered_cherry_wood, CC0-1.0, project-local PBR files",
+    "referenceUsedAsScenePlane": false
   },
   "historicalCpu": {
     "syntax": "passed",
@@ -28,8 +31,8 @@
   "evaluation": {
     "method": "actual 1254px full-frame rendering and visual comparison only",
     "syntheticOrBroadTestSuitesRun": false,
-    "latestCandidate": "iteration-parallel39-candidate",
-    "sourceHash": "173b52c2548775f8bc737f339dfb6a5f882ff6c3866a921d77441a7564e1e1e9",
+    "latestCandidate": "iteration-parallel45",
+    "sourceHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
     "primaryReviewPending": true
   },
   "remainingVisualGaps": [
