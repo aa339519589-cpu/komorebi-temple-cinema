@@ -92,3 +92,10 @@ Inspected the HD original and integrated-02 actual comparison, then four actual 
 The existing foreground overhead frame, physical camera, near column and metal fitting transforms remain. Wet stone has darker aggregate, less continuous film, finer normal breakup and lower clearcoat/specular gain. Rain rings are smaller and much thinner. All four actual candidates and reports are retained.
 
 `iteration-parallel44/comparison.png` shows original, baseline and this actual candidate. The broad smooth slabs and coherent amber reflection bands remain visibly unlike the photograph. Foliage, terrain, lanterns, doorway carvings, bridge and tower proportions also remain simplified. This is a reviewed draft, not visual acceptance.
+
+
+## Final focused wet-stone geometry pass (parallel46)
+
+Two actual queued full frames were inspected against the original and parallel44. `src/worn-flagstone.js` replaces the flat slab caps with closed solids whose top triangles share all subdivision edges. Near edges are sampled at 40mm; shallow crowns are 4–10mm, local hollows add several millimetres of relief, and the worn bevel varies across an 11–24mm rim. The retained 41mm water plane is physically hidden by high stone and remains visible in low crevices. The first actual parallel45 had overly rounded crowns, which were reduced for parallel46. Coherent reflected scenery and the small thin rain rings remain; the high-frequency alpha speckle was removed.
+
+`iteration-parallel46/comparison.png` and `wet-stone-comparison.png` contain the original, previous actual and final actual. Stone faces are visibly less planar and glints break across local relief, but large regular cells, smoothness and broad warm amber patches remain unlike the source. No test suites were run and no visual acceptance is claimed.

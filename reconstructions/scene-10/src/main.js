@@ -2,6 +2,7 @@ import * as T from 'three';
 import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {createPavingWetMask,createWetStoneGrain,clipPavingAtDrain} from './paving-mask.js';
+import {createWornFlagstone} from './worn-flagstone.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
@@ -75,7 +76,7 @@ for(const y of[.50,.92,1.54]){
 function noiseTexture(){const N=256,data=new Uint8Array(N*N*4);for(let y=0;y<N;y++)for(let x=0;x<N;x++){let q=R(.30,.70)+.12*Math.sin(x*.08+Math.sin(y*.07));let i=(y*N+x)*4;data[i]=data[i+1]=data[i+2]=Math.round(q*255);data[i+3]=255;}const t=new T.DataTexture(data,N,N);t.needsUpdate=true;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(3,3);t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;return t;}
 const wetBump=noiseTexture(),wetStone=new T.MeshPhysicalMaterial({color:'#171814',roughness:.39,metalness:0,bumpMap:wetBump,bumpScale:.014,clearcoat:.20,clearcoatRoughness:.075,specularIntensity:.55});const normalBytes=new Uint8Array(256*256*4),heightData=wetBump.image.data;for(let y=0;y<256;y++)for(let x=0;x<256;x++){const h=(dx,dy)=>heightData[(((y+dy+256)%256)*256+(x+dx+256)%256)*4]/255;let dx=(h(1,0)-h(-1,0))*.75,dy=(h(0,1)-h(0,-1))*.75,n=new T.Vector3(-dx,-dy,1).normalize(),i=(y*256+x)*4;normalBytes[i]=(n.x*.5+.5)*255;normalBytes[i+1]=(n.y*.5+.5)*255;normalBytes[i+2]=(n.z*.5+.5)*255;normalBytes[i+3]=255;}const wetNormal=new T.DataTexture(normalBytes,256,256);wetNormal.wrapS=wetNormal.wrapT=T.RepeatWrapping;wetNormal.repeat.set(1.40,1.40);wetNormal.generateMipmaps=true;wetNormal.minFilter=T.LinearMipmapLinearFilter;wetNormal.magFilter=T.LinearFilter;wetNormal.needsUpdate=true;
 wetStone.clearcoatNormalMap=wetNormal;wetStone.clearcoatNormalScale=new T.Vector2(.86,.86);const lacquerNormal=wetNormal.clone();lacquerNormal.repeat.set(6,5);lacquerNormal.needsUpdate=true;m.nearLacquer.clearcoatNormalMap=lacquerNormal;m.nearLacquer.clearcoatNormalScale=new T.Vector2(.20,.20);
-wetStone.map=createWetStoneGrain(T);wetStone.color.set('#adb5b8');m.wet=wetStone;installSurfaceDetail(wetStone,'wet');
+wetStone.map=createWetStoneGrain(T);wetStone.color.set('#adb5b8');wetStone.envMapIntensity=1.5;m.wet=wetStone;installSurfaceDetail(wetStone,'wet');
 box(0,-.22,8,9,.06,22,'darkwood');const floorPolygons=[],rows=26,cols=8,verts=[];for(let j=0;j<=rows;j++){verts[j]=[];for(let i=0;i<=cols;i++){const t=j/rows,left=-3.9-.65*t,right=1.6+2.81*t;verts[j][i]=[left+(right-left)*i/cols+(i&&i<cols?R(-.13,.13):0),-2+j*.82+(j&&j<rows?R(-.14,.14):0)];};}
 for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
  const slabSeed=seed,original=[verts[j][i],verts[j][i+1],verts[j+1][i+1],verts[j+1][i]],hash=Math.sin((j*13+i*37+41)*12.9898)*43758.5453;
@@ -90,10 +91,8 @@ for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
    k||n?shape.lineTo(x,-z):shape.moveTo(x,-z);
   }});
   shape.closePath();floorPolygons.push({points:chipped,wetness});
-  const g=new T.ExtrudeGeometry(shape,{depth:.12,bevelEnabled:true,bevelSize:.006,bevelThickness:.005,bevelSegments:1,steps:1});
-  g.rotateX(-Math.PI/2);g.translate(0,-.09+topOffset,0);const pa=g.attributes.position;
-  for(let k=0;k<pa.count;k++){const x=pa.getX(k),z=pa.getZ(k);pa.setY(k,pa.getY(k)+.0025*Math.sin(x*29+z*7)*Math.sin(z*21));}
-  g.computeVertexNormals();emit(g,'wet',0,0,0,1,1,1,0,tint);
+  const g=createWornFlagstone(T,{points:chipped,topOffset,seed:j*97+i*37+1037});
+  emit(g,'wet',0,0,0,1,1,1,0,tint);
  }
  // Keep the existing independent garden layout unchanged by clipping topology.
  seed=slabSeed;for(let k=0;k<42;k++)rand();
@@ -112,7 +111,7 @@ vec2 rip=vec2(sdNoise(sp*91.),sdNoise(sp*113.+2.3))-.5;
 uv.xy+=rip*vec2(.0022,.0048)*uv.w;
 vec4 base=texture2DProj(tDiffuse,uv)*.82;vec4 u2=uv;u2.y+=.0016*uv.w;base+=texture2DProj(tDiffuse,u2)*.18;`)
 .replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );',`vec4 wet=texture2D(floorWetMap,vec2((sp.x+4.6)/9.2,(sp.z+2.)/21.4));
-float pave=wet.b,wetPatch=smoothstep(.43,.66,film)*smoothstep(.30,.76,sdNoise(sp*154.));
+float pave=wet.b,wetPatch=smoothstep(.43,.66,film);
 float grazing=pow(1.-clamp(abs(normalize(cameraPosition-sp).y),0.,1.),3.);
 float alpha=mix(.17,wet.r*(.07+.66*wet.g)*wetPatch*(.38+.62*grazing),pave);
 vec2 dp=vec2(sp.x+1.9,sp.z-8.5);float drain=abs(cos(.46)*dp.x-sin(.46)*dp.y);float drainZ=abs(sin(.46)*dp.x+cos(.46)*dp.y);
@@ -200,4 +199,4 @@ function captureNearEnvironment(){if(nearEnvironmentReady)return;nearEnvironment
 function renderView(position,target,time=0,fov=65){camera.position.fromArray(position);camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);update(time);scene.updateMatrixWorld(true);captureNearEnvironment();renderer.setRenderTarget(null);renderer.render(scene,camera);return {position,target,time,fov,width:W,height:H};}
 function renderReference(n=10){if(n!==10)throw Error('Only scene 10 exists');return renderView(fixed.position,fixed.target,0,fixed.fov);}
 function renderShot(localTime=0){const t=T.MathUtils.clamp(localTime/7,0,1),s=t*t*(3-2*t),pos=[-.5+.5*s,.43+.57*s,7+7*s],target=[-1*(1-s),.65+4.75*s,-.5-13.5*s];return renderView(pos,target,localTime,65-5*s);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-sloped-roofs-rainlight-44',objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-worn-solid-wet-stone-46',objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
