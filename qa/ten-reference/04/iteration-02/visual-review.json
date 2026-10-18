@@ -1,0 +1,27 @@
+{
+  "reference": 4,
+  "acceptance": false,
+  "inspectedDetails": ["floor-original.png", "floor-render.png", "eaves-original.png", "eaves-render.png", "lantern-original.png", "lantern-render.png"],
+  "detailDirectory": "qa/ten-reference/04/iteration-02/details/",
+  "confirmedFailures": [
+    "Normalized UV coordinates stretch the same coarse granular appearance once across every slab and create repeated stair glints.",
+    "Wet stone reads as blue edged concrete rather than worn polygon granite with localized wet patches.",
+    "Repeated long straight framing branches end in flattened leaf clusters and do not cast the required near path shadows.",
+    "Window lintel gaps expose the background sky through the facade.",
+    "Entrance decoration is mostly evenly sized linework; it lacks sculptural depth and a hierarchy of carved timber and applied gilt.",
+    "The lantern has an overly long plain shaft, thin cap, weak carving and simplified finial proportions."
+  ],
+  "thirdPass": {
+    "stoneTextureRepeatMetres": 0.25,
+    "mineralCrystalSizeMetres": [0.0005, 0.002],
+    "pathThicknessMetres": 0.075,
+    "pathJointMetres": 0.024,
+    "paving": "Shared perturbed grid nodes define individual closed polygon slabs; bevels are six millimetres, not rounded pillow shoulders.",
+    "wetness": "World position based metre scale wet roughness patches; no repeated wet patch per normalized slab.",
+    "trees": "Curved tapered forks carry real volumetric leaf clusters. A right near camera crown physically casts directional shadows into the foreground.",
+    "lantern": "New carved short shaft, broad stepped base, solid ornament frieze, recessed window cavity, thick closed curved cap and surface rooted moss.",
+    "entrance": "Three sculpted beams with wood relief behind selective raised gilt leaves at different scales; solid wood infill closes facade gaps.",
+    "contactOcclusion": "25 cm GTAO contact radius. Alpha pine cards and transparent water are excluded from the geometry depth pass.",
+    "status": "CPU checked; actual third GPU image pending. No visual acceptance asserted."
+  }
+}
