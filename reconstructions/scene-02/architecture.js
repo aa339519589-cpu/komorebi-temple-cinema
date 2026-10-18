@@ -1,7 +1,12 @@
 import {T,V,mix,Builder,gridGeometry} from './kernel.js';
 import {buildHallEntry} from './hall-entry.js';
+import {buildTurnedSorin} from './sorin-solids.js';
 export function buildArchitecture(mats){
- const b=new Builder(mats),lights=[];const torus=new T.TorusGeometry(1,.075,6,20);
+ // The exposed tower finial must use the outdoor sky environment rather
+ // than the close veranda probe later assigned to the shared gold material.
+ mats.sorinGold=mats.gold.clone();mats.sorinGold.name='scene02-exposed-sorin-gold';mats.sorinGold.color.set('#cfab60');mats.sorinGold.roughness=.34;mats.sorinGold.metalness=.94;mats.sorinGold.envMap=null;
+ mats.sorinBronze=mats.oldgold.clone();mats.sorinBronze.name='scene02-exposed-sorin-bronze';mats.sorinBronze.color.set('#a47d3d');mats.sorinBronze.roughness=.42;mats.sorinBronze.envMap=null;
+ const b=new Builder(mats),lights=[];let sorinStats=null;const torus=new T.TorusGeometry(1,.075,6,20);
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
  const leafShape=new T.Shape();leafShape.moveTo(0,-.06);leafShape.bezierCurveTo(-.04,-.035,-.055,.025,0,.075);leafShape.bezierCurveTo(.045,.025,.035,-.025,0,-.06);const reliefLeaf=new T.ExtrudeGeometry(leafShape,{depth:.016,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,steps:1,curveSegments:4});
@@ -112,8 +117,9 @@ export function buildArchitecture(mats){
    for(let x of[-body*.16,body*.16]){b.cyl(x,floor+1.16,0,.11,.09,'oldgold');b.put(b.sphere,'hallFlame',[x,floor+1.29,0],[.055,.095,.055]);}
    pagodaRoof(w,eave,1.40,.52);
   }
-  // The sorin keeps its previous world height; a small seated boot meets the new peak.
-  b.cyl(0,15.02,0,.27,.24,'oldgold');const base=15.14;b.cyl(0,base+2.4,0,.055,4.8,'gold');for(let j=0;j<19;j++){let r=.48-j*.012;b.put(torus,'gold',[0,base+.3+j*.22,0],[r,r,r],[Math.PI/2,0,0]);}b.ball(0,base+4.65,0,.17,.24,.17);b.cyl(0,base+5.06,0,.025,.7,'gold');
+  // The original roof seat and tower axis are retained. Solid flanged
+  // annuli and a continuous spindle replace the sparse wire-loop spring.
+  sorinStats=buildTurnedSorin(b);
  },[.90,1.10,.90]);
  // Enclosing low galleries anchor the far pond edge and continue behind the main hall.
  function gallery(pos,length,yaw=0){b.at(pos,yaw,()=>{b.box(0,.35,0,length,.7,4.3,'stone');for(let x=-length/2+.6;x<length/2;x+=2){column(x,1.2,.7,3.6,.14);bracket(x,4.4,1.2,.55);windowPanel(x,2.35,-1.1,1.7,2.5);}b.box(0,4.35,1.2,length+.5,.28,.3,'red');roof({w:length+1.5,d:5.5,eave:4.8,rise:1.6,curl:.4});b.at([0,.7,1.6],0,()=>rail(length));});}
@@ -158,5 +164,5 @@ export function buildArchitecture(mats){
  },s);
   const top=y+1.11*s;b.line([x,top,z],[x,ceiling,z],.016,'oldgold');for(let yy=top+.06;yy<ceiling;yy+=.13)b.put(torus,'oldgold',[x,yy,z],[.035,.048,.035],[0,yy*8,0]);const light=new T.PointLight(0xffb75f,22*s,8*s,2);light.position.set(x,y,z);lights.push(light);}
  lantern(13.6,6.5,15.5,.77);lantern(13.2,7.5,5.5,.48,9.3);lantern(18,7.8,7,.5,9.3);
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size},deck};
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats},deck};
 }

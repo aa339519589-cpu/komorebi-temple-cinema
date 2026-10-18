@@ -1,0 +1,783 @@
+{
+  "reference": 2,
+  "entry": "reconstructions/scene-02/index.html",
+  "worktree": "/Users/mima1234/temple-mesh-04-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T17:05:13.563Z",
+  "source": {
+    "hash": "7151e1f00134b2f75dc3fe412adf5696aa4349d843c5858dce1f1b1d8abb7bac",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-02/altar-figure.js": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13",
+      "reconstructions/scene-02/architecture.js": "5d493406c5206047c9c0051d2c8f395279a894dbbc7147944bc5b47e9bab5f61",
+      "reconstructions/scene-02/asset-dependencies.json": "63d920899c37004cf23f7a4f7476b450eb68d3e9a88973e6389195a822dd2ae4",
+      "reconstructions/scene-02/garden.js": "0f797835e1b0972af2308d59e5db1c50a657dee8c3413c68a5f6fb167709b66a",
+      "reconstructions/scene-02/hall-entry.js": "95a2b92ad70cb1198e4a52cb2e6db7d5e211c487d740f43ef2c4b99143f3f288",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "9177c90cfbad2b569d0020530990c9a084928d8ed96c8580042afeec0d6af2af",
+      "reconstructions/scene-02/main.js": "46f113a2a00da3dbe49d7de219a4900a3d01d67fd8c1973d07d573481ee4c73b",
+      "reconstructions/scene-02/pagoda-ground.js": "ca14029f957e6ee2c2886dcb9eab33713698462acf23fb797b87bedcd7da52d1",
+      "reconstructions/scene-02/scanned-timber.js": "2c7b6215174d96d02e79735e72f2b881282413f75086d763814233dd76125661",
+      "reconstructions/scene-02/sorin-solids.js": "175a8c7ce2685a8062e976af32483c96f5b2fb228efb5f5f11f5c3fed8f72258"
+    }
+  },
+  "sourceCommit": "5e407324a4cd58ca7e785713a3d98aee64948a2a",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-02/index.html",
+    "/reconstructions/scene-02/main.js",
+    "/reconstructions/scene-02/kernel.js",
+    "/reconstructions/scene-02/scanned-timber.js",
+    "/reconstructions/scene-02/pagoda-ground.js",
+    "/reconstructions/scene-02/architecture.js",
+    "/reconstructions/scene-02/garden.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-02/hall-entry.js",
+    "/reconstructions/scene-02/sorin-solids.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/reconstructions/scene-02/altar-figure.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+  ],
+  "detailCrop": {
+    "pixels": [
+      325,
+      55,
+      250,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-mesh66a-turned-sorin-warm-painted-timber",
+        "ready": true,
+        "frames": 1,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 60020,
+          "buckets": 534,
+          "sorin": {
+            "kind": "closed lathe annular plates, rolled rims and continuous central post",
+            "plates": 19,
+            "rows": [
+              {
+                "height": 15.680000000000001,
+                "outerRadius": 0.48,
+                "plateThickness": 0.09856000000000001,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 15.95995862131477,
+                "outerRadius": 0.46799999999999997,
+                "plateThickness": 0.09709333333333334,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.23582827887692,
+                "outerRadius": 0.45599999999999996,
+                "plateThickness": 0.09562666666666668,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.507418553041894,
+                "outerRadius": 0.444,
+                "plateThickness": 0.09416,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.774516944919817,
+                "outerRadius": 0.432,
+                "plateThickness": 0.09269333333333334,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.036884563822472,
+                "outerRadius": 0.42,
+                "plateThickness": 0.09122666666666666,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.294250576896022,
+                "outerRadius": 0.408,
+                "plateThickness": 0.08976,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.54630493298543,
+                "outerRadius": 0.39599999999999996,
+                "plateThickness": 0.08829333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.792688618464428,
+                "outerRadius": 0.384,
+                "plateThickness": 0.08682666666666666,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.032980277034962,
+                "outerRadius": 0.372,
+                "plateThickness": 0.08536,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.266677280637083,
+                "outerRadius": 0.36,
+                "plateThickness": 0.08389333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.493167964743723,
+                "outerRadius": 0.348,
+                "plateThickness": 0.08242666666666668,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.711689038751512,
+                "outerRadius": 0.33599999999999997,
+                "plateThickness": 0.08096,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.92125641994199,
+                "outerRadius": 0.32399999999999995,
+                "plateThickness": 0.07949333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.120544103387935,
+                "outerRadius": 0.31199999999999994,
+                "plateThickness": 0.07802666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.307648499460022,
+                "outerRadius": 0.3,
+                "plateThickness": 0.07655999999999999,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.47955087856557,
+                "outerRadius": 0.28800000000000003,
+                "plateThickness": 0.07509333333333335,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.630494633714903,
+                "outerRadius": 0.276,
+                "plateThickness": 0.07362666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.740000000000002,
+                "outerRadius": 0.264,
+                "plateThickness": 0.07216,
+                "boreRadius": 0.08
+              }
+            ],
+            "baseSeat": 14.9,
+            "bootTop": 15.3,
+            "top": 20.71,
+            "axisPreserved": true,
+            "referencePhotographUsedAsTexture": false
+          }
+        },
+        "timber": {
+          "revision": "scene02-linear-grain-painted-timber-66",
+          "sourceLinearMeanY": 0.01505120736,
+          "normalMapPreserved": true,
+          "roughnessMapPreserved": true,
+          "targets": [
+            {
+              "name": "scene02-red",
+              "role": "pigment with normalised scan grain",
+              "pigment": "#bb4b29",
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-cedar",
+              "role": "pigment with normalised scan grain",
+              "pigment": "#9c4928",
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            }
+          ]
+        },
+        "garden": {
+          "instances": 434404,
+          "buckets": 433
+        },
+        "grounding": {
+          "closedGroundVolume": true,
+          "groundBottom": -0.92,
+          "groundJoin": -0.12,
+          "siteGroundHalfExtent": 60,
+          "raisedHillHalfExtent": [
+            12,
+            10
+          ],
+          "shoulderY": 4.65,
+          "footingContactY": 5.1,
+          "galleryLandingY": 6.23025,
+          "mainSteps": 31,
+          "upperSteps": 6,
+          "instances": 8558,
+          "buckets": 7,
+          "worldCentre": [
+            -15.6,
+            -16
+          ],
+          "yaw": 0.075
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 1,
+          "triangles": 1
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9941819351917563,
+      "opaqueFraction": 1,
+      "rgbaSha256": "f06a9c513b0910ff7be6ae42e9b5899aebc7057999dd9270a1c699151c8950d9"
+    },
+    {
+      "pose": {
+        "frame": 2,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-mesh66a-turned-sorin-warm-painted-timber",
+        "ready": true,
+        "frames": 2,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 60020,
+          "buckets": 534,
+          "sorin": {
+            "kind": "closed lathe annular plates, rolled rims and continuous central post",
+            "plates": 19,
+            "rows": [
+              {
+                "height": 15.680000000000001,
+                "outerRadius": 0.48,
+                "plateThickness": 0.09856000000000001,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 15.95995862131477,
+                "outerRadius": 0.46799999999999997,
+                "plateThickness": 0.09709333333333334,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.23582827887692,
+                "outerRadius": 0.45599999999999996,
+                "plateThickness": 0.09562666666666668,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.507418553041894,
+                "outerRadius": 0.444,
+                "plateThickness": 0.09416,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.774516944919817,
+                "outerRadius": 0.432,
+                "plateThickness": 0.09269333333333334,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.036884563822472,
+                "outerRadius": 0.42,
+                "plateThickness": 0.09122666666666666,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.294250576896022,
+                "outerRadius": 0.408,
+                "plateThickness": 0.08976,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.54630493298543,
+                "outerRadius": 0.39599999999999996,
+                "plateThickness": 0.08829333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.792688618464428,
+                "outerRadius": 0.384,
+                "plateThickness": 0.08682666666666666,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.032980277034962,
+                "outerRadius": 0.372,
+                "plateThickness": 0.08536,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.266677280637083,
+                "outerRadius": 0.36,
+                "plateThickness": 0.08389333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.493167964743723,
+                "outerRadius": 0.348,
+                "plateThickness": 0.08242666666666668,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.711689038751512,
+                "outerRadius": 0.33599999999999997,
+                "plateThickness": 0.08096,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.92125641994199,
+                "outerRadius": 0.32399999999999995,
+                "plateThickness": 0.07949333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.120544103387935,
+                "outerRadius": 0.31199999999999994,
+                "plateThickness": 0.07802666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.307648499460022,
+                "outerRadius": 0.3,
+                "plateThickness": 0.07655999999999999,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.47955087856557,
+                "outerRadius": 0.28800000000000003,
+                "plateThickness": 0.07509333333333335,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.630494633714903,
+                "outerRadius": 0.276,
+                "plateThickness": 0.07362666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.740000000000002,
+                "outerRadius": 0.264,
+                "plateThickness": 0.07216,
+                "boreRadius": 0.08
+              }
+            ],
+            "baseSeat": 14.9,
+            "bootTop": 15.3,
+            "top": 20.71,
+            "axisPreserved": true,
+            "referencePhotographUsedAsTexture": false
+          }
+        },
+        "timber": {
+          "revision": "scene02-linear-grain-painted-timber-66",
+          "sourceLinearMeanY": 0.01505120736,
+          "normalMapPreserved": true,
+          "roughnessMapPreserved": true,
+          "targets": [
+            {
+              "name": "scene02-red",
+              "role": "pigment with normalised scan grain",
+              "pigment": "#bb4b29",
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-cedar",
+              "role": "pigment with normalised scan grain",
+              "pigment": "#9c4928",
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            }
+          ]
+        },
+        "garden": {
+          "instances": 434404,
+          "buckets": 433
+        },
+        "grounding": {
+          "closedGroundVolume": true,
+          "groundBottom": -0.92,
+          "groundJoin": -0.12,
+          "siteGroundHalfExtent": 60,
+          "raisedHillHalfExtent": [
+            12,
+            10
+          ],
+          "shoulderY": 4.65,
+          "footingContactY": 5.1,
+          "galleryLandingY": 6.23025,
+          "mainSteps": 31,
+          "upperSteps": 6,
+          "instances": 8558,
+          "buckets": 7,
+          "worldCentre": [
+            -15.6,
+            -16
+          ],
+          "yaw": 0.075
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 1,
+          "triangles": 1
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        325,
+        55,
+        250,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "5b58038c2da1c3c95518582859dffb5ee7dccc375a1244649dd467ed15a25028"
+    }
+  ],
+  "completedAt": "2026-10-18T17:05:17.269Z"
+}

@@ -7,13 +7,23 @@ export async function installScannedTimber(mats,scene){
  const [albedo,normal,rough]=await Promise.all(['diffuse-2k.jpg','normal-gl-2k.png','roughness-2k.jpg'].map(x=>loader.loadAsync(directory+x)));
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of[albedo,normal,rough]){tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.anisotropy=8;}
+ // The source is a very dark brown table: mean decoded linear Y=.0150512.
+ // Vermilion paint takes its pigment from the material, and only the measured
+ // scan's relative luminance becomes grain. Normal/roughness stay untouched.
+ const pigment=new Map([[mats.red,'#bb4b29'],[mats.cedar,'#9c4928']]);
  const targets=new Map([[mats.red,[4.8,2.5,2.3]],[mats.cedar,[2.5,1.6,1.3]],[mats.darkwood,[.95,.80,.75]],[mats.floor,[1.8,1.35,1.1]]]);
  scene.traverse(o=>{const m=o.material;if(!m||targets.has(m))return;if(m.name==='scene02-darkwood')targets.set(m,[.95,.80,.75]);});
  for(const [m,color] of targets){
   const previousCompile=m.onBeforeCompile,previousKey=m.customProgramCacheKey.bind(m);
-  m.map=albedo;m.normalMap=normal;m.normalScale.set(.18,.18);m.bumpMap=null;m.roughnessMap=rough;m.roughness=.85;m.metalness=0;m.color.setRGB(...color);
+  m.map=albedo;m.normalMap=normal;m.normalScale.set(.18,.18);m.bumpMap=null;m.roughnessMap=rough;m.roughness=.85;m.metalness=0;m.color.setRGB(...color);if(pigment.has(m))m.color.set(pigment.get(m));
   m.onBeforeCompile=shader=>{
    previousCompile.call(m,shader);
+   if(pigment.has(m))shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#ifdef USE_MAP
+    vec4 timberTexel=texture2D(map,vMapUv);
+    float timberY=dot(timberTexel.rgb,vec3(.2126,.7152,.0722));
+    float paintedGrain=clamp(pow(max(timberY,.00005)/.01505120736,.55),.52,1.46);
+    diffuseColor.rgb*=paintedGrain;
+   #endif`);
    shader.vertexShader='attribute vec3 timberExtent;\n'+shader.vertexShader;
    shader.vertexShader=shader.vertexShader.replace('#include <uv_vertex>',`#include <uv_vertex>
     vec3 memberScale=vec3(1.);float memberOffset=0.;
@@ -39,9 +49,9 @@ export async function installScannedTimber(mats,scene){
    shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
     roughnessFactor=clamp(.36+roughnessFactor*.72,.42,.94);`);
   };
-  m.customProgramCacheKey=()=> previousKey()+':scene02-cc0-member-timber-v1';m.needsUpdate=true;
+  m.customProgramCacheKey=()=>previousKey()+':scene02-cc0-member-timber-v2-'+(pigment.has(m)?'painted':'raw');m.userData.timberFinish={role:pigment.has(m)?'pigment with normalised scan grain':'retained original dark scan',pigment:pigment.get(m)??null,sourceLinearMeanY:.01505120736,normalStrength:.18,photoRGB:false};m.needsUpdate=true;
  }
- return {textures:[albedo,normal,rough]};
+ return {textures:[albedo,normal,rough],info:{revision:'scene02-linear-grain-painted-timber-66',sourceLinearMeanY:.01505120736,normalMapPreserved:true,roughnessMapPreserved:true,targets:[...targets.keys()].map(m=>({name:m.name,...m.userData.timberFinish}))}};
 }
 export function addTimberExtent(g){
  if(g.hasAttribute('timberExtent'))return;

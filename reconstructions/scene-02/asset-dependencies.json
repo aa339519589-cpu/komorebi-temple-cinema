@@ -5,5 +5,28 @@
     "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
     "assets/polyhaven/lacquered-cherry-wood/provenance.json"
   ],
-  "use": "CC0 Poly Haven lacquered cherry timber scan, applied to actual scene02 geometry. Provenance is tracked beside the maps."
+  "use": "CC0 Poly Haven lacquered cherry scan supplies metric grain, normal and roughness on independently built scene02 timber. Red/cedar pigment is calibrated separately from the dark scan luminance; darkwood and wet floor retain their prior scan treatment.",
+  "revision": "mesh66b",
+  "materialCalibration": {
+    "sourceLinearMeanY": 0.01505120736,
+    "method": "Decode via the sRGB texture, divide linear luminance by the measured full-map mean, apply exponent .55 and clamp .52..1.46 as painted grain. Material pigment supplies warm vermilion.",
+    "redPigment": "#bb4b29",
+    "cedarPigment": "#9c4928",
+    "normalScale": 0.18,
+    "originalNormalAndRoughnessRetained": true,
+    "sceneExposureAndLightingChanged": false
+  },
+  "authoredMetalGeometry": {
+    "file": "sorin-solids.js",
+    "construction": "Closed revolved annular webs with thick rounded rims, central spindle, stepped roof boot and seated terminal. Nineteen levels follow the photographed taper/spacing; not torus wire loops.",
+    "baseSeatLocalY": 14.9,
+    "bootTopLocalY": 15.3,
+    "topLocalY": 20.71,
+    "finish": "Sorin-only gold/bronze use the existing outdoor sky environment, rather than the veranda-local reflection probe. Other metal remains unchanged."
+  },
+  "referencePhotographUse": {
+    "scope": "Comparison only",
+    "sceneRGBOrProjection": false,
+    "copyright": "Retained by its original owner."
+  }
 }
