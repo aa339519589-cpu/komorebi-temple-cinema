@@ -121,7 +121,7 @@ class FurnishingBuilder {
       gold: supplied.gold || new T.MeshStandardMaterial({name:'restoration-polished-gilt',color:0xc59b49,metalness:.86,roughness:.31}),
       trim: new T.MeshStandardMaterial({name:'scene06-aged-gilt-structural-bead',color:'#856026',metalness:.78,roughness:.52}),
       oldgold: supplied.oldgold || new T.MeshStandardMaterial({name:'restoration-carved-gilt-shadow',color:0x86602b,metalness:.77,roughness:.43}),
-      lacquer: new T.MeshStandardMaterial({name:'restoration-black-brown-lacquer',color:0x080605,metalness:0,roughness:.26}),
+      lacquer: new T.MeshPhysicalMaterial({name:'restoration-black-brown-lacquer',color:0x030201,metalness:0,roughness:.32,reflectivity:.24,clearcoat:.20,clearcoatRoughness:.30}),
       red: new T.MeshStandardMaterial({name:'restoration-vermillion-lacquer',color:0x521c13,metalness:.14,roughness:.30}),
       ivory: new T.MeshStandardMaterial({name:'restoration-candle-wax',color:0xe7d7b0,roughness:.68}),
       foliage: new T.MeshStandardMaterial({name:'restoration-offering-foliage',color:0x293524,metalness:0,roughness:.72}),
@@ -944,7 +944,7 @@ function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedH
     b.castCurve('recovered-mandorla-root:'+x,[[0,.20,-.06],[0,(.20+branchRootY)/2,-.044],[0,branchRootY,-.038]],chasedHeadWheel?.029:.021,'oldgold',16);
     if(chasedHeadWheel){
       const wheel=b.geometry('r6v2-chased-head-wheel',()=>{
-        const sh=new T.Shape();sh.absarc(0,0,.63,0,Math.PI*2,false);const hole=new T.Path();hole.absarc(0,0,.47,0,Math.PI*2,true);sh.holes.push(hole);
+        const sh=new T.Shape();sh.absarc(0,0,.63,0,Math.PI*2,false);const hole=new T.Path();hole.absarc(0,0,.47,0,Math.PI*2,true);sh.holes.push(hole);for(let k=0;k<48;k++){const a=k*Math.PI/24,h=new T.Path();h.absellipse(Math.sin(a)*.55,Math.cos(a)*.55,.013,.035,0,Math.PI*2,true,-a);sh.holes.push(h);}
         return new T.ExtrudeGeometry(sh,{depth:.024,bevelEnabled:true,bevelSize:.004,bevelThickness:.005,bevelSegments:2,curveSegments:48});
       });b.add(wheel,'oldgold',0,cy,.085,unit,unit,1);
       for(const r of[.47,.63])b.torus(0,cy,.116,r*unit,.009,'gold');
@@ -1109,7 +1109,7 @@ function buildFloralOffering(b,x,y,z,side) {
       const xx=dx*(side<0?1:-1),yy=dy*(side<0?1:.93);
       b.naturalCurve('offering-natural-stem:'+side+':'+i,[[0,.255,0],[xx*.30,.35,dz*.35],[xx*.80,yy-.075,dz*.80],[xx,yy,dz]],.0055,'flowerStem',20,.0465);
       if(size===0){b.ball(xx,yy+.025,dz,.018,.048,.018,'ivory');return;}
-      for(let k=0;k<5;k++)b.add(petal,'ivory',xx,yy,dz,size,size*1.38,size,0,k*Math.PI*2/5+i*.37,0);
+      for(let k=0;k<5;k++)b.add(petal,'ivory',xx,yy,dz,size,size*.96,size,.50+.12*Math.sin(i*1.7),k*Math.PI*2/5+i*.37,0);
       for(let k=0;k<3;k++){
         const a=k*Math.PI*2/3+i*.6,tx=xx+Math.sin(a)*.012,tz=dz+Math.cos(a)*.012;
         b.cylinder(tx,yy+.039,tz,.0027,.066,'flowerStem');b.ball(tx,yy+.073,tz,.006,.011,.006,'oldgold');
@@ -1896,26 +1896,22 @@ function buildOfferingTable(b,layout) {
     };
     const rosette=(cx,cy,r,plane='front')=>{
       for(let row=0;row<2;row++)for(let k=0;k<8;k++){
-        const length=r*(row===0?1:.52),w=length*.26;
-        const petal=new T.Shape();petal.moveTo(-w*.22,length*.20);
-        petal.bezierCurveTo(-w,length*.45,-w*.92,length*.72,-w*.34,length*.73);
-        petal.bezierCurveTo(-w*.48,length*.87,-w*.14,length*.93,0,length);
-        petal.bezierCurveTo(w*.14,length*.93,w*.48,length*.87,w*.34,length*.73);
-        petal.bezierCurveTo(w*.92,length*.72,w,length*.45,w*.22,length*.20);petal.closePath();
-        place(petal,cx,cy,k*Math.PI/4+row*Math.PI/8,plane);
+        const length=r*(row===0?1:.52),w=length*.26,a=k*Math.PI/4+row*Math.PI/8;
+        const path=[[0,length*.18],[-w*.6,length*.42],[-w*.65,length*.72],[0,length],[w*.65,length*.72],[w*.6,length*.42],[0,length*.18]].map(([x,y])=>[cx+x*Math.cos(a)-y*Math.sin(a),cy+x*Math.sin(a)+y*Math.cos(a)]);
+        ribbon(path,.0018,plane);
       }
-      const center=new T.Shape();center.absellipse(0,0,.014,.014,0,Math.PI*2,false,0);place(center,cx,cy,0,plane);
+      const center=new T.Shape();center.absellipse(0,0,.006,.006,0,Math.PI*2,false,0);place(center,cx,cy,0,plane);
     };
     // Three larger floral medallions and their diagonal connecting vines
     // are visible on the original bolster, not dozens of isolated badges.
-    for(const cx of[-.62,0,.62])rosette(cx,.267,.127);
+    for(const cx of[-.62,0,.62])rosette(cx,.267,.112);
     for(let k=-4;k<=4;k++){
       const cx=k*.22;
       ribbon([[cx-.13,.165],[cx-.06,.214],[cx+.02,.302],[cx+.12,.367]],.0042);
       ribbon([[cx-.13,.367],[cx-.04,.311],[cx+.03,.225],[cx+.12,.165]],.0035);
       for(const sign of[-1,1])rosette(cx+sign*.055,.225+sign*.059,.026);
     }
-    for(const cx of[-.62,0,.62])rosette(cx,.03,.14,'top');
+    for(const cx of[-.62,0,.62])rosette(cx,.03,.12,'top');
     for(let k=-4;k<=4;k++){
       const cx=k*.22;
       ribbon([[cx-.13,-.28],[cx-.06,-.12],[cx+.04,.08],[cx+.13,.26]],.004,'top');

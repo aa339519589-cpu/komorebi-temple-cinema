@@ -165,9 +165,9 @@ function face(center,attendant=false,variant='central'){
     const xx=x/wx,yy=(y-cy)/sy,G=(cx,cy,sx,sy)=>gaussian(xx-cx,sx)*gaussian(yy-cy,sy);
     let f=.021*G(-.205,-.16,.135,.14)+.021*G(.205,-.16,.135,.14);
     const noseWidth=.065+.027*smooth(-yy,-.02,.13);
-    f+=.031*gaussian(xx,noseWidth)*gaussian(yy-.015,.150)+.039*G(0,-.105,.083,.045);
-    f+=.023*G(-.063,-.121,.031,.025)+.023*G(.063,-.121,.031,.025);
-    f-=.017*G(-.055,-.146,.018,.012)+.017*G(.055,-.146,.018,.012);
+    f+=.031*gaussian(xx,noseWidth)*gaussian(yy-.015,.150)+.025*G(0,-.105,.083,.045);
+    f+=.010*G(-.063,-.121,.031,.025)+.010*G(.063,-.121,.031,.025);
+    f-=.006*G(-.055,-.146,.018,.012)+.006*G(.055,-.146,.018,.012);
     f+=.010*G(0,-.148,.020,.021)-.009*G(0,-.184,.024,.028);
     for(const side of[-1,1]){
       const ex=xx*side,q=(ex-.164)/.116,inside=Math.max(0,1-q*q),mask=inside**1.2;
@@ -202,7 +202,7 @@ function faceAnatomy(b,g,cy,small=false){
    const by=cy+(base+.030+.072*Math.sqrt(inside))*sy;brow.push([x,by,at(x,by)+.004]);
   }
   b.add(cord(lid,.0075),'sculpted-upper-eyelid-'+side);b.add(cord(slit,.0038),'recessed-eye-aperture-'+side,'crease');b.add(cord(brow,.007),'arched-brow-ridge-'+side);
-  const nx=side*.055*wx,ny=cy-.146*sy;b.add(ellipsoid(nx,ny,at(nx,ny)+.001,.010,.006,.003),'nostril-recess-'+side,'crease');
+  const nx=side*.055*wx,ny=cy-.146*sy;b.add(ellipsoid(nx,ny,at(nx,ny)+.001,.006,.0035,.002),'nostril-recess-'+side,'crease');
   // Helix and open concha are distinct volumes inside each long auricle.
   const ear=[];for(let k=0;k<=28;k++){const t=k/28,a=-.65+t*4.35;ear.push([side*(.381+.021*Math.cos(a))*(small?.85:1),cy+(.04+.175*Math.sin(a))*(small?.85:1),.059+.006*Math.cos(a)]);}
   b.add(cord(ear,.0065),'auricle-inner-helix-'+side);
@@ -241,14 +241,9 @@ function neck(b,cy,small=false){
 
 function raisedHand(b,cx,cy,cz,{size=1,mirror=1}={}){
  const point=p=>[cx+mirror*p[0]*size,cy+p[1]*size,cz+p[2]*size];
- const palm=ellipsoid(0,0,0,1,1,1,0,56,48),pp=palm.attributes.position;
- for(let i=0;i<pp.count;i++){
-  const nx=pp.getX(i),ny=pp.getY(i),nz=pp.getZ(i),width=.122*(.82+.18*smooth(ny,-.8,.3)),xx=nx*width,yy=ny*.178;
-  let depth=nz*.048;
-  if(nz>0){depth-=.005*gaussian(yy+.027,.009)*gaussian(xx+.006,.078);depth-=.004*gaussian(yy-.048+.20*xx,.007)*gaussian(xx,.082);depth+=.009*gaussian(xx-.048,.04)*gaussian(yy+.045,.08);}
-  pp.setXYZ(i,...point([xx,yy,depth]));
- }
- recomputeSculptureNormals(palm);b.add(palm,'anatomical-raised-palm');
+ const palmRows=[[-.18,0,0,0],[-.145,.058,.025,0],[-.060,.101,.032,0],[.055,.113,.029,0],[.125,.100,.026,0],[.153,.053,.018,0],[.165,0,0,0]];
+ const palm=loft(palmRows,{nu:80,nv:88,relief:(x,y)=>-.008*gaussian(x,.060)*gaussian(y,.075)+.013*gaussian(x-.058,.035)*gaussian(y+.066,.055)-.003*gaussian(y+.020+.14*x,.006)});
+ palm.scale(size*mirror,size,size);palm.translate(cx,cy,cz);if(mirror<0){const ix=palm.index;for(let i=0;i<ix.count;i+=3){const t=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,t);}}recomputeSculptureNormals(palm);b.add(palm,'anatomical-raised-palm');
  const fingers=[
   [[-.075,.085,.002],[-.106,.205,.012],[-.122,.286,.018],[-.119,.315,.012]],
   [[-.033,.137,.000],[-.043,.266,.009],[-.045,.350,.009],[-.039,.372,.000]],
@@ -257,8 +252,8 @@ function raisedHand(b,cx,cy,cz,{size=1,mirror=1}={}){
   [[.065,-.091,.006],[.145,-.025,.034],[.153,.045,.062],[.130,.075,.068]]
  ];
  fingers.forEach((p,i)=>{
-  p=p.map(q=>[q[0]*1.35,q[1],q[2]]);
-  b.add(finger(p.map(point),(i===4?.027:.022)*size),'anatomical-raised-finger-'+i);
+  p=p.map(q=>[q[0]*1.05,q[1]*.88,q[2]+Math.max(0,q[1]-.20)*.22]);
+  b.add(finger(p.map(point),(i===4?.028:.028)*size),'anatomical-raised-finger-'+i);
   if(i<4){const q=point(p[2]),crease=[[q[0]-.013*size,q[1]-.005*size,q[2]+.018*size],[q[0],q[1]-.008*size,q[2]+.020*size],[q[0]+.013*size,q[1]-.005*size,q[2]+.018*size]];b.add(cord(crease,.0024*size),'finger-joint-'+i,'crease');}
  });
  return point;
