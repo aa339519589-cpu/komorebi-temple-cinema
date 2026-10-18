@@ -1,0 +1,20 @@
+{
+  "reference": 4,
+  "reviewedAt": "2026-10-18T13:21:09.110449+00:00",
+  "visualAccepted": false,
+  "sourcePhoto": "references/hd/3-\u7167\u7247-4.jpg",
+  "sourceHash": "7c901b22d5d273b7af5ea91dee66956a870b9d09617dc8f748318d15736421b0",
+  "method": "Viewed original1254 photograph, existingstruct49 native frame, and both full1254 Cycles128sample Metal/OIDN frames. No reference image used as rendering input.",
+  "improved": [
+    "Path-traced indirect light gives darker architectural recesses and warmer reflected timber/gilt transitions.",
+    "Source PBR/colour-space maps, metric stone normal/roughness and role-specific foliage transmission are physically evaluated.",
+    "Lantern paper emits warm light against the daylight; roofs have an actual coat/reflection lobe."
+  ],
+  "unresolved": [
+    "Measured sunset-sky radiance remains a different colour/contrast balance from the original daylight photograph.",
+    "The inferred off-camera crown does not produce the photograph\u2019s broad dense dapple; visible effect remains weak/right-biased.",
+    "Paver scan crop repetition and smooth brown surface remain unlike the photograph\u2019s varied grey/pink worn granite.",
+    "Roof, carved timber, stone lantern and garden geometry retain knownstruct49 simplifications and proportion mismatches."
+  ],
+  "decision": "Physical-lighting candidates for root review only, not accepted as photographic matches."
+}

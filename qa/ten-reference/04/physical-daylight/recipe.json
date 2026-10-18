@@ -1,0 +1,60 @@
+{
+  "reference": 4,
+  "sourceExport": "source-export/scene.json",
+  "sourceExportReport": "source-export/export-report.json",
+  "sourceHash": "7c901b22d5d273b7af5ea91dee66956a870b9d09617dc8f748318d15736421b0",
+  "geometry": "Exact struct49 visible meshes/instance matrices; shared rigidY-up\u2192Z-up conversion only",
+  "camera": "Exact exported matrix and verticalFOV; no reframing or depth of field",
+  "renderer": {
+    "engine": "Cycles",
+    "device": "METAL",
+    "size": 1254,
+    "samples": 128,
+    "denoiser": "OPENIMAGEDENOISE",
+    "bounces": 8
+  },
+  "illumination": {
+    "environment": "hdri/sky-2k.exr",
+    "HDRIlicense": "CC0-1.0",
+    "radianceGain": 1.0,
+    "exposureEV": 0.0,
+    "alignment": "Brightest measured HDRI direction rigidly aligned to sourceSun [.8,.85,1.1] Y-up; \u03c6=pi\u22122pi*u; TextureCoordinateNormal negated before Mapping",
+    "duplicateSUN": "allSUN lights removed; no atmospheric procedural duplicate"
+  },
+  "PBRTransfer": {
+    "paving": "Existing individual-stone CC0 scan; object-space box projection at1/0.225m; GLnormal0.28 and non-colour roughness, dampcoat<=.22",
+    "otherStone": "Source metric maps at1/0.25m",
+    "foliage": "Diffuse/thin-translucent mixture0.32, needle cutout alpha retained as outer mask",
+    "paper": "Thin-translucent mixture0.45; inferred emissionradiance2W/sr/m2",
+    "opaqueMaterials": "Remain opaque; default emissiveIntensity1 does not cause transmission"
+  },
+  "limitations": [
+    "Lighting direction and material transport are physical hypotheses; no photographic acceptance.",
+    "Original GLSL weathering is approximated with portable PBR maps/box projection; nativepixel equivalence not claimed.",
+    "No source reference frame or photograph used as rendering input."
+  ],
+  "iterations": [
+    {
+      "name": "iteration-01",
+      "output": "actual-scene04-daylight.png",
+      "blend": "editable-scene04-daylight.blend",
+      "exposureEV": 0,
+      "offCameraContext": false
+    },
+    {
+      "name": "iteration-02",
+      "output": "actual-scene04-daylight.png",
+      "blend": "editable-scene04-daylight.blend",
+      "exposureEV": 0.5,
+      "offCameraContext": "Real maple crown/branches; allbounds behindcamera, no camera-visibility flag trick",
+      "materialDelta": {
+        "tileRoughness": 0.34,
+        "tileCoat": 0.24,
+        "tileCoatRoughness": 0.19,
+        "pavingMoistCoatMaximum": 0.38,
+        "pavingMoistCoatRoughness": 0.2
+      }
+    }
+  ],
+  "accepted": false
+}

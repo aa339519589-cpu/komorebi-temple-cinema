@@ -1,0 +1,126 @@
+{
+  "sourceStatistics": {
+    "meshes": 1112,
+    "geometries": 1080,
+    "materials": 46,
+    "textures": 37,
+    "instances": 150890,
+    "triangles": 15606134
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 4,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "reference4-both-ponds-actual-planar-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "reference4-atmosphere-with-real-density-clouds",
+      "type": "Mesh",
+      "material": "SkyShader",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792329232.697279,
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "outdoorSky": {
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering, no bitmap background",
+    "sunDisc": false,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      0.4987837076187134,
+      0.5299577116966248,
+      0.6858276128768921
+    ]
+  },
+  "addedPhysicalContext": [
+    "Inferred real maple crown and branches completely behind the unchanged camera, casting physical shadows."
+  ],
+  "environmentOrientation": {
+    "formula": "Blender Cycles sphere_to_equirectangular longitude=pi-2*pi*u",
+    "source": "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h",
+    "worldDirection": "TextureCoordinate Normal inverted because background sd.N=-ray_D",
+    "targetSunAltitude": 32.002597622235804,
+    "euler": [
+      0.37477511167526245,
+      0.2601926326751709,
+      0.3642076551914215
+    ]
+  },
+  "environmentRadiance": {
+    "maximum": 58971.4765625,
+    "mean": 0.835347056388855,
+    "sunPixel": [
+      1228,
+      546
+    ],
+    "sunAltitudeDegrees": 6.064453125
+  },
+  "measuredSky": {
+    "file": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/04/physical-daylight/hdri/sky-2k.exr",
+    "rotationRadians": 0.3642076551914215,
+    "license": "CC0-1.0",
+    "provider": "Poly Haven",
+    "asset": "qwantani_sunset_puresky",
+    "source": "https://polyhaven.com/a/qwantani_sunset_puresky",
+    "normalDirectionInvertedBeforeMapping": true,
+    "duplicateSunDisabled": true
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "cameraAndVisibleSourceMeshesUnchanged": true,
+  "sourceSourceHash": "7c901b22d5d273b7af5ea91dee66956a870b9d09617dc8f748318d15736421b0",
+  "importedTriangles": 15606134,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Existing linear PBR colours and sRGB/data maps retained. Stone maps use physical object-space box projection; paver crop repeats at0.225m with restrained moisture coat. Thin foliage/paper transmission is restricted by role and preserves needle alpha cuts. No default-emissiveIntensity translucency.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.28,
+    "worldGain": 1.0,
+    "exposure": 0.5,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792329296.803514,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 128,
+  "photographicAcceptance": false,
+  "iteration": 2,
+  "context": {
+    "inferredNotRecovered": true,
+    "type": "Real off-camera maple crown and branch geometry",
+    "leaves": 672,
+    "objects": 16,
+    "cameraForwardHalfSpaceClearanceMetres": 1.3767238855361938,
+    "cameraVisibility": "All added context bounding vertices are behind the physical camera, not hidden by visibility flags.",
+    "sourceMeshTransformsUnchanged": true,
+    "sourceVisibleGeometryUnchanged": true,
+    "sourceSunDirectionYUp": [
+      0.8,
+      0.85,
+      1.1
+    ]
+  },
+  "physicalMaterialChanges": {
+    "tileRoughness": 0.34,
+    "tileCoat": 0.24,
+    "tileCoatRoughness": 0.19,
+    "pavingMoistCoatMaximum": 0.38,
+    "pavingMoistCoatRoughness": 0.2
+  },
+  "cameraExposureEV": 0.5,
+  "geometryTriangleCountPreservedScope": "All exported source meshes retain their triangles; off-camera context is counted separately."
+}
