@@ -3,7 +3,7 @@ import {fileURLToPath} from 'node:url';
 import {resolve as resolvePath} from 'node:path';
 const root=resolvePath(fileURLToPath(new URL('../../../',import.meta.url)));
 registerHooks({resolve(specifier,context,next){if(specifier==='three')return{url:new URL('../../../vendor/build/three.module.js',import.meta.url).href,shortCircuit:true};if(specifier.startsWith('three/addons/'))return{url:new URL('../../../vendor/examples/jsm/'+specifier.slice(13),import.meta.url).href,shortCircuit:true};return next(specifier,context);}});
-global.document={createElement(){return{width:0,height:0,getContext(){return{createLinearGradient(){return{addColorStop(){}}},fillRect(){}}}}}};
+global.document={createElement(){return{width:0,height:0,getContext(){return{createImageData(w,h){return{data:new Uint8ClampedArray(w*h*4)}},putImageData(){},createLinearGradient(){return{addColorStop(){}}},fillRect(){}}}}}};
 const {buildScene,POSE}=await import('../../../reconstructions/scene-05/src/scene.js');
 const started=performance.now(),world=buildScene();
 console.log(JSON.stringify({cpuBuildMs:Math.round(performance.now()-started),...world.info(),pose:POSE},null,2));

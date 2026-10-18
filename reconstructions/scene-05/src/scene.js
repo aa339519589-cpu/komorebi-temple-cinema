@@ -32,7 +32,7 @@ export function buildScene(){
    }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
  }
  const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack});
- mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414c53');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
+ mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414747');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  for(const [name,m]of Object.entries(mats)){
    if(['red','cedar','endwood','darkwood'].some(k=>name===k||name==='architecture_'+k)){
      m.roughnessMap=null;m.roughness=name.includes('endwood')?.84:.76;m.envMapIntensity=.28;m.bumpScale=.006;
@@ -66,7 +66,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    arch.pagodaRoof({y:y+3.55,w:w+3.5*scale,d:w+3.5*scale,rise:2.35*scale,wallWidth:w,wallDepth:w,frameScale:scale,detail:true,soffitMaterial:'cedar'});
    levels.push({level,y,width:w,shaftTop:frame.shaftTop});
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
-     for(const xx of [-w/3,0,w/3])arch.brackets(xx,frame.bracketY,w/2,.90*scale,{detail:true,interlocked:true});
+     for(const xx of [-w/3,0,w/3])arch.brackets(xx,frame.purlinTop-.13*scale-.82*.54*scale,w/2,.54*scale,{detail:true,interlocked:true});
      for(const xx of [-w/2,w/2]){
        arch.squareFitting(xx,frame.shaftTop-.13,w/2+.243*scale,.36*scale,.39*scale,0,true);
      }
@@ -177,13 +177,25 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    });
  }
  // Sky: directional pale wisps are an analytic shader, with no image texture.
- const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4);float cloud=smoothstep(1.00,1.34,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.85);vec3 desired=pow(c,vec3(2.2));vec3 A=2.51-2.43*desired;vec3 B=.03-.59*desired;vec3 C=-.14*desired;vec3 radiance=(-B+sqrt(B*B-4.*A*C))/(2.*A)/.95;gl_FragColor=vec4(radiance,1.);}`});
+ const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4);float cloud=smoothstep(1.00,1.34,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.85);vec3 desired=mix(c/12.92,pow((c+.055)/1.055,vec3(2.4)),step(vec3(.04045),c));const mat3 inverseOutput=mat3(.64303825,.05926869,.00596190,.31118675,.93143649,.06392902,.04577546,.00929492,.93011838);const mat3 inverseInput=mat3(1.76474097,-.14702785,-.03633683,-.67577768,1.16025151,-.16243644,-.08896329,-.01322366,1.19877327);vec3 v=inverseOutput*desired;vec3 A=1.-.983729*v;vec3 B=.0245786-.432951*v;vec3 C=-.000090537-.238081*v;vec3 fitted=(-B+sqrt(B*B-4.*A*C))/(2.*A);vec3 radiance=max(vec3(0.),inverseInput*fitted)*(.6/.95);gl_FragColor=vec4(radiance,1.);}`});
  const sky=new T.Mesh(new T.SphereGeometry(120,32,16),skyMaterial);scene.add(sky);
  const hemi=new T.HemisphereLight('#cce5ff','#a3784c',1.12);scene.add(hemi);
  const sun=new T.DirectionalLight('#fff0ce',4.4);sun.position.set(-18,30,23);sun.target.position.set(0,9,0);sun.castShadow=true;
  sun.shadow.mapSize.set(3072,3072);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.00015;sun.shadow.normalBias=.025;sun.shadow.radius=1.5;scene.add(sun,sun.target);
  // Procedural environment radiance provides directional metal reflections.
- const faces=[];for(let i=0;i<6;i++){const c=document.createElement('canvas');c.width=c.height=64;const cx=c.getContext('2d'),gr=cx.createLinearGradient(0,0,0,64);gr.addColorStop(0,'#c7defa');gr.addColorStop(.5,'#b4c2c2');gr.addColorStop(1,'#6b4b2c');cx.fillStyle=gr;cx.fillRect(0,0,64,64);faces.push(c);}
+ const faces=[],sunDirection=new T.Vector3(-18,21,23).normalize();
+ for(let face=0;face<6;face++){
+   const canvas=document.createElement('canvas');canvas.width=canvas.height=128;const ctx=canvas.getContext('2d'),pixels=ctx.createImageData(128,128);
+   for(let y=0;y<128;y++)for(let x=0;x<128;x++){
+     const u=(x+.5)/64-1,v=(y+.5)/64-1;
+     const directions=[[1,-v,-u],[-1,-v,u],[u,1,v],[u,-1,-v],[u,-v,1],[-u,-v,-1]],d=new T.Vector3(...directions[face]).normalize();
+     const t=T.MathUtils.smoothstep(d.y,-.12,.4),sun=Math.pow(Math.max(0,d.dot(sunDirection)),550)*.65;
+     const foliage=.035*Math.sin(d.x*47+d.z*23)*Math.sin(d.z*37-d.y*17),i=(y*128+x)*4;
+     const ground=[.30+foliage,.27+foliage,.16],sky=[.55+.2*d.y,.73+.1*d.y,.94];
+     for(let k=0;k<3;k++)pixels.data[i+k]=Math.round(255*Math.min(1,ground[k]*(1-t)+sky[k]*t+sun));pixels.data[i+3]=255;
+   }
+   ctx.putImageData(pixels,0,0);faces.push(canvas);
+ }
  const env=new T.CubeTexture(faces);env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;scene.environment=env;scene.environmentIntensity=.85;
  const canopy=buildMapleCanopy(scene);
  // Flatten static geometry by material: dense joinery remains real 3D but submission cost stays bounded.
@@ -198,5 +210,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-filtered-contact-blue-day-v7',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-natural-canopy-etched-ceramics-v8',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }

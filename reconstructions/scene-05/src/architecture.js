@@ -2667,10 +2667,10 @@ export function createRestorationArchitecture(ctx) {
           corner.clone().addScaledVector(outward,.19).add(v([0,.30,0]))];
         group(corner.x,corner.y,corner.z,Math.atan2(outward.x,outward.z),()=>{
           const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
-          draw(crest,'slate',[0,.005,0],[1,1,1]);
-          draw(g.tileSeal,'slate',[0,.20,.089],[.16,.16,.12]);
-          draw(g.ring,'tileEdge',[0,.20,.117],[.146,.146,.055]);
-          flower(0,.20,.127,.108,'oldgold');
+          draw(crest,'slate',[0,.005,0],[.78,.78,.82]);
+          draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);
+          draw(g.ring,'tileEdge',[0,.17,.109],[.132,.132,.05]);
+          flower(0,.17,.119,.093,'oldgold');
           for(const side of [-1,1])draw(g.nail,'oldgold',[side*.19,.005,.083],[.022,.022,.014]);
         });
       }
