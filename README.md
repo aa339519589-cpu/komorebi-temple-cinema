@@ -11,7 +11,7 @@
 - [全部十景总览](qa/ten-reference/hour-1832/all-ten-original-and-current.jpg)。
 - [电影与源版本记录](qa/ten-reference/hour-1832/media.json)。
 
-十个镜头分别实际渲染210帧、7秒，1080×1080／30fps。70秒版本保留全部镜头；60秒版本通过叠化重叠剪辑，不改变源镜头运动速度。视频发布在GitHub预发布检查点，用户可下载到本地`output/hour-1832-film/`供上述页面播放。
+十个镜头分别实际渲染210帧、7秒，1080×1080／30fps。70秒版本保留全部镜头；60秒版本通过叠化重叠剪辑，不改变源镜头运动速度。视频发布在[GitHub预发布检查点](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/parallel-modeling-2026-10-18-1832)，用户可下载到本地`output/hour-1832-film/`供上述页面播放。
 
 - 场景源码：`reconstructions/scene-01/`至`scene-10/`。
 - 十景编号、参考与入口：`reconstructions/ten-scenes.json`。
