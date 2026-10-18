@@ -8,7 +8,7 @@ import {emitRestoredBuddha} from './restoration-buddha.js';
 
 // Independent room, not a material patch over the exterior-world reconstruction.
 // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
-export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-grazing-light-r8',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:62},sunDirection:[-1,.68,-.78],sunIntensity:42.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
+export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-interior-depth-r9',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:62},sunDirection:[-1,.68,-.78],sunIntensity:42.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
 function woodMap(){
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=512;const c=canvas.getContext('2d'),im=c.createImageData(512,512);let seed=19473;const r=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
  for(let y=0;y<512;y++)for(let x=0;x<512;x++){const u=x+.85*Math.sin(y*.019)+.35*Math.sin(y*.061);const v=230+5*Math.sin(u*.38)+4*Math.sin(u*1.77)+(r()-.5)*4,j=(y*512+x)*4;im.data[j]=im.data[j+1]=im.data[j+2]=v;im.data[j+3]=255;}c.putImageData(im,0,0);const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;return map;
@@ -104,14 +104,14 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  box([0,7.25,2.1],[14.2,.16,16.4],materials.dark);
  for(const z of [-4.8,-1.6,1.6,4.8,8.0])box([0,6.98,z],[13.8,.40,.30],materials.beam);
  for(const x of [-6.7,-4.6,-2.3,0,2.3,4.6,6.7])box([x,7.05,2.1],[.25,.30,16],materials.beam);
- for(const side of [-1,1])for(const z of [-4.8,-.8,5.6]){
-  const x=side*(z===5.6?6.25:z===-.8?4.0:4.6);box([x,.10,z],[.92,.20,.92],materials.black);const o=cylinder([x,3.55,z],.39,6.7);o.name='reference6-red-column';pillarRoots.push(o);
+ for(const side of [-1,1])for(const z of [-4.8,.8,5.6]){
+  const x=side*(z===5.6?6.25:z===.8?3.45:4.6);const cs=z===.8?.87:1;box([x,.10,z],[.92*cs,.20,.92*cs],materials.black);const o=cylinder([x,3.55,z],.39*cs,6.7);o.name='reference6-red-column';pillarRoots.push(o);
   // Broad black-lacquer and gilt column cuffs visible in the photograph,
   // replacing the previous thin plain rings. The scroll relief is real geometry.
   for(const [y,h]of[[.40,.46],[6.57,.30]]){
-   const cuff=mesh(columnCollar.body,materials.black,[x,y,z]);cuff.scale.y=h/.46;
-   const vines=mesh(columnCollar.relief,materials.oldgold,[x,y,z]);vines.scale.y=h/.46;
-   for(const yy of[y-h/2,y+h/2])cylinder([x,yy,z],.435,.026,materials.gold);
+   const cuff=mesh(columnCollar.body,materials.black,[x,y,z]);cuff.scale.set(cs,h/.46,cs);
+   const vines=mesh(columnCollar.relief,materials.oldgold,[x,y,z]);vines.scale.set(cs,h/.46,cs);
+   for(const yy of[y-h/2,y+h/2])cylinder([x,yy,z],.435*cs,.026,materials.gold);
   }
   box([x,6.80,z],[.88,.12,.88],materials.black);
   box([x,6.72,z],[1.25,.22,.9],materials.beam);

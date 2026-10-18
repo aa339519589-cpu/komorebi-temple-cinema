@@ -129,7 +129,7 @@ class FurnishingBuilder {
       paper: new T.MeshStandardMaterial({name:'restoration-lantern-warm-paper',color:0xe1b264,roughness:.62,emissive:0xffb54e,emissiveIntensity:.65,side:T.DoubleSide}),
       flame: supplied.flame || new T.MeshStandardMaterial({name:'restoration-flame',color:0xffd47e,emissive:0xffa831,emissiveIntensity:2}),
       textile: new T.MeshStandardMaterial({name:'restoration-black-brocade',color:0x0d0b0a,roughness:.91}),
-      brocadeThread: new T.MeshStandardMaterial({name:'restoration-brocade-woven-gold',color:0x9b7137,metalness:.25,roughness:.73}),
+      brocadeThread: new T.MeshStandardMaterial({name:'restoration-brocade-woven-gold',color:0x705635,metalness:.10,roughness:.90}),
       ritualGlass: new T.MeshPhysicalMaterial({name:'restoration-clear-ritual-chimney',color:0xffffff,metalness:0,roughness:.06,transmission:1,ior:1.48,thickness:0,opacity:1,transparent:false,depthWrite:true,depthTest:true,side:T.FrontSide}),
     };
   }
@@ -1578,7 +1578,7 @@ function buildOfferingTable(b,layout) {
   const z=2.53;
   // Narrow gilded altar table with open negative space under the apron.
   b.box(0,.65,z,4.02,.080,.96,'lacquer');
-  b.box(0,.698,z,4.13,.020,1.02,'gold');
+  b.box(0,.698,z,4.13,.009,1.02,'oldgold');
   b.box(0,.595,z+.45,3.96,.14,.075,'lacquer');
   // The foreground rail is largely black between separate chased metal
   // fittings. It is not another full-length, compressed dragon cabinet panel.
@@ -1644,7 +1644,7 @@ function buildOfferingTable(b,layout) {
     const x=side*1.075,zz=z+.34;
     b.lathe('table-inner-carved-support',[[0,0],[.13,.008],[.135,.042],[.10,.070],[.078,.115],[.10,.205],[.077,.295],[.070,.375],[.110,.432],[.095,.480],[0,.490]],x,.085,zz,1,1,'lacquer',28);
     b.lathe('table-inner-red-core',[[0,0],[.061,.012],[.070,.045],[.073,.160],[.057,.290],[.065,.325],[0,.337]],x,.18,zz+.035,1,1,'red',24);
-    b.box(x,(floorY+.1195)/2,zz,.25,.1195-floorY,.25,'gold');
+    b.box(x,(floorY+.1195)/2,zz,.21,.1195-floorY,.21,'trim');
     b.box(x,.072,zz+.133,.18,.062,.018,'oldgold');
     for(const yy of [.15,.30,.52])b.torus(x,yy,zz,yy===.30?.102:.091,.012,'gold',Math.PI/2);
     for(const sign of [-1,1]){
@@ -1904,14 +1904,14 @@ function buildOfferingTable(b,layout) {
     };
     // Three larger floral medallions and their diagonal connecting vines
     // are visible on the original bolster, not dozens of isolated badges.
-    for(const cx of[-.62,0,.62])rosette(cx,.267,.112);
+    for(const cx of[-.8,-.6,-.4,-.2,0,.2,.4,.6,.8])rosette(cx,.267,.061);
     for(let k=-4;k<=4;k++){
       const cx=k*.22;
       ribbon([[cx-.13,.165],[cx-.06,.214],[cx+.02,.302],[cx+.12,.367]],.0042);
       ribbon([[cx-.13,.367],[cx-.04,.311],[cx+.03,.225],[cx+.12,.165]],.0035);
-      for(const sign of[-1,1])rosette(cx+sign*.055,.225+sign*.059,.026);
+      for(const sign of[-1,1])rosette(cx+sign*.055,.225+sign*.059,.018);
     }
-    for(const cx of[-.62,0,.62])rosette(cx,.03,.12,'top');
+    for(const cx of[-.8,-.6,-.4,-.2,0,.2,.4,.6,.8])rosette(cx,.03,.065,'top');
     for(let k=-4;k<=4;k++){
       const cx=k*.22;
       ribbon([[cx-.13,-.28],[cx-.06,-.12],[cx+.04,.08],[cx+.13,.26]],.004,'top');
