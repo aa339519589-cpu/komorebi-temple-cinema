@@ -51,8 +51,10 @@ let roof=curvedLanternCap();emit(roof,stone,[0,2.36*s,0],[s,s,s]);ell([0,2.85*s,
 lantern(8.6,.15,6.8,1.55);lantern(5.7,.06,8.0,.92);lantern(-8.2,.12,6.2,1.0);lantern(11,1.1,1.7,1.3);
 // Gold hanging fixtures, door curtains and chrysanthemum crests animate the hall facade.
 const curtain=mat('ivory woven noren','#e4dbc1');
+root=new T.Matrix4().makeTranslation(5,0,-7).multiply(new T.Matrix4().makeRotationY(.31)).multiply(new T.Matrix4().makeTranslation(-5,0,7));
 for(let x of[1.6,5,8.4]){box([x,5.15,-2.15],[1.35,2.10,.045],x===5?curtain:architecture.materials.black);rosette([x,5.15,-2.1],.31);}
 for(let x of[-.8,2.0,8.0,10.8]){between([x,8.4,-.9],[x,7.7,-.9],.022,gold);emit(new T.CylinderGeometry(.23,.18,.65,8),gold,[x,7.38,-.9]);box([x,7.38,-.655],[.25,.45,.015],warm);for(let k=0;k<6;k++)box([x-.14+k*.056,7.38,-.64],[.015,.46,.025],gold);ell([x,6.95,-.9],[.08,.18,.08],gold);}
+root.identity();
 // Irregular flowering cherries, airy maples and angular pine branches: no crown spheres.
 let bladeGeom=(()=>{let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute([0,0,0,-.11,.025,.22,0,.05,.53,.11,.025,.22],3));g.setIndex([0,1,2,0,2,3]);g.computeVertexNormals();return g})();leaf.side=T.DoubleSide;pine.side=T.DoubleSide;
 let petalSmall=new T.SphereGeometry(1,5,3);const blooms=[mat('pale cherry','#f6d7db'),mat('warm cherry','#ffe6df'),mat('pink cherry','#e5b9cf')];
