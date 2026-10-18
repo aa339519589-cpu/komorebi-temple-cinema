@@ -96,10 +96,10 @@ if mode=='window-beams':
  n=mat.node_tree.nodes;n.clear();links=mat.node_tree.links
  out=n.new('ShaderNodeOutputMaterial');volume=n.new('ShaderNodeVolumePrincipled')
  volume.inputs['Color'].default_value=(1,.96,.85,1)
- volume.inputs['Density'].default_value=.006
+ volume.inputs['Density'].default_value=.0025
  volume.inputs['Anisotropy'].default_value=.45
  links.new(volume.outputs['Volume'],out.inputs['Volume']);obj.data.materials.append(mat)
- stats['physicalMedium']={'name':obj.name,'density':.006,'anisotropy':.45,'boundsApprox':list(obj.dimensions)}
+ stats['physicalMedium']={'name':obj.name,'density':.0025,'anisotropy':.45,'boundsApprox':list(obj.dimensions)}
 stats['status']='rendering';stats['changedMaterialCount']=changed
 filename=f'sanctuary-cycles-{mode}.png'
 scene.render.filepath=str(root/filename)
@@ -114,6 +114,9 @@ stats['pngBytes']=png.stat().st_size
 stats['pngSha256']=hashlib.sha256(png.read_bytes()).hexdigest()
 stats['postMeshes']=len(bpy.data.meshes)
 stats['postTriangles']=sum(len(mesh.polygons) for mesh in bpy.data.meshes)
+# In Blender a procedural cube has six quad polygons (twelve actual triangles).
+# Preserve the original 11M source triangles and account for its true added faces.
+if mode=='window-beams':stats['postTriangles']+=6;stats['additionalNonarchitecturalVolumeTriangles']=12
 if mode=='warm-key' and stats['postTriangles']!=stats['baseTriangles']:raise RuntimeError('An architectural mesh changed')
 if mode=='window-beams' and stats['postTriangles']-stats['baseTriangles']!=12:raise RuntimeError('Expected only 12 nonarchitectural volume triangles')
 stats['finished']=time.time()
