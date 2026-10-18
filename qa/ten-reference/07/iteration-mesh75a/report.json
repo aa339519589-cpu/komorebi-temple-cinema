@@ -1,0 +1,811 @@
+{
+  "reference": 7,
+  "entry": "reconstructions/scene-07/index.html",
+  "worktree": "/Users/mima1234/temple-lantern-07-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-18T23:04:15.058Z",
+  "source": {
+    "hash": "dbb6457637470dfb4d3878d00a2642ae657cb313be15c608a4b3da523653056d",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-07/asset-dependencies.json": "7894c9db20168609ed12389e4d453317454c077bbb9c55c026c9d34645dfddee",
+      "reconstructions/scene-07/assets/foreground-roof-provenance.json": "6e7653f26146b4b8c1191b717caa71097447430954b51fd8b9e341fbc36e5006",
+      "reconstructions/scene-07/assets/island-lantern-granite/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-07/assets/island-lantern-granite/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-07/assets/island-lantern-granite/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-07/assets/island-lantern-granite/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-07/assets/physical-roof-provenance.json": "a932fb1e120310df17e6174f5be12aee9b9fec51d902911fa430b809b202396f",
+      "reconstructions/scene-07/assets/scanned-garden-stones-provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "reconstructions/scene-07/assets/scanned-timber-provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-07/index.html": "0c504160f72ac4a5b0fc494448585cd0f9d9ba8282f169debeafe02e72699ac2",
+      "reconstructions/scene-07/src/architecture-kernel.js": "adda7f460d2f3bb127dace518ed52299be8b07d7f444aa08b1e855f803b28e0b",
+      "reconstructions/scene-07/src/boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-07/src/foreground-gallery-roof.js": "154ef127d4d3e14d209d71b0c0e28f8e8754286e636445dab9af6f7e3ce3aeba",
+      "reconstructions/scene-07/src/island-stone-lantern.js": "bcec7056fe85cc189ec5510d87ff2f3584f44074bb171472689d1796aa9f433f",
+      "reconstructions/scene-07/src/main.js": "baa3b8f5846f951a261ce29c652e48b1174c68fb67683a5801ed180795c20acc",
+      "reconstructions/scene-07/src/natural-details.js": "cce308779acc86bd1f508dc2cab591715f782c68246b9d5260cf347e71cebb89",
+      "reconstructions/scene-07/src/physical-roofs.js": "a468cbf29be7e2b2c940e2ed9336d8718fbdf0116b37cdc23ee293006738b321",
+      "reconstructions/scene-07/src/reference4-natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-07/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-07/src/sanctuary.js": "7e4f34f6d276713e9080e93c6a2909cc1eac862d1c51c5b6c6d74c902dd7931e",
+      "reconstructions/scene-07/src/scanned-garden-stones.js": "792ea2a0ada7df4b40a7fb2c037887e597a3ce9dacd970700ed87b71245f8b3c",
+      "reconstructions/scene-07/src/scanned-timber.js": "624eec6add3b58029f57c9c560e4c78c6ab99851a9c1bacca207328c502b099e"
+    }
+  },
+  "sourceCommit": "cedb249ff37cc5a3a0f9380e4094c0ad79739fd1",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-07/index.html",
+    "/reconstructions/scene-07/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-07/src/natural-details.js",
+    "/reconstructions/scene-07/src/architecture-kernel.js",
+    "/reconstructions/scene-07/src/reference4-natural-forms.js",
+    "/reconstructions/scene-07/src/sanctuary.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-07/src/boulder.js",
+    "/reconstructions/scene-07/src/scanned-timber.js",
+    "/reconstructions/scene-07/src/scanned-garden-stones.js",
+    "/reconstructions/scene-07/src/physical-roofs.js",
+    "/reconstructions/scene-07/src/foreground-gallery-roof.js",
+    "/reconstructions/scene-07/src/island-stone-lantern.js",
+    "/vendor/build/three.core.js",
+    "/reconstructions/scene-07/src/restoration-buddha.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-07/assets/island-lantern-granite/granite-face-diff.png",
+    "/reconstructions/scene-07/assets/island-lantern-granite/granite-face-nor_gl.png",
+    "/reconstructions/scene-07/assets/island-lantern-granite/granite-face-rough.png"
+  ],
+  "detailCrop": {
+    "pixels": [
+      650,
+      680,
+      320,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": true,
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "scene": 7,
+        "revision": "scene-07-nearest-carved-island-lantern-mesh75",
+        "roofRevision": "scene07-solid-curved-roof-67",
+        "foregroundRoof": {
+          "revision": "scene07-short-lapped-gallery-tiles-68b",
+          "footprint": [
+            12,
+            9
+          ],
+          "oldLocalProfilePreserved": true,
+          "worldTransform": {
+            "position": [
+              2.3,
+              6.4,
+              24.5
+            ],
+            "yaw": -0.22
+          },
+          "tilePitchMetres": 0.48,
+          "coverWidthMetres": 0.32,
+          "panWidthMetres": 0.4,
+          "nominalCourseLengthMetres": 0.33,
+          "ceramicWallMetres": [
+            0.022,
+            0.028
+          ],
+          "arrisBevelMetres": 0.004,
+          "embossDepthMetres": 0.02,
+          "counts": {
+            "covers": 284,
+            "pans": 285,
+            "raisedTerminals": 15,
+            "metalEnds": 41
+          },
+          "photoTextureOrProjection": false,
+          "visualAccepted": false
+        },
+        "islandLantern": {
+          "anchorLocal": [
+            4.8,
+            0.2,
+            14.2
+          ],
+          "uniformLocalScale": 1.5675675675675675,
+          "worldAnchor": [
+            4.8,
+            0.2,
+            5.52
+          ],
+          "localBounds": {
+            "min": [
+              -1.059999942779541,
+              1.7881393032936899e-9,
+              -1.059999942779541
+            ],
+            "max": [
+              1.059999942779541,
+              4.050000190734863,
+              1.059999942779541
+            ]
+          },
+          "worldBounds": {
+            "isBox3": true,
+            "min": {
+              "x": 3.138378468075314,
+              "y": 0.20000000280302918,
+              "z": 4.523027080845188
+            },
+            "max": {
+              "x": 6.461621531924686,
+              "y": 6.548648947638434,
+              "z": 6.516972919154811
+            }
+          },
+          "fireBagCentreY": 2.84,
+          "fireBagClearHeight": 0.4,
+          "verticalBarsPerFace": 7,
+          "horizontalBarsPerFace": 5,
+          "closedCurvedRoof": true,
+          "roofMaximumHalfWidth": 1.06,
+          "mossPatches": 18,
+          "triangles": 37824,
+          "lightsAdded": 0,
+          "originalGlowMaterialRetained": true,
+          "visualAccepted": false
+        },
+        "physicalRoofs": [
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "hall-lower-roof",
+            "width": 16.2,
+            "depth": 16,
+            "eave": 7.38,
+            "peak": 8.75,
+            "tiles": {
+              "cover": 5484,
+              "pan": 5416
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "hall-upper-irimoya-roof",
+            "width": 14.8,
+            "depth": 18.7,
+            "eave": 10.6,
+            "peak": 16.75,
+            "tiles": {
+              "cover": 4628,
+              "pan": 4648
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-1",
+            "width": 8.1,
+            "depth": 8.1,
+            "eave": 3.7,
+            "peak": 4.82,
+            "tiles": {
+              "cover": 1722,
+              "pan": 1680
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-2",
+            "width": 7.75,
+            "depth": 7.75,
+            "eave": 6.4,
+            "peak": 7.5200000000000005,
+            "tiles": {
+              "cover": 1638,
+              "pan": 1596
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-3",
+            "width": 7.35,
+            "depth": 7.35,
+            "eave": 9.05,
+            "peak": 10.170000000000002,
+            "tiles": {
+              "cover": 1480,
+              "pan": 1440
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-4",
+            "width": 6.95,
+            "depth": 6.95,
+            "eave": 11.65,
+            "peak": 12.77,
+            "tiles": {
+              "cover": 1400,
+              "pan": 1360
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-5",
+            "width": 6.55,
+            "depth": 6.55,
+            "eave": 14.2,
+            "peak": 15.32,
+            "tiles": {
+              "cover": 1320,
+              "pan": 1280
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          }
+        ],
+        "instances": 172922,
+        "triangles": 31453661,
+        "referenceCamera": [
+          10.7,
+          12.8,
+          36
+        ],
+        "externalAssets": true,
+        "assetProvenance": "reconstructions/scene-07/assets/scanned-timber-provenance.json",
+        "stoneAssetProvenance": "reconstructions/scene-07/assets/scanned-garden-stones-provenance.json",
+        "roofProvenance": "reconstructions/scene-07/assets/physical-roof-provenance.json"
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "9f1cccbfe82da1b4343a01db213c8b574b311c91eb75b7ed396b740f24553e07"
+    },
+    {
+      "pose": true,
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "scene": 7,
+        "revision": "scene-07-nearest-carved-island-lantern-mesh75",
+        "roofRevision": "scene07-solid-curved-roof-67",
+        "foregroundRoof": {
+          "revision": "scene07-short-lapped-gallery-tiles-68b",
+          "footprint": [
+            12,
+            9
+          ],
+          "oldLocalProfilePreserved": true,
+          "worldTransform": {
+            "position": [
+              2.3,
+              6.4,
+              24.5
+            ],
+            "yaw": -0.22
+          },
+          "tilePitchMetres": 0.48,
+          "coverWidthMetres": 0.32,
+          "panWidthMetres": 0.4,
+          "nominalCourseLengthMetres": 0.33,
+          "ceramicWallMetres": [
+            0.022,
+            0.028
+          ],
+          "arrisBevelMetres": 0.004,
+          "embossDepthMetres": 0.02,
+          "counts": {
+            "covers": 284,
+            "pans": 285,
+            "raisedTerminals": 15,
+            "metalEnds": 41
+          },
+          "photoTextureOrProjection": false,
+          "visualAccepted": false
+        },
+        "islandLantern": {
+          "anchorLocal": [
+            4.8,
+            0.2,
+            14.2
+          ],
+          "uniformLocalScale": 1.5675675675675675,
+          "worldAnchor": [
+            4.8,
+            0.2,
+            5.52
+          ],
+          "localBounds": {
+            "min": [
+              -1.059999942779541,
+              1.7881393032936899e-9,
+              -1.059999942779541
+            ],
+            "max": [
+              1.059999942779541,
+              4.050000190734863,
+              1.059999942779541
+            ]
+          },
+          "worldBounds": {
+            "isBox3": true,
+            "min": {
+              "x": 3.138378468075314,
+              "y": 0.20000000280302918,
+              "z": 4.523027080845188
+            },
+            "max": {
+              "x": 6.461621531924686,
+              "y": 6.548648947638434,
+              "z": 6.516972919154811
+            }
+          },
+          "fireBagCentreY": 2.84,
+          "fireBagClearHeight": 0.4,
+          "verticalBarsPerFace": 7,
+          "horizontalBarsPerFace": 5,
+          "closedCurvedRoof": true,
+          "roofMaximumHalfWidth": 1.06,
+          "mossPatches": 18,
+          "triangles": 37824,
+          "lightsAdded": 0,
+          "originalGlowMaterialRetained": true,
+          "visualAccepted": false
+        },
+        "physicalRoofs": [
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "hall-lower-roof",
+            "width": 16.2,
+            "depth": 16,
+            "eave": 7.38,
+            "peak": 8.75,
+            "tiles": {
+              "cover": 5484,
+              "pan": 5416
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "hall-upper-irimoya-roof",
+            "width": 14.8,
+            "depth": 18.7,
+            "eave": 10.6,
+            "peak": 16.75,
+            "tiles": {
+              "cover": 4628,
+              "pan": 4648
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-1",
+            "width": 8.1,
+            "depth": 8.1,
+            "eave": 3.7,
+            "peak": 4.82,
+            "tiles": {
+              "cover": 1722,
+              "pan": 1680
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-2",
+            "width": 7.75,
+            "depth": 7.75,
+            "eave": 6.4,
+            "peak": 7.5200000000000005,
+            "tiles": {
+              "cover": 1638,
+              "pan": 1596
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-3",
+            "width": 7.35,
+            "depth": 7.35,
+            "eave": 9.05,
+            "peak": 10.170000000000002,
+            "tiles": {
+              "cover": 1480,
+              "pan": 1440
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-4",
+            "width": 6.95,
+            "depth": 6.95,
+            "eave": 11.65,
+            "peak": 12.77,
+            "tiles": {
+              "cover": 1400,
+              "pan": 1360
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene07-solid-curved-roof-67",
+            "label": "pagoda-tier-5",
+            "width": 6.55,
+            "depth": 6.55,
+            "eave": 14.2,
+            "peak": 15.32,
+            "tiles": {
+              "cover": 1320,
+              "pan": 1280
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          }
+        ],
+        "instances": 172922,
+        "triangles": 31453661,
+        "referenceCamera": [
+          10.7,
+          12.8,
+          36
+        ],
+        "externalAssets": true,
+        "assetProvenance": "reconstructions/scene-07/assets/scanned-timber-provenance.json",
+        "stoneAssetProvenance": "reconstructions/scene-07/assets/scanned-garden-stones-provenance.json",
+        "roofProvenance": "reconstructions/scene-07/assets/physical-roof-provenance.json"
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        650,
+        680,
+        320,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "381b3200142eb56b572f65341c29c659d73cae09c30da14a700f5d0e0da60a6c"
+    }
+  ],
+  "completedAt": "2026-10-18T23:04:21.531Z"
+}

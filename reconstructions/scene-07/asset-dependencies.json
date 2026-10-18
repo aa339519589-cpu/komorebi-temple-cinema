@@ -19,5 +19,32 @@
     "scope": "Only the separate low near-gallery roof, using the existing mesh67 transform and curve. The main hall/pagoda physical-roofs.js is untouched.",
     "newExternalAssets": [],
     "photoTextureOrProjection": false
+  },
+  "revision": "mesh75b",
+  "islandLantern": {
+    "scope": "Only the nearest water-island stone lantern, replacing the single original lantern(4.8,14.2,5.8,.2) call. Other4lanterns, islands/garden RNG, existing camera/light/roof/rail geometry stay.",
+    "anchor": "Local4.8,.2,14.2 scaled5.8/3.7, under the exact retained garden transform T(0,0,-3)*S(1,1,.6), world anchor4.8,.2,5.52.",
+    "envelope": "Old local full lamp bounds x/z±1.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
+    "geometry": "Thick closed curved/fluted kasa with a small actual rolled/upturned lip, original-height rounded-neck finial, short recessed firebag,7vertical+5horizontal fine bars per face, smaller closed warm core, closed carved-stone panels/petals, substantial shaft/base and11surface-rooted closed moss pads plus132small closed moss fibres.",
+    "light": "The original mats.glow material/emissive intensity is borrowed unchanged; luminous centrelocalY2.84 retained. No point/area lights added or moved.",
+    "inspectedConstruction": "scene04/src/scene04-lanterns.js reviewed for closed cap/cavity/relief/moss construction only. Scene04 proportions, scale and lights are not copied.",
+    "surfaceSource": {
+      "from": "reconstructions/scene-04/assets/granite-tile-04",
+      "to": "assets/island-lantern-granite",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "license": "CC0-1.0",
+      "provenance": "assets/island-lantern-granite/provenance.json",
+      "repeatMetres": 0.3173828125,
+      "scope": "Existing single-face crop, no source grout or reference scene RGB. Local copies avoid runtime cross-scene dependency.",
+      "sha256": {
+        "granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+        "granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+        "granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+        "provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b"
+      }
+    },
+    "visualAccepted": false,
+    "roundTwoCorrection": "75a actual was too dark/brown from multiplying the source granite albedo, with leaf-like roof moss and the old conical finial.75b uses independent neutral-gray body/damp-cap pigments times normalized CC0 mineral luminance (measured linear mean0.153180782734, exponent0.55, clamp0.68..1.36), preserving normal/roughness. Only this lamp gets smaller irregular moss cushions/fibres, a rounded-neck crown and a26mm-local eave curl. Original entire AABB/anchor/matrix/glow and all scene lights retained.",
+    "materialStatistics": "The fresh worktree Python lacks Pillow; the source PNG mean was read through a standard-library zlib/PNG-filter decoder.75a source was restored into retained-source and verified against every report file hash before further editing."
   }
 }
