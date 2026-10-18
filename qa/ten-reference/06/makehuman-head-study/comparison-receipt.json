@@ -1,0 +1,92 @@
+{
+  "status": "unaccepted-review",
+  "order": "Original HD / selected32 /56 /58 clean-positioned",
+  "processing": "Crop, resample and labelled side-by-side layout only. No image retouch, colour gain or replacement of any scene image.",
+  "physicalCamera": {
+    "position": [
+      0,
+      0.58,
+      8.4
+    ],
+    "target": [
+      0,
+      2.4,
+      -2.3
+    ],
+    "fov": 62
+  },
+  "nativeDetailCrop": [
+    584,
+    331,
+    95,
+    1254
+  ],
+  "inputs": {
+    "face": [
+      {
+        "label": "Original HD",
+        "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/4-\u7167\u7247-5.jpg",
+        "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35"
+      },
+      {
+        "label": "selected32",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-seat-contact32-native58/detail-native.png",
+        "sha256": "408fd9c7176b413635474ee933c44967cad7888bc1fde5f9ae486ab4c8e0e777"
+      },
+      {
+        "label": "56 clean / old position",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman56/detail-native.png",
+        "sha256": "64b3982b0595a8e8e99553f05a8def78537f4cbf2fdf4360ee14b2dea8571fd0"
+      },
+      {
+        "label": "58 clean / corrected position",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman58-clean-positioned/detail-native.png",
+        "sha256": "2835f1e39e94d475606d114bfb1852c25e390ddda86968696a7e3d12d056b40c"
+      }
+    ],
+    "full": [
+      {
+        "label": "Original HD",
+        "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/4-\u7167\u7247-5.jpg",
+        "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35"
+      },
+      {
+        "label": "selected32",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-seat-contact32-native58/reference.png",
+        "sha256": "e45c884ff95d5569f4a942c063aad8331b5af4c0099825b3afdab9389dcf9652"
+      },
+      {
+        "label": "56 clean / old position",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman56/reference.png",
+        "sha256": "7620aef74e60ee4e7ba6f1ca17af5fa99920907a9f2988696aca9b77a39a3d25"
+      },
+      {
+        "label": "58 clean / corrected position",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman58-clean-positioned/reference.png",
+        "sha256": "cfd2e39b633988ec4b8eb306c3c3f6f376bcf15dd855f6587c9dc3bf71dc2e78"
+      }
+    ],
+    "rejected": [
+      {
+        "label": "56 clean / old position",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman56/detail-native.png",
+        "sha256": "64b3982b0595a8e8e99553f05a8def78537f4cbf2fdf4360ee14b2dea8571fd0"
+      },
+      {
+        "label": "57 local-jaw lift rejected",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman57/detail-native.png",
+        "sha256": "95993f63842c176f155096b496db10211d9f48b9404e9c30d5d40477cb310722"
+      },
+      {
+        "label": "58 ear profile rejected",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman58/detail-native.png",
+        "sha256": "4cb34425375d442bab96f4006995fb0553fcde3bc94b4d8ddb8300c0f4489076"
+      },
+      {
+        "label": "58 clean / corrected position",
+        "path": "/Users/mima1234/temple-parallel-03-20261018/qa/ten-reference/06/iteration-makehuman58-clean-positioned/detail-native.png",
+        "sha256": "2835f1e39e94d475606d114bfb1852c25e390ddda86968696a7e3d12d056b40c"
+      }
+    ]
+  }
+}

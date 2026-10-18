@@ -29,18 +29,6 @@ for line in (SRC/'asian-male-young.target').read_text().splitlines():
     if not s or s[0].startswith('#'): continue
     i=int(s[0]);verts[i]=[v+float(d) for v,d in zip(verts[i],s[1:4])]
 
-# Official CC0 anatomical ear modifiers preserve the original control loops.
-# In particular, lobe roundness and depth come from an actual closed auricle,
-# rather than a separate bead, tube or elliptical patch attached to the head.
-ear_ids=set()
-for side in ('l','r'):
-    for target,weight in [('lobe-incr',1.0),('shape-round',.8),('scale-depth-incr',.5),('rot-forward',.5)]:
-        for line in (SRC/f'{side}-ear-{target}.target').read_text().splitlines():
-            s=line.split()
-            if not s or s[0].startswith('#'): continue
-            i=int(s[0]);ear_ids.add(i)
-            verts[i]=[v+weight*float(d) for v,d in zip(verts[i],s[1:4])]
-
 def smooth(t):
     t=max(0,min(1,t));return t*t*(3-2*t)
 def brush(x,y,cx,cy,rx,ry):
@@ -48,6 +36,8 @@ def brush(x,y,cx,cy,rx,ry):
     r=math.hypot((x-cx)/rx,(y-cy)/ry)
     return (1-smooth(r)) if r<1 else 0
 def reference_height(y):
+    # Clean56 anatomy, with the measured57 head/chest height correction only.
+    # The rejected58 ear reparameterization remains archived in commit25356b8.
     return y-.180*smooth((y-1.80)/.40)+.050*smooth((y-2.95)/.25)
 
 # Retain the connected head, both auricles and the neck. Helpers, teeth, eyes,
@@ -66,11 +56,9 @@ for i in used:
     # Full zygomatic pads and soft lower cheek, directly on the skin surface.
     cheek=brush(ax,y,.40,6.61,.30,.47)*smooth((z-.65)/.45)
     x += side*.072*cheek;z += .080*cheek
-    # A broad, monotone horizontal-section taper. No local corner lift or
-    # cheek/chin displacement: every transverse row contracts continuously.
-    section_scale=.865+.135*smooth((y-5.80)/.95)
-    facial_section=smooth((z-.58)/.40)
-    x*=1-(1-section_scale)*facial_section
+    # Compact rounded mandible, keeping the genuine chin-to-throat transition.
+    jaw=brush(ax,y,.30,6.03,.43,.35)*smooth((z-.40)/.50)
+    x += side*.050*jaw
     chin=brush(x,y,0,5.98,.35,.24)*smooth((z-.65)/.40)
     y += .035*chin;z += .032*chin
     # Modest sculptural mouth: keep the real lip loops, close their aperture,
@@ -81,24 +69,13 @@ for i in used:
     # Subtly raised brow ridge; all change is geometric, no painted brow.
     brow=brush(ax,y,.31,7.27,.32,.14)*smooth((z-.75)/.35)
     z += .035*brow
-    # Reparameterize the lower auricle along its length. A Hermite cap has a
-    # small bottom slope and matches the source derivative at the upper join;
-    # expanded transverse radii retain a full rounded lower third.
-    root_width=.050+.025*smooth((y-6.70)/.25)
-    ear=smooth((ax-.635)/root_width)*(1-smooth((y-7.39)/.13))
-    if i in ear_ids and z<1.06 and y>6.35:
-        if y<6.88:
-            t=max(0,min(1,(y-6.475)/.405))
-            cap_y=(2*t**3-3*t*t+1)*5.850+(t**3-2*t*t+t)*.08+(-2*t**3+3*t*t)*6.88+(t**3-t*t)*.405
-            y+=(cap_y-y)*ear
-            full=(1-smooth(t))*ear
-            cx=.745;cz=.49
-            x=side*(abs(x)+(abs(x)-cx)*.58*full)
-            z+=(z-cz)*.52*full+.055*full
-        theta=math.radians(20)*ear
-        dx=abs(x)-.64;dz=z-.58
-        x=side*(.64+dx*math.cos(theta)-dz*math.sin(theta))
-        z=.58+dx*math.sin(theta)+dz*math.cos(theta)
+    # Lengthen the actual closed ear lobule. Temporal attachment is retained
+    # by fading to zero across the medial root; the helix/concha topology stays.
+    ear=smooth((ax-.635)/.075)*(1-smooth((y-7.39)/.13))
+    if z<.88 and y>6.48:
+        lobe=1-smooth((y-6.55)/.53)
+        y -= .57*ear*lobe
+        z += .09*ear*lobe
     # Fit the Asian head to the selected statue, preserving head position and
     # upper facial anchors. Widen the existing neck rather than adding collars.
     localy=2.900+(y-7.020)*.460

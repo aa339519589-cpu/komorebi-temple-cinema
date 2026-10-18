@@ -48,7 +48,42 @@
   },
   "renderMethod": "Root shared render-one-reconstruction queue;1254 main plus DETAIL_CROP=584,331,95,1254 genuine native camera subfrustum. detail-native.png is not an enlarged photograph or screenshot.",
   "manualComparisonImages": "reference-enlarged-comparison-only.png and baseline32-enlarged-comparison-only.png are explicitly enlarged raster comparison inputs, not native3D detail evidence.",
-  "roundLimitReached": 2,
+  "roundLimitReached": null,
   "additionalTestsRun": false,
-  "photographicAcceptance": false
+  "photographicAcceptance": false,
+  "continuationAuthorized": "Root requested targeted58 and explicit fallback to clean56 with measured57 placement if58 proved worse.",
+  "round03": {
+    "iteration": "makehuman58",
+    "verdict": "Rejected ear silhouette. Do not promote.",
+    "gains": [
+      "Continuous section width taper avoids57 local mandibular-corner folds."
+    ],
+    "gaps": [
+      "Longitudinal ear reparameterization produces a larger pointed blade silhouette rather than a rounded lobule.",
+      "Nose/lip relief and native reflection response still too hard."
+    ],
+    "sourceCommit": "25356b8"
+  },
+  "currentCandidate": {
+    "iteration": "makehuman58-clean-positioned",
+    "status": "Rendered and inspected; unaccepted, awaiting root comparison",
+    "anatomy": "Clean56 connected skin restored.",
+    "placement": "Measured57 head and smooth upper-chest fit retained.",
+    "remainingGaps": [
+      "Square human jaw differs from the original round long oval.",
+      "Lobules remain pointed and insufficiently volumetric.",
+      "Downcast eyelid form, arched eyebrow relief/paint and lip shape need further sculpture-specific work.",
+      "Native metal reflections and interior light still differ."
+    ],
+    "selectionAuthority": "Root reviewer; no fidelity acceptance inferred from successful rendering.",
+    "verdict": "Explicit fallback to clean56 skin with measured57 placement; rejected58 ear geometry is absent from runtime.",
+    "actualRender": "qa/ten-reference/06/iteration-makehuman58-clean-positioned",
+    "sourceGeometrySha256": "5f22e680ee1ec6d39462a7514bc5228b40e2895271ffce2d11957a370911cd86"
+  },
+  "comparisons": {
+    "face": "comparison-face-four-way.png",
+    "full": "comparison-full-four-way.png",
+    "rejected58AsRequested": "comparison-face-requested58.png",
+    "rejectedShapes": "comparison-rejected-shapes.png"
+  }
 }
