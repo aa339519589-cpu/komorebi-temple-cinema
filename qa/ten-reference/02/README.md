@@ -67,3 +67,10 @@ Inspected the actual 1254px parallel47 full frame against the original and paral
 `scanned-timber.js` adapts the scene08 per-instance metric-UV approach. Member extents are attributes on every lacquered wood geometry, and shader UVs use actual instance dimensions. Existing buckets, geometry and motion stay intact. The timber shader chains the existing finite-radiance capture shader. The close rail, column and eaves have visible grain and deeper varied brown-vermilion in the actual image. `iteration-parallel47/comparison.png` shows original, parallel40 and this actual frame. Geometry counts are recorded before/after in its visual review.
 
 A single queued actual full-frame render was used; no test suite was run. Surface color variation improves, while dark roof planes, stylized landscape and simplified details remain. This is a draft without visual acceptance.
+
+
+## Structural pass: square tower hips and connected hall roof (struct49)
+
+Original/47/49 comparisons are in `iteration-struct49/`, including native tower and hall crops. The five pagoda tiers now use single-centre square hip profiles, shorter occupied storeys, wider bodies and real low gallery guards. Windows sit behind the outside gallery posts. Denser column-head brackets, purlins and curved rafters support the overhang. The view already approaches the tower at about38degrees, so a small positive .075rad yaw brings unequal three-quarter faces nearer34degrees; a large borrowed rotation was not used.
+
+The hall's duplicated full hipped canopy is removed. One steep hip roof carries a smaller inset front gable, with primary cantilever timbers connecting the eave row and columns. Two queued actual1254px full frames were inspected. Struct48 showed too much blank attic face; struct49 corrected this with the inset gable. Camera, motion, scanned timber PBR and the foreground/garden remain. The actual roof is still too dark, its corner position differs, and tower/carving/landscape detail remains approximate. This structural candidate is not visually accepted.

@@ -34,6 +34,21 @@ export function buildArchitecture(mats){
   }
   if(inner===0){b.box(0,eave+rise+.13,0,ridge*2+.4,.25,.35,'slate');for(let sign of[-1,1])b.tube([[sign*ridge,eave+rise+.12,0],[sign*(ridge+.3),eave+rise+.35,0],[sign*(ridge+.42),eave+rise+.7,0]],.12,'slate');}
  },scale);}
+ // A square pagoda roof meets at one central peak, with four true hips.
+ // The old long-ridge sampler made every tier read as a shallow rectangular shelf.
+ function pagodaRoof(w,eave,rise=1.4,curl=.52){
+  const h=w/2,P=(side,t,u)=>{let x,z;if(side<2){x=u*h*t;z=(side===0?1:-1)*h*t;}else{x=(side===2?1:-1)*h*t;z=u*h*t;}return[x,eave+rise*Math.pow(Math.max(0,1-t),1.46)+curl*Math.pow(t,7)*(.18+.82*Math.pow(Math.abs(u),8)),z];};
+  for(let side=0;side<4;side++){
+   const g=gridGeometry(Array.from({length:25},(_,j)=>Array.from({length:49},(_,i)=>P(side,.002+.998*j/24,-1+2*i/48))));
+   const ids=g.index.array;let ny=0;for(let k=0;k<g.attributes.normal.count;k++)ny+=g.attributes.normal.getY(k);if(ny<0){for(let k=0;k<ids.length;k+=3)[ids[k+1],ids[k+2]]=[ids[k+2],ids[k+1]];g.computeVertexNormals();}b.put(g,'slate');
+   const under=g.clone();under.translate(0,-.16,0);const ui=under.index.array;for(let k=0;k<ui.length;k+=3)[ui[k+1],ui[k+2]]=[ui[k+2],ui[k+1]];under.computeVertexNormals();b.put(under,'darkwood');
+   const count=Math.ceil(w/.18);for(let i=0;i<=count;i++){const u=-1+2*i/count;for(let j=0;j<12;j++){const a=P(side,.04+.96*j/12,u),c=P(side,.04+.96*(j+1)/12,u);a[1]+=.035;c[1]+=.035;b.line(a,c,.043,'slate');}const end=P(side,1,u);roofEnd([end[0],end[1]+.025,end[2]],side<2?side*Math.PI:(side===2?Math.PI/2:-Math.PI/2));
+    for(let j=0;j<7;j++){const a=P(side,.42+.58*j/7,u),c=P(side,.42+.58*(j+1)/7,u);a[1]-=.25;c[1]-=.25;b.line(a,c,.066,'cedar',true,.085);}}
+   const edge=Array.from({length:33},(_,j)=>P(side,1,-1+2*j/32));b.tube(edge.map(p=>[p[0],p[1]-.13,p[2]]),.10,'darkwood',40);b.tube(edge.map(p=>[p[0],p[1]-.24,p[2]]),.028,'oldgold',40);
+   if(side<2)for(let sign of[-1,1])b.tube(Array.from({length:29},(_,j)=>{const p=P(side,.025+.995*j/28,sign);p[1]+=.07;return p;}),.075,'slate',40);
+  }
+  b.cyl(0,eave+rise+.055,0,.20,.11,'slate');
+ }
  function gableRoof(w,d,eave,rise,zcenter){const hw=w/2;const P=(s,t,z)=>[s*hw*t,eave+rise*Math.pow(1-t,1.28)+.38*Math.pow(t,8),zcenter+z];
   for(let s of[-1,1]){let rows=Array.from({length:25},(_,j)=>Array.from({length:37},(_,i)=>P(s,i/36,-d/2+d*j/24)));let g=gridGeometry(rows);const m=mats.slate.clone();m.side=T.DoubleSide;b.put(g,m);const under=g.clone();under.translate(0,-.2,0);b.put(under,'darkwood');
    for(let k=0;k<=Math.ceil(d/.22);k++){let z=-d/2+d*k/Math.ceil(d/.22);for(let j=0;j<14;j++){let a=P(s,j/14,z),c=P(s,(j+1)/14,z);a[1]+=.055;c[1]+=.055;b.line(a,c,.055,'slate');}}
@@ -61,21 +76,22 @@ export function buildArchitecture(mats){
   for(let x of[-2.7,2.7]){b.box(x,4.9,4.25,.32,5.3,.5,'red');for(let j=0;j<12;j++)fitting(x,2.55+j*.42,4.52,.29,.29);}
   b.box(0,7.65,4.3,5.8,.55,.6,'red');for(let i=-5;i<=5;i++){b.put(scroll,'oldgold',[i*.48,7.65,4.65],[.68,.68,.68],[0,0,i%2?Math.PI:0]);rosette(i*.48,7.65,4.67,.065);}
   // Lower hipped skirt carries dense parallel tile courses and exposed bracket tiers.
-  roof({w:22.8,d:16,eave:9.0,rise:3.4,center:[0,0,-.8],curl:.7,inner:.36});
-  // A broad blue tiled hipped roof encloses the volume. A small carved gable
-  // is seated within its front slope rather than replacing the whole roof with a wall.
-  b.at([0,0,-1.0],Math.PI/2,()=>roof({w:14.6,d:21.7,eave:10.65,rise:5.65,curl:.68}));
-  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-4.65,11.25,5.45,4.65,11.25,5.45,0,15.05,5.45],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
-  gableRoof(10.2,4.9,11.15,4.25,3.0);
-  for(let s of[-1,1]){
-   const points=Array.from({length:40},(_,i)=>{let t=i/39;return[s*5.1*t,11.15+4.25*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.15,5.59];});
-   b.tube(points,.10,'oldgold',48);b.tube(points.map(p=>[p[0],p[1]+.08,p[2]+.03]),.034,'gold',48);
-   for(let j=0;j<21;j++){const p=points[Math.round((j+.5)*39/21)];rosette(p[0],p[1]-.18,p[2]+.04,.11);}
+  b.at([0,0,-.8],Math.PI/2,()=>roof({w:16,d:22.8,eave:9.0,rise:6.2,curl:.7}));
+  // A small front gable is seated into one continuous steep hip roof.
+  // Its lower edges sink into the tile plane rather than creating a second full eave.
+  gableRoof(10.8,4.0,10.8,4.6,3.5);
+  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-5.1,11.1,5.48,5.1,11.1,5.48,0,15.22,5.48],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
+  for(let sign of[-1,1]){
+   const points=Array.from({length:49},(_,i)=>{const t=i/48;return[sign*5.4*t,10.8+4.6*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.13,5.60];});
+   b.tube(points,.105,'oldgold',56);b.tube(points.map(p=>[p[0],p[1]+.065,p[2]+.03]),.028,'gold',56);
+   for(let j=1;j<18;j++){const p=points[Math.round(j*48/19)];rosette(p[0],p[1]-.13,p[2]+.04,.095);}
+   b.line([0,14.6,5.53],[sign*3.8,11.35,5.53],.13,'cedar',true,.15);
   }
-  // Deep timber trusses hold smaller nested cloud carvings in the gable recess.
-  b.box(0,12.05,5.52,6.7,.16,.20,'cedar');for(let x of[-1.75,1.75])b.box(x,12.78,5.53,.15,2.6,.20,'cedar');
-  for(let row=0;row<4;row++){const yy=11.65+row*.72,half=3.5-row*.76;for(let x=-half+.2;x<half;x+=.52){b.put(scroll,'oldgold',[x,yy,5.62],[.75,.85,.8],[0,0,(row+Math.round(x*2))%2?Math.PI:0]);rosette(x,yy+.12,5.65,.055);for(let ss of[-1,1])b.put(reliefLeaf,'oldgold',[x+ss*.12,yy+.035,5.655],[.75,.9,.9],[0,0,ss*.7]);}}
-  rosette(0,13.72,5.62,.23);b.cyl(0,12.25,5.59,.055,1.3,'gold');b.box(0,11.35,5.48,9.6,.17,.25,'cedar');
+  b.box(0,11.70,5.51,8.0,.21,.22,'cedar');for(let x of[-1.75,0,1.75])b.box(x,12.55,5.52,.18,1.80,.22,'cedar');
+  for(let x=-3.2;x<3.3;x+=.55){b.put(scroll,'oldgold',[x,11.73,5.65],[.85,1.05,.8],[0,0,Math.round(x*2)%2?Math.PI:0]);rosette(x,11.83,5.67,.07);}
+  rosette(0,13.7,5.64,.29);for(let sign of[-1,1])b.put(scroll,'oldgold',[sign*.45,13.35,5.64],[1.4,1.5,.9],[0,0,sign<0?Math.PI:0]);
+  // Deep primary cantilever beams connect real column heads to the eave row.
+  for(let x of axes){b.box(x,8.50,5.42,.43,.34,2.25,'cedar');b.box(x,8.13,4.72,.78,.25,.80,'darkwood');fitting(x,8.15,5.18,.62,.23);}
   // Closely spaced multi-tier bracket clusters cast real shadows under the deep eave.
   for(let x=-9.2;x<=9.21;x+=.66){bracket(x,7.95,6.0,.90);b.box(x,9.26,6.45,.17,.17,1.58,'cedar');fitting(x,8.64,6.48,.16,.22);}
   for(let z=-6.2;z<6.3;z+=.72)for(let x of[-8.55,8.55]){bracket(x,7.95,z,.87);b.box(x,9.22,z,1.3,.16,.16,'cedar');}
@@ -83,15 +99,27 @@ export function buildArchitecture(mats){
   // Golden altar, vase and central statue silhouette seen through the four-column entry.
   b.box(0,2.75,-3.7,3.5,.85,1.3,'oldgold');b.box(0,3.22,-3.7,3.75,.13,1.5,'gold');b.ball(0,4.4,-3.7,.62,.93,.40,'gold');b.ball(0,5.4,-3.7,.36,.43,.32,'gold');b.ball(0,5.83,-3.7,.20,.18,.20,'oldgold');b.ball(0,3.7,-3.3,.9,.22,.5,'gold');
  },[hallX,hallY,1]);columnXComp=1;
- // Five-storey pagoda, wider eaves alternating with open galleries, prominent ringed sorin.
- b.at([-15.6,3.0,-16],0,()=>{
-  b.box(0,.3,0,7.6,.6,7.6,'stone');b.box(0,.65,0,8,.14,8,'lightstone');
-  for(let level=0;level<5;level++){let floor=.8+level*3.15,w=9.4-level*.45,body=w*.38,eave=floor+2.6;
-   b.box(0,floor,0,body+.6,.2,body+.6,'cedar');
-   for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{b.box(0,floor+1.25,-body/2,body,2.45,.15,'darkwood');for(let x of[-body*.36,0,body*.36]){windowPanel(x,floor+1.35,body/2-.1,body*.25,1.35);column(x,body/2+.15,floor,2.2,.12);bracket(x,eave-.35,body/2+.15,.5);}for(let yy of[floor+.62,floor+1.92])b.box(0,yy,body/2+.025,body*.93,.17,.045,'lightstone');b.at([0,floor,body/2+.38],0,()=>rail(body+.6,0,.63));b.box(0,eave-.17,body/2,body+.9,.24,.35,'red');});
-   roof({w,d:w,eave,rise:1.05,curl:.55});
+ // Camera-to-tower azimuth is about 38 degrees. A small positive yaw makes
+ // the photographed unequal three-quarter faces; it is not a front-on tower.
+ b.at([-15.6,5.1,-16],.075,()=>{
+  b.box(0,.30,0,7.6,.6,7.6,'stone');b.box(0,.65,0,8,.14,8,'lightstone');
+  for(let level=0;level<5;level++){
+   const floor=.8+level*2.65,w=9.4-level*.45,body=w*.48,eave=floor+2.10;
+   b.box(0,floor+.04,0,body+1.18,.24,body+1.18,'cedar');b.box(0,floor+.19,0,body+1.26,.075,body+1.26,'red');
+   for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{
+    b.box(0,floor+1.03,-body/2,body,1.9,.14,'darkwood');
+    for(let x of[-.35,-.115,.115,.35])windowPanel(x*body,floor+1.02,body/2-.14,body*.205,.96);
+    for(let yy of[floor+.43,floor+1.56])b.box(0,yy,body/2+.035,body,.19,.065,'lightstone');
+    for(let x of[-.46,-.23,0,.23,.46]){column(x*body,body/2+.35,floor+.12,1.62,.13);bracket(x*body,floor+1.68,body/2+.35,.60);b.box(x*body,floor+2.18,body/2+.61,.18,.20,1.16,'cedar');}
+    for(let y of[floor+1.86,floor+2.15])b.box(0,y,body/2+.35,body+1.05,.17,.31,'red');
+    const front=body/2+.56;for(let y of[floor+.38,floor+.69])b.box(0,y,front,body+1.0,.075,.10,'red');
+    for(let i=0;i<=8;i++){const x=-(body+1)/2+(body+1)*i/8;b.box(x,floor+.48,front,.085,.55,.085,'red');b.box(x,floor+.77,front,.12,.055,.12,'oldgold');}
+    for(let i=0;i<8;i++){const x=-(body+1)/2+(body+1)*(i+.5)/8;b.box(x,floor+.43,front-.025,(body+1)/8-.10,.12,.035,'lightstone');}
+   });
+   pagodaRoof(w,eave,1.40,.52);
   }
-  const base=17.05; b.cyl(0,base+2.4,0,.055,4.8,'gold');for(let j=0;j<19;j++){let r=.48-j*.012;b.put(torus,'gold',[0,base+.3+j*.22,0],[r,r,r],[Math.PI/2,0,0]);}b.ball(0,base+4.65,0,.17,.24,.17);b.cyl(0,base+5.06,0,.025,.7,'gold');
+  // The sorin keeps its previous world height; a small seated boot meets the new peak.
+  b.cyl(0,15.02,0,.27,.24,'oldgold');const base=15.14;b.cyl(0,base+2.4,0,.055,4.8,'gold');for(let j=0;j<19;j++){let r=.48-j*.012;b.put(torus,'gold',[0,base+.3+j*.22,0],[r,r,r],[Math.PI/2,0,0]);}b.ball(0,base+4.65,0,.17,.24,.17);b.cyl(0,base+5.06,0,.025,.7,'gold');
  },[.90,1.10,.90]);
  // Enclosing low galleries anchor the far pond edge and continue behind the main hall.
  function gallery(pos,length,yaw=0){b.at(pos,yaw,()=>{b.box(0,.35,0,length,.7,4.3,'stone');for(let x=-length/2+.6;x<length/2;x+=2){column(x,1.2,.7,3.6,.14);bracket(x,4.4,1.2,.55);windowPanel(x,2.35,-1.1,1.7,2.5);}b.box(0,4.35,1.2,length+.5,.28,.3,'red');roof({w:length+1.5,d:5.5,eave:4.8,rise:1.6,curl:.4});b.at([0,.7,1.6],0,()=>rail(length));});}

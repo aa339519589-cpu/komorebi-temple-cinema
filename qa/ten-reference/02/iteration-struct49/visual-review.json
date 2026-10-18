@@ -1,0 +1,35 @@
+{
+  "status": "reviewed-structural-draft",
+  "visualAccepted": false,
+  "sourceHash": "41f31e94b249c45be6bb01c3bc1139351eb2c573c1fa9fe7ec7968685433fc17",
+  "reference": "references/hd/1-\u7167\u7247-2.jpg",
+  "before": "iteration-parallel47/reference.png",
+  "actual": "reference.png",
+  "comparisons": [
+    "comparison.png",
+    "pagoda-comparison.png",
+    "hall-comparison.png"
+  ],
+  "changes": [
+    "Pagoda roof sampler now has one centre peak and four true curved hips instead of a short long-ridge roof repeated on every tier.",
+    "Camera-to-tower azimuth is about38deg. A small positive .075rad tower yaw produces unequal three-quarter faces near34deg; no borrowed -.58rad yaw was used.",
+    "Storey spacing reduces3.15 to2.65 local units, with shorter occupied columns, wider body and recessed windows behind a .49 local-unit gallery (~.44m). Gallery guards are actually .55 local units (~.61m) high instead of the old fixed1.1 local-unit posts.",
+    "Denser brackets, primary cantilever timbers, purlins and curved under-eave rafters connect the gallery and roof.",
+    "Hall has one steep full hip roof and a small front gable seated into its slope. The duplicate upper full hipped canopy was removed. Added primary column-head beams connect the front roof row to the columns."
+  ],
+  "inspectedCandidates": [
+    "struct48: tower structural correction; exposed an oversized blank hall attic triangle",
+    "struct49: final bounded correction with inset gable on a single hip roof"
+  ],
+  "preserved": [
+    "camera and seven-second motion",
+    "existing CC0 scanned timber PBR maps and palette",
+    "foreground veranda/bridge/garden geometry"
+  ],
+  "remainingGaps": [
+    "Main tiles remain too dark and the main roof corner is displaced from the reference.",
+    "Tower brackets and corner silhouettes are still simplified; its body is more regular than the reference.",
+    "The vegetation, gold fittings and ground remain visibly procedural.",
+    "The compressed tower was lifted to retain its upper silhouette; its plinth/terrain connection remains provisional and needs a grounded terrace in the next structural pass."
+  ]
+}
