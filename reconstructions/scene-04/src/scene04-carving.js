@@ -45,6 +45,25 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
   const x=sign*(3.35+j*.77),y=capitalTop-.70-j*.08;
   scroll(x,y,.48,.57,.22,j*1.33);
  }
+ // Five raised floral pendants follow the curved bargeboard, replacing its
+ // repeated flat square patches. Each lobe has a thick convex carved face.
+ for(const [j,x]of[-4.85,-2.65,0,2.65,4.85].entries()){
+  const y=canopyAt(x)-.23,s=j===2?1.18:.86,z=front+.035;
+  for(const side of[-1,1])curve([[x+side*.28*s,y+.085,z],[x+side*.14*s,y-.02,z+.025],[x+side*.18*s,y-.15,z+.045],[x+side*.07*s,y-.20,z+.05]],.012,mats.oldgold);
+  for(let k=0;k<7;k++){const a=(k-3)*.30;petal(x+Math.sin(a)*.085*s,y-.045,z+.055,Math.PI-a,(.16+.045*Math.cos(a))*s,.031*s,mats.oldgold,.045);}
+  petal(x,y+.10,z+.04,Math.PI,.18*s,.055*s,mats.gold,.055);
+ }
+ // Small curved kibana and layered cloud shoulders stay on the existing
+ // column axes. Varied depths and carved leaves break the bare timber ends.
+ const kneeShape=new T.Shape();kneeShape.moveTo(-.44,.12);kneeShape.lineTo(.44,.12);kneeShape.bezierCurveTo(.56,.06,.49,-.19,.34,-.19);kneeShape.bezierCurveTo(.20,-.18,.23,-.015,.11,-.025);kneeShape.bezierCurveTo(-.04,-.04,-.11,-.17,-.30,-.14);kneeShape.bezierCurveTo(-.43,-.12,-.51,-.035,-.44,.12);kneeShape.closePath();
+ for(const side of[-1,1])for(const [j,axis]of[2.86,4.73,6.88].entries()){
+  const x=side*axis,y=canopyAt(x)-1.03,s=.84-j*.085;
+  for(let layer=0;layer<3;layer++){
+   const g=new T.ExtrudeGeometry(kneeShape,{depth:.25,bevelEnabled:true,bevelSize:.018,bevelThickness:.016,bevelSegments:2,curveSegments:16});g.scale(s*(1-layer*.13),.82-layer*.13,1);put(g,layer%2?mats.red:mats.cedar,[x+side*.035*layer,y-layer*.17,.56+layer*.18]);
+  }
+  scroll(x,y-.09,1.13,.61-j*.07,.27-j*.025,j*.73);
+  for(let k=0;k<5;k++)petal(x+side*(k-2)*.06,y-.18,1.15,k*.32-1.0,.18,.035,k%2?mats.cedar:mats.oldgold,.055);
+ }
  for(const [mat,parts]of batches){const clean=parts.map(g=>{const q=g.index?g.toNonIndexed():g;return q;});const g=mergeGeometries(clean,false);clean.forEach(q=>q.dispose());const mesh=new T.Mesh(g,mat);mesh.name='deep-carved-sculpture-'+mat.name;mesh.castShadow=mesh.receiveShadow=true;group.add(mesh);}
  return group;
 }
