@@ -1,0 +1,183 @@
+{
+  "base": "e28f909",
+  "protectedFiles": [
+    {
+      "path": "reconstructions/scene-10/src/near-rain-stones.js",
+      "unchanged": true,
+      "sha256": "7d3d69d9f02118182bdf955703df858b3974682c1fc16f5687cdc1eeb0cf97e7"
+    },
+    {
+      "path": "reconstructions/scene-10/src/worn-flagstone.js",
+      "unchanged": true,
+      "sha256": "9528372c000e64245e60bd9f391e464ff5ea9123b0742b487e04cb2bf0579c75"
+    },
+    {
+      "path": "reconstructions/scene-10/src/paving-mask.js",
+      "unchanged": true,
+      "sha256": "933ab064232b93e133e2427d3f04f32b37d109cb6eaa984d7c3b41ced1a5397b"
+    },
+    {
+      "path": "reconstructions/scene-10/src/architecture.js",
+      "unchanged": true,
+      "sha256": "46b9ba71d8cbfe055779e32fa614087ca83f64300b7983274c4beab0a1813659"
+    },
+    {
+      "path": "reconstructions/scene-10/src/materials.js",
+      "unchanged": true,
+      "sha256": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5"
+    },
+    {
+      "path": "reconstructions/scene-10/src/natural-forms.js",
+      "unchanged": true,
+      "sha256": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e"
+    },
+    {
+      "path": "reconstructions/scene-10/src/optics.js",
+      "unchanged": true,
+      "sha256": "6216f859c404a85bc6b2739384580330322beffb3b12a5381526e25470743313"
+    },
+    {
+      "path": "reconstructions/scene-10/src/dolly-path.js",
+      "unchanged": true,
+      "sha256": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c"
+    },
+    {
+      "path": "reconstructions/scene-10/src/surface-detail.js",
+      "unchanged": true,
+      "sha256": "93d8d1efe23b09b87a6ced3d5107d8f45f280a118844378933f7143aafb11e4e"
+    },
+    {
+      "path": "reconstructions/scene-10/src/scanned-garden-stones.js",
+      "unchanged": true,
+      "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619"
+    },
+    {
+      "path": "reconstructions/scene-10/src/weathered-boulder.js",
+      "unchanged": true,
+      "sha256": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1"
+    },
+    {
+      "path": "reconstructions/scene-10/src/buddha.js",
+      "unchanged": true,
+      "sha256": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56"
+    }
+  ],
+  "protectedMainSections": [
+    {
+      "name": "entire-other-rain-garden-and-all-lights",
+      "unchanged": true,
+      "sha256": "a5e9af6d702412f9a1bb15f5336ac271c6703a08283089e9e645ba35ae6fe809"
+    },
+    {
+      "name": "camera-motion-focus-optics",
+      "unchanged": true,
+      "sha256": "3466b7e17785a9c876fb548891fd06c8be3ac3a9b696f41c3279811321c092d2"
+    }
+  ],
+  "actualModelRecordsEqualTo78": true,
+  "sourceHash": "1c18ab3e2a55816642c729d5024100dad559bf3020e90865fe05c75d7b4a17c7",
+  "sourceMatchesActual": true,
+  "snapshots": [
+    {
+      "path": "main.js",
+      "exact": true
+    },
+    {
+      "path": "near-surface-reflection.js",
+      "exact": true
+    }
+  ],
+  "reflectionReceipt": {
+    "stoneIds": [
+      "9:3",
+      "9:4",
+      "9:5",
+      "10:3",
+      "10:4",
+      "10:5",
+      "11:3",
+      "11:4",
+      "11:5",
+      "12:3",
+      "12:4",
+      "12:5"
+    ],
+    "dimensions": [
+      1024,
+      1280
+    ],
+    "boundsXZ": [
+      -1.6423019409179687,
+      5.285797214508056,
+      1.2021930456161498,
+      8.74027862548828
+    ],
+    "texelMetres": [
+      0.002777827135287225,
+      0.0026988136023283005
+    ],
+    "heightQuantizationMetres": 0.00031372549019607844,
+    "actualTopYRange": [
+      0.028351999819278717,
+      0.05322299897670746
+    ],
+    "poreWaterLevelRange": [
+      0.04095437190379932,
+      0.049192855007436094
+    ],
+    "topTrianglesRead": 653107,
+    "coveredTexels": 1086353,
+    "newTriangles": 0,
+    "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+    "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+    "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+    "planeY": 0.066,
+    "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+    "probeReady": true,
+    "probePosition": [
+      0,
+      2.3,
+      7
+    ],
+    "probeIntensity": 1,
+    "probeAssigned": true,
+    "roughness": 0.39,
+    "clearcoat": 0.55
+  },
+  "frames": [
+    {
+      "name": "shot-0",
+      "valid": true,
+      "glError": 0,
+      "allProgramsLinked": true,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "pose": {
+        "position": [
+          -0.7,
+          0.25,
+          9
+        ],
+        "target": [
+          -0.8,
+          0.06699999999999998,
+          7.8
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      }
+    }
+  ],
+  "errors": [],
+  "newTriangles": 0,
+  "visualAccepted": false,
+  "observedRemainingIssues": [
+    "Fixed 256 px cube probe has reflection parallax and resolution limits.",
+    "Foreground transition shows fine sampling steps / horizontal marks; suspected implicit LOD inside the divergent height-ray search, not yet separately verified.",
+    "Original rings remain at their existing world height; no rain geometry changed."
+  ]
+}
