@@ -1,0 +1,55 @@
+{
+  "asset": "Monastery Stone Floor",
+  "author": "Amal Kumar",
+  "source": "https://polyhaven.com/a/monastery_stone_floor",
+  "license": "CC0",
+  "licenseURL": "https://polyhaven.com/license",
+  "downloadedAt": "2026-10-18T10:03:20.822237+00:00",
+  "sourceWidthMetres": 1.8,
+  "sourceSizePixels": [
+    4096,
+    4096
+  ],
+  "derivedCrop": {
+    "xy": [
+      1760,
+      1320
+    ],
+    "sizePixels": [
+      512,
+      512
+    ],
+    "widthMetres": 0.225,
+    "method": "ffmpeg crop, same coordinates for diffuse/OpenGL normal/roughness; selected within one stone face; no source mortar seams",
+    "wrapping": "mirrored repeat in world metres; modeled paver joints remain actual geometry"
+  },
+  "files": {
+    "individual-stone-diff.png": {
+      "sha256": "4f78aeb551287144c2c1b7f1f4d6c640dfc38d1d8bacb80534dd59001a393074",
+      "bytes": 352531
+    },
+    "individual-stone-nor_gl.png": {
+      "sha256": "f5e7643b0a7e5d7ea063f3b4a34ebe34de24fd16665ff46156351e17d99670fc",
+      "bytes": 483057
+    },
+    "individual-stone-rough.png": {
+      "sha256": "d98abb49a07b5da228fba1ce6923b7d905610ce78a40f4fa61984b39e97d86a5",
+      "bytes": 109632
+    },
+    "monastery_stone_floor_diff_4k.jpg": {
+      "sha256": "c1e1a3af80ed28d8de30f8b8c8583c4e8c9243d6f6b60f010a858f421e5c4253",
+      "bytes": 11478741,
+      "downloadURL": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/monastery_stone_floor/monastery_stone_floor_diff_4k.jpg"
+    },
+    "monastery_stone_floor_nor_gl_4k.jpg": {
+      "sha256": "cf2ea05c00a94d99bd0a39a07b71ec346c3e97d30a47e15931d18f37d49ad723",
+      "bytes": 15776724,
+      "downloadURL": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/monastery_stone_floor/monastery_stone_floor_nor_gl_4k.jpg"
+    },
+    "monastery_stone_floor_rough_4k.jpg": {
+      "sha256": "6370b7ce90958ced9f56f47aef69830b22cc180a88aa06137b5b29d109af6c9d",
+      "bytes": 6335632,
+      "downloadURL": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/monastery_stone_floor/monastery_stone_floor_rough_4k.jpg"
+    }
+  }
+}
