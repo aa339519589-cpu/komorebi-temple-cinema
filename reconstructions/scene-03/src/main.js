@@ -8,6 +8,7 @@ import {hallPlacement,referenceCamera,hallFixtureMatrix} from './hall-layout.js'
 import {createPondSurface} from './water-surface.js';
 import {createLotusPetalMaterials} from './lotus-material.js';
 import {daylightProfile} from './daylight-profile.js';
+import {createNoren} from './noren.js';
 
 const q=new URLSearchParams(location.search),W=Math.min(2400,+(q.get('w')||960)),H=Math.min(2400,+(q.get('h')||960));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
@@ -65,9 +66,9 @@ function lantern(x,y,z,s=1){at([x,y,z],0,()=>{box([0,.08*s,0],[.94*s,.16*s,.94*s
 let roof=curvedLanternCap();emit(roof,stone,[0,2.36*s,0],[s,s,s]);ell([0,2.85*s,0],[.19*s,.21*s,.19*s],stone);ell([0,3.06*s,0],[.095*s,.11*s,.095*s],stone);for(let k=0;k<15;k++){let a=range(0,6.28),r=range(.15,.57);ell([Math.cos(a)*r,2.63*s,Math.sin(a)*r],[.13*s,.035*s,.11*s],moss);}});}
 lantern(8.6,.15,6.8,1.55);lantern(5.7,.06,8.0,.92);lantern(-8.2,.12,6.2,1.0);lantern(11,1.1,1.7,1.3);
 // Gold hanging fixtures, door curtains and chrysanthemum crests animate the hall facade.
-const curtain=mat('ivory woven noren','#e4dbc1');
+const noren=createNoren();noren.textures.forEach(t=>textures.add(t));mats.norenIvory=noren.materials[0];mats.norenCharcoal=noren.materials[1];
 root=hallFixtureMatrix(T);
-for(let x of[1.6,5,8.4]){box([x,6.95,-2.15],[1.35,2.10,.045],x===5?curtain:architecture.materials.black);rosette([x,6.95,-2.1],.31);}
+for(let x of[1.6,5,8.4])emit(noren.geometry,x===5?noren.materials[0]:noren.materials[1],[x,8.0,-2.15],[1.15,1.45,1]);
 for(let x of[-.8,2.0,8.0,10.8]){between([x,8.4,-.9],[x,7.7,-.9],.022,gold);emit(new T.CylinderGeometry(.23,.18,.65,8),gold,[x,7.38,-.9]);box([x,7.38,-.655],[.25,.45,.015],warm);for(let k=0;k<6;k++)box([x-.14+k*.056,7.38,-.64],[.015,.46,.025],gold);ell([x,6.95,-.9],[.08,.18,.08],gold);}
 // A substantial openwork gilt hanging lantern occupies the sanctuary, with
 // actual radial ribs and rings revealing a warm paper core behind the metal.

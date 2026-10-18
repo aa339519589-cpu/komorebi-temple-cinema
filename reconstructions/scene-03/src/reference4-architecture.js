@@ -57,7 +57,7 @@ export function buildReference4Architecture(T,options={}) {
    for(let i=0;i<=rows;i++){const u=-1+2*i/rows;if(side===0&&frontGap&&Math.abs(P(side,1,u)[0])<frontGap+.08)continue;
     const pieces=Math.max(6,Math.ceil(Math.hypot(side%2?hw-rh:hd,rise)*(1-inner)/.36));
     for(let j=0;j<pieces;j++){const t0=inner+(1-inner)*j/pieces,t1=inner+(1-inner)*(j+.96)/pieces;const p=P(side,t0,u),q=P(side,t1,u);tileBetween(p,q,.065,.94+.10*(.5+.5*Math.sin(i*11.3+j*4.7)));}
-    const end=P(side,1,u);if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,.074,i%2===0);const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}
+    const end=P(side,1,u);if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,.074,i%2===0);if(side!==0||!['main-upper-roof','lower-shoulder-roof'].includes(name)){const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}}
    }
    // Exposed eave fascia follows the real curled roof. Central joined edge is not a second fascia.
    for(let i=0;i<36;i++){const u=-1+2*i/36,v=-1+2*(i+1)/36,a=P(side,1,u),b=P(side,1,v);if(side===0&&(frontGap&&Math.min(Math.abs(a[0]),Math.abs(b[0]))<frontGap||connected&&Math.max(Math.abs(a[0]),Math.abs(b[0]))<gHalf))continue;a[1]-=.24;b[1]-=.24;between(a,b,.13,.23,'cedar');}
@@ -127,16 +127,35 @@ export function buildReference4Architecture(T,options={}) {
   for(let j=0;j<8;j++){let h=y+.22+j*.42,r=.37*(1-j*.073);emit(cyl,'oldgold',x,h+.03,z,r*.48,.18,r*.48);for(let k=0;k<6;k++){let a=k*Math.PI*2/6;emit(sphere,'gold',x+Math.cos(a)*r*.62,h+.12,z+Math.sin(a)*r*.62,.075,.18,.105,[0,a,Math.sin(a)*.3]);}emit(new T.TorusGeometry(r,.025,7,24),'gold',x,h,z,1,1,1,[Math.PI/2,0,0]);for(let k=0;k<7;k++){let a=k*Math.PI*2/7;between([x+Math.cos(a)*r*.7,h,z+Math.sin(a)*r*.7],[x+Math.cos(a)*r*1.2,h+.20,z+Math.sin(a)*r*1.2],.024,.024,'gold',true);}}
   emit(sphere,'gold',x,y+3.85,z,.105,.22,.105);
  });
- role('upper-storey-dense-bracket-frieze',()=>{
-  for(let j=-6;j<=6;j++)box(j*1.06,11.17,-.76,.86,.65,.08,'plaster',0,.70);for(const y of[10.80,11.55])box(0,y,-.68,13.5,.08,.10,'oldgold');for(let j=-13;j<=13;j++){const x=j*.49;relief(x,11.17,-.66,.40,.31);}
-  box(0,12.20,-1.02,13.6,4.25,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
-  for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.65,.075,'plaster');for(const y of[11.98,12.72])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
-
-  for(const y of[11.35,12.85,13.6]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
-  box(0,12.53,-.95,13.0,.72,.13,'black');
-  for(let j=-6;j<=6;j++){let x=j*1.06;arch.brackets(x,13.85,-.55,.91);arch.brackets(x,11.6,-.48,.72);arch.brackets(x,10.22,-.50,.58);box(x,12.55,-.7,.18,2.2,.23,'red');relief(x+.49,12.55,-.82,.55,.45);}
-  for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.15,-.42,.12);}
-  for(let j=0;j<72;j++){let x=-7.8+j*15.6/71;between([x,13.97,-2.5],[x,14.20,.20],.095,.14,'cedar');box(x,14.16,.20,.11,.14,.16,'oldgold');}
+ role('recessed-upper-gallery',()=>{
+  // The balcony sits behind the eave-supporting post line. Its walls do not
+  // form a flat four-metre billboard across the front of the roof structure.
+  box(0,10.86,-4.45,13.6,.26,7.3,'darkwood');
+  box(0,12.25,-3.05,13.45,2.55,.18,'darkwood');
+  for(const sign of[-1,1])box(sign*6.72,12.25,-5.50,.18,2.55,4.9,'darkwood');
+  box(0,12.25,-7.95,13.5,2.55,.18,'darkwood');
+  box(0,13.58,-4.45,13.65,.16,7.35,'darkwood');
+  for(let j=-6;j<=6;j++){
+   const x=j*1.06;
+   box(x,12.22,-2.93,.88,1.48,.055,'plaster',0,.72);
+   for(const xx of[-.46,.46])box(x+xx,12.22,-2.87,.075,1.65,.11,'red');
+   for(let k=-2;k<=2;k++)box(x+k*.15,12.22,-2.84,.034,1.48,.045,'cedar');
+   for(const yy of[11.42,11.77,12.26,13.03])box(x,yy,-2.82,1.0,.065,.075,'cedar');
+   // Real front posts connect the gallery floor to a single upper purlin.
+   box(x,12.30,-.70,.23,2.62,.27,'red');
+   arch.brackets(x,13.85,-.55,.91);
+   relief(x,13.58,-.415,.54,.18);
+  }
+  box(0,13.59,-.70,13.65,.34,.48,'cedar');
+  // Two slim rails and actual balusters give the photographed shallow balcony.
+  for(const y of[11.18,11.64])box(0,y,-.55,13.7,.10,.13,'red');
+  for(let j=0;j<=56;j++)box(-6.72+j*.24,11.39,-.55,.06,.57,.07,'red');
+  for(let j=0;j<=64;j++){
+   const x=-7.42+14.84*j/64,start=Math.max(.70,(Math.abs(x)-4.125)/(7.5-4.125));
+   const p=t=>[x,14.4+5.2*Math.pow(Math.max(0,1-t),1.48)+.34*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(x)/7.5,6))-.245,-5+4.5*t];
+   for(let k=0;k<6;k++)between(p(start+(1.025-start)*k/6),p(start+(1.025-start)*(k+1)/6),.10,.12,'cedar');
+   const tip=p(1.025);box(tip[0],tip[1],tip[2]+.015,.10,.12,.025,'endwood');
+  }
  });
  const towerLevels=[];grouped(...C.towerPosition,Math.PI/4,()=>{
   role('tower-stone-foundation',()=>{box(0,-.075,0,5.1,.45,5.1,'stone');box(0,.21,0,5.35,.12,5.35,'granite');});
