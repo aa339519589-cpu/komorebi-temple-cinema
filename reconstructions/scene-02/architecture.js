@@ -112,9 +112,9 @@ export function buildArchitecture(mats){
     for(let yy of[floor+.43,floor+1.56])b.box(0,yy,body/2+.035,body,.19,.065,'lightstone');
     for(let x of[-.46,-.23,0,.23,.46]){column(x*body,body/2+.35,floor+.12,1.62,.13);bracket(x*body,floor+1.68,body/2+.35,.60);b.box(x*body,floor+2.18,body/2+.61,.18,.20,1.16,'cedar');}
     for(let y of[floor+1.86,floor+2.15])b.box(0,y,body/2+.35,body+1.05,.17,.31,'red');
-    const front=body/2+.56;for(let y of[floor+.38,floor+.69])b.box(0,y,front,body+1.0,.075,.10,'red');
-    for(let i=0;i<=8;i++){const x=-(body+1)/2+(body+1)*i/8;b.box(x,floor+.48,front,.085,.55,.085,'red');b.box(x,floor+.77,front,.12,.055,.12,'oldgold');}
-    for(let i=0;i<8;i++){const x=-(body+1)/2+(body+1)*(i+.5)/8;b.box(x,floor+.43,front-.025,(body+1)/8-.10,.12,.035,'lightstone');}
+    const front=body/2+.56,entry=level===0&&side===3,gap=1.86;for(let y of[floor+.38,floor+.69]){if(entry){const span=(body+1-gap)/2;for(let sign of[-1,1])b.box(sign*(gap/2+span/2),y,front,span,.075,.10,'red');}else b.box(0,y,front,body+1.0,.075,.10,'red');}
+    for(let i=0;i<=8;i++){const x=-(body+1)/2+(body+1)*i/8;if(entry&&Math.abs(x)<gap/2)continue;b.box(x,floor+.48,front,.085,.55,.085,'red');b.box(x,floor+.77,front,.12,.055,.12,'oldgold');}
+    for(let i=0;i<8;i++){const x=-(body+1)/2+(body+1)*(i+.5)/8;if(entry&&Math.abs(x)<gap/2+.3)continue;b.box(x,floor+.43,front-.025,(body+1)/8-.10,.12,.035,'lightstone');}
    });
    pagodaRoof(w,eave,1.40,.52);
   }

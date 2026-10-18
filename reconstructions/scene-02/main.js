@@ -1,5 +1,6 @@
 import {T,V,materials} from './kernel.js';
 import {installScannedTimber} from './scanned-timber.js';
+import {buildPagodaGrounding} from './pagoda-ground.js';
 import {buildArchitecture} from './architecture.js';
 import {buildGarden} from './garden.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
@@ -11,7 +12,7 @@ const query=new URLSearchParams(location.search),width=Math.min(2048,Math.max(64
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(width,height);renderer.setPixelRatio(1);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.04;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;document.body.append(renderer.domElement);
 const scene=new T.Scene();scene.name='reference02-completely-rebuilt-veranda';scene.fog=new T.FogExp2(0xb99d76,.0035);
 const {mats,textures}=materials();mats.slate.side=T.DoubleSide;
-const architecture=buildArchitecture(mats),garden=buildGarden(mats);scene.add(architecture.group,garden.group,...architecture.lights,...garden.lights);
+const architecture=buildArchitecture(mats),garden=buildGarden(mats),grounding=buildPagodaGrounding(mats);scene.add(architecture.group,garden.group,grounding.group,...architecture.lights,...garden.lights);
 const sunDirection=V([-.87,.23,-.75]).normalize();
 // A procedural atmosphere: directional high-frequency cloud structure, atmospheric gradient,
 // physically located luminous sun. No image assets or screen-facing photographic geometry.
@@ -67,6 +68,6 @@ function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorl
 function renderReference(n=2){if(n!==2)throw Error('This independent reconstruction supports reference 02 only.');setView(reference.position,reference.target,reference.fov);return draw();}
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
 function renderShot(localTime=0){let t=Math.max(0,Math.min(1,localTime/7)),u=t*t*(3-2*t);setView([T.MathUtils.lerp(15.8,16.2,u),T.MathUtils.lerp(2.48,2.72,u),T.MathUtils.lerp(21.8,25,u)],[-1,T.MathUtils.lerp(4.4,4.7,u),-7],T.MathUtils.lerp(47,52,u));return draw();}
-function info(){return{reference:2,revision:'scene02-continuous-roofs-gallery-struct49',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-grounded-terrace-struct51',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);

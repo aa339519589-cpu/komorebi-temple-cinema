@@ -1,0 +1,412 @@
+{
+  "reference": 2,
+  "entry": "reconstructions/scene-02/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-02-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T11:05:53.298Z",
+  "source": {
+    "hash": "7575af1b201d7fde336d630af50d441f2d2399cd9ab85fed79ad7e91a51fa851",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-02/architecture.js": "a8f57e6ffb576e6968bcb6674275bb2d4ca0fc11b3091454baf5d82caf1aee98",
+      "reconstructions/scene-02/asset-dependencies.json": "63d920899c37004cf23f7a4f7476b450eb68d3e9a88973e6389195a822dd2ae4",
+      "reconstructions/scene-02/garden.js": "ce255ffd1d7d47d5a58a6b4340beb655ed716d85c67d32b34d5b168f1bb2d5ad",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "dc4d6964dafbe8f9c7df78b8e67b1f603babacdfec3e354089ebd7edf3624751",
+      "reconstructions/scene-02/main.js": "ee1cd4f5fd04b22f9168d0df618ab3c4eb74a91a84d7aff283858ab3824f0f74",
+      "reconstructions/scene-02/pagoda-ground.js": "51c2f2ffea979f7ad4aa464bc4ae6ad93609b93113038de9e743af70991dc26d",
+      "reconstructions/scene-02/scanned-timber.js": "5e349a6867cdfb2f33e09e74ca9a0a9fb48a6ba2617005fae98213d23303c8f8"
+    }
+  },
+  "sourceCommit": "c40fd3e8905c49457b2be88721b0a01183230c79",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-02/index.html",
+    "/reconstructions/scene-02/main.js",
+    "/reconstructions/scene-02/kernel.js",
+    "/reconstructions/scene-02/scanned-timber.js",
+    "/reconstructions/scene-02/pagoda-ground.js",
+    "/reconstructions/scene-02/architecture.js",
+    "/reconstructions/scene-02/garden.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/build/three.core.js",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+  ],
+  "detailCrop": {
+    "pixels": [
+      180,
+      430,
+      460,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-grounded-terrace-struct50",
+        "ready": true,
+        "frames": 1,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 59750,
+          "buckets": 500
+        },
+        "garden": {
+          "instances": 434404,
+          "buckets": 433
+        },
+        "grounding": {
+          "closedGroundVolume": true,
+          "groundBottom": -0.92,
+          "groundJoin": -0.12,
+          "shoulderY": 4.65,
+          "footingContactY": 5.1,
+          "galleryLandingY": 6.23025,
+          "mainSteps": 31,
+          "upperSteps": 6,
+          "instances": 4834,
+          "buckets": 7,
+          "worldCentre": [
+            -15.6,
+            -16
+          ],
+          "yaw": 0.075
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 1,
+          "triangles": 1
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.998593337047127,
+      "opaqueFraction": 1,
+      "rgbaSha256": "078d134af17115b05e12603f22a4a6fdcec4a8af55e2595cbd38f874986715fe"
+    },
+    {
+      "pose": {
+        "frame": 2,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-grounded-terrace-struct50",
+        "ready": true,
+        "frames": 2,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 59750,
+          "buckets": 500
+        },
+        "garden": {
+          "instances": 434404,
+          "buckets": 433
+        },
+        "grounding": {
+          "closedGroundVolume": true,
+          "groundBottom": -0.92,
+          "groundJoin": -0.12,
+          "shoulderY": 4.65,
+          "footingContactY": 5.1,
+          "galleryLandingY": 6.23025,
+          "mainSteps": 31,
+          "upperSteps": 6,
+          "instances": 4834,
+          "buckets": 7,
+          "worldCentre": [
+            -15.6,
+            -16
+          ],
+          "yaw": 0.075
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 1,
+          "triangles": 1
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        180,
+        430,
+        460,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9998728152845504,
+      "opaqueFraction": 1,
+      "rgbaSha256": "8ae3c49282e3cbf9264836360282fb87ec2e1ce0178fe5db403f62cd51faff67"
+    }
+  ],
+  "completedAt": "2026-10-18T11:05:56.082Z"
+}

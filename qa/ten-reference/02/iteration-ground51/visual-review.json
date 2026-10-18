@@ -1,0 +1,53 @@
+{
+  "status": "grounding-reviewed-draft",
+  "visualAccepted": false,
+  "sourceHash": "244973d8e476aa9d5cf7b658c9b4046e671f9d5564e72289f36d146031a5dd49",
+  "overheadSourceHash": "244973d8e476aa9d5cf7b658c9b4046e671f9d5564e72289f36d146031a5dd49",
+  "actualReference": "reference.png",
+  "actualNativeBaseCrop": "detail-native.png",
+  "actualAbove": "../iteration-ground51-above/inspection-view.png",
+  "comparison": "grounding-comparison.png",
+  "grounding": {
+    "closedGroundVolume": true,
+    "groundBottom": -0.92,
+    "groundJoin": -0.12,
+    "siteGroundHalfExtent": 60,
+    "raisedHillHalfExtent": [
+      12,
+      10
+    ],
+    "shoulderY": 4.65,
+    "footingContactY": 5.1,
+    "galleryLandingY": 6.23025,
+    "mainSteps": 31,
+    "upperSteps": 6,
+    "instances": 8558,
+    "buckets": 7,
+    "worldCentre": [
+      -15.6,
+      -16
+    ],
+    "yaw": 0.075
+  },
+  "loadPath": [
+    "Original soil bed occupies y\u2212.92\u2026\u2212.12 and overlaps the new closed terrain volume.",
+    "The sloped terrain rises to a flat4.65m shoulder under the whole masonry footing.",
+    "A0.45m masonry course spans4.65\u20265.10m; its top meets the unchanged tower footing bottom5.10m.",
+    "31 west-side treads rise to5.10m. Six upper treads meet the first gallery at6.23025m through a matching1.674m guard opening."
+  ],
+  "inspection": [
+    "ground50 full/native base image: tower mostly screened behind existing galleries, as before.",
+    "ground50-above: confirmed terrain/footing/stairs, exposed original site-ground edge/sky gap.",
+    "ground51 final full/native base and actual overhead: low ground field extended; raised hill footprint remains24\u00d720m and its masonry stays one low course."
+  ],
+  "preserved": [
+    "tower top and reference camera",
+    "normal0\u20137second motion",
+    "existing scanned timber and roof structure"
+  ],
+  "limits": [
+    "The connected ground is simplified and dark in the current lighting.",
+    "Rock planting and steps remain much simpler than the photograph.",
+    "No photographic visual acceptance is claimed."
+  ]
+}
