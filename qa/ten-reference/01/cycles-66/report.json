@@ -1,0 +1,134 @@
+{
+  "sourceStatistics": {
+    "meshes": 1942,
+    "geometries": 1877,
+    "materials": 60,
+    "textures": 17,
+    "instances": 288214,
+    "triangles": 30213150
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 1,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "measured-cc0-sky-environment",
+      "type": "Mesh",
+      "material": "measured-clear-sunset-radiance",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "real-reflected-garden-pond-ripple-surface",
+      "type": "Reflector",
+      "material": "garden-ripple-planar-reflection",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792341857.67712,
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "outdoorSky": {
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering, no bitmap background",
+    "sunDisc": false,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      -0.3682471811771393,
+      0.20047122240066528,
+      -0.9078575372695923
+    ]
+  },
+  "addedPhysicalContext": [
+    "Closed source-footprint pond and thin waterfall films",
+    "Actual soil bed prevents sky transmission through missing bottom.",
+    "Thin atmospheric transport volume with inferred density."
+  ],
+  "environmentOrientation": {
+    "formula": "Blender Cycles sphere_to_equirectangular longitude=pi-2*pi*u",
+    "source": "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h",
+    "worldDirection": "TextureCoordinate Normal inverted because background sd.N=-ray_D",
+    "targetSunAltitude": 11.564516181490506,
+    "euler": [
+      -0.11177518963813782,
+      -0.04521328583359718,
+      -2.6638431549072266
+    ]
+  },
+  "environmentRadiance": {
+    "maximum": 33.0755615234375,
+    "mean": 0.589473307132721,
+    "sunPixel": [
+      1255,
+      538
+    ],
+    "sunAltitudeDegrees": 4.658203125
+  },
+  "measuredSky": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+    "rotationRadians": -2.6638431549072266,
+    "license": "CC0-1.0"
+  },
+  "productionFill": {
+    "powerWatts": 2000.0,
+    "sizeMetres": [
+      14,
+      10
+    ],
+    "positionZUp": [
+      -9.0,
+      -10.0,
+      12.0
+    ],
+    "targetZUp": [
+      1,
+      8,
+      5
+    ],
+    "purpose": "Declared cinematic shadow-side fill; not recovered reference lighting"
+  },
+  "authoredSunBreak": {
+    "energy": 3.4,
+    "directionZUp": [
+      -0.3682471811771393,
+      0.9078575372695923,
+      0.20047122240066528
+    ],
+    "colorLinear": [
+      1,
+      0.74,
+      0.46
+    ],
+    "purpose": "Authored direct golden sunlight added to the low-contrast cloudy environment; not claimed as unchanged measured lighting"
+  },
+  "lensOptics": {
+    "focusDistanceMetres": 28,
+    "fstop": 2.0,
+    "apertureBlades": 9,
+    "cameraPosePreserved": true
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 30213150,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.28,
+    "worldGain": 0.4,
+    "exposure": 0.6499999761581421,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792342004.470279,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 64,
+  "photographicAcceptance": false
+}

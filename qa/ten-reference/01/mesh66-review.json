@@ -1,0 +1,24 @@
+{
+  "sourceHash": "943f3f3ec074ce8e97e7d6b2a5014ebb3b79e9c107b1a7460d11ccd17754f55c",
+  "native": "iteration-mesh66/reference.png",
+  "physical": "cycles-66/scene01-physical66.png",
+  "photographicAcceptance": false,
+  "changes": [
+    "Narrowed pagoda without moving its apex.",
+    "Lifted stone lantern on an actual rock foundation.",
+    "Connected vine leaves to stems and petioles.",
+    "Replaced segmented bridge side beams with closed bevelled arched solids; corrected projected bridge end.",
+    "Replaced vertical mountain cards with a three-dimensional heightfield and geometric trees.",
+    "Aligned measured sky horizon and sun direction; separated sky illumination from local metallic reflections."
+  ],
+  "rejectedCandidates": {
+    "mesh63": "Sky orientation overturned the horizon; overexposed sky and reflections.",
+    "mesh65": "Terrain module exponent syntax error; no usable output."
+  },
+  "remaining": [
+    "The reference sky and warm indirect lighting are still not matched.",
+    "Distant tree crowns remain oversized and repetitive.",
+    "Main hall carvings and lantern stone grain are simplified.",
+    "The foreground vine looks too pale; no photographic texture or projected reference color is used."
+  ]
+}
