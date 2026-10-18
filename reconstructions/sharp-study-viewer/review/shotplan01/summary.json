@@ -1,0 +1,649 @@
+{
+  "kind": "30 actual3D Gaussian shot-planning frames",
+  "visualAccepted": false,
+  "iteration": "shotplan01",
+  "filmRendered": false,
+  "sourceImageOverlay": false,
+  "scenes": [
+    {
+      "scene": "01",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/01.ply",
+        "sha256": "2dcbe52d9d1b3679156414e82e463df8604b2272021062bac29a23650b4bcd4f"
+      },
+      "metadata": "3baf3a4c65385579853c60b53ce00b2add1f21d56362285cab1918717e605dd4",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 12.753354549407959,
+        "q05Depth": 1.4765205383300781,
+        "travel": 0.19194766998291016,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.19194766998291016
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "1c226e8018343f09bb9ba8bc085c825becead1a1cfd001294b7e279cdd529bf6"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.09597383499145508
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "8f0f54025ba9f17e808a6acf3e5427744cc08eeb332451efa6db915ceeedefed"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "becb523f045818fbea1f63097162bd14f3368d6aaeff56e907ef2b6bf234a370"
+        }
+      ]
+    },
+    {
+      "scene": "02",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/02/02.ply",
+        "sha256": "af95bdb56f79b04e102db073d0e1f549a2017bfc8cd1acdf4ac15d8b55c8e32c"
+      },
+      "metadata": "6f7142ff9c2cb945cbeaeb988c916b92557555d2394d41a4477ab1927d82d2d3",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 12.094234466552734,
+        "q05Depth": 2.1277358531951904,
+        "travel": 0.27660566091537475,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/02/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.27660566091537475
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "bee6b28235b784f17e22cfa1ead802a38bf2b094d577217d5b447900fd801961"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/02/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.13830283045768738
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "1402c8f19eeff0d6efcc7406d70979453d0c966c3c46b707656140cfd2599f0b"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/02/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "ef416d5fc7702f588b95b2c49cecf52bcab1eaf7f48ac3ee549fc589eb585590"
+        }
+      ]
+    },
+    {
+      "scene": "03",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/03/03.ply",
+        "sha256": "c48568717b645efd8cd22b8752e0879357f18bdb9876002fc91256aff79882c4"
+      },
+      "metadata": "a01d086051f8b652d8c9608972de7916e8c6fcaca00f69d8f5ec11423efea55c",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 10.296709537506104,
+        "q05Depth": 0.6775065660476685,
+        "travel": 0.0880758535861969,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/03/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.0880758535861969
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "42d4b690ba961a8102ea614a633fc2c5097f2f311606f9ccbc22729e73d64fe9"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/03/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.04403792679309845
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "fcd60837a85c394645f1c6b40db734a5df71f9f91543d0cbb6ed22b56f2e4bf7"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/03/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "5fc242575f418bf7fffc39bf9d6980f4575da8b7c63578aa198dd7ec69ec228e"
+        }
+      ]
+    },
+    {
+      "scene": "04",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/04/04.ply",
+        "sha256": "7dfb6b934805cebac37dea4346f80e97ccb080c5756643c2a3eabfe8c48ae737"
+      },
+      "metadata": "3dc99479d681d574807df4c90ed8461dc87063d682c979c99ab0aa9ee24bf234",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 8.041752815246582,
+        "q05Depth": 2.5432486534118652,
+        "travel": 0.2814613485336304,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/04/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.2814613485336304
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "1f8feaeb654f0ed374ecc0943b6957f6cd17c295d296cb5cf7c0a92b7910bcb7"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/04/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.1407306742668152
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "db108328b6a629d02f456a4ed809e171700699c6dfc18526117666241fabc372"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/04/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "4c8546b58e07fcceb5a1ad9be26ee5237745a4a4376819849a9a3b63fec951e7"
+        }
+      ]
+    },
+    {
+      "scene": "05",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/05/05.ply",
+        "sha256": "273861c3085a8f70b08688636c9fca090068a19c1cd69185ef8a3fa03e5364f0"
+      },
+      "metadata": "1741ab0edaf1e24905ff42b3fb234f15d083c9c3b7f3731b0350fb3c48af51f8",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 7.886306285858154,
+        "q05Depth": 1.9880484342575073,
+        "travel": 0.25844629645347594,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/05/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.25844629645347594
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "c5121d2ab68467845ad9b900f34882d0976dc62794582c0491ac10fa030d8ae2"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/05/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.12922314822673797
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "1c1368aee3be51bef7fbb455d99969d61fc98a5b0327b007969a7f5fd7abe762"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/05/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "89e60a18dd150a38f5f890499892bc640f493dd09562dd0e285ab88f84bb791c"
+        }
+      ]
+    },
+    {
+      "scene": "06",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/06/06.ply",
+        "sha256": "5d55dfef9b58b7fb9cc973b2e946098a6e3afd63b1dac875b031ff4291d8e544"
+      },
+      "metadata": "5a6dc6db872617de2ba2113419ce66c38f0cda2a97063657df0435b93f6acd62",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 8.021256446838379,
+        "q05Depth": 4.6031880378723145,
+        "travel": 0.2807439756393433,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/06/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.2807439756393433
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "c6522ebffafb8de2994813a360e22dc6c29a150e5652cacfa984dbe241da453a"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/06/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.14037198781967164
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "6f0c0a6ffbd73f650165863e7675ba28f1f2fe12dce56c133ba39723ca2a98c7"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/06/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "414c49a3a8a8e56e4981b66b56f9542d822c1e32742faff7207aa8bea3ec50e5"
+        }
+      ]
+    },
+    {
+      "scene": "07",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/07/07.ply",
+        "sha256": "1fa134674540d79f0b968be9fccc641b659528949bfb0a0f171a830b0c05e54d"
+      },
+      "metadata": "bcffbfe89d83a0a8405b9779e525cca376cdf64346578b58ccb28eeaf6aeb463",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 19.50945281982422,
+        "q05Depth": 2.739795684814453,
+        "travel": 0.3561734390258789,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/07/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.3561734390258789
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "07bfe85404afbad4c45cd9eefe1c1fe008f04772e6535731f5a0aad83e553c3e"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/07/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.17808671951293945
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "7ca26fd175485271990842d653a661e07ff7677bc2fc672a46c6cfeb1f03c0bd"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/07/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "1fe5c2490cfff48269f6dba354ba65ccae696027ee9d18f3975d64aa6212932c"
+        }
+      ]
+    },
+    {
+      "scene": "08",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/08/08.ply",
+        "sha256": "674eb1ae73e707faefefab19bd11cd06311cad8d65f0610ee05459ec7f0f92f4"
+      },
+      "metadata": "ad20190dd76df1c1254ed51fff8a8b66e73dff60132f34b89c7feddb2274e3a3",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 6.8918657302856445,
+        "q05Depth": 0.9540415406227112,
+        "travel": 0.12402540028095246,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/08/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.12402540028095246
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "e246e8768c06398946ccd5d67faab232f96778f3393d710867ef67a3709f14d2"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/08/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.06201270014047623
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "3195d0f9864ed7d5a1d6f036b10e03a3ee7612bcedf5cc350d611abd48c6871a"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/08/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "a6b3369849c5f56373a2abbf16a1a2faadd578afcbc9ba0f5a3ff1ba7462a27a"
+        }
+      ]
+    },
+    {
+      "scene": "09",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/09/09.ply",
+        "sha256": "c6dda8d6f6e9f0f3343e36724aab1ce916b31a4d25a9df45b74caebf9828c7f3"
+      },
+      "metadata": "12d13031dc90e9606f4e6d4138354612bc9c66be63c940779559d5f902549fb8",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 24.839287757873535,
+        "q05Depth": 2.517106056213379,
+        "travel": 0.32722378730773927,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/09/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.32722378730773927
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "af8ef83c039cbad19daf857a5197775a3ff9c9145d9ec42cd75170e365446f2d"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/09/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.16361189365386963
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "19205a85469e05cf5d7877de068d6e5f7dd9a8e4d94bce97e63e283461c51865"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/09/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "8ef9fd6b51231eecbffc73ebbacd618815b4a5300347003c4cb4542e4c9d0936"
+        }
+      ]
+    },
+    {
+      "scene": "10",
+      "model": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/10/10.ply",
+        "sha256": "e6a477aa2bf2befee675fe577a99f34f9f518e973f24bb86c44090a3472d024a"
+      },
+      "metadata": "33acffdfbcf84061f79dcf17acb6f87534e777e7ccbd04a5c31119f200281b85",
+      "rendererSourceHash": "75d7829245c7981679e824a98e93effcb8eef67c1c19cfac220416826a86185f",
+      "shotPlan": {
+        "duration": 7,
+        "medianDepth": 10.692813396453857,
+        "q05Depth": 1.4183645248413086,
+        "travel": 0.18438738822937012,
+        "focalScaleStart": 1.22,
+        "focalScaleEnd": 1,
+        "lateralTravel": 0,
+        "verticalTravel": 0,
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "endPose": "exact original OpenCV identity-relative source camera and original K",
+        "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+      },
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/10/viewer-shotplan01/shot-0.png",
+          "translationCV": [
+            0,
+            0,
+            0.18438738822937012
+          ],
+          "focalScale": 1.22,
+          "rgbaSha256": "711343eefff17aded82f73d7d57f15af97af7e577bc4b0beca349b0e918b8318"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/10/viewer-shotplan01/shot-3p5.png",
+          "translationCV": [
+            0,
+            0,
+            0.09219369411468506
+          ],
+          "focalScale": 1.1099999999999999,
+          "rgbaSha256": "750017a5bbdd54cf0c386b138aa0f46d709c8cdaed7fdc25841473870889e40e"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/10/viewer-shotplan01/shot-7.png",
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "focalScale": 1,
+          "rgbaSha256": "a53464ef6aad6adb9c4901783d26f0e9ff6e5e19e4b7cef50aefd10ba8b23a1c"
+        }
+      ]
+    }
+  ]
+}
