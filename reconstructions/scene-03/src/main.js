@@ -11,6 +11,7 @@ import {createPondSurface} from './water-surface.js';
 import {createLotusPetalMaterials,createLotusLeafMaterial} from './lotus-material.js';
 import {installRanmaRelief} from './ranma-relief.js';
 import {createEntranceSanctuary} from './entrance-sanctuary.js';
+import {installEntryGranite} from './granite-entry-steps.js';
 
 const q=new URLSearchParams(location.search),W=Math.min(2400,+(q.get('w')||960)),H=Math.min(2400,+(q.get('h')||960));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
@@ -137,6 +138,7 @@ at([5.3,.12,5.5],0,()=>{const trunk=[[0,0,0],[.08,.75,-.12],[.34,1.6,-.21],[.20,
 const duckweed=mat('small duckweed','#819d4a',.7);for(let k=0;k<16;k++){const cx=range(-7,10),cz=range(9,20);for(let j=0;j<34;j++){let r=range(.014,.038);ell([cx+range(-.7,.7),-.037,cz+range(-.55,.55)],[r,.004,r*.82],duckweed,range(.75,1.15));}}
 // CC0 surface-only pass: preserve dense41 geometry, camera and batch grouping.
 const scannedTimber=await installScannedTimber({red:architecture.materials.red,cedar:architecture.materials.cedar,endwood:architecture.materials.endwood,darkwood:architecture.materials.darkwood,bridge:wood,bridgeDark:woodDark,ceiling:nearCeiling});
+const entryGranite=await installEntryGranite(T,architecture.materials.stairGranite);
 const sanctuary=createEntranceSanctuary(T,architecture);
 const ranma=await installRanmaRelief(T,architecture);
 architecture.group.traverse(object=>{if(object.geometry&&scannedTimber.materials.has(object.material))addTimberExtent(object.geometry);});
@@ -155,6 +157,6 @@ function renderView(position,target,time=0,fov=58,focus=18){lens.uniforms.focusD
 function renderReference(n=3){if(n!==3)throw Error('Reference 03 only');return renderView(ref.position,ref.target,0,ref.fov)}
 const dolly=createDollyPath({points:[[-2.65,.68,16.55],[-2.65,.64,17.2],[-1.1,.45,18.4],ref.position],nearTarget:[-2.35,.52,15.5],farTarget:ref.target,fov:ref.fov});
 function renderShot(localTime=0){const p=dolly(localTime);const nearFocus=Math.hypot(.30,.16,1.05),focus=1/((1-p.phase)/nearFocus+p.phase/18);return renderView(p.position,p.target,localTime,p.fov,focus);}
-function info(){return{reference:3,revision:'scene-03-mesh71-open-portal-and-supported-sanctuary',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},water:{fresnelF0:((1.333-1)/(1.333+1))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,sanctuary:sanctuary.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored closed architecture and gilt ranma; opened entry and full independently modeled seated icon/lotus throne/offering table inside a recessed shrine; no scene image textures'}}
-function dispose(){sanctuary.dispose();ranma.dispose();scannedTimber.dispose();colourTarget.dispose();lens.dispose();water.dispose();water.geometry.dispose();waterBase.geometry.dispose();skyDome.geometry.dispose();skyDome.material.dispose();postScene.children.forEach(o=>o.geometry?.dispose());architecture.dispose();for(let g of geos)g.dispose();for(let t of textures)t.dispose();for(let m of Object.values(mats))m.dispose();pinks.forEach(m=>m.dispose());renderer.dispose()}
+function info(){return{reference:3,revision:'scene-03-mesh72-dark-granite-stair-blocks',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},water:{fresnelF0:((1.333-1)/(1.333+1))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,sanctuary:sanctuary.info,entryGranite:entryGranite.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored architecture, retained shrine and105closed granite stair/cap stones at the original20levels with independently lit CC0 mineral PBR; no reference image textures'}}
+function dispose(){entryGranite.dispose();sanctuary.dispose();ranma.dispose();scannedTimber.dispose();colourTarget.dispose();lens.dispose();water.dispose();water.geometry.dispose();waterBase.geometry.dispose();skyDome.geometry.dispose();skyDome.material.dispose();postScene.children.forEach(o=>o.geometry?.dispose());architecture.dispose();for(let g of geos)g.dispose();for(let t of textures)t.dispose();for(let m of Object.values(mats))m.dispose();pinks.forEach(m=>m.dispose());renderer.dispose()}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading').remove();if(!q.has('defer'))renderReference();

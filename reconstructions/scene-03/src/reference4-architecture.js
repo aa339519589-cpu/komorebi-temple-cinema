@@ -5,10 +5,11 @@ import {createSculptedJoinery} from './scene03-solid-joinery.js';
 import {createCurvedEaveRafter} from './scene03-curved-rafter.js';
 import {createClosedRoofTile} from './scene03-roof-solids.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {createGraniteEntrySteps} from './granite-entry-steps.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
-export const REFERENCE4_ARCHITECTURE_REVISION='scene03-mesh71-open-portal-and-supported-sanctuary';
+export const REFERENCE4_ARCHITECTURE_REVISION='scene03-mesh72-dark-granite-stair-blocks';
 export function buildReference4Architecture(T,options={}) {
  const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:15.0,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
@@ -28,6 +29,8 @@ export function buildReference4Architecture(T,options={}) {
  const roofCeramic=new T.MeshPhysicalMaterial({name:'scene03-blue-grey-fired-clay',color:'#52636e',map:mats.slate.map,bumpMap:mats.slate.bumpMap,bumpScale:.002,roughness:.56,metalness:.015,clearcoat:.16,clearcoatRoughness:.38,vertexColors:true});materials.push(roofCeramic);mats.roofCeramic=roofCeramic;
  const roofFrieze=mats.plaster.clone();roofFrieze.name='scene03-recessed-grey-frieze-panels';roofFrieze.color.set('#7c8580');roofFrieze.roughness=.93;materials.push(roofFrieze);mats.roofFrieze=roofFrieze;
  const gableRecess=mats.darkwood.clone();gableRecess.name='scene03-shadowed-gable-timber';gableRecess.color.set('#271a14');gableRecess.roughness=.89;gableRecess.bumpScale=.008;materials.push(gableRecess);mats.gableRecess=gableRecess;
+ const stairGranite=new T.MeshStandardMaterial({name:'scene03-CC0-granite-entry-blocks',color:'#858c91',roughness:.90,vertexColors:true}),stairBed=new T.MeshStandardMaterial({name:'scene03-step-hidden-dark-stone-core',color:'#45494a',roughness:.96});materials.push(stairGranite,stairBed);mats.stairGranite=stairGranite;mats.stairBed=stairBed;
+ const stairSet=createGraniteEntrySteps(T,{count:20,width:C.stairWidth,height:C.stairTopY,front:C.stairTopZ,back:C.stairBottomZ});
  for(const part of solidJoinery.bracket)if(!part.cornerOnly){part.geometry.computeBoundingBox();bearingBounds.union(part.geometry.boundingBox);}
  let closedBearingInstances=0,curvedRafters=0;
  const arch={...legacyArch,brackets(x,y,z,s=1,options={}){
@@ -98,8 +101,15 @@ export function buildReference4Architecture(T,options={}) {
  });}
 
  role('temple-platform-stair',()=>{
-  box(0,(C.stairTopY-.9)/2,-4.4,15.2,C.stairTopY+.9,9.5,'stone');box(0,C.stairTopY-.065,-4.4,15.45,.13,9.65,'granite');
-  const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=C.stairTopY*(n-i)/n,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;box(0,top/2,(z0+z1)/2,C.stairWidth,top,z1-z0,'stone',0,.94+.07*Math.sin(i*3.1));box(0,top-.025,z1-.035,C.stairWidth+.02,.05,.07,'granite');}
+  box(0,(C.stairTopY-.9)/2,-4.4,15.2,C.stairTopY+.9,9.5,'stone');
+  // Keep the rear and two side regions of the old platform cap unchanged.
+  // Its central front0.425m strip is now the five stone caps in stairSet,
+  // at the exact original top/bottom/front bounds rather than a white lip.
+  const sideCap=(15.45-C.stairWidth)/2;
+  for(const s of[-1,1])box(s*(C.stairWidth/2+sideCap/2),C.stairTopY-.065,-4.4,sideCap,.13,9.65,'granite');
+  box(0,C.stairTopY-.065,(-9.225+C.stairTopZ)/2,C.stairWidth,.13,C.stairTopZ+9.225,'granite');
+  const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=C.stairTopY*(n-i-1)/n,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;if(top>0)box(0,top/2,(z0+z1)/2,C.stairWidth,top,z1-z0,'stairBed');}
+  for(const stone of stairSet.slabs)emit(stone,'stairGranite');
   for(const s of[-1,1]){const x=s*(C.stairWidth/2+.23);between([x,C.stairTopY+.9,C.stairTopZ],[x,.9,C.stairBottomZ],.13,.14,'red');between([x,C.stairTopY+.44,C.stairTopZ],[x,.44,C.stairBottomZ],.11,.11,'red');for(let i=0;i<=8;i++){const t=i/8,y=C.stairTopY*(1-t),z=C.stairTopZ+run*t;box(x,y+.51,z,.17,1.02,.17,'red');emit(sphere,'oldgold',x,y+1.03,z,.12,.15,.12);}}
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');
   for(const s of[-1,1])for(let i=0;i<9;i++)box(s*(3.2+i*.55),C.stairTopY+.49,.23,.11,.84,.11,'red');
@@ -230,5 +240,5 @@ export function buildReference4Architecture(T,options={}) {
  group.updateMatrixWorld(true);const b=new T.Box3().setFromObject(group),tip=[C.towerPosition[0],C.towerPosition[1]+C.towerHeight*C.towerSceneScale,C.towerPosition[2]];
  const sockets={entrance:{center:[0,C.stairTopY+2.04,-.62],clearWidth:4.2,clearHeight:4.08,frontZ:-.355},sanctuary:{center:[0,C.stairTopY,-4.65],floor:C.stairTopY,floorY:C.stairTopY,frontOpeningWidth:4.2,width:4.2,depth:5.0,frontZ:-.65},stair:{top:[0,C.stairTopY,C.stairTopZ],bottom:[0,0,C.stairBottomZ],width:C.stairWidth},mainRidge:[0,C.ridgeY,C.ridgeZ],canopy:{front:gFront,back:gBack,halfWidth:gHalf,crest:[0,canopy(0,gFront),gFront],bargeboardMember:'entrance-saddled-bargeboard'},tower:{position:[...C.towerPosition],top:tip,height:C.towerHeight*C.towerSceneScale,levels:towerLevels,scale:C.towerSceneScale},lanternSupports:[-5.55,5.55].map(x=>({x,probeZ:1.5,bodyCenter:[x,5.8,1.7]}))};
  const bounds={min:b.min.toArray(),max:b.max.toArray()};
- return {group,sockets,bounds,materials:mats,stats:{meshes:group.children.length,instances,triangles,roles,closedBearingInstances,curvedRafters,roofConstruction:{upperWidth,upperEave,mainRidgeY:C.ridgeY,closedClayThickness:.018,dormerCrown:18.62,dormerFront:-.60}},config:C,limits:['New complete v4 source after workspace reset; not byte-identical v3 recovery.','Original-photo dimensions and unseen joints remain reconstruction hypotheses.','No GPU or image acceptance from CPU construction.','Separate closed roof-layer panels share contacts; not a global Boolean-union or structural engineering certification.'],dispose(){solidJoinery.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
+ return {group,sockets,bounds,materials:mats,stats:{meshes:group.children.length,instances,triangles,roles,closedBearingInstances,curvedRafters,entryStair:stairSet.info,roofConstruction:{upperWidth,upperEave,mainRidgeY:C.ridgeY,closedClayThickness:.018,dormerCrown:18.62,dormerFront:-.60}},config:C,limits:['New complete v4 source after workspace reset; not byte-identical v3 recovery.','Original-photo dimensions and unseen joints remain reconstruction hypotheses.','No GPU or image acceptance from CPU construction.','Separate closed roof-layer panels share contacts; not a global Boolean-union or structural engineering certification.'],dispose(){solidJoinery.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
 }

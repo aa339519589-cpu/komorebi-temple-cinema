@@ -1,6 +1,6 @@
 {
   "scene": "03",
-  "revision": "mesh71b",
+  "revision": "mesh72b",
   "referencePhotographs": {
     "usedByRuntime": false,
     "comparisonInput": "references/hd/2-照片-3.jpg",
@@ -100,5 +100,41 @@
     "light": "Retained exterior lights/environment; two small physical candle point sources, 1cd each, inverse-square decay. No emissive icon, gold image, fake glow plane or exposure lift.",
     "visualAccepted": false,
     "roundTwoCorrection": "Observed the unchanged fore-hanging lantern covering half the face in mesh71a. Move only the icon and its supported lotus plinth0.53m left within the inner shrine (x+.35→-.18); retain exterior lights. Offering table becomes0.67m tall on matching shortened legs, x0, to expose more of the knees. Inner wood now uses explicit roughness0.55–0.83 without multiplying the dark scanned roughness channel; normal detail retained."
-  }
+  },
+  "entryStairStone": {
+    "scope": "Only the original20-level central entry stair flight. Height4m, run7.8m, width5.5m, low camera and all architecture/shrine/frieze/dolly remain unchanged.",
+    "geometry": "105closed stone pieces at the retained20step elevations:95full-riser blocks,5lower70mm first-riser stones,5replacement130mm caps within the old central5.5m x0.425m platform-cap region. Keep original overall rise/run/width and cap topY4/bottomY3.87/frontZ0.425. Four-to-six mm staggered joints;24sparse3–9mm-deep front-edge chips,15isolated1–2.2mm pits and a broad1.2–2.6mm wear basin. No uniform noise mesh or black crack image.",
+    "runtimePBR": "assets/granite-tile-04/granite-face-{diff,nor_gl,rough}.png; metric repeat0.3173828125m; each stone uses a deterministic UV offset/quarter turn. Independent neutral-gray pigment, preserving actual mineral variation and normal/roughness.",
+    "visualAccepted": false,
+    "roundTwoCorrection": "Pillow-shaped shading corrected through actual hard wall/end/bottom normals after indexed closed-topology validation. Only the physical millimetre arris/top field remains smooth. Material/roughness/exposure unchanged from72a. Partition only the old cap to preserve rear/side placement and material, replacing its central front pale strip with five closed same-granite caps at the original bounds."
+  },
+  "copiedSurfaceAssets": [
+    {
+      "from": "reconstructions/scene-04/assets/granite-tile-04",
+      "to": "assets/granite-tile-04",
+      "sourceCommit": "d08f98be4347e0fabc76a5e8decc6650b7a79594",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "provenance": "assets/granite-tile-04/provenance.json",
+      "sourceWidthMetres": 2,
+      "derivedCropXY": [
+        2100,
+        920
+      ],
+      "derivedCropSizePixels": [
+        650,
+        650
+      ],
+      "derivedRepeatMetres": 0.3173828125,
+      "scope": "Identical crop inside one real granite face, excluding source grout. No scene/reference-photo RGB. Copied local files remove any runtime dependency on scene04 or root lookdev.",
+      "sha256": {
+        "granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+        "granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+        "granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+        "provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b"
+      }
+    }
+  ]
 }

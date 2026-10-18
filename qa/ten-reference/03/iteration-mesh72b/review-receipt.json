@@ -1,0 +1,143 @@
+{
+  "status": "bounded-granite-stair-candidate-rendered",
+  "visualAccepted": false,
+  "baseCommit": "c66a31e",
+  "scope": "Original central entry stair only, including the old central front platform cap covering its first row. Shrine/body/columns/roofs/low camera/dolly/ranma unchanged.",
+  "retainedDimensions": {
+    "levels": 20,
+    "heightM": 4,
+    "widthM": 5.5,
+    "runM": 7.8,
+    "riseM": 0.2,
+    "goingM": 0.39,
+    "topLevelY": [
+      4.0,
+      3.8,
+      3.6,
+      3.4,
+      3.2,
+      3.0,
+      2.8,
+      2.6,
+      2.4,
+      2.2,
+      2.0,
+      1.8,
+      1.6,
+      1.4,
+      1.2,
+      1.0,
+      0.8,
+      0.6,
+      0.4,
+      0.2
+    ]
+  },
+  "geometry": {
+    "count": 20,
+    "width": 5.5,
+    "height": 4,
+    "front": 0,
+    "back": 7.8,
+    "rise": 0.2,
+    "run": 0.39,
+    "blocks": 105,
+    "landingCaps": 5,
+    "originalLandingCapBounds": {
+      "frontZ": 0.425,
+      "backZ": 0,
+      "topY": 4,
+      "bottomY": 3.87
+    },
+    "jointsMetres": [
+      0.004,
+      0.006
+    ],
+    "roundedArrisMetres": [
+      0.0025,
+      0.0065
+    ],
+    "sparseChips": 24,
+    "isolatedMillimetrePits": 15,
+    "wearDepthMaxMetres": 0.0026,
+    "triangles": 70090,
+    "allClosedManifold": true,
+    "normalPolicy": "Hard bearing faces; continuous normals only across the physical millimetre arrises",
+    "photoUsed": false
+  },
+  "constructionPolicy": "Closed indexed topology with every edge incidence2, positive volume, finite coordinates. Normal-split rendering copies the same triangle positions, hardening real bearing wall/end/bottom faces; only the top and millimetre arris band remain smooth. No uniform noise mesh; front chips and wear basins move actual vertices.",
+  "material": {
+    "source": {
+      "from": "reconstructions/scene-04/assets/granite-tile-04",
+      "to": "assets/granite-tile-04",
+      "sourceCommit": "d08f98be4347e0fabc76a5e8decc6650b7a79594",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "provenance": "assets/granite-tile-04/provenance.json",
+      "sourceWidthMetres": 2,
+      "derivedCropXY": [
+        2100,
+        920
+      ],
+      "derivedCropSizePixels": [
+        650,
+        650
+      ],
+      "derivedRepeatMetres": 0.3173828125,
+      "scope": "Identical crop inside one real granite face, excluding source grout. No scene/reference-photo RGB. Copied local files remove any runtime dependency on scene04 or root lookdev.",
+      "sha256": {
+        "granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+        "granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+        "granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+        "provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b"
+      }
+    },
+    "repeatMetres": 0.3173828125,
+    "surface": "Independent locally copied CC0 albedo/normal/roughness, excluding all source grout. Gray pigment with mineral-luminance-preserving neutralization, per-block metric UV offset/quarter turn. No reference photo pixels.",
+    "normalScale": 0.28,
+    "roughnessRange": [
+      0.74,
+      0.94
+    ]
+  },
+  "rounds": [
+    {
+      "iteration": "mesh72a",
+      "sourceHash": "d42a8206f61d602261a96c1e0d5dad5981e9d0280a7a39408d30f5f885de908d",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeSubfrustum": [
+        540,
+        680,
+        420,
+        1254
+      ],
+      "viewed": true,
+      "finding": "Mineral grit and individual stone divisions are visible, but shared bottom/end normals make risers look pillow-shaped. The old platform cap still creates a pale strip above the flight.",
+      "completeSourceReconstructibleFromRetainedSnapshotAndUnchangedFinalFiles": true
+    },
+    {
+      "iteration": "mesh72b",
+      "sourceHash": "a285451976805bc38d0d836828d24cde1b6379a0bd086cf9f093db8cbd5260ca",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeSubfrustum": [
+        540,
+        680,
+        420,
+        1254
+      ],
+      "viewed": true,
+      "correction": "Separate render normals for flat bearing wall/end/bottom triangles after validating the closed mesh. Keep real2.5–6.5mm arrises. Replace exactly the central5.5m x0.425m pale cap with5closed granite caps, retaining original cap topY4,bottomY3.87,frontZ0.425 and its lower70mm first-riser face. Rear/side cap placement/material remain. No second-round color/roughness/exposure change.",
+      "finding": "Flat risers no longer appear inflated, the continuous pale strip is gone, and the retained20levels read as dark mineral stone with narrow staggered joints."
+    }
+  ],
+  "remainingDifference": "The photographed quarry-block dimensions, individual chip locations, mineral distribution and weather staining have not been measured block by block. Millimetre wear is restrained at this low camera and subtle even in the native subfrustum. The draft flight is still more uniform than the HD reference, with low-view tread surfaces occupying little screen area.",
+  "verification": "Two shared-mutex render-one rounds only:1254full plus a genuine native3D stair subfrustum, both actually viewed. No test suite or movie.12protected source/asset files and5protected source ranges byte-identical to c66a31e."
+}
