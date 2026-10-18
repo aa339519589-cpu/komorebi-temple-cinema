@@ -2497,7 +2497,7 @@ export function createRestorationArchitecture(ctx) {
           const bars=Math.max(6,Math.round(clear/(.18*scale)));
           for(let j=1;j<bars;j++){
             const barX=xx-clear/2+j*clear/bars;
-            if(level===0&&k===1&&Math.abs(barX)<.45*scale)continue;
+            if(k===1&&Math.abs(barX)<.45*scale)continue;
             box(barX,windowY,.020,.040*scale,windowHeight-.055*scale,.055*scale,'darkwood');
           }
           for(const f of [.32,.69])box(xx,windowBottom+windowHeight*f,.057,

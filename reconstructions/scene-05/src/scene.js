@@ -4,7 +4,7 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
 import {buildMapleCanopy} from './foliage.js';
-export const POSE={position:[8.5,1.02,10],target:[-3.3,8.4,0],fov:63};
+export const POSE={position:[11.87,1.02,12.94],target:[-3.64,14.93,0],fov:34};
 export function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
@@ -59,7 +59,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  const carvedLeaf=new T.ExtrudeGeometry(leafShape,{depth:.025,steps:1,bevelEnabled:true,bevelThickness:.012,bevelSize:.012,bevelSegments:1,curveSegments:5});
  const levels=[];
  for(let level=0;level<5;level++){
-   const scale=1-level*.075,w=8.8*scale,y=.35+level*4.3;
+   const scale=1-level*.075,w=8.8*scale,y=.35+level*4.75;
    box(0,y+.15,0,w+.5,.30,w+.5,'darkwood');
    const frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth:w+3.5*scale,roofDepth:w+3.5*scale,roofRise:2.35*scale,roofY:y+3.55,windowMaterial:'paper',detail:true});
    arch.pagodaRoof({y:y+3.55,w:w+3.5*scale,d:w+3.5*scale,rise:2.35*scale,wallWidth:w,wallDepth:w,frameScale:scale,detail:true,soffitMaterial:'cedar'});
@@ -72,7 +72,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    });
    balcony(w,y+(level===0?.58:0),scale);
    cornerTails(w,y,scale);
-   if(level===0){pentRoof(w,y+1.02,scale);carvedWindowInserts(w,y,scale);}
+   pentRoof(w,y+.32,scale);carvedWindowInserts(w,y,scale);
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
    const r=(w+3.5*scale)/2;
    for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*.965,y+2.88,sz*r*.965,.68*scale);
@@ -197,5 +197,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-hip-crests-gilded-tail-v4',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-upper-tier-low-ground-camera-v5',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }

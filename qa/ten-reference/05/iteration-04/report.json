@@ -1,0 +1,190 @@
+{
+  "reference": 5,
+  "entry": "reconstructions/scene-05/index.html",
+  "worktree": "/Users/mima1234/temple-scene-05",
+  "size": 768,
+  "startedAt": "2026-10-18T05:35:04.479Z",
+  "source": {
+    "hash": "de3575e4763981881d6f6adcb52fe5456bc3523946f6886b5ce7f268da31c5ff",
+    "files": {
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/architecture.js": "5b176695b5d3ba3f6032080ee11445a4857cb714f70f6a3af4b0205cb45df14f",
+      "reconstructions/scene-05/src/foliage.js": "262ef72a519f5a88418490440524714efd178c1d2a5aacf91aeb14303f3c0cf3",
+      "reconstructions/scene-05/src/main.js": "68749bf63a103d00c5d9e49a5b9f8769f1deb07777b2a43872530cc6d1595ea6",
+      "reconstructions/scene-05/src/materials.js": "7c2c274d6aa87c8248f7ab8eb911d76bee1d06896a2c3d5433349a1072389c12",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/scene.js": "fd75d228e7c731a67497406f6985ee4715f1a805cc70fb29e9be4c0c5d04ff86"
+    }
+  },
+  "sourceCommit": "3770654b761e4d9744aedd433bcd9634c6c4b83f",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-05/index.html",
+    "/reconstructions/scene-05/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-05/src/scene.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-05/src/architecture.js",
+    "/reconstructions/scene-05/src/materials.js",
+    "/reconstructions/scene-05/src/foliage.js",
+    "/vendor/build/three.core.js",
+    "/reconstructions/scene-05/src/natural-forms.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "camera": [
+          8.5,
+          1.02,
+          10
+        ],
+        "fov": 63,
+        "triangles": 5009953,
+        "calls": 215
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 5,
+        "revision": "scene05-hip-crests-gilded-tail-v4",
+        "levels": [
+          {
+            "level": 0,
+            "y": 0.35,
+            "width": 8.8,
+            "shaftTop": 2.987717432155291
+          },
+          {
+            "level": 1,
+            "y": 4.6499999999999995,
+            "width": 8.14,
+            "shaftTop": 7.324122204443322
+          },
+          {
+            "level": 2,
+            "y": 8.95,
+            "width": 7.48,
+            "shaftTop": 11.660531890927489
+          },
+          {
+            "level": 3,
+            "y": 13.249999999999998,
+            "width": 6.820000000000001,
+            "shaftTop": 15.996972365630741
+          },
+          {
+            "level": 4,
+            "y": 17.55,
+            "width": 6.16,
+            "shaftTop": 20.33342457099878
+          }
+        ],
+        "triangles": 4797253,
+        "parts": 39999,
+        "geometry": "True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves",
+        "canopy": {
+          "leaves": 10008
+        },
+        "cameraHeightRange": [
+          0.72,
+          1.02
+        ],
+        "renderer": {
+          "frame": 18,
+          "calls": 215,
+          "triangles": 5009953,
+          "points": 0,
+          "lines": 0
+        },
+        "referencePose": {
+          "position": [
+            8.5,
+            1.02,
+            10
+          ],
+          "target": [
+            -3.3,
+            8.4,
+            0
+          ],
+          "fov": 63
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "b4663ded75ea4aa8a3155d586c1d9cb8db1b66f8dd6b04e98bba8f473a4425de"
+    }
+  ],
+  "completedAt": "2026-10-18T05:35:08.329Z"
+}
