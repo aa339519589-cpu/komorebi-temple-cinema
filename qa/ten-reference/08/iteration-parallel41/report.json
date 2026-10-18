@@ -1,0 +1,169 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-08-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T09:45:19.187Z",
+  "source": {
+    "hash": "2b7ca0fdb6eeae8d198194abd2e4992cb68a8b7efaf7a1c27a349e58d3d210ba",
+    "files": {
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/main.js": "8818f830bbe92c42892259ada1fb999b25ec995c879d026c8870613ba949afd1",
+      "reconstructions/scene-08/src/post.js": "569de11d90e613e9496bfb8e3e6939a48ccdbf480e90aee612719ae1c96317cc",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scene.js": "ea3ef60a788ea4782e17d2dba029443eb4313605e7873430e8d23c2123d57aec"
+    }
+  },
+  "sourceCommit": "589f5ee4f1b0dd8878db694607303a749e655706",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/post.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-curved-gable-carved-stone-r41",
+        "instances": 394084,
+        "triangles": 11694720,
+        "roles": {
+          "left-grand-hall": 11665,
+          "layered-walkways": 27363,
+          "five-tier-pagoda": 27348,
+          "foreground-veranda": 515,
+          "arched-stream-bridge": 114,
+          "gallery-stone-stair": 36,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 270,
+          "stone-lanterns": 501,
+          "branching-garden-trees": 203358,
+          "hanging-veranda-foliage": 13603,
+          "dense-layered-shrubs": 91490,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 8
+        },
+        "seed": 80247,
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 331,
+          "triangles": 11617350,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 30
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9999993640764228,
+      "opaqueFraction": 1,
+      "rgbaSha256": "f29b2804a3f077b53b55b5a5ff3ce9e79f0ff0f392293c075e19dc28213e5723"
+    }
+  ],
+  "completedAt": "2026-10-18T09:45:20.956Z"
+}

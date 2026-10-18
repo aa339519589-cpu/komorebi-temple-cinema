@@ -1,0 +1,37 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-08-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T09:43:05.491Z",
+  "source": {
+    "hash": "11fc2df6a0648686324c1b9abff1dafbb81b6c246db0ff0c9afbe7f5eabbe2b4",
+    "files": {
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/main.js": "b9338af1126c8579b1ca1ed344d0e91f481c51f414080e00854f49dcb042c0d9",
+      "reconstructions/scene-08/src/post.js": "569de11d90e613e9496bfb8e3e6939a48ccdbf480e90aee612719ae1c96317cc",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scene.js": "44d6f819bc9747f517d2ba52220dd6a99545b3970dbdd7d77b936a44098f7315"
+    }
+  },
+  "sourceCommit": "589f5ee4f1b0dd8878db694607303a749e655706",
+  "status": "failed",
+  "visualAccepted": false,
+  "errors": [
+    "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. BufferGeometry"
+  ],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/post.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [],
+  "error": "Error: THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. BufferGeometry\n    at _Page.<anonymous> (file:///Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:39:81)\n    at _Page._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at _Page.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Proxy.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:61846:17)\n    at Proxy._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at Proxy.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Connection.dispatch (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63525:25)\n    at Immediate.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63586:85)\n    at process.processImmediate (node:internal/timers:534:21)",
+  "completedAt": "2026-10-18T09:43:06.672Z"
+}
