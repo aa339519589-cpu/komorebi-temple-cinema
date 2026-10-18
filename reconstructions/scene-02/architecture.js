@@ -4,9 +4,9 @@ export function buildArchitecture(mats){
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
  const leafShape=new T.Shape();leafShape.moveTo(0,-.06);leafShape.bezierCurveTo(-.04,-.035,-.055,.025,0,.075);leafShape.bezierCurveTo(.045,.025,.035,-.025,0,-.06);const reliefLeaf=new T.ExtrudeGeometry(leafShape,{depth:.016,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,steps:1,curveSegments:4});
- const closeCylinder=new T.CylinderGeometry(1,1,1,48);
+ let columnXComp=1;const closeCylinder=new T.CylinderGeometry(1,1,1,48);
  function column(x,z,base,h,r=.24){
-  const cy=(yy,rr,hh,ma)=>r>.4?b.put(closeCylinder,ma,[x,yy,z],[rr,hh,rr]):b.cyl(x,yy,z,rr,hh,ma);
+  const cy=(yy,rr,hh,ma)=>b.put(r>.4?closeCylinder:b.cylinderGeo,ma,[x,yy,z],[rr*columnXComp,hh,rr]);
   cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,'red');
   for(let y of[base+.4,base+h-.05]){cy(y,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}
   if(r>.4){cy(base+.72,r*1.015,.72,'oldgold');for(let yy of[base+.36,base+1.08])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*.63,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.put(reliefLeaf,k%2?'oldgold':'gold',[x+Math.cos(aa)*r*1.04,base+.46+k*.15,z+Math.sin(aa)*r*1.04],[.65,.65,.65],[0,Math.PI/2-aa,(k%2?1:-1)*.6]);}}}
@@ -46,7 +46,7 @@ export function buildArchitecture(mats){
  function windowPanel(x,y,z,w,h){b.box(x,y,z,w,h,.16,'darkwood');b.box(x,y,z+.13,w-.13,h-.13,.03,'paper');for(let j=0;j<=18;j++)b.box(x-w/2+w*j/18,y,z+.18,.019,h,.04,'cedar');for(let j=0;j<=22;j++)b.box(x,y-h/2+h*j/22,z+.19,w,.016,.035,'cedar');for(let xx of[-w/2,w/2])b.box(x+xx,y,z+.18,.065,h,.11,'red');}
  function rail(length,base=0,height=1.05){for(let y of[.28,.73,height])b.box(0,base+y,0,length,y===height?.16:.10,.15,'red');let n=Math.ceil(length/1.75);for(let k=0;k<=n;k++){const x=-length/2+length*k/n;b.box(x,base+.55,0,.18,1.1,.18,'red');b.cyl(x,base+1.13,0,.12,.10,'gold');b.ball(x,base+1.26,0,.095,.12,.095);}for(let k=0;k<n*3;k++)b.box(-length/2+length*(k+.5)/(n*3),base+.5,0,.045,.42,.045,'red');}
  // The main hall is a tall, occupied building raised over an articulated stone terrace.
- b.at([4,1.2,-10],0,()=>{
+ columnXComp=1/.65;b.at([4,1.2,-10],0,()=>{
   b.box(0,.298,-.8,18.4,3.204,13.5,'stone');for(let row=0;row<6;row++){for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,-1.04+row*.51,6.02,1.075,.485,.13,'stone',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,-1.04+row*.51,-7.1+j*1.1,.13,.485,1.075,'stone',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
   for(let i=0;i<24;i++){let y=(24-i)*3.224/24,z=6.15+i*.27;b.box(0,(y/2-1.2)/.92,z,5.7,y/.92,.28,'stone',0,.90+.10*Math.sin(i));b.box(0,(y-.027-1.2)/.92,z+.1,5.85,.055,.10,'lightstone');}
   for(let s of[-1,1]){b.line([s*3.1,3.2,6.0],[s*3.1,-.2174,12.7],.12,'red');for(let i=0;i<10;i++){let t=i/9;column(s*3.1,mix(6,12.7,t),(3.224*(1-t)-1.2)/.92,.9,.07);}b.at([s*6.2,2.2,6.15],0,()=>rail(5.1));}
@@ -80,7 +80,7 @@ export function buildArchitecture(mats){
   for(let s of[-1,1]){const light=new T.PointLight(0xffae49,45,12,2);light.position.set(4+s*2.2,6.26,-10.5);lights.push(light);}
   // Golden altar, vase and central statue silhouette seen through the four-column entry.
   b.box(0,2.75,-3.7,3.5,.85,1.3,'oldgold');b.box(0,3.22,-3.7,3.75,.13,1.5,'gold');b.ball(0,4.4,-3.7,.62,.93,.40,'gold');b.ball(0,5.4,-3.7,.36,.43,.32,'gold');b.ball(0,5.83,-3.7,.20,.18,.20,'oldgold');b.ball(0,3.7,-3.3,.9,.22,.5,'gold');
- },[1,.92,1]);
+ },[.65,.92,1]);columnXComp=1;
  // Five-storey pagoda, wider eaves alternating with open galleries, prominent ringed sorin.
  b.at([-15,.6,-16],0,()=>{
   b.box(0,.3,0,7.6,.6,7.6,'stone');b.box(0,.65,0,8,.14,8,'lightstone');
@@ -95,12 +95,12 @@ export function buildArchitecture(mats){
  function gallery(pos,length,yaw=0){b.at(pos,yaw,()=>{b.box(0,.35,0,length,.7,4.3,'stone');for(let x=-length/2+.6;x<length/2;x+=2){column(x,1.2,.7,3.6,.14);bracket(x,4.4,1.2,.55);windowPanel(x,2.35,-1.1,1.7,2.5);}b.box(0,4.35,1.2,length+.5,.28,.3,'red');roof({w:length+1.5,d:5.5,eave:4.8,rise:1.6,curl:.4});b.at([0,.7,1.6],0,()=>rail(length));});}
  gallery([-14,0,-6],15);gallery([16,1,-11],12);gallery([-22,0,0],10,Math.PI/2);
  // Curved bridge carries actual curved deck strips, balusters, gilded caps and stone piers.
- b.at([1,0,5],0,()=>{const arch=x=>1.2+1.8*(1-(x/7.5)**2);for(let i=0;i<60;i++){let x=-7.5+15*(i+.5)/60,dy=-3.6*x/56.25;b.box(x,arch(x),0,.27,.22,2.9,'cedar',[0,0,Math.atan(dy)]);}
+ b.at([1,0,5],0,()=>{const arch=x=>1.2+1.25*(1-(x/7.5)**2);for(let i=0;i<60;i++){let x=-7.5+15*(i+.5)/60,dy=-2.5*x/56.25;b.box(x,arch(x),0,.27,.22,2.9,'cedar',[0,0,Math.atan(dy)]);}
   for(let z of[-1.5,1.5]){for(let i=0;i<50;i++){let x=-7.5+15*i/50,xx=-7.5+15*(i+1)/50;for(let h of[-.16,.35,.85])b.line([x,arch(x)+h,z],[xx,arch(xx)+h,z],h<0?.40:.12,'red',true,h<0?.35:.14);}
    for(let i=0;i<=10;i++){let x=-7.5+i*1.5,y=arch(x);b.box(x,y+.48,z,.22,1.05,.22,'red');b.cyl(x,y+1.03,z,.16,.12,'gold');b.ball(x,y+1.18,z,.13,.17,.13);if(i%2===0)fitting(x,y-.06,z+.16,.38,.38);}
    for(let i=0;i<40;i++){let x=-7.3+i*.375;b.box(x,arch(x)+.46,z,.075,.49,.075,'red');}
   }for(let x of[-5.3,0,5.3])for(let z of[-.9,.9]){let support=arch(x)-.3;b.cyl(x,support/2,z,.34,support,'stone');b.box(x,support+.06,z,.75,.18,.75,'lightstone');}
- });
+ },[.8,1,1]);
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};
  for(let i=0;i<25;i++){let x=14.42+i*.235;b.box(x,1.27,24,.228,.16,30,'floor',0,.85+.2*(.5+.5*Math.sin(i*5.7)));for(let z of[12,20,28,36]){b.cyl(x,1.355,z,.013,.007,'black');}}
