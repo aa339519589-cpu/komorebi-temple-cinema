@@ -1,0 +1,167 @@
+{
+  "candidate": "mesh70",
+  "status": "unselected-review-candidate",
+  "visualAccepted": false,
+  "baseline": "selected struct50; exact scene08 source identity matched before work",
+  "baselineSourceHash": "cf36527e7421ac11e84c2afc219407688e4bb099b0437fb388127c8071fd31d6",
+  "finalNativeSourceHash": "5df2717ea40297511376ffefd64da7f1ad975fd16fd0be1d69f6185f171e1cb6",
+  "scope": [
+    "Foreground square-column feet and metal fittings",
+    "Left grand hall and receding gallery bracket/rafter/cover-tile solids"
+  ],
+  "sourceModules": [
+    "reconstructions/scene-08/src/gate-hardware.js",
+    "reconstructions/scene-08/src/gallery-joinery.js"
+  ],
+  "changed": [
+    "16mm bevelled cast plaque back plates, separate field/rim, raised chrysanthemum/acanthus and domed rivets",
+    "Closed four-sided column shoes and slim lips",
+    "Additional inward-facing column plaques with photo-led inferred dimensions and heights",
+    "30-part closed curved bracket kit locally derived from scene01, with half laps, flaring cushions and thin dark-gilt end shoes",
+    "Continuous closed solid curved rafters and edge receivers replacing short box segments",
+    "Closed-wall semi-cylindrical ceramic covers with head flares and overlapping joints",
+    "Lighter existing redlight scanned timber material on new gallery members"
+  ],
+  "unchanged": [
+    "Foreground column/site anchors",
+    "Hall and pagoda site/scale",
+    "Reference low camera",
+    "Pagoda bracket geometry",
+    "Garden seed and plant placement",
+    "Global light positions and strengths"
+  ],
+  "camera": {
+    "position": [
+      0,
+      2.65,
+      13
+    ],
+    "target": [
+      0,
+      6.65,
+      -9
+    ],
+    "fov": 49
+  },
+  "photographicSceneTexture": false,
+  "photoDepth": false,
+  "pointCloud": false,
+  "geometryClosure": {
+    "leftGalleryCurvedJoinery": {
+      "parts": 30,
+      "finite": true,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "triangles": 17556
+    },
+    "continuousRafter": {
+      "parts": 1,
+      "finite": true,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "triangles": 268
+    },
+    "closedClayCover": {
+      "parts": 1,
+      "finite": true,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "triangles": 472
+    },
+    "castSidePlaque": {
+      "parts": 57,
+      "finite": true,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "triangles": 34984
+    },
+    "columnShoe": {
+      "parts": 41,
+      "finite": true,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "triangles": 16432
+    }
+  },
+  "joineryGeometryIdenticalToFirstNativeMesh68": true,
+  "nativeRenders": {
+    "68": {
+      "sourceHash": "954e9186b9cef0ccb4333aab7477dde5838df340de78f5991b05b0db311acc7c",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "detailCrop": null
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "detailCrop": [
+            230,
+            245,
+            320,
+            1254
+          ]
+        }
+      ]
+    },
+    "69": {
+      "sourceHash": "73c390ff8152f717c6668d99a6f2069a4958237e5887586055e53eba92e3587c",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "detailCrop": null
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "detailCrop": [
+            50,
+            570,
+            220,
+            1254
+          ]
+        }
+      ]
+    },
+    "70": {
+      "sourceHash": "5df2717ea40297511376ffefd64da7f1ad975fd16fd0be1d69f6185f171e1cb6",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "detailCrop": null
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "detailCrop": [
+            50,
+            570,
+            220,
+            1254
+          ]
+        }
+      ]
+    }
+  },
+  "unresolved": [
+    "Plaque relief is a procedural carving in the same decorative family, not a measured copy of the original fitting",
+    "Inward-facing plaque placements and dimensions are inferred and still need visual acceptance",
+    "Some gallery bracket stacks remain dense and the underside is darker than the photograph",
+    "Old roof-end discs and the broader building still retain repetitive forms",
+    "Existing foliage, stone lantern, roof proportions and lighting still differ strongly from the photograph"
+  ],
+  "validation": "Three queued native1254 full+one-detail render calls only; bounded new-solid topology inspection and JS parse checks. No test suite or movie run. Closed geometry and linked shaders do not establish photographic fidelity.",
+  "comparisonSourceHashes": {
+    "references/hd/7-照片-8.jpg": "798dd84173dff9d39fa4b3e229e95db4ca56b5b267d1f7f8c206c1248ee7f1d2",
+    "qa/ten-reference/08/iteration-struct50/reference.png": "6418c537d339d6b7b22578cf5364eb84bb721a2a83ec551728d5b0b53bbf4fb8",
+    "qa/ten-reference/08/iteration-mesh70/reference.png": "f0abb0e15ce2519de101e4ed72590ccc52463f0e0785563c4d3afc0c9f83235d",
+    "qa/ten-reference/08/iteration-mesh68/detail-native.png": "9b67923c6c3982ea5e7147281cc28d25eaadf4cff8521867b7eaac8cf5054be4",
+    "qa/ten-reference/08/iteration-mesh70/detail-native.png": "4310943e10182667c2d1df5ba4cdc57aa2a7c3d15d22e4cd38517277fedba555"
+  }
+}
