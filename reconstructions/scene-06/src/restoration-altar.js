@@ -974,9 +974,9 @@ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],dep
       const p=[],uv=[],ix=[],rows=28,cols=18,stride=(rows+1)*(cols+1);
       for(let surface=0;surface<2;surface++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
         const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t);
-        const width=t<=.78?.50*Math.pow(Math.sin(Math.PI*t/(2*.78)),.65):.50*Math.pow(Math.cos(Math.PI*.5*(t-.78)/.22),1.15);
-        const meridian=.12*wave+.48*t+.10*t*t;
-        const convex=.105*wave*(1-u*u),midrib=.025*Math.exp(-Math.pow(u/.13,2))*wave,edge=.010*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
+        const width=t<=.58?.50*Math.pow(Math.sin(Math.PI*t/(2*.58)),.65):.50*Math.pow(Math.cos(Math.PI*.5*(t-.58)/.42),1.20);
+        const meridian=.05*wave+.78*t-.36*t*t;
+        const convex=.16*wave*(1-u*u)+.008*Math.cos(u*5*Math.PI)*wave*wave*(1-u*u),midrib=.020*Math.exp(-Math.pow(u/.13,2))*wave,edge=.010*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
         p.push(u*width,t,meridian+(surface===0?convex+midrib+edge:-.040));uv.push(i/cols,t);
         if(j<rows&&i<cols){const a=surface*stride+j*(cols+1)+i;surface===0?ix.push(a,a+1,a+cols+1,a+1,a+cols+2,a+cols+1):ix.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}
       }
