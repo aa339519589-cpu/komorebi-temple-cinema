@@ -4,12 +4,14 @@ import {spawn,execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {launchRenderBrowser} from './render-runtime.mjs';
 import {encodeWebglPng} from './encode-webgl-png.mjs';
+import {acquireGpuRenderSlot} from './gpu-render-slot.mjs';
 
 const reference=Number(process.env.REFERENCE),id=String(reference).padStart(2,'0');
 if(!Number.isInteger(reference)||reference<1||reference>10)throw Error('REFERENCE must be 1..10.');
 const worktree=resolve(process.env.WORKTREE||`/Users/mima1234/temple-scene-${id}`),size=Number(process.env.SIZE||768);
 const iteration=process.env.ITERATION||'01',port=Number(process.env.PORT||4500);
 const entry=`reconstructions/scene-${id}/index.html`,out=resolve(worktree,`qa/ten-reference/${id}/iteration-${iteration}`);
+if(!/^[a-z0-9-]+$/i.test(iteration))throw Error('Invalid iteration name.');
 await access(resolve(worktree,entry));await mkdir(out,{recursive:true});
 async function sourceIdentity(){
  const files=[];async function walk(dir){for(const e of await readdir(dir,{withFileTypes:true})){const p=resolve(dir,e.name);if(e.isDirectory())await walk(p);else if(/\.(?:m?js|html|json)$/.test(e.name))files.push(p);}}
@@ -17,6 +19,7 @@ async function sourceIdentity(){
  for(const file of files){const name=relative(worktree,file),bytes=await readFile(file);hashes[name]=createHash('sha256').update(bytes).digest('hex');h.update(name+'\0');h.update(bytes);h.update('\0');}
  return{hash:h.digest('hex'),files:hashes};
 }
+const releaseGpu=await acquireGpuRenderSlot(`reference-${id}-${iteration}`);
 const identity=await sourceIdentity(),startedAt=new Date().toISOString();
 const report={reference,entry,worktree,size,startedAt,source:identity,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:worktree,encoding:'utf8'}).trim(),status:'building',visualAccepted:false,errors:[],requests:[]};
 const server=spawn(process.execPath,[resolve(worktree,'tools/server.mjs')],{cwd:worktree,env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});
@@ -61,6 +64,6 @@ try{
 }catch(e){report.status='failed';report.error=String(e.stack||e);process.exitCode=1;}
 finally{
  report.completedAt=new Date().toISOString();await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));
- if(browser)await browser.close().catch(()=>{});server.kill('SIGTERM');
+ if(browser)await browser.close().catch(()=>{});server.kill('SIGTERM');releaseGpu();
  console.log(JSON.stringify({reference,status:report.status,error:report.error,out,errors:report.errors}));
 }
