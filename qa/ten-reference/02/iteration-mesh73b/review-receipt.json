@@ -1,0 +1,184 @@
+{
+  "status": "bounded-veranda-board-and-lower-rail-candidate-rendered",
+  "visualAccepted": false,
+  "baseCommit": "b413759",
+  "scope": "Only the foreground veranda floor and lowest rail/foot sill. Original low camera/dolly, exterior light/exposure, site, architecture, upper rails, post shafts, finials, metal inserts and lanterns retained.",
+  "referenceVisibility": "HD0照片1 shows only a narrow strip at the foreground rail; the present native scene reveals a much larger right-bottom deck. The board ends/hidden support locations are structural interpretations and were not measured from the photograph.",
+  "inputViews": [
+    "references/hd/0-照片-1.jpg",
+    "qa/ten-reference/02/iteration-mesh66b/reference.png",
+    "qa/ten-reference/02/iteration-mesh-film-20261019-r01/frame-0209.png"
+  ],
+  "diagnosis": {
+    "priorGeometry": "25real closed strips with7mm side gaps already existed, but each was30m long with no end joints or visible bearing detail. The unit rounded-box end rounding was scaled to~0.54m in the long direction.",
+    "priorOverlay": "A full5.9x30m Reflector atY1.356 sat6mm above the1.35m boards with alpha parameter0.71, hiding actual joints/height/material.",
+    "priorPigment": "The very dark brown CC0 table scan was multiplied directly into the wet floor instead of separating pigment from normalized grain."
+  },
+  "boards": {
+    "boardCount": 225,
+    "boardColumns": 25,
+    "direction": "Z, along the retained veranda",
+    "boardWidthMetres": 0.228,
+    "thicknessMetres": 0.045,
+    "longJointMetres": 0.0069999999999999785,
+    "endJointMetres": 0.004,
+    "lengthRangeMetres": [
+      1.1979999999999986,
+      3.597999999999999
+    ],
+    "arrisRangeMetres": [
+      0.0015,
+      0.0022
+    ],
+    "topDifferenceRangeMetres": [
+      -0.0012,
+      0.0012
+    ],
+    "originalFootprint": {
+      "minX": 14.306,
+      "maxX": 20.174,
+      "minZ": 9,
+      "maxZ": 39,
+      "nominalTopY": 1.35
+    },
+    "joists": 51,
+    "joistPitchMetres": 0.6,
+    "bearers": 18,
+    "undersideY": 1.305,
+    "joistTopY": 1.305,
+    "bearerTopY": 1.125,
+    "nails": 900,
+    "triangles": 132300,
+    "segmentExamples": [
+      [
+        0,
+        9,
+        12.597999999999999
+      ],
+      [
+        0,
+        12.602,
+        16.198
+      ],
+      [
+        0,
+        16.201999999999998,
+        19.798000000000002
+      ],
+      [
+        0,
+        19.802,
+        23.398
+      ],
+      [
+        1,
+        9,
+        10.197999999999999
+      ],
+      [
+        1,
+        10.202,
+        13.797999999999998
+      ],
+      [
+        1,
+        13.802,
+        17.398
+      ],
+      [
+        1,
+        17.401999999999997,
+        20.998
+      ],
+      [
+        2,
+        9,
+        11.398
+      ],
+      [
+        2,
+        11.402000000000001,
+        14.998
+      ],
+      [
+        2,
+        15.002,
+        18.598000000000003
+      ],
+      [
+        2,
+        18.602,
+        22.198000000000004
+      ]
+    ],
+    "limits": "Board end layout and concealed framing are inferred structural detailing; not individually measured from the supplied photograph."
+  },
+  "lowerRail": {
+    "lowerRailSegments": 10,
+    "closedEndTenons": 20,
+    "footSillSegments": 10,
+    "worldLowerRailCentreY": 1.51,
+    "worldFootSillBoundsY": [
+      1.334,
+      1.398
+    ],
+    "referencePhotoUsed": false,
+    "limits": "Lower-rail bearing/shoulder detail is a construction interpretation; upper metalwork is retained."
+  },
+  "closedSolidAudit": {
+    "uniqueGeometries": 267,
+    "allClosedAfterSpatialWeld": true,
+    "nonmanifoldEdges": 0,
+    "allFinite": true,
+    "allPositiveVolume": true,
+    "minimumPrototypeVolumeM3": 0.0003237886642389785,
+    "supportContacts": "Board bottomY1.305 equals transverse joist topY1.305; joist bottomY1.125 equals longitudinal bearer topY1.125. Original nominal topY1.35 and overall floor footprint retained.",
+    "method": "Actual emitted BufferGeometry vertex/triangle positions audited on CPU, welding duplicate render vertices at10micrometres. No browser, movie or test suite."
+  },
+  "material": {
+    "source": "Existing Poly Haven Lacquered Cherry Wood, CC0, documented1x1m physical tile; shared original files declared in scene02/asset-dependencies.json.",
+    "floorPigment": "#925034",
+    "grain": "Decoded linear luminance divided by measured scan mean0.01505120736, exponent0.55, clamp0.52–1.46. Normal/roughness retained at metric scale. Raw dark-brown albedo is not multiplied into the pigment.",
+    "wetResponse": "Actual board PBR clearcoat/roughness with the existing physically captured local scene probe; no deck-spanning reflection plane. World-space wear/wet response and actual cup/wear deformation normals. The pond Reflector remains.",
+    "lightPositionsIntensityExposureChanged": false,
+    "floorOnlyProbeFactor": 1.0
+  },
+  "rounds": [
+    {
+      "iteration": "mesh73a",
+      "sourceHash": "cccd2206ecccc9a3d4aff86494fd3e766c603a18e4263de4236862bd594faaeb",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeSubfrustum": [
+        864,
+        858,
+        390,
+        1254
+      ],
+      "viewed": true,
+      "finding": "Closed boards now show physical staggered end joints, small fasteners, warm grain, lower timber rail/sill. With the spanning mirror removed, the actual wood response is too dry/matte.",
+      "allSourceFileHashesPreserved": true
+    },
+    {
+      "iteration": "mesh73b",
+      "sourceHash": "e6952a0e1eea960b52bbceafe9187ceb17bbe68c7eaf1c2e15784d11a4485b53",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeSubfrustum": [
+        864,
+        858,
+        390,
+        1254
+      ],
+      "viewed": true,
+      "correction": "Apply the inverse-transpose of actual millimetre top cup/wear to board normals, lower only wet clearcoat roughness and use floor-only actual local probe factor1.0 instead of0.65. Retain all lights/upper-rail geometry and other metal material settings; no mirror sheet returns.",
+      "finding": "True joints, arrises and warm red-brown grain remain readable under the rough PBR surface. Probe response varies with the actual normal/roughness, but visible wet reflection remains restrained at this angle."
+    }
+  ],
+  "maximumRemainingDifference": "The original frame barely resolves the floor, so board end/support spacing and lower joints remain inferred. The present view exposes a larger floor region and still differs in composition. The wood is still relatively regular/new, and the real-probe wet sheen is weaker and less spatially accurate than a proper close reflected scene; no photographic match is claimed.",
+  "verification": "Only two shared-mutex render-one rounds: actual1254full plus true native floor subfrustum, all viewed. No test suite or movie.13protected files and8protected architecture/light/camera ranges remain byte-identical to b413759."
+}

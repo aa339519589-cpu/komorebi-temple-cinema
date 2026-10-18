@@ -1,0 +1,45 @@
+{
+  "files": [
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "reconstructions/camera-dolly.js"
+  ],
+  "use": "Existing CC0 lacquered-cherry scan supplies metric normal/roughness and normalized grain on independently modeled timber. Red/cedar keep their existing pigment. The veranda floor now also has independent warm red-brown pigment instead of multiplying the dark source brown; the lower rail is real segmented wood. No photo RGB.",
+  "revision": "mesh73a",
+  "materialCalibration": {
+    "sourceLinearMeanY": 0.01505120736,
+    "method": "Decode via the sRGB texture, divide linear luminance by the measured full-map mean, apply exponent .55 and clamp .52..1.46 as painted grain. Material pigment supplies warm vermilion.",
+    "redPigment": "#bb4b29",
+    "cedarPigment": "#9c4928",
+    "normalScale": 0.18,
+    "originalNormalAndRoughnessRetained": true,
+    "sceneExposureAndLightingChanged": false,
+    "floorPigment": "#925034",
+    "floorSourceRole": "Normalized grain; no raw dark-brown albedo multiplication. Worn/wet clearcoat stays on the actual closed boards."
+  },
+  "authoredMetalGeometry": {
+    "file": "sorin-solids.js",
+    "construction": "Closed revolved annular webs with thick rounded rims, central spindle, stepped roof boot and seated terminal. Nineteen levels follow the photographed taper/spacing; not torus wire loops.",
+    "baseSeatLocalY": 14.9,
+    "bootTopLocalY": 15.3,
+    "topLocalY": 20.71,
+    "finish": "Sorin-only gold/bronze use the existing outdoor sky environment, rather than the veranda-local reflection probe. Other metal remains unchanged."
+  },
+  "referencePhotographUse": {
+    "scope": "Comparison only",
+    "sceneRGBOrProjection": false,
+    "copyright": "Retained by its original owner."
+  },
+  "verandaBoards": {
+    "scope": "Only foreground deck and lowest rail/foot sill. Reference pose, dolly, lighting, building positions, middle/top rails and all upper cast metalwork retained.",
+    "referenceVisibility": "HD0-photo1 exposes only a narrow floor strip at the foreground rail; the present native view exposes a larger right-bottom deck. Board end locations and hidden joists cannot be measured from that photo and are explicitly structural hypotheses.",
+    "diagnosis": "Prior geometry already had25closed strips and7mm gaps, but each strip was30m long with no end joints or supporting joist detail. Unit rounded-box scaling stretched the end rounding to~0.54m. A full5.9x30m Reflector6mm above the boards, alpha0.71, obscured real floor joints/height. Floor albedo remained the raw near-black scan.",
+    "construction": "25longitudinalZboard columns subdivided into1.2–3.6m staggered closed45mm boards with4mm end gaps,1.5–2.2mm true arrises,±1.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
+    "lowerRail": "Only the lowest rail is segmented with small true bevels/end tenons and a closed wood sill under retained post shafts. Existing middle/top rails, posts and metalwork stay.",
+    "material": "Floor pigment#925034 multiplied by normalized source linear luminance/0.01505120736^.55, clamped.52..1.46; scanned normal and roughness retained at metric scale. Actual per-board clearcoat with worn/wet roughness plus the already-captured real scene probe. The deck-spanning Reflector is removed; the pond Reflector remains.",
+    "lightingChanged": false,
+    "visualAccepted": false
+  }
+}

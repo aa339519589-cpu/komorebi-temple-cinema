@@ -42,7 +42,8 @@ function mirror(name,w,d,p,opacity=.8,ripple=.0015){
 }
 const water=new T.Mesh(new T.PlaneGeometry(61.5,61),mats.water);water.rotation.x=-Math.PI/2;water.position.set(-16,.004,15);water.receiveShadow=true;scene.add(water);
 mirror('actual-pond-reflection',61.5,61,[-16,.016,15],.97,.0012);
-mirror('wet-cedar-veranda-reflection',5.9,30,[17.35,1.356,24],.71,.00012);
+// Wet wood is the actual closed board material. Its clearcoat and captured
+// scene probe replace the former single mirror6mm above the entire deck.
 // Bound capture radiance before convolution: a non-finite shading sample must not
 // contaminate every prefiltered roughness mip of the local environment.
 const finiteCapture=`vec3 finiteRGB=gl_FragColor.rgb;if(!(finiteRGB.r>=0.0&&finiteRGB.r<10000.0))finiteRGB.r=0.0;if(!(finiteRGB.g>=0.0&&finiteRGB.g<10000.0))finiteRGB.g=0.0;if(!(finiteRGB.b>=0.0&&finiteRGB.b<10000.0))finiteRGB.b=0.0;gl_FragColor.rgb=min(finiteRGB,vec3(64.0));`;
@@ -54,7 +55,7 @@ const environmentScene=new T.Scene(),environmentSky=sky.clone();environmentSky.m
 const pmrem=new T.PMREMGenerator(renderer),skyTarget=pmrem.fromScene(environmentScene,.02,.1,250,{size:128});scene.environment=skyTarget.texture;scene.environmentIntensity=.9;
 pmrem.dispose();environmentSky.material.dispose();
 const probeTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType}),probeCamera=new T.CubeCamera(.16,250,probeTarget);probeCamera.position.set(14,4.2,16.6);reflectors.forEach(o=>o.visible=false);scene.updateMatrixWorld(true);try{probeCamera.update(renderer,scene);}finally{reflectors.forEach(o=>o.visible=true);}
-const probePmrem=new T.PMREMGenerator(renderer),envTarget=probePmrem.fromCubemap(probeTarget.texture);scene.environment=skyTarget.texture;scene.environmentIntensity=.9;probePmrem.dispose();probeTarget.dispose();scene.traverse(o=>{if(o.isMesh&&[mats.gold,mats.oldgold,mats.floor].includes(o.material)){o.material.envMap=envTarget.texture;o.material.envMapIntensity=o.material===mats.floor?.65:.9;o.material.needsUpdate=true;}});
+const probePmrem=new T.PMREMGenerator(renderer),envTarget=probePmrem.fromCubemap(probeTarget.texture);scene.environment=skyTarget.texture;scene.environmentIntensity=.9;probePmrem.dispose();probeTarget.dispose();scene.traverse(o=>{if(o.isMesh&&[mats.gold,mats.oldgold,mats.floor].includes(o.material)){o.material.envMap=envTarget.texture;o.material.envMapIntensity=o.material===mats.floor?1.0:.9;o.material.needsUpdate=true;}});
 // Ground-truth ambient occlusion resolves contacts between the actual beam, tile,
 // carved bracket and garden surfaces. Noise rotations are fixed, never time driven.
 const composer=new EffectComposer(renderer);composer.setSize(width,height);composer.renderTarget1.samples=4;composer.renderTarget2.samples=4;composer.addPass(new RenderPass(scene,camera));
@@ -70,6 +71,6 @@ function renderReference(n=2){if(n!==2)throw Error('This independent reconstruct
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
 const dolly=createDollyPath({points:[[15.1,2.1,23.6],[15.18,2.25,23.9],[15.8,2.6,24.6],reference.position],nearTarget:[14.4,2.4,22.4],farTarget:reference.target,fov:reference.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-function info(){return{reference:2,revision:'scene02-mesh66b-turned-sorin-warm-painted-timber',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-mesh73-closed-veranda-boards-lower-sill',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);

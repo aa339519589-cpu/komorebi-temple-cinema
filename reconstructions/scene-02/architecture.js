@@ -1,6 +1,7 @@
 import {T,V,mix,Builder,gridGeometry} from './kernel.js';
 import {buildHallEntry} from './hall-entry.js';
 import {buildTurnedSorin} from './sorin-solids.js';
+import {buildVerandaBoards,buildLowerVerandaRail} from './veranda-boards.js';
 export function buildArchitecture(mats){
  // The exposed tower finial must use the outdoor sky environment rather
  // than the close veranda probe later assigned to the shared gold material.
@@ -133,7 +134,7 @@ export function buildArchitecture(mats){
  },[.8,1,1]);
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};
- for(let i=0;i<25;i++){let x=14.42+i*.235;b.box(x,1.27,24,.228,.16,30,'floor',0,.85+.2*(.5+.5*Math.sin(i*5.7)));for(let z of[12,20,28,36]){b.cyl(x,1.355,z,.013,.007,'black');}}
+ const verandaBoards=buildVerandaBoards(T,b);let lowerVerandaRail;
  for(let z of[10,18,26,34,40]){column(16.0,z,1.36,7.6,.48);bracket(16.0,8.7,z,1.35);} // substantial vermilion column is cropped at the far right
  for(let z of[10,18,26,34,40]){b.box(15.6,9.0,z,8.7,.45,.52,'cedar');for(let x=12.3;x<20;x+=.9)fitting(x,9.0,z+.28,.34,.34);}
  b.box(16,9.62,25,9.8,.28,33,'darkwood');
@@ -143,7 +144,8 @@ export function buildArchitecture(mats){
  b.at([.2,.27,0],0,()=>{
  const finial=new T.LatheGeometry([[0,0],[.085,0],[.11,.025],[.105,.045],[.075,.065],[.075,.10],[.135,.135],[.145,.16],[.135,.185],[.09,.215],[.045,.245],[.025,.28],[0,.30]].map(p=>new T.Vector2(...p)),24);
  for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);for(let j=0;j<16;j++){let aa=j*Math.PI/8;b.put(reliefLeaf,'oldgold',[x+Math.sin(aa)*.102,2.31,z+Math.cos(aa)*.102],[.32,.34,.35],[0,aa,j%2?.5:-.5]);}b.cyl(x,1.44,z,.12,.15,'oldgold');}
- for(let y of[1.55,1.96,2.27])b.line([14.4,y,8],[14.4,y,41],y===2.27?.065:.037,'red');
+ lowerVerandaRail=buildLowerVerandaRail(T,b);
+ for(let y of[1.96,2.27])b.line([14.4,y,8],[14.4,y,41],y===2.27?.065:.037,'red');
  for(let z=9.8;z<40;z+=3.6){b.at([14.34,1.77,z],Math.PI/2,()=>{
   // Small dense cast-bronze inserts occupy the lower centre of each timber bay.
   b.box(0,0,0,1.15,.55,.025,'darkwood');for(let yy of[-.275,.275])b.box(0,yy,.026,1.17,.025,.025,'oldgold');for(let xx of[-.575,.575])b.box(xx,0,.026,.025,.55,.025,'oldgold');
@@ -164,5 +166,5 @@ export function buildArchitecture(mats){
  },s);
   const top=y+1.11*s;b.line([x,top,z],[x,ceiling,z],.016,'oldgold');for(let yy=top+.06;yy<ceiling;yy+=.13)b.put(torus,'oldgold',[x,yy,z],[.035,.048,.035],[0,yy*8,0]);const light=new T.PointLight(0xffb75f,22*s,8*s,2);light.position.set(x,y,z);lights.push(light);}
  lantern(13.6,6.5,15.5,.77);lantern(13.2,7.5,5.5,.48,9.3);lantern(18,7.8,7,.5,9.3);
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats},deck};
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,verandaBoards,lowerVerandaRail},deck};
 }
