@@ -35,6 +35,10 @@ def brush(x,y,cx,cy,rx,ry):
     # Compact, C1 vertex-sculpt falloff on an existing anatomical topology.
     r=math.hypot((x-cx)/rx,(y-cy)/ry)
     return (1-smooth(r)) if r<1 else 0
+def reference_height(y):
+    # Original HD low-camera eye/chin anchors are about 10–12 source pixels
+    # below selected32. The upper chest shares this smooth fit in runtime.
+    return y-.180*smooth((y-1.80)/.40)+.050*smooth((y-2.95)/.25)
 
 # Retain the connected head, both auricles and the neck. Helpers, teeth, eyes,
 # genitals and all other bodies are absent. The one lower boundary is buried
@@ -54,23 +58,37 @@ for i in used:
     x += side*.072*cheek;z += .080*cheek
     # Compact rounded mandible, keeping the genuine chin-to-throat transition.
     jaw=brush(ax,y,.30,6.03,.43,.35)*smooth((z-.40)/.50)
-    x += side*.050*jaw
+    x -= side*.030*jaw
+    # Lift the actual mandibular corners and taper them into the chin; avoid a
+    # square male jaw while retaining the same central chin height.
+    y += .145*brush(ax,y,.43,6.02,.33,.30)*smooth((z-.35)/.55)
     chin=brush(x,y,0,5.98,.35,.24)*smooth((z-.65)/.40)
-    y += .035*chin;z += .032*chin
+    y += .015*chin;z += .015*chin
     # Modest sculptural mouth: keep the real lip loops, close their aperture,
     # lower the labial unit slightly and broaden the lower lip cushion.
     mouth=brush(x,y,0,6.35,.34,.23)*smooth((z-1.05)/.20)
     y -= .045*mouth
     z += .018*mouth
+    z -= .055*brush(x,y,0,6.19,.23,.15)*smooth((z-1.08)/.18)
+    z -= .065*brush(ax,y,.145,6.56,.105,.12)*smooth((z-1.15)/.22)
     # Subtly raised brow ridge; all change is geometric, no painted brow.
     brow=brush(ax,y,.31,7.27,.32,.14)*smooth((z-.75)/.35)
     z += .035*brow
+    z += .045*brush(ax,y,.32,7.09,.25,.095)*smooth((z-.95)/.20)
     # Lengthen the actual closed ear lobule. Temporal attachment is retained
     # by fading to zero across the medial root; the helix/concha topology stays.
     ear=smooth((ax-.635)/.075)*(1-smooth((y-7.39)/.13))
     if z<.88 and y>6.48:
+        # Turn the anatomical auricle gently toward the front. The first low
+        # camera view saw its lobule edge-on, producing a sharp leaf silhouette.
+        theta=math.radians(25)*ear
+        dx=ax-.64;dz=z-.58
+        x=side*(.64+dx*math.cos(theta)-dz*math.sin(theta))
+        z=.58+dx*math.sin(theta)+dz*math.cos(theta)
+        bulb=brush(ax,y,.735,6.64,.18,.19)*ear
+        x += side*.022*bulb;z += .070*bulb
         lobe=1-smooth((y-6.55)/.53)
-        y -= .57*ear*lobe
+        y -= .54*ear*lobe
         z += .09*ear*lobe
     # Fit the Asian head to the selected statue, preserving head position and
     # upper facial anchors. Widen the existing neck rather than adding collars.
@@ -80,7 +98,7 @@ for i in used:
     localz=(z-.55)*.24+.05
     # Continuous anterior neck has a modest full throat, no incised torus ring.
     localz += .038*neck*smooth((z-.05)/.50)
-    co.append((x,localy,localz))
+    co.append((x,reference_height(localy),localz))
 mesh=bpy.data.meshes.new('CC0 Asian head-neck connected skin control cage')
 mesh.from_pydata(co,[],[[remap[i] for i in faces[k]] for k in keep]);mesh.update()
 layer=mesh.uv_layers.new(name='makehumanUV')

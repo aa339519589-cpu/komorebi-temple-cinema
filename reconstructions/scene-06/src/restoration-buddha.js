@@ -149,7 +149,17 @@ function reliefArcs(x,y,arcs){let f=0;for(const a of arcs){
 }return f;}
 function makeBuilder(variant){
   const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[],cloth:[]},names=[];
-  return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
+  return {add(g,tag,material='buddha'){
+    // Fit the head to the original HD eye/chin projection, while the same
+    // smooth transition lowers the upper chest/shoulder connection. Below
+    // localY1.80 the selected body, gesture and seat coordinates are identical.
+    // The CC0 head skin already carries this fit in its editable control cage.
+    if(variant==='central'&&material!=='face'){
+      const p=g.attributes.position;
+      for(let i=0;i<p.count;i++){const y=p.getY(i);p.setY(i,y-.180*smooth(y,1.80,2.20)+.050*smooth(y,2.95,3.20));}
+      recomputeSculptureNormals(g);
+    }
+    g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
     finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
       g.userData={reconstruction:'reference6-recovered-proportion-r1',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
@@ -377,6 +387,7 @@ function centralFigure(){
  head.setAttribute('uv',new T.Float32BufferAttribute(HEAD_SCULPT.uv,2));
  head.setIndex(HEAD_SCULPT.index);
  b.add(head,'cc0-sculpted-connected-head-auricles-neck','face');
+ b.add(ellipsoid(0,3.04,.254,.012,.014,.006),'forehead-urna');
  crown(b,2.78,{central:true});
  const arms=[
   [[-.40,2.20,-.025],[-.64,2.02,-.005],[-.82,1.65,.055],[-.92,1.09,.13],[-.92,.82,.19],[-.84,.67,.25]],

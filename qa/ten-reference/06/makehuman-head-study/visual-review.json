@@ -1,0 +1,54 @@
+{
+  "status": "unaccepted-anatomical-study",
+  "selectedRootBaseline": "7f095dd:reconstructions/scene-06; seat-contact32",
+  "round01Commit": "94f80ff",
+  "reference": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/references/hd/4-照片-5.jpg",
+    "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+    "nativeCropBounds": [
+      584,
+      331,
+      679,
+      425
+    ],
+    "manualPixelAnchorsIn95Crop": {
+      "eyeLineY": 39,
+      "chinY": 68
+    },
+    "anchorUncertaintyPixels": 2,
+    "depthMeasured": false
+  },
+  "method": "Official CC0 MakeHuman coherent body skin + Asian male young target, extract connected head/auricles/neck, manual compact vertex-sculpt deformations, Catmull-Clark2. Genuine vertex geometry, no photo albedo or AI frame.",
+  "round01": {
+    "iteration": "makehuman56",
+    "gains": [
+      "Head, actual auricles and neck share a closed indexed skin topology.",
+      "No independent neck collar or overlaid ear tube."
+    ],
+    "gaps": [
+      "Square male lower jaw, short projected skin height.",
+      "Edge-on stretched lobules still pointed.",
+      "Selected32 head sits about10-12 native pixels above the HD eye/chin anchors.",
+      "Nose/labial relief and metal response remain too hard."
+    ]
+  },
+  "round02": {
+    "iteration": "makehuman57",
+    "gains": [
+      "Eye line approximately38-39px and chin68px in the true95px camera field, near the manual HD anchors.",
+      "Lowered head/neck and smoothly lowered upper chest/shoulders above localY1.80; physical main camera, seat, lower gesture and halo unchanged."
+    ],
+    "gaps": [
+      "Local mandible-corner sculpt produces visibly lumpy/deep transitions, rather than the original smooth oval jaw.",
+      "Ear lobules are still pointed leaf silhouettes despite25-degree auricle rotation.",
+      "Hard nostril/lip relief and broad reflected highlight patches differ from the reference.",
+      "Eyebrow/lid shape and the original dark paint remain unmodeled."
+    ],
+    "verdict": "Do not promote; projection gain does not establish sculptural fidelity."
+  },
+  "renderMethod": "Root shared render-one-reconstruction queue;1254 main plus DETAIL_CROP=584,331,95,1254 genuine native camera subfrustum. detail-native.png is not an enlarged photograph or screenshot.",
+  "manualComparisonImages": "reference-enlarged-comparison-only.png and baseline32-enlarged-comparison-only.png are explicitly enlarged raster comparison inputs, not native3D detail evidence.",
+  "roundLimitReached": 2,
+  "additionalTestsRun": false,
+  "photographicAcceptance": false
+}
