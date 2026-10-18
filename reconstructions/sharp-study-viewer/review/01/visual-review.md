@@ -1,0 +1,9 @@
+# Actual first-view and translation study · 01
+
+Not visually accepted. These are real Three/Spark framebuffer renders of Apple SHARP's standard 3D Gaussian PLY. `report.json` records the model hash, original intrinsics, renderer source hashes, resource requests and camera transforms. No original-photograph texture was requested by the renderer. The only photograph in `comparison.png` is the explicitly labeled first comparison tile.
+
+The calibrated source pose preserves the input's golden-hour timber/metal color, dense brackets and tile ridges, lamp silhouette, foliage and small water highlights much more closely than the current hand-modeled scene. Source rendering softens some of the finest edges; it is not pixel-identical to the photograph. The field bakes observed lighting and reflections rather than supporting arbitrary physical relighting.
+
+Physical X translation of ±0.318834m with fixed K produces large foreground railing/lantern displacement and small distant pagoda displacement. This is genuine depth parallax. The same movement reveals uncertain pillar/tree edges, floating fragments and stretched hidden surfaces. The forward0.510134m pose retains most observed detail but also reveals edge smearing. The backward0.765201m pose exposes large black unobserved areas along the left/bottom/right boundaries; **this pullback stress view is unsuitable as a film shot**. It remains here as real evidence, without an image background or synthesized hole filling.
+
+The later film API will move only from a cautious forward position back to the exact source camera; these side/back poses are research inspection presets. The first preview at ±0.305267m used a sampled nontransparent depth median; its original files and report remain in `output/sharp-study/01/viewer-preview01/`, with its report also retained in `../01-first-preview/`. The current five unmodified1254px frames and exact model median are candidate02. No film has been rendered.

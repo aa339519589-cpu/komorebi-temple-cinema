@@ -13,7 +13,7 @@ renderer.setClearColor(0x000000,1);
 const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(50,1,.001,10000);
 const spark=new SparkRenderer({renderer,autoUpdate:false,enableLod:false,accumExtSplats:true,sortRadial:false,preBlurAmount:0,blurAmount:0,maxStdDev:Math.sqrt(8),minAlpha:.5/255});
 scene.add(spark);
-let record,calibration,model,header,depth=1,currentPose,currentTime=0,ready=false,modelURL;
+let record,calibration,model,header,depth=1,currentPose,currentTime=0,ready=false,modelURL,metadataDepth=null;
 let renderSerial=Promise.resolve(),playStarted=null,playFrom=0,interactivePose={translation:[0,0,0],rotation:[0,0,0]};
 const state={renderer,camera,scene,spark,ready:false,readyPromise:null};
 window.temple=state;
@@ -27,7 +27,7 @@ function resize() {
   const [w,h]=viewport();renderer.setSize(w,h,true);applyIntrinsics(camera,calibration,w,h);
 }
 function info() {
-  return {kind:'photo-reconstructed-3d-gaussian-field',title:'照片重建3D高斯场',viewerVersion:'sharp-study-spark-01',threeRevision:THREE.REVISION,sparkVersion:'2.3.1',ready,modelURL:modelURL?.pathname,metadataURL:metaURL.pathname,gaussianCount:header?.vertexCount,shDegree:header?.shDegree,gaussianProperties:header?.properties,coordinateSystem:record?.coordinateSystem??'opencv-camera',fieldTransform:CV_TO_THREE.toArray(),calibration:calibration?{width:calibration.width,height:calibration.height,fx:calibration.fx,fy:calibration.fy,cx:calibration.cx,cy:calibration.cy}:null,depthScale:depth,depthScaleMethod:record?.depth?.median?'metadata median source-camera z':'median of up to8192 nontransparent Gaussian centers in the source camera',intrinsicsAnimated:false,sourceBackgroundImage:false,renderedPrimitives:'anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing',projection:camera.projectionMatrix.toArray(),pose:currentPose,renderer:renderer.info.render};
+  return {kind:'photo-reconstructed-3d-gaussian-field',title:'照片重建3D高斯场',viewerVersion:'sharp-study-spark-02',threeRevision:THREE.REVISION,sparkVersion:'2.3.1',ready,modelURL:modelURL?.pathname,metadataURL:metaURL.pathname,gaussianCount:header?.vertexCount,shDegree:header?.shDegree,gaussianProperties:header?.properties,coordinateSystem:record?.coordinateSystem??'opencv-camera',fieldTransform:CV_TO_THREE.toArray(),calibration:calibration?{width:calibration.width,height:calibration.height,fx:calibration.fx,fy:calibration.fy,cx:calibration.cx,cy:calibration.cy}:null,depthScale:depth,depthScaleMethod:metadataDepth?'metadata median source-camera z':'median of up to8192 nontransparent Gaussian centers in the source camera',intrinsicsAnimated:false,sourceBackgroundImage:false,colorEncoding:'PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform',renderedPrimitives:'anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing',projection:camera.projectionMatrix.toArray(),pose:currentPose,renderer:renderer.info.render};
 }
 async function drawPose(pose,time=null) {
   if(!ready)throw Error('3D Gaussian model is not ready.');
@@ -37,7 +37,7 @@ async function drawPose(pose,time=null) {
   // capture before this Promise, or use a timeout to guess when sorting ends.
   await spark.update({scene,camera});
   renderer.render(scene,camera);renderer.getContext().finish();
-  currentPose={...currentPose,time,depthScale:depth,sourceIntrinsicsPreserved:true};
+  currentPose={...currentPose,time,depthScale:depth,sourceIntrinsicsPreserved:true,matrixStorage:'column-major'};
   return currentPose;
 }
 function renderPose(pose={},time=null) {
@@ -86,7 +86,8 @@ async function initialize() {
   const inverse=calibration.sourceMatrixCV.clone().invert(),zs=[];
   const stride=Math.max(1,Math.floor(count/8192));
   for(let j=0;j<count;j+=stride){const g=source.getSplat(j);if(g.opacity<.05)continue;const p=g.center.clone().applyMatrix4(inverse);if(p.z>0&&Number.isFinite(p.z))zs.push(p.z);}
-  zs.sort((a,b)=>a-b);depth=Number(record.depth?.median??zs[Math.floor(zs.length/2)]);
+  zs.sort((a,b)=>a-b);metadataDepth=record.depth?.median??record.depth?.positiveZQuantiles?.median??null;
+  depth=Number(metadataDepth??zs[Math.floor(zs.length/2)]);
   if(!(depth>0))throw Error('Gaussian field has no finite positive source-camera depth. Check coordinate convention.');
   camera.near=Math.max(.0001,depth*.0001);camera.far=Math.max(100,depth*100);resize();
   model.maxSh=header.shDegree;
@@ -110,11 +111,16 @@ let drag=null;
 canvas.addEventListener('pointerdown',event=>{if(!ready)return;stopPlayback();canvas.focus();canvas.setPointerCapture(event.pointerId);drag={x:event.clientX,y:event.clientY,rotation:[...interactivePose.rotation]};});
 canvas.addEventListener('pointermove',event=>{if(!drag)return;const dx=(event.clientX-drag.x)*.002,dy=(event.clientY-drag.y)*.002;interactivePose.rotation=event.shiftKey?[...drag.rotation.slice(0,2),drag.rotation[2]+dx]:[drag.rotation[0]+dy,drag.rotation[1]+dx,drag.rotation[2]];renderPose(structuredClone(interactivePose));});
 canvas.addEventListener('pointerup',()=>drag=null);canvas.addEventListener('pointercancel',()=>drag=null);
-canvas.addEventListener('wheel',event=>{event.preventDefault();stopPlayback();interactivePose.translation[2]-=Math.sign(event.deltaY)*depth*.008;renderPose(structuredClone(interactivePose));},{passive:false});
+function moveInCameraAxes(delta){
+  const q=new THREE.Quaternion().setFromEuler(new THREE.Euler(...interactivePose.rotation,'YXZ'));
+  const movement=new THREE.Vector3(...delta).applyQuaternion(q);
+  interactivePose.translation=interactivePose.translation.map((v,j)=>v+movement.getComponent(j));
+}
+canvas.addEventListener('wheel',event=>{event.preventDefault();stopPlayback();moveInCameraAxes([0,0,-Math.sign(event.deltaY)*depth*.008]);renderPose(structuredClone(interactivePose));},{passive:false});
 canvas.addEventListener('keydown',event=>{
   const map={a:[0,-1],d:[0,1],q:[1,-1],e:[1,1],w:[2,1],s:[2,-1]};
   if(event.key.toLowerCase()==='r'){state.renderPreset('source');return;}
   const move=map[event.key.toLowerCase()];if(!move||!ready)return;
-  event.preventDefault();stopPlayback();interactivePose.translation[move[0]]+=move[1]*depth*.008*(event.shiftKey?3:1);renderPose(structuredClone(interactivePose));
+  event.preventDefault();stopPlayback();const delta=[0,0,0];delta[move[0]]=move[1]*depth*.008*(event.shiftKey?3:1);moveInCameraAxes(delta);renderPose(structuredClone(interactivePose));
 });
 window.addEventListener('resize',()=>{if(ready&&!capture){resize();renderPose(structuredClone(interactivePose));}});

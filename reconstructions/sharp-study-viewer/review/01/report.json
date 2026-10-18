@@ -1,0 +1,1710 @@
+{
+  "kind": "actual-3d-gaussian-viewer-frames",
+  "scene": "01",
+  "iteration": "preview02",
+  "startedAt": "2026-10-18T14:20:44.974Z",
+  "visualAccepted": false,
+  "sourceCommit": "db35f194893ad61b345eda89b7f31a1d0e2678f5",
+  "width": 1254,
+  "height": 1254,
+  "frames": [
+    {
+      "name": "source",
+      "pose": {
+        "translationCV": [
+          0,
+          0,
+          0
+        ],
+        "rotationCV": [
+          0,
+          0,
+          0
+        ],
+        "cameraToWorldCV": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          -2.4492935982947064e-16,
+          0,
+          0,
+          2.4492935982947064e-16,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          -1.2246467991473532e-16,
+          0,
+          0,
+          1
+        ],
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "time": null,
+        "depthScale": 12.753354549407959,
+        "sourceIntrinsicsPreserved": true,
+        "matrixStorage": "column-major"
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "contextLost": false,
+      "info": {
+        "kind": "photo-reconstructed-3d-gaussian-field",
+        "title": "照片重建3D高斯场",
+        "viewerVersion": "sharp-study-spark-02",
+        "threeRevision": "186",
+        "sparkVersion": "2.3.1",
+        "ready": true,
+        "modelURL": "/output/sharp-study/01/01.ply",
+        "metadataURL": "/output/sharp-study/01/viewer.json",
+        "gaussianCount": 1179648,
+        "shDegree": 0,
+        "gaussianProperties": [
+          {
+            "type": "float",
+            "name": "x"
+          },
+          {
+            "type": "float",
+            "name": "y"
+          },
+          {
+            "type": "float",
+            "name": "z"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_0"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_1"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_2"
+          },
+          {
+            "type": "float",
+            "name": "opacity"
+          },
+          {
+            "type": "float",
+            "name": "scale_0"
+          },
+          {
+            "type": "float",
+            "name": "scale_1"
+          },
+          {
+            "type": "float",
+            "name": "scale_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_0"
+          },
+          {
+            "type": "float",
+            "name": "rot_1"
+          },
+          {
+            "type": "float",
+            "name": "rot_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_3"
+          }
+        ],
+        "coordinateSystem": "opencv-camera",
+        "fieldTransform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          1.2246467991473532e-16,
+          0,
+          0,
+          -1.2246467991473532e-16,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "calibration": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1229.6481673164137,
+          "fy": 1229.6481673164137,
+          "cx": 627,
+          "cy": 627
+        },
+        "depthScale": 12.753354549407959,
+        "depthScaleMethod": "metadata median source-camera z",
+        "intrinsicsAnimated": false,
+        "sourceBackgroundImage": false,
+        "colorEncoding": "PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform",
+        "renderedPrimitives": "anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing",
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "pose": {
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "rotationCV": [
+            0,
+            0,
+            0
+          ],
+          "cameraToWorldCV": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cameraToWorld": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -2.4492935982947064e-16,
+            0,
+            0,
+            2.4492935982947064e-16,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "quaternion": [
+            -1.2246467991473532e-16,
+            0,
+            0,
+            1
+          ],
+          "projection": [
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0025506734605550527,
+            0
+          ],
+          "time": null,
+          "depthScale": 12.753354549407959,
+          "sourceIntrinsicsPreserved": true,
+          "matrixStorage": "column-major"
+        },
+        "renderer": {
+          "frame": 4,
+          "calls": 1,
+          "triangles": 2359296,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "rgbaSha256": "becb523f045818fbea1f63097162bd14f3368d6aaeff56e907ef2b6bf234a370"
+    },
+    {
+      "name": "left",
+      "pose": {
+        "translationCV": [
+          -0.318833863735199,
+          0,
+          0
+        ],
+        "rotationCV": [
+          0,
+          0,
+          0
+        ],
+        "cameraToWorldCV": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.318833863735199,
+          0,
+          0,
+          1
+        ],
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          -2.4492935982947064e-16,
+          0,
+          0,
+          2.4492935982947064e-16,
+          1,
+          0,
+          -0.318833863735199,
+          0,
+          0,
+          1
+        ],
+        "position": [
+          -0.318833863735199,
+          0,
+          0
+        ],
+        "quaternion": [
+          -1.2246467991473532e-16,
+          0,
+          0,
+          1
+        ],
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "time": null,
+        "depthScale": 12.753354549407959,
+        "sourceIntrinsicsPreserved": true,
+        "matrixStorage": "column-major"
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "contextLost": false,
+      "info": {
+        "kind": "photo-reconstructed-3d-gaussian-field",
+        "title": "照片重建3D高斯场",
+        "viewerVersion": "sharp-study-spark-02",
+        "threeRevision": "186",
+        "sparkVersion": "2.3.1",
+        "ready": true,
+        "modelURL": "/output/sharp-study/01/01.ply",
+        "metadataURL": "/output/sharp-study/01/viewer.json",
+        "gaussianCount": 1179648,
+        "shDegree": 0,
+        "gaussianProperties": [
+          {
+            "type": "float",
+            "name": "x"
+          },
+          {
+            "type": "float",
+            "name": "y"
+          },
+          {
+            "type": "float",
+            "name": "z"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_0"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_1"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_2"
+          },
+          {
+            "type": "float",
+            "name": "opacity"
+          },
+          {
+            "type": "float",
+            "name": "scale_0"
+          },
+          {
+            "type": "float",
+            "name": "scale_1"
+          },
+          {
+            "type": "float",
+            "name": "scale_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_0"
+          },
+          {
+            "type": "float",
+            "name": "rot_1"
+          },
+          {
+            "type": "float",
+            "name": "rot_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_3"
+          }
+        ],
+        "coordinateSystem": "opencv-camera",
+        "fieldTransform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          1.2246467991473532e-16,
+          0,
+          0,
+          -1.2246467991473532e-16,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "calibration": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1229.6481673164137,
+          "fy": 1229.6481673164137,
+          "cx": 627,
+          "cy": 627
+        },
+        "depthScale": 12.753354549407959,
+        "depthScaleMethod": "metadata median source-camera z",
+        "intrinsicsAnimated": false,
+        "sourceBackgroundImage": false,
+        "colorEncoding": "PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform",
+        "renderedPrimitives": "anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing",
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "pose": {
+          "translationCV": [
+            -0.318833863735199,
+            0,
+            0
+          ],
+          "rotationCV": [
+            0,
+            0,
+            0
+          ],
+          "cameraToWorldCV": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -0.318833863735199,
+            0,
+            0,
+            1
+          ],
+          "cameraToWorld": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -2.4492935982947064e-16,
+            0,
+            0,
+            2.4492935982947064e-16,
+            1,
+            0,
+            -0.318833863735199,
+            0,
+            0,
+            1
+          ],
+          "position": [
+            -0.318833863735199,
+            0,
+            0
+          ],
+          "quaternion": [
+            -1.2246467991473532e-16,
+            0,
+            0,
+            1
+          ],
+          "projection": [
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0025506734605550527,
+            0
+          ],
+          "time": null,
+          "depthScale": 12.753354549407959,
+          "sourceIntrinsicsPreserved": true,
+          "matrixStorage": "column-major"
+        },
+        "renderer": {
+          "frame": 6,
+          "calls": 1,
+          "triangles": 2359296,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "rgbaSha256": "1644b5d9f47417fe8dee018ed4003830b637e6d0863396ec54aa810fa8385dd0"
+    },
+    {
+      "name": "right",
+      "pose": {
+        "translationCV": [
+          0.318833863735199,
+          0,
+          0
+        ],
+        "rotationCV": [
+          0,
+          0,
+          0
+        ],
+        "cameraToWorldCV": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.318833863735199,
+          0,
+          0,
+          1
+        ],
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          -2.4492935982947064e-16,
+          0,
+          0,
+          2.4492935982947064e-16,
+          1,
+          0,
+          0.318833863735199,
+          0,
+          0,
+          1
+        ],
+        "position": [
+          0.318833863735199,
+          0,
+          0
+        ],
+        "quaternion": [
+          -1.2246467991473532e-16,
+          0,
+          0,
+          1
+        ],
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "time": null,
+        "depthScale": 12.753354549407959,
+        "sourceIntrinsicsPreserved": true,
+        "matrixStorage": "column-major"
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "contextLost": false,
+      "info": {
+        "kind": "photo-reconstructed-3d-gaussian-field",
+        "title": "照片重建3D高斯场",
+        "viewerVersion": "sharp-study-spark-02",
+        "threeRevision": "186",
+        "sparkVersion": "2.3.1",
+        "ready": true,
+        "modelURL": "/output/sharp-study/01/01.ply",
+        "metadataURL": "/output/sharp-study/01/viewer.json",
+        "gaussianCount": 1179648,
+        "shDegree": 0,
+        "gaussianProperties": [
+          {
+            "type": "float",
+            "name": "x"
+          },
+          {
+            "type": "float",
+            "name": "y"
+          },
+          {
+            "type": "float",
+            "name": "z"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_0"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_1"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_2"
+          },
+          {
+            "type": "float",
+            "name": "opacity"
+          },
+          {
+            "type": "float",
+            "name": "scale_0"
+          },
+          {
+            "type": "float",
+            "name": "scale_1"
+          },
+          {
+            "type": "float",
+            "name": "scale_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_0"
+          },
+          {
+            "type": "float",
+            "name": "rot_1"
+          },
+          {
+            "type": "float",
+            "name": "rot_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_3"
+          }
+        ],
+        "coordinateSystem": "opencv-camera",
+        "fieldTransform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          1.2246467991473532e-16,
+          0,
+          0,
+          -1.2246467991473532e-16,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "calibration": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1229.6481673164137,
+          "fy": 1229.6481673164137,
+          "cx": 627,
+          "cy": 627
+        },
+        "depthScale": 12.753354549407959,
+        "depthScaleMethod": "metadata median source-camera z",
+        "intrinsicsAnimated": false,
+        "sourceBackgroundImage": false,
+        "colorEncoding": "PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform",
+        "renderedPrimitives": "anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing",
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "pose": {
+          "translationCV": [
+            0.318833863735199,
+            0,
+            0
+          ],
+          "rotationCV": [
+            0,
+            0,
+            0
+          ],
+          "cameraToWorldCV": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0.318833863735199,
+            0,
+            0,
+            1
+          ],
+          "cameraToWorld": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -2.4492935982947064e-16,
+            0,
+            0,
+            2.4492935982947064e-16,
+            1,
+            0,
+            0.318833863735199,
+            0,
+            0,
+            1
+          ],
+          "position": [
+            0.318833863735199,
+            0,
+            0
+          ],
+          "quaternion": [
+            -1.2246467991473532e-16,
+            0,
+            0,
+            1
+          ],
+          "projection": [
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0025506734605550527,
+            0
+          ],
+          "time": null,
+          "depthScale": 12.753354549407959,
+          "sourceIntrinsicsPreserved": true,
+          "matrixStorage": "column-major"
+        },
+        "renderer": {
+          "frame": 8,
+          "calls": 1,
+          "triangles": 2359296,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "rgbaSha256": "96a800a9be8cf18a977f221180a670bccf90795a3eba9eec0b9af4557e6841a0"
+    },
+    {
+      "name": "near",
+      "pose": {
+        "translationCV": [
+          0,
+          0,
+          0.5101341819763183
+        ],
+        "rotationCV": [
+          0,
+          0,
+          0
+        ],
+        "cameraToWorldCV": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0.5101341819763183,
+          1
+        ],
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          -2.4492935982947064e-16,
+          0,
+          0,
+          2.4492935982947064e-16,
+          1,
+          0,
+          0,
+          -6.247341930929517e-17,
+          -0.5101341819763183,
+          1
+        ],
+        "position": [
+          0,
+          -6.247341930929517e-17,
+          -0.5101341819763183
+        ],
+        "quaternion": [
+          -1.2246467991473532e-16,
+          0,
+          0,
+          1
+        ],
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "time": null,
+        "depthScale": 12.753354549407959,
+        "sourceIntrinsicsPreserved": true,
+        "matrixStorage": "column-major"
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "contextLost": false,
+      "info": {
+        "kind": "photo-reconstructed-3d-gaussian-field",
+        "title": "照片重建3D高斯场",
+        "viewerVersion": "sharp-study-spark-02",
+        "threeRevision": "186",
+        "sparkVersion": "2.3.1",
+        "ready": true,
+        "modelURL": "/output/sharp-study/01/01.ply",
+        "metadataURL": "/output/sharp-study/01/viewer.json",
+        "gaussianCount": 1179648,
+        "shDegree": 0,
+        "gaussianProperties": [
+          {
+            "type": "float",
+            "name": "x"
+          },
+          {
+            "type": "float",
+            "name": "y"
+          },
+          {
+            "type": "float",
+            "name": "z"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_0"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_1"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_2"
+          },
+          {
+            "type": "float",
+            "name": "opacity"
+          },
+          {
+            "type": "float",
+            "name": "scale_0"
+          },
+          {
+            "type": "float",
+            "name": "scale_1"
+          },
+          {
+            "type": "float",
+            "name": "scale_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_0"
+          },
+          {
+            "type": "float",
+            "name": "rot_1"
+          },
+          {
+            "type": "float",
+            "name": "rot_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_3"
+          }
+        ],
+        "coordinateSystem": "opencv-camera",
+        "fieldTransform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          1.2246467991473532e-16,
+          0,
+          0,
+          -1.2246467991473532e-16,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "calibration": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1229.6481673164137,
+          "fy": 1229.6481673164137,
+          "cx": 627,
+          "cy": 627
+        },
+        "depthScale": 12.753354549407959,
+        "depthScaleMethod": "metadata median source-camera z",
+        "intrinsicsAnimated": false,
+        "sourceBackgroundImage": false,
+        "colorEncoding": "PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform",
+        "renderedPrimitives": "anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing",
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "pose": {
+          "translationCV": [
+            0,
+            0,
+            0.5101341819763183
+          ],
+          "rotationCV": [
+            0,
+            0,
+            0
+          ],
+          "cameraToWorldCV": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0.5101341819763183,
+            1
+          ],
+          "cameraToWorld": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -2.4492935982947064e-16,
+            0,
+            0,
+            2.4492935982947064e-16,
+            1,
+            0,
+            0,
+            -6.247341930929517e-17,
+            -0.5101341819763183,
+            1
+          ],
+          "position": [
+            0,
+            -6.247341930929517e-17,
+            -0.5101341819763183
+          ],
+          "quaternion": [
+            -1.2246467991473532e-16,
+            0,
+            0,
+            1
+          ],
+          "projection": [
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0025506734605550527,
+            0
+          ],
+          "time": null,
+          "depthScale": 12.753354549407959,
+          "sourceIntrinsicsPreserved": true,
+          "matrixStorage": "column-major"
+        },
+        "renderer": {
+          "frame": 10,
+          "calls": 1,
+          "triangles": 2359296,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "rgbaSha256": "7a8594086e242e60c424ede5fda2b1e748f9295c94f8ee18b16288088587f402"
+    },
+    {
+      "name": "far",
+      "pose": {
+        "translationCV": [
+          0,
+          0,
+          -0.7652012729644775
+        ],
+        "rotationCV": [
+          0,
+          0,
+          0
+        ],
+        "cameraToWorldCV": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          -0.7652012729644775,
+          1
+        ],
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          -2.4492935982947064e-16,
+          0,
+          0,
+          2.4492935982947064e-16,
+          1,
+          0,
+          0,
+          9.371012896394275e-17,
+          0.7652012729644775,
+          1
+        ],
+        "position": [
+          0,
+          9.371012896394275e-17,
+          0.7652012729644775
+        ],
+        "quaternion": [
+          -1.2246467991473532e-16,
+          0,
+          0,
+          1
+        ],
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "time": null,
+        "depthScale": 12.753354549407959,
+        "sourceIntrinsicsPreserved": true,
+        "matrixStorage": "column-major"
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "contextLost": false,
+      "info": {
+        "kind": "photo-reconstructed-3d-gaussian-field",
+        "title": "照片重建3D高斯场",
+        "viewerVersion": "sharp-study-spark-02",
+        "threeRevision": "186",
+        "sparkVersion": "2.3.1",
+        "ready": true,
+        "modelURL": "/output/sharp-study/01/01.ply",
+        "metadataURL": "/output/sharp-study/01/viewer.json",
+        "gaussianCount": 1179648,
+        "shDegree": 0,
+        "gaussianProperties": [
+          {
+            "type": "float",
+            "name": "x"
+          },
+          {
+            "type": "float",
+            "name": "y"
+          },
+          {
+            "type": "float",
+            "name": "z"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_0"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_1"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_2"
+          },
+          {
+            "type": "float",
+            "name": "opacity"
+          },
+          {
+            "type": "float",
+            "name": "scale_0"
+          },
+          {
+            "type": "float",
+            "name": "scale_1"
+          },
+          {
+            "type": "float",
+            "name": "scale_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_0"
+          },
+          {
+            "type": "float",
+            "name": "rot_1"
+          },
+          {
+            "type": "float",
+            "name": "rot_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_3"
+          }
+        ],
+        "coordinateSystem": "opencv-camera",
+        "fieldTransform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          1.2246467991473532e-16,
+          0,
+          0,
+          -1.2246467991473532e-16,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "calibration": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1229.6481673164137,
+          "fy": 1229.6481673164137,
+          "cx": 627,
+          "cy": 627
+        },
+        "depthScale": 12.753354549407959,
+        "depthScaleMethod": "metadata median source-camera z",
+        "intrinsicsAnimated": false,
+        "sourceBackgroundImage": false,
+        "colorEncoding": "PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform",
+        "renderedPrimitives": "anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing",
+        "projection": [
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          1.96116135138184,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0025506734605550527,
+          0
+        ],
+        "pose": {
+          "translationCV": [
+            0,
+            0,
+            -0.7652012729644775
+          ],
+          "rotationCV": [
+            0,
+            0,
+            0
+          ],
+          "cameraToWorldCV": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            -0.7652012729644775,
+            1
+          ],
+          "cameraToWorld": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -2.4492935982947064e-16,
+            0,
+            0,
+            2.4492935982947064e-16,
+            1,
+            0,
+            0,
+            9.371012896394275e-17,
+            0.7652012729644775,
+            1
+          ],
+          "position": [
+            0,
+            9.371012896394275e-17,
+            0.7652012729644775
+          ],
+          "quaternion": [
+            -1.2246467991473532e-16,
+            0,
+            0,
+            1
+          ],
+          "projection": [
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            1.96116135138184,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0025506734605550527,
+            0
+          ],
+          "time": null,
+          "depthScale": 12.753354549407959,
+          "sourceIntrinsicsPreserved": true,
+          "matrixStorage": "column-major"
+        },
+        "renderer": {
+          "frame": 12,
+          "calls": 1,
+          "triangles": 2359296,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "rgbaSha256": "9737adb528a8d5b680864264c83ca00e8a55b103ab7ee53b5edde43f0cddbea2"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "/reconstructions/sharp-study-viewer/index.html",
+    "/reconstructions/sharp-study-viewer/viewer.css",
+    "/reconstructions/sharp-study-viewer/viewer.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/sharp-study-viewer/vendor/spark/spark.module.js",
+    "/reconstructions/sharp-study-viewer/camera.js",
+    "/reconstructions/sharp-study-viewer/ply-header.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/output/sharp-study/01/viewer.json",
+    "/output/sharp-study/01/01.ply",
+    "/output/sharp-study/01/01.ply"
+  ],
+  "model": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/01.ply",
+    "sha256": "2dcbe52d9d1b3679156414e82e463df8604b2272021062bac29a23650b4bcd4f"
+  },
+  "metadata": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/viewer.json",
+    "sha256": "da3b9068b1dd646c3a63aa7ce2148b8bdd0e669e1d7fd8d7ab213dd4a96f3a45",
+    "data": {
+      "id": "01",
+      "model": {
+        "url": "./01.ply",
+        "format": "binary-ply-gaussian-splat",
+        "gaussianCount": 1179648,
+        "sha256": "2dcbe52d9d1b3679156414e82e463df8604b2272021062bac29a23650b4bcd4f"
+      },
+      "image": {
+        "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/0-照片-1.jpg",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d"
+      },
+      "intrinsics": {
+        "fx": 1229.6481673164137,
+        "fy": 1229.6481673164137,
+        "cx": 627,
+        "cy": 627,
+        "width": 1254,
+        "height": 1254
+      },
+      "coordinateSystem": "opencv-camera",
+      "units": "metres-predicted-by-single-image-model",
+      "sourceCamera": {
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "worldToCamera": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "matrixOrder": "row-major"
+      },
+      "gaussianEncoding": {
+        "sphericalHarmonicsDegree": 0,
+        "color": "sRGB encoded as SH0: (sRGB-0.5)/sqrt(1/(4*pi))",
+        "opacity": "logit",
+        "scale": "log principal standard deviation in metres",
+        "quaternion": "wxyz"
+      },
+      "depth": {
+        "positiveZQuantiles": {
+          "p01": 1.3251663374900817,
+          "p10": 2.100898289680481,
+          "median": 12.753354549407959,
+          "p90": 35.9127426147461,
+          "p99": 96.62059783935547
+        },
+        "opacityMedian": 0.9093117713928223,
+        "boundsMin": [
+          -43.18575668334961,
+          -48.92271423339844,
+          0.9622202515602112
+        ],
+        "boundsMax": [
+          22.021709442138672,
+          13.005785942077637,
+          101.713623046875
+        ]
+      },
+      "reconstruction": {
+        "method": "Apple SHARP unmodified predictor; official fixed 1536x1536 preparation and exact affine covariance unprojection",
+        "device": "mps",
+        "postprocess": "CPU float64 covariance SVD, official implementation",
+        "source": "https://github.com/apple-aiml-research/ml-sharp",
+        "sourceCommit": "aed6527499ef91cba3b54c18d49a870f25947190",
+        "checkpointUrl": "https://ml-site.cdn-apple.com/models/sharp/sharp_2572gikvuh.pt",
+        "checkpointSha256": "94211a75198c47f61fca7d739ba08a215418d8d398d48fddf023baccc24f073d",
+        "torch": "2.8.0",
+        "python": "3.12.14",
+        "generatedAt": "2026-10-18T14:17:57.663082+00:00",
+        "elapsedSeconds": 49.043
+      },
+      "license": {
+        "studyUse": "Non-commercial research evaluation",
+        "code": "Apple software license; see LICENSE",
+        "model": "Apple Machine Learning Research Model License Agreement; research purposes only; see LICENSE_MODEL",
+        "attribution": "Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement."
+      },
+      "limitations": [
+        "Single input photograph: unseen surfaces and metric scale are inferred, not measured.",
+        "No full CAD/topological reconstruction or multi-view consistency guarantee.",
+        "Camera focal length follows official EXIF/default estimate; it is not an independent calibration."
+      ]
+    }
+  },
+  "rendererSource": [
+    {
+      "file": "reconstructions/sharp-study-viewer/camera.js",
+      "sha256": "9fbcf02a373744f09b41091089037a5b4a2a28364afe1ee41ab347279fcf02da"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/index.html",
+      "sha256": "bf8ae29dc521c18c4ae88d2af035f183b7c90fb2a9e48740d67760cd3fd8a47d"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/ply-header.js",
+      "sha256": "b7d204515fef25661bf6315f9cebdef4ddd9830d866d9b2cee59f27a3edd4770"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/render-preview.mjs",
+      "sha256": "be69062b6915e9cee3e8f9181b91999cd6534aba5c81299cf7bdf954332c5dde"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/server.mjs",
+      "sha256": "15294b1c72211d8aeb7950aaa79803b59a5214114b7665b2ceaf56030143d2a9"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/LICENSE",
+      "sha256": "51829693e5dccd9ca1daa093991faac3aaa93238eb8fd5f5cb4130af85791d64"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/fflate-LICENSE",
+      "sha256": "805f6cb28bb8b6d3a0badd83c93bccd9671fa01a3b4b92b7042b0743325ac243"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/package.json",
+      "sha256": "376a8ca629e1cd1c65b69a9ec9356ab9caafa2f4adad95afe74ae3a4316a612c"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/provenance.json",
+      "sha256": "9ed75352a0e807b504bfffccad5deedf7470441cd9677a267318e94f5b51054f"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/spark.module.js",
+      "sha256": "2de375d5e489692f976abe3199c8435ecc00f97fabaf35e489eb7d368e1f6f60"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/spark.module.js.map",
+      "sha256": "0e5c52686ffc3451081a69b8bdac9e3eacdaa5a02b8a01803b51642d704cf4fc"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/viewer.css",
+      "sha256": "767902cbd43d72206d1c6c5ad5ba4371e8072f8b1ee08aec81be70a088fea85a"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/viewer.js",
+      "sha256": "1f9f794ce0e87bc6979bba18cab02788c8711cad75fc107c563f9f90bf39efdf"
+    },
+    {
+      "file": "vendor/build/three.core.js",
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "file": "vendor/build/three.module.js",
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    },
+    {
+      "file": "vendor/examples/jsm/postprocessing/Pass.js",
+      "sha256": "444b409c235ead986893c472e720da1b779a56985c7d10b279c7944b52bd61c5"
+    }
+  ],
+  "rendererSourceHash": "d1870ab8e1ab5c4f4c3d8b4ebdd8135b7ade78b536c615816dd6038497ada46e",
+  "backend": "metal",
+  "status": "rendered-for-visual-review",
+  "completedAt": "2026-10-18T14:20:48.080Z"
+}
