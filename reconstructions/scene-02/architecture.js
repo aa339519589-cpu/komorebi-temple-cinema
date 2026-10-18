@@ -101,7 +101,7 @@ export function buildArchitecture(mats){
    b.box(0,floor+.04,0,body+1.18,.24,body+1.18,'cedar');b.box(0,floor+.19,0,body+1.26,.075,body+1.26,'red');
    for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{
     b.box(0,floor+.39,body/2-.10,body,.39,.16,'red');b.box(0,floor+1.58,body/2-.10,body,.28,.16,'darkwood');
-    for(let x of[-.35,-.115,.115,.35]){if(level===0&&side===3&&Math.abs(x)<.2)continue;windowPanel(x*body,floor+1.02,body/2-.14,body*.205,.96,Math.abs(x)<.2?'pagodaPaper':'darkwood');}
+    for(let x of[-.35,-.115,.115,.35]){if(level===0&&side===3&&Math.abs(x)<.2)continue;windowPanel(x*body,floor+1.02,body/2-.36,body*.205,.96,Math.abs(x)<.2?'pagodaPaper':'darkwood');}
     for(let yy of[floor+.43,floor+1.56])b.box(0,yy,body/2+.035,body,.19,.065,'lightstone');
     for(let x of[-.46,-.23,0,.23,.46]){column(x*body,body/2+.35,floor+.12,1.62,.13);bracket(x*body,floor+1.68,body/2+.35,.60);b.box(x*body,floor+2.18,body/2+.61,.18,.20,1.16,'cedar');}
     for(let y of[floor+1.86,floor+2.15])b.box(0,y,body/2+.35,body+1.05,.17,.31,'red');
@@ -109,6 +109,7 @@ export function buildArchitecture(mats){
     for(let i=0;i<=8;i++){const x=-(body+1)/2+(body+1)*i/8;if(entry&&Math.abs(x)<gap/2)continue;b.box(x,floor+.48,front,.085,.55,.085,'red');b.box(x,floor+.77,front,.12,.055,.12,'oldgold');}
     for(let i=0;i<8;i++){const x=-(body+1)/2+(body+1)*(i+.5)/8;if(entry&&Math.abs(x)<gap/2+.3)continue;b.box(x,floor+.43,front-.025,(body+1)/8-.10,.12,.035,'lightstone');}
    });
+   for(let x of[-body*.16,body*.16]){b.cyl(x,floor+1.16,0,.11,.09,'oldgold');b.put(b.sphere,'hallFlame',[x,floor+1.29,0],[.055,.095,.055]);}
    pagodaRoof(w,eave,1.40,.52);
   }
   // The sorin keeps its previous world height; a small seated boot meets the new peak.

@@ -29,7 +29,7 @@ export function buildGarden(mats){
  const islands=[[-1.5,0,7.5,1.0],[8.3,0,5.5,1.25],[4.6,0,13.5,.55],[-9,0,1.8,1.1]];
  for(let [x,y,z,r]of islands){b.put(b.lowSphere,'moss',[x,-.05,z],[r*1.45,.35,r]);for(let i=0;i<7;i++){let a=rand()*6.28,rr=r*(.6+rand()*.55);rock(x+Math.cos(a)*rr,.05,z+Math.sin(a)*rr,.20+rand()*.38);}for(let i=0;i<3;i++)shrub(x+(rand()-.5)*r*1.2,.2,z+(rand()-.5)*r*1.1,r*.30+rand()*.25,i%2===0);}
  // Garden height is deliberately varied: dense low flowers, articulated rocks, pruned pines and blossom canopies.
- tree(-6.5,-.5,5.6,3.1,true);tree(-20,-4,7,3.5,true);tree(8.5,2.0,3.6,1.8,true);tree(10,-3,6,3,true);tree(-2,1,3.8,1.9,true);
+ tree(-6.5,-.5,5.6,3.1,true);tree(-20,-4,7,3.5,true);tree(8.5,2.0,3.6,1.8,true);b.at([12.5,.04,-2],0,()=>b.at([-10,0,3],0,()=>tree(10,-3,6,3,true)),[.70,3.5/6,.70]);tree(-2,1,3.8,1.9,true);
  cherry(15,0,5.8,3.3);cherry(-10,0,4.4,2.8);cherry(9,-4,5,2.8);
  for(let j=0;j<16;j++){let x=-26+rand()*37,z=-4+rand()*4;shrub(x,.2,z,.7+rand()*.7,j%3===0);}
  // Tiered rock-and-flower planting climbs the high terrace on both sides of the stair.
