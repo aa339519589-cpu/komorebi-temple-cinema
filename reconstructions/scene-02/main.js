@@ -35,6 +35,10 @@ function mirror(name,w,d,p,opacity=.8,ripple=.0015){
 const water=new T.Mesh(new T.PlaneGeometry(61.5,61),mats.water);water.rotation.x=-Math.PI/2;water.position.set(-16,.004,15);water.receiveShadow=true;scene.add(water);
 mirror('actual-pond-reflection',61.5,61,[-16,.016,15],.97,.0012);
 mirror('wet-cedar-veranda-reflection',5.9,30,[17.35,1.356,24],.71,.00012);
+// Bound capture radiance before convolution: a non-finite shading sample must not
+// contaminate every prefiltered roughness mip of the local environment.
+const finiteCapture=`vec3 finiteRGB=gl_FragColor.rgb;if(!(finiteRGB.r>=0.0&&finiteRGB.r<10000.0))finiteRGB.r=0.0;if(!(finiteRGB.g>=0.0&&finiteRGB.g<10000.0))finiteRGB.g=0.0;if(!(finiteRGB.b>=0.0&&finiteRGB.b<10000.0))finiteRGB.b=0.0;gl_FragColor.rgb=min(finiteRGB,vec3(64.0));`;
+scene.traverse(o=>{if(o.isMesh&&o.material){o.material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <tonemapping_fragment>',finiteCapture+'\n#include <tonemapping_fragment>');};o.material.customProgramCacheKey=()=> 'scene02-finite-capture-v1';o.material.needsUpdate=true;}});
 // A fixed radiance probe includes the actual gold lamps, red timber, pond and deep
 // shadowed architecture, so close polished metal has reflected structural detail.
 const environmentScene=new T.Scene(),environmentSky=sky.clone();environmentSky.material=skyMaterial.clone();environmentSky.material.uniforms.skyGain.value=.78;environmentScene.add(environmentSky);
@@ -48,6 +52,6 @@ function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorl
 function renderReference(n=2){if(n!==2)throw Error('This independent reconstruction supports reference 02 only.');setView(reference.position,reference.target,reference.fov);return draw();}
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
 function renderShot(localTime=0){let t=Math.max(0,Math.min(1,localTime/7)),u=t*t*(3-2*t);setView([T.MathUtils.lerp(15.8,16.2,u),T.MathUtils.lerp(2.48,2.72,u),T.MathUtils.lerp(21.8,25,u)],[-1,T.MathUtils.lerp(4.4,4.7,u),-7],T.MathUtils.lerp(47,52,u));return draw();}
-function info(){return{reference:2,revision:'scene02-photo-rebuild-06',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-photo-rebuild-07',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);
