@@ -106,8 +106,8 @@ export function buildArchitecture(mats){
  for(let z of[10,18,26,34,40]){column(16.0,z,1.36,7.6,.48);bracket(16.0,8.7,z,1.35);} // substantial vermilion column is cropped at the far right
  for(let z of[10,18,26,34,40]){b.box(15.6,9.0,z,8.7,.45,.52,'cedar');for(let x=12.3;x<20;x+=.9)fitting(x,9.0,z+.28,.34,.34);}
  b.box(16,9.62,25,9.8,.28,33,'darkwood');
- for(let z=8.5;z<41;z+=.46){b.box(16,9.42,z,13.0,.30,.22,'cedar');b.box(9.63,9.42,z,.13,.31,.26,'darkwood');}
- b.box(10.0,9.08,25,.38,.45,34,'red');b.box(19.6,9.08,25,.38,.45,34,'red');
+ for(let z=8.5;z<41;z+=.46){const wide=z>=14;b.box(16,9.42,z,wide?13.0:10.8,.30,.22,'cedar');b.box(wide?9.63:10.73,9.42,z,.13,.31,.26,'darkwood');}
+ b.box(10.0,9.08,28,.38,.45,28,'red');b.box(11.1,9.08,11,.38,.45,6,'red');b.box(19.6,9.08,25,.38,.45,34,'red');
  // Open lacquered balustrade: fine gilt castings sit between rounded red rails.
  const finial=new T.LatheGeometry([[0,0],[.085,0],[.10,.03],[.075,.06],[.065,.11],[.12,.15],[.10,.19],[.055,.22],[.04,.27],[0,.30]].map(p=>new T.Vector2(...p)),24);
  for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);b.cyl(x,1.44,z,.12,.15,'oldgold');}

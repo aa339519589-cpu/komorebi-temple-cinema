@@ -2,6 +2,10 @@ import {T,V,materials} from './kernel.js';
 import {buildArchitecture} from './architecture.js';
 import {buildGarden} from './garden.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {GTAOPass} from 'three/addons/postprocessing/GTAOPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 const query=new URLSearchParams(location.search),width=Math.min(2048,Math.max(64,Number(query.get('w'))||960)),height=Math.min(2048,Math.max(64,Number(query.get('h'))||960));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(width,height);renderer.setPixelRatio(1);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;document.body.append(renderer.domElement);
 const scene=new T.Scene();scene.name='reference02-completely-rebuilt-veranda';scene.fog=new T.FogExp2(0xc4a47b,.005);
@@ -47,12 +51,20 @@ const pmrem=new T.PMREMGenerator(renderer),skyTarget=pmrem.fromScene(environment
 pmrem.dispose();environmentSky.material.dispose();
 const probeTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType}),probeCamera=new T.CubeCamera(.16,250,probeTarget);probeCamera.position.set(14,4.2,16.6);reflectors.forEach(o=>o.visible=false);scene.updateMatrixWorld(true);try{probeCamera.update(renderer,scene);}finally{reflectors.forEach(o=>o.visible=true);}
 const probePmrem=new T.PMREMGenerator(renderer),envTarget=probePmrem.fromCubemap(probeTarget.texture);scene.environment=envTarget.texture;scene.environmentIntensity=.9;probePmrem.dispose();probeTarget.dispose();scene.traverse(o=>{if(o.isMesh&&o.material?.isMeshStandardMaterial){o.material.envMap=envTarget.texture;o.material.needsUpdate=true;}});
+// Ground-truth ambient occlusion resolves contacts between the actual beam, tile,
+// carved bracket and garden surfaces. Noise rotations are fixed, never time driven.
+const composer=new EffectComposer(renderer);composer.setSize(width,height);composer.addPass(new RenderPass(scene,camera));
+const ao=new GTAOPass(scene,camera,width,height,undefined,{radius:.52,thickness:.75,distanceExponent:1.1,distanceFallOff:1,samples:16,scale:1.0});ao.blendIntensity=.72;
+const noiseBytes=new Uint8Array(16*16*4);for(let j=0;j<256;j++){const a=(Math.sin(j*127.1+27.4)*43758.5453)%1*6.283185;noiseBytes[j*4]=(Math.cos(a)*.5+.5)*255;noiseBytes[j*4+1]=(Math.sin(a)*.5+.5)*255;noiseBytes[j*4+2]=128;noiseBytes[j*4+3]=(j*73)%255;}
+const aoNoise=new T.DataTexture(noiseBytes,16,16);aoNoise.wrapS=aoNoise.wrapT=T.RepeatWrapping;aoNoise.needsUpdate=true;ao.gtaoNoiseTexture.dispose();ao.pdNoiseTexture.dispose();ao.gtaoNoiseTexture=aoNoise;ao.pdNoiseTexture=aoNoise;ao.gtaoMaterial.uniforms.tNoise.value=aoNoise;ao.pdMaterial.uniforms.tNoise.value=aoNoise;
+const aoRender=ao.render.bind(ao);ao.render=(...args)=>{const callbacks=reflectors.map(o=>o.onBeforeRender);reflectors.forEach(o=>o.onBeforeRender=()=>{});try{return aoRender(...args);}finally{reflectors.forEach((o,i)=>o.onBeforeRender=callbacks[i]);}};
+composer.addPass(ao);composer.addPass(new OutputPass());
 let frames=0,disposed=false;
 function setView(position,target,fov=52){camera.position.fromArray(position);camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);}
-function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorld(true);renderer.setRenderTarget(null);renderer.render(scene,camera);frames++;return {frame:frames,position:camera.position.toArray(),fov:camera.fov,width,height};}
+function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorld(true);renderer.setRenderTarget(null);composer.render(0);frames++;return {frame:frames,position:camera.position.toArray(),fov:camera.fov,width,height};}
 function renderReference(n=2){if(n!==2)throw Error('This independent reconstruction supports reference 02 only.');setView(reference.position,reference.target,reference.fov);return draw();}
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
 function renderShot(localTime=0){let t=Math.max(0,Math.min(1,localTime/7)),u=t*t*(3-2*t);setView([T.MathUtils.lerp(15.8,16.2,u),T.MathUtils.lerp(2.48,2.72,u),T.MathUtils.lerp(21.8,25,u)],[-1,T.MathUtils.lerp(4.4,4.7,u),-7],T.MathUtils.lerp(47,52,u));return draw();}
-function info(){return{reference:2,revision:'scene02-photo-rebuild-09',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
-function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();renderer.dispose();}
+function info(){return{reference:2,revision:'scene02-photo-rebuild-10',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
+function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);
