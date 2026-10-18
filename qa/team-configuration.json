@@ -1,0 +1,19 @@
+{
+  "updatedDate": "2026-10-18",
+  "source": "Explicit user corrections: at most five concurrent lanes; sub-agents must use Max reasoning rather than high.",
+  "totalModelConcurrencyLimitIncludingPrimary": 5,
+  "subagentConcurrencyLimit": 4,
+  "subagentModel": "gpt-6.1-sol",
+  "subagentReasoningEffort": "max",
+  "previousHighAgentsInterrupted": 10,
+  "currentAssignments": [
+    {"agent":"max_reference04","reference":4},
+    {"agent":"max_reference05","reference":5},
+    {"agent":"max_reference06","reference":6},
+    {"agent":"max_reference10","reference":10}
+  ],
+  "assignmentStyle": "One scene, a small number of deeply diagnosed changes, at most two actual review rounds before primary-agent review.",
+  "allTenReferencesRemainInScope": true,
+  "visualAcceptance": false,
+  "filmComplete": false
+}

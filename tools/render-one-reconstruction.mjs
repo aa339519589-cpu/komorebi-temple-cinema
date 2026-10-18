@@ -30,12 +30,15 @@ try{
  const page=await browser.newPage({viewport:{width:size,height:size},deviceScaleFactor:1});
  let fail;const fatal=new Promise((_,reject)=>fail=reject);fatal.catch(()=>{});
  page.on('pageerror',e=>{report.errors.push(String(e));fail(e);});
- page.on('console',m=>{if(m.type()==='error')report.errors.push(m.text());console.log(id,m.type(),m.text().slice(0,350));});
+ page.on('console',m=>{if(m.type()==='error'){report.errors.push(m.text());fail(Error(m.text()));}console.log(id,m.type(),m.text().slice(0,350));});
+ page.on('response',response=>{
+  if(response.status()>=400){const message=`Scene resource failed: ${response.status()} ${new URL(response.url()).pathname}`;report.errors.push(message);fail(Error(message));}
+ });
  await page.route('**/*',route=>{
   const u=new URL(route.request().url());
   if(u.pathname==='/favicon.ico')return route.fulfill({status:204,body:''});
   if(u.protocol==='data:'||(u.hostname==='127.0.0.1'&&u.port===String(port))){if(u.protocol!=='data:')report.requests.push(u.pathname);return route.continue();}
-  report.errors.push('Blocked external scene resource: '+u.origin);return route.abort('blockedbyclient');
+  const message='Blocked external scene resource: '+u.origin;report.errors.push(message);fail(Error(message));return route.abort('blockedbyclient');
  });
  await Promise.race([page.goto(`http://127.0.0.1:${port}/${entry}?render&defer&w=${size}&h=${size}`,{waitUntil:'load',timeout:600000}),fatal]);
  await Promise.race([page.waitForFunction(()=>window.temple?.ready&&typeof window.temple.renderReference==='function',null,{timeout:600000}),fatal]);
