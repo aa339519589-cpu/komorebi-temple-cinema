@@ -1,0 +1,50 @@
+{
+  "status": "three-actual-scanned-geometry-study-renders",
+  "sourceSha256": "5d27f4908acc9d0cd2e0232db03a0b6a2589efec4912db5b5b82901102317af7",
+  "sourceLicense": "CC0-1.0",
+  "geometry": "Actual museum scan, rigidly normalized; no photograph plane or AI replacement frame.",
+  "vertices": 41310,
+  "triangles": 82583,
+  "boundaryEdges": 55,
+  "sourceSize": [
+    0.5960198640823364,
+    0.594131350517273,
+    0.4010070562362671
+  ],
+  "normalizedHeightMetres": 3.5,
+  "worldTransformVerified": true,
+  "visualAccepted": false,
+  "limits": [
+    "Different historical sculpture; anatomy, drapery and pose must be compared with the supplied reference before use.",
+    "Uniform matte clay removes scan albedo and baked illumination; source GLB remains unchanged."
+  ],
+  "views": [
+    {
+      "name": "whole-front",
+      "camera": [
+        0.0,
+        -8.800000190734863,
+        1.600000023841858
+      ],
+      "file": "actual-geometry-whole-front.png"
+    },
+    {
+      "name": "head-front",
+      "camera": [
+        0.0,
+        -2.299999952316284,
+        3.0799999237060547
+      ],
+      "file": "actual-geometry-head-front.png"
+    },
+    {
+      "name": "head-three-quarter",
+      "camera": [
+        0.9720219969749451,
+        -2.084507942199707,
+        3.0799999237060547
+      ],
+      "file": "actual-geometry-head-three-quarter.png"
+    }
+  ]
+}

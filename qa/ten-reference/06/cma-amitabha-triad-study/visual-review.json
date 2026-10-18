@@ -1,0 +1,27 @@
+{
+  "reviewedAt": "2026-10-18T12:32:11.688746+00:00",
+  "candidate": "Cleveland Museum of Art Amitabha Triad1918.501",
+  "verdict": "REJECTED_FOR_REFERENCE_INTEGRATION",
+  "selectedSceneChanged": false,
+  "licenseVerified": "Official museum metadata and museum-owned Sketchfab account both mark CC0; public unauthenticated Objaverse mirror supplied unchanged GLB.",
+  "reference": "Supplied original Buddha head crop, archived at native95x94 pixels; no photo projection or source-frame replacement.",
+  "actualGeometryViews": [
+    "actual-geometry-whole-front.png",
+    "actual-geometry-head-front.png",
+    "actual-geometry-head-three-quarter.png"
+  ],
+  "observations": [
+    "The thumbnail has recognizable intact facial anatomy, but the uniform matte-clay renders expose a much smoother, lower-detail underlying mesh.",
+    "Head-jaw-neck continuity and broad anatomical silhouette are coherent, without the procedural collar intersections of the prior source.",
+    "Eyelid apertures, lip transitions, auricle folds and hair curls lack the sculptural depth/resolution required by the supplied reference.",
+    "The Korean1400s triad has different face styling, pointed ushnisha, robe coverage, hand gesture and attendant poses from the supplied Japanese-style hall reference.",
+    "82,583 triangles describe the entire three-figure work; this is not an intact high-resolution head sculpt suitable for direct substitution."
+  ],
+  "limits": [
+    "Study lighting and matte clay are newly applied; source scan textures are deliberately absent from these mesh views.",
+    "No claim of recovered anatomy, physical dimensions of the reference, or photographic acceptance."
+  ],
+  "sourceTriangles": 82583,
+  "sourceBoundaryEdges": 55,
+  "nextAction": "Stop this bounded one-public-candidate study; do not integrate the mesh or search further in this pass."
+}
