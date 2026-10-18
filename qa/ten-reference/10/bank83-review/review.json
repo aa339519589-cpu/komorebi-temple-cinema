@@ -1,0 +1,277 @@
+{
+  "baseCommit": "e6a3f3dab6f3665333f8ddae85d08c15167ce42e",
+  "branch": "work/scene10-bankform-20261019",
+  "scope": "One local near-right bank geometry improvement using three interlocking existing CC0 scan stones; no added global scatter/noise or reference photo texture",
+  "diagnosis": "Thin low slanted stones hidden below a continuous shrub mat lack the original photograph's exposed rounded waterline mass and low toe stones",
+  "actualObservations": [
+    "bank82 introduces true scan thickness but foliage still occludes much of the main face",
+    "bank83 moves the same three bodies1.2m forward: a projecting wet toe/ledge and more of the stone shoulder are visible at the bank edge",
+    "Upper main-stone face remains partly occluded by existing shrubs; improvement is limited to the local waterline silhouette",
+    "No claim of photographic matching or whole-shot temporal acceptance"
+  ],
+  "newGeometry": {
+    "scope": "Three interlocking physical scan pieces forming one exposed local bank outcrop; existing plant/random placement and camera retained",
+    "source": {
+      "asset": "rock_moss_set_01",
+      "author": "Kless Gyzen",
+      "license": "CC0-1.0",
+      "pieces": 6,
+      "source": "https://polyhaven.com/a/rock_moss_set_01"
+    },
+    "records": [
+      {
+        "part": "upright-main-stone",
+        "variant": 3,
+        "x": 3.62,
+        "z": 3.98,
+        "scale": 0.67,
+        "rotation": [
+          0.1,
+          -0.65,
+          -0.1
+        ],
+        "bottom": -0.27,
+        "y": 0.2960360365360608,
+        "bounds": [
+          [
+            2.9266361444346387,
+            -0.27,
+            3.1349280986653447
+          ],
+          [
+            4.36842749669098,
+            0.8947350387503364,
+            4.466199090841204
+          ]
+        ],
+        "vertices": 5691,
+        "triangles": 10589,
+        "material": "scanned-weathered-moss-stone-3-wet"
+      },
+      {
+        "part": "low-waterline-shoulder",
+        "variant": 0,
+        "x": 3.02,
+        "z": 4.4,
+        "scale": 0.5,
+        "rotation": [
+          -0.04,
+          0.32,
+          0.035
+        ],
+        "bottom": -0.18,
+        "y": 0.04096884458614691,
+        "bounds": [
+          [
+            2.656846258490546,
+            -0.18,
+            3.9199379119518185
+          ],
+          [
+            3.476685790941495,
+            0.2686400211570937,
+            4.818075684846545
+          ]
+        ],
+        "vertices": 6078,
+        "triangles": 11000,
+        "material": "scanned-weathered-moss-stone-0-wet"
+      },
+      {
+        "part": "submerged-toe-stone",
+        "variant": 4,
+        "x": 4.03,
+        "z": 4.54,
+        "scale": 0.38,
+        "rotation": [
+          0.06,
+          -0.8,
+          0.02
+        ],
+        "bottom": -0.16,
+        "y": -0.008491798561900188,
+        "bounds": [
+          [
+            3.7044127648424596,
+            -0.16,
+            4.190966952258707
+          ],
+          [
+            4.4101414597435715,
+            0.1468630203054993,
+            4.817389229860148
+          ]
+        ],
+        "vertices": 8538,
+        "triangles": 16548,
+        "material": "scanned-weathered-moss-stone-4-wet"
+      }
+    ],
+    "substrate": "Stone bodies extend below the existing water/soil level; the low shoulder and toe interrupt the waterline rather than hovering above it",
+    "geometryTransfer": "Original scanned positions, normals and UVs unmodified; rigid pose and one scale factor per stone only",
+    "acceptance": "Local modeling candidate, not a photographic match"
+  },
+  "sourcePreservation": {
+    "mainByteIdenticalAfterRemovingOnlyNewImportCallAndInfoField": true,
+    "protectedFiles": {
+      "reconstructions/scene-10/src/near-surface-reflection.js": {
+        "byteIdentical": true,
+        "sha256": "f340fd45f0edf62257bcc786f0dc5a593f26924450b37634f4f7e3cb541a254b"
+      },
+      "reconstructions/scene-10/src/near-rain-stones.js": {
+        "byteIdentical": true,
+        "sha256": "7d3d69d9f02118182bdf955703df858b3974682c1fc16f5687cdc1eeb0cf97e7"
+      },
+      "reconstructions/scene-10/src/paving-mask.js": {
+        "byteIdentical": true,
+        "sha256": "933ab064232b93e133e2427d3f04f32b37d109cb6eaa984d7c3b41ced1a5397b"
+      },
+      "reconstructions/scene-10/src/worn-flagstone.js": {
+        "byteIdentical": true,
+        "sha256": "9528372c000e64245e60bd9f391e464ff5ea9123b0742b487e04cb2bf0579c75"
+      },
+      "reconstructions/scene-10/src/surface-detail.js": {
+        "byteIdentical": true,
+        "sha256": "93d8d1efe23b09b87a6ced3d5107d8f45f280a118844378933f7143aafb11e4e"
+      },
+      "reconstructions/scene-10/src/dolly-path.js": {
+        "byteIdentical": true,
+        "sha256": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c"
+      },
+      "reconstructions/scene-10/src/materials.js": {
+        "byteIdentical": true,
+        "sha256": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5"
+      },
+      "reconstructions/scene-10/src/scanned-garden-stones.js": {
+        "byteIdentical": true,
+        "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619"
+      },
+      "reconstructions/scene-10/src/architecture.js": {
+        "byteIdentical": true,
+        "sha256": "46b9ba71d8cbfe055779e32fa614087ca83f64300b7983274c4beab0a1813659"
+      }
+    },
+    "sharedGardenRandomCallsAdded": false,
+    "existingMaterialParametersChanged": false,
+    "cameraAndShotCodeChanged": false,
+    "referenceReflection81DerivativeCodeChanged": false
+  },
+  "actualEvidence": [
+    {
+      "candidate": 82,
+      "sourceHash": "75c4f4adce40d61caa6854613d9d2a6d2cbcef779d47bf31301e5ccb14cbf1da",
+      "errors": [],
+      "status": "rendered-review",
+      "full": {
+        "path": "qa/ten-reference/10/iteration-bank82/reference.png",
+        "sha256": "405f01a1c37b8a55b64666bd976b51402e816c2f58cc240741cb5da48a7afde5"
+      },
+      "detail": {
+        "path": "qa/ten-reference/10/iteration-bank82/detail-native.png",
+        "sha256": "fc4006bd008bb80f066fa8211c5962149736d25d0a7fe65e096d6b2735aa7a7f"
+      },
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          5.4,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": {
+        "pixels": [
+          795,
+          725,
+          400,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      }
+    },
+    {
+      "candidate": 83,
+      "sourceHash": "7940abb13d286f5688f9e7ca08b18c24caf367846f850e97576533e051c60498",
+      "errors": [],
+      "status": "rendered-review",
+      "full": {
+        "path": "qa/ten-reference/10/iteration-bank83/reference.png",
+        "sha256": "1587a4638297c2f8af80bbd6c81944f655c7fdbfbf9691ffc8fd95b6ebdfa8a3"
+      },
+      "detail": {
+        "path": "qa/ten-reference/10/iteration-bank83/detail-native.png",
+        "sha256": "f9802a4e965b3c69374a104a63405aa58155f295b26550e769df55b8c854e614"
+      },
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          5.4,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": {
+        "pixels": [
+          795,
+          725,
+          400,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      }
+    }
+  ],
+  "baselineViewed": [
+    "iteration-integrated-reflection81-poses/shot-0.png",
+    "iteration-integrated-reflection81-poses/shot-3p5.png",
+    "iteration-integrated-reflection81-poses/shot-7.png"
+  ],
+  "comparison": {
+    "file": "qa/ten-reference/10/bank83-review/comparison-original81-82-83.png",
+    "leftToRight": [
+      [
+        "/Users/mima1234/temple-cinema-live-sync/references/hd/9-照片-10.jpg",
+        "Original supplied photograph,400px crop enlarged for comparison only"
+      ],
+      [
+        "/Users/mima1234/temple-scene10-bankform-20261019/qa/ten-reference/10/iteration-integrated-reflection81-poses/shot-7.png",
+        "Integrated reflection81 actual1254 full frame,400px crop enlarged"
+      ],
+      [
+        "/Users/mima1234/temple-scene10-bankform-20261019/qa/ten-reference/10/iteration-bank82/detail-native.png",
+        "bank82 actual1254 native subfrustum"
+      ],
+      [
+        "/Users/mima1234/temple-scene10-bankform-20261019/qa/ten-reference/10/iteration-bank83/detail-native.png",
+        "bank83 actual1254 native subfrustum"
+      ]
+    ],
+    "caveat": "Baseline is shot7 at rain time7; new stills use the unchanged reference camera at time0. Rain-ring phase differences are not geometry changes."
+  },
+  "sourceLicense": {
+    "asset": "rock_moss_set_01",
+    "author": "Kless Gyzen",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/rock_moss_set_01",
+    "newAssetDownloads": false,
+    "originalVertexNormalUVBuffers": "Unmodified; original scan shape and PBR retained"
+  },
+  "gpuScope": "Two actual1254 full+native400px subfrustum rounds through shared mutex helper; no suite, film or ad-hoc renderer",
+  "publication": "Local commit only; primary integrator controls public push",
+  "photographicAcceptance": false
+}
