@@ -1,0 +1,89 @@
+{
+  "status": "Roof review candidate; not accepted",
+  "visualAccepted": false,
+  "sourceHash": "22cc977121246b245182e0ddfd12427042523e41cc1256c4892e95cd81ebcbf2",
+  "actualEvidence": [
+    "reference.png",
+    "detail-native.png"
+  ],
+  "renderTool": "tools/render-one-reconstruction.mjs through the shared GPU mutex",
+  "rounds": 2,
+  "frames": 4,
+  "scope": "Scene03 upper hip roof, front dormer gable, eave closure and its two narrow frieze strips only.",
+  "changes": [
+    "Upper hip width reduced from 15.0 to 13.6 m, eave raised from 14.4 to 15.4 m, retaining the 19.6 m main ridge and fixed camera/site.",
+    "Front gable crown lowered from 19.35 to 18.62 m and half-width reduced from 3.85 to 3.45 m. A smaller closed recessed dark timber diaphragm replaces the large bright flat triangle.",
+    "The decorative roof loft joins the actual hip weather surface; curved bedding, 18 mm pan/cover tiles, short eave tails and a continuous closed fascia establish real thickness.",
+    "The previous curved upper timber parts remain, with their receiver beam and upper assembly moved to meet the new roof underside. The first candidate’s bare gap-fillers are removed.",
+    "Two white upper-storey strips are reduced from 0.65 to 0.25 m and use recessed grey fields.",
+    "A closed lobed ceramic family-medallion crest uses only the former kit’s backing. Eyes and teeth are omitted; a physical ceramic pedestal seats the retained finial."
+  ],
+  "preservedComponents": {
+    "reconstructions/scene-03/src/hall-layout.js": {
+      "previous": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "current": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/scene03-solid-joinery.js": {
+      "previous": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "current": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/scene03-curved-rafter.js": {
+      "previous": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "current": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/restoration-lotus-petal.js": {
+      "previous": "ed101e101992f9ef602d6c53ccab4760899aafd73a40a420c162132d64debd4b",
+      "current": "ed101e101992f9ef602d6c53ccab4760899aafd73a40a420c162132d64debd4b",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/restoration-lotus-leaf.js": {
+      "previous": "cef3d7232eb5fd6388a58ebc9cff7a5d68980d7cc21df90be6f0abf6715e1fa9",
+      "current": "cef3d7232eb5fd6388a58ebc9cff7a5d68980d7cc21df90be6f0abf6715e1fa9",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/lotus-material.js": {
+      "previous": "5f210a7ab38ccc2bf30e91b38d1e12f0896918bb22490c12a3e09f36b012fb70",
+      "current": "5f210a7ab38ccc2bf30e91b38d1e12f0896918bb22490c12a3e09f36b012fb70",
+      "identical": true
+    }
+  },
+  "roofConstruction": {
+    "upperWidth": 13.6,
+    "upperEave": 15.4,
+    "mainRidgeY": 19.6,
+    "closedClayThickness": 0.018,
+    "dormerCrown": 18.62,
+    "dormerFront": -0.6
+  },
+  "camera": {
+    "position": [
+      -2.4,
+      0.72,
+      18.2
+    ],
+    "target": [
+      1.6,
+      6.1,
+      -3
+    ],
+    "fov": 58
+  },
+  "validation": {
+    "rendererErrors": [],
+    "allFramesValid": true,
+    "referencePhotoRuntimeRequests": [],
+    "closedClayAudit": "solid-roof-audit.json",
+    "testSuiteRun": false
+  },
+  "remainingDifferences": [
+    "The upper-storey wall panels, beam spacing and repeated timber faces remain more regular and exposed than the original carved frieze.",
+    "Roof corner/shoulder projection retains local residuals; the analytical anchor measurements do not establish photographic fidelity.",
+    "The gable carving, crest shape, ceramic colour variation and gilded wear remain simplified.",
+    "Low-camera light, stone, vegetation and reflections remain visibly synthetic and were outside this roof correction."
+  ],
+  "provenanceNote": "asset-dependencies.json copiedSource.scope describes the mesh64 reuse stage. Mesh65 additionally emits only scene03-solid-joinery cornerMask[0], the closed lobed backing, with no mask face parts. This is existing project-authored geometry; no reference RGB or new third-party image is used.",
+  "copyright": "Original photograph copyright retained by its owner; comparison inputs only."
+}

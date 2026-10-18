@@ -1,0 +1,51 @@
+{
+  "scope": "Targeted closure inspection, not a test suite or visual acceptance.",
+  "audit": [
+    {
+      "name": "closed-short-fired-cover-tile",
+      "finite": true,
+      "boundaryOrNonManifoldEdges": 0,
+      "windingConflicts": 0,
+      "thicknessMetres": 0.018
+    },
+    {
+      "name": "closed-short-fired-pan-tile",
+      "finite": true,
+      "boundaryOrNonManifoldEdges": 0,
+      "windingConflicts": 0,
+      "thicknessMetres": 0.018
+    }
+  ],
+  "preservedComponents": {
+    "reconstructions/scene-03/src/hall-layout.js": {
+      "previous": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "current": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/scene03-solid-joinery.js": {
+      "previous": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "current": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/scene03-curved-rafter.js": {
+      "previous": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "current": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/restoration-lotus-petal.js": {
+      "previous": "ed101e101992f9ef602d6c53ccab4760899aafd73a40a420c162132d64debd4b",
+      "current": "ed101e101992f9ef602d6c53ccab4760899aafd73a40a420c162132d64debd4b",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/restoration-lotus-leaf.js": {
+      "previous": "cef3d7232eb5fd6388a58ebc9cff7a5d68980d7cc21df90be6f0abf6715e1fa9",
+      "current": "cef3d7232eb5fd6388a58ebc9cff7a5d68980d7cc21df90be6f0abf6715e1fa9",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/lotus-material.js": {
+      "previous": "5f210a7ab38ccc2bf30e91b38d1e12f0896918bb22490c12a3e09f36b012fb70",
+      "current": "5f210a7ab38ccc2bf30e91b38d1e12f0896918bb22490c12a3e09f36b012fb70",
+      "identical": true
+    }
+  }
+}

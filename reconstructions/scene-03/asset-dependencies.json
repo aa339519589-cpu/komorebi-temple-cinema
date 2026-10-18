@@ -1,6 +1,6 @@
 {
   "scene": "03",
-  "revision": "mesh64c",
+  "revision": "mesh65b",
   "referencePhotographs": {
     "usedByRuntime": false,
     "comparisonInput": "references/hd/2-\u7167\u7247-3.jpg",
@@ -31,5 +31,20 @@
     "Smooth closed ovoid five-lobed lotus bud"
   ],
   "proceduralBotanicalMaps": "Locally generated petal/leaf pigments and fine venation; no photograph inputs",
-  "visualAccepted": false
+  "visualAccepted": false,
+  "roofConstructionReferences": [
+    {
+      "inspectedSource": "reconstructions/scene-07/src/physical-roofs.js",
+      "sourceRevision": "scene07-solid-curved-roof-67",
+      "sourceSha256": "a468cbf29be7e2b2c940e2ed9336d8718fbdf0116b37cdc23ee293006738b321",
+      "scope": "Reviewed closed pan/cover course construction, eave fascia separation and roof/support contacts. Scene03 keeps its own fixed site, camera and dimensions; no site transform was copied."
+    }
+  ],
+  "roofCorrections": [
+    "Retained physical camera and column/platform placement. Upper hipped roof width 13.6 m and eave 15.4 m; ridge stays at 19.6 m.",
+    "Recessed front gable crown 18.62 m at z=-0.60 m and x=0.60 m. Its smaller closed dark diaphragm is below the curved ceramic roof and thick bargeboard.",
+    "New short closed 18 mm clay pan/cover courses plus short eave tails; closed continuous wood/metal fascia.",
+    "The previous curved upper bearings are retained as solids and follow the raised receiver beam to the roof underside.",
+    "Reduced the two white upper-storey strips to narrow grey recessed fields."
+  ]
 }

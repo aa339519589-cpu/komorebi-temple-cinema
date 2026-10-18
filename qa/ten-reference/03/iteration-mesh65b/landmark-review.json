@@ -1,0 +1,65 @@
+{
+  "method": "Manual photograph landmarks, uncertainty 6–10 pixels. Model anchors are analytical weather profile points, not a pixel-mask fit. Short tile tails, end discs and mouldings extend beyond those anchors.",
+  "camera": {
+    "position": [
+      -2.4,
+      0.72,
+      18.2
+    ],
+    "target": [
+      1.6,
+      6.1,
+      -3
+    ],
+    "fov": 58
+  },
+  "landmarks": [
+    {
+      "feature": "Front gable crown weather anchor",
+      "referenceApprox": [
+        781,
+        76
+      ],
+      "mesh64": [
+        786.54,
+        45.96
+      ],
+      "mesh65": [
+        781.07,
+        75.84
+      ]
+    },
+    {
+      "feature": "Front gable left shoulder weather anchor",
+      "referenceApprox": [
+        638,
+        219
+      ],
+      "mesh64": [
+        627.64,
+        235.45
+      ],
+      "mesh65": [
+        637.73,
+        216.96
+      ]
+    },
+    {
+      "feature": "Upper hip left eave structural corner",
+      "referenceApprox": [
+        486,
+        265
+      ],
+      "mesh64": [
+        457.55,
+        306.68
+      ],
+      "mesh65": [
+        484.2,
+        263.07
+      ],
+      "note": "Visible tile tails advance to t=1.04 and have a higher/upturned tip; the photograph/model outline retains a local residual."
+    }
+  ],
+  "visualAccepted": false
+}
