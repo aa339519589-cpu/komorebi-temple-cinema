@@ -1,0 +1,50 @@
+{
+  "status": "rendered-review",
+  "sourceHash": "649dba5d74a6a7c2b66db614fad086b78a6c9b6d3ba2ca441e09c5f9ccad6397",
+  "sourceMatchesActual": true,
+  "snapshots": [
+    {
+      "path": "main.js",
+      "exact": true
+    },
+    {
+      "path": "near-rain-stones.js",
+      "exact": true
+    },
+    {
+      "path": "paving-mask.js",
+      "exact": true
+    }
+  ],
+  "frames": [
+    {
+      "name": "shot-0",
+      "valid": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "glError": 0,
+      "programsLinked": true,
+      "pose": {
+        "position": [
+          -0.7,
+          0.25,
+          9
+        ],
+        "target": [
+          -0.8,
+          0.06699999999999998,
+          7.8
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      }
+    }
+  ],
+  "errors": [],
+  "visualAccepted": false,
+  "rounds": "Two shared-mutex jobs, three native frames: 77 reference+detail, 78 original shot-0. No further source change after 78."
+}

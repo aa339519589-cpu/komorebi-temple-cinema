@@ -1,0 +1,975 @@
+{
+  "scope": "Direct asset topology / dimension audit. No GPU image, unit suite, film, or photographic-fidelity assertion.",
+  "stones": [
+    {
+      "model": {
+        "id": "9:3",
+        "seed": 2021,
+        "profile": {
+          "chips": [
+            [
+              0.09,
+              0.041,
+              0.014,
+              0.01
+            ],
+            [
+              0.64,
+              0.024,
+              0.009,
+              0.006
+            ]
+          ],
+          "basin": [
+            -0.18,
+            0.21,
+            0.18,
+            0.12,
+            0.0048
+          ],
+          "pits": 51
+        },
+        "triangles": 97048,
+        "pitCount": 54,
+        "footprintXZ": [
+          -1.5626519918441772,
+          5.494631767272949,
+          -0.7215070128440857,
+          6.172167778015137
+        ],
+        "topYRange": [
+          0.03834611945992825,
+          0.04935782995375096
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.014,
+          0.009
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 97048,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 1,
+        "signedVolumeCubicMetres": 0.06713478014606833
+      },
+      "bed": {
+        "triangles": 4352,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.12015418351121002
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "9:4",
+        "seed": 2058,
+        "profile": {
+          "chips": [
+            [
+              0.31,
+              0.032,
+              0.018,
+              0.011
+            ],
+            [
+              0.82,
+              0.019,
+              0.007,
+              0.005
+            ]
+          ],
+          "basin": [
+            0.11,
+            -0.15,
+            0.14,
+            0.22,
+            0.0052
+          ],
+          "pits": 43
+        },
+        "triangles": 101242,
+        "pitCount": 46,
+        "footprintXZ": [
+          -0.7960339784622192,
+          5.311674118041992,
+          0.19559399783611298,
+          6.167548179626465
+        ],
+        "topYRange": [
+          0.031946177626906117,
+          0.044334371903799324
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.018,
+          0.007
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 101242,
+        "openEdges": 0,
+        "nonManifoldEdges": 2,
+        "edgeUsesNotTwo": 2,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 2,
+        "signedVolumeCubicMetres": 0.08472472123436701
+      },
+      "bed": {
+        "triangles": 4352,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.15154380669401618
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "9:5",
+        "seed": 2095,
+        "profile": {
+          "chips": [
+            [
+              0.16,
+              0.027,
+              0.01,
+              0.007
+            ],
+            [
+              0.53,
+              0.043,
+              0.022,
+              0.013
+            ],
+            [
+              0.93,
+              0.019,
+              0.008,
+              0.006
+            ]
+          ],
+          "basin": [
+            -0.12,
+            -0.24,
+            0.2,
+            0.12,
+            0.0036
+          ],
+          "pits": 56
+        },
+        "triangles": 121026,
+        "pitCount": 59,
+        "footprintXZ": [
+          0.040869999676942825,
+          5.310797214508057,
+          1.037883996963501,
+          6.229189872741699
+        ],
+        "topYRange": [
+          0.03731616187321869,
+          0.05087641008883235
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.01,
+          0.022,
+          0.008
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 121026,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 9,
+        "signedVolumeCubicMetres": 0.08402800036410044
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.1507172234162449
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "10:3",
+        "seed": 2118,
+        "profile": {
+          "chips": [
+            [
+              0.24,
+              0.021,
+              0.009,
+              0.005
+            ],
+            [
+              0.72,
+              0.037,
+              0.017,
+              0.011
+            ]
+          ],
+          "basin": [
+            0.22,
+            0.04,
+            0.17,
+            0.15,
+            0.0043
+          ],
+          "pits": 47
+        },
+        "triangles": 124666,
+        "pitCount": 50,
+        "footprintXZ": [
+          -1.5901949405670166,
+          6.09641695022583,
+          -0.8028450012207031,
+          7.054994106292725
+        ],
+        "topYRange": [
+          0.038630823195094546,
+          0.048529905798490855
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.009,
+          0.017
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 124666,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 3,
+        "signedVolumeCubicMetres": 0.0923937416358363
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.1634069140348431
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "10:4",
+        "seed": 2155,
+        "profile": {
+          "chips": [
+            [
+              0.04,
+              0.029,
+              0.013,
+              0.008
+            ],
+            [
+              0.47,
+              0.045,
+              0.023,
+              0.014
+            ]
+          ],
+          "basin": [
+            -0.2,
+            -0.12,
+            0.21,
+            0.18,
+            0.006
+          ],
+          "pits": 61
+        },
+        "triangles": 151370,
+        "pitCount": 64,
+        "footprintXZ": [
+          -0.8008139729499817,
+          6.122311115264893,
+          0.19310800731182098,
+          7.1444411277771
+        ],
+        "topYRange": [
+          0.03683021528400069,
+          0.047136476838883945
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.013,
+          0.023
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 151370,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 5,
+        "signedVolumeCubicMetres": 0.12307360059706021
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.21798182561393933
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "10:5",
+        "seed": 2192,
+        "profile": {
+          "chips": [
+            [
+              0.39,
+              0.028,
+              0.011,
+              0.006
+            ],
+            [
+              0.89,
+              0.04,
+              0.019,
+              0.012
+            ]
+          ],
+          "basin": [
+            0.13,
+            0.19,
+            0.18,
+            0.12,
+            0.0041
+          ],
+          "pits": 44
+        },
+        "triangles": 94186,
+        "pitCount": 47,
+        "footprintXZ": [
+          0.15617799758911133,
+          6.121119976043701,
+          1.0487090349197388,
+          7.147401809692383
+        ],
+        "topYRange": [
+          0.03596415991220277,
+          0.045907777883051976
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.011,
+          0.019
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 94186,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 2,
+        "signedVolumeCubicMetres": 0.0959011043040691
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.1690725224749798
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "11:3",
+        "seed": 2215,
+        "profile": {
+          "chips": [
+            [
+              0.13,
+              0.033,
+              0.015,
+              0.009
+            ],
+            [
+              0.57,
+              0.02,
+              0.008,
+              0.006
+            ],
+            [
+              0.78,
+              0.026,
+              0.011,
+              0.007
+            ]
+          ],
+          "basin": [
+            -0.09,
+            0.17,
+            0.15,
+            0.21,
+            0.0053
+          ],
+          "pits": 53
+        },
+        "triangles": 107210,
+        "pitCount": 56,
+        "footprintXZ": [
+          -1.5877599716186523,
+          7.007853031158447,
+          -0.5492429733276367,
+          7.869325160980225
+        ],
+        "topYRange": [
+          0.0357586037028131,
+          0.047554056446942654
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.015,
+          0.008,
+          0.011
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 107210,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 4,
+        "signedVolumeCubicMetres": 0.08591980611719698
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.15315198866333632
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "11:4",
+        "seed": 2252,
+        "profile": {
+          "chips": [
+            [
+              0.28,
+              0.046,
+              0.024,
+              0.014
+            ],
+            [
+              0.68,
+              0.022,
+              0.01,
+              0.007
+            ]
+          ],
+          "basin": [
+            0.17,
+            -0.09,
+            0.22,
+            0.16,
+            0.0065
+          ],
+          "pits": 57
+        },
+        "triangles": 90154,
+        "pitCount": 60,
+        "footprintXZ": [
+          -0.7910509705543518,
+          7.068613052368164,
+          0.1507290005683899,
+          7.932275772094727
+        ],
+        "topYRange": [
+          0.03692448978842688,
+          0.04999916055833728
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.024,
+          0.01
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 90154,
+        "openEdges": 0,
+        "nonManifoldEdges": 2,
+        "edgeUsesNotTwo": 2,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 11,
+        "signedVolumeCubicMetres": 0.08599733794541863
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.15308766724805464
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "11:5",
+        "seed": 2289,
+        "profile": {
+          "chips": [
+            [
+              0.07,
+              0.023,
+              0.009,
+              0.006
+            ],
+            [
+              0.48,
+              0.036,
+              0.016,
+              0.01
+            ]
+          ],
+          "basin": [
+            -0.21,
+            -0.08,
+            0.16,
+            0.2,
+            0.0044
+          ],
+          "pits": 48
+        },
+        "triangles": 109250,
+        "pitCount": 51,
+        "footprintXZ": [
+          0.15101799368858337,
+          6.955452919006348,
+          1.1194390058517456,
+          7.926621913909912
+        ],
+        "topYRange": [
+          0.03569229384533551,
+          0.04527547240981215
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.009,
+          0.016
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 109250,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 4,
+        "signedVolumeCubicMetres": 0.09463548876329309
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.16744572249052717
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "12:3",
+        "seed": 2312,
+        "profile": {
+          "chips": [
+            [
+              0.36,
+              0.039,
+              0.021,
+              0.013
+            ],
+            [
+              0.75,
+              0.029,
+              0.012,
+              0.008
+            ]
+          ],
+          "basin": [
+            0.06,
+            0.19,
+            0.21,
+            0.15,
+            0.0058
+          ],
+          "pits": 64
+        },
+        "triangles": 117484,
+        "pitCount": 67,
+        "footprintXZ": [
+          -1.6173019409179688,
+          7.755757808685303,
+          -0.546438992023468,
+          8.715278625488281
+        ],
+        "topYRange": [
+          0.03895971791357447,
+          0.049894846468344925
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.021,
+          0.012
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 117484,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 6,
+        "signedVolumeCubicMetres": 0.1009778103703428
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.18000555052943262
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "12:4",
+        "seed": 2349,
+        "profile": {
+          "chips": [
+            [
+              0.18,
+              0.03,
+              0.014,
+              0.009
+            ],
+            [
+              0.62,
+              0.047,
+              0.025,
+              0.015
+            ],
+            [
+              0.91,
+              0.018,
+              0.007,
+              0.005
+            ]
+          ],
+          "basin": [
+            -0.17,
+            -0.13,
+            0.18,
+            0.22,
+            0.0062
+          ],
+          "pits": 59
+        },
+        "triangles": 101444,
+        "pitCount": 62,
+        "footprintXZ": [
+          -0.7093530297279358,
+          7.889389991760254,
+          0.33588799834251404,
+          8.714163780212402
+        ],
+        "topYRange": [
+          0.040085087871333955,
+          0.053222855007435926
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.014,
+          0.025,
+          0.007
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 101444,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 10,
+        "signedVolumeCubicMetres": 0.09027541009579343
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.16087415708972386
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    },
+    {
+      "model": {
+        "id": "12:5",
+        "seed": 2386,
+        "profile": {
+          "chips": [
+            [
+              0.43,
+              0.025,
+              0.011,
+              0.008
+            ],
+            [
+              0.85,
+              0.035,
+              0.018,
+              0.011
+            ]
+          ],
+          "basin": [
+            0.18,
+            0.11,
+            0.17,
+            0.14,
+            0.0046
+          ],
+          "pits": 46
+        },
+        "triangles": 93664,
+        "pitCount": 49,
+        "footprintXZ": [
+          0.16107900440692902,
+          7.723771095275879,
+          1.17719304561615,
+          8.648362159729004
+        ],
+        "topYRange": [
+          0.037056766480275734,
+          0.048988928281590044
+        ],
+        "capMaxInteriorEdgeMetres": 0.014,
+        "remainingLipMetres": [
+          0.0022,
+          0.008
+        ],
+        "chipSetbackMetres": [
+          0.011,
+          0.018
+        ],
+        "source": "Authored closed mesh; no reference image sampling"
+      },
+      "topology": {
+        "triangles": 93664,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 7,
+        "signedVolumeCubicMetres": 0.098991592105265
+      },
+      "bed": {
+        "triangles": 8448,
+        "openEdges": 0,
+        "nonManifoldEdges": 0,
+        "edgeUsesNotTwo": 0,
+        "inconsistentEdgeOrientation": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeCubicMetres": 0.1756382918143414
+      },
+      "bedScope": {
+        "topMetres": [
+          0.0233,
+          0.0267
+        ],
+        "bottomMetres": -0.2,
+        "contact": "Overlaps original substrate top -.19 m; lies 10–25 mm below stone arrises",
+        "footprintExpansionMetres": 0.012
+      }
+    }
+  ],
+  "visualAccepted": false
+}
