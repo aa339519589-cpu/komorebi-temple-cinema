@@ -1,0 +1,117 @@
+{
+  "id": "04",
+  "model": {
+    "url": "./04.ply",
+    "format": "binary-ply-gaussian-splat",
+    "gaussianCount": 1179648,
+    "sha256": "7dfb6b934805cebac37dea4346f80e97ccb080c5756643c2a3eabfe8c48ae737"
+  },
+  "image": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/3-\u7167\u7247-4.jpg",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "0b0272948960514bfd6278847e6dc512bfce2b127c69415f0e5ce949a9c0ffcb"
+  },
+  "intrinsics": {
+    "fx": 1229.6481673164137,
+    "fy": 1229.6481673164137,
+    "cx": 627.0,
+    "cy": 627.0,
+    "width": 1254,
+    "height": 1254
+  },
+  "coordinateSystem": "opencv-camera",
+  "units": "metres-predicted-by-single-image-model",
+  "sourceCamera": {
+    "cameraToWorld": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "worldToCamera": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "matrixOrder": "row-major"
+  },
+  "gaussianEncoding": {
+    "sphericalHarmonicsDegree": 0,
+    "color": "sRGB encoded as SH0: (sRGB-0.5)/sqrt(1/(4*pi))",
+    "opacity": "logit",
+    "scale": "log principal standard deviation in metres",
+    "quaternion": "wxyz"
+  },
+  "depth": {
+    "positiveZQuantiles": {
+      "p01": 2.3442476058006285,
+      "p10": 2.835519003868103,
+      "median": 8.041752815246582,
+      "p90": 43.96658439636232,
+      "p99": 187.70948791503906,
+      "p05": 2.5432486534118652
+    },
+    "opacityMedian": 0.9302402138710022,
+    "boundsMin": [
+      -100.14044952392578,
+      -104.57233428955078,
+      1.9476889371871948
+    ],
+    "boundsMax": [
+      80.3394546508789,
+      1.664647102355957,
+      199.16363525390625
+    ]
+  },
+  "reconstruction": {
+    "method": "Apple SHARP unmodified predictor; official fixed 1536x1536 preparation and exact affine covariance unprojection",
+    "device": "mps",
+    "postprocess": "CPU float64 covariance SVD, official implementation",
+    "source": "https://github.com/apple-aiml-research/ml-sharp",
+    "sourceCommit": "aed6527499ef91cba3b54c18d49a870f25947190",
+    "checkpointUrl": "https://ml-site.cdn-apple.com/models/sharp/sharp_2572gikvuh.pt",
+    "checkpointSha256": "94211a75198c47f61fca7d739ba08a215418d8d398d48fddf023baccc24f073d",
+    "torch": "2.8.0",
+    "python": "3.12.14",
+    "generatedAt": "2026-10-18T14:22:18.624514+00:00",
+    "elapsedSeconds": 21.225
+  },
+  "license": {
+    "studyUse": "Non-commercial research evaluation",
+    "code": "Apple software license; see LICENSE",
+    "model": "Apple Machine Learning Research Model License Agreement; research purposes only; see LICENSE_MODEL",
+    "attribution": "Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement."
+  },
+  "limitations": [
+    "Single input photograph: unseen surfaces and metric scale are inferred, not measured.",
+    "No full CAD/topological reconstruction or multi-view consistency guarantee.",
+    "Camera focal length follows official EXIF/default estimate; it is not an independent calibration.",
+    "Lighting and reflections are encoded in static Gaussian colors; this is not a relightable PBR scene."
+  ]
+}

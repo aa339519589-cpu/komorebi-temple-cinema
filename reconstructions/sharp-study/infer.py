@@ -102,7 +102,7 @@ def main() -> None:
     positions = gaussians.mean_vectors.detach().cpu().numpy().reshape(-1, 3)
     opacity = gaussians.opacities.detach().cpu().numpy().reshape(-1)
     positive_z = positions[:, 2][np.isfinite(positions[:, 2]) & (positions[:, 2] > 0)]
-    quantiles = np.quantile(positive_z, [.01, .1, .5, .9, .99]).tolist()
+    quantiles = np.quantile(positive_z, [.01, .05, .1, .5, .9, .99]).tolist()
     identity = np.eye(4).reshape(-1).tolist()
     source_commit = subprocess.check_output(['git', '-C', str(args.upstream), 'rev-parse', 'HEAD'], text=True).strip()
     metadata = {
@@ -114,13 +114,13 @@ def main() -> None:
         'units': 'metres-predicted-by-single-image-model',
         'sourceCamera': {'cameraToWorld': identity, 'worldToCamera': identity, 'matrixOrder': 'row-major'},
         'gaussianEncoding': {'sphericalHarmonicsDegree': 0, 'color': 'sRGB encoded as SH0: (sRGB-0.5)/sqrt(1/(4*pi))', 'opacity': 'logit', 'scale': 'log principal standard deviation in metres', 'quaternion': 'wxyz'},
-        'depth': {'positiveZQuantiles': dict(zip(['p01', 'p10', 'median', 'p90', 'p99'], quantiles)), 'opacityMedian': float(np.median(opacity)), 'boundsMin': positions.min(axis=0).tolist(), 'boundsMax': positions.max(axis=0).tolist()},
+        'depth': {'positiveZQuantiles': dict(zip(['p01', 'p05', 'p10', 'median', 'p90', 'p99'], quantiles)), 'opacityMedian': float(np.median(opacity)), 'boundsMin': positions.min(axis=0).tolist(), 'boundsMax': positions.max(axis=0).tolist()},
         'reconstruction': {'method': 'Apple SHARP unmodified predictor; official fixed 1536x1536 preparation and exact affine covariance unprojection', 'device': str(device), 'postprocess': 'CPU float64 covariance SVD, official implementation', 'source': 'https://github.com/apple-aiml-research/ml-sharp', 'sourceCommit': source_commit, 'checkpointUrl': 'https://ml-site.cdn-apple.com/models/sharp/sharp_2572gikvuh.pt', 'checkpointSha256': sha256(args.checkpoint), 'torch': torch.__version__, 'python': platform.python_version(), 'generatedAt': datetime.now(timezone.utc).isoformat(), 'elapsedSeconds': round(time.monotonic() - began, 3)},
         'license': {'studyUse': 'Non-commercial research evaluation', 'code': 'Apple software license; see LICENSE', 'model': 'Apple Machine Learning Research Model License Agreement; research purposes only; see LICENSE_MODEL', 'attribution': 'Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement.'},
-        'limitations': ['Single input photograph: unseen surfaces and metric scale are inferred, not measured.', 'No full CAD/topological reconstruction or multi-view consistency guarantee.', 'Camera focal length follows official EXIF/default estimate; it is not an independent calibration.']
+        'limitations': ['Single input photograph: unseen surfaces and metric scale are inferred, not measured.', 'No full CAD/topological reconstruction or multi-view consistency guarantee.', 'Camera focal length follows official EXIF/default estimate; it is not an independent calibration.', 'Lighting and reflections are encoded in static Gaussian colors; this is not a relightable PBR scene.']
     }
     (args.output / 'viewer.json').write_text(json.dumps(metadata, indent=2) + '\n')
-    log('complete', ply=str(ply_path), metadata=str(args.output / 'viewer.json'), gaussianCount=len(positions), medianDepth=quantiles[2], bytes=ply_path.stat().st_size)
+    log('complete', ply=str(ply_path), metadata=str(args.output / 'viewer.json'), gaussianCount=len(positions), medianDepth=quantiles[3], bytes=ply_path.stat().st_size)
 
 
 if __name__ == '__main__':

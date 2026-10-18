@@ -1,0 +1,141 @@
+{
+  "status": "actual-single-image-gaussian-reconstructions-for-research-review",
+  "sourceCamera": "Identity OpenCV; exact K in each viewer.json",
+  "referenceImages": 10,
+  "totalGaussians": 11796480,
+  "totalModelBytes": 660610860,
+  "sourceCommit": "aed6527499ef91cba3b54c18d49a870f25947190",
+  "checkpointSha256": "94211a75198c47f61fca7d739ba08a215418d8d398d48fddf023baccc24f073d",
+  "codeLicense": "https://github.com/apple-aiml-research/ml-sharp/blob/aed6527499ef91cba3b54c18d49a870f25947190/LICENSE",
+  "modelLicense": "https://github.com/apple-aiml-research/ml-sharp/blob/aed6527499ef91cba3b54c18d49a870f25947190/LICENSE_MODEL",
+  "notes": [
+    "All ten input photographs lacked focal-length EXIF; official loader used its 30mm full-frame-diagonal default.",
+    "Depth, scale and hidden surfaces are inferred from a single image; no complete CAD claim.",
+    "Lighting and reflections are encoded in static colors; not a relightable PBR scene.",
+    "PLY and checkpoint bytes remain outside Git; this manifest preserves exact model and camera identities.",
+    "Source and nearby actual image01 views inspected; remaining scenes still require their actual render review."
+  ],
+  "scenes": [
+    {
+      "id": "01",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/01.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "2dcbe52d9d1b3679156414e82e463df8604b2272021062bac29a23650b4bcd4f",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/01/viewer.json",
+      "metadataSha256": "3baf3a4c65385579853c60b53ce00b2add1f21d56362285cab1918717e605dd4",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 1.4765205383300781,
+      "positiveDepthMedian": 12.753354549407959,
+      "inferenceSeconds": 49.043
+    },
+    {
+      "id": "02",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/02/02.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "af95bdb56f79b04e102db073d0e1f549a2017bfc8cd1acdf4ac15d8b55c8e32c",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/02/viewer.json",
+      "metadataSha256": "6f7142ff9c2cb945cbeaeb988c916b92557555d2394d41a4477ab1927d82d2d3",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 2.1277358531951904,
+      "positiveDepthMedian": 12.094234466552734,
+      "inferenceSeconds": 21.202
+    },
+    {
+      "id": "03",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/03/03.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "c48568717b645efd8cd22b8752e0879357f18bdb9876002fc91256aff79882c4",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/03/viewer.json",
+      "metadataSha256": "a01d086051f8b652d8c9608972de7916e8c6fcaca00f69d8f5ec11423efea55c",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 0.6775065660476685,
+      "positiveDepthMedian": 10.296709537506104,
+      "inferenceSeconds": 21.388
+    },
+    {
+      "id": "04",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/04/04.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "7dfb6b934805cebac37dea4346f80e97ccb080c5756643c2a3eabfe8c48ae737",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/04/viewer.json",
+      "metadataSha256": "3dc99479d681d574807df4c90ed8461dc87063d682c979c99ab0aa9ee24bf234",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 2.5432486534118652,
+      "positiveDepthMedian": 8.041752815246582,
+      "inferenceSeconds": 21.225
+    },
+    {
+      "id": "05",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/05/05.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "273861c3085a8f70b08688636c9fca090068a19c1cd69185ef8a3fa03e5364f0",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/05/viewer.json",
+      "metadataSha256": "1741ab0edaf1e24905ff42b3fb234f15d083c9c3b7f3731b0350fb3c48af51f8",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 1.9880484342575073,
+      "positiveDepthMedian": 7.886306285858154,
+      "inferenceSeconds": 21.424
+    },
+    {
+      "id": "06",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/06/06.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "5d55dfef9b58b7fb9cc973b2e946098a6e3afd63b1dac875b031ff4291d8e544",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/06/viewer.json",
+      "metadataSha256": "5a6dc6db872617de2ba2113419ce66c38f0cda2a97063657df0435b93f6acd62",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 4.6031880378723145,
+      "positiveDepthMedian": 8.021256446838379,
+      "inferenceSeconds": 21.235
+    },
+    {
+      "id": "07",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/07/07.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "1fa134674540d79f0b968be9fccc641b659528949bfb0a0f171a830b0c05e54d",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/07/viewer.json",
+      "metadataSha256": "bcffbfe89d83a0a8405b9779e525cca376cdf64346578b58ccb28eeaf6aeb463",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 2.739795684814453,
+      "positiveDepthMedian": 19.50945281982422,
+      "inferenceSeconds": 21.116
+    },
+    {
+      "id": "08",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/08/08.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "674eb1ae73e707faefefab19bd11cd06311cad8d65f0610ee05459ec7f0f92f4",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/08/viewer.json",
+      "metadataSha256": "ad20190dd76df1c1254ed51fff8a8b66e73dff60132f34b89c7feddb2274e3a3",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 0.9540415406227112,
+      "positiveDepthMedian": 6.8918657302856445,
+      "inferenceSeconds": 21.385
+    },
+    {
+      "id": "09",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/09/09.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "c6dda8d6f6e9f0f3343e36724aab1ce916b31a4d25a9df45b74caebf9828c7f3",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/09/viewer.json",
+      "metadataSha256": "12d13031dc90e9606f4e6d4138354612bc9c66be63c940779559d5f902549fb8",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 2.517106056213379,
+      "positiveDepthMedian": 24.839287757873535,
+      "inferenceSeconds": 21.2
+    },
+    {
+      "id": "10",
+      "modelPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/10/10.ply",
+      "modelBytes": 66061086,
+      "modelSha256": "e6a477aa2bf2befee675fe577a99f34f9f518e973f24bb86c44090a3472d024a",
+      "metadataPath": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study/10/viewer.json",
+      "metadataSha256": "33acffdfbcf84061f79dcf17acb6f87534e777e7ccbd04a5c31119f200281b85",
+      "gaussianCount": 1179648,
+      "positiveDepthP05": 1.4183645248413086,
+      "positiveDepthMedian": 10.692813396453857,
+      "inferenceSeconds": 21.13
+    }
+  ],
+  "localLicenseDirectory": "/Users/mima1234/temple-cinema-live-sync/output/sharp-study"
+}

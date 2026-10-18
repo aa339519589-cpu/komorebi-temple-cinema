@@ -74,7 +74,8 @@
       "p10": 2.100898289680481,
       "median": 12.753354549407959,
       "p90": 35.9127426147461,
-      "p99": 96.62059783935547
+      "p99": 96.62059783935547,
+      "p05": 1.4765205383300781
     },
     "opacityMedian": 0.9093117713928223,
     "boundsMin": [
@@ -110,6 +111,7 @@
   "limitations": [
     "Single input photograph: unseen surfaces and metric scale are inferred, not measured.",
     "No full CAD/topological reconstruction or multi-view consistency guarantee.",
-    "Camera focal length follows official EXIF/default estimate; it is not an independent calibration."
+    "Camera focal length follows official EXIF/default estimate; it is not an independent calibration.",
+    "Lighting and reflections are encoded in static Gaussian colors; this is not a relightable PBR scene."
   ]
 }
