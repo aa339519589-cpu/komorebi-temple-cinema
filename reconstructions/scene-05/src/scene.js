@@ -33,6 +33,7 @@ export function buildScene(){
  }
  const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack});
  mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414747');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
+ mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#858b7c');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
  for(const [name,m]of Object.entries(mats)){
    if(['red','cedar','endwood','darkwood'].some(k=>name===k||name==='architecture_'+k)){
      m.roughnessMap=null;m.roughness=name.includes('endwood')?.84:.76;m.envMapIntensity=.28;m.bumpScale=.006;
@@ -50,8 +51,8 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
 `);
      };m.customProgramCacheKey=()=> 'scene05-aged-wood-grain-v3';
    }
-   if(name==='gold'||name==='architecture_gold'){m.roughness=.53;m.envMapIntensity=.64;}
-   if(name==='oldgold'||name==='architecture_oldgold'){m.roughness=.63;m.envMapIntensity=.48;}
+   if(name==='gold'||name==='architecture_gold'){m.roughness=.50;m.envMapIntensity=1.2;}
+   if(name==='oldgold'||name==='architecture_oldgold'){m.roughness=.58;m.envMapIntensity=.88;}
  }
  mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#88602c',metalness:.86,roughness:.56,envMapIntensity:.65});
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
@@ -76,7 +77,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    pentRoof(w,y+.32,scale);carvedWindowInserts(w,y,scale);
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
    const r=(w+3.5*scale)/2;
-   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*.965,y+2.88,sz*r*.965,.68*scale);
+   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+2.60,sz*r*1.025,.76*scale);
    // Flanking upper ties and chased metal straps on the visible actual member ends.
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      for(let k=-1;k<=1;k++){
@@ -108,7 +109,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  function cornerTails(w,y,s){
    for(const sx of [-1,1])for(const sz of [-1,1]){
      const start=new T.Vector3(sx*(w/2-.18),y+3.25,sz*(w/2-.18));
-     const end=new T.Vector3(sx*(w/2+1.32*s),y+2.76,sz*(w/2+1.32*s));
+     const end=new T.Vector3(sx*(w/2+1.32*s),y+1.85,sz*(w/2+1.32*s));
      const mid=start.clone().lerp(end,.55).add(new T.Vector3(0,.06,0));
      const path=new T.CatmullRomCurve3([start,mid,end]),up=new T.Vector3(0,1,0),points=[];
      for(let j=0;j<=16;j++)points.push(path.getPoint(j/16).toArray());
@@ -160,8 +161,9 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
        for(const yy of [-.32,-.10,.14,.32])box(0,yy*s,.286*s,.31*s,.012*s,.015*s,bronze);
        box(0,-.01*s,.289*s,.010*s,.68*s,.014*s,bronze);
        // Curled leaf tracery has real holes through to luminous paper.
-       for(const side of [-1,1])for(const yy of [-.21,.025,.24]){
-         const pts=[];for(let j=0;j<=18;j++){const t=j/18*Math.PI*1.8,r=.038*(1-j/23);pts.push([side*(.075+Math.cos(t)*r),yy+Math.sin(t)*r,.299]);}wire(pts,.006,bronze);
+       for(const yy of [-.19,.035,.25]){
+         const pts=[];for(let j=0;j<=24;j++){const a=j/24*Math.PI*2;pts.push([.071*Math.sin(a),yy+.078*Math.cos(a),.299]);}wire(pts,.005,bronze);
+         wire([[-.145,yy-.055,.299],[0,yy+.072,.299],[.145,yy-.055,.299]],.004,bronze);
        }
        // Six pierced crown petals grow between narrow rings instead of a smooth gold tube.
        for(const side of [-1,1]){
@@ -172,6 +174,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      for(const yy of [.78,1.17])loft([[.105,yy],[.16,yy],[.16,yy+.026],[.105,yy+.026],[.105,yy]],gold);
      loft([[0,1.18],[.13,1.18],[.105,1.26],[.055,1.33],[0,1.33]],gold);
      instance(new T.CylinderGeometry(.014*s,.014*s,.34*s,8),bronze,0,1.48*s,0);
+     wire([[-Math.sign(x)*.22/s,1.65,-Math.sign(z)*.22/s],[0,1.65,0]],.014,bronze);
      wire([[0,-.58,0],[.02,-.64,0],[-.01,-.72,0],[0,-.78,0]],.009,gold);
      loft([[0,-.90],[.045,-.88],[.066,-.83],[.04,-.78],[0,-.77]],gold);
    });
@@ -191,7 +194,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      const directions=[[1,-v,-u],[-1,-v,u],[u,1,v],[u,-1,-v],[u,-v,1],[-u,-v,-1]],d=new T.Vector3(...directions[face]).normalize();
      const t=T.MathUtils.smoothstep(d.y,-.12,.4),sun=Math.pow(Math.max(0,d.dot(sunDirection)),550)*.65;
      const foliage=.035*Math.sin(d.x*47+d.z*23)*Math.sin(d.z*37-d.y*17),i=(y*128+x)*4;
-     const ground=[.30+foliage,.27+foliage,.16],sky=[.55+.2*d.y,.73+.1*d.y,.94];
+     const ground=[.55+foliage,.48+foliage,.34],sky=[.55+.2*d.y,.73+.1*d.y,.94];
      for(let k=0;k<3;k++)pixels.data[i+k]=Math.round(255*Math.min(1,ground[k]*(1-t)+sky[k]*t+sun));pixels.data[i+3]=255;
    }
    ctx.putImageData(pixels,0,0);faces.push(canvas);
@@ -210,5 +213,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-natural-canopy-etched-ceramics-v8',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-dropped-gilded-tail-pierced-crown-v9',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }
