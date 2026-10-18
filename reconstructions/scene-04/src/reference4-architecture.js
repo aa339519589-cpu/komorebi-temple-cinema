@@ -1,5 +1,6 @@
 import {createRestorationArchitecture} from './reference4-detail-kernel.js';
 import {createReference4MaterialSet} from './reference4-materials.js';
+import {createWeatheredFlagstone} from './reference4-garden-stone.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
@@ -67,8 +68,19 @@ export function buildReference4Architecture(T,options={}) {
 
  role('temple-platform-stair',()=>{
   box(0,(C.stairTopY-.9)/2,-4.4,15.2,C.stairTopY+.9,9.5,'stone');box(0,C.stairTopY-.065,-4.4,15.45,.13,9.65,'granite');
-  const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=C.stairTopY*(n-i)/n,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;box(0,top/2,(z0+z1)/2,C.stairWidth,top,z1-z0,'stone',0,.94+.07*Math.sin(i*3.1));box(0,top-.025,z1-.035,C.stairWidth+.02,.05,.07,'granite');}
+  const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=C.stairTopY*(n-i)/n,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;box(0,top/2,(z0+z1)/2,C.stairWidth,top,z1-z0,'stone',0,.94+.07*Math.sin(i*3.1));for(let k=0;k<4;k++){
+    const width=C.stairWidth/4-.018,x=-C.stairWidth/2+(k+.5)*C.stairWidth/4;
+    const g=createWeatheredFlagstone(width,z1-z0-.014,.115,1307+i*31+k*107);
+    emit(g,'granite',x,top+.012,(z0+z1)/2);
+   }}
   for(const s of[-1,1]){const x=s*(C.stairWidth/2+.23);between([x,C.stairTopY+.9,C.stairTopZ],[x,.9,C.stairBottomZ],.13,.14,'red');between([x,C.stairTopY+.44,C.stairTopZ],[x,.44,C.stairBottomZ],.11,.11,'red');for(let i=0;i<=8;i++){const t=i/8,y=C.stairTopY*(1-t),z=C.stairTopZ+run*t;box(x,y+.51,z,.17,1.02,.17,'red');emit(sphere,'oldgold',x,y+1.03,z,.12,.15,.12);}}
+  for(const sign of[-1,1]){
+   const x=sign*(C.stairWidth/2+.23),z=C.stairBottomZ+.02;
+   box(x,.61,z,.32,1.22,.32,'red');box(x,.08,z,.40,.16,.40,'oldgold');
+   box(x,1.25,z,.37,.08,.37,'oldgold');emit(sphere,'oldgold',x,1.42,z,.14,.20,.14);
+   for(const yy of[.36,.73,1.04]){arch.squareFitting(x,yy,z+.173,.265,.26,0,true);relief(x,yy,z+.19,.24,.22);}
+   for(const s of[-1,1])box(x+s*.135,.65,z+.17,.025,1.11,.026,'oldgold');
+  }
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');
   for(const s of[-1,1])for(let i=0;i<9;i++)box(s*(3.2+i*.55),C.stairTopY+.49,.23,.11,.84,.11,'red');
  });

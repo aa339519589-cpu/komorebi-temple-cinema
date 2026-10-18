@@ -16,7 +16,7 @@ function mineralMaps(){
   const size=256,random=rng(461103),data=new Uint8Array(size*size*4),norm=new Uint8Array(size*size*4),height=new Float32Array(size*size);
   for(let y=0;y<size;y++)for(let x=0;x<size;x++){
     const i=y*size+x,grain=random(),cloud=.046*Math.sin(x*.083+y*.037)+.039*Math.cos(y*.11-x*.027),fleck=grain>.955?.11:grain<.065?-.12:0;
-    const f=.80+cloud+fleck+(grain-.5)*.07;height[i]=.5+fleck*.9+(grain-.5)*.18;
+    const dark=grain<.16?-.27:0,quartz=grain>.85?.17:0,lichen=.055*Math.sin(x*.19+y*.21)*Math.sin(y*.34-x*.09);const f=.73+cloud+fleck+dark+quartz+lichen+(grain-.5)*.12;height[i]=.5+fleck*.9+(grain-.5)*.26;
     data[i*4]=Math.round(255*f);data[i*4+1]=Math.round(252*f);data[i*4+2]=Math.round(241*f);data[i*4+3]=255;
   }
   for(let y=0;y<size;y++)for(let x=0;x<size;x++){
