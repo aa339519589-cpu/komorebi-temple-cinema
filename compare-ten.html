@@ -1,0 +1,41 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>十张原图 · 逐景重建对照</title><link rel="icon" href="data:,">
+<style>
+:root{color-scheme:dark;font:14px/1.6 system-ui,sans-serif;background:#10120f;color:#e9e1d0}*{box-sizing:border-box}body{margin:0}main{max-width:1920px;margin:auto;padding:18px 22px}header{display:flex;align-items:baseline;justify-content:space-between;gap:20px}h1{font:25px 'Songti SC',serif;margin:0}header p{color:#bdb5a5;margin:0}nav{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;margin:18px 0}button{background:#20251e;color:#dfd9c9;border:1px solid #4b5142;border-radius:3px;font:inherit;cursor:pointer;padding:7px 10px}button:focus-visible{outline:2px solid #ddc88c;outline-offset:3px}nav button{padding:0;text-align:left;overflow:hidden}nav button[aria-pressed=true]{border-color:#dfc781;box-shadow:0 0 0 1px #dfc781}nav img{width:100%;aspect-ratio:1;display:block;object-fit:contain}nav span{display:block;font-size:12px;padding:5px 7px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{min-width:0;margin:0;background:#171b15;border:1px solid #33392e}figcaption{padding:8px 12px;border-bottom:1px solid #3d4436}.viewport{aspect-ratio:1;position:relative;overflow:hidden;background:#070907;touch-action:none;cursor:grab}.viewport img,.viewport iframe{position:absolute;inset:0;width:100%;height:100%;display:block;border:0;object-fit:contain;transform-origin:center}.viewport iframe{pointer-events:none}.viewport:active{cursor:grabbing}#empty{position:absolute;inset:0;display:grid;place-content:center;color:#c5bca8;padding:30px;text-align:center;pointer-events:none}.controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:14px 0}#status{margin:8px 0;color:#bdb5a5;white-space:pre-wrap;overflow-wrap:anywhere}.legend{color:#a6a38f;border-top:1px solid #3c4235;padding-top:12px;margin-top:14px}.controls label{margin-left:auto}input[type=range]{accent-color:#dfc781;width:160px}@media(max-width:850px){main{padding:12px}header{display:block}header p{margin-top:6px}nav{grid-template-columns:repeat(5,1fr)}.pair{gap:6px}figcaption{font-size:12px;padding:6px}h1{font-size:21px}.controls label{margin-left:0}}
+</style></head><body><main>
+<header><h1>十张原图 · 逐景重建对照</h1><p>全部待验收，逐张修改</p></header>
+<nav id="scenes" aria-label="全部十张参考图"></nav>
+<div class="pair"><figure class="panel"><figcaption id="left-title">左 · 高清参考原图</figcaption><div class="viewport" id="left-view"><img id="reference" alt="高清参考原图"></div></figure><figure class="panel"><figcaption id="right-title">右 · 当前场景</figcaption><div class="viewport" id="right-view"><iframe id="scene" title="当前场景的实际三维渲染"></iframe><div id="empty">选择参考图，载入对应重建场景</div></div></figure></div>
+<div class="controls"><button id="redraw">重新渲染</button><button id="close">近景起点</button><button id="matched">参考机位</button><button id="reset">恢复全图</button><button id="save">保存左右对照</button><label>同步放大 <input id="zoom" type="range" min="1" max="4" value="1" step=".05"></label></div>
+<output id="status" role="status">准备载入。</output>
+<p class="legend">左侧保留完整原图；右侧运行对应场景的真实几何、光照、阴影与反射。拖动任一侧可以同步检查局部。出图通过运行检查后，仍继续按原图修正。</p>
+</main><script type="module">
+const data=await(await fetch('./reconstructions/ten-scenes.json')).json(),$=id=>document.getElementById(id),frame=$('scene');
+let active=0,ticket=0,temple=null,zoom=1,offset=[0,0],drag=null,pose='reference';
+const state={ready:false,reference:null,error:null};
+function status(text){$('status').textContent=text;}
+function updateTransform(){const value=`translate(${offset[0]}px,${offset[1]}px) scale(${zoom})`;$('reference').style.transform=value;frame.style.transform=value;}
+function resetZoom(){zoom=1;offset=[0,0];$('zoom').value=1;updateTransform();}
+for(const node of [$('left-view'),$('right-view')]){
+ node.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,ox:offset[0],oy:offset[1]};node.setPointerCapture(e.pointerId);});
+ node.addEventListener('pointermove',e=>{if(!drag)return;const bound=(zoom-1)*node.clientWidth/2;offset=[Math.max(-bound,Math.min(bound,drag.ox+e.clientX-drag.x)),Math.max(-bound,Math.min(bound,drag.oy+e.clientY-drag.y))];updateTransform();});
+ node.addEventListener('pointerup',()=>drag=null);node.addEventListener('pointercancel',()=>drag=null);
+}
+$('zoom').oninput=()=>{zoom=+$('zoom').value;const bound=(zoom-1)*$('left-view').clientWidth/2;offset=offset.map(n=>Math.max(-bound,Math.min(bound,n)));updateTransform();};$('reset').onclick=resetZoom;
+function draw(close=false){if(!temple)return;try{pose=close?'close':'reference';const r=close?temple.renderShot(0):temple.renderReference(data.scenes[active].reference);const gl=temple.renderer.getContext();if(gl.getError()||gl.isContextLost())throw Error('三维渲染出现异常');state.ready=true;status(`参考 ${String(data.scenes[active].reference).padStart(2,'0')} · ${data.scenes[active].name}\n${close?'近景起点':'固定参考机位'}已出图，继续对照修改。`);return r;}catch(e){state.error=String(e);state.ready=false;status('渲染失败：'+String(e));}}
+async function select(index){
+ const serial=++ticket;active=index;temple?.dispose?.();temple=null;state.ready=false;state.error=null;state.reference=data.scenes[index].reference;resetZoom();
+ const item=data.scenes[index];document.querySelectorAll('nav button').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
+ $('reference').src=item.referenceFile;$('left-title').textContent=`左 · ${String(item.reference).padStart(2,'0')} ${item.name}`;$('right-title').textContent=`右 · 对应场景 · 正在重建`;$('empty').style.display='grid';$('empty').textContent='正在构建对应场景…';status('正在载入实际三维场景。');
+ try{
+  await new Promise((resolve,reject)=>{frame.onload=resolve;frame.onerror=()=>reject(Error('场景载入失败'));frame.src=`${item.entry}?render&defer&w=1024&h=1024`;});
+  const began=performance.now();while(!frame.contentWindow?.temple?.ready){if(serial!==ticket)return;if(performance.now()-began>180000)throw Error('场景尚未就绪');await new Promise(r=>setTimeout(r,100));}
+  if(serial!==ticket)return;temple=frame.contentWindow.temple;const doc=frame.contentDocument;doc.documentElement.style.cssText='margin:0;overflow:hidden;background:#070907';doc.body.style.cssText='margin:0;overflow:hidden;background:#070907';temple.renderer.domElement.style.cssText='width:100vw;height:100vh;display:block;object-fit:contain';
+  draw();$('empty').style.display='none';$('right-title').textContent=`右 · ${String(item.reference).padStart(2,'0')} 当前三维渲染`;
+ }catch(e){if(serial!==ticket)return;state.error=String(e);$('empty').textContent='此场景仍在构建，稍后重新载入。';status('当前场景尚未就绪：'+String(e));}
+}
+for(const [i,item]of data.scenes.entries()){const b=document.createElement('button');b.type='button';const im=document.createElement('img');im.src=item.referenceFile;im.alt='';const span=document.createElement('span');span.textContent=String(item.reference).padStart(2,'0')+' '+item.shortName;b.append(im,span);b.onclick=()=>select(i);$('scenes').append(b);}
+$('redraw').onclick=()=>temple?draw(pose==='close'):select(active);$('matched').onclick=()=>{resetZoom();draw();};$('close').onclick=()=>{resetZoom();draw(true);};
+$('save').onclick=async()=>{if(!temple||!state.ready)return;await $('reference').decode();draw(pose==='close');const size=temple.renderer.domElement.width,c=document.createElement('canvas');c.width=size*2;c.height=size+48;const x=c.getContext('2d');x.fillStyle='#10120f';x.fillRect(0,0,c.width,c.height);x.fillStyle='#e9e1d0';x.font='18px sans-serif';x.fillText('REFERENCE '+String(data.scenes[active].reference).padStart(2,'0'),15,30);x.fillText('ACTUAL 3D / IN PROGRESS',size+15,30);x.drawImage($('reference'),0,48,size,size);x.drawImage(temple.renderer.domElement,size,48,size,size);const a=document.createElement('a');a.download=`reference-${data.scenes[active].reference}-comparison.png`;a.href=c.toDataURL('image/png');a.click();};
+addEventListener('pagehide',()=>temple?.dispose?.());window.referenceReview={select,state,manifest:data};
+select(Math.min(9,Math.max(0,Number(new URLSearchParams(location.search).get('reference')||1)-1)));
+</script></body></html>
