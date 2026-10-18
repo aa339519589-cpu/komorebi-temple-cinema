@@ -1,11 +1,11 @@
 import {T,V,mix,rand,Builder,gridGeometry} from './kernel.js';
 export function buildGarden(mats){
- const b=new Builder(mats),lights=[];
- const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=T.DoubleSide;
+ const b=new Builder(mats),lights=[];mats.rock=mats.stone.clone();mats.rock.color.setHex(0x555b50);mats.rock.roughness=.72;mats.rock.metalness=.06;
+ const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=mats.pink.side=mats.pinkDark.side=T.DoubleSide;
  const petalGeo=(()=>{let rows=Array.from({length:9},(_,j)=>Array.from({length:7},(_,i)=>{let t=j/8,s=-1+2*i/6;return[s*Math.sin(Math.PI*t)*.38,.65*t*t+.13*Math.sin(Math.PI*t)*(1-s*s),t];}));return gridGeometry(rows);})();
  const rockGeos=Array.from({length:7},(_,k)=>{const g=new T.IcosahedronGeometry(1,2),p=g.attributes.position;for(let i=0;i<p.count;i++){let x=p.getX(i),y=p.getY(i),z=p.getZ(i),n=1+.12*Math.sin(x*7+y*8+z*9+k)+.06*Math.cos(x*13-z*11);p.setXYZ(i,x*n,y*n,z*n);}const normal=g.attributes.normal;for(let i=0;i<p.count;i++){const v=new T.Vector3(p.getX(i),p.getY(i),p.getZ(i)).normalize();normal.setXYZ(i,v.x,v.y,v.z);}normal.needsUpdate=true;return g;});
- function rock(x,y,z,r=1){b.put(rockGeos[Math.floor(rand()*7)],rand()<.12?'moss':'stone',[x,y,z],[r*(.65+rand()*.7),r*(.6+rand()*.5),r*(.6+rand()*.7)],[rand()*.4,rand()*6.28,rand()*.4],.7+rand()*.5);}
- const twigGeo=new T.CylinderGeometry(1,1,1,6);function branch(a,c,r){b.line(a,c,r,'trunk',false,r,r<.05?twigGeo:null);}
+ function rock(x,y,z,r=1){b.put(rockGeos[Math.floor(rand()*7)],rand()<.12?'moss':'rock',[x,y,z],[r*(.65+rand()*.7),r*(.6+rand()*.5),r*(.6+rand()*.7)],[rand()*.4,rand()*6.28,rand()*.4],.7+rand()*.5);}
+ const twigGeo=new T.CylinderGeometry(1,1,1,6);function branch(a,c,r){const len=V(a).distanceTo(V(c));if(r>.045&&len>1){let last=a;for(let j=1;j<=4;j++){let t=j/4,p=[mix(a[0],c[0],t)+Math.sin(t*Math.PI)*len*.05*Math.sin(c[2]*3),mix(a[1],c[1],t),mix(a[2],c[2],t)+Math.sin(t*Math.PI)*len*.055*Math.cos(c[0]*2)];b.line(last,p,r*(1-.35*t),'trunk');last=p;}}else b.line(a,c,r,'trunk',false,r,r<.05?twigGeo:null);}
  function leafCluster(x,y,z,rx,ry,rz,n=100){
   // A continuous canopy is made from many small leaves attached to branching shoots.
   // There is no low-poly crown shell or floating random leaf cloud.
@@ -18,10 +18,10 @@ export function buildGarden(mats){
  }
  function shrub(x,y,z,r=1,flower=false){for(let j=0;j<5;j++){let a=j*6.28/5,rr=r*.4;leafCluster(x+Math.cos(a)*rr,y+r*.45,z+Math.sin(a)*rr,r*.65,r*.55,r*.65,60);}if(flower)for(let j=0;j<50*r;j++){let a=rand()*6.28,u=rand(),p=[x+Math.cos(a)*r*Math.sqrt(u),y+r*.5+rand()*r*.6,z+Math.sin(a)*r*Math.sqrt(u)];for(let k=0;k<5;k++)b.put(petalGeo,rand()<.3?'pinkDark':'pink',p,[.08,.08,.12],[0,k*6.28/5,Math.PI/3]);}}
  function tree(x,z,h=5,r=3,pine=false){const base=.1,lean=(rand()-.5)*1.1,top=[x+lean,h,z+.2];branch([x,base,z],[x+.2,h*.52,z],.16+h*.015);branch([x+.2,h*.52,z],top,.09+h*.006);
-  for(let j=0;j<8;j++){let a=j*2.4+(rand()-.5)*.4,y=h*(.45+j*.055),reach=r*(.7+rand()*.4),end=[x+Math.cos(a)*reach,y+.35+rand()*.35,z+Math.sin(a)*reach],start=[x+lean*.5,y-.5,z];branch(start,end,.055+j*.002);let last=end;for(let k=0;k<3;k++){let aa=a+(k-1)*.6,p=[end[0]+Math.cos(aa)*r*.35,end[1]+.35,end[2]+Math.sin(aa)*r*.35];branch(end,p,.02);last=p;leafCluster(p[0],p[1],p[2],r*.34,pine?.28:r*.30,r*.34,125);} }
-  leafCluster(top[0],top[1],top[2],r*.52,pine?.32:r*.43,r*.52,190);
+  for(let j=0;j<8;j++){let a=j*2.4+(rand()-.5)*.4,y=h*(.45+j*.055),reach=r*(.7+rand()*.4),end=[x+Math.cos(a)*reach,y+.35+rand()*.35,z+Math.sin(a)*reach],start=[x+lean*.5,y-.5,z];branch(start,end,.055+j*.002);let last=end;for(let k=0;k<3;k++){let aa=a+(k-1)*.6,p=[end[0]+Math.cos(aa)*r*.35,end[1]+.35,end[2]+Math.sin(aa)*r*.35];branch(end,p,.02);last=p;leafCluster(p[0],p[1],p[2],r*.34,pine?.58:r*.30,r*.34,125);} }
+  leafCluster(top[0],top[1],top[2],r*.52,pine?.58:r*.43,r*.52,190);
  }
- function cherry(x,z,h=5,r=3){branch([x,0,z],[x+.25,h*.62,z],.18);for(let j=0;j<12;j++){let a=j*2.4,y=h*(.5+rand()*.45),end=[x+Math.cos(a)*r*(.4+rand()*.6),y,z+Math.sin(a)*r];branch([x+.2,h*.5,z],end,.035+rand()*.04);for(let k=0;k<35;k++){let aa=rand()*6.28,u=rand()*2-1,p=[end[0]+Math.cos(aa)*r*.4*Math.sqrt(1-u*u),end[1]+u*r*.32,end[2]+Math.sin(aa)*r*.4*Math.sqrt(1-u*u)];for(let n=0;n<5;n++)b.put(petalGeo,rand()<.2?'pinkDark':'pink',p,[.075,.075,.10],[rand()*.8,n*1.256,1.1+rand()*.3]);}}}
+ function cherry(x,z,h=5,r=3){branch([x,0,z],[x+.25,h*.62,z],.18);for(let j=0;j<12;j++){let a=j*2.4,y=h*(.5+rand()*.45),end=[x+Math.cos(a)*r*(.4+rand()*.6),y,z+Math.sin(a)*r];branch([x+.2,h*.5,z],end,.035+rand()*.04);for(let k=0;k<100;k++){let aa=rand()*6.28,u=rand()*2-1,p=[end[0]+Math.cos(aa)*r*.24*Math.sqrt(1-u*u),end[1]+u*r*.22,end[2]+Math.sin(aa)*r*.24*Math.sqrt(1-u*u)];for(let n=0;n<5;n++)b.put(petalGeo,rand()<.2?'pinkDark':'pink',p,[.075,.075,.10],[rand()*.8,n*1.256,1.1+rand()*.3]);}}}
  // Mossy islets alternate with open water, preserving a continuous pond under the bridge.
  b.box(-8,-.52,11,49,.8,58,'black');b.box(6,-.08,1.0,14,.26,7,'stone');
  for(let i=0;i<25;i++){let x=-27+i*1.7;rock(x,.07,1.2+Math.sin(i*.8)*.7,.65+rand()*.55);if(i%2===0)shrub(x,.15,.7,1+rand()*.6,i%3===0);}
@@ -33,7 +33,7 @@ export function buildGarden(mats){
  cherry(15,0,5.8,3.3);cherry(-10,0,4.4,2.8);cherry(9,-4,5,2.8);
  for(let j=0;j<16;j++){let x=-26+rand()*37,z=-4+rand()*4;shrub(x,.2,z,.7+rand()*.7,j%3===0);}
  // Left framing canopy enters the sky with individual leaves and crooked visible branches.
- branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,180);}tree(-28,-8,10,3.2,false);
+ branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,180);}leafCluster(-16,21,-4,2.0,1.4,1.5,220);leafCluster(-21,22,-5,2.0,1.5,1.5,220);leafCluster(-11.5,20.5,-4,1.5,1.2,1.4,220);tree(-28,-8,10,3.2,false);
  // Irregular azalea beds climbing either side of the temple stairs.
  for(let s of[-1,1])for(let i=0;i<14;i++){let z=1+rand()*6,x=4+s*(3.6+rand()*3.2);rock(x,.5,z,.38+rand()*.6);shrub(x,.45,z,.45+rand()*.65,true);}
  const stoneGlow=new T.MeshBasicMaterial({color:0xffbd60,toneMapped:false});const lanternRoof=mats.stone.clone();lanternRoof.color.setHex(0x565a53);lanternRoof.side=T.DoubleSide;
