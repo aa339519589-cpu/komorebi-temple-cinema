@@ -111,9 +111,9 @@ vec2 rip=vec2(sdNoise(sp*91.),sdNoise(sp*113.+2.3))-.5;
 uv.xy+=rip*vec2(.0022,.0048)*uv.w;
 vec4 base=texture2DProj(tDiffuse,uv)*.82;vec4 u2=uv;u2.y+=.0016*uv.w;base+=texture2DProj(tDiffuse,u2)*.18;`)
 .replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );',`vec4 wet=texture2D(floorWetMap,vec2((sp.x+4.6)/9.2,(sp.z+2.)/21.4));
-float pave=wet.b,patch=smoothstep(.24,.70,film);
+float pave=wet.b,wetPatch=smoothstep(.24,.70,film);
 float grazing=pow(1.-clamp(abs(normalize(cameraPosition-sp).y),0.,1.),3.);
-float alpha=mix(.17,wet.r*(.10+.78*wet.g)*patch*(.38+.62*grazing),pave);
+float alpha=mix(.17,wet.r*(.10+.78*wet.g)*wetPatch*(.38+.62*grazing),pave);
 vec2 dp=vec2(sp.x+1.9,sp.z-8.5);float drain=abs(cos(.46)*dp.x-sin(.46)*dp.y);float drainZ=abs(sin(.46)*dp.x+cos(.46)*dp.y);
 alpha*=mix(1.,smoothstep(.085,.113,drain),step(drainZ,6.5));
 gl_FragColor=vec4(base.rgb,alpha);`);scene.add(mirror);
