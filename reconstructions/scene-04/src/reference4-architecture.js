@@ -1,3 +1,5 @@
+import {buildDeepEntranceCarving} from './scene04-carving.js';
+import {polygonSlab} from './scene04-surfaces.js';
 import {createRestorationArchitecture} from './reference4-detail-kernel.js';
 import {createReference4MaterialSet} from './reference4-materials.js';
 import {createWeatheredFlagstone} from './reference4-garden-stone.js';
@@ -70,8 +72,8 @@ export function buildReference4Architecture(T,options={}) {
   box(0,(C.stairTopY-.9)/2,-4.4,15.2,C.stairTopY+.9,9.5,'stone');box(0,C.stairTopY-.065,-4.4,15.45,.13,9.65,'granite');
   const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=C.stairTopY*(n-i)/n,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;box(0,top/2,(z0+z1)/2,C.stairWidth,top,z1-z0,'stone',0,.94+.07*Math.sin(i*3.1));for(let k=0;k<4;k++){
     const width=C.stairWidth/4-.018,x=-C.stairWidth/2+(k+.5)*C.stairWidth/4;
-    const g=createWeatheredFlagstone(width,z1-z0-.014,.115,1307+i*31+k*107);const gp=g.attributes.position;for(let v=0;v<gp.count;v++)if(gp.getY(v)>-.05)gp.setY(v,gp.getY(v)*.15);g.computeVertexNormals();
-    emit(g,'granite',x,top+.012,(z0+z1)/2);
+    const g=polygonSlab([[x-width/2,z0],[x+width/2,z0],[x+width/2,z1],[x-width/2,z1]],top+.006,.08,1307+i*31+k*107);
+    emit(g,'granite');
    }}
   for(const s of[-1,1]){const x=s*(C.stairWidth/2+.23);between([x,C.stairTopY+.9,C.stairTopZ],[x,.9,C.stairBottomZ],.13,.14,'red');between([x,C.stairTopY+.44,C.stairTopZ],[x,.44,C.stairBottomZ],.11,.11,'red');for(let i=0;i<=8;i++){const t=i/8,y=C.stairTopY*(1-t),z=C.stairTopZ+run*t;box(x,y+.51,z,.17,1.02,.17,'red');emit(sphere,'oldgold',x,y+1.03,z,.12,.15,.12);}}
   for(const sign of[-1,1]){
@@ -90,6 +92,10 @@ export function buildReference4Architecture(T,options={}) {
  role('hall-enclosure-doors',()=>{
   box(0,C.stairTopY+2.95,-8.65,14.2,5.9,.23,'darkwood');for(const s of[-1,1])box(s*7.02,C.stairTopY+2.9,-4.5,.20,5.8,8.4,'red');
   for(const s of[-1,1])for(const seg of[[3.0,4.55],[4.95,6.7]]){const x=s*(seg[0]+seg[1])/2,w=seg[1]-seg[0],h=3.8,y=C.stairTopY+h/2+.22;box(x,y,-.57,w,h,.16,'darkwood');for(const xx of[-w/2,w/2])box(x+xx,y,-.42,.09,h+.13,.12,'red');for(const yy of[-h/2,h/2])box(x,y+yy,-.39,w,.11,.13,'cedar');for(let k=1;k<8;k++)box(x-w/2+w*k/8,y,-.39,.032,h-.15,.045,'oldgold');for(let k=1;k<13;k++)box(x,y-h/2+h*k/13,-.385,w-.1,.025,.05,'cedar');}
+  for(const sign of[-1,1])for(const [cx,w]of[[3.77,1.62],[5.83,1.85]]){
+   box(sign*cx,C.stairTopY+4.22,-.57,w,.66,.18,'darkwood');
+   for(const yy of[C.stairTopY+3.93,C.stairTopY+4.50])box(sign*cx,yy,-.435,w,.075,.085,'cedar');
+  }
   // Upper gallery is enclosed timber, not an unrelated open lattice triangle.
   box(0,H(9.7),-1.04,13.1,2.22,.18,'darkwood');for(let i=0;i<33;i++)box(-6.4+i*.4,H(9.7),-.925,.37,2.18,.055,'cedar',0,.94+.08*Math.sin(i));
  });
@@ -102,6 +108,7 @@ export function buildReference4Architecture(T,options={}) {
  });
 
  const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:H(10.17),rise:C.ridgeY-H(10.17),curl:.62,centerZ:C.ridgeZ,connected:true});
+ for(const x of[-3.9,0,3.9])rosette(x,C.ridgeY+.13,C.ridgeZ+.18,.17,'oldgold');
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.55),rise:2.36,curl:.56,centerZ:-4.5,inner:.50,frontGap:6.53});
  role('entrance-deep-connected-canopy',()=>{
   const zs=lin(upperFront,gFront,15),weather=gridAt(xs,zs,canopy);emit(shell(weather,-.035,.025,'connected-canopy-ceramics'),'slate');emit(shell(weather,-.16,-.035,'connected-canopy-timber-deck'),'cedar');
@@ -203,6 +210,7 @@ export function buildReference4Architecture(T,options={}) {
   role('tower-finial',()=>{const bottom=eaves[4]+.66+.31,top=C.towerHeight;emit(cyl,'oldgold',0,(bottom+top-.25)/2,0,.038,top-bottom-.25,.038);for(let i=0;i<13;i++){const y=bottom+.15+i*(top-bottom-.58)/12,r=.39*(1-i*.043);const g=new T.TorusGeometry(r,.027,6,28);emit(g,'oldgold',0,y,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'oldgold',0,top-.16,0,.11,.16,.11);});
  },C.towerSceneScale);
 
+ group.add(buildDeepEntranceCarving(mats,{capitalTop:C.capitalTop,canopyAt:x=>canopy(x,gFront+.08),front:gFront+.115}));
  // Flush grouped geometry into real shadow-casting ordinary meshes/instances.
  let instances=0,triangles=0;for(const {g,m,items}of buckets.values()){
   const object=items.length===1?new T.Mesh(g,m):new T.InstancedMesh(g,m,items.length);

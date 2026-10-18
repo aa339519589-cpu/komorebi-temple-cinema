@@ -1,3 +1,4 @@
+import {applyMetricUV} from './scene04-surfaces.js';
 import * as T from 'three';
 const rng=s=>()=>((s=(Math.imul(s,1664525)+1013904223)>>>0)/4294967296);
 const hash=(x,y,s)=>{const q=Math.sin(x*127.1+y*311.7+s*19.17)*43758.5453123;return q-Math.floor(q);};
@@ -11,4 +12,4 @@ export function createWeatheredFlagstone(width,depth,thickness=.22,seed=7){const
  const boundary=[...Array.from({length:nx},(_,i)=>i),...Array.from({length:nz},(_,j)=>j*(nx+1)+nx),...Array.from({length:nx},(_,i)=>nz*(nx+1)+nx-i),...Array.from({length:nz},(_,j)=>(nz-j)*(nx+1))];
  for(let k=0;k<boundary.length;k++){const a=boundary[k],b=boundary[(k+1)%boundary.length],at=p.length/3;for(const [q,y]of[[a,p[a*3+1]],[b,p[b*3+1]],[a,-thickness],[b,-thickness]]){p.push(p[q*3],y,p[q*3+2]);color.push(.74,.74,.71);}uv.push(0,1,1,1,0,0,1,0);ids.push(at,at+1,at+2,at+1,at+3,at+2);}
  const base=p.length/3;p.push(0,-thickness,0);uv.push(.5,.5);color.push(.65,.65,.62);for(const q of boundary){p.push(p[q*3],-thickness,p[q*3+2]);uv.push(p[q*3]/width+.5,p[q*3+2]/depth+.5);color.push(.65,.65,.62);}for(let k=0;k<boundary.length;k++)ids.push(base,base+1+k,base+1+(k+1)%boundary.length);
- const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('color',new T.Float32BufferAttribute(color,3));g.setIndex(ids);g.computeVertexNormals();g.userData.source='New complete v6 worn closed slab, not recovered v5 bytes';return g;}
+ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('color',new T.Float32BufferAttribute(color,3));g.setIndex(ids);g.computeVertexNormals();g.userData.source='New complete v6 worn closed slab, not recovered v5 bytes';return applyMetricUV(g);}
