@@ -47,19 +47,19 @@ export function buildReference4Garden(T,options={}){
   mesh(gg,m.soil,'continuous-planted-stair-embankment-'+side,subgroups.ground);
   for(let j=0;j<30;j++){const x=side*rr(3.8,15.8),z=rr(-.8,7.7);rock(x,bankY(x,z)-.13,z,rr(.36,.83),rr(.28,.65),rr(.3,.7),'terrace-outcrop-'+side+'-'+j);}
  }
- const paving=['#8b7962','#746655','#958169','#7f705e'].map((color,i)=>{const mm=ownM(stoneMaterial('metre-scaled-worn-wet-paver-'+i,color,{wet:true,seed:741+i*31}));for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
+ const paving=['#929699','#777e85','#a19d98','#858b90'].map((color,i)=>{const mm=ownM(stoneMaterial('metre-scaled-worn-wet-paver-'+i,color,{wet:true,seed:741+i*31}));for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
  const rows=23,cols=3,nodes=[];
  for(let j=0;j<=rows;j++){const row=[];for(let i=0;i<=cols;i++){const z=plan.stairBottomZ+j*(plan.pathEndZ-plan.stairBottomZ)/rows+(j===0||j===rows?0:rr(-.17,.17)),h=pathHalf(z);row.push([-h+i*2*h/cols+(i===0||i===cols?0:rr(-.32,.32)*h/hw),z]);}nodes.push(row);}
  for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
   const corners=[nodes[j][i],nodes[j][i+1],nodes[j+1][i+1],nodes[j+1][i]],outlines=(j%7===3&&i===0)?[[corners[0],corners[1],corners[2]],[corners[0],corners[2],corners[3]]]:[corners];
   for(const [k,outline] of outlines.entries()){
-   const top=.045+rr(-.004,.004),g=polygonSlab(outline,top,.075,123+j*19+i*7+k*51);mesh(g,paving[(j+i*3+k)%4],`jointed-polygon-paver-${j}-${i}-${k}`,subgroups.path);records.stoneSlabs.push({outline,top,thickness:.075,jointMetres:.024});
+   const top=.045+rr(-.008,.008),g=polygonSlab(outline,top,.075,123+j*19+i*7+k*51);mesh(g,paving[(j+i*3+k)%4],`jointed-polygon-paver-${j}-${i}-${k}`,subgroups.path);records.stoneSlabs.push({outline,top,thickness:.075,jointMetres:.024});
   }
  }
 
  const jointP=[],jointC=[];
  function seamMoss(a,b,s){const dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=-dz/len,nz=dx/len;
-  for(let j=0;j<len*95;j++){const t=j/(len*95),v=.5+.5*Math.sin(j*2.17+s*7.9);if(v<.28||Math.sin(t*17+s)<-.48)continue;const x=a[0]+dx*t+nx*(v-.5)*.010,z=a[1]+dz*t+nz*(v-.5)*.010,y=.043,w=.005+v*.004,h=.007+v*.014;
+  for(let j=0;j<len*95;j++){const t=j/(len*95),v=.5+.5*Math.sin(j*2.17+s*7.9);if(v<.28||Math.sin(t*23+s*2.3)+.5*Math.sin(t*61-s*1.9)<.28)continue;const x=a[0]+dx*t+nx*(v-.5)*.010,z=a[1]+dz*t+nz*(v-.5)*.010,y=.018,w=.003+v*.003,h=.014+v*.018;
    for(const p of[[x-w,y,z],[x+w,y,z],[x,y+h,z+.003],[x,y,z-w],[x,y,z+w],[x+.003,y+h,z]]){jointP.push(...p);jointC.push(.72+v*.14,.80+v*.17,.51+v*.12);}
   }
  }
