@@ -1,0 +1,226 @@
+{
+  "reference": 1,
+  "entry": "reconstructions/scene-01/index.html",
+  "worktree": "/Users/mima1234/temple-scene-01",
+  "size": 768,
+  "startedAt": "2026-10-18T04:56:31.500Z",
+  "source": {
+    "hash": "fc5024fc655b295ec131207265eb894059fe5d18714a667d8848ff51ac5dd4b8",
+    "files": {
+      "reconstructions/scene-01/index.html": "625cf9b6f9a2e43417fc682fb4a077138e2abdea0d28fee4a0cc0fec3fc466d1",
+      "reconstructions/scene-01/manifest.json": "30e3ed64de897c1f76456126a30b6a83467b936eb2def0d4d0e4259d2860bda7",
+      "reconstructions/scene-01/src/architecture.js": "d24568992cbf4a45386193595ccc190d48b217588e86e3c3524afadc6ab2505f",
+      "reconstructions/scene-01/src/garden.js": "4c1039b3125a283e029ee637e65f621f686bb99270d7d444f1449f4f4d9590f3",
+      "reconstructions/scene-01/src/kernel.js": "e9d97e6afb391bd76db97b8478dbe0367365d3e3ae92f190e8bde16ea94e02a4",
+      "reconstructions/scene-01/src/main.js": "4973abb6b3c769aadc04870889531d8376ec69e1b5bc316f3f0eaca622f6acb5",
+      "reconstructions/scene-01/src/scene.js": "ef5308d269ce6c052044351f80c4b0bd95977552687610339537d6b570c4de36"
+    }
+  },
+  "sourceCommit": "f77390ef3f5953829810e446899ff9f7d2f644ad",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-01/index.html",
+    "/reconstructions/scene-01/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-01/src/scene.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-01/src/kernel.js",
+    "/reconstructions/scene-01/src/architecture.js",
+    "/reconstructions/scene-01/src/garden.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 1,
+        "frame": 1,
+        "width": 768,
+        "height": 768,
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "fov": 59
+        },
+        "triangles": 6407352,
+        "calls": 204
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-01-photo-reconstruction-r1",
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "target": [
+            0,
+            6.2,
+            -13
+          ],
+          "fov": 59,
+          "near": 0.1,
+          "far": 260,
+          "deckY": 1.95,
+          "eyeAboveDeck": 1.25
+        },
+        "architecture": {
+          "meshes": 257,
+          "instances": 108467,
+          "triangles": 6435494,
+          "roles": {
+            "pagoda-plinth": 2,
+            "pagoda-1-timber-gallery": 3169,
+            "pagoda-1-curved-ceramic-roof": 2164,
+            "pagoda-2-timber-gallery": 3169,
+            "pagoda-2-curved-ceramic-roof": 2076,
+            "pagoda-3-timber-gallery": 3169,
+            "pagoda-3-curved-ceramic-roof": 1988,
+            "pagoda-4-timber-gallery": 3169,
+            "pagoda-4-curved-ceramic-roof": 1760,
+            "pagoda-5-timber-gallery": 3169,
+            "pagoda-5-curved-ceramic-roof": 1716,
+            "pagoda-finial": 37,
+            "great-hall-stone-platform": 182,
+            "great-hall-massive-columns": 5316,
+            "great-hall-depth-enclosure": 151,
+            "great-hall-gilded-open-portal": 830,
+            "great-hall-upper-storey": 3341,
+            "great-hall-lower-monumental-roof": 6156,
+            "great-hall-main-monumental-roof": 9554,
+            "great-hall-stairs-and-balustrades": 84,
+            "scene": 148,
+            "foreground-veranda-real-deck": 44,
+            "foreground-veranda-wood-column": 36,
+            "foreground-veranda-ceiling-framework": 748,
+            "foreground-veranda-diagonal-balustrade": 76,
+            "foreground-six-sided-hanging-lantern": 173,
+            "garden-landforms": 7,
+            "arched-red-garden-bridge": 1002,
+            "foreground-carved-stone-lantern": 104,
+            "garden-shore-boulders-moss-and-crevices": 1602,
+            "sculptural-layered-pines": 17000,
+            "flowering-garden-shrubs": 25063,
+            "lotus-leaves-and-layered-pink-blossoms": 735,
+            "upper-right-maple-framing-boughs": 10350,
+            "foreground-vine-over-balustrade": 176,
+            "connected-garden-bark-branch-sweeps": 1
+          }
+        },
+        "garden": {
+          "branches": 194
+        },
+        "proceduralOnly": true,
+        "planarReflection": true,
+        "frames": 1,
+        "renderer": {
+          "calls": 204,
+          "triangles": 6407352
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "71a0757cd8ca0fb5cf0dfed27fb0627a92ff524e02aa0137e4d00151483ad5a2"
+    }
+  ],
+  "completedAt": "2026-10-18T04:56:37.023Z"
+}
