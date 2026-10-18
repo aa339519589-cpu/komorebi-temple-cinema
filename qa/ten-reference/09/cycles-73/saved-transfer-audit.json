@@ -1,0 +1,1320 @@
+{
+  "scope": "Read-only saved node/UV inspection; no render or material change",
+  "materials": [
+    {
+      "source": {
+        "id": "b5c80680-16ae-470a-ab4f-cb7c8cc796b0",
+        "name": "",
+        "type": "MeshStandardMaterial",
+        "color": [
+          4.7,
+          2.6,
+          1.85
+        ],
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "emissiveIntensity": 0,
+        "roughness": 0.93,
+        "metalness": 0,
+        "opacity": 1,
+        "transparent": false,
+        "alphaTest": 0,
+        "side": 0,
+        "bumpScale": 1,
+        "normalScale": [
+          0.26,
+          0.26
+        ],
+        "vertexColors": false,
+        "textures": {
+          "map": "680271be-d6c7-497c-acc3-0e34415dbde9",
+          "normalMap": "c91c6c66-68e8-4804-adc8-17740911edf5",
+          "roughnessMap": "7439ff2f-bab6-4d2f-ad86-d136b4984d43"
+        }
+      },
+      "savedMaterial": "b5c80680-16ae-470a-ab4f-cb7c8cc796b0",
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "ShaderNodeBsdfPrincipled",
+          "inputs": [
+            {
+              "name": "Base Color",
+              "from": [
+                [
+                  "Mix (Legacy).001",
+                  "Color"
+                ]
+              ]
+            },
+            {
+              "name": "Metallic",
+              "value": 0.0
+            },
+            {
+              "name": "Roughness",
+              "from": [
+                [
+                  "Math",
+                  "Value"
+                ]
+              ]
+            },
+            {
+              "name": "IOR",
+              "value": 1.5
+            },
+            {
+              "name": "Alpha",
+              "value": 1.0
+            },
+            {
+              "name": "Thin Wall",
+              "value": false
+            },
+            {
+              "name": "Normal",
+              "from": [
+                [
+                  "Normal Map",
+                  "Normal"
+                ]
+              ]
+            },
+            {
+              "name": "Weight",
+              "value": 0.0
+            },
+            {
+              "name": "Diffuse Roughness",
+              "value": 0.0
+            },
+            {
+              "name": "Subsurface Weight",
+              "value": 0.0
+            },
+            {
+              "name": "Subsurface Radius",
+              "value": [
+                1.0,
+                0.20000000298023224,
+                0.10000000149011612
+              ]
+            },
+            {
+              "name": "Subsurface Scale",
+              "value": 0.004999999888241291
+            },
+            {
+              "name": "Subsurface IOR",
+              "value": 1.399999976158142
+            },
+            {
+              "name": "Subsurface Anisotropy",
+              "value": 0.0
+            },
+            {
+              "name": "Specular IOR Level",
+              "value": 0.5
+            },
+            {
+              "name": "Specular Tint",
+              "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "name": "Anisotropic",
+              "value": 0.0
+            },
+            {
+              "name": "Anisotropic Rotation",
+              "value": 0.0
+            },
+            {
+              "name": "Tangent",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Transmission Weight",
+              "value": 0.0
+            },
+            {
+              "name": "Coat Weight",
+              "value": 0.0
+            },
+            {
+              "name": "Coat Roughness",
+              "value": 0.15000000596046448
+            },
+            {
+              "name": "Coat IOR",
+              "value": 1.5
+            },
+            {
+              "name": "Coat Tint",
+              "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "name": "Coat Normal",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Sheen Weight",
+              "value": 0.0
+            },
+            {
+              "name": "Sheen Roughness",
+              "value": 0.5
+            },
+            {
+              "name": "Sheen Tint",
+              "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "name": "Emission Color",
+              "value": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "name": "Emission Strength",
+              "value": 0.0
+            },
+            {
+              "name": "Thin Film Thickness",
+              "value": 0.0
+            },
+            {
+              "name": "Thin Film IOR",
+              "value": 1.3300000429153442
+            }
+          ]
+        },
+        {
+          "name": "Material Output",
+          "type": "ShaderNodeOutputMaterial",
+          "inputs": [
+            {
+              "name": "Surface",
+              "from": [
+                [
+                  "Principled BSDF",
+                  "BSDF"
+                ]
+              ]
+            },
+            {
+              "name": "Displacement",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Thickness",
+              "value": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "ShaderNodeTexCoord",
+          "inputs": []
+        },
+        {
+          "name": "Image Texture",
+          "type": "ShaderNodeTexImage",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Vector Math.001",
+                  "Vector"
+                ]
+              ]
+            }
+          ],
+          "image": "texture-6.png",
+          "colorSpace": "sRGB",
+          "size": [
+            2048,
+            2048
+          ],
+          "pixelStatistics": {
+            "min": [
+              0.04313725605607033,
+              0.02352941408753395,
+              0.0
+            ],
+            "max": [
+              0.2823529541492462,
+              0.2352941334247589,
+              0.1568627506494522
+            ],
+            "mean": [
+              0.18550758063793182,
+              0.11153066903352737,
+              0.060192931443452835
+            ],
+            "p50": [
+              0.18431372940540314,
+              0.1098039299249649,
+              0.05882353335618973
+            ]
+          }
+        },
+        {
+          "name": "Vector Math",
+          "type": "ShaderNodeVectorMath",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Texture Coordinate",
+                  "UV"
+                ]
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Scale",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "ShaderNodeVectorMath",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Vector Math",
+                  "Vector"
+                ]
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Scale",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "name": "Image Texture.001",
+          "type": "ShaderNodeTexImage",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Vector Math.003",
+                  "Vector"
+                ]
+              ]
+            }
+          ],
+          "image": "texture-7.png",
+          "colorSpace": "Non-Color",
+          "size": [
+            2048,
+            2048
+          ],
+          "pixelStatistics": {
+            "min": [
+              0.4901961088180542,
+              0.48235297203063965,
+              0.988235354423523
+            ],
+            "max": [
+              0.5137255191802979,
+              0.5176470875740051,
+              1.0
+            ],
+            "mean": [
+              0.500000536441803,
+              0.500000536441803,
+              0.9999997615814209
+            ],
+            "p50": [
+              0.501960813999176,
+              0.501960813999176,
+              1.0
+            ]
+          }
+        },
+        {
+          "name": "Vector Math.002",
+          "type": "ShaderNodeVectorMath",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Texture Coordinate",
+                  "UV"
+                ]
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Scale",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "name": "Vector Math.003",
+          "type": "ShaderNodeVectorMath",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Vector Math.002",
+                  "Vector"
+                ]
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Scale",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "name": "Image Texture.002",
+          "type": "ShaderNodeTexImage",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Vector Math.005",
+                  "Vector"
+                ]
+              ]
+            }
+          ],
+          "image": "texture-8.png",
+          "colorSpace": "Non-Color",
+          "size": [
+            2048,
+            2048
+          ],
+          "pixelStatistics": {
+            "min": [
+              0.1568627506494522,
+              0.1568627506494522,
+              0.1568627506494522
+            ],
+            "max": [
+              0.9960784912109375,
+              0.9960784912109375,
+              0.9960784912109375
+            ],
+            "mean": [
+              0.24895107746124268,
+              0.24895107746124268,
+              0.24895107746124268
+            ],
+            "p50": [
+              0.24313727021217346,
+              0.24313727021217346,
+              0.24313727021217346
+            ]
+          }
+        },
+        {
+          "name": "Vector Math.004",
+          "type": "ShaderNodeVectorMath",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Texture Coordinate",
+                  "UV"
+                ]
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Scale",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "name": "Vector Math.005",
+          "type": "ShaderNodeVectorMath",
+          "inputs": [
+            {
+              "name": "Vector",
+              "from": [
+                [
+                  "Vector Math.004",
+                  "Vector"
+                ]
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Vector",
+              "value": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Scale",
+              "value": 1.0
+            }
+          ]
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "ShaderNodeMixRGB",
+          "inputs": [
+            {
+              "name": "Factor",
+              "value": 1.0
+            },
+            {
+              "name": "Color1",
+              "from": [
+                [
+                  "Image Texture",
+                  "Color"
+                ]
+              ]
+            },
+            {
+              "name": "Color2",
+              "value": [
+                4.699999809265137,
+                2.5999999046325684,
+                1.850000023841858,
+                1.0
+              ]
+            }
+          ],
+          "blendType": "MULTIPLY",
+          "clamp": false
+        },
+        {
+          "name": "Color Attribute",
+          "type": "ShaderNodeVertexColor",
+          "inputs": []
+        },
+        {
+          "name": "Mix (Legacy).001",
+          "type": "ShaderNodeMixRGB",
+          "inputs": [
+            {
+              "name": "Factor",
+              "value": 1.0
+            },
+            {
+              "name": "Color1",
+              "from": [
+                [
+                  "Color Attribute",
+                  "Color"
+                ]
+              ]
+            },
+            {
+              "name": "Color2",
+              "from": [
+                [
+                  "Mix (Legacy)",
+                  "Color"
+                ]
+              ]
+            }
+          ],
+          "blendType": "MULTIPLY",
+          "clamp": false
+        },
+        {
+          "name": "Normal Map",
+          "type": "ShaderNodeNormalMap",
+          "inputs": [
+            {
+              "name": "Strength",
+              "value": 0.25999999046325684
+            },
+            {
+              "name": "Color",
+              "from": [
+                [
+                  "Image Texture.001",
+                  "Color"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Separate Color",
+          "type": "ShaderNodeSeparateColor",
+          "inputs": [
+            {
+              "name": "Color",
+              "from": [
+                [
+                  "Image Texture.002",
+                  "Color"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Math",
+          "type": "ShaderNodeMath",
+          "inputs": [
+            {
+              "name": "Value",
+              "from": [
+                [
+                  "Separate Color",
+                  "Green"
+                ]
+              ]
+            },
+            {
+              "name": "Value",
+              "value": 0.9300000071525574
+            },
+            {
+              "name": "Value",
+              "value": 0.5
+            }
+          ]
+        }
+      ],
+      "hasEmissionShader": false
+    }
+  ],
+  "rails": [
+    {
+      "name": "source-object-2726",
+      "materials": [
+        "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+      ],
+      "uvLoopCount": 3876,
+      "uvMin": [
+        -5.768640041351318,
+        0.06300000101327896
+      ],
+      "uvMax": [
+        5.768640041351318,
+        3.622000217437744
+      ],
+      "savedUVSha256": "774b1e72f645d45e958a34538da237d9791e31e93e61d46f8a4f6a34916d92e5",
+      "sourceLoopUVMatch": true,
+      "sourceColorRange": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "source": {
+        "objectIndex": 2726,
+        "objectName": "source-object-2726",
+        "geometry": "af18efa4-48b8-4ed8-b8a9-fbc07e883227",
+        "materialIds": [
+          "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+        ],
+        "sourceUVFile": "geometry-2698-uv.bin",
+        "sourceUVSha256": "774b1e72f645d45e958a34538da237d9791e31e93e61d46f8a4f6a34916d92e5",
+        "sourceLoopUVSha256": "774b1e72f645d45e958a34538da237d9791e31e93e61d46f8a4f6a34916d92e5",
+        "uvMin": [
+          -5.768640041351318,
+          0.06300000101327896
+        ],
+        "uvMax": [
+          5.768640041351318,
+          3.622000217437744
+        ],
+        "instanceMatrix": [
+          0.7200000286102295,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -0.6000000238418579,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "source-object-2727",
+      "materials": [
+        "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+      ],
+      "uvLoopCount": 3876,
+      "uvMin": [
+        -5.76576042175293,
+        0.08950000256299973
+      ],
+      "uvMax": [
+        5.76576042175293,
+        3.2280001640319824
+      ],
+      "savedUVSha256": "a38b4fa4ee56e259bc7ab2ae987564bf3477378b8a2d9e02313057c7217825db",
+      "sourceLoopUVMatch": true,
+      "sourceColorRange": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "source": {
+        "objectIndex": 2727,
+        "objectName": "source-object-2727",
+        "geometry": "ba744b9b-1d88-4014-9f1f-d52036bb73af",
+        "materialIds": [
+          "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+        ],
+        "sourceUVFile": "geometry-2699-uv.bin",
+        "sourceUVSha256": "a38b4fa4ee56e259bc7ab2ae987564bf3477378b8a2d9e02313057c7217825db",
+        "sourceLoopUVSha256": "a38b4fa4ee56e259bc7ab2ae987564bf3477378b8a2d9e02313057c7217825db",
+        "uvMin": [
+          -5.76576042175293,
+          0.08950000256299973
+        ],
+        "uvMax": [
+          5.76576042175293,
+          3.2280001640319824
+        ],
+        "instanceMatrix": [
+          0.7200000286102295,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -0.6000000238418579,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "source-object-2728",
+      "materials": [
+        "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+      ],
+      "uvLoopCount": 3876,
+      "uvMin": [
+        -5.76576042175293,
+        0.0820000022649765
+      ],
+      "uvMax": [
+        5.76576042175293,
+        2.8980000019073486
+      ],
+      "savedUVSha256": "870dfde65b88cf934b9585a8f850c3f178a9b12b162f93393f74229c2dbbfba2",
+      "sourceLoopUVMatch": true,
+      "sourceColorRange": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "source": {
+        "objectIndex": 2728,
+        "objectName": "source-object-2728",
+        "geometry": "fb81400b-7810-4b07-8b9b-9bea6a8bfe58",
+        "materialIds": [
+          "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+        ],
+        "sourceUVFile": "geometry-2700-uv.bin",
+        "sourceUVSha256": "870dfde65b88cf934b9585a8f850c3f178a9b12b162f93393f74229c2dbbfba2",
+        "sourceLoopUVSha256": "870dfde65b88cf934b9585a8f850c3f178a9b12b162f93393f74229c2dbbfba2",
+        "uvMin": [
+          -5.76576042175293,
+          0.0820000022649765
+        ],
+        "uvMax": [
+          5.76576042175293,
+          2.8980000019073486
+        ],
+        "instanceMatrix": [
+          0.7200000286102295,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -0.6000000238418579,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "source-object-2740",
+      "materials": [
+        "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+      ],
+      "uvLoopCount": 3876,
+      "uvMin": [
+        -5.768640041351318,
+        2.106804847717285
+      ],
+      "uvMax": [
+        5.768640041351318,
+        3.622000217437744
+      ],
+      "savedUVSha256": "8cf37d959875f17e86e25ad69a7a2a07b7bd86af8ba11bac50ea624bd71f26dd",
+      "sourceLoopUVMatch": true,
+      "sourceColorRange": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "source": {
+        "objectIndex": 2740,
+        "objectName": "source-object-2740",
+        "geometry": "ec0614c6-e8c6-4b96-b46a-660aecccf6ea",
+        "materialIds": [
+          "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+        ],
+        "sourceUVFile": "geometry-2712-uv.bin",
+        "sourceUVSha256": "8cf37d959875f17e86e25ad69a7a2a07b7bd86af8ba11bac50ea624bd71f26dd",
+        "sourceLoopUVSha256": "8cf37d959875f17e86e25ad69a7a2a07b7bd86af8ba11bac50ea624bd71f26dd",
+        "uvMin": [
+          -5.768640041351318,
+          2.106804847717285
+        ],
+        "uvMax": [
+          5.768640041351318,
+          3.622000217437744
+        ],
+        "instanceMatrix": [
+          0.7200000286102295,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -0.6000000238418579,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "source-object-2741",
+      "materials": [
+        "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+      ],
+      "uvLoopCount": 3876,
+      "uvMin": [
+        -5.76576042175293,
+        1.756203293800354
+      ],
+      "uvMax": [
+        5.76576042175293,
+        3.2280001640319824
+      ],
+      "savedUVSha256": "628b1c6fd27f521554c68a5834a4e320681ba7cad8e503015ab73e68c3d4dc8f",
+      "sourceLoopUVMatch": true,
+      "sourceColorRange": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "source": {
+        "objectIndex": 2741,
+        "objectName": "source-object-2741",
+        "geometry": "bc4da2a9-ca41-4524-9ff7-27020d40f720",
+        "materialIds": [
+          "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+        ],
+        "sourceUVFile": "geometry-2713-uv.bin",
+        "sourceUVSha256": "628b1c6fd27f521554c68a5834a4e320681ba7cad8e503015ab73e68c3d4dc8f",
+        "sourceLoopUVSha256": "628b1c6fd27f521554c68a5834a4e320681ba7cad8e503015ab73e68c3d4dc8f",
+        "uvMin": [
+          -5.76576042175293,
+          1.756203293800354
+        ],
+        "uvMax": [
+          5.76576042175293,
+          3.2280001640319824
+        ],
+        "instanceMatrix": [
+          0.7200000286102295,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -0.6000000238418579,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "source-object-2742",
+      "materials": [
+        "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+      ],
+      "uvLoopCount": 3876,
+      "uvMin": [
+        -5.76576042175293,
+        1.4212032556533813
+      ],
+      "uvMax": [
+        5.76576042175293,
+        3.118000030517578
+      ],
+      "savedUVSha256": "b1fbebed4dabdc93d2c54e3761f8e5458157512e0b522a522abf0f75cfc3159b",
+      "sourceLoopUVMatch": true,
+      "sourceColorRange": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "source": {
+        "objectIndex": 2742,
+        "objectName": "source-object-2742",
+        "geometry": "7e503814-60fd-439c-a107-9a380ee053a3",
+        "materialIds": [
+          "b5c80680-16ae-470a-ab4f-cb7c8cc796b0"
+        ],
+        "sourceUVFile": "geometry-2714-uv.bin",
+        "sourceUVSha256": "b1fbebed4dabdc93d2c54e3761f8e5458157512e0b522a522abf0f75cfc3159b",
+        "sourceLoopUVSha256": "b1fbebed4dabdc93d2c54e3761f8e5458157512e0b522a522abf0f75cfc3159b",
+        "uvMin": [
+          -5.76576042175293,
+          1.4212032556533813
+        ],
+        "uvMax": [
+          5.76576042175293,
+          3.118000030517578
+        ],
+        "instanceMatrix": [
+          0.7200000286102295,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -0.6000000238418579,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "cameraRayBridgeSamples": [
+    {
+      "pixel": [
+        650,
+        710
+      ],
+      "object": "source-object-147",
+      "material": "b3529654-c725-4923-a2e5-5fa695bac8ce",
+      "point": [
+        0.5986452102661133,
+        11.644790649414062,
+        2.6793270111083984
+      ],
+      "normal": [
+        -0.5971955060958862,
+        -0.8020957112312317,
+        6.055654466763372e-08
+      ],
+      "materialMatchesSourceRed": false
+    },
+    {
+      "pixel": [
+        700,
+        725
+      ],
+      "object": "source-object-2739",
+      "material": "b5c80680-16ae-470a-ab4f-cb7c8cc796b0",
+      "point": [
+        3.5493624210357666,
+        -3.0674989223480225,
+        2.338085889816284
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        7.549790126404332e-08
+      ],
+      "materialMatchesSourceRed": true
+    },
+    {
+      "pixel": [
+        750,
+        745
+      ],
+      "object": "source-object-147",
+      "material": "b3529654-c725-4923-a2e5-5fa695bac8ce",
+      "point": [
+        4.345842361450195,
+        5.239307403564453,
+        1.6513112783432007
+      ],
+      "normal": [
+        -0.5971955060958862,
+        -0.8020957708358765,
+        6.055655177306107e-08
+      ],
+      "materialMatchesSourceRed": false
+    },
+    {
+      "pixel": [
+        700,
+        742
+      ],
+      "object": "source-object-2696",
+      "material": "8e5250ad-a578-4156-8317-0b59827508ce",
+      "point": [
+        3.4097020626068115,
+        -1.380395770072937,
+        1.901563048362732
+      ],
+      "normal": [
+        0.3269854784011841,
+        7.13477348313063e-08,
+        0.9450293779373169
+      ],
+      "materialMatchesSourceRed": false
+    },
+    {
+      "pixel": [
+        750,
+        758
+      ],
+      "object": "source-object-2742",
+      "material": "b5c80680-16ae-470a-ab4f-cb7c8cc796b0",
+      "point": [
+        4.7053704261779785,
+        -3.114457845687866,
+        1.5817770957946777
+      ],
+      "normal": [
+        -0.25434455275535583,
+        -0.6959976553916931,
+        -0.6714880466461182
+      ],
+      "materialMatchesSourceRed": true
+    },
+    {
+      "pixel": [
+        700,
+        759
+      ],
+      "object": "source-object-2685",
+      "material": "a709cff7-c06a-4577-868b-3b433a05eea9",
+      "point": [
+        3.5591251850128174,
+        -3.2219982147216797,
+        1.5568352937698364
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        7.549790126404332e-08
+      ],
+      "materialMatchesSourceRed": false
+    },
+    {
+      "pixel": [
+        600,
+        706
+      ],
+      "object": "source-object-2728",
+      "material": "b5c80680-16ae-470a-ab4f-cb7c8cc796b0",
+      "point": [
+        0.7425990104675293,
+        -0.2579953968524933,
+        2.7875049114227295
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        7.549790126404332e-08
+      ],
+      "materialMatchesSourceRed": true
+    },
+    {
+      "pixel": [
+        500,
+        714
+      ],
+      "object": "source-object-2713",
+      "material": "8e5250ad-a578-4156-8317-0b59827508ce",
+      "point": [
+        -1.1845722198486328,
+        -3.190000295639038,
+        2.5914344787597656
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        7.549790126404332e-08
+      ],
+      "materialMatchesSourceRed": false
+    },
+    {
+      "pixel": [
+        400,
+        726
+      ],
+      "object": "source-object-2750",
+      "material": "scene09-stone-moss-growth",
+      "point": [
+        -2.9602088928222656,
+        -5.271060943603516,
+        2.3313722610473633
+      ],
+      "normal": [
+        -0.027258239686489105,
+        -0.5741376280784607,
+        0.8183049559593201
+      ],
+      "materialMatchesSourceRed": false
+    },
+    {
+      "pixel": [
+        300,
+        756
+      ],
+      "object": "source-object-2742",
+      "material": "b5c80680-16ae-470a-ab4f-cb7c8cc796b0",
+      "point": [
+        -6.154502868652344,
+        -3.118000030517578,
+        1.5737770795822144
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        7.549790126404332e-08
+      ],
+      "materialMatchesSourceRed": true
+    }
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "status": "path-traced-component-evidence",
+  "started": 1792343901.480726,
+  "nativeSourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+  "script": {
+    "file": "render-transfer-components.py",
+    "sha256": "5df74d645e6b15f6c97eb1f64694d617e517be6ae8232fd65162fdc433c1020e"
+  },
+  "beautyChanges": false,
+  "preserved": {
+    "objects": 4421,
+    "faces": 12712012,
+    "camera": [
+      [
+        0.9904049038887024,
+        0.008894000202417374,
+        0.13790953159332275,
+        6.0
+      ],
+      [
+        0.13819602131843567,
+        -0.06374023109674454,
+        -0.9883517026901245,
+        -33.0
+      ],
+      [
+        -1.3811293442245187e-08,
+        0.9979268908500671,
+        -0.06435775756835938,
+        2.700002431869507
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "exposure": 0.5,
+    "lights": [
+      [
+        "POINT",
+        150.79644775390625
+      ],
+      [
+        "POINT.001",
+        113.09733581542969
+      ],
+      [
+        "POINT.002",
+        113.09733581542969
+      ],
+      [
+        "POINT.003",
+        113.09733581542969
+      ],
+      [
+        "POINT.004",
+        113.09733581542969
+      ],
+      [
+        "POINT.005",
+        113.09733581542969
+      ],
+      [
+        "POINT.006",
+        175.92918395996094
+      ],
+      [
+        "POINT.007",
+        201.0619354248047
+      ],
+      [
+        "POINT.008",
+        125.66370391845703
+      ],
+      [
+        "POINT.009",
+        125.66370391845703
+      ],
+      [
+        "POINT.010",
+        175.92918395996094
+      ],
+      [
+        "SPOT",
+        603.185791015625
+      ],
+      [
+        "SPOT.001",
+        678.583984375
+      ],
+      [
+        "SUN",
+        0.3400000333786011
+      ],
+      [
+        "SUN.001",
+        0.010999999940395355
+      ],
+      [
+        "SPOT.002",
+        527.7875366210938
+      ]
+    ]
+  },
+  "basePBRChanged": false,
+  "classificationChanged": false,
+  "samples": 48,
+  "seed": 907071,
+  "device": "METAL",
+  "denoiser": "OPENIMAGEDENOISE",
+  "componentFormula": "Diffuse=(DiffDir+DiffInd)*DiffCol; Glossy=(GlossDir+GlossInd)*GlossCol. SourceRedBaseColor is the original BSDF Base Color socket through a non-invasive AOV.",
+  "photographicAcceptance": false,
+  "rawComponents": {
+    "CombinedLinear": {
+      "file": "render/components/CombinedLinear/CombinedLinear_Image.exr",
+      "sha256": "fbed1ae3193233f6346952db71ccb5823fc17c0f2f026ac7e6c6d4c8417f134d",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "SourceRedBaseColor": {
+      "file": "render/components/SourceRedBaseColor/SourceRedBaseColor_Image.exr",
+      "sha256": "26d17c04a800e736e518ac1299f8284872aae2b95ecd9ad32ebd678ef341f5e1",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "SourceRedRoughness": {
+      "file": "render/components/SourceRedRoughness/SourceRedRoughness_Image.exr",
+      "sha256": "54e08e8a4c49ee459ffe06dfe06b617899c31a20f33bdbea14809f803acc4cd2",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "DiffuseDirect": {
+      "file": "render/components/DiffuseDirect/DiffuseDirect_Image.exr",
+      "sha256": "d44a8641fd825ac49ce3fc44d2c0f086b5b95f119f3aad874a5d0f582e2f1b92",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "DiffuseIndirect": {
+      "file": "render/components/DiffuseIndirect/DiffuseIndirect_Image.exr",
+      "sha256": "c9a36a83074aaf2925654b098e8c4e2cde055a63e67959d8a6fe31ac6b88d2d5",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "DiffuseColor": {
+      "file": "render/components/DiffuseColor/DiffuseColor_Image.exr",
+      "sha256": "21f0491d6434ac26345a55d367cbfe8e508ce966251d1c71ba5b3bd51517a4e5",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "GlossyDirect": {
+      "file": "render/components/GlossyDirect/GlossyDirect_Image.exr",
+      "sha256": "913c57fabf041480c8ca75a04416c04d5c379b1d8f7437ff6c3f15d892b03b2a",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "GlossyIndirect": {
+      "file": "render/components/GlossyIndirect/GlossyIndirect_Image.exr",
+      "sha256": "da8cc930eb4edea481ead36c989979801d2fa64de3a8552cd6104701797ec782",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "GlossyColor": {
+      "file": "render/components/GlossyColor/GlossyColor_Image.exr",
+      "sha256": "0b8965b4217a9a29d2a0f55e61bbac489e024d3545c25842c282c1b26087d8bf",
+      "size": [
+        1254,
+        1254
+      ]
+    }
+  },
+  "finished": 1792343963.2308831,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "bridgePixelEvidence": [
+    {
+      "pixel": [
+        700,
+        725
+      ],
+      "object": "source-object-2739",
+      "CombinedLinear": [
+        0.04593129828572273,
+        0.04202320799231529,
+        0.05420956388115883
+      ],
+      "SourceRedBaseColor": [
+        0.1391758918762207,
+        0.03200418874621391,
+        0.009046015329658985
+      ],
+      "SourceRedRoughness": [
+        0.22452524304389954,
+        0.22452524304389954,
+        0.22452524304389954
+      ],
+      "DiffuseDirect": [
+        0.0852414220571518,
+        0.058492131531238556,
+        0.0593096949160099
+      ],
+      "DiffuseIndirect": [
+        0.003861507633700967,
+        0.004022319335490465,
+        0.006100038066506386
+      ],
+      "DiffuseColor": [
+        0.13320986926555634,
+        0.0310788843780756,
+        0.009286229498684406
+      ],
+      "GlossyDirect": [
+        0.6581205725669861,
+        0.8536509871482849,
+        1.1863468885421753
+      ],
+      "GlossyIndirect": [
+        0.06081610918045044,
+        0.07355955243110657,
+        0.10212414711713791
+      ],
+      "GlossyColor": [
+        0.046762943267822266,
+        0.04676775634288788,
+        0.046773236244916916
+      ],
+      "DiffuseContribution": [
+        0.011998822912573814,
+        0.001974235288798809,
+        0.0005983916344121099
+      ],
+      "GlossyContribution": [
+        0.03261922299861908,
+        0.04200766980648041,
+        0.058316171169281006
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.9113596347252543
+    },
+    {
+      "pixel": [
+        750,
+        758
+      ],
+      "object": "source-object-2742",
+      "CombinedLinear": [
+        0.04451175779104233,
+        0.040960267186164856,
+        0.052454933524131775
+      ],
+      "SourceRedBaseColor": [
+        0.07536771893501282,
+        0.016723787412047386,
+        0.005496746860444546
+      ],
+      "SourceRedRoughness": [
+        0.12861000001430511,
+        0.12861000001430511,
+        0.12861000001430511
+      ],
+      "DiffuseDirect": [
+        0.09487006813287735,
+        0.05764235556125641,
+        0.051031455397605896
+      ],
+      "DiffuseIndirect": [
+        0.0025243673007935286,
+        0.0020548130851238966,
+        0.0029354593716561794
+      ],
+      "DiffuseColor": [
+        0.09071385860443115,
+        0.023602794855833054,
+        0.007547745481133461
+      ],
+      "GlossyDirect": [
+        0.5248099565505981,
+        0.6761837005615234,
+        0.9337321519851685
+      ],
+      "GlossyIndirect": [
+        0.06935924291610718,
+        0.0840367004275322,
+        0.11329957842826843
+      ],
+      "GlossyColor": [
+        0.2731495797634125,
+        0.2731495797634125,
+        0.2731495797634125
+      ],
+      "DiffuseContribution": [
+        0.009089852683246136,
+        0.0014739847974851727,
+        0.00045336244511418045
+      ],
+      "GlossyContribution": [
+        0.03310529142618179,
+        0.03959061577916145,
+        0.052537187933921814
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.9283918601659934
+    },
+    {
+      "pixel": [
+        600,
+        706
+      ],
+      "object": "source-object-2728",
+      "CombinedLinear": [
+        0.01774805225431919,
+        0.008211171254515648,
+        0.008411080576479435
+      ],
+      "SourceRedBaseColor": [
+        0.12780015170574188,
+        0.02818666212260723,
+        0.008896374143660069
+      ],
+      "SourceRedRoughness": [
+        0.20095282793045044,
+        0.20095282793045044,
+        0.20095282793045044
+      ],
+      "DiffuseDirect": [
+        0.11099252104759216,
+        0.06980972737073898,
+        0.054578088223934174
+      ],
+      "DiffuseIndirect": [
+        0.04294018819928169,
+        0.008750718086957932,
+        0.0016608830774202943
+      ],
+      "DiffuseColor": [
+        0.13054721057415009,
+        0.04036380723118782,
+        0.022938605397939682
+      ],
+      "GlossyDirect": [
+        0.08267077058553696,
+        0.08719179034233093,
+        0.11485922336578369
+      ],
+      "GlossyIndirect": [
+        0.006090405397117138,
+        0.005617150105535984,
+        0.004169996827840805
+      ],
+      "GlossyColor": [
+        0.07346594333648682,
+        0.07346594333648682,
+        0.07346594333648682
+      ],
+      "DiffuseContribution": [
+        0.019527742639183998,
+        0.003786282381042838,
+        0.0010761365992948413
+      ],
+      "GlossyContribution": [
+        0.005401977803558111,
+        0.0056594316847622395,
+        0.007123817224055529
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.4515002096228538
+    },
+    {
+      "pixel": [
+        300,
+        756
+      ],
+      "object": "source-object-2742",
+      "CombinedLinear": [
+        2.927285671234131,
+        1.5619419813156128,
+        0.567389726638794
+      ],
+      "SourceRedBaseColor": [
+        0.11926725506782532,
+        0.02785191312432289,
+        0.007443996611982584
+      ],
+      "SourceRedRoughness": [
+        0.19866077601909637,
+        0.19866077601909637,
+        0.19866077601909637
+      ],
+      "DiffuseDirect": [
+        1.7219369411468506,
+        0.8125689625740051,
+        0.34074294567108154
+      ],
+      "DiffuseIndirect": [
+        0.0013747310731559992,
+        0.0011325314408168197,
+        0.0007077520713210106
+      ],
+      "DiffuseColor": [
+        0.12220177054405212,
+        0.045736685395240784,
+        0.010208810679614544
+      ],
+      "GlossyDirect": [
+        68.84426879882812,
+        36.71651077270508,
+        13.886507034301758
+      ],
+      "GlossyIndirect": [
+        0.01330397929996252,
+        0.004224348347634077,
+        0.002068326575681567
+      ],
+      "GlossyColor": [
+        0.04240700230002403,
+        0.04240700230002403,
+        0.04240700230002403
+      ],
+      "DiffuseContribution": [
+        0.21699261665344238,
+        0.027509082108736038,
+        0.0029767819214612246
+      ],
+      "GlossyContribution": [
+        2.8777294158935547,
+        1.534639835357666,
+        0.5804327726364136
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.9636704323723703
+    }
+  ],
+  "beautySha256": "96b75376ef5da4becad55788332b3def339313401906c801d7ecc56bab2327ad"
+}

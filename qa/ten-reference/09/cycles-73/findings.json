@@ -1,0 +1,132 @@
+{
+  "conclusion": "No source-color, material-slot, color-space, baked-UV or zero-emission paper-classification transfer bug reproduced. The current source furniture-lacquer roughness is too low for the reference; actual direct glossy reflection dominates the gray/blue bridge sections.",
+  "sourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+  "colorAlbedoPreserved": true,
+  "redMaterialSource": {
+    "id": "b5c80680-16ae-470a-ab4f-cb7c8cc796b0",
+    "name": "",
+    "type": "MeshStandardMaterial",
+    "color": [
+      4.7,
+      2.6,
+      1.85
+    ],
+    "emissive": [
+      0,
+      0,
+      0
+    ],
+    "emissiveIntensity": 0,
+    "roughness": 0.93,
+    "metalness": 0,
+    "opacity": 1,
+    "transparent": false,
+    "alphaTest": 0,
+    "side": 0,
+    "bumpScale": 1,
+    "normalScale": [
+      0.26,
+      0.26
+    ],
+    "vertexColors": false,
+    "textures": {
+      "map": "680271be-d6c7-497c-acc3-0e34415dbde9",
+      "normalMap": "c91c6c66-68e8-4804-adc8-17740911edf5",
+      "roughnessMap": "7439ff2f-bab6-4d2f-ad86-d136b4984d43"
+    }
+  },
+  "sixCurvedRailLoopUVHashesMatch": true,
+  "normalMaxAbsDifference": 2.0484861922409614e-05,
+  "normalDifferenceInterpretation": "At most2.05e-5 component error from stored custom-normal quantization, not a shading-normal tilt error. The strict1e-5 audit flag is false for one bevel sample and is preserved honestly in normal-transfer-audit.json.",
+  "roughnessSourceMedian": 0.24313727021217346,
+  "roughnessScalar": 0.93,
+  "effectiveRoughnessMedian": 0.22611766129732133,
+  "defaultIntensityOneZeroEmissionMaterials": 16,
+  "zeroEmissionMaterialsMisclassifiedAsPaper": [],
+  "zeroEmissionClassificationPredicate": "paper in lower(name) AND max(emissiveRGB)>0; all16 zero-emission materials fail this predicate.",
+  "representativeGlossyLuminanceFractions": [
+    {
+      "pixel": [
+        700,
+        725
+      ],
+      "SourceRedBaseColor": [
+        0.1391758918762207,
+        0.03200418874621391,
+        0.009046015329658985
+      ],
+      "SourceRedRoughness": [
+        0.22452524304389954,
+        0.22452524304389954,
+        0.22452524304389954
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.9113596347252543
+    },
+    {
+      "pixel": [
+        750,
+        758
+      ],
+      "SourceRedBaseColor": [
+        0.07536771893501282,
+        0.016723787412047386,
+        0.005496746860444546
+      ],
+      "SourceRedRoughness": [
+        0.12861000001430511,
+        0.12861000001430511,
+        0.12861000001430511
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.9283918601659934
+    },
+    {
+      "pixel": [
+        600,
+        706
+      ],
+      "SourceRedBaseColor": [
+        0.12780015170574188,
+        0.02818666212260723,
+        0.008896374143660069
+      ],
+      "SourceRedRoughness": [
+        0.20095282793045044,
+        0.20095282793045044,
+        0.20095282793045044
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.4515002096228538
+    },
+    {
+      "pixel": [
+        300,
+        756
+      ],
+      "SourceRedBaseColor": [
+        0.11926725506782532,
+        0.02785191312432289,
+        0.007443996611982584
+      ],
+      "SourceRedRoughness": [
+        0.19866077601909637,
+        0.19866077601909637,
+        0.19866077601909637
+      ],
+      "glossyFractionOfDiffusePlusGlossyLuminance": 0.9636704323723703
+    }
+  ],
+  "actualFullFrame": "render/scene09-cycles73.png",
+  "baseColorPass": "render/previews/SourceRedBaseColor/SourceRedBaseColor_Image.png",
+  "directGlossyPass": "render/previews/GlossyDirect/GlossyDirect_Image.png",
+  "interpretation": "Direct glossy preview excludes GlossyColor weighting. Numeric contributions in render/report.json include (GlossDir+GlossInd)*GlossCol and the equivalent diffuse product. Raw linear EXR components remain local.",
+  "changesToBeauty": false,
+  "geometryCameraLightsExposureAndSourceBasePBRChanged": false,
+  "actualRayTracedFrames": 1,
+  "renderSettings": {
+    "size": 1254,
+    "samples": 48,
+    "device": "Metal",
+    "denoiser": "OIDN",
+    "seed": 907071
+  },
+  "followupAuthorizedSeparately": "Correct the common native source bridge roughness domain while retaining albedo/color/IOR/lights/exposure; do not repaint only the Cycles result."
+}
