@@ -46,10 +46,12 @@ export function buildArchitecture(mats){
  function windowPanel(x,y,z,w,h){b.box(x,y,z,w,h,.16,'darkwood');b.box(x,y,z+.13,w-.13,h-.13,.03,'paper');for(let j=0;j<=18;j++)b.box(x-w/2+w*j/18,y,z+.18,.019,h,.04,'cedar');for(let j=0;j<=22;j++)b.box(x,y-h/2+h*j/22,z+.19,w,.016,.035,'cedar');for(let xx of[-w/2,w/2])b.box(x+xx,y,z+.18,.065,h,.11,'red');}
  function rail(length,base=0,height=1.05){for(let y of[.28,.73,height])b.box(0,base+y,0,length,y===height?.16:.10,.15,'red');let n=Math.ceil(length/1.75);for(let k=0;k<=n;k++){const x=-length/2+length*k/n;b.box(x,base+.55,0,.18,1.1,.18,'red');b.cyl(x,base+1.13,0,.12,.10,'gold');b.ball(x,base+1.26,0,.095,.12,.095);}for(let k=0;k<n*3;k++)b.box(-length/2+length*(k+.5)/(n*3),base+.5,0,.045,.42,.045,'red');}
  // The main hall is a tall, occupied building raised over an articulated stone terrace.
- columnXComp=1/.65;b.at([4,1.2,-10],0,()=>{
-  b.box(0,.298,-.8,18.4,3.204,13.5,'stone');for(let row=0;row<6;row++){for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,-1.04+row*.51,6.02,1.075,.485,.13,'stone',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,-1.04+row*.51,-7.1+j*1.1,.13,.485,1.075,'stone',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
-  for(let i=0;i<24;i++){let y=(24-i)*3.224/24,z=6.15+i*.27;b.box(0,(y/2-1.2)/.92,z,5.7,y/.92,.28,'stone',0,.90+.10*Math.sin(i));b.box(0,(y-.027-1.2)/.92,z+.1,5.85,.055,.10,'lightstone');}
-  for(let s of[-1,1]){b.line([s*3.1,3.2,6.0],[s*3.1,-.2174,12.7],.12,'red');for(let i=0;i<10;i++){let t=i/9;column(s*3.1,mix(6,12.7,t),(3.224*(1-t)-1.2)/.92,.9,.07);}b.at([s*6.2,2.2,6.15],0,()=>rail(5.1));}
+ const hallBase=2.73,hallY=.76,hallX=.50,hallFloor=hallBase+2.2*hallY;
+ columnXComp=1/hallX;b.at([3.5,hallBase,-10],0,()=>{
+  const foundationBottom=-hallBase/hallY,foundationTop=1.9;
+  b.box(0,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'stone');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'stone',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,yy,-7.1+j*1.1,.13,.475,1.075,'stone',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
+  for(let i=0;i<24;i++){let y=(24-i)*hallFloor/24,z=6.15+i*.27;b.box(0,(y/2-hallBase)/hallY,z,5.7,y/hallY,.28,'stone',0,.90+.10*Math.sin(i));b.box(0,(y-.027-hallBase)/hallY,z+.1,5.85,.055,.10,'lightstone');}
+  for(let s of[-1,1]){b.line([s*3.1,3.2,6.0],[s*3.1,(.72-hallBase)/hallY,12.7],.12,'red');for(let i=0;i<10;i++){let t=i/9;column(s*3.1,mix(6,12.7,t),(hallFloor*(1-t)-hallBase)/hallY,.9,.07);}b.at([s*6.2,2.2,6.15],0,()=>rail(5.1));}
   const axes=[-7.8,-5.2,-2.6,0,2.6,5.2,7.8];for(let z of[4.7,-.8,-6.3])for(let x of axes){if((z===-.8&&Math.abs(x)<7)||(z===4.7&&x===0))continue;column(x,z,2.2,6.1,.27);bracket(x,8.28,z,.92);}
   for(let z of[4.7,-6.3]){b.box(0,8.15,z,16.8,.42,.5,'red');b.box(0,8.65,z,18.6,.3,.55,'cedar');for(let x of axes)fitting(x,8.15,z+.27,.55,.31);}
   for(let x of[-7.8,7.8])b.box(x,8.15,-.8,.45,.42,11.5,'red');
@@ -80,17 +82,17 @@ export function buildArchitecture(mats){
   for(let s of[-1,1]){const light=new T.PointLight(0xffae49,45,12,2);light.position.set(4+s*2.2,6.26,-10.5);lights.push(light);}
   // Golden altar, vase and central statue silhouette seen through the four-column entry.
   b.box(0,2.75,-3.7,3.5,.85,1.3,'oldgold');b.box(0,3.22,-3.7,3.75,.13,1.5,'gold');b.ball(0,4.4,-3.7,.62,.93,.40,'gold');b.ball(0,5.4,-3.7,.36,.43,.32,'gold');b.ball(0,5.83,-3.7,.20,.18,.20,'oldgold');b.ball(0,3.7,-3.3,.9,.22,.5,'gold');
- },[.65,.92,1]);columnXComp=1;
+ },[hallX,hallY,1]);columnXComp=1;
  // Five-storey pagoda, wider eaves alternating with open galleries, prominent ringed sorin.
- b.at([-15,.6,-16],0,()=>{
+ b.at([-15.6,3.0,-16],0,()=>{
   b.box(0,.3,0,7.6,.6,7.6,'stone');b.box(0,.65,0,8,.14,8,'lightstone');
-  for(let level=0;level<5;level++){let floor=.8+level*3.45,w=9.4-level*.45,body=w*.56,eave=floor+2.6;
+  for(let level=0;level<5;level++){let floor=.8+level*3.15,w=9.4-level*.45,body=w*.38,eave=floor+2.6;
    b.box(0,floor,0,body+.6,.2,body+.6,'cedar');
-   for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{b.box(0,floor+1.25,-body/2,body,2.45,.15,'darkwood');for(let x of[-body*.36,0,body*.36]){windowPanel(x,floor+1.35,body/2-.1,body*.25,1.35);column(x,body/2+.15,floor,2.2,.12);bracket(x,eave-.35,body/2+.15,.5);}b.at([0,floor,body/2+.38],0,()=>rail(body+.6,0,.63));b.box(0,eave-.17,body/2,body+.9,.24,.35,'red');});
+   for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{b.box(0,floor+1.25,-body/2,body,2.45,.15,'darkwood');for(let x of[-body*.36,0,body*.36]){windowPanel(x,floor+1.35,body/2-.1,body*.25,1.35);column(x,body/2+.15,floor,2.2,.12);bracket(x,eave-.35,body/2+.15,.5);}for(let yy of[floor+.62,floor+1.92])b.box(0,yy,body/2+.025,body*.93,.17,.045,'lightstone');b.at([0,floor,body/2+.38],0,()=>rail(body+.6,0,.63));b.box(0,eave-.17,body/2,body+.9,.24,.35,'red');});
    roof({w,d:w,eave,rise:1.05,curl:.55});
   }
-  const base=18.25; b.cyl(0,base+2.8,0,.055,5.6,'gold');for(let j=0;j<19;j++){let r=.48-j*.012;b.put(torus,'gold',[0,base+.3+j*.255,0],[r,r,r],[Math.PI/2,0,0]);}b.ball(0,23.65,0,.17,.24,.17);b.cyl(0,24.2,0,.025,.7,'gold');
- },1.1);
+  const base=17.05; b.cyl(0,base+2.4,0,.055,4.8,'gold');for(let j=0;j<19;j++){let r=.48-j*.012;b.put(torus,'gold',[0,base+.3+j*.22,0],[r,r,r],[Math.PI/2,0,0]);}b.ball(0,base+4.65,0,.17,.24,.17);b.cyl(0,base+5.06,0,.025,.7,'gold');
+ },[.90,1.10,.90]);
  // Enclosing low galleries anchor the far pond edge and continue behind the main hall.
  function gallery(pos,length,yaw=0){b.at(pos,yaw,()=>{b.box(0,.35,0,length,.7,4.3,'stone');for(let x=-length/2+.6;x<length/2;x+=2){column(x,1.2,.7,3.6,.14);bracket(x,4.4,1.2,.55);windowPanel(x,2.35,-1.1,1.7,2.5);}b.box(0,4.35,1.2,length+.5,.28,.3,'red');roof({w:length+1.5,d:5.5,eave:4.8,rise:1.6,curl:.4});b.at([0,.7,1.6],0,()=>rail(length));});}
  gallery([-14,0,-6],15);gallery([16,1,-11],12);gallery([-22,0,0],10,Math.PI/2);
@@ -110,7 +112,8 @@ export function buildArchitecture(mats){
  const flare=z=>{let t=Math.max(0,Math.min(1,(z-11)/8));return t*t*(3-2*t);};for(let z=8.5;z<41;z+=.46){let t=flare(z);b.box(16,9.42,z,10.8+2.2*t,.30,.22,'cedar');b.box(10.73-1.1*t,9.42,z,.13,.31,.26,'darkwood');}
  for(let j=0;j<36;j++){let z=8+j*34/36,zz=8+(j+1)*34/36;b.line([11.1-1.1*flare(z),9.08,z],[11.1-1.1*flare(zz),9.08,zz],.38,'red',true,.45);}b.box(19.6,9.08,25,.38,.45,34,'red');
  // Open lacquered balustrade: fine gilt castings sit between rounded red rails.
- const finial=new T.LatheGeometry([[0,0],[.085,0],[.10,.03],[.075,.06],[.065,.11],[.12,.15],[.10,.19],[.055,.22],[.04,.27],[0,.30]].map(p=>new T.Vector2(...p)),24);
+ b.at([.2,.27,0],0,()=>{
+ const finial=new T.LatheGeometry([[0,0],[.085,0],[.11,.025],[.105,.045],[.075,.065],[.075,.10],[.135,.135],[.145,.16],[.135,.185],[.09,.215],[.045,.245],[.025,.28],[0,.30]].map(p=>new T.Vector2(...p)),24);
  for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);for(let j=0;j<16;j++){let aa=j*Math.PI/8;b.put(reliefLeaf,'oldgold',[x+Math.sin(aa)*.102,2.31,z+Math.cos(aa)*.102],[.32,.34,.35],[0,aa,j%2?.5:-.5]);}b.cyl(x,1.44,z,.12,.15,'oldgold');}
  for(let y of[1.55,1.96,2.27])b.line([14.4,y,8],[14.4,y,41],y===2.27?.065:.037,'red');
  for(let z=9.8;z<40;z+=3.6){b.at([14.34,1.77,z],Math.PI/2,()=>{
@@ -119,6 +122,7 @@ export function buildArchitecture(mats){
   for(let ss of[-1,1])for(let row=0;row<3;row++){let cx=ss*(.13+row*.13);b.tube([[cx,-.24,.035],[cx-ss*.13,-.15,.045],[cx+ss*.11,.03,.045],[cx-ss*.08,.22,.045],[cx+ss*.03,.12,.045],[cx+ss*.08,.01,.045]],.012,'gold',24);for(let k=0;k<4;k++)b.put(b.sphere,'oldgold',[cx+ss*.06*Math.sin(k*2),-.19+k*.12,.055],[.025,.043,.015],[0,0,ss*(k%2?.7:-.7)]);}
   for(let yy of[-.12,.12]){b.put(torus,'gold',[0,yy,.048],[.09,.09,.09]);rosette(0,yy,.056,.047);}
  });}
+ },[1,.80,1]);
  // Six sided bronze lantern with emitting pierced panes, lattice curls and cast roof.
  const lampGlow=new T.MeshBasicMaterial({color:0xffc478,toneMapped:false});
  function lantern(x,y,z,s=1,ceiling=9.3){b.at([x,y,z],0,()=>{

@@ -1,0 +1,49 @@
+{
+  "reference": 2,
+  "entry": "reconstructions/scene-02/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-02-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T09:36:43.622Z",
+  "source": {
+    "hash": "cf5490006c6046bcb72c7a3d1a03b19d9a528216a49b290fe226fd46c7ab269e",
+    "files": {
+      "reconstructions/scene-02/architecture.js": "2e3deaf360718df155d86e0555f2c4eee0b668087a66a349c01bd255cc56347e",
+      "reconstructions/scene-02/garden.js": "61115415f6e2863f9b9236137ff336d2a7d29e682159d1fdd00a8627ab9ebe40",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "dfdc2af90e76abd9d040b974a762a942f4313d315422adb1a5afa0af8ffa6908",
+      "reconstructions/scene-02/main.js": "d91fd67d3c2e4564aaa96d0484b834757a8267b2251f96309871035994ee6ad6"
+    }
+  },
+  "sourceCommit": "e6534e94cf0725b019950ff94e0ef9cac8372fc0",
+  "status": "failed",
+  "visualAccepted": false,
+  "errors": [
+    "SyntaxError: Unary operator used immediately before exponentiation expression. Parenthesis must be used to disambiguate operator precedence"
+  ],
+  "requests": [
+    "/reconstructions/scene-02/index.html",
+    "/reconstructions/scene-02/main.js",
+    "/reconstructions/scene-02/kernel.js",
+    "/reconstructions/scene-02/architecture.js",
+    "/reconstructions/scene-02/garden.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "error": "SyntaxError: Unary operator used immediately before exponentiation expression. Parenthesis must be used to disambiguate operator precedence",
+  "completedAt": "2026-10-18T09:36:44.439Z"
+}

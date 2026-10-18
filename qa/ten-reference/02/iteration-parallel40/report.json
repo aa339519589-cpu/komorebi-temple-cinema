@@ -1,0 +1,200 @@
+{
+  "reference": 2,
+  "entry": "reconstructions/scene-02/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-02-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T09:38:19.168Z",
+  "source": {
+    "hash": "ee7e028f40d67ac7f91b8870a0cb5c484ece2cf69a596a8a0084bf9f5ba5eef0",
+    "files": {
+      "reconstructions/scene-02/architecture.js": "2c0019b57918795ae54dd8b504acd68b66ef8a7b185a16e4ce870349fad6d25a",
+      "reconstructions/scene-02/garden.js": "ce255ffd1d7d47d5a58a6b4340beb655ed716d85c67d32b34d5b168f1bb2d5ad",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "dfdc2af90e76abd9d040b974a762a942f4313d315422adb1a5afa0af8ffa6908",
+      "reconstructions/scene-02/main.js": "d05479513fc6c1f46c500746c21566626680ab4b74b1f5e455588c29242e0c01"
+    }
+  },
+  "sourceCommit": "e6534e94cf0725b019950ff94e0ef9cac8372fc0",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-02/index.html",
+    "/reconstructions/scene-02/main.js",
+    "/reconstructions/scene-02/kernel.js",
+    "/reconstructions/scene-02/architecture.js",
+    "/reconstructions/scene-02/garden.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-golden-hour-proportions-40",
+        "ready": true,
+        "frames": 1,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 52607,
+          "buckets": 482
+        },
+        "garden": {
+          "instances": 434404,
+          "buckets": 433
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 1,
+          "triangles": 1
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "No external textures, models, HDR maps, image backgrounds or AI visuals."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9985659923333053,
+      "opaqueFraction": 1,
+      "rgbaSha256": "fe492c98d60457f58672b1a5018048f82216bc9cb3cc81b796c48e06a40e2858"
+    }
+  ],
+  "completedAt": "2026-10-18T09:38:21.446Z"
+}

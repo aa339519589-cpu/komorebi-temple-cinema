@@ -49,3 +49,12 @@ Architecture changes include a higher connected stone terrace and 24-step approa
 Red wood now uses a varnish clear coat and finer generated grain. A fixed 128px radiance probe captures the actual constructed scene for the gold and wood reflection environment. Water and polished-floor captures use stronger view-dependent reflections with deterministic fine ripples. The static directional shadow map is generated once and reused for the fixed lighting. No models, texture images, HDR maps, photographs or AI visuals are imported into the scene.
 
 Third CPU build: 48,200 architecture instances, 345,819 garden instances, 906 buckets, approximately 6.53 million triangles; all JS syntax checks pass and vertex scan reports zero non-finite components. Runtime probe and visual validation await the third GPU capture. The entry and camera interface are unchanged.
+
+
+## Bounded silhouette and golden-hour pass (parallel40, 2026-10-18)
+
+Inspected the original HD reference, integrated-02 actual image, then three new full-frame actual 1254px renders. The failed parallel38 syntax candidate is retained with its error report. No test suite was run for this pass. Every actual capture used the shared GPU queue.
+
+The main hall is narrower and its occupied floor is higher, with a connected taller masonry podium and recomputed stair heights. Pagoda galleries are thinner and closer together, with a shorter spire. The foreground railing is lower and moved slightly toward the veranda, opening the pond. Materials separate dark vermilion timber, aged gold, cool slate and cooler stone. Broad solar haze was narrowed so the upper sky is blue instead of pink; the sunset horizon and luminous clouds remain gold. Framing foliage has more coverage and the pine blocking the entry was moved. The background ridge is now a sloped geometric terrain surface with small ridge trees.
+
+The actual final capture and the original/before/after comparison are in `iteration-parallel40/`. The visual review explicitly remains a draft. Roof planes are still too dark, pillars and bridge are too smooth/orange, vegetation and hillside are far simpler than the reference, and the lotus, stone lantern and close gilded details remain approximate. These are visible limitations, not a photographic match or acceptance claim.

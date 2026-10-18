@@ -1,0 +1,28 @@
+{
+  "status": "reviewed-draft",
+  "visualAccepted": false,
+  "sourceHash": "ee7e028f40d67ac7f91b8870a0cb5c484ece2cf69a596a8a0084bf9f5ba5eef0",
+  "actualRender": "reference.png",
+  "comparison": "comparison.png",
+  "inspectedReference": "references/hd/1-\u7167\u7247-2.jpg",
+  "inspectedBaseline": "iteration-integrated-02/reference.png",
+  "findings": [
+    "Hall frontage is narrower and its occupied terrace is raised; columns now land nearer the reference facade position.",
+    "Pagoda has thinner storey bodies, slightly closer floor spacing and shorter ringed spire.",
+    "Restricted solar haze no longer tints the entire sky pink. Upper sky is blue; clouds remain cream and the horizon gold.",
+    "Lower, slightly shifted foreground railing opens more pond and puts the nearest cap nearer the reference position.",
+    "Dense framing leaves and moving one pine off the stair restore a more readable hall entry."
+  ],
+  "remainingGaps": [
+    "The scene is still visibly procedural and does not match photographic foliage, fine masonry or carvings.",
+    "Main roof planes are too dark; timber pillars and bridge still appear too smooth and orange.",
+    "Mountain texture is simpler and harder edged than the reference wooded hillside.",
+    "Lotus flowers, stone lanterns, gilt caps and veranda column collar remain approximate."
+  ],
+  "preservedCandidates": [
+    "parallel37: actual render before sky/landscape correction",
+    "parallel38: failed syntax candidate, preserved with report",
+    "parallel39: actual render with rejected coarse ridge crowns",
+    "parallel40: actual render reviewed for this commit"
+  ]
+}

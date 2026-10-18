@@ -13,7 +13,7 @@ export function buildGarden(mats){
   for(let j=0;j<shoots;j++){
    const a=j*2.399+rand()*.3,u=rand()*1.8-.9,f=Math.sqrt(1-u*u),q=.60+.4*Math.cbrt(rand()),tip=[x+Math.cos(a)*f*rx*q,y+u*ry*q,z+Math.sin(a)*f*rz*q],elbow=[mix(x,tip[0],.55),mix(y,tip[1],.5)+ry*.12,mix(z,tip[2],.55)];
    branch([x,y-ry*.20,z],elbow,.012+rx*.002);branch(elbow,tip,.007+rx*.001);
-   for(let k=0;k<26;k++){const t=.25+.75*(k+.5)/26,side=k%2?1:-1,s=.065+rand()*.085,p=[mix(elbow[0],tip[0],t)+side*Math.cos(a+1.57)*s*.42,mix(elbow[1],tip[1],t)+rand()*.03,mix(elbow[2],tip[2],t)+side*Math.sin(a+1.57)*s*.42];b.put(leafGeo,rand()<.18?'leaflight':'leaf',p,[s,s,s*1.45],[-.25+rand()*.5,a+side*.82,rand()*.3],.78+rand()*.42);}
+   for(let k=0;k<26;k++){const t=.25+.75*(k+.5)/26,side=k%2?1:-1,s=.10+rand()*.11,p=[mix(elbow[0],tip[0],t)+side*Math.cos(a+1.57)*s*.42,mix(elbow[1],tip[1],t)+rand()*.03,mix(elbow[2],tip[2],t)+side*Math.sin(a+1.57)*s*.42];b.put(leafGeo,rand()<.13?'leaflight':'leaf',p,[s,s,s*1.45],[-.25+rand()*.5,a+side*.82,rand()*.3],.78+rand()*.42);}
   }
  }
  function shrub(x,y,z,r=1,flower=false){for(let j=0;j<5;j++){let a=j*6.28/5,rr=r*.4;leafCluster(x+Math.cos(a)*rr,y+r*.45,z+Math.sin(a)*rr,r*.65,r*.55,r*.65,60);}if(flower)for(let j=0;j<50*r;j++){let a=rand()*6.28,u=rand(),p=[x+Math.cos(a)*r*Math.sqrt(u),y+r*.5+rand()*r*.6,z+Math.sin(a)*r*Math.sqrt(u)];for(let k=0;k<5;k++)b.put(petalGeo,rand()<.3?'pinkDark':'pink',p,[.08,.08,.12],[0,k*6.28/5,Math.PI/3]);}}
@@ -29,7 +29,7 @@ export function buildGarden(mats){
  const islands=[[-1.5,0,7.5,1.0],[8.3,0,5.5,1.25],[4.6,0,13.5,.55],[-9,0,1.8,1.1]];
  for(let [x,y,z,r]of islands){b.put(b.lowSphere,'moss',[x,-.05,z],[r*1.45,.35,r]);for(let i=0;i<7;i++){let a=rand()*6.28,rr=r*(.6+rand()*.55);rock(x+Math.cos(a)*rr,.05,z+Math.sin(a)*rr,.20+rand()*.38);}for(let i=0;i<3;i++)shrub(x+(rand()-.5)*r*1.2,.2,z+(rand()-.5)*r*1.1,r*.30+rand()*.25,i%2===0);}
  // Garden height is deliberately varied: dense low flowers, articulated rocks, pruned pines and blossom canopies.
- tree(-6.5,-.5,5.6,3.1,true);tree(-20,-4,7,3.5,true);tree(6,4,4.4,2,true);tree(10,-3,6,3,true);tree(-2,1,3.8,1.9,true);
+ tree(-6.5,-.5,5.6,3.1,true);tree(-20,-4,7,3.5,true);tree(8.5,2.0,3.6,1.8,true);tree(10,-3,6,3,true);tree(-2,1,3.8,1.9,true);
  cherry(15,0,5.8,3.3);cherry(-10,0,4.4,2.8);cherry(9,-4,5,2.8);
  for(let j=0;j<16;j++){let x=-26+rand()*37,z=-4+rand()*4;shrub(x,.2,z,.7+rand()*.7,j%3===0);}
  // Tiered rock-and-flower planting climbs the high terrace on both sides of the stair.
@@ -37,7 +37,7 @@ export function buildGarden(mats){
  const grass=gridGeometry(Array.from({length:7},(_,j)=>{let t=j/6;return[[-.5*Math.sin(Math.PI*t),t,.35*t*t],[.5*Math.sin(Math.PI*t),t,.35*t*t]];}));
  for(let j=0;j<90;j++){let z=rand()*17,x=9.6+rand()*.9;for(let k=0;k<18;k++){let a=rand()*6.28,r=rand()*.24;b.put(grass,k%4?'leaf':'leaflight',[x+Math.cos(a)*r,.24,z+Math.sin(a)*r],[.02+rand()*.025,.16+rand()*.25,.2+rand()*.15],[0,a,(rand()-.5)*.45]);}}
  // Left framing canopy enters the sky with individual leaves and crooked visible branches.
- branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,180);}leafCluster(-16,21,-4,2.0,1.4,1.5,220);leafCluster(-21,22,-5,2.0,1.5,1.5,220);leafCluster(-11.5,20.5,-4,1.5,1.2,1.4,220);tree(-28,-8,10,3.2,false);
+ b.at([-3,3,0],0,()=>{branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,180);}leafCluster(-16,21,-4,2.0,1.4,1.5,220);leafCluster(-21,22,-5,2.0,1.5,1.5,220);leafCluster(-11.5,20.5,-4,1.5,1.2,1.4,220);});tree(-28,-8,10,3.2,false);
  // Irregular azalea beds climbing either side of the temple stairs.
  for(let s of[-1,1])for(let i=0;i<14;i++){let z=1+rand()*6,x=4+s*(3.6+rand()*3.2);rock(x,.5,z,.38+rand()*.6);shrub(x,.45,z,.45+rand()*.65,true);}
  const stoneGlow=new T.MeshBasicMaterial({color:0xffbd60,toneMapped:false});const lanternRoof=mats.stone.clone();lanternRoof.color.setHex(0x565a53);lanternRoof.side=T.DoubleSide;
@@ -69,7 +69,13 @@ export function buildGarden(mats){
  // Tiny floating leaves and ripple highlights catch the low sunset without image overlays.
  const ripple=new T.TorusGeometry(1,.006,3,24);for(let i=0;i<90;i++){let x=-23+rand()*33,z=4+rand()*30,r=.18+rand()*.5;b.put(ripple,'water',[x,.025,z],[r,r,r],[Math.PI/2,0,0]);}
  // Terrain silhouettes: true finite ridges, then several layers of distant woodland.
- const mountainMat=new T.MeshStandardMaterial({color:0x4c5844,roughness:1});for(let layer=0;layer<3;layer++){const z=-48-layer*30,rows=[[],[]];for(let i=0;i<=70;i++){let x=-100+i*3,top=4+layer*2+5*Math.sin(i*.085+layer)+2*Math.sin(i*.37)+rand()*.8;rows[0].push([x,-2,z]);rows[1].push([x,top,z]);}const g=gridGeometry(rows),m=mountainMat.clone();m.color.lerp(new T.Color(0xc39266),layer*.22);m.side=T.DoubleSide;b.put(g,m);}
+ const mountainMat=new T.MeshStandardMaterial({color:0x45533a,roughness:1,map:mats.stone.map,bumpMap:mats.stone.bumpMap,bumpScale:.16});
+ const ridgeTop=(x,layer)=>10+layer*2+12*Math.exp(-(((x+66)/34)**2))+1.4*Math.sin(x*.15+layer)+.65*Math.sin(x*.57);
+ for(let layer=0;layer<3;layer++){
+  const z=-34-layer*30,rows=Array.from({length:25},(_,j)=>Array.from({length:111},(_,i)=>{const x=-110+i*2,t=j/24,crest=ridgeTop(x,layer),shape=Math.pow(Math.sin(Math.PI*t),.8);return[x,-1+shape*(crest+1)+shape*.65*Math.sin(x*.43+j*.81),z-j*1.2];}));
+  const g=gridGeometry(rows),m=mountainMat.clone();m.color.lerp(new T.Color(0xb39a76),layer*.24);m.side=T.DoubleSide;b.put(g,m);
+  for(let j=0;j<820;j++){const x=-110+rand()*220,zt=z-14.4+(rand()-.5)*2,h=.18+rand()*.36;b.put(b.lowSphere,m,[x,ridgeTop(x,layer)+h*.18,zt],[.16+rand()*.18,h,.22],[0,rand()*6.28,0],.75+rand()*.30);}
+ }
  for(let i=0;i<80;i++){let x=-60+rand()*100,z=-30-rand()*16,h=3+rand()*5;const g=new T.ConeGeometry(1,1,7);b.put(g,'leaf',[x,h*.5,z],[1+rand()*1.5,h,1.5],[0,rand()*6,0],.65+rand()*.6);}
  return {group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size}};
 }
