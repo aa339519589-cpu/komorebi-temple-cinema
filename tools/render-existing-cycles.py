@@ -125,7 +125,20 @@ for rec in scene_data['lights']:
 
 cam_data=bpy.data.cameras.new('source-reference6-camera');camera=bpy.data.objects.new('source-reference6-camera',cam_data);scene.collection.objects.link(camera);camera.matrix_world=Matrix(np.array(scene_data['cameraMatrix']).reshape(4,4).T.tolist());cam_data.sensor_fit='VERTICAL';cam_data.sensor_height=24;cam_data.lens=12/math.tan(math.radians(scene_data['view']['fov'])/2);cam_data.clip_start=.1;cam_data.clip_end=200;scene.camera=camera
 world=bpy.data.worlds.new('Procedural exterior fill for path-traced review');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.45,.55,.7,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=.3
-scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','64'));scene.cycles.use_denoising=True;scene.cycles.max_bounces=8;scene.cycles.diffuse_bounces=4;scene.cycles.glossy_bounces=4;scene.cycles.transmission_bounces=6;scene.cycles.volume_bounces=1;scene.cycles.sample_clamp_indirect=8
+scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','64'));# Ubuntu's distribution Blender can be built without Intel OpenImageDenoise.
+# That build fails during render with "Build without OpenImageDenoiser" when
+# use_denoising is true. Render actual Cycles samples without denoising by default.
+# Any explicitly requested denoising must have a compatible compiled backend.
+denoise_requested=os.environ.get('CYCLES_DENOISE','0').strip()=='1'
+if denoise_requested and not getattr(bpy.app.build_options,'openimagedenoise',False):
+    raise RuntimeError('Requested OIDN denoising, but Blender was built without OpenImageDenoiser')
+scene.cycles.use_denoising=denoise_requested
+for layer in scene.view_layers:
+    if hasattr(layer,'cycles'):
+        layer.cycles.use_denoising=denoise_requested
+report['denoisingEnabled']=denoise_requested
+report['denoisingReason']='Native Cycles non-denoised output retained for unsupported distribution builds' if not denoise_requested else 'Verified built-in OpenImageDenoise'
+;scene.cycles.max_bounces=8;scene.cycles.diffuse_bounces=4;scene.cycles.glossy_bounces=4;scene.cycles.transmission_bounces=6;scene.cycles.volume_bounces=1;scene.cycles.sample_clamp_indirect=8
 scene.render.resolution_x=int(os.environ.get('CYCLES_SIZE','720'));scene.render.resolution_y=scene.render.resolution_x;scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGB';scene.render.image_settings.color_depth='8';scene.render.threads_mode='FIXED';scene.render.threads=4
 try:scene.view_settings.view_transform='AgX'
 except:scene.view_settings.view_transform='Filmic'
