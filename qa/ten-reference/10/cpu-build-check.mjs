@@ -1,0 +1,12 @@
+import {registerHooks} from 'node:module';
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+const root=new URL('../../../',import.meta.url),scene=new URL('reconstructions/scene-10/src/',root);
+registerHooks({resolve(specifier,context,nextResolve){if(specifier==='three')return nextResolve(new URL('vendor/build/three.module.js',root).href,context);if(specifier.startsWith('three/addons/'))return nextResolve(new URL('vendor/examples/jsm/'+specifier.slice(13),root).href,context);return nextResolve(specifier,context);}});
+globalThis.location={search:'?defer&w=768&h=768'};globalThis.document={body:{appendChild(){}},querySelector(){return{remove(){}}}};globalThis.window={};
+globalThis.FakeRenderer=class{constructor(){this.shadowMap={};this.info={render:{calls:0,triangles:0}};}setPixelRatio(){}setSize(){}dispose(){}};
+let source=readFileSync(new URL('main.js',scene),'utf8').replace("new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'})",'new FakeRenderer()');
+source=source.replace("const pmrem=new T.PMREMGenerator(renderer);const env=pmrem.fromScene(envScene,.08,.1,120);scene.environment=env.texture;scene.environmentIntensity=.8;pmrem.dispose();","const env={texture:new T.Texture(),dispose(){}};scene.environment=env.texture;scene.environmentIntensity=.8;");
+source=source.replaceAll("from './architecture.js'",`from '${new URL('architecture.js',scene).href}'`).replaceAll("from './materials.js'",`from '${new URL('materials.js',scene).href}'`).replaceAll("from './natural-forms.js'",`from '${new URL('natural-forms.js',scene).href}'`);
+const before=performance.now();await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+console.log(JSON.stringify({cpuBuildOnly:true,seconds:(performance.now()-before)/1000,...window.temple.info()},null,2));
