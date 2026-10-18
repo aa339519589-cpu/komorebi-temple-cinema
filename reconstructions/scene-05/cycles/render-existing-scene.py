@@ -17,6 +17,9 @@ SUN_RGB=(1.0,.84,.65)
 VERMILION_TINT=tuple(float(x) for x in os.environ.get('PHYSICAL_VERMILION_TINT','1,1,1').split(','))
 GROUND_RADIANCE=tuple(float(x) for x in os.environ.get('PHYSICAL_GROUND_RADIANCE','0,0,0').split(','))
 COURTYARD=os.environ.get('PHYSICAL_COURTYARD','0')=='1'
+COURTYARD_ALBEDO=tuple(float(x) for x in os.environ.get('PHYSICAL_COURTYARD_ALBEDO','.38,.34,.28').split(','))
+HDRI_PATH=os.environ.get('TEMPLE_SKY_EXR')
+BOUNCE_POWER=float(os.environ.get('PHYSICAL_BOUNCE_POWER','0'))
 SUN_DIRECTION=Vector((-18,0,23)).normalized()*math.cos(SUN_ELEVATION)+Vector((0,math.sin(SUN_ELEVATION),0))
 scene_data=json.loads((ROOT/'scene.json').read_text())
 report={'sourceStatistics':scene_data['statistics'],'lightingMode':MODE,'blender':bpy.app.version_string,'scope':scene_data.get('renderingScope'),'geometryRebuilt':False,'excluded':scene_data['excluded'],'warnings':[],'status':'importing','started':time.time()}
@@ -133,12 +136,20 @@ if COURTYARD:
     obj=bpy.data.objects.new('scene05-context-stone-courtyard',mesh);scene.collection.objects.link(obj)
     mat=bpy.data.materials.new('scene05-context-warm-gray-courtyard-stone');mat.use_nodes=True
     nodes=mat.node_tree.nodes;links=mat.node_tree.links;bs=nodes.get('Principled BSDF')
-    bs.inputs['Base Color'].default_value=(.38,.34,.28,1);bs.inputs['Roughness'].default_value=.94
+    bs.inputs['Base Color'].default_value=COURTYARD_ALBEDO+(1,);bs.inputs['Roughness'].default_value=.94
     value(bs,['Specular IOR Level'],.18)
     texture=nodes.new('ShaderNodeTexNoise');texture.inputs['Scale'].default_value=6;texture.inputs['Detail'].default_value=2
     bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.25;bump.inputs['Distance'].default_value=.004;links.new(texture.outputs['Fac'],bump.inputs['Height']);links.new(bump.outputs['Normal'],bs.inputs['Normal'])
     mesh.materials.append(mat)
-    report['addedContext']={'kind':'Actual shadow-receiving stone courtyard mesh','sourceY':y,'sourceBoundsXZ':[-extent,extent,-extent,extent],'linearDiffuseReflectance':[.38,.34,.28],'roughness':.94,'geometry':'4vertices,2triangles; independent ground context, source visible meshes unchanged','assumption':'Unseen courtyard plane inferred below source low camera; not a measured floor from the close-up reference.'}
+    report['addedContext']={'kind':'Actual shadow-receiving stone courtyard mesh','sourceY':y,'sourceBoundsXZ':[-extent,extent,-extent,extent],'linearDiffuseReflectance':list(COURTYARD_ALBEDO),'roughness':.94,'geometry':'4vertices,2triangles; independent ground context, source visible meshes unchanged','assumption':'Unseen courtyard plane inferred below source low camera; not a measured floor from the close-up reference.'}
+
+if BOUNCE_POWER>0:
+    # A real sized, shadow-casting photographic source models a production
+    # bounce board, rather than lifting shadows in compositing or hiding them.
+    light=bpy.data.lights.new('scene05-production-bounce-board','AREA');light.energy=BOUNCE_POWER;light.shape='RECTANGLE';light.size=10;light.size_y=8;light.color=(1,.83,.63)
+    obj=bpy.data.objects.new('scene05-production-bounce-board',light);scene.collection.objects.link(obj);obj.location=(7,2.8,13)
+    obj.rotation_euler=(Vector((0,12,0))-obj.location).to_track_quat('-Z','Y').to_euler()
+    report['photographicBounce']={'kind':'Actual shadow-casting rectangular AREA light','sourcePositionYUp':[7,2.8,13],'targetYUp':[0,12,0],'sizeMetres':[10,8],'powerWatts':BOUNCE_POWER,'linearRGB':[1,.83,.63],'purpose':'Inferred photographic bounce-board source, explicitly not claimed as recovered natural illumination.'}
 
 for rec in scene_data['lights']:
     if rec['intensity']<=0 or rec['type']=='HemisphereLight':continue
@@ -189,6 +200,23 @@ if MODE=='outdoor-day':
         mix=nodes.new('ShaderNodeMixShader');links.new(mask.outputs[0],mix.inputs[0]);links.new(nodes['Background'].outputs[0],mix.inputs[1]);links.new(ground.outputs[0],mix.inputs[2]);links.new(mix.outputs[0],nodes['World Output'].inputs['Surface'])
         report['lowerHemisphere']={'linearRadiance':list(GROUND_RADIANCE),'scope':'Analytic unseen courtyard-stone radiance; source scene contains no ground mesh. No visible mesh added.'}
     report['outdoorSky']={'airDensity':sky.air_density,'ozoneDensity':sky.ozone_density,'type':sky.sky_type,'source':'Blender atmospheric scattering, no bitmap background','sunDisc':False,'worldUp':'Whole scene converted to Z-up','sourceDirectionYUp':list(direction)}
+if HDRI_PATH:
+    nodes=world.node_tree.nodes;links=world.node_tree.links
+    env=nodes.new('ShaderNodeTexEnvironment');env.image=bpy.data.images.load(str(Path(HDRI_PATH).resolve()));env.image.colorspace_settings.name='Linear Rec.709'
+    coordinates=nodes.new('ShaderNodeTexCoord');mapping=nodes.new('ShaderNodeMapping')
+    pixels=np.empty(env.image.size[0]*env.image.size[1]*4,dtype=np.float32);env.image.pixels.foreach_get(pixels)
+    rgb=pixels.reshape(env.image.size[1],env.image.size[0],4)[:,:,:3];luminance=rgb@np.asarray([.2126,.7152,.0722],dtype=np.float32)
+    sun_y,sun_x=np.unravel_index(np.argmax(luminance),luminance.shape)
+    measured_azimuth=2*math.pi*((sun_x+.5)/env.image.size[0]-.5);measured_altitude=math.pi*((sun_y+.5)/env.image.size[1]-.5)
+    target_azimuth=math.atan2(-SUN_DIRECTION.z,SUN_DIRECTION.x)
+    mapping.inputs['Rotation'].default_value[2]=measured_azimuth-target_azimuth
+    links.new(coordinates.outputs['Normal'],mapping.inputs['Vector']);links.new(mapping.outputs['Vector'],env.inputs['Vector']);links.new(env.outputs['Color'],nodes['Background'].inputs['Color']);links.new(nodes['Background'].outputs[0],nodes['World Output'].inputs['Surface'])
+    for obj in list(scene.objects):
+        if obj.type=='LIGHT' and obj.data.type=='SUN':bpy.data.objects.remove(obj,do_unlink=True)
+    report['environmentRadiance']={'maximum':float(np.max(luminance)),'mean':float(np.mean(luminance)),'sunPixel':[int(sun_x),int(sun_y)],'sunAltitudeDegrees':math.degrees(measured_altitude)}
+    report['measuredSky']={'file':str(Path(HDRI_PATH).resolve()),'rotationRadians':mapping.inputs['Rotation'].default_value[2],'license':'CC0-1.0','provider':'Poly Haven','asset':'qwantani_sunset_puresky','authors':['Greg Zaal','Jarod Guest'],'sunLightsRemoved':True,'environmentRole':'Actual full-radiance3D illumination/reflection; not a reference photograph or camera plate.'}
+    scene.cycles.seed=505204;scene.cycles.use_animated_seed=False
+
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','32'))
 if os.environ.get('CYCLES_DEVICE')=='METAL':
     preferences=bpy.context.preferences.addons['cycles'].preferences;preferences.compute_device_type='METAL';preferences.get_devices()
@@ -221,6 +249,7 @@ render_name=os.environ.get('CYCLES_RENDER_NAME','sanctuary-cycles.png')
 if Path(render_name).name!=render_name:raise ValueError('CYCLES_RENDER_NAME must be a filename')
 scene.render.filepath=str(OUT/render_name);scene.render.film_transparent=False
 report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['status']='rendering';report['materialTransfer']='Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.';report['vermilionAlbedoCalibration']={'linearMultiplier':list(VERMILION_TINT),'materialScope':'Original red lacquer / kit cedar only; source UVs and scanned albedo, normal and roughness maps retained'};report['physicalSun']={'elevationDegrees':math.degrees(SUN_ELEVATION),'directionYUp':list(SUN_DIRECTION),'energy':SUN_ENERGY,'linearRGB':list(SUN_RGB),'angularDiameterDegrees':.53,'indirectLight':'Cycles diffuse GI; WebGL directional bounce helpers omitted'};report['lightCalibration']={'transfer':'One source sun azimuth with calibrated elevation/energy; atmospheric sky and traced GI. Original portable PBR maps/UV preserved.','sunGain':float(os.environ.get('CYCLES_SUN_GAIN','.28')),'worldGain':float(os.environ.get('CYCLES_WORLD_GAIN','.3')),'exposure':scene.view_settings.exposure,'nativeWebglPixelEquivalence':False}
+if HDRI_PATH:report['physicalSun']={'mode':'Measured HDRI sole sun','sunAltitudeDegrees':report['environmentRadiance']['sunAltitudeDegrees'],'sunLightObjects':0,'powerFromMeasuredRadiance':True};report['lightCalibration']['transfer']='Measured HDRI radiance with no duplicateSUN; actual courtyard GI and documented shadow-casting production bounce.'
 (OUT/'report.json').write_text(json.dumps(report,indent=2));
 if os.environ.get('CYCLES_SAVE_BLEND','1')=='1':
     blend_name=os.environ.get('CYCLES_BLEND_NAME','existing-sanctuary-cycles.blend')

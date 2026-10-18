@@ -1,0 +1,49 @@
+{
+  "scope": "Same source05camera and visible geometry; actual courtyard+measured HDRI radiance+documented shadow-casting production bounce.",
+  "sourceHash": "27e01f7106f7204df2ea0f076be3ab5f875b1d8940ca855e37de7bffe4cc025a",
+  "sourceBuilder": "reconstructions/scene-05/cycles/render-existing-scene.py",
+  "sourceBuilderSha256": "31d09a7696d8cfc7ad04ffc0b0b2974e52885ccd6484f1147188bf7220ba17d4",
+  "environment": {
+    "SCENE_PACKAGE": "output/scene05-physical-detail52",
+    "CYCLES_OUTPUT": "output/scene05-cycles-physical04",
+    "LIGHTING_MODE": "outdoor-day",
+    "PHYSICAL_COURTYARD": "1",
+    "PHYSICAL_SUN_ELEVATION": "25",
+    "PHYSICAL_SUN_ENERGY": "3.5",
+    "PHYSICAL_VERMILION_TINT": "1.08,.83,.72",
+    "PHYSICAL_GROUND_RADIANCE": "0,0,0",
+    "CYCLES_WORLD_GAIN": "1",
+    "CYCLES_EXPOSURE": "0",
+    "CYCLES_DEVICE": "METAL",
+    "CYCLES_SAMPLES": "128",
+    "CYCLES_DENOISE": "1",
+    "CYCLES_SIZE": "1254",
+    "CYCLES_SAVE_BLEND": "1",
+    "CYCLES_PACK_TEXTURES": "1",
+    "CYCLES_BLEND_NAME": "scene05-physical04.blend",
+    "CYCLES_RENDER_NAME": "scene05-cycles-physical04.png",
+    "PHYSICAL_COURTYARD_ALBEDO": ".55,.52,.46",
+    "PHYSICAL_BOUNCE_POWER": "1200",
+    "TEMPLE_SKY_EXR": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr"
+  },
+  "exportCommand": "REFERENCE=5 SCENE_EXPORT=output/scene05-physical-detail52 node tools/export-reconstructed-scene.mjs",
+  "renderCommand": "Apply environment above; node tools/run-blender-queued.mjs reconstructions/scene-05/cycles/render-existing-scene.py",
+  "actualFrameSha256": "8f8a1efb7fb03b1d8837c5ba120adf71708f34458d01f8a876ac48ba275ecb01",
+  "packedBlend": "output/scene05-cycles-physical04/scene05-physical04.blend",
+  "status": "Actual128sampleMetal/OIDN frame viewed; warmer/readable than03, but orange cast and sky differ fromHDreference; no acceptance.",
+  "hdriProvenance": {
+    "asset": "qwantani_sunset_puresky",
+    "provider": "Poly Haven",
+    "source": "https://polyhaven.com/a/qwantani_sunset_puresky",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://polyhaven.com/license",
+    "authors": {
+      "photography": "Greg Zaal",
+      "processing": "Jarod Guest"
+    },
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/2k/qwantani_sunset_puresky_2k.exr",
+    "bytes": 18335204,
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "role": "Measured high-dynamic-range sky radiance used for actual3D lighting and reflection; no reference-frame projection."
+  }
+}
