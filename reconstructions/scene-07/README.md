@@ -9,3 +9,10 @@ The composition includes a raised foreground ceramic roof and red railing with b
 CPU verification: `node qa/ten-reference/07/cpu-check.mjs` constructs the complete geometry without a browser or GPU and checks finite transforms/positions and API calls. Revision 5 has approximately 189,500 instances and 19.49 million triangles, with shared geometry for ceramic shells, relief medallions, needle sprays and folded-leaf vegetation.
 
 Actual GPU iterations 1, 2 and 4 have been inspected and rejected. Revision 5 changes the architectural yaw and stair connection, recesses the hall windows into a real colonnade, covers terrace faces with geological masonry and surface-clipped moss, adds fern and shrub colonies, widens and raises the curved bridge, replaces forest envelopes with independent folded leaves, reconstructs the veranda corner, and adds thick ceramic shells with smooth radial normals and cast end medallions. It does not raise exposure. The latest source awaits the root agent's serialized GPU comparison; no visual acceptance is claimed.
+
+
+## Bounded sunset and garden pass, 2026-10-18
+
+`iteration-parallel37-baseline` preserves a new 1254px rendering of the unchanged integrated source. `iteration-parallel37-candidate` preserves the first 1254px actual Three.js candidate after shortening the hall ridge, deepening pagoda eaves, widening individual pine needles, and changing directional warm light, ceramic response, and rock/foliage materials. Visual inspection found excessive orange timber and conical pine crowns.
+
+`iteration-parallel38-candidate` preserves the corrective candidate: weathered redbrown timber, articulated pine boughs with separate horizontal needle pads, lower-emission lattice glazing, and mountain slopes in place of vertical retaining-like faces. The full frame shows a useful canopy/branch improvement, but also an unacceptable triangular ribbing in the mountain slopes; this candidate remains unaccepted. All comparisons use the unchanged original reference at left and the actual Three.js frame at right. No synthetic or broad test suites were run; evaluation was by actual full-frame rendering and visual inspection.
