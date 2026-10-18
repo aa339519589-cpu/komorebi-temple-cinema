@@ -1309,7 +1309,7 @@ export function createRestorationArchitecture(ctx) {
       for(const side of [-1,1])B(0,.717,side*.415,1.44,.13,.23);
       B(0,.765,0,.25,.11,1.43,'endwood');
       // Mortise cheeks and end-grain cap plates occur at actual beam ends.
-      if(options.fittings!==false)for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
+      for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
         for(const side of [-1,1]) {
           draw(g.tenon,'endwood',[side*.54*s,.165*s,0],[.075*s,.10*s,.17*s],[0,side<0?PI:0,0]);
           squareFitting(side*.586*s,.174*s,0,.17*s,.15*s,side*PI/2,fine);

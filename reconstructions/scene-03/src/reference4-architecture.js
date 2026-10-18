@@ -34,11 +34,6 @@ export function buildReference4Architecture(T,options={}) {
  function tube(points,r,ma='oldgold',n=32){const g=new T.TubeGeometry(new T.CatmullRomCurve3(points.map(V)),n,r,6,false);emit(g,ma);}
  function rosette(x,y,z,r,ma='gold'){for(let i=0;i<8;i++){const a=i*Math.PI/4;emit(sphere,ma,x+Math.cos(a)*r*.49,y+Math.sin(a)*r*.49,z,r*.32,r*.18,r*.08,[0,0,a]);}emit(sphere,ma,x,y,z+.005,r*.23,r*.23,r*.08);}
  function relief(x,y,z,w,h){for(const s of[-1,1])for(let j=0;j<3;j++){const xx=x+s*w*(.15+j*.115);tube([[xx-s*w*.09,y-h*.14,z],[xx-s*w*.04,y+h*.25,z+.012],[xx+s*w*.02,y+h*.13,z+.02],[xx+s*w*.05,y-h*.12,z]],.012,'oldgold',12);}rosette(x,y,z+.018,Math.min(.14,h*.42));}
- // Solid carved timber silhouettes with real openings and broad curved faces.
- // These support the eaves in depth; the former facade used repeated gilt pins
- // against a flat black rectangle in place of the photographed carved work.
- const carvedKnee=(()=>{const s=new T.Shape();s.moveTo(-.77,.16);s.lineTo(.77,.16);s.lineTo(.77,-.02);s.bezierCurveTo(.65,-.27,.43,-.26,.34,-.10);s.bezierCurveTo(.22,.08,.12,.03,0,-.06);s.bezierCurveTo(-.12,.03,-.22,.08,-.34,-.10);s.bezierCurveTo(-.43,-.26,-.65,-.27,-.77,-.02);s.closePath();const g=new T.ExtrudeGeometry(s,{depth:.30,steps:1,bevelEnabled:true,bevelSize:.026,bevelThickness:.022,bevelSegments:3,curveSegments:16});g.translate(0,0,-.15);return g;})();
- const carvedFrogLeg=(()=>{const s=new T.Shape();s.moveTo(-.77,0);s.lineTo(-.67,.13);s.bezierCurveTo(-.50,.15,-.49,.38,-.40,.51);s.bezierCurveTo(-.25,.67,-.12,.50,0,.72);s.bezierCurveTo(.12,.50,.25,.67,.40,.51);s.bezierCurveTo(.49,.38,.50,.15,.67,.13);s.lineTo(.77,0);s.lineTo(.64,-.10);s.bezierCurveTo(.41,-.10,.27,.08,0,.10);s.bezierCurveTo(-.27,.08,-.41,-.10,-.64,-.10);s.closePath();const h=new T.Path();h.moveTo(-.28,.20);h.quadraticCurveTo(0,.03,.28,.20);h.quadraticCurveTo(0,.49,-.28,.20);s.holes.push(h);const g=new T.ExtrudeGeometry(s,{depth:.22,steps:1,bevelEnabled:true,bevelSize:.018,bevelThickness:.018,bevelSegments:3,curveSegments:20});g.translate(0,0,-.11);return g;})();
  const barrel=(()=>{const pp=[],uv=[],N=8;const pt=(a,z,r)=>[Math.cos(a)*r,Math.sin(a)*r,z];const tri=(a,b,c)=>{for(const p of[a,b,c]){pp.push(...p);uv.push(p[0],p[2]);}},quad=(a,b,c,d)=>{tri(a,b,c);tri(b,d,c);};for(let i=0;i<N;i++){const a=i*Math.PI/N,b=(i+1)*Math.PI/N;quad(pt(a,-.5,1),pt(b,-.5,1),pt(a,.5,1),pt(b,.5,1));quad(pt(a,-.5,.76),pt(a,.5,.76),pt(b,-.5,.76),pt(b,.5,.76));quad(pt(a,-.5,.76),pt(b,-.5,.76),pt(a,-.5,1),pt(b,-.5,1));quad(pt(a,.5,.76),pt(a,.5,1),pt(b,.5,.76),pt(b,.5,1));}quad(pt(0,-.5,.76),pt(0,-.5,1),pt(0,.5,.76),pt(0,.5,1));quad(pt(Math.PI,-.5,1),pt(Math.PI,-.5,.76),pt(Math.PI,.5,1),pt(Math.PI,.5,.76));return meshFromTriangles(pp,uv,'closed-half-barrel-ceramic');})();
  function tileBetween(a,b,r=.067,tint=1){a=V(a);b=V(b);const z=b.clone().sub(a),len=z.length();if(len<.03)return;z.normalize();let x=V([0,1,0]).cross(z).normalize();if(x.length()<.1)x.set(1,0,0);const y=z.clone().cross(x).normalize();const m=new T.Matrix4().makeBasis(x,y,z);m.scale(V([r,r,len]));m.setPosition(a.clone().add(b).multiplyScalar(.5));m.premultiply(stack.at(-1));put(barrel,mats.slate,m,tint);}
 
@@ -79,8 +74,8 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');
   for(const s of[-1,1])for(let i=0;i<9;i++)box(s*(3.2+i*.55),C.stairTopY+.49,.23,.11,.84,.11,'red');
  });
- role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=C.capitalTop-.10*Math.abs(x)/6.88;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84,{detail:false,fittings:false,material:'cedar'});}
-  for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78,{detail:false,fittings:false,material:'cedar'});}
+ role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=C.capitalTop-.10*Math.abs(x)/6.88;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84);}
+  for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78);}
  });
  role('hall-enclosure-doors',()=>{
   box(0,5.65,-8.65,14.2,6.9,.23,'darkwood');for(const s of[-1,1]){box(s*7.02,5.65,-4.5,.20,6.9,8.4,'darkwood');for(let j=0;j<6;j++){box(s*6.88,6.35,-1.4-j*1.25,.16,3.4,.085,'cedar');box(s*6.84,7.85,-1.4-j*1.25,.12,.12,1.2,'oldgold');for(let k=0;k<5;k++){box(s*7.14,5.85,-1.85-j*1.25+k*.22,.055,2.0,.025,'oldgold');box(s*7.14,4.95+k*.44,-1.40-j*1.25,.055,.025,1.0,'cedar');}}}
@@ -92,11 +87,10 @@ export function buildReference4Architecture(T,options={}) {
   for(const x of C.columnAxes){const rr=Math.abs(x)<3?.297:.267;for(const y of[4.65,5.34,7.88]){emit(cyl,'oldgold',x,y,.0,rr,.065,rr);emit(cyl,'black',x,y+.11,.0,rr+.002,.13,rr+.002);}for(let j=0;j<4;j++){const y=5.75+j*.31;relief(x,y,.29,.31,.29);}for(const y of[4.95,7.4]){box(x,y,.285,.30,.32,.038,'black');rosette(x,y,.315,.10,'oldgold');}}
  });
  role('closed-sanctuary-carved-transoms',()=>{
-  box(0,7.55,-1.02,13.5,2.55,.18,'cedar',0,.64);
+  box(0,7.55,-.72,13.5,2.55,.18,'darkwood');
   for(const y of[6.48,7.25,8.28]){box(0,y,-.40,13.8,.23,.42,'cedar');box(0,y+.045,-.16,13.6,.052,.035,'oldgold');}
-  for(let j=-6;j<=6;j++){let x=j*1.04;relief(x,7.72,-.74,.65,.58);}
-  for(const [x,s]of[[-5.55,.75],[-3.78,.92],[0,1.45],[3.78,.92],[5.55,.75]])emit(carvedFrogLeg,'cedar',x,7.78,-.43,s,.84,1,0,.95);
-  for(const x of[-6.4,-4.7,-2.9,0,2.9,4.7,6.4]){arch.brackets(x,8.60,-.22,.71,{detail:false,fittings:false,material:'cedar'});box(x,7.47,-.39,.16,2.6,.23,'red');}
+  for(let j=-13;j<=13;j++){let x=j*.49;relief(x,7.72,-.49,.40,.46);rosette(x,6.83,-.49,.10);}
+  for(const x of[-6.4,-4.7,-2.9,0,2.9,4.7,6.4]){arch.brackets(x,8.60,-.22,.71);box(x,7.47,-.39,.16,2.6,.23,'red');}
  });
  role('central-real-portal',()=>{
   const clearW=4.2,clearH=4.08,z=-.62,y0=C.stairTopY;
@@ -140,26 +134,15 @@ export function buildReference4Architecture(T,options={}) {
   emit(sphere,'gold',x,y+3.85,z,.105,.22,.105);
  });
  role('upper-storey-dense-bracket-frieze',()=>{
-  // One narrow blue-grey gallery band, under a warm recessed timber storey.
-  box(0,12.20,-1.68,13.6,4.25,.22,'cedar',0,.58);for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'cedar',0,.62);box(0,12.50,-8.0,13.6,3.65,.22,'cedar',0,.57);
-  for(let j=-6;j<=6;j++){const x=j*1.06;box(x,11.17,-.91,.91,.43,.08,'plaster',0,.80);if(j%2===0)relief(x,11.17,-.83,.44,.25);}
-  for(const y of[10.88,11.45])box(0,y,-.77,13.5,.10,.18,'red');
-  for(const y of[11.53,12.87,13.72]){box(0,y,-.85,13.4,.24,.48,'red');box(0,y-.055,-.58,13.1,.028,.028,'oldgold');}
-  const axes=[-6.15,-4.10,-2.05,0,2.05,4.10,6.15];
-  for(let i=0;i<axes.length;i++){const x=axes[i];
-   box(x,12.55,-.60,.37,2.40,.56,'red');
-   arch.brackets(x,11.78,-.68,.83,{detail:false,fittings:false,material:'cedar'});
-   arch.brackets(x,13.23,-1.12,.86,{detail:false,fittings:false,material:'cedar'});
-   emit(carvedKnee,'cedar',x,12.48,-.46,.72,.72,.75,0,.92);emit(carvedKnee,'red',x,13.57,-.56,.73,.72,.82,0,.94);
-   // Projecting side cheeks join the deep support to the rafter bearing.
-   emit(carvedKnee,'cedar',x,12.86,-1.03,.70,.82,.82,Math.PI/2,.86);
-   box(x,13.99,-.93,.36,.22,1.14,'cedar');
-   box(x,13.94,-.346,.15,.10,.018,'oldgold');
-   if(i<axes.length-1){const mx=(x+axes[i+1])/2;emit(carvedFrogLeg,'cedar',mx,12.03,-.78,.92,.84,1,0,.91);emit(carvedFrogLeg,'red',mx,13.20,-.91,.80,.60,1,0,.88);tube([[mx-.42,12.12,-.64],[mx-.25,12.29,-.63],[mx,12.46,-.63],[mx+.25,12.29,-.63],[mx+.42,12.12,-.64]],.013,'oldgold',28);}
-  }
-  // The ceramic front is z=-.5. Keep the rafter ends behind it, so the
-  // continuous tiled eave remains visible from the low pond camera.
-  for(let j=0;j<72;j++){let x=-7.35+j*14.7/71;between([x,13.97,-2.5],[x,14.20,-.62],.095,.14,'cedar');box(x,14.16,-.62,.11,.14,.12,j%5===0?'oldgold':'endwood');}
+  for(let j=-6;j<=6;j++)box(j*1.06,11.17,-.76,.86,.65,.08,'plaster',0,.70);for(const y of[10.80,11.55])box(0,y,-.68,13.5,.08,.10,'oldgold');for(let j=-13;j<=13;j++){const x=j*.49;relief(x,11.17,-.66,.40,.31);}
+  box(0,12.20,-1.02,13.6,4.25,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
+  for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.65,.075,'plaster');for(const y of[11.98,12.72])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
+
+  for(const y of[11.35,12.85,13.6]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
+  box(0,12.53,-.95,13.0,.72,.13,'black');
+  for(let j=-6;j<=6;j++){let x=j*1.06;arch.brackets(x,13.85,-.55,.91);arch.brackets(x,11.6,-.48,.72);arch.brackets(x,10.22,-.50,.58);box(x,12.55,-.7,.18,2.2,.23,'red');relief(x+.49,12.55,-.82,.55,.45);}
+  for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.15,-.42,.12);}
+  for(let j=0;j<72;j++){let x=-7.8+j*15.6/71;between([x,13.97,-2.5],[x,14.20,.20],.095,.14,'cedar');box(x,14.16,.20,.11,.14,.16,j%5===0?'oldgold':'endwood');}
  });
  const towerLevels=[];grouped(...C.towerPosition,Math.PI/4,()=>{
   role('tower-stone-foundation',()=>{box(0,-.075,0,5.1,.45,5.1,'stone');box(0,.21,0,5.35,.12,5.35,'granite');});

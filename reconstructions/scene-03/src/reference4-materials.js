@@ -23,7 +23,7 @@ export function createReference4MaterialSet(T, options={}) {
       let q;
       if(kind==='wood') {
         const warp=2.2*Math.sin(y*.014)+2.8*(noise(x*.008,y*.025)-.5);
-        q=.50+.09*Math.sin((x+warp)*.83)+.045*Math.sin((x+warp)*2.17)+.08*(noise(x*.09,y*.025)-.5);
+        q=.50+.22*Math.sin((x+warp)*.43)+.14*Math.sin((x+warp)*1.37)+.08*(noise(x*.09,y*.025)-.5);
       } else {
         q=.50+.24*(noise(x*.21,y*.21)-.5)+.18*(noise(x*.63,y*.63)-.5)+.08*(hash(x,y)-.5);
       }
