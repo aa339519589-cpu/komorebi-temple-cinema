@@ -26,7 +26,7 @@ function addSuspendedLamps(scene,architecture,materials){
  const rows=[],axis=new T.Vector3(0,1,0);
  function mesh(g,m,p){const o=new T.Mesh(g,m);o.position.fromArray(p);o.castShadow=o.receiveShadow=true;scene.add(o);return o;}
  for(const x of [-5.55,5.55]){
-  const y=5.8,z=1.7;const hits=new T.Raycaster(new T.Vector3(x,y+.66,1.5),axis,0,3).intersectObjects(members,false);
+  const y=5.8+(C.architecture.stairTopY-1.8),z=1.7;const hits=new T.Raycaster(new T.Vector3(x,y+.66,1.5),axis,0,3).intersectObjects(members,false);
   if(!hits.length)throw Error('No actual curved eave underface above the intended suspended lantern.');
   const contactY=hits[0].point.y,armTop=contactY+.010,armBottom=armTop-.075,rodBottom=y+.64;
   if(armBottom<=rodBottom)throw Error('Suspended lantern overlaps the measured support.');

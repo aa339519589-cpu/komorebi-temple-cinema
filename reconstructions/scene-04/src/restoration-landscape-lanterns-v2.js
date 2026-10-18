@@ -103,7 +103,7 @@ export function buildRestorationStoneLanterns({materials:source={},options={}}={
     if(!parts.length)return;const geometry=mergeGeometries(parts),mesh=new T.Mesh(geometry,material);mesh.name=name;mesh.castShadow=material!==paper;mesh.receiveShadow=material!==paper;parent.add(mesh);geometries.push(geometry);parts.forEach(g=>g.dispose());return mesh;
   }
   for(let index=0;index<anchors.length;index++){
-    const [x,y,z,s]=anchors[index],body=new T.Group();body.name=`existing-stone-lantern-${index}`;body.position.set(x,y,z);body.scale.setScalar(s);group.add(body);lanterns.push(body);
+    const [x,y,z,s]=anchors[index],body=new T.Group();body.name=`existing-stone-lantern-${index}`;body.position.set(x,y,z);body.scale.set(s*1.14,s,s*1.14);group.add(body);lanterns.push(body);
     const stoneParts=[],windowParts=[],barParts=[],shadowParts=[],mossParts=[],seed=37+index*11;
     const put=(g,parts,px=0,py=0,pz=0,yaw=0)=>{g.rotateY(yaw);g.translate(px,py,pz);parts.push(g);};
     const box=(w,h,d,parts,px,py,pz,yaw=0,bevel=.009)=>put(bevel?new RoundedBoxGeometry(w,h,d,2,bevel):new T.BoxGeometry(w,h,d),parts,px,py,pz,yaw);

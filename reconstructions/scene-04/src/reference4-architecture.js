@@ -157,10 +157,10 @@ export function buildReference4Architecture(T,options={}) {
   }
  });
  // Low enclosing galleries are architecture, not a free-standing temple in a park.
- role('side-gallery-foundations',()=>{for(const s of[-1,1]){box(s*12.65,.05,-4.6,10.3,1.9,5.5,'stone');box(s*16.8,.05,.5,4.2,1.9,10.7,'stone');}});
+ role('side-gallery-foundations',()=>{for(const s of[-1,1]){box(s*12.65,.95,-4.6,10.3,3.8,5.5,'stone');box(s*16.8,.95,.5,4.2,3.8,10.7,'stone');}});
  for(const s of[-1,1]){
-  grouped(s*12.65,0,-4.6,0,()=>{role('side-gallery-red-frame',()=>{for(const z of[-1.7,1.7])for(let i=0;i<=5;i++){const x=-4.5+i*1.8;arch.footColumn(x,z,1.0,3.25,.15);arch.brackets(x,4.42,z,.55);}for(const z of[-1.7,1.7]){box(0,4.55,z,9.8,.22,.24,'red');box(0,1.28,z,9.8,.32,.15,'red');box(0,1.96,z,9.8,.11,.13,'red');for(let i=0;i<40;i++)box(-4.7+i*.24,1.62,z,.065,.60,.065,'red');}box(0,2.72,-1.85,9.75,2.6,.15,'plaster');for(let i=-2;i<=2;i++)box(i*1.82,2.65,-1.73,1.20,1.6,.10,'darkwood');});roof({name:'side-gallery-roof',w:10.5,d:5.6,eave:4.8,rise:1.26,curl:.35});});
-  grouped(s*16.8,0,.6,Math.PI/2,()=>{role('return-gallery-red-frame',()=>{for(const z of[-1.35,1.35])for(let i=0;i<=5;i++){const x=-4.3+i*1.72;arch.footColumn(x,z,1,3.1,.15);arch.brackets(x,4.25,z,.52);}for(const z of[-1.35,1.35]){box(0,4.45,z,9.2,.24,.25,'red');box(0,1.8,z,9.2,.12,.14,'red');for(let i=0;i<37;i++)box(-4.3+i*.24,1.45,z,.07,.65,.07,'red');}box(0,2.7,-1.45,9.3,2.7,.15,'plaster');});roof({name:'return-gallery-roof',w:10.3,d:4.5,eave:4.65,rise:1.18,curl:.32});});
+  grouped(s*12.65,1.7,-4.6,0,()=>{role('side-gallery-red-frame',()=>{for(const z of[-1.7,1.7])for(let i=0;i<=5;i++){const x=-4.5+i*1.8;arch.footColumn(x,z,1.0,3.25,.15);arch.brackets(x,4.42,z,.55);}for(const z of[-1.7,1.7]){box(0,4.55,z,9.8,.22,.24,'red');box(0,1.28,z,9.8,.32,.15,'red');box(0,1.96,z,9.8,.11,.13,'red');for(let i=0;i<40;i++)box(-4.7+i*.24,1.62,z,.065,.60,.065,'red');}box(0,2.72,-1.85,9.75,2.6,.15,'plaster');for(let i=-2;i<=2;i++)box(i*1.82,2.65,-1.73,1.20,1.6,.10,'darkwood');});roof({name:'side-gallery-roof',w:10.5,d:5.6,eave:4.8,rise:1.26,curl:.35});});
+  grouped(s*16.8,1.7,.6,Math.PI/2,()=>{role('return-gallery-red-frame',()=>{for(const z of[-1.35,1.35])for(let i=0;i<=5;i++){const x=-4.3+i*1.72;arch.footColumn(x,z,1,3.1,.15);arch.brackets(x,4.25,z,.52);}for(const z of[-1.35,1.35]){box(0,4.45,z,9.2,.24,.25,'red');box(0,1.8,z,9.2,.12,.14,'red');for(let i=0;i<37;i++)box(-4.3+i*.24,1.45,z,.07,.65,.07,'red');}box(0,2.7,-1.45,9.3,2.7,.15,'plaster');});roof({name:'return-gallery-roof',w:10.3,d:4.5,eave:4.65,rise:1.18,curl:.32});});
  }
 
  const towerLevels=[];grouped(...C.towerPosition,0,()=>{
