@@ -28,9 +28,19 @@ diff=np.asarray(open_scan('diff').convert('RGB'),np.float32)/255
 lin=np.where(diff<=.04045,diff/12.92,((diff+.055)/1.055)**2.4)
 # Neutral mineral base, preserving the actual scan's angular grains. This is a
 # material tint inference; the image's baked sunlight is not a texture input.
+# The scan includes the original wall block's large shape. Remove only that
+# broad reflectance gradient; preserve the mineral-scale measured RGB detail.
+flat=cv2.GaussianBlur(lin,(0,0),16)
+lin=np.clip(lin/np.maximum(flat,.015),.34,2.1)
 lin*=np.array([.158,.156,.146],np.float32)/lin.mean(axis=(0,1))
 nor=np.asarray(open_scan('nor_gl').convert('RGB'),np.float32)/127.5-1
 rough=np.asarray(open_scan('rough').convert('L'),np.float32)/255
+# The source block's broad normal curvature belongs to a different object.
+# Our individually built slabs already provide that geometry; keep grain slopes.
+nor[:,:,:2]-=cv2.GaussianBlur(nor[:,:,:2],(0,0),10)
+nor[:,:,:2]*=.62
+nor[:,:,2]=1
+nor/=np.maximum(np.linalg.norm(nor,axis=2,keepdims=True),.01)
 period=np.array([(crop[2]-crop[0])*1.9/4096,(crop[3]-crop[1])*1.9/4096])
 damp_observations=json.loads((OUT/'damp-region-observations.json').read_text())
 damp_polygons=[np.array([world(p) for p in polygon],np.float32) for polygon in damp_observations['regions']]
@@ -77,9 +87,9 @@ for col in range(3):
    cv2.fillPoly(mask,[np.rint(pp).astype(np.int32)],255)
   # Capillary fringes follow the observed connected contours with a physical
   # 8mm softness and small pore-scale interruptions, without a painted glint.
-  sigma=max(1,.008/(hi[0]-lo[0])*size)
+  sigma=max(1,.028/(hi[0]-lo[0])*size)
   wet=cv2.GaussianBlur(mask.astype(np.float32)/255,(0,0),sigma)
-  wet=np.clip(wet-.12*(meso-.5)-.09*(macro-.5),0,1)
+  wet=np.clip((wet-.21+.33*(meso-.5)+.21*(macro-.5))/.62,0,1)
   # Worn mineral palette, stable albedo under changing camera/light, with a
   # low contrast weather bloom and darker optically saturated wet pores.
   variation=1+.055*np.sin(seed*1.97)
@@ -92,10 +102,10 @@ for col in range(3):
   ro=np.clip(.62+.32*rr-.25*wet,.34,.94)
   # R: wet clear-layer coverage, G: roughness of that layer (uniform multiplier
   # 1). B unused. At dry points coverage is zero, avoiding a shell-like sheen.
-  coat=np.stack([wet*.52,.15+.16*(1-wet)+.035*meso,np.zeros_like(wet)],axis=-1)
+  coat=np.stack([wet*.90,.18+.13*(1-wet)+.045*meso,np.zeros_like(wet)],axis=-1)
   save=lambda suffix,img:Image.fromarray(np.uint8(np.clip(img,0,1)*255)).save(OUT/(ident+'-'+suffix+'.png'),optimize=True)
   save('basecolor',srgb);save('normal',nn*.5+.5);save('roughness',np.repeat(ro[:,:,None],3,axis=2));save('wetlayer',coat)
   records.append({'id':ident,'boundsXZ':[lo.tolist(),hi.tolist()],'size':size,'physicalGraniteRepeatMetres':period.tolist(),'source':'CC0 Granite Tile 04; per-stone authored damp/roughness fields','referenceRGBUsed':False})
-manifest={'revision':'traced-stone04-80','scope':'PBR material candidates, not accepted photographic matches','observationInputSha256':hashlib.sha256(json.dumps({'edges':edges,'joints':joints},separators=(',',':')).encode()).hexdigest(),'referenceRGBUsed':False,'scanSource':'https://polyhaven.com/a/granite_wall','scanAuthor':'Dimitrios Savva','scanCropPixels':list(crop),'scanLicense':'CC0','physicalGraniteRepeatMetres':period.tolist(),'albedoDryMeanLinearRGB':[.158,.156,.146],'clearLayerIOR':1.333,'assumptions':['Physical scale and neutral mineral reflectance inferred.','Damp contours coarsely manually observed; not pixel-exact recovered material state.','Original UV layout is not used to depict an assembled floor.'],'records':records}
+manifest={'revision':'traced-stone04-81','scope':'PBR material candidates, not accepted photographic matches','observationInputSha256':hashlib.sha256(json.dumps({'edges':edges,'joints':joints},separators=(',',':')).encode()).hexdigest(),'referenceRGBUsed':False,'scanSource':'https://polyhaven.com/a/granite_wall','scanAuthor':'Dimitrios Savva','scanCropPixels':list(crop),'scanLicense':'CC0','physicalGraniteRepeatMetres':period.tolist(),'albedoDryMeanLinearRGB':[.158,.156,.146],'clearLayerIOR':1.333,'assumptions':['Physical scale and neutral mineral reflectance inferred.','Damp contours coarsely manually observed; not pixel-exact recovered material state.','Original UV layout is not used to depict an assembled floor.'],'records':records}
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print(f'Built {len(records)} individually mapped PBR stone sets; reference photograph never read.')
