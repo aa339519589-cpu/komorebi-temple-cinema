@@ -9,7 +9,7 @@ export function createCameraPass(renderer,width,height){
  vec3 point(vec2 uv){float d=texture2D(depthMap,uv).r;vec4 p=inverseProjection*vec4(uv*2.-1.,d*2.-1.,1.);return p.xyz/p.w;}
  void main(){vec3 p=point(vUv);vec3 n=normalize(cross(dFdx(p),dFdy(p)));if(n.z<0.)n=-n;float depth=-p.z;float radius=clamp(.62*projection[1][1]*resolution.y/(2.*max(depth,1.)),2.,34.);float occ=0.,weight=0.;
  for(int i=0;i<16;i++){float f=float(i),a=f*2.399963,r=sqrt((f+.5)/16.);vec2 off=vec2(cos(a),sin(a))*r*radius/resolution;vec3 q=point(clamp(vUv+off,vec2(.001),vec2(.999)));vec3 d=q-p;float len=length(d);float range=1.-smoothstep(.12,.85,len);occ+=max(0.,dot(normalize(d+vec3(.00001)),n)-.10)*range;weight+=1.;}
- float ao=clamp(1.-occ/max(weight,1.)*2.2,.55,1.);float blur=clamp(abs(depth-focus)*.09,0.,2.7);vec3 color=texture2D(colorMap,vUv).rgb*2.;float sum=2.;
+ float ao=clamp(1.-occ/max(weight,1.)*2.2,.55,1.);float blur=clamp((9.-depth)*.35,0.,2.7);vec3 color=texture2D(colorMap,vUv).rgb*2.;float sum=2.;
  for(int j=0;j<8;j++){float a=float(j)*.785398;vec2 off=vec2(cos(a),sin(a))*blur/resolution;color+=texture2D(colorMap,clamp(vUv+off,vec2(.001),vec2(.999))).rgb;sum+=1.;}color/=sum;color*=mix(1.,ao,.84);gl_FragColor=vec4(color,1.);
  #include <tonemapping_fragment>
  #include <colorspace_fragment>
