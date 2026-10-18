@@ -1,4 +1,4 @@
-name: Reference4 isolated B diagnostic Metal render
+name: Reference4 B bounded-memory Metal diagnosis
 on:
   push:
     branches: [work/live-reference-render-20261017]
@@ -23,11 +23,11 @@ jobs:
           node-version: '24.2.0'
       - name: Prepare exact v60 scene with lower temporary QA GPU memory
         env:
-          SITE_PREVIEW_SHADOW_SIZE: '2048'
+          SITE_PREVIEW_SHADOW_SIZE: '1024'
         run: |
           node verify.mjs
           node tools/prepare-site-mode.mjs
-          node --check tools/render-reference4-isolated.mjs
+          node --check tools/render-reference4-b-lowmem.mjs
       - name: Install self-contained native Chromium Metal
         run: |
           npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
@@ -41,13 +41,13 @@ jobs:
         timeout-minutes: 10
         run: |
           set -o pipefail
-          mkdir -p output/reference4-isolated-b
-          node tools/render-reference4-isolated.mjs 2>&1 | tee output/reference4-isolated-b/execution.log
+          mkdir -p output/reference4-b-lowmem
+          node tools/render-reference4-b-lowmem.mjs 2>&1 | tee output/reference4-b-lowmem/execution.log
       - name: Preserve unaltered pixels or exact failure diagnosis
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: reference4-b-dedicated-${{ github.sha }}
-          path: output/reference4-isolated-b/
+          name: reference4-b-lowmem-${{ github.sha }}
+          path: output/reference4-b-lowmem/
           retention-days: 7
           if-no-files-found: error
