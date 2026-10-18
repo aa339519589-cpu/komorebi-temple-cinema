@@ -1,0 +1,101 @@
+{
+  "status": "nearest-island-stone-lantern-candidate-rendered",
+  "visualAccepted": false,
+  "baseCommit": "cedb249",
+  "worktree": "/Users/mima1234/temple-lantern-07-20261019",
+  "scope": "Only the nearest island lantern formerly produced by lantern(4.8,14.2,5.8,.2). Other4lamps, camera/dolly, all global lights, buildings, roofs, foreground roof, islands and garden RNG preserved.",
+  "reference": "references/hd/6-照片-7.jpg, visual comparison only; no source-photo RGB/depth/projection. Copyright remains with its owner.",
+  "diagnosis": "Original large0.88m firebag with broad near-surface glowing panes, only3vertical bars and an open zero-thickness cap read as a bright square lamp box. Shaft/base had only simple collars. Reference shows a shorter recessed firebag, fine grid, curved thick stone roof and carved/mossed base.",
+  "geometry": {
+    "parts": 338,
+    "mergedMeshes": 6,
+    "triangles": 42624,
+    "closedAfterSpatialWeld": true,
+    "nonmanifoldEdges": 0,
+    "allFinitePositiveVolume": true,
+    "maximumEnvelopeDifferenceMetres": 2.896463549006967e-07,
+    "oldWorldBounds": {
+      "min": [
+        3.138378468075314,
+        0.20000000000000004,
+        4.523027080845188
+      ],
+      "max": [
+        6.461621531924686,
+        6.5486486579920795,
+        6.516972919154811
+      ]
+    },
+    "newWorldBounds": {
+      "min": [
+        3.138378468075314,
+        0.20000000280302918,
+        4.523027080845188
+      ],
+      "max": [
+        6.461621531924686,
+        6.548648947638434,
+        6.516972919154811
+      ]
+    },
+    "worldAnchor": [
+      4.8,
+      0.2,
+      5.52
+    ],
+    "localScale": 1.5675675675675675,
+    "gardenMatrix": "T(0,0,-3)*S(1,1,.6)",
+    "specifics": "Closed thick curved/fluted kasa and small upturned rolled edge; rounded-neck finial;7vertical+5horizontal bars per face with actual reveals; smaller closed warm core; thick carved panels/raised stone petals; supported shaft/base;11closed moss cushions and132fine closed fibres."
+  },
+  "light": {
+    "added": 0,
+    "originalGlowMaterialBorrowedUnchanged": true,
+    "fireBagLocalCentreY": 2.84,
+    "newClearHeightM": 0.4,
+    "globalLightPositionsIntensityExposureChanged": false
+  },
+  "surface": {
+    "asset": "Existing Poly Haven Granite Tile04, CC0, original author/provenance/hash copied from scene04 into07/assets/island-lantern-granite. No runtime scene04dependency.",
+    "referenceConstruction": "Inspected scene04 closed cap/cavity/relief/moss construction; did not copy its dimensions or light rig.",
+    "grain": "Independent neutral gray/damp cap pigments times normalized actual granite linear luminance, measured mean0.153180782734, exponent0.55, clamp0.68..1.36. Original normal/roughness retained, metric repeat0.3173828125m after the actual nonuniform garden transform.",
+    "moss": "Closed irregular surface-rooted cushions and small closed fibres; no green image decals."
+  },
+  "rounds": [
+    {
+      "iteration": "mesh75a",
+      "sourceHash": "dbb6457637470dfb4d3878d00a2642ae657cb313be15c608a4b3da523653056d",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeSubfrustum": [
+        650,
+        680,
+        320,
+        1254
+      ],
+      "viewed": true,
+      "finding": "Thick cap, shorter firebag/grid and carved support read, but direct source-albedo multiplication makes the lamp too brown/dark. Moss cushions resemble scattered flat leaves and the inherited finial remains conical.",
+      "sourceCompletelyPreservedByFileHashes": true
+    },
+    {
+      "iteration": "mesh75b",
+      "sourceHash": "8d291b06919a0e1f8ff5b120c61e2a094c0f1d770fefc4ed0d2205304c967537",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeSubfrustum": [
+        650,
+        680,
+        320,
+        1254
+      ],
+      "viewed": true,
+      "correction": "Only this lamp: normalized mineral grain with independent neutral stone pigments; rounded-neck crown; small real eave curl; fewer irregular moss pads with fine closed fibres. Nominal outerAABB/anchor/gardenMatrix/original glow and global lights retained.",
+      "finding": "Stone now reads gray rather than dark brown; the thick curved cap/smaller recessed grid/rounded crown and carved base are visible. The cap and carved/moss details still do not exactly reproduce the HD reference."
+    }
+  ],
+  "remainingDifference": "Roof lobe/edge proportions and the glyph/flower carving remain interpreted and overly regular. Mineral wear and moss distribution do not match each photographed surface. Original inherited whole-lamp scale remains unusually tall relative to the broader photographic scene, because its external envelope was explicitly fixed. No photographic acceptance is claimed.",
+  "verification": "Exactly two render-one sharedGPU-mutex rounds, native1254full and true native detail, all actually viewed. Actual legacy generator envelope compared to new solids onCPU; closed/finite/positive volume checks passed. Main.js inversepatch exactly equals cedb249; all existing07files/dependencies outside the targeted hook/metadata byte-identical. No suite/movie/third render/push."
+}
