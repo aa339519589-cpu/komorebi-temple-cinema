@@ -1,9 +1,15 @@
 KOMOREBI / 木漏れ日
 
 VISUALS
-All architecture, sculpture, vegetation, ceramic tiles, ground, surfaces, procedural texture maps, sky, water, reflections and camera animation were created in JavaScript with Three.js.
-No photographs, downloaded textures, HDRIs, stock models, generative images or video footage are used in the rendered scene.
-The supplied reference collage is used only for visual comparison and is not loaded by the 3D program.
+The active project is an unaccepted reconstruction in progress, not a completed film.
+Earlier versions used only JavaScript-generated visual geometry and maps. The user explicitly authorized image generation, Blender and other tools on 2026-10-18.
+Scene05 now includes source-built Blender bearing timbers, half-lapped arms and actual gilt relief geometry derived from a non-metric image-generated sculptural guide. The exact prompt, guide, builder, editable native project and real render evidence are included.
+Scene05 also uses the CC0 Lacquered Cherry Wood PBR maps by Poly Haven: Jenelle van Heerden (Scanning), Rico Cilliers (Processing).
+Source: https://polyhaven.com/a/lacquered_cherry_wood
+License: https://polyhaven.com/license
+The current scene code modifies material tint, exterior-coating roughness and member-aligned UVs. Original map bytes and checksums are retained.
+The supplied reference photographs are visual-comparison inputs and are not loaded by a 3D scene. No photograph or generated replacement frame is presented as an actual modeled scene.
+An additional CC0 sculpture scan published by the Minneapolis Institute of Art is retained as a separate, unselected anatomical study; it is not installed in the ten reference scenes. See THIRD_PARTY.md and its provenance files.
 Three.js is MIT licensed. Its license is included at vendor/LICENSE.
 
 MUSIC — REVISED DIRECTION, WORK IN PROGRESS

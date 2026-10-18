@@ -1,15 +1,16 @@
 {
   "createdAt": "2026-10-18T06:46:03.203Z",
   "integrationCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-  "scope": "All ten procedural reference scene candidates",
+  "scope": "All ten actual 3D reference candidates; user-authorized Blender and image-assisted materials in scene05",
   "runtimeChecks": {
-    "actualStillSize": 900,
+    "actualStillSize": "Per scene: 900px historical integrated stills, 1254px current scene05 and scene06 stills",
     "reviewCanvasSize": 1024,
     "entries": 10,
     "glErrors": 0,
     "shaderLinkFailures": 0,
     "referencePhotosRequestedInsideScene": 0,
-    "namespaceSourceHashesVerified": true
+    "namespaceSourceHashesVerified": true,
+    "latestLiveCheck": "qa/ten-reference/review-ui/report.json"
   },
   "visualAcceptance": false,
   "completedFilm": false,
@@ -89,13 +90,16 @@
       "shortName": "塔檐木构",
       "referenceFile": "/references/hd/5-照片-6.jpg",
       "entry": "/reconstructions/scene-05/index.html",
-      "selectedCandidateCommit": "03011d0",
-      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "9a42404ead82e626937fd81693e37ecb2baffa59a78d9df7f585cb287686ecea",
-      "actualFrame": "qa/ten-reference/05/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/05/iteration-integrated-02/comparison.png",
+      "selectedCandidateCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "integrationRenderCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+      "sceneSourceHash": "3d45895703d4d6f16d0a816ed20460ac5cb963bfd5070ba7a7829757bfc56f55",
+      "actualFrame": "qa/ten-reference/05/iteration-exterior-satin35/reference.png",
+      "comparison": "qa/ten-reference/05/iteration-exterior-satin35/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "renderedSize": 1254,
+      "sourceHashVerifiedAgainstCurrentCode": true
     },
     {
       "reference": 6,
@@ -103,13 +107,16 @@
       "shortName": "殿内金身",
       "referenceFile": "/references/hd/4-照片-5.jpg",
       "entry": "/reconstructions/scene-06/index.html",
-      "selectedCandidateCommit": "eae3266",
-      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "b3a9066dac963a209ef1b96a0d7e3fe7e2104299524d2bf299c7349c5e6c7f51",
-      "actualFrame": "qa/ten-reference/06/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/06/iteration-integrated-02/comparison.png",
+      "selectedCandidateCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "integrationRenderCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+      "sceneSourceHash": "ba8d446188b20e2012fa7b2fbbad19ba6158bcd275cccfb45180c7013bb3fe10",
+      "actualFrame": "qa/ten-reference/06/iteration-seat-contact32/reference.png",
+      "comparison": "qa/ten-reference/06/iteration-seat-contact32/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "renderedSize": 1254,
+      "sourceHashVerifiedAgainstCurrentCode": true
     },
     {
       "reference": 7,
@@ -166,6 +173,49 @@
       "comparison": "qa/ten-reference/10/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
       "visualAccepted": false
+    }
+  ],
+  "updatedAt": "2026-10-18T08:24:10.862Z",
+  "latestModelSourceCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+  "additionalMotionInspections": [
+    {
+      "status": "motion-inspection-only",
+      "sourceCodeCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "reference": 5,
+      "actualGpuFrames": 210,
+      "fps": 30,
+      "duration": 7,
+      "size": [
+        1080,
+        1080
+      ],
+      "file": "qa/ten-reference/05/iteration-satin35-motion/motion-review-oboro.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "nb_read_frames": "210"
+          },
+          {
+            "codec_name": "aac",
+            "sample_rate": "48000",
+            "nb_read_frames": "329"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "audio": "Credited PeriTune / Sei Mutsuki — Oboro, 25s offset, -20 LUFS target and fades, CC BY 4.0",
+      "videoStreamPreserved": true,
+      "decodeErrors": 0,
+      "visualAccepted": false,
+      "movingFlickerAccepted": false,
+      "completeFilm": false
     }
   ]
 }

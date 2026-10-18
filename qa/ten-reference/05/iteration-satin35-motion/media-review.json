@@ -1,0 +1,39 @@
+{
+  "status": "motion-inspection-only",
+  "sourceCodeCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+  "reference": 5,
+  "actualGpuFrames": 210,
+  "fps": 30,
+  "duration": 7,
+  "size": [
+    1080,
+    1080
+  ],
+  "file": "motion-review-oboro.mp4",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1080,
+        "nb_read_frames": "210"
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "nb_read_frames": "329"
+      }
+    ],
+    "format": {
+      "duration": "7.000000"
+    }
+  },
+  "audio": "Credited PeriTune / Sei Mutsuki — Oboro, 25s offset, -20 LUFS target and fades, CC BY 4.0",
+  "videoStreamPreserved": true,
+  "decodeErrors": 0,
+  "visualAccepted": false,
+  "movingFlickerAccepted": false,
+  "completeFilm": false
+}

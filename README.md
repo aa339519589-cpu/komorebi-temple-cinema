@@ -2,7 +2,7 @@
 
 当前分支：`work/ten-view-reconstruction-20261018`。十个独立场景都在持续按高清参考图修改，**十张均未通过画面验收，电影尚未完成**。
 
-运行 `node tools/server.mjs`，打开 [十景左右对照](http://127.0.0.1:4317/compare-ten.html)。左侧为完整高清原图，右侧为对应场景的实际 Three.js 渲染；支持同步放大、拖动检查、固定参考机位和近景起点。
+运行 `PORT=4318 node tools/server.mjs`，打开 [十景左右对照](http://127.0.0.1:4318/compare-ten.html)。左侧为完整高清原图，右侧为对应场景的实际 Three.js 渲染；支持同步放大、拖动检查、固定参考机位和近景起点。
 
 - 场景源码：`reconstructions/scene-01/` 至 `scene-10/`。
 - 十图编号与入口：`reconstructions/ten-scenes.json`。
@@ -10,7 +10,12 @@
 - 运行检查：`node tools/check-ten-review.mjs`（默认对照页端口4318，可用PORT指定）。
 - 单景GPU检查：`REFERENCE=4 WORKTREE=/绝对项目目录 node tools/render-one-reconstruction.mjs`。
 
-程序只生成真实几何、材质、天空、植物、光照与反射。参考图只显示在对照页左侧；运行检查同时核对场景没有请求这些照片。几何和运行检查通过，不代表形体、细节、材质或摄影效果合格。旧电影和旧场景保留为历史记录。
+用户于2026-10-18放开工具限制后，第五景加入了有源码的 Blender 木构模型、由生图引导制成的真实浮雕网格，以及 CC0 扫描木材表面。原始引导图、精确提示词、建模脚本、可编辑工程、许可证和实际出图均已保存。参考图只显示在对照页左侧；运行检查核对场景没有请求这些参考照片。几何和运行检查通过，不代表形体、细节、材质或摄影效果合格。旧电影和旧场景保留为历史记录。
+
+- 最新建模记录：[Blender辅助建模检查](qa/ten-reference/blender-assist-35/review.md)。
+- 第五景原图与当前实际渲染：[左右对照](qa/ten-reference/05/iteration-exterior-satin35/comparison.png)。
+- 第六景原图与当前实际渲染：[左右对照](qa/ten-reference/06/iteration-seat-contact32/comparison.png)。
+- 木构与浮雕的可编辑工程：[Blender文件](assets/temple-joinery-v01/temple-joinery-v01.blend)，[实际网格检查图](assets/temple-joinery-v01/actual-blender-mesh-review.png)。
 
 音乐署名与参考图权利说明见 [CREDITS.txt](CREDITS.txt) 和 [THIRD_PARTY.md](THIRD_PARTY.md)。
 
