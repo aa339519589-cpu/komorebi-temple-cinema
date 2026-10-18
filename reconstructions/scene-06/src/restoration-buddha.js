@@ -391,24 +391,26 @@ function broadShoulderBand(){
 }
 
 function continuousCentralAnatomy(faceGeometry){
- const faceRows=faceGeometry.userData.profileRows,faceRelief=faceGeometry.userData.faceRelief,join=faceRows[3][0],end=faceRows.at(-1)[0];
+ const faceRows=faceGeometry.userData.profileRows,faceRelief=faceGeometry.userData.faceRelief,join=2.535,end=faceRows.at(-1)[0];
  const transition=[
-  [2.08,...sampleProfile(MAIN_BODY,2.08)],[2.14,.500,.290,-.050],[2.19,.285,.200,-.040],
-  [2.225,.215,.152,-.040],[2.255,.200,.136,-.025],[2.285,.185,.142,-.005],
-  [2.315,.185,.177,.002],[2.365,.195,.205,.003],[2.420,.218,.229,.003],
-  [join,...sampleProfile(faceRows,join)]
+  [2.08,...sampleProfile(MAIN_BODY,2.08)],[2.23,...sampleProfile(MAIN_BODY,2.23)],
+  [2.28,.235,.160,-.035],[2.33,.205,.140,-.040],[2.40,.205,.180,-.030],
+  [2.44,.215,.210,-.020],[join,...sampleProfile(faceRows,join)],[faceRows[4][0],...sampleProfile(faceRows,faceRows[4][0])]
  ];
  const nu=240,nv=740,g=surface(nu,nv,(u,v)=>{
-  const y=end*v,a=u*TAU,rows=y<=2.08?MAIN_BODY:y>=join?faceRows:transition,[rx,rz,cz]=sampleProfile(rows,y);
+  const y=end*v,a=u*TAU;let profile=sampleProfile(y<=2.20?MAIN_BODY:y>=join?faceRows:transition,y);
+  if(y>2.20&&y<2.28){const old=sampleProfile(MAIN_BODY,y),w=smooth(y,2.20,2.28);profile=profile.map((n,i)=>T.MathUtils.lerp(old[i],n,w));}
+  if(y>2.43&&y<join){const old=sampleProfile(faceRows,y),w=smooth(y,2.43,join);profile=profile.map((n,i)=>T.MathUtils.lerp(n,old[i],w));}
+  const[rx,rz,cz]=profile;
   if(v===0||v===1)return[0,y,cz];const x=Math.sin(a)*rx,front=Math.max(0,Math.cos(a));
   let relief;
-  if(y<=2.08)relief=mainRelief(x,y);else if(y>=join)relief=faceRelief(x,y);else{
-   relief=mainRelief(x,y)*(1-smooth(y,2.12,2.19))+faceRelief(x,y)*smooth(y,2.42,join);
-   relief+=.010*gaussian(x,.16)*gaussian(y-2.315,.070);
-   const gate=(1-smooth(Math.abs(x),.14,.205))*smooth(y,2.20,2.22)*(1-smooth(y,2.275,2.295));
-   for(const level of[2.225,2.251,2.275])relief-=.0011*gaussian(y-level-.006*(x/.18)**2,.008)*gate;
+  if(y<=2.20)relief=mainRelief(x,y);else if(y>=join)relief=faceRelief(x,y);else{
+   relief=mainRelief(x,y)*(1-smooth(y,2.20,2.27))+faceRelief(x,y)*smooth(y,2.43,join);
+   const gate=(1-smooth(Math.abs(x),.14,.205))*smooth(y,2.27,2.29)*(1-smooth(y,2.33,2.35));
+   for(const level of[2.290,2.316,2.338])relief-=.0010*gaussian(y-level-.006*(x/.18)**2,.009)*gate;
   }
-  return[x,y,cz+Math.cos(a)*rz+relief*front**3];
+  const chinDrop=y>2.28&&y<join?.065*gaussian(y-2.40,.050)*(1-smooth(y,2.43,join)):0;
+  return[x,y-chinDrop*front**3,cz+Math.cos(a)*rz+relief*front**3];
  },true);
  // Shared vertices and normals continue from the torso through the neck and
  // rounded jaw into the unchanged upper face; material groups do not split it.
