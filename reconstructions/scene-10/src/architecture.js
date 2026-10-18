@@ -2491,7 +2491,7 @@ export function createRestorationArchitecture(ctx) {
           // plaster cube shining through between unrelated skinny posts.
           box(xx,y+.59,-.032,clear,.24,.11,'red');
           box(xx,y+.59,.030,Math.max(.08,clear-.10*scale),.15,.018,'darkwood');
-          box(xx,windowY,-.125,clear,windowHeight,.05,windowMaterial==='paper'?(k===1?'window3':'window1'):windowMaterial);
+          box(xx,windowY,-.125,clear,windowHeight,.05,windowMaterial==='paper'?(k===1?'window4':(face===0?'window3':'window1')):windowMaterial);
           for(const yy of [windowBottom,windowTop])box(xx,yy,.022,clear+.06*scale,.075*scale,.095*scale,'red');
           for(const side of [-1,1])box(xx+side*clear/2,windowY,.022,.065*scale,windowHeight,.095*scale,'red');
           const bars=Math.max(6,Math.round(clear/(.18*scale)));

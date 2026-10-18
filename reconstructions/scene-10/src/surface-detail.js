@@ -32,8 +32,18 @@ export function installSurfaceDetail(material,kind){
  shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\n'+code);
  if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',`#include <lights_physical_fragment>\n#ifdef USE_CLEARCOAT\nfloat surfaceWet=smoothstep(.40,.67,sdFbm(vSurfacePosition*2.7));surfaceWet*=mix(.40,1.,stoneWetSample.g);material.clearcoat*=.20+.80*surfaceWet;material.clearcoatRoughness=min(1.,max(.0525,mix(.075,.025,surfaceWet))+geometryRoughness);\n#endif\n`);
  if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
- roughnessFactor=clamp(roughnessFactor+(.65-stoneWetSample.g)*.18+(sdFbm(vSurfacePosition*4.)-.48)*.36,.13,.49);`);
+ roughnessFactor=clamp(roughnessFactor+(.65-stoneWetSample.g)*.10+(sdFbm(vSurfacePosition*4.)-.48)*.13,.085,.22);`);
+ if(kind==='stone'||kind==='wet'){
+  shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
+  // Millimetre depressions change the actual shading normal. High-frequency
+  // slopes are filtered with the projected footprint to keep distant stones stable.
+  float stoneFootprint=length(fwidth(vSurfacePosition*410.));
+  float stoneRelief=(.0018*sdNoise(vSurfacePosition*230.)+.00065*sdNoise(vSurfacePosition*670.))/(1.+stoneFootprint*.18);
+  normal=perturbNormalArb(-vViewPosition,normal,vec2(dFdx(stoneRelief),dFdy(stoneRelief)),faceDirection);`);
+  if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <clearcoat_normal_fragment_maps>',`#include <clearcoat_normal_fragment_maps>
+  clearcoatNormal=perturbNormalArb(-vViewPosition,clearcoatNormal,vec2(dFdx(stoneRelief),dFdy(stoneRelief))*.68,faceDirection);`);
+ }
  };
- material.customProgramCacheKey=()=>`rain-surface-max01-${kind}`;
+ material.customProgramCacheKey=()=>`rain-surface-max02-${kind}`;
  material.needsUpdate=true;
 }
