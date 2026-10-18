@@ -11,8 +11,8 @@ vec2 scene06VarnishSlope(vec2 p){
  float aa=1.0-smoothstep(.45,1.6,fwidth(a));
  float ab=1.0-smoothstep(.45,1.6,fwidth(b));
  float ac=1.0-smoothstep(.45,1.6,fwidth(c));
- return vec2(.0075*cos(a)*aa+.0030*cos(b)*ab+.0016*sin(p.y*6.2+board),
-             .0040*cos(c)*ac+.0018*sin(p.y*18.0+board*.7));
+ return .18*vec2(.0075*cos(a)*aa+.0030*cos(b)*ab+.0016*sin(p.y*6.2+board),
+                 .0040*cos(c)*ac+.0018*sin(p.y*18.0+board*.7));
 }
 float scene06VarnishWear(vec2 p){
  return .5+.5*sin(p.x*2.8+p.y*.91)*sin(p.y*3.7-p.x*1.14);
@@ -56,8 +56,8 @@ export function bindFloorReflection(floor,size){
   vec3 reflectedRay=reflect(-viewRay,varnishNormal);
   vec4 projected=textureMatrix*scene06FloorInverse*vec4(vScene06FloorWorld+reflectedRay*9.0,1.0);
   vec2 reflectionUV=projected.xy/projected.w;
-  float localLod=mix(.05,1.20,smoothstep(.15,.88,wear));
-  vec2 footprint=mix(vec2(.25,1.1),vec2(.8,3.2),wear)/scene06ReflectionSize;
+  float localLod=mix(.30,1.75,smoothstep(.15,.88,wear));
+  vec2 footprint=mix(vec2(.35,1.6),vec2(1.0,3.8),wear)/scene06ReflectionSize;
   vec3 reflected=texture2DLodEXT(tDiffuse,reflectionUV,localLod).rgb*.24;
   for(int i=0;i<8;i++){
    float a=6.28318530718*(float(i)+.25)/8.0;

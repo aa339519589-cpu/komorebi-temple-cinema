@@ -989,20 +989,20 @@ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],dep
       const p=[],uv=[],ix=[],rows=28,cols=18,stride=(rows+1)*(cols+1);
       for(let surface=0;surface<2;surface++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
         const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t);
-        const width=t<=.42?.50*Math.pow(Math.max(0,Math.sin(Math.PI*t/(2*.42))),.60):.50*Math.pow(Math.max(0,Math.cos(Math.PI*.5*(t-.42)/.58)),.72);
-        const meridian=.16*wave+.52*t-.27*t*t;
-        const convex=.20*wave*(1-u*u)+.006*Math.cos(u*5*Math.PI)*wave*wave*(1-u*u),midrib=.012*Math.exp(-Math.pow(u/.13,2))*wave,edge=.008*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
+        const width=t<=.53?.50*Math.pow(Math.max(0,Math.sin(Math.PI*t/(2*.53))),.65):.50*Math.pow(Math.max(0,Math.cos(Math.PI*.5*(t-.53)/.47)),.95);
+        const meridian=.68*t-.14*t*t-.07*wave;
+        const convex=.10*wave*(1-u*u)+.004*Math.cos(u*5*Math.PI)*wave*wave*(1-u*u),midrib=.015*Math.exp(-Math.pow(u/.13,2))*wave,edge=.014*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
         p.push(u*width,t,meridian+(surface===0?convex+midrib+edge:-.040));uv.push(i/cols,t);
         if(j<rows&&i<cols){const a=surface*stride+j*(cols+1)+i;surface===0?ix.push(a,a+1,a+cols+1,a+1,a+cols+2,a+cols+1):ix.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}
       }
       closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='overlapping-pointed-petal-with-raised-fold';return g;
     });
     for(let row=0;row<2;row++){
-      const n=row?20:18,rr=radius*(row?.58:.65),base=height*(row?.25:0),hh=height*(row?.78:.72);
+      const n=row?24:22,rr=radius*(row?.55:.60),base=height*(row?.25:0),hh=height*(row?.78:.72);
       for(let k=0;k<n;k++){
         const a=(k+row*.53)/n*Math.PI*2,lean=.085*Math.sin(a);
         b.withTransform(Math.sin(a)*rr,base,Math.cos(a)*rr,1,()=>{
-          b.withTransform(0,0,0,1,()=>b.add(petal,'gold',0,0,0,radius*(row?.32:.34),hh,radius*(row?.40:.50),0,0,lean),a);
+          b.withTransform(0,0,0,1,()=>b.add(petal,'gold',0,0,0,radius*(row?.29:.30),hh,radius*(row?.40:.50),0,0,lean),a);
         });
       }
     }

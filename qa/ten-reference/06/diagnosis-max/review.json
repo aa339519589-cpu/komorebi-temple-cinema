@@ -1,0 +1,48 @@
+{
+  "reference": 6,
+  "sourceReference": "references/hd/4-照片-5.jpg",
+  "visualAccepted": false,
+  "baseline": {
+    "commit": "7f30ca9",
+    "iteration": "max01",
+    "result": "GPU valid; repaired resource loading and nonfinite lotus endpoint. Not visual acceptance."
+  },
+  "boundedVisualRounds": [
+    {
+      "iteration": "max02",
+      "commit": "baa86b1",
+      "hypothesis": [
+        "Oversized seated bodies and low lotus seats dominate the sculpture mismatch.",
+        "Physical varnish normal variation should break up the full-room floor mirror."
+      ],
+      "observed": [
+        "Body widths and seat heights are closer to the reference.",
+        "Face reflectance became too dark; new petals are too convex.",
+        "Varnish slopes are too strong and read as water."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "max03",
+      "hypothesis": [
+        "Keep the refitted sculpture placement; flatten the lower facial planes, soften face reflectance, and flare the lotus tips outward instead of creating a convex belly.",
+        "Reduce varnish slopes to 18 percent of max02. A CPU sun-ray check at center floor z=5, screen y about 990, hit the left middle window upper wall at y=4.7; restoring that real aperture to y=5.6 should admit the photographed direct floor daylight."
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "remainingDifferences": [
+    "Carved altar panels still lack the dense irregular deep carving in the reference.",
+    "Hanging gilded furnishings still have different silhouette, density and mounting details.",
+    "Sculpture face, robe anatomy and lotus need further reference review even after bounded changes.",
+    "Floor light and reflection should be judged visually, not accepted from GL success."
+  ],
+  "constraints": {
+    "externalModelsTexturesHDR": false,
+    "photoPlanes": false,
+    "AIImages": false,
+    "cameraHeight": 0.58,
+    "shotDurationSeconds": 7,
+    "requestAnimationFrame": false
+  }
+}

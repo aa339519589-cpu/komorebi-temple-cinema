@@ -9,7 +9,7 @@ import {bindFloorVarnish,bindFloorReflection} from './floor-varnish.js';
 
 // Independent room, not a material patch over the exterior-world reconstruction.
 // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
-export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-sculpture-varnish-max02',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:62},sunDirection:[-1,.68,-.78],sunIntensity:42.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
+export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-sculpture-varnish-max03',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:62},sunDirection:[-1,.68,-.78],sunIntensity:42.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
 function woodMap(){
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=512;const c=canvas.getContext('2d'),im=c.createImageData(512,512);let seed=19473;const r=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
  for(let y=0;y<512;y++)for(let x=0;x<512;x++){const u=x+.85*Math.sin(y*.019)+.35*Math.sin(y*.061);const v=230+5*Math.sin(u*.38)+4*Math.sin(u*1.77)+(r()-.5)*4,j=(y*512+x)*4;im.data[j]=im.data[j+1]=im.data[j+2]=v;im.data[j+3]=255;}c.putImageData(im,0,0);const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;return map;
@@ -57,7 +57,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  materials.sculptureRecess=new T.MeshStandardMaterial({name:'scene06-recessed-gilt-anatomy',color:'#604018',metalness:.78,roughness:.43});
  materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-chased-lap-cloth-gilt';materials.clothGold.color.set('#96702e');materials.clothGold.metalness=.85;materials.clothGold.roughness=.39;
  materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-cast-palm-gilt';materials.handGold.metalness=.92;materials.handGold.roughness=.29;
- materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-polished-gilt-face';materials.faceGold.bumpScale=.00014;materials.faceGold.roughness=.23;materials.faceGold.metalness=.95;materials.faceGold.color.set('#c59535');
+ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-polished-gilt-face';materials.faceGold.bumpScale=.00014;materials.faceGold.roughness=.31;materials.faceGold.metalness=.88;materials.faceGold.color.set('#c69a43');
  materials.statueGold=materials.gold.clone();materials.statueGold.name='reference6-statue-ornament-private-gilt';
  const blockers=[],apertures=[],pillarRoots=[];
  const columnCollar=createReference6ColumnCollar();
@@ -90,7 +90,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
    {bottom:.75,top:2.70,width:2.16,kind:'front-low-daylight'}
   ];
   for(let b=0;b<6;b++){
-   const z=-4.5+b*2.4,{width,bottom,top,kind}=bays[b];
+   const z=-4.5+b*2.4,{width,bottom,kind}=bays[b],top=side<0&&b===2?5.60:bays[b].top;
    box([x,bottom/2,z],[.24,bottom,2.4],materials.beam);
    box([x,(top+7.2)/2,z],[.24,7.2-top,2.4],materials.beam);
    const sideWidth=(2.4-width)/2;
