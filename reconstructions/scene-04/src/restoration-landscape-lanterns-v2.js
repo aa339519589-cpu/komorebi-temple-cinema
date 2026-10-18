@@ -93,7 +93,7 @@ export function buildRestorationStoneLanterns({materials:source={},options={}}={
   const started=performance.now(),anchors=options.anchors??RESTORATION_STONE_LANTERN_ANCHORS;
   if(!Array.isArray(anchors)||anchors.some(p=>p.length!==4||!p.every(Number.isFinite)||p[3]<=0))throw Error('Stone lantern anchors must be [x,y,z,positiveScale].');
   const group=new T.Group();group.name='reference4-reauthored-carved-stone-lanterns';
-  const maps=mineralMaps(),stone=new T.MeshStandardMaterial({name:'weathered-carved-stone-lantern',color:'#a5a392',roughness:.87,metalness:0,map:maps.map,normalMap:maps.normal,normalScale:new T.Vector2(.72,.72),vertexColors:true});
+  const maps=mineralMaps(),stone=new T.MeshStandardMaterial({name:'weathered-carved-stone-lantern',color:'#b0a797',roughness:.95,metalness:0,map:maps.map,normalMap:maps.normal,normalScale:new T.Vector2(.29,.29),vertexColors:true});
   const paper=source.paper??new T.MeshStandardMaterial({name:'unlit-lantern-paper-fallback',color:'#d9c797',roughness:.78,side:T.DoubleSide});
   const lattice=new T.MeshStandardMaterial({name:'dark-aged-lantern-window-grille',color:'#424337',roughness:.89,metalness:0});
   const shadow=new T.MeshStandardMaterial({name:'stone-lantern-recessed-interior',color:'#252b26',roughness:1});
@@ -108,7 +108,9 @@ export function buildRestorationStoneLanterns({materials:source={},options={}}={
     const put=(g,parts,px=0,py=0,pz=0,yaw=0)=>{g.rotateY(yaw);g.translate(px,py,pz);parts.push(g);};
     const box=(w,h,d,parts,px,py,pz,yaw=0,bevel=.009)=>put(bevel?new RoundedBoxGeometry(w,h,d,2,bevel):new T.BoxGeometry(w,h,d),parts,px,py,pz,yaw);
     // A low octagonal three-step base and softly chamfered shaft, not stacked cubes.
-    stoneParts.push(profile([[0,0],[.53,0],[.58,.045],[.58,.145],[.53,.195],[.49,.195],[.49,.30],[.44,.35],[.385,.385],[.35,.385],[.35,.44],[.292,.49],[.290,1.52],[.33,1.56],[.35,1.61],[.35,1.69],[.42,1.72],[.43,1.91],[.37,1.94],[0,1.94]],8));
+    stoneParts.push(profile([[0,0],[.53,0],[.58,.045],[.58,.145],[.53,.195],[.49,.195],[.49,.30],[.44,.35],[.35,.385],[0,.385]],8));
+    box(.52,1.18,.52,stoneParts,0,.98,0,0,.014);
+    stoneParts.push(profile([[0,1.53],[.32,1.53],[.35,1.60],[.35,1.69],[.42,1.72],[.43,1.91],[.37,1.94],[0,1.94]],8));
     // Newly reauthored square carved window frieze and substantial shaft.
     box(.90,.255,.90,stoneParts,0,1.795,0,0,.020);
     for(let face=0;face<4;face++){const a=face*Math.PI/2,parts=[];box(.84,.035,.030,parts,0,1.891,.461,0,.005);box(.84,.035,.030,parts,0,1.698,.461,0,.005);for(const x of[-.40,.40])box(.035,.18,.030,parts,x,1.795,.461,0,.005);for(const x of[-.24,0,.24]){const crest=flowerCrest();crest.scale(.080,.080,.040);crest.translate(x,1.795,.455);parts.push(crest);}for(const g of parts){g.rotateY(a);stoneParts.push(g);}}
