@@ -1,3 +1,4 @@
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import * as T from 'three';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {buildReference4Architecture} from './reference4-architecture.js';
@@ -12,7 +13,7 @@ document.body.appendChild(renderer.domElement);
 const scene=new T.Scene();scene.background=new T.Color('#91bde8');scene.fog=new T.Fog('#a9c5ca',55,130);
 const camera=new T.PerspectiveCamera(58,W/H,.08,180);
 const V=a=>new T.Vector3(...a);let seed=31018;const rand=()=>{seed=(Math.imul(seed,1664525)+1013904223)|0;return(seed>>>0)/4294967296},range=(a,b)=>a+(b-a)*rand();
-const mats={},geos=new Set(),textures=new Set(),batches=new Map(),unitBox=new T.BoxGeometry(1,1,1),unitSphere=new T.SphereGeometry(1,12,8),unitCylinder=new T.CylinderGeometry(1,1,1,16);let root=new T.Matrix4();
+const mats={},geos=new Set(),textures=new Set(),batches=new Map(),unitBox=new RoundedBoxGeometry(1,1,1,2,.018),unitSphere=new T.SphereGeometry(1,12,8),unitCylinder=new T.CylinderGeometry(1,1,1,16);let root=new T.Matrix4();
 function mat(key,color,roughness=.8,metalness=0){return mats[key]=new T.MeshStandardMaterial({name:key,color,roughness,metalness});}
 const wood=mat('bridge lacquer cedar','#8f3622',.48),woodDark=mat('bridge exposed endgrain','#492719'),gold=mat('warm worn bronze','#ba8b33',.37,.78),black=mat('oxidised bronze','#3b3826',.65,.62),stone=mat('grainy cut granite','#77776d'),moss=mat('ochre moss','#526329'),bark=mat('textured living bark','#554334'),leaf=mat('deep maple leaves','#5f7a30'),pine=mat('pine clusters','#426132');
 function emit(g,m,pos=[0,0,0],scale=[1,1,1],rot=[0,0,0],tint=1){let key=g.uuid+':'+m.uuid,b=batches.get(key);if(!b)batches.set(key,b={g,m,a:[]});const matrix=new T.Matrix4().compose(V(pos),new T.Quaternion().setFromEuler(new T.Euler(...rot)),V(scale)).premultiply(root);b.a.push({matrix,tint});geos.add(g);}
@@ -61,7 +62,7 @@ let roof=curvedLanternCap();emit(roof,stone,[0,2.36*s,0],[s,s,s]);ell([0,2.85*s,
 lantern(8.6,.15,6.8,1.55);lantern(5.7,.06,8.0,.92);lantern(-8.2,.12,6.2,1.0);lantern(11,1.1,1.7,1.3);
 // Gold hanging fixtures, door curtains and chrysanthemum crests animate the hall facade.
 const curtain=mat('ivory woven noren','#e4dbc1');
-root=new T.Matrix4().makeTranslation(5,0,-7).multiply(new T.Matrix4().makeRotationY(.31)).multiply(new T.Matrix4().makeTranslation(-5,0,7));
+root=new T.Matrix4().makeTranslation(5,0,-7).multiply(new T.Matrix4().makeRotationY(.12)).multiply(new T.Matrix4().makeTranslation(-5,0,7));
 for(let x of[1.6,5,8.4]){box([x,5.15,-2.15],[1.35,2.10,.045],x===5?curtain:architecture.materials.black);rosette([x,5.15,-2.1],.31);}
 for(let x of[-.8,2.0,8.0,10.8]){between([x,8.4,-.9],[x,7.7,-.9],.022,gold);emit(new T.CylinderGeometry(.23,.18,.65,8),gold,[x,7.38,-.9]);box([x,7.38,-.655],[.25,.45,.015],warm);for(let k=0;k<6;k++)box([x-.14+k*.056,7.38,-.64],[.015,.46,.025],gold);ell([x,6.95,-.9],[.08,.18,.08],gold);}
 root.identity();
@@ -102,6 +103,6 @@ const ref={position:[-2.4,.72,18.2],target:[1.6,6.1,-3.0],fov:58};let frames=0,l
 function renderView(position,target,time=0,fov=58){camera.position.fromArray(position);camera.fov=fov;camera.lookAt(...target);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);lastTarget=[...target];renderer.setRenderTarget(null);renderer.render(scene,camera);frames++;return{frame:frames,position:camera.position.toArray(),target,fov,time}}
 function renderReference(n=3){if(n!==3)throw Error('Reference 03 only');return renderView(ref.position,ref.target,0,ref.fov)}
 function renderShot(t=0){let a=Math.min(1,Math.max(0,t/7)),u=a*a*(3-2*a);let near=[-2.5,.60,17.8],nt=[-2.0,.65,14.2];return renderView(near.map((p,i)=>T.MathUtils.lerp(p,ref.position[i],u)),nt.map((p,i)=>T.MathUtils.lerp(p,ref.target[i],u)),t,T.MathUtils.lerp(50,58,u));}
-function info(){return{reference:3,revision:'scene-03-lotus-low-water-v5',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},geometryInstances:instances,architecture:architecture.stats,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},assets:'Procedural geometry and generated DataTexture/CanvasTexture only'}}
+function info(){return{reference:3,revision:'scene-03-lotus-low-water-v6',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},geometryInstances:instances,architecture:architecture.stats,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},assets:'Procedural geometry and generated DataTexture/CanvasTexture only'}}
 function dispose(){architecture.dispose();for(let g of geos)g.dispose();for(let t of textures)t.dispose();for(let m of Object.values(mats))m.dispose();renderer.dispose()}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading').remove();if(!q.has('defer'))renderReference();

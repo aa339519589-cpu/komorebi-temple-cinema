@@ -1,3 +1,4 @@
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {createRestorationArchitecture} from './reference4-detail-kernel.js';
 import {createReference4MaterialSet} from './reference4-materials.js';
 
@@ -9,10 +10,10 @@ export function buildReference4Architecture(T,options={}) {
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
  const group=new T.Group();group.name=REFERENCE4_ARCHITECTURE_REVISION;
  const {mats,materials,textures}=createReference4MaterialSet(T,C),geometries=new Set(),buckets=new Map(),stack=[new T.Matrix4()],roles={};
- const cube=new T.BoxGeometry(1,1,1),cyl=new T.CylinderGeometry(1,1,1,24),sphere=new T.SphereGeometry(1,12,8);let activeRole='architecture';
+ const cube=new RoundedBoxGeometry(1,1,1,2,.025),cyl=new T.CylinderGeometry(1,1,1,24),sphere=new T.SphereGeometry(1,12,8);let activeRole='architecture';
  const V=a=>new T.Vector3(...a), H=y=>y+C.stairTopY-3;
  function emit(g,ma,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0,tint=1){const m=typeof ma==='string'?mats[ma]:ma;if(!m)throw Error('Missing material '+ma);const e=Array.isArray(rot)?new T.Euler(...rot):new T.Euler(0,Number(rot)||0,0),tr=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromEuler(e),V([sx,sy,sz])).premultiply(stack.at(-1));put(g,m,tr,tint);}
- function put(g,m,tr,tint=1){if(!activeRole.startsWith('tower')){tr=new T.Matrix4().makeTranslation(0,0,-4).multiply(new T.Matrix4().makeRotationY(.31)).multiply(new T.Matrix4().makeTranslation(0,0,4)).multiply(tr);}if(!tr.elements.every(Number.isFinite))throw Error('Nonfinite transform');const key=g.uuid+':'+m.uuid;let b=buckets.get(key);if(!b){b={g,m,items:[]};buckets.set(key,b);}b.items.push({tr,tint,role:activeRole});geometries.add(g);roles[activeRole]=(roles[activeRole]||0)+1;}
+ function put(g,m,tr,tint=1){if(!activeRole.startsWith('tower')){tr=new T.Matrix4().makeTranslation(0,0,-4).multiply(new T.Matrix4().makeRotationY(.12)).multiply(new T.Matrix4().makeTranslation(0,0,4)).multiply(tr);}if(!tr.elements.every(Number.isFinite))throw Error('Nonfinite transform');const key=g.uuid+':'+m.uuid;let b=buckets.get(key);if(!b){b={g,m,items:[]};buckets.set(key,b);}b.items.push({tr,tint,role:activeRole});geometries.add(g);roles[activeRole]=(roles[activeRole]||0)+1;}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){if(w>0&&h>0&&d>0)emit(cube,ma,x,y,z,w,h,d,rot,tint);}
  function grouped(x,y,z,yaw,fn,scale=1){const q=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromAxisAngle(V([0,1,0]),yaw),V([scale,scale,scale]));stack.push(stack.at(-1).clone().multiply(q));try{fn();}finally{stack.pop();}}
  function role(name,fn){const r=activeRole;activeRole=name;try{return fn();}finally{activeRole=r;}}
@@ -76,10 +77,13 @@ export function buildReference4Architecture(T,options={}) {
   for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78);}
  });
  role('hall-enclosure-doors',()=>{
-  box(0,5.65,-8.65,14.2,6.9,.23,'darkwood');for(const s of[-1,1]){box(s*7.02,5.65,-4.5,.20,6.9,8.4,'darkwood');for(let j=0;j<6;j++){box(s*6.88,6.35,-1.4-j*1.25,.16,3.4,.085,'cedar');box(s*6.84,7.85,-1.4-j*1.25,.12,.12,1.2,'oldgold');}}
+  box(0,5.65,-8.65,14.2,6.9,.23,'darkwood');for(const s of[-1,1]){box(s*7.02,5.65,-4.5,.20,6.9,8.4,'darkwood');for(let j=0;j<6;j++){box(s*6.88,6.35,-1.4-j*1.25,.16,3.4,.085,'cedar');box(s*6.84,7.85,-1.4-j*1.25,.12,.12,1.2,'oldgold');for(let k=0;k<5;k++){box(s*7.14,5.85,-1.85-j*1.25+k*.22,.055,2.0,.025,'oldgold');box(s*7.14,4.95+k*.44,-1.40-j*1.25,.055,.025,1.0,'cedar');}}}
   for(const s of[-1,1])for(const seg of[[3.0,4.55],[4.95,6.7]]){const x=s*(seg[0]+seg[1])/2,w=seg[1]-seg[0],h=3.8,y=C.stairTopY+h/2+.22;box(x,y,-.57,w,h,.16,'darkwood');for(const xx of[-w/2,w/2])box(x+xx,y,-.42,.09,h+.13,.12,'red');for(const yy of[-h/2,h/2])box(x,y+yy,-.39,w,.11,.13,'cedar');for(let k=1;k<8;k++)box(x-w/2+w*k/8,y,-.39,.032,h-.15,.045,'oldgold');for(let k=1;k<13;k++)box(x,y-h/2+h*k/13,-.385,w-.1,.025,.05,'cedar');}
   // Upper gallery is enclosed timber, not an unrelated open lattice triangle.
   
+ });
+ role('columns-gilt-bronze-collars',()=>{
+  for(const x of C.columnAxes){const rr=Math.abs(x)<3?.297:.267;for(const y of[2.85,3.54,7.88]){emit(cyl,'oldgold',x,y,.0,rr,.065,rr);emit(cyl,'black',x,y+.11,.0,rr+.002,.13,rr+.002);}for(let j=0;j<4;j++){const y=5.75+j*.31;relief(x,y,.29,.31,.29);}for(const y of[3.15,7.4]){box(x,y,.285,.30,.32,.038,'black');rosette(x,y,.315,.10,'oldgold');}}
  });
  role('closed-sanctuary-carved-transoms',()=>{
   box(0,7.55,-.72,13.5,2.55,.18,'darkwood');
