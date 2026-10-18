@@ -1,0 +1,85 @@
+{
+  "scope": "Actual native05 geometry replacement: curved/half-lapped timber capitals, raked corner support, deep open gilt endwork and ceramic corner carving. Camera and story heights fixed.",
+  "sourceHash": "47421856926d2dbf79e9b84079a4611344984e93d355e100cf4bf9e4bee7cb62",
+  "sourceBuilder": "qa/ten-reference/05/iteration-cycles-sculpted64/cycles-render-source.py",
+  "sourceBuilderSha256": "fd2489a2f6e62bd24569046e889cdd794fa3b4083417a88b10dbf8d707f066cc",
+  "environment": {
+    "SCENE_PACKAGE": "output/scene05-sculpted-struct63",
+    "CYCLES_OUTPUT": "output/scene05-cycles-sculpted63",
+    "LIGHTING_MODE": "outdoor-day",
+    "PHYSICAL_COURTYARD": "1",
+    "PHYSICAL_VERMILION_TINT": "1.08,.83,.72",
+    "PHYSICAL_GROUND_RADIANCE": "0,0,0",
+    "CYCLES_WORLD_GAIN": "1",
+    "CYCLES_EXPOSURE": "0",
+    "CYCLES_DEVICE": "METAL",
+    "CYCLES_SAMPLES": "128",
+    "CYCLES_DENOISE": "1",
+    "CYCLES_SIZE": "1254",
+    "CYCLES_SAVE_BLEND": "1",
+    "CYCLES_PACK_TEXTURES": "1",
+    "CYCLES_BLEND_NAME": "scene05-sculpted63.blend",
+    "CYCLES_RENDER_NAME": "scene05-cycles-sculpted63.png",
+    "PHYSICAL_COURTYARD_ALBEDO": ".55,.52,.46",
+    "PHYSICAL_BOUNCE_POWER": "0",
+    "TEMPLE_SKY_EXR": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr"
+  },
+  "exportCommand": "REFERENCE=5 SCENE_EXPORT=output/scene05-sculpted-struct63 node tools/export-reconstructed-scene.mjs",
+  "renderCommand": "Apply environment above; node tools/run-blender-queued.mjs qa/ten-reference/05/iteration-cycles-sculpted64/cycles-render-source.py",
+  "actualFrameSha256": "a607b5e11172c7f979fa9887fc6a845abe3ca223bd988806ccdd42a6e97d9d5e",
+  "packedBlend": "output/scene05-cycles-sculpted63/scene05-sculpted63.blend",
+  "status": "Actual final full frame viewed. Reconstructed structure is visibly different and source-carved, but masks/ornament remain schematic, sunset cast and sky remain different from HD. No photographic or movie acceptance.",
+  "hdriProvenance": {
+    "asset": "qwantani_sunset_puresky",
+    "provider": "Poly Haven",
+    "source": "https://polyhaven.com/a/qwantani_sunset_puresky",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://polyhaven.com/license",
+    "authors": {
+      "photography": "Greg Zaal",
+      "processing": "Jarod Guest"
+    },
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/2k/qwantani_sunset_puresky_2k.exr",
+    "bytes": 18335204,
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "role": "Measured high-dynamic-range sky radiance used for actual3D lighting and reflection; no reference-frame projection."
+  },
+  "environmentOrientation": {
+    "longitudeFormula": "phi=pi-2*pi*u",
+    "coordinateConvention": "Outward=-TextureCoordinateNormal because background sd.N=-ray_D",
+    "sourceSunDirectionYUp": [
+      -0.5003862977027893,
+      0.5837839841842651,
+      0.6393824815750122
+    ],
+    "targetSunDirectionZUp": [
+      -0.5003862977027893,
+      -0.6393824815750122,
+      0.5837839841842651
+    ],
+    "correctMappedSunVectorZUp": [
+      -0.5003862977027893,
+      -0.6393822431564331,
+      0.5837840437889099
+    ],
+    "targetAltitudeDegrees": 35.717130445998926,
+    "eulerXYZ": [
+      0.4214586317539215,
+      -0.3098472058773041,
+      1.5406560897827148
+    ],
+    "alignmentDegrees": 0.0,
+    "primarySources": [
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h",
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/geom/shader_data.h",
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/svm/tex_coord.h"
+    ]
+  },
+  "nativeExportVerifiedServedSource": true,
+  "retainedRejectedCandidates": [
+    "iteration-cycles-sculpted61: mask too simplified",
+    "iteration-cycles-sculpted62: mask too dominant"
+  ],
+  "opaqueSurfacePolicy": "No material becomes translucent from emissiveIntensity==1. Only nonblack emissiveRGB emits; all original opaque wood/metal stays opaque.",
+  "actualInvocationSourcePath": "reconstructions/scene-05/cycles/render-sculpted-struct61.py (same bytes as committed QA renderer)"
+}
