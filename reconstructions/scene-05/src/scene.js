@@ -36,7 +36,7 @@ export function buildScene(){
  mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#858b7c');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
  for(const [name,m]of Object.entries(mats)){
    if(['red','cedar','endwood','darkwood'].some(k=>name===k||name==='architecture_'+k)){
-     m.roughnessMap=null;m.roughness=name.includes('endwood')?.84:.76;m.envMapIntensity=.28;m.bumpScale=.006;
+     m.roughnessMap=null;m.roughness=name.includes('endwood')?.84:.64;m.envMapIntensity=.38;m.bumpScale=.006;
      m.onBeforeCompile=shader=>{
        shader.vertexShader='varying vec2 vWearUv;\n'+shader.vertexShader;
        shader.vertexShader=shader.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\nvWearUv=uv;');
@@ -207,14 +207,24 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  // Flatten static geometry by material: dense joinery remains real 3D but submission cost stays bounded.
  let triangles=0,parts=0;
  for(const [material,records]of bucket){
-   const pieces=records.map(({geo,matrix,tint})=>{
+   const isTimber=/(?:^|_)(?:red|cedar|endwood|darkwood)$/.test(material.name)||material===mats.windowBars;
+   // Individual boards in the original vary in stain and age. This variation
+   // belongs to each solid timber, not a projected image across the building.
+   material.vertexColors=true;
+   const pieces=records.map(({geo,matrix,tint},recordIndex)=>{
      const g=geo.index?geo.toNonIndexed():geo.clone();g.applyMatrix4(matrix);
      for(const attr of Object.keys(g.attributes))if(!['position','normal','uv'].includes(attr))g.deleteAttribute(attr);
      const n=g.attributes.position.count;if(!g.attributes.uv)g.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(n*2),2));
+     const e=matrix.elements,phase=e[12]*12.9898+e[13]*78.233+e[14]*37.719+recordIndex*.618;
+     const sample=Math.sin(phase)*43758.5453,variation=sample-Math.floor(sample);
+     const stain=isTimber?.87+.13*variation:1,level=T.MathUtils.clamp(tint*stain,0,1);
+     const colors=new Uint8Array(n*3),rgb=[level,level*(isTimber?.97+.03*variation:1),level*(isTimber?.945+.055*variation:1)].map(v=>Math.round(v*255));
+     for(let j=0;j<n;j++)colors.set(rgb,j*3);
+     g.setAttribute('color',new T.Uint8BufferAttribute(colors,3,true));
      return g;
    });
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-photographed-eave-member-hierarchy-max01',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-solid-timber-stain-and-contact-light-max02',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }

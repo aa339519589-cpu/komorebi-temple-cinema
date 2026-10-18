@@ -24,3 +24,25 @@ One geometry hypothesis for max01, with camera / lighting unchanged:
 Only reconstructions/scene-05 and qa/ten-reference/05 are modified.
 No external assets, photographic planes, AI images, or runtime animation added.
 Visual acceptance remains pending an actual frozen-source GPU render.
+
+Actual frozen-source max01 GPU review:
+- 900 square, source 69fbd23, valid=true, glError=0, contextLost=false.
+- Ceramic ends have a clearer larger rhythm, and the small golden zipper is
+  reduced. The tower framing did not move. Capitals are broader/deeper.
+- It still reads as CG. Matched hip crop shows nearly uniform red timber and
+  red-filled bracket recesses, whereas the original has distinct stained
+  members, subtle lacquer highlights, and deeper contact darkness.
+
+Final allowed hypothesis, max02, no further geometry/camera change:
+- Use a restrained physical lacquer lobe for structural wood and moderate
+  timber roughness .64 (end grain stays .84). Retain all procedural textures.
+- Honor the already-declared member tint (previous flattening silently
+  discarded it); add deterministic per-solid-timber stain variation, kept to
+  13 percent in linear brightness with a small warm hue change. Vertex color
+  is constant across each real solid member, never a photographic projection.
+- Increase existing real screen-space contact AO radius .38 -> .60 m and
+  blend .45 -> .65 so bracket recesses can separate from open red surfaces.
+- Direct sun, ambient lights, environmental radiance, and camera stay fixed.
+
+This is the second and final modification/render round for this handoff.
+Neither a successful GPU run nor these changes imply visual acceptance.
