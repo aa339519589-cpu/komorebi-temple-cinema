@@ -10,3 +10,16 @@ export function createPavingWetMask(T,polygons){
  }
  const texture=new T.DataTexture(data,width,height);texture.generateMipmaps=true;texture.minFilter=T.LinearMipmapLinearFilter;texture.magFilter=T.LinearFilter;texture.needsUpdate=true;return texture;
 }
+
+// Mip-filtered mineral aggregate at millimetre scale. The light grains are
+// ordinary diffuse stone minerals, not emissive or painted lighting spots.
+export function createWetStoneGrain(T){
+ const n=1024,data=new Uint8Array(n*n*4);
+ function hash(x,y){let q=Math.imul(x,374761393)^Math.imul(y,668265263)^97169;q=Math.imul(q^(q>>>13),1274126177);return((q^(q>>>16))>>>0)/4294967296;}
+ for(let y=0;y<n;y++)for(let x=0;x<n;x++){
+  const micro=hash(x,y),mineral=hash(x>>1,y>>1),coarse=hash(x>>4,y>>4);
+  let q=24+22*micro+8*coarse;if(mineral>.80)q+=42+42*micro;if(micro<.065)q*=.42;
+  const i=(y*n+x)*4;data[i]=Math.min(255,q*1.04+2);data[i+1]=Math.min(255,q);data[i+2]=Math.min(255,q*.88);data[i+3]=255;
+ }
+ const texture=new T.DataTexture(data,n,n);texture.colorSpace=T.SRGBColorSpace;texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.repeat.set(.125,.125);texture.generateMipmaps=true;texture.minFilter=T.LinearMipmapLinearFilter;texture.magFilter=T.LinearFilter;texture.needsUpdate=true;return texture;
+}
