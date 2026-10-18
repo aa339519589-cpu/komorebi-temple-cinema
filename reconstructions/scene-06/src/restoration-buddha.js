@@ -214,15 +214,15 @@ function ears(b,cy,small=false){
  if(!small){
   // One closed cast auricle per side. The lobule has solid thickness; its
   // concha is a shallow recess rather than the centre of an oval handle.
-  const rows=[[-.37,0,0,.342,.090],[-.35,.020,.024,.350,.090],[-.31,.034,.039,.358,.084],[-.23,.039,.044,.365,.074],[-.13,.045,.047,.367,.059],[0,.052,.056,.360,.044],[.12,.055,.058,.348,.030],[.22,.040,.045,.330,.018],[.27,0,0,.310,.002]];
+  const rows=[[-.435,0,0,.342,.090],[-.415,.018,.027,.350,.090],[-.37,.035,.044,.358,.078],[-.29,.043,.051,.365,.067],[-.17,.047,.055,.367,.055],[-.03,.059,.065,.360,.041],[.10,.062,.064,.348,.028],[.21,.044,.047,.330,.014],[.27,0,0,.310,.002]];
   for(const side of[-1,1]){
-   const g=surface(96,160,(u,v)=>{const dy=-.37+.64*v,[rx,rz,cx,cz]=sampleProfile(rows,dy),a=u*TAU;if(v===0||v===1)return[side*cx,cy+dy,cz];
+   const g=surface(96,160,(u,v)=>{const dy=-.435+.705*v,[rx,rz,cx,cz]=sampleProfile(rows,dy),a=u*TAU;if(v===0||v===1)return[side*cx,cy+dy,cz];
     const q=Math.sin(a),front=Math.max(0,Math.cos(a)),local=q*rx,r=Math.hypot((q-.02)/.84,(dy-.025)/.225);
-    const bowl=-.022*gaussian(q+.17,.39)*gaussian(dy-.035,.115);
+    const bowl=-.026*gaussian(q+.22,.40)*gaussian(dy-.030,.105)-.004*gaussian(q-.58,.14)*gaussian(dy-.070,.12);
     const helix=.012*gaussian(r-1,.17)*(1-smooth(-dy,.19,.29));
-    const fork=clamp((dy-.055)/.145,0,1),gate=smooth(dy,-.18,-.09)*(1-smooth(dy,.15,.23));
-    const anti=.010*gaussian(q-(.10+.34*fork),.16)*gate+.006*gaussian(q-(.10-.32*fork),.14)*gate*fork;
-    const tragus=.012*gaussian(q+.64,.18)*gaussian(dy+.040,.046),lobe=.006*gaussian(dy+.29,.064);
+    const fork=clamp((dy-.010)/.145,0,1),gate=smooth(dy,-.18,-.09)*(1-smooth(dy,.15,.23));
+    const anti=.012*gaussian(q-(.10+.34*fork),.16)*gate+.008*gaussian(q-(.10-.32*fork),.14)*gate*fork;
+    const tragus=.012*gaussian(q+.64,.18)*gaussian(dy+.040,.046),lobe=.007*gaussian(dy+.35,.070);
     return[side*(cx+local),cy+dy,cz+Math.cos(a)*rz+(bowl+helix+anti+tragus+lobe)*front**3];
    },true);
    if(side<0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}
@@ -327,7 +327,7 @@ function crown(b,cy,{central=false,variant='central'}={}){
 const MAIN_BODY=[
  [0,0,0,.10],[.035,.39,.29,.10],[.27,.50,.34,.08],[.53,.51,.36,.025],[.83,.49,.37,.005],
  [1.15,.515,.375,-.01],[1.49,.56,.373,-.025],[1.82,.60,.355,-.040],[2.08,.62,.325,-.050],
- [2.23,.49,.275,-.050],[2.34,.172,.157,-.028],[2.43,.146,.128,-.020],[2.49,0,0,-.020]
+ [2.23,.49,.275,-.050],[2.285,.220,.178,-.035],[2.325,.132,.133,-.040],[2.385,.109,.102,-.060],[2.455,.105,.103,-.060],[2.49,0,0,-.035]
 ].map(p=>[p[0],p[1]*(1+.10*smooth(p[0],.70,1.50)),p[2],p[3]]);
 const MAIN_BAND=[
  [.63,.12,.14],[.91,.29,.17],[1.18,.41,.19],[1.48,.55,.20],[1.80,.64,.20],[2.07,.59,.17],[2.25,.43,.105]
@@ -346,7 +346,7 @@ const MAIN_DRAPE_TRACES=[
 function mainRelief(x,y){
  let f=.024*gaussian(x+.08,.36)*gaussian(y-1.30,.56)+.020*smooth(x,-.38,.30)*smooth(y,.62,1.10)*(1-smooth(y,1.95,2.25));
  const neckGate=(1-smooth(Math.abs(x),.105,.175))*smooth(y,2.26,2.29)*(1-smooth(y,2.39,2.425));
- for(const level of[2.305,2.343,2.378])f-=.0018*gaussian(y-level-.009*(x/.16)**2,.007)*neckGate;
+ for(const [level,depth]of[[2.290,.0012],[2.318,.0014],[2.345,.0010]])f-=depth*gaussian(y-level-.007*(x/.16)**2,.009)*neckGate;
  for(let i=0;i<MAIN_DRAPE_TRACES.length;i++){const tr=MAIN_DRAPE_TRACES[i],lo=tr[0][0],hi=tr.at(-1)[0],fade=smooth(x,lo-.015,lo+.035)*(1-smooth(x,hi-.025,hi+.015));if(!fade)continue;
   const at=sampleProfile(tr,clamp(x,lo,hi))[0],amp=[.008,.011,.010,.012,.010,.009,.008,.009,.007,.007,.006,.006][i];
   f+=fade*(amp*gaussian(y-at,.028)-amp*.30*gaussian(y-at+.030,.017));
