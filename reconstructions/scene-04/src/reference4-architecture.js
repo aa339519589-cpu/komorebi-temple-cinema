@@ -114,7 +114,7 @@ export function buildReference4Architecture(T,options={}) {
   const zs=lin(upperFront,gFront,15),weather=gridAt(xs,zs,canopy);emit(shell(weather,-.035,.025,'connected-canopy-ceramics'),'slate');emit(shell(weather,-.16,-.035,'connected-canopy-timber-deck'),'cedar');
   // 37 individually solid rough-sawn rafters. Boards are above them, so the
   // underside presents true member depth and air gaps, not a smooth false skin.
-  const rr=lin(-gHalf+.1,gHalf-.1,36);for(let k=0;k<rr.length;k++){const x=rr[k],rgrid=gridAt([x-.065,x+.065],lin(gBack,gFront+.09,30),canopy);emit(shell(rgrid,-.39,-.16,'visible-curved-cedar-rafter'),'cedar');arch.squareFitting(x,canopy(x,gFront+.09)-.275,gFront+.096,.13,.23,0,k%2===0);}
+  const rr=lin(-gHalf+.1,gHalf-.1,36);for(let k=0;k<rr.length;k++){const x=rr[k],rgrid=gridAt([x-.065,x+.065],lin(gBack,gFront+.09,30),canopy);emit(shell(rgrid,-.39,-.16,'visible-curved-cedar-rafter'),'cedar');}
   for(const z of[gBack,-.48,.57]){const curve=gridAt(xs,[z-.11,z+.11],canopy);emit(shell(curve,-.64,-.39,'transverse-curved-carrier'),'red');}
   // Front bargeboard is a real closed curved beam, queried by the lantern arms.
   const barge=shell(gridAt(xs,[gFront-.17,gFront+.07],canopy),-.47,-.02,'entrance-saddled-bargeboard');emit(barge,'cedar');
@@ -186,7 +186,7 @@ export function buildReference4Architecture(T,options={}) {
    const x=sign*(3.25+i*.25);if(Math.abs(x)>8.9)continue;
    const y=H(7.55)+.24+.28*Math.pow(Math.abs(x)/9,8);
    box(x,y-.39,.61,.10,.13,.73,'cedar');
-   arch.squareFitting(x,y-.39,1.00,.10,.12,0,i%3===0);
+   if(i%4===0)arch.squareFitting(x,y-.39,1.00,.10,.12,0,false);
   }
  });
  // Low enclosing galleries are architecture, not a free-standing temple in a park.
