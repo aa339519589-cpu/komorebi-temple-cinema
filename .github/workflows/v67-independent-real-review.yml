@@ -44,6 +44,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: main-v67-independent-ref${{ matrix.reference }}-${{ github.sha }}
-          path: output/independent-reference${{ matrix.reference }}-v__VERSION__/
-          if-no-files-found: warn
+          path: |
+            output/independent-reference4-v4/
+            output/independent-reference6-v13/
+          if-no-files-found: error
           retention-days: 7
