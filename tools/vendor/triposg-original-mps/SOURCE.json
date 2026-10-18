@@ -1,0 +1,14 @@
+{
+  "repository": "https://github.com/VAST-AI-Research/TripoSG",
+  "commit": "ca7ffd3f609e53a324a32fdbc958b7439c1ddb13",
+  "license": "MIT",
+  "reason": "Original pre-FlashVDM source; later FlashVDM acceleration and its separate territory-restricted license are not included.",
+  "sourceModified": true,
+  "execution": "A separately authored CPU octree query driver replaces GPU-only extraction at runtime; learned RF and VAE remain unchanged.",
+  "modifications": [
+    {
+      "file": "triposg/pipelines/pipeline_triposg.py",
+      "change": "Remove unused undefined dual-encoder variables from the latents callback branch; RF/VAE math and weights unchanged."
+    }
+  ]
+}

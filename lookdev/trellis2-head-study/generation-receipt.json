@@ -1,0 +1,37 @@
+{
+  "purpose": "Provisional connected 3D head mesh, never a replacement movie frame",
+  "guide": "sculpt-guide-v01.png",
+  "model": "microsoft/TRELLIS.2-4B",
+  "modelLicense": "MIT",
+  "officialDemo": "https://huggingface.co/spaces/microsoft/TRELLIS.2",
+  "texturesWillBeUsed": false,
+  "photographicAcceptance": false,
+  "started": 1792357153.8448918,
+  "status": "failed",
+  "parameters": {
+    "seed": 804231,
+    "resolution": "1024",
+    "sparse": [
+      7.5,
+      0.7,
+      12,
+      5.0
+    ],
+    "shape": [
+      7.5,
+      0.5,
+      16,
+      3.0
+    ],
+    "texture": [
+      1.0,
+      0.0,
+      1,
+      3.0
+    ]
+  },
+  "error": "You have exceeded your ZeroGPU quota (120s requested vs. 0s left). Try again in 0:00:00. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/mima1234/temple-traced-stone04-20261019/tools/generate-trellis2-head-study.py\", line 22, in <module>\n    result=job.result(timeout=900)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mima1234/.cache/temple-3dgen-venv/lib/python3.12/site-packages/gradio_client/client.py\", line 1707, in result\n    return super().result(timeout=timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/concurrent/futures/_base.py\", line 456, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/concurrent/futures/thread.py\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mima1234/.cache/temple-3dgen-venv/lib/python3.12/site-packages/gradio_client/client.py\", line 1233, in _inner\n    predictions = _predict(*data, **kwargs)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mima1234/.cache/temple-3dgen-venv/lib/python3.12/site-packages/gradio_client/client.py\", line 1356, in _predict\n    raise AppError(message=message, **result)\ngradio_client.exceptions.AppError: You have exceeded your ZeroGPU quota (120s requested vs. 0s left). Try again in 0:00:00. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens\n",
+  "finished": 1792357173.658591,
+  "cleanupError": "Cannot find a function with `api_name`: /end_session."
+}

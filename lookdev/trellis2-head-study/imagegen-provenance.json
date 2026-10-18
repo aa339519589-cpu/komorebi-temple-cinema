@@ -1,0 +1,19 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Create a SCULPTURE MODELING GUIDE ONLY, not a finished movie frame. Use the supplied crop of the central Buddha to reconstruct just its HEAD and a short neck, detached from its halo and body, isolated on a transparent background. A single front view, centered, orthographic studio sculpture photograph, complete head and both elongated ears visible, neck cut cleanly below the three neck rings. Preserve the reference's exact compact oval facial character: broad smooth rounded cheeks, short full rounded chin, graceful narrow straight nose with distinct convex tip and small nostril wings, small softly closed bow lips with a calm slight smile, high gently arched brows, heavy curving eyelids almost closed and subtly looking downward. Keep the original long ears and small tightly curled hair with a compact ushnisha. The face must be rounded and compact, never stretched long, pinched, sunken or angular. Remove the halo, crown jewelry, shoulder robe, hanging ornaments, background and all text. Material is uniform neutral mid-grey unpainted clay with gentle directional studio illumination, allowing genuine volumes and eyelid/nose/lip anatomy to be read clearly. No gold color, no painted eyes, no background, no floor. Faithful geometry and facial proportions from this particular reference, not a generic human portrait or stylized cartoon.",
+  "transparent_background": true,
+  "referenceCrop": {
+    "file": "references/hd/4-照片-5.jpg",
+    "xyxy": [
+      560,
+      310,
+      700,
+      455
+    ],
+    "use": "Comparison and shape inspiration only, not a runtime scene surface"
+  },
+  "generatedFile": "sculpt-guide-v01.png",
+  "sha256": "debfd126ce9cf0a69b41a6824ccde87d51e07aa55ce1fb162c05aaf82bc99e7b",
+  "role": "Modeling guide for genuine untextured mesh generation; never a rendered film frame",
+  "photographicAcceptance": false
+}

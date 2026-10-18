@@ -1,0 +1,25 @@
+{
+  "status": "failed",
+  "source": "VAST-AI/TripoSG",
+  "codeCommit": "ca7ffd3f609e53a324a32fdbc958b7439c1ddb13",
+  "codeLicense": "MIT",
+  "guide": "/Users/mima1234/temple-traced-stone04-20261019/lookdev/trellis2-head-study/sculpt-guide-v01.png",
+  "guideSha256": "debfd126ce9cf0a69b41a6824ccde87d51e07aa55ce1fb162c05aaf82bc99e7b",
+  "purpose": "Provisional real 3D head geometry; not a replacement film frame",
+  "textureUsedInOutput": false,
+  "photographicAcceptance": false,
+  "torch": "2.14.1",
+  "startedAt": 1792358666.155359,
+  "seed": 804231,
+  "steps": 50,
+  "guidance": 7.0,
+  "octree": [
+    6,
+    9
+  ],
+  "device": "mps",
+  "meshLevels": [],
+  "error": "cannot access local variable 'image_embeds_1' where it is not associated with a value",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/mima1234/temple-traced-stone04-20261019/tools/generate-local-triposg-head.py\", line 72, in <module>\n    with torch.no_grad():result=pipe(image=image,generator=torch.Generator(device='cpu').manual_seed(804231),num_inference_steps=50,guidance_scale=7.0,dense_octree_depth=6,hierarchical_octree_depth=9,callback_on_step_end=callback)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mima1234/.cache/temple-triposg-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mima1234/temple-traced-stone04-20261019/tools/vendor/triposg-original-mps/triposg/pipelines/pipeline_triposg.py\", line 295, in __call__\n    \"image_embeds_1\", image_embeds_1\n                      ^^^^^^^^^^^^^^\nUnboundLocalError: cannot access local variable 'image_embeds_1' where it is not associated with a value\n",
+  "finishedAt": 1792358680.044798
+}

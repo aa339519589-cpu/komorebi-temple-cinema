@@ -1,0 +1,14 @@
+{
+  "purpose": "Provisional connected 3D head mesh, never a replacement movie frame",
+  "guide": "sculpt-guide-v01.png",
+  "model": "microsoft/TRELLIS.2-4B",
+  "modelLicense": "MIT",
+  "officialDemo": "https://huggingface.co/spaces/microsoft/TRELLIS.2",
+  "texturesWillBeUsed": false,
+  "photographicAcceptance": false,
+  "started": 1792356935.048424,
+  "status": "failed",
+  "error": "Client.__init__() got an unexpected keyword argument 'hf_token'",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/mima1234/temple-traced-stone04-20261019/tools/generate-trellis2-head-study.py\", line 13, in <module>\n    client=Client('https://microsoft-trellis-2.hf.space',hf_token=False,download_files=str(OUT/'download'),verbose=False)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Client.__init__() got an unexpected keyword argument 'hf_token'\n",
+  "finished": 1792356935.048806
+}
