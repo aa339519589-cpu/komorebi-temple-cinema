@@ -1,0 +1,50 @@
+{
+  "status": "bounded-candidate-for-primary-review",
+  "visualAccepted": false,
+  "reference": "references/hd/8-照片-9.jpg",
+  "baseline": "qa/ten-reference/09/iteration-struct49/reference.png",
+  "sourceRevision": "scene09-stone-fixtures-and-local-light-70",
+  "sourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+  "evidence": [
+    "iteration-mesh68/reference.png",
+    "iteration-mesh68/detail-native.png",
+    "iteration-mesh68/report.json",
+    "iteration-mesh69/reference.png",
+    "iteration-mesh69/detail-native.png",
+    "iteration-mesh69/report.json",
+    "iteration-mesh70/reference.png",
+    "iteration-mesh70/detail-native.png",
+    "iteration-mesh70/report.json"
+  ],
+  "finalNativeSize": [1254,1254],
+  "finalSubfrustum": [0,275,675,1254],
+  "camera": {"position":[6,2.7,33],"target":[0,5.5,-10],"fov":52,"changed":false},
+  "siteAndExistingVegetationChanged": false,
+  "exposureChanged": false,
+  "physicalChanges": [
+    "Eleven actual octagonal stepped/waisted cut-stone lantern assemblies with recessed shaft panels, separate glowing chambers, curved stone caps, turned finials and contiguous damp-side moss surfaces.",
+    "Near hanging lamps have solid pierced timber floral bodies, independent inset paper sheets and separate bronze/brass hardware/hoods/chains.",
+    "Smooth entasis columns, hollow metal sleeves, stone shoes and turned near-rail finials replace simple cylinder/sphere readings.",
+    "Previously verified CC0 timber and stone PBR channels are used on actual geometry; two lamp foundations reuse original scanned stone geometry with preserved UV/aspect ratio.",
+    "Broad orange facade/foreground wash points are replaced by local inverse-square fixture pools and a narrow shrine spot. A real behind-observer lamp/chain/continuation beam replaces the old unsupported foreground wash source."
+  ],
+  "materialSources": [
+    "https://polyhaven.com/a/lacquered_cherry_wood",
+    "https://polyhaven.com/a/rock_moss_set_01"
+  ],
+  "newExternalDownloads": [],
+  "referencePhotographUsedAsSurface": false,
+  "inspection": [
+    "The orange wash no longer makes large main-hall wall areas appear uniformly orange-white.",
+    "Roof ceramics read dark neutral gray/blue from independent night illumination rather than saturated blue base color.",
+    "Stone profiles, separate chamber paper/frame, worn material structure and continuous moss are visible in the actual subfrustum.",
+    "The floral hanging body now permits the paper area to remain luminous while preserving a solid carved silhouette."
+  ],
+  "remainingLimits": [
+    "The whole frame remains darker than the photograph and the architecture/garden still has simplified, repetitive forms.",
+    "Wet paving and reflected light bands remain weaker than the photograph.",
+    "Some local eave highlights are too hard. Point-light pools are unshadowed within the existing two-shadow-map budget, so localized light leakage remains possible.",
+    "No new independent Cycles frame was run by this worker. This is a native reconstruction candidate, not photographic acceptance."
+  ],
+  "verification": "Three shared-mutex render-one jobs, actual full/detail image inspection, Node syntax and git whitespace checks. No tests, suite, motion or ad-hoc GPU job."
+}
