@@ -37,6 +37,9 @@ for rec in scene_data['materials']:
     mat=bpy.data.materials.new(rec['name'] or rec['id']);mat.use_nodes=True;n=mat.node_tree.nodes;n.clear();links=mat.node_tree.links
     bs=n.new('ShaderNodeBsdfPrincipled');out=n.new('ShaderNodeOutputMaterial');links.new(bs.outputs['BSDF'],out.inputs['Surface'])
     color=tuple(rec.get('color') or [.5,.5,.5])+ (1,)
+    source_emissive_rgb=tuple(rec.get('emissive') or [0,0,0]);has_emissive_rgb=any(float(v)>1e-7 for v in source_emissive_rgb)
+    # Default Three.js emissiveIntensity=1 is NOT evidence of paper or emission.
+    thin_emitting_paper=has_emissive_rgb and 'paper' in rec['name'].lower()
     value(bs,['Base Color'],color);value(bs,['Metallic'],float(rec.get('metalness') or 0));value(bs,['Roughness'],max(.04,float(rec.get('roughness') or .4)))
     value(bs,['IOR'],float(rec.get('ior') or 1.5));value(bs,['Transmission Weight','Transmission'],float(rec.get('transmission') or 0))
     value(bs,['Specular IOR Level'],.5*float(rec.get('specularIntensity') if rec.get('specularIntensity') is not None else 1))
@@ -81,6 +84,8 @@ for rec in scene_data['materials']:
             if name in bs.inputs:links.new(mul.outputs[0],bs.inputs[name]);break
     if rec['name'] in ['scene02-red','scene02-cedar','scene02-darkwood'] and bs.inputs['Roughness'].is_linked:
         old=bs.inputs['Roughness'].links[0].from_socket;gain=n.new('ShaderNodeMath');gain.operation='MULTIPLY_ADD';gain.inputs[1].default_value=.72;gain.inputs[2].default_value=.36;links.new(old,gain.inputs[0]);clip=n.new('ShaderNodeClamp');clip.inputs['Min'].default_value=.42;clip.inputs['Max'].default_value=.94;links.new(gain.outputs[0],clip.inputs['Value']);links.new(clip.outputs[0],bs.inputs['Roughness'])
+    if thin_emitting_paper:
+        report['thinPaperRule']='Explicit nonzero source emissive RGB plus paper name; default intensity never used as classification.'
     if rec['name'] in ['scene02-leaf','scene02-leaflight']:
         trans=n.new('ShaderNodeBsdfTranslucent');trans.inputs['Color'].default_value=color
         if base_socket:links.new(base_socket,trans.inputs['Color'])

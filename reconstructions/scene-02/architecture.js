@@ -1,4 +1,5 @@
 import {T,V,mix,Builder,gridGeometry} from './kernel.js';
+import {buildHallEntry} from './hall-entry.js';
 export function buildArchitecture(mats){
  const b=new Builder(mats),lights=[];const torus=new T.TorusGeometry(1,.075,6,20);
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
@@ -58,7 +59,7 @@ export function buildArchitecture(mats){
   }
   b.box(0,eave+rise+.18,zcenter,.32,.32,d+.7,'slate');for(let z of[zcenter-d/2,zcenter+d/2]){b.tube([[0,eave+rise+.1,z],[0,eave+rise+.55,z+.14],[0,eave+rise+.8,z+.38]],.13,'slate');b.ball(0,eave+rise+.85,z+.38,.13,.16,.12,'oldgold');}
  }
- function windowPanel(x,y,z,w,h){b.box(x,y,z,w,h,.16,'darkwood');b.box(x,y,z+.13,w-.13,h-.13,.03,'paper');for(let j=0;j<=18;j++)b.box(x-w/2+w*j/18,y,z+.18,.019,h,.04,'cedar');for(let j=0;j<=22;j++)b.box(x,y-h/2+h*j/22,z+.19,w,.016,.035,'cedar');for(let xx of[-w/2,w/2])b.box(x+xx,y,z+.18,.065,h,.11,'red');}
+ function windowPanel(x,y,z,w,h,pane='paper'){b.box(x,y,z,w,h,.16,'darkwood');b.box(x,y,z+.13,w-.13,h-.13,.03,pane);for(let j=0;j<=18;j++)b.box(x-w/2+w*j/18,y,z+.18,.019,h,.04,'cedar');for(let j=0;j<=22;j++)b.box(x,y-h/2+h*j/22,z+.19,w,.016,.035,'cedar');for(let xx of[-w/2,w/2])b.box(x+xx,y,z+.18,.065,h,.11,'red');}
  function rail(length,base=0,height=1.05){for(let y of[.28,.73,height])b.box(0,base+y,0,length,y===height?.16:.10,.15,'red');let n=Math.ceil(length/1.75);for(let k=0;k<=n;k++){const x=-length/2+length*k/n;b.box(x,base+.55,0,.18,1.1,.18,'red');b.cyl(x,base+1.13,0,.12,.10,'gold');b.ball(x,base+1.26,0,.095,.12,.095);}for(let k=0;k<n*3;k++)b.box(-length/2+length*(k+.5)/(n*3),base+.5,0,.045,.42,.045,'red');}
  // The main hall is a tall, occupied building raised over an articulated stone terrace.
  const hallBase=2.73,hallY=.76,hallX=.50,hallFloor=hallBase+2.2*hallY;
@@ -67,14 +68,8 @@ export function buildArchitecture(mats){
   b.box(0,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'stone');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'stone',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,yy,-7.1+j*1.1,.13,.475,1.075,'stone',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
   for(let i=0;i<24;i++){let y=(24-i)*hallFloor/24,z=6.15+i*.27;b.box(0,(y/2-hallBase)/hallY,z,5.7,y/hallY,.28,'stone',0,.90+.10*Math.sin(i));b.box(0,(y-.027-hallBase)/hallY,z+.1,5.85,.055,.10,'lightstone');}
   for(let s of[-1,1]){b.line([s*3.1,3.2,6.0],[s*3.1,(.72-hallBase)/hallY,12.7],.12,'red');for(let i=0;i<10;i++){let t=i/9;column(s*3.1,mix(6,12.7,t),(hallFloor*(1-t)-hallBase)/hallY,.9,.07);}b.at([s*6.2,2.2,6.15],0,()=>rail(5.1));}
-  const axes=[-7.8,-5.2,-2.6,0,2.6,5.2,7.8];for(let z of[4.7,-.8,-6.3])for(let x of axes){if((z===-.8&&Math.abs(x)<7)||(z===4.7&&x===0))continue;column(x,z,2.2,6.1,.27);bracket(x,8.28,z,.92);}
-  for(let z of[4.7,-6.3]){b.box(0,8.15,z,16.8,.42,.5,'red');b.box(0,8.65,z,18.6,.3,.55,'cedar');for(let x of axes)fitting(x,8.15,z+.27,.55,.31);}
-  for(let x of[-7.8,7.8])b.box(x,8.15,-.8,.45,.42,11.5,'red');
-  b.box(0,5.05,-5.9,15.8,5.7,.25,'red');for(let x of[-6.45,-3.9,-1.3,1.3,3.9,6.45])windowPanel(x,4.85,-5.7,2.25,4.4);
-  for(let x of[-6.5,6.5])windowPanel(x,4.8,3.7,2.2,4.5); // large central opening remains real, with deep lit interior
-  for(let x of[-7.8,7.8])for(let z of[-4.5,-1.8,1.0]){b.at([x,0,z],Math.PI/2,()=>windowPanel(0,4.8,0,2.2,4.5));}
-  for(let x of[-2.7,2.7]){b.box(x,4.9,4.25,.32,5.3,.5,'red');for(let j=0;j<12;j++)fitting(x,2.55+j*.42,4.52,.29,.29);}
-  b.box(0,7.65,4.3,5.8,.55,.6,'red');for(let i=-5;i<=5;i++){b.put(scroll,'oldgold',[i*.48,7.65,4.65],[.68,.68,.68],[0,0,i%2?Math.PI:0]);rosette(i*.48,7.65,4.67,.065);}
+  const axes=[-7.8,-5.2,-2.6,0,2.6,5.2,7.8];
+  buildHallEntry({b,mats,lights,column,bracket,fitting,rosette,scroll});
   // Lower hipped skirt carries dense parallel tile courses and exposed bracket tiers.
   b.at([0,0,-.8],Math.PI/2,()=>roof({w:16,d:22.8,eave:9.0,rise:6.2,curl:.7}));
   // A small front gable is seated into one continuous steep hip roof.
@@ -95,20 +90,18 @@ export function buildArchitecture(mats){
   // Closely spaced multi-tier bracket clusters cast real shadows under the deep eave.
   for(let x=-9.2;x<=9.21;x+=.66){bracket(x,7.95,6.0,.90);b.box(x,9.26,6.45,.17,.17,1.58,'cedar');fitting(x,8.64,6.48,.16,.22);}
   for(let z=-6.2;z<6.3;z+=.72)for(let x of[-8.55,8.55]){bracket(x,7.95,z,.87);b.box(x,9.22,z,1.3,.16,.16,'cedar');}
-  for(let s of[-1,1]){const light=new T.PointLight(0xffae49,45,12,2);light.position.set(4+s*2.2,6.26,-10.5);lights.push(light);}
-  // Golden altar, vase and central statue silhouette seen through the four-column entry.
-  b.box(0,2.75,-3.7,3.5,.85,1.3,'oldgold');b.box(0,3.22,-3.7,3.75,.13,1.5,'gold');b.ball(0,4.4,-3.7,.62,.93,.40,'gold');b.ball(0,5.4,-3.7,.36,.43,.32,'gold');b.ball(0,5.83,-3.7,.20,.18,.20,'oldgold');b.ball(0,3.7,-3.3,.9,.22,.5,'gold');
  },[hallX,hallY,1]);columnXComp=1;
  // Camera-to-tower azimuth is about 38 degrees. A small positive yaw makes
  // the photographed unequal three-quarter faces; it is not a front-on tower.
  b.at([-15.6,5.1,-16],.075,()=>{
   b.box(0,.30,0,7.6,.6,7.6,'stone');b.box(0,.65,0,8,.14,8,'lightstone');
+  mats.pagodaPaper=mats.paper.clone();mats.pagodaPaper.name='scene02-pagoda-paper';mats.pagodaPaper.color.setHex(0x634125);mats.pagodaPaper.emissive.setHex(0xba641e);mats.pagodaPaper.emissiveIntensity=.70;
   for(let level=0;level<5;level++){
    const floor=.8+level*2.65,w=9.4-level*.45,body=w*.48,eave=floor+2.10;
    b.box(0,floor+.04,0,body+1.18,.24,body+1.18,'cedar');b.box(0,floor+.19,0,body+1.26,.075,body+1.26,'red');
    for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{
-    b.box(0,floor+1.03,-body/2,body,1.9,.14,'darkwood');
-    for(let x of[-.35,-.115,.115,.35])windowPanel(x*body,floor+1.02,body/2-.14,body*.205,.96);
+    b.box(0,floor+.39,body/2-.10,body,.39,.16,'red');b.box(0,floor+1.58,body/2-.10,body,.28,.16,'darkwood');
+    for(let x of[-.35,-.115,.115,.35]){if(level===0&&side===3&&Math.abs(x)<.2)continue;windowPanel(x*body,floor+1.02,body/2-.14,body*.205,.96,Math.abs(x)<.2?'pagodaPaper':'darkwood');}
     for(let yy of[floor+.43,floor+1.56])b.box(0,yy,body/2+.035,body,.19,.065,'lightstone');
     for(let x of[-.46,-.23,0,.23,.46]){column(x*body,body/2+.35,floor+.12,1.62,.13);bracket(x*body,floor+1.68,body/2+.35,.60);b.box(x*body,floor+2.18,body/2+.61,.18,.20,1.16,'cedar');}
     for(let y of[floor+1.86,floor+2.15])b.box(0,y,body/2+.35,body+1.05,.17,.31,'red');
