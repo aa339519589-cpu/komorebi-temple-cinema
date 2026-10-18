@@ -15,3 +15,13 @@ The first GPU image did not meet the reference. The second pass replaces the lit
 The garden now uses procedural botanical leaf silhouettes and complete pruned pine branch structures with needle cards. It has smaller fern-like shoots, variable granite forms, moss dressing and permanent tiny path-light sources. Water uses multi-frequency spatial waves and nine reflection taps. Clouds use six frequency bands. Wet stone slabs have beveled irregular outlines, fine bump texture and clearcoat. The raised veranda edge is diagonal rather than a straight horizontal cutoff.
 
 Reference camera height is 2.70m over the 1.45m stone board level; the shot camera remains 0.75–1.25m above that level. Shadows use PCF. Second-pass GPU and visual review remain pending; no acceptance is claimed.
+
+## Fourth reconstruction pass
+
+Actual third-pass crops are preserved under `qa/ten-reference/09/iteration-03/details/`, with separate original and render images. They show the remaining gaps clearly: the garden lacks mass and layered crowns; the upper hall reads as a flat lit box; the primary garden lanterns were projected outside the intended photo positions; the wet veranda has little visible real reflection.
+
+This pass builds an actual recessed upper gallery with side and rear walls, a deck and ceiling, adds continuous carved valances and intermediate curved bracket sets, and replaces the simple altar with the repository's detailed furnishing reconstruction. Its throne, relief mandorlas, vessels and offering table occupy the portal depth; the figure is scaled to that setting. A fixed warm spot shadow now provides real local occlusion in the hall in addition to the moon shadow.
+
+Garden lanterns are placed from the photo's measured screen locations. Chipped rock forms and face-following moss support connected earth islands, overlapping shrubs, ferns and crossed pine-needle geometry. The low camera no longer sees horizontal needle cards only edge-on. The scene has a separate actual planar reflection at wet-veranda height, excluded from the pond's reflection to avoid recursive captures. Fine pool waves include bounded vertical scatter of bright reflected sources. A small static contact-AO and bloom pass supplies contact shading and restrained bright-source spread. Alpha foliage, sky and reflection planes are excluded from AO depth overrides. No temporal random noise or RAF is used.
+
+Both shadow maps are fixed, with PCF filtering. The CPU check now validates independent furnishing/pine geometry and world transforms in addition to the construction buckets. GPU sampler/program diagnostics and visual acceptance remain separate and pending for this revision.
