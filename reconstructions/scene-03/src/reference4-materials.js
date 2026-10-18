@@ -29,7 +29,7 @@ export function createReference4MaterialSet(T, options={}) {
       }
       q=Math.max(0,Math.min(1,q));
       // A neutral modulation, not a second dark albedo multiplied into the base.
-      const c=Math.round(255*(height?.25+.5*q:kind==='wood'?.88+.10*q:.89+.09*q)),i=(y*n+x)*4;
+      const c=Math.round(255*(height?.25+.5*q:kind==='wood'?.62+.35*q:.72+.26*q)),i=(y*n+x)*4;
       data[i]=data[i+1]=data[i+2]=c;data[i+3]=255;
     }
     const t=new T.DataTexture(data,n,n);t.name='reference4-'+kind+(height?'-height':'-neutral-albedo');

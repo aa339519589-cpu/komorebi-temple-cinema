@@ -12,7 +12,7 @@ export function buildReference4Architecture(T,options={}) {
  const cube=new T.BoxGeometry(1,1,1),cyl=new T.CylinderGeometry(1,1,1,24),sphere=new T.SphereGeometry(1,12,8);let activeRole='architecture';
  const V=a=>new T.Vector3(...a), H=y=>y+C.stairTopY-3;
  function emit(g,ma,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0,tint=1){const m=typeof ma==='string'?mats[ma]:ma;if(!m)throw Error('Missing material '+ma);const e=Array.isArray(rot)?new T.Euler(...rot):new T.Euler(0,Number(rot)||0,0),tr=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromEuler(e),V([sx,sy,sz])).premultiply(stack.at(-1));put(g,m,tr,tint);}
- function put(g,m,tr,tint=1){if(!tr.elements.every(Number.isFinite))throw Error('Nonfinite transform');const key=g.uuid+':'+m.uuid;let b=buckets.get(key);if(!b){b={g,m,items:[]};buckets.set(key,b);}b.items.push({tr,tint,role:activeRole});geometries.add(g);roles[activeRole]=(roles[activeRole]||0)+1;}
+ function put(g,m,tr,tint=1){const tall=activeRole.startsWith('tower')?1.60:(!activeRole.startsWith('temple-platform')?1.50:1);if(tall!==1){const pivot=activeRole.startsWith('tower')?0:C.stairTopY;tr=new T.Matrix4().makeTranslation(0,pivot*(1-tall),0).multiply(new T.Matrix4().makeScale(1,tall,1)).multiply(tr);}if(!tr.elements.every(Number.isFinite))throw Error('Nonfinite transform');const key=g.uuid+':'+m.uuid;let b=buckets.get(key);if(!b){b={g,m,items:[]};buckets.set(key,b);}b.items.push({tr,tint,role:activeRole});geometries.add(g);roles[activeRole]=(roles[activeRole]||0)+1;}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){if(w>0&&h>0&&d>0)emit(cube,ma,x,y,z,w,h,d,rot,tint);}
  function grouped(x,y,z,yaw,fn,scale=1){const q=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromAxisAngle(V([0,1,0]),yaw),V([scale,scale,scale]));stack.push(stack.at(-1).clone().multiply(q));try{fn();}finally{stack.pop();}}
  function role(name,fn){const r=activeRole;activeRole=name;try{return fn();}finally{activeRole=r;}}
@@ -89,23 +89,17 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const span of[[2.86,4.73,C.capitalTop-.9],[4.73,6.88,C.capitalTop-1.3]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.32,.44,'red');relief(x,span[2]+.12,.272,w*.84,.24);}
  });
 
- const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:H(10.17),rise:C.ridgeY-H(10.17),curl:.62,centerZ:C.ridgeZ,connected:true});
- roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.55),rise:2.36,curl:.56,centerZ:-4.5,inner:.50,frontGap:6.53});
- role('entrance-deep-connected-canopy',()=>{
-  const zs=lin(upperFront,gFront,15),weather=gridAt(xs,zs,canopy);emit(shell(weather,-.035,.025,'connected-canopy-ceramics'),'slate');emit(shell(weather,-.16,-.035,'connected-canopy-timber-deck'),'cedar');
-  // 37 individually solid rough-sawn rafters. Boards are above them, so the
-  // underside presents true member depth and air gaps, not a smooth false skin.
-  const rr=lin(-gHalf+.1,gHalf-.1,36);for(let k=0;k<rr.length;k++){const x=rr[k],rgrid=gridAt([x-.065,x+.065],lin(gBack,gFront+.09,30),canopy);emit(shell(rgrid,-.39,-.16,'visible-curved-cedar-rafter'),'cedar');arch.squareFitting(x,canopy(x,gFront+.09)-.275,gFront+.096,.13,.23,0,k%2===0);}
-  for(const z of[gBack,-.48,.57]){const curve=gridAt(xs,[z-.11,z+.11],canopy);emit(shell(curve,-.64,-.39,'transverse-curved-carrier'),'red');}
-  // Front bargeboard is a real closed curved beam, queried by the lantern arms.
-  const barge=shell(gridAt(xs,[gFront-.17,gFront+.07],canopy),-.47,-.02,'entrance-saddled-bargeboard');emit(barge,'cedar');
-  for(const drop of[-.04,-.45])tube(xs.map(x=>[x,canopy(x,gFront+.08)+drop,gFront+.085]),.018,'oldgold',120);
-  for(const x of[-5.6,-4.3,-2.9,-1.5,1.5,2.9,4.3,5.6]){const y=canopy(x,gFront+.08)-.25;arch.squareFitting(x,y,gFront+.094,.28,.34);}
-  for(let i=0;i<=62;i++){const x=-gHalf+2*gHalf*i/62;const ts=lin(upperFront,gFront+.04,7);for(let j=0;j<ts.length-1;j++)tileBetween([x,canopy(x,ts[j])+.025,ts[j]],[x,canopy(x,ts[j+1])+.025,ts[j+1]],.063,.96+.05*Math.sin(i*5+j));arch.tileEnd(V([x,canopy(x,gFront+.04)+.025,gFront+.06]),0,.074,i%2===0);}
-  // Discrete curved ribs and inset timber panels retain the arch depth.
-  for(const x of[-2.9,0,2.9]){const y=canopy(x,.57)-.65;box(x,(y+C.capitalTop+.36)/2,.57,.18,Math.max(.05,y-C.capitalTop-.36),.20,'red');}
-  relief(0,canopy(0,gFront+.08)-.25,gFront+.10,1.05,.29);
-  const peak=canopy(0,gFront)+.025;box(0,peak+.22,gFront-.1,.40,.45,.34,'slate');rosette(0,peak+.25,gFront+.09,.17,'gold');tube([[-.32,peak+.03,gFront-.1],[-.28,peak+.40,gFront-.1],[0,peak+.70,gFront-.1],[.28,peak+.4,gFront-.1],[.32,peak+.03,gFront-.1]],.09,'slate',32);emit(sphere,'oldgold',0,peak+.73,gFront-.1,.07,.13,.07);
+ const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:H(10.17),rise:C.ridgeY-H(10.17),curl:.62,centerZ:C.ridgeZ,connected:false});
+ roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.55),rise:2.36,curl:.56,centerZ:-4.5,inner:.45,frontGap:0});
+ role('front-gable-fine-woodwork',()=>{
+  const hw=3.7,front=.35,back=-3.1,base=H(10.17),peak=13.4,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),.83);
+  const grid=gridAt(lin(-hw,hw,60),lin(back,front,16),(x,z)=>curve(x));emit(shell(grid,-.14,0,'gable-ceramic'),'slate');
+  for(let i=0;i<=36;i++){let x=-hw+2*hw*i/36,y=curve(x);for(let j=0;j<10;j++)tileBetween([x,y+.025,back+(front-back)*j/10],[x,y+.025,back+(front-back)*(j+.98)/10],.065);arch.tileEnd(V([x,y+.025,front+.03]),0,.075,i%2===0);between([x,y-.24,back],[x,y-.24,front+.07],.105,.14,'cedar');}
+  for(let i=0;i<40;i++){const x0=-hw+2*hw*i/40,x1=-hw+2*hw*(i+1)/40;between([x0,curve(x0)-.16,front],[x1,curve(x1)-.16,front],.15,.21,'red');between([x0,curve(x0)-.045,front+.13],[x1,curve(x1)-.045,front+.13],.027,.035,'gold');}
+  box(0,base+.10,front-.1,hw*1.9,.24,.24,'cedar');
+  for(let i=-12;i<=12;i++){const x=i*.265,h=curve(x)-base-.35;if(h>.12){box(x,base+.15+h/2,front-.23,.095,h,.13,'cedar');if(i%3===0)relief(x,base+.45+h*.44,front-.14,.2,.5);}}
+  for(let j=0;j<7;j++){const y=base+.35+j*.38,w=2*hw*Math.pow(Math.max(0,1-(y-base)/(peak-base)),1/.83);if(w>.1)box(0,y,front-.24,w,.055,.13,'oldgold');}
+  rosette(0,base+.66,front-.05,.34);rosette(0,peak-.24,front+.1,.17);
  });
 
  const towerLevels=[];grouped(...C.towerPosition,0,()=>{

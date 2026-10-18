@@ -3,7 +3,7 @@ import * as T from 'three';
 // One open, cupped petal lamina. The two narrow ends are unique shared vertices,
 // not 13 coincident copies forming collapsed triangles. Shape/UV range retained.
 export function createRestorationLotusPetal(seed=1){
-  const rows=20,cols=12,p=[0,0,0],uv=[.5,0],ids=[];
+  const rows=28,cols=20,p=[0,0,0],uv=[.5,0],ids=[];
   for(let j=1;j<rows;j++)for(let i=0;i<=cols;i++){
     const t=j/rows,u=i/cols*2-1,w=.25*Math.pow(Math.sin(Math.PI*t),.52)*(1-.13*t);
     const lean=.026*Math.sin(seed*2.1)*Math.sin(t*Math.PI),twist=.023*Math.sin(seed+t*3)*u*Math.sin(t*Math.PI);
