@@ -1,0 +1,118 @@
+{
+  "status": "unaccepted-local-nasal-candidate-for-review",
+  "photographicAcceptance": false,
+  "baseCommit": "8082e52",
+  "branch": "work/face06-nasal-repair-20261019",
+  "worktree": "/Users/mima1234/temple-face06-nasal-repair-20261019",
+  "selectedReplacementRecommended": false,
+  "finalSourceMatchesActualNativeRender": true,
+  "finalSource": "55a85a824ab744f4b7a49d8efe82260b09c4df0c212173710aec638b382b7ab8",
+  "rounds": [
+    {
+      "iteration": "nasal87",
+      "source": "d698d6f1e6cae74ce60d4f472535bd30c865f9cd71f92e7ffaaacbfa51fda633",
+      "validFrames": 2,
+      "review": "Rejected spherical alar caps and seams after filling curled openings."
+    },
+    {
+      "iteration": "nasal88",
+      "source": "55a85a824ab744f4b7a49d8efe82260b09c4df0c212173710aec638b382b7ab8",
+      "validFrames": 2,
+      "review": "Caps lower, but paired flattened masses and seams remain. Not accepted."
+    }
+  ],
+  "actualOriginalCamera": {
+    "position": [
+      0,
+      0.58,
+      8.4
+    ],
+    "target": [
+      0,
+      2.4,
+      -2.3
+    ],
+    "quaternion": [
+      0.08414089476065134,
+      0,
+      0,
+      0.996453867386181
+    ],
+    "fov": 62
+  },
+  "detailCrop": {
+    "pixels": [
+      584,
+      331,
+      95,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "referenceFocus": {
+    "enabled": false,
+    "focusDistance": 10.853681403100055,
+    "fNumber": 2.8,
+    "strength": 0,
+    "focalLengthMm": 29.124890941134066,
+    "maxRadiusPixels": 6,
+    "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+    "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+    "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+  },
+  "finalAsset": {
+    "sha256": "a86f4355294998dd0ded6dbb38316eebb30a88dd5acb4f16a8f44c2bc292712f",
+    "parts": 1,
+    "triangles": 228062,
+    "images": [],
+    "textures": [],
+    "materials": [],
+    "bounds": {
+      "min": [
+        -0.5106198787689209,
+        2.3600232892029207,
+        -0.6867537634474773
+      ],
+      "max": [
+        0.5092326998710632,
+        3.204906986502095,
+        0.3690499994930998
+      ]
+    }
+  },
+  "topology": {
+    "vertices": 113351,
+    "triangles": 228062,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "signedVolumeUnits3": 0.01494843438220385,
+    "euler": -680
+  },
+  "protectedOriginalVertices": 105120,
+  "protectedVerticesMissingOrMoved": 0,
+  "otherSourceFilesUnchanged": [
+    "floor-varnish.js",
+    "lens-bloom.js",
+    "reference6-camera-shot.js",
+    "reference6-coffer-relief.js",
+    "reference6-column-collar.js",
+    "reference6-main.js",
+    "reference6-scene.js",
+    "restoration-altar.js",
+    "restoration-buddha.js",
+    "restoration-lighting.js",
+    "restoration-render-diagnostics.js",
+    "shot-focus.js"
+  ],
+  "scopeClarification": "Upper nasal bridge and central axis retained. Alar-to-lower-nasal-side transitions inside the explicit operation bounds were locally deformed. Lips, eyelids and other out-of-window original vertices were fixed.",
+  "unresolved": [
+    "Paired flattened alar masses, retained seams and inaccurate nasal base.",
+    "Upstream pursed thick lips deliberately not edited.",
+    "Other learned face and full scene photographic differences remain."
+  ],
+  "imagesUsedByLocalRepair": false,
+  "newLightsOrMaterialChanges": false,
+  "testsRun": false,
+  "fullMovieRun": false,
+  "pushPerformed": false
+}

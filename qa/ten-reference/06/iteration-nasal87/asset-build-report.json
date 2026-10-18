@@ -1,0 +1,205 @@
+{
+  "status": "local-nasal-geometric-repair-unaccepted-candidate",
+  "photographicAcceptance": false,
+  "sourceCommit": "8082e52",
+  "sourceAsset": "learned-face-v02",
+  "sourceAssetSha256": "0c8797f32d2e096c971397d7a804c992d34aa4e70f122c6fc018f2b582b0ede9",
+  "initialTopology": {
+    "vertices": 107805,
+    "triangles": 216994,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "signedVolumeUnits3": 0.014491230263126936,
+    "euler": -692
+  },
+  "operations": [
+    {
+      "operation": "UNION",
+      "label": "Fuse closed nasal wing; seal curled ring route",
+      "audit": {
+        "vertices": 110005,
+        "triangles": 221374,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "signedVolumeUnits3": 0.014864447577536626,
+        "euler": -682
+      }
+    },
+    {
+      "operation": "UNION",
+      "label": "Fuse closed nasal wing; seal curled ring route",
+      "audit": {
+        "vertices": 112221,
+        "triangles": 225802,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "signedVolumeUnits3": 0.01523878701093496,
+        "euler": -680
+      }
+    },
+    {
+      "operation": "DIFFERENCE",
+      "label": "Small blind nasal recess with solid floor",
+      "audit": {
+        "vertices": 112786,
+        "triangles": 226932,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "signedVolumeUnits3": 0.015210650487961276,
+        "euler": -680
+      }
+    },
+    {
+      "operation": "DIFFERENCE",
+      "label": "Small blind nasal recess with solid floor",
+      "audit": {
+        "vertices": 113351,
+        "triangles": 228062,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "signedVolumeUnits3": 0.015210409552143558,
+        "euler": -680
+      }
+    }
+  ],
+  "closureSolids": [
+    {
+      "centre": [
+        -0.065,
+        2.72,
+        0.285
+      ],
+      "radii": [
+        0.055,
+        0.038,
+        0.045
+      ]
+    },
+    {
+      "centre": [
+        0.065,
+        2.72,
+        0.285
+      ],
+      "radii": [
+        0.055,
+        0.038,
+        0.045
+      ]
+    }
+  ],
+  "blindRecessCutters": [
+    {
+      "centre": [
+        -0.064,
+        2.707,
+        0.336
+      ],
+      "radii": [
+        0.018,
+        0.006,
+        0.012
+      ]
+    },
+    {
+      "centre": [
+        0.064,
+        2.707,
+        0.336
+      ],
+      "radii": [
+        0.018,
+        0.006,
+        0.012
+      ]
+    }
+  ],
+  "topology": {
+    "vertices": 113351,
+    "triangles": 228062,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "signedVolumeUnits3": 0.015210409552143558,
+    "euler": -680
+  },
+  "localFairing": {
+    "factor": 0.55,
+    "iterations": 20,
+    "maxMovementUnits": 0.006639718997888096,
+    "weightedVertices": 6895,
+    "outsideWeightsExactlyZero": true
+  },
+  "protectedOriginalVertices": 105120,
+  "protectedVerticesMissingOrMoved": 0,
+  "operationBoundsArtistYUp": {
+    "absX": [
+      0.01,
+      0.141
+    ],
+    "Y": [
+      2.672,
+      2.783
+    ],
+    "ZGreaterThan": 0.218
+  },
+  "actualFrontSurfaceProbes": [
+    {
+      "xy": [
+        -0.075,
+        2.72
+      ],
+      "firstZ": 0.3287983238697052
+    },
+    {
+      "xy": [
+        -0.065,
+        2.72
+      ],
+      "firstZ": 0.3295150697231293
+    },
+    {
+      "xy": [
+        -0.055,
+        2.72
+      ],
+      "firstZ": 0.32881247997283936
+    },
+    {
+      "xy": [
+        0.055,
+        2.72
+      ],
+      "firstZ": 0.328799307346344
+    },
+    {
+      "xy": [
+        0.065,
+        2.72
+      ],
+      "firstZ": 0.3295142650604248
+    },
+    {
+      "xy": [
+        0.075,
+        2.72
+      ],
+      "firstZ": 0.3287983536720276
+    }
+  ],
+  "bitmapLoaded": false,
+  "imagesUsed": false,
+  "materialsChanged": false,
+  "placementChanged": false,
+  "cameraChanged": false,
+  "neckCrownBodyChanged": false,
+  "editableSourceAndClosureSolidsInBlend": true,
+  "referenceForComparisonOnly": "lookdev/trellis2-head-study/reference-head-comparison-only.png; references/hd/4-\u7167\u7247-5.jpg",
+  "limitations": [
+    "This is a local anatomical hypothesis fitted to the existing learned face, not a recovery of a measured statue.",
+    "Mouth, eyes and other remaining learned-face differences are deliberately untouched.",
+    "Metal response and photographic fidelity must be judged in actual native scene frames, not by manifold topology."
+  ],
+  "central-face.glbSha256": "8fdbb6678df23ef2c7ea805f8494fa076635bb0ca61e9f5c64a7f3f5c38a8957",
+  "central-face.blendSha256": "7905da843d5df20cf286489c383cb7eb424bcb8edcefc3d9802eed2c4a4a81ac",
+  "build-source.pySha256": "e2f97954af2a46b5443a8be871547743c8b35cc76aa9787d77e9349b6d447452"
+}

@@ -1,0 +1,60 @@
+{
+  "status": "closed-local-mesh-export-audited-not-visual-acceptance",
+  "visualAccepted": false,
+  "baseCommit": "8082e52",
+  "before": {
+    "sha256": "0c8797f32d2e096c971397d7a804c992d34aa4e70f122c6fc018f2b582b0ede9",
+    "parts": 1,
+    "triangles": 216994,
+    "images": [],
+    "textures": [],
+    "materials": [],
+    "bounds": {
+      "min": [
+        -0.5106198787689209,
+        2.3600232892029207,
+        -0.6867537634474773
+      ],
+      "max": [
+        0.5092326998710632,
+        3.204906986502095,
+        0.3690499994930998
+      ]
+    }
+  },
+  "after": {
+    "sha256": "a86f4355294998dd0ded6dbb38316eebb30a88dd5acb4f16a8f44c2bc292712f",
+    "parts": 1,
+    "triangles": 228062,
+    "images": [],
+    "textures": [],
+    "materials": [],
+    "bounds": {
+      "min": [
+        -0.5106198787689209,
+        2.3600232892029207,
+        -0.6867537634474773
+      ],
+      "max": [
+        0.5092326998710632,
+        3.204906986502095,
+        0.3690499994930998
+      ]
+    }
+  },
+  "unchangedSource": {
+    "floor-varnish.js": "e7b2c8f01e74c2dad0c0fca1923d3ba13db5e67764c02fc0548853c8702628ce",
+    "lens-bloom.js": "e21b284cc1a3301149a42a0ba8a303ab4bf26ec30031e424f56a53c4769a07d8",
+    "reference6-camera-shot.js": "3ab675085727ee8a6fbabaa622e4d9acee212287349e5114d109248e7d497423",
+    "reference6-coffer-relief.js": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53",
+    "reference6-column-collar.js": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94",
+    "reference6-main.js": "ecf452252ffeabd654ac6effbf38998950309e26e6612ddc0d707ac807bd300d",
+    "reference6-scene.js": "43c3f801b945c3b16f5224364cdc6e728dc7e1b31dc2faf515b9faf04358922e",
+    "restoration-altar.js": "deca4c4d0ff998d3366ab79644afcfa872642362eca3a935678b886d3d4b4120",
+    "restoration-buddha.js": "ec2b9d9306031ad47e3dfc8f85d7bf71248dd2c4af1c39380ceaccee44af7f10",
+    "restoration-lighting.js": "23063b312965d240d6b808bd45079f7a34e44a7a4f7b11d15122ff93b02e9fb7",
+    "restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25",
+    "shot-focus.js": "3101c18d1285ec0b96745ef2d7c9c5e40783e7e4a9b138a8bf3966b7aa533079"
+  },
+  "scope": "Only alar closure geometry and its loader asset path. Camera/FOV/focus, lights, roughness .42, crown, native neck/body and all other source retain exact base bytes."
+}

@@ -1,0 +1,128 @@
+{
+  "status": "local-nasal-section-sculpt-unaccepted-candidate",
+  "photographicAcceptance": false,
+  "sourceCommit": "8082e52",
+  "sourceAsset": "learned-face-v03-nasal",
+  "sourceAssetSha256": "8fdbb6678df23ef2c7ea805f8494fa076635bb0ca61e9f5c64a7f3f5c38a8957",
+  "underlyingLearnedFaceAssetSha256": "0c8797f32d2e096c971397d7a804c992d34aa4e70f122c6fc018f2b582b0ede9",
+  "previousCandidate": "nasal87: closed openings but objectionable spherical wings, preserved and rejected",
+  "topology": {
+    "vertices": 113351,
+    "triangles": 228062,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "signedVolumeUnits3": 0.01494843438220385,
+    "euler": -680
+  },
+  "controlSectionsArtistYUp": {
+    "absX": [
+      0.0,
+      0.015,
+      0.035,
+      0.055,
+      0.075,
+      0.1,
+      0.13,
+      0.141
+    ],
+    "Y": [
+      2.677,
+      2.698,
+      2.728,
+      2.755,
+      2.781
+    ],
+    "Zrows": [
+      [
+        0.33,
+        0.325,
+        0.297,
+        0.279,
+        0.268,
+        0.26,
+        0.264,
+        0.265
+      ],
+      [
+        0.352,
+        0.347,
+        0.322,
+        0.302,
+        0.286,
+        0.27,
+        0.267,
+        0.268
+      ],
+      [
+        0.369,
+        0.365,
+        0.342,
+        0.317,
+        0.301,
+        0.28,
+        0.269,
+        0.27
+      ],
+      [
+        0.367,
+        0.363,
+        0.342,
+        0.318,
+        0.298,
+        0.273,
+        0.268,
+        0.269
+      ],
+      [
+        0.36,
+        0.356,
+        0.335,
+        0.309,
+        0.281,
+        0.266,
+        0.267,
+        0.268
+      ]
+    ],
+    "method": "Monotone cubic X interpolation and smooth Y blending; explicit numeric sculpture sections, no image input"
+  },
+  "compression": {
+    "surplusRetention": 0.15,
+    "maxMovementUnits": 0.03779707240202351
+  },
+  "localFairing": {
+    "factor": 0.62,
+    "iterations": 80,
+    "maxMovementUnits": 0.009913235838519708,
+    "weightedVertices": 8025
+  },
+  "protectedOriginalVertices": 105120,
+  "protectedVerticesMissingOrMoved": 0,
+  "operationBoundsArtistYUp": {
+    "absX": [
+      0.01,
+      0.141
+    ],
+    "Y": [
+      2.672,
+      2.783
+    ],
+    "ZGreaterThan": 0.218
+  },
+  "bitmapLoaded": false,
+  "imagesUsed": false,
+  "materialsChanged": false,
+  "placementChanged": false,
+  "cameraChanged": false,
+  "neckCrownBodyChanged": false,
+  "editableSourceAndClosureSolidsInBlend": true,
+  "limitations": [
+    "Artist-guided local repair of a learned mesh; exact historical anatomy remains unmeasured.",
+    "Nose-side volume and nasal recesses require native photographic comparison.",
+    "Mouth, eyes and other learned facial differences deliberately remain unchanged.",
+    "Closed topology alone is not visual acceptance."
+  ],
+  "central-face.glbSha256": "a86f4355294998dd0ded6dbb38316eebb30a88dd5acb4f16a8f44c2bc292712f",
+  "central-face.blendSha256": "c63ee7b0167a8fa1ae5d22ea66b353d2465e5029fff015681227ddbd66d1ad2e",
+  "build-source.pySha256": "4282a751582bce9c3a5ba363aba91a03e655723677fb1c1a74f9f9973fbb0433"
+}
