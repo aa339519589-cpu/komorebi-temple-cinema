@@ -107,20 +107,26 @@ export function buildReference4Architecture(T,options={}) {
   for(let j=0;j<=80;j++){const u=-1+2*j/80;for(let k=0;k<8;k++)between(P(u,.45+.585*k/8),P(u,.45+.585*(k+1)/8),.105,.17,'cedar');const p=P(u,1.035);box(p[0],p[1],p[2]+.03,.11,.16,.06,'oldgold');}
   for(const t of[.58,.77,.94])for(let k=0;k<44;k++){let a=P(-1+2*k/44,t),b=P(-1+2*(k+1)/44,t);a[1]-=.20;b[1]-=.20;between(a,b,.18,.25,'red');}
  });
- role('front-gable-fine-woodwork',()=>{
-  const hw=4.5,front=-.30,back=-4.8,base=14.4,peak=19.20,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.20);
-  const pp=[],uu=[];for(let i=0;i<60;i++){let a=-hw+2*hw*i/60,b=-hw+2*hw*(i+1)/60;for(let p of[[a,base,front-.34],[b,base,front-.34],[a,curve(a)-.17,front-.34],[a,curve(a)-.17,front-.34],[b,base,front-.34],[b,curve(b)-.17,front-.34]]){pp.push(...p);uu.push(p[0],p[1]);}}emit(meshFromTriangles(pp,uu,'closed-carved-gable'),'darkwood');
+ role('front-gable-fine-woodwork',()=>grouped(.75,0,0,0,()=>{
+  // Original 03: apex near (0.625,0.04), inset shoulders above the long eave.
+  // The former straight 9m triangle and vertical stripes overwhelmed the roof.
+  const hw=3.85,front=-.60,back=-4.8,base=15.45,foot=14.35,peak=19.35,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.48)+.14*Math.pow(Math.abs(x)/hw,8);
+  const pp=[],uu=[];for(let i=0;i<60;i++){let a=-hw+2*hw*i/60,b=-hw+2*hw*(i+1)/60;for(let p of[[a,foot,front-.34],[b,foot,front-.34],[a,curve(a)-.17,front-.34],[a,curve(a)-.17,front-.34],[b,foot,front-.34],[b,curve(b)-.17,front-.34]]){pp.push(...p);uu.push(p[0],p[1]);}}emit(meshFromTriangles(pp,uu,'closed-carved-gable'),'cedar');
   const grid=gridAt(lin(-hw,hw,60),lin(back,front,16),(x,z)=>curve(x));emit(shell(grid,-.14,0,'gable-ceramic'),'slate');
-  for(let i=0;i<=36;i++){let x=-hw+2*hw*i/36,y=curve(x);for(let j=0;j<10;j++)tileBetween([x,y+.025,back+(front-back)*j/10],[x,y+.025,back+(front-back)*(j+.98)/10],.065);arch.tileEnd(V([x,y+.025,front+.03]),0,.075,i%2===0);between([x,y-.24,back],[x,y-.24,front+.07],.105,.14,'cedar');}
-  for(let i=0;i<40;i++){const x0=-hw+2*hw*i/40,x1=-hw+2*hw*(i+1)/40;between([x0,curve(x0)-.16,front],[x1,curve(x1)-.16,front],.15,.21,'red');between([x0,curve(x0)-.045,front+.13],[x1,curve(x1)-.045,front+.13],.027,.035,'gold');}
-  box(0,base+.10,front-.1,hw*1.9,.24,.24,'cedar');
-  for(let i=-10;i<=10;i++){const x=i*.35,h=curve(x)-base-.35;if(h>.12){box(x,base+.15+h/2,front-.25,.12,h,.18,'darkwood');if(i%2===0)relief(x,base+.35+h*.44,front-.13,.30,Math.min(.7,h*.7));}}
+  for(let i=0;i<=36;i++){let x=-hw+2*hw*i/36,y=curve(x);for(let j=0;j<10;j++)tileBetween([x,y+.025,back+(front-back)*j/10],[x,y+.025,back+(front-back)*(j+.98)/10],.085);arch.tileEnd(V([x,y+.025,front+.05]),0,.106,i%3===0);between([x,y-.24,back],[x,y-.24,front+.07],.105,.14,'cedar');}
+  for(let i=0;i<48;i++){const x0=-hw+2*hw*i/48,x1=-hw+2*hw*(i+1)/48;between([x0,curve(x0)-.23,front],[x1,curve(x1)-.23,front],.27,.31,'red');between([x0,curve(x0)-.13,front+.17],[x1,curve(x1)-.13,front+.17],.035,.035,'oldgold');between([x0,curve(x0)+.10,front+.03],[x1,curve(x1)+.10,front+.03],.10,.12,'slate');}
+  box(0,foot+.12,front-.1,hw*1.9,.24,.24,'cedar');
+  for(const y of[15.55,16.3,17.08]){const half=hw*(1-Math.pow(Math.max(0,(y-base+.28)/(peak-base)),1/1.48));if(half>.3){box(0,y,front-.17,half*1.78,.14,.22,'red');box(0,y-.11,front-.04,half*1.75,.026,.025,'oldgold');}}
+  for(const side of[-1,1])between([0,17.72,front-.12],[side*2.55,15.75,front-.12],.17,.15,'darkwood');
   for(const sign of[-1,1]){
    tube(lin(.12,.97,30).map(t=>{let x=sign*t*hw;return[x,curve(x)-.28,front+.08]}),.038,'oldgold',40);
-   for(let j=0;j<5;j++){const cx=sign*(3.05-j*.55),cy=base+.52+j*.57,rr=.34-j*.018,pts=[];for(let k=0;k<28;k++){let t=k/27,a=t*Math.PI*2*1.13,r=rr*(1-t*.62);pts.push([cx+sign*Math.cos(a)*r,cy+Math.sin(a)*r*.72,front-.075]);}tube(pts,.027,'gold',40);rosette(cx,cy,front-.055,.10);}
+   for(let j=0;j<5;j++){const cx=sign*(3.05-j*.55),cy=curve(cx)-.65,rr=.34-j*.018,pts=[];for(let k=0;k<28;k++){let t=k/27,a=t*Math.PI*2*1.13,r=rr*(1-t*.62);pts.push([cx+sign*Math.cos(a)*r,cy+Math.sin(a)*r*.72,front-.075]);}tube(pts,.027,'gold',40);rosette(cx,cy,front-.055,.10);}
   }
   rosette(0,base+.66,front-.05,.34);rosette(0,peak-.24,front+.1,.17);
- });
+  // Raised kiln-black crest and small gilt centre sit above the blue-grey edge.
+  emit(sphere,'slate',0,peak+.12,front,.27,.30,.13);rosette(0,peak+.14,front+.14,.18,'oldgold');
+  for(const side of[-1,1])tube([[side*.12,peak+.10,front],[side*.37,peak+.25,front],[side*.39,peak+.47,front],[side*.25,peak+.51,front]],.08,'slate',24);
+ }));
 
  role('main-roof-gilded-lotus-finial',()=>{
   const x=3.8,z=-4.6,y=19.9;emit(cyl,'oldgold',x,y+1.9,z,.055,3.8,.055);emit(cyl,'oldgold',x,y-.08,z,.25,.30,.25);emit(sphere,'gold',x,y+.10,z,.22,.18,.22);
