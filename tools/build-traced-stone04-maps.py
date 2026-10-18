@@ -1,9 +1,9 @@
-"""Build metre-scaled per-stone PBR inputs from code-authored mineral volumes.
+"""Build metre-scaled per-stone PBR inputs from authored mineral materials.
 The supplied temple image is never opened. Layout uses manually observed joints.
 Wet regions, material scale, hidden wear and stone reflectance remain hypotheses.
 """
 from pathlib import Path
-import ast, json, re, hashlib
+import ast, json, re, hashlib,sys
 import numpy as np
 from PIL import Image
 import cv2
@@ -21,13 +21,15 @@ def ex(a,y):
  k=0
  while k<len(a)-2 and y>a[k+1][0]:k+=1
  p,q=a[k],a[k+1];return p[1]+(q[1]-p[1])*(y-p[0])/(q[0]-p[0])
-scan=ROOT/'reconstructions/scene-04/assets/granite-aggregate04'
-open_scan=lambda suffix:Image.open(scan/('granite-aggregate-'+suffix+'.png'))
+image_assisted='--image-assisted87' in sys.argv
+scan=ROOT/('reconstructions/scene-04/assets/granite-image87' if image_assisted else 'reconstructions/scene-04/assets/granite-aggregate04')
+prefix='granite-image87' if image_assisted else 'granite-aggregate'
+open_scan=lambda suffix:Image.open(scan/(prefix+'-'+suffix+'.png'))
 diff=np.asarray(open_scan('diff').convert('RGB'),np.float32)/255
 lin=np.where(diff<=.04045,diff/12.92,((diff+.055)/1.055)**2.4)
 nor=np.asarray(open_scan('nor_gl').convert('RGB'),np.float32)/127.5-1
 rough=np.asarray(open_scan('rough').convert('L'),np.float32)/255
-period=np.array([.30,.30])
+period=np.array([.60,.60] if image_assisted else [.30,.30])
 damp_observations=json.loads((OUT/'damp-region-observations.json').read_text())
 damp_polygons=[np.array([world(p) for p in polygon],np.float32) for polygon in damp_observations['regions']]
 # Convert the scan into a periodic material without a mirrored seam. Each
@@ -86,5 +88,8 @@ for col in range(3):
   save('basecolor',srgb);save('normal',nn*.5+.5);save('roughness',np.repeat(ro[:,:,None],3,axis=2));save('wetlayer',coat)
   records.append({'id':ident,'boundsXZ':[lo.tolist(),hi.tolist()],'size':size,'physicalGraniteRepeatMetres':period.tolist(),'source':'Code-built periodic metric mineral volumes and coarsely observed damp material state','referenceRGBUsed':False})
 manifest={'revision':'traced-stone04-84','scope':'PBR material candidates, not accepted photographic matches','observationInputSha256':hashlib.sha256(json.dumps({'edges':edges,'joints':joints},separators=(',',':')).encode()).hexdigest(),'referenceRGBUsed':False,'microstructureSource':'tools/build-granite-aggregate04.py','method':'Authored metric mineral volumes; normal is the residual height derivative','microstructureAuthorship':'Code-authored in this public project','physicalGraniteRepeatMetres':period.tolist(),'albedoDryMeanLinearRGB':[.105,.100,.090],'clearLayerIOR':1.333,'assumptions':['Crystal placement and mineral reflectance are authored physical hypotheses.','Damp contours coarsely manually observed; not pixel-exact recovered material state.','Original UV layout is not used to depict an assembled floor.'],'records':records}
+if image_assisted:
+ manifest.update(revision='traced-stone04-87',microstructureSource='tools/build-image-assisted-granite87.py',method='Generated neutral mineral diffuse with authored shallow residual normal relief; observed floor joints remain actual geometry',microstructureAuthorship='Built-in image_gen material guide and code-derived material estimates',imageGenerationProvenance='lookdev/stone-material87/imagegen-provenance.json',generatedGuideConditionedOnReference=True,referenceSceneRGBProjected=False,albedoDryMeanLinearRGB=[.140,.131,.117])
+ for r in manifest['records']:r['source']='Generated neutral mineral material guide and authored estimated microrelief, with coarsely observed damp material state'
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print(f'Built {len(records)} individually mapped PBR stone sets; reference photograph never read.')
