@@ -83,7 +83,7 @@ export function buildReference4Architecture(T,options={}) {
   
  });
  role('columns-gilt-bronze-collars',()=>{
-  for(const x of C.columnAxes){const rr=Math.abs(x)<3?.297:.267;for(const y of[2.85,3.54,7.88]){emit(cyl,'oldgold',x,y,.0,rr,.065,rr);emit(cyl,'black',x,y+.11,.0,rr+.002,.13,rr+.002);}for(let j=0;j<4;j++){const y=5.75+j*.31;relief(x,y,.29,.31,.29);}for(const y of[3.15,7.4]){box(x,y,.285,.30,.32,.038,'black');rosette(x,y,.315,.10,'oldgold');}}
+  for(const x of C.columnAxes){const rr=Math.abs(x)<3?.297:.267;for(const y of[4.65,5.34,7.88]){emit(cyl,'oldgold',x,y,.0,rr,.065,rr);emit(cyl,'black',x,y+.11,.0,rr+.002,.13,rr+.002);}for(let j=0;j<4;j++){const y=5.75+j*.31;relief(x,y,.29,.31,.29);}for(const y of[4.95,7.4]){box(x,y,.285,.30,.32,.038,'black');rosette(x,y,.315,.10,'oldgold');}}
  });
  role('closed-sanctuary-carved-transoms',()=>{
   box(0,7.55,-.72,13.5,2.55,.18,'darkwood');
