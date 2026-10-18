@@ -12,21 +12,22 @@ function rosette(x,y,z,r=.12,ma='gold',n=8){for(let i=0;i<n;i++){const a=i*TAU/n
 const fittingShape=new T.Shape();for(let k=0;k<6;k++){const a=Math.PI/6+k*TAU/6;if(k===0)fittingShape.moveTo(Math.cos(a),Math.sin(a));else fittingShape.lineTo(Math.cos(a),Math.sin(a));}fittingShape.closePath();const hexFitting=new T.ExtrudeGeometry(fittingShape,{depth:.08,bevelEnabled:true,bevelSize:.035,bevelThickness:.022,bevelSegments:2,steps:1}),hexWire=new T.TubeGeometry(new T.CatmullRomCurve3(Array.from({length:7},(_,k)=>{const a=Math.PI/6+k*TAU/6;return V([Math.cos(a),Math.sin(a),0]);})),36,.035,6,false);
 function carvedFitting(x,y,z,w,h){B.emit(hexFitting,'goldDark',x,y,z,w*.55,h*.55,.6);B.emit(hexWire,'gold',x,y,z+.063,w*.51,h*.51,.50);B.emit(hexWire,'gold',x,y,z+.066,w*.41,h*.41,.35);for(let k=0;k<8;k++)B.emit(petalWire,'gold',x,y,z+.073,w*1.6,h*1.6,1,[0,0,k*TAU/8]);B.sphere(x,y,z+.07,w*.05,h*.05,.025,'goldLight');}
 function squareGold(x,y,z,w,h=w){
-if(B.joineryKit&&w>=.14&&h>=.12){B.emit(B.joineryKit.relief,'gold',x,y,z+.017,w,h,Math.min(w,h));return;}
 B.box(x,y,z,w,h,.025,'goldDark');for(const xx of[-1,1])B.box(x+xx*(w/2-.012),y,z+.019,.024,h,.018,'gold');for(const yy of[-1,1])B.box(x,y+yy*(h/2-.012),z+.019,w,.024,.018,'gold');rosette(x,y,z+.035,Math.min(w,h)*.45);}
 function ornament(x,y,z,w=.7,h=.2){B.emit(scroll,'gold',x,y,z,w,h/.15,1);rosette(x,y,z+.01,h*.42);}
-function bracket(x,y,z,s=1){B.with(x,y,z,0,()=>{
-if(B.joineryKit){
+function bracket(x,y,z,s=1,useKit=false){B.with(x,y,z,0,()=>{
+if(B.joineryKit&&useKit){
  // Preserve the former1.72m spread and1.23m bearing height while replacing
  // disconnected slanted blocks with closed bevelled half-lapped timbers.
  for(const part of B.joineryKit.bracket)B.emit(part.geometry,'wood',0,0,0,1.18,1.50,1.18);
- for(const side of[-1,1]){
-  for(const row of[0,1]){
+ for(const axis of[0,1])B.with(0,0,0,axis*Math.PI/2,()=>{
+  for(const side of[-1,1])for(const row of[0,1]){
    const xx=side*(row?.6808:.6208)*1.18,yy=(row?.52025:.18875)*1.50;
-   B.with(xx,yy,0,side*Math.PI/2,()=>squareGold(0,0,0,.22,.18));
-   if(row)for(const zz of[-.415,.415])B.with(xx,yy,zz*1.18,side*Math.PI/2,()=>squareGold(0,0,0,.22,.18));
+   for(const zz of(row?[-.415,.415]:[0]))B.with(xx,yy,zz*1.18,side*Math.PI/2,()=>{
+    B.box(0,0,0,.22,.18,.018,'goldDark');
+    B.emit(B.joineryKit.relief,'gold',0,0,.012,.22,.18,.18);
+   });
   }
- }
+ });
  return;
 }
 B.box(0,0,0,.42,.26,.42,'red');for(let k=0;k<4;k++){const yy=.20+k*.22,ext=.26+k*.18;for(const axis of[0,1]){for(const sign of[-1,1]){const a=axis?[0,yy,sign*.05]:[sign*.05,yy,0],b=axis?[0,yy+.04,sign*ext]:[sign*ext,yy+.04,0],c=axis?[0,yy+.14,sign*(ext+.12)]:[sign*(ext+.12),yy+.14,0];B.between(a,b,.18,.18,k%2?'redLight':'wood');B.between(b,c,.18,.18,'red');B.box(c[0],c[1]+.14,c[2],.24,.22,.24,'redLight');if(axis===0)squareGold(c[0],c[1]+.14,c[2]+.128,.17,.17);}}B.box(0,yy+.12,0,.32,.15,.32,'wood');}B.box(0,1.15,0,1.72,.17,.27,'red');for(const s of[-1,1])ornament(s*.5,1.15,.15,.47,.11);},s);}
@@ -40,7 +41,7 @@ if(inner===0&&ridge<=.05){B.cyl(0,eave+rise+.10,zc,.18,.17,'tileEdge');B.cyl(0,e
 });}
 function railing(w,y,z,ma='red',h=.85){for(const yy of[y+.23,y+h])B.box(0,yy,z,w,.13,.15,ma);for(let i=0;i<=Math.ceil(w/.75);i++){const x=-w/2+w*i/Math.ceil(w/.75);B.box(x,y+h*.56,z,.11,h,.11,ma);}for(const x of[-w/2,w/2]){B.box(x,y+h*.55,z,.20,h+.25,.2,ma);B.sphere(x,y+h+.18,z,.14,.17,.14,'goldDark');}}
 function hangingLantern(x,y,z,s=1,bright=true){B.with(x,y,z,0,()=>{const r=.30,h=.72;for(let k=0;k<6;k++){const a=k*TAU/6,b=(k+1)*TAU/6;const xx=Math.sin((a+b)/2)*r*.87,zz=Math.cos((a+b)/2)*r*.87;B.box(xx,0,zz,r, h,.016,bright?'paperGlow':'paper',[(0),(a+b)/2,0]);B.between([Math.sin(a)*r,-h/2,Math.cos(a)*r],[Math.sin(a)*r,h/2,Math.cos(a)*r],.04,.04,'goldDark');for(const yy of[-.27,0,.27])B.between([Math.sin(a)*r,yy,Math.cos(a)*r],[Math.sin(b)*r,yy,Math.cos(b)*r],.022,.022,'goldDark');}for(const yy of[-.40,.40])B.cyl(0,yy,0,.39,.06,'goldDark');B.emit(B.coneG,'goldDark',0,.49,0,.47,.15,.47);B.sphere(0,.63,0,.15,.15,.15,'gold');B.cyl(0,.84,0,.025,.30,'goldDark');B.sphere(0,-.54,0,.17,.09,.17,'gold');B.sphere(0,-.69,0,.06,.12,.06,'goldDark');},s);}
-function pagoda(){B.with(-6.65,1.25,-17,-.58,()=>{B.label('pagoda-plinth',()=>{B.box(0,.05,0,5.1,.8,5.1,'stone');B.box(0,.48,0,5.4,.16,5.4,'stoneLight');});const eaves=[5.6,8.30,11.0,13.7,16.4],widths=[7.5,7.15,6.8,6.45,6.15];for(let k=0;k<5;k++){const w=widths[k],y=eaves[k],floor=k?eaves[k-1]+.78:.6,body=w*.50,half=body/2;B.label('pagoda-'+(k+1)+'-timber-gallery',()=>{B.box(0,floor-.1,0,body+.65,.22,body+.65,'red');for(let s=0;s<4;s++)B.with(0,0,0,s*Math.PI/2,()=>{B.box(0,(floor+y-.8)/2,half-.12,body,y-.8-floor,.16,'plaster');for(const x of[-half,0,half]){column(x,half,floor,y-floor-.80,.105);bracket(x,y-.52,half,[.48,.48,1.05]);}for(const x of[-body*.27,body*.27]){B.box(x,floor+1.02,half+.01,.80,1.16,.09,'darkwood');for(let j=0;j<5;j++)B.box(x-.36+j*.18,floor+1.02,half+.07,.026,1.1,.04,'goldDark');for(let j=0;j<5;j++)B.box(x,floor+.49+j*.265,half+.08,.80,.027,.04,'redLight');}B.box(0,y-.42,half,body+.5,.19,.22,'red');for(const yy of[floor+.18,floor+.64])B.box(0,yy,half+.38,body+.75,.095,.10,'redLight');for(let j=0;j<15;j++){const x=-body*.55+j*body*1.1/14;B.box(x,floor+.4,half+.38,.065,.55,.065,'red');}for(let j=0;j<7;j++)ornament(-body*.45+j*body*.9/6,y-.42,half+.13,.39,.13);});});roof({w,d:w,eave:y,rise:1.27,curl:.44,ridge:0,name:'pagoda-'+(k+1)+'-curved-ceramic-roof'});}B.label('pagoda-finial',()=>{const base=17.65;B.cyl(0,base+.08,0,.34,.18,'goldDark');B.emit(B.coneG,'gold',0,base+.40,0,.30,.55,.30);B.cyl(0,19.65,0,.043,4.1,'goldDark');for(let k=0;k<16;k++){const y=base+.78+k*.22,r=.24*(1-k*.037);B.emit(finialTorus,'gold',0,y,0,r,r,r,[Math.PI/2,0,0]);B.sphere(0,y,0,.075,.10,.075,'gold');}B.sphere(0,21.95,0,.12,.19,.12,'goldLight');B.cyl(0,22.3,0,.024,.5,'gold');});},[1.04,1.035,1.04]);}
+function pagoda(){B.with(-6.65,1.25,-17,-.58,()=>{B.label('pagoda-plinth',()=>{B.box(0,.05,0,5.1,.8,5.1,'stone');B.box(0,.48,0,5.4,.16,5.4,'stoneLight');});const eaves=[5.6,8.30,11.0,13.7,16.4],widths=[7.5,7.15,6.8,6.45,6.15];for(let k=0;k<5;k++){const w=widths[k],y=eaves[k],floor=k?eaves[k-1]+.78:.6,body=w*.50,half=body/2;B.label('pagoda-'+(k+1)+'-timber-gallery',()=>{B.box(0,floor-.1,0,body+.65,.22,body+.65,'red');for(let s=0;s<4;s++)B.with(0,0,0,s*Math.PI/2,()=>{B.box(0,(floor+y-.8)/2,half-.12,body,y-.8-floor,.16,'plaster');for(const x of[-half,0,half]){column(x,half,floor,y-floor-.80,.105);bracket(x,y-.52,half,[.48,.48,1.05],true);}for(const x of[-body*.27,body*.27]){B.box(x,floor+1.02,half+.01,.80,1.16,.09,'darkwood');for(let j=0;j<5;j++)B.box(x-.36+j*.18,floor+1.02,half+.07,.026,1.1,.04,'goldDark');for(let j=0;j<5;j++)B.box(x,floor+.49+j*.265,half+.08,.80,.027,.04,'redLight');}B.box(0,y-.42,half,body+.5,.19,.22,'red');for(const yy of[floor+.18,floor+.64])B.box(0,yy,half+.38,body+.75,.095,.10,'redLight');for(let j=0;j<15;j++){const x=-body*.55+j*body*1.1/14;B.box(x,floor+.4,half+.38,.065,.55,.065,'red');}for(let j=0;j<7;j++)ornament(-body*.45+j*body*.9/6,y-.42,half+.13,.39,.13);});});roof({w,d:w,eave:y,rise:1.27,curl:.44,ridge:0,name:'pagoda-'+(k+1)+'-curved-ceramic-roof'});}B.label('pagoda-finial',()=>{const base=17.65;B.cyl(0,base+.08,0,.34,.18,'goldDark');B.emit(B.coneG,'gold',0,base+.40,0,.30,.55,.30);B.cyl(0,19.65,0,.043,4.1,'goldDark');for(let k=0;k<16;k++){const y=base+.78+k*.22,r=.24*(1-k*.037);B.emit(finialTorus,'gold',0,y,0,r,r,r,[Math.PI/2,0,0]);B.sphere(0,y,0,.075,.10,.075,'gold');}B.sphere(0,21.95,0,.12,.19,.12,'goldLight');B.cyl(0,22.3,0,.024,.5,'gold');});},[1.04,1.035,1.04]);}
 function hall(){B.with(9.86,2.55,-11.90,-.67,()=>{
 B.label('great-hall-stone-platform',()=>{B.box(0,-.525,0,24,3.55,11.8,'stone');B.box(0,1.18,.1,24.4,.18,12.1,'stoneLight');for(let x=-11.4;x<12;x+=1.2)for(let z=-5.4;z<6;z+=1.3)B.box(x,1.285,z,1.18,.08,1.28,'stoneLight',0,.89+.13*Math.abs(Math.sin(x*7+z)));});
 B.label('great-hall-massive-columns',()=>{for(const z of[5.15,-.1,-5.1])for(let i=0;i<7;i++){const x=-10.5+i*3.5;if(!(z===5.15&&i===3))column(x,z,1.35,3.95,.31);bracket(x,5.22,z,z===5.15?[1.08,1.08,1.55]:1.08);}for(const y of[4.78,5.40,6.27])B.box(0,y,5.15,22.9,.30,.51,'red');for(let i=0;i<30;i++)ornament(-10.8+i*.75,5.4,5.425,.61,.16);for(let i=0;i<6;i++){const x=-8.75+i*3.5;B.box(x,4.75,5.15,3.1,.44,.37,'wood');for(let k=0;k<4;k++)ornament(x-1.1+k*.73,4.75,5.35,.62,.17);}});
@@ -53,6 +54,16 @@ const figure=createRestoredBuddha({materials:{buddha:m.goldLight,oldgold:m.goldD
 for(const root of[altar,figure])root.traverse(o=>{if(!o.isMesh)return;if(o.isInstancedMesh){const matrix=new T.Matrix4();for(let i=0;i<o.count;i++){o.getMatrixAt(i,matrix);B.put(o.geometry,o.material,matrix.clone().premultiply(o.matrixWorld));}}else B.put(o.geometry,o.material,o.matrixWorld);});
 });
 B.label('great-hall-upper-storey',()=>{B.box(0,8.04,-.35,21.0,3.2,9.0,'darkwood');for(const z of[4.2,-4.8]){B.box(0,8.0,z,21.2,3.3,.19,'plaster');B.box(0,6.96,z+.18,21.3,.57,.065,'darkwood');B.box(0,8.67,z+.18,21.3,.31,.065,'wood');for(let panel=0;panel<12;panel++){const xx=-9.625+panel*1.75;B.box(xx,7.02,z+.23,1.48,.37,.055,'redLight');ornament(xx,7.02,z+.27,1.25,.20);B.box(xx,8.67,z+.23,1.50,.23,.06,'redLight');ornament(xx,8.67,z+.28,1.28,.14);}for(let i=0;i<=12;i++){const x=-10.5+i*1.75;B.box(x,8.1,z+.1,.15,3.1,.20,'red');if(i%2===0)bracket(x,9.29,z,z===4.2?[.93,.93,1.55]:.93);}for(const yy of[6.57,7.20,8.98,9.56])B.box(0,yy,z+.14,22.2,.24,.33,'red');for(let i=0;i<28;i++)ornament(-10.6+i*.79,9.0,z+.32,.67,.15);for(let i=-4;i<=4;i++){const x=i*2.2;B.box(x,7.88,z+.13,1.25,1.21,.06,'darkwood');for(let k=0;k<6;k++)B.box(x-.59+k*.236,7.88,z+.19,.028,1.17,.035,'wood');}}B.box(-.8,8.5,4.4,1.03,1.49,.13,'goldDark');B.box(-.8,8.5,4.48,.86,1.31,.04,'black');for(let k=0;k<3;k++){const y=8.91-k*.4;for(let j=0;j<4;j++)B.box(-.8+(j-1.5)*.10,y,4.51,.05,.20,.025,'gold', [0,0,.15*Math.sin(j)]);}});
+B.label('great-hall-upper-inner-purlin-bearings',()=>{
+ for(const z of[4.2,-4.8]){
+  const t=Math.abs(z+.35)/6.8,under=10.12+7*Math.pow(1-t,1.46)-.21;
+  B.box(0,under-.13,z,21.8,.26,.30,'wood');
+  for(let k=0;k<7;k++){
+   const x=-10.5+k*3.5,base=10.40,sy=(under-.27-base)/1.23;
+   if(sy>.10)bracket(x,base,z,[.75,sy,.95],true);
+  }
+ }
+});
 roof({w:27.0,d:14.9,eave:6.72,rise:2.65,curl:.56,zc:-.35,inner:.43,name:'great-hall-lower-monumental-roof'});
 roof({w:25.5,d:13.6,eave:10.12,rise:7.0,curl:.59,zc:-.35,name:'great-hall-main-monumental-roof'});
 B.label('great-hall-stairs-and-balustrades',()=>{const cx=-.3,top=5.97,run=4.65,n=16,w=5.0;for(let k=0;k<n;k++){const h=2.30*(1-k/n),z=top+run*(k+.5)/n;B.box(cx,-1.05+h/2,z,w,h,run/n-.015,'stoneLight',0,.9+.12*Math.sin(k*4.7));B.box(cx,-1.05+h-.025,z+run/n/2-.025,w,.045,.05,'stone');}for(const side of[-1,1]){const x=cx+side*(w/2+.24);B.between([x,2.05,top],[x,-.25,top+run],.12,.13,'red');for(let k=0;k<=6;k++){const t=k/6,z=top+run*t,y=1.25-2.30*t;B.box(x,y+.4,z,.15,.8,.15,'red');B.sphere(x,y+.87,z,.11,.14,.11,'goldDark');}}for(const a of[[-7.5,5.7], [5.5,7.1]])B.with(a[0],0,a[1],0,()=>railing(5.5,1.28,0,'red',.95));});
