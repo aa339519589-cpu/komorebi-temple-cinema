@@ -6,6 +6,7 @@ import {existsSync} from 'node:fs';
 import {launchRenderBrowser} from './render-runtime.mjs';
 import {encodeWebglPng} from './encode-webgl-png.mjs';
 import {acquireGpuRenderSlot} from './gpu-render-slot.mjs';
+import {reconstructionSourceIdentity} from './reconstruction-source-identity.mjs';
 
 const reference=Number(process.env.REFERENCE),id=String(reference).padStart(2,'0');
 if(!Number.isInteger(reference)||reference<1||reference>10)throw Error('REFERENCE must be 1..10.');
@@ -19,10 +20,7 @@ await access(resolve(worktree,entry));await mkdir(out,{recursive:true});
 const videoFile=resolve(out,'motion-review.mp4');
 if(motionFps&&existsSync(videoFile))throw Error('Motion output exists; use a new ITERATION to retain previous evidence.');
 async function sourceIdentity(){
- const files=[];async function walk(dir){for(const e of await readdir(dir,{withFileTypes:true})){const p=resolve(dir,e.name);if(e.isDirectory())await walk(p);else if(/\.(?:m?js|html|json)$/.test(e.name))files.push(p);}}
- await walk(resolve(worktree,`reconstructions/scene-${id}`));files.sort();const h=createHash('sha256'),hashes={};
- for(const file of files){const name=relative(worktree,file),bytes=await readFile(file);hashes[name]=createHash('sha256').update(bytes).digest('hex');h.update(name+'\0');h.update(bytes);h.update('\0');}
- return{hash:h.digest('hex'),files:hashes};
+ return reconstructionSourceIdentity(worktree,id);
 }
 const releaseGpu=await acquireGpuRenderSlot(`reference-${id}-${iteration}`);
 const identity=await sourceIdentity(),startedAt=new Date().toISOString();
@@ -42,7 +40,7 @@ try{
  await page.route('**/*',route=>{
   const u=new URL(route.request().url());
   if(u.pathname==='/favicon.ico')return route.fulfill({status:204,body:''});
-  if(u.protocol==='data:'||(u.hostname==='127.0.0.1'&&u.port===String(port))){if(u.protocol!=='data:')report.requests.push(u.pathname);return route.continue();}
+  if(u.protocol==='data:'||(u.protocol==='blob:'&&u.origin===`http://127.0.0.1:${port}`)||(u.hostname==='127.0.0.1'&&u.port===String(port))){if(!['data:','blob:'].includes(u.protocol))report.requests.push(u.pathname);return route.continue();}
   const message='Blocked external scene resource: '+u.origin;report.errors.push(message);fail(Error(message));return route.abort('blockedbyclient');
  });
  await Promise.race([page.goto(`http://127.0.0.1:${port}/${entry}?render&defer&w=${size}&h=${size}`,{waitUntil:'load',timeout:600000}),fatal]);

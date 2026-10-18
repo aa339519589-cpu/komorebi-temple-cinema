@@ -10,7 +10,7 @@ renderer.setPixelRatio(1);renderer.setSize(dim('w'),dim('h'));renderer.outputCol
 renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;
 document.querySelector('#stage').append(renderer.domElement);
-const world=buildScene(),scene=world.scene;
+const world=await buildScene(),scene=world.scene;
 const camera=new T.PerspectiveCamera(POSE.fov,dim('w')/dim('h'),.08,200);
 const composerTarget=new T.WebGLRenderTarget(dim('w'),dim('h'),{type:T.HalfFloatType,samples:4});
 const composer=new EffectComposer(renderer,composerTarget);composer.addPass(new RenderPass(scene,camera));

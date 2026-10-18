@@ -964,6 +964,10 @@ export function createRestorationArchitecture(ctx) {
   }
 
   function squareFitting(x,y,z,w,h,rot=0,detail=true) {
+    if(ctx.joineryKit&&detail&&w>=.14&&h>=.12){
+      group(x,y,z,rot,()=>draw(ctx.joineryKit.relief,'kit_gilt',[0,0,.001],[w,h,Math.min(w,h)]));
+      return;
+    }
     // Forged framing strips surround exposed end grain; no solid gold cube.
     group(x,y,z,rot,()=>{
       const border = Math.min(w,h)*.075;
@@ -1286,6 +1290,20 @@ export function createRestorationArchitecture(ctx) {
   // receivers. Default remains the established hall geometry until its own
   // original-photo section dimensions are measured.
   function brackets(x,y,z,s=1,options={}) {
+    if(ctx.joineryKit&&options.interlocked&&!options.throughBeam){
+      stats.bracketSets++;const hs=s*(options.horizontalScale??1);
+      group(x,y,z,0,()=>{
+        for(const part of ctx.joineryKit.bracket)draw(part.geometry,part.material,[0,0,0],[hs,s,hs]);
+        for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
+          const firstY=axis===0?.165:.184,secondY=axis===0?.4965:.4775;
+          for(const sign of [-1,1]){
+            squareFitting(sign*.6208*hs,(firstY+.02375)*s,0,.21*hs,.15*s,sign*PI/2,options.detail??s>=1);
+            for(const branch of [-1,1])squareFitting(sign*.6808*hs,(secondY+.02375)*s,branch*.415*hs,.21*hs,.15*s,sign*PI/2,options.detail??s>=1);
+          }
+        });
+      });
+      return;
+    }
     if(options.interlocked)return interlockedBrackets(x,y,z,s,options);
     stats.bracketSets++;
     const fine=options.detail ?? s>=1;

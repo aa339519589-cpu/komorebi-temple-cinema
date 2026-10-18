@@ -4,8 +4,10 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
 import {buildMapleCanopy} from './foliage.js';
+import {loadBlenderJoinery} from './blender-joinery.js';
+import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
 export const POSE={position:[11.87,1.02,12.94],target:[-3.64,14.93,0],fov:34};
-export function buildScene(){
+export async function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
  mats.red.color.set('#aa5030');mats.cedar.color.set('#985430');mats.endwood.color.set('#c28545');
@@ -13,7 +15,8 @@ export function buildScene(){
  mats.gold.color.set('#e1af46');mats.oldgold.color.set('#c79a43');
  mats.gold.roughness=.40;mats.oldgold.roughness=.48;
  mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#f2e5bb');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.12;
- // All surfaces are geometry and procedural textures. Baked source photographs are never used.
+ const joineryKit=await loadBlenderJoinery();Object.assign(mats,joineryKit.materials);
+ // Solid code-built geometry and the user-authorized image-assisted relief.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
  const primitive={box:new T.BoxGeometry(1,1,1),sphere:new T.SphereGeometry(1,16,10),cone:new T.ConeGeometry(1,1,16)};
  function instance(geo,mat,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=null,tint=1){
@@ -31,7 +34,7 @@ export function buildScene(){
      instance(geometryCache.get(key),ma,x,y,z,1,1,1,[0,rot,0],tint);
    }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
  }
- const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack});
+ const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit});
  mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414747');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#858b7c');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
  for(const [name,m]of Object.entries(mats)){
@@ -55,6 +58,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    if(name==='oldgold'||name==='architecture_oldgold'){m.roughness=.58;m.envMapIntensity=.88;}
  }
  mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#88602c',metalness:.86,roughness:.56,envMapIntensity:.65});
+ const scannedTimber=await installScannedTimber(mats);
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
  mats.carvingGround=new T.MeshStandardMaterial({name:'scene05-dark-carved-ground',color:'#2b2116',roughness:.9});
  const leafShape=new T.Shape();leafShape.moveTo(-.5,0);leafShape.bezierCurveTo(-.15,.23,.29,.28,.5,0);leafShape.bezierCurveTo(.15,-.19,-.2,-.13,-.5,0);
@@ -184,10 +188,10 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  // Sky: directional pale wisps are an analytic shader, with no image texture.
  const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4)+.12*noise(p*8.8)+.065*noise(p*17.6);float cloud=smoothstep(1.08,1.37,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.85);vec3 desired=mix(c/12.92,pow((c+.055)/1.055,vec3(2.4)),step(vec3(.04045),c));const mat3 inverseOutput=mat3(.64303825,.05926869,.00596190,.31118675,.93143649,.06392902,.04577546,.00929492,.93011838);const mat3 inverseInput=mat3(1.76474097,-.14702785,-.03633683,-.67577768,1.16025151,-.16243644,-.08896329,-.01322366,1.19877327);vec3 v=inverseOutput*desired;vec3 A=1.-.983729*v;vec3 B=.0245786-.432951*v;vec3 C=-.000090537-.238081*v;vec3 fitted=(-B+sqrt(B*B-4.*A*C))/(2.*A);vec3 radiance=max(vec3(0.),inverseInput*fitted)*(.6/.95);gl_FragColor=vec4(radiance,1.);}`});
  const sky=new T.Mesh(new T.SphereGeometry(120,32,16),skyMaterial);scene.add(sky);
- const hemi=new T.HemisphereLight('#cce5ff','#a3784c',1.12);scene.add(hemi);
+ const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.50);scene.add(hemi);
  const sun=new T.DirectionalLight('#fff0ce',4.4);sun.position.set(-18,30,23);sun.target.position.set(0,9,0);sun.castShadow=true;
- sun.shadow.mapSize.set(3072,3072);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.00015;sun.shadow.normalBias=.025;sun.shadow.radius=1.5;scene.add(sun,sun.target);
- const groundBounce=new T.DirectionalLight('#ffbf83',.68);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);scene.add(groundBounce,groundBounce.target);
+ sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000025;sun.shadow.normalBias=.006;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
+ const groundBounce=new T.DirectionalLight('#ffbf83',.20);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);scene.add(groundBounce,groundBounce.target);
  // Procedural environment radiance provides directional metal reflections.
  const faces=[],sunDirection=new T.Vector3(-18,21,23).normalize();
  for(let face=0;face<6;face++){
@@ -202,13 +206,15 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    }
    ctx.putImageData(pixels,0,0);faces.push(canvas);
  }
- const env=new T.CubeTexture(faces);env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;scene.environment=env;scene.environmentIntensity=.85;
+ const env=new T.CubeTexture(faces);env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;scene.environment=env;scene.environmentIntensity=.50;
  const canopy=buildMapleCanopy(scene);
  // Flatten static geometry by material: dense joinery remains real 3D but submission cost stays bounded.
  let triangles=0,parts=0;
  for(const [material,records]of bucket){
    const pieces=records.map(({geo,matrix,tint})=>{
-     const g=geo.index?geo.toNonIndexed():geo.clone();g.applyMatrix4(matrix);
+     const g=geo.index?geo.toNonIndexed():geo.clone();
+     if(material.userData.metricTimberGrain)assignMetricTimberUV(g,matrix);
+     g.applyMatrix4(matrix);
      for(const attr of Object.keys(g.attributes))if(!['position','normal','uv'].includes(attr))g.deleteAttribute(attr);
      const n=g.attributes.position.count;if(!g.attributes.uv)g.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(n*2),2));
      return g;
@@ -216,5 +222,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-photographed-eave-member-hierarchy-max01',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-blender-solid-kit-and-scanned-varnished-timber-v02',levels,triangles,parts,geometry:'Source-built beveled solid joinery, real half laps, displaced gilt fittings, ceramic rows and lobed leaves',joineryKit:joineryKit.info,timber:scannedTimber.info,canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
 }

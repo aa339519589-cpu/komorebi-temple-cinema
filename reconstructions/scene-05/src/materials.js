@@ -9,7 +9,8 @@ export function createReference4MaterialSet(T, options={}) {
   };
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
-    const m=options.materials?.[key]||new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness});
+    const Material=['red','cedar','endwood','darkwood'].includes(key)?T.MeshPhysicalMaterial:T.MeshStandardMaterial;
+    const m=options.materials?.[key]||new Material({name:'reference4_'+key,color,roughness,metalness});
     mats[key]=m;if(!options.materials?.[key])materials.push(m);
   }
   const smoothstep=(a,b,x)=>{const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t);};

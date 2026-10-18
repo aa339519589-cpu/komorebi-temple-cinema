@@ -1,0 +1,272 @@
+{
+  "reference": 5,
+  "entry": "reconstructions/scene-05/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-18T07:57:16.649Z",
+  "source": {
+    "hash": "3d45895703d4d6f16d0a816ed20460ac5cb963bfd5070ba7a7829757bfc56f55",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/temple-joinery-v01/temple-joinery-v01.glb": "b984ebc15df7251c376c95f71cc0c9fe3e4706e3a1abaa1bd3a7bfd492e597bd",
+      "reconstructions/scene-05/asset-dependencies.json": "14eb3db8fc251cfb1b7c393d9993b2ef759d9dd959ae2894c7b44183cf24b769",
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/architecture.js": "58541d01dae0e4cf226e5c0a7a4487ac8c0207da95a7b27e85b143abe012ca08",
+      "reconstructions/scene-05/src/blender-joinery.js": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "reconstructions/scene-05/src/foliage.js": "e68595c29bb1775d29e308ea9fc754090c1c30de0283f2ea55c0f876b9942a65",
+      "reconstructions/scene-05/src/main.js": "40c3a723583346c496a2a9326ee4dc60094b492343355c0f63a38d4534be043e",
+      "reconstructions/scene-05/src/materials.js": "53e5cf330ee6c5b3adf7a0bd99bcd9bbefe585a3cedac1e7c6c0b6a2721b1a0a",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/scanned-timber.js": "c9ed65b91971f1373cdb0b3217b441f9612e6ffede08e237ab73a14253b94677",
+      "reconstructions/scene-05/src/scene.js": "61607e616e1b96012843b2f682ffd9d07474786423e91e2afa5a1f81653c9e64"
+    }
+  },
+  "sourceCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-05/index.html",
+    "/reconstructions/scene-05/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-05/src/scene.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-05/src/architecture.js",
+    "/reconstructions/scene-05/src/materials.js",
+    "/reconstructions/scene-05/src/foliage.js",
+    "/reconstructions/scene-05/src/blender-joinery.js",
+    "/reconstructions/scene-05/src/scanned-timber.js",
+    "/vendor/build/three.core.js",
+    "/reconstructions/scene-05/src/natural-forms.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/temple-joinery-v01/temple-joinery-v01.glb",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "camera": [
+          11.87,
+          1.02,
+          12.94
+        ],
+        "fov": 34,
+        "triangles": 25922396,
+        "calls": 557
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 5,
+        "revision": "scene05-blender-solid-kit-and-scanned-varnished-timber-v02",
+        "levels": [
+          {
+            "level": 0,
+            "y": 0.35,
+            "width": 8.8,
+            "shaftTop": 2.677317432155291
+          },
+          {
+            "level": 1,
+            "y": 5.1,
+            "width": 8.14,
+            "shaftTop": 7.487002204443321
+          },
+          {
+            "level": 2,
+            "y": 9.85,
+            "width": 7.48,
+            "shaftTop": 12.296691890927487
+          },
+          {
+            "level": 3,
+            "y": 14.6,
+            "width": 6.820000000000001,
+            "shaftTop": 17.106412365630742
+          },
+          {
+            "level": 4,
+            "y": 19.35,
+            "width": 6.16,
+            "shaftTop": 21.91614457099878
+          }
+        ],
+        "triangles": 8367717,
+        "parts": 35219,
+        "geometry": "Source-built beveled solid joinery, real half laps, displaced gilt fittings, ceramic rows and lobed leaves",
+        "joineryKit": {
+          "source": "Blender source-built solid kit v01",
+          "bracketPieces": 18,
+          "fittingTriangles": 3680,
+          "guideRole": "Image-assisted non-metric relief depth; no source-photo albedo"
+        },
+        "timber": {
+          "provider": "Poly Haven",
+          "asset": "lacquered_cherry_wood",
+          "license": "CC0-1.0",
+          "physicalTileMetres": 1,
+          "grain": "Member-aligned metric UV; filtered normal and roughness maps"
+        },
+        "canopy": {
+          "leaves": 13750
+        },
+        "cameraHeightRange": [
+          0.72,
+          1.02
+        ],
+        "renderer": {
+          "frame": 26,
+          "calls": 557,
+          "triangles": 25922396,
+          "points": 0,
+          "lines": 0
+        },
+        "referencePose": {
+          "position": [
+            11.87,
+            1.02,
+            12.94
+          ],
+          "target": [
+            -3.64,
+            14.93,
+            0
+          ],
+          "fov": 34
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "d74b1116d8f7251b834b93d89f37432a5d71b92d7adaa63581c6056e313c0e59"
+    }
+  ],
+  "completedAt": "2026-10-18T07:57:23.164Z"
+}

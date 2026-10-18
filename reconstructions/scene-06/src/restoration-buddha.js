@@ -340,16 +340,20 @@ function shoulderRobePanel(side){
  return closedPanel(32,112,(u,v)=>{
   const y=.60+1.655*v,[outer,oz]=sampleProfile(outline,y),rx=sampleProfile(MAIN_BODY,y)[0],inner=rx*.91,q=side<0?1-u:u;
   const x=side*(inner+(outer-inner)*q),iz=frontOf(MAIN_BODY,side*inner,y)+.006;
-  const z=T.MathUtils.lerp(iz,oz,q)+.036*Math.sin(Math.PI*q)+.006*Math.cos(q*18+v*4)*Math.sin(Math.PI*q)*Math.sin(Math.PI*v);
+  const z=T.MathUtils.lerp(iz,oz,q)+.036*Math.sin(Math.PI*q)+sideRobeFold(q,v,side);
   return[x,y,z];
  },.038);
+}
+function sideRobeFold(q,v,side){
+ const gate=Math.sin(Math.PI*q)*Math.sin(Math.PI*v),phase=q*(5.2+2.8*(1-v))+.13*v+(side<0?.12:0);
+ return gate*(.024*Math.cos(TAU*phase)+.006*Math.cos(TAU*phase*2+.4));
 }
 function mainGarmentFront(x,y){
  const rx=sampleProfile(MAIN_BODY,y)[0],inner=rx*.91;
  if(Math.abs(x)<=inner)return frontOf(MAIN_BODY,x,y)+mainRelief(x,y);
  const outline=[[.60,1.04,.28],[.91,1.11,.16],[1.30,1.13,.075],[1.67,1.015,.012],[2.02,.79,-.055],[2.255,.47,-.080]].map(p=>[p[0],p[1]*1.16,p[2]]);
  const [outer,oz]=sampleProfile(outline,y),q=clamp((Math.abs(x)-inner)/(outer-inner),0,1),v=(y-.60)/1.655,iz=frontOf(MAIN_BODY,inner,y)+.006;
- return T.MathUtils.lerp(iz,oz,q)+.036*Math.sin(Math.PI*q)+.006*Math.cos(q*18+v*4)*Math.sin(Math.PI*q)*Math.sin(Math.PI*v);
+ return T.MathUtils.lerp(iz,oz,q)+.036*Math.sin(Math.PI*q)+sideRobeFold(q,v,Math.sign(x));
 }
 function broadShoulderBand(){
  return closedPanel(64,200,(u,v)=>{
@@ -376,7 +380,7 @@ function centralFigure(){
  b.add(forearmDrape(sweep([[-1.13,.82,.20],[-1.01,.83,.23],[-.79,.96,.35],[-.57,1.17,.46],[-.46,1.27,.55]],.162,.108,{segments:96,radial:56,profile:t=>.82+.18*Math.sin(Math.PI*t)-.16*smooth(t,.85,1),relief:null})),'raised-forearm-cloth');
  for(const side of[-1,1])b.add(sweep([[side*.52,2.25,-.10],[side*.88,2.03,-.070],[side*1.148,1.64,-.010],[side*1.247,1.10,.09],[side*1.183,.72,.26]],.041,.030,{segments:96,radial:28,profile:t=>.8+.2*Math.sin(Math.PI*t)}),`outer-robe-roll-${side}`);
  for(const side of[-1,1])b.add(shoulderRobePanel(side),`continuous-side-robe-${side}`);
- const thighRows=[[-.18,0,0,.42,.30],[0,.20,.29,.43,.36],[.35,.25,.40,.41,.43],[.75,.23,.42,.36,.45],[1.08,.19,.34,.29,.43],[1.32,.13,.24,.26,.36],[1.43,0,0,.25,.30]];
+ const thighRows=[[-.18,0,0,.50,.35],[0,.225,.32,.46,.40],[.35,.29,.41,.375,.44],[.75,.32,.43,.35,.46],[1.08,.305,.38,.345,.43],[1.32,.205,.25,.35,.36],[1.43,0,0,.37,.30]];
  for(const side of[-1,1]){
   const leg=surface(100,180,(u,v)=>{
    const xx=-.18+1.61*v,[ry,rz,cy,cz]=sampleProfile(thighRows,xx),a=u*TAU;
@@ -393,10 +397,10 @@ function centralFigure(){
  }
  const feet=[[[.58,.58,.47],[.30,.65,.62],[.03,.68,.73],[-.23,.66,.78],[-.40,.61,.76]],[[-.57,.55,.45],[-.29,.61,.58],[.04,.64,.67],[.32,.61,.72],[.50,.57,.68]]];
  feet.forEach((ps,j)=>{
-  const c=curve(ps),g=surface(48,88,(u,t)=>{const a=u*TAU,q=c.getPointAt(t),cap=t===0||t===1?0:Math.sin(Math.PI*t)**.28;return[q.x,q.y+Math.cos(a)*.040*cap,q.z+Math.sin(a)*.075*cap];},true);if(j===0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}b.add(g,`crossed-foot-${j}`);
-  const side=j===0?-1:1,tip=ps.at(-1);for(let i=0;i<5;i++)b.add(finger([[tip[0]-side*.075,tip[1],tip[2]-.064+i*.032],[tip[0]+side*(.035-i*.008),tip[1]-.010,tip[2]-.061+i*.031]],.016-i*.0008),`crossed-toe-${j}-${i}`);
+  const depth=j===1?-.105:0,c=curve(ps.map(p=>[p[0],p[1],p[2]+depth])),g=surface(48,88,(u,t)=>{const a=u*TAU,q=c.getPointAt(t),cap=t===0||t===1?0:Math.sin(Math.PI*t)**.45;return[q.x,q.y+Math.cos(a)*.058*cap,q.z+Math.sin(a)*.084*cap];},true);if(j===0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}b.add(g,`crossed-foot-${j}`);
+  const side=j===0?-1:1,last=ps.at(-1),tip=[last[0],last[1],last[2]+depth];for(let i=0;i<5;i++)b.add(finger([[tip[0]-side*.075,tip[1],tip[2]-.064+i*.032],[tip[0]+side*(.035-i*.008),tip[1]-.010,tip[2]-.061+i*.031]],.016-i*.0008),`crossed-toe-${j}-${i}`);
  });
- const cloth=closedPanel(112,140,(u,v)=>{
+ const cloth=closedPanel(128,260,(u,v)=>{
    const width=.62-.32*smooth(v,.04,1),cx=-.025+.185*v;
    const y=-.150+1.080*v+.035*(1-v)**4*Math.sin(Math.PI*u)-.020*(1-v)**3*Math.sin(3*Math.PI*u);
    const x=cx+(u-.5)*width,z0=.940-.565*smooth(v,.43,1)+.020*Math.sin(Math.PI*u);
@@ -406,8 +410,20 @@ function centralFigure(){
      const amp=[.004,.006,.005,.006,.004][k]*(.50+.50*(1-v));
      fold+=amp*gaussian(x-center,.026+.015*(1-v))-amp*.40*gaussian(x-center+.037,.020);
    }
-   return[x,y,z0+fold*Math.sin(Math.PI*u)];
- },.026);b.add(cloth,'folded-lap-cloth','cloth');
+   // Fine cast floral chasing follows the actual curved cloth. It does not
+   // form a rigid plain strip reflecting one uninterrupted white highlight.
+   let chasing=0;
+   for(let row=0;row<15;row++){
+     const yy=-.11+row*.072;
+     for(let column=-5;column<=5;column++){
+       const xx=column*.064+(row%2)*.032,dx=x-xx,dy=(y-yy)*.93,r=Math.hypot(dx,dy);
+       if(r>.041)continue;
+       const a=Math.atan2(dy,dx),ridge=.022+.005*Math.cos(6*a);
+       chasing+=.0028*gaussian(r-ridge,.0045)+.0015*gaussian(r,.0065);
+     }
+   }
+   return[x,y,z0+(fold+chasing)*Math.sin(Math.PI*u)];
+ },.012);b.add(cloth,'folded-lap-cloth','cloth');
  raisedHand(b,-.49,1.30,.91,{size:1.25});
  b.add(sweep([[-.57,1.10,.46],[-.50,1.17,.76],[-.49,1.24,.90]],.078,.063,{segments:44,radial:24}),'raised-wrist');
  b.add(sweep([[.67,.81,.61],[.43,.83,.78],[.20,.80,.89],[.06,.79,.93]],.075,.067,{segments:62,radial:28}),'lap-forearm');

@@ -1,0 +1,57 @@
+{
+  "reference": 5,
+  "entry": "reconstructions/scene-05/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-18T07:18:24.888Z",
+  "source": {
+    "hash": "5b98791218f53208dc453a995bf74eebf89886395f5d0f777a2f577810320102",
+    "files": {
+      "assets/temple-joinery-v01/temple-joinery-v01.glb": "7a95c2e304450cd65c1874cf8be43995573effe22b2a25a64cc0d99f1e2312e7",
+      "reconstructions/scene-05/asset-dependencies.json": "6508a0a4286cf3d10f55b204136037251b08d615269d8ef212de235b1638f3ef",
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/architecture.js": "05854be9a97ecf121b381464c3ccbfdbb5ab5bd958df5f81717d7ab5b47a4b15",
+      "reconstructions/scene-05/src/blender-joinery.js": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "reconstructions/scene-05/src/foliage.js": "e68595c29bb1775d29e308ea9fc754090c1c30de0283f2ea55c0f876b9942a65",
+      "reconstructions/scene-05/src/main.js": "40c3a723583346c496a2a9326ee4dc60094b492343355c0f63a38d4534be043e",
+      "reconstructions/scene-05/src/materials.js": "7c2c274d6aa87c8248f7ab8eb911d76bee1d06896a2c3d5433349a1072389c12",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/scene.js": "9d9e2081ea862451d6a6b3e37d7b79282b30b942b4235d10a769d288e5477e43"
+    }
+  },
+  "sourceCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+  "status": "failed",
+  "visualAccepted": false,
+  "errors": [
+    "Scene resource failed: 404 /vendor/examples/jsm/loaders/GLTFLoader.js"
+  ],
+  "requests": [
+    "/reconstructions/scene-05/index.html",
+    "/reconstructions/scene-05/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-05/src/scene.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-05/src/architecture.js",
+    "/reconstructions/scene-05/src/materials.js",
+    "/reconstructions/scene-05/src/foliage.js",
+    "/reconstructions/scene-05/src/blender-joinery.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js"
+  ],
+  "backend": "metal",
+  "error": "Error: Scene resource failed: 404 /vendor/examples/jsm/loaders/GLTFLoader.js\n    at _Page.<anonymous> (file:///Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:38:159)\n    at _Page._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at _Page.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at _BrowserContext._onResponse (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:61930:16)\n    at Proxy.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:61881:78)\n    at Proxy._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at Proxy.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Connection.dispatch (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63525:25)\n    at Immediate.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63586:85)\n    at process.processImmediate (node:internal/timers:534:21)",
+  "completedAt": "2026-10-18T07:18:25.753Z"
+}

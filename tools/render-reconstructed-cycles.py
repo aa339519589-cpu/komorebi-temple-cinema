@@ -35,6 +35,7 @@ for rec in scene_data['materials']:
     color=tuple(rec.get('color') or [.5,.5,.5])+ (1,)
     value(bs,['Base Color'],color);value(bs,['Metallic'],float(rec.get('metalness') or 0));value(bs,['Roughness'],max(.04,float(rec.get('roughness') or .4)))
     value(bs,['IOR'],float(rec.get('ior') or 1.5));value(bs,['Transmission Weight','Transmission'],float(rec.get('transmission') or 0))
+    value(bs,['Specular IOR Level'],.5*float(rec.get('specularIntensity') if rec.get('specularIntensity') is not None else 1))
     value(bs,['Coat Weight','Clearcoat'],float(rec.get('clearcoat') or 0));value(bs,['Coat Roughness','Clearcoat Roughness'],float(rec.get('clearcoatRoughness') or .15))
     if any(s in rec['name'].lower() for s in ['floor-panel','polished','lacquer','broad-joined-cedar']):
         value(bs,['Coat Weight','Clearcoat'],.38);value(bs,['Coat Roughness','Clearcoat Roughness'],.16)
@@ -67,9 +68,9 @@ for rec in scene_data['materials']:
         normal=n.new('ShaderNodeNormalMap');normal.inputs['Strength'].default_value=(rec.get('normalScale') or [1])[0];links.new(tex_nodes['normalMap'].outputs['Color'],normal.inputs['Color']);links.new(normal.outputs['Normal'],bs.inputs['Normal'])
     for ch,input_name,component,factor in [('roughnessMap','Roughness','G',rec.get('roughness',.4)),('metalnessMap','Metallic','B',rec.get('metalness',0))]:
         if ch in tex_nodes:
-            sep=n.new('ShaderNodeSeparateRGB');links.new(tex_nodes[ch].outputs['Color'],sep.inputs[0]);mul=n.new('ShaderNodeMath');mul.operation='MULTIPLY';mul.inputs[1].default_value=float(factor);links.new(sep.outputs[component],mul.inputs[0]);links.new(mul.outputs[0],bs.inputs[input_name])
+            sep=n.new('ShaderNodeSeparateColor');sep.mode='RGB';links.new(tex_nodes[ch].outputs['Color'],sep.inputs['Color']);mul=n.new('ShaderNodeMath');mul.operation='MULTIPLY';mul.inputs[1].default_value=float(factor);links.new(sep.outputs[{'G':'Green','B':'Blue'}[component]],mul.inputs[0]);links.new(mul.outputs[0],bs.inputs[input_name])
     if 'alphaMap' in tex_nodes:
-        sep=n.new('ShaderNodeSeparateRGB');links.new(tex_nodes['alphaMap'].outputs['Color'],sep.inputs[0]);links.new(sep.outputs['G'],bs.inputs['Alpha'])
+        sep=n.new('ShaderNodeSeparateColor');sep.mode='RGB';links.new(tex_nodes['alphaMap'].outputs['Color'],sep.inputs['Color']);links.new(sep.outputs['Green'],bs.inputs['Alpha'])
     if 'emissiveMap' in tex_nodes:
         for name in ['Emission Color','Emission']:
             if name in bs.inputs:links.new(tex_nodes['emissiveMap'].outputs['Color'],bs.inputs[name]);break
@@ -129,8 +130,33 @@ for rec in scene_data['lights']:
     if MODE=='upper-window' and rec['name']=='production-front-room-bounce':light.energy*=.3
 
 cam_data=bpy.data.cameras.new('source-reference6-camera');camera=bpy.data.objects.new('source-reference6-camera',cam_data);scene.collection.objects.link(camera);camera.matrix_world=Matrix(np.array(scene_data['cameraMatrix']).reshape(4,4).T.tolist());cam_data.sensor_fit='VERTICAL';cam_data.sensor_height=24;cam_data.lens=12/math.tan(math.radians(scene_data['view']['fov'])/2);cam_data.clip_start=.1;cam_data.clip_end=200;scene.camera=camera
+if MODE=='outdoor-day':
+    # Rigidly convert the entire recovered world, including every light and
+    # the camera, into Blender's ordinary Z-up frame. Distances, silhouette
+    # and relative camera pose are preserved by this single shared rotation.
+    conversion=Matrix.Rotation(math.pi/2,4,'X')
+    for obj in list(scene.objects):obj.matrix_world=conversion@obj.matrix_world
+    report['worldCoordinateConversion']='All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.'
 world=bpy.data.worlds.new('Procedural exterior fill for path-traced review');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.45,.55,.7,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=float(os.environ.get('CYCLES_WORLD_GAIN','.3'))
+if MODE=='outdoor-day':
+    nodes=world.node_tree.nodes;links=world.node_tree.links
+    sky=nodes.new('ShaderNodeTexSky');sky.sky_type='MULTIPLE_SCATTERING' if bpy.app.version>=(5,0,0) else 'NISHITA';sky.sun_disc=False
+    direct=next((r for r in scene_data['lights'] if r['type']=='DirectionalLight' and r['intensity']>1),None)
+    direction=Vector((-.5,.72,.48))
+    if direct and direct.get('target'):
+        transform=Matrix(np.array(direct['matrix']).reshape(4,4).T.tolist());direction=(transform.translation-Vector(direct['target'])).normalized()
+    sky.sun_elevation=math.asin(max(-1,min(1,direction.y)));sky.sun_rotation=math.atan2(-direction.z,direction.x)
+    sky.altitude=150;sky.air_density=1;sky.ozone_density=1.0
+    if hasattr(sky,'dust_density'):sky.dust_density=.75
+    links.new(sky.outputs['Color'],nodes['Background'].inputs['Color'])
+    report['outdoorSky']={'type':sky.sky_type,'source':'Blender atmospheric scattering, no bitmap background','sunDisc':False,'worldUp':'Whole scene converted to Z-up','sourceDirectionYUp':list(direction)}
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','32'))
+if os.environ.get('CYCLES_DEVICE')=='METAL':
+    preferences=bpy.context.preferences.addons['cycles'].preferences;preferences.compute_device_type='METAL';preferences.get_devices()
+    for device in preferences.devices:device.use=device.type=='METAL'
+    if not any(device.use for device in preferences.devices):raise RuntimeError('Requested Metal GPU is unavailable')
+    scene.cycles.device='GPU'
+report['cyclesDevice']=scene.cycles.device
 # Ubuntu's distribution Blender can be built without Intel OpenImageDenoise.
 # That build fails during render with "Build without OpenImageDenoiser" when
 # use_denoising is true. Render actual Cycles samples without denoising by default.
@@ -150,9 +176,14 @@ scene.render.resolution_x=int(os.environ.get('CYCLES_SIZE','640'));scene.render.
 try:scene.view_settings.view_transform='AgX'
 except:scene.view_settings.view_transform='Filmic'
 scene.view_settings.exposure=float(os.environ.get('CYCLES_EXPOSURE','.5'));scene.view_settings.gamma=1
-scene.render.filepath=str(OUT/'sanctuary-cycles.png');scene.render.film_transparent=False
-report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['status']='rendering';report['materialTransfer']='Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.';report['lightCalibration']='Three source positions/colors with area*pi and point*4pi intensity conversion; sun x0.28; explicit procedural fill, optional upper-window area relocation. Not native WebGL pixel equivalence.'
+render_name=os.environ.get('CYCLES_RENDER_NAME','sanctuary-cycles.png')
+if Path(render_name).name!=render_name:raise ValueError('CYCLES_RENDER_NAME must be a filename')
+scene.render.filepath=str(OUT/render_name);scene.render.film_transparent=False
+report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['status']='rendering';report['materialTransfer']='Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.';report['lightCalibration']={'transfer':'Source positions/colors; area*pi and point*4pi power conversion','sunGain':float(os.environ.get('CYCLES_SUN_GAIN','.28')),'worldGain':float(os.environ.get('CYCLES_WORLD_GAIN','.3')),'exposure':scene.view_settings.exposure,'nativeWebglPixelEquivalence':False}
 (OUT/'report.json').write_text(json.dumps(report,indent=2));
-if os.environ.get('CYCLES_SAVE_BLEND','1')=='1':bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'existing-sanctuary-cycles.blend'),compress=True)
+if os.environ.get('CYCLES_SAVE_BLEND','1')=='1':
+    blend_name=os.environ.get('CYCLES_BLEND_NAME','existing-sanctuary-cycles.blend')
+    if Path(blend_name).name!=blend_name:raise ValueError('CYCLES_BLEND_NAME must be a filename')
+    bpy.ops.wm.save_as_mainfile(filepath=str(OUT/blend_name),compress=True)
 bpy.ops.render.render(write_still=True)
 report['status']='path-traced-review';report['finished']=time.time();report['resolution']=[scene.render.resolution_x,scene.render.resolution_y];report['samples']=scene.cycles.samples;report['photographicAcceptance']=False;(OUT/'report.json').write_text(json.dumps(report,indent=2));print('CYCLES_REVIEW_COMPLETE',json.dumps(report),flush=True)

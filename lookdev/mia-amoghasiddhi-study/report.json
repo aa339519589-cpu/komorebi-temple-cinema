@@ -1,0 +1,41 @@
+{
+  "status": "two-actual-scanned-geometry-study-renders",
+  "sourceSha256": "b03b3abd1291b98065d24a8f50270bf9836035b887d4a0d26f391d602d8626c4",
+  "sourceLicense": "CC0-1.0",
+  "geometry": "Actual museum scan, rigidly normalized; no photograph plane or AI replacement frame.",
+  "vertices": 34783,
+  "triangles": 69567,
+  "boundaryEdges": 1,
+  "sourceSize": [
+    0.14496760070323944,
+    0.0994279608130455,
+    0.19690917432308197
+  ],
+  "normalizedHeightMetres": 3.5000001415610313,
+  "worldTransformVerified": true,
+  "visualAccepted": false,
+  "limits": [
+    "Different historical sculpture; anatomy, drapery and pose must be compared with the supplied reference before use.",
+    "Uniform study regilding replaces scan albedo; original source GLB remains unchanged."
+  ],
+  "views": [
+    {
+      "name": "front",
+      "camera": [
+        0.0,
+        -7.800000190734863,
+        0.8999999761581421
+      ],
+      "file": "actual-geometry-front.png"
+    },
+    {
+      "name": "three-quarter",
+      "camera": [
+        3.541126012802124,
+        -6.949851036071777,
+        0.8999999761581421
+      ],
+      "file": "actual-geometry-three-quarter.png"
+    }
+  ]
+}
