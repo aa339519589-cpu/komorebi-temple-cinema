@@ -32,6 +32,10 @@ export function buildGarden(mats){
  tree(-6.5,-.5,5.6,3.1,true);tree(-20,-4,7,3.5,true);tree(6,4,4.4,2,true);tree(10,-3,6,3,true);tree(-2,1,3.8,1.9,true);
  cherry(15,0,5.8,3.3);cherry(-10,0,4.4,2.8);cherry(9,-4,5,2.8);
  for(let j=0;j<16;j++){let x=-26+rand()*37,z=-4+rand()*4;shrub(x,.2,z,.7+rand()*.7,j%3===0);}
+ // Tiered rock-and-flower planting climbs the high terrace on both sides of the stair.
+ for(let side of[-1,1])for(let j=0;j<18;j++){let z=-1+rand()*6,x=4+side*(3.8+rand()*3.0),y=2.8*(1-(z+1)/6);rock(x,y*.68,z,.38+rand()*.4);shrub(x,y,z,.4+rand()*.35,j%3===0);}
+ const grass=gridGeometry(Array.from({length:7},(_,j)=>{let t=j/6;return[[-.5*Math.sin(Math.PI*t),t,.35*t*t],[.5*Math.sin(Math.PI*t),t,.35*t*t]];}));
+ for(let j=0;j<90;j++){let z=rand()*17,x=9.6+rand()*.9;for(let k=0;k<18;k++){let a=rand()*6.28,r=rand()*.24;b.put(grass,k%4?'leaf':'leaflight',[x+Math.cos(a)*r,.24,z+Math.sin(a)*r],[.02+rand()*.025,.16+rand()*.25,.2+rand()*.15],[0,a,(rand()-.5)*.45]);}}
  // Left framing canopy enters the sky with individual leaves and crooked visible branches.
  branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,180);}leafCluster(-16,21,-4,2.0,1.4,1.5,220);leafCluster(-21,22,-5,2.0,1.5,1.5,220);leafCluster(-11.5,20.5,-4,1.5,1.2,1.4,220);tree(-28,-8,10,3.2,false);
  // Irregular azalea beds climbing either side of the temple stairs.
@@ -61,7 +65,7 @@ export function buildGarden(mats){
  // Lotus leaves are shallow ribbed basins with a radial slit, cupped rim and raised midribs.
  const lotusGeo=(()=>{let rings=7,N=36,rows=[];for(let j=0;j<=rings;j++){let t=.012+.988*j/rings;rows.push(Array.from({length:N+1},(_,i)=>{let a=.13+(Math.PI*2-.26)*i/N,r=t*(1+.035*Math.sin(a*7));return[Math.cos(a)*r,.045*Math.sin(a*7)*t*t+.14*Math.pow(t,5)-.055*(1-t),Math.sin(a)*r];}));}return gridGeometry(rows);})();
  const lotusMaterials=[0x53701e,0x688025,0x3b5b1a,0x87923a].map(c=>new T.MeshStandardMaterial({color:c,roughness:.40,side:T.DoubleSide}));
- for(let i=0;i<190;i++){let x=-7+rand()*18,z=5+rand()*20;if(x>7&&z<15)continue;let s=.23+rand()*.35,y=.05+rand()*.1,yaw=rand()*6.28;b.put(lotusGeo,lotusMaterials[i%4],[x,y,z],[s,s,s],[0,yaw,0]);if(i%4===0){b.at([x,y+.012,z],yaw,()=>{for(let k=0;k<8;k++){let a=.22+k*.74;b.line([0,-.04,0],[Math.cos(a)*s*.9,.08*s,Math.sin(a)*s*.9],.004,'leaflight');}});}if(i%6===0){let fy=.22+rand()*.28;b.line([x,0,z],[x,fy,z],.012,'leaf');b.ball(x,fy,z,.042,.034,.042,'gold');for(let ring=0;ring<3;ring++){let N=ring===0?6:9;for(let k=0;k<N;k++)b.put(petalGeo,ring===2?'pinkDark':'petal',[x,fy,z],[.105+ring*.027,.22,.20+ring*.035],[.3+ring*.25,k*6.28/N+ring*.3,0]);}}}
+ for(let i=0;i<190;i++){let x=-7+rand()*18,z=5+rand()*20;if(x>7&&z<15)continue;let s=.13+rand()*.25,y=.05+rand()*.1,yaw=rand()*6.28;b.put(lotusGeo,lotusMaterials[i%4],[x,y,z],[s,s,s],[0,yaw,0]);if(i%4===0){b.at([x,y+.012,z],yaw,()=>{for(let k=0;k<8;k++){let a=.22+k*.74;b.line([0,-.04,0],[Math.cos(a)*s*.9,.08*s,Math.sin(a)*s*.9],.004,'leaflight');}});}if(i%6===0){let fy=.22+rand()*.28;b.line([x,0,z],[x,fy,z],.012,'leaf');b.ball(x,fy,z,.042,.034,.042,'gold');for(let ring=0;ring<3;ring++){let N=ring===0?6:9;for(let k=0;k<N;k++)b.put(petalGeo,ring===2?'pinkDark':'petal',[x,fy,z],[.105+ring*.027,.22,.20+ring*.035],[.3+ring*.25,k*6.28/N+ring*.3,0]);}}}
  // Tiny floating leaves and ripple highlights catch the low sunset without image overlays.
  const ripple=new T.TorusGeometry(1,.006,3,24);for(let i=0;i<90;i++){let x=-23+rand()*33,z=4+rand()*30,r=.18+rand()*.5;b.put(ripple,'water',[x,.025,z],[r,r,r],[Math.PI/2,0,0]);}
  // Terrain silhouettes: true finite ridges, then several layers of distant woodland.

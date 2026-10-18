@@ -103,11 +103,11 @@ export function buildArchitecture(mats){
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};
  for(let i=0;i<25;i++){let x=14.42+i*.235;b.box(x,1.27,24,.228,.16,30,'floor',0,.85+.2*(.5+.5*Math.sin(i*5.7)));for(let z of[12,20,28,36]){b.cyl(x,1.355,z,.013,.007,'black');}}
- for(let z of[10,18,26,34,40]){column(16.0,z,1.36,6.9,.48);bracket(16.0,8.0,z,1.35);} // substantial vermilion column is cropped at the far right
- for(let z of[10,18,26,34,40]){b.box(15.6,8.3,z,8.7,.45,.52,'cedar');for(let x=12.3;x<20;x+=.9)fitting(x,8.3,z+.28,.34,.34);}
- b.box(16,8.92,25,9.8,.28,33,'darkwood');
- for(let z=8.5;z<41;z+=.46){b.box(16,8.72,z,10.8,.30,.22,'cedar');b.box(10.73,8.72,z,.13,.31,.26,'darkwood');}
- b.box(11.1,8.38,25,.38,.45,34,'red');b.box(19.6,8.38,25,.38,.45,34,'red');
+ for(let z of[10,18,26,34,40]){column(16.0,z,1.36,7.6,.48);bracket(16.0,8.7,z,1.35);} // substantial vermilion column is cropped at the far right
+ for(let z of[10,18,26,34,40]){b.box(15.6,9.0,z,8.7,.45,.52,'cedar');for(let x=12.3;x<20;x+=.9)fitting(x,9.0,z+.28,.34,.34);}
+ b.box(16,9.62,25,9.8,.28,33,'darkwood');
+ for(let z=8.5;z<41;z+=.46){b.box(16,9.42,z,13.0,.30,.22,'cedar');b.box(9.63,9.42,z,.13,.31,.26,'darkwood');}
+ b.box(10.0,9.08,25,.38,.45,34,'red');b.box(19.6,9.08,25,.38,.45,34,'red');
  // Open lacquered balustrade: fine gilt castings sit between rounded red rails.
  const finial=new T.LatheGeometry([[0,0],[.085,0],[.10,.03],[.075,.06],[.065,.11],[.12,.15],[.10,.19],[.055,.22],[.04,.27],[0,.30]].map(p=>new T.Vector2(...p)),24);
  for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);b.cyl(x,1.44,z,.12,.15,'oldgold');}
@@ -120,7 +120,7 @@ export function buildArchitecture(mats){
  });}
  // Six sided bronze lantern with emitting pierced panes, lattice curls and cast roof.
  const lampGlow=new T.MeshBasicMaterial({color:0xffc478,toneMapped:false});
- function lantern(x,y,z,s=1,ceiling=8.6){b.at([x,y,z],0,()=>{
+ function lantern(x,y,z,s=1,ceiling=9.3){b.at([x,y,z],0,()=>{
   for(let sign of[-1,1]){b.put(new T.CylinderGeometry(.43,.43,.07,6),'oldgold',[0,sign*.60,0]);b.put(new T.CylinderGeometry(sign>0?.20:.46,sign>0?.46:.20,.23,6),'black',[0,sign*.76,0]);for(let j=0;j<6;j++){let a=j*Math.PI/3;b.ball(Math.sin(a)*.43,sign*.63,Math.cos(a)*.43,.045,.045,.045,'gold');}}
   for(let side=0;side<6;side++)b.at([0,0,0],side*Math.PI/3,()=>{
    b.box(0,0,.366,.378,1.08,.035,lampGlow);for(let xx of[-.205,.205]){b.box(xx,0,.40,.045,1.22,.055,'black');b.box(xx-.008,0,.43,.012,1.19,.018,'oldgold');}for(let yy of[-.55,.55]){b.box(0,yy,.40,.43,.055,.06,'black');for(let k=-3;k<=3;k++)b.ball(k*.052,yy,.438,.017,.022,.012,'gold');}
@@ -130,6 +130,6 @@ export function buildArchitecture(mats){
   b.ball(0,.98,0,.13,.14,.13,'black');b.ball(0,-1.00,0,.11,.16,.11,'oldgold');b.ball(0,-1.21,0,.045,.11,.045,'gold');
  },s);
   const top=y+1.11*s;b.line([x,top,z],[x,ceiling,z],.016,'oldgold');for(let yy=top+.06;yy<ceiling;yy+=.13)b.put(torus,'oldgold',[x,yy,z],[.035,.048,.035],[0,yy*8,0]);const light=new T.PointLight(0xffb75f,22*s,8*s,2);light.position.set(x,y,z);lights.push(light);}
- lantern(13.6,6.5,15.5,.77);lantern(13.2,7.5,5.5,.48,8.6);lantern(18,7.8,7,.5,8.6);
+ lantern(13.6,6.5,15.5,.77);lantern(13.2,7.5,5.5,.48,9.3);lantern(18,7.8,7,.5,9.3);
  return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size},deck};
 }

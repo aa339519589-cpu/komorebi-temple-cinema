@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 export {T};
 export let seed=22018;
 export function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;}
@@ -9,11 +10,12 @@ export function materials(){
  const wood=tex('wood'),grain=tex('wood',true),stone=tex('stone'),stoneBump=tex('stone',true);
  const palette={red:[0x742917,.3,0],cedar:[0x6d2e14,.40,0],darkwood:[0x20120b,.53,0],gold:[0xd5ae5a,.26,.86],oldgold:[0x996b25,.44,.7],slate:[0x3c516b,.46,.03],tileEnd:[0x69747c,.5,.14],stone:[0x8c8b7c,.87,0],lightstone:[0xb4b09e,.83,0],black:[0x111311,.5,.1],leaf:[0x263b16,.78,0],leaflight:[0x4c6125,.72,0],moss:[0x586122,.95,0],trunk:[0x514028,.92,0],pink:[0xf3a4ad,.58,0],pinkDark:[0xbf5573,.6,0],petal:[0xf9b4bb,.48,0],water:[0x182d20,.13,.42],paper:[0xffd28a,.62,0]};
  for(const [n,[color,roughness,metalness]]of Object.entries(palette)){const m=['red','cedar','darkwood'].includes(n)?new T.MeshPhysicalMaterial({color,roughness,metalness,clearcoat:n==='red'?.68:.3,clearcoatRoughness:.14}):new T.MeshStandardMaterial({color,roughness,metalness});m.name='scene02-'+n;if(['red','cedar','darkwood','trunk'].includes(n))Object.assign(m,{map:wood,bumpMap:grain,bumpScale:n==='trunk'?.08:.008});if(['slate','stone','lightstone'].includes(n))Object.assign(m,{map:stone,bumpMap:stoneBump,bumpScale:n==='slate'?.025:.07});if(['gold','oldgold'].includes(n))Object.assign(m,{bumpMap:stoneBump,bumpScale:.0012});if(n==='paper')Object.assign(m,{emissive:0xff9b35,emissiveIntensity:2.2,side:T.DoubleSide});if(n==='petal')m.side=T.DoubleSide;mats[n]=m;}
+ const wd=new Uint8Array(256*256*4);for(let j=0;j<256;j++)for(let i=0;i<256;i++){let c=128+42*Math.sin(j*.72+Math.sin(i*.12)*.5)+18*Math.sin(j*1.83+i*.061),q=(j*256+i)*4;wd[q]=wd[q+1]=wd[q+2]=c;wd[q+3]=255;}const wave=new T.DataTexture(wd,256,256);wave.needsUpdate=true;wave.wrapS=wave.wrapT=T.RepeatWrapping;wave.repeat.set(18,18);wave.generateMipmaps=true;wave.minFilter=T.LinearMipmapLinearFilter;mats.water.bumpMap=wave;mats.water.bumpScale=.008;textures.push(wave);
  mats.floor=mats.darkwood.clone();Object.assign(mats.floor,{roughness:.22,metalness:.0,clearcoat:.96,clearcoatRoughness:.09});
  return {mats,textures};
 }
 export class Builder{
- constructor(mats){this.mats=mats;this.group=new T.Group();this.buckets=new Map();this.stack=[new T.Matrix4()];this.cube=new T.BoxGeometry();this.cylinderGeo=new T.CylinderGeometry(1,1,1,16);this.sphere=new T.SphereGeometry(1,10,7);this.lowSphere=new T.IcosahedronGeometry(1,1);this.count=0;}
+ constructor(mats){this.mats=mats;this.group=new T.Group();this.buckets=new Map();this.stack=[new T.Matrix4()];this.cube=new RoundedBoxGeometry(1,1,1,1,.018);this.cylinderGeo=new T.CylinderGeometry(1,1,1,16);this.sphere=new T.SphereGeometry(1,10,7);this.lowSphere=new T.IcosahedronGeometry(1,1);this.count=0;}
  put(g,ma,p=[0,0,0],s=[1,1,1],r=[0,0,0],color=1){let m=typeof ma==='string'?this.mats[ma]:ma;if(!m)throw Error('Unknown material '+ma);let key=g.uuid+':'+m.uuid,b=this.buckets.get(key);if(!b){b={g,m,items:[]};this.buckets.set(key,b);}const matrix=new T.Matrix4().compose(V(p),new T.Quaternion().setFromEuler(new T.Euler(...r)),V(s));matrix.premultiply(this.stack.at(-1));if(!matrix.elements.every(Number.isFinite))throw Error('Nonfinite transform');b.items.push({matrix,color});this.count++;return matrix;}
  box(x,y,z,w,h,d,ma='red',r=0,c=1){this.put(this.cube,ma,[x,y,z],[w,h,d],Array.isArray(r)?r:[0,r,0],c);}
  cyl(x,y,z,r,h,ma='red',c=1){this.put(this.cylinderGeo,ma,[x,y,z],[r,h,r],[0,0,0],c);}
