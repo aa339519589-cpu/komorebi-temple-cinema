@@ -1,0 +1,59 @@
+name: Publish lightweight verified Cycles still
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/extract-cycles-light-preview.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  extract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: resumed-cycles-d39c722a551f1cfe5fb81361858d3eff45b9e657
+          run-id: 39087140818
+          github-token: ${{ github.token }}
+          path: imported-cycles
+      - name: Assert actual native Cycles output and extract preview only
+        run: |
+          set -euo pipefail
+          mkdir -p output/cycles-light-preview
+          python3 - <<'PY'
+          import json,hashlib,pathlib,shutil,struct
+          root=pathlib.Path('imported-cycles')
+          dst=pathlib.Path('output/cycles-light-preview')
+          required=['sanctuary-cycles.png','reference-left-pathtrace-right.png','report.json','execution.log']
+          sources={}
+          for name in required:
+              matches=list(root.rglob(name))
+              if len(matches)!=1: raise ValueError(f'Expected one {name}, got {len(matches)}')
+              sources[name]=matches[0]
+          j=json.loads(sources['report.json'].read_text())
+          if j.get('status')!='path-traced-review': raise ValueError('Cycles output is not confirmed complete')
+          if not j.get('geometryTriangleCountPreserved'): raise ValueError('Triangle preservation check not passed')
+          if j.get('denoisingEnabled') is not False: raise ValueError('Expected verifiable undenoised Cycles pixels')
+          proofs={'sourceWorkflowRun':39087140818,'sourceCommit':'d39c722a551f1cfe5fb81361858d3eff45b9e657','scope':'real Blender Cycles render of archived source geometry','sceneReport':j,'files':{}}
+          for name,src in sources.items():
+              data=src.read_bytes()
+              if name.endswith('.png'):
+                  if data[:8]!=bytes.fromhex('89504e470d0a1a0a'): raise ValueError('Invalid PNG '+name)
+                  w,h=struct.unpack('>II',data[16:24])
+                  if w<500 or h<500: raise ValueError('Wrong PNG dimensions '+name)
+              proofs['files'][name]={'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data)}
+              shutil.copy2(src,dst/name)
+          (dst/'verified-proof.json').write_text(json.dumps(proofs,indent=2))
+          print('REAL_CYCLES_PIXEL_PROOF',json.dumps({k:v for k,v in proofs.items() if k!='sceneReport'},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cycles-verified-preview-only-${{ github.sha }}
+          path: output/cycles-light-preview/
+          retention-days: 7
+          if-no-files-found: error
