@@ -1,0 +1,23 @@
+{
+  "sourceCommit": "dbb627e",
+  "sourcePackage": "output/scene04-traced81-export",
+  "builder": "tools/render-scene04-physical.py",
+  "editableBlend": "output/scene04-traced81-physical/scene04-traced81.blend",
+  "settings": {
+    "LIGHTING_MODE": "outdoor-day",
+    "CYCLES_SIZE": 1254,
+    "CYCLES_SAMPLES": 64,
+    "CYCLES_DEVICE": "METAL",
+    "CYCLES_DENOISE": 1,
+    "CYCLES_SUN_GAIN": 0.28,
+    "CYCLES_WORLD_GAIN": 0.3,
+    "CYCLES_EXPOSURE": 0.5
+  },
+  "actualImageViewed": true,
+  "photographicAcceptance": false,
+  "remaining": [
+    "Sky fill overwhelms golden direct sun",
+    "Paving aggregate and damp contours not faithfully reproduced",
+    "Surrounding garden and architecture still visibly simplified"
+  ]
+}

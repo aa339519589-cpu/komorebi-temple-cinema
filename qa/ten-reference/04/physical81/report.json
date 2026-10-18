@@ -1,0 +1,82 @@
+{
+  "sourceStatistics": {
+    "meshes": 1150,
+    "geometries": 1116,
+    "materials": 81,
+    "textures": 161,
+    "instances": 153344,
+    "triangles": 17623872
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 4,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "reference4-both-ponds-actual-planar-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "reference4-atmosphere-with-real-density-clouds",
+      "type": "Mesh",
+      "material": "SkyShader",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792353336.43611,
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "actualLightRayAudit": [
+    {
+      "name": "reference4-front-right-daylight",
+      "expected": [
+        -0.49878376722335815,
+        0.6858276128768921,
+        -0.5299578309059143
+      ],
+      "actual": [
+        -0.49878376722335815,
+        0.6858276128768921,
+        -0.5299577713012695
+      ],
+      "errorDegrees": 0.0
+    }
+  ],
+  "outdoorSky": {
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering, no bitmap background",
+    "sunDisc": false,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      0.4987837076187134,
+      0.5299577116966248,
+      0.6858276128768921
+    ]
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 17623872,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Source geometry, exact portable PBR and per-stone coating maps; explicit water IOR1.333; physical pond transmission and thin-leaf scattering added. Native triplanar GLSL on older surrounding stone is not portable; those visible materials retain existing source UV inputs.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.28,
+    "worldGain": 0.3,
+    "exposure": 0.5,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792353447.954092,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 64,
+  "photographicAcceptance": false
+}
