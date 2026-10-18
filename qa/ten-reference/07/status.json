@@ -1,6 +1,6 @@
 {
   "reference": 7,
-  "revision": "scene-07-scanned-aged-timber-r45",
+  "revision": "scene-07-scanned-bank-stones-plinth-model63",
   "source": "references/hd/6-\u7167\u7247-7.jpg",
   "entry": "reconstructions/scene-07/index.html?render&defer&w=1254&h=1254",
   "gpu": {
@@ -13,13 +13,15 @@
     "parallel37-candidate": "superseded: excessive orange timber and conical pines",
     "parallel38-candidate": "rejected: mountain slope triangular ribbing",
     "parallel39-candidate": "preserved before scanned timber material follow-up",
-    "parallel45": "actual full-frame CC0 timber PBR candidate: primary review pending"
+    "parallel45": "actual full-frame CC0 timber PBR candidate: primary review pending",
+    "model63": "actual native full-frame candidate: scanned bank stones and rubble plinth, no photographic acceptance"
   },
   "claims": {
     "photographicMatchAccepted": false,
     "externalAssets": true,
     "licensedScannedTimber": "Poly Haven lacquered_cherry_wood, CC0-1.0, project-local PBR files",
-    "referenceUsedAsScenePlane": false
+    "referenceUsedAsScenePlane": false,
+    "licensedScannedStone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0"
   },
   "historicalCpu": {
     "syntax": "passed",
@@ -31,8 +33,8 @@
   "evaluation": {
     "method": "actual 1254px full-frame rendering and visual comparison only",
     "syntheticOrBroadTestSuitesRun": false,
-    "latestCandidate": "iteration-parallel45",
-    "sourceHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+    "latestCandidate": "iteration-model63",
+    "sourceHash": "ea62f2d0a07ce90f644007219ccc7c05618e33b946983bd94b01c0177e026280",
     "primaryReviewPending": true
   },
   "remainingVisualGaps": [
