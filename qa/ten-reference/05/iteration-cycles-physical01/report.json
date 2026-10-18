@@ -1,0 +1,76 @@
+{
+  "sourceStatistics": {
+    "meshes": 347,
+    "geometries": 343,
+    "materials": 32,
+    "textures": 8,
+    "instances": 14092,
+    "triangles": 10064369
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 5,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792323785.697328,
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "outdoorSky": {
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering, no bitmap background",
+    "sunDisc": false,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      -0.5585650205612183,
+      0.4226182699203491,
+      0.7137219905853271
+    ]
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 10064369,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.",
+  "physicalSun": {
+    "elevationDegrees": 25.0,
+    "directionYUp": [
+      -0.5585650205612183,
+      0.4226182699203491,
+      0.7137219905853271
+    ],
+    "energy": 3.0,
+    "linearRGB": [
+      1.0,
+      0.84,
+      0.65
+    ],
+    "angularDiameterDegrees": 0.53,
+    "indirectLight": "Cycles diffuse GI; WebGL directional bounce helpers omitted"
+  },
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.28,
+    "worldGain": 0.23,
+    "exposure": 0.3499999940395355,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792323868.1680949,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 128,
+  "photographicAcceptance": false
+}

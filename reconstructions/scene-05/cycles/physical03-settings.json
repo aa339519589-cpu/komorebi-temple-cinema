@@ -1,0 +1,31 @@
+{
+  "scope": "Scene05 exact detail52 source geometry/camera imported into Cycles; local ground context added, no photo plate.",
+  "sourceHash": "27e01f7106f7204df2ea0f076be3ab5f875b1d8940ca855e37de7bffe4cc025a",
+  "sourceBuilder": "reconstructions/scene-05/cycles/render-existing-scene.py",
+  "sourceBuilderSha256": "13298156d7f654c0fc788b047e01fbfef3fcb1c2feb0da5d6b2d9dedd61bcc1c",
+  "environment": {
+    "SCENE_PACKAGE": "output/scene05-physical-detail52",
+    "CYCLES_OUTPUT": "output/scene05-cycles-physical03",
+    "LIGHTING_MODE": "outdoor-day",
+    "PHYSICAL_COURTYARD": "1",
+    "PHYSICAL_SUN_ELEVATION": "25",
+    "PHYSICAL_SUN_ENERGY": "3.5",
+    "PHYSICAL_VERMILION_TINT": "1.08,.83,.72",
+    "PHYSICAL_GROUND_RADIANCE": "0,0,0",
+    "CYCLES_WORLD_GAIN": ".12",
+    "CYCLES_EXPOSURE": ".10",
+    "CYCLES_DEVICE": "METAL",
+    "CYCLES_SAMPLES": "128",
+    "CYCLES_DENOISE": "1",
+    "CYCLES_SIZE": "1254",
+    "CYCLES_SAVE_BLEND": "1",
+    "CYCLES_PACK_TEXTURES": "1",
+    "CYCLES_BLEND_NAME": "scene05-physical03.blend",
+    "CYCLES_RENDER_NAME": "scene05-cycles-physical03.png"
+  },
+  "exportCommand": "REFERENCE=5 SCENE_EXPORT=output/scene05-physical-detail52 node tools/export-reconstructed-scene.mjs",
+  "renderCommand": "Apply environment above; node tools/run-blender-queued.mjs reconstructions/scene-05/cycles/render-existing-scene.py",
+  "actualFrameSha256": "27b926974cac02c9948bfaa7ad1071bc2872dc0af9343def53fc64bd2f99fe90",
+  "packedBlend": "output/scene05-cycles-physical03/scene05-physical03.blend",
+  "status": "Actual rendered review; not approved for film. Under-eaves remain too dark vs supplied reference."
+}
