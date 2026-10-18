@@ -1,1 +1,41 @@
-{"reference":7,"revision":"scene-07-elevated-garden-r5","source":"references/hd/6-照片-7.jpg","entry":"reconstructions/scene-07/index.html?render&defer&w=768&h=768","cpu":{"syntax":"passed","completeConstruction":"passed","nonfinite":0,"instances":189500,"triangles":19487198},"gpu":{"iteration01":"rejected-composition-structure-and-lighting","iteration02":"rejected-open-mountain-skirts-flat-lighting-and-foliage","iteration03":"superseded-by-height-and-terrace-reconstruction-before-feedback","iteration04":"rejected-bare-foundation-flat-landscape-shallow-facade-and-foreground-detail","iteration05":"awaiting-root-serialized-render"},"claims":{"photographicMatchAccepted":false,"externalAssets":false}}
+{
+  "reference": 7,
+  "revision": "scene-07-connected-garden-sunset-r39",
+  "source": "references/hd/6-\u7167\u7247-7.jpg",
+  "entry": "reconstructions/scene-07/index.html?render&defer&w=1254&h=1254",
+  "gpu": {
+    "iteration01": "rejected-composition-structure-and-lighting",
+    "iteration02": "rejected-open-mountain-skirts-flat-lighting-and-foliage",
+    "iteration03": "superseded-by-height-and-terrace-reconstruction-before-feedback",
+    "iteration04": "rejected-bare-foundation-flat-landscape-shallow-facade-and-foreground-detail",
+    "iteration05": "awaiting-root-serialized-render",
+    "parallel37-baseline": "unchanged integrated source, actual baseline retained",
+    "parallel37-candidate": "superseded: excessive orange timber and conical pines",
+    "parallel38-candidate": "rejected: mountain slope triangular ribbing",
+    "parallel39-candidate": "bounded improvement candidate: primary review pending, no photographic acceptance"
+  },
+  "claims": {
+    "photographicMatchAccepted": false,
+    "externalAssets": false
+  },
+  "historicalCpu": {
+    "syntax": "passed",
+    "completeConstruction": "passed",
+    "nonfinite": 0,
+    "instances": 189500,
+    "triangles": 19487198
+  },
+  "evaluation": {
+    "method": "actual 1254px full-frame rendering and visual comparison only",
+    "syntheticOrBroadTestSuitesRun": false,
+    "latestCandidate": "iteration-parallel39-candidate",
+    "sourceHash": "173b52c2548775f8bc737f339dfb6a5f882ff6c3866a921d77441a7564e1e1e9",
+    "primaryReviewPending": true
+  },
+  "remainingVisualGaps": [
+    "repetitive diagrammatic facade",
+    "large exposed masonry and rock masses",
+    "patchy distant forest",
+    "water and sunset detail"
+  ]
+}
