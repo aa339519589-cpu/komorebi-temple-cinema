@@ -39,15 +39,13 @@ mirror('wet-cedar-veranda-reflection',5.9,30,[17.35,1.356,24],.71,.00012);
 // shadowed architecture, so close polished metal has reflected structural detail.
 const environmentScene=new T.Scene(),environmentSky=sky.clone();environmentSky.material=skyMaterial.clone();environmentSky.material.uniforms.skyGain.value=.78;environmentScene.add(environmentSky);
 const pmrem=new T.PMREMGenerator(renderer),skyTarget=pmrem.fromScene(environmentScene,.02,.1,250,{size:128});scene.environment=skyTarget.texture;scene.environmentIntensity=.88;
-reflectors.forEach(o=>o.visible=false);scene.updateMatrixWorld(true);let envTarget;
-try{envTarget=pmrem.fromScene(scene,.015,.16,250,{size:128,position:V([14.0,4.2,16.6])});}finally{reflectors.forEach(o=>o.visible=true);}
-scene.environment=envTarget.texture;scene.environmentIntensity=1.0;skyTarget.dispose();pmrem.dispose();environmentSky.material.dispose();
+const envTarget=skyTarget;pmrem.dispose();environmentSky.material.dispose();
 let frames=0,disposed=false;
 function setView(position,target,fov=52){camera.position.fromArray(position);camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);}
 function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorld(true);renderer.setRenderTarget(null);renderer.render(scene,camera);frames++;return {frame:frames,position:camera.position.toArray(),fov:camera.fov,width,height};}
 function renderReference(n=2){if(n!==2)throw Error('This independent reconstruction supports reference 02 only.');setView(reference.position,reference.target,reference.fov);return draw();}
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
 function renderShot(localTime=0){let t=Math.max(0,Math.min(1,localTime/7)),u=t*t*(3-2*t);setView([T.MathUtils.lerp(15.8,16.2,u),T.MathUtils.lerp(2.48,2.72,u),T.MathUtils.lerp(21.8,25,u)],[-1,T.MathUtils.lerp(4.4,4.7,u),-7],T.MathUtils.lerp(47,52,u));return draw();}
-function info(){return{reference:2,revision:'scene02-photo-rebuild-03',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-photo-rebuild-04',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);
