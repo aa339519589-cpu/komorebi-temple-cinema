@@ -1,0 +1,59 @@
+{
+  "base": "44aeeb4",
+  "counterexampleSourceHash": "1c18ab3e2a55816642c729d5024100dad559bf3020e90865fe05c75d7b4a17c7",
+  "sourceHash": "50427776325e0f9cd3b72c1da2ffa3ffc8a38ca98964ee388c6289085c4ef77a",
+  "sourceMatchesActual": true,
+  "onlyChangedRuntimeFile": [
+    "reconstructions/scene-10/src/near-surface-reflection.js"
+  ],
+  "unchangedMainSha256": "dbd04e350c7d4b189763a9a9a5bbc4d6fb559db5bb96a28629737187d12bba20",
+  "unchangedAtlasGenerationAndWaterResponse": true,
+  "unchangedRayStepBisectionThresholdAndFeather": true,
+  "sameModels": true,
+  "sameParameters": true,
+  "samePose": true,
+  "snapshots": [
+    {
+      "path": "main.js",
+      "exact": true
+    },
+    {
+      "path": "near-surface-reflection.js",
+      "exact": true
+    }
+  ],
+  "confirmedSourceIssue": "Old sampler uses implicit texture2D gradients inside fragment-dependent ray-hit returns and bisection branches.",
+  "normativeSource": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf",
+  "observed": "In this same-pose native frame, the prior foreground horizontal marks/steps have subsided after only the explicit-gradient shader patch.",
+  "causalityLimit": "This controlled frame supports the implicit-gradient/LOD diagnosis for the observed artifact; no complete movie or other camera trajectory was rendered.",
+  "errors": [],
+  "frames": [
+    {
+      "name": "shot-0",
+      "valid": true,
+      "glError": 0,
+      "programsLinked": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "pose": {
+        "position": [
+          -0.7,
+          0.25,
+          9
+        ],
+        "target": [
+          -0.8,
+          0.06699999999999998,
+          7.8
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      }
+    }
+  ],
+  "visualAccepted": false
+}

@@ -72,13 +72,18 @@ export function installNearSurfacePlaneExclusion(T,mirror,surface){
  const functions=`
 uniform sampler2D nearStoneSurfaceMap;
 uniform vec4 nearStoneSurfaceBounds;
-vec4 nearStoneSurface(vec2 p){
+vec4 nearStoneSurface(vec2 p,vec2 gradientX,vec2 gradientY){
  vec2 uv=(p-nearStoneSurfaceBounds.xy)/nearStoneSurfaceBounds.zw;
  if(any(lessThan(uv,vec2(0.0)))||any(greaterThan(uv,vec2(1.0))))return vec4(0.0);
- return texture2D(nearStoneSurfaceMap,uv);
+ return textureGrad(nearStoneSurfaceMap,uv,gradientX,gradientY);
 }
 float nearStoneHeight(vec4 h){return .08*h.r/max(h.g,.00001);}
 float nearStoneOcclusion(vec3 planePoint){
+ // These derivatives are evaluated for the whole quad before early returns,
+ // ray-hit branches or bisection. The lower-height ray projection is linear
+ // at a given y, so its footprint is this base gradient times the ray scale.
+ vec2 atlasDx=dFdx(planePoint.xz)/nearStoneSurfaceBounds.zw;
+ vec2 atlasDy=dFdy(planePoint.xz)/nearStoneSurfaceBounds.zw;
  vec3 ray=planePoint-cameraPosition;float drop=cameraPosition.y-planePoint.y;
  if(drop<.005)return 0.0;
  // A fixed XZ hole would leave a floating halo at a low eye. Project the
@@ -90,14 +95,14 @@ float nearStoneOcclusion(vec3 planePoint){
  float previous=.058;
  for(int i=0;i<16;i++){
   float y=mix(.058,.005,float(i+1)/16.0);
-  vec3 point=planePoint+ray*((planePoint.y-y)/drop);vec4 h=nearStoneSurface(point.xz);
+  vec3 point=planePoint+ray*((planePoint.y-y)/drop);float rayScale=(cameraPosition.y-y)/drop;vec4 h=nearStoneSurface(point.xz,atlasDx*rayScale,atlasDy*rayScale);
   if(h.g>.08&&y<=nearStoneHeight(h)+.00015){
    float above=previous,below=y;
    for(int j=0;j<5;j++){
-    float middle=(above+below)*.5;vec3 candidate=planePoint+ray*((planePoint.y-middle)/drop);vec4 test=nearStoneSurface(candidate.xz);
+    float middle=(above+below)*.5;vec3 candidate=planePoint+ray*((planePoint.y-middle)/drop);float candidateScale=(cameraPosition.y-middle)/drop;vec4 test=nearStoneSurface(candidate.xz,atlasDx*candidateScale,atlasDy*candidateScale);
     if(test.g>.08&&middle<=nearStoneHeight(test)+.00015)below=middle;else above=middle;
    }
-   vec3 hit=planePoint+ray*((planePoint.y-below)/drop);float coverage=nearStoneSurface(hit.xz).g;
+   vec3 hit=planePoint+ray*((planePoint.y-below)/drop);float hitScale=(cameraPosition.y-below)/drop;float coverage=nearStoneSurface(hit.xz,atlasDx*hitScale,atlasDy*hitScale).g;
    return smoothstep(.08,.92,coverage);
   }
   previous=y;
@@ -107,6 +112,6 @@ float nearStoneOcclusion(vec3 planePoint){
 `;
  mirror.material.fragmentShader=functions+mirror.material.fragmentShader;
  mirror.material.fragmentShader=mirror.material.fragmentShader.replace('gl_FragColor=vec4(base.rgb,alpha);','float nearCoverage=nearStoneOcclusion(sp);if(nearCoverage>.999)discard;alpha*=1.0-nearCoverage;\ngl_FragColor=vec4(base.rgb,alpha);');
- mirror.material.customProgramCacheKey=()=> 'scene10-planar-ray-exclusion-of-twelve-real-stones79';
+ mirror.material.customProgramCacheKey=()=> 'scene10-planar-ray-exclusion-explicit-gradients81';
  mirror.material.needsUpdate=true;
 }

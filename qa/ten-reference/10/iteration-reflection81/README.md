@@ -1,0 +1,13 @@
+# Explicit-gradient repair 81
+
+This is the single targeted repair additionally authorized after the two original local-reflection rounds. `shot-0.png` is one actual native 1254 frame at exactly the same original opening camera, focus and time as candidate 80. `comparison-boundary-native.png` contains labelled 1:1 crops of the two actual frames. The flawed candidate 80 remains intact as the counterexample.
+
+Confirmed in source: candidate 80's height-atlas sampler used implicit-LOD texture2D from fragment-dependent ray-hit paths and bisection branches. The [Khronos GLSL ES 3.00 specification](https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf) defines implicit derivatives as undefined under non-uniform control flow. This is a confirmed code/specification issue; a particular visual artifact still requires comparison rather than being inferred from valid shader compilation.
+
+The repair computes the base atlas dFdx/dFdy before all early returns and branches. Each known-height ray projection scales these already computed gradients linearly. The sampler uses textureGrad for the stepping, bisection and final coverage lookup, including its out-of-bounds branch. The ordinary material's uniform-flow texture sample is unchanged.
+
+Observed A/B result: the foreground horizontal marks / fine transition stripes visible in 80 have subsided in the same-pose 81 frame. This supports the implicit-derivative / LOD diagnosis for that observed frame. The fix did not alter ray stepping, intersection tests, bisection count, tolerances, feather, geometry, height atlas, water-coat response, probe, material values, light, rain or camera. It did not conceal the artifact by widening a blend. Full motion and other viewpoints were not rendered in this targeted pass.
+
+`targeted-fix-evidence.json` verifies that the sole changed runtime file is `near-surface-reflection.js`; main.js, atlas generation and local water response remain byte-identical to 80. The actual model records, all reported reflection parameters and pose are identical. Source identity / snapshots match the native receipt, all programs link, and GL/resource errors are zero. The main scene revision intentionally still says 80 because main.js is untouched; source hash identifies this shader repair.
+
+Local reflection remains approximate: the fixed 256 px scene probe has parallax / resolution limits, the water layer is a surface-attached Physical response rather than a refractive fluid volume, and photographed wet continuity / lighting remains unmatched. The old rain rings and all other rain-scene geometry retain their original positions. A clean static sampling result is not full photographic acceptance or full-film validation. No test suite or movie was run.
