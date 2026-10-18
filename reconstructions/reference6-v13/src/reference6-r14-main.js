@@ -52,8 +52,16 @@ function renderOpaqueDepth(){
  finally {for(const[o,v]of visibility)o.visible=v;scene.overrideMaterial=oldOverride;scene.background=oldBackground;renderer.autoClear=oldAuto;renderer.setClearColor(oldClear,oldAlpha);renderer.setRenderTarget(oldTarget);}
 }
 function renderReference(reference=6){if(Number(reference)!==6)throw Error('This isolated foundation reconstructs reference 6 only.');return diagnostics.run('reference6-render-frame',()=>{camera.updateMatrixWorld(true);renderOpaqueDepth();scattering.sync({mist:.022});composer.render(0);frame++;return{reference:6,frame,width,height,revision:REFERENCE6_FOUNDATION.revision,camera:{position:camera.position.toArray(),target:[...REFERENCE6_FOUNDATION.camera.target],fov:camera.fov},quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:768,composerSamples:composerAA.samples},renderVariant:'reference6-foundation-v13',validation:'Visual foundation candidate, not photographic acceptance.'};});}
+function renderCameraPose(view){
+ if(!view||!Array.isArray(view.position)||!Array.isArray(view.target)||view.position.length!==3||view.target.length!==3||![...view.position,...view.target].every(Number.isFinite)||!(Number.isFinite(view.fov)&&view.fov>=50&&view.fov<=90))throw TypeError('Expected finite physical camera pose');
+ const pos=new T.Vector3(...view.position),target=new T.Vector3(...view.target);
+ if(pos.y<.60||pos.y>2.4||pos.distanceTo(target)<.5)throw RangeError('Refuse invalid sanctuary camera or floor collision');
+ camera.position.copy(pos);camera.lookAt(target);camera.fov=view.fov;
+ camera.updateProjectionMatrix();camera.updateMatrixWorld(true);
+ return renderReference(6);
+}
 const counts={meshes:0,instances:0,triangles:0};scene.traverse(o=>{if(o.isMesh){counts.meshes++;const n=o.isInstancedMesh?o.count:1;counts.instances+=n;counts.triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3*n;}});
 function info(){return{revision:REFERENCE6_FOUNDATION.revision,reference:6,frame,counts:{...counts},independentInterior:true,exteriorWorldBuilt:false,photoPlanes:false,exposure:renderer.toneMappingExposure,lights:{sun:1,indirectAreaProxies:5,frontWindowShadowSamples:6,practicals:2},quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:768},renderVariant:'reference6-foundation-v13-r14-study',r14:window.reference6R14.audit(),composerAA,contactOcclusion:{method:'GTAO',radius:.18,thickness:.14,blendIntensity:.65,source:'Actual opaque geometry normals and depth',limitation:'Screen-space multiply approximation, not physical indirect-only transport'},limits:[...room.limits],diagnostics:diagnostics.snapshot()};}
-window.temple=Object.freeze({renderer,renderReference,info,r14:window.reference6R14,getRenderDiagnostics:diagnostics.snapshot});
+window.temple=Object.freeze({renderer,renderReference,renderCameraPose,info,r14:window.reference6R14,getRenderDiagnostics:diagnostics.snapshot});
 const loading=document.getElementById('loading');if(loading)loading.style.display='none';const ui=document.getElementById('ui');if(ui)ui.style.display='none';
 if(!query.has('defer'))renderReference(6);
