@@ -1,0 +1,9 @@
+# Reference 09 night temple reconstruction
+
+Dedicated blue-hour garden reconstruction after viewing `references/hd/8-照片-9.jpg` at full resolution. Geometry is authored specifically for the five-storey pagoda at left, monumental two-storey main hall at right, central red arched bridge, dense stone-lantern garden and a dark pond below an occupied veranda. All geometry, material grain, sky clouds and environment illumination are procedural; no image projection, downloaded assets, HDR or AI media.
+
+Serve the repository and open `reconstructions/scene-09/index.html?render&defer&w=768&h=768`. Import maps resolve the shared Three.js vendor build without changing it. With `defer`, there is no automatic draw and no RAF. `window.temple.renderReference(9)` synchronously draws the fixed camera to the default framebuffer. `renderView(position,target,time,fov)` and `renderShot(localTime)` permit inspection and the 0–7 second reveal. `info()` includes actual draw calls, triangles, GL error and captured shader errors. `dispose()` releases resources.
+
+The water renders the actual scene through Three.js Reflector with a deterministic small wave deformation of its projective sampling. Emissive lanterns have opaque joinery, lattice frames and complete hanging supports. Thirteen local lights are unshadowed; the moon alone casts a 2048 shadow, limiting texture samplers and preventing animated shadow jitter. Wet pavers and gold fittings sample a procedurally generated environment map initialized on first explicit render.
+
+CPU checks: `node --check reconstructions/scene-09/src/main.js` and `node qa/ten-reference/09/cpu-check.mjs`. CPU construction checks every instance matrix for finite values. These do not substitute for the pending serialized GPU render, shader diagnostics or left/right visual review.
