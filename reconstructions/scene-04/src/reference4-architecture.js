@@ -1,3 +1,5 @@
+import {buildDeepEntranceCarving} from './scene04-carving.js';
+import {polygonSlab} from './scene04-surfaces.js';
 import {createRestorationArchitecture} from './reference4-detail-kernel.js';
 import {createReference4MaterialSet} from './reference4-materials.js';
 import {createWeatheredFlagstone} from './reference4-garden-stone.js';
@@ -70,8 +72,8 @@ export function buildReference4Architecture(T,options={}) {
   box(0,(C.stairTopY-.9)/2,-4.4,15.2,C.stairTopY+.9,9.5,'stone');box(0,C.stairTopY-.065,-4.4,15.45,.13,9.65,'granite');
   const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=C.stairTopY*(n-i)/n,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;box(0,top/2,(z0+z1)/2,C.stairWidth,top,z1-z0,'stone',0,.94+.07*Math.sin(i*3.1));for(let k=0;k<4;k++){
     const width=C.stairWidth/4-.018,x=-C.stairWidth/2+(k+.5)*C.stairWidth/4;
-    const g=createWeatheredFlagstone(width,z1-z0-.014,.115,1307+i*31+k*107);const gp=g.attributes.position;for(let v=0;v<gp.count;v++)if(gp.getY(v)>-.05)gp.setY(v,gp.getY(v)*.15);g.computeVertexNormals();
-    emit(g,'granite',x,top+.012,(z0+z1)/2);
+    const g=polygonSlab([[x-width/2,z0],[x+width/2,z0],[x+width/2,z1],[x-width/2,z1]],top+.006,.08,1307+i*31+k*107);
+    emit(g,'granite');
    }}
   for(const s of[-1,1]){const x=s*(C.stairWidth/2+.23);between([x,C.stairTopY+.9,C.stairTopZ],[x,.9,C.stairBottomZ],.13,.14,'red');between([x,C.stairTopY+.44,C.stairTopZ],[x,.44,C.stairBottomZ],.11,.11,'red');for(let i=0;i<=8;i++){const t=i/8,y=C.stairTopY*(1-t),z=C.stairTopZ+run*t;box(x,y+.51,z,.17,1.02,.17,'red');emit(sphere,'oldgold',x,y+1.03,z,.12,.15,.12);}}
   for(const sign of[-1,1]){
@@ -88,8 +90,12 @@ export function buildReference4Architecture(T,options={}) {
   for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78);}
  });
  role('hall-enclosure-doors',()=>{
-  box(0,C.stairTopY+2.95,-8.65,14.2,5.9,.23,'darkwood');for(const s of[-1,1])box(s*7.02,C.stairTopY+2.9,-4.5,.20,5.8,8.4,'red');
+  box(0,C.stairTopY+3.75,-8.65,14.2,7.5,.23,'darkwood');for(const s of[-1,1])box(s*7.02,C.stairTopY+2.9,-4.5,.20,5.8,8.4,'red');
   for(const s of[-1,1])for(const seg of[[3.0,4.55],[4.95,6.7]]){const x=s*(seg[0]+seg[1])/2,w=seg[1]-seg[0],h=3.8,y=C.stairTopY+h/2+.22;box(x,y,-.57,w,h,.16,'darkwood');for(const xx of[-w/2,w/2])box(x+xx,y,-.42,.09,h+.13,.12,'red');for(const yy of[-h/2,h/2])box(x,y+yy,-.39,w,.11,.13,'cedar');for(let k=1;k<8;k++)box(x-w/2+w*k/8,y,-.39,.032,h-.15,.045,'oldgold');for(let k=1;k<13;k++)box(x,y-h/2+h*k/13,-.385,w-.1,.025,.05,'cedar');}
+  for(const sign of[-1,1])for(const [cx,w]of[[3.77,1.62],[5.83,1.85]]){
+   box(sign*cx,C.stairTopY+4.22,-.57,w,.66,.18,'darkwood');
+   for(const yy of[C.stairTopY+3.93,C.stairTopY+4.50])box(sign*cx,yy,-.435,w,.075,.085,'cedar');
+  }
   // Upper gallery is enclosed timber, not an unrelated open lattice triangle.
   box(0,H(9.7),-1.04,13.1,2.22,.18,'darkwood');for(let i=0;i<33;i++)box(-6.4+i*.4,H(9.7),-.925,.37,2.18,.055,'cedar',0,.94+.08*Math.sin(i));
  });
@@ -102,17 +108,18 @@ export function buildReference4Architecture(T,options={}) {
  });
 
  const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:H(10.17),rise:C.ridgeY-H(10.17),curl:.62,centerZ:C.ridgeZ,connected:true});
+ for(const x of[-3.9,0,3.9])rosette(x,C.ridgeY+.13,C.ridgeZ+.18,.17,'oldgold');
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.55),rise:2.36,curl:.56,centerZ:-4.5,inner:.50,frontGap:6.53});
  role('entrance-deep-connected-canopy',()=>{
   const zs=lin(upperFront,gFront,15),weather=gridAt(xs,zs,canopy);emit(shell(weather,-.035,.025,'connected-canopy-ceramics'),'slate');emit(shell(weather,-.16,-.035,'connected-canopy-timber-deck'),'cedar');
   // 37 individually solid rough-sawn rafters. Boards are above them, so the
   // underside presents true member depth and air gaps, not a smooth false skin.
-  const rr=lin(-gHalf+.1,gHalf-.1,36);for(let k=0;k<rr.length;k++){const x=rr[k],rgrid=gridAt([x-.065,x+.065],lin(gBack,gFront+.09,30),canopy);emit(shell(rgrid,-.39,-.16,'visible-curved-cedar-rafter'),'cedar');arch.squareFitting(x,canopy(x,gFront+.09)-.275,gFront+.096,.13,.23,0,k%2===0);}
+  const rr=lin(-gHalf+.1,gHalf-.1,36);for(let k=0;k<rr.length;k++){const x=rr[k],rgrid=gridAt([x-.065,x+.065],lin(gBack,gFront+.09,30),canopy);emit(shell(rgrid,-.39,-.16,'visible-curved-cedar-rafter'),'cedar');}
   for(const z of[gBack,-.48,.57]){const curve=gridAt(xs,[z-.11,z+.11],canopy);emit(shell(curve,-.64,-.39,'transverse-curved-carrier'),'red');}
   // Front bargeboard is a real closed curved beam, queried by the lantern arms.
   const barge=shell(gridAt(xs,[gFront-.17,gFront+.07],canopy),-.47,-.02,'entrance-saddled-bargeboard');emit(barge,'cedar');
   for(const drop of[-.04,-.45])tube(xs.map(x=>[x,canopy(x,gFront+.08)+drop,gFront+.085]),.018,'oldgold',120);
-  for(const x of[-5.6,-4.3,-2.9,-1.5,1.5,2.9,4.3,5.6]){const y=canopy(x,gFront+.08)-.25;arch.squareFitting(x,y,gFront+.094,.28,.34);}
+  for(const x of[-5.6,-4.3,-2.9,-1.5,1.5,2.9,4.3,5.6]){const y=canopy(x,gFront+.08)-.25;box(x,y,gFront+.084,.27,.34,.025,'oldgold');for(const sx of[-1,1])box(x+sx*.126,y,gFront+.105,.016,.34,.012,'gold');for(const sy of[-1,1])box(x,y+sy*.16,gFront+.105,.25,.016,.012,'gold');rosette(x,y,gFront+.108,.057,'darkwood');for(const sx of[-1,1])for(const sy of[-1,1])emit(sphere,'gold',x+sx*.095,y+sy*.125,gFront+.113,.011,.011,.006);}
   for(let i=0;i<=62;i++){const x=-gHalf+2*gHalf*i/62;const ts=lin(upperFront,gFront+.04,7);for(let j=0;j<ts.length-1;j++)tileBetween([x,canopy(x,ts[j])+.025,ts[j]],[x,canopy(x,ts[j+1])+.025,ts[j+1]],.063,.96+.05*Math.sin(i*5+j));arch.tileEnd(V([x,canopy(x,gFront+.04)+.025,gFront+.06]),0,.074,i%2===0);}
   // Discrete curved ribs and inset timber panels retain the arch depth.
   for(const x of[-2.9,0,2.9]){const y=canopy(x,.57)-.65;box(x,(y+C.capitalTop+.36)/2,.57,.18,Math.max(.05,y-C.capitalTop-.36),.20,'red');}
@@ -179,7 +186,7 @@ export function buildReference4Architecture(T,options={}) {
    const x=sign*(3.25+i*.25);if(Math.abs(x)>8.9)continue;
    const y=H(7.55)+.24+.28*Math.pow(Math.abs(x)/9,8);
    box(x,y-.39,.61,.10,.13,.73,'cedar');
-   arch.squareFitting(x,y-.39,1.00,.10,.12,0,i%3===0);
+   if(i%4===0)arch.squareFitting(x,y-.39,1.00,.10,.12,0,false);
   }
  });
  // Low enclosing galleries are architecture, not a free-standing temple in a park.
@@ -203,6 +210,7 @@ export function buildReference4Architecture(T,options={}) {
   role('tower-finial',()=>{const bottom=eaves[4]+.66+.31,top=C.towerHeight;emit(cyl,'oldgold',0,(bottom+top-.25)/2,0,.038,top-bottom-.25,.038);for(let i=0;i<13;i++){const y=bottom+.15+i*(top-bottom-.58)/12,r=.39*(1-i*.043);const g=new T.TorusGeometry(r,.027,6,28);emit(g,'oldgold',0,y,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'oldgold',0,top-.16,0,.11,.16,.11);});
  },C.towerSceneScale);
 
+ group.add(buildDeepEntranceCarving(mats,{capitalTop:C.capitalTop,canopyAt:x=>canopy(x,gFront+.08),front:gFront+.115}));
  // Flush grouped geometry into real shadow-casting ordinary meshes/instances.
  let instances=0,triangles=0;for(const {g,m,items}of buckets.values()){
   const object=items.length===1?new T.Mesh(g,m):new T.InstancedMesh(g,m,items.length);

@@ -1,0 +1,22 @@
+{
+  "reference": 4,
+  "acceptance": false,
+  "comparison": "qa/ten-reference/04/iteration-03/compare-left-original-right-render.png",
+  "detailComparisons": "qa/ten-reference/04/iteration-03/details/",
+  "confirmedRegressions": [
+    "The new path material averages to nearly flat grey in the actual GPU image. The small texels and weak normal encoding disappear under mip filtering.",
+    "Both curb lines contain default white meshes. The paving array was reduced to four materials but the curb index remained modulo eight.",
+    "Applied entrance leaves still read as bright thin gold cutouts instead of rounded carved wood with selective gilding.",
+    "The lantern proportions improved, but the surface is chalky and the cap has sparse moss.",
+    "Real leaf shadows now reach the foreground, but their broad dense coverage and flat crowns still need correction."
+  ],
+  "fourthPass": {
+    "curb": "Index uses paving.length. The mesh helper now rejects absent materials instead of silently accepting Three.js's default white material.",
+    "stoneSampling": "Periodic multi-scale albedo, roughness and normal data now include visible mineral aggregates and pitting. Source normal red bytes span 62–194; the previous almost-neutral normals lost their detail in sampling.",
+    "stoneGeometry": "Top faces are refined into actual continuous millimetre relief, with discontinuous moss rooted in the shared polygon joints.",
+    "gpuAudit": "window.temple.info().surfaceAudit records the material map UUID and the compiled shader uniform map UUID after an actual frame. This needs checking in the root-managed GPU run.",
+    "carving": "Convex closed leaf bodies with carved midribs replace flat front faces. Gilding occupies small veins and selected leaves; repeated small eave rings are reduced.",
+    "plants": "Crown clusters gain vertical depth and per-leaf colour variation. Near-path crown density is lower, and lotus petals become wider, shorter cupped forms.",
+    "status": "Fourth source pass committed; actual GPU visual acceptance remains pending."
+  }
+}

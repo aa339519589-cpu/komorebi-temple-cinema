@@ -1,0 +1,97 @@
+{
+  "reference": 4,
+  "sourcePhoto": "references/hd/3-照片-4.jpg",
+  "sourceCommit": "bca67033cfb0e2aba58ba969fb170573fcfd5f1e",
+  "sourceHash": "97d4cee2571545446a8f92891f389b7d52ccffc630ff1d256aa1690189f7e3a9",
+  "reviewDate": "2026-10-18T06:11:35.144Z",
+  "visualAccepted": false,
+  "similarityPercentage": null,
+  "method": "Native 1254px photograph, previous iteration-10, full 900px actual GPU frames, paired original/render crops, and fixed floor/lantern inspection views were personally viewed. Two hypothesis-led source revisions only.",
+  "scope": [
+    "reconstructions/scene-04/",
+    "qa/ten-reference/04/"
+  ],
+  "preserved": [
+    "Camera and projection",
+    "Main hall, pagoda, and stone lantern anchors",
+    "Seven-second finite shot API",
+    "Existing solid stone lantern cap and shell closure",
+    "Deterministic real 3D geometry and generated materials"
+  ],
+  "changes": [
+    "Replaced ochre stone bases with medium neutral grey granite, including warm feldspar variation among path slabs.",
+    "Separated mineral colour, physical millimetre-scale normal relief, eroded pockets, and larger surface weathering.",
+    "Increased real paving tessellation and weathered height variation; chipped the perimeter and lowered joint moss roots into the gaps.",
+    "After max01 showed overly pale stone and an even granular lattice, max02 lowered albedo and varied mineral spacing, size, height, and domain warp."
+  ],
+  "actualFindings": {
+    "improved": [
+      "The strongly yellow/beige cast is reduced.",
+      "Paver joints and missing lip pieces read more clearly at the low camera angle.",
+      "Final grey stone remains distinct from red timber and the gold sanctuary."
+    ],
+    "unresolved": [
+      "The final close floor and lantern views still show over-emphasized fragmented normal relief. This is closer to coarse crushed aggregate than the rounded eroded granite in the photograph.",
+      "The photograph has larger local warm sun/cool shadow contrasts and wet highlights. The render is still flatter, with different shadow coverage and a visible alternation of slab colours.",
+      "Lantern shaft/frieze relief, irregular moss coverage, weathered silhouette, and foreground boulder geology remain visibly unlike the photograph.",
+      "The main hall timber/gold ornament rhythm, roof curvature and layered depth, vegetation density and botanical variation remain visibly under-matched. No new architectural detail was added in these two stone-focused rounds."
+    ]
+  },
+  "verification": {
+    "cpu": {
+      "invalidValues": 0,
+      "invalidAttributeValues": 0,
+      "attributeCountMismatches": 0
+    },
+    "gpu": [
+      {
+        "path": "iteration-max02/report.json",
+        "status": "rendered-review",
+        "sourceCommit": "bca67033cfb0e2aba58ba969fb170573fcfd5f1e",
+        "sourceHash": "97d4cee2571545446a8f92891f389b7d52ccffc630ff1d256aa1690189f7e3a9",
+        "errors": [],
+        "frames": [
+          {
+            "name": "reference",
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "allProgramsLinked": true
+          }
+        ]
+      },
+      {
+        "path": "iteration-max02-details/report.json",
+        "status": "rendered-review",
+        "sourceCommit": "bca67033cfb0e2aba58ba969fb170573fcfd5f1e",
+        "sourceHash": "97d4cee2571545446a8f92891f389b7d52ccffc630ff1d256aa1690189f7e3a9",
+        "errors": [],
+        "frames": [
+          {
+            "name": "shot--104",
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "allProgramsLinked": true
+          },
+          {
+            "name": "shot--106",
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "allProgramsLinked": true
+          }
+        ]
+      }
+    ],
+    "sameFrozenSource": true,
+    "interpretation": "CPU/GPU execution passes confirm valid construction and rendering only; they do not constitute photographic or visual acceptance."
+  },
+  "evidence": {
+    "main": "iteration-max02/reference.png",
+    "fullComparison": "iteration-max02/compare-original-left-render-right.png",
+    "floor": "iteration-max02-details/shot--104.png",
+    "lantern": "iteration-max02-details/shot--106.png"
+  },
+  "nextAction": "Stop after the two requested revisions and await root visual review. Do not automatically iterate or claim a similarity score."
+}

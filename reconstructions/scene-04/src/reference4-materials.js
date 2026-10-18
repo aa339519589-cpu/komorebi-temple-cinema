@@ -1,15 +1,16 @@
+import {stoneMaterial} from './scene04-surfaces.js';
 // Material successor prepared against the actually viewed reference-4 v3.
 // Pure material/texture construction; no exposure, lighting, or geometry edits.
 export function createReference4MaterialSet(T, options={}) {
   const palette={
-    cedar:[0x4b2416,.84,0],red:[0x6e2d1c,.82,0],endwood:[0x795334,.84,0],darkwood:[0x261b15,.88,0],
+    cedar:[0x62321f,.84,0],red:[0x7b3523,.82,0],endwood:[0x795334,.84,0],darkwood:[0x261b15,.88,0],
     gold:[0xc1a04b,.34,.78],oldgold:[0x926c2d,.57,.61],black:[0x272b29,.65,.08],
-    slate:[0x424e59,.76,0],tileEdge:[0x717878,.81,0],stone:[0x716250,.95,0],
-    granite:[0x83725d,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
+    slate:[0x38434b,.76,0],tileEdge:[0x717878,.81,0],stone:[0x62676c,.95,0],
+    granite:[0x73777b,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
   };
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
-    const m=options.materials?.[key]||new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness});
+    const m=options.materials?.[key]||(['stone','granite'].includes(key)?stoneMaterial('reference4_'+key,color,{seed:key==='stone'?31:73}):key==='slate'?new T.MeshPhysicalMaterial({name:'kiln-fired-ceramic',color,roughness:.47,metalness:0,envMapIntensity:.38,clearcoat:.12,clearcoatRoughness:.34}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
     mats[key]=m;if(!options.materials?.[key])materials.push(m);
   }
   const fract=x=>x-Math.floor(x), hash=(x,y)=>fract(Math.sin(x*127.1+y*311.7+7.3)*43758.5453123);
@@ -40,7 +41,7 @@ export function createReference4MaterialSet(T, options={}) {
   for(const key of ['red','cedar','endwood','darkwood'])if(materials.includes(mats[key])) {
     Object.assign(mats[key],{map:wood,bumpMap:woodHeight,bumpScale:key==='red'?.010:.018});
   }
-  for(const key of ['stone','granite','slate'])if(materials.includes(mats[key])) {
+  for(const key of ['slate'])if(materials.includes(mats[key])) {
     Object.assign(mats[key],{map:stone,bumpMap:stoneHeight,bumpScale:key==='slate'?.006:.004});
   }
   const tiles=mats.slate.clone();tiles.name='reference4_variegated_tiles';tiles.vertexColors=true;
