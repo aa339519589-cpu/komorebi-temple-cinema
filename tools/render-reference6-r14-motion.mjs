@@ -109,7 +109,7 @@ try{
  }
  if(report.sequence.length!==total||new Set(report.sequence.map(f=>f.rgbaSha256)).size<total*.95)throw Error('Invalid video frame timeline or repetitions');
  const concat=folder+'/segments.txt';
- await writeFile(concat,report.segments.map(s=>'file '+JSON.stringify(s.file)).join('\n')+'\n');
+ await writeFile(concat,report.segments.map(s=>"file '"+s.file+"'").join('\n')+'\n');
  const filename=folder+'/reference6-r14-real-6s.mp4';
  if(existsSync(filename))throw Error('Refuse previous film overwrite');
  await run(['-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',concat,'-ss','25','-t',String(duration),'-i','music/PerituneMaterial_Oboro.mp3',
