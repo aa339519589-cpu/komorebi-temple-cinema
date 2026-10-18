@@ -1,0 +1,2763 @@
+{
+  "reference": 10,
+  "entry": "reconstructions/scene-10/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-18T20:34:37.059Z",
+  "source": {
+    "hash": "50427776325e0f9cd3b72c1da2ffa3ffc8a38ca98964ee388c6289085c4ef77a",
+    "files": {
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-04/assets/granite-tile-04/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-10/asset-dependencies.json": "b0a7cf9c1d7b3da409f1c2b89dd5333ea9d79f442b3c1aff893900311e7a8d01",
+      "reconstructions/scene-10/index.html": "72276586699e97b2d8e826ae4e05105cd61b2b233c9079077f455793963f45a1",
+      "reconstructions/scene-10/src/architecture.js": "46b9ba71d8cbfe055779e32fa614087ca83f64300b7983274c4beab0a1813659",
+      "reconstructions/scene-10/src/buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-10/src/dolly-path.js": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c",
+      "reconstructions/scene-10/src/main.js": "dbd04e350c7d4b189763a9a9a5bbc4d6fb559db5bb96a28629737187d12bba20",
+      "reconstructions/scene-10/src/materials.js": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5",
+      "reconstructions/scene-10/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-10/src/near-rain-stones.js": "7d3d69d9f02118182bdf955703df858b3974682c1fc16f5687cdc1eeb0cf97e7",
+      "reconstructions/scene-10/src/near-surface-reflection.js": "f340fd45f0edf62257bcc786f0dc5a593f26924450b37634f4f7e3cb541a254b",
+      "reconstructions/scene-10/src/optics.js": "6216f859c404a85bc6b2739384580330322beffb3b12a5381526e25470743313",
+      "reconstructions/scene-10/src/paving-mask.js": "933ab064232b93e133e2427d3f04f32b37d109cb6eaa984d7c3b41ced1a5397b",
+      "reconstructions/scene-10/src/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-10/src/surface-detail.js": "93d8d1efe23b09b87a6ced3d5107d8f45f280a118844378933f7143aafb11e4e",
+      "reconstructions/scene-10/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-10/src/worn-flagstone.js": "9528372c000e64245e60bd9f391e464ff5ea9123b0742b487e04cb2bf0579c75"
+    }
+  },
+  "sourceCommit": "2abf69f2ee2097fd01c547d9a75871656b9bbcc1",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-10/index.html",
+    "/reconstructions/scene-10/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-10/src/paving-mask.js",
+    "/reconstructions/scene-10/src/worn-flagstone.js",
+    "/reconstructions/scene-10/src/near-rain-stones.js",
+    "/reconstructions/scene-10/src/near-surface-reflection.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-10/src/architecture.js",
+    "/reconstructions/scene-10/src/materials.js",
+    "/reconstructions/scene-10/src/natural-forms.js",
+    "/reconstructions/scene-10/src/weathered-boulder.js",
+    "/reconstructions/scene-10/src/buddha.js",
+    "/reconstructions/scene-10/src/surface-detail.js",
+    "/reconstructions/scene-10/src/scanned-garden-stones.js",
+    "/reconstructions/scene-10/src/dolly-path.js",
+    "/reconstructions/scene-10/src/optics.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          -0.7,
+          0.25,
+          9
+        ],
+        "target": [
+          -0.8,
+          0.06699999999999998,
+          7.8
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-local-real-surface-probe-and-low-point-water80",
+        "nearStoneRecords": [
+          {
+            "id": "9:3",
+            "seed": 2021,
+            "profile": {
+              "chips": [
+                [
+                  0.09,
+                  0.041,
+                  0.014,
+                  0.01
+                ],
+                [
+                  0.64,
+                  0.024,
+                  0.009,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.18,
+                0.21,
+                0.18,
+                0.12,
+                0.0048
+              ],
+              "pits": 51
+            },
+            "triangles": 97048,
+            "pitCount": 54,
+            "footprintXZ": [
+              -1.5626519918441772,
+              5.494631767272949,
+              -0.7215070128440857,
+              6.172167778015137
+            ],
+            "topYRange": [
+              0.03834611945992825,
+              0.04935782995375096
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.009
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:4",
+            "seed": 2058,
+            "profile": {
+              "chips": [
+                [
+                  0.31,
+                  0.032,
+                  0.018,
+                  0.011
+                ],
+                [
+                  0.82,
+                  0.019,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                0.11,
+                -0.15,
+                0.14,
+                0.22,
+                0.0052
+              ],
+              "pits": 43
+            },
+            "triangles": 101242,
+            "pitCount": 46,
+            "footprintXZ": [
+              -0.7960339784622192,
+              5.311674118041992,
+              0.19559399783611298,
+              6.167548179626465
+            ],
+            "topYRange": [
+              0.03194617762690612,
+              0.044334371903799324
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.018,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:5",
+            "seed": 2095,
+            "profile": {
+              "chips": [
+                [
+                  0.16,
+                  0.027,
+                  0.01,
+                  0.007
+                ],
+                [
+                  0.53,
+                  0.043,
+                  0.022,
+                  0.013
+                ],
+                [
+                  0.93,
+                  0.019,
+                  0.008,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.12,
+                -0.24,
+                0.2,
+                0.12,
+                0.0036
+              ],
+              "pits": 56
+            },
+            "triangles": 121026,
+            "pitCount": 59,
+            "footprintXZ": [
+              0.040869999676942825,
+              5.310797214508057,
+              1.037883996963501,
+              6.229189872741699
+            ],
+            "topYRange": [
+              0.0373161618732196,
+              0.05087641008883194
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.01,
+              0.022,
+              0.008
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:3",
+            "seed": 2118,
+            "profile": {
+              "chips": [
+                [
+                  0.24,
+                  0.021,
+                  0.009,
+                  0.005
+                ],
+                [
+                  0.72,
+                  0.037,
+                  0.017,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.22,
+                0.04,
+                0.17,
+                0.15,
+                0.0043
+              ],
+              "pits": 47
+            },
+            "triangles": 124666,
+            "pitCount": 50,
+            "footprintXZ": [
+              -1.5901949405670166,
+              6.09641695022583,
+              -0.8028450012207031,
+              7.054994106292725
+            ],
+            "topYRange": [
+              0.03863082319508973,
+              0.048529905798490855
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.017
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:4",
+            "seed": 2155,
+            "profile": {
+              "chips": [
+                [
+                  0.04,
+                  0.029,
+                  0.013,
+                  0.008
+                ],
+                [
+                  0.47,
+                  0.045,
+                  0.023,
+                  0.014
+                ]
+              ],
+              "basin": [
+                -0.2,
+                -0.12,
+                0.21,
+                0.18,
+                0.006
+              ],
+              "pits": 61
+            },
+            "triangles": 151370,
+            "pitCount": 64,
+            "footprintXZ": [
+              -0.8008139729499817,
+              6.122311115264893,
+              0.19310800731182098,
+              7.1444411277771
+            ],
+            "topYRange": [
+              0.03683021528400069,
+              0.047136476838883924
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.013,
+              0.023
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:5",
+            "seed": 2192,
+            "profile": {
+              "chips": [
+                [
+                  0.39,
+                  0.028,
+                  0.011,
+                  0.006
+                ],
+                [
+                  0.89,
+                  0.04,
+                  0.019,
+                  0.012
+                ]
+              ],
+              "basin": [
+                0.13,
+                0.19,
+                0.18,
+                0.12,
+                0.0041
+              ],
+              "pits": 44
+            },
+            "triangles": 94186,
+            "pitCount": 47,
+            "footprintXZ": [
+              0.15617799758911133,
+              6.121119976043701,
+              1.0487090349197388,
+              7.147401809692383
+            ],
+            "topYRange": [
+              0.03596415991220277,
+              0.04590777788306172
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.019
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:3",
+            "seed": 2215,
+            "profile": {
+              "chips": [
+                [
+                  0.13,
+                  0.033,
+                  0.015,
+                  0.009
+                ],
+                [
+                  0.57,
+                  0.02,
+                  0.008,
+                  0.006
+                ],
+                [
+                  0.78,
+                  0.026,
+                  0.011,
+                  0.007
+                ]
+              ],
+              "basin": [
+                -0.09,
+                0.17,
+                0.15,
+                0.21,
+                0.0053
+              ],
+              "pits": 53
+            },
+            "triangles": 107210,
+            "pitCount": 56,
+            "footprintXZ": [
+              -1.5877599716186523,
+              7.007853031158447,
+              -0.5492429733276367,
+              7.869325160980225
+            ],
+            "topYRange": [
+              0.03575860370281245,
+              0.047554056446942654
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.015,
+              0.008,
+              0.011
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:4",
+            "seed": 2252,
+            "profile": {
+              "chips": [
+                [
+                  0.28,
+                  0.046,
+                  0.024,
+                  0.014
+                ],
+                [
+                  0.68,
+                  0.022,
+                  0.01,
+                  0.007
+                ]
+              ],
+              "basin": [
+                0.17,
+                -0.09,
+                0.22,
+                0.16,
+                0.0065
+              ],
+              "pits": 57
+            },
+            "triangles": 90154,
+            "pitCount": 60,
+            "footprintXZ": [
+              -0.7910509705543518,
+              7.068613052368164,
+              0.1507290005683899,
+              7.932275772094727
+            ],
+            "topYRange": [
+              0.0369244897884243,
+              0.04999916055833728
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.024,
+              0.01
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:5",
+            "seed": 2289,
+            "profile": {
+              "chips": [
+                [
+                  0.07,
+                  0.023,
+                  0.009,
+                  0.006
+                ],
+                [
+                  0.48,
+                  0.036,
+                  0.016,
+                  0.01
+                ]
+              ],
+              "basin": [
+                -0.21,
+                -0.08,
+                0.16,
+                0.2,
+                0.0044
+              ],
+              "pits": 48
+            },
+            "triangles": 109250,
+            "pitCount": 51,
+            "footprintXZ": [
+              0.15101799368858337,
+              6.955452919006348,
+              1.1194390058517456,
+              7.926621913909912
+            ],
+            "topYRange": [
+              0.03569229384533551,
+              0.04527547240981209
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.016
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:3",
+            "seed": 2312,
+            "profile": {
+              "chips": [
+                [
+                  0.36,
+                  0.039,
+                  0.021,
+                  0.013
+                ],
+                [
+                  0.75,
+                  0.029,
+                  0.012,
+                  0.008
+                ]
+              ],
+              "basin": [
+                0.06,
+                0.19,
+                0.21,
+                0.15,
+                0.0058
+              ],
+              "pits": 64
+            },
+            "triangles": 117484,
+            "pitCount": 67,
+            "footprintXZ": [
+              -1.6173019409179688,
+              7.755757808685303,
+              -0.546438992023468,
+              8.715278625488281
+            ],
+            "topYRange": [
+              0.03895971791357447,
+              0.049894846468344925
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.021,
+              0.012
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:4",
+            "seed": 2349,
+            "profile": {
+              "chips": [
+                [
+                  0.18,
+                  0.03,
+                  0.014,
+                  0.009
+                ],
+                [
+                  0.62,
+                  0.047,
+                  0.025,
+                  0.015
+                ],
+                [
+                  0.91,
+                  0.018,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                -0.17,
+                -0.13,
+                0.18,
+                0.22,
+                0.0062
+              ],
+              "pits": 59
+            },
+            "triangles": 101444,
+            "pitCount": 62,
+            "footprintXZ": [
+              -0.7093530297279358,
+              7.889389991760254,
+              0.33588799834251404,
+              8.714163780212402
+            ],
+            "topYRange": [
+              0.040085087871333955,
+              0.05322285500743609
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.025,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:5",
+            "seed": 2386,
+            "profile": {
+              "chips": [
+                [
+                  0.43,
+                  0.025,
+                  0.011,
+                  0.008
+                ],
+                [
+                  0.85,
+                  0.035,
+                  0.018,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.18,
+                0.11,
+                0.17,
+                0.14,
+                0.0046
+              ],
+              "pits": 46
+            },
+            "triangles": 93664,
+            "pitCount": 49,
+            "footprintXZ": [
+              0.16107900440692902,
+              7.723771095275879,
+              1.17719304561615,
+              8.648362159729004
+            ],
+            "topYRange": [
+              0.037056766480275734,
+              0.048988928281590044
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.018
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          }
+        ],
+        "nearSurfaceReflection": {
+          "stoneIds": [
+            "9:3",
+            "9:4",
+            "9:5",
+            "10:3",
+            "10:4",
+            "10:5",
+            "11:3",
+            "11:4",
+            "11:5",
+            "12:3",
+            "12:4",
+            "12:5"
+          ],
+          "dimensions": [
+            1024,
+            1280
+          ],
+          "boundsXZ": [
+            -1.6423019409179687,
+            5.285797214508056,
+            1.2021930456161498,
+            8.74027862548828
+          ],
+          "texelMetres": [
+            0.002777827135287225,
+            0.0026988136023283005
+          ],
+          "heightQuantizationMetres": 0.00031372549019607844,
+          "actualTopYRange": [
+            0.028351999819278717,
+            0.05322299897670746
+          ],
+          "poreWaterLevelRange": [
+            0.04095437190379932,
+            0.049192855007436094
+          ],
+          "topTrianglesRead": 653107,
+          "coveredTexels": 1086353,
+          "newTriangles": 0,
+          "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+          "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+          "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+          "planeY": 0.066,
+          "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+          "probeReady": true,
+          "probePosition": [
+            0,
+            2.3,
+            7
+          ],
+          "probeIntensity": 1,
+          "probeAssigned": true,
+          "roughness": 0.39,
+          "clearcoat": 0.55
+        },
+        "scannedStone": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "objects": 789089,
+        "drawCalls": 1157,
+        "triangles": 119777555,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            5.4,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "shot-0",
+      "localTime": 0,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "fb0bb21ea11df6deea6476370e825e5d5e4b50d51d4315e040e4d1497a8ea835"
+    },
+    {
+      "pose": {
+        "position": [
+          -0.4596683654488989,
+          0.5863691690538109,
+          11.518746388845354
+        ],
+        "target": [
+          -0.5567514608157095,
+          0.5922653766492594,
+          9.185167127560797
+        ],
+        "time": 3.5,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-local-real-surface-probe-and-low-point-water80",
+        "nearStoneRecords": [
+          {
+            "id": "9:3",
+            "seed": 2021,
+            "profile": {
+              "chips": [
+                [
+                  0.09,
+                  0.041,
+                  0.014,
+                  0.01
+                ],
+                [
+                  0.64,
+                  0.024,
+                  0.009,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.18,
+                0.21,
+                0.18,
+                0.12,
+                0.0048
+              ],
+              "pits": 51
+            },
+            "triangles": 97048,
+            "pitCount": 54,
+            "footprintXZ": [
+              -1.5626519918441772,
+              5.494631767272949,
+              -0.7215070128440857,
+              6.172167778015137
+            ],
+            "topYRange": [
+              0.03834611945992825,
+              0.04935782995375096
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.009
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:4",
+            "seed": 2058,
+            "profile": {
+              "chips": [
+                [
+                  0.31,
+                  0.032,
+                  0.018,
+                  0.011
+                ],
+                [
+                  0.82,
+                  0.019,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                0.11,
+                -0.15,
+                0.14,
+                0.22,
+                0.0052
+              ],
+              "pits": 43
+            },
+            "triangles": 101242,
+            "pitCount": 46,
+            "footprintXZ": [
+              -0.7960339784622192,
+              5.311674118041992,
+              0.19559399783611298,
+              6.167548179626465
+            ],
+            "topYRange": [
+              0.03194617762690612,
+              0.044334371903799324
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.018,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:5",
+            "seed": 2095,
+            "profile": {
+              "chips": [
+                [
+                  0.16,
+                  0.027,
+                  0.01,
+                  0.007
+                ],
+                [
+                  0.53,
+                  0.043,
+                  0.022,
+                  0.013
+                ],
+                [
+                  0.93,
+                  0.019,
+                  0.008,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.12,
+                -0.24,
+                0.2,
+                0.12,
+                0.0036
+              ],
+              "pits": 56
+            },
+            "triangles": 121026,
+            "pitCount": 59,
+            "footprintXZ": [
+              0.040869999676942825,
+              5.310797214508057,
+              1.037883996963501,
+              6.229189872741699
+            ],
+            "topYRange": [
+              0.0373161618732196,
+              0.05087641008883194
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.01,
+              0.022,
+              0.008
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:3",
+            "seed": 2118,
+            "profile": {
+              "chips": [
+                [
+                  0.24,
+                  0.021,
+                  0.009,
+                  0.005
+                ],
+                [
+                  0.72,
+                  0.037,
+                  0.017,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.22,
+                0.04,
+                0.17,
+                0.15,
+                0.0043
+              ],
+              "pits": 47
+            },
+            "triangles": 124666,
+            "pitCount": 50,
+            "footprintXZ": [
+              -1.5901949405670166,
+              6.09641695022583,
+              -0.8028450012207031,
+              7.054994106292725
+            ],
+            "topYRange": [
+              0.03863082319508973,
+              0.048529905798490855
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.017
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:4",
+            "seed": 2155,
+            "profile": {
+              "chips": [
+                [
+                  0.04,
+                  0.029,
+                  0.013,
+                  0.008
+                ],
+                [
+                  0.47,
+                  0.045,
+                  0.023,
+                  0.014
+                ]
+              ],
+              "basin": [
+                -0.2,
+                -0.12,
+                0.21,
+                0.18,
+                0.006
+              ],
+              "pits": 61
+            },
+            "triangles": 151370,
+            "pitCount": 64,
+            "footprintXZ": [
+              -0.8008139729499817,
+              6.122311115264893,
+              0.19310800731182098,
+              7.1444411277771
+            ],
+            "topYRange": [
+              0.03683021528400069,
+              0.047136476838883924
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.013,
+              0.023
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:5",
+            "seed": 2192,
+            "profile": {
+              "chips": [
+                [
+                  0.39,
+                  0.028,
+                  0.011,
+                  0.006
+                ],
+                [
+                  0.89,
+                  0.04,
+                  0.019,
+                  0.012
+                ]
+              ],
+              "basin": [
+                0.13,
+                0.19,
+                0.18,
+                0.12,
+                0.0041
+              ],
+              "pits": 44
+            },
+            "triangles": 94186,
+            "pitCount": 47,
+            "footprintXZ": [
+              0.15617799758911133,
+              6.121119976043701,
+              1.0487090349197388,
+              7.147401809692383
+            ],
+            "topYRange": [
+              0.03596415991220277,
+              0.04590777788306172
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.019
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:3",
+            "seed": 2215,
+            "profile": {
+              "chips": [
+                [
+                  0.13,
+                  0.033,
+                  0.015,
+                  0.009
+                ],
+                [
+                  0.57,
+                  0.02,
+                  0.008,
+                  0.006
+                ],
+                [
+                  0.78,
+                  0.026,
+                  0.011,
+                  0.007
+                ]
+              ],
+              "basin": [
+                -0.09,
+                0.17,
+                0.15,
+                0.21,
+                0.0053
+              ],
+              "pits": 53
+            },
+            "triangles": 107210,
+            "pitCount": 56,
+            "footprintXZ": [
+              -1.5877599716186523,
+              7.007853031158447,
+              -0.5492429733276367,
+              7.869325160980225
+            ],
+            "topYRange": [
+              0.03575860370281245,
+              0.047554056446942654
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.015,
+              0.008,
+              0.011
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:4",
+            "seed": 2252,
+            "profile": {
+              "chips": [
+                [
+                  0.28,
+                  0.046,
+                  0.024,
+                  0.014
+                ],
+                [
+                  0.68,
+                  0.022,
+                  0.01,
+                  0.007
+                ]
+              ],
+              "basin": [
+                0.17,
+                -0.09,
+                0.22,
+                0.16,
+                0.0065
+              ],
+              "pits": 57
+            },
+            "triangles": 90154,
+            "pitCount": 60,
+            "footprintXZ": [
+              -0.7910509705543518,
+              7.068613052368164,
+              0.1507290005683899,
+              7.932275772094727
+            ],
+            "topYRange": [
+              0.0369244897884243,
+              0.04999916055833728
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.024,
+              0.01
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:5",
+            "seed": 2289,
+            "profile": {
+              "chips": [
+                [
+                  0.07,
+                  0.023,
+                  0.009,
+                  0.006
+                ],
+                [
+                  0.48,
+                  0.036,
+                  0.016,
+                  0.01
+                ]
+              ],
+              "basin": [
+                -0.21,
+                -0.08,
+                0.16,
+                0.2,
+                0.0044
+              ],
+              "pits": 48
+            },
+            "triangles": 109250,
+            "pitCount": 51,
+            "footprintXZ": [
+              0.15101799368858337,
+              6.955452919006348,
+              1.1194390058517456,
+              7.926621913909912
+            ],
+            "topYRange": [
+              0.03569229384533551,
+              0.04527547240981209
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.016
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:3",
+            "seed": 2312,
+            "profile": {
+              "chips": [
+                [
+                  0.36,
+                  0.039,
+                  0.021,
+                  0.013
+                ],
+                [
+                  0.75,
+                  0.029,
+                  0.012,
+                  0.008
+                ]
+              ],
+              "basin": [
+                0.06,
+                0.19,
+                0.21,
+                0.15,
+                0.0058
+              ],
+              "pits": 64
+            },
+            "triangles": 117484,
+            "pitCount": 67,
+            "footprintXZ": [
+              -1.6173019409179688,
+              7.755757808685303,
+              -0.546438992023468,
+              8.715278625488281
+            ],
+            "topYRange": [
+              0.03895971791357447,
+              0.049894846468344925
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.021,
+              0.012
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:4",
+            "seed": 2349,
+            "profile": {
+              "chips": [
+                [
+                  0.18,
+                  0.03,
+                  0.014,
+                  0.009
+                ],
+                [
+                  0.62,
+                  0.047,
+                  0.025,
+                  0.015
+                ],
+                [
+                  0.91,
+                  0.018,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                -0.17,
+                -0.13,
+                0.18,
+                0.22,
+                0.0062
+              ],
+              "pits": 59
+            },
+            "triangles": 101444,
+            "pitCount": 62,
+            "footprintXZ": [
+              -0.7093530297279358,
+              7.889389991760254,
+              0.33588799834251404,
+              8.714163780212402
+            ],
+            "topYRange": [
+              0.040085087871333955,
+              0.05322285500743609
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.025,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:5",
+            "seed": 2386,
+            "profile": {
+              "chips": [
+                [
+                  0.43,
+                  0.025,
+                  0.011,
+                  0.008
+                ],
+                [
+                  0.85,
+                  0.035,
+                  0.018,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.18,
+                0.11,
+                0.17,
+                0.14,
+                0.0046
+              ],
+              "pits": 46
+            },
+            "triangles": 93664,
+            "pitCount": 49,
+            "footprintXZ": [
+              0.16107900440692902,
+              7.723771095275879,
+              1.17719304561615,
+              8.648362159729004
+            ],
+            "topYRange": [
+              0.037056766480275734,
+              0.048988928281590044
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.018
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          }
+        ],
+        "nearSurfaceReflection": {
+          "stoneIds": [
+            "9:3",
+            "9:4",
+            "9:5",
+            "10:3",
+            "10:4",
+            "10:5",
+            "11:3",
+            "11:4",
+            "11:5",
+            "12:3",
+            "12:4",
+            "12:5"
+          ],
+          "dimensions": [
+            1024,
+            1280
+          ],
+          "boundsXZ": [
+            -1.6423019409179687,
+            5.285797214508056,
+            1.2021930456161498,
+            8.74027862548828
+          ],
+          "texelMetres": [
+            0.002777827135287225,
+            0.0026988136023283005
+          ],
+          "heightQuantizationMetres": 0.00031372549019607844,
+          "actualTopYRange": [
+            0.028351999819278717,
+            0.05322299897670746
+          ],
+          "poreWaterLevelRange": [
+            0.04095437190379932,
+            0.049192855007436094
+          ],
+          "topTrianglesRead": 653107,
+          "coveredTexels": 1086353,
+          "newTriangles": 0,
+          "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+          "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+          "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+          "planeY": 0.066,
+          "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+          "probeReady": true,
+          "probePosition": [
+            0,
+            2.3,
+            7
+          ],
+          "probeIntensity": 1,
+          "probeAssigned": true,
+          "roughness": 0.39,
+          "clearcoat": 0.55
+        },
+        "scannedStone": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "objects": 789089,
+        "drawCalls": 982,
+        "triangles": 98288218,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            5.4,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "shot-3p5",
+      "localTime": 3.5,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9999790145219508,
+      "opaqueFraction": 1,
+      "rgbaSha256": "e3b3c034e3689905a506a16e6c4876c6dd33c03c27b8cd9c5167b0a361477d8e"
+    },
+    {
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          5.4,
+          -14
+        ],
+        "time": 7,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-local-real-surface-probe-and-low-point-water80",
+        "nearStoneRecords": [
+          {
+            "id": "9:3",
+            "seed": 2021,
+            "profile": {
+              "chips": [
+                [
+                  0.09,
+                  0.041,
+                  0.014,
+                  0.01
+                ],
+                [
+                  0.64,
+                  0.024,
+                  0.009,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.18,
+                0.21,
+                0.18,
+                0.12,
+                0.0048
+              ],
+              "pits": 51
+            },
+            "triangles": 97048,
+            "pitCount": 54,
+            "footprintXZ": [
+              -1.5626519918441772,
+              5.494631767272949,
+              -0.7215070128440857,
+              6.172167778015137
+            ],
+            "topYRange": [
+              0.03834611945992825,
+              0.04935782995375096
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.009
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:4",
+            "seed": 2058,
+            "profile": {
+              "chips": [
+                [
+                  0.31,
+                  0.032,
+                  0.018,
+                  0.011
+                ],
+                [
+                  0.82,
+                  0.019,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                0.11,
+                -0.15,
+                0.14,
+                0.22,
+                0.0052
+              ],
+              "pits": 43
+            },
+            "triangles": 101242,
+            "pitCount": 46,
+            "footprintXZ": [
+              -0.7960339784622192,
+              5.311674118041992,
+              0.19559399783611298,
+              6.167548179626465
+            ],
+            "topYRange": [
+              0.03194617762690612,
+              0.044334371903799324
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.018,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:5",
+            "seed": 2095,
+            "profile": {
+              "chips": [
+                [
+                  0.16,
+                  0.027,
+                  0.01,
+                  0.007
+                ],
+                [
+                  0.53,
+                  0.043,
+                  0.022,
+                  0.013
+                ],
+                [
+                  0.93,
+                  0.019,
+                  0.008,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.12,
+                -0.24,
+                0.2,
+                0.12,
+                0.0036
+              ],
+              "pits": 56
+            },
+            "triangles": 121026,
+            "pitCount": 59,
+            "footprintXZ": [
+              0.040869999676942825,
+              5.310797214508057,
+              1.037883996963501,
+              6.229189872741699
+            ],
+            "topYRange": [
+              0.0373161618732196,
+              0.05087641008883194
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.01,
+              0.022,
+              0.008
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:3",
+            "seed": 2118,
+            "profile": {
+              "chips": [
+                [
+                  0.24,
+                  0.021,
+                  0.009,
+                  0.005
+                ],
+                [
+                  0.72,
+                  0.037,
+                  0.017,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.22,
+                0.04,
+                0.17,
+                0.15,
+                0.0043
+              ],
+              "pits": 47
+            },
+            "triangles": 124666,
+            "pitCount": 50,
+            "footprintXZ": [
+              -1.5901949405670166,
+              6.09641695022583,
+              -0.8028450012207031,
+              7.054994106292725
+            ],
+            "topYRange": [
+              0.03863082319508973,
+              0.048529905798490855
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.017
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:4",
+            "seed": 2155,
+            "profile": {
+              "chips": [
+                [
+                  0.04,
+                  0.029,
+                  0.013,
+                  0.008
+                ],
+                [
+                  0.47,
+                  0.045,
+                  0.023,
+                  0.014
+                ]
+              ],
+              "basin": [
+                -0.2,
+                -0.12,
+                0.21,
+                0.18,
+                0.006
+              ],
+              "pits": 61
+            },
+            "triangles": 151370,
+            "pitCount": 64,
+            "footprintXZ": [
+              -0.8008139729499817,
+              6.122311115264893,
+              0.19310800731182098,
+              7.1444411277771
+            ],
+            "topYRange": [
+              0.03683021528400069,
+              0.047136476838883924
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.013,
+              0.023
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:5",
+            "seed": 2192,
+            "profile": {
+              "chips": [
+                [
+                  0.39,
+                  0.028,
+                  0.011,
+                  0.006
+                ],
+                [
+                  0.89,
+                  0.04,
+                  0.019,
+                  0.012
+                ]
+              ],
+              "basin": [
+                0.13,
+                0.19,
+                0.18,
+                0.12,
+                0.0041
+              ],
+              "pits": 44
+            },
+            "triangles": 94186,
+            "pitCount": 47,
+            "footprintXZ": [
+              0.15617799758911133,
+              6.121119976043701,
+              1.0487090349197388,
+              7.147401809692383
+            ],
+            "topYRange": [
+              0.03596415991220277,
+              0.04590777788306172
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.019
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:3",
+            "seed": 2215,
+            "profile": {
+              "chips": [
+                [
+                  0.13,
+                  0.033,
+                  0.015,
+                  0.009
+                ],
+                [
+                  0.57,
+                  0.02,
+                  0.008,
+                  0.006
+                ],
+                [
+                  0.78,
+                  0.026,
+                  0.011,
+                  0.007
+                ]
+              ],
+              "basin": [
+                -0.09,
+                0.17,
+                0.15,
+                0.21,
+                0.0053
+              ],
+              "pits": 53
+            },
+            "triangles": 107210,
+            "pitCount": 56,
+            "footprintXZ": [
+              -1.5877599716186523,
+              7.007853031158447,
+              -0.5492429733276367,
+              7.869325160980225
+            ],
+            "topYRange": [
+              0.03575860370281245,
+              0.047554056446942654
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.015,
+              0.008,
+              0.011
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:4",
+            "seed": 2252,
+            "profile": {
+              "chips": [
+                [
+                  0.28,
+                  0.046,
+                  0.024,
+                  0.014
+                ],
+                [
+                  0.68,
+                  0.022,
+                  0.01,
+                  0.007
+                ]
+              ],
+              "basin": [
+                0.17,
+                -0.09,
+                0.22,
+                0.16,
+                0.0065
+              ],
+              "pits": 57
+            },
+            "triangles": 90154,
+            "pitCount": 60,
+            "footprintXZ": [
+              -0.7910509705543518,
+              7.068613052368164,
+              0.1507290005683899,
+              7.932275772094727
+            ],
+            "topYRange": [
+              0.0369244897884243,
+              0.04999916055833728
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.024,
+              0.01
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:5",
+            "seed": 2289,
+            "profile": {
+              "chips": [
+                [
+                  0.07,
+                  0.023,
+                  0.009,
+                  0.006
+                ],
+                [
+                  0.48,
+                  0.036,
+                  0.016,
+                  0.01
+                ]
+              ],
+              "basin": [
+                -0.21,
+                -0.08,
+                0.16,
+                0.2,
+                0.0044
+              ],
+              "pits": 48
+            },
+            "triangles": 109250,
+            "pitCount": 51,
+            "footprintXZ": [
+              0.15101799368858337,
+              6.955452919006348,
+              1.1194390058517456,
+              7.926621913909912
+            ],
+            "topYRange": [
+              0.03569229384533551,
+              0.04527547240981209
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.016
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:3",
+            "seed": 2312,
+            "profile": {
+              "chips": [
+                [
+                  0.36,
+                  0.039,
+                  0.021,
+                  0.013
+                ],
+                [
+                  0.75,
+                  0.029,
+                  0.012,
+                  0.008
+                ]
+              ],
+              "basin": [
+                0.06,
+                0.19,
+                0.21,
+                0.15,
+                0.0058
+              ],
+              "pits": 64
+            },
+            "triangles": 117484,
+            "pitCount": 67,
+            "footprintXZ": [
+              -1.6173019409179688,
+              7.755757808685303,
+              -0.546438992023468,
+              8.715278625488281
+            ],
+            "topYRange": [
+              0.03895971791357447,
+              0.049894846468344925
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.021,
+              0.012
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:4",
+            "seed": 2349,
+            "profile": {
+              "chips": [
+                [
+                  0.18,
+                  0.03,
+                  0.014,
+                  0.009
+                ],
+                [
+                  0.62,
+                  0.047,
+                  0.025,
+                  0.015
+                ],
+                [
+                  0.91,
+                  0.018,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                -0.17,
+                -0.13,
+                0.18,
+                0.22,
+                0.0062
+              ],
+              "pits": 59
+            },
+            "triangles": 101444,
+            "pitCount": 62,
+            "footprintXZ": [
+              -0.7093530297279358,
+              7.889389991760254,
+              0.33588799834251404,
+              8.714163780212402
+            ],
+            "topYRange": [
+              0.040085087871333955,
+              0.05322285500743609
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.025,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:5",
+            "seed": 2386,
+            "profile": {
+              "chips": [
+                [
+                  0.43,
+                  0.025,
+                  0.011,
+                  0.008
+                ],
+                [
+                  0.85,
+                  0.035,
+                  0.018,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.18,
+                0.11,
+                0.17,
+                0.14,
+                0.0046
+              ],
+              "pits": 46
+            },
+            "triangles": 93664,
+            "pitCount": 49,
+            "footprintXZ": [
+              0.16107900440692902,
+              7.723771095275879,
+              1.17719304561615,
+              8.648362159729004
+            ],
+            "topYRange": [
+              0.037056766480275734,
+              0.048988928281590044
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.018
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          }
+        ],
+        "nearSurfaceReflection": {
+          "stoneIds": [
+            "9:3",
+            "9:4",
+            "9:5",
+            "10:3",
+            "10:4",
+            "10:5",
+            "11:3",
+            "11:4",
+            "11:5",
+            "12:3",
+            "12:4",
+            "12:5"
+          ],
+          "dimensions": [
+            1024,
+            1280
+          ],
+          "boundsXZ": [
+            -1.6423019409179687,
+            5.285797214508056,
+            1.2021930456161498,
+            8.74027862548828
+          ],
+          "texelMetres": [
+            0.002777827135287225,
+            0.0026988136023283005
+          ],
+          "heightQuantizationMetres": 0.00031372549019607844,
+          "actualTopYRange": [
+            0.028351999819278717,
+            0.05322299897670746
+          ],
+          "poreWaterLevelRange": [
+            0.04095437190379932,
+            0.049192855007436094
+          ],
+          "topTrianglesRead": 653107,
+          "coveredTexels": 1086353,
+          "newTriangles": 0,
+          "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+          "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+          "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+          "planeY": 0.066,
+          "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+          "probeReady": true,
+          "probePosition": [
+            0,
+            2.3,
+            7
+          ],
+          "probeIntensity": 1,
+          "probeAssigned": true,
+          "roughness": 0.39,
+          "clearcoat": 0.55
+        },
+        "scannedStone": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "objects": 789089,
+        "drawCalls": 904,
+        "triangles": 97857634,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            5.4,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "shot-7",
+      "localTime": 7,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "30560a80b6f97461440126a729bfd1e05501cd697239eb2b49f89162f8697dea"
+    }
+  ],
+  "completedAt": "2026-10-18T20:34:51.224Z"
+}
