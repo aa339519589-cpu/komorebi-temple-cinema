@@ -1,0 +1,122 @@
+{
+  "id": "08",
+  "model": {
+    "url": "./08.ply",
+    "format": "binary-ply-gaussian-splat",
+    "gaussianCount": 1572516,
+    "sha256": "7faebae3eb347b366338885caa33e5851eec78a0b06458834eb57e50e6f41051"
+  },
+  "image": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/7-\u7167\u7247-8.jpg",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "798dd84173dff9d39fa4b3e229e95db4ca56b5b267d1f7f8c206c1248ee7f1d2"
+  },
+  "intrinsics": {
+    "fx": 1230.5567869517295,
+    "fy": 1230.5567869517295,
+    "cx": 627.0,
+    "cy": 627.0,
+    "width": 1254,
+    "height": 1254,
+    "assumption": "Independent horizontal54deg FOV unless --fov overrides; not measured",
+    "horizontalFovDegrees": 54
+  },
+  "coordinateSystem": "opencv-camera",
+  "units": "arbitrary declared scene metres; not measured metric depth",
+  "sourceCamera": {
+    "cameraToWorld": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "worldToCamera": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "matrixOrder": "row-major"
+  },
+  "depth": {
+    "positiveZQuantiles": {
+      "p01": 3.0000002503395082,
+      "p05": 3.0867250561714172,
+      "p10": 3.2568228244781494,
+      "median": 11.36689043045044,
+      "p90": 29.191893577575684,
+      "p99": 40.0
+    },
+    "mapping": {
+      "relativeInverseDepthPercentile01": 0.0,
+      "relativeInverseDepthPercentile99": 6.702370882034302,
+      "near": 3,
+      "far": 40,
+      "formula": "s=clip((prediction-p01)/(p99-p01),0,1); z=1/(1/far+s*(1/near-1/far))"
+    },
+    "inferenceInputShape": [
+      1,
+      3,
+      1260,
+      1260
+    ]
+  },
+  "gaussianEncoding": {
+    "sphericalHarmonicsDegree": 0,
+    "color": "original unresized sRGB pixels encoded SH0 (rgb-.5)/sqrt(1/(4*pi))",
+    "opacity": "logit",
+    "opacityValue": 0.995,
+    "scale": "log principal standard deviations; tangent sigma=z*footprint/f, thickness=.08*tangent",
+    "projectedSigmaPixels": 0.8,
+    "quaternion": "wxyz; camera-plane tangent axes identity; no edge-gradient stretching"
+  },
+  "reconstruction": {
+    "method": "Depth Anything V2 Small relative inverse-depth inference, independent per-pixel backprojection, no triangle connectivity",
+    "model": "vits; features64; channels48,96,192,384",
+    "device": "mps",
+    "source": "https://github.com/DepthAnything/Depth-Anything-V2",
+    "sourceCommit": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "checkpointUrl": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth",
+    "checkpointSha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+    "torch": "2.8.0",
+    "generatedAt": "2026-10-18T14:58:12.837150+00:00",
+    "elapsedSeconds": 2.882
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Depth-Anything-V2-Small Apache-2.0; no Base/Large/Giant weights used",
+    "url": "https://github.com/DepthAnything/Depth-Anything-V2#license",
+    "attribution": "Depth Anything V2, Lihe Yang et al.; source LICENSE preserved"
+  },
+  "limitations": [
+    "Relative depth mapped to a declared unmeasured scale; focal length assumed independently.",
+    "Visible colored surface only; hidden geometry is unknown, not a closed CAD model.",
+    "Lighting/reflections encoded in source colors; no relightable PBR material reconstruction.",
+    "No SHARP model, predicted depth, PLY or camera metadata used."
+  ]
+}

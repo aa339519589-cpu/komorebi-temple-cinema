@@ -15,7 +15,7 @@ def main():
     p.add_argument('--image',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--id',default='01');p.add_argument('--input-size',type=int,default=1254)
     p.add_argument('--fov',type=float,default=54);p.add_argument('--near',type=float,default=3);p.add_argument('--far',type=float,default=40)
-    p.add_argument('--footprint',type=float,default=.62);p.add_argument('--opacity',type=float,default=.995)
+    p.add_argument('--footprint',type=float,default=.80);p.add_argument('--opacity',type=float,default=.995)
     p.add_argument('--device',default='mps',choices=['mps','cpu'])
     p.add_argument('--upstream',type=Path,default=Path.home()/'.cache/depth-field/Depth-Anything-V2')
     p.add_argument('--checkpoint',type=Path,default=Path.home()/'.cache/depth-field/checkpoints/depth_anything_v2_vits.pth')
