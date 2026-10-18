@@ -1,0 +1,55 @@
+{
+  "sourceGeometryHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+  "servedSourceAllMatch": true,
+  "nativeGeometry": {
+    "meshes": 1591,
+    "geometries": 1536,
+    "materials": 80,
+    "textures": 5,
+    "instances": 198834,
+    "triangles": 20931362
+  },
+  "scriptSha256": "d461ee94a1f65d24183dd7a8eb5209173a53548262c5241dc7062df9df448af1",
+  "renderSha256": "82d6544ac14624542d4caef3b55280a73519df991ee142a094ab8e03d3605686",
+  "editablePackedBlend": {
+    "file": "render/scene07-cycles61.blend",
+    "bytes": 918606603,
+    "sha256": "7c52a06192b63cba7ea95447a9f24b7d35556648e6afc2b740077878bb7619ba",
+    "primaryAgentArchivesLargeFiles": true
+  },
+  "measuredSky": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "provider": "Poly Haven",
+    "asset": "qwantani_sunset_puresky",
+    "license": "CC0-1.0",
+    "maximumLuminance": 58971.4765625,
+    "meanLuminance": 0.835347056388855,
+    "sunPixel": [
+      1228,
+      546
+    ],
+    "measuredAzimuthDegrees": -35.947265624999986,
+    "measuredAltitudeDegrees": 6.064453125,
+    "targetDirectionYUp": [
+      -0.5818283557891846,
+      0.03511033207178116,
+      -0.8125534057617188
+    ],
+    "targetAzimuthDegrees": 125.60453356882249,
+    "targetAltitudeDegrees": 2.0120873847266787,
+    "lookupEuler": [
+      0.057537514716386795,
+      0.04115372896194458,
+      -2.8184263706207275
+    ],
+    "mappingFormula": "phi = pi - 2*pi*u; World TextureCoordinate Normal is -ray_D, multiplied by(-1,-1,-1) BEFORE Mapping",
+    "radianceUse": "Same measured environment for camera, GI and reflections; no projected frame",
+    "sourceURL": "https://polyhaven.com/a/qwantani_sunset_puresky"
+  },
+  "inspection": [
+    "Physical transport is deeper, but this low2.01 degree visible-background sun leaves modeled garden/hills in cool shadow and is not closer to the original golden illumination.",
+    "Bare retaining faces, broad simplified roofs and missing veranda floor context remain real source-model limitations."
+  ],
+  "photographicAcceptance": false
+}

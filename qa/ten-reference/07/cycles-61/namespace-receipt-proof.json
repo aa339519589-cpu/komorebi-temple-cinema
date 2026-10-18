@@ -1,0 +1,55 @@
+{
+  "observedAt": "2026-10-18T13:08:02.704Z",
+  "purpose": "Read-only namespace comparison resolves previous root-server exporter receipt ambiguity. No re-render when exact source bytes match.",
+  "records": [
+    {
+      "reference": 9,
+      "integratedRoot": "/Users/mima1234/temple-cinema-live-sync",
+      "workerRoot": "/Users/mima1234/temple-parallel-07-20261018",
+      "integratedHash": "02ed39a520ba2e0ec2eb4d1fe83b4710eb95945392deb1db5c8a15202f6bb982",
+      "workerHash": "02ed39a520ba2e0ec2eb4d1fe83b4710eb95945392deb1db5c8a15202f6bb982",
+      "allSourceAndDeclaredAssetFilesMatch": true,
+      "files": {
+        "reconstructions/scene-09/index.html": "f10bccc1d16c93aa46ee5c417fbee1460acd8713b1bcaa0f96f2274ebd1bae30",
+        "reconstructions/scene-09/src/arched-garden-bridge.js": "aaf627400aff978d4aec6cf28d7fdedae38aab820fdc97186293c4a791b3efa0",
+        "reconstructions/scene-09/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+        "reconstructions/scene-09/src/carved-joinery.js": "9190d3a92771139b0de1a8b83303472e1588bce05a44941af3b03e0921be3044",
+        "reconstructions/scene-09/src/garden-ferns.js": "77ef4f483cebdd0780e60fb2c258669b939bcfda2b454996a0abebdf3daa04b7",
+        "reconstructions/scene-09/src/highlight-scatter.js": "7cfd3bed7479213f870d7be3868baf58a293f6644ce156a81507f2bad41b4b62",
+        "reconstructions/scene-09/src/lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+        "reconstructions/scene-09/src/lotus-petal.js": "921e5dcb2a87f784688909107b6e04f541bbd80b0d34885dab673aa29ece455f",
+        "reconstructions/scene-09/src/main.js": "b5a6de904b760fefeb455b0e6282c03796f46cd983d19dbd2b767e1668f0ad53",
+        "reconstructions/scene-09/src/pine-needles.js": "2b0c81a1ac2cc15d93da182a85e211061dcf7bfd492f1546a36f04dc611e514a",
+        "reconstructions/scene-09/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+        "reconstructions/scene-09/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+        "reconstructions/scene-09/src/restoration-pruned-pines-v1.js": "f41adbbcf83bf56541d34e2861f803e4450dcc260f92a0fc5e76712cd9484e6b",
+        "reconstructions/scene-09/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1"
+      }
+    },
+    {
+      "reference": 7,
+      "integratedRoot": "/Users/mima1234/temple-cinema-live-sync",
+      "workerRoot": "/Users/mima1234/temple-parallel-07-20261018",
+      "integratedHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+      "workerHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+      "allSourceAndDeclaredAssetFilesMatch": true,
+      "files": {
+        "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+        "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+        "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+        "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+        "reconstructions/scene-07/asset-dependencies.json": "1eee9fa2b7b2edf4c58a0edffc27ade245b4dc9527ca4718c61b0d6f87d8f559",
+        "reconstructions/scene-07/assets/scanned-timber-provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+        "reconstructions/scene-07/index.html": "0c504160f72ac4a5b0fc494448585cd0f9d9ba8282f169debeafe02e72699ac2",
+        "reconstructions/scene-07/src/architecture-kernel.js": "adda7f460d2f3bb127dace518ed52299be8b07d7f444aa08b1e855f803b28e0b",
+        "reconstructions/scene-07/src/boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+        "reconstructions/scene-07/src/main.js": "4b23dedc13794c3c6ddf1a41673fce6b740512920d78cdc73146b903fd7c696b",
+        "reconstructions/scene-07/src/natural-details.js": "cce308779acc86bd1f508dc2cab591715f782c68246b9d5260cf347e71cebb89",
+        "reconstructions/scene-07/src/reference4-natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+        "reconstructions/scene-07/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+        "reconstructions/scene-07/src/sanctuary.js": "7e4f34f6d276713e9080e93c6a2909cc1eac862d1c51c5b6c6d74c902dd7931e",
+        "reconstructions/scene-07/src/scanned-timber.js": "624eec6add3b58029f57c9c560e4c78c6ab99851a9c1bacca207328c502b099e"
+      }
+    }
+  ]
+}
