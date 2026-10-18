@@ -1,0 +1,330 @@
+{
+  "reference": 1,
+  "entry": "reconstructions/scene-01/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-18T10:42:29.393Z",
+  "source": {
+    "hash": "a0aa8df984b4f0e912a28225000e316d54a38aa15456b5aa8e7d04886849d892",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-01/asset-dependencies.json": "31befba553eaa58cb0b28c3da7fe9134024985ea88a1e4d2f20773439d5e600a",
+      "reconstructions/scene-01/index.html": "625cf9b6f9a2e43417fc682fb4a077138e2abdea0d28fee4a0cc0fec3fc466d1",
+      "reconstructions/scene-01/manifest.json": "2265d4d3867eb2b88142be96a5bd0adda53a9049a1f340a19cc793392caf7a0e",
+      "reconstructions/scene-01/src/architecture.js": "01faecd30c37e15c5a33c82044b75821b92ed56e49c3aa79a3cb22c067139647",
+      "reconstructions/scene-01/src/garden.js": "53a03d0ab5e65a1874b4b7f1a28294495e9c8afbcdc1a3008bbf48ef2bc65683",
+      "reconstructions/scene-01/src/kernel.js": "b39a396e93d6cf2ed2910e7ef5445302f5f1d34bfd78d2314cd45b45c2754739",
+      "reconstructions/scene-01/src/main.js": "5ad95427e5b7b7cd19227713cf43f822ef7ed5054c3502504ad9e5999e30715d",
+      "reconstructions/scene-01/src/optics.js": "ca7245e2860796fa1e4f9db0ed5ff42371a309d16ad832780e152d9d4a4d4fca",
+      "reconstructions/scene-01/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-01/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-01/src/scanned-timber.js": "c42eda37f31a4078877caf055c2d1b9925767eeb038cb60c7c7a3d9b995254bc",
+      "reconstructions/scene-01/src/scene.js": "7534cfdaf54a58d59959aba4461c7b5880bf945a473effa5fb9d8a76a41e818d"
+    }
+  },
+  "sourceCommit": "6499d398b83debe22fa9cb8d05c03bce427890a1",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-01/index.html",
+    "/reconstructions/scene-01/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-01/src/scene.js",
+    "/reconstructions/scene-01/src/optics.js",
+    "/reconstructions/scene-01/src/scanned-timber.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-01/src/kernel.js",
+    "/reconstructions/scene-01/src/architecture.js",
+    "/reconstructions/scene-01/src/garden.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/reconstructions/scene-01/src/restoration-buddha.js",
+    "/reconstructions/scene-01/src/restoration-altar.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 1,
+        "frame": 1,
+        "width": 1254,
+        "height": 1254,
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "fov": 59
+        },
+        "triangles": 144760959,
+        "calls": 10658
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-01-scanned-timber-curved-lantern-r39",
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "target": [
+            0,
+            6.2,
+            -13
+          ],
+          "fov": 59,
+          "near": 0.1,
+          "far": 260,
+          "deckY": 1.8,
+          "eyeAboveDeck": 1.4
+        },
+        "architecture": {
+          "meshes": 1599,
+          "instances": 343214,
+          "triangles": 20749025,
+          "roles": {
+            "pagoda-plinth": 2,
+            "pagoda-1-timber-gallery": 3169,
+            "pagoda-1-curved-ceramic-roof": 3122,
+            "pagoda-2-timber-gallery": 3169,
+            "pagoda-2-curved-ceramic-roof": 2830,
+            "pagoda-3-timber-gallery": 3169,
+            "pagoda-3-curved-ceramic-roof": 2702,
+            "pagoda-4-timber-gallery": 3169,
+            "pagoda-4-curved-ceramic-roof": 2574,
+            "pagoda-5-timber-gallery": 3169,
+            "pagoda-5-curved-ceramic-roof": 2374,
+            "pagoda-finial": 37,
+            "great-hall-stone-platform": 182,
+            "great-hall-massive-columns": 5275,
+            "great-hall-layered-carved-eave-friezes": 1253,
+            "great-hall-depth-enclosure": 151,
+            "great-hall-gilded-open-portal": 3342,
+            "great-hall-upper-storey": 3873,
+            "great-hall-lower-monumental-roof": 8402,
+            "great-hall-main-monumental-roof": 12902,
+            "great-hall-stairs-and-balustrades": 92,
+            "scene": 148,
+            "foreground-veranda-real-deck": 43,
+            "foreground-veranda-wood-column": 26,
+            "foreground-veranda-oblique-ceiling-framework": 365,
+            "foreground-veranda-low-edge-balustrade": 63,
+            "foreground-six-sided-hanging-lantern": 174,
+            "garden-landforms": 7,
+            "arched-red-garden-bridge": 1002,
+            "foreground-weathered-sculpted-stone-lantern": 200,
+            "garden-shore-boulders-moss-and-crevices": 2104,
+            "foreground-east-island-boulder-and-ferns": 2330,
+            "west-bridge-root-rocks-and-flowering-groundcover": 55498,
+            "deep-layered-rock-bank-and-understory": 40970,
+            "raised-stair-landing-and-worn-garden-flagstones": 2656,
+            "distant-haze-woodland": 760,
+            "sculptural-layered-pines": 64600,
+            "flowering-garden-shrubs": 83187,
+            "lotus-leaves-and-layered-pink-blossoms": 735,
+            "photograph-calibrated-lotus-beds": 337,
+            "upper-right-maple-framing-boughs": 18630,
+            "maple-overhanging-inner-bough": 2700,
+            "foreground-vine-over-balustrade": 1000,
+            "foreground-vine-blossoms": 720,
+            "connected-garden-bark-branch-sweeps": 1
+          }
+        },
+        "garden": {
+          "branches": 254
+        },
+        "proceduralOnly": false,
+        "scannedTimber": {
+          "provider": "Poly Haven",
+          "asset": "lacquered_cherry_wood",
+          "license": "CC0-1.0",
+          "physicalTileMetres": 1,
+          "grain": "Member-aligned metric UV; filtered normal and roughness maps"
+        },
+        "planarReflection": true,
+        "frames": 1,
+        "renderer": {
+          "calls": 10658,
+          "triangles": 144760959
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9999993640764228,
+      "opaqueFraction": 1,
+      "rgbaSha256": "261f99091425fc5efaaa3eee87ea209492dc10d2342b3cd3292e2af3460438bb"
+    }
+  ],
+  "completedAt": "2026-10-18T10:42:33.998Z"
+}
