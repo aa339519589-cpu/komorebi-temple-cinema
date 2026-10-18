@@ -1,0 +1,77 @@
+{
+  "status": "bounded-solid-relief-candidate-rendered",
+  "visualAccepted": false,
+  "baseCommit": "ba9ada9",
+  "scope": "Two retained central entrance beams, local y8.70/y9.30 only. No camera, site, structural beam, column, roof or botanical changes.",
+  "prototype": {
+    "carvingFaceMetres": [
+      1.3,
+      0.27
+    ],
+    "parts": 2,
+    "triangles": 32108,
+    "instances": 8,
+    "totalTriangles": 256864,
+    "closedManifold": true,
+    "nonmanifoldEdges": 0,
+    "nonmanifoldVertices": 0
+  },
+  "bitmapPolicy": {
+    "selected": "v02, copied into scene03 assets with both original prompts/provenance",
+    "runtimeGuideRequests": false,
+    "glbImages": 0,
+    "glbTextures": 0,
+    "referencePhotoCopyrightRetained": true
+  },
+  "rounds": [
+    {
+      "iteration": "mesh70a",
+      "sourceHash": "d60e4f279d8a82798937731cb4ade60388a6118e0812bfc0179e5b221284993b",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeDetail": [
+        1254,
+        1254
+      ],
+      "detailCrop": [
+        580,
+        390,
+        390,
+        1254
+      ],
+      "viewed": true,
+      "finding": "Physical carved band is visible, but scalar ridges produce granular, overly sharp gold microforms. First source, GLB and editable blend retained in its retained-source directory."
+    },
+    {
+      "iteration": "mesh70b",
+      "sourceHash": "ad29cfd978ff06a12b24ef40667867c12e4ff6303d4baf6b1b26b067cb78a572",
+      "nativeFull": [
+        1254,
+        1254
+      ],
+      "nativeDetail": [
+        1254,
+        1254
+      ],
+      "detailCrop": [
+        580,
+        390,
+        390,
+        1254
+      ],
+      "viewed": true,
+      "correction": "Only actual vertex heights are smoothed at three grid-pitch steps; cutout mask stays distinct. Peak sculpted depth34mm to26mm, rounded height falloff at carved edges, uniform aged-gold color/roughness adjustment.",
+      "finding": "Broader rounded leaf bodies and stems read with fewer pointed micro-ridges. Still an interpreted repeated ornament with simplified overlaps; this is not photographic acceptance."
+    }
+  ],
+  "largestRemainingDifference": "The repeated interpretation lacks the source carving’s individually shaped rounded lotus/chrysanthemum leaves, deeper overlapping cutwork and irregular motif spacing. The upper row is partially hidden by existing rafters. Surrounding original fittings remain simpler than the reference.",
+  "verification": "Actual shared-mutex render-one native full and genuine subfrustum only, twice; finite closed solids and positive volume in Blender; GLB has zero images/textures; no test suite or movie run.",
+  "discardedBuildAttempt": {
+    "guide": "selected v02 only",
+    "cutoff": 0.13,
+    "triangles": 194308,
+    "reason": "Dense eased aperture mesh exceeded budget before curvature simplification; no scene render used this mesh."
+  }
+}

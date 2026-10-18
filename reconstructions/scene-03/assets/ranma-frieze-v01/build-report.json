@@ -1,0 +1,72 @@
+{
+  "status": "actual-closed-mesh-built",
+  "visualAccepted": false,
+  "builder": "reconstructions/scene-03/tools/build-ranma-relief.py",
+  "builderSha256": "da30e89793e5a5e6533d02525d45f0ccd4d81868b8719f75d5e465912559cc08",
+  "blenderVersion": "5.2.1 LTS",
+  "guide": {
+    "size": [
+      2169,
+      725
+    ],
+    "cropBottomLeftXYWH": [
+      7,
+      127,
+      2155,
+      472
+    ],
+    "sampleGrid": [
+      193,
+      41
+    ],
+    "cutoff": 0.2,
+    "heightOnly": true,
+    "origin": "lookdev/ranma-frieze-study/generated-height-guide-v02.png",
+    "sha256": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+    "role": "AI-authored non-metric height and aperture guide only; never albedo or scene imagery"
+  },
+  "physicalSizeM": [
+    1.316,
+    0.28600000000000003,
+    0.065
+  ],
+  "carvingFaceSizeM": [
+    1.3,
+    0.27
+  ],
+  "geometricHeightFilter": "Three grid-pitch diffusion steps, retaining the original aperture mask and rounded cut-edge height falloff",
+  "materialPolicy": "Separate uniform PBR gold and deep wood; no visible image texture",
+  "objects": [
+    {
+      "name": "ranma_gilt_carved_leaves",
+      "vertices": 15804,
+      "triangles": 32000,
+      "baseTriangles": 45184,
+      "boundaryOrNonmanifoldEdges": 0,
+      "nonmanifoldVertices": 0,
+      "closedManifold": true,
+      "finite": true,
+      "signedVolumeM3": 0.0063496906058910455
+    },
+    {
+      "name": "ranma_deep_wood_backplate",
+      "vertices": 56,
+      "triangles": 108,
+      "baseTriangles": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "nonmanifoldVertices": 0,
+      "closedManifold": true,
+      "finite": true,
+      "signedVolumeM3": 0.010154535723304376
+    }
+  ],
+  "prototypeTriangles": 32108,
+  "editableDenseCarvingTriangles": 188896,
+  "limits": [
+    "Artistic sculptural reconstruction, not measured historic relief.",
+    "Reference photograph copyright retained by its owner.",
+    "This build does not establish visual acceptance of scene03."
+  ],
+  "glbSha256": "e1f3d9ad9e819111def15b7501ff6630c4d83de552398dbaa4eb4e8fa618b1a4",
+  "blendSha256": "26a9cd0ad96d24c08961e32d9137ad307ec2566e83839a3b2b02b15aed66998e"
+}

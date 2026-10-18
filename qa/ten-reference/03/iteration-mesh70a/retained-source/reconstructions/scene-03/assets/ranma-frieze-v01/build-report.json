@@ -1,0 +1,67 @@
+{
+  "status": "actual-closed-mesh-built",
+  "visualAccepted": false,
+  "builder": "reconstructions/scene-03/tools/build-ranma-relief.py",
+  "builderSha256": "0f1074e06bd175e3a5066dbfb83998f216070b4bff9e91e56e3cde81c00218aa",
+  "blenderVersion": "5.2.1 LTS",
+  "guide": {
+    "size": [
+      2169,
+      725
+    ],
+    "cropBottomLeftXYWH": [
+      7,
+      127,
+      2155,
+      472
+    ],
+    "sampleGrid": [
+      193,
+      41
+    ],
+    "cutoff": 0.2,
+    "heightOnly": true,
+    "origin": "lookdev/ranma-frieze-study/generated-height-guide-v02.png",
+    "sha256": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+    "role": "AI-authored non-metric height and aperture guide only; never albedo or scene imagery"
+  },
+  "physicalSizeM": [
+    1.3,
+    0.27,
+    0.07300000000000001
+  ],
+  "materialPolicy": "Separate uniform PBR gold and deep wood; no visible image texture",
+  "objects": [
+    {
+      "name": "ranma_gilt_carved_leaves",
+      "vertices": 15804,
+      "triangles": 32000,
+      "baseTriangles": 45184,
+      "boundaryOrNonmanifoldEdges": 0,
+      "nonmanifoldVertices": 0,
+      "closedManifold": true,
+      "finite": true,
+      "signedVolumeM3": 0.007931905280161619
+    },
+    {
+      "name": "ranma_deep_wood_backplate",
+      "vertices": 56,
+      "triangles": 108,
+      "baseTriangles": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "nonmanifoldVertices": 0,
+      "closedManifold": true,
+      "finite": true,
+      "signedVolumeM3": 0.010154535723304376
+    }
+  ],
+  "prototypeTriangles": 32108,
+  "editableDenseCarvingTriangles": 188896,
+  "limits": [
+    "Artistic sculptural reconstruction, not measured historic relief.",
+    "Reference photograph copyright retained by its owner.",
+    "This build does not establish visual acceptance of scene03."
+  ],
+  "glbSha256": "968252b7037d82378f70fbae53a615cca5def499d89f521f57d0180ad812b44e",
+  "blendSha256": "c3e10370d0814c5391ae8aa8e08e179133b6272e0aa9dc6a1db23d7f2a5ea9cb"
+}

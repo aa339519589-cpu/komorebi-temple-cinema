@@ -1,0 +1,634 @@
+{
+  "reference": 3,
+  "entry": "reconstructions/scene-03/index.html",
+  "worktree": "/Users/mima1234/temple-mesh-04-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T18:23:43.448Z",
+  "source": {
+    "hash": "ad29cfd978ff06a12b24ef40667867c12e4ff6303d4baf6b1b26b067cb78a572",
+    "files": {
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-03/asset-dependencies.json": "836ee67b91a24258f17a5e7dcd63fa2cd63297e30e6a8791a3b453db12fd5377",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/build-report.json": "3e5dd33b3108d3b7a4adca9aa32caf55a966f203c2f855219f6b6010ddf17387",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/imagegen-provenance.json": "04b8b45fdf97993d90531add59030d5f9c46dbdc0d8b3a20a9ad70a175702bf4",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend": "26a9cd0ad96d24c08961e32d9137ad307ec2566e83839a3b2b02b15aed66998e",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb": "e1f3d9ad9e819111def15b7501ff6630c4d83de552398dbaa4eb4e8fa618b1a4",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/source-height-guide.png": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+      "reconstructions/scene-03/assets/timber/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "reconstructions/scene-03/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-03/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-03/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-03/index.html": "055f4b3a9530e7c502546f8a78abfd91fbedd21acff4884775309730788fb34c",
+      "reconstructions/scene-03/src/hall-layout.js": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "reconstructions/scene-03/src/lotus-material.js": "5f210a7ab38ccc2bf30e91b38d1e12f0896918bb22490c12a3e09f36b012fb70",
+      "reconstructions/scene-03/src/main.js": "922c8f61566443adc4a2523d1130fdcb9ce1e26e03177d2250ae7818f2b78379",
+      "reconstructions/scene-03/src/ranma-relief.js": "5f7263c7c38e01ae10f1bc18ac5461519fbdfc0fd4e6532f429143f19d7b4c6b",
+      "reconstructions/scene-03/src/reference4-architecture.js": "0c87539f4b69aed03b8864342f8bd9b5bfbd53fbae0d31d908f8afe67a291aad",
+      "reconstructions/scene-03/src/reference4-detail-kernel.js": "18193225a51a63a81e5f399c10b4262819854191c971876e9c977b0ba4065024",
+      "reconstructions/scene-03/src/reference4-materials.js": "f3ef009732ba14953ba3b8f1898cd79c8791fc6fb36e9be52681403163125325",
+      "reconstructions/scene-03/src/reference4-natural-forms.js": "4c112d34fd4680894e97a1bf7ae87215f737e13627ec7cdf73daea1901f4c515",
+      "reconstructions/scene-03/src/restoration-lotus-leaf.js": "cef3d7232eb5fd6388a58ebc9cff7a5d68980d7cc21df90be6f0abf6715e1fa9",
+      "reconstructions/scene-03/src/restoration-lotus-petal.js": "ed101e101992f9ef602d6c53ccab4760899aafd73a40a420c162132d64debd4b",
+      "reconstructions/scene-03/src/scanned-timber.js": "766c2c3bc5a9abf626f5334433956bc00f3482ff5180fa0d16f4646f5ddb0684",
+      "reconstructions/scene-03/src/scene03-curved-rafter.js": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "reconstructions/scene-03/src/scene03-roof-solids.js": "6ee6b30a2875bdcc8cce70cdae33ed3a9487f3051d1d50197a44e799b978d5ec",
+      "reconstructions/scene-03/src/scene03-solid-joinery.js": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "reconstructions/scene-03/src/water-surface.js": "4d133ac86c28c5cc3465be65c29d7585b43e0700a853f59604c9d809b45a8b83",
+      "reconstructions/scene-03/tools/build-ranma-relief.py": "da30e89793e5a5e6533d02525d45f0ccd4d81868b8719f75d5e465912559cc08"
+    }
+  },
+  "sourceCommit": "ba9ada989e7c1785fa89bdcb16c0edc8d6f95e2c",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-03/index.html",
+    "/reconstructions/scene-03/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/reconstructions/scene-03/src/scanned-timber.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-03/src/reference4-architecture.js",
+    "/reconstructions/scene-03/src/restoration-lotus-leaf.js",
+    "/reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "/reconstructions/scene-03/src/reference4-natural-forms.js",
+    "/reconstructions/scene-03/src/hall-layout.js",
+    "/reconstructions/scene-03/src/water-surface.js",
+    "/reconstructions/scene-03/src/lotus-material.js",
+    "/reconstructions/scene-03/src/ranma-relief.js",
+    "/reconstructions/scene-03/src/reference4-detail-kernel.js",
+    "/reconstructions/scene-03/src/reference4-materials.js",
+    "/reconstructions/scene-03/src/scene03-solid-joinery.js",
+    "/reconstructions/scene-03/src/scene03-curved-rafter.js",
+    "/reconstructions/scene-03/src/scene03-roof-solids.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/reconstructions/scene-03/assets/timber/diffuse-2k.jpg",
+    "/reconstructions/scene-03/assets/timber/normal-gl-2k.png",
+    "/reconstructions/scene-03/assets/timber/roughness-2k.jpg",
+    "/reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb"
+  ],
+  "detailCrop": {
+    "pixels": [
+      580,
+      390,
+      390,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          1.6,
+          6.1,
+          -3
+        ],
+        "fov": 58,
+        "time": 0
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-mesh70-two-closed-carved-entrance-beams",
+        "ready": true,
+        "frames": 1,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            1.6,
+            6.1,
+            -3
+          ],
+          "fov": 58
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 108561,
+        "architecture": {
+          "meshes": 1533,
+          "instances": 31650,
+          "triangles": 10394048,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 630,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 872,
+            "central-real-portal": 540,
+            "main-upper-roof": 766,
+            "lower-shoulder-roof": 3645,
+            "lower-eave-complete-parallel-rafters": 567,
+            "front-gable-thick-ceramics-and-recessed-carving": 134,
+            "main-roof-gilded-lotus-finial": 125,
+            "upper-storey-dense-bracket-frieze": 2028,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          },
+          "closedBearingInstances": 43,
+          "curvedRafters": 482,
+          "roofConstruction": {
+            "upperWidth": 13.6,
+            "upperEave": 15.4,
+            "mainRidgeY": 19.6,
+            "closedClayThickness": 0.018,
+            "dormerCrown": 18.62,
+            "dormerFront": -0.6
+          }
+        },
+        "ranma": {
+          "prototypeTriangles": 32108,
+          "modules": 8,
+          "totalTriangles": 256864,
+          "localCenters": [
+            [
+              -2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -0.67,
+              8.7,
+              0.33
+            ],
+            [
+              0.67,
+              8.7,
+              0.33
+            ],
+            [
+              2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -2.01,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              -0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              2.01,
+              9.299999999999999,
+              0.33
+            ]
+          ],
+          "guideRole": "Approved AI height study drives closed geometry only; no image texture",
+          "visualAccepted": false
+        },
+        "renderer": {
+          "calls": 375,
+          "triangles": 15700068,
+          "compositeCalls": 1
+        },
+        "assets": "Closed authored architecture; eight instances of an editable Blender solid relief with a height-only artistic guide; independent PBR wood and gold; no scene image textures"
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9988457987072945,
+      "opaqueFraction": 1,
+      "rgbaSha256": "4c645cd5bfe668bcf49b19288d83c9d3e7c98e82d3f5ebea4c945dc5ac3c6330"
+    },
+    {
+      "pose": {
+        "frame": 2,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          1.6,
+          6.1,
+          -3
+        ],
+        "fov": 58,
+        "time": 0
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-mesh70-two-closed-carved-entrance-beams",
+        "ready": true,
+        "frames": 2,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            1.6,
+            6.1,
+            -3
+          ],
+          "fov": 58
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 108561,
+        "architecture": {
+          "meshes": 1533,
+          "instances": 31650,
+          "triangles": 10394048,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 630,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 872,
+            "central-real-portal": 540,
+            "main-upper-roof": 766,
+            "lower-shoulder-roof": 3645,
+            "lower-eave-complete-parallel-rafters": 567,
+            "front-gable-thick-ceramics-and-recessed-carving": 134,
+            "main-roof-gilded-lotus-finial": 125,
+            "upper-storey-dense-bracket-frieze": 2028,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          },
+          "closedBearingInstances": 43,
+          "curvedRafters": 482,
+          "roofConstruction": {
+            "upperWidth": 13.6,
+            "upperEave": 15.4,
+            "mainRidgeY": 19.6,
+            "closedClayThickness": 0.018,
+            "dormerCrown": 18.62,
+            "dormerFront": -0.6
+          }
+        },
+        "ranma": {
+          "prototypeTriangles": 32108,
+          "modules": 8,
+          "totalTriangles": 256864,
+          "localCenters": [
+            [
+              -2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -0.67,
+              8.7,
+              0.33
+            ],
+            [
+              0.67,
+              8.7,
+              0.33
+            ],
+            [
+              2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -2.01,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              -0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              2.01,
+              9.299999999999999,
+              0.33
+            ]
+          ],
+          "guideRole": "Approved AI height study drives closed geometry only; no image texture",
+          "visualAccepted": false
+        },
+        "renderer": {
+          "calls": 84,
+          "triangles": 11822260,
+          "compositeCalls": 1
+        },
+        "assets": "Closed authored architecture; eight instances of an editable Blender solid relief with a height-only artistic guide; independent PBR wood and gold; no scene image textures"
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        580,
+        390,
+        390,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9999993640764228,
+      "opaqueFraction": 1,
+      "rgbaSha256": "52454545f33627821884f12fa1255d8311aca32294faaba4bc498db728b5bcdd"
+    }
+  ],
+  "completedAt": "2026-10-18T18:23:46.819Z"
+}

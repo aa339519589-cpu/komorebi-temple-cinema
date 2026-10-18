@@ -1,9 +1,9 @@
 {
   "scene": "03",
-  "revision": "mesh65b",
+  "revision": "mesh70b",
   "referencePhotographs": {
     "usedByRuntime": false,
-    "comparisonInput": "references/hd/2-\u7167\u7247-3.jpg",
+    "comparisonInput": "references/hd/2-照片-3.jpg",
     "copyright": "Retained by the original photograph owner. No source-photo RGB, projected texture, inferred depth, point cloud or Gaussian splat is used."
   },
   "copiedSource": [
@@ -26,9 +26,10 @@
   "authoredGeometry": [
     "Continuous closed curve-swept rounded-square roof rafters with caps",
     "Main hall bearings fitted between actual supporting beam tops and the roof rafter underside",
-    "Closed 1\u20132.4 mm cupped lotus petals with curved ovate outline, rolled rims and fine geometric pleats",
-    "Closed 1.6\u20132.8 mm peltate lotus leaves with a depressed centre, uneven rim and 19 physical radial veins",
-    "Smooth closed ovoid five-lobed lotus bud"
+    "Closed 1–2.4 mm cupped lotus petals with curved ovate outline, rolled rims and fine geometric pleats",
+    "Closed 1.6–2.8 mm peltate lotus leaves with a depressed centre, uneven rim and 19 physical radial veins",
+    "Smooth closed ovoid five-lobed lotus bud",
+    "Two entrance beam faces receive eight instances of a shared closed 32,108-triangle carved-gilt/deep-wood prototype. The retained structural beams, columns, roofs and camera are unchanged."
   ],
   "proceduralBotanicalMaps": "Locally generated petal/leaf pigments and fine venation; no photograph inputs",
   "visualAccepted": false,
@@ -48,6 +49,31 @@
     "Reduced the two white upper-storey strips to narrow grey recessed fields."
   ],
   "files": [
-    "reconstructions/camera-dolly.js"
-  ]
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-03/tools/build-ranma-relief.py",
+    "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend"
+  ],
+  "carvedRanma": {
+    "scope": "Central portal crossbeams only: hall-local y=8.70 and 9.30m; x=-2.01,-0.67,0.67,2.01m; front datum z=0.330m.",
+    "prototype": "assets/ranma-frieze-v01/ranma-relief.glb",
+    "editableBlender": "assets/ranma-frieze-v01/ranma-relief.blend",
+    "builder": "tools/build-ranma-relief.py",
+    "buildReport": "assets/ranma-frieze-v01/build-report.json",
+    "heightStudy": "assets/ranma-frieze-v01/source-height-guide.png",
+    "originalHeightStudy": "lookdev/ranma-frieze-study/generated-height-guide-v02.png",
+    "originalStudySha256": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+    "copiedProvenance": "assets/ranma-frieze-v01/imagegen-provenance.json",
+    "referenceComparison": "references/hd/3-照片-4.jpg crop x=350,y=290,w=925,h=420; copyright retained by its owner.",
+    "studyRole": "Selected imagegen interpretation of floral carving; non-metric height/aperture guide only, not an exact historic replica.",
+    "runtimeLoadsStudyBitmap": false,
+    "visibleMaterialPolicy": "The exported GLB contains no images or textures. Gold uses independent uniform PBR; the separate wood backplate uses independent pigment with retained CC0 normal/roughness.",
+    "geometry": "True cutouts, closed sidewalls/back faces, raised leaf volumes up to 26mm above the 6mm leaf root, editable 0.8mm eased edges; separate 27mm wood backplate with 2mm edge easing. Three grid-pitch smoothing steps affect only solid heights; the aperture outline remains separate.",
+    "triangleBudget": {
+      "prototype": 32108,
+      "instances": 8,
+      "total": 256864
+    },
+    "visualAccepted": false,
+    "roundTwoCorrection": "Reduced high-frequency geometric height ridges and maximum height from34mm to26mm; retained the physical apertures and separate backplate. Uniform aged gold #c3a45f, roughness0.43, metalness0.86."
+  }
 }
