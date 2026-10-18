@@ -40,11 +40,19 @@ export function buildReference4Architecture(T,options={}) {
 
  // Common curved canopy/main-roof weather profile. Front remains the source-led arch.
  const gHalf=6.5,gFront=1.55,upperFront=C.ridgeZ+4.5,gBack=Math.min(-2.4,upperFront-.3),xs=Array.from(new Set([...lin(-gHalf,gHalf,80),...lin(-C.upperRoofWidth/2,C.upperRoofWidth/2,64).filter(x=>Math.abs(x)<=gHalf)].map(x=>x.toFixed(9)))).map(Number).sort((a,b)=>a-b);
- const archFront=x=>H(8.6)+2.45*(Math.exp(-3.4*(x/gHalf)**2)-Math.exp(-3.4))/(1-Math.exp(-3.4));
+ const archFront=x=>{const u=Math.abs(x)/gHalf;return H(8.6)+2.45*(Math.exp(-3.4*u*u)-Math.exp(-3.4))/(1-Math.exp(-3.4))+.18*Math.pow(u,10)-.10*Math.exp(-Math.pow((u-.73)/.18,2));};
  const rawCanopy=(x,z)=>archFront(x)+.35*(gFront-z)/(gFront-gBack);
  function upperRaw(x,z){const t=(z-C.ridgeZ)/4.5,span=C.upperRoofWidth*(.275+.225*t),u=x/span;return H(11.60)+(C.ridgeY-H(11.60))*Math.pow(Math.max(0,1-t),1.48)+.62*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));}
  function joinTop(x,z){return z>=gBack&&Math.abs(x)<=gHalf?Math.max(upperRaw(x,z),rawCanopy(x,z)+.025):upperRaw(x,z);}
  function canopy(x,z){if(z<=upperFront)return joinTop(x,z)-.025;const f=smooth(Math.max(0,Math.min(1,(gFront-z)/(gFront-upperFront))));return rawCanopy(x,z)+(joinTop(x,upperFront)-.025-rawCanopy(x,upperFront))*f;}
+ // A moulded bargeboard follows its own curved normal, with a recessed face,
+ // rounded lip and underside bead. It replaces the single flat fascia slab.
+ function mouldedBargeboard(){
+  const rim=[[-.025,-.16],[-.025,.035],[-.060,.105],[-.105,.105],[-.135,.045],[-.19,.045],[-.21,.072],[-.36,.072],[-.39,.025],[-.445,.025],[-.46,-.16]],p=[],uv=[],path=lin(-gHalf,gHalf,144),P=(i,k)=>{const x=path[i],dy=(canopy(x+.002,gFront)-canopy(x-.002,gFront))/.004,n=1/Math.sqrt(1+dy*dy),[drop,z]=rim[k];return[x-dy*n*drop,canopy(x,gFront)+n*drop,gFront+z];},tri=(a,b,c,ua,ub,uc)=>{p.push(...a,...b,...c);uv.push(...ua,...ub,...uc);};
+  for(let i=0;i<path.length-1;i++)for(let k=0;k<rim.length;k++){const l=(k+1)%rim.length,a=P(i,k),b=P(i+1,k),c=P(i,l),d=P(i+1,l);tri(a,c,b,[i*.08,k*.07],[i*.08,l*.07],[(i+1)*.08,k*.07]);tri(b,c,d,[(i+1)*.08,k*.07],[i*.08,l*.07],[(i+1)*.08,l*.07]);}
+  for(const i of[0,path.length-1])for(let k=1;k<rim.length-1;k++){const a=P(i,0),b=P(i,k),c=P(i,k+1);if(i===0)tri(a,c,b,[0,0],[0,1],[1,1]);else tri(a,b,c,[0,0],[1,1],[0,1]);}
+  return meshFromTriangles(p,uv,'entrance-saddled-bargeboard');
+ }
  function roof({name,w,d,eave,rise,curl=.45,centerZ=0,inner=.0,frontGap=0,connected=false}){return role(name,()=>{
   const hw=w/2,hd=d/2,rh=w*.275;const P=(side,t,u)=>{const span=rh+(hw-rh)*t;let x,z;if(side===0||side===2){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}
    let y=eave+rise*Math.pow(Math.max(0,1-t),1.48)+curl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));z+=centerZ;if(connected&&side===0)y=joinTop(x,z);return[x,y,z];};
@@ -97,7 +105,7 @@ export function buildReference4Architecture(T,options={}) {
    for(const yy of[C.stairTopY+3.93,C.stairTopY+4.50])box(sign*cx,yy,-.435,w,.075,.085,'cedar');
   }
   // Upper gallery is enclosed timber, not an unrelated open lattice triangle.
-  box(0,H(9.7),-1.04,13.1,2.22,.18,'darkwood');for(let i=0;i<33;i++)box(-6.4+i*.4,H(9.7),-.925,.37,2.18,.055,'cedar',0,.94+.08*Math.sin(i));
+  box(0,H(9.7),-1.04,13.1,2.22,.18,'darkwood');for(let i=0;i<33;i++){const x=-6.4+i*.4;if(Math.abs(x)>3.15)box(x,H(9.7),-.925,.37,2.18,.055,'cedar',0,.94+.08*Math.sin(i));}
  });
  role('central-real-portal',()=>{
   const clearW=4.2,clearH=4.08,z=-.62,y0=C.stairTopY;
@@ -117,14 +125,14 @@ export function buildReference4Architecture(T,options={}) {
   const rr=lin(-gHalf+.1,gHalf-.1,36);for(let k=0;k<rr.length;k++){const x=rr[k],rgrid=gridAt([x-.065,x+.065],lin(gBack,gFront+.09,30),canopy);emit(shell(rgrid,-.39,-.16,'visible-curved-cedar-rafter'),'cedar');}
   for(const z of[gBack,-.48,.57]){const curve=gridAt(xs,[z-.11,z+.11],canopy);emit(shell(curve,-.64,-.39,'transverse-curved-carrier'),'red');}
   // Front bargeboard is a real closed curved beam, queried by the lantern arms.
-  const barge=shell(gridAt(xs,[gFront-.17,gFront+.07],canopy),-.47,-.02,'entrance-saddled-bargeboard');emit(barge,'cedar');
-  for(const drop of[-.04,-.45])tube(xs.map(x=>[x,canopy(x,gFront+.08)+drop,gFront+.085]),.018,'oldgold',120);
-  for(const x of[-5.6,-4.3,-2.9,-1.5,1.5,2.9,4.3,5.6]){const y=canopy(x,gFront+.08)-.25;box(x,y,gFront+.084,.27,.34,.025,'oldgold');for(const sx of[-1,1])box(x+sx*.126,y,gFront+.105,.016,.34,.012,'gold');for(const sy of[-1,1])box(x,y+sy*.16,gFront+.105,.25,.016,.012,'gold');rosette(x,y,gFront+.108,.057,'darkwood');for(const sx of[-1,1])for(const sy of[-1,1])emit(sphere,'gold',x+sx*.095,y+sy*.125,gFront+.113,.011,.011,.006);}
-  for(let i=0;i<=62;i++){const x=-gHalf+2*gHalf*i/62;const ts=lin(upperFront,gFront+.04,7);for(let j=0;j<ts.length-1;j++)tileBetween([x,canopy(x,ts[j])+.025,ts[j]],[x,canopy(x,ts[j+1])+.025,ts[j+1]],.063,.96+.05*Math.sin(i*5+j));arch.tileEnd(V([x,canopy(x,gFront+.04)+.025,gFront+.06]),0,.074,i%2===0);}
+  emit(mouldedBargeboard(),'cedar');
+  for(const drop of[-.11,-.39])tube(xs.map(x=>[x,canopy(x,gFront)+drop,gFront+(drop>-.2?.110:.045)]),.012,'oldgold',120);
+  for(let i=0;i<rr.length;i++){const x=rr[i],y=canopy(x,gFront)-.47;box(x,y,gFront+.085,.115,.19,.22,'endwood');if(i%4===0)arch.squareFitting(x,y,gFront+.204,.105,.17,0,true);}
+  for(let i=0;i<=48;i++){const x=-gHalf+2*gHalf*i/48;const ts=lin(upperFront,gFront+.06,8);for(let j=0;j<ts.length-1;j++)tileBetween([x,canopy(x,ts[j])+.038,ts[j]],[x,canopy(x,ts[j+1])+.038,ts[j+1]],.088,.94+.07*Math.sin(i*5+j));arch.tileEnd(V([x,canopy(x,gFront+.06)+.038,gFront+.095]),0,.108,i%2===0);if(i%4===0)rosette(x,canopy(x,gFront+.06)+.038,gFront+.127,.037,'oldgold');}
   // Discrete curved ribs and inset timber panels retain the arch depth.
   for(const x of[-2.9,0,2.9]){const y=canopy(x,.57)-.65;box(x,(y+C.capitalTop+.36)/2,.57,.18,Math.max(.05,y-C.capitalTop-.36),.20,'red');}
   relief(0,canopy(0,gFront+.08)-.25,gFront+.10,1.05,.29);
-  const peak=canopy(0,gFront)+.025;box(0,peak+.22,gFront-.1,.40,.45,.34,'slate');rosette(0,peak+.25,gFront+.09,.17,'gold');tube([[-.32,peak+.03,gFront-.1],[-.28,peak+.40,gFront-.1],[0,peak+.70,gFront-.1],[.28,peak+.4,gFront-.1],[.32,peak+.03,gFront-.1]],.09,'slate',32);emit(sphere,'oldgold',0,peak+.73,gFront-.1,.07,.13,.07);
+  const peak=canopy(0,gFront)+.025,oni=new T.Shape();oni.moveTo(-.39,0);oni.lineTo(-.29,.13);oni.bezierCurveTo(-.52,.30,-.50,.63,-.31,.65);oni.lineTo(-.22,.43);oni.lineTo(-.14,.92);oni.quadraticCurveTo(0,1.13,.14,.92);oni.lineTo(.22,.43);oni.lineTo(.31,.65);oni.bezierCurveTo(.50,.63,.52,.30,.29,.13);oni.lineTo(.39,0);oni.closePath();const crest=new T.ExtrudeGeometry(oni,{depth:.20,bevelEnabled:true,bevelSize:.035,bevelThickness:.025,bevelSegments:3,curveSegments:18});emit(crest,'slate',0,peak,gFront-.07);emit(new T.TorusGeometry(.205,.032,8,36),'tileEdge',0,peak+.38,gFront+.17);rosette(0,peak+.38,gFront+.207,.165,'oldgold');
  });
 
 
@@ -147,24 +155,18 @@ export function buildReference4Architecture(T,options={}) {
  role('entrance-layered-joinery',()=>{
   // Continuous recessed timber closes the bearing storey under the broad
   // upper eave. Its cap follows the actual roof underside at every strip.
-  for(let i=0;i<35;i++){const x=-6.8+i*.4,bottom=H(8.05),top=canopy(x,-1.04)-.17;box(x,(bottom+top)/2,-1.13,.406,top-bottom,.19,'cedar',0,.73+.05*Math.sin(i*2.1));}
+  for(let i=0;i<35;i++){const x=-6.8+i*.4,bottom=H(8.05),top=canopy(x,-1.04)-.17;if(Math.abs(x)>3.15)box(x,(bottom+top)/2,-1.13,.406,top-bottom,.19,'cedar',0,.73+.05*Math.sin(i*2.1));}
   for(const side of[-1,1])for(let i=0;i<6;i++){
    const x=side*(3.25+i*.58);
    arch.brackets(x,canopy(x,.78)-.83,-.10,.54,{detail:true,material:'cedar'});
    arch.brackets(x,canopy(x,gFront)-.98,.30,.52,{detail:false,material:'cedar'});
   }
   for(const x of C.columnAxes){const y=canopy(x,gFront)-.995;arch.brackets(x,y,.16,.64,{detail:true,material:'red'});}
-  for(const z of [.72,.15,-.6,-1.4]){
-   for(const drop of [.70,.91,1.12]){
-    const xx=xs.filter(x=>Math.abs(x)<3.05);
-    const grid=gridAt(xx,[z-.055,z+.055],(x,zz)=>canopy(x,zz)-drop);
-    emit(shell(grid,-.075,.075,'deep-karahafu-arched-rib'),'darkwood');
-   }
-  }
-  for(let i=-6;i<=6;i++){
-   const x=i*.44,top=canopy(x,.78)-1.25,bottom=C.capitalTop+.35;
-   if(top>bottom+.12){box(x,(top+bottom)/2,.72,.095,top-bottom,.16,'cedar');rosette(x,bottom+.13,.818,.065,'oldgold');}
-  }
+  // A recessed timber vault and separate curved ribs replace the flat
+  // vertical-board infill visible inside the photographed broken gable.
+  const vaultXs=lin(-3.2,3.2,64),vault=gridAt(vaultXs,lin(-1.8,.78,24),(x,z)=>canopy(x,z)-.82);
+  emit(shell(vault,-.11,.015,'karahafu-recessed-timber-vault'),'cedar');
+  for(const z of [.78,.17,-.44,-1.05]){const grid=gridAt(vaultXs,[z-.07,z+.07],(x,zz)=>canopy(x,zz)-.64);emit(shell(grid,-.105,.025,'separate-curved-vault-rib'),'red');}
   for(const z of [.53,-.26])for(let i=-5;i<=5;i++){
    const x=i*.53,y=C.capitalTop+.12;
    if(i%2===0)arch.brackets(x,y,z,.47,{detail:true,interlocked:true,material:'cedar'});
@@ -188,7 +190,7 @@ export function buildReference4Architecture(T,options={}) {
    box(sign*.25,shrineY+.40,.98,.025,.89,.026,'oldgold');
    tube([[sign*.25,shrineY,.97],[sign*.52,shrineY+.04,.97],[sign*.67,shrineY+.18,.97],[sign*.55,shrineY+.31,.97],[sign*.42,shrineY+.21,.97]],.022,'gold',22);
   }
-  for(let j=0;j<4;j++)emit(sphere,'gold',0,shrineY+.14+j*.17,1,.075-j*.01,.09-j*.01,.035);
+  emit(sphere,'oldgold',0,shrineY+.22,1.0,.15,.06,.065);emit(sphere,'gold',0,shrineY+.38,1.0,.087,.15,.055);emit(sphere,'gold',0,shrineY+.59,1.0,.064,.075,.055);for(const side of[-1,1])emit(sphere,'oldgold',side*.11,shrineY+.29,1.025,.10,.045,.055,[0,0,side*.25]);
   box(0,shrineY+.85,.98,.53,.04,.04,'oldgold');
   // Lower eaves have real purlin ends and alternating engraved finials.
   for(const sign of[-1,1])for(let i=0;i<22;i++){
