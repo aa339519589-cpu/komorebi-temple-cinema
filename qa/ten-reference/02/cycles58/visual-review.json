@@ -1,0 +1,156 @@
+{
+  "status": "reviewed-lighting-draft",
+  "photographicAcceptance": false,
+  "sourceHash": "b134e6a5bc205883fa12661698eb46858a1e6d9a7342cf37cb6a162051c8d6c2",
+  "recipeSha256": "ed425624c95fe5a6dcc321613153211024aa8cb14cc96e207104f6e01ee88abb",
+  "actual": "render/scene02-cycles58.png",
+  "fullComparison": "comparison.png",
+  "regionsComparison": "six-region-comparison.png",
+  "findings": [
+    "World sun is now visible at the intended left horizon; physical edge light, metal highlights and pond/deck reflections are more plausible than native candidates.",
+    "The measured sky is much clearer/paler than the reference cloud field.",
+    "Lit timber and roof shading now separate from cool indirect light; shaded temple/greenery remain too plain and dark.",
+    "Window lighting is now visible after correcting the native numeric-emissive bug, but the large panes remain too uniform."
+  ],
+  "regions": [
+    {
+      "region": "Sky zenith",
+      "referenceBox": [
+        340,
+        20,
+        410,
+        95
+      ],
+      "nativeBox": [
+        450,
+        20,
+        510,
+        90
+      ],
+      "cyclesBox": [
+        450,
+        20,
+        510,
+        90
+      ]
+    },
+    {
+      "region": "Sky horizon",
+      "referenceBox": [
+        35,
+        335,
+        110,
+        400
+      ],
+      "nativeBox": [
+        35,
+        335,
+        110,
+        400
+      ],
+      "cyclesBox": [
+        35,
+        335,
+        110,
+        400
+      ]
+    },
+    {
+      "region": "Lit timber",
+      "referenceBox": [
+        1210,
+        360,
+        1235,
+        480
+      ],
+      "nativeBox": [
+        1154,
+        360,
+        1180,
+        480
+      ],
+      "cyclesBox": [
+        1154,
+        360,
+        1180,
+        480
+      ]
+    },
+    {
+      "region": "Shade timber",
+      "referenceBox": [
+        535,
+        1020,
+        560,
+        1100
+      ],
+      "nativeBox": [
+        535,
+        1020,
+        560,
+        1100
+      ],
+      "cyclesBox": [
+        535,
+        1020,
+        560,
+        1100
+      ]
+    },
+    {
+      "region": "Roof tiles",
+      "referenceBox": [
+        940,
+        352,
+        1035,
+        390
+      ],
+      "nativeBox": [
+        790,
+        350,
+        880,
+        390
+      ],
+      "cyclesBox": [
+        790,
+        350,
+        880,
+        390
+      ]
+    },
+    {
+      "region": "Greenery",
+      "referenceBox": [
+        20,
+        80,
+        110,
+        150
+      ],
+      "nativeBox": [
+        20,
+        80,
+        110,
+        150
+      ],
+      "cyclesBox": [
+        20,
+        80,
+        110,
+        150
+      ]
+    }
+  ],
+  "limits": [
+    "Exact source geometry/instance matrices/reference camera are retained. Geometry/vegetation/carving discrepancies remain visible.",
+    "Portable PBR and timber metric UV/roughness transferred; nonportable custom GLSL is not claimed pixel-equivalent.",
+    "Only the excluded source reflector interfaces and a bounded atmospheric transport volume were added, declared in report.",
+    "Neither native55 nor Cycles58 is a photographic match. No new film was generated."
+  ],
+  "rejectedCandidates": [
+    "Native52: excessive warm diffuse fill",
+    "Native53: cold underlit shade; before paper emissive correction",
+    "Export54/55: wrong-root server and numeric emissive failure",
+    "Cycles56/57: wrong sky-direction conventions"
+  ],
+  "assetProvenance": "hdri-provenance.json"
+}

@@ -1,0 +1,242 @@
+# Scene02 physical lighting recipe, adapted from project tools/render-reconstructed-cycles.py.
+# Exact exported source geometry/instance matrices/camera are retained. Added physical
+# interfaces and atmosphere are declared in the render report. CC0 assets retain provenance.
+"""Independent physical-lighting diagnostic of code-generated Three.js buffers.
+
+The geometry and instance matrices come from a verified native source frame.
+Custom GLSL hooks/planar reflection approximations are explicitly not equivalent
+across renderers. This diagnostic does not replace native scene acceptance.
+"""
+import bpy, json, math, os, sys, time, hashlib
+from pathlib import Path
+import numpy as np
+from mathutils import Matrix, Vector, Quaternion
+ROOT=Path(os.environ.get('SCENE_PACKAGE','output/pathtrace-reference-06')).resolve()
+OUT=Path(os.environ.get('CYCLES_OUTPUT','output/pathtrace-light-review-06')).resolve();OUT.mkdir(parents=True,exist_ok=True)
+MODE=os.environ.get('LIGHTING_MODE','as-exported')
+scene_data=json.loads((ROOT/'scene.json').read_text())
+source_identity=json.loads((ROOT/'export-report.json').read_text())
+report={'sourceHash':source_identity['sourceHash'],'sourceCommit':source_identity['sourceCommit'],'recipeSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'sourceStatistics':scene_data['statistics'],'lightingMode':MODE,'blender':bpy.app.version_string,'scope':scene_data.get('renderingScope'),'geometryRebuilt':False,'excluded':scene_data['excluded'],'warnings':[],'status':'importing','started':time.time()}
+bpy.ops.wm.read_factory_settings(use_empty=True)
+scene=bpy.context.scene
+
+def binary(record):
+    kind={'Float32Array':'<f4','Uint32Array':'<u4','Uint16Array':'<u2'}[record['type']]
+    data=np.fromfile(ROOT/'assets'/record['file'],dtype=kind)
+    if len(data)!=record['count']: raise ValueError('Truncated geometry buffer '+record['file'])
+    return data
+
+def value(node,names,v):
+    for name in names:
+        if name in node.inputs: node.inputs[name].default_value=v;return node.inputs[name]
+    return None
+
+instance_colored={mid for o in scene_data['meshes'] if 'instanceColors' in o for mid in o['materials']}
+textures={t['id']:t for t in scene_data['textures']}; material_records={m['id']:m for m in scene_data['materials']};materials={}
+for rec in scene_data['materials']:
+    mat=bpy.data.materials.new(rec['name'] or rec['id']);mat.use_nodes=True;n=mat.node_tree.nodes;n.clear();links=mat.node_tree.links
+    bs=n.new('ShaderNodeBsdfPrincipled');out=n.new('ShaderNodeOutputMaterial');links.new(bs.outputs['BSDF'],out.inputs['Surface'])
+    color=tuple(rec.get('color') or [.5,.5,.5])+ (1,)
+    value(bs,['Base Color'],color);value(bs,['Metallic'],float(rec.get('metalness') or 0));value(bs,['Roughness'],max(.04,float(rec.get('roughness') or .4)))
+    value(bs,['IOR'],float(rec.get('ior') or 1.5));value(bs,['Transmission Weight','Transmission'],float(rec.get('transmission') or 0))
+    value(bs,['Specular IOR Level'],.5*float(rec.get('specularIntensity') if rec.get('specularIntensity') is not None else 1))
+    value(bs,['Coat Weight','Clearcoat'],float(rec.get('clearcoat') or 0));value(bs,['Coat Roughness','Clearcoat Roughness'],float(rec.get('clearcoatRoughness') or .15))
+    if any(s in rec['name'].lower() for s in ['floor-panel','polished','lacquer','broad-joined-cedar']):
+        value(bs,['Coat Weight','Clearcoat'],.38);value(bs,['Coat Roughness','Clearcoat Roughness'],.16)
+    emission=tuple(rec.get('emissive') or ([*rec.get('color',[1,.6,.2])] if rec.get('type')=='MeshBasicMaterial' else [0,0,0]))+(1,);value(bs,['Emission Color','Emission'],emission);value(bs,['Emission Strength'],4.0 if rec.get('type')=='MeshBasicMaterial' else float(rec.get('emissiveIntensity') or 0))
+    value(bs,['Alpha'],float(rec.get('opacity',1)))
+    uv=n.new('ShaderNodeTexCoord'); tex_nodes={}
+    for channel,tid in rec['textures'].items():
+        tex=textures[tid]
+        if 'file' not in tex: report['warnings'].append('No portable image for '+rec['name']+'/'+channel);continue
+        image=bpy.data.images.load(str(ROOT/'assets'/tex['file']),check_existing=False)
+        image.colorspace_settings.name='sRGB' if channel in ['map','emissiveMap'] and tex.get('colorSpace')=='srgb' else 'Non-Color'
+        tn=n.new('ShaderNodeTexImage');tn.image=image;tn.extension='REPEAT';tn.interpolation='Linear';tex_nodes[channel]=tn
+        mul=n.new('ShaderNodeVectorMath');mul.operation='MULTIPLY';sx,sy=tex.get('repeat',[1,1]);ox,oy=tex.get('offset',[0,0]);
+        if not tex.get('flipY',True): sy=-sy;oy=1-oy
+        mul.inputs[1].default_value=(sx,sy,1);links.new(uv.outputs['UV'],mul.inputs[0]);add=n.new('ShaderNodeVectorMath');add.operation='ADD';add.inputs[1].default_value=(ox,oy,0);links.new(mul.outputs[0],add.inputs[0]);links.new(add.outputs[0],tn.inputs['Vector'])
+        if tex.get('rotation',0):report['warnings'].append('UV texture rotation unported: '+rec['name']+'/'+channel)
+    base_socket=None
+    if 'map' in tex_nodes:
+        mul=n.new('ShaderNodeMixRGB');mul.blend_type='MULTIPLY';mul.inputs[0].default_value=1;mul.inputs[2].default_value=color;links.new(tex_nodes['map'].outputs['Color'],mul.inputs[1]);base_socket=mul.outputs[0]
+        if rec.get('alphaTest',0)>0:links.new(tex_nodes['map'].outputs['Alpha'],bs.inputs['Alpha'])
+    if rec.get('vertexColors') or rec['id'] in instance_colored:
+        attr=n.new('ShaderNodeVertexColor');attr.layer_name='sourceColor';mul=n.new('ShaderNodeMixRGB');mul.blend_type='MULTIPLY';mul.inputs[0].default_value=1;links.new(attr.outputs['Color'],mul.inputs[1]);
+        if base_socket:links.new(base_socket,mul.inputs[2])
+        else:mul.inputs[2].default_value=color
+        base_socket=mul.outputs[0]
+    if base_socket:links.new(base_socket,bs.inputs['Base Color'])
+    if 'bumpMap' in tex_nodes:
+        bump=n.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.45;bump.inputs['Distance'].default_value=abs(float(rec.get('bumpScale') or .003));links.new(tex_nodes['bumpMap'].outputs['Color'],bump.inputs['Height']);links.new(bump.outputs['Normal'],bs.inputs['Normal'])
+    if 'normalMap' in tex_nodes:
+        normal=n.new('ShaderNodeNormalMap');normal.inputs['Strength'].default_value=(rec.get('normalScale') or [1])[0];links.new(tex_nodes['normalMap'].outputs['Color'],normal.inputs['Color']);links.new(normal.outputs['Normal'],bs.inputs['Normal'])
+    for ch,input_name,component,factor in [('roughnessMap','Roughness','G',rec.get('roughness',.4)),('metalnessMap','Metallic','B',rec.get('metalness',0))]:
+        if ch in tex_nodes:
+            sep=n.new('ShaderNodeSeparateColor');sep.mode='RGB';links.new(tex_nodes[ch].outputs['Color'],sep.inputs['Color']);mul=n.new('ShaderNodeMath');mul.operation='MULTIPLY';mul.inputs[1].default_value=float(factor);links.new(sep.outputs[{'G':'Green','B':'Blue'}[component]],mul.inputs[0]);links.new(mul.outputs[0],bs.inputs[input_name])
+    if 'alphaMap' in tex_nodes:
+        sep=n.new('ShaderNodeSeparateColor');sep.mode='RGB';links.new(tex_nodes['alphaMap'].outputs['Color'],sep.inputs['Color']);links.new(sep.outputs['Green'],bs.inputs['Alpha'])
+    if 'emissiveMap' in tex_nodes:
+        mul=n.new('ShaderNodeMixRGB');mul.blend_type='MULTIPLY';mul.inputs[0].default_value=1;mul.inputs[2].default_value=emission;links.new(tex_nodes['emissiveMap'].outputs['Color'],mul.inputs[1])
+        for name in ['Emission Color','Emission']:
+            if name in bs.inputs:links.new(mul.outputs[0],bs.inputs[name]);break
+    if rec['name'] in ['scene02-red','scene02-cedar','scene02-darkwood'] and bs.inputs['Roughness'].is_linked:
+        old=bs.inputs['Roughness'].links[0].from_socket;gain=n.new('ShaderNodeMath');gain.operation='MULTIPLY_ADD';gain.inputs[1].default_value=.72;gain.inputs[2].default_value=.36;links.new(old,gain.inputs[0]);clip=n.new('ShaderNodeClamp');clip.inputs['Min'].default_value=.42;clip.inputs['Max'].default_value=.94;links.new(gain.outputs[0],clip.inputs['Value']);links.new(clip.outputs[0],bs.inputs['Roughness'])
+    if rec['name'] in ['scene02-leaf','scene02-leaflight']:
+        trans=n.new('ShaderNodeBsdfTranslucent');trans.inputs['Color'].default_value=color
+        if base_socket:links.new(base_socket,trans.inputs['Color'])
+        mix=n.new('ShaderNodeMixShader');mix.inputs[0].default_value=.18;links.new(bs.outputs['BSDF'],mix.inputs[1]);links.new(trans.outputs[0],mix.inputs[2]);links.new(mix.outputs[0],out.inputs['Surface'])
+    if rec['name']=='scene02-water':
+        value(bs,['Metallic'],0);value(bs,['Roughness'],.45)
+    materials[rec['id']]=mat
+
+geo={g['id']:g for g in scene_data['geometries']}; loaded={};imported_triangles=0
+for at,record in enumerate(scene_data['meshes']):
+    g=geo[record['geometry']]
+    if g['id'] not in loaded:
+        loaded[g['id']]={k:binary(v).reshape(-1,v['itemSize']) for k,v in g['attributes'].items()};loaded[g['id']]['index']=binary(g['index']).reshape(-1,3)
+    data=loaded[g['id']];p=data['position'];indices=data['index'];count=record['instances'];vcount=len(p);fcount=len(indices)
+    world=np.array(record['matrix'],dtype=np.float64).reshape(4,4).T
+    if 'instanceMatrices' in record:
+        local=binary(record['instanceMatrices']).reshape(count,4,4).transpose(0,2,1);transforms=np.einsum('ij,njk->nik',world,local)
+    else:transforms=world[None,:,:]
+    coords=np.empty((count*vcount,3),dtype=np.float32);normals=np.empty_like(coords) if 'normal' in data else None
+    for i,transform in enumerate(transforms):
+        coords[i*vcount:(i+1)*vcount]=p@transform[:3,:3].T+transform[:3,3]
+        if normals is not None:
+            ns=data['normal']@np.linalg.inv(transform[:3,:3]);length=np.maximum(np.linalg.norm(ns,axis=1),1e-12);normals[i*vcount:(i+1)*vcount]=ns/length[:,None]
+    faces=(indices[None,:,:]+(np.arange(count,dtype=np.uint32)*vcount)[:,None,None]).reshape(-1,3)
+    for i,tr in enumerate(transforms):
+        if np.linalg.det(tr[:3,:3])<0:faces[i*fcount:(i+1)*fcount]=faces[i*fcount:(i+1)*fcount][:,[0,2,1]]
+    mesh=bpy.data.meshes.new(record['name'] or 'source-mesh-'+str(at));mesh.vertices.add(len(coords));mesh.vertices.foreach_set('co',coords.ravel());mesh.loops.add(faces.size);mesh.loops.foreach_set('vertex_index',faces.ravel().astype(np.int32));mesh.polygons.add(len(faces));mesh.polygons.foreach_set('loop_start',np.arange(len(faces),dtype=np.int32)*3);mesh.polygons.foreach_set('loop_total',np.full(len(faces),3,dtype=np.int32));mesh.polygons.foreach_set('use_smooth',np.ones(len(faces),dtype=np.bool_));mesh.update(calc_edges=True)
+    if normals is not None:
+        try:mesh.normals_split_custom_set_from_vertices(normals)
+        except Exception as e:report['warnings'].append('Custom normals: '+str(e))
+    if 'uv' in data:
+        timber=any(material_records[mid]['name'] in ['scene02-red','scene02-cedar','scene02-darkwood'] for mid in record['materials'])
+        if timber:
+            extent=p.max(axis=0)-p.min(axis=0);nn=np.abs(data['normal']);metric=np.empty((count*vcount,2),dtype=np.float32)
+            for instance in range(count):
+                member=local[instance] if 'instanceMatrices' in record else np.eye(4);scale=np.linalg.norm(member[:3,:3],axis=0);spans=extent*scale;pp=p*scale
+                if spans[1]>=spans[0] and spans[1]>=spans[2]:uvp=np.stack([pp[:,1],np.where(nn[:,0]>nn[:,2],pp[:,2],pp[:,0])],axis=1)
+                elif spans[0]>=spans[2]:uvp=np.stack([pp[:,0],np.where(nn[:,1]>nn[:,2],pp[:,2],pp[:,1])],axis=1)
+                else:uvp=np.stack([pp[:,2],np.where(nn[:,1]>nn[:,0],pp[:,0],pp[:,1])],axis=1)
+                offset=np.sin(np.dot(member[:3,3],np.asarray([12.713,4.13,5.71])))*43758.5453;offset-=np.floor(offset);uvp+=np.asarray([offset,offset*.37]);metric[instance*vcount:(instance+1)*vcount]=uvp
+            uv=metric[faces.ravel()];report['timberMetricUv']='Native per-instance extent/scale/translation UV rule baked into actual source member UVs; geometry unchanged.'
+        else:uv=data['uv'][faces.ravel()%vcount,:2].astype(np.float32)
+        layer=mesh.uv_layers.new(name='sourceUV');layer.data.foreach_set('uv',uv.ravel())
+    if 'color' in data or 'instanceColors' in record or any(mid in instance_colored for mid in record['materials']):
+        colors=np.ones((len(coords),4),dtype=np.float32)
+        if 'color' in data: colors[:,:min(4,data['color'].shape[1])]=np.tile(data['color'],(count,1))[:,:4]
+        if 'instanceColors' in record: colors[:,:3]*=np.repeat(binary(record['instanceColors']).reshape(count,3),vcount,axis=0)
+        attr=mesh.color_attributes.new(name='sourceColor',type='FLOAT_COLOR',domain='POINT');attr.data.foreach_set('color',colors.ravel())
+    for mid in record['materials']:mesh.materials.append(materials[mid])
+    if len(record['materials'])>1 and g['groups']:
+        owners=np.zeros(fcount,dtype=np.int32)
+        for group in g['groups']:owners[group['start']//3:(group['start']+group['count'])//3]=group.get('materialIndex',0)
+        mesh.polygons.foreach_set('material_index',np.tile(owners,count))
+    obj=bpy.data.objects.new(record['name'] or 'source-object-'+str(at),mesh);scene.collection.objects.link(obj);imported_triangles+=len(faces)
+    if at%20==0:print('SOURCE_MESH',at,'/',len(scene_data['meshes']),'triangles',imported_triangles,flush=True)
+
+for rec in scene_data['lights']:
+    if rec['intensity']<=0 or rec['type']=='HemisphereLight':continue
+    if rec['type']=='DirectionalLight' and rec['intensity']<1:continue
+    typ={'DirectionalLight':'SUN','PointLight':'POINT','SpotLight':'SPOT','RectAreaLight':'AREA'}.get(rec['type'])
+    if not typ:continue
+    light=bpy.data.lights.new(rec['name'] or typ,typ);light.color=rec['color'];obj=bpy.data.objects.new(rec['name'] or typ,light);scene.collection.objects.link(obj);obj.matrix_world=Matrix(np.array(rec['matrix']).reshape(4,4).T.tolist())
+    intensity=rec['intensity']
+    if typ=='SUN':light.energy=intensity*float(os.environ.get('CYCLES_SUN_GAIN','.28'));light.angle=.0093
+    elif typ=='AREA':light.shape='RECTANGLE';light.size=rec.get('width',1);light.size_y=rec.get('height',1);light.energy=intensity*light.size*light.size_y*math.pi
+    else:light.energy=intensity*4*math.pi;light.shadow_soft_size=.05
+    if typ=='SPOT':light.spot_size=2*(rec.get('angle') or .8);light.spot_blend=rec.get('penumbra') or .2
+    if typ in ['SUN','SPOT'] and rec.get('target'):
+        direction=Vector(rec['target'])-obj.location;obj.rotation_euler=direction.to_track_quat('-Z','Y').to_euler()
+    if MODE=='upper-window' and rec['name']=='production-left-window-bounce':
+        obj.location=(-6.4,10.7,-6);obj.rotation_euler=(Vector((-1.54,8.4,-9.7))-obj.location).to_track_quat('-Z','Y').to_euler();light.size=2.2;light.size_y=3.5;light.energy=460
+    if MODE=='upper-window' and rec['name']=='production-front-room-bounce':light.energy*=.3
+
+cam_data=bpy.data.cameras.new('source-reference02-camera');camera=bpy.data.objects.new('source-reference02-camera',cam_data);scene.collection.objects.link(camera);camera.matrix_world=Matrix(np.array(scene_data['cameraMatrix']).reshape(4,4).T.tolist());cam_data.sensor_fit='VERTICAL';cam_data.sensor_height=24;cam_data.lens=12/math.tan(math.radians(scene_data['view']['fov'])/2);cam_data.clip_start=.1;cam_data.clip_end=200;scene.camera=camera
+def source_film(name,bounds,y,ior,roughness,normal_distance):
+    x0,x1,z0,z1=bounds;mesh=bpy.data.meshes.new(name+' original plane');mesh.from_pydata([(x0,y,z0),(x1,y,z0),(x1,y,z1),(x0,y,z1)],[],[(0,3,2,1)]);mesh.update();obj=bpy.data.objects.new(name,mesh);scene.collection.objects.link(obj)
+    mat=bpy.data.materials.new(name+' dielectric');mat.use_nodes=True;n=mat.node_tree.nodes;l=mat.node_tree.links;bs=n.get('Principled BSDF');bs.inputs['Base Color'].default_value=(.96,.985,.97,1);value(bs,['Metallic'],0);value(bs,['IOR'],ior);value(bs,['Roughness'],roughness);value(bs,['Transmission Weight','Transmission'],1)
+    coord=n.new('ShaderNodeTexCoord');noise=n.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=8 if ior<1.4 else 180;noise.inputs['Detail'].default_value=2;noise.inputs['Roughness'].default_value=.45;l.new(coord.outputs['Object'],noise.inputs['Vector']);bump=n.new('ShaderNodeBump');bump.inputs['Distance'].default_value=normal_distance;bump.inputs['Strength'].default_value=.35;l.new(noise.outputs['Fac'],bump.inputs['Height']);l.new(bump.outputs['Normal'],bs.inputs['Normal']);mesh.materials.append(mat)
+    return obj
+source_film('source02 pond reflector physical interface',[-46.75,14.75,-15.5,45.5],.016,1.333,.028,.0018)
+source_film('source02 veranda varnish physical interface',[14.40,20.30,9,39],1.356,1.46,.07,.00007)
+report['addedPhysicalContext']=['Exact excluded source pond reflector footprint61.5x61m atY.016 replaced by a dielectric interface; original backing plane retained.','Exact excluded source veranda reflector5.9x30m atY1.356 replaced by a varnish dielectric interface.','Thin atmospheric scattering volume; density is inferred, not recovered from a photograph.']
+if MODE=='outdoor-day':
+    # Rigidly convert the entire recovered world, including every light and
+    # the camera, into Blender's ordinary Z-up frame. Distances, silhouette
+    # and relative camera pose are preserved by this single shared rotation.
+    conversion=Matrix.Rotation(math.pi/2,4,'X')
+    for obj in list(scene.objects):obj.matrix_world=conversion@obj.matrix_world
+    report['worldCoordinateConversion']='All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.'
+world=bpy.data.worlds.new('Procedural exterior fill for path-traced review');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.45,.55,.7,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=float(os.environ.get('CYCLES_WORLD_GAIN','.3'))
+if MODE=='outdoor-day':
+    nodes=world.node_tree.nodes;links=world.node_tree.links
+    sky=nodes.new('ShaderNodeTexSky');sky.sky_type='MULTIPLE_SCATTERING' if bpy.app.version>=(5,0,0) else 'NISHITA';sky.sun_disc=False
+    direct=next((r for r in scene_data['lights'] if r['type']=='DirectionalLight' and r['intensity']>1),None)
+    direction=Vector((-.5,.72,.48))
+    if direct and direct.get('target'):
+        transform=Matrix(np.array(direct['matrix']).reshape(4,4).T.tolist());direction=(transform.translation-Vector(direct['target'])).normalized()
+    sky.sun_elevation=math.asin(max(-1,min(1,direction.y)));sky.sun_rotation=math.atan2(-direction.z,direction.x)
+    sky.altitude=150;sky.air_density=1;sky.ozone_density=1.0
+    if hasattr(sky,'dust_density'):sky.dust_density=.75
+    links.new(sky.outputs['Color'],nodes['Background'].inputs['Color'])
+    report['outdoorSky']={'type':sky.sky_type,'source':'Blender atmospheric scattering, no bitmap background','sunDisc':False,'worldUp':'Whole scene converted to Z-up','sourceDirectionYUp':list(direction)}
+# Qwantani Sunset Pure Sky, Poly Haven / Greg Zaal / Jarod Guest, CC0.
+# The measured sky transports light and reflection; no reference-image plane.
+hdri_path=os.environ.get('TEMPLE_SKY_EXR')
+if hdri_path:
+    wn=world.node_tree.nodes;wl=world.node_tree.links;env=wn.new('ShaderNodeTexEnvironment');env.image=bpy.data.images.load(str(Path(hdri_path).resolve()));env.image.colorspace_settings.name='Linear Rec.709'
+    coord=wn.new('ShaderNodeTexCoord');mapping=wn.new('ShaderNodeMapping');pixels=np.empty(env.image.size[0]*env.image.size[1]*4,dtype=np.float32);env.image.pixels.foreach_get(pixels);light_pixels=pixels.reshape(env.image.size[1],env.image.size[0],4)[:,:,:3];lum=light_pixels@np.asarray([.2126,.7152,.0722],dtype=np.float32);sy,sx=np.unravel_index(np.argmax(lum),lum.shape)
+    # Cycles projection.h uses u=(atan2(y,x)-pi)/(-2pi), not +longitude.
+    # Align yaw first, then the small measured/source sun-altitude difference.
+    measured_azimuth=math.pi-2*math.pi*(sx+.5)/env.image.size[0];measured_altitude=math.pi*((sy+.5)/env.image.size[1]-.5);target_azimuth=math.atan2(-direction.z,direction.x);target_altitude=math.asin(direction.y)
+    yaw=Quaternion((0,0,1),measured_azimuth-target_azimuth);tangent=Vector((-math.sin(measured_azimuth),math.cos(measured_azimuth),0));pitch=Quaternion(tangent,target_altitude-measured_altitude);mapping.inputs['Rotation'].default_value=(pitch@yaw).to_euler('XYZ')
+    report['environmentAlignment']={'convention':'Blender Cycles direction_to_equirectangular, negative longitude; rigid yaw and small altitude tilt','primarySource':'https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h','measuredSunDegrees':[math.degrees(measured_azimuth),math.degrees(measured_altitude)],'sourceSunDegrees':[math.degrees(target_azimuth),math.degrees(target_altitude)],'mappingEulerRadians':list(mapping.inputs['Rotation'].default_value)}
+    # For background ShaderData, Normal=-ray_D. Environment needs outward ray_D.
+    # https://github.com/blender/blender/blob/main/intern/cycles/kernel/geom/shader_data.h
+    outward=wn.new('ShaderNodeVectorMath');outward.operation='MULTIPLY';outward.inputs[1].default_value=(-1,-1,-1);wl.new(coord.outputs['Normal'],outward.inputs[0]);wl.new(outward.outputs['Vector'],mapping.inputs['Vector']);wl.new(mapping.outputs['Vector'],env.inputs['Vector']);wl.new(env.outputs['Color'],wn['Background'].inputs['Color']);report['environmentAlignment']['outwardDirection']='Texture Coordinate Normal negated: background sd.N=-ray_D'
+    for lamp in list(scene.objects):
+        if lamp.type=='LIGHT' and lamp.data.type=='SUN':bpy.data.objects.remove(lamp,do_unlink=True)
+    report['measuredSky']={'file':str(Path(hdri_path).resolve()),'sha256':hashlib.sha256(Path(hdri_path).read_bytes()).hexdigest(),'license':'CC0-1.0','rotationRadians':mapping.inputs['Rotation'].default_value[2],'sunPixel':[int(sx),int(sy)],'maximumRadiance':float(lum.max()),'meanRadiance':float(lum.mean()),'noDuplicateSunLamp':True}
+# A bounded transport medium gives physical atmospheric depth, not a color grade.
+haze=bpy.data.materials.new('source02 inferred atmosphere');haze.use_nodes=True;hn=haze.node_tree.nodes;hl=haze.node_tree.links;hn.clear();scatter=hn.new('ShaderNodeVolumeScatter');scatter.inputs['Density'].default_value=float(os.environ.get('CYCLES_AIR_DENSITY','.001'));scatter.inputs['Anisotropy'].default_value=.35;out=hn.new('ShaderNodeOutputMaterial');hl.new(scatter.outputs['Volume'],out.inputs['Volume']);bpy.ops.mesh.primitive_cube_add(size=1,location=(0,0,30));volume=bpy.context.object;volume.name='source02 physical atmospheric transport';volume.dimensions=(200,200,80);bpy.ops.object.transform_apply(location=False,rotation=False,scale=True);volume.data.materials.append(haze)
+scene.cycles.seed=205502;scene.cycles.use_animated_seed=False
+scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','32'))
+if os.environ.get('CYCLES_DEVICE')=='METAL':
+    preferences=bpy.context.preferences.addons['cycles'].preferences;preferences.compute_device_type='METAL';preferences.get_devices()
+    for device in preferences.devices:device.use=device.type=='METAL'
+    if not any(device.use for device in preferences.devices):raise RuntimeError('Requested Metal GPU is unavailable')
+    scene.cycles.device='GPU'
+report['cyclesDevice']=scene.cycles.device
+# Ubuntu's distribution Blender can be built without Intel OpenImageDenoise.
+# That build fails during render with "Build without OpenImageDenoiser" when
+# use_denoising is true. Render actual Cycles samples without denoising by default.
+# Any explicitly requested denoising must have a compatible compiled backend.
+denoise_requested=os.environ.get('CYCLES_DENOISE','0').strip()=='1'
+if denoise_requested and bpy.app.version<(5,0,0) and not getattr(bpy.app.build_options,'openimagedenoise',False):
+    raise RuntimeError('Requested OIDN denoising, but Blender was built without OpenImageDenoiser')
+scene.cycles.use_denoising=denoise_requested
+if denoise_requested:scene.cycles.denoiser='OPENIMAGEDENOISE'
+for layer in scene.view_layers:
+    if hasattr(layer,'cycles'):
+        layer.cycles.use_denoising=denoise_requested
+report['denoisingEnabled']=denoise_requested
+report['denoisingReason']='Native Cycles non-denoised output retained for unsupported distribution builds' if not denoise_requested else 'Verified built-in OpenImageDenoise'
+scene.cycles.max_bounces=8;scene.cycles.diffuse_bounces=4;scene.cycles.glossy_bounces=4;scene.cycles.transmission_bounces=6;scene.cycles.volume_bounces=1;scene.cycles.sample_clamp_indirect=20
+scene.render.resolution_x=int(os.environ.get('CYCLES_SIZE','640'));scene.render.resolution_y=scene.render.resolution_x;scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGB';scene.render.image_settings.color_depth='8';scene.render.threads_mode='FIXED';scene.render.threads=int(os.environ.get('CYCLES_THREADS','4'))
+try:scene.view_settings.view_transform='AgX'
+except:scene.view_settings.view_transform='Filmic'
+scene.view_settings.exposure=float(os.environ.get('CYCLES_EXPOSURE','.5'));scene.view_settings.gamma=1
+render_name=os.environ.get('CYCLES_RENDER_NAME','sanctuary-cycles.png')
+if Path(render_name).name!=render_name:raise ValueError('CYCLES_RENDER_NAME must be a filename')
+scene.render.filepath=str(OUT/render_name);scene.render.film_transparent=False
+report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['status']='rendering';report['materialTransfer']='Original source PBR/texture data, per-instance metric timber UVs and roughness rule; meshBasic lamp papers emit physically. Other custom GLSL hooks are not pixel-equivalent. Source planar approximations replaced by exact-footprint dielectric interfaces.';report['lightCalibration']={'transfer':'Source positions/colors; area*pi and point*4pi power conversion','sunGain':float(os.environ.get('CYCLES_SUN_GAIN','.28')),'worldGain':float(os.environ.get('CYCLES_WORLD_GAIN','.3')),'exposure':scene.view_settings.exposure,'nativeWebglPixelEquivalence':False}
+(OUT/'report.json').write_text(json.dumps(report,indent=2));
+if os.environ.get('CYCLES_SAVE_BLEND','1')=='1':
+    blend_name=os.environ.get('CYCLES_BLEND_NAME','existing-sanctuary-cycles.blend')
+    if Path(blend_name).name!=blend_name:raise ValueError('CYCLES_BLEND_NAME must be a filename')
+    bpy.ops.wm.save_as_mainfile(filepath=str(OUT/blend_name),compress=True)
+bpy.ops.render.render(write_still=True)
+report['status']='path-traced-review';report['finished']=time.time();report['resolution']=[scene.render.resolution_x,scene.render.resolution_y];report['samples']=scene.cycles.samples;report['photographicAcceptance']=False;(OUT/'report.json').write_text(json.dumps(report,indent=2));print('CYCLES_REVIEW_COMPLETE',json.dumps(report),flush=True)

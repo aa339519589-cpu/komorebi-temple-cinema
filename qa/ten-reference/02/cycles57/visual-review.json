@@ -1,0 +1,8 @@
+{
+  "status": "rejected-light-direction",
+  "photographicAcceptance": false,
+  "actual": "render/scene02-cycles57.png",
+  "reason": "Actual frame has the wrong sky hemisphere. Shared world Normal points opposite the outward background ray; inherited longitude sign was also incorrect. Physical material/reflection improvement does not establish photo-lighting fidelity.",
+  "nextCandidate": "../cycles58/render/scene02-cycles58.png",
+  "sourceGeometryPreserved": true
+}

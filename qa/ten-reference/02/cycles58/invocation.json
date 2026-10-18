@@ -1,0 +1,23 @@
+{
+  "exporter": "tools/export-reconstructed-scene.mjs",
+  "cwd": "repository root containing the served scene02 (exporter imports sibling server)",
+  "sourcePackage": "qa/ten-reference/02/cycles56/source",
+  "queuedRunner": "tools/run-blender-queued.mjs",
+  "recipe": "reconstructions/scene-02/render-cycles-lighting.py",
+  "environment": {
+    "SCENE_PACKAGE": "qa/ten-reference/02/cycles56/source",
+    "CYCLES_OUTPUT": "qa/ten-reference/02/cycles58/render",
+    "LIGHTING_MODE": "outdoor-day",
+    "CYCLES_DEVICE": "METAL",
+    "CYCLES_SIZE": "1254",
+    "CYCLES_SAMPLES": "128",
+    "CYCLES_DENOISE": "1",
+    "CYCLES_WORLD_GAIN": ".45",
+    "CYCLES_EXPOSURE": ".3",
+    "CYCLES_AIR_DENSITY": ".001",
+    "TEMPLE_SKY_EXR": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "CYCLES_RENDER_NAME": "scene02-cycles58.png",
+    "CYCLES_BLEND_NAME": "scene02-cycles58.blend"
+  },
+  "generatedCachePolicy": "Buffer/image cache and editable blend retained locally; tracked source scripts and hashed export manifest recreate them."
+}

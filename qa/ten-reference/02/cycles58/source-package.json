@@ -1,0 +1,15 @@
+{
+  "nativeSourceHash": "b134e6a5bc205883fa12661698eb46858a1e6d9a7342cf37cb6a162051c8d6c2",
+  "nativeSourceCommit": "5fdd15066a3b705bf18cb40b106d4705b33cac8e",
+  "manifest": "../cycles56/source/scene.json",
+  "exportReport": "../cycles56/source/export-report.json",
+  "recreateFromPublicSource": "Run repository tools/export-reconstructed-scene.mjs from its own repository root with REFERENCE=2 and SCENE_EXPORT=qa/ten-reference/02/cycles56/source. The exporter imports its sibling server, so do not invoke another checkout's script.",
+  "geometryBuffersRetainedLocally": "../cycles56/source/assets/",
+  "editableSceneRetainedLocally": "render/scene02-cycles58.blend",
+  "allPublicInputs": [
+    "reconstructions/scene-02/*.js",
+    "reconstructions/scene-02/render-cycles-lighting.py",
+    "assets/polyhaven/lacquered-cherry-wood/",
+    "assets/polyhaven/qwantani-sunset-puresky/"
+  ]
+}

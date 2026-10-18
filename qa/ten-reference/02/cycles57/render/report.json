@@ -1,0 +1,111 @@
+{
+  "sourceHash": "b134e6a5bc205883fa12661698eb46858a1e6d9a7342cf37cb6a162051c8d6c2",
+  "sourceCommit": "5fdd15066a3b705bf18cb40b106d4705b33cac8e",
+  "recipeSha256": "1fb38d930b9606c6852d7c809505c8155c68736102867d65716e1871b567c067",
+  "sourceStatistics": {
+    "meshes": 941,
+    "geometries": 890,
+    "materials": 35,
+    "textures": 8,
+    "instances": 502713,
+    "triangles": 11472263
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 2,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "procedural-golden-cloud-atmosphere",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "actual-pond-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "wet-cedar-veranda-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792326938.889097,
+  "timberMetricUv": "Native per-instance extent/scale/translation UV rule baked into actual source member UVs; geometry unchanged.",
+  "addedPhysicalContext": [
+    "Exact excluded source pond reflector footprint61.5x61m atY.016 replaced by a dielectric interface; original backing plane retained.",
+    "Exact excluded source veranda reflector5.9x30m atY1.356 replaced by a varnish dielectric interface.",
+    "Thin atmospheric scattering volume; density is inferred, not recovered from a photograph."
+  ],
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "outdoorSky": {
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering, no bitmap background",
+    "sunDisc": false,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      -0.7426679730415344,
+      0.1963375359773636,
+      -0.6402310729026794
+    ]
+  },
+  "environmentAlignment": {
+    "convention": "Blender Cycles direction_to_equirectangular, negative longitude; rigid yaw and small altitude tilt",
+    "primarySource": "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h",
+    "measuredSunDegrees": [
+      -35.947265624999986,
+      6.064453125
+    ],
+    "sourceSunDegrees": [
+      139.23639207012315,
+      11.322869319011367
+    ],
+    "mappingEulerRadians": [
+      -0.06002122908830643,
+      -0.0694708377122879,
+      -3.0554451942443848
+    ]
+  },
+  "measuredSky": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "license": "CC0-1.0",
+    "rotationRadians": -3.0554451942443848,
+    "sunPixel": [
+      1228,
+      546
+    ],
+    "maximumRadiance": 58971.4765625,
+    "meanRadiance": 0.835347056388855,
+    "noDuplicateSunLamp": true
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 11472263,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Original source PBR/texture data, per-instance metric timber UVs and roughness rule; meshBasic lamp papers emit physically. Other custom GLSL hooks are not pixel-equivalent. Source planar approximations replaced by exact-footprint dielectric interfaces.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.28,
+    "worldGain": 0.45,
+    "exposure": 0.30000001192092896,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792327097.9924731,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 128,
+  "photographicAcceptance": false
+}
