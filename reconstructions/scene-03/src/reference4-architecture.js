@@ -5,7 +5,7 @@ import {createReference4MaterialSet} from './reference4-materials.js';
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
 export const REFERENCE4_ARCHITECTURE_REVISION='reference4-foundation-v4-rebuilt-connected-eaves';
 export function buildReference4Architecture(T,options={}) {
- const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:16.4,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
+ const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:15.0,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
  const group=new T.Group();group.name=REFERENCE4_ARCHITECTURE_REVISION;
  const {mats,materials,textures}=createReference4MaterialSet(T,C),geometries=new Set(),buckets=new Map(),stack=[new T.Matrix4()],roles={};
@@ -95,7 +95,7 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const span of[[2.86,4.73,C.capitalTop-.9],[4.73,6.88,C.capitalTop-1.3]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.32,.44,'red');relief(x,span[2]+.12,.272,w*.84,.24);}
  });
 
- const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:14.4,rise:C.ridgeY-14.4,curl:.62,centerZ:C.ridgeZ,connected:false});
+ const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:14.4,rise:C.ridgeY-14.4,curl:.34,centerZ:C.ridgeZ,connected:false});
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:9.4,rise:3.1,curl:.56,centerZ:-4.5,inner:.45,frontGap:0});
  role('front-gable-fine-woodwork',()=>{
   const hw=4.5,front=1.6,back=-2.9,base=14.4,peak=17.15,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.20);
