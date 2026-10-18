@@ -1,0 +1,33 @@
+{
+  "status": "study-only",
+  "library": "0.10.21",
+  "modelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+  "photographicAcceptance": false,
+  "measuredDepth": false,
+  "limits": [
+    "Landmarks and their Z values are estimates, not recovered historical sculpture dimensions.",
+    "The generated guide is an interpretation and must not override the original image."
+  ],
+  "inputs": [
+    {
+      "name": "reference-head-crop",
+      "sourceSha256": "5f4a8d08f10bbc22999de02f955dac648d11008f28b723c3a2bdd011e9f277ed",
+      "size": [
+        95,
+        94
+      ],
+      "detectedFaces": 1,
+      "landmarkCount": 478
+    },
+    {
+      "name": "generated-clay-guide",
+      "sourceSha256": "f170860461e15634c1e87b78028bb4ac650bad93cf0fb490b5fa76407a67803d",
+      "size": [
+        1254,
+        1254
+      ],
+      "detectedFaces": 1,
+      "landmarkCount": 478
+    }
+  ]
+}
