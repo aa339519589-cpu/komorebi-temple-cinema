@@ -147,7 +147,7 @@ function reliefArcs(x,y,arcs){let f=0;for(const a of arcs){
   f+=gate*(amp*gaussian(y-level,thickness)-amp*.25*gaussian(y-level+.056,thickness*.70));
 }return f;}
 function makeBuilder(variant){
-  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[]},names=[];
+  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[],cloth:[]},names=[];
   return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
     finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
@@ -159,7 +159,7 @@ function makeBuilder(variant){
 // the old flat-front sphere deformation. Brows, nose wings and lips are part
 // of the same continuous skin, not colored wires in front of it.
 function face(center,attendant=false,variant='central'){
-  const sy=attendant?.91:1.0,wx=attendant?.79:.99,cy=center;
+  const sy=attendant?.91:.88,wx=attendant?.79:1.05,cy=center;
   const rows=[[-.415,0,0,-.020],[-.397,.112,.091,-.005],[-.365,.157,.153,.002],[-.290,.246,.213,.003],[-.170,.310,.245,.002],[-.045,.337,.247,-.004],[.095,.344,.244,-.012],[.225,.333,.235,-.020],[.340,.285,.201,-.026],[.425,.185,.142,-.028],[.455,0,0,-.025]].map(p=>[cy+p[0]*sy,p[1]*wx,p[2],p[3]]);
   const relief=(x,y)=>{
     const xx=x/wx,yy=(y-cy)/sy,G=(cx,cy,sx,sy)=>gaussian(xx-cx,sx)*gaussian(yy-cy,sy);
@@ -192,7 +192,7 @@ function face(center,attendant=false,variant='central'){
   g.userData.frontAt=(x,y)=>frontOf(rows,x,y)+relief(x,y);return g;
 }
 function faceAnatomy(b,g,cy,small=false){
- const sy=small?.91:1,wx=small?.79:.99,at=g.userData.frontAt;
+ const sy=small?.91:.88,wx=small?.79:1.05,at=g.userData.frontAt;
  for(const side of[-1,1]){
   const lid=[],slit=[],brow=[];
   for(let k=0;k<=32;k++){
@@ -402,11 +402,11 @@ function centralFigure(){
    let fold=0;const ends=[-.36,-.18,-.015,.16,.34];
    for(let k=0;k<ends.length;k++){
      const center=.16+(ends[k]-.16)*(1-v)**.67+.025*Math.sin(Math.PI*v)*(k-1.4);
-     const amp=[.011,.015,.013,.016,.010][k]*(.50+.50*(1-v));
+     const amp=[.004,.006,.005,.006,.004][k]*(.50+.50*(1-v));
      fold+=amp*gaussian(x-center,.026+.015*(1-v))-amp*.40*gaussian(x-center+.037,.020);
    }
    return[x,y,z0+fold*Math.sin(Math.PI*u)];
- },.026);b.add(cloth,'folded-lap-cloth');
+ },.026);b.add(cloth,'folded-lap-cloth','cloth');
  raisedHand(b,-.49,1.30,.91,{size:1.25});
  b.add(sweep([[-.57,1.10,.46],[-.50,1.17,.76],[-.49,1.24,.90]],.078,.063,{segments:44,radial:24}),'raised-wrist');
  b.add(sweep([[.67,.81,.61],[.43,.83,.78],[.20,.80,.89],[.06,.79,.93]],.075,.067,{segments:62,radial:28}),'lap-forearm');
