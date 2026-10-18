@@ -1,0 +1,344 @@
+{
+  "reference": 1,
+  "entry": "reconstructions/scene-01/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-18T11:15:25.122Z",
+  "source": {
+    "hash": "a03b117a199a89fba8e6026e601d37dc6457b515e46116b78f03baebf02d34bf",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/temple-joinery-v01/build-report.json": "e0191358e027c9f77315115f48f2e905913b8f81a3976e885b72c955345c390b",
+      "assets/temple-joinery-v01/temple-joinery-v01.glb": "b984ebc15df7251c376c95f71cc0c9fe3e4706e3a1abaa1bd3a7bfd492e597bd",
+      "reconstructions/scene-01/asset-dependencies.json": "7dbb215ceba4ab1da19b1f18d57f6c3ae087e8cfba1008629340867d7971eee1",
+      "reconstructions/scene-01/index.html": "625cf9b6f9a2e43417fc682fb4a077138e2abdea0d28fee4a0cc0fec3fc466d1",
+      "reconstructions/scene-01/manifest.json": "2265d4d3867eb2b88142be96a5bd0adda53a9049a1f340a19cc793392caf7a0e",
+      "reconstructions/scene-01/src/architecture.js": "a2e074207cb0d89a372be02fb43af66180009799d7cf114ad6abdd34975bece4",
+      "reconstructions/scene-01/src/blender-joinery.js": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "reconstructions/scene-01/src/garden.js": "53a03d0ab5e65a1874b4b7f1a28294495e9c8afbcdc1a3008bbf48ef2bc65683",
+      "reconstructions/scene-01/src/kernel.js": "05be2ccc5e32739d221f6541dcd45d6bffb1b9923c41748a2aba1c0e2d01ba3a",
+      "reconstructions/scene-01/src/main.js": "5ad95427e5b7b7cd19227713cf43f822ef7ed5054c3502504ad9e5999e30715d",
+      "reconstructions/scene-01/src/optics.js": "ca7245e2860796fa1e4f9db0ed5ff42371a309d16ad832780e152d9d4a4d4fca",
+      "reconstructions/scene-01/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-01/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-01/src/scanned-timber.js": "c42eda37f31a4078877caf055c2d1b9925767eeb038cb60c7c7a3d9b995254bc",
+      "reconstructions/scene-01/src/scene.js": "0f112d0cc6b7ace22e206993267c928c2016bc478775d3c5a963b4478c0e606f"
+    }
+  },
+  "sourceCommit": "b4842ab44907d7614dfadf5ab10ff327b2a8189b",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-01/index.html",
+    "/reconstructions/scene-01/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-01/src/scene.js",
+    "/reconstructions/scene-01/src/optics.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/reconstructions/scene-01/src/scanned-timber.js",
+    "/reconstructions/scene-01/src/blender-joinery.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-01/src/kernel.js",
+    "/reconstructions/scene-01/src/architecture.js",
+    "/reconstructions/scene-01/src/garden.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/reconstructions/scene-01/src/restoration-buddha.js",
+    "/reconstructions/scene-01/src/restoration-altar.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/assets/temple-joinery-v01/temple-joinery-v01.glb"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 1,
+        "frame": 1,
+        "width": 1254,
+        "height": 1254,
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "fov": 59
+        },
+        "triangles": 173206383,
+        "calls": 10952
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-01-corner-pagoda-flowing-water-r51",
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "target": [
+            0,
+            6.2,
+            -13
+          ],
+          "fov": 59,
+          "near": 0.1,
+          "far": 260,
+          "deckY": 1.8,
+          "eyeAboveDeck": 1.4
+        },
+        "architecture": {
+          "meshes": 1641,
+          "instances": 335164,
+          "triangles": 24812657,
+          "roles": {
+            "pagoda-plinth": 2,
+            "pagoda-1-timber-gallery": 1441,
+            "pagoda-1-curved-ceramic-roof": 3122,
+            "pagoda-2-timber-gallery": 1441,
+            "pagoda-2-curved-ceramic-roof": 2830,
+            "pagoda-3-timber-gallery": 1441,
+            "pagoda-3-curved-ceramic-roof": 2702,
+            "pagoda-4-timber-gallery": 1441,
+            "pagoda-4-curved-ceramic-roof": 2574,
+            "pagoda-5-timber-gallery": 1441,
+            "pagoda-5-curved-ceramic-roof": 2374,
+            "pagoda-finial": 37,
+            "great-hall-stone-platform": 182,
+            "great-hall-massive-columns": 5275,
+            "great-hall-layered-carved-eave-friezes": 1253,
+            "great-hall-depth-enclosure": 151,
+            "great-hall-gilded-open-portal": 3342,
+            "great-hall-upper-storey": 3873,
+            "great-hall-upper-inner-purlin-bearings": 590,
+            "great-hall-lower-monumental-roof": 8402,
+            "great-hall-main-monumental-roof": 12902,
+            "great-hall-stairs-and-balustrades": 92,
+            "scene": 148,
+            "foreground-veranda-real-deck": 43,
+            "foreground-veranda-wood-column": 26,
+            "foreground-veranda-oblique-ceiling-framework": 365,
+            "foreground-veranda-low-edge-balustrade": 63,
+            "foreground-six-sided-hanging-lantern": 174,
+            "garden-landforms": 7,
+            "arched-red-garden-bridge": 1002,
+            "foreground-weathered-sculpted-stone-lantern": 200,
+            "garden-shore-boulders-moss-and-crevices": 2104,
+            "foreground-east-island-boulder-and-ferns": 2330,
+            "west-bridge-root-rocks-and-flowering-groundcover": 55498,
+            "deep-layered-rock-bank-and-understory": 40970,
+            "raised-stair-landing-and-worn-garden-flagstones": 2656,
+            "distant-haze-woodland": 760,
+            "sculptural-layered-pines": 64600,
+            "flowering-garden-shrubs": 83187,
+            "lotus-leaves-and-layered-pink-blossoms": 735,
+            "photograph-calibrated-lotus-beds": 337,
+            "upper-right-maple-framing-boughs": 18630,
+            "maple-overhanging-inner-bough": 2700,
+            "foreground-vine-over-balustrade": 1000,
+            "foreground-vine-blossoms": 720,
+            "connected-garden-bark-branch-sweeps": 1
+          }
+        },
+        "garden": {
+          "branches": 254
+        },
+        "proceduralOnly": false,
+        "scannedTimber": {
+          "provider": "Poly Haven",
+          "asset": "lacquered_cherry_wood",
+          "license": "CC0-1.0",
+          "physicalTileMetres": 1,
+          "grain": "Member-aligned metric UV; filtered normal and roughness maps"
+        },
+        "joinery": {
+          "source": "Blender source-built solid kit v01",
+          "bracketPieces": 18,
+          "fittingTriangles": 3680,
+          "guideRole": "Image-assisted non-metric relief depth; no source-photo albedo"
+        },
+        "planarReflection": true,
+        "frames": 1,
+        "renderer": {
+          "calls": 10952,
+          "triangles": 173206383
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9999993640764228,
+      "opaqueFraction": 1,
+      "rgbaSha256": "e7b3942a55c4d8b6124107e168e9e0e17db85fa1904842dc9ce9000b4f88fee2"
+    }
+  ],
+  "completedAt": "2026-10-18T11:15:30.559Z"
+}

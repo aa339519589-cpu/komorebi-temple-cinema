@@ -1,0 +1,382 @@
+{
+  "createdAt": "2026-10-18T06:46:03.203Z",
+  "integrationCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+  "scope": "All ten actual independent 3D scenes. Parallel modeling and material pass, with actual original/current images.",
+  "runtimeChecks": {
+    "actualStillSize": "1254 x1254 for all ten selected stills; live film rendering separately at1080 x1080.",
+    "reviewCanvasSize": 1024,
+    "entries": 10,
+    "glErrors": 0,
+    "shaderLinkFailures": 0,
+    "referencePhotosRequestedInsideScene": 0,
+    "namespaceSourceHashesVerified": true,
+    "latestLiveCheck": "qa/ten-reference/review-ui/report.json",
+    "latestScope": "Ten genuine seven-second1080x1080/30fps shots; exact namespace sources match the current selected models. This proves source identity, not photographic fidelity."
+  },
+  "visualAcceptance": false,
+  "completedFilm": false,
+  "motionInspection": {
+    "reference": 3,
+    "duration": 7,
+    "fps": 30,
+    "frames": 210,
+    "size": [
+      960,
+      960
+    ],
+    "audio": false,
+    "path": "qa/ten-reference/03/iteration-motion22/motion-review.mp4",
+    "scope": "Single-shot camera inspection; full film and moving-flicker acceptance remain open."
+  },
+  "scenes": [
+    {
+      "reference": 1,
+      "name": "左廊框景、池塘与塔殿",
+      "shortName": "廊下夕照",
+      "referenceFile": "/references/hd/0-照片-1.jpg",
+      "entry": "/reconstructions/scene-01/index.html",
+      "selectedCandidateCommit": "ddf7cc5",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "0ca64fbf77b7045ba80d4f20180258bf095176240534133dde98a8ab5cab78cb",
+      "actualFrame": "qa/ten-reference/01/iteration-parallel40/reference.png",
+      "comparison": "qa/ten-reference/01/iteration-parallel40/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "4d231238972bab5098429c2f837167bcefdce557",
+      "renderedSize": 1254,
+      "imageSha256": "519f0d390abaa7b3d719f6d77b873810991d1c7a67758ddd736bd42ea5c8440d",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/01/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 2,
+      "name": "右侧木廊、红桥与落日",
+      "shortName": "右廊落日",
+      "referenceFile": "/references/hd/1-照片-2.jpg",
+      "entry": "/reconstructions/scene-02/index.html",
+      "selectedCandidateCommit": "d42a5ca",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "250380dda4eb2ff3ca5f6a417ac1e82b5a5335c76887f9127f2a32a4186a30bb",
+      "actualFrame": "qa/ten-reference/02/iteration-parallel47/reference.png",
+      "comparison": "qa/ten-reference/02/iteration-parallel47/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "87022fc97580cf9025707f69f30eb3588e1188fd",
+      "renderedSize": 1254,
+      "imageSha256": "e2757d3cb11fd85cf9cbb2c5c58eea7f52b7b5f854b1e950319aef9ce9f5f6aa",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/02/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 3,
+      "name": "低莲池、拱桥与巍峨大殿",
+      "shortName": "莲池仰望",
+      "referenceFile": "/references/hd/2-照片-3.jpg",
+      "entry": "/reconstructions/scene-03/index.html",
+      "selectedCandidateCommit": "11df7a3",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "2c63ff748d7394ffa4be7e454c9d63bec286a9dadccded8b5612e23ad35f68f7",
+      "actualFrame": "qa/ten-reference/03/iteration-parallel44/reference.png",
+      "comparison": "qa/ten-reference/03/iteration-parallel44/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "d10ead04a58bf667bd5970ab4e6ce6b6573acac9",
+      "renderedSize": 1254,
+      "imageSha256": "92a7547a34f500b83dc4ad3383520d09f8da1fbd86c5f6a8715ca85201ca4669",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/03/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 4,
+      "name": "中轴石路、石灯与唐破风正殿",
+      "shortName": "正殿朝参",
+      "referenceFile": "/references/hd/3-照片-4.jpg",
+      "entry": "/reconstructions/scene-04/index.html",
+      "selectedCandidateCommit": "4de6135",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "777abb9a201cca3557c1aa217eec8378bf004056aba96df72aa2517eed2dd863",
+      "actualFrame": "qa/ten-reference/04/iteration-parallel47/reference.png",
+      "comparison": "qa/ten-reference/04/iteration-parallel47/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "9b2c2b54defc9669f43cfe6e88395e474a8bd149",
+      "renderedSize": 1254,
+      "imageSha256": "47cb3fd7baa4948d1e879ffd102e724a6aab60b1aac740633044f4662acc811b",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 5,
+      "name": "极低仰角的塔楼檐部与木构",
+      "shortName": "塔檐木构",
+      "referenceFile": "/references/hd/5-照片-6.jpg",
+      "entry": "/reconstructions/scene-05/index.html",
+      "selectedCandidateCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "integrationRenderCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+      "sceneSourceHash": "3d45895703d4d6f16d0a816ed20460ac5cb963bfd5070ba7a7829757bfc56f55",
+      "actualFrame": "qa/ten-reference/05/iteration-exterior-satin35/reference.png",
+      "comparison": "qa/ten-reference/05/iteration-exterior-satin35/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+      "renderedSize": 1254,
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "imageSha256": "63ff6ff394a413552d0c9cc75079b0850bdb9eda7a357a8bef8c7ee10ec8974a",
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/05/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 6,
+      "name": "低跪视点的金身、供台与佛堂",
+      "shortName": "殿内金身",
+      "referenceFile": "/references/hd/4-照片-5.jpg",
+      "entry": "/reconstructions/scene-06/index.html",
+      "selectedCandidateCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "integrationRenderCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+      "sceneSourceHash": "ba8d446188b20e2012fa7b2fbbad19ba6158bcd275cccfb45180c7013bb3fe10",
+      "actualFrame": "qa/ten-reference/06/iteration-seat-contact32/reference.png",
+      "comparison": "qa/ten-reference/06/iteration-seat-contact32/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
+      "renderedSize": 1254,
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "imageSha256": "261e2f88e4f18dff12ffaa8ce32a18ce42c9088f2c2af1ddee6d50f838d2369a",
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 7,
+      "name": "廊台瓦顶前景与夕阳园林全景",
+      "shortName": "层台园林",
+      "referenceFile": "/references/hd/6-照片-7.jpg",
+      "entry": "/reconstructions/scene-07/index.html",
+      "selectedCandidateCommit": "cdefa85",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+      "actualFrame": "qa/ten-reference/07/iteration-parallel45/reference.png",
+      "comparison": "qa/ten-reference/07/iteration-parallel45/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "187561b3d17b3a40bdf7dece8b083e5c84cea7ab",
+      "renderedSize": 1254,
+      "imageSha256": "0c4e79ca01486035bdcac54c69acdad86ebd848689a90fe2f97421ae147d5802",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 8,
+      "name": "门廊框景与层层庭院深处的塔",
+      "shortName": "叠廊深庭",
+      "referenceFile": "/references/hd/7-照片-8.jpg",
+      "entry": "/reconstructions/scene-08/index.html",
+      "selectedCandidateCommit": "0ec3553",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "039a1d3ac66cbca5d49f1773469bd04c768d1826a836b91411c2fce7988b5e91",
+      "actualFrame": "qa/ten-reference/08/iteration-parallel43/reference.png",
+      "comparison": "qa/ten-reference/08/iteration-parallel43/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "1413fc8a21bcc5a1bd320b129d1bac334608ce08",
+      "renderedSize": 1254,
+      "imageSha256": "802d372fd7ca6e779f8b68c5ed8df6454c5f2c89a2417e9d7115573a37446d0d",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 9,
+      "name": "蓝调夜色、塔殿灯火与水面倒影",
+      "shortName": "夜寺灯火",
+      "referenceFile": "/references/hd/8-照片-9.jpg",
+      "entry": "/reconstructions/scene-09/index.html",
+      "selectedCandidateCommit": "ac8b20a",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "74add508205cc4d9f59abd30c53f3a887c869673b1cfa0256963b5ab040cebd8",
+      "actualFrame": "qa/ten-reference/09/iteration-parallel44/reference.png",
+      "comparison": "qa/ten-reference/09/iteration-parallel44/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "b88a8d4a8a5b61229a529ec4c0c576b5c62b6a6a",
+      "renderedSize": 1254,
+      "imageSha256": "143abd3f1b29995cabf6a01e7fd631e1e6b8a672ccee28ea458829b74e2518a2",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/09/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    },
+    {
+      "reference": 10,
+      "name": "雨雾塔殿与近景湿石板、廊柱",
+      "shortName": "雨寺湿石",
+      "referenceFile": "/references/hd/9-照片-10.jpg",
+      "entry": "/reconstructions/scene-10/index.html",
+      "selectedCandidateCommit": "32535cd",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "1a79ff976b99a88dab7af234f1c23bf69c6bca056a186cc2e553396c778f528b",
+      "actualFrame": "qa/ten-reference/10/iteration-parallel46/reference.png",
+      "comparison": "qa/ten-reference/10/iteration-parallel46/current-comparison.jpg",
+      "gpuFramesValid": true,
+      "visualAccepted": false,
+      "sourceCodeCommit": "ccdcac7cfdacce098bf5e8946f3adfc3cdd0622a",
+      "renderedSize": 1254,
+      "imageSha256": "470bd487e2ac8d285e5db130014a081ac34ba999679b8c3608935763427e3ac7",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/10/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
+    }
+  ],
+  "updatedAt": "2026-10-18T10:24:40.014Z",
+  "latestModelSourceCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+  "additionalMotionInspections": [
+    {
+      "status": "motion-inspection-only",
+      "sourceCodeCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "reference": 5,
+      "actualGpuFrames": 210,
+      "fps": 30,
+      "duration": 7,
+      "size": [
+        1080,
+        1080
+      ],
+      "file": "qa/ten-reference/05/iteration-satin35-motion/motion-review-oboro.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "nb_read_frames": "210"
+          },
+          {
+            "codec_name": "aac",
+            "sample_rate": "48000",
+            "nb_read_frames": "329"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "audio": "Credited PeriTune / Sei Mutsuki — Oboro, 25s offset, -20 LUFS target and fades, CC BY 4.0",
+      "videoStreamPreserved": true,
+      "decodeErrors": 0,
+      "visualAccepted": false,
+      "movingFlickerAccepted": false,
+      "completeFilm": false
+    }
+  ],
+  "contactSheet": "qa/ten-reference/hour-1832/all-ten-original-and-current.jpg",
+  "draftFilm": {
+    "status": "ten-scene-draft-rendered",
+    "sourceFrames": 2100,
+    "sourceDuration": 70,
+    "edits": [
+      {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/hour-1832-film/temple-ten-scenes-70s.mp4",
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "nb_read_frames": "2100"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "r_frame_rate": "0/0",
+            "nb_read_frames": "3282"
+          }
+        ],
+        "format": {
+          "duration": "70.000000",
+          "size": "247327464"
+        }
+      },
+      {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/hour-1832-film/temple-ten-scenes-60s.mp4",
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "nb_read_frames": "1800"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "r_frame_rate": "0/0",
+            "nb_read_frames": "2813"
+          }
+        ],
+        "format": {
+          "duration": "60.000000",
+          "size": "186684498"
+        }
+      }
+    ],
+    "visualAccepted": false,
+    "completeRequestedFidelity": false
+  }
+}

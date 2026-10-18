@@ -1,6 +1,8 @@
 import {mkdir,writeFile,readFile,readdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
 import {launchRenderBrowser} from './render-runtime.mjs';
 import {acquireGpuRenderSlot} from './gpu-render-slot.mjs';
 import {encodeWebglPng} from './encode-webgl-png.mjs';
@@ -13,8 +15,21 @@ const report={status:'building',sourceCommit:execFileSync('git',['rev-parse','HE
 const save=()=>writeFile(out+'/export-report.json',JSON.stringify(report,null,2));await save();
 process.env.PORT=process.env.EXPORT_PORT||'4511';
 const releaseGpu=await acquireGpuRenderSlot('export-real-geometry-'+id);
-const {server}=await import('./server.mjs');let browser;
+const serverModule=resolve(process.cwd(),'tools/server.mjs');
+const {server}=await import(pathToFileURL(serverModule).href);let browser;
 try{
+ // The web root follows the requested checkout, even when this exporter is
+ // launched by absolute path from another checkout. Compare the actual served
+ // source bytes before associating any model buffers with a source receipt.
+ const served=[];
+ for(const [relative,expected] of Object.entries(source.files)){
+  const url=`http://127.0.0.1:${process.env.PORT}/`+relative.split('/').map(encodeURIComponent).join('/');
+  const response=await fetch(url);if(!response.ok)throw Error('Source server failed '+relative+' '+response.status);
+  const bytes=Buffer.from(await response.arrayBuffer()),actual=hash(bytes);
+  if(actual!==expected)throw Error('Served source differs from requested checkout: '+relative);
+  served.push({path:relative,sha256:actual});
+ }
+ report.servedSource={serverModule,root:process.cwd(),files:served,allMatch:true};await save();
  const runtime=await launchRenderBrowser();browser=runtime.browser;const page=await browser.newPage({viewport:{width:640,height:640}});
  page.on('pageerror',e=>report.errors.push(String(e)));page.on('console',m=>console.log(m.type(),m.text().slice(0,500)));
  await page.exposeFunction('saveSceneAsset',async(name,base64)=>{if(!/^[a-zA-Z0-9_.-]+$/.test(name))throw Error('Invalid export filename');const bytes=Buffer.from(base64,'base64');await writeFile(out+'/assets/'+name,bytes);report.exportedAssets[name]={bytes:bytes.length,sha256:hash(bytes)};return name;});

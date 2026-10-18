@@ -14,6 +14,8 @@ const worktree=resolve(process.env.WORKTREE||`/Users/mima1234/temple-scene-${id}
 const iteration=process.env.ITERATION||'01',port=Number(process.env.PORT||4500);
 const motionFps=Number(process.env.MOTION_FPS||0),motionDuration=7;
 const detailCrop=process.env.DETAIL_CROP?process.env.DETAIL_CROP.split(',').map(Number):null;
+const viewPose=process.env.VIEW_POSITION||process.env.VIEW_TARGET?{position:process.env.VIEW_POSITION?.split(',').map(Number),target:process.env.VIEW_TARGET?.split(',').map(Number),fov:process.env.VIEW_FOV?Number(process.env.VIEW_FOV):null}:null;
+if(viewPose&&(![viewPose.position,viewPose.target].every(a=>a?.length===3&&a.every(Number.isFinite))||(viewPose.fov!==null&&(!Number.isFinite(viewPose.fov)||viewPose.fov<10||viewPose.fov>120))||motionFps||process.env.SHOT_TIMES||detailCrop))throw Error('VIEW_POSITION/VIEW_TARGET require finite3-vectors and an independent still view.');
 if(detailCrop&&(detailCrop.length!==4||!detailCrop.every(Number.isInteger)||Math.min(...detailCrop)<0||detailCrop[2]<1||detailCrop[3]<1||detailCrop[0]+detailCrop[2]>detailCrop[3]||detailCrop[1]+detailCrop[2]>detailCrop[3]||motionFps||process.env.SHOT_TIMES))throw Error('DETAIL_CROP requires x,y,size,fullSize and a still reference view.');
 if(motionFps!==0&&![24,25,30,60].includes(motionFps))throw Error('MOTION_FPS must be 24,25,30 or60.');
 const entry=`reconstructions/scene-${id}/index.html`,out=resolve(worktree,`qa/ten-reference/${id}/iteration-${iteration}`);
@@ -27,6 +29,7 @@ async function sourceIdentity(){
 const releaseGpu=await acquireGpuRenderSlot(`reference-${id}-${iteration}`);
 const identity=await sourceIdentity(),startedAt=new Date().toISOString();
 const report={reference,entry,worktree,size,startedAt,source:identity,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:worktree,encoding:'utf8'}).trim(),status:'building',visualAccepted:false,errors:[],requests:[]};
+if(viewPose)report.inspectionView={...viewPose,scope:'Actual existing renderView API, explicit model-review camera, not the photographic reference pose.'};
 if(detailCrop)report.detailCrop={pixels:detailCrop,scope:'A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot.'};
 const server=spawn(process.execPath,[resolve(worktree,'tools/server.mjs')],{cwd:worktree,env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});
 const serverReady=new Promise((yes,no)=>{server.stdout.on('data',b=>{if(b.toString().includes('http://'))yes();});server.on('error',no);server.on('exit',c=>no(Error('Preview server exited '+c)));});
@@ -60,20 +63,20 @@ try{
  for(const localTime of frames){
   if(encoderError)throw encoderError;
   const crop=detailCrop&&report.frames.length===1?detailCrop:null;
-  const result=await Promise.race([page.evaluate(({reference,localTime,crop})=>{
+  const result=await Promise.race([page.evaluate(({reference,localTime,crop,viewPose})=>{
    const t=window.temple,r=t.renderer,gl=r.getContext();
    if(crop)t.camera.setViewOffset(crop[3],crop[3],crop[0],crop[1],crop[2],crop[2]);else t.camera.clearViewOffset();
-   const pose=localTime===null?t.renderReference(reference):t.renderShot(localTime);gl.finish();
+   const pose=viewPose?t.renderView(viewPose.position,viewPose.target,0,viewPose.fov??t.camera.fov):localTime===null?t.renderReference(reference):t.renderShot(localTime);gl.finish();
    const width=gl.drawingBufferWidth,height=gl.drawingBufferHeight,bytes=new Uint8Array(width*height*4);
    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.readPixels(0,0,width,height,gl.RGBA,gl.UNSIGNED_BYTE,bytes);
    const glError=gl.getError(),programs=r.info.programs.map(p=>({linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)}));let binary='';
    for(let i=0;i<bytes.length;i+=16384)binary+=String.fromCharCode(...bytes.subarray(i,i+16384));
    return{pose,width,height,glError,programs,contextLost:gl.isContextLost(),rgbaBase64:btoa(binary),info:t.info()};
-  },{reference,localTime,crop}),fatal]);
+  },{reference,localTime,crop,viewPose}),fatal]);
   const bytes=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;
   let nonblack=0,opaque=0;for(let i=0;i<bytes.length;i+=4){if(Math.max(bytes[i],bytes[i+1],bytes[i+2])>3)nonblack++;if(bytes[i+3]===255)opaque++;}
   const valid=result.glError===0&&!result.contextLost&&result.programs.every(p=>p.linked)&&nonblack>size*size*.05&&report.errors.length===0;
-  const index=report.frames.length,name=crop?'detail-native':motionFps?`frame-${String(index).padStart(4,'0')}`:localTime===null?'reference':`shot-${String(localTime).replace('.','p')}`;
+  const index=report.frames.length,name=viewPose?'inspection-view':crop?'detail-native':motionFps?`frame-${String(index).padStart(4,'0')}`:localTime===null?'reference':`shot-${String(localTime).replace('.','p')}`;
   const savePixels=!motionFps||index===0||index===Math.floor(frames.length/2)||index===frames.length-1;
   if(valid&&savePixels)await writeFile(resolve(out,name+'.png'),encodeWebglPng(result.width,result.height,bytes));
   report.frames.push({...result,name,localTime,detailCrop:crop,valid,pngSaved:savePixels,nonblackFraction:nonblack/(size*size),opaqueFraction:opaque/(size*size),rgbaSha256:createHash('sha256').update(bytes).digest('hex')});
