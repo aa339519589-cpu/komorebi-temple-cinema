@@ -1,0 +1,25 @@
+{
+  "reference": 4,
+  "referenceImage": "references/hd/3-照片-4.jpg",
+  "actualRender": "qa/ten-reference/04/iteration-01/reference.png",
+  "comparison": "qa/ten-reference/04/iteration-01/compare-left-original-right-render.png",
+  "acceptance": false,
+  "observations": [
+    "Main ridge, canopy peak, doorway threshold and stair foot are close to the reference composition at a 1.35 m eye height.",
+    "The dark blue grey ceramic roof and layered karahafu recess improve on the baseline, but the entrance still reads as an evenly lit framework.",
+    "Foreground slabs are visibly convex, pale blue grey, and separated by excessive black gaps.",
+    "Stair treads show an unnatural repeated high contrast grid.",
+    "Gallery retaining walls are broad undecorated pale planes; the garden does not transition naturally to the raised building floor.",
+    "Overhead maple leaves look like pale paper clusters and the pine foliage remains visually sparse."
+  ],
+  "secondPassChanges": [
+    "Construct continuous sloped earth embankments, embedded rocks and rooted three dimensional shrubs around the stairs.",
+    "Add individually jointed chipped retaining stones to exposed platform faces.",
+    "Reduce slab relief to millimetres, reduce joints to centimetres, use dark warm stone albedo and local wet roughness rather than a bright uniform clear coat.",
+    "Reduce stair surface relief and bump scale to remove the repeated glints.",
+    "Use deep warm brown red timber materials, lower environment fill and a more lateral physical sun angle for deeper self shadowing.",
+    "Curl the maple leaf geometry along raised central veins, use darker leaf and bark materials, and increase the layered plant volume.",
+    "Use PCF shadow mapping."
+  ],
+  "secondPassStatus": "Source committed and CPU checked. Actual GPU comparison pending; visual acceptance remains false."
+}
