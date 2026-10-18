@@ -34,10 +34,10 @@ const keyAlias={cedar:'wood',endwood:'wood',darkwood:'dark',oldgold:'gold',slate
 arch=createRestorationArchitecture({instance(g,m,x,y,z,sx,sy,sz,rot,tint){emit(g,keyAlias[m]||m,x,y,z,sx,sy,sz,Array.isArray(rot)?rot:[0,rot||0,0],tint);},group(x,y,z,a,fn,sc=1){group(x,y,z,a,sc,fn);},box(x,y,z,w,h,d,m,rot=0,tint=1){emit(geo.box,keyAlias[m]||m,x,y,z,w,h,d,Array.isArray(rot)?rot:[0,rot||0,0],tint);},roofAudit:[]});
 function rosette(x,y,z,r=.09){for(let i=0;i<8;i++){const a=i*TAU/8;emit(geo.ball,'gold',x+Math.cos(a)*r*.5,y+Math.sin(a)*r*.5,z,r*.45,r*.17,r*.09,[0,0,a]);}sphere(x,y,z+.005,r*.22,r*.22,r*.12,'gold');}
 function carvedPanel(x,y,z,w,h){box(x,y,z,w,h,.10,'wood');box(x,y,z+.06,w-.08,h-.08,.035,'dark');for(const yy of[-h/2+.05,h/2-.05])box(x,y+yy,z+.09,w-.12,.026,.025,'gold');for(const xx of[-w/2+.05,w/2-.05])box(x+xx,y,z+.09,.026,h-.12,.025,'gold');for(const side of[-1,1])for(let j=0;j<3;j++){const xx=x+side*w*(.16+j*.105);tube([[xx-side*w*.09,y-h*.23,z+.085],[xx-side*w*.05,y+h*.18,z+.1],[xx+side*w*.04,y+h*.11,z+.1],[xx+side*w*.07,y-h*.19,z+.085]],.015,'gold');}rosette(x,y,z+.12,Math.min(.14,h*.33));}
-function hall(){group(6.4,0,-9,0,1,()=>{
-box(0,.85,-.4,16,1.7,10.6,'stone');box(0,1.73,-.4,16.4,.15,10.9,'stone');
-for(let i=0;i<21;i++){const h=1.7*(21-i)/21;box(0,h/2,5.2+i*.25,5.8,h,.25,'stone');for(let j=0;j<8;j++)box(-2.5+j*.72,h+.009,5.2+i*.25,.7,.018,.23,'stone');}
-for(const s of[-1,1])rail(Array.from({length:9},(_,i)=>[s*3.07,1.7*(1-i/8),5.2+i*.64]));
+function hall(){group(6.4,5.0,-9,0,1,()=>{transform.multiply(new T.Matrix4().makeScale(1,.88,1));
+box(0,-2.0,-.4,16,5.7,10.6,'stone');box(0,1.73,-.4,16.4,.15,10.9,'stone');
+for(let i=0;i<25;i++){const worldH=1.45+(6.496-1.45)*(25-i)/25,h=worldH/.88,yBase=-5/.88,z=5.2+i*.28;box(0,yBase+h/2,z,5.8,h,.28,'stone');for(let j=0;j<8;j++)box(-2.5+j*.72,yBase+h+.009,z,.70,.018,.26,'stone');}
+for(const s of[-1,1])rail(Array.from({length:9},(_,i)=>[s*3.07,(1.45+(6.496-1.45)*(1-i/8)-5)/.88,5.2+i*.87]));
 // Deep interior wall, lacquered beams, actual side passage and thick front columns.
 box(0,4.3,-4.65,14.4,5,.25,'dark');for(const x of[-7.1,7.1])box(x,4.3,-.7,.2,5,8,'wood');
 for(const z of[-3.9,3.7])for(const x of[-6.9,-4.6,-2.3,2.3,4.6,6.9]){column(x,z,1.8,4.75,.24);bracket(x,6.5,z,.82);}
@@ -56,14 +56,18 @@ rail(Array.from({length:17},(_,i)=>[-7.2+i*.9,8.5,3.95]),.82);
 for(const s of[-1,1])rail(Array.from({length:9},(_,i)=>[s*7.2,8.5,-3.9+i*.98]),.82);
 roof(20.5,12.7,11.2,5.2,.72);
 });
-const sanctuary=buildReference4Sanctuary(T,{floorY:1.8});sanctuary.group.position.set(6.4,1.8,-10.5);sanctuary.group.scale.setScalar(1.12);scene.add(sanctuary.group);
-for(const x of[4.1,8.7]){const l=new T.PointLight(0xffb24f,18,12,2);l.position.set(x,4,-6);scene.add(l);}
+const sanctuary=buildReference4Sanctuary(T,{floorY:1.8});sanctuary.group.position.set(6.4,6.584,-10.5);sanctuary.group.scale.set(1.12,.9856,1.12);scene.add(sanctuary.group);
+for(const x of[4.1,8.7]){const l=new T.PointLight(0xffb24f,18,12,2);l.position.set(x,8.5,-6);scene.add(l);}
 }
-function tower(){group(-12.4,0,-12.8,0,1,()=>{box(0,.3,0,6,.6,6,'stone');const ys=[3.7,6.7,9.7,12.65,15.55],ws=[8.7,8.3,7.8,7.35,6.85];for(let l=0;l<5;l++){let y=ys[l],w=ws[l],floor=l?ys[l-1]+.65:.6,b=w*.64;box(0,(y+floor)/2,0,b,y-floor,b,'red');for(const z of[-b/2,b/2])for(const x of[-b/2,0,b/2]){column(x,z,floor,y-floor-.3,.14);bracket(x,y-.28,z,.75);}for(const s of[-1,1]){rail(Array.from({length:9},(_,i)=>[-b*.55+i*b*1.1/8,floor+.02,s*(b/2+.18)]),.55);for(let x=-1;x<=1;x++)lattice(x*b*.29,(floor+y)/2,b/2+.03,b*.2,(y-floor)*.55);}for(const side of[-1,1]){for(let k=0;k<11;k++)bracket(-b*.48+k*b*.96/10,y-.4,side*b/2,.42);for(const yy of[y-.65,y-.30])box(0,yy,side*b/2,b+.3,.14,.26,'red');}roof(w,w,y,.83,.48);}rod([0,16.4,0],[0,21.4,0],.055,'gold');for(let j=0;j<15;j++)ring(0,16.7+j*.29,0,.48-j*.02,.035);sphere(0,21.4,0,.13,.26,.13,'gold');});}
+function tower(){group(-12.4,5.5,-12.8,0,1,()=>{transform.multiply(new T.Matrix4().makeScale(1,.88,1));box(0,-2.85,0,6,6.3,6,'stone');const ys=[3.7,6.7,9.7,12.65,15.55],ws=[8.7,8.3,7.8,7.35,6.85];for(let l=0;l<5;l++){let y=ys[l],w=ws[l],floor=l?ys[l-1]+.65:.6,b=w*.64;box(0,(y+floor)/2,0,b,y-floor,b,'red');for(const z of[-b/2,b/2])for(const x of[-b/2,0,b/2]){column(x,z,floor,y-floor-.3,.14);bracket(x,y-.28,z,.75);}for(const s of[-1,1]){rail(Array.from({length:9},(_,i)=>[-b*.55+i*b*1.1/8,floor+.02,s*(b/2+.18)]),.55);for(let x=-1;x<=1;x++)lattice(x*b*.29,(floor+y)/2,b/2+.03,b*.2,(y-floor)*.55);}for(const side of[-1,1]){for(let k=0;k<11;k++)bracket(-b*.48+k*b*.96/10,y-.4,side*b/2,.42);for(const yy of[y-.65,y-.30])box(0,yy,side*b/2,b+.3,.14,.26,'red');}roof(w,w,y,.83,.48);}rod([0,16.4,0],[0,21.4,0],.055,'gold');for(let j=0;j<15;j++)ring(0,16.7+j*.29,0,.48-j*.02,.035);sphere(0,21.4,0,.13,.26,.13,'gold');});}
 hall();tower();
 // Roofed galleries fill the actual complex, including the left courtyard pavilion.
-function gallery(x,z,w,rot=0){group(x,.3,z,rot,1,()=>{box(0,.5,0,w,1,3.2,'stone');for(let i=0;i<=Math.ceil(w/1.7);i++){const xx=-w/2+i*w/Math.ceil(w/1.7);column(xx,1.1,1,2.5,.12);bracket(xx,3.5,1.1,.45);lattice(xx,2.0,-.9,1.1,1.3);}rail(Array.from({length:Math.ceil(w)+1},(_,i)=>[-w/2+i*w/Math.ceil(w),1,1.35]),.6);roof(w+1.2,4.3,3.8,1,.25);});}
+function gallery(x,z,w,rot=0){group(x,4,z,rot,1,()=>{box(0,-.65,0,w,3.3,3.2,'stone');for(let i=0;i<=Math.ceil(w/1.7);i++){const xx=-w/2+i*w/Math.ceil(w/1.7);column(xx,1.1,1,2.5,.12);bracket(xx,3.5,1.1,.45);lattice(xx,2.0,-.9,1.1,1.3);}rail(Array.from({length:Math.ceil(w)+1},(_,i)=>[-w/2+i*w/Math.ceil(w),1,1.35]),.6);roof(w+1.2,4.3,3.8,1,.25);});}
 gallery(-4,-9,12);gallery(-18,-3,6);gallery(17,-10,6,Math.PI/2);
+// The photograph's buildings stand above the sunken water garden on connected garden terraces.
+const hillP=[],hillI=[],hillNX=90,hillNZ=54;const hillHeight=(x,z)=>{const taper=Math.min(1,Math.max(0,(29-Math.abs(x))/7));return Math.max(-.2,5.0*Math.max(0,Math.min(1,(3-z)/12))*taper+.10*Math.sin(x*.6+z*.7));};for(let j=0;j<=hillNZ;j++)for(let i=0;i<=hillNX;i++){const x=-31+i*62/hillNX,z=-35+j*39/hillNZ;hillP.push(x,hillHeight(x,z),z);}for(let j=0;j<hillNZ;j++)for(let i=0;i<hillNX;i++){const n=j*(hillNX+1)+i;hillI.push(n,n+hillNX+1,n+1,n+1,n+hillNX+1,n+hillNX+2);}const hillGeo=new T.BufferGeometry();hillGeo.setAttribute('position',new T.Float32BufferAttribute(hillP,3));hillGeo.setIndex(hillI);hillGeo.computeVertexNormals();emit(hillGeo,'soil',0,0,0);
+for(let row=0;row<12;row++)for(let col=0;col<18;col++){const x=6.4-7.7+col*.87;if(Math.abs(x-6.4)<3.1)continue;box(x,.25+row*.43,-3.75,.82,.40,.46,'stone');}
+box(6.4,.67,3.2,8.7,1.34,2.1,'stone');for(let i=0;i<13;i++)for(let j=0;j<4;j++)box(2.4+i*.66,1.35,2.4+j*.50,.64,.04,.48,'stone');
 // Terrain is below the water and each island is actual protruding geology.
 transform=new T.Matrix4().makeTranslation(0,0,-3).multiply(new T.Matrix4().makeScale(1,1,.6));
 box(0,-.8,0,160,1,150,'soil');
@@ -115,4 +119,4 @@ let instanceCount=0,triangles=0;for(const {g,m,items}of batches.values()){const 
 function renderView(position,target,time=0,fov=46){camera.position.fromArray(position);camera.fov=fov;camera.aspect=W/H;camera.lookAt(V(target));camera.updateProjectionMatrix();renderer.setRenderTarget(null);renderer.render(scene,camera);return true;}
 function renderReference(n=7){return renderView([10.7,12.8,36.0],[0.0,7.0,-2.0],0,47);}
 function renderShot(t=0){const s=Math.max(0,Math.min(1,t/7)),u=s*s*(3-2*s);return renderView([9.1+1.6*u,11.7+1.1*u,31.8+4.2*u],[-2.5+2.5*u,5.2+1.8*u,10-12*u],t,44+3*u);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,revision:'scene-07-elevated-garden-r3',instances:instanceCount,triangles,referenceCamera:[10.7,12.8,36],externalAssets:false}),dispose(){scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,revision:'scene-07-elevated-garden-r4',instances:instanceCount,triangles,referenceCamera:[10.7,12.8,36],externalAssets:false}),dispose(){scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());
