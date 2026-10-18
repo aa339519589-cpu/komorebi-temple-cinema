@@ -77,7 +77,7 @@ for rec in scene_data['materials']:
         for name in ['Emission Color','Emission']:
             if name in bs.inputs:links.new(em.outputs[0],bs.inputs[name]);break
     # Real thin-leaf/paper transmission, using the same source colour/map.
-    thin_foliage=rec['name'].lower().startswith(('leaf','maple','lotusleaf','pineleaf'))
+    thin_foliage=rec['name'].lower().startswith(('leaf','maple','lotusleaf','pineleaf')) or rec['name'] in ['lotus','lotusInside','pink','pinkLight']
     thin_paper=('paper' in rec['name'].lower() and max(emission[:3])>0)
     if thin_foliage or thin_paper:
         translucent=n.new('ShaderNodeBsdfTranslucent')
@@ -90,6 +90,21 @@ for rec in scene_data['materials']:
         previous=bs.inputs['Normal'].links[0].from_socket if bs.inputs['Normal'].is_linked else None
         if previous:links.new(previous,bevel.inputs['Normal'])
         links.new(bevel.outputs['Normal'],bs.inputs['Normal'])
+    if rec['name'] in ['stone','stoneLight']:
+        # The native granite's world-space GLSL is rebuilt as actual Cycles
+        # surface nodes rather than silently losing its mineral structure.
+        position=n.new('ShaderNodeNewGeometry');grain=n.new('ShaderNodeTexNoise');grain.inputs['Scale'].default_value=210;grain.inputs['Detail'].default_value=2.5
+        links.new(position.outputs['Position'],grain.inputs['Vector'])
+        ramp=n.new('ShaderNodeValToRGB');ramp.color_ramp.elements[0].position=.28;ramp.color_ramp.elements[0].color=(.35,.37,.35,1);ramp.color_ramp.elements[1].position=.72;ramp.color_ramp.elements[1].color=(1.45,1.43,1.32,1)
+        links.new(grain.outputs['Fac'],ramp.inputs['Fac']);mul=n.new('ShaderNodeMixRGB');mul.blend_type='MULTIPLY';mul.inputs[0].default_value=1
+        current=bs.inputs['Base Color'].links[0].from_socket if bs.inputs['Base Color'].is_linked else None
+        if current:links.new(current,mul.inputs[1])
+        else:mul.inputs[1].default_value=color
+        links.new(ramp.outputs['Color'],mul.inputs[2]);links.new(mul.outputs['Color'],bs.inputs['Base Color'])
+        fine=n.new('ShaderNodeBump');fine.inputs['Distance'].default_value=.0024;fine.inputs['Strength'].default_value=.24;links.new(grain.outputs['Fac'],fine.inputs['Height'])
+        previous=bs.inputs['Normal'].links[0].from_socket if bs.inputs['Normal'].is_linked else None
+        if previous:links.new(previous,fine.inputs['Normal'])
+        links.new(fine.outputs['Normal'],bs.inputs['Normal'])
     materials[rec['id']]=mat
 
 geo={g['id']:g for g in scene_data['geometries']}; loaded={};imported_triangles=0
@@ -224,7 +239,16 @@ if fill_power>0:
     obj=bpy.data.objects.new(fill.name,fill);scene.collection.objects.link(obj);obj.location=(-9,-10,12)
     obj.rotation_euler=(Vector((1,8,5))-obj.location).to_track_quat('-Z','Y').to_euler()
     report['productionFill']={'powerWatts':fill_power,'sizeMetres':[14,10],'positionZUp':list(obj.location),'targetZUp':[1,8,5],'purpose':'Declared cinematic shadow-side fill; not recovered reference lighting'}
+sun_break=float(os.environ.get('CYCLES_SUN_BREAK','0'))
+if sun_break>0:
+    lamp=bpy.data.lights.new('golden sun breaking through the cloud field','SUN');lamp.energy=sun_break;lamp.angle=.0093;lamp.color=(1,.74,.46)
+    obj=bpy.data.objects.new(lamp.name,lamp);scene.collection.objects.link(obj);sun_direction=Vector((direction.x,-direction.z,direction.y));obj.rotation_euler=(-sun_direction).to_track_quat('-Z','Y').to_euler()
+    report['authoredSunBreak']={'energy':sun_break,'directionZUp':list(sun_direction),'colorLinear':[1,.74,.46],'purpose':'Authored direct golden sunlight added to the low-contrast cloudy environment; not claimed as unchanged measured lighting'}
 scene.cycles.seed=73061;scene.cycles.use_animated_seed=False
+fstop=float(os.environ.get('CYCLES_FSTOP','0'))
+if fstop>0:
+    cam_data.dof.use_dof=True;cam_data.dof.aperture_fstop=fstop;cam_data.dof.focus_distance=28;cam_data.dof.aperture_blades=9
+    report['lensOptics']={'focusDistanceMetres':28,'fstop':fstop,'apertureBlades':9,'cameraPosePreserved':True}
 
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','32'))
 if os.environ.get('CYCLES_DEVICE')=='METAL':
@@ -251,6 +275,8 @@ scene.cycles.max_bounces=8;scene.cycles.diffuse_bounces=4;scene.cycles.glossy_bo
 scene.render.resolution_x=int(os.environ.get('CYCLES_SIZE','640'));scene.render.resolution_y=scene.render.resolution_x;scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGB';scene.render.image_settings.color_depth='8';scene.render.threads_mode='FIXED';scene.render.threads=int(os.environ.get('CYCLES_THREADS','4'))
 try:scene.view_settings.view_transform='AgX'
 except:scene.view_settings.view_transform='Filmic'
+if os.environ.get('CYCLES_CONTRAST'):
+    scene.view_settings.look=os.environ['CYCLES_CONTRAST']
 scene.view_settings.exposure=float(os.environ.get('CYCLES_EXPOSURE','.5'));scene.view_settings.gamma=1
 render_name=os.environ.get('CYCLES_RENDER_NAME','sanctuary-cycles.png')
 if Path(render_name).name!=render_name:raise ValueError('CYCLES_RENDER_NAME must be a filename')
