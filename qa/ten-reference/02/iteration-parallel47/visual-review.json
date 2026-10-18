@@ -1,0 +1,37 @@
+{
+  "status": "reviewed-draft",
+  "visualAccepted": false,
+  "sourceHash": "250380dda4eb2ff3ca5f6a417ac1e82b5a5335c76887f9127f2a32a4186a30bb",
+  "before": "iteration-parallel40/reference.png",
+  "actual": "reference.png",
+  "comparison": "comparison.png",
+  "timberAsset": "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+  "findings": [
+    "The scanned albedo/roughness/normal maps introduce visible aged grain on the near rail, column, floor and overhead eaves.",
+    "Timber now has a deeper varied brown-vermilion surface in the actual golden-hour light.",
+    "Per-instance metric UVs use geometry extent attributes; existing geometry/material buckets remain instanced.",
+    "Existing finite-radiance capture shader is chained with the timber shader.",
+    "All four map/provenance dependencies are recorded in the actual source hash."
+  ],
+  "architectureCountsBefore": {
+    "instances": 52607,
+    "buckets": 482
+  },
+  "architectureCountsAfter": {
+    "instances": 52607,
+    "buckets": 482
+  },
+  "gardenCountsBefore": {
+    "instances": 434404,
+    "buckets": 433
+  },
+  "gardenCountsAfter": {
+    "instances": 434404,
+    "buckets": 433
+  },
+  "limits": [
+    "Architecture, camera and motion are preserved. The scene remains a procedural draft.",
+    "Main roof planes remain too dark, and landscape, ornaments and proportions remain unlike the photograph.",
+    "The scan improves timber surface/color variation; it does not establish photographic acceptance."
+  ]
+}
