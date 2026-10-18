@@ -31,12 +31,27 @@ export function stoneMaterial(name,color='#82725e',{wet=false,seed=1,roughness=.
  const maps=metricStoneMaps(seed),m=new T.MeshPhysicalMaterial({name,color,...maps,roughness,normalScale:new T.Vector2(.70,.70),metalness:0,clearcoat:0});
  m.onBeforeCompile=shader=>{
   m.userData.compiledShader=shader;
-  shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 ssPosition;').replace('#include <project_vertex>',`vec4 ssP=vec4(transformed,1.0);\n#ifdef USE_INSTANCING\nssP=instanceMatrix*ssP;\n#endif\nssPosition=(modelMatrix*ssP).xyz;\n#include <project_vertex>`);
-  shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 ssPosition;\n'+shaderNoise)
+  shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 ssPosition;\nvarying vec3 ssWorldNormal;').replace('#include <project_vertex>',`vec4 ssP=vec4(transformed,1.0);\n#ifdef USE_INSTANCING\nssP=instanceMatrix*ssP;\n#endif\nssPosition=(modelMatrix*ssP).xyz;vec3 ssN=normal;
+#ifdef USE_INSTANCING
+ssN=mat3(instanceMatrix)*ssN;
+#endif
+ssWorldNormal=normalize(mat3(modelMatrix)*ssN);\n#include <project_vertex>`);
+  shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 ssPosition;\nvarying vec3 ssWorldNormal;\n'+shaderNoise+`
+vec3 ssWeights(){vec3 w=pow(abs(normalize(ssWorldNormal)),vec3(6.0));return w/(w.x+w.y+w.z);}
+vec4 ssTriSample(sampler2D tex){vec3 w=ssWeights(),p=ssPosition*4.0;return texture2D(tex,p.zy)*w.x+texture2D(tex,p.xz)*w.y+texture2D(tex,p.xy)*w.z;}
+`)
+   .replace('#include <map_fragment>',T.ShaderChunk.map_fragment.replace('texture2D( map, vMapUv )','ssTriSample(map)'))
+   .replace('#include <normal_fragment_maps>',`
+vec3 ssW=ssWeights(),ssBase=normalize(ssWorldNormal),ssP=ssPosition*4.0;
+vec3 ssNX=texture2D(normalMap,ssP.zy).xyz*2.0-1.0,ssNY=texture2D(normalMap,ssP.xz).xyz*2.0-1.0,ssNZ=texture2D(normalMap,ssP.xy).xyz*2.0-1.0;
+ssNX.xy*=normalScale;ssNY.xy*=normalScale;ssNZ.xy*=normalScale;
+vec3 ssAX=vec3(ssBase.x*abs(ssNX.z),ssBase.y+ssNX.y,ssBase.z+ssNX.x),ssAY=vec3(ssBase.x+ssNY.x,ssBase.y*abs(ssNY.z),ssBase.z+ssNY.y),ssAZ=vec3(ssBase.x+ssNZ.x,ssBase.y+ssNZ.y,ssBase.z*abs(ssNZ.z));
+normal=normalize(mat3(viewMatrix)*normalize(ssAX*ssW.x+ssAY*ssW.y+ssAZ*ssW.z));
+`)
    .replace('#include <color_fragment>',`#include <color_fragment>\nfloat ssMacro=ssNoise(ssPosition.xz*.73)+.5*ssNoise(ssPosition.xy*2.41);diffuseColor.rgb*=.76+.23*ssMacro;`)
-   .replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>\n${wet?'float ssWet=smoothstep(.53,.76,ssNoise(ssPosition.xz*.93+vec2(7.3,1.1))+.18*ssNoise(ssPosition.xz*3.1));roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;':''}`);
+   .replace('#include <roughnessmap_fragment>',`${T.ShaderChunk.roughnessmap_fragment.replace('texture2D( roughnessMap, vRoughnessMapUv )','ssTriSample(roughnessMap)')}\n${wet?'float ssWet=smoothstep(.53,.76,ssNoise(ssPosition.xz*.93+vec2(7.3,1.1))+.18*ssNoise(ssPosition.xz*3.1));roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;':''}`);
  };
- m.customProgramCacheKey=()=>`scene04-metric-stone-meso-r4-${wet}`;m.userData.physicalTextureRepeatMetres=.25;m.userData.maps=maps;return m;
+ m.customProgramCacheKey=()=>`scene04-world-triplanar-stone-r9-${wet}`;m.userData.physicalTextureRepeatMetres=.25;m.userData.maps=maps;return m;
 }
 export function polygonSlab(outline,top=.045,thickness=.075,seed=1){
  const cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,points=outline.map(([x,z])=>{const r=Math.hypot(x-cx,z-cz);return[x+(cx-x)*.012/r,z+(cz-z)*.012/r];}),shape=new T.Shape();
