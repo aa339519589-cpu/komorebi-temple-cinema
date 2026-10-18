@@ -114,7 +114,10 @@ export function buildReference4Architecture(T,options={}) {
   for(let i=0;i<40;i++){const x0=-hw+2*hw*i/40,x1=-hw+2*hw*(i+1)/40;between([x0,curve(x0)-.16,front],[x1,curve(x1)-.16,front],.15,.21,'red');between([x0,curve(x0)-.045,front+.13],[x1,curve(x1)-.045,front+.13],.027,.035,'gold');}
   box(0,base+.10,front-.1,hw*1.9,.24,.24,'cedar');
   for(let i=-10;i<=10;i++){const x=i*.35,h=curve(x)-base-.35;if(h>.12){box(x,base+.15+h/2,front-.25,.12,h,.18,'darkwood');if(i%2===0)relief(x,base+.35+h*.44,front-.13,.30,Math.min(.7,h*.7));}}
-  for(let j=0;j<6;j++){const y=base+.35+j*.38,w=2*hw*Math.pow(Math.max(0,1-(y-base)/(peak-base)),1/1.20);if(w>.1)box(0,y,front-.24,w,.055,.13,'oldgold');}
+  for(const sign of[-1,1]){
+   tube(lin(.12,.97,30).map(t=>{let x=sign*t*hw;return[x,curve(x)-.28,front+.08]}),.038,'oldgold',40);
+   for(let j=0;j<5;j++){const cx=sign*(3.05-j*.55),cy=base+.52+j*.57,rr=.34-j*.018,pts=[];for(let k=0;k<28;k++){let t=k/27,a=t*Math.PI*2*1.13,r=rr*(1-t*.62);pts.push([cx+sign*Math.cos(a)*r,cy+Math.sin(a)*r*.72,front-.075]);}tube(pts,.027,'gold',40);rosette(cx,cy,front-.055,.10);}
+  }
   rosette(0,base+.66,front-.05,.34);rosette(0,peak-.24,front+.1,.17);
  });
 
@@ -125,12 +128,12 @@ export function buildReference4Architecture(T,options={}) {
  });
  role('upper-storey-dense-bracket-frieze',()=>{
   for(let j=-6;j<=6;j++)box(j*1.06,11.17,-.76,.86,.65,.08,'plaster',0,.70);for(const y of[10.80,11.55])box(0,y,-.68,13.5,.08,.10,'oldgold');for(let j=-13;j<=13;j++){const x=j*.49;relief(x,11.17,-.66,.40,.31);}
-  box(0,12.50,-1.02,13.6,3.65,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
+  box(0,12.20,-1.02,13.6,4.25,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
   for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.65,.075,'plaster');for(const y of[11.98,12.72])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
 
   for(const y of[11.35,12.85,13.6]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
   box(0,12.53,-.95,13.0,.72,.13,'black');
-  for(let j=-6;j<=6;j++){let x=j*1.06;arch.brackets(x,13.85,-.55,.91);arch.brackets(x,11.6,-.48,.72);box(x,12.55,-.7,.18,2.2,.23,'red');relief(x+.49,12.55,-.82,.55,.45);}
+  for(let j=-6;j<=6;j++){let x=j*1.06;arch.brackets(x,13.85,-.55,.91);arch.brackets(x,11.6,-.48,.72);arch.brackets(x,10.22,-.50,.58);box(x,12.55,-.7,.18,2.2,.23,'red');relief(x+.49,12.55,-.82,.55,.45);}
   for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.15,-.42,.12);}
   for(let j=0;j<72;j++){let x=-7.8+j*15.6/71;between([x,13.97,-2.5],[x,14.20,.20],.095,.14,'cedar');box(x,14.16,.20,.11,.14,.16,'oldgold');}
  });
