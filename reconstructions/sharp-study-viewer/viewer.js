@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import {SparkRenderer,SplatMesh} from '@sparkjsdev/spark';
-import {CV_TO_THREE,sourceCalibration,applyIntrinsics,poseFromCV,trajectoryPose,DEFAULT_KEYFRAMES} from './camera.js';
+import {CV_TO_THREE,sourceCalibration,applyIntrinsics,poseFromCV,pullbackPlan,pullbackPose,trajectoryPose} from './camera.js';
 import {inspectGaussianPly} from './ply-header.js';
+import {SHOT_SETTINGS} from './shot-settings.js';
 
 const query=new URLSearchParams(location.search),capture=query.has('capture');
 if(capture)document.body.classList.add('capture');
@@ -13,7 +14,7 @@ renderer.setClearColor(0x000000,1);
 const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(50,1,.001,10000);
 const spark=new SparkRenderer({renderer,autoUpdate:false,enableLod:false,accumExtSplats:true,sortRadial:false,preBlurAmount:0,blurAmount:0,maxStdDev:Math.sqrt(8),minAlpha:.5/255});
 scene.add(spark);
-let record,calibration,model,header,depth=1,currentPose,currentTime=0,ready=false,modelURL,metadataDepth=null;
+let record,calibration,model,header,depth=1,currentPose,currentTime=0,ready=false,modelURL,metadataDepth=null,shotPlan;
 let renderSerial=Promise.resolve(),playStarted=null,playFrom=0,interactivePose={translation:[0,0,0],rotation:[0,0,0]};
 const state={renderer,camera,scene,spark,ready:false,readyPromise:null};
 window.temple=state;
@@ -27,17 +28,19 @@ function resize() {
   const [w,h]=viewport();renderer.setSize(w,h,true);applyIntrinsics(camera,calibration,w,h);
 }
 function info() {
-  return {kind:'photo-reconstructed-3d-gaussian-field',title:'照片重建3D高斯场',viewerVersion:'sharp-study-spark-02',threeRevision:THREE.REVISION,sparkVersion:'2.3.1',ready,modelURL:modelURL?.pathname,metadataURL:metaURL.pathname,gaussianCount:header?.vertexCount,shDegree:header?.shDegree,gaussianProperties:header?.properties,coordinateSystem:record?.coordinateSystem??'opencv-camera',fieldTransform:CV_TO_THREE.toArray(),calibration:calibration?{width:calibration.width,height:calibration.height,fx:calibration.fx,fy:calibration.fy,cx:calibration.cx,cy:calibration.cy}:null,depthScale:depth,depthScaleMethod:metadataDepth?'metadata median source-camera z':'median of up to8192 nontransparent Gaussian centers in the source camera',intrinsicsAnimated:false,sourceBackgroundImage:false,colorEncoding:'PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform',renderedPrimitives:'anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing',projection:camera.projectionMatrix.toArray(),pose:currentPose,renderer:renderer.info.render};
+  return {kind:'photo-reconstructed-3d-gaussian-field',title:'照片重建3D高斯场',viewerVersion:'sharp-study-spark-03',threeRevision:THREE.REVISION,sparkVersion:'2.3.1',ready,modelURL:modelURL?.pathname,metadataURL:metaURL.pathname,gaussianCount:header?.vertexCount,shDegree:header?.shDegree,gaussianProperties:header?.properties,coordinateSystem:record?.coordinateSystem??'opencv-camera',fieldTransform:CV_TO_THREE.toArray(),calibration:calibration?{width:calibration.width,height:calibration.height,fx:calibration.fx,fy:calibration.fy,cx:calibration.cx,cy:calibration.cy}:null,depthScale:depth,depthScaleMethod:metadataDepth?'metadata median source-camera z':'median of up to8192 nontransparent Gaussian centers in the source camera',intrinsicsAnimated:currentPose?.kind==='forward-dolly-to-source',shotPlan,sourceBackgroundImage:false,colorEncoding:'PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform',renderedPrimitives:'anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing',projection:camera.projectionMatrix.toArray(),pose:currentPose,renderer:renderer.info.render};
 }
 async function drawPose(pose,time=null) {
   if(!ready)throw Error('3D Gaussian model is not ready.');
+  const focalScale=pose.focalScale??1;
+  const effectiveIntrinsics=applyIntrinsics(camera,calibration,renderer.domElement.width,renderer.domElement.height,focalScale);
   currentPose=poseFromCV(camera,calibration,pose);currentTime=time;
   scene.updateMatrixWorld(true);
   // Await the current camera's GPU generation and worker depth sort. Do not
   // capture before this Promise, or use a timeout to guess when sorting ends.
   await spark.update({scene,camera});
   renderer.render(scene,camera);renderer.getContext().finish();
-  currentPose={...currentPose,time,depthScale:depth,sourceIntrinsicsPreserved:true,matrixStorage:'column-major'};
+  currentPose={...currentPose,time,kind:pose.kind??'inspection',focalScale,effectiveIntrinsics,depthScale:depth,sourceIntrinsicsPreserved:focalScale===1,matrixStorage:'column-major'};
   return currentPose;
 }
 function renderPose(pose={},time=null) {
@@ -53,7 +56,8 @@ Object.assign(state,{
   info,renderPose,
   async renderReference(){return renderPose(namedPose('source'),0);},
   async renderPreset(name){stopPlayback();interactivePose=namedPose(name);return renderPose(interactivePose,null);},
-  async renderShot(time){return renderPose(trajectoryPose(time,depth,record?.trajectory??DEFAULT_KEYFRAMES),Number(time));},
+  async renderShot(time){const pose=pullbackPose(time,shotPlan);interactivePose=structuredClone(pose);return renderPose(pose,pose.time);},
+  async renderTrajectory(time,keyframes){return renderPose(trajectoryPose(time,depth,keyframes),Number(time));},
   async setTime(time){return this.renderShot(time);},
   async renderFrame({time=0}={}){return this.renderShot(time);},
   async renderView(position,target,roll=0){
@@ -89,6 +93,8 @@ async function initialize() {
   zs.sort((a,b)=>a-b);metadataDepth=record.depth?.median??record.depth?.positiveZQuantiles?.median??null;
   depth=Number(metadataDepth??zs[Math.floor(zs.length/2)]);
   if(!(depth>0))throw Error('Gaussian field has no finite positive source-camera depth. Check coordinate convention.');
+  const id=String(record.id??query.get('scene')??'01').padStart(2,'0');
+  shotPlan=pullbackPlan({...record,shot:{...SHOT_SETTINGS[id],...record.shot}},depth);
   camera.near=Math.max(.0001,depth*.0001);camera.far=Math.max(100,depth*100);resize();
   model.maxSh=header.shDegree;
   ready=state.ready=true;state.metadata=record;state.plyHeader=header;

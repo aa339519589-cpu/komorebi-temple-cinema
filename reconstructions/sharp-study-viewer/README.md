@@ -15,11 +15,12 @@ Keep model binaries in `output/sharp-study/01/` or a release asset, outside Git.
   "model": {"url": "./scene.ply", "sha256": "record the actual model hash"},
   "image": {"width": 1254, "height": 1254},
   "intrinsics": {"fx": 900, "fy": 900, "cx": 627, "cy": 627, "width": 1254, "height": 1254},
-  "sourceCamera": {"cameraToWorld": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]}
+  "sourceCamera": {"cameraToWorld": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]},
+  "depth": {"positiveZQuantiles": {"median": 12, "p05": 1.5}}
 }
 ```
 
-The numbers above demonstrate the schema, not a calibration claim. Use the intrinsics and dimensions from the actual SHARP run. `cameraToWorld` input is a row-major OpenCV camera-to-world matrix. Source OpenCV world axes are right/down/forward. A single proper 180° rotation about X maps both the entire field and camera axes into Three's right/up/back convention; no point positions are flattened. The pixel projection is constructed directly from `fx,fy,cx,cy`, with the source sensor contained if the output aspect differs. Camera translation or rotation never changes K. All output pose matrices use Three's column-major storage.
+The numbers above demonstrate the schema, not a calibration claim. Use the intrinsics and dimensions from the actual SHARP run. `cameraToWorld` input is a row-major OpenCV camera-to-world matrix. Source OpenCV world axes are right/down/forward. A single proper180° rotation about X maps both the entire field and camera axes into Three's right/up/back convention; no point positions are flattened. The exact sign matrix avoids a residual rotation at the source identity. The pixel projection is constructed directly from `fx,fy,cx,cy`, with the source sensor contained if the output aspect differs. Named research inspection poses retain K. The film API explicitly animates the real pinhole focal lengths with its physical dolly; no saved frame is scaled or overlaid. All output pose matrices use Three's column-major storage.
 
 Launch the independent page with the existing project server, or use the local model-directory alias:
 
@@ -35,8 +36,9 @@ Wait for `window.temple.readyPromise`. Every render method is asynchronous: it a
 
 - `renderReference()` returns the calibrated input pose.
 - `renderPreset('source'|'left'|'right'|'near'|'far')` translates the physical camera. Left/right use ±2.5% of median source-camera scene depth, near +4%, far −6%. K remains fixed.
-- `renderPose({translation:[x,y,z], rotation:[pitch,yaw,roll]})` provides full six-degree camera freedom relative to the input OpenCV pose. Distances use the original PLY's units; angles are radians. `cameraToWorld:[16 row-major numbers]` accepts an absolute OpenCV pose instead.
-- `renderShot(seconds)`, `setTime(seconds)`, `renderFrame({time})` sample the same seven-second six-degree path using smooth interpolation. A descriptor may supply `trajectory` keyframes with translation fractions of median scene depth.
+- `renderPose({translation:[x,y,z], rotation:[pitch,yaw,roll], focalScale:1})` provides full six-degree camera freedom relative to the input OpenCV pose. Distances use the original PLY's units; angles are radians. `cameraToWorld:[16 row-major numbers]` accepts an absolute OpenCV pose instead. Focal scale is an actual camera projection change.
+- `renderShot(seconds)`, `setTime(seconds)`, `renderFrame({time})` sample the same deterministic seven-second pullback. Start is forward by `min(medianDepth*.035,p05Depth*.13)`, with zero lateral/vertical travel and zero rotation. Smooth interpolation ends at the exact source identity and K at7s; the camera never moves behind the input position. Start fx/fy are1.22×source K, returning to1× at the end. `shot-settings.js` holds per-scene art parameters; focal start may be1.18..1.28 and physical travel may be reduced. All Gaussian projection and sorting are recomputed at every pose.
+- `renderTrajectory(time,keyframes)` explicitly samples a separate arbitrary six-degree research path. It is never used implicitly by the film API. Keyframe translations are fractions of median scene depth.
 - `renderView(position,target,roll)` accepts conventional Three world coordinates for explicit inspection.
 - `resize(width,height)` changes output resolution, without changing the calibrated sensor.
 - `info()` records the source model, Gaussian count, SH degree, coordinate conversion, K, pose and renderer details.
@@ -51,4 +53,12 @@ SCENE=01 SHARP_STUDY_ROOT=/absolute/project/output/sharp-study SIZE=1254 ITERATI
 
 Optional: `POSES=source,near,far`, `SHARP_PREVIEW_OUTPUT=/absolute/review/path`, `METADATA=viewer.json`. Keep failed candidate images and reports. Successful WebGL rendering is not visual acceptance.
 
-Primary upstream: [Spark source](https://github.com/sparkjsdev/spark), [loading original Gaussian PLY](https://sparkjs.dev/docs/loading-splats/), [manual awaited sorting](https://sparkjs.dev/docs/spark-renderer/), [Apple SHARP](https://github.com/apple-aiml-research/ml-sharp). Original reference photographs are user supplied reconstruction inputs; their separate model provenance belongs beside the actual generated PLY. SHARP's pretrained model is restricted to non-commercial research; this directory is an evaluation study, and neither source photography rights nor Spark's MIT license change the pretrained model's terms.
+For the actual ten-shot camera review, run30 still frames, not a movie:
+
+```sh
+SHARP_STUDY_ROOT=/absolute/project/output/sharp-study SIZE=1254 ITERATION=shotplan01 node reconstructions/sharp-study-viewer/render-all-shot-previews.mjs
+```
+
+Each scene separately acquires the shared GPU mutex and renders `renderShot(0)`, `renderShot(3.5)`, `renderShot(7)`. `make-shot-contact.py` arranges the actual frames and preserves the original per-scene reports and metadata in a review folder. Raw native PNGs stay alongside the model in `output/sharp-study/{id}/viewer-shotplan01/`.
+
+Primary upstream: [Spark source](https://github.com/sparkjsdev/spark), [loading original Gaussian PLY](https://sparkjs.dev/docs/loading-splats/), [manual awaited sorting](https://sparkjs.dev/docs/spark-renderer/), [Apple SHARP](https://github.com/apple-aiml-research/ml-sharp). Original reference photographs are user supplied reconstruction inputs; their separate model provenance belongs beside the actual generated PLY. SHARP's model and Model Derivatives are licensed for Research Purposes as defined in its [full unmodified model agreement](licenses/sharp/LICENSE_MODEL.txt). Its outputs clause provides outputs AS IS; this viewer does not invent a separate output license. The [code license](licenses/sharp/LICENSE.txt) and [acknowledgements](licenses/sharp/ACKNOWLEDGEMENTS.txt) are also retained verbatim. Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement.

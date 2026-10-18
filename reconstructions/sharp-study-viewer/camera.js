@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 // OpenCV camera: +X right, +Y down, +Z forward. Three camera: +X right,
 // +Y up, -Z forward. Apply the same proper rotation to the Gaussian field.
-export const CV_TO_THREE = new THREE.Matrix4().makeRotationX(Math.PI);
+export const CV_TO_THREE = new THREE.Matrix4().set(1,0,0,0, 0,-1,0,0, 0,0,-1,0, 0,0,0,1);
 const finite = (a, n) => Array.isArray(a) && a.length === n && a.every(Number.isFinite);
 export function sourceCalibration(rec) {
   const i = rec.intrinsics ?? rec.camera?.intrinsics ?? rec;
@@ -25,10 +25,11 @@ export function sourceCalibration(rec) {
   return {width,height,fx,fy,cx,cy,sourceMatrixCV:matrix};
 }
 
-export function applyIntrinsics(camera,k,width,height) {
+export function applyIntrinsics(camera,k,width,height,focalScale=1) {
   // Contain the calibrated source sensor in the viewport. No FOV animation.
   const scale = Math.min(width/k.width,height/k.height);
-  const fx=k.fx*scale,fy=k.fy*scale;
+  if(!Number.isFinite(focalScale)||focalScale<.5||focalScale>2)throw Error('Focal scale must lie in [.5,2].');
+  const fx=k.fx*scale*focalScale,fy=k.fy*scale*focalScale;
   const cx=k.cx*scale+(width-k.width*scale)/2;
   const cy=k.cy*scale+(height-k.height*scale)/2;
   const near=camera.near,far=camera.far;
@@ -37,6 +38,22 @@ export function applyIntrinsics(camera,k,width,height) {
   camera.projectionMatrix.set(2*fx/width,0,1-2*cx/width,0, 0,2*fy/height,2*cy/height-1,0, 0,0,-(far+near)/(far-near),-2*far*near/(far-near), 0,0,-1,0);
   camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
   return {width,height,fx,fy,cx,cy,projection:camera.projectionMatrix.toArray()};
+}
+
+export function pullbackPlan(rec,depth) {
+  const q05=Number(rec.depth?.positiveZQuantiles?.p05);
+  if(!(q05>0))throw Error('Film camera requires the actual PLY positive-z 5th percentile in metadata.');
+  const art=rec.shot??{};
+  const travelScale=Number(art.travelScale??1),focalScaleStart=Number(art.focalScaleStart??1.22);
+  if(!Number.isFinite(travelScale)||travelScale<0||travelScale>1||!Number.isFinite(focalScaleStart)||focalScaleStart<1.18||focalScaleStart>1.28)throw Error('Shot travelScale must be0..1, focalScaleStart must be1.18..1.28.');
+  return {duration:7,medianDepth:depth,q05Depth:q05,travel:Math.min(depth*.035,q05*.13)*travelScale,focalScaleStart,focalScaleEnd:1,lateralTravel:0,verticalTravel:0,rotation:[0,0,0],endPose:'exact original OpenCV identity-relative source camera and original K',scope:'Real forward dolly returns to observed source camera; never moves behind the source.'};
+}
+
+export function pullbackPose(time,plan) {
+  const t=THREE.MathUtils.clamp(Number(time),0,plan.duration);
+  if(!Number.isFinite(t))throw Error('Shot time must be finite.');
+  const u=t/plan.duration,remaining=1-u*u*(3-2*u);
+  return {translation:[0,0,plan.travel*remaining],rotation:[0,0,0],focalScale:1+(plan.focalScaleStart-1)*remaining,time:t,kind:'forward-dolly-to-source'};
 }
 
 export function poseFromCV(camera,calibration,{translation=[0,0,0],rotation=[0,0,0],cameraToWorld}={}) {

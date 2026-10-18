@@ -54,17 +54,19 @@ try {
   await page.goto(`http://127.0.0.1:${port}/reconstructions/sharp-study-viewer/index.html?capture&meta=${encodeURIComponent(meta)}&w=${w}&h=${h}`,{waitUntil:'load',timeout:600000});
   await page.waitForFunction(()=>window.temple?.ready||window.temple?.error,null,{timeout:600000});
   await page.evaluate(async()=>{await window.temple.readyPromise;});
-  const poses=(process.env.POSES??'source,left,right').split(',');
-  for(const name of poses){
-    const result=await page.evaluate(async name=>{
-      const t=window.temple;const pose=await t.renderPreset(name);const gl=t.renderer.getContext();gl.finish();gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+  const poses=process.env.SHOT_TIMES?process.env.SHOT_TIMES.split(',').map(value=>{const time=Number(value);if(!Number.isFinite(time)||time<0||time>7)throw Error('SHOT_TIMES must be within0..7.');return{name:'shot-'+String(time).replace('.','p'),time};}):(process.env.POSES??'source,left,right').split(',').map(name=>({name,time:null}));
+  report.cameraMode=process.env.SHOT_TIMES?'deterministic forward-dolly-to-source':'explicit research inspection presets';
+  for(const frame of poses){
+    const {name,time}=frame;
+    const result=await page.evaluate(async ({name,time})=>{
+      const t=window.temple;const pose=time===null?await t.renderPreset(name):await t.renderShot(time);const gl=t.renderer.getContext();gl.finish();gl.bindFramebuffer(gl.FRAMEBUFFER,null);
       const width=gl.drawingBufferWidth,height=gl.drawingBufferHeight,rgba=new Uint8Array(width*height*4);gl.readPixels(0,0,width,height,gl.RGBA,gl.UNSIGNED_BYTE,rgba);
       let binary='';for(let j=0;j<rgba.length;j+=16384)binary+=String.fromCharCode(...rgba.subarray(j,j+16384));
       return{pose,width,height,glError:gl.getError(),contextLost:gl.isContextLost(),info:t.info(),pixels:btoa(binary)};
-    },name);
+    },frame);
     const pixels=Buffer.from(result.pixels,'base64');delete result.pixels;
     await writeFile(resolve(out,name+'.png'),encodeWebglPng(result.width,result.height,pixels));
-    report.frames.push({name,...result,rgbaSha256:createHash('sha256').update(pixels).digest('hex')});
+    report.frames.push({name,time,...result,rgbaSha256:createHash('sha256').update(pixels).digest('hex')});
     console.log(JSON.stringify({event:'gaussian-frame-rendered',name,position:result.pose.position,out}));
     if(result.glError||result.contextLost||report.errors.length)throw Error(`Actual Gaussian frame ${name} failed: ${report.errors.join('; ')}`);
   }
