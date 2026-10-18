@@ -1,0 +1,61 @@
+name: Actual Cycles photographic sanctuary relighting
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/relight-existing-cycles.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: cycles-real-relight-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  ray-traced-shading:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: resumed-cycles-d39c722a551f1cfe5fb81361858d3eff45b9e657
+          run-id: 39087140818
+          github-token: ${{ github.token }}
+          path: prior-verified-cycles
+      - name: Install renderer and validate Python
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y blender ffmpeg python3-numpy
+          python3 -m py_compile tools/refine-cycles-existing-scene.py
+      - name: Render two actual-light-transport candidates from existing Blender geometry
+        timeout-minutes: 26
+        env:
+          CYCLES_VARIANT_OUT: output/cycles-physical-variants
+          CYCLES_VARIANT_SIZE: '640'
+          CYCLES_VARIANT_SAMPLES: '24'
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -euo pipefail
+          mkdir -p output/cycles-physical-variants
+          BLEND="$(find prior-verified-cycles -type f -name existing-sanctuary-cycles.blend -print -quit)"
+          test -s "$BLEND"
+          for MODE in warm-key window-beams; do
+            export CYCLES_VARIANT="$MODE"
+            blender -b "$BLEND" -t 4 --python-exit-code 1 --python tools/refine-cycles-existing-scene.py 2>&1 | tee "output/cycles-physical-variants/renderer-$MODE.log"
+            ffmpeg -y -hide_banner -loglevel error \
+              -i references/hd/4-照片-5.jpg \
+              -i "output/cycles-physical-variants/sanctuary-cycles-$MODE.png" \
+              -filter_complex '[0:v]scale=640:640[a];[a][1:v]hstack[out]' \
+              -map '[out]' -frames:v 1 \
+              "output/cycles-physical-variants/reference-left-$MODE-right.png"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-cycles-light-variants-${{ github.sha }}
+          path: output/cycles-physical-variants/
+          retention-days: 7
+          if-no-files-found: warn
