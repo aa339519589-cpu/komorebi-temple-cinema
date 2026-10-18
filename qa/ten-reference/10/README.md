@@ -25,3 +25,11 @@ Architectural detail routines and procedural rock/material primitives were copie
 `node qa/ten-reference/10/cpu-build-check.mjs` builds the complete scene with a stubbed renderer, approximately 1.3 s and 232,779 source instances/parts. This checks module loading and geometry construction only, and supplies no GPU or visual acceptance.
 
 GPU capture is serialized by the parent agent. Actual rendered image comparison and further material/composition corrections remain required. This is a reconstruction candidate, not an accepted photographic match.
+
+## Iteration 02 response to actual iteration-01 PNG
+
+The first actual GPU frame was inspected at `iteration-01/reference.png`. It showed the hall excessively near, repeated large foreground finials, uniform bright window rectangles, a continuous mirror floor, too-large repeated rain rings, bare straight trees and simplistic lantern assemblies.
+
+The second candidate repositions the tower and hall, lowers the camera pitch, shortens/lowers the bridge, reduces the near rail to one shaped finial, varies window brightness with a recessed open worship bay, fills the soffits with additional actual rafters/purlins/bracket rows, and replaces the hanging and stone lanterns with smaller pierced and carved assemblies. Paving receives smaller irregularly chipped boundaries and world-scale colour/roughness noise; planar reflections are masked to small uneven films and distorted by static microvariation. Rain rings decrease from 100 to 25 and become substantially smaller/fainter. Tapered bent branches, tiered cedars, dense curved leaves, shrubs and fern-like bank plants replace the first sparse crowns. PCF replaces PCFSoft.
+
+Latest CPU checks: 95 meshes, approximately 14.42 million instanced triangles, 611,451 source parts/instances; all positions and instance matrices finite. CPU construction about 1.65 s. These checks do not establish visual quality; iteration-02 actual GPU capture remains required.

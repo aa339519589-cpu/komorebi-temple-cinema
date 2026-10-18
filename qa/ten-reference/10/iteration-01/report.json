@@ -1,0 +1,188 @@
+{
+  "reference": 10,
+  "entry": "reconstructions/scene-10/index.html",
+  "worktree": "/Users/mima1234/temple-scene-10",
+  "size": 768,
+  "startedAt": "2026-10-18T04:51:11.669Z",
+  "source": {
+    "hash": "fd43f28f0189e29ab543b44a4cc191e618e623e80d724b93a6ea6c8cebbfcf6b",
+    "files": {
+      "reconstructions/scene-10/index.html": "72276586699e97b2d8e826ae4e05105cd61b2b233c9079077f455793963f45a1",
+      "reconstructions/scene-10/src/architecture.js": "5d83ee913774387b6a203918a5d3412c19f8a64114149c21f5d66d5e0ed258a9",
+      "reconstructions/scene-10/src/main.js": "7c9eb22949307c646a98797bb2add4c3926ab0f8682a666a3e5863ad09af4d58",
+      "reconstructions/scene-10/src/materials.js": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5",
+      "reconstructions/scene-10/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e"
+    }
+  },
+  "sourceCommit": "33b87b040f439abc47009f5bae00e2e5c17e7bd3",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-10/index.html",
+    "/reconstructions/scene-10/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-10/src/architecture.js",
+    "/reconstructions/scene-10/src/materials.js",
+    "/reconstructions/scene-10/src/natural-forms.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          7.3,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 768,
+        "height": 768
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-complete-independent-rain-v1",
+        "objects": 232779,
+        "drawCalls": 82,
+        "triangles": 9832190,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            7.3,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "fbc34b859b46dc7d5d5d6242cce2ca00ce299ebaea5be20289aa2dbc60e18506"
+    }
+  ],
+  "completedAt": "2026-10-18T04:51:19.232Z"
+}
