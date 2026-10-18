@@ -145,6 +145,15 @@ export function buildReference4Architecture(T,options={}) {
  // Full-deep entrance joinery: curved arch ribs, closely spaced bearing sets,
  // pierced floral carving and the small shrine inside the karahafu recess.
  role('entrance-layered-joinery',()=>{
+  // Continuous recessed timber closes the bearing storey under the broad
+  // upper eave. Its cap follows the actual roof underside at every strip.
+  for(let i=0;i<33;i++){const x=-6.4+i*.4,bottom=H(8.05),top=canopy(x,-1.04)-.17;box(x,(bottom+top)/2,-1.13,.406,top-bottom,.19,'cedar',0,.73+.05*Math.sin(i*2.1));}
+  for(const side of[-1,1])for(let i=0;i<6;i++){
+   const x=side*(3.25+i*.58);
+   arch.brackets(x,canopy(x,-.50)-.73,-.52,.68,{detail:true,material:'cedar'});
+   arch.brackets(x,canopy(x,.30)-.62,.30,.54,{detail:false,material:'cedar'});
+  }
+  for(const x of C.columnAxes){const y=canopy(x,gFront)-.995;arch.brackets(x,y,.16,.64,{detail:true,material:'red'});}
   for(const z of [.72,.15,-.6,-1.4]){
    for(const drop of [.70,.91,1.12]){
     const xx=xs.filter(x=>Math.abs(x)<3.05);
