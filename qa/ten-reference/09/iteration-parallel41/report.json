@@ -1,0 +1,298 @@
+{
+  "reference": 9,
+  "entry": "reconstructions/scene-09/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-07-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T09:44:39.786Z",
+  "source": {
+    "hash": "4019b1782cbe963c595b97bfe4afbc907ca9354ffde4c6d749923c8bf38f71ea",
+    "files": {
+      "reconstructions/scene-09/index.html": "f10bccc1d16c93aa46ee5c417fbee1460acd8713b1bcaa0f96f2274ebd1bae30",
+      "reconstructions/scene-09/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-09/src/carved-joinery.js": "9190d3a92771139b0de1a8b83303472e1588bce05a44941af3b03e0921be3044",
+      "reconstructions/scene-09/src/highlight-scatter.js": "7cfd3bed7479213f870d7be3868baf58a293f6644ce156a81507f2bad41b4b62",
+      "reconstructions/scene-09/src/lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+      "reconstructions/scene-09/src/lotus-petal.js": "921e5dcb2a87f784688909107b6e04f541bbd80b0d34885dab673aa29ece455f",
+      "reconstructions/scene-09/src/main.js": "27433ff40ca6723e711281414a6debd9cd81eecd46a48d82c75ca4d82d713f7b",
+      "reconstructions/scene-09/src/pine-needles.js": "2b0c81a1ac2cc15d93da182a85e211061dcf7bfd492f1546a36f04dc611e514a",
+      "reconstructions/scene-09/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-09/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-09/src/restoration-pruned-pines-v1.js": "f41adbbcf83bf56541d34e2861f803e4450dcc260f92a0fc5e76712cd9484e6b",
+      "reconstructions/scene-09/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1"
+    }
+  },
+  "sourceCommit": "85ab4d069f66e572ada8847f1ca711f11cece099",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-09/index.html",
+    "/reconstructions/scene-09/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-09/src/highlight-scatter.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-09/src/pine-needles.js",
+    "/reconstructions/scene-09/src/lotus-leaf.js",
+    "/reconstructions/scene-09/src/lotus-petal.js",
+    "/reconstructions/scene-09/src/carved-joinery.js",
+    "/reconstructions/scene-09/src/restoration-altar.js",
+    "/reconstructions/scene-09/src/weathered-boulder.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-09/src/restoration-buddha.js",
+    "/reconstructions/scene-09/src/botany.js",
+    "/reconstructions/scene-09/src/restoration-pruned-pines-v1.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 9,
+        "revision": "night-garden-lit-shrine-pavers-r41",
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 339274,
+        "meshes": 441,
+        "drawCalls": 4644,
+        "triangles": 89729994,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 2,
+          "pointLights": 34
+        },
+        "constraints": {
+          "assets": "procedural geometry and shaders only; no downloaded textures/models/photos",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 9,
+        "revision": "night-garden-lit-shrine-pavers-r41",
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 339274,
+        "meshes": 441,
+        "drawCalls": 4644,
+        "triangles": 89729994,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 2,
+          "pointLights": 34
+        },
+        "constraints": {
+          "assets": "procedural geometry and shaders only; no downloaded textures/models/photos",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.966441040981459,
+      "opaqueFraction": 0.9722571980189709,
+      "rgbaSha256": "495a22e2cf8b5eb676366c266a2fc1a508677073e495541b5790943236a87d72"
+    }
+  ],
+  "completedAt": "2026-10-18T09:44:55.170Z"
+}
