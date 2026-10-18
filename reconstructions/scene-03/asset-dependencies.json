@@ -1,0 +1,35 @@
+{
+  "scene": "03",
+  "revision": "mesh64c",
+  "referencePhotographs": {
+    "usedByRuntime": false,
+    "comparisonInput": "references/hd/2-\u7167\u7247-3.jpg",
+    "copyright": "Retained by the original photograph owner. No source-photo RGB, projected texture, inferred depth, point cloud or Gaussian splat is used."
+  },
+  "copiedSource": [
+    {
+      "from": "reconstructions/scene-05/src/sculpted-joinery.js",
+      "to": "src/scene03-solid-joinery.js",
+      "sourceCommit": "d08f98b",
+      "sourceSha256": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "scope": "Closed author-built curved half-lapped timber parts and pierced end fitting. Ceramic masks and corner-only members are not emitted in scene03."
+    }
+  ],
+  "retainedPBR": [
+    {
+      "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+      "license": "CC0-1.0",
+      "provenance": "assets/timber/provenance.json",
+      "scope": "Local timber surface maps on independently built members; no scene RGB"
+    }
+  ],
+  "authoredGeometry": [
+    "Continuous closed curve-swept rounded-square roof rafters with caps",
+    "Main hall bearings fitted between actual supporting beam tops and the roof rafter underside",
+    "Closed 1\u20132.4 mm cupped lotus petals with curved ovate outline, rolled rims and fine geometric pleats",
+    "Closed 1.6\u20132.8 mm peltate lotus leaves with a depressed centre, uneven rim and 19 physical radial veins",
+    "Smooth closed ovoid five-lobed lotus bud"
+  ],
+  "proceduralBotanicalMaps": "Locally generated petal/leaf pigments and fine venation; no photograph inputs",
+  "visualAccepted": false
+}

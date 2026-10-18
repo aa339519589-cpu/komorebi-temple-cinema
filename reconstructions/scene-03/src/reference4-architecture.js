@@ -1,10 +1,12 @@
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {createRestorationArchitecture} from './reference4-detail-kernel.js';
 import {createReference4MaterialSet} from './reference4-materials.js';
+import {createSculptedJoinery} from './scene03-solid-joinery.js';
+import {createCurvedEaveRafter} from './scene03-curved-rafter.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
-export const REFERENCE4_ARCHITECTURE_REVISION='reference4-foundation-v4-rebuilt-connected-eaves';
+export const REFERENCE4_ARCHITECTURE_REVISION='scene03-mesh64-closed-curved-bearing-and-rafter';
 export function buildReference4Architecture(T,options={}) {
  const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:15.0,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
@@ -19,7 +21,23 @@ export function buildReference4Architecture(T,options={}) {
  function grouped(x,y,z,yaw,fn,scale=1){const q=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromAxisAngle(V([0,1,0]),yaw),V([scale,scale,scale]));stack.push(stack.at(-1).clone().multiply(q));try{fn();}finally{stack.pop();}}
  function role(name,fn){const r=activeRole;activeRole=name;try{return fn();}finally{activeRole=r;}}
  function between(a,b,w,d,ma='cedar',round=false){a=V(a);b=V(b);const v=b.clone().sub(a);if(v.length()<1e-8)return;put(round?cyl:cube,mats[ma],new T.Matrix4().compose(a.clone().add(b).multiplyScalar(.5),new T.Quaternion().setFromUnitVectors(V([0,1,0]),v.clone().normalize()),V([w,v.length(),d])).premultiply(stack.at(-1)));}
- const arch=createRestorationArchitecture({instance:emit,group:grouped,box,stack,columns:[],roofAudit:[]});
+ const legacyArch=createRestorationArchitecture({instance:emit,group:grouped,box,stack,columns:[],roofAudit:[]}),solidJoinery=createSculptedJoinery(),bearingBounds=new T.Box3();
+ const bearingGilt=mats.gold.clone();bearingGilt.name='scene03-burnished-bearing-gilt';bearingGilt.color.set('#d5b36b');bearingGilt.roughness=.32;bearingGilt.metalness=.88;materials.push(bearingGilt);mats.bearingGilt=bearingGilt;
+ for(const part of solidJoinery.bracket)if(!part.cornerOnly){part.geometry.computeBoundingBox();bearingBounds.union(part.geometry.boundingBox);}
+ let closedBearingInstances=0,curvedRafters=0;
+ const arch={...legacyArch,brackets(x,y,z,s=1,options={}){
+  if(activeRole.startsWith('tower'))return legacyArch.brackets(x,y,z,s,options);
+  const base=options.baseY??y-.15*s,receiver=options.receiverY??y+.82*s,sx=.88*s,sz=.92*s,sy=(receiver-base)/(bearingBounds.max.y-bearingBounds.min.y),offset=base-bearingBounds.min.y*sy;
+  if(!(sy>0))throw Error('Curved bracket requires a positive physical bearing gap');
+  grouped(x,0,z,0,()=>{
+   for(const part of solidJoinery.bracket)if(!part.cornerOnly)emit(part.geometry,part.material==='kit_endwood'?'endwood':'cedar',0,offset,0,sx,sy,sz);
+   for(const axis of[0,Math.PI/2])grouped(0,0,0,axis,()=>{for(const side of[-1,1])for(const row of[0,1]){
+    const xx=side*(row?.755:.655)*sx,yy=offset+(((row?.645:.27)+.15)*(.970/1.120)-.15)*sy;
+    for(const branch of(row?[-.40,.40]:[0]))grouped(xx,yy,branch*sz,side*Math.PI/2,()=>emit(solidJoinery.relief,'bearingGilt',0,0,.012,.205*s,.15*s,.105*s));
+   }});
+  });closedBearingInstances++;
+ }};
+ function curvedRafter(points,w=.105,h=.16){emit(createCurvedEaveRafter(points,w,h),'cedar');curvedRafters++;}
  function meshFromTriangles(pp,uv,tag){const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pp,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();g.userData.architectureMember=tag;return g;}
  function shell(grid,down,up,tag){const pp=[],uv=[],nz=grid.length,nx=grid[0].length;const q=(p,h)=>[p[0],p[1]+h,p[2]];
   function tri(a,b,c){if(V(b).sub(V(a)).cross(V(c).sub(V(a))).lengthSq()<1e-18)return;const n=V(b).sub(V(a)).cross(V(c).sub(V(a)));const drop=[Math.abs(n.x),Math.abs(n.y),Math.abs(n.z)].indexOf(Math.max(Math.abs(n.x),Math.abs(n.y),Math.abs(n.z))),axes=[0,1,2].filter(k=>k!==drop);for(const p of[a,b,c]){pp.push(...p);uv.push(p[axes[0]],p[axes[1]]);}}
@@ -57,7 +75,7 @@ export function buildReference4Architecture(T,options={}) {
    for(let i=0;i<=rows;i++){const u=-1+2*i/rows;if(side===0&&frontGap&&Math.abs(P(side,1,u)[0])<frontGap+.08)continue;
     const pieces=Math.max(6,Math.ceil(Math.hypot(side%2?hw-rh:hd,rise)*(1-inner)/.36));
     for(let j=0;j<pieces;j++){const t0=inner+(1-inner)*j/pieces,t1=inner+(1-inner)*(j+.96)/pieces;const p=P(side,t0,u),q=P(side,t1,u);tileBetween(p,q,.065,.94+.10*(.5+.5*Math.sin(i*11.3+j*4.7)));}
-    const end=P(side,1,u);if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,.074,i%2===0);const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}
+    const end=P(side,1,u);if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,.074,i%2===0);if(name.startsWith('main-')||name.startsWith('lower-')){if(side!==0)curvedRafter(lin(.66,1.012,9).map(t=>{const p=P(side,t,u);p[1]-=.285;return p;}));}else{const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}}
    }
    // Exposed eave fascia follows the real curled roof. Central joined edge is not a second fascia.
    for(let i=0;i<36;i++){const u=-1+2*i/36,v=-1+2*(i+1)/36,a=P(side,1,u),b=P(side,1,v);if(side===0&&(frontGap&&Math.min(Math.abs(a[0]),Math.abs(b[0]))<frontGap||connected&&Math.max(Math.abs(a[0]),Math.abs(b[0]))<gHalf))continue;a[1]-=.24;b[1]-=.24;between(a,b,.13,.23,'cedar');}
@@ -74,7 +92,7 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');
   for(const s of[-1,1])for(let i=0;i<9;i++)box(s*(3.2+i*.55),C.stairTopY+.49,.23,.11,.84,.11,'red');
  });
- role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=C.capitalTop-.10*Math.abs(x)/6.88;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84);}
+ role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=C.capitalTop-.10*Math.abs(x)/6.88,u=x/(4.95+4.05*(4.5/5.1)),roofUnder=9.4+3.1*Math.pow(1-4.5/5.1,1.48)+.56*Math.pow(4.5/5.1,8)*(.22+.78*Math.pow(Math.abs(u),6))-.37;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84,{baseY:cap-.14,receiverY:roofUnder});}
   for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78);}
  });
  role('hall-enclosure-doors',()=>{
@@ -104,8 +122,8 @@ export function buildReference4Architecture(T,options={}) {
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:9.4,rise:3.1,curl:.56,centerZ:-4.5,inner:.45,frontGap:0});
  role('lower-eave-complete-parallel-rafters',()=>{
   const P=(u,t)=>[u*(4.95+4.05*t),9.4+3.1*Math.pow(Math.max(0,1-t),1.48)+.56*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6))-.34,5.1*t-4.5];
-  for(let j=0;j<=80;j++){const u=-1+2*j/80;for(let k=0;k<8;k++)between(P(u,.45+.585*k/8),P(u,.45+.585*(k+1)/8),.105,.17,'cedar');const p=P(u,1.035);box(p[0],p[1],p[2]+.03,.11,.16,.06,j%5===0?'oldgold':'endwood');}
-  for(const t of[.58,.77,.94])for(let k=0;k<44;k++){let a=P(-1+2*k/44,t),b=P(-1+2*(k+1)/44,t);a[1]-=.20;b[1]-=.20;between(a,b,.18,.25,'red');}
+  for(let j=0;j<=68;j++){const u=-1+2*j/68;curvedRafter(lin(.45,1.012,12).map(t=>{const p=P(u,t);p[1]+=.055;return p;}));const p=P(u,1.012);arch.squareFitting(p[0],p[1]+.055,p[2]+.025,.095,.135,0,j%4===0);}
+  for(const t of[.58,.77,.94])for(let k=0;k<44;k++){let a=P(-1+2*k/44,t),b=P(-1+2*(k+1)/44,t);a[1]-=.11;b[1]-=.11;between(a,b,.18,.25,'red');}
  });
  role('front-gable-fine-woodwork',()=>grouped(.75,0,0,0,()=>{
   // Original 03: apex near (0.625,0.04), inset shoulders above the long eave.
@@ -138,11 +156,11 @@ export function buildReference4Architecture(T,options={}) {
   box(0,12.20,-1.02,13.6,4.25,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
   for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.65,.075,'plaster');for(const y of[11.98,12.72])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
 
-  for(const y of[11.35,12.85,13.6]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
+  for(const y of[11.35,12.85,13.05]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
   box(0,12.53,-.95,13.0,.72,.13,'black');
-  for(let j=-6;j<=6;j++){let x=j*1.06;arch.brackets(x,13.85,-.55,.91);arch.brackets(x,11.6,-.48,.72);arch.brackets(x,10.22,-.50,.58);box(x,12.55,-.7,.18,2.2,.23,'red');relief(x+.49,12.55,-.82,.55,.45);}
+  for(let j=-5;j<=5;j++){const x=j*1.25,u=x/(C.upperRoofWidth/2),receiver=14.4+.34*(.22+.78*Math.pow(Math.abs(u),6))-.37;arch.brackets(x,13.30,-.55,.91,{baseY:13.17,receiverY:receiver});arch.brackets(x,11.6,-.48,.72,{baseY:11.47,receiverY:12.73});box(x,12.31,-.7,.18,1.72,.23,'red');relief(x+.49,12.35,-.82,.55,.45);}
   for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.15,-.42,.12);}
-  for(let j=0;j<72;j++){let x=-7.8+j*15.6/71;between([x,13.97,-2.5],[x,14.20,.20],.095,.14,'cedar');box(x,14.16,.20,.11,.14,.16,j%5===0?'oldgold':'endwood');}
+  for(let j=0;j<=64;j++){const u=-1+2*j/64;curvedRafter(lin(.40,1.012,12).map(t=>{const p=upper.P(0,t,u);p[1]-=.285;return p;}),.105,.16);const p=upper.P(0,1.012,u);arch.squareFitting(p[0],p[1]-.285,p[2]+.018,.095,.135,0,j%4===0);}
  });
  const towerLevels=[];grouped(...C.towerPosition,Math.PI/4,()=>{
   role('tower-stone-foundation',()=>{box(0,-.075,0,5.1,.45,5.1,'stone');box(0,.21,0,5.35,.12,5.35,'granite');});
@@ -167,5 +185,5 @@ export function buildReference4Architecture(T,options={}) {
  group.updateMatrixWorld(true);const b=new T.Box3().setFromObject(group),tip=[C.towerPosition[0],C.towerPosition[1]+C.towerHeight*C.towerSceneScale,C.towerPosition[2]];
  const sockets={entrance:{center:[0,C.stairTopY+2.04,-.62],clearWidth:4.2,clearHeight:4.08,frontZ:-.355},sanctuary:{center:[0,C.stairTopY,-4.65],floor:C.stairTopY,floorY:C.stairTopY,frontOpeningWidth:4.2,width:4.2,depth:5.0,frontZ:-.65},stair:{top:[0,C.stairTopY,C.stairTopZ],bottom:[0,0,C.stairBottomZ],width:C.stairWidth},mainRidge:[0,C.ridgeY,C.ridgeZ],canopy:{front:gFront,back:gBack,halfWidth:gHalf,crest:[0,canopy(0,gFront),gFront],bargeboardMember:'entrance-saddled-bargeboard'},tower:{position:[...C.towerPosition],top:tip,height:C.towerHeight*C.towerSceneScale,levels:towerLevels,scale:C.towerSceneScale},lanternSupports:[-5.55,5.55].map(x=>({x,probeZ:1.5,bodyCenter:[x,5.8,1.7]}))};
  const bounds={min:b.min.toArray(),max:b.max.toArray()};
- return {group,sockets,bounds,materials:mats,stats:{meshes:group.children.length,instances,triangles,roles},config:C,limits:['New complete v4 source after workspace reset; not byte-identical v3 recovery.','Original-photo dimensions and unseen joints remain reconstruction hypotheses.','No GPU or image acceptance from CPU construction.','Separate closed roof-layer panels share contacts; not a global Boolean-union or structural engineering certification.'],dispose(){for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
+ return {group,sockets,bounds,materials:mats,stats:{meshes:group.children.length,instances,triangles,roles,closedBearingInstances,curvedRafters},config:C,limits:['New complete v4 source after workspace reset; not byte-identical v3 recovery.','Original-photo dimensions and unseen joints remain reconstruction hypotheses.','No GPU or image acceptance from CPU construction.','Separate closed roof-layer panels share contacts; not a global Boolean-union or structural engineering certification.'],dispose(){solidJoinery.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
 }

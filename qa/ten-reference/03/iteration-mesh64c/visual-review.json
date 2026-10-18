@@ -1,0 +1,91 @@
+{
+  "status": "Review candidate; not accepted",
+  "visualAccepted": false,
+  "sourceHash": "8f063aa2877bd769620dfbefb7f97cb284cfd133bbe373787e51f632e197b9c3",
+  "actualEvidence": [
+    "reference.png",
+    "detail-native.png",
+    "../iteration-mesh64a/detail-native.png"
+  ],
+  "renderTool": "tools/render-one-reconstruction.mjs via the shared GPU mutex",
+  "rounds": [
+    {
+      "name": "mesh64a",
+      "scope": "Full native + actual eave subfrustum",
+      "status": "Earlier botanical candidate rejected; timber component retained"
+    },
+    {
+      "name": "mesh64b",
+      "scope": "Full native + actual flower/leaf subfrustum",
+      "status": "Level petal margins and petiole attachment corrected afterward"
+    },
+    {
+      "name": "mesh64c",
+      "scope": "Final full native + actual flower/leaf subfrustum",
+      "status": "Review candidate, unaccepted"
+    }
+  ],
+  "geometryChanges": [
+    "43 main-hall bracket assemblies now use closed curved, bevelled, half-lapped timber profiles and pierced gilt end fittings. Pagoda uses its retained kit.",
+    "489 main/lower-roof rafters are continuous closed sweeps following the real roof surface. The former straight segmented rafter tips no longer run through the ceramic edge.",
+    "Upper-storey receiving beams and bracket seats are fitted between real beam tops and rafter undersides; repeated unsupported bracket strips were removed.",
+    "Lotus petals have separate front/back curved faces joined by a thin rolled rim, rounded ovate outlines, geometric fine pleats and individual opening variation.",
+    "Lotus leaves have closed upper/lower faces, a depressed centre, local edge curl, uneven radial folds and 19 raised primary veins. Petioles attach to the transformed lower-face centre with radius capped at 13 mm.",
+    "The near closed bud is a smooth capped five-lobed ovoid rather than the prior short straight lathe profile."
+  ],
+  "counts": {
+    "closedMainHallBearingSets": 43,
+    "closedCurvedRafters": 489
+  },
+  "eaveEvidenceComponentIdentity": {
+    "reconstructions/scene-03/src/reference4-architecture.js": {
+      "mesh64a": "4d1e063ea59230e49d88623daf98f6013104deaff8e86d59ed39a9c05588846d",
+      "mesh64c": "4d1e063ea59230e49d88623daf98f6013104deaff8e86d59ed39a9c05588846d",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/scene03-solid-joinery.js": {
+      "mesh64a": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "mesh64c": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "identical": true
+    },
+    "reconstructions/scene-03/src/scene03-curved-rafter.js": {
+      "mesh64a": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "mesh64c": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "identical": true
+    }
+  },
+  "fixedCamera": {
+    "position": [
+      -2.4,
+      0.72,
+      18.2
+    ],
+    "target": [
+      1.6,
+      6.1,
+      -3
+    ],
+    "fov": 58
+  },
+  "scopePreserved": [
+    "Original site placement and low pond camera",
+    "Main roof ceramic body and gable silhouette",
+    "Bridge, pagoda, curtains, stairs, lanterns, trees and background lighting"
+  ],
+  "materialInputs": "Retained CC0 local timber scan. Botanical pigments/venation are procedural. Reference photograph is only a comparison input.",
+  "validation": {
+    "rendererErrors": [],
+    "allNativeFramesValid": true,
+    "referencePhotoRuntimeRequests": [],
+    "targetedTopologyAudit": "solid-topology-audit.json",
+    "testSuiteRun": false
+  },
+  "remainingDifferences": [
+    "Overall roof volume, gable surface and reference silhouette remain materially different; this pass focused on the bearing/rafter kit.",
+    "Main hall brackets are continuous solids, but the cadence, carving detail and repeated broad faces still appear too regular and synthetic.",
+    "The flower and leaf are genuinely curved closed meshes, but petals, stamens, pigment variation and leaf cuticle remain too simplified and synthetic.",
+    "Pond reflection stretches into horizontal bands in the offset botanical subfrustum. It does not establish water/lens acceptance.",
+    "Native daylight, granite and foreground depth-of-field remain visibly different from the photograph."
+  ],
+  "copyright": "Original reference photograph copyright retained by its owner; comparison only. No photograph is mapped onto a scene surface."
+}
