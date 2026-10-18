@@ -1,0 +1,343 @@
+{
+  "reference": 1,
+  "entry": "reconstructions/scene-01/index.html",
+  "worktree": "/Users/mima1234/temple-scene-01",
+  "size": 768,
+  "startedAt": "2026-10-18T05:48:59.014Z",
+  "source": {
+    "hash": "70e94e6cad593850206b477c3aaa6dc4c9e20cce222db0243c7d6e7348fde03c",
+    "files": {
+      "reconstructions/scene-01/index.html": "625cf9b6f9a2e43417fc682fb4a077138e2abdea0d28fee4a0cc0fec3fc466d1",
+      "reconstructions/scene-01/manifest.json": "063b99eb4d4ea26c9951c4de609f9dcda4246880a6c5191918e5b99579aa44b1",
+      "reconstructions/scene-01/src/architecture.js": "73af8e8a08c8521b48555a26983776d1a991dc82154c8a46c6e81d7dedfaa497",
+      "reconstructions/scene-01/src/garden.js": "2a75a3d1bd86e9e3543414344a46304c6c750c44c283921a80b3a18c7ea67018",
+      "reconstructions/scene-01/src/kernel.js": "00345cd9e4e2aebafeac2aae63f46524fdef9b4668373025a125bfec22efc113",
+      "reconstructions/scene-01/src/main.js": "bc1de3489840cee571f8f3fe4b8b1747c98943e1f63857b6967a9d7c70a993c1",
+      "reconstructions/scene-01/src/optics.js": "ca7245e2860796fa1e4f9db0ed5ff42371a309d16ad832780e152d9d4a4d4fca",
+      "reconstructions/scene-01/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-01/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-01/src/scene.js": "6b94f6eb42044fe0248d59bb50d1d4d3ecc26cb7cbc6e2875b6b607db9f9ca92"
+    }
+  },
+  "sourceCommit": "4843cf70b5039e83c570b3b0cfa3d5b551e29685",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-01/index.html",
+    "/reconstructions/scene-01/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-01/src/scene.js",
+    "/reconstructions/scene-01/src/optics.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-01/src/kernel.js",
+    "/reconstructions/scene-01/src/architecture.js",
+    "/reconstructions/scene-01/src/garden.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-01/src/restoration-buddha.js",
+    "/reconstructions/scene-01/src/restoration-altar.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 1,
+        "frame": 1,
+        "width": 768,
+        "height": 768,
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "fov": 59
+        },
+        "triangles": 147472959,
+        "calls": 2633
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-01-photo-reconstruction-r8",
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "target": [
+            0,
+            6.2,
+            -13
+          ],
+          "fov": 59,
+          "near": 0.1,
+          "far": 260,
+          "deckY": 1.8,
+          "eyeAboveDeck": 1.4
+        },
+        "architecture": {
+          "meshes": 416,
+          "instances": 345290,
+          "triangles": 21086689,
+          "roles": {
+            "pagoda-plinth": 2,
+            "pagoda-1-timber-gallery": 3169,
+            "pagoda-1-curved-ceramic-roof": 3144,
+            "pagoda-2-timber-gallery": 3169,
+            "pagoda-2-curved-ceramic-roof": 2852,
+            "pagoda-3-timber-gallery": 3169,
+            "pagoda-3-curved-ceramic-roof": 2724,
+            "pagoda-4-timber-gallery": 3169,
+            "pagoda-4-curved-ceramic-roof": 2456,
+            "pagoda-5-timber-gallery": 3169,
+            "pagoda-5-curved-ceramic-roof": 2396,
+            "pagoda-finial": 37,
+            "great-hall-stone-platform": 182,
+            "great-hall-massive-columns": 5275,
+            "great-hall-layered-carved-eave-friezes": 3369,
+            "great-hall-depth-enclosure": 151,
+            "great-hall-gilded-open-portal": 3342,
+            "great-hall-upper-storey": 3873,
+            "great-hall-lower-monumental-roof": 8396,
+            "great-hall-main-monumental-roof": 12896,
+            "great-hall-stairs-and-balustrades": 92,
+            "scene": 148,
+            "foreground-veranda-real-deck": 43,
+            "foreground-veranda-wood-column": 26,
+            "foreground-veranda-oblique-ceiling-framework": 365,
+            "foreground-veranda-low-edge-balustrade": 63,
+            "foreground-six-sided-hanging-lantern": 174,
+            "garden-landforms": 7,
+            "arched-red-garden-bridge": 1002,
+            "foreground-weathered-sculpted-stone-lantern": 202,
+            "garden-shore-boulders-moss-and-crevices": 2104,
+            "foreground-east-island-boulder-and-ferns": 2330,
+            "west-bridge-root-rocks-and-flowering-groundcover": 55498,
+            "deep-layered-rock-bank-and-understory": 40970,
+            "raised-stair-landing-and-worn-garden-flagstones": 2656,
+            "distant-haze-woodland": 760,
+            "sculptural-layered-pines": 64600,
+            "flowering-garden-shrubs": 83187,
+            "lotus-leaves-and-layered-pink-blossoms": 735,
+            "photograph-calibrated-lotus-beds": 337,
+            "upper-right-maple-framing-boughs": 18630,
+            "maple-overhanging-inner-bough": 2700,
+            "foreground-vine-over-balustrade": 1000,
+            "foreground-vine-blossoms": 720,
+            "connected-garden-bark-branch-sweeps": 1
+          }
+        },
+        "garden": {
+          "branches": 254
+        },
+        "proceduralOnly": true,
+        "planarReflection": true,
+        "frames": 1,
+        "renderer": {
+          "calls": 2633,
+          "triangles": 147472959
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "0037ca5e018f50bf23df1a376ad4fe8271875bef9c4271a7b69378339707a745"
+    }
+  ],
+  "completedAt": "2026-10-18T05:49:04.347Z"
+}
