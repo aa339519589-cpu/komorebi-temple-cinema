@@ -38,7 +38,7 @@ export function createReference4MaterialSet(T, options={}) {
   }
   const wood=tex('wood'),woodHeight=tex('wood',true),stone=tex('stone'),stoneHeight=tex('stone',true);
   for(const key of ['red','cedar','endwood','darkwood'])if(materials.includes(mats[key])) {
-    Object.assign(mats[key],{map:wood,bumpMap:woodHeight,bumpScale:key==='red'?.0035:.008});
+    Object.assign(mats[key],{map:wood,bumpMap:woodHeight,bumpScale:key==='red'?.014:.022});
   }
   for(const key of ['stone','granite','slate'])if(materials.includes(mats[key])) {
     Object.assign(mats[key],{map:stone,bumpMap:stoneHeight,bumpScale:key==='slate'?.004:.011});

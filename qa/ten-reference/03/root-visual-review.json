@@ -1,0 +1,12 @@
+{
+  "scope": "Focused reference03 architecture perspective, water response and close-reveal review",
+  "baseline": "iteration-18",
+  "visualAccepted": false,
+  "decisions": [
+    {"candidate":"iteration-axis19","decision":"retain orientation correction","evidence":"Front eave slopes now rise to the right as in the supplied reference. Four manually read eave anchors improve; the low camera, independent pagoda and bridge remain fixed. This does not certify the rest of the image."},
+    {"candidate":"iteration-water20","decision":"retain functional reflection correction","evidence":"Reflector's original fixed-alpha fragment ignored material.opacity. Water now uses view-dependent reflection and world-space filtered wave phase. Ground/bed colour and overall illumination still need photographic refinement."},
+    {"candidate":"iteration-motion-keyframes","decision":"retain physical backward camera travel and stable texture filtering","evidence":"Actual 0/3.5/7-second frames render. Two identical 7-second samples have identical RGBA hashes. This is a stationary repeatability check, not a full moving-video flicker acceptance."},
+    {"candidate":"iteration-lotus21","decision":"reject new petal meridian geometry","evidence":"Actual close image exposes separated umbrella-like tiers and an unnatural pale funnel. Restore the prior lamina geometry rather than claiming the more elaborate shape is an improvement. Keep the corrected texture orientation, finer stamens and calibrated bloom size for a separate actual review."}
+  ],
+  "remaining": ["The whole image is still visibly CG.","Architectural carving, natural vegetation, weathered stone and lotus anatomy remain materially different from the reference.","All ten views and the complete 60/70-second films remain unaccepted."]
+}

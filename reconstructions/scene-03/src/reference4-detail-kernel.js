@@ -966,7 +966,7 @@ export function createRestorationArchitecture(ctx) {
   function squareFitting(x,y,z,w,h,rot=0,detail=true) {
     // Forged framing strips surround exposed end grain; no solid gold cube.
     group(x,y,z,rot,()=>{
-      const border = Math.min(w,h)*.075;
+      const border = Math.min(w,h)*.12;
       // Actual applied straps leave the timber visible between them, rather
       // than replacing every exposed end with a uniform thick gilt square.
       for(const side of [-1,1]) {
@@ -1279,7 +1279,7 @@ export function createRestorationArchitecture(ctx) {
   function brackets(x,y,z,s=1,options={}) {
     if(options.interlocked)return interlockedBrackets(x,y,z,s,options);
     stats.bracketSets++;
-    const fine=options.detail ?? s>=1;
+    const fine=options.detail ?? true;
     const ma=options.material || 'red';
     group(x,y,z,0,()=>{
       const B=(xx,yy,zz,w,h,d,mat=ma)=>box(xx*s,yy*s,zz*s,w*s,h*s,d*s,mat);
