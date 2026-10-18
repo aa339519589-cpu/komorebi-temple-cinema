@@ -45,27 +45,18 @@ export function buildRestorationStoneLanterns({materials:borrowed={},options={}}
   }
   // A real compression boss closes the roof-to-window support contact.
   put(new T.CylinderGeometry(.43,.67,.36,8),stoneParts,[0,3.37,0]);
-  // Substantial sculpted cap: a wavy old stone hip, closed 12 cm thick rim.
-  const N=32,positions=[],uv=[],indices=[],colors=[];
-  const height=(xx,zz)=>{const r=Math.min(1,Math.max(Math.abs(xx),Math.abs(zz))/1.04),corner=Math.pow(Math.abs(xx*zz)/(1.04*1.04),3);return 3.30+.47*Math.pow(1-r,1.38)+.15*corner+.006*Math.sin(xx*14+zz*11);};
-  for(let layer=0;layer<2;layer++)for(let j=0;j<=N;j++)for(let i=0;i<=N;i++){const xx=-1.04+i/N*2.08,zz=-1.04+j/N*2.08,yy=height(xx,zz)-(layer?.24:0);positions.push(xx,yy,zz);uv.push(xx*4,zz*4);colors.push(1,1,1);}
-  const layerSize=(N+1)*(N+1);for(let j=0;j<N;j++)for(let i=0;i<N;i++){const a=j*(N+1)+i,b=a+N+1;indices.push(a,b,a+1,a+1,b,b+1,a+layerSize,a+1+layerSize,b+layerSize,a+1+layerSize,b+1+layerSize,b+layerSize);}
-  const rim=[...Array.from({length:N},(_,i)=>i),...Array.from({length:N},(_,j)=>j*(N+1)+N),...Array.from({length:N},(_,i)=>N*(N+1)+N-i),...Array.from({length:N},(_,j)=>(N-j)*(N+1))];
-  for(let k=0;k<rim.length;k++){const a=rim[k],b=rim[(k+1)%rim.length];indices.push(a,a+layerSize,b,b,a+layerSize,b+layerSize);}
-  const cap=new T.BufferGeometry();cap.setAttribute('position',new T.Float32BufferAttribute(positions,3));cap.setAttribute('uv',new T.Float32BufferAttribute(uv,2));cap.setAttribute('color',new T.Float32BufferAttribute(colors,3));cap.setIndex(indices);cap.computeVertexNormals();stoneParts.push(cap);
-  // Moss follows the true surface, with broken colony boundaries and tiny fronds.
-  const mp=[],mc=[];for(let k=0;k<1450;k++){
-   const xx=-1.01+2.02*((Math.sin(k*12.989+id)*43758.54)%1+1)%2,zz=Math.sin(k*7.113+id*2)*.99;
-   const r=Math.max(Math.abs(xx),Math.abs(zz)),patch=Math.sin(xx*6.2+zz*3.1)+Math.sin(zz*9-xx*2)+.5*Math.sin(xx*23+zz*31);if(r<.22||patch<.35)continue;
-   const yy=height(xx,zz)+.007,w=.013+.011*Math.abs(Math.sin(k*6.3)),h=.018+.025*Math.abs(Math.cos(k*3.1));
-   for(const v of[[xx-w,yy,zz],[xx+w,yy,zz],[xx,yy+h,zz+.012],[xx,yy,zz-w],[xx,yy,zz+w],[xx+.012,yy+h,zz]]){mp.push(...v);const q=.68+.25*Math.abs(Math.sin(k));mc.push(q*.80,q,q*.61);}
-  }
-  // Continuous broken moss colonies lie on the stone, beneath the tiny fronds.
-  const M=64,step=2.08/M;
-  const colony=(xx,zz)=>Math.sin(xx*6.2+zz*3.1)+Math.sin(zz*9-xx*2)+.5*Math.sin(xx*23+zz*31);
-  for(let j=0;j<M;j++)for(let i=0;i<M;i++){
-   const xx=-1.04+i*step,zz=-1.04+j*step,cx=xx+step*.5,cz=zz+step*.5,r=Math.max(Math.abs(cx),Math.abs(cz));if(r<.24||colony(cx,cz)<-.05)continue;
-   for(const v of[[xx,zz],[xx,zz+step],[xx+step,zz],[xx+step,zz],[xx,zz+step],[xx+step,zz+step]]){mp.push(v[0],height(v[0],v[1])+.004,v[1]);const q=.63+.12*Math.sin(v[0]*18+v[1]*19);mc.push(q*.72,q,q*.45);}
+  // A thick octagonal/fluted stone cap, with a rolled lower lip rather than
+  // four thin architectural wings. Moss is clipped from these actual faces.
+  const profile=[[0,3.48],[.42,3.45],[.70,3.13],[1.04,3.10],[1.12,3.14],[1.13,3.30],[1.04,3.29],[.84,3.34],[.62,3.46],[.38,3.65],[.17,3.75],[0,3.78]],cap=new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),64),cp=cap.attributes.position;
+  for(let k=0;k<cp.count;k++){const x=cp.getX(k),z=cp.getZ(k),a=Math.atan2(z,x),r=1+.055*Math.cos(a*4)+.018*Math.sin(a*11);cp.setXYZ(k,x*r,cp.getY(k)+.008*Math.sin(x*17+z*19),z*r);}cap.computeVertexNormals();stoneParts.push(applyMetricUV(cap));
+  const mp=[],mc=[],cn=cap.attributes.normal,ci=cap.index.array;
+  const sample=k=>{const p=new T.Vector3().fromBufferAttribute(cp,k),n=new T.Vector3().fromBufferAttribute(cn,k),f=Math.sin(p.x*6.2+p.z*3.1)+Math.sin(p.z*9-p.x*2)+.5*Math.sin(p.x*23+p.z*31)+.25;return{p,n,f:Math.min(f,(n.y-.25)*3,(p.y-3.30)*4)};};
+  for(let k=0;k<ci.length;k+=3){const tri=[0,1,2].map(j=>sample(ci[k+j])),poly=[];for(let e=0;e<3;e++){const a=tri[e],b=tri[(e+1)%3],aa=a.f>=0,bb=b.f>=0;if(aa)poly.push(a);if(aa!==bb){const t=a.f/(a.f-b.f);poly.push({p:a.p.clone().lerp(b.p,t),n:a.n.clone().lerp(b.n,t).normalize(),f:0});}}
+   for(let j=1;j<poly.length-1;j++){
+    for(const v of[poly[0],poly[j],poly[j+1]]){const q=v.p.clone().addScaledVector(v.n,.005),shade=.72+.13*Math.sin(q.x*17+q.z*19);mp.push(q.x,q.y,q.z);mc.push(shade*.72,shade,shade*.47);}
+    const q=poly[0].p.clone().add(poly[j].p).add(poly[j+1].p).multiplyScalar(1/3),nn=poly[0].n.clone().add(poly[j].n).add(poly[j+1].n).normalize();q.addScaledVector(nn,.007);const w=.007,h=.014;
+    for(const v of[[q.x-w,q.y,q.z],[q.x+w,q.y,q.z],[q.x+nn.x*h,q.y+nn.y*h,q.z+nn.z*h],[q.x,q.y,q.z-w],[q.x,q.y,q.z+w],[q.x+nn.x*h,q.y+nn.y*h,q.z+nn.z*h]]){mp.push(...v);mc.push(.62,.81,.40);}
+   }
   }
   const mg=new T.BufferGeometry();mg.setAttribute('position',new T.Float32BufferAttribute(mp,3));mg.setAttribute('color',new T.Float32BufferAttribute(mc,3));mg.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(mp.length/3*2),2));mg.computeVertexNormals();mossParts.push(mg);
   // Pagoda-like rounded lotus finial is two compact stones, not a tall cone.

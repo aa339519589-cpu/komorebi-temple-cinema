@@ -8,9 +8,9 @@ export function metricStoneMaps(seed=1,size=512){
  // One texture repeat is 250 mm. Quartz/feldspar crystals are 0.5–2 mm,
  // never the centimetre gravel formerly stretched once across an entire slab.
  for(let z=0;z<size;z++)for(let x=0;x<size;x++){
-  const i=z*size+x,q=hash(x,z,seed),wx=x+27*(periodicNoise(x,z,4,seed+52,size)-.5),wz=z+25*(periodicNoise(x,z,5,seed+63,size)-.5),meso=periodicNoise(x,z,9,seed+9,size),granule=.67*periodicNoise(wx,wz,29,seed+17,size)+.33*periodicNoise(wx,wz,61,seed+45,size),quartz=T.MathUtils.smoothstep(granule,.61,.78),mica=T.MathUtils.smoothstep(periodicNoise(wx,wz,47,seed+33,size),.61,.79),f=.78+.28*(meso-.5)+.16*(granule-.5)+.05*(q-.5)+.17*quartz-.16*mica;
+  const i=z*size+x,q=hash(x,z,seed),wx=x+27*(periodicNoise(x,z,4,seed+52,size)-.5),wz=z+25*(periodicNoise(x,z,5,seed+63,size)-.5),meso=periodicNoise(x,z,9,seed+9,size),granule=.67*periodicNoise(wx,wz,29,seed+17,size)+.33*periodicNoise(wx,wz,61,seed+45,size),quartz=T.MathUtils.smoothstep(granule,.61,.78),mica=T.MathUtils.smoothstep(periodicNoise(wx,wz,47,seed+33,size),.61,.79),f=.82+.10*(meso-.5)+.07*(granule-.5)+.095*(q-.5)+.10*quartz-.085*mica;
   albedo[i*4]=Math.min(255,255*f);albedo[i*4+1]=Math.min(255,247*f);albedo[i*4+2]=Math.min(255,230*f);albedo[i*4+3]=255;
-  const rr=221+26*granule-23*quartz;rough[i*4]=rough[i*4+1]=rough[i*4+2]=rr;rough[i*4+3]=255;height[i]=.5+.17*(granule-.5)+.11*(meso-.5)+.055*(q-.5)-.05*mica;
+  const rr=238+10*(granule-.5)-170*quartz-20*mica;rough[i*4]=rough[i*4+1]=rough[i*4+2]=rr;rough[i*4+3]=255;height[i]=.5+.17*(granule-.5)+.11*(meso-.5)+.055*(q-.5)-.05*mica;
  }
  for(let z=0;z<size;z++)for(let x=0;x<size;x++){
   const i=z*size+x,dx=(height[z*size+(x+1)%size]-height[z*size+(x+size-1)%size])*5.8,dz=(height[((z+1)%size)*size+x]-height[((z+size-1)%size)*size+x])*5.8,v=new T.Vector3(-dx,-dz,1).normalize();normal[i*4]=(v.x*.5+.5)*255;normal[i*4+1]=(v.y*.5+.5)*255;normal[i*4+2]=(v.z*.5+.5)*255;normal[i*4+3]=255;
@@ -49,9 +49,9 @@ vec3 ssAX=vec3(ssBase.x*abs(ssNX.z),ssBase.y+ssNX.y,ssBase.z+ssNX.x),ssAY=vec3(s
 normal=normalize(mat3(viewMatrix)*normalize(ssAX*ssW.x+ssAY*ssW.y+ssAZ*ssW.z));
 `)
    .replace('#include <color_fragment>',`#include <color_fragment>\nfloat ssMacro=ssNoise(ssPosition.xz*.73)+.5*ssNoise(ssPosition.xy*2.41);diffuseColor.rgb*=.76+.23*ssMacro;`)
-   .replace('#include <roughnessmap_fragment>',`${T.ShaderChunk.roughnessmap_fragment.replace('texture2D( roughnessMap, vRoughnessMapUv )','ssTriSample(roughnessMap)')}\n${wet?'float ssWet=smoothstep(.53,.76,ssNoise(ssPosition.xz*.93+vec2(7.3,1.1))+.18*ssNoise(ssPosition.xz*3.1));roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;':''}`);
+   .replace('#include <roughnessmap_fragment>',`${T.ShaderChunk.roughnessmap_fragment.replace('texture2D( roughnessMap, vRoughnessMapUv )','ssTriSample(roughnessMap)')}\n${wet?'float ssWet=smoothstep(.53,.76,ssNoise(ssPosition.xz*.93+vec2(7.3,1.1))+.18*ssNoise(ssPosition.xz*3.1))*smoothstep(.30,.74,ssNoise(ssPosition.xz*4.7)+.2*ssNoise(ssPosition.xz*9.1));roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;':''}`);
  };
- m.customProgramCacheKey=()=>`scene04-world-triplanar-stone-r9-${wet}`;m.userData.physicalTextureRepeatMetres=.25;m.userData.maps=maps;return m;
+ m.customProgramCacheKey=()=>`scene04-world-triplanar-stone-r10-${wet}`;m.userData.physicalTextureRepeatMetres=.25;m.userData.maps=maps;return m;
 }
 export function polygonSlab(outline,top=.045,thickness=.075,seed=1){
  const cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,points=outline.map(([x,z])=>{const r=Math.hypot(x-cx,z-cz);return[x+(cx-x)*.012/r,z+(cz-z)*.012/r];}),shape=new T.Shape();

@@ -90,7 +90,7 @@ export function buildReference4Architecture(T,options={}) {
   for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78);}
  });
  role('hall-enclosure-doors',()=>{
-  box(0,C.stairTopY+2.95,-8.65,14.2,5.9,.23,'darkwood');for(const s of[-1,1])box(s*7.02,C.stairTopY+2.9,-4.5,.20,5.8,8.4,'red');
+  box(0,C.stairTopY+3.75,-8.65,14.2,7.5,.23,'darkwood');for(const s of[-1,1])box(s*7.02,C.stairTopY+2.9,-4.5,.20,5.8,8.4,'red');
   for(const s of[-1,1])for(const seg of[[3.0,4.55],[4.95,6.7]]){const x=s*(seg[0]+seg[1])/2,w=seg[1]-seg[0],h=3.8,y=C.stairTopY+h/2+.22;box(x,y,-.57,w,h,.16,'darkwood');for(const xx of[-w/2,w/2])box(x+xx,y,-.42,.09,h+.13,.12,'red');for(const yy of[-h/2,h/2])box(x,y+yy,-.39,w,.11,.13,'cedar');for(let k=1;k<8;k++)box(x-w/2+w*k/8,y,-.39,.032,h-.15,.045,'oldgold');for(let k=1;k<13;k++)box(x,y-h/2+h*k/13,-.385,w-.1,.025,.05,'cedar');}
   for(const sign of[-1,1])for(const [cx,w]of[[3.77,1.62],[5.83,1.85]]){
    box(sign*cx,C.stairTopY+4.22,-.57,w,.66,.18,'darkwood');
@@ -119,7 +119,7 @@ export function buildReference4Architecture(T,options={}) {
   // Front bargeboard is a real closed curved beam, queried by the lantern arms.
   const barge=shell(gridAt(xs,[gFront-.17,gFront+.07],canopy),-.47,-.02,'entrance-saddled-bargeboard');emit(barge,'cedar');
   for(const drop of[-.04,-.45])tube(xs.map(x=>[x,canopy(x,gFront+.08)+drop,gFront+.085]),.018,'oldgold',120);
-  for(const x of[-5.6,-4.3,-2.9,-1.5,1.5,2.9,4.3,5.6]){const y=canopy(x,gFront+.08)-.25;arch.squareFitting(x,y,gFront+.094,.28,.34);}
+  for(const x of[-5.6,-4.3,-2.9,-1.5,1.5,2.9,4.3,5.6]){const y=canopy(x,gFront+.08)-.25;box(x,y,gFront+.084,.27,.34,.025,'oldgold');for(const sx of[-1,1])box(x+sx*.126,y,gFront+.105,.016,.34,.012,'gold');for(const sy of[-1,1])box(x,y+sy*.16,gFront+.105,.25,.016,.012,'gold');rosette(x,y,gFront+.108,.057,'darkwood');for(const sx of[-1,1])for(const sy of[-1,1])emit(sphere,'gold',x+sx*.095,y+sy*.125,gFront+.113,.011,.011,.006);}
   for(let i=0;i<=62;i++){const x=-gHalf+2*gHalf*i/62;const ts=lin(upperFront,gFront+.04,7);for(let j=0;j<ts.length-1;j++)tileBetween([x,canopy(x,ts[j])+.025,ts[j]],[x,canopy(x,ts[j+1])+.025,ts[j+1]],.063,.96+.05*Math.sin(i*5+j));arch.tileEnd(V([x,canopy(x,gFront+.04)+.025,gFront+.06]),0,.074,i%2===0);}
   // Discrete curved ribs and inset timber panels retain the arch depth.
   for(const x of[-2.9,0,2.9]){const y=canopy(x,.57)-.65;box(x,(y+C.capitalTop+.36)/2,.57,.18,Math.max(.05,y-C.capitalTop-.36),.20,'red');}

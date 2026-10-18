@@ -4,7 +4,7 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 function sculptedLeaf(length=.27,width=.1,depth=.05){
  const p=[],uv=[],id=[],rows=14,cols=8,layer=(rows+1)*(cols+1);
  for(let side=0;side<2;side++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
-  const t=j/rows,u=i/cols*2-1,w=width*Math.pow(Math.sin(Math.PI*t),.75)*(.87+.08*Math.sin(t*30)),x=u*w+.05*width*Math.sin(t*7),y=t*length,z=side?0:depth+.040*Math.sin(Math.PI*t)*(1-u*u)+.012*u*Math.sin(t*8);p.push(x,y,z);uv.push(x*3,y*3);
+  const t=j/rows,u=i/cols*2-1,w=width*Math.pow(Math.sin(Math.PI*t),.75)*(.87+.08*Math.sin(t*30)),x=u*w+.05*width*Math.sin(t*7),y=t*length,z=side?0:depth+.022*Math.sin(Math.PI*t)*(1-u*u)+.012*u*Math.sin(t*8);p.push(x,y,z);uv.push(x*3,y*3);
  }
  for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){const a=j*(cols+1)+i,b=a+cols+1;id.push(a,a+1,b,a+1,b+1,b,a+layer,b+layer,a+1+layer,a+1+layer,b+layer,b+1+layer);}
  for(let j=0;j<rows;j++)for(const i of[0,cols]){const a=j*(cols+1)+i,b=a+cols+1;i===0?id.push(a,b,a+layer,b,b+layer,a+layer):id.push(a,a+layer,b,b,a+layer,b+layer);}
@@ -19,9 +19,9 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
   for(const sign of[-1,1]){
    const pts=[];for(let k=0;k<40;k++){const t=k/39*6.5,r=1-k/48;pts.push([x+sign*(.13*w+Math.sin(t)*w*.23*r),y+Math.cos(t)*h*.43*r,z+.025*Math.sin(t*1.8)]);}curve(pts,.022,mats.cedar);
    if(phase<.3)curve(pts.map(p=>[p[0],p[1],p[2]+.025]),.005,mats.oldgold);
-   for(let k=0;k<7;k++){
-    const a=k*.83+phase,xx=x+sign*(.15+k*.060)*w,yy=y+Math.sin(a)*h*.3,ang=-sign*(.45+k*.20),len=h*(.40+.18*Math.sin(k*2.1+phase)),ww=w*(.046+.008*Math.cos(k));
-    petal(xx,yy,z+.015,ang,len,ww,mats.cedar,.085);if(k%3===0)petal(xx,yy+len*.12,z+.113,ang,len*.57,ww*.31,mats.oldgold,.012);
+   for(let k=0;k<11;k++){
+    const a=k*.83+phase,xx=x+sign*(.12+k*.041)*w,yy=y+Math.sin(a)*h*.3,ang=-sign*(.45+k*.20),len=h*(.29+.12*Math.sin(k*2.1+phase)),ww=w*(.030+.006*Math.cos(k));
+    petal(xx,yy,z+.015,ang,len,ww,mats.cedar,.047);if(k%2===0)petal(xx,yy+len*.12,z+.113,ang,len*.68,ww*.45,mats.oldgold,.012);
    }
   }
   for(let k=0;k<10;k++){const a=k*Math.PI/5+.2;petal(x+Math.sin(a)*.055,y+Math.cos(a)*.055,z+.025,-a,h*.46,w*.038,k%4?mats.cedar:mats.oldgold,.071);}
@@ -37,12 +37,6 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
  for(const [j,x]of[-1.92,0,1.92].entries())scroll(x,capitalTop+.14,.73,1.15,.32,j*.91);
  for(const [j,x]of[-2.22,-1.12,0,1.12,2.22].entries())scroll(x,capitalTop-.47,.88,.84,.26,j*.72);
  for(const [j,x]of[-1.95,-1.3,-.65,0,.65,1.3,1.95].entries())scroll(x,capitalTop-1.06,.34,.55,.16,j*.89);
- // Rafter-end bindings have foliate silhouettes and projecting gilded details.
- if(canopyAt)for(const [j,x]of[-5.6,-4.3,-2.9,-1.5,1.5,2.9,4.3,5.6].entries()){
-  const y=canopyAt(x)-.30;
-  for(const sign of[-1,1]){petal(x,y-.14,front+.008,sign*.58,.29,.085,mats.oldgold,.032);petal(x+sign*.065,y+.04,front+.018,sign*.83,.16,.055,mats.gold,.025);}
-  curve([[x-.11,y-.13,front],[x-.12,y+.11,front],[x,y+.17,front+.015],[x+.12,y+.11,front],[x+.11,y-.13,front]],.013,mats.oldgold);
- }
  for(const sign of[-1,1])for(const [j,x]of[3.77,5.83].entries()){
   scroll(sign*x,capitalTop-1.12,-.385,j?.88:.95,.26,j*.63);
  }
