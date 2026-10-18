@@ -1,0 +1,211 @@
+{
+  "status": "actual-bearing-geometry-audited",
+  "baseCommit": "e6a3f3d",
+  "correctedBearingParts": 9,
+  "allNominalBoundsRetained": true,
+  "allOtherBracketPartGeometryByteIdentical": true,
+  "allClosedFinitePositiveVolume": true,
+  "hardPlanarFaceNormals": true,
+  "bearings": [
+    {
+      "index": 0,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.0463733008256107,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          -0.3100000023841858,
+          -0.15000000596046448,
+          -0.3100000023841858
+        ],
+        "max": [
+          0.3100000023841858,
+          0.023214289918541908,
+          0.3100000023841858
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 3,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.0027939742083437848,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          -0.5450000166893005,
+          0.26138392090797424,
+          -0.14499999582767487
+        ],
+        "max": [
+          -0.2549999952316284,
+          0.3090178668498993,
+          0.14499999582767487
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 4,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.0027939742083437848,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          -0.14499999582767487,
+          0.26138392090797424,
+          -0.5450000166893005
+        ],
+        "max": [
+          0.14499999582767487,
+          0.3090178668498993,
+          -0.2549999952316284
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 5,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.0027939742083437843,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          0.2549999952316284,
+          0.26138392090797424,
+          -0.14499999582767487
+        ],
+        "max": [
+          0.5450000166893005,
+          0.3090178668498993,
+          0.14499999582767487
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 6,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.0027939742083437856,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          -0.14499999582767487,
+          0.26138392090797424,
+          0.2549999952316284
+        ],
+        "max": [
+          0.14499999582767487,
+          0.3090178668498993,
+          0.5450000166893005
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 11,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.004738798266783968,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          -0.5400000214576721,
+          0.5861607193946838,
+          -0.5400000214576721
+        ],
+        "max": [
+          -0.25999999046325684,
+          0.6727678775787354,
+          -0.25999999046325684
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 12,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.004738798266783968,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          -0.5400000214576721,
+          0.5861607193946838,
+          0.25999999046325684
+        ],
+        "max": [
+          -0.25999999046325684,
+          0.6727678775787354,
+          0.5400000214576721
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 13,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.004738798266783967,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          0.25999999046325684,
+          0.5861607193946838,
+          -0.5400000214576721
+        ],
+        "max": [
+          0.5400000214576721,
+          0.6727678775787354,
+          -0.25999999046325684
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    },
+    {
+      "index": 14,
+      "triangles": 128,
+      "oldTriangles": 704,
+      "closedAfterSpatialWeld": true,
+      "nonmanifoldEdges": 0,
+      "positiveVolumeM3": 0.004738798266783968,
+      "nominalBoundsDifferenceM": 0,
+      "bounds": {
+        "min": [
+          0.25999999046325684,
+          0.5861607193946838,
+          0.25999999046325684
+        ],
+        "max": [
+          0.5400000214576721,
+          0.6727678775787354,
+          0.5400000214576721
+        ]
+      },
+      "withinTriangleNormalDeviation": 0
+    }
+  ],
+  "visualAccepted": false,
+  "scope": "CPU inspection of actual generated prototypes, not a visual acceptance or test suite"
+}

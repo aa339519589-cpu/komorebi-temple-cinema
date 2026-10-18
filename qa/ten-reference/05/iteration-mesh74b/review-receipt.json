@@ -1,0 +1,65 @@
+{
+  "status": "single-bearing-block-shape-correction-rendered",
+  "visualAccepted": false,
+  "baseCommit": "e6a3f3d",
+  "reference": "references/hd/5-照片-6.jpg, comparison only; original copyright retained",
+  "beforeActual": "qa/ten-reference/05/iteration-mesh72/reference.png and detail-native.png, originally viewed from the main worktree",
+  "diagnosis": "The large/small dou bearing blocks use a continuously sin-expanded power7superellipse loft. Shared cap/side-ring normals make the close actual blocks read as inflated cushions, while the reference shows flatter bearing planes, shorter tapered cheeks and distinct arrises.",
+  "change": "Only the bearing-block generator inside sculpted-joinery.js: closed clipped-square foot, planar tapered cheeks, flat upper/lower bearing bands, actual~2mm bevel rings, and separated planar face normals. Existing nominal radius/height and every assembly transform retained. Curved arms, laps, receivers, fittings, roof, site and all materials/light/camera kept.",
+  "actualGeometry": {
+    "correctedPrototypes": 9,
+    "oldTrianglesPerKit": 6336,
+    "newTrianglesPerKit": 1152,
+    "maxNominalBoundsDifferenceM": 0,
+    "allClosedFinitePositiveVolume": true,
+    "hardWithinTriangleNormals": true,
+    "otherBracketPartGeometryByteIdentical": true,
+    "details": "geometry-receipt.json"
+  },
+  "modelRevisions": 1,
+  "actualInspections": [
+    {
+      "iteration": "mesh74a",
+      "sourceHash": "3dea3c48107954c57a41d404758a24cb1798ad8733b2602ee3645798bc589740",
+      "fullSize": [
+        1254,
+        1254
+      ],
+      "detailCrop": [
+        720,
+        760,
+        380,
+        1254
+      ],
+      "detailSize": [
+        1254,
+        1254
+      ],
+      "viewed": true,
+      "finding": "Full actual confirms angular bearing-block cheeks; first subfrustum is too low to include the entire large bearing block."
+    },
+    {
+      "iteration": "mesh74b",
+      "sourceHash": "3dea3c48107954c57a41d404758a24cb1798ad8733b2602ee3645798bc589740",
+      "fullSize": [
+        1254,
+        1254
+      ],
+      "detailCrop": [
+        745,
+        690,
+        320,
+        1254
+      ],
+      "detailSize": [
+        1254,
+        1254
+      ],
+      "viewed": true,
+      "finding": "Same model, same fixed physical camera and same native detail area as baseline72. The broad bearing face/short taper has a clear plane break and narrow real edge; surrounding curved arms and their existing rounded profiles remain. No second source/model/material change."
+    }
+  ],
+  "remainingDifference": "The exact historic block profile/bevel wear was not metrically recovered from the reference. The block remains an interpreted regular prototype; curved-arm proportions, broader end rounding and neighboring repeated copper/ceramic ornament still differ from the photo. Full scene remains unaccepted.",
+  "scopeVerification": "15protected files identical; scene.js changes only the revision literal. All geometry source before/after cushion(), including the assemblies, curved arms, receiver contacts, gold relief and ceramic mask, stays identical. No scene06 edits.",
+  "execution": "Two render-one shared-mutex native1254full+genuine subfrustum inspections; one model revision. CPU actual-prototype closure/bounds/normal audit. No movie, empty test suite, unrelated web browsing or git push."
+}
