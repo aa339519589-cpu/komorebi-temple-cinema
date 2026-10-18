@@ -1661,6 +1661,14 @@ function buildOfferingTable(b,layout) {
   // the bowl. Keep every existing exterior profile point and bowl position.
   b.lathe('censer-pedestal',[[0,-.002/1.495],[.23,-.002/1.495],[.25,.012],[.26,.045],[.18,.080],[.16,.12],[.28,.17],[.30,.23],[.25,.28],[.13,.31],[.18,.345],[.20,.35],[0,.35]],0,.71,z,1,1.495,'lacquer');
   for(const [yy,rr] of [[.78,.24],[1.12,.22],[1.18,.19]])b.torus(0,yy,z,rr,.013,'gold',Math.PI/2);
+  for(let k=0;k<8;k++)b.withTransform(0,0,z,1,()=>{
+   b.castCurve('central-pedestal-rooted-vine',[[0,.80,.18],[.018,.90,.267],[.020,1.00,.307],[0,1.10,.269],[-.020,1.18,.174]],.006,'gold',26);
+   for(const side of[-1,1]){
+    b.carvedCurve('central-pedestal-scroll-'+side,[[0,.91,.27],[side*.052,.94,.286],[side*.064,.995,.305],[side*.034,1.018,.31],[side*.018,.987,.31]],.012,.007,'gold',22);
+    b.leaf(side*.033,.854,.237,.038,.078,-side*.45,'oldgold',.25);
+   }
+   ref6Rosette(b,0,1.052,.303,.032,0,'gold');
+  },k*Math.PI/4);
   // The reference censer is a low six-lobed metal body with a dark chased
   // frontal cartouche, not an open flowerpot on a conical stand.
   const bowl=b.geometry('six-lobed-censer',()=>lobedVesselGeometry([[0,0],[.13,.015],[.25,.06],[.32,.15],[.33,.23],[.29,.31],[.23,.35],[.24,.38],[.20,.38],[.20,.35],[.24,.30],[.27,.22],[.25,.14],[.17,.09],[0,.09]],6,.075));
