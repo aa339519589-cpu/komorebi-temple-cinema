@@ -159,13 +159,13 @@ function makeBuilder(variant){
 // the old flat-front sphere deformation. Brows, nose wings and lips are part
 // of the same continuous skin, not colored wires in front of it.
 function face(center,attendant=false,variant='central'){
-  const sy=attendant?.91:.88,wx=attendant?.79:1.05,cy=center;
+  const sy=attendant?.91:1.02,wx=attendant?.79:.96,cy=center;
   const rows=[[-.415,0,0,-.020],[-.397,.112,.091,-.005],[-.365,.157,.153,.002],[-.290,.246,.213,.003],[-.170,.310,.245,.002],[-.045,.337,.247,-.004],[.095,.344,.244,-.012],[.225,.333,.235,-.020],[.340,.285,.201,-.026],[.425,.185,.142,-.028],[.455,0,0,-.025]].map(p=>[cy+p[0]*sy,p[1]*wx,p[2],p[3]]);
   const relief=(x,y)=>{
     const xx=x/wx,yy=(y-cy)/sy,G=(cx,cy,sx,sy)=>gaussian(xx-cx,sx)*gaussian(yy-cy,sy);
-    let f=.021*G(-.205,-.16,.135,.14)+.021*G(.205,-.16,.135,.14);
+    let f=.027*G(-.205,-.16,.135,.14)+.027*G(.205,-.16,.135,.14);
     const noseWidth=.065+.027*smooth(-yy,-.02,.13);
-    f+=.031*gaussian(xx,noseWidth)*gaussian(yy-.015,.150)+.025*G(0,-.105,.083,.045);
+    f+=.049*gaussian(xx,noseWidth)*gaussian(yy-.015,.150)+.036*G(0,-.105,.070,.045);
     f+=.010*G(-.063,-.121,.031,.025)+.010*G(.063,-.121,.031,.025);
     f-=.006*G(-.055,-.146,.018,.012)+.006*G(.055,-.146,.018,.012);
     f+=.010*G(0,-.148,.020,.021)-.009*G(0,-.184,.024,.028);
@@ -173,15 +173,15 @@ function face(center,attendant=false,variant='central'){
       const ex=xx*side,q=(ex-.164)/.116,inside=Math.max(0,1-q*q),mask=inside**1.2;
       const base=attendant?.077:.117,eye=base-.014*inside,brow=base+.028+.079*Math.sqrt(inside);
       f-=.021*G(side*.164,base+.031,.119,.075);
-      f+=mask*(.015*gaussian(yy-brow,.030)+.012*gaussian(yy-eye-.028,.026)-.010*gaussian(yy-eye,.009)+.003*gaussian(yy-eye+.018,.021));
+      f+=mask*(.010*gaussian(yy-brow,.025)+.015*gaussian(yy-eye-.028,.023)-.014*gaussian(yy-eye,.012)+.003*gaussian(yy-eye+.018,.021));
     }
     const mouth=-.237+.016*(xx/.12)**2,ml=gaussian(xx,.115);
     if(attendant){
       f-=.040*gaussian(xx,.061)*gaussian(yy-mouth,.029);
       f+=.018*ml*gaussian(yy-mouth-.032,.015)+.021*gaussian(xx,.093)*gaussian(yy-mouth+.034,.018);
     }else{
-      f+=.011*(gaussian(xx-.037,.042)+gaussian(xx+.037,.042))*gaussian(yy-mouth-.019,.021);
-      f+=.013*gaussian(xx,.105)*gaussian(yy-mouth+.020,.025)-.010*ml*gaussian(yy-mouth,.009);
+      f+=.008*(gaussian(xx-.032,.036)+gaussian(xx+.032,.036))*gaussian(yy-mouth-.019,.021);
+      f+=.010*gaussian(xx,.095)*gaussian(yy-mouth+.020,.025)-.012*ml*gaussian(yy-mouth,.010);
       f-=.004*gaussian(xx,.107)*gaussian(yy-mouth+.061,.021);
     }
     f+=.007*G(0,-.332,.17,.083);return f;
@@ -192,16 +192,17 @@ function face(center,attendant=false,variant='central'){
   g.userData.frontAt=(x,y)=>frontOf(rows,x,y)+relief(x,y);return g;
 }
 function faceAnatomy(b,g,cy,small=false){
- const sy=small?.91:.88,wx=small?.79:1.05,at=g.userData.frontAt;
+ const sy=small?.91:1.02,wx=small?.79:.96,at=g.userData.frontAt;
  for(const side of[-1,1]){
   const lid=[],slit=[],brow=[];
   for(let k=0;k<=32;k++){
    const t=k/32,q=t*2-1,x=side*(.164+q*.112)*wx,inside=Math.max(0,1-q*q),base=small?.077:.117;
    const y=cy+(base-.014*inside)*sy;
-   lid.push([x,y+.010*inside,at(x,y)+.006]);slit.push([x,y-.004*inside,at(x,y)+.003]);
+   const ly=y+.010*inside,ey=y-.004*inside;
+   lid.push([x,ly,at(x,ly)+.006]);slit.push([x,ey,at(x,ey)+.006]);
    const by=cy+(base+.030+.072*Math.sqrt(inside))*sy;brow.push([x,by,at(x,by)+.004]);
   }
-  b.add(cord(lid,.0075),'sculpted-upper-eyelid-'+side);b.add(cord(slit,.0038),'recessed-eye-aperture-'+side,'crease');b.add(cord(brow,.007),'arched-brow-ridge-'+side);
+  b.add(cord(lid,.0075),'sculpted-upper-eyelid-'+side);b.add(cord(slit,.0060),'recessed-eye-aperture-'+side,'crease');b.add(cord(brow,.005),'arched-brow-ridge-'+side);
   const nx=side*.055*wx,ny=cy-.146*sy;b.add(ellipsoid(nx,ny,at(nx,ny)+.001,.006,.0035,.002),'nostril-recess-'+side,'crease');
   // Helix and open concha are distinct volumes inside each long auricle.
   const ear=[];for(let k=0;k<=28;k++){const t=k/28,a=-.65+t*4.35;ear.push([side*(.381+.021*Math.cos(a))*(small?.85:1),cy+(.04+.175*Math.sin(a))*(small?.85:1),.059+.006*Math.cos(a)]);}
@@ -363,7 +364,7 @@ function broadShoulderBand(){
 function centralFigure(){
  const b=makeBuilder('central');
  b.add(loft(MAIN_BODY,{nu:240,nv:280,relief:mainRelief}),'full-seated-torso');
- neck(b,2.355);const fg=face(2.815);b.add(fg,'full-oval-face','face');faceAnatomy(b,fg,2.815);ears(b,2.815);crown(b,2.815,{central:true});
+ neck(b,2.355);const fg=face(2.78);b.add(fg,'full-oval-face','face');faceAnatomy(b,fg,2.78);ears(b,2.78);crown(b,2.78,{central:true});
  const arms=[
   [[-.40,2.20,-.025],[-.64,2.02,-.005],[-.82,1.65,.055],[-.92,1.09,.13],[-.92,.82,.19],[-.84,.67,.25]],
   [[.40,2.20,-.025],[.65,2.01,-.005],[.84,1.65,.045],[.94,1.10,.14],[.89,.74,.25],[.66,.67,.45],[.43,.64,.66]]
@@ -382,17 +383,17 @@ function centralFigure(){
    if(v===0||v===1)return[side*xx,cy,cz];
    const yy=cy+Math.sin(a)*ry+(side<0?.018:-.012)*Math.sin(Math.PI*v),front=Math.max(0,Math.cos(a));
    let pleats=0;
-   for(const [base,amp,spread]of[[.45,.026,.033],[.33,.023,.030],[.22,.020,.027],[.13,.012,.026]]){
-    const fold=base-.17*(xx-.5)+.43*(xx-.72)**2;pleats+=(amp*gaussian(yy-fold,spread)-amp*.24*gaussian(yy-fold+.04,.019))*Math.sin(Math.PI*v);
+   for(const [base,amp,spread]of[[.45,.034,.030],[.33,.030,.027],[.22,.025,.025],[.13,.017,.023]]){
+    const fold=base-.17*(xx-.5)+.43*(xx-.72)**2+(side>0?.018*Math.sin(xx*3):0);pleats+=(amp*gaussian(yy-fold,spread)-amp*.32*gaussian(yy-fold+.04,.019))*Math.sin(Math.PI*v);
    }
    return[side*xx,yy,cz+Math.cos(a)*rz+pleats*front**3];
   },true);
   if(side>0){for(let i=0;i<leg.index.count;i+=3){const q=leg.index.getX(i+1);leg.index.setX(i+1,leg.index.getX(i+2));leg.index.setX(i+2,q);}recomputeSculptureNormals(leg);}
   b.add(leg,'continuous-seated-knee-cloth-'+side);
  }
- const feet=[[[.93,.56,.44],[.44,.65,.58],[-.04,.67,.68],[-.54,.61,.69],[-1.03,.48,.61]],[[-.92,.54,.40],[-.45,.65,.52],[.06,.69,.59],[.51,.64,.59],[1.03,.51,.53]]];
+ const feet=[[[.58,.58,.47],[.30,.65,.62],[.03,.68,.73],[-.23,.66,.78],[-.40,.61,.76]],[[-.57,.55,.45],[-.29,.61,.58],[.04,.64,.67],[.32,.61,.72],[.50,.57,.68]]];
  feet.forEach((ps,j)=>{
-  const c=curve(ps),g=surface(48,88,(u,t)=>{const a=u*TAU,q=c.getPointAt(t),cap=t===0||t===1?0:Math.sin(Math.PI*t)**.28;return[q.x,q.y+Math.cos(a)*.057*cap,q.z+Math.sin(a)*.104*cap];},true);if(j===0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}b.add(g,`crossed-foot-${j}`);
+  const c=curve(ps),g=surface(48,88,(u,t)=>{const a=u*TAU,q=c.getPointAt(t),cap=t===0||t===1?0:Math.sin(Math.PI*t)**.28;return[q.x,q.y+Math.cos(a)*.040*cap,q.z+Math.sin(a)*.075*cap];},true);if(j===0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}b.add(g,`crossed-foot-${j}`);
   const side=j===0?-1:1,tip=ps.at(-1);for(let i=0;i<5;i++)b.add(finger([[tip[0]-side*.075,tip[1],tip[2]-.064+i*.032],[tip[0]+side*(.035-i*.008),tip[1]-.010,tip[2]-.061+i*.031]],.016-i*.0008),`crossed-toe-${j}-${i}`);
  });
  const cloth=closedPanel(112,140,(u,v)=>{
@@ -480,8 +481,8 @@ function attendantFigure(variant){
 
 export const RESTORED_BUDDHA_METRICS=Object.freeze({
  reference:6,reconstruction:'independent-reference6-recovered-proportion-r1',frontAxis:'+Z',seatContact:0,
- decorativeMinY:-.157,headCenter:2.815,crownTop:3.59,raisedHandTop:1.85313,kneeWidth:2.90,bodyDepth:1.50,
- variants:{central:{seatContact:0,decorativeMinY:-.157,crownTop:3.59,headCenter:2.815,kneeWidth:2.90},left:{seatContact:0,crownTop:3.75,headCenter:3.055},right:{seatContact:0,crownTop:3.75,headCenter:3.055}},
+ decorativeMinY:-.157,headCenter:2.78,crownTop:3.59,raisedHandTop:1.85313,kneeWidth:2.90,bodyDepth:1.50,
+ variants:{central:{seatContact:0,decorativeMinY:-.157,crownTop:3.59,headCenter:2.78,kneeWidth:2.90},left:{seatContact:0,crownTop:3.75,headCenter:3.055},right:{seatContact:0,crownTop:3.75,headCenter:3.055}},
  referenceFit:{central:{x:0,y:3,z:0,scale:2.1/3.26},attendantScale:1.45/3.26,scaleConvention:'retain external unit conversion; do not normalize by crownTop'},
  materials:{buddha:{color:'#cfaa5d',metalness:.94,roughness:.29},oldgold:{color:'#927036',metalness:.91,roughness:.37},gold:{color:'#d1ab58',metalness:.95,roughness:.27}}
 });

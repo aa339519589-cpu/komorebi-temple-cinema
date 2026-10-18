@@ -12,7 +12,7 @@ export const RESTORATION_ALTAR_LAYOUT = Object.freeze({
   floorLampX: 3.20, floorLampCenterOffsetX: -.025, floorLampScale: .72, floorLampYaw: .4, floorLampChamberRadialScale: .93,
   floorContactY: -.045, floorUrnX: 4.40, floorVaseX: 5.05,
   upperVaseX: 3.52, upperVaseY: 2.175, upperVaseZ: .815,
-  mainThroneHeight: .64, sideThroneHeight: .46,
+  mainSeatY:3.00, sideSeatY:2.85, mainThroneHeight: .64, sideThroneHeight: .46,
   innerRitualLotusX:1.92, innerRitualLotusZ:.19, innerRitualLotusSupportY:null,
   outerRitualLotusX:3.30, outerRitualLotusZ:.03, outerRitualLotusSupportY:null,
   throneRadii: [1.19,.82], throneCompensation: [1,1],
@@ -39,12 +39,16 @@ export function buildRestorationAltar(options = {}) {
   root.name = 'restoration-reference6-altar';
   if (options.terraces !== false) buildTerraces(b,layout);
   if (options.mandorlas !== false) {
-    buildMandorla(b, 0, 1.40, -.79, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],3-layout.mainThroneHeight,true);
+    buildMandorla(b, 0, 1.40, -.79, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],layout.mainSeatY-layout.mainThroneHeight,true);
     for (const side of [-1, 1]) buildMandorla(b, side * layout.sideFigureX, 1.80, -.87, .52,layout.headHaloCenters[1],layout.mandorlaApexY[1],layout.mandorlaWidthScales[1],2.175);
   }
   if (options.lotusThrones !== false) {
-    buildLotusThrone(b,0,3.00,0,layout.throneRadii[0],layout.mainThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
-    for(const side of [-1,1])buildLotusThrone(b,side*layout.sideFigureX,2.85,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+    buildThronePedestal(b,0,0,layout.throneRadii[0],2.36,layout.mainSeatY-layout.mainThroneHeight,layout.throneDepthAspect);
+    buildLotusThrone(b,0,layout.mainSeatY,0,layout.throneRadii[0],layout.mainThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+    for(const side of [-1,1]){
+      buildThronePedestal(b,side*layout.sideFigureX,-.08,layout.throneRadii[1],2.39,layout.sideSeatY-layout.sideThroneHeight,layout.throneDepthAspect);
+      buildLotusThrone(b,side*layout.sideFigureX,layout.sideSeatY,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+    }
   }
   if (options.ritualObjects !== false) buildRitualObjects(b,layout);
   if (options.offeringTable !== false) buildOfferingTable(b,layout);
@@ -57,7 +61,7 @@ export function buildRestorationAltar(options = {}) {
   root.userData.reference = 'user reference 6';
   root.userData.reconstructionRevision='reference6-cloud-recovery-cast-reconstruction-14';
   root.userData.coordinateSystem = 'altar-local; hall translation [6,3.48,-14.5], +Z faces worshipper';
-  root.userData.figureSeatAnchors = [[0,3.00,0],[-layout.sideFigureX,2.85,-.08],[layout.sideFigureX,2.85,-.08]];
+  root.userData.figureSeatAnchors = [[0,layout.mainSeatY,0],[-layout.sideFigureX,layout.sideSeatY,-.08],[layout.sideFigureX,layout.sideSeatY,-.08]];
   root.userData.figureTargetHeights = [2.10,1.45,1.45];
   // The original central vessel has a clear cylindrical chimney, not three
   // exposed incense sticks. Retain empty legacy keys to prevent false smoke.
@@ -965,29 +969,40 @@ function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedH
   });
 }
 
+function buildThronePedestal(b,x,z,radius,bottom,top,depthAspect){
+  const h=top-bottom;if(h<=.002)return;
+  b.withTransform(x,bottom,z,[radius,1,radius*depthAspect],()=>{
+    b.lathe('max02-stepped-lotus-lacquer-plinth:'+h,[[0,0],[.79,0],[.82,.035],[.82,.075],[.72,.105],[.70,h-.07],[.78,h-.04],[.78,h],[0,h]],0,0,0,1,1,'lacquer',64);
+    for(const y of[.035,.081,h-.041])b.torus(0,y,0,.79,.009,'gold',Math.PI/2);
+    for(let k=0;k<24;k++){
+      const a=k*Math.PI/12;b.ball(Math.sin(a)*.72,h*.56,Math.cos(a)*.72,.014,.026,.009,'oldgold');
+    }
+  });
+}
+
 function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],depthAspect=.68) {
   b.withTransform(x,seatY-height,z,[radialCompensation[0],1,radialCompensation[1]*depthAspect],()=>{
-    // The observed seat consists of overlapping pointed petals. Narrower
-    // shoulders and a raised central fold replace the old inflated lobes.
+    // Broad cupped petals overlap in two staggered rows. Their shoulders
+    // carry the cast volume; the short pointed tips do not form thin spikes.
     b.lathe('r6r14-hidden-lotus-core',[[0,0],[.58,0],[.58,.045],[.46,.11],[.46,.94],[.54,1],[0,1]],0,0,0,radius,height,'oldgold',48);
-    const petal=b.geometry('r6r14-slender-ribbed-lotus-petal',()=>{
+    const petal=b.geometry('max02-broad-cupped-lotus-petal',()=>{
       const p=[],uv=[],ix=[],rows=28,cols=18,stride=(rows+1)*(cols+1);
       for(let surface=0;surface<2;surface++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
         const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t);
-        const width=t<=.58?.50*Math.pow(Math.sin(Math.PI*t/(2*.58)),.65):.50*Math.pow(Math.max(0,Math.cos(Math.PI*.5*(t-.58)/.42)),1.20);
-        const meridian=.05*wave+.78*t-.36*t*t;
-        const convex=.16*wave*(1-u*u)+.008*Math.cos(u*5*Math.PI)*wave*wave*(1-u*u),midrib=.020*Math.exp(-Math.pow(u/.13,2))*wave,edge=.010*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
+        const width=t<=.42?.50*Math.pow(Math.max(0,Math.sin(Math.PI*t/(2*.42))),.60):.50*Math.pow(Math.max(0,Math.cos(Math.PI*.5*(t-.42)/.58)),.72);
+        const meridian=.16*wave+.52*t-.27*t*t;
+        const convex=.20*wave*(1-u*u)+.006*Math.cos(u*5*Math.PI)*wave*wave*(1-u*u),midrib=.012*Math.exp(-Math.pow(u/.13,2))*wave,edge=.008*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
         p.push(u*width,t,meridian+(surface===0?convex+midrib+edge:-.040));uv.push(i/cols,t);
         if(j<rows&&i<cols){const a=surface*stride+j*(cols+1)+i;surface===0?ix.push(a,a+1,a+cols+1,a+1,a+cols+2,a+cols+1):ix.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}
       }
       closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='overlapping-pointed-petal-with-raised-fold';return g;
     });
     for(let row=0;row<2;row++){
-      const n=row?24:22,rr=radius*(row?.50:.56),base=height*(row?.25:0),hh=height*(row?.78:.71);
+      const n=row?20:18,rr=radius*(row?.58:.65),base=height*(row?.25:0),hh=height*(row?.78:.72);
       for(let k=0;k<n;k++){
         const a=(k+row*.53)/n*Math.PI*2,lean=.085*Math.sin(a);
         b.withTransform(Math.sin(a)*rr,base,Math.cos(a)*rr,1,()=>{
-          b.withTransform(0,0,0,1,()=>b.add(petal,'gold',0,0,0,radius*(row?.22:.23),hh,radius*(row?.37:.58),0,0,lean),a);
+          b.withTransform(0,0,0,1,()=>b.add(petal,'gold',0,0,0,radius*(row?.32:.34),hh,radius*(row?.40:.50),0,0,lean),a);
         });
       }
     }
