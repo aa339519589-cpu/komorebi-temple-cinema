@@ -16,7 +16,7 @@ export async function loadScannedGardenStones(){
   // Keep the scan's squat geological proportions. Stretching every axis to
   // the old unit sphere would turn flat weathered stones into tall pinnacles.
   const scale=2/Math.max(size.x,size.z);geometry.scale(scale,scale,scale);
-  const dry=o.material.clone();dry.name='scene07-scanned-weathered-moss-stone-'+variants.length;dry.metalness=0;dry.roughness=.96;dry.color.setRGB(.66,.80,.83);
+  const dry=o.material.clone();dry.name='scene07-scanned-weathered-moss-stone-'+variants.length;dry.metalness=0;dry.roughness=.96;dry.color.setRGB(.66,.80,.83);dry.color.setRGB(.66,.80,.83);
   if(dry.normalScale)dry.normalScale.set(.85,.85);
   const wet=new T.MeshPhysicalMaterial({
    name:dry.name+'-wet',color:dry.color,map:dry.map,normalMap:dry.normalMap,
@@ -25,7 +25,7 @@ export async function loadScannedGardenStones(){
   });
   wet.color.multiplyScalar(.70);
   for(const key of ['map','normalMap','roughnessMap','aoMap'])if(dry[key])textures.add(dry[key]);
-  variants.push({geometry,dry,wet});
+  variants.push({geometry,dry,wet,extent:geometry.boundingBox.getSize(new T.Vector3())});
  });
  if(variants.length!==6)throw Error('Expected six separate scanned garden stones, got '+variants.length);
  return {variants,info:{asset:'rock_moss_set_01',author:'Kless Gyzen',license:'CC0-1.0',pieces:variants.length,source:'https://polyhaven.com/a/rock_moss_set_01'},
