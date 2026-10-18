@@ -1,0 +1,52 @@
+name: Sanctuary reference finish review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/sanctuary-finish-review.yml'
+      - 'tools/sanctuary-finish-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-sanctuary-finish-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: macos-14
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify source and prepare renderer
+        run: |
+          node verify.mjs
+          node --check src/sanctuary-reference-finish.js
+          node --check src/capture-output-target.js
+          node --check tools/render-output-target.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render real reference-aligned finish candidates
+        timeout-minutes: 25
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+          REQUEST_FILE: tools/sanctuary-finish-request.json
+          OUTPUT_DIR: output/sanctuary-finish-review
+        run: |
+          set -o pipefail
+          mkdir -p output/sanctuary-finish-review
+          node tools/render-output-target.mjs 2>&1 | tee output/sanctuary-finish-review/execution.log
+      - name: Preserve reference pairs, rendered pixels and source receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanctuary-finish-review-${{ github.sha }}
+          path: output/sanctuary-finish-review/
+          retention-days: 7
+          if-no-files-found: warn

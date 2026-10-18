@@ -1,0 +1,49 @@
+name: Rain threshold physical reflection
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/rain-threshold-optics.yml','src/rain-threshold-optics.js','tools/render-rain-threshold.mjs']
+permissions:
+  contents: read
+concurrency:
+  group: rain-threshold-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: macos-14
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        study: [control, wet, lanterns]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify unchanged scene and prepare browser
+        run: |
+          node verify.mjs
+          node --check src/rain-threshold-optics.js
+          node --check tools/render-rain-threshold.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render actual threshold surfaces and reflections
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          STUDY: ${{ matrix.study }}
+        run: |
+          set -o pipefail
+          mkdir -p output/rain-threshold-${{ matrix.study }}
+          node tools/render-rain-threshold.mjs 2>&1 | tee output/rain-threshold-${{ matrix.study }}/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rain-threshold-${{ matrix.study }}-${{ github.sha }}
+          path: output/rain-threshold-${{ matrix.study }}/
+          retention-days: 7
+          if-no-files-found: warn

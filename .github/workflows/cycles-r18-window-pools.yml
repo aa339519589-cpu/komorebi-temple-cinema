@@ -1,0 +1,66 @@
+name: R18 full-geometry Cycles window-to-floor reference restoration
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/cycles-r18-window-pools.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: komorebi-r18-floor-window
+  cancel-in-progress: false
+jobs:
+  real-reference-light:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 34
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: resumed-cycles-d39c722a551f1cfe5fb81361858d3eff45b9e657
+          run-id: 39087140818
+          github-token: ${{ github.token }}
+          path: source-readonly
+      - name: Verify physical source and new non-destructive algorithm
+        run: |
+          python3 -m py_compile tools/refine-cycles-r18-window-pools.py tools/evaluate-sanctuary-light-rois.py
+          test -s "$(find source-readonly -name existing-sanctuary-cycles.blend -type f -print -quit)"
+          test -s references/hd/4-照片-5.jpg
+      - name: Install actual Cycles renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y blender ffmpeg python3-numpy
+      - name: Render two physical foreground-window candidates on saved 11M source polygons
+        timeout-minutes: 26
+        env:
+          KOMOREBI_R18_OUT: output/cycles-r18
+          KOMOREBI_R18_SAMPLES: '112'
+          KOMOREBI_R18_SIZE: '720'
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -euo pipefail
+          mkdir -p output/cycles-r18
+          BLEND="$(find source-readonly -name existing-sanctuary-cycles.blend -type f -print -quit)"
+          test -s "$BLEND"
+          sha256sum "$BLEND" > output/cycles-r18/preserved-blend.sha256
+          for MODE in window-pools window-pools-haze; do
+            export KOMOREBI_R18_MODE="$MODE"
+            blender -b "$BLEND" -t 4 --python-exit-code 1 --python tools/refine-cycles-r18-window-pools.py 2>&1 | tee "output/cycles-r18/blender-$MODE.log"
+            test -s "output/cycles-r18/sanctuary-r18-$MODE.png"
+            ffmpeg -y -hide_banner -loglevel error -i references/hd/4-照片-5.jpg -i "output/cycles-r18/sanctuary-r18-$MODE.png" -filter_complex '[0:v]scale=720:720[a];[a][1:v]hstack[out]' -map '[out]' -frames:v 1 "output/cycles-r18/reference-left-$MODE-right.png"
+            python3 tools/evaluate-sanctuary-light-rois.py references/hd/4-照片-5.jpg "output/cycles-r18/sanctuary-r18-$MODE.png" "output/cycles-r18/roi-$MODE.json"
+          done
+          sha256sum -c output/cycles-r18/preserved-blend.sha256
+      - name: Preserve actual ray-traced frames and pixel error audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cycles-r18-window-pools-${{ github.sha }}
+          path: output/cycles-r18/
+          retention-days: 7
+          if-no-files-found: warn

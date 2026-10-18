@@ -1,0 +1,50 @@
+name: Ten current-source reference comparisons
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/ten-reference-pass.yml','tools/render-reference-pass.mjs','tools/visual-reference-cameras.json']
+permissions:
+  contents: read
+concurrency:
+  group: ten-reference-pass-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  reference:
+    runs-on: macos-14
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        reference: [1,2,3,4,5,6,7,8,9,10]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Prepare exact current source and appropriate initial illumination
+        run: |
+          node verify.mjs
+          node tools/prepare-site-mode.mjs
+          node --check tools/render-reference-pass.mjs
+          node --check src/reference-rain-atmosphere.js
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render real reference frame and pixel checks
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REFERENCE: ${{ matrix.reference }}
+          SIZE: '960'
+        run: |
+          set -o pipefail
+          node tools/render-reference-pass.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reference-pass-${{ matrix.reference }}-${{ github.sha }}
+          path: output/reference-pass-*/
+          retention-days: 7
+          if-no-files-found: warn

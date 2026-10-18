@@ -1,0 +1,36 @@
+name: Repeated-frame output state audit
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/repeat-frame-audit.yml','tools/audit-repeat-frame-state.mjs']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-repeat-frame-audit
+  cancel-in-progress: true
+jobs:
+  audit:
+    runs-on: macos-14
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - run: |
+          node --check tools/audit-repeat-frame-state.mjs
+          npm install --prefix "$RUNNER_TEMP/render-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/render-runtime/node_modules/.bin/playwright" install chromium
+      - env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/render-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: node tools/audit-repeat-frame-state.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repeat-frame-audit-${{ github.sha }}
+          path: output/repeat-frame-audit/
+          retention-days: 7

@@ -1,0 +1,31 @@
+name: Continuation working snapshot
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/continuation-snapshot.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preserve exact working source and actual execution inventory
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p continuation-snapshot
+          git rev-parse HEAD > continuation-snapshot/COMMIT.txt
+          tar -czf continuation-snapshot/working-source.tar.gz src vendor tools .github references music docs *.html *.mjs *.json LICENSE
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?branch=work%2Flive-reference-render-20261017&per_page=50" --jq '[.workflow_runs[] | {id,name,head_sha,status,conclusion,created_at,updated_at}]' > continuation-snapshot/runs.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" --jq '[.artifacts[] | {id,name,size_in_bytes,expired,created_at,workflow_run}]' > continuation-snapshot/artifacts.json
+          sha256sum continuation-snapshot/working-source.tar.gz > continuation-snapshot/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: continuation-working-source-${{ github.sha }}
+          path: continuation-snapshot/
+          retention-days: 7

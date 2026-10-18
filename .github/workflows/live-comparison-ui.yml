@@ -1,0 +1,58 @@
+name: Actual live comparison UI
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/live-comparison-ui.yml'
+      - 'tools/test-live-comparison.mjs'
+      - 'src/read-framebuffer-rgba.js'
+      - 'src/capture-output-target.js'
+      - 'src/live-frame-capture.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-live-ui-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  ui:
+    runs-on: macos-14
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Archive exact reconstruction runtime
+        run: |
+          mkdir -p output/runtime-copy
+          git rev-parse HEAD > output/runtime-copy/COMMIT.txt
+          tar -czf output/runtime-copy/current-source.tar.gz src vendor tools references music qa/brdf-atlas-test.html qa/capture-target-fixture.html render-live.html compare-live.html index.html viewer.mjs serve.mjs verify.mjs package.json checksums.json frozen-manifest.json README.md PUBLICATION_NOTES.md LICENSE .gitignore
+      - uses: actions/upload-artifact@v4
+        with:
+          name: current-ui-runtime-${{ github.sha }}
+          path: output/runtime-copy/
+          retention-days: 7
+      - name: Prepare real renderer
+        run: |
+          node verify.mjs
+          node --check src/live-frame-capture.js
+          node --check src/read-framebuffer-rgba.js
+          node --check tools/test-live-comparison.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Run live reference and exposure comparison
+        timeout-minutes: 12
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: node tools/test-live-comparison.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actual-live-ui-${{ github.sha }}
+          path: output/live-comparison-test/
+          retention-days: 7
+          if-no-files-found: warn

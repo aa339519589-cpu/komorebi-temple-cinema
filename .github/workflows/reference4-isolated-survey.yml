@@ -1,0 +1,51 @@
+name: Reference4 isolated 3-camera real Metal survey
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/reference4-isolated-survey.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  camera:
+    strategy:
+      fail-fast: false
+      matrix:
+        view: [b, c, d]
+    runs-on: macos-14
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Build preview-only memory-bounded site scene without changing actual geometry
+        env:
+          SITE_PREVIEW_SHADOW_SIZE: '2048'
+        run: |
+          node verify.mjs
+          node tools/prepare-site-mode.mjs
+          node --check tools/render-reference4-isolated.mjs
+      - name: Install isolated Metal browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render a single real GPU frame in a dedicated browser
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          CAMERA_ID: ${{ matrix.view }}
+          NODE_OPTIONS: --max-old-space-size=4096
+        timeout-minutes: 10
+        run: |
+          node tools/render-reference4-isolated.mjs
+      - name: Preserve native frame with source/camera hashes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference4-isolated-${{ matrix.view }}-${{ github.sha }}
+          path: output/reference4-isolated-${{ matrix.view }}/
+          if-no-files-found: warn
+          retention-days: 7

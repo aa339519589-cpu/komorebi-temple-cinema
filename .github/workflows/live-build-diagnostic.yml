@@ -1,0 +1,52 @@
+name: Bounded live build diagnostic
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/live-build-diagnostic.yml', 'tools/diagnose-live-build.mjs']
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-live-diagnostic-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  diagnose:
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Archive exact source under investigation
+        run: |
+          mkdir -p output/source-evidence
+          git rev-parse HEAD > output/source-evidence/COMMIT.txt
+          tar -czf output/source-evidence/current-source.tar.gz src vendor tools references music render-live.html compare-live.html qa/brdf-atlas-test.html index.html viewer.mjs serve.mjs verify.mjs package.json checksums.json frozen-manifest.json README.md PUBLICATION_NOTES.md LICENSE .gitignore
+      - uses: actions/upload-artifact@v4
+        with:
+          name: latest-live-source-${{ github.sha }}
+          path: output/source-evidence/
+          retention-days: 7
+      - name: Install browser
+        run: |
+          node --check tools/diagnose-live-build.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Diagnose actual wrapper and full-scene build
+        timeout-minutes: 10
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          mkdir -p output/live-build-diagnostic
+          node tools/diagnose-live-build.mjs 2>&1 | tee output/live-build-diagnostic/console.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-build-diagnostic-${{ github.sha }}
+          path: output/live-build-diagnostic/
+          retention-days: 7
+          if-no-files-found: warn

@@ -1,0 +1,49 @@
+{
+  "label": "R14 native physically pierced gilded panels, matched camera original-versus-new",
+  "jobs": [
+    {
+      "id": "r14-solid-backing-control",
+      "reference": 6,
+      "width": 960,
+      "scene": "shared",
+      "query": "&r14=0",
+      "exposure": 1.28,
+      "camera": {
+        "position": [
+          -1.540726762,
+          4.26,
+          -2.375090396
+        ],
+        "target": [
+          -1.540726762,
+          5.25,
+          -9.755090396
+        ],
+        "time": 41.95,
+        "fov": 78
+      }
+    },
+    {
+      "id": "r14-pierced-cast-gold",
+      "reference": 6,
+      "width": 960,
+      "scene": "shared",
+      "query": "&r14=1",
+      "exposure": 1.28,
+      "camera": {
+        "position": [
+          -1.540726762,
+          4.26,
+          -2.375090396
+        ],
+        "target": [
+          -1.540726762,
+          5.25,
+          -9.755090396
+        ],
+        "time": 41.95,
+        "fov": 78
+      }
+    }
+  ]
+}

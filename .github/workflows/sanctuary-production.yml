@@ -1,0 +1,69 @@
+name: Sanctuary production
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/sanctuary-production.yml'
+      - 'tools/production-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sanctuary-production-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  production:
+    runs-on: macos-14
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Validate native entry and preserve source
+        run: |
+          node verify.mjs
+          node --check src/sanctuary-production.js
+          node --check tools/produce-sanctuary.mjs
+          mkdir -p output/production
+          python3 - <<'PY'
+          import pathlib,zipfile,subprocess
+          root=pathlib.Path('.');paths=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          with zipfile.ZipFile('output/production/KOMOREBI-source.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for name in paths:
+              p=pathlib.Path(name)
+              if p.is_file() and (p.suffix in ['.js','.mjs','.html','.json','.md','.txt','.yml'] or name.startswith(('vendor/','music/','references/')) or name in ['LICENSE','.gitignore']):z.write(p,name)
+          PY
+      - name: Return source independently of render outcome
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanctuary-source-${{ github.sha }}
+          path: output/production/KOMOREBI-source.zip
+          retention-days: 7
+      - name: Prepare browser and encoder
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Execute real current-geometry frames
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          set -o pipefail
+          node tools/produce-sanctuary.mjs 2>&1 | tee output/production/execution.log
+      - name: Return pixels and receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanctuary-production-${{ github.sha }}
+          path: |
+            output/production/*.png
+            output/production/*.mp4
+            output/production/*.json
+            output/production/*.log
+            output/production/*.html
+          retention-days: 7
+          if-no-files-found: error

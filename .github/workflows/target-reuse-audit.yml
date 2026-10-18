@@ -1,0 +1,46 @@
+name: Native target reuse pixel identity audit
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/target-reuse-audit.yml'
+      - 'tools/audit-target-reuse.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-target-reuse-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Validate existing v60 and native reference-pixel audit script
+        run: |
+          node verify.mjs
+          node --check tools/audit-target-reuse.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Compare six actual GPU framebuffer readbacks
+        timeout-minutes: 12
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          set -o pipefail
+          mkdir -p output/target-reuse-audit
+          node tools/audit-target-reuse.mjs 2>&1 | tee output/target-reuse-audit/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: six-real-frame-target-reuse-${{ github.sha }}
+          path: output/target-reuse-audit/
+          retention-days: 7
+          if-no-files-found: warn

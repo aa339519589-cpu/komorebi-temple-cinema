@@ -1,0 +1,46 @@
+name: Whole-site continuation frames
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/site-continuation.yml','tools/render-site-continuation.mjs']
+permissions:
+  contents: read
+jobs:
+  site:
+    runs-on: macos-14
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        reference: [3, 10]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Prepare current rendering runtime
+        run: |
+          node verify.mjs
+          node --check tools/render-site-continuation.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render complete existing scene
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REFERENCE: ${{ matrix.reference }}
+          SIZE: '640'
+        run: |
+          set -o pipefail
+          mkdir -p output/site-reference-${{ matrix.reference }}
+          node tools/render-site-continuation.mjs 2>&1 | tee output/site-reference-${{ matrix.reference }}/execution.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-reference-${{ matrix.reference }}-${{ github.sha }}
+          path: output/site-reference-${{ matrix.reference }}/
+          retention-days: 7
+          if-no-files-found: warn

@@ -1,0 +1,57 @@
+name: Native BRDF and material GPU regression
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/brdf-gpu-test.yml'
+      - 'qa/brdf-atlas-test.html'
+      - 'qa/material-packing-gpu.html'
+      - 'src/brdf-lookup-atlas.js'
+      - 'src/material-sampler-packing.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-brdf-test-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  audit:
+    runs-on: macos-14
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Install isolated browser runtime
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+      - name: Compare actual native and atlas shading
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        run: node tools/test-brdf-atlas-gpu.mjs
+      - name: Compare leaf and wet-stone native material channels
+        if: always()
+        timeout-minutes: 3
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        run: node tools/test-material-packing-gpu.mjs
+      - name: Test actual live entry import graph
+        if: always()
+        timeout-minutes: 3
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        run: node tools/test-live-entry.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: brdf-gpu-test-${{ github.sha }}
+          path: |
+            output/brdf-gpu-test/
+            output/material-packing-gpu/
+            output/live-entry-test/
+          if-no-files-found: warn
+          retention-days: 7

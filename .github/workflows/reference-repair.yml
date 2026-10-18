@@ -1,0 +1,36 @@
+name: Verify supplied reference correspondence
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/reference-repair.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/live-reference-render-20261017
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Validate image identity and align the ten reference entries
+        run: |
+          node --check tools/repair-reference-order.mjs
+          node tools/repair-reference-order.mjs
+          node --check tools/render-current.mjs
+      - name: Preserve only the verified correspondence changes
+        run: |
+          git add -- compare-live.html tools/render-current.mjs references/hd/correspondence.json docs/LIVE_CONTINUATION.md
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Align canonical references 1 and 2 with the exact user image sequence'
+          git pull --rebase origin work/live-reference-render-20261017
+          git push origin HEAD:work/live-reference-render-20261017

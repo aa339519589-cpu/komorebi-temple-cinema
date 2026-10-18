@@ -1,0 +1,55 @@
+name: Real site geometry reference recovery wave two
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/ten-reference-memory-wave2.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  one-real-reference:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        ref: [2, 7, 8, 9]
+    runs-on: macos-14
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Keep all source geometry and reduce only QA render buffers
+        env:
+          SITE_PREVIEW_SHADOW_SIZE: '1024'
+        run: |
+          node verify.mjs
+          node tools/prepare-site-mode.mjs
+          node --check tools/render-reference-memory-wave.mjs
+      - name: Install actual Chromium Metal GPU renderer
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render exactly the specified reference on the real source scene
+        timeout-minutes: 10
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REFERENCE_ID: ${{ matrix.ref }}
+          RENDER_SIZE: '512'
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          mkdir -p output/reference-recovery-$(printf '%02d' "$REFERENCE_ID")
+          node tools/render-reference-memory-wave.mjs
+      - name: Preserve native pixels and their source identity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: actual-source-reference-${{ matrix.ref }}-${{ github.sha }}
+          path: output/reference-recovery-*/
+          retention-days: 7
+          if-no-files-found: warn

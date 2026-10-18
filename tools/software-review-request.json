@@ -1,0 +1,9 @@
+{
+ "label":"independent-full-scene-floor-and-gilt-review",
+ "jobs":[
+  {"id":"software-original-baseline","reference":6,"width":640,"scene":"shared"},
+  {"id":"software-wide-floor-only","reference":6,"width":640,"scene":"shared","floor":{"reflectionLod":0.8}},
+  {"id":"software-floor-gilt-a","reference":6,"width":640,"scene":"shared","floor":{"reflectionLod":0.7},"finish":{"panels":true,"exposure":1.6,"environmentGain":1.25,"metalGain":1.55,"sunGain":1.5,"practicalGain":1.4,"floorLod":0.7,"floorStrength":1.05,"redWood":true}},
+  {"id":"software-original-restored","reference":6,"width":640,"scene":"shared"}
+ ]
+}

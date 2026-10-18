@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>KOMOREBI · 参考图与真实 3D 对齐</title><link rel="icon" href="data:,">
+<style>
+:root{color-scheme:dark;font:14px/1.55 system-ui,sans-serif;color:#ebe5d9;background:#10120f}*{box-sizing:border-box}body{margin:0}main{max-width:1900px;margin:auto;padding:20px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:1px solid #404237;padding-bottom:12px}h1{font:24px Georgia,'Songti SC',serif;margin:0}p{color:#afafa5;margin:4px 0 12px}
+nav{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;margin:15px 0}button{border:1px solid #53594b;background:#21261f;color:#e8e3d3;cursor:pointer;padding:8px 12px;font:inherit;border-radius:3px}button:disabled{opacity:.55;cursor:wait}button:focus-visible,input:focus-visible{outline:2px solid #b8a578;outline-offset:2px}button[aria-pressed=true]{background:#515340;border-color:#d0bf93}nav button{padding:6px 2px}nav img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#050505}nav span{display:block;padding-top:2px;font-variant-numeric:tabular-nums}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{min-width:0;background:#191d18;margin:0}figcaption{padding:9px 14px;border-bottom:1px solid #424437;font-size:13px}.visual{aspect-ratio:1;display:grid;place-items:center;background:#060805;overflow:hidden}.visual img{display:block;width:100%;height:100%;object-fit:contain}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:15px 0}#status{display:block;margin:14px 0;color:#c3bdab;white-space:pre-wrap;overflow-wrap:anywhere}.camera{display:grid;grid-template-columns:repeat(9,minmax(65px,1fr));gap:8px;margin:12px 0}.camera label{font-size:12px;color:#b6b6ab}.camera input{display:block;width:100%;margin-top:5px;border:1px solid #58604c;background:#121510;color:#fff;padding:7px;font:inherit}.note{color:#afa99d;border-top:1px solid #414538;margin-top:14px;padding-top:12px}#runtime{position:absolute;left:-200vw;top:0;border:0;pointer-events:none}input[type=file]{max-width:220px;font-size:12px}
+@media(max-width:790px){main{padding:12px}nav{grid-template-columns:repeat(5,minmax(0,1fr))}.pair{gap:6px}.camera{grid-template-columns:repeat(3,minmax(50px,1fr))}figcaption{padding:6px;font-size:11px}h1{font-size:19px}}
+</style></head><body><main>
+<header><h1>左侧参考图 / 右侧真实 3D 渲染</h1><small>现有 Three.js 场景的实际像素</small></header>
+<p>逐张核对同一机位的建筑、光线和材质。相机与曝光可微调，导出包含实际参数的对照记录。</p>
+<nav id="shots" aria-label="参考图顺序"></nav>
+<div class="pair"><figure class="panel"><figcaption id="reference-title">左 · 参考图</figcaption><div class="visual"><img id="reference" alt="用户提供的参考图"></div></figure><figure class="panel"><figcaption id="render-title">右 · 等待渲染</figcaption><div class="visual"><img id="rendered" alt="当前源码真实渲染结果"></div></figure></div>
+<div class="toolbar"><button id="render" type="button">按当前参数渲染</button><button id="reset" type="button">恢复默认机位与曝光</button><button id="save-pair" type="button">保存左右对照 PNG</button><button id="export-camera" type="button">导出参数与核验记录</button><label>替换左侧原图 <input id="upload" type="file" accept="image/*"></label></div>
+<div class="camera">
+<label>相机 X<input data-camera="px" type="number" step="0.1"></label><label>相机 Y<input data-camera="py" type="number" step="0.1"></label><label>相机 Z<input data-camera="pz" type="number" step="0.1"></label><label>注视 X<input data-camera="tx" type="number" step="0.1"></label><label>注视 Y<input data-camera="ty" type="number" step="0.1"></label><label>注视 Z<input data-camera="tz" type="number" step="0.1"></label><label>视角 FOV<input data-camera="fov" type="number" min="10" max="140" step="0.1"></label><label>场景时间<input data-camera="time" type="number" min="0" max="69.999" step="0.01"></label><label>曝光，留空跟随场景<input id="exposure" type="number" min="0.1" max="5" step="0.05" placeholder="场景默认值"></label>
+</div><output id="status" role="status">等待加载场景。</output>
+<div class="note">右侧来自当前 src/main.js 的完整渲染流程，保留灯光、阴影和反射。空帧会被拒绝，成功出图仍不等于复原质量已经验收。替换的本机参考图仅留在浏览器，不上传。</div>
+</main><iframe id="runtime" title="运行当前 3D 场景"></iframe>
+<script>
+'use strict';
+const shots=[
+ {source:10,path:'/references/hd/9-照片-10.jpg',name:'雨后湿石板与塔殿'},
+ {source:9,path:'/references/hd/8-照片-9.jpg',name:'夜景灯火与倒影'},
+ {source:7,path:'/references/hd/6-照片-7.jpg',name:'夕阳庭院全景'},
+ {source:8,path:'/references/hd/7-照片-8.jpg',name:'廊下框景'},
+ {source:4,path:'/references/hd/3-照片-4.jpg',name:'中轴石阶与正殿'},
+ {source:6,path:'/references/hd/4-照片-5.jpg',name:'佛堂与金身'},
+ {source:5,path:'/references/hd/5-照片-6.jpg',name:'屋檐木构近景'},
+ {source:1,path:'/references/hd/0-照片-1.jpg',name:'左侧吊灯与池塘塔殿'},
+ {source:3,path:'/references/hd/2-照片-3.jpg',name:'莲池与桥'},
+ {source:2,path:'/references/hd/1-照片-2.jpg',name:'右侧廊道与落日塔殿'}
+];
+const $=id=>document.getElementById(id),frame=$('runtime'),params=new URLSearchParams(location.search),requestedSize=Number(params.get('size')||960),size=Number.isInteger(requestedSize)&&requestedSize>=320&&requestedSize<=1600?requestedSize:960;
+frame.style.width=size+'px';frame.style.height=size+'px';
+let active=0,variant='',ready=false,operation=0,renderedData='',lastCapture=null,runtimeFailure='';
+const custom=new Map(),overrides=new Map(),num=['px','py','pz','tx','ty','tz','fov','time'],nav=$('shots');
+const setStatus=s=>$('status').textContent=s;
+function busy(value){document.querySelectorAll('button').forEach(b=>b.disabled=value);document.querySelectorAll('.camera input').forEach(i=>i.disabled=value);}
+for(let i=0;i<shots.length;i++){const b=document.createElement('button');b.type='button';b.title=shots[i].name;b.innerHTML=`<img alt="" src="${shots[i].path}"><span>${String(i+1).padStart(2,'0')} · #${shots[i].source}</span>`;b.onclick=()=>show(i);nav.append(b);}
+function paintSelection(){nav.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===active)));const record=shots[active];$('reference').src=overrides.get(active)||record.path;$('reference-title').textContent=`左 · 参考 ${String(active+1).padStart(2,'0')}：${record.name}`;$('render-title').textContent=`右 · 当前源码 · 场景参考 #${record.source}`;}
+async function loadScene(wanted){
+ if(ready&&wanted===variant)return;
+ ready=false;variant=wanted;runtimeFailure='';
+ const loaded=new Promise((resolve,reject)=>{frame.onload=resolve;frame.onerror=()=>reject(Error('场景网页加载失败'));});
+ frame.src=`/render-live.html?render=1&defer=1&w=${size}&h=${size}&scene=${encodeURIComponent(wanted)}`;await loaded;
+ const deadline=Date.now()+600000;
+ while(!frame.contentWindow?.temple?.ready||typeof frame.contentWindow.captureValidatedReference!=='function'){
+  if(runtimeFailure)throw Error(runtimeFailure);if(Date.now()>deadline)throw Error('场景构建超时');await new Promise(r=>setTimeout(r,200));
+ }ready=true;
+}
+function fill(p,exposure){num.forEach((k,i)=>document.querySelector(`[data-camera="${k}"]`).value=String(Math.round(p[i]*10000)/10000));$('exposure').value=exposure===null?'':String(exposure);}
+function readControls(){
+ const p=num.map(k=>Number(document.querySelector(`[data-camera="${k}"]`).value));if(p.some(x=>!Number.isFinite(x))||p[6]<10||p[6]>140||p[7]<0||p[7]>=70)throw Error('请检查机位、视角和场景时间');
+ const input=$('exposure').value.trim(),exposure=input===''?null:Number(input);if(exposure!==null&&(!Number.isFinite(exposure)||exposure<.1||exposure>5))throw Error('曝光范围为 0.1 至 5');return {p,exposure};
+}
+function capture(record,settings){
+ const view=settings?{position:settings.p.slice(0,3),target:settings.p.slice(3,6),fov:settings.p[6],time:settings.p[7]}:null;
+ const result=frame.contentWindow.captureValidatedReference({reference:record.source,view,exposure:settings?.exposure??null});
+ const t=frame.contentWindow.temple,g=t.renderer.getContext();if(t.renderer.info.programs.some(p=>!g.getProgramParameter(p.program,g.LINK_STATUS)))throw Error('存在未成功编译的场景材质，拒绝作为完整画面显示');
+ if(!result.pixelAudit?.nonzeroAlpha||!result.pixelAudit?.nonzeroRgb||!result.png.startsWith('data:image/png;base64,'))throw Error('没有得到有效的实际渲染像素');
+ return result;
+}
+async function show(index,{fromControls=false}={}){
+ const ticket=++operation;let settings;
+ try{settings=fromControls?readControls():custom.get(index)||null;}catch(e){setStatus(String(e.message||e));return;}
+ active=index;renderedData='';lastCapture=null;paintSelection();$('rendered').removeAttribute('src');busy(true);setStatus('正在构建场景并渲染实际画面…');
+ try{
+  const started=performance.now(),record=shots[index];await loadScene(record.source===10?'reference10-porch':'shared');if(ticket!==operation)return;
+  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+  const result=capture(record,settings),p=[...result.pose.position,...result.pose.target,result.fov,result.time];
+  renderedData=result.png;lastCapture={...result};delete lastCapture.png;custom.set(index,{p,exposure:settings?.exposure??null});fill(p,settings?.exposure??null);$('rendered').src=renderedData;await $('rendered').decode();
+  setStatus(`已渲染参考 ${index+1} → 场景 #${record.source}\n设备：${result.gpu}\n实际尺寸：${result.width} × ${result.height}；曝光：${result.exposure}；本次用时：${((performance.now()-started)/1000).toFixed(1)} 秒。\n有效像素检查通过，复原细节仍需对照验收。`);
+ }catch(e){if(ticket===operation)setStatus('实际渲染失败：'+String(e.message||e));}
+ finally{if(ticket===operation)busy(false);}
+}
+addEventListener('message',e=>{if(e.origin===location.origin&&e.source===frame.contentWindow&&e.data?.kind==='komorebi-runtime-error'){runtimeFailure=String(e.data.message);setStatus('场景错误：'+runtimeFailure);}});
+$('render').onclick=()=>show(active,{fromControls:true});$('reset').onclick=()=>{custom.delete(active);show(active);};
+$('upload').onchange=e=>{const file=e.target.files?.[0];if(!file)return;const old=overrides.get(active);if(old?.startsWith('blob:'))URL.revokeObjectURL(old);overrides.set(active,URL.createObjectURL(file));paintSelection();};
+function download(blob,name){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);}
+$('export-camera').onclick=()=>{try{if(!lastCapture)throw Error('请先完成当前视角的实际渲染');const {p,exposure}=readControls();const record={displayReference:active+1,canonicalReference:shots[active].source,referencePath:shots[active].path,sceneVariant:variant,position:p.slice(0,3),target:p.slice(3,6),fov:p[6],time:p[7],exposure,actualCapture:lastCapture,status:'actual-render-review; photographic fidelity not accepted'};download(new Blob([JSON.stringify(record,null,2)],{type:'application/json'}),`komorebi-reference-${String(active+1).padStart(2,'0')}.json`);}catch(e){setStatus(String(e.message||e));}};
+$('save-pair').onclick=async()=>{if(!renderedData){setStatus('当前没有有效渲染帧');return;}try{
+ await $('reference').decode();await $('rendered').decode();const out=document.createElement('canvas');out.width=size*2;out.height=size+40;const c=out.getContext('2d',{willReadFrequently:true});c.fillStyle='#10120f';c.fillRect(0,0,out.width,out.height);
+ for(const [img,x]of [[$('reference'),0],[$('rendered'),size]]){const scale=Math.min(size/img.naturalWidth,size/img.naturalHeight),w=img.naturalWidth*scale,h=img.naturalHeight*scale;c.drawImage(img,x+(size-w)/2,40+(size-h)/2,w,h);}
+ c.font='18px system-ui';c.fillStyle='#eee7d8';c.fillText('REFERENCE',16,27);c.fillText('ACTUAL THREE.JS RENDER',size+16,27);out.toBlob(blob=>{if(blob)download(blob,`komorebi-reference-${String(active+1).padStart(2,'0')}-comparison.png`);else setStatus('PNG 编码失败');},'image/png');
+ }catch(e){setStatus('对照保存失败：'+String(e.message||e));}};
+const requested=Number(params.get('canonical')),start=shots.findIndex(s=>s.source===requested);show(start>=0?start:0);
+</script></body></html>

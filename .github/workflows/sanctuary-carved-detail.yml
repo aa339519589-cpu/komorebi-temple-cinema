@@ -1,0 +1,66 @@
+name: Carved sanctuary detail restoration
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/sanctuary-carved-detail.yml'
+      - 'tools/detail-request.json'
+      - 'src/sanctuary-carved-detail.js'
+      - 'tools/prepare-sanctuary-detail.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sanctuary-carved-detail-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  restoration:
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify source and build additive detail entry
+        run: |
+          node verify.mjs
+          node --check src/sanctuary-carved-detail.js
+          node tools/prepare-sanctuary-detail.mjs
+          node --check src/sanctuary-detail-production.js
+          node --check tools/produce-sanctuary-detail.mjs
+          mkdir -p output/detail-production
+      - name: Install isolated pinned browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render actual carved meshes and contact shadows
+        timeout-minutes: 20
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          set -o pipefail
+          node tools/produce-sanctuary-detail.mjs 2>&1 | tee output/detail-production/execution.log
+      - name: Archive exact source and render receipts
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import pathlib,zipfile,subprocess
+          names=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          names += ['src/sanctuary-detail-production.js','tools/produce-sanctuary-detail.mjs','sanctuary-detail.html']
+          with zipfile.ZipFile('output/detail-production/EDITABLE-SOURCE.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for name in sorted(set(names)):
+              p=pathlib.Path(name)
+              if p.is_file() and (p.suffix in ['.js','.mjs','.html','.json','.md','.txt','.yml'] or name.startswith(('vendor/','music/','references/')) or name in ['LICENSE','.gitignore']): z.write(p,name)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: carved-sanctuary-detail-${{ github.sha }}
+          path: output/detail-production/
+          retention-days: 7
+          if-no-files-found: error

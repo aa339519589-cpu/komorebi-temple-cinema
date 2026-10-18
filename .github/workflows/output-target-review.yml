@@ -1,0 +1,53 @@
+name: Explicit output target render review
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/output-target-review.yml'
+      - 'tools/output-target-request.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: komorebi-output-target-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify source and prepare trusted runtime
+        run: |
+          node verify.mjs
+          node --check src/capture-output-target.js
+          node --check tools/render-output-target.mjs
+          node --check tools/playwright-render-platform.mjs
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render current source with verified platform settings
+        timeout-minutes: 20
+        env:
+          REAL_PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          WEBGL_PLATFORM_BACKEND: metal
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          set -o pipefail
+          export PLAYWRIGHT_MODULE="$GITHUB_WORKSPACE/tools/playwright-render-platform.mjs"
+          mkdir -p output/output-target-review
+          sw_vers > output/output-target-review/platform.txt
+          node tools/render-output-target.mjs 2>&1 | tee output/output-target-review/execution.log
+      - name: Preserve actual rendered pixels and full receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-target-review-${{ github.sha }}
+          path: output/output-target-review/
+          retention-days: 7
+          if-no-files-found: warn
