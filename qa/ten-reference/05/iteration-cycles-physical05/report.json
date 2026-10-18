@@ -1,0 +1,153 @@
+{
+  "sourceStatistics": {
+    "meshes": 347,
+    "geometries": 343,
+    "materials": 32,
+    "textures": 8,
+    "instances": 14092,
+    "triangles": 10064369
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 5,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792327897.090702,
+  "addedContext": {
+    "kind": "Actual shadow-receiving stone courtyard mesh",
+    "sourceY": -0.12,
+    "sourceBoundsXZ": [
+      -40.0,
+      40.0,
+      -40.0,
+      40.0
+    ],
+    "linearDiffuseReflectance": [
+      0.55,
+      0.52,
+      0.46
+    ],
+    "roughness": 0.94,
+    "geometry": "4vertices,2triangles; independent ground context, source visible meshes unchanged",
+    "assumption": "Unseen courtyard plane inferred below source low camera; not a measured floor from the close-up reference."
+  },
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "outdoorSky": {
+    "airDensity": 0.800000011920929,
+    "ozoneDensity": 1.2999999523162842,
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering, no bitmap background",
+    "sunDisc": false,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      -0.5585650205612183,
+      0.4226182699203491,
+      0.7137219905853271
+    ]
+  },
+  "environmentOrientation": {
+    "longitudeFormula": "phi=pi-2*pi*u",
+    "coordinateConvention": "Outward=-TextureCoordinateNormal because background sd.N=-ray_D",
+    "sourceSunDirectionYUp": [
+      -0.5003862977027893,
+      0.5837839841842651,
+      0.6393824815750122
+    ],
+    "targetSunDirectionZUp": [
+      -0.5003862977027893,
+      -0.6393824815750122,
+      0.5837839841842651
+    ],
+    "correctMappedSunVectorZUp": [
+      -0.5003862977027893,
+      -0.6393822431564331,
+      0.5837840437889099
+    ],
+    "targetAltitudeDegrees": 35.717130445998926,
+    "eulerXYZ": [
+      0.4214586317539215,
+      -0.3098472058773041,
+      1.5406560897827148
+    ],
+    "alignmentDegrees": 0.0,
+    "primarySources": [
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h",
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/geom/shader_data.h",
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/svm/tex_coord.h"
+    ]
+  },
+  "environmentRadiance": {
+    "maximum": 58971.4765625,
+    "mean": 0.835347056388855,
+    "sunPixel": [
+      1228,
+      546
+    ],
+    "sunAltitudeDegrees": 6.064453125
+  },
+  "measuredSky": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "rotationRadians": 1.5406560897827148,
+    "license": "CC0-1.0",
+    "provider": "Poly Haven",
+    "asset": "qwantani_sunset_puresky",
+    "authors": [
+      "Greg Zaal",
+      "Jarod Guest"
+    ],
+    "sunLightsRemoved": true,
+    "environmentRole": "Actual full-radiance3D illumination/reflection; not a reference photograph or camera plate."
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 10064369,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.",
+  "vermilionAlbedoCalibration": {
+    "linearMultiplier": [
+      1.08,
+      0.83,
+      0.72
+    ],
+    "materialScope": "Original red lacquer / kit cedar only; source UVs and scanned albedo, normal and roughness maps retained"
+  },
+  "physicalSun": {
+    "mode": "Measured HDRI sole sun",
+    "measuredAssetSunAltitudeDegrees": 6.064453125,
+    "correctMappedSunVectorZUp": [
+      -0.5003862977027893,
+      -0.6393822431564331,
+      0.5837840437889099
+    ],
+    "targetAltitudeDegrees": 35.717130445998926,
+    "sunLightObjects": 0,
+    "powerFromMeasuredRadiance": true
+  },
+  "lightCalibration": {
+    "transfer": "Measured HDRI radiance with no duplicateSUN; actual courtyard GI and documented shadow-casting production bounce.",
+    "sunGain": 0.28,
+    "worldGain": 1.0,
+    "exposure": 0.0,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792327986.2306612,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 128,
+  "photographicAcceptance": false
+}

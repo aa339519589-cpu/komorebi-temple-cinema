@@ -1,0 +1,81 @@
+{
+  "scope": "Same exact source05native mesh/camera and existing courtyard; corrected HDRI coordinate signs + rigid alignment to sourceSun. No production bounce or SUN lamps.",
+  "sourceHash": "27e01f7106f7204df2ea0f076be3ab5f875b1d8940ca855e37de7bffe4cc025a",
+  "sourceBuilder": "reconstructions/scene-05/cycles/render-hdri-corrected05.py",
+  "sourceBuilderSha256": "fde134caec8996f5d00aadf085db7be6110ff367e41963d491acd68752a344b6",
+  "environment": {
+    "SCENE_PACKAGE": "output/scene05-physical-detail52",
+    "CYCLES_OUTPUT": "output/scene05-cycles-physical05",
+    "LIGHTING_MODE": "outdoor-day",
+    "PHYSICAL_COURTYARD": "1",
+    "PHYSICAL_VERMILION_TINT": "1.08,.83,.72",
+    "PHYSICAL_GROUND_RADIANCE": "0,0,0",
+    "CYCLES_WORLD_GAIN": "1",
+    "CYCLES_EXPOSURE": "0",
+    "CYCLES_DEVICE": "METAL",
+    "CYCLES_SAMPLES": "128",
+    "CYCLES_DENOISE": "1",
+    "CYCLES_SIZE": "1254",
+    "CYCLES_SAVE_BLEND": "1",
+    "CYCLES_PACK_TEXTURES": "1",
+    "CYCLES_BLEND_NAME": "scene05-physical05.blend",
+    "CYCLES_RENDER_NAME": "scene05-cycles-physical05.png",
+    "PHYSICAL_COURTYARD_ALBEDO": ".55,.52,.46",
+    "PHYSICAL_BOUNCE_POWER": "0",
+    "TEMPLE_SKY_EXR": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr"
+  },
+  "exportCommand": "REFERENCE=5 SCENE_EXPORT=output/scene05-physical-detail52 node tools/export-reconstructed-scene.mjs",
+  "renderCommand": "Apply environment above; node tools/run-blender-queued.mjs reconstructions/scene-05/cycles/render-hdri-corrected05.py",
+  "actualFrameSha256": "e7b3fbb54e56adf6ada5219cce230c06651191a5efdaa7f60dbc21a6f127749e",
+  "packedBlend": "output/scene05-cycles-physical05/scene05-physical05.blend",
+  "status": "Actual1254Metal128sample/OIDN corrected frame viewed. Under-eave transport opens without added bounce; sky and photographic detail remain belowreference. No look acceptance or film.",
+  "hdriProvenance": {
+    "asset": "qwantani_sunset_puresky",
+    "provider": "Poly Haven",
+    "source": "https://polyhaven.com/a/qwantani_sunset_puresky",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://polyhaven.com/license",
+    "authors": {
+      "photography": "Greg Zaal",
+      "processing": "Jarod Guest"
+    },
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/2k/qwantani_sunset_puresky_2k.exr",
+    "bytes": 18335204,
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "role": "Measured high-dynamic-range sky radiance used for actual3D lighting and reflection; no reference-frame projection."
+  },
+  "environmentOrientation": {
+    "longitudeFormula": "phi=pi-2*pi*u",
+    "coordinateConvention": "Outward=-TextureCoordinateNormal because background sd.N=-ray_D",
+    "sourceSunDirectionYUp": [
+      -0.5003862977027893,
+      0.5837839841842651,
+      0.6393824815750122
+    ],
+    "targetSunDirectionZUp": [
+      -0.5003862977027893,
+      -0.6393824815750122,
+      0.5837839841842651
+    ],
+    "correctMappedSunVectorZUp": [
+      -0.5003862977027893,
+      -0.6393822431564331,
+      0.5837840437889099
+    ],
+    "targetAltitudeDegrees": 35.717130445998926,
+    "eulerXYZ": [
+      0.4214586317539215,
+      -0.3098472058773041,
+      1.5406560897827148
+    ],
+    "alignmentDegrees": 0.0,
+    "primarySources": [
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h",
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/geom/shader_data.h",
+      "https://github.com/blender/blender/blob/main/intern/cycles/kernel/svm/tex_coord.h"
+    ]
+  },
+  "nativeAudit": "qa/ten-reference/05/iteration-cycles-physical05/native-source-audit.json",
+  "priorFrameError": "Physical04 is retained as an error candidate: inward TexCoordNormal and positive longitude mapped the wrong environment hemisphere. Its apparent colour/brightness must not be treated as correctly oriented measured-sky evidence.",
+  "receiptClarification": "Raw report.lightCalibration.transfer inherits a generic production-bounce phrase; actual PHYSICAL_BOUNCE_POWER=0 created no AREA source, no photographicBounce object is present in the raw report, and all SUN lamps were removed. This immutable settings record states the actual lighting recipe."
+}
