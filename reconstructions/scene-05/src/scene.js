@@ -2,6 +2,7 @@ import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
+import {buildMapleCanopy} from './foliage.js';
 export const POSE={position:[7.5,1.02,10],target:[-1.9,8.4,0],fov:65};
 export function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
@@ -25,7 +26,30 @@ export function buildScene(){
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);}
  const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack});
  mats.architecture_red.color.set('#a04727');mats.architecture_cedar.color.set('#a36137');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414c53');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
+ for(const [name,m]of Object.entries(mats)){
+   if(['red','cedar','endwood','darkwood'].some(k=>name===k||name==='architecture_'+k)){
+     m.roughnessMap=null;m.roughness=name.includes('endwood')?.84:.76;m.envMapIntensity=.28;
+     m.onBeforeCompile=shader=>{
+       shader.vertexShader='varying vec2 vWearUv;\n'+shader.vertexShader;
+       shader.vertexShader=shader.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\nvWearUv=uv;');
+       shader.fragmentShader='varying vec2 vWearUv;\n'+shader.fragmentShader;
+       shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+float warped=vWearUv.x*470.+sin(vWearUv.y*24.)*2.0+sin(vWearUv.y*57.+vWearUv.x*13.)*.7;
+float grain=sin(warped)*.055+sin(warped*2.31)*.032;
+float aged=sin(vWearUv.x*16.+sin(vWearUv.y*8.))*.065;
+float split=pow(max(0.,sin(vWearUv.x*169.+sin(vWearUv.y*12.)*.4)),30.)*smoothstep(.0,.6,sin(vWearUv.y*14.+vWearUv.x*31.));
+diffuseColor.rgb*=.94+grain+aged-split*.20;
+`);
+     };m.customProgramCacheKey=()=> 'scene05-aged-wood-grain-v3';
+   }
+   if(name==='gold'||name==='architecture_gold'){m.roughness=.53;m.envMapIntensity=.64;}
+   if(name==='oldgold'||name==='architecture_oldgold'){m.roughness=.63;m.envMapIntensity=.48;}
+ }
+ mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#88602c',metalness:.86,roughness:.56,envMapIntensity:.65});
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
+ mats.carvingGround=new T.MeshStandardMaterial({name:'scene05-dark-carved-ground',color:'#2b2116',roughness:.9});
+ const leafShape=new T.Shape();leafShape.moveTo(-.5,0);leafShape.bezierCurveTo(-.15,.23,.29,.28,.5,0);leafShape.bezierCurveTo(.15,-.19,-.2,-.13,-.5,0);
+ const carvedLeaf=new T.ExtrudeGeometry(leafShape,{depth:.025,steps:1,bevelEnabled:true,bevelThickness:.012,bevelSize:.012,bevelSegments:1,curveSegments:5});
  const levels=[];
  for(let level=0;level<5;level++){
    const scale=1-level*.075,w=8.8*scale,y=.35+level*4.3;
@@ -34,7 +58,7 @@ export function buildScene(){
    arch.pagodaRoof({y:y+3.55,w:w+3.5*scale,d:w+3.5*scale,rise:2.35*scale,wallWidth:w,wallDepth:w,frameScale:scale,detail:true,soffitMaterial:'cedar'});
    levels.push({level,y,width:w,shaftTop:frame.shaftTop});
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
-     for(const xx of [-w/3,0,w/3])arch.brackets(xx,frame.bracketY+.04,w/2,.56*scale,{detail:true,interlocked:true});
+     for(const xx of [-w/3,0,w/3])arch.brackets(xx,frame.bracketY,w/2,.72*scale,{detail:true,interlocked:true});
      for(const xx of [-w/2,w/2]){
        arch.squareFitting(xx,frame.shaftTop-.13,w/2+.243*scale,.36*scale,.39*scale,0,true);
      }
@@ -48,6 +72,12 @@ export function buildScene(){
      for(let k=-1;k<=1;k++){
        const x=k*w/3;box(x,y+2.65,w/2+.026,w/3-.22,.26,.16,'red');
        arch.squareFitting(x,y+2.65,w/2+.114,.15,.15,0,true);
+       if(level<4){
+         box(x,y+2.65,w/2+.116,.72*scale,.205*scale,.014,'carvingGround');
+         const stalk=[];for(let j=0;j<=24;j++){const q=-.32+j*.64/24;stalk.push(new T.Vector3(x+q*scale,y+2.65+Math.sin(q*11+level)*.025*scale,w/2+.132));}
+         instance(new T.TubeGeometry(new T.CatmullRomCurve3(stalk),24,.007*scale,5,false),'oldgold');
+         for(let j=0;j<7;j++){const q=-.28+j*.09,sgn=j%2?1:-1;instance(carvedLeaf,j%3?'oldgold':'gold',x+q*scale,y+2.65+sgn*.039*scale,w/2+.138,.13*scale,.18*scale,.13,[0,0,sgn*.65+Math.sin(level+j)*.15]);}
+       }
      }
    });
  }
@@ -57,30 +87,40 @@ export function buildScene(){
      box(0,base,d/2,d+.10,.15,.22,'red');box(0,base+.43,d/2,d+.10,.10,.14,'red');box(0,top,d/2,d+.18,.135,.19,'red');
      for(let i=0;i<=6;i++){
        const x=-d/2+i*d/6;box(x,(top+base)/2,d/2,.105,.95,.105,'red');
-       if(i%2===0){instance('sphere','gold',x,top+.10,d/2,.083,.11,.083);arch.squareFitting(x,top-.09,d/2+.099,.085,.085,0,true);}
+       if(i%2===0){instance(new T.LatheGeometry([[0,0],[.06,.015],[.09,.06],[.075,.14],[.025,.18],[0,.18]].map(p=>new T.Vector2(...p)),12),'gold',x,top+.02,d/2);
+         for(let k=0;k<8;k++){const a=k*Math.PI/4;instance('sphere','oldgold',x+Math.sin(a)*.067,top+.10,d/2+Math.cos(a)*.067,.020,.074,.020);} arch.squareFitting(x,top-.09,d/2+.099,.085,.085,0,true);}
      }
    });
  }
  function lantern(x,y,z,s){
    group(x,y,z,0,()=>{
-     const metal='oldgold',radius=.34*s,h=.72*s;
-     
-     // Lofted six sided metal hoods and perforated crown are closed geometry.
-     function loft(profile,ma){const g=new T.LatheGeometry(profile.map(p=>new T.Vector2(p[0]*s,p[1]*s)),6);instance(g,ma);}
-     loft([[0,-.66],[.07,-.64],[.12,-.57],[.08,-.51],[.19,-.43],[.27,-.36],[.34,-.36],[.34,.36],[.48,.39],[.44,.48],[.34,.47],[.16,.64],[.11,.70],[.11,.94],[.20,1.02],[.17,1.22],[.07,1.27],[0,1.27]],metal);
-     // Paper faces sit just outside the hollow frame; bars cast true minute shadows.
+     const bronze='lanternBronze',gold='oldgold';
+     function loft(profile,ma){instance(new T.LatheGeometry(profile.map(p=>new T.Vector2(p[0]*s,p[1]*s)),12),ma);}
+     function wire(points,r=.010,ma=gold){instance(new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(p[0]*s,p[1]*s,p[2]*s))),20,r*s,5,false),ma);}
+     // Bottom and hood are distinct closed shells. There is no opaque wall behind the panes.
+     loft([[0,-.58],[.055,-.58],[.10,-.53],[.20,-.47],[.32,-.40],[.34,-.34],[.30,-.34],[.30,-.38],[.18,-.44],[.055,-.52],[0,-.52]],bronze);
+     loft([[.035,.69],[.13,.69],[.29,.50],[.49,.43],[.52,.45],[.49,.48],[.32,.55],[.15,.73],[.035,.73],[.035,.69]],bronze);
+     for(const yy of [-.39,.35])loft([[.30,yy],[.35,yy],[.35,yy+.04],[.30,yy+.04],[.30,yy]],gold);
      for(let face=0;face<6;face++)group(0,0,0,face*Math.PI/3,()=>{
-       box(0,0,.296*s,.31*s,.66*s,.012*s,'lanternPaper');
-       for(const side of [-1,1])box(side*.165*s,0,.309*s,.025*s,.73*s,.035*s,'black');
-       for(const yy of [-.34,0,.34])box(0,yy*s,.316*s,.35*s,.018*s,.027*s,'oldgold');
-       for(const side of [-1,1])box(side*.085*s,0,.318*s,.014*s,.66*s,.016*s,'oldgold');
-       // Small raised floral reliefs decorate the copper upper crown.
-       arch.squareFitting(0,.97*s,.147*s,.18*s,.18*s,0,true);
+       box(0,-.01*s,.269*s,.29*s,.68*s,.009*s,'lanternPaper');
+       for(const side of [-1,1])box(side*.157*s,-.01*s,.283*s,.024*s,.76*s,.030*s,bronze);
+       for(const yy of [-.32,-.10,.14,.32])box(0,yy*s,.286*s,.31*s,.012*s,.015*s,bronze);
+       box(0,-.01*s,.289*s,.010*s,.68*s,.014*s,bronze);
+       // Curled leaf tracery has real holes through to luminous paper.
+       for(const side of [-1,1])for(const yy of [-.21,.025,.24]){
+         const pts=[];for(let j=0;j<=18;j++){const t=j/18*Math.PI*1.8,r=.038*(1-j/23);pts.push([side*(.075+Math.cos(t)*r),yy+Math.sin(t)*r,.299]);}wire(pts,.006,bronze);
+       }
+       // Six pierced crown petals grow between narrow rings instead of a smooth gold tube.
+       for(const side of [-1,1]){
+         const pts=[];for(let j=0;j<=24;j++){const a=j/24*Math.PI*2;pts.push([side*.075+.067*Math.sin(a),.96+.15*Math.cos(a),.123+.014*Math.sin(a*2)]);}wire(pts,.014,gold);
+       }
+       wire([[-.13,.79,.13],[-.10,1.08,.13],[0,1.22,.13],[.10,1.08,.13],[.13,.79,.13]],.012,bronze);
      });
-     instance(new T.CylinderGeometry(.018*s,.018*s,.38*s,8),'oldgold',0,1.44*s,0);
-     for(let i=0;i<6;i++){
-       const a=i*Math.PI/3;instance('sphere','gold',Math.sin(a)*.10*s,-.62*s,Math.cos(a)*.10*s,.033*s,.042*s,.033*s);
-     }
+     for(const yy of [.78,1.17])loft([[.105,yy],[.16,yy],[.16,yy+.026],[.105,yy+.026],[.105,yy]],gold);
+     loft([[0,1.18],[.13,1.18],[.105,1.26],[.055,1.33],[0,1.33]],gold);
+     instance(new T.CylinderGeometry(.014*s,.014*s,.34*s,8),bronze,0,1.48*s,0);
+     wire([[0,-.58,0],[.02,-.64,0],[-.01,-.72,0],[0,-.78,0]],.009,gold);
+     loft([[0,-.90],[.045,-.88],[.066,-.83],[.04,-.78],[0,-.77]],gold);
    });
  }
  // Sky: directional pale wisps are an analytic shader, with no image texture.
@@ -92,26 +132,7 @@ export function buildScene(){
  // Procedural environment radiance provides directional metal reflections.
  const faces=[];for(let i=0;i<6;i++){const c=document.createElement('canvas');c.width=c.height=64;const cx=c.getContext('2d'),gr=cx.createLinearGradient(0,0,0,64);gr.addColorStop(0,'#c7defa');gr.addColorStop(.5,'#b4c2c2');gr.addColorStop(1,'#6b4b2c');cx.fillStyle=gr;cx.fillRect(0,0,64,64);faces.push(c);}
  const env=new T.CubeTexture(faces);env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;scene.environment=env;scene.environmentIntensity=.85;
- foliage();
- function foliage(){
-   let seed=52;const rand=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
-   const bark=new T.MeshStandardMaterial({color:'#443923',roughness:1}),greens=['#7b7c17','#9d9b1b','#b6a92a','#53601b','#718128'].map(color=>new T.MeshStandardMaterial({color,side:T.DoubleSide,roughness:.89}));
-   const maple=new T.Shape();const outline=[[0,.53],[.10,.22],[.25,.34],[.20,.12],[.45,.14],[.30,-.035],[.47,-.10],[.22,-.16],[.20,-.32],[.07,-.19],[0,-.44],[-.07,-.19],[-.20,-.32],[-.22,-.16],[-.47,-.10],[-.30,-.035],[-.45,.14],[-.20,.12],[-.25,.34],[-.10,.22]];outline.forEach(([x,y],i)=>i?maple.lineTo(x,y):maple.moveTo(x,y));maple.closePath();const leafGeo=new T.ShapeGeometry(maple);const pp=leafGeo.attributes.position;for(let i=0;i<pp.count;i++)pp.setZ(i,.08*Math.abs(pp.getX(i))+.026*Math.sin(pp.getY(i)*10));leafGeo.computeVertexNormals();
-   function branch(a,b,r){const av=new T.Vector3(...a),bv=new T.Vector3(...b),dir=bv.clone().sub(av),g=new T.CylinderGeometry(r*.62,r,dir.length(),7);const mesh=new T.Mesh(g,bark);mesh.position.copy(av).add(bv).multiplyScalar(.5);mesh.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),dir.normalize());mesh.castShadow=true;scene.add(mesh);}
-   // Left foreground branch canopy. Individual lobed leaves keep natural open sky gaps.
-   const leafBatches=greens.map(()=>[]);
-   function spray(anchor,spread,count){for(let i=0;i<count;i++){
-     const p=new T.Vector3(anchor[0]+(rand()-.5)*spread,anchor[1]+(rand()-.5)*spread*.55,anchor[2]+(rand()-.5)*spread*.8);
-     const s=.17+rand()*.22,q=new T.Quaternion().setFromEuler(new T.Euler(-.25+rand()*1.8,rand()*6.28,rand()*6.28));leafBatches[Math.floor(rand()*greens.length)].push(new T.Matrix4().compose(p,q,new T.Vector3(s,s,s)));
-   }}
-   branch([-9,0,10],[-7,7.7,8],.24);branch([-7,7.7,8],[-4.8,10.8,7],.13);branch([-4.8,10.8,7],[.2,11.1,8],.075);
-   for(let j=0;j<15;j++){
-     const t=j/14,a=[-4.8+t*5,10.8+t*.3,7+t],b=[a[0]-.45,a[1]+.4+rand()*.45,a[2]+.15];branch(a,b,.027);spray(b,1.65,145);
-   }
-   spray([.2,11.1,8],1.8,160);spray([-4.8,10.8,7],2.2,220);
-   for(let j=0;j<26;j++){const p=[-10+rand()*7,1+rand()*7,2+rand()*5];spray(p,2.8,65);}
-   leafBatches.forEach((arr,j)=>{const mesh=new T.InstancedMesh(leafGeo,greens[j],arr.length);arr.forEach((m,i)=>mesh.setMatrixAt(i,m));mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);});
- }
+ const canopy=buildMapleCanopy(scene);
  // Flatten static geometry by material: dense joinery remains real 3D but submission cost stays bounded.
  let triangles=0,parts=0;
  for(const [material,records]of bucket){
@@ -124,5 +145,5 @@ export function buildScene(){
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-short-parallel-rafter-v2',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-chased-joinery-open-lantern-v3',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }

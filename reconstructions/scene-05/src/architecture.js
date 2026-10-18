@@ -1518,7 +1518,7 @@ export function createRestorationArchitecture(ctx) {
     draw(g.ring,'tileEdge',face.toArray(),[r*.82,r*.82,r*.42],rot,.82);
     if(detail) {
       const mark=face.clone().addScaledVector(n,.0015);
-      flower(mark.x,mark.y,mark.z,r*.68,'tileEdge',rot,.87);
+      flower(mark.x,mark.y,mark.z,r*.56,'oldgold',rot,.87);
     }
   }
 
@@ -1542,7 +1542,7 @@ export function createRestorationArchitecture(ctx) {
       stats.roofFaces++;
       const angle=face===0?0:face===1?PI:face===2?PI/2:-PI/2;
       const count=Math.max(4,Math.round((face<2?w:d)/.29));
-      const denseCount=Math.max(8,Math.round((face<2?w:d)/.205));
+      const denseCount=Math.max(8,Math.round((face<2?w:d)/.17));
       for(let i=1;i<denseCount;i++) {
         const u=-1+2*i/denseCount;
         // Rafters retain their transverse coordinate. The hip cuts their inner ends;
@@ -1560,14 +1560,17 @@ export function createRestorationArchitecture(ctx) {
             const centre=sample(t);centre.y-=main?.36:.205;
             frames.push({centre,tangent,side,up});
           }
-          return rafterSectionSweep(frames,main?.130:.098,main?.18:.10,{capStart:true,capEnd:true,bevel:.004});
+          return rafterSectionSweep(frames,main?.110:.080,main?.14:.085,{capStart:true,capEnd:true,bevel:.004});
         };
         for(const main of [true,false]){const geo=makeRafter(main);if(geo){wood(geo,main?'cedar':'endwood');stats.rafters++;}}
         const tip=sample(1.024);tip.y-=.205;
         const tangent=sample(1.0241).sub(sample(1.0239)).normalize();
         const side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize();
         const q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
-        draw('box','oldgold',tip.toArray(),[.096,.095,.009],q,.84);
+        draw('box','oldgold',tip.toArray(),[.078,.080,.007],q,.84);
+        const mainEnd=sample(.993);mainEnd.y-=.36;
+        draw('box','oldgold',mainEnd.toArray(),[.108,.138,.008],q,.82);
+        if(i%2===0){const mark=mainEnd.clone().addScaledVector(tangent,.005);flower(mark.x,mark.y,mark.z,.035,'gold',q,.88);} 
       }
       // Continuous thick ring purlins take the short rafters, leaving small real
       // rectangular voids between wood members rather than a broad fan cavity.
@@ -1601,7 +1604,7 @@ export function createRestorationArchitecture(ctx) {
       for(let j=0;j<=22;j++) {
         const p=evalP(face,.28+.75*j/22,side);p.y-=.365;pts.push(p.toArray());
       }
-      let hip=eaveSweep(pts,.22,.23);
+      let hip=eaveSweep(pts,.30,.34);
       if(hipSeat) {
         const curve=new T.CatmullRomCurve3(pts.map(p=>v(p)));
         const frames=Array.from({length:25},(_,j)=>{
@@ -1609,7 +1612,7 @@ export function createRestorationArchitecture(ctx) {
           const side=new T.Vector3(tangent.z,0,-tangent.x).normalize();
           return {centre,tangent,side,up:new T.Vector3().crossVectors(tangent,side).normalize()};
         });
-        hip=rafterSectionSweep(frames,.22,.23,{capStart:true,capEnd:true,bevel:.0075});
+        hip=rafterSectionSweep(frames,.30,.34,{capStart:true,capEnd:true,bevel:.0075});
         const direction=v([pts.at(-1)[0],0,pts.at(-1)[2]]).normalize();
         const centre=v([Math.sign(direction.x)*hipSeat.width/2,0,Math.sign(direction.z)*hipSeat.depth/2]).dot(direction);
         const half=hipSeat.purlinWidth/Math.SQRT2+.11;
@@ -1625,9 +1628,9 @@ export function createRestorationArchitecture(ctx) {
         q.setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
       }
       const tip=end.clone().addScaledVector(tangent,.014);
-      draw('box','oldgold',tip.toArray(),[.215,.225,.019],q);
+      draw('box','oldgold',tip.toArray(),[.292,.332,.012],q);
       const flowerPoint=tip.clone().addScaledVector(tangent,.012);
-      flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.081,'gold',q);
+      flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.116,'gold',q);
     }
   }
 

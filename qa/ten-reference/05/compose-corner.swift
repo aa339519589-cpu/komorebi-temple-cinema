@@ -1,0 +1,2 @@
+import AppKit
+let inputs=CommandLine.arguments.dropFirst();let source=NSImage(contentsOfFile:inputs[inputs.startIndex])!;let rendered=NSImage(contentsOfFile:inputs[inputs.startIndex+1])!;let out=inputs[inputs.startIndex+2];let canvas=NSImage(size:NSSize(width:1100,height:550));canvas.lockFocus();source.draw(in:NSRect(x:0,y:0,width:550,height:550));rendered.draw(in:NSRect(x:550,y:0,width:550,height:550));canvas.unlockFocus();let bitmap=NSBitmapImageRep(data:canvas.tiffRepresentation!)!;try bitmap.representation(using:.png,properties:[:])!.write(to:URL(fileURLWithPath:out))
