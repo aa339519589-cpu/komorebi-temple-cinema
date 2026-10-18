@@ -1,5 +1,6 @@
 import {spawn,execFileSync} from 'node:child_process';
-import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile,stat} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {reconstructionSourceIdentity} from './reconstruction-source-identity.mjs';
@@ -7,6 +8,8 @@ const root=resolve(fileURLToPath(new URL('..',import.meta.url)));
 const iteration=process.env.FILM_ITERATION||'hour-1832-film';
 if(!/^[a-zA-Z0-9_-]+$/.test(iteration))throw Error('Invalid film iteration');
 const size=Number(process.env.FILM_SIZE||1080),fps=30;
+const reuseIteration=process.env.FILM_REUSE_ITERATION;
+if(reuseIteration&&!/^[a-zA-Z0-9_-]+$/.test(reuseIteration))throw Error('Invalid cached film iteration');
 const out=resolve(root,'output',iteration);await mkdir(out,{recursive:true});
 const report={status:'rendering-ten-actual-shots',startedAt:new Date().toISOString(),sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),size:[size,size],fps,visualAccepted:false,completeRequestedFidelity:false,shots:[]};
 const save=()=>writeFile(resolve(out,'film-build.json'),JSON.stringify(report,null,2)+'\n');
@@ -16,10 +19,20 @@ try{
  for(let reference=1;reference<=10;reference++){
   const id=String(reference).padStart(2,'0');
   if((await reconstructionSourceIdentity(root,id)).hash!==identities[reference-1])throw Error('Source changed before shot '+id);
-  await run(process.execPath,['tools/render-one-reconstruction.mjs'],{REFERENCE:String(reference),WORKTREE:root,SIZE:String(size),ITERATION:iteration,MOTION_FPS:String(fps)});
-  const folder=resolve(root,'qa/ten-reference',id,'iteration-'+iteration),receipt=JSON.parse(await readFile(resolve(folder,'report.json'),'utf8'));
+  let receipt=null,reused=false;
+  if(reuseIteration){
+   try{
+    const cached=JSON.parse(await readFile(resolve(root,'qa/ten-reference',id,'iteration-'+reuseIteration,'report.json'),'utf8'));
+    if(cached.status==='motion-review-rendered'&&cached.source.hash===identities[reference-1]&&cached.size===size&&cached.motion?.fps===fps&&cached.motion.expectedFrames===210&&(await stat(cached.motion.file)).size>1000){receipt=cached;reused=true;}
+   }catch(e){if(e.code!=='ENOENT')throw e;}
+  }
+  if(!receipt){
+   await run(process.execPath,['tools/render-one-reconstruction.mjs'],{REFERENCE:String(reference),WORKTREE:root,SIZE:String(size),ITERATION:iteration,MOTION_FPS:String(fps)});
+   receipt=JSON.parse(await readFile(resolve(root,'qa/ten-reference',id,'iteration-'+iteration,'report.json'),'utf8'));
+  }
   if(receipt.status!=='motion-review-rendered'||receipt.source.hash!==identities[reference-1])throw Error('Shot source/encoding failure '+id);
-  report.shots.push({reference,file:resolve(folder,'motion-review.mp4'),source:receipt.source,frames:receipt.motion.expectedFrames,duration:7,actualWebgl:true,visualAccepted:false});await save();
+  const file=receipt.motion.file,videoSha256=createHash('sha256').update(await readFile(file)).digest('hex');
+  report.shots.push({reference,file,videoSha256,reusedIdenticalSourceShot:reused,source:receipt.source,frames:receipt.motion.expectedFrames,duration:7,actualWebgl:true,visualAccepted:false});await save();
  }
  const concatFile=resolve(out,'shots.txt');await writeFile(concatFile,report.shots.map(s=>"file '"+s.file.replaceAll("'","'\\''")+"'").join('\n')+'\n');
  const cut=resolve(out,'ten-shots-70s-silent.mp4'),music=resolve(root,'music/PerituneMaterial_Oboro.mp3');
