@@ -12,5 +12,12 @@
     "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
     "assets/polyhaven/rock-moss-set-01/provenance.json",
     "reconstructions/camera-dolly.js"
-  ]
+  ],
+  "foregroundRoof": {
+    "source": "src/foreground-gallery-roof.js",
+    "provenance": "assets/foreground-roof-provenance.json",
+    "scope": "Only the separate low near-gallery roof, using the existing mesh67 transform and curve. The main hall/pagoda physical-roofs.js is untouched.",
+    "newExternalAssets": [],
+    "photoTextureOrProjection": false
+  }
 }
