@@ -1,0 +1,199 @@
+{
+  "reference": 2,
+  "entry": "reconstructions/scene-02/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 900,
+  "startedAt": "2026-10-18T06:38:33.983Z",
+  "source": {
+    "hash": "03b959e6585e143a239b7ef7a7dfd59881da3a9b08c01a5f6fe07e2f06f16cd3",
+    "files": {
+      "reconstructions/scene-02/architecture.js": "1e49582ffd0ea1afcb0d59131f7b5cc6da153c73f2d6ddcda75bd5d9da91112c",
+      "reconstructions/scene-02/garden.js": "4326fd3a7edb415f6c8153c135f6cfc10275df6e55e98743739b9b443d5d4c41",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "556963f74aefed732737e1d471d3a3cb03f54eea31e4b14d293e6ee4942be45e",
+      "reconstructions/scene-02/main.js": "a71ad5ba52ea6dc66aa2f559ac8813a87eb15cc77c8daaa5d8401643bb5e4c64"
+    }
+  },
+  "sourceCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-02/index.html",
+    "/reconstructions/scene-02/main.js",
+    "/reconstructions/scene-02/kernel.js",
+    "/reconstructions/scene-02/architecture.js",
+    "/reconstructions/scene-02/garden.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 900,
+        "height": 900
+      },
+      "width": 900,
+      "height": 900,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-photo-rebuild-13",
+        "ready": true,
+        "frames": 1,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 52518,
+          "buckets": 482
+        },
+        "garden": {
+          "instances": 434146,
+          "buckets": 429
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 1,
+          "triangles": 1
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "No external textures, models, HDR maps, image backgrounds or AI visuals."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9991012345679012,
+      "opaqueFraction": 1,
+      "rgbaSha256": "4ac63810bcc281f5a482c6b252f01271bda4b9595dbcee225aa647ece49794cf"
+    }
+  ],
+  "completedAt": "2026-10-18T06:38:35.818Z"
+}

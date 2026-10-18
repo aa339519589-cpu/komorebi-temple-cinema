@@ -6,6 +6,6 @@
 - Give each active worker one scene and one or two well-supported corrections. Check the original and actual render before editing, verify the result, commit, then let the primary agent review. Avoid indefinite autonomous trial loops and repetitive status messages.
 - All ten supplied references remain in scope. Model concurrency limits do not reduce the deliverable to a subset of the scenes.
 - Use only code-generated visual geometry/materials. Reference photographs are comparison inputs, never scene planes/textures. The permitted external media exception is credited free background music.
-- Actual GPU jobs must use `tools/render-one-reconstruction.mjs` and its shared mutex. Do not launch parallel ad-hoc Chromium jobs around the queue.
+- Actual still and motion jobs must use `tools/render-one-reconstruction.mjs` and its shared mutex. The complete live review test `tools/check-ten-review.mjs` uses the same mutex. Do not launch parallel ad-hoc Chromium jobs around the queue.
 - Preserve failed candidates and receipts with honest status. Successful loading, finite geometry, linked shaders and nonempty pixels do not establish photographic fidelity or completion.
 - Continue using the public repository and explicit source/render identities. Keep the ongoing reconstruction separate from rejected historical films; never describe a draft as a finished match.

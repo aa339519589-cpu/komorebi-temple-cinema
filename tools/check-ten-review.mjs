@@ -1,8 +1,11 @@
 import {mkdir,writeFile} from 'node:fs/promises';
 import {launchRenderBrowser} from './render-runtime.mjs';
+import {acquireGpuRenderSlot} from './gpu-render-slot.mjs';
+import {execFileSync} from 'node:child_process';
 const out='qa/ten-reference/review-ui';await mkdir(out,{recursive:true});
+const releaseGpu=await acquireGpuRenderSlot('ten-reference-live-ui');
 const runtime=await launchRenderBrowser(),browser=runtime.browser;
-const report={startedAt:new Date().toISOString(),status:'checking',scope:'All ten live review entries, genuine framebuffer, browser errors and photo isolation. This is not image-fidelity acceptance.',visualAccepted:false,frames:[],errors:[],forbiddenScenePhotoRequests:[]};
+const report={startedAt:new Date().toISOString(),sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),status:'checking',scope:'All ten live review entries, genuine framebuffer, browser errors and photo isolation. This is not image-fidelity acceptance.',visualAccepted:false,frames:[],errors:[],forbiddenScenePhotoRequests:[]};
 try{
  const page=await browser.newPage({viewport:{width:1600,height:1100},deviceScaleFactor:1});page.setDefaultTimeout(240000);
  let rejectFatal;const fatal=new Promise((_,reject)=>rejectFatal=reject);fatal.catch(()=>{});
@@ -28,4 +31,4 @@ try{
  if(report.errors.length||report.forbiddenScenePhotoRequests.length)throw Error('Review contains runtime errors or a scene attempted to load a reference photograph.');
  report.status='runtime-checked';
 }catch(e){report.status='failed';report.error=String(e.stack||e);process.exitCode=1;}
-finally{report.completedAt=new Date().toISOString();await writeFile(out+'/report.json',JSON.stringify(report,null,2));await browser.close();console.log(JSON.stringify({status:report.status,entries:report.frames.length,error:report.error,errors:report.errors}));}
+finally{report.completedAt=new Date().toISOString();await writeFile(out+'/report.json',JSON.stringify(report,null,2));await browser.close();releaseGpu();console.log(JSON.stringify({status:report.status,entries:report.frames.length,error:report.error,errors:report.errors}));}

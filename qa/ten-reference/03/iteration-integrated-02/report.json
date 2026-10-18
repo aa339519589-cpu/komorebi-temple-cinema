@@ -1,0 +1,220 @@
+{
+  "reference": 3,
+  "entry": "reconstructions/scene-03/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 900,
+  "startedAt": "2026-10-18T06:38:36.010Z",
+  "source": {
+    "hash": "7257d68cac80b26408e0935443984c65dc06a0332bc39c327d7dc73d0aad0c92",
+    "files": {
+      "reconstructions/scene-03/index.html": "055f4b3a9530e7c502546f8a78abfd91fbedd21acff4884775309730788fb34c",
+      "reconstructions/scene-03/src/hall-layout.js": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "reconstructions/scene-03/src/lotus-material.js": "bd9043fa4f005f2d9f9aab5d68312ed06a2f4efbde31d8242cde64546035846d",
+      "reconstructions/scene-03/src/main.js": "8823e483c72d59b50ace79244fb3b01360ef3d1ca6d86adaaac2ce69857cb871",
+      "reconstructions/scene-03/src/reference4-architecture.js": "558c3e32fa9c36ba5a056b58476bb4bcd7d53a2f9cb58e52ff11f43f0757e6ba",
+      "reconstructions/scene-03/src/reference4-detail-kernel.js": "18193225a51a63a81e5f399c10b4262819854191c971876e9c977b0ba4065024",
+      "reconstructions/scene-03/src/reference4-materials.js": "f3ef009732ba14953ba3b8f1898cd79c8791fc6fb36e9be52681403163125325",
+      "reconstructions/scene-03/src/reference4-natural-forms.js": "4c112d34fd4680894e97a1bf7ae87215f737e13627ec7cdf73daea1901f4c515",
+      "reconstructions/scene-03/src/restoration-lotus-leaf.js": "26a369bf52eb1f0d72fd986b5c641c06f16dc097794c46ddc0e6281f1759964e",
+      "reconstructions/scene-03/src/restoration-lotus-petal.js": "bae8d4a158941bdba37fe7d7e53d966e4bc96b2b533ee92375ac62162ff0b61d",
+      "reconstructions/scene-03/src/water-surface.js": "4d133ac86c28c5cc3465be65c29d7585b43e0700a853f59604c9d809b45a8b83"
+    }
+  },
+  "sourceCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-03/index.html",
+    "/reconstructions/scene-03/src/main.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-03/src/reference4-architecture.js",
+    "/reconstructions/scene-03/src/restoration-lotus-leaf.js",
+    "/reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "/reconstructions/scene-03/src/reference4-natural-forms.js",
+    "/reconstructions/scene-03/src/hall-layout.js",
+    "/reconstructions/scene-03/src/water-surface.js",
+    "/reconstructions/scene-03/src/lotus-material.js",
+    "/reconstructions/scene-03/src/reference4-detail-kernel.js",
+    "/reconstructions/scene-03/src/reference4-materials.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          1.6,
+          6.1,
+          -3
+        ],
+        "fov": 58,
+        "time": 0
+      },
+      "width": 900,
+      "height": 900,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-hall-axis-and-fresnel-water-r20",
+        "ready": true,
+        "frames": 1,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            1.6,
+            6.1,
+            -3
+          ],
+          "fov": 58
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 94770,
+        "architecture": {
+          "meshes": 1172,
+          "instances": 44399,
+          "triangles": 8823916,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 2100,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 1607,
+            "central-real-portal": 750,
+            "main-upper-roof": 5592,
+            "lower-shoulder-roof": 3734,
+            "lower-eave-complete-parallel-rafters": 861,
+            "front-gable-fine-woodwork": 889,
+            "main-roof-gilded-lotus-finial": 124,
+            "upper-storey-dense-bracket-frieze": 6399,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          }
+        },
+        "renderer": {
+          "calls": 349,
+          "triangles": 14003876,
+          "compositeCalls": 1
+        },
+        "assets": "Procedural geometry and generated DataTexture/CanvasTexture only"
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "5ddad14ce71f4f8715e5c7b4296215c89b933a5ebbfed69241769f6112990872"
+    }
+  ],
+  "completedAt": "2026-10-18T06:38:37.778Z"
+}

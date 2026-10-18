@@ -1,17 +1,31 @@
 {
-  "createdAt": "2026-10-18T05:16:41.900Z",
-  "integrationCommit": "481db356b043a010dde009dcec02110d9668b29d",
-  "scope": "Ten procedural reference scene reconstructions and live left/right review",
+  "createdAt": "2026-10-18T06:46:03.203Z",
+  "integrationCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+  "scope": "All ten procedural reference scene candidates",
   "runtimeChecks": {
-    "actualStillSize": 768,
+    "actualStillSize": 900,
     "reviewCanvasSize": 1024,
     "entries": 10,
     "glErrors": 0,
     "shaderLinkFailures": 0,
-    "referencePhotosRequestedInsideScene": 0
+    "referencePhotosRequestedInsideScene": 0,
+    "namespaceSourceHashesVerified": true
   },
   "visualAcceptance": false,
   "completedFilm": false,
+  "motionInspection": {
+    "reference": 3,
+    "duration": 7,
+    "fps": 30,
+    "frames": 210,
+    "size": [
+      960,
+      960
+    ],
+    "audio": false,
+    "path": "qa/ten-reference/03/iteration-motion22/motion-review.mp4",
+    "scope": "Single-shot camera inspection; full film and moving-flicker acceptance remain open."
+  },
   "scenes": [
     {
       "reference": 1,
@@ -19,14 +33,13 @@
       "shortName": "廊下夕照",
       "referenceFile": "/references/hd/0-照片-1.jpg",
       "entry": "/reconstructions/scene-01/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "066a7c5bc3534fac111411fe4f6939134aa1284c9e4f0455d509106e92c32a31",
-      "actualFrame": "qa/ten-reference/01/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/01/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "ddf7cc5",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "c10e3e6eb6e8b3d9ed867437274e71312e1ea5d258770559aafe6b41bcdae47d",
+      "actualFrame": "qa/ten-reference/01/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/01/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 2,
@@ -34,14 +47,13 @@
       "shortName": "右廊落日",
       "referenceFile": "/references/hd/1-照片-2.jpg",
       "entry": "/reconstructions/scene-02/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "d73959fcbf0a74eef28ada855808961d39abedd8900668ada3f4de2cd59549d2",
-      "actualFrame": "qa/ten-reference/02/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/02/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "d42a5ca",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "03b959e6585e143a239b7ef7a7dfd59881da3a9b08c01a5f6fe07e2f06f16cd3",
+      "actualFrame": "qa/ten-reference/02/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/02/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 3,
@@ -49,14 +61,13 @@
       "shortName": "莲池仰望",
       "referenceFile": "/references/hd/2-照片-3.jpg",
       "entry": "/reconstructions/scene-03/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "4596e3b96655dbedc1e00cdf27b40eec860bf11a8d91eaba129d303f7205b7ee",
-      "actualFrame": "qa/ten-reference/03/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/03/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "11df7a3",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "7257d68cac80b26408e0935443984c65dc06a0332bc39c327d7dc73d0aad0c92",
+      "actualFrame": "qa/ten-reference/03/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/03/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 4,
@@ -64,14 +75,13 @@
       "shortName": "正殿朝参",
       "referenceFile": "/references/hd/3-照片-4.jpg",
       "entry": "/reconstructions/scene-04/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "84e2e26a339360c974c787272ccafa684252e10f02779f2e9fb964763acdea93",
-      "actualFrame": "qa/ten-reference/04/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/04/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "4de6135",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "97d4cee2571545446a8f92891f389b7d52ccffc630ff1d256aa1690189f7e3a9",
+      "actualFrame": "qa/ten-reference/04/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/04/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 5,
@@ -79,14 +89,13 @@
       "shortName": "塔檐木构",
       "referenceFile": "/references/hd/5-照片-6.jpg",
       "entry": "/reconstructions/scene-05/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "787fc3e95f016ae682e244e32c011dff94c851f87d7be1a5185c9f4ff61bcbc0",
-      "actualFrame": "qa/ten-reference/05/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/05/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "03011d0",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "9a42404ead82e626937fd81693e37ecb2baffa59a78d9df7f585cb287686ecea",
+      "actualFrame": "qa/ten-reference/05/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/05/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 6,
@@ -94,14 +103,13 @@
       "shortName": "殿内金身",
       "referenceFile": "/references/hd/4-照片-5.jpg",
       "entry": "/reconstructions/scene-06/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "6200a66edef51b4181a814ca2d4fa8bd440172e4d53a50284140124b1e3df0ef",
-      "actualFrame": "qa/ten-reference/06/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/06/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "eae3266",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "b3a9066dac963a209ef1b96a0d7e3fe7e2104299524d2bf299c7349c5e6c7f51",
+      "actualFrame": "qa/ten-reference/06/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/06/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 7,
@@ -109,14 +117,13 @@
       "shortName": "层台园林",
       "referenceFile": "/references/hd/6-照片-7.jpg",
       "entry": "/reconstructions/scene-07/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "7b3c303b0010d581703deaf7718ca37fa28b5431fe8f3920a71444130d835f4d",
-      "actualFrame": "qa/ten-reference/07/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/07/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "cdefa85",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "5dd55ac2dffba2b1a4a841adea80f0e1554ae85f9e7b4226abfcaee2c2dcdf68",
+      "actualFrame": "qa/ten-reference/07/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/07/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 8,
@@ -124,14 +131,13 @@
       "shortName": "叠廊深庭",
       "referenceFile": "/references/hd/7-照片-8.jpg",
       "entry": "/reconstructions/scene-08/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "f43e0c904dd853a96f54254b477f912fb3aa067890cd8be7ac5c277a9c1b0ae7",
-      "actualFrame": "qa/ten-reference/08/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/08/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "0ec3553",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "3be177aeed92a7f688d145826aabbd7979c765a4e879a5022e162a4273097a8d",
+      "actualFrame": "qa/ten-reference/08/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/08/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 9,
@@ -139,14 +145,13 @@
       "shortName": "夜寺灯火",
       "referenceFile": "/references/hd/8-照片-9.jpg",
       "entry": "/reconstructions/scene-09/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "77865ad4258c1c447d6c6bd295dcd9b9c5cdf76b03410e8bdb2b0aec4a4b7128",
-      "actualFrame": "qa/ten-reference/09/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/09/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "ac8b20a",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "81f6f2c7394cb25ccc962c931c5000a74621849df4a81b1fde24f6c9b81ef77d",
+      "actualFrame": "qa/ten-reference/09/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/09/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     },
     {
       "reference": 10,
@@ -154,14 +159,13 @@
       "shortName": "雨寺湿石",
       "referenceFile": "/references/hd/9-照片-10.jpg",
       "entry": "/reconstructions/scene-10/index.html",
-      "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
-      "sceneSourceHash": "1f5af0ec784c14c8178057c7b2bcdcf3ff235508f24d728605a758b0ee7a37bf",
-      "actualFrame": "qa/ten-reference/10/iteration-integrated-01/reference.png",
-      "comparison": "qa/ten-reference/10/iteration-integrated-01/comparison.png",
-      "runtimeStatus": "rendered-review",
+      "selectedCandidateCommit": "32535cd",
+      "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+      "sceneSourceHash": "9991c15dbe4c7235bdf81bf8998c1e79e35b8f890e9497e96b44f9c4b4f7f1b4",
+      "actualFrame": "qa/ten-reference/10/iteration-integrated-02/reference.png",
+      "comparison": "qa/ten-reference/10/iteration-integrated-02/comparison.png",
       "gpuFramesValid": true,
-      "visualAccepted": false,
-      "work": "Continue source/reference comparison and reconstruction; none of these scenes is a finished photographic match."
+      "visualAccepted": false
     }
   ]
 }

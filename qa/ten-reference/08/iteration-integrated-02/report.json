@@ -1,0 +1,160 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 900,
+  "startedAt": "2026-10-18T06:38:59.862Z",
+  "source": {
+    "hash": "3be177aeed92a7f688d145826aabbd7979c765a4e879a5022e162a4273097a8d",
+    "files": {
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/main.js": "e13279345fcb4978382dcd78755cbb919047c7d635291089f584708b745a2738",
+      "reconstructions/scene-08/src/post.js": "569de11d90e613e9496bfb8e3e6939a48ccdbf480e90aee612719ae1c96317cc",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scene.js": "bc336bb58da2ff2892352fd3fa9c26621dd3e477a0c474b32806acac385b5c56"
+    }
+  },
+  "sourceCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/post.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 900,
+      "height": 900,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-veranda-garden-r18",
+        "instances": 376246,
+        "triangles": 10281920,
+        "roles": {
+          "left-grand-hall": 9057,
+          "layered-walkways": 21103,
+          "five-tier-pagoda": 18642,
+          "foreground-veranda": 515,
+          "arched-stream-bridge": 114,
+          "gallery-stone-stair": 36,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 270,
+          "stone-lanterns": 237,
+          "branching-garden-trees": 203358,
+          "hanging-veranda-foliage": 13603,
+          "dense-layered-shrubs": 91490,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 8
+        },
+        "seed": 80247,
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 197,
+          "triangles": 10184090,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 30
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "29da961bf2e6f7d5ad631bea192e258b04a72094acabd53f9bfa21fd0041c256"
+    }
+  ],
+  "completedAt": "2026-10-18T06:39:01.407Z"
+}

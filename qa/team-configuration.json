@@ -7,13 +7,31 @@
   "subagentReasoningEffort": "max",
   "previousHighAgentsInterrupted": 10,
   "currentAssignments": [
-    {"agent":"max_reference04","reference":4},
-    {"agent":"max_reference05","reference":5},
-    {"agent":"max_reference06","reference":6},
-    {"agent":"max_reference10","reference":10}
+    {
+      "agent": "max_reference04",
+      "reference": 4,
+      "status": "completed-awaiting-primary-review"
+    },
+    {
+      "agent": "max_reference05",
+      "reference": 5,
+      "status": "completed-awaiting-primary-review"
+    },
+    {
+      "agent": "max_reference06",
+      "reference": 6,
+      "status": "completed-awaiting-primary-review"
+    },
+    {
+      "agent": "max_reference10",
+      "reference": 10,
+      "status": "completed-awaiting-primary-review"
+    }
   ],
   "assignmentStyle": "One scene, a small number of deeply diagnosed changes, at most two actual review rounds before primary-agent review.",
   "allTenReferencesRemainInScope": true,
   "visualAcceptance": false,
-  "filmComplete": false
+  "filmComplete": false,
+  "activeSubagents": 0,
+  "boundedMaxPassCompleted": true
 }

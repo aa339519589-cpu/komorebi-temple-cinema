@@ -2,6 +2,7 @@ import {mkdir,readFile,writeFile,readdir,access} from 'node:fs/promises';
 import {resolve,relative} from 'node:path';
 import {spawn,execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+import {existsSync} from 'node:fs';
 import {launchRenderBrowser} from './render-runtime.mjs';
 import {encodeWebglPng} from './encode-webgl-png.mjs';
 import {acquireGpuRenderSlot} from './gpu-render-slot.mjs';
@@ -10,9 +11,13 @@ const reference=Number(process.env.REFERENCE),id=String(reference).padStart(2,'0
 if(!Number.isInteger(reference)||reference<1||reference>10)throw Error('REFERENCE must be 1..10.');
 const worktree=resolve(process.env.WORKTREE||`/Users/mima1234/temple-scene-${id}`),size=Number(process.env.SIZE||768);
 const iteration=process.env.ITERATION||'01',port=Number(process.env.PORT||4500);
+const motionFps=Number(process.env.MOTION_FPS||0),motionDuration=7;
+if(motionFps!==0&&![24,25,30,60].includes(motionFps))throw Error('MOTION_FPS must be 24,25,30 or60.');
 const entry=`reconstructions/scene-${id}/index.html`,out=resolve(worktree,`qa/ten-reference/${id}/iteration-${iteration}`);
 if(!/^[a-z0-9-]+$/i.test(iteration))throw Error('Invalid iteration name.');
 await access(resolve(worktree,entry));await mkdir(out,{recursive:true});
+const videoFile=resolve(out,'motion-review.mp4');
+if(motionFps&&existsSync(videoFile))throw Error('Motion output exists; use a new ITERATION to retain previous evidence.');
 async function sourceIdentity(){
  const files=[];async function walk(dir){for(const e of await readdir(dir,{withFileTypes:true})){const p=resolve(dir,e.name);if(e.isDirectory())await walk(p);else if(/\.(?:m?js|html|json)$/.test(e.name))files.push(p);}}
  await walk(resolve(worktree,`reconstructions/scene-${id}`));files.sort();const h=createHash('sha256'),hashes={};
@@ -24,7 +29,7 @@ const identity=await sourceIdentity(),startedAt=new Date().toISOString();
 const report={reference,entry,worktree,size,startedAt,source:identity,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:worktree,encoding:'utf8'}).trim(),status:'building',visualAccepted:false,errors:[],requests:[]};
 const server=spawn(process.execPath,[resolve(worktree,'tools/server.mjs')],{cwd:worktree,env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});
 const serverReady=new Promise((yes,no)=>{server.stdout.on('data',b=>{if(b.toString().includes('http://'))yes();});server.on('error',no);server.on('exit',c=>no(Error('Preview server exited '+c)));});
-let browser;
+let browser,encoder,encoded,encoderError;
 try{
  await serverReady;const runtime=await launchRenderBrowser();browser=runtime.browser;report.backend=runtime.backend;
  const page=await browser.newPage({viewport:{width:size,height:size},deviceScaleFactor:1});
@@ -42,9 +47,17 @@ try{
  });
  await Promise.race([page.goto(`http://127.0.0.1:${port}/${entry}?render&defer&w=${size}&h=${size}`,{waitUntil:'load',timeout:600000}),fatal]);
  await Promise.race([page.waitForFunction(()=>window.temple?.ready&&typeof window.temple.renderReference==='function',null,{timeout:600000}),fatal]);
- const frames=process.env.SHOT_TIMES?process.env.SHOT_TIMES.split(',').map(Number):[null];
+ const frames=motionFps?Array.from({length:motionFps*motionDuration},(_,i)=>(i+.5)/motionFps):process.env.SHOT_TIMES?process.env.SHOT_TIMES.split(',').map(Number):[null];
+ if(motionFps){
+  encoder=spawn('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${size}x${size}`,'-framerate',String(motionFps),'-i','pipe:0','-an','-vf','vflip,scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p','-frames:v',String(frames.length),'-c:v','libx264','-preset','fast','-crf','15','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','iec61966-2-1','-movflags','+faststart',videoFile],{stdio:['pipe','ignore','inherit']});
+  encoder.stdin.on('error',e=>encoderError=e);
+  encoded=new Promise((yes,no)=>{encoder.on('error',no);encoder.on('close',code=>code===0?yes():no(Error('Motion encoder exited '+code)));});
+  encoded.catch(e=>encoderError=e);
+  report.motion={duration:motionDuration,fps:motionFps,expectedFrames:frames.length,file:videoFile,scope:'One actual seven-second shot for motion inspection; not the complete film.',audio:false,visualAccepted:false};
+ }
  report.frames=[];
  for(const localTime of frames){
+  if(encoderError)throw encoderError;
   const result=await Promise.race([page.evaluate(({reference,localTime})=>{
    const t=window.temple,r=t.renderer,gl=r.getContext();
    const pose=localTime===null?t.renderReference(reference):t.renderShot(localTime);gl.finish();
@@ -57,15 +70,29 @@ try{
   const bytes=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;
   let nonblack=0,opaque=0;for(let i=0;i<bytes.length;i+=4){if(Math.max(bytes[i],bytes[i+1],bytes[i+2])>3)nonblack++;if(bytes[i+3]===255)opaque++;}
   const valid=result.glError===0&&!result.contextLost&&result.programs.every(p=>p.linked)&&nonblack>size*size*.05&&report.errors.length===0;
-  const name=localTime===null?'reference':`shot-${String(localTime).replace('.','p')}`;
-  if(valid)await writeFile(resolve(out,name+'.png'),encodeWebglPng(result.width,result.height,bytes));
-  report.frames.push({...result,name,localTime,valid,nonblackFraction:nonblack/(size*size),opaqueFraction:opaque/(size*size),rgbaSha256:createHash('sha256').update(bytes).digest('hex')});
+  const index=report.frames.length,name=motionFps?`frame-${String(index).padStart(4,'0')}`:localTime===null?'reference':`shot-${String(localTime).replace('.','p')}`;
+  const savePixels=!motionFps||index===0||index===Math.floor(frames.length/2)||index===frames.length-1;
+  if(valid&&savePixels)await writeFile(resolve(out,name+'.png'),encodeWebglPng(result.width,result.height,bytes));
+  report.frames.push({...result,name,localTime,valid,pngSaved:savePixels,nonblackFraction:nonblack/(size*size),opaqueFraction:opaque/(size*size),rgbaSha256:createHash('sha256').update(bytes).digest('hex')});
   if(!valid)throw Error('Actual GPU frame failed: '+name);
+  if(motionFps){
+   if(!encoder.stdin.write(bytes))await Promise.race([new Promise(resolve=>encoder.stdin.once('drain',resolve)),encoded.then(()=>{throw Error('Encoder closed before the last frame');})]);
+   if(index===0||(index+1)%motionFps===0||index===frames.length-1)console.log(JSON.stringify({event:'motion-frame',reference,frame:index+1,total:frames.length,time:localTime}));
+  }
+ }
+ if(motionFps){
+  encoder.stdin.end();await encoded;
+  const probe=JSON.parse(execFileSync('ffprobe',['-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=width,height,nb_read_frames,r_frame_rate,codec_name,color_space,color_transfer:format=duration','-of','json',videoFile],{encoding:'utf8'}));
+  const stream=probe.streams[0];
+  if(Number(stream.nb_read_frames)!==frames.length||stream.width!==size||stream.height!==size||Math.abs(Number(probe.format.duration)-motionDuration)>.002)throw Error('Encoded motion dimensions, cadence or duration mismatch');
+  execFileSync('ffmpeg',['-v','error','-i',videoFile,'-f','null','-'],{stdio:['ignore','ignore','pipe']});
+  report.motion.probe=probe;report.motion.decodeErrors=0;
  }
  if((await sourceIdentity()).hash!==identity.hash)throw Error('Scene source changed during render.');
- report.status='rendered-review';
+ report.status=motionFps?'motion-review-rendered':'rendered-review';
 }catch(e){report.status='failed';report.error=String(e.stack||e);process.exitCode=1;}
 finally{
+ if(encoder&&!encoder.stdin.writableEnded){encoder.stdin.destroy();encoder.kill('SIGTERM');await encoded.catch(()=>{});}
  report.completedAt=new Date().toISOString();await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));
  if(browser)await browser.close().catch(()=>{});server.kill('SIGTERM');releaseGpu();
  console.log(JSON.stringify({reference,status:report.status,error:report.error,out,errors:report.errors}));

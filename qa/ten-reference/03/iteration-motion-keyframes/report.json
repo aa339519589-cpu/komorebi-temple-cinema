@@ -1,0 +1,787 @@
+{
+  "reference": 3,
+  "entry": "reconstructions/scene-03/index.html",
+  "worktree": "/Users/mima1234/temple-scene-03",
+  "size": 900,
+  "startedAt": "2026-10-18T06:26:44.723Z",
+  "source": {
+    "hash": "3e0f94fa61f612e15d6daff4083f16f0a42e99fc6a8931761190e71981ad5a8d",
+    "files": {
+      "reconstructions/scene-03/index.html": "055f4b3a9530e7c502546f8a78abfd91fbedd21acff4884775309730788fb34c",
+      "reconstructions/scene-03/src/hall-layout.js": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "reconstructions/scene-03/src/main.js": "0e586017474e27029434dc959989c8ff6de2bdfa3526a26c1624fc548f52d529",
+      "reconstructions/scene-03/src/reference4-architecture.js": "558c3e32fa9c36ba5a056b58476bb4bcd7d53a2f9cb58e52ff11f43f0757e6ba",
+      "reconstructions/scene-03/src/reference4-detail-kernel.js": "18193225a51a63a81e5f399c10b4262819854191c971876e9c977b0ba4065024",
+      "reconstructions/scene-03/src/reference4-materials.js": "f3ef009732ba14953ba3b8f1898cd79c8791fc6fb36e9be52681403163125325",
+      "reconstructions/scene-03/src/reference4-natural-forms.js": "4c112d34fd4680894e97a1bf7ae87215f737e13627ec7cdf73daea1901f4c515",
+      "reconstructions/scene-03/src/restoration-lotus-leaf.js": "26a369bf52eb1f0d72fd986b5c641c06f16dc097794c46ddc0e6281f1759964e",
+      "reconstructions/scene-03/src/restoration-lotus-petal.js": "bae8d4a158941bdba37fe7d7e53d966e4bc96b2b533ee92375ac62162ff0b61d",
+      "reconstructions/scene-03/src/water-surface.js": "4d133ac86c28c5cc3465be65c29d7585b43e0700a853f59604c9d809b45a8b83"
+    }
+  },
+  "sourceCommit": "7b04b417f55fc35a4d20a07b846bca76ef7cd1dd",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-03/index.html",
+    "/reconstructions/scene-03/src/main.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-03/src/reference4-architecture.js",
+    "/reconstructions/scene-03/src/restoration-lotus-leaf.js",
+    "/reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "/reconstructions/scene-03/src/reference4-natural-forms.js",
+    "/reconstructions/scene-03/src/hall-layout.js",
+    "/reconstructions/scene-03/src/water-surface.js",
+    "/reconstructions/scene-03/src/reference4-detail-kernel.js",
+    "/reconstructions/scene-03/src/reference4-materials.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          -2.65,
+          0.5,
+          16.55
+        ],
+        "target": [
+          0.07165526975908376,
+          1.8608276348795427,
+          7.024206555843197
+        ],
+        "fov": 50,
+        "time": 0
+      },
+      "width": 900,
+      "height": 900,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-hall-axis-and-fresnel-water-r20",
+        "ready": true,
+        "frames": 1,
+        "camera": {
+          "position": [
+            -2.65,
+            0.5,
+            16.55
+          ],
+          "target": [
+            0.07165526975908376,
+            1.8608276348795427,
+            7.024206555843197
+          ],
+          "fov": 50
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 93960,
+        "architecture": {
+          "meshes": 1172,
+          "instances": 44399,
+          "triangles": 8823916,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 2100,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 1607,
+            "central-real-portal": 750,
+            "main-upper-roof": 5592,
+            "lower-shoulder-roof": 3734,
+            "lower-eave-complete-parallel-rafters": 861,
+            "front-gable-fine-woodwork": 889,
+            "main-roof-gilded-lotus-finial": 124,
+            "upper-storey-dense-bracket-frieze": 6399,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          }
+        },
+        "renderer": {
+          "calls": 332,
+          "triangles": 13856368,
+          "compositeCalls": 1
+        },
+        "assets": "Procedural geometry and generated DataTexture/CanvasTexture only"
+      },
+      "name": "shot-0",
+      "localTime": 0,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "ce4d9d4b20d82b511ed185f35f058b985015d73ced29d8339456fa9ff9dad7da"
+    },
+    {
+      "pose": {
+        "frame": 2,
+        "position": [
+          -2.525,
+          0.61,
+          17.375
+        ],
+        "target": [
+          -0.25908600286938066,
+          2.504909266436121,
+          7.821207421678968
+        ],
+        "fov": 54,
+        "time": 3.5
+      },
+      "width": 900,
+      "height": 900,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-hall-axis-and-fresnel-water-r20",
+        "ready": true,
+        "frames": 2,
+        "camera": {
+          "position": [
+            -2.525,
+            0.61,
+            17.375
+          ],
+          "target": [
+            -0.25908600286938066,
+            2.504909266436121,
+            7.821207421678968
+          ],
+          "fov": 54
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 93960,
+        "architecture": {
+          "meshes": 1172,
+          "instances": 44399,
+          "triangles": 8823916,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 2100,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 1607,
+            "central-real-portal": 750,
+            "main-upper-roof": 5592,
+            "lower-shoulder-roof": 3734,
+            "lower-eave-complete-parallel-rafters": 861,
+            "front-gable-fine-woodwork": 889,
+            "main-roof-gilded-lotus-finial": 124,
+            "upper-storey-dense-bracket-frieze": 6399,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          }
+        },
+        "renderer": {
+          "calls": 374,
+          "triangles": 13849668,
+          "compositeCalls": 1
+        },
+        "assets": "Procedural geometry and generated DataTexture/CanvasTexture only"
+      },
+      "name": "shot-3p5",
+      "localTime": 3.5,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "2a7598463624b09667f0912aa73c060b6c1bedc2f72cc5be2bf96a0451806fe4"
+    },
+    {
+      "pose": {
+        "frame": 3,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          -0.6010147103237495,
+          3.1396352146145565,
+          8.665377964715873
+        ],
+        "fov": 58,
+        "time": 7
+      },
+      "width": 900,
+      "height": 900,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-hall-axis-and-fresnel-water-r20",
+        "ready": true,
+        "frames": 3,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            -0.6010147103237495,
+            3.1396352146145565,
+            8.665377964715873
+          ],
+          "fov": 58
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 93960,
+        "architecture": {
+          "meshes": 1172,
+          "instances": 44399,
+          "triangles": 8823916,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 2100,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 1607,
+            "central-real-portal": 750,
+            "main-upper-roof": 5592,
+            "lower-shoulder-roof": 3734,
+            "lower-eave-complete-parallel-rafters": 861,
+            "front-gable-fine-woodwork": 889,
+            "main-roof-gilded-lotus-finial": 124,
+            "upper-storey-dense-bracket-frieze": 6399,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          }
+        },
+        "renderer": {
+          "calls": 349,
+          "triangles": 13841316,
+          "compositeCalls": 1
+        },
+        "assets": "Procedural geometry and generated DataTexture/CanvasTexture only"
+      },
+      "name": "shot-7",
+      "localTime": 7,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "79d8621bfa258d30b4ac1161a0795bc272f4c8e9d3a1327bc20f066bd902fe48"
+    },
+    {
+      "pose": {
+        "frame": 4,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          -0.6010147103237495,
+          3.1396352146145565,
+          8.665377964715873
+        ],
+        "fov": 58,
+        "time": 7
+      },
+      "width": 900,
+      "height": 900,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-hall-axis-and-fresnel-water-r20",
+        "ready": true,
+        "frames": 4,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            -0.6010147103237495,
+            3.1396352146145565,
+            8.665377964715873
+          ],
+          "fov": 58
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 93960,
+        "architecture": {
+          "meshes": 1172,
+          "instances": 44399,
+          "triangles": 8823916,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 2100,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 1607,
+            "central-real-portal": 750,
+            "main-upper-roof": 5592,
+            "lower-shoulder-roof": 3734,
+            "lower-eave-complete-parallel-rafters": 861,
+            "front-gable-fine-woodwork": 889,
+            "main-roof-gilded-lotus-finial": 124,
+            "upper-storey-dense-bracket-frieze": 6399,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          }
+        },
+        "renderer": {
+          "calls": 349,
+          "triangles": 13841316,
+          "compositeCalls": 1
+        },
+        "assets": "Procedural geometry and generated DataTexture/CanvasTexture only"
+      },
+      "name": "shot-7",
+      "localTime": 7,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "79d8621bfa258d30b4ac1161a0795bc272f4c8e9d3a1327bc20f066bd902fe48"
+    }
+  ],
+  "completedAt": "2026-10-18T06:26:47.302Z"
+}
