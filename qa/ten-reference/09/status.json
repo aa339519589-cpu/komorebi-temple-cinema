@@ -1,0 +1,29 @@
+{
+  "reference": 9,
+  "revision": "night-garden-enclosed-shrine-square-lamps-r42",
+  "original": "references/hd/8-\u7167\u7247-9.jpg",
+  "entry": "reconstructions/scene-09/index.html?render&defer&w=1254&h=1254",
+  "evaluation": {
+    "method": "actual 1254px serialized GPU rendering and full-frame original/baseline comparison only",
+    "syntheticOrBroadTestSuitesRun": false,
+    "latestCandidate": "iteration-parallel42",
+    "sourceHash": "c132a911b5988eb856aabef53238142e72be02d5f2faec8c866ff72530fc8260",
+    "primaryReviewPending": true
+  },
+  "gpu": {
+    "parallel40": "preserved: enclosed architecture, excessive room wash and black shrine",
+    "parallel41": "preserved: amber response and visible shrine, portal edge occlusion and exposed platform",
+    "parallel42": "bounded improvement candidate: primary review pending"
+  },
+  "claims": {
+    "photographicMatchAccepted": false,
+    "externalAssets": false,
+    "referenceUsedAsScenePlane": false
+  },
+  "remainingVisualGaps": [
+    "regular simplified joinery and roof undersides",
+    "sparse garden layering",
+    "strong paper and stone highlights",
+    "coarse wet paving and water reflections"
+  ]
+}
