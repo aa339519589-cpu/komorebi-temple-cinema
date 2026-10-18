@@ -1,13 +1,14 @@
 import * as T from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
 import {buildMapleCanopy} from './foliage.js';
-export const POSE={position:[7.5,1.02,10],target:[-1.9,8.4,0],fov:65};
+export const POSE={position:[8.5,1.02,10],target:[-3.3,8.4,0],fov:63};
 export function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
- mats.red.color.set('#9d3f20');mats.cedar.color.set('#985430');mats.endwood.color.set('#c28545');
+ mats.red.color.set('#aa5030');mats.cedar.color.set('#985430');mats.endwood.color.set('#c28545');
  mats.slate.color.set('#434c51');mats.tileEdge.color.set('#a3a69f');mats.darkwood.color.set('#555b4d');mats.paper.color.set('#282e25');
  mats.gold.color.set('#e1af46');mats.oldgold.color.set('#c79a43');
  mats.gold.roughness=.40;mats.oldgold.roughness=.48;
@@ -23,9 +24,15 @@ export function buildScene(){
    if(!bucket.has(material))bucket.set(material,[]);bucket.get(material).push({geo,matrix,tint});
  }
  function group(x,y,z,angle,fn){stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationY(angle)));try{fn();}finally{stack.pop();}}
- function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);}
+ function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){
+   if(['red','cedar','endwood','darkwood','architecture_red','architecture_cedar','architecture_endwood'].includes(ma)&&Math.min(w,h,d)>.045){
+     const key=[w,h,d].map(n=>n.toFixed(5)).join(':');
+     if(!geometryCache.has(key))geometryCache.set(key,new RoundedBoxGeometry(w,h,d,1,Math.min(.014,Math.min(w,h,d)*.10)));
+     instance(geometryCache.get(key),ma,x,y,z,1,1,1,[0,rot,0],tint);
+   }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
+ }
  const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack});
- mats.architecture_red.color.set('#a04727');mats.architecture_cedar.color.set('#a36137');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414c53');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
+ mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414c53');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  for(const [name,m]of Object.entries(mats)){
    if(['red','cedar','endwood','darkwood'].some(k=>name===k||name==='architecture_'+k)){
      m.roughnessMap=null;m.roughness=name.includes('endwood')?.84:.76;m.envMapIntensity=.28;
@@ -63,10 +70,12 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
        arch.squareFitting(xx,frame.shaftTop-.13,w/2+.243*scale,.36*scale,.39*scale,0,true);
      }
    });
-   balcony(w,y,scale);
+   balcony(w,y+(level===0?.58:0),scale);
+   cornerTails(w,y,scale);
+   if(level===0){pentRoof(w,y+1.02,scale);carvedWindowInserts(w,y,scale);}
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
    const r=(w+3.5*scale)/2;
-   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*.965,y+3.18,sz*r*.965,.68*scale);
+   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*.965,y+2.88,sz*r*.965,.68*scale);
    // Flanking upper ties and chased metal straps on the visible actual member ends.
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      for(let k=-1;k<=1;k++){
@@ -79,6 +88,49 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
          for(let j=0;j<7;j++){const q=-.28+j*.09,sgn=j%2?1:-1;instance(carvedLeaf,j%3?'oldgold':'gold',x+q*scale,y+2.65+sgn*.039*scale,w/2+.138,.13*scale,.18*scale,.13,[0,0,sgn*.65+Math.sin(level+j)*.15]);}
        }
      }
+   });
+ }
+ function carvedWindowInserts(w,y,s){
+   for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>group(0,y+1.57,w/2+.09,0,()=>{
+     for(const side of [-1,1]){box(side*.47*s,0,0,.055*s,.72*s,.055*s,'red');box(0,side*.34*s,0,.94*s,.05*s,.055*s,'red');}
+     for(let n=0;n<3;n++){
+       const points=[];for(let j=0;j<=32;j++){const t=j/32,phase=t*Math.PI*2+n*Math.PI*.67;points.push(new T.Vector3((t-.5)*.86*s,Math.sin(phase)*(.19-.02*n)*s,.018+Math.sin(phase*.7)*.012));}
+       instance(new T.TubeGeometry(new T.CatmullRomCurve3(points),32,.014*s,6,false),n%2?'oldgold':'cedar');
+       for(let j=0;j<7;j++){const t=(j+.5)/7,p=points[Math.round(t*32)],sgn=j%2?1:-1;instance(carvedLeaf,j%3?'oldgold':'gold',p.x,p.y+sgn*.035*s,p.z+.014,.16*s,.22*s,.17,[0,0,sgn*.6+n*.23]);}
+     }
+     for(let k=0;k<5;k++){
+       const cx=-.34+k*.17,points=[];for(let j=0;j<=28;j++){const a=j/28*Math.PI*1.85,r=.077*(1-j/40);points.push(new T.Vector3((cx+Math.cos(a)*r)*s,Math.sin(a)*r*s,.037));}
+       instance(new T.TubeGeometry(new T.CatmullRomCurve3(points),28,.008*s,5,false),'oldgold');
+     }
+   }));
+ }
+ function cornerTails(w,y,s){
+   for(const sx of [-1,1])for(const sz of [-1,1]){
+     const start=new T.Vector3(sx*(w/2-.18),y+3.25,sz*(w/2-.18));
+     const end=new T.Vector3(sx*(w/2+1.32*s),y+2.76,sz*(w/2+1.32*s));
+     const mid=start.clone().lerp(end,.55).add(new T.Vector3(0,.06,0));
+     const path=new T.CatmullRomCurve3([start,mid,end]),up=new T.Vector3(0,1,0),points=[];
+     for(let j=0;j<=16;j++)points.push(path.getPoint(j/16).toArray());
+     // Rectangular curved timber with real depth, connected to the crossing capital.
+     const rim=new T.Shape();rim.moveTo(-.16*s,-.22*s);rim.lineTo(.16*s,-.22*s);rim.lineTo(.16*s,.22*s);rim.lineTo(-.16*s,.22*s);rim.closePath();
+     const geometry=new T.ExtrudeGeometry(rim,{steps:20,bevelEnabled:false,extrudePath:path});instance(geometry,'red');
+     const normal=end.clone().sub(mid).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
+     const goldEnd=end.clone().addScaledVector(normal,.008);instance('box','oldgold',...goldEnd.toArray(),.317*s,.438*s,.014,q);
+     group(goldEnd.x,goldEnd.y,goldEnd.z,Math.atan2(sx,sz),()=>{arch.squareFitting(0,0,.018,.30*s,.40*s,0,true);});
+     // Small carved cheek leaves follow the load-bearing timber instead of floating in the bay.
+     for(let j=0;j<4;j++){const p=path.getPoint(.30+j*.14);group(p.x,p.y,p.z,Math.atan2(sx,sz),()=>{instance(carvedLeaf,'oldgold',.165*s,0,0,.18*s,.14*s,.16,[0,Math.PI/2,j%2?.6:-.6]);});}
+   }
+ }
+ function pentRoof(w,y,s){
+   // A shallow annular ceramic waist eave: no roof surface exists inside the wall.
+   const inner=w/2+.035,outer=w/2+.75*s;
+   for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
+     const p=[],ids=[],rows=5,cols=Math.round(w/.19),profile=t=>.36*s*(1-t)**1.3+.16*s*t**5;
+     for(let j=0;j<=rows;j++)for(let k=0;k<=cols;k++){const t=j/rows,z=inner+(outer-inner)*t,x=(-1+2*k/cols)*(inner+(outer-inner)*t);p.push(x,y+profile(t)+.026*Math.cos(k*Math.PI*2),z);if(j<rows&&k<cols){const a=j*(cols+1)+k;ids.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}}
+     const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ids);g.computeVertexNormals();instance(g,'slate');
+     box(0,y+.08*s,outer,w+1.50*s,.13*s,.15*s,'red');
+     for(let j=0;j<=cols;j++){const x=-outer+2*outer*j/cols;arch.tileEnd(new T.Vector3(x,y+.17*s,outer+.018),0,.083*s,true);}
+     for(let j=1;j<cols;j++){const x=-inner+2*inner*j/cols;box(x,y+.10*s,(inner+outer)/2,.075*s,.105*s,outer-inner,'cedar');}
    });
  }
  function balcony(w,y,s){
@@ -145,5 +197,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-chased-joinery-open-lantern-v3',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-hip-crests-gilded-tail-v4',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }

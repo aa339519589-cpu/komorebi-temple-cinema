@@ -967,6 +967,10 @@ export function createRestorationArchitecture(ctx) {
     // Forged framing strips surround exposed end grain; no solid gold cube.
     group(x,y,z,rot,()=>{
       const border = Math.min(w,h)*.075;
+      if(detail&&w>=.14&&h>=.12){
+        box(0,0,-.002,w*.90,h*.90,.008,'oldgold');
+        box(0,0,.003,w*.72,h*.72,.004,'darkwood');
+      }
       // Actual applied straps leave the timber visible between them, rather
       // than replacing every exposed end with a uniform thick gilt square.
       for(const side of [-1,1]) {
@@ -2491,8 +2495,11 @@ export function createRestorationArchitecture(ctx) {
           for(const yy of [windowBottom,windowTop])box(xx,yy,.022,clear+.06*scale,.075*scale,.095*scale,'red');
           for(const side of [-1,1])box(xx+side*clear/2,windowY,.022,.065*scale,windowHeight,.095*scale,'red');
           const bars=Math.max(6,Math.round(clear/(.18*scale)));
-          for(let j=1;j<bars;j++)box(xx-clear/2+j*clear/bars,windowY,.020,
-            .040*scale,windowHeight-.055*scale,.055*scale,'darkwood');
+          for(let j=1;j<bars;j++){
+            const barX=xx-clear/2+j*clear/bars;
+            if(level===0&&k===1&&Math.abs(barX)<.45*scale)continue;
+            box(barX,windowY,.020,.040*scale,windowHeight-.055*scale,.055*scale,'darkwood');
+          }
           for(const f of [.32,.69])box(xx,windowBottom+windowHeight*f,.057,
             clear,.028*scale,.035*scale,'endwood');
           // Only a small nailed joint strap occurs at each actual window end.
@@ -2658,7 +2665,14 @@ export function createRestorationArchitecture(ctx) {
         const curlPoints=[corner.clone().addScaledVector(outward,-.20),corner.clone(),
           corner.clone().addScaledVector(outward,.14).add(v([0,.13,0])),
           corner.clone().addScaledVector(outward,.19).add(v([0,.30,0]))];
-        strip(curlPoints.map(p=>p.toArray()),.065,'slate',16);
+        group(corner.x,corner.y,corner.z,Math.atan2(outward.x,outward.z),()=>{
+          const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
+          draw(crest,'slate',[0,.005,0],[1,1,1]);
+          draw(g.tileSeal,'slate',[0,.20,.089],[.16,.16,.12]);
+          draw(g.ring,'tileEdge',[0,.20,.117],[.146,.146,.055]);
+          flower(0,.20,.127,.108,'oldgold');
+          for(const side of [-1,1])draw(g.nail,'oldgold',[side*.19,.005,.083],[.022,.022,.014]);
+        });
       }
       // Compact summit tile hides the seam; no two spurious hall ridge ends.
       if(!roofOpening)draw(g.tileSeal,'slate',[0,rise+.052,0],[.15,.15,.15],[PI/2,0,0]);
