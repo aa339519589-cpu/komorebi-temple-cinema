@@ -1,6 +1,7 @@
 // Recovered from verified 435ffe plus preserved modeling transcript after the 2026-10-17 environment reset. New source identity, not a claim of byte-exact f9c4 recovery.
 import * as T from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import {createReferenceFace} from './reference-face.js';
 
 // Independent reference-6 reconstruction, 2026-10-17. NOT a deformation of 687a.
 // Three separately built seated figures. +Z is front; Y=0 is the seat.
@@ -148,7 +149,7 @@ function reliefArcs(x,y,arcs){let f=0;for(const a of arcs){
 }return f;}
 function makeBuilder(variant){
   const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[],cloth:[]},names=[];
-  return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
+  return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};(bins[material]??=[]).push(g);names.push({tag,material});return g;},
     finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
       g.userData={reconstruction:'reference6-recovered-proportion-r1',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
@@ -368,7 +369,13 @@ function broadShoulderBand(){
 function centralFigure(){
  const b=makeBuilder('central');
  b.add(loft(MAIN_BODY,{nu:240,nv:280,relief:mainRelief}),'full-seated-torso');
- neck(b,2.355);const fg=face(2.78);b.add(fg,'full-oval-face','face');faceAnatomy(b,fg,2.78);ears(b,2.78);crown(b,2.78,{central:true});
+ neck(b,2.355);
+ const head=makeBuilder('central-reference-head'),fg=createReferenceFace(2.78);
+ head.add(fg,'original-reference-closed-face','referenceFace');
+ const uy=3.035;head.add(ellipsoid(0,uy,fg.userData.frontAt(0,uy)+.007,.014,.016,.008),'forehead-urna');
+ ears(head,2.78);crown(head,2.78,{central:true});
+ const headPose=new T.Matrix4().makeTranslation(0,2.78,0).multiply(new T.Matrix4().makeRotationX(.18)).multiply(new T.Matrix4().makeTranslation(0,-2.78,0));
+ for(const part of head.finish()){part.geometry.applyMatrix4(headPose);b.add(part.geometry,'inclined-reference-head:'+part.material,part.material);}
  const arms=[
   [[-.40,2.20,-.025],[-.64,2.02,-.005],[-.82,1.65,.055],[-.92,1.09,.13],[-.92,.82,.19],[-.84,.67,.25]],
   [[.40,2.20,-.025],[.65,2.01,-.005],[.84,1.65,.045],[.94,1.10,.14],[.89,.74,.25],[.66,.67,.45],[.43,.64,.66]]
