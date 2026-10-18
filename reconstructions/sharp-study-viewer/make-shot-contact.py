@@ -26,7 +26,9 @@ for index in range(10):
     row=Image.new("RGB",(627*3,627+32+28),"#111610")
     row_draw=ImageDraw.Draw(row)
     plan=rec["frames"][0]["info"]["shotPlan"]
-    label=f"{scene} / real dolly {plan['travel']:.4f}m / focal {plan['focalScaleStart']:.2f} -> 1.00 / end source camera"
+    units=rec['metadata']['data'].get('units','relative estimated units')
+    unit='u(relative)' if any(word in units.lower() for word in ['arbitrary','relative','declared']) else 'm(inferred)'
+    label=f"{scene} / real dolly {plan['travel']:.4f}{unit} / focal {plan['focalScaleStart']:.2f} -> 1.00 / end source camera"
     row_draw.text((10,6),label,font=font,fill="#d2dec5")
     y=index*(tile+bar+scene_bar)
     ImageDraw.Draw(master).text((10,y+5),label,font=font,fill="#d2dec5")
@@ -34,7 +36,7 @@ for index in range(10):
     for j,frame in enumerate(rec["frames"]):
         name=frame["name"]
         image=Image.open(raw/(name+".png")).convert("RGB")
-        caption=f"t={frame['time']:g}s / +Z {frame['pose']['translationCV'][2]:.4f}m / f {frame['pose']['focalScale']:.3f}"
+        caption=f"t={frame['time']:g}s / +Z {frame['pose']['translationCV'][2]:.4f}u / f {frame['pose']['focalScale']:.3f}"
         row_draw.text((j*627+10,28+8),caption,font=font,fill="#e7ebdf")
         row.paste(image.resize((627,627),Image.Resampling.LANCZOS),(j*627,28+32))
         ImageDraw.Draw(master).text((j*tile+8,y+scene_bar+6),caption,font=font,fill="#e7ebdf")

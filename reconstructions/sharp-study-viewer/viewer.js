@@ -7,7 +7,9 @@ import {SHOT_SETTINGS} from './shot-settings.js';
 const query=new URLSearchParams(location.search),capture=query.has('capture');
 if(capture)document.body.classList.add('capture');
 const status=document.querySelector('#loading'),canvas=document.querySelector('#view');
-const metaURL=new URL(query.get('meta')??`../../output/sharp-study/${query.get('scene')??'01'}/viewer.json`,location.href);
+const dataset=query.get('dataset')??'depth-field';
+if(!/^[a-z0-9-]+$/i.test(dataset))throw Error('Invalid dataset namespace.');
+const metaURL=new URL(query.get('meta')??`../../output/${dataset}/${query.get('scene')??'01'}/viewer.json`,location.href);
 const renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});
 renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;
 renderer.setClearColor(0x000000,1);
@@ -28,7 +30,7 @@ function resize() {
   const [w,h]=viewport();renderer.setSize(w,h,true);applyIntrinsics(camera,calibration,w,h);
 }
 function info() {
-  return {kind:'photo-reconstructed-3d-gaussian-field',title:'照片重建3D高斯场',viewerVersion:'sharp-study-spark-03',threeRevision:THREE.REVISION,sparkVersion:'2.3.1',ready,modelURL:modelURL?.pathname,metadataURL:metaURL.pathname,gaussianCount:header?.vertexCount,shDegree:header?.shDegree,gaussianProperties:header?.properties,coordinateSystem:record?.coordinateSystem??'opencv-camera',fieldTransform:CV_TO_THREE.toArray(),calibration:calibration?{width:calibration.width,height:calibration.height,fx:calibration.fx,fy:calibration.fy,cx:calibration.cx,cy:calibration.cy}:null,depthScale:depth,depthScaleMethod:metadataDepth?'metadata median source-camera z':'median of up to8192 nontransparent Gaussian centers in the source camera',intrinsicsAnimated:currentPose?.kind==='forward-dolly-to-source',shotPlan,sourceBackgroundImage:false,colorEncoding:'PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform',renderedPrimitives:'anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing',projection:camera.projectionMatrix.toArray(),pose:currentPose,renderer:renderer.info.render};
+  return {kind:'photo-reconstructed-3d-gaussian-field',title:'照片重建3D高斯场',viewerVersion:'gaussian-viewer-04',threeRevision:THREE.REVISION,sparkVersion:'2.3.1',ready,modelURL:modelURL?.pathname,metadataURL:metaURL.pathname,reconstruction:record?.reconstruction,units:record?.units,depthInterpretation:'single-image estimated depth/scale, not surveyed dimensions',gaussianCount:header?.vertexCount,shDegree:header?.shDegree,gaussianProperties:header?.properties,coordinateSystem:record?.coordinateSystem??'opencv-camera',fieldTransform:CV_TO_THREE.toArray(),calibration:calibration?{width:calibration.width,height:calibration.height,fx:calibration.fx,fy:calibration.fy,cx:calibration.cx,cy:calibration.cy}:null,depthScale:depth,depthScaleMethod:metadataDepth?'metadata median source-camera z':'median of up to8192 nontransparent Gaussian centers in the source camera',intrinsicsAnimated:currentPose?.kind==='forward-dolly-to-source',shotPlan,sourceBackgroundImage:false,colorEncoding:'PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform',renderedPrimitives:'anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing',projection:camera.projectionMatrix.toArray(),pose:currentPose,renderer:renderer.info.render};
 }
 async function drawPose(pose,time=null) {
   if(!ready)throw Error('3D Gaussian model is not ready.');
@@ -74,6 +76,10 @@ Object.assign(state,{
 async function initialize() {
   const response=await fetch(metaURL);if(!response.ok)throw Error(`Camera metadata HTTP ${response.status}: ${metaURL.pathname}`);
   record=await response.json();
+  const licenseLink=document.querySelector('#license-link');
+  if(record.license?.code?.includes('Apache'))licenseLink.href='./licenses/depth-anything-v2/LICENSE.txt';
+  else if(record.reconstruction?.method?.includes('SHARP'))licenseLink.href='./licenses/sharp/LICENSE_MODEL.txt';
+  else licenseLink.href=record.license?.url??'./README.md';
   if(record.coordinateSystem&&!['opencv','opencv-camera','opencv-world'].includes(record.coordinateSystem))throw Error('Scene must declare its original OpenCV x-right/y-down/z-forward coordinates.');
   calibration=sourceCalibration(record);resize();
   const ply=record.model?.url??record.model?.ply??record.ply??record.plyUrl;
@@ -98,7 +104,7 @@ async function initialize() {
   camera.near=Math.max(.0001,depth*.0001);camera.far=Math.max(100,depth*100);resize();
   model.maxSh=header.shDegree;
   ready=state.ready=true;state.metadata=record;state.plyHeader=header;
-  document.querySelector('#scene-label').textContent=`照片重建 3D 高斯场 · ${String(record.id??query.get('scene')??'01').padStart(2,'0')}`;
+  document.querySelector('#scene-label').textContent=`照片重建 3D 高斯场 · 估计深度 · ${String(record.id??query.get('scene')??'01').padStart(2,'0')}`;
   await state.renderReference();status.classList.add('done');
   return info();
 }

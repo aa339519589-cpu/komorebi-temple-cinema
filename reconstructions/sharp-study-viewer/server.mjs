@@ -5,15 +5,17 @@ import {resolve,dirname,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const directory=dirname(fileURLToPath(import.meta.url)),root=resolve(directory,'../..');
-const studies=resolve(process.env.SHARP_STUDY_ROOT??resolve(root,'output/sharp-study'));
+const studies=resolve(process.env.STUDY_ROOT??process.env.SHARP_STUDY_ROOT??resolve(root,'output/depth-field'));
+const rawPrefix=process.env.META_PREFIX??process.env.STUDY_PREFIX??(process.env.SHARP_STUDY_ROOT?'/output/sharp-study/':'/output/depth-field/');
+const prefix='/'+rawPrefix.replace(/^\/+|\/+$/g,'')+'/';
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.map':'application/json','.wasm':'application/wasm','.png':'image/png','.jpg':'image/jpeg','.ply':'application/octet-stream','.spz':'application/octet-stream'};
 const server=http.createServer(async(req,res)=>{
   try {
     let path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
     if(path==='/')path='/reconstructions/sharp-study-viewer/index.html';
-    const isModel=path.startsWith('/output/sharp-study/');
+    const isModel=path.startsWith(prefix);
     const base=isModel?studies:root;
-    const target=isModel?resolve(base,path.slice('/output/sharp-study/'.length)):resolve(base,'.'+path);
+    const target=isModel?resolve(base,path.slice(prefix.length)):resolve(base,'.'+path);
     if(!target.startsWith(base+sep))throw Error('Outside configured assets directory.');
     const info=await stat(target);if(!info.isFile())throw Error('Not a file.');
     let start=0,end=info.size-1,status=200;
@@ -31,5 +33,5 @@ const server=http.createServer(async(req,res)=>{
   } catch {res.writeHead(404,{'Content-Type':'text/plain'});res.end('Resource not found.');}
 });
 const port=Number(process.env.PORT??4521);
-server.listen(port,'127.0.0.1',()=>console.log(`Sharp study: http://127.0.0.1:${port}/reconstructions/sharp-study-viewer/`));
+server.listen(port,'127.0.0.1',()=>console.log(`Gaussian field: http://127.0.0.1:${port}/reconstructions/sharp-study-viewer/`));
 for(const signal of ['SIGINT','SIGTERM'])process.once(signal,()=>server.close(()=>process.exit(0)));

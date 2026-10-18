@@ -1,6 +1,6 @@
 import {readFile,mkdir,writeFile,readdir} from 'node:fs/promises';
 import {createReadStream} from 'node:fs';
-import {resolve,dirname,relative} from 'node:path';
+import {resolve,dirname,relative,basename} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {spawn,execFileSync} from 'node:child_process';
@@ -11,7 +11,9 @@ import {encodeWebglPng} from '../../tools/encode-webgl-png.mjs';
 const viewer=dirname(fileURLToPath(import.meta.url)),root=resolve(viewer,'../..');
 const id=String(process.env.SCENE??'01').padStart(2,'0');
 if(!/^\d{2}$/.test(id))throw Error('SCENE must be a two-digit scene number.');
-const studies=resolve(process.env.SHARP_STUDY_ROOT??resolve(root,'output/sharp-study'));
+const studies=resolve(process.env.STUDY_ROOT??process.env.SHARP_STUDY_ROOT??resolve(root,'output/depth-field'));
+const rawPrefix=process.env.META_PREFIX??process.env.STUDY_PREFIX??`/output/${basename(studies)}/`;
+const prefix='/'+rawPrefix.replace(/^\/+|\/+$/g,'')+'/';
 const metadata=resolve(studies,id,process.env.METADATA??'viewer.json');
 const rec=JSON.parse(await readFile(metadata,'utf8'));
 const width=Number(rec.intrinsics?.width??rec.image?.width??rec.width);
@@ -20,14 +22,14 @@ if(!(width>0&&height>0))throw Error('Metadata must give source image dimensions.
 const size=Number(process.env.SIZE??1254),w=Math.round(size),h=Math.round(size*height/width);
 const iteration=process.env.ITERATION??'preview01';
 if(!/^[a-z0-9-]+$/i.test(iteration))throw Error('Invalid iteration name.');
-const out=resolve(process.env.SHARP_PREVIEW_OUTPUT??resolve(studies,id,'viewer-'+iteration));
+const out=resolve(process.env.PREVIEW_OUTPUT??process.env.SHARP_PREVIEW_OUTPUT??resolve(studies,id,'viewer-'+iteration));
 await mkdir(out,{recursive:true});
 const modelURL=rec.model?.url??rec.model?.ply??rec.ply??rec.plyUrl;
-const model=modelURL?.startsWith('/output/sharp-study/')?resolve(studies,modelURL.slice('/output/sharp-study/'.length)):resolve(dirname(metadata),modelURL??'');
+const model=modelURL?.startsWith(prefix)?resolve(studies,modelURL.slice(prefix.length)):resolve(dirname(metadata),modelURL??'');
 async function hashFile(file){const hash=createHash('sha256');for await(const chunk of createReadStream(file))hash.update(chunk);return hash.digest('hex');}
-const release=await acquireGpuRenderSlot(`sharp-${id}-${iteration}`);
+const release=await acquireGpuRenderSlot(`gaussian-${basename(studies)}-${id}-${iteration}`);
 let browser,server;
-const report={kind:'actual-3d-gaussian-viewer-frames',scene:id,iteration,startedAt:new Date().toISOString(),visualAccepted:false,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),width:w,height:h,frames:[],errors:[],requests:[]};
+const report={kind:'actual-3d-gaussian-viewer-frames',dataset:basename(studies),metadataPrefix:prefix,scene:id,iteration,startedAt:new Date().toISOString(),visualAccepted:false,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),width:w,height:h,frames:[],errors:[],requests:[]};
 try {
   report.model={file:model,sha256:await hashFile(model)};
   report.metadata={file:metadata,sha256:await hashFile(metadata),data:rec};
@@ -38,7 +40,7 @@ try {
   report.rendererSource=await Promise.all(files.sort().map(async file=>({file:relative(root,file),sha256:await hashFile(file)})));
   const identity=createHash('sha256').update(JSON.stringify(report.rendererSource)).digest('hex');report.rendererSourceHash=identity;
   const port=Number(process.env.PORT??4521);
-  server=spawn(process.execPath,[resolve(viewer,'server.mjs')],{cwd:root,env:{...process.env,SHARP_STUDY_ROOT:studies,PORT:String(port)},stdio:['ignore','pipe','pipe']});
+  server=spawn(process.execPath,[resolve(viewer,'server.mjs')],{cwd:root,env:{...process.env,STUDY_ROOT:studies,META_PREFIX:prefix,PORT:String(port)},stdio:['ignore','pipe','pipe']});
   await new Promise((yes,no)=>{server.once('error',no);server.once('exit',code=>no(Error('Viewer server exited '+code)));server.stdout.on('data',data=>{if(data.toString().includes('http://'))yes();});server.stderr.on('data',data=>process.stderr.write(data));});
   const runtime=await launchRenderBrowser();browser=runtime.browser;report.backend=runtime.backend;
   const page=await browser.newPage({viewport:{width:w,height:h},deviceScaleFactor:1});
@@ -50,7 +52,7 @@ try {
     if(u.protocol==='data:'||(u.protocol==='blob:'&&u.origin===`http://127.0.0.1:${port}`)||(u.hostname==='127.0.0.1'&&u.port===String(port))){if(!['data:','blob:'].includes(u.protocol))report.requests.push(u.pathname);return route.continue();}
     report.errors.push('External renderer request blocked: '+u.origin);return route.abort('blockedbyclient');
   });
-  const meta=`/output/sharp-study/${id}/${process.env.METADATA??'viewer.json'}`;
+  const meta=`${prefix}${id}/${process.env.METADATA??'viewer.json'}`;
   await page.goto(`http://127.0.0.1:${port}/reconstructions/sharp-study-viewer/index.html?capture&meta=${encodeURIComponent(meta)}&w=${w}&h=${h}`,{waitUntil:'load',timeout:600000});
   await page.waitForFunction(()=>window.temple?.ready||window.temple?.error,null,{timeout:600000});
   await page.evaluate(async()=>{await window.temple.readyPromise;});

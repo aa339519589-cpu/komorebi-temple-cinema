@@ -14,7 +14,7 @@
     <div id="stage"><canvas id="view" tabindex="0" aria-label="可移动视点的三维高斯重建"></canvas><div id="loading" role="status">正在读取三维场景…</div><span id="scene-label"></span></div>
     <div class="transport"><div class="buttons"><button data-pose="source">源机位</button><button data-pose="left">向左平移</button><button data-pose="right">向右平移</button><button data-pose="near">拉近</button><button data-pose="far">拉远</button><button id="play">播放空间移动</button></div><label class="timeline">路径时间 <input id="time" type="range" min="0" max="7" step="0.001" value="0"><output id="time-value">0.000 s</output></label></div>
     <p class="hint">拖动转向 · Shift 拖动侧倾 · WASD 前后左右移动 · Q / E 升降 · 滚轮前后移动 · R 返回源机位</p>
-    <p id="caption">三维高斯重建研究，非手工 CAD 模型。原照片只作为重建输入，不作为渲染背景。<a href="./licenses/sharp/LICENSE_MODEL.txt">Apple 模型许可原文</a></p>
+    <p id="caption">三维高斯点场，非完整 CAD 模型。深度与尺度由单图估计，未实测。原照片只作为重建输入，不作为渲染背景。<a id="license-link" href="./README.md">重建方法许可原文</a></p>
   </main>
   <script type="module" src="./viewer.js"></script>
 </body>

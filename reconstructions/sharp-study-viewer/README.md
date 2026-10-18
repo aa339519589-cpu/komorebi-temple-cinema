@@ -1,12 +1,12 @@
 # 照片重建 3D 高斯场
 
-Independent research viewer for Apple SHARP reconstruction outputs. It draws anisotropic **3D Gaussian fields**, not the input photograph, a depth-warped plane, or a CAD reconstruction. It does not replace the ten existing modeled scenes or their films. Single-image inference can preserve visible surfaces while producing holes, stretched splats or uncertain geometry outside the observed view; inspect translations before accepting any motion.
+Independent Three/Spark viewer for photo-derived **3D Gaussian fields**. The current dataset is the independently inferred Depth Anything V2 Small depth-field in `output/depth-field/`; the older SHARP results remain research-method comparisons. The directory name is historical. It draws finite anisotropic3D Gaussians at actual varying XYZ depths, not an input-photograph background or a CAD reconstruction. Single-image depth and scale are estimated, not surveyed. Unobserved surfaces can leave holes; inspect actual camera translations before accepting motion.
 
 The viewer uses the existing Three.js r186 and locally pinned Spark 2.3.1 (MIT). Spark's standard PLY loader consumes per-Gaussian position, `exp(scale_0..2)` and quaternion `(rot_0..3 = w,x,y,z)` for covariance, sigmoid opacity, DC color and degree1–3 SH coefficients when present. It retains float32 positions through Spark's extended splat encoding, with LoD disabled. The PLY must contain actual 3DGS attributes; an ordinary colored point cloud is rejected. Source/dependency licenses and original upstream bundles are retained in `vendor/spark/`.
 
 ## Scene data
 
-Keep model binaries in `output/sharp-study/01/` or a release asset, outside Git. Models over100MB must never be committed. Place `viewer.json` beside the PLY:
+Keep model binaries in `output/depth-field/01/` or a release asset, outside Git. Models over100MB must never be committed. Place `viewer.json` beside the PLY:
 
 ```json
 {
@@ -25,10 +25,10 @@ The numbers above demonstrate the schema, not a calibration claim. Use the intri
 Launch the independent page with the existing project server, or use the local model-directory alias:
 
 ```sh
-SHARP_STUDY_ROOT=/absolute/project/output/sharp-study PORT=4521 node reconstructions/sharp-study-viewer/server.mjs
+STUDY_ROOT=/absolute/project/output/depth-field META_PREFIX=/output/depth-field/ PORT=4521 node reconstructions/sharp-study-viewer/server.mjs
 ```
 
-Open `http://127.0.0.1:4521/reconstructions/sharp-study-viewer/index.html?scene=01`. `?meta=/path/viewer.json` selects an alternative descriptor. The page explicitly labels the representation as 照片重建3D高斯场. Source photography is never requested by the renderer.
+Open `http://127.0.0.1:4521/reconstructions/sharp-study-viewer/index.html?scene=01`. `?meta=/any/prefix/01/viewer.json` selects an alternative descriptor; `?dataset=sharp-study` explicitly selects the historical research dataset. `STUDY_ROOT` mounts any physical asset directory at `META_PREFIX` without changing model files. The old `SHARP_STUDY_ROOT` variable is retained as an explicit research compatibility alias. The page labels the representation as 照片重建3D高斯场 and states that depth/scale are inferred. Source photography is never requested by the renderer.
 
 ## Deterministic camera API
 
@@ -48,17 +48,21 @@ Wait for `window.temple.readyPromise`. Every render method is asynchronous: it a
 This job uses the same `acquireGpuRenderSlot` mutex and trusted browser runtime as all reconstruction/Cycles jobs. It performs actual rendering only, not a test suite or movie export. It records model/metadata hashes, local renderer dependency hashes and exact camera poses. Source, left and right have equal projection matrices and different camera positions. PNGs contain only the Gaussian framebuffer, without UI or a reference-image background.
 
 ```sh
-SCENE=01 SHARP_STUDY_ROOT=/absolute/project/output/sharp-study SIZE=1254 ITERATION=preview01 node reconstructions/sharp-study-viewer/render-preview.mjs
+SCENE=01 STUDY_ROOT=/absolute/project/output/depth-field META_PREFIX=/output/depth-field/ SIZE=1254 SHOT_TIMES=0,7 ITERATION=preview01 node reconstructions/sharp-study-viewer/render-preview.mjs
 ```
 
-Optional: `POSES=source,near,far`, `SHARP_PREVIEW_OUTPUT=/absolute/review/path`, `METADATA=viewer.json`. Keep failed candidate images and reports. Successful WebGL rendering is not visual acceptance.
+Optional: `POSES=source,left,right` for an explicit research inspection instead of shot times, `PREVIEW_OUTPUT=/absolute/review/path`, `METADATA=viewer.json`. Keep failed candidate images and reports. Successful WebGL rendering is not visual acceptance.
 
 For the actual ten-shot camera review, run30 still frames, not a movie:
 
 ```sh
-SHARP_STUDY_ROOT=/absolute/project/output/sharp-study SIZE=1254 ITERATION=shotplan01 node reconstructions/sharp-study-viewer/render-all-shot-previews.mjs
+STUDY_ROOT=/absolute/project/output/depth-field META_PREFIX=/output/depth-field/ SIZE=1254 ITERATION=shotplan01 node reconstructions/sharp-study-viewer/render-all-shot-previews.mjs
 ```
 
-Each scene separately acquires the shared GPU mutex and renders `renderShot(0)`, `renderShot(3.5)`, `renderShot(7)`. `make-shot-contact.py` arranges the actual frames and preserves the original per-scene reports and metadata in a review folder. Raw native PNGs stay alongside the model in `output/sharp-study/{id}/viewer-shotplan01/`.
+Each scene separately acquires the shared GPU mutex and renders `renderShot(0)`, `renderShot(3.5)`, `renderShot(7)`. `make-shot-contact.py` arranges the actual frames and preserves the original per-scene reports and metadata in a review folder. Raw native PNGs stay alongside the model in the selected dataset's `{id}/viewer-shotplan01/`.
 
-Primary upstream: [Spark source](https://github.com/sparkjsdev/spark), [loading original Gaussian PLY](https://sparkjs.dev/docs/loading-splats/), [manual awaited sorting](https://sparkjs.dev/docs/spark-renderer/), [Apple SHARP](https://github.com/apple-aiml-research/ml-sharp). Original reference photographs are user supplied reconstruction inputs; their separate model provenance belongs beside the actual generated PLY. SHARP's model and Model Derivatives are licensed for Research Purposes as defined in its [full unmodified model agreement](licenses/sharp/LICENSE_MODEL.txt). Its outputs clause provides outputs AS IS; this viewer does not invent a separate output license. The [code license](licenses/sharp/LICENSE.txt) and [acknowledgements](licenses/sharp/ACKNOWLEDGEMENTS.txt) are also retained verbatim. Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement.
+Current reconstruction: [Depth Anything V2 source](https://github.com/DepthAnything/Depth-Anything-V2#license), [Small model card](https://huggingface.co/depth-anything/Depth-Anything-V2-Small), [full Apache2.0 license](licenses/depth-anything-v2/LICENSE.txt). This dataset uses only the Small checkpoint and independent pixel backprojection; no SHARP depth, PLY, weights or camera metadata are reused. The exact pipeline/checkpoint hash and declared depth mapping belong to each descriptor. Original photograph rights remain with the user.
+
+Renderer primary upstream: [Spark source](https://github.com/sparkjsdev/spark), [loading original Gaussian PLY](https://sparkjs.dev/docs/loading-splats/), [manual awaited sorting](https://sparkjs.dev/docs/spark-renderer/).
+
+Historical research only: [Apple SHARP](https://github.com/apple-aiml-research/ml-sharp). Its model and Model Derivatives are licensed for Research Purposes as defined in its [full unmodified model agreement](licenses/sharp/LICENSE_MODEL.txt). Its outputs clause provides outputs AS IS; this viewer does not invent a separate output license. Its [code license](licenses/sharp/LICENSE.txt) and [acknowledgements](licenses/sharp/ACKNOWLEDGEMENTS.txt) are retained verbatim. Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement. SHARP comparisons are not the delivery reconstruction engine.
