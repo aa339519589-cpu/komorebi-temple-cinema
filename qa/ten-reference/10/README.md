@@ -39,3 +39,9 @@ Latest CPU checks: 95 meshes, approximately 14.42 million instanced triangles, 6
 The second frame remained visibly schematic: bare distant cedar shafts, too much tower floor-to-floor projection, low/left nearest stone lantern and an overly broad paved apron. The third candidate compresses the tower vertically while raising its landscape base, restricts the far end of the paving into an asymmetric path, adds a rocky evergreen water margin and narrower distant stepping route, increases the nearest stone lantern scale/elevation, differentiates lit center tower windows from dim side bays, and supplies irregular shaded 3D foliage cores under the existing leaves. Distant trunks become thinner and overhead maple foliage is brought into the upper-right frame. Warm practical light reach and patchy rain-film reflectance increase locally.
 
 CPU: 116 meshes, approximately 15.80 million instanced triangles, 636,196 parts/instances; finite vertex and transform checks pass. These changes still require a third actual GPU frame and visual comparison.
+
+## Iteration 04 after actual iteration-03 PNG
+
+The nearest red maple canopy cores visibly exposed large polygonal lumps in the upper-right; those cores are removed for red maple and blossom foliage. The raised tower required genuine terrain support, so a smoothly sloping wooded hillside and additional rock/shrub planting now underlie its base. The main hall entrance is moved toward the visible center-right, its lattice and lower panel are removed in the actual open bays, and the recessed Buddha/practical light and carved curved entrance trim are repositioned accordingly. The drain is shifted to the reference's bottom-center to left-midground diagonal.
+
+CPU module syntax, full construction and finite geometry/matrix checks pass; the fourth actual GPU comparison remains required. The scene remains a reconstruction candidate.
