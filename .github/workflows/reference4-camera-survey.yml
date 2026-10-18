@@ -1,0 +1,45 @@
+name: Reference 4 actual full-roof camera survey
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/reference4-camera-survey.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  camera-matching:
+    runs-on: macos-14
+    timeout-minutes: 19
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Generate read-only full-geometry GPU-memory QA scene
+        env:
+          SITE_PREVIEW_SHADOW_SIZE: '2048'
+        run: |
+          node verify.mjs
+          node tools/prepare-site-mode.mjs
+          node --check tools/study-reference4-cameras.mjs
+      - name: Install isolated source render browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render four actual candidate camera views
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+        timeout-minutes: 14
+        run: |
+          set -o pipefail
+          node tools/study-reference4-cameras.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reference4-four-real-views-${{ github.sha }}
+          path: output/reference4-camera-study/
+          retention-days: 7
+          if-no-files-found: warn
