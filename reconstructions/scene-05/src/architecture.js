@@ -1293,12 +1293,12 @@ export function createRestorationArchitecture(ctx) {
     if(ctx.joineryKit&&options.interlocked&&!options.throughBeam){
       stats.bracketSets++;const hs=s*(options.horizontalScale??1);
       group(x,y,z,0,()=>{
-        for(const part of ctx.joineryKit.bracket)draw(part.geometry,part.material,[0,0,0],[hs,s,hs]);
+        for(const part of ctx.joineryKit.bracket){if(part.cornerOnly&&!options.corner)continue;draw(part.geometry,part.material,[0,0,0],[hs,s,hs],part.cornerAxis?[0,(options.cornerYaw??0)-PI/2,0]:null);}
         for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
-          const firstY=axis===0?.165:.184,secondY=axis===0?.4965:.4775;
+          const firstY=ctx.joineryKit.sculpted?.1748:(axis===0?.165:.184),secondY=ctx.joineryKit.sculpted?.4996:(axis===0?.4965:.4775);
           for(const sign of [-1,1]){
-            squareFitting(sign*.6208*hs,(firstY+.02375)*s,0,.21*hs,.15*s,sign*PI/2,options.detail??s>=1);
-            for(const branch of [-1,1])squareFitting(sign*.6808*hs,(secondY+.02375)*s,branch*.415*hs,.21*hs,.15*s,sign*PI/2,options.detail??s>=1);
+            squareFitting(sign*(ctx.joineryKit.sculpted?.655:.6208)*hs,firstY*s,0,.22*hs,(ctx.joineryKit.sculpted?.20:.23)*s,sign*PI/2,options.detail??s>=1);
+            for(const branch of [-1,1])squareFitting(sign*(ctx.joineryKit.sculpted?.755:.6808)*hs,secondY*s,branch*(ctx.joineryKit.sculpted?.40:.415)*hs,.22*hs,(ctx.joineryKit.sculpted?.19:.22)*s,sign*PI/2,options.detail??s>=1);
           }
         });
       });
@@ -2492,7 +2492,7 @@ export function createRestorationArchitecture(ctx) {
     const posts=[],windows=[];
     const post=(x,z,corner)=>{
       footColumn(x,z,y+.2,shaftHeight,shaftRadius*(corner?1:.96));
-      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.15});
+      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.15,corner,cornerYaw:Math.atan2(x,z)});
       posts.push({x,z,corner,shaftBottom,shaftTop,radius:shaftRadius*(corner?1:.96)});
     };
     // Twelve distinct posts: four true corner pillars and two between each
@@ -2703,12 +2703,12 @@ export function createRestorationArchitecture(ctx) {
           corner.clone().addScaledVector(outward,.14).add(v([0,.13,0])),
           corner.clone().addScaledVector(outward,.19).add(v([0,.30,0]))];
         group(corner.x,corner.y,corner.z,Math.atan2(outward.x,outward.z),()=>{
-          const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
-          draw(crest,'slate',[0,.005,0],[.78,.78,.82]);
-          draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);
-          draw(g.ring,'tileEdge',[0,.17,.109],[.132,.132,.05]);
-          flower(0,.17,.119,.093,'oldgold');
-          for(const side of [-1,1])draw(g.nail,'oldgold',[side*.19,.005,.083],[.022,.022,.014]);
+          if(ctx.joineryKit?.cornerMask){
+            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material==='oldgold'?'oldgold':'cornerCeramic',[0,.005,.012],[.62,.62,.62]);
+          }else{
+            const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
+            draw(crest,'slate',[0,.005,0],[.78,.78,.82]);draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);
+          }
         });
       }
       // Compact summit tile hides the seam; no two spurious hall ridge ends.

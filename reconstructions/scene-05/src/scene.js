@@ -5,21 +5,24 @@ import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
 import {buildMapleCanopy} from './foliage.js';
 import {loadBlenderJoinery} from './blender-joinery.js';
+import {createSculptedJoinery} from './sculpted-joinery.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
 export const POSE={position:[11.87,1.02,12.94],target:[-3.64,14.93,0],fov:34};
 export async function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
  mats.red.color.set('#aa5030');mats.cedar.color.set('#985430');mats.endwood.color.set('#c28545');
- mats.slate.color.set('#434c51');mats.tileEdge.color.set('#a3a69f');mats.darkwood.color.set('#555b4d');mats.paper.color.set('#282e25');
+ mats.slate.color.set('#2b3e4b');mats.slate.roughness=.48;mats.tileEdge.color.set('#a3a69f');mats.darkwood.color.set('#555b4d');mats.paper.color.set('#282e25');
  mats.gold.color.set('#e1af46');mats.oldgold.color.set('#c79a43');
  mats.gold.roughness=.40;mats.oldgold.roughness=.48;
  mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#f2e5bb');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.12;
  // Private cap surfaces keep the glazed ceramic recess distinct from the roof.
  mats.tileEndCeramic=mats.slate.clone();mats.tileEndCeramic.name='scene05-dark-inset-tile-cap';mats.tileEndCeramic.color.set('#29343c');mats.tileEndCeramic.roughness=.62;
  mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#4b514b');mats.tileEndRelief.roughness=.73;
+ mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#1b242a');mats.cornerCeramic.roughness=.57;mats.cornerCeramic.bumpScale=.0025;
 
- const joineryKit=await loadBlenderJoinery();Object.assign(mats,joineryKit.materials);
+ const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery();
+ const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,relief:sculptedJoinery.relief,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:sculptedJoinery.info,dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();}};Object.assign(mats,joineryKit.materials);
  // Solid code-built geometry and the user-authorized image-assisted relief.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
  const primitive={box:new T.BoxGeometry(1,1,1),sphere:new T.SphereGeometry(1,16,10),cone:new T.ConeGeometry(1,1,16)};
@@ -32,15 +35,15 @@ export async function buildScene(){
  }
  function group(x,y,z,angle,fn){stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationY(angle)));try{fn();}finally{stack.pop();}}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){
-   if(['red','cedar','endwood','darkwood','architecture_red','architecture_cedar','architecture_endwood'].includes(ma)&&Math.min(w,h,d)>.045){
+   if(['red','cedar','endwood','darkwood','architecture_red','architecture_cedar','architecture_endwood','windowBars'].includes(ma)&&Math.min(w,h,d)>.045){
      const key=[w,h,d].map(n=>n.toFixed(5)).join(':');
      if(!geometryCache.has(key))geometryCache.set(key,new RoundedBoxGeometry(w,h,d,1,Math.min(.014,Math.min(w,h,d)*.10)));
      instance(geometryCache.get(key),ma,x,y,z,1,1,1,[0,rot,0],tint);
    }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
  }
  const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit});
- mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414747');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
- mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#858b7c');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
+ mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#293b48');mats.architecture_slate.roughness=.48;mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
+ mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#526053');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
  for(const [name,m]of Object.entries(mats)){
    if(['red','cedar','endwood','darkwood'].some(k=>name===k||name==='architecture_'+k)){
      m.roughnessMap=null;m.roughness=name.includes('endwood')?.84:.76;m.envMapIntensity=.28;m.bumpScale=.006;
@@ -258,5 +261,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-pierced-gilt-lantern-and-inset-ceramic-medallions-detail52',levels,triangles,parts,geometry:'Source-built beveled solid joinery, real half laps, displaced gilt fittings, ceramic rows and lobed leaves',joineryKit:joineryKit.info,timber:scannedTimber.info,canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-sculpted-interlocked-corner-joinery-struct64',levels,triangles,parts,geometry:'Authored closed curved and beveled timber profiles, half-lapped arms, corner raked ang, deep open gilt leaf carving, recessed ceramic masks and individual tile rows',joineryKit:joineryKit.info,timber:scannedTimber.info,canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
 }
