@@ -1,3 +1,4 @@
+import {toCreasedNormals} from 'three/addons/utils/BufferGeometryUtils.js';
 import * as T from 'three';
 
 // Fractured granite with a flattened foot and broad cleavage faces.
@@ -13,7 +14,7 @@ export function granite(seed=1){
   x=Math.min(x,.85+y*.14-z*.09);
   p.setXYZ(i,x,y,z);
  }
- g.computeVertexNormals();return g;
+ g.computeVertexNormals();return toCreasedNormals(g,.62);
 }
 
 export function grassTuft(){
