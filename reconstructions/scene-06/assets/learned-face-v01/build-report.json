@@ -1,0 +1,34 @@
+{
+  "status": "prepared-unaccepted-face-candidate",
+  "photographicAcceptance": false,
+  "inputSha256": "13e54a02bf8daefae0c6f2287925387ffaf26861d6061db401b5c2063c90c5e6",
+  "placement": {
+    "scale": 0.68,
+    "translation": [
+      0,
+      2.917,
+      -0.16
+    ]
+  },
+  "jointCutsY": [
+    2.36,
+    3.205
+  ],
+  "smallBoundaryPatchLimitUnits": 0.1,
+  "topology": {
+    "vertices": 109624,
+    "triangles": 220000,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "signedVolumeUnits3": 0.014552724125507356
+  },
+  "texturesUsed": false,
+  "vertexColorsUsed": false,
+  "requiresOriginalGoldMaterial": true,
+  "originalPartsRetained": "Native neck, curl cap, diadem, body, attendants, camera and lighting",
+  "blender": "5.2.1 LTS",
+  "buildScript": "tools/build-scene06-learned-face.py",
+  "recovery": "Only obsolete export_colors keyword replaced by current export_vertex_color=NONE; existing editable sculpt reused without rebuilding geometry.",
+  "central-face.glbSha256": "49ea6f7f932f21f56f96f741e5d7976104ab5d3e3f30d038bc95d1d6aae7bb13",
+  "central-face.blendSha256": "133e886454b0db0d7a31ad45f18801875f345f9e74e87602fa2909022d322438"
+}

@@ -1,3 +1,4 @@
+import {learnedCentralFace} from './learned-face-asset.js';
 // Recovered from verified 435ffe plus preserved modeling transcript after the 2026-10-17 environment reset. New source identity, not a claim of byte-exact f9c4 recovery.
 import * as T from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
@@ -368,7 +369,7 @@ function broadShoulderBand(){
 function centralFigure(){
  const b=makeBuilder('central');
  b.add(loft(MAIN_BODY,{nu:240,nv:280,relief:mainRelief}),'full-seated-torso');
- neck(b,2.355);const fg=face(2.78);b.add(fg,'full-oval-face','face');faceAnatomy(b,fg,2.78);ears(b,2.78);crown(b,2.78,{central:true});
+ neck(b,2.355);const fittedFace=learnedCentralFace();if(fittedFace){b.add(fittedFace.clone(),'learned-continuous-face-and-ears','face');}else{const fg=face(2.78);b.add(fg,'full-oval-face','face');faceAnatomy(b,fg,2.78);ears(b,2.78);}crown(b,2.78,{central:true});
  const arms=[
   [[-.40,2.20,-.025],[-.64,2.02,-.005],[-.82,1.65,.055],[-.92,1.09,.13],[-.92,.82,.19],[-.84,.67,.25]],
   [[.40,2.20,-.025],[.65,2.01,-.005],[.84,1.65,.045],[.94,1.10,.14],[.89,.74,.25],[.66,.67,.45],[.43,.64,.66]]

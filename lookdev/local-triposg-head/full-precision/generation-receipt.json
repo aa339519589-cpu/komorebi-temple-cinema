@@ -1,0 +1,63 @@
+{
+  "status": "explicit-fp32-mesh-generated-unaccepted",
+  "sourceLatents": "/Users/mima1234/temple-traced-stone04-20261019/lookdev/local-triposg-head/shape-latents.pt",
+  "latentSha256": "73456fa876d42e41b3146cfec4f6dcd19f8c0e16d3cbff103b82fe5c9d692347",
+  "sourceCodeCommit": "ca7ffd3f609e53a324a32fdbc958b7439c1ddb13",
+  "sourceModel": "VAST-AI/TripoSG",
+  "weightsLicense": "MIT",
+  "scope": "Same generated 3D shape; full FP32 VAE and position embedding instead of FP16. No image or texture loaded.",
+  "imageLoaded": false,
+  "RFRepeated": false,
+  "photographicAcceptance": false,
+  "decoderDtype": "float32",
+  "startedAt": 1792360096.060086,
+  "meshLevels": [
+    {
+      "depth": 6,
+      "grid": 64,
+      "queries": 262144,
+      "min": -7.218642234802246,
+      "max": 16.746055603027344
+    },
+    {
+      "depth": 7,
+      "grid": 128,
+      "queries": 591308,
+      "min": -7.578558921813965,
+      "max": 17.226093292236328
+    },
+    {
+      "depth": 8,
+      "grid": 256,
+      "queries": 2586200,
+      "min": -7.712543487548828,
+      "max": 16.56902313232422
+    },
+    {
+      "depth": 9,
+      "grid": 512,
+      "queries": 11211960,
+      "min": -7.6529998779296875,
+      "max": 16.461273193359375
+    }
+  ],
+  "vertices": 1635494,
+  "triangles": 3272608,
+  "bounds": [
+    [
+      -0.7512661218643188,
+      -0.9531245827674866,
+      -0.7754726409912109
+    ],
+    [
+      0.7493541240692139,
+      0.9493376016616821,
+      0.7797837257385254
+    ]
+  ],
+  "watertight": false,
+  "file": "head-fp32-untextured.glb",
+  "bytes": 65440212,
+  "sha256": "13e54a02bf8daefae0c6f2287925387ffaf26861d6061db401b5c2063c90c5e6",
+  "finishedAt": 1792360299.25539
+}

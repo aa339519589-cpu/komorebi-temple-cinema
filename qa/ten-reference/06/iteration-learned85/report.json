@@ -1,0 +1,932 @@
+{
+  "reference": 6,
+  "entry": "reconstructions/scene-06/index.html",
+  "worktree": "/Users/mima1234/temple-traced-stone04-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-18T22:14:06.918Z",
+  "source": {
+    "hash": "728efeb501cc58ccde797ec5caee30c41ba4a5f06bd338b29641b19d958361e8",
+    "files": {
+      "reconstructions/scene-06/assets/learned-face-v01/build-report.json": "d0175f9b420b6055bcbcc6879adc84273e88f6ee8bfd16ecb64df9605119195e",
+      "reconstructions/scene-06/assets/learned-face-v01/central-face.glb": "49ea6f7f932f21f56f96f741e5d7976104ab5d3e3f30d038bc95d1d6aae7bb13",
+      "reconstructions/scene-06/index.html": "f54c086e03b4b272ffa47983ff78d2075c065b9d1b96949b270f46aaea0eb6f8",
+      "reconstructions/scene-06/src/floor-varnish.js": "e7b2c8f01e74c2dad0c0fca1923d3ba13db5e67764c02fc0548853c8702628ce",
+      "reconstructions/scene-06/src/learned-face-asset.js": "62b42078ee8ab11afc63ae25cb3c9a60827ddc46302277e3f3f7d0d0d854cd94",
+      "reconstructions/scene-06/src/lens-bloom.js": "e21b284cc1a3301149a42a0ba8a303ab4bf26ec30031e424f56a53c4769a07d8",
+      "reconstructions/scene-06/src/reference6-camera-shot.js": "3ab675085727ee8a6fbabaa622e4d9acee212287349e5114d109248e7d497423",
+      "reconstructions/scene-06/src/reference6-coffer-relief.js": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53",
+      "reconstructions/scene-06/src/reference6-column-collar.js": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94",
+      "reconstructions/scene-06/src/reference6-main.js": "ecf452252ffeabd654ac6effbf38998950309e26e6612ddc0d707ac807bd300d",
+      "reconstructions/scene-06/src/reference6-scene.js": "e1810f280d5188048f6703f4cc87250457f45857f02eab69f2905e588d2212f0",
+      "reconstructions/scene-06/src/restoration-altar.js": "deca4c4d0ff998d3366ab79644afcfa872642362eca3a935678b886d3d4b4120",
+      "reconstructions/scene-06/src/restoration-buddha.js": "ec2b9d9306031ad47e3dfc8f85d7bf71248dd2c4af1c39380ceaccee44af7f10",
+      "reconstructions/scene-06/src/restoration-lighting.js": "23063b312965d240d6b808bd45079f7a34e44a7a4f7b11d15122ff93b02e9fb7",
+      "reconstructions/scene-06/src/restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25",
+      "reconstructions/scene-06/src/shot-focus.js": "3101c18d1285ec0b96745ef2d7c9c5e40783e7e4a9b138a8bf3966b7aa533079"
+    }
+  },
+  "sourceCommit": "ddcb1a8915828980fb5ffc58f930a1ecaa48af7b",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-06/index.html",
+    "/reconstructions/scene-06/src/reference6-main.js",
+    "/reconstructions/scene-06/src/learned-face-asset.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/reconstructions/scene-06/src/lens-bloom.js",
+    "/reconstructions/scene-06/src/reference6-camera-shot.js",
+    "/reconstructions/scene-06/src/shot-focus.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-06/src/reference6-scene.js",
+    "/reconstructions/scene-06/src/restoration-lighting.js",
+    "/reconstructions/scene-06/src/restoration-render-diagnostics.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/reconstructions/scene-06/src/reference6-column-collar.js",
+    "/reconstructions/scene-06/src/reference6-coffer-relief.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/lights/RectAreaLightUniformsLib.js",
+    "/reconstructions/scene-06/src/restoration-altar.js",
+    "/reconstructions/scene-06/src/restoration-buddha.js",
+    "/reconstructions/scene-06/src/floor-varnish.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/vendor/examples/jsm/lights/RectAreaLightTexturesLib.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-06/assets/learned-face-v01/central-face.glb"
+  ],
+  "detailCrop": {
+    "pixels": [
+      584,
+      331,
+      95,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 6,
+        "learnedCentralFace": {
+          "asset": "learned-face-v01",
+          "source": "Original MIT TripoSG shape, explicit cropped and repaired mesh",
+          "triangles": 219889,
+          "bounds": [
+            [
+              -0.5106198787689209,
+              2.360023260116577,
+              -0.6867536902427673
+            ],
+            [
+              0.5092326998710632,
+              3.2049143314361572,
+              0.3700323700904846
+            ]
+          ],
+          "images": 0,
+          "textures": 0,
+          "visualAccepted": false
+        },
+        "frame": 1,
+        "width": 1254,
+        "height": 1254,
+        "revision": "scene-06-sculpture-varnish-max03",
+        "camera": {
+          "position": [
+            0,
+            0.58,
+            8.4
+          ],
+          "target": [
+            0,
+            2.4,
+            -2.3
+          ],
+          "quaternion": [
+            0.08414089476065134,
+            0,
+            0,
+            0.996453867386181
+          ],
+          "fov": 62
+        },
+        "shot": null,
+        "focus": {
+          "enabled": false,
+          "focusDistance": 10.853681403100055,
+          "fNumber": 2.8,
+          "strength": 0,
+          "focalLengthMm": 29.124890941134066,
+          "maxRadiusPixels": 6,
+          "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+          "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+          "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 768,
+          "composerSamples": 4
+        },
+        "renderVariant": "scene-06-sculpture-varnish-max03",
+        "validation": "Visual foundation candidate, not photographic acceptance."
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-06-sculpture-varnish-max03",
+        "reference": 6,
+        "learnedCentralFace": {
+          "asset": "learned-face-v01",
+          "source": "Original MIT TripoSG shape, explicit cropped and repaired mesh",
+          "triangles": 219889,
+          "bounds": [
+            [
+              -0.5106198787689209,
+              2.360023260116577,
+              -0.6867536902427673
+            ],
+            [
+              0.5092326998710632,
+              3.2049143314361572,
+              0.3700323700904846
+            ]
+          ],
+          "images": 0,
+          "textures": 0,
+          "visualAccepted": false
+        },
+        "frame": 1,
+        "counts": {
+          "meshes": 1705,
+          "instances": 17881,
+          "triangles": 8597954
+        },
+        "independentInterior": true,
+        "exteriorWorldBuilt": false,
+        "photoPlanes": false,
+        "exposure": 1.05,
+        "lights": {
+          "sun": 1,
+          "indirectAreaProxies": 8,
+          "frontWindowShadowSamples": 6,
+          "practicals": 2
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 768
+        },
+        "renderVariant": "scene-06-sculpture-varnish-max03",
+        "cameraShot": {
+          "revision": "scene06-kneeling-censer-dolly-camera74",
+          "duration": 7,
+          "subject": {
+            "label": "Existing central six-lobed gilt censer/cartouche and curled handles",
+            "point": [
+              0,
+              1.4709999999999999,
+              1.1922373832605224
+            ],
+            "altarLocalPoint": [
+              0,
+              1.426,
+              3.4922373832605222
+            ],
+            "mesh": "restoration-altar:merged-gold",
+            "instanceId": null,
+            "source": "Raycast against retained altar geometry at local Y1.426; no model edits"
+          },
+          "controls": [
+            [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            [
+              0.24,
+              0.8,
+              3.706678037445392
+            ],
+            [
+              -0.07,
+              0.6,
+              7.085869850484711
+            ],
+            [
+              0,
+              0.58,
+              8.4
+            ]
+          ],
+          "start": {
+            "position": [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            "quaternion": [
+              0.29069032182267135,
+              0.0894166514934571,
+              -0.0272962574791494,
+              0.9522387902002108
+            ],
+            "fov": 62
+          },
+          "end": {
+            "position": [
+              0,
+              0.58,
+              8.4
+            ],
+            "target": [
+              0,
+              2.4,
+              -2.3
+            ],
+            "quaternion": [
+              0.08414089476065134,
+              0,
+              0,
+              0.996453867386181
+            ],
+            "fov": 62
+          },
+          "orientation": "Shortest quaternion slerp independent of cubic rail",
+          "timeCurve": "quintic smootherstep; zero first/second derivatives at endpoints",
+          "focus": {
+            "enabled": false,
+            "focusDistance": 10.853681403100055,
+            "fNumber": 2.8,
+            "strength": 0,
+            "focalLengthMm": 29.124890941134066,
+            "maxRadiusPixels": 6,
+            "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+            "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+            "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+          },
+          "current": null
+        },
+        "composerAA": {
+          "requestedSamples": 4,
+          "samples": 4,
+          "colorFormat": "RGBA16F",
+          "depthFormat": "DEPTH_COMPONENT24",
+          "colorSamples": [
+            4,
+            2
+          ],
+          "depthSamples": [
+            4,
+            2
+          ],
+          "maxSamples": 4,
+          "active": true,
+          "mode": "multisample-composer",
+          "scope": "Geometry coverage only; no promise to remove normal-map/specular aliasing."
+        },
+        "contactOcclusion": {
+          "method": "GTAO",
+          "radius": 0.18,
+          "thickness": 0.14,
+          "blendIntensity": 0.65,
+          "source": "Actual opaque geometry normals and depth",
+          "limitation": "Screen-space multiply approximation, not physical indirect-only transport"
+        },
+        "limits": [
+          "Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.",
+          "Independent room with complete reconstructed altar7365af and sculpture5338dd, not yet visually accepted.",
+          "Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.",
+          "Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.",
+          "Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison."
+        ],
+        "diagnostics": {
+          "revision": "persistent-render-diagnostics-v1",
+          "stage": "renderer-ready",
+          "failed": false,
+          "contextLost": false,
+          "guardValid": true,
+          "errors": []
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9912013613851942,
+      "opaqueFraction": 1,
+      "rgbaSha256": "e0abe47f043f1595557ef6246645fec56ff3f9c8fc8108ace47d8bf9100d82b1"
+    },
+    {
+      "pose": {
+        "reference": 6,
+        "learnedCentralFace": {
+          "asset": "learned-face-v01",
+          "source": "Original MIT TripoSG shape, explicit cropped and repaired mesh",
+          "triangles": 219889,
+          "bounds": [
+            [
+              -0.5106198787689209,
+              2.360023260116577,
+              -0.6867536902427673
+            ],
+            [
+              0.5092326998710632,
+              3.2049143314361572,
+              0.3700323700904846
+            ]
+          ],
+          "images": 0,
+          "textures": 0,
+          "visualAccepted": false
+        },
+        "frame": 2,
+        "width": 1254,
+        "height": 1254,
+        "revision": "scene-06-sculpture-varnish-max03",
+        "camera": {
+          "position": [
+            0,
+            0.58,
+            8.4
+          ],
+          "target": [
+            0,
+            2.4,
+            -2.3
+          ],
+          "quaternion": [
+            0.08414089476065134,
+            0,
+            0,
+            0.996453867386181
+          ],
+          "fov": 62
+        },
+        "shot": null,
+        "focus": {
+          "enabled": false,
+          "focusDistance": 10.853681403100055,
+          "fNumber": 2.8,
+          "strength": 0,
+          "focalLengthMm": 29.124890941134066,
+          "maxRadiusPixels": 6,
+          "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+          "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+          "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 768,
+          "composerSamples": 4
+        },
+        "renderVariant": "scene-06-sculpture-varnish-max03",
+        "validation": "Visual foundation candidate, not photographic acceptance."
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-06-sculpture-varnish-max03",
+        "reference": 6,
+        "learnedCentralFace": {
+          "asset": "learned-face-v01",
+          "source": "Original MIT TripoSG shape, explicit cropped and repaired mesh",
+          "triangles": 219889,
+          "bounds": [
+            [
+              -0.5106198787689209,
+              2.360023260116577,
+              -0.6867536902427673
+            ],
+            [
+              0.5092326998710632,
+              3.2049143314361572,
+              0.3700323700904846
+            ]
+          ],
+          "images": 0,
+          "textures": 0,
+          "visualAccepted": false
+        },
+        "frame": 2,
+        "counts": {
+          "meshes": 1705,
+          "instances": 17881,
+          "triangles": 8597954
+        },
+        "independentInterior": true,
+        "exteriorWorldBuilt": false,
+        "photoPlanes": false,
+        "exposure": 1.05,
+        "lights": {
+          "sun": 1,
+          "indirectAreaProxies": 8,
+          "frontWindowShadowSamples": 6,
+          "practicals": 2
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 768
+        },
+        "renderVariant": "scene-06-sculpture-varnish-max03",
+        "cameraShot": {
+          "revision": "scene06-kneeling-censer-dolly-camera74",
+          "duration": 7,
+          "subject": {
+            "label": "Existing central six-lobed gilt censer/cartouche and curled handles",
+            "point": [
+              0,
+              1.4709999999999999,
+              1.1922373832605224
+            ],
+            "altarLocalPoint": [
+              0,
+              1.426,
+              3.4922373832605222
+            ],
+            "mesh": "restoration-altar:merged-gold",
+            "instanceId": null,
+            "source": "Raycast against retained altar geometry at local Y1.426; no model edits"
+          },
+          "controls": [
+            [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            [
+              0.24,
+              0.8,
+              3.706678037445392
+            ],
+            [
+              -0.07,
+              0.6,
+              7.085869850484711
+            ],
+            [
+              0,
+              0.58,
+              8.4
+            ]
+          ],
+          "start": {
+            "position": [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            "quaternion": [
+              0.29069032182267135,
+              0.0894166514934571,
+              -0.0272962574791494,
+              0.9522387902002108
+            ],
+            "fov": 62
+          },
+          "end": {
+            "position": [
+              0,
+              0.58,
+              8.4
+            ],
+            "target": [
+              0,
+              2.4,
+              -2.3
+            ],
+            "quaternion": [
+              0.08414089476065134,
+              0,
+              0,
+              0.996453867386181
+            ],
+            "fov": 62
+          },
+          "orientation": "Shortest quaternion slerp independent of cubic rail",
+          "timeCurve": "quintic smootherstep; zero first/second derivatives at endpoints",
+          "focus": {
+            "enabled": false,
+            "focusDistance": 10.853681403100055,
+            "fNumber": 2.8,
+            "strength": 0,
+            "focalLengthMm": 29.124890941134066,
+            "maxRadiusPixels": 6,
+            "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+            "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+            "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+          },
+          "current": null
+        },
+        "composerAA": {
+          "requestedSamples": 4,
+          "samples": 4,
+          "colorFormat": "RGBA16F",
+          "depthFormat": "DEPTH_COMPONENT24",
+          "colorSamples": [
+            4,
+            2
+          ],
+          "depthSamples": [
+            4,
+            2
+          ],
+          "maxSamples": 4,
+          "active": true,
+          "mode": "multisample-composer",
+          "scope": "Geometry coverage only; no promise to remove normal-map/specular aliasing."
+        },
+        "contactOcclusion": {
+          "method": "GTAO",
+          "radius": 0.18,
+          "thickness": 0.14,
+          "blendIntensity": 0.65,
+          "source": "Actual opaque geometry normals and depth",
+          "limitation": "Screen-space multiply approximation, not physical indirect-only transport"
+        },
+        "limits": [
+          "Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.",
+          "Independent room with complete reconstructed altar7365af and sculpture5338dd, not yet visually accepted.",
+          "Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.",
+          "Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.",
+          "Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison."
+        ],
+        "diagnostics": {
+          "revision": "persistent-render-diagnostics-v1",
+          "stage": "renderer-ready",
+          "failed": false,
+          "contextLost": false,
+          "guardValid": true,
+          "errors": []
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        584,
+        331,
+        95,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "c3b3991a390559287cac09cb4d9fd8a5d2dc0b663bfa8425f44a821d212305fc"
+    }
+  ],
+  "completedAt": "2026-10-18T22:14:13.386Z"
+}

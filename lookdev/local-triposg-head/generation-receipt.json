@@ -1,0 +1,72 @@
+{
+  "status": "explicit-mesh-generated-unaccepted",
+  "source": "VAST-AI/TripoSG",
+  "codeCommit": "ca7ffd3f609e53a324a32fdbc958b7439c1ddb13",
+  "codeLicense": "MIT",
+  "sourceScriptSha256": "9ae7923ccbefcdd0225d2abc35c17cb09e662529de93b7c473e3b59f2e4dafca",
+  "upstreamCallbackFix": "Unused undefined dual-encoder callback slots removed; RF/VAE mathematics unchanged",
+  "guide": "/Users/mima1234/temple-traced-stone04-20261019/lookdev/trellis2-head-study/sculpt-guide-v01.png",
+  "guideSha256": "debfd126ce9cf0a69b41a6824ccde87d51e07aa55ce1fb162c05aaf82bc99e7b",
+  "purpose": "Provisional real 3D head geometry; not a replacement film frame",
+  "textureUsedInOutput": false,
+  "photographicAcceptance": false,
+  "torch": "2.14.1",
+  "startedAt": 1792359112.911763,
+  "seed": 804231,
+  "steps": 50,
+  "guidance": 7.0,
+  "octree": [
+    6,
+    9
+  ],
+  "device": "mps",
+  "meshLevels": [
+    {
+      "depth": 6,
+      "grid": 64,
+      "queries": 262144,
+      "min": -7.22265625,
+      "max": 16.71875
+    },
+    {
+      "depth": 7,
+      "grid": 128,
+      "queries": 591156,
+      "min": -7.59375,
+      "max": 17.203125
+    },
+    {
+      "depth": 8,
+      "grid": 256,
+      "queries": 2586240,
+      "min": -7.71484375,
+      "max": 16.56370735168457
+    },
+    {
+      "depth": 9,
+      "grid": 512,
+      "queries": 11210712,
+      "min": -7.657577991485596,
+      "max": 16.465770721435547
+    }
+  ],
+  "vertices": 1634958,
+  "triangles": 3271514,
+  "bounds": [
+    [
+      -0.7510967254638672,
+      -0.9528207182884216,
+      -0.7754784226417542
+    ],
+    [
+      0.7490749359130859,
+      0.9496430158615112,
+      0.7798069715499878
+    ]
+  ],
+  "watertight": false,
+  "file": "head-provisional-untextured.glb",
+  "bytes": 65418508,
+  "sha256": "2498eae3a298d53bb546babf33e8008057c958a5fa43db07e662782a26cee83c",
+  "finishedAt": 1792359467.3877919
+}

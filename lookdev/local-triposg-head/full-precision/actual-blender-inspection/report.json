@@ -1,0 +1,52 @@
+{
+  "status": "actual-mesh-views-rendered",
+  "input": "/Users/mima1234/temple-traced-stone04-20261019/lookdev/local-triposg-head/full-precision/head-fp32-untextured.glb",
+  "scope": "Real standalone mesh inspection, not a film frame or photographic match",
+  "guideImageLoaded": false,
+  "referenceImageLoaded": false,
+  "meshObjects": 1,
+  "triangles": 3272600,
+  "blenderBounds": [
+    [
+      -0.7512661218643188,
+      -0.7797837257385254,
+      -0.9531245827674866
+    ],
+    [
+      0.7493541240692139,
+      0.7754726409912109,
+      0.9493376016616821
+    ]
+  ],
+  "camera": "orthographic only for shape inspection",
+  "photographicAcceptance": false,
+  "views": [
+    {
+      "name": "front",
+      "file": "front.png",
+      "position": [
+        -0.0009559988975524902,
+        -7.612004280090332,
+        0.15030348300933838
+      ]
+    },
+    {
+      "name": "three-quarter",
+      "file": "three-quarter.png",
+      "position": [
+        4.945445537567139,
+        -6.280281066894531,
+        0.18835273385047913
+      ]
+    },
+    {
+      "name": "profile",
+      "file": "profile.png",
+      "position": [
+        7.608892917633057,
+        -0.0021555423736572266,
+        0.15030348300933838
+      ]
+    }
+  ]
+}
