@@ -1,0 +1,709 @@
+{
+  "sourceStatistics": {
+    "meshes": 4402,
+    "geometries": 4352,
+    "materials": 121,
+    "textures": 16,
+    "instances": 349366,
+    "triangles": 12712005
+  },
+  "lightingMode": "physical-night09",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 9,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "",
+      "type": "Reflector",
+      "material": "scene09-physical-planar-water",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "",
+      "type": "Reflector",
+      "material": "wet-stone-puddle-layer",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792341364.48101,
+  "buildScript": {
+    "file": "build-scene09-cycles.py",
+    "sha256": "c6975a37c444b418513cbb1838ba460397e3775e298b37136df885a051a2cbf0"
+  },
+  "nativeSourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+  "verifiedExport": {
+    "sourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+    "allServedSourceBytesMatch": true,
+    "sourceCommit": "78f39291b062ea7a2cd51053823d11d030c593f2"
+  },
+  "importerProvenance": {
+    "reused": "Existing scene09 physical51 source-buffer importer and exact source-location physical reflector replacements",
+    "upstreamBuilderSHA256": "2af00e8efd958bd3c3fe6e7f852d90287602c445632ee12468da88606d8249d4",
+    "sourceGeometryRemodeled": false,
+    "sourcePBRRecolored": false,
+    "updates": [
+      "Named thin-paper recognition for current roughness .84",
+      "Actual blackbody mesh-paper radiance",
+      "Cached portable texture channels",
+      "Retained roughness/metalness source multipliers and Metal OIDN support"
+    ]
+  },
+  "proceduralWoodTransfer": {
+    "materialIds": [],
+    "coordinates": "Exact original per-member local vertex positions, preserved as sourceMemberLocal attribute",
+    "colorPhase": "sin(localY*3 + sin(localX*62)*1.8 + localX*260), original .86/.14/.08 amplitudes",
+    "noise": "Smooth Blender 3D noise replaces unportable GLSL hash noise",
+    "physicalMicroResponse": {
+      "roughnessVariation": 0.09,
+      "bumpDistanceMetres": 0.0007,
+      "bumpStrength": 0.17
+    }
+  },
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "nightSky": {
+    "method": "Shared procedural blue-hour radiance with directional gradient and six-octave noise clouds",
+    "bitmapBackground": false,
+    "cameraOnlyEnvironment": false
+  },
+  "physicalReflectorReplacements": [
+    {
+      "source": "pond",
+      "sourceYUpCenter": [
+        0,
+        -0.02,
+        8
+      ],
+      "surfaceSize": [
+        52,
+        55
+      ],
+      "ior": 1.333,
+      "closureDepth": 1.4
+    },
+    {
+      "source": "wet-veranda",
+      "sourceYUpCenter": [
+        1.7900875291986527,
+        1.497,
+        35.83814555537695
+      ],
+      "sourceRotation": "RY(.505) * RX(-pi/2)",
+      "surfaceSize": [
+        34,
+        8.5
+      ],
+      "ior": 1.333,
+      "proceduralPuddleCoverage": true
+    }
+  ],
+  "paperMaterialInterpretation": {
+    "ids": [
+      "b059a62f-22a0-42a1-ba67-c0535d8cbddd",
+      "7b592690-4c8d-4a16-981c-2faa2bb006a9",
+      "5acd8c7e-8864-47ef-8b62-96d752ffd691",
+      "803c1f43-e9dd-481e-8ec4-a67a2c3bcff2",
+      "955dd042-8daa-41f7-9fdb-6e5aa060ecfd"
+    ],
+    "preserved": "Exact original albedo, normals/roughness and source fiber/emissive attenuation map",
+    "physicalChange": "45 percent thin-paper transmission plus additive blackbody mesh-face emission; no emitter card or replacement geometry",
+    "temperatureKelvin": 2750.0,
+    "radianceGainOverNativeEmission": 12.0,
+    "gainIsLightingCalibrationNotMeasuredRadiometry": true
+  },
+  "disabledWebGLFixtureProxyLights": [
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 15.680000000000001,
+      "sourcePosition": [
+        -2.445119483634355,
+        6.435,
+        -15.444489758628494
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.6448,
+      "sourcePosition": [
+        -1.937503358476321,
+        11.114999999999998,
+        -16.126271152830142
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 15.680000000000001,
+      "sourcePosition": [
+        -0.03883220998147685,
+        6.435,
+        -13.652903434541317
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.6448,
+      "sourcePosition": [
+        0.46878391517655693,
+        11.114999999999998,
+        -14.334684828742967
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 15.680000000000001,
+      "sourcePosition": [
+        2.367455063671401,
+        6.435,
+        -11.861317110454141
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.6448,
+      "sourcePosition": [
+        2.875071188829435,
+        11.114999999999998,
+        -12.543098504655791
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 15.680000000000001,
+      "sourcePosition": [
+        7.180029610977157,
+        6.435,
+        -8.27814446227979
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.6448,
+      "sourcePosition": [
+        7.687645736135191,
+        11.114999999999998,
+        -8.959925856481439
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 15.680000000000001,
+      "sourcePosition": [
+        9.586316884630035,
+        6.435,
+        -6.486558138192613
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.6448,
+      "sourcePosition": [
+        10.093933009788069,
+        11.114999999999998,
+        -7.168339532394263
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 15.680000000000001,
+      "sourcePosition": [
+        11.992604158282912,
+        6.435,
+        -4.694971814105438
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.6448,
+      "sourcePosition": [
+        12.500220283440946,
+        11.114999999999998,
+        -5.376753208307086
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        16.499682265761912,
+        7.35,
+        -17.424949015588165
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        18.588000185543283,
+        7.35,
+        -16.732902582232708
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        20.676318105324654,
+        7.35,
+        -16.040856148877246
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        22.76463602510602,
+        7.35,
+        -15.348809715521789
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        24.852953944887393,
+        7.35,
+        -14.65676328216633
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        14.958306118742936,
+        7.35,
+        -12.773695466984206
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        17.046624038524307,
+        7.35,
+        -12.081649033628747
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        19.134941958305678,
+        7.35,
+        -11.389602600273289
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        21.223259878087045,
+        7.35,
+        -10.69755616691783
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999997,
+      "sourcePosition": [
+        23.311577797868416,
+        7.35,
+        -10.00550973356237
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -10.347242380861456,
+        4.75,
+        -14.67260599802416
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -8.854736132944415,
+        4.75,
+        -14.522855873053917
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -7.362229885027377,
+        4.75,
+        -14.373105748083676
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -5.869723637110338,
+        4.75,
+        -14.223355623113433
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -4.3772173891933,
+        4.75,
+        -14.073605498143191
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -10.682682660794796,
+        4.75,
+        -11.329392002689993
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -9.190176412877758,
+        4.75,
+        -11.179641877719751
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -7.697670164960719,
+        4.75,
+        -11.029891752749508
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -6.205163917043681,
+        4.75,
+        -10.880141627779267
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 5.412049999999999,
+      "sourcePosition": [
+        -4.712657669126642,
+        4.75,
+        -10.730391502809024
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -15.721332187904093,
+        7.42,
+        -13.606144404403448
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -10.518762871788546,
+        7.42,
+        -14.445732235075731
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -15.630672832362414,
+        10.953999999999999,
+        -13.7316957217393
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -10.644314189124396,
+        10.953999999999999,
+        -14.53639159061741
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -15.540013476820738,
+        14.487999999999998,
+        -13.85724703907515
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -10.769865506460247,
+        14.487999999999998,
+        -14.627050946159088
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -15.449354121279057,
+        18.022,
+        -13.982798356411001
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -10.895416823796097,
+        18.022,
+        -14.717710301700766
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -15.358694765737381,
+        21.555999999999997,
+        -14.10834967374685
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 7.859819519999999,
+      "sourcePosition": [
+        -11.020968141131949,
+        21.555999999999997,
+        -14.808369657242444
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 12.168000000000003,
+      "sourcePosition": [
+        -6.8,
+        3.406,
+        8
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 3.2320800000000007,
+      "sourcePosition": [
+        -3,
+        1.7554,
+        5
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 2.592,
+      "sourcePosition": [
+        -1,
+        1.572,
+        10
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 4.050000000000001,
+      "sourcePosition": [
+        7.5,
+        1.965,
+        4
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 10.368,
+      "sourcePosition": [
+        12.2,
+        3.144,
+        8
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 3.5279999999999996,
+      "sourcePosition": [
+        9,
+        1.8339999999999999,
+        -2
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 4.6080000000000005,
+      "sourcePosition": [
+        19,
+        2.096,
+        -6
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 4.050000000000001,
+      "sourcePosition": [
+        -11,
+        1.965,
+        -6
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 1.8,
+      "sourcePosition": [
+        4,
+        1.31,
+        -1
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 1.9468800000000002,
+      "sourcePosition": [
+        -3,
+        1.3624,
+        -4
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 2.592,
+      "sourcePosition": [
+        -8,
+        1.572,
+        14
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 38.917472000000004,
+      "sourcePosition": [
+        1,
+        7.2,
+        23.7
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 53.63107200000002,
+      "sourcePosition": [
+        7.7,
+        7.3,
+        21.6
+      ]
+    },
+    {
+      "type": "PointLight",
+      "name": "scene09-physical-lamp-local-pool",
+      "sourceIntensity": 23.836032,
+      "sourcePosition": [
+        4.6,
+        7,
+        34.4
+      ]
+    }
+  ],
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 12712005,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Exact exported mesh70 base PBR textures/metric UVs, colors and instance tints retained; blackbody thin-paper emission is an explicit physical-lighting calibration. Existing source water/puddle reflector surfaces become physical dielectric surfaces.",
+  "fixedSeed": 907071,
+  "proxyPointGain": 1.0,
+  "allRetainedLightsCastShadow": true,
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.08,
+    "worldGain": 0.7,
+    "exposure": 0.5,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792341466.226306,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 48,
+  "photographicAcceptance": false
+}

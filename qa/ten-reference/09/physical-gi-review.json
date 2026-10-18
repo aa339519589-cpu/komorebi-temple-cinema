@@ -1,0 +1,87 @@
+{
+  "status": "bounded-physical-GI-candidate-for-primary-review",
+  "photographicAcceptance": false,
+  "reference": "references/hd/8-照片-9.jpg",
+  "nativeComparison": "qa/ten-reference/09/iteration-mesh70/reference.png",
+  "sourceCommitAtExport": "78f39291b062ea7a2cd51053823d11d030c593f2",
+  "sourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+  "completeServedSourceByteCheck": true,
+  "sourceExportReceipt": "cycles-71/source-package/export-report.json",
+  "statistics": {
+    "meshes": 4402,
+    "geometries": 4352,
+    "materials": 121,
+    "textures": 16,
+    "instances": 349366,
+    "triangles": 12712005
+  },
+  "frames": [
+    {
+      "candidate": "cycles-71",
+      "frame": "qa/ten-reference/09/cycles-71/render/scene09-cycles71.png",
+      "sha256": "32385e6e143c779b0e5311341d6d8ccffad03acd2bed519fa835db9d59e417a0",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 48,
+      "seed": 907071,
+      "device": "Metal GPU",
+      "denoiser": "OpenImageDenoise",
+      "sourceTrianglesPreserved": true,
+      "nativeSourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+      "script": "qa/ten-reference/09/cycles-71/build-scene09-cycles.py",
+      "scriptSha256": "c6975a37c444b418513cbb1838ba460397e3775e298b37136df885a051a2cbf0"
+    },
+    {
+      "candidate": "cycles-72",
+      "frame": "qa/ten-reference/09/cycles-72/render/scene09-cycles72.png",
+      "sha256": "2cd1f3122a3865660da5f17636ee3a952ad345f5c19a8cc3baca3fde310b4e2a",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 48,
+      "seed": 907071,
+      "device": "Metal GPU",
+      "denoiser": "OpenImageDenoise",
+      "sourceTrianglesPreserved": true,
+      "nativeSourceHash": "5f09b47e0314ef352e01552371a19e722e8740859060e7840fe8054a093c0ae4",
+      "script": "qa/ten-reference/09/cycles-72/relight-scene09.py",
+      "scriptSha256": "10b39e4982303e7181d00ee881553ef8229fa286ed59e97fab509fc26eb87cc3"
+    }
+  ],
+  "physicalGIObservedImprovement": true,
+  "observedImprovements": [
+    "Warm diffuse bounce appears across under-eaves, column sides and near veranda framing rather than isolated point-like pools.",
+    "Pond and wet-stone reflections recover broad reflected lamp/window structures and illuminate the near floor.",
+    "Finite original paper meshes emit blackbody-calibrated warm light with actual geometric shadows/reflection; no reference photograph or emitter billboard."
+  ],
+  "preserved": [
+    "All exported source geometry and instance placement",
+    "Source base PBR and actual scan/metric UV channels",
+    "Source reference camera",
+    "Native mesh70 source remains unchanged"
+  ],
+  "physicalInterpretations": [
+    "Only the existing excluded pond/wet-deck Reflector footprints become IOR1.333 physical dielectric surfaces.",
+    "Named source paper receives45 percent thin diffuse transmission and explicitly calibrated blackbody mesh emission.",
+    "56 original WebGL fixture proxy points are disabled; no extra proxy points are added.",
+    "Night sky is one shared procedural radiance environment for camera, GI and reflections."
+  ],
+  "onePermittedLightCorrection": "cycles72 reloads the packed cycles71 scene and asserts unchanged object/face counts and camera matrix; adjusts only emitter radiance/temperature and world/directional light.",
+  "remainingLimits": [
+    "Paper still reads too white and the main hall roof remains too dark.",
+    "Some bridge highlights appear gray; wet reflections are broad.",
+    "Simplified repetitive source architecture and garden still differ materially from the reference.",
+    "48 samples with OIDN is a diagnostic, not a final photographic acceptance."
+  ],
+  "localLargeCaches": [
+    "cycles-71/source-package/assets/",
+    "cycles-71/source-package/scene.json",
+    "cycles-71/render/scene09-cycles71.blend",
+    "cycles-72/render/scene09-cycles72.blend"
+  ],
+  "reproducibility": "Complete exporter receipt, recipes, exact entry-point scripts and their rendered snapshots are committed; large generated caches are retained locally and reproducible.",
+  "validation": "Actual source-verified export and two shared-mutex Cycles renders only, plus syntax/whitespace checks; no suite, movie or ad-hoc GPU job."
+}
