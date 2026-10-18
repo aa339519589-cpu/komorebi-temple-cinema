@@ -49,18 +49,23 @@ export function buildReference4Garden(T,options={}){
  }
  const paving=['#817b72','#777972','#8b7d71','#72756d'].map((color,i)=>{const mm=ownM(stoneMaterial('metre-scaled-worn-wet-paver-'+i,color,{wet:true,seed:741+i*31}));for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
  const rows=23,cols=3,nodes=[];
- for(let j=0;j<=rows;j++){const row=[];for(let i=0;i<=cols;i++){const z=plan.stairBottomZ+j*(plan.pathEndZ-plan.stairBottomZ)/rows+(j===0||j===rows?0:rr(-.17,.17)),h=pathHalf(z);row.push([-h+i*2*h/cols+(i===0||i===cols?0:rr(-.32,.32)*h/hw),z]);}nodes.push(row);}
+ for(let j=0;j<=rows;j++){const row=[];for(let i=0;i<=cols;i++){const z=plan.stairBottomZ+j*(plan.pathEndZ-plan.stairBottomZ)/rows+(j===0||j===rows?0:rr(-.27,.27)),h=pathHalf(z),belt=[-1,-.28,.28,1][i];row.push([belt*h+(i===0||i===cols?0:rr(-.32,.32)*h/hw),z]);}nodes.push(row);}
  for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
   const corners=[nodes[j][i],nodes[j][i+1],nodes[j+1][i+1],nodes[j+1][i]],outlines=(j%7===3&&i===0)?[[corners[0],corners[1],corners[2]],[corners[0],corners[2],corners[3]]]:[corners];
   for(const [k,outline] of outlines.entries()){
-   const top=.045+rr(-.008,.008),g=polygonSlab(outline,top,.075,123+j*19+i*7+k*51);mesh(g,paving[Math.floor((((Math.sin(j*12.9898+i*78.233+k*31.7)*43758.5453)%1+1)%1)*4)],`jointed-polygon-paver-${j}-${i}-${k}`,subgroups.path);records.stoneSlabs.push({outline,top,thickness:.075,jointMetres:.024});
+   const top=.048+rr(-.016,.016),g=polygonSlab(outline,top,.14,123+j*19+i*7+k*51,{processional:true});mesh(g,paving[Math.floor((((Math.sin(j*12.9898+i*78.233+k*31.7)*43758.5453)%1+1)%1)*4)],`jointed-polygon-paver-${j}-${i}-${k}`,subgroups.path);records.stoneSlabs.push({outline,top,thickness:.14,jointMetres:.036,roundedArrisMetres:.015,relief:'settling, crown, shallow wear basin, independent two-axis tilt and geometric pitting'});
   }
  }
 
  const jointP=[],jointC=[];
  function seamMoss(a,b,s){const dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=-dz/len,nz=dx/len;
-  for(let j=0;j<len*95;j++){const t=j/(len*95),v=.5+.5*Math.sin(j*2.17+s*7.9);if(v<.28||Math.sin(t*23+s*2.3)+.5*Math.sin(t*61-s*1.9)<.28)continue;const x=a[0]+dx*t+nx*(v-.5)*.010,z=a[1]+dz*t+nz*(v-.5)*.010,y=.018,w=.003+v*.003,h=.014+v*.018;
-   for(const p of[[x-w,y,z],[x+w,y,z],[x,y+h,z+.003],[x,y,z-w],[x,y,z+w],[x+.003,y+h,z]]){jointP.push(...p);jointC.push(.72+v*.14,.80+v*.17,.51+v*.12);}
+  for(let j=0;j<len*70;j++){const t=j/(len*70),v=.5+.5*Math.sin(j*2.17+s*7.9);if(v<.28||Math.sin(t*23+s*2.3)+.5*Math.sin(t*61-s*1.9)<.28)continue;const x=a[0]+dx*t+nx*(v-.5)*.015,z=a[1]+dz*t+nz*(v-.5)*.015,r=.005+v*.006,h=.005+v*.005,y=.022;
+   // Low, closed irregular moss cushions. The former upright crossed
+   // triangles became obvious green flags in a genuine subfrustum render.
+   const P=(ring,k)=>{const q=ring/3*Math.PI/2,angle=k*Math.PI/4,jitter=1+.12*Math.sin(k*2.7+j*1.3+s);return[x+Math.cos(angle)*Math.cos(q)*r*jitter,y+Math.sin(q)*h,z+Math.sin(angle)*Math.cos(q)*r*.78*jitter];};
+   const tri=(a,b,c)=>{for(const p of[a,b,c]){jointP.push(...p);jointC.push(.59+v*.16,.68+v*.18,.38+v*.11);}};
+   for(let ring=0;ring<3;ring++)for(let k=0;k<8;k++){const a=P(ring,k),b=P(ring,k+1),c=P(ring+1,k),d=P(ring+1,k+1);tri(a,c,b);if(ring<2)tri(b,c,d);}
+   for(let k=0;k<8;k++)tri([x,y,z],P(0,k),P(0,k+1));
   }
  }
  for(let j=0;j<rows;j++)for(let i=1;i<cols;i++)seamMoss(nodes[j][i],nodes[j+1][i],j*7+i);

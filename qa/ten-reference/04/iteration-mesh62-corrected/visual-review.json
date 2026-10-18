@@ -1,0 +1,49 @@
+{
+  "status": "Review candidate; not accepted",
+  "visualAccepted": false,
+  "sourceHash": "96f17df8c07e19d6e538949f7f85f2b87f61f6b809ae35a54578c3092530bb4a",
+  "actualEvidence": [
+    "reference.png",
+    "detail-native.png"
+  ],
+  "renderer": "metal",
+  "renderTool": "tools/render-one-reconstruction.mjs with the shared GPU mutex",
+  "detail": {
+    "pixels": [
+      377,
+      754,
+      500,
+      1254
+    ],
+    "outputPixels": [
+      1254,
+      1254
+    ],
+    "method": "Second actual 3D camera subfrustum render; not a crop or enlargement of the first output."
+  },
+  "retainedRejectedCandidate": "../iteration-mesh62",
+  "observedImprovements": [
+    "Front karahafu ends no longer turn upward into a narrow pinched profile; the crown remains at the measured screen height.",
+    "The rear gable panel is 1.27 m farther behind the previous face, with four separately spaced structural timber ribs in front.",
+    "Lower side eaves and colonnade supports have actual raised geometry; the second pass restored the two-eave height separation.",
+    "The front slabs now have visible rounded arrises, real pitting, small crowns and independent settlement; PBR data is a CC0 granite face at 0.3173828125 m repeat.",
+    "Native subfrustum inspection caught inflated slabs and flag-like moss in the first candidate; the corrected source reduces the heights and replaces flags with closed low cushions."
+  ],
+  "remainingDifferences": [
+    "The main hall still has simplified bracket and carving silhouettes, regular roof tile rows, and insufficient real wood variation compared with the photograph.",
+    "The front granite remains too uniform and warm in the current native daylight; the reference has stronger dark mica, pale mineral clusters, lichen and irregular erosion.",
+    "Rounded moss cushions are still visibly simplified in the enlarged native detail.",
+    "A source/reference axis offset and local roof-corner residual remain; screen landmark agreement does not establish photographic fidelity."
+  ],
+  "unchanged": [
+    "Camera position, target and focal length",
+    "Scene lighting and background",
+    "Sanctuary, Buddha, large lanterns, trees, water, and other buildings"
+  ],
+  "validation": {
+    "allFramesValid": true,
+    "rendererErrors": [],
+    "referencePhotoRuntimeRequests": []
+  },
+  "scope": "One bounded actual mesh/PBR correction and one render-driven revision, not a finished 10-scene film."
+}

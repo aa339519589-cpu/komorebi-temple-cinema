@@ -42,7 +42,7 @@ float ssHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float ssNoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(ssHash(i),ssHash(i+vec2(1,0)),f.x),mix(ssHash(i+vec2(0,1)),ssHash(i+vec2(1,1)),f.x),f.y);}
 `;
 export function stoneMaterial(name,color='#82725e',{wet=false,seed=1,roughness=.96}={}){
- const scan=name.startsWith('metre-scaled-worn-wet-paver-')&&scannedStoneMaps,maps=scan?Object.fromEntries(Object.entries(scannedStoneMaps).map(([k,t])=>[k,t.clone()])):metricStoneMaps(seed),m=new T.MeshPhysicalMaterial({name,color:scan?['#c6dcff','#c0d7f7','#d1dff2','#bcd4f6'][Number(name.split('-').at(-1))%4]:color,...maps,roughness,normalScale:new T.Vector2(scan?.28:.46,scan?.28:.46),metalness:0,clearcoat:0});
+ const scan=name.startsWith('metre-scaled-worn-wet-paver-')&&scannedStoneMaps,maps=scan?Object.fromEntries(Object.entries(scannedStoneMaps).map(([k,t])=>[k,t.clone()])):metricStoneMaps(seed),m=new T.MeshPhysicalMaterial({name,color:scan?['#e7eceb','#c0ccd3','#e1dbce','#b8c1c8'][Number(name.split('-').at(-1))%4]:color,...maps,roughness,normalScale:new T.Vector2(scan?.72:.46,scan?.72:.46),metalness:0,clearcoat:0});
  m.onBeforeCompile=shader=>{
   m.userData.compiledShader=shader;
   shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 ssPosition;\nvarying vec3 ssWorldNormal;').replace('#include <project_vertex>',`vec4 ssP=vec4(transformed,1.0);\n#ifdef USE_INSTANCING\nssP=instanceMatrix*ssP;\n#endif\nssPosition=(modelMatrix*ssP).xyz;vec3 ssN=normal;
@@ -65,20 +65,20 @@ normal=normalize(mat3(viewMatrix)*normalize(ssAX*ssW.x+ssAY*ssW.y+ssAZ*ssW.z));
    .replace('#include <color_fragment>',`#include <color_fragment>\nvec3 ssCW=ssWeights();float ssMacro=dot(vec3(ssNoise(ssPosition.zy*1.9),ssNoise(ssPosition.xz*1.9),ssNoise(ssPosition.xy*1.9)),ssCW);float ssWeather=dot(vec3(ssNoise(ssPosition.zy*8.3)+.23*ssNoise(ssPosition.zy*49.0),ssNoise(ssPosition.xz*8.3)+.23*ssNoise(ssPosition.xz*49.0),ssNoise(ssPosition.xy*8.3)+.23*ssNoise(ssPosition.xy*49.0)),ssCW);float ssPale=smoothstep(.66,.84,ssWeather);diffuseColor.rgb*=.78+.40*ssMacro;diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*1.40+vec3(.015,.017,.020),ssPale*.42);`)
    .replace('#include <roughnessmap_fragment>',`${T.ShaderChunk.roughnessmap_fragment.replace('texture2D( roughnessMap, vRoughnessMapUv )','ssTriSample(roughnessMap)')}\n${wet?'float ssWet=smoothstep(.53,.76,ssNoise(ssPosition.xz*.93+vec2(7.3,1.1))+.18*ssNoise(ssPosition.xz*3.1))*smoothstep(.30,.74,ssNoise(ssPosition.xz*4.7)+.2*ssNoise(ssPosition.xz*9.1));roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;':''}`);
  };
- if(scan){const inherit=m.onBeforeCompile;m.onBeforeCompile=shader=>{inherit(shader);shader.fragmentShader=shader.fragmentShader.replaceAll('ssPosition*4.0',`(ssPosition*4.44444444+vec3(${((seed*.17)%1).toFixed(6)},${((seed*.31)%1).toFixed(6)},${((seed*.43)%1).toFixed(6)}))`).replace('roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;','roughnessFactor=mix(roughnessFactor,.28,ssWet*.52);diffuseColor.rgb*=1.0-.12*ssWet;');};}
- m.customProgramCacheKey=()=>`scene04-world-triplanar-stone-scan47-${wet}-${!!scan}-${scan?seed:0}`;m.userData.physicalTextureRepeatMetres=scan?scannedStoneRepeatMetres:.25;m.userData.maps=maps;return m;
+ if(scan){const inherit=m.onBeforeCompile;m.onBeforeCompile=shader=>{inherit(shader);shader.fragmentShader=shader.fragmentShader.replaceAll('ssPosition*4.0',`(ssPosition*${(1/scannedStoneRepeatMetres).toFixed(10)}+vec3(${((seed*.17)%1).toFixed(6)},${((seed*.31)%1).toFixed(6)},${((seed*.43)%1).toFixed(6)}))`).replace('roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;','roughnessFactor=mix(roughnessFactor,.40,ssWet*.36);diffuseColor.rgb*=1.0-.09*ssWet;');};}
+ m.customProgramCacheKey=()=>`scene04-world-triplanar-granite62-${wet}-${!!scan}-${scan?seed:0}`;m.userData.physicalTextureRepeatMetres=scan?scannedStoneRepeatMetres:.25;m.userData.maps=maps;return m;
 }
-export function polygonSlab(outline,top=.045,thickness=.075,seed=1){
- const cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,points=outline.map(([x,z])=>{const r=Math.hypot(x-cx,z-cz);return[x+(cx-x)*.012/r,z+(cz-z)*.012/r];}),shape=new T.Shape();
+export function polygonSlab(outline,top=.045,thickness=.075,seed=1,wear={}){
+ const path=wear.processional===true,joint=path?.018:.012,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,points=outline.map(([x,z])=>{const r=Math.hypot(x-cx,z-cz);return[x+(cx-x)*joint/r,z+(cz-z)*joint/r];}),shape=new T.Shape();
  const boundary=[];
  for(let j=0;j<points.length;j++){
   const a=points[j],b=points[(j+1)%points.length],v=new T.Vector2(b[0]-a[0],b[1]-a[1]),len=v.length(),n=new T.Vector2(-v.y,v.x).normalize();
   const count=Math.max(4,Math.ceil(len/.045));
-  const corner=.022+.020*hash(j,0,seed+13);
+  const corner=(path?.038:.022)+.020*hash(j,0,seed+13);
   for(let k=0;k<=count;k++){const t=corner+(1-2*corner)*k/count,inset=k===0||k===count?0:.002+.025*Math.pow(hash(j,k,seed),5),chip=inset+.0025*(hash(j,k,seed+7)-.5);boundary.push([a[0]+v.x*t+n.x*chip,a[1]+v.y*t+n.y*chip]);}
  }
  boundary.forEach(([x,z],j)=>j?shape.lineTo(x,-z):shape.moveTo(x,-z));shape.closePath();
- let g=new T.ExtrudeGeometry(shape,{depth:thickness,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,curveSegments:1,steps:1});g.rotateX(-Math.PI/2);g.translate(0,top-thickness,0);
+ let g=new T.ExtrudeGeometry(shape,{depth:thickness,bevelEnabled:true,bevelSize:path?.008:.006,bevelThickness:path?.006:.004,bevelSegments:path?3:1,curveSegments:1,steps:1});g.rotateX(-Math.PI/2);g.translate(0,top-thickness,0);
  const source=g.attributes.position,oldNormals=g.attributes.normal,pp=[],flags=[];
  function pushTri(a,b,c,flag,depth=0){
   const lengths=[a.distanceToSquared(b),b.distanceToSquared(c),c.distanceToSquared(a)],m=Math.max(...lengths);
@@ -90,9 +90,17 @@ export function polygonSlab(outline,top=.045,thickness=.075,seed=1){
  const edgeDistance=(x,z)=>{let d=10;for(let j=0;j<points.length;j++){const a=points[j],b=points[(j+1)%points.length],dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));}return d;};
  // Broad wear changes the actual low-angle silhouette. Chipped joint lips sit
  // below the centres; the metre-scaled shader supplies the smaller aggregate.
- const field=(x,z)=>.0045*(smoothNoise(x*14,z*14,seed)-.5)+.0015*(smoothNoise(x*36,z*36,seed+18)-.5)-.014*(1-T.MathUtils.smoothstep(edgeDistance(x,z),.008,.055))*(.42+.58*smoothNoise(x*24,z*24,seed+39)),p=g.attributes.position;
+ const extentX=Math.max(...points.map(p=>Math.abs(p[0]-cx))),extentZ=Math.max(...points.map(p=>Math.abs(p[1]-cz))),tiltX=path?.010*(hash(seed,17)-.5):0,tiltZ=path?.012*(hash(seed,23)-.5):0;
+ const field=(x,z)=>{
+  const d=edgeDistance(x,z),fine=.0045*(smoothNoise(x*14,z*14,seed)-.5)+.0015*(smoothNoise(x*36,z*36,seed+18)-.5);
+  if(!path)return fine-.014*(1-T.MathUtils.smoothstep(d,.008,.055))*(.42+.58*smoothNoise(x*24,z*24,seed+39));
+  // Settling, shallow undulations and rounded arrises are actual positions.
+  // Metric granite normals handle sub-millimetre grains separately.
+  const crown=.006*T.MathUtils.smoothstep(d,.010,.11),round=.015*(1-T.MathUtils.smoothstep(d,.003,.045)),wearBasin=.004*Math.exp(-((x-cx)**2+(z-cz)**2)/.10),pits=.004*T.MathUtils.smoothstep(smoothNoise(x*23,z*23,seed+61),.55,.78);
+  return crown-round-wearBasin+tiltX*(x-cx)/extentX+tiltZ*(z-cz)/extentZ+.010*(smoothNoise(x*2.8,z*2.8,seed+71)-.5)+fine-pits;
+ },p=g.attributes.position;
  for(let i=0;i<p.count;i++){const x=p.getX(i),z=p.getZ(i),blend=T.MathUtils.smoothstep(p.getY(i),top-thickness+.015,top-.015);p.setY(i,p.getY(i)+field(x,z)*blend);}
  g.computeVertexNormals();const normals=g.attributes.normal;
  for(let i=0;i<p.count;i++)if(flags[i]){const x=p.getX(i),z=p.getZ(i),e=.002,dx=(field(x+e,z)-field(x-e,z))/(2*e),dz=(field(x,z+e)-field(x,z-e))/(2*e),n=new T.Vector3(-dx,1,-dz).normalize();normals.setXYZ(i,n.x,n.y,n.z);}
- g=applyMetricUV(g);return g;
+ g.userData.wear={kind:path?'settled-rounded-granite-paving':'worn-stair-tread',jointMetres:joint*2,thicknessMetres:thickness,roundedArrisMetres:path?.015:.014,referencePhotographUsedAsTexture:false};g=applyMetricUV(g);return g;
 }

@@ -6,7 +6,7 @@ import {createWeatheredFlagstone} from './reference4-garden-stone.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
-export const REFERENCE4_ARCHITECTURE_REVISION='reference4-foundation-v4-rebuilt-connected-eaves';
+export const REFERENCE4_ARCHITECTURE_REVISION='reference4-mesh62-broad-karahafu-deep-colonnade';
 export function buildReference4Architecture(T,options={}) {
  const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:16.4,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
@@ -39,8 +39,11 @@ export function buildReference4Architecture(T,options={}) {
  function tileBetween(a,b,r=.067,tint=1){a=V(a);b=V(b);const z=b.clone().sub(a),len=z.length();if(len<.03)return;z.normalize();let x=V([0,1,0]).cross(z).normalize();if(x.length()<.1)x.set(1,0,0);const y=z.clone().cross(x).normalize();const m=new T.Matrix4().makeBasis(x,y,z);m.scale(V([r,r,len]));m.setPosition(a.clone().add(b).multiplyScalar(.5));m.premultiply(stack.at(-1));put(barrel,mats.slate,m,tint);}
 
  // Common curved canopy/main-roof weather profile. Front remains the source-led arch.
- const gHalf=6.5,gFront=1.55,upperFront=C.ridgeZ+4.5,gBack=Math.min(-2.4,upperFront-.3),xs=Array.from(new Set([...lin(-gHalf,gHalf,80),...lin(-C.upperRoofWidth/2,C.upperRoofWidth/2,64).filter(x=>Math.abs(x)<=gHalf)].map(x=>x.toFixed(9)))).map(Number).sort((a,b)=>a-b);
- const archFront=x=>{const u=Math.abs(x)/gHalf;return H(8.6)+2.45*(Math.exp(-3.4*u*u)-Math.exp(-3.4))/(1-Math.exp(-3.4))+.18*Math.pow(u,10)-.10*Math.exp(-Math.pow((u-.73)/.18,2));};
+ const gHalf=6.4,gFront=1.55,upperFront=C.ridgeZ+4.5,gBack=Math.min(-2.4,upperFront-.3),xs=Array.from(new Set([...lin(-gHalf,gHalf,80),...lin(-C.upperRoofWidth/2,C.upperRoofWidth/2,64).filter(x=>Math.abs(x)<=gHalf)].map(x=>x.toFixed(9)))).map(Number).sort((a,b)=>a-b);
+ // Measured on the 1254 px reference: broad shoulders, a 211 px crown and
+ // lower 320 px ends. The former narrow Gaussian pinched the gable and its
+ // strong upturn raised both ends into a flat, single-sheet-looking canopy.
+ const archFront=x=>{const u=Math.abs(x)/gHalf;return H(8.4)+2.65*(Math.exp(-2.5*u*u)-Math.exp(-2.5))/(1-Math.exp(-2.5))+.045*Math.pow(u,10)-.040*Math.exp(-Math.pow((u-.80)/.18,2));};
  const rawCanopy=(x,z)=>archFront(x)+.35*(gFront-z)/(gFront-gBack);
  function upperRaw(x,z){const t=(z-C.ridgeZ)/4.5,span=C.upperRoofWidth*(.275+.225*t),u=x/span;return H(11.60)+(C.ridgeY-H(11.60))*Math.pow(Math.max(0,1-t),1.48)+.62*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));}
  function joinTop(x,z){return z>=gBack&&Math.abs(x)<=gHalf?Math.max(upperRaw(x,z),rawCanopy(x,z)+.025):upperRaw(x,z);}
@@ -94,7 +97,7 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');
   for(const s of[-1,1])for(let i=0;i<9;i++)box(s*(3.2+i*.55),C.stairTopY+.49,.23,.11,.84,.11,'red');
  });
- role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=Math.abs(x)<3?C.capitalTop:Math.abs(x)<5?C.capitalTop-.9:C.capitalTop-1.3;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84);}
+ role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=Math.abs(x)<3?C.capitalTop:Math.abs(x)<5?C.capitalTop-.72:C.capitalTop-1.0;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84);}
   for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78);}
  });
  role('hall-enclosure-doors',()=>{
@@ -112,12 +115,12 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1]){box(s*(clearW/2+.21),y0+clearH/2,z,.42,clearH,.50,'cedar');box(s*(clearW/2+.21),y0+clearH/2,z+.264,.33,clearH,.028,'oldgold');for(let j=0;j<10;j++)relief(s*(clearW/2+.21),y0+.23+j*.405,z+.285,.29,.28);box(s*(clearW/2+.035),y0+clearH/2,z-.08,.07,clearH,.42,'gold');}
   box(0,y0+clearH+.23,z,5.04,.46,.50,'cedar');box(0,y0+clearH+.23,z+.265,4.85,.34,.026,'oldgold');for(let j=-5;j<=5;j++)relief(j*.405,y0+clearH+.23,z+.285,.35,.24);box(0,y0+.035,z,4.2,.07,.60,'darkwood');
   for(const y of[C.capitalTop-.40,C.capitalTop+.20]){box(0,y,.06,6.15,.36,.52,'red');for(const x of[-2.4,-1.6,-.8,0,.8,1.6,2.4])relief(x,y,.333,.68,.25);}
-  for(const s of[-1,1])for(const span of[[2.86,4.73,C.capitalTop-.9],[4.73,6.88,C.capitalTop-1.3]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.32,.44,'red');relief(x,span[2]+.12,.272,w*.84,.24);}
+  for(const s of[-1,1])for(const span of[[2.86,4.73,C.capitalTop-.72],[4.73,6.88,C.capitalTop-1.0]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.32,.44,'red');relief(x,span[2]+.12,.272,w*.84,.24);}
  });
 
  const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:H(11.60),rise:C.ridgeY-H(11.60),curl:.62,centerZ:C.ridgeZ,connected:true});
  for(const x of[-3.9,0,3.9])rosette(x,C.ridgeY+.13,C.ridgeZ+.18,.17,'oldgold');
- roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.55),rise:2.36,curl:.56,centerZ:-4.5,inner:.50,frontGap:6.53});
+ roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.90),rise:2.17,curl:.56,centerZ:-4.5,inner:.50,frontGap:6.43});
  role('entrance-deep-connected-canopy',()=>{
   const zs=lin(upperFront,gFront,15),weather=gridAt(xs,zs,canopy);emit(shell(weather,-.035,.025,'connected-canopy-ceramics'),'slate');emit(shell(weather,-.16,-.035,'connected-canopy-timber-deck'),'cedar');
   // 37 individually solid rough-sawn rafters. Boards are above them, so the
@@ -169,10 +172,12 @@ export function buildReference4Architecture(T,options={}) {
   for(const z of [.78,.17,-.44,-1.05]){const grid=gridAt(vaultXs,[z-.07,z+.07],(x,zz)=>canopy(x,zz)-.64);emit(shell(grid,-.105,.025,'separate-curved-vault-rib'),'red');}
   // Front-facing nested ribs catch the daylight entering beneath the eave.
   // The deeper soffit remains a real vault, rather than a black flat mask.
-  for(let layer=0;layer<3;layer++){const xx=lin(-3.18+layer*.08,3.18-layer*.08,64),z=1.24-layer*.22,grid=gridAt(xx,[z-.09,z+.09],x=>canopy(x,gFront)-.62-layer*.21);emit(shell(grid,-.145,.025,'nested-front-curved-timber-rib'),layer%2?'cedar':'red');}
+  for(let layer=0;layer<4;layer++){const xx=lin(-3.18+layer*.09,3.18-layer*.09,64),z=1.27-layer*.38,grid=gridAt(xx,[z-.085,z+.085],x=>canopy(x,gFront)-.60-layer*.155);emit(shell(grid,-.145,.025,'nested-front-curved-timber-rib'),layer%2?'cedar':'red');}
   const panel=new T.Shape(),foot=C.capitalTop+.36;panel.moveTo(-3.0,foot);for(const x of lin(-3.0,3.0,80))panel.lineTo(x,Math.max(foot+.025,canopy(x,gFront)-1.0));panel.lineTo(3.0,foot);panel.closePath();
   for(const x of[-2.2,-1.4,-.7,.7,1.4,2.2]){const hole=new T.Path(),y=foot+.19+.16*(1-Math.abs(x)/2.3);hole.absellipse(x,y,.105,.085,0,Math.PI*2,true);panel.holes.push(hole);}
-  emit(new T.ExtrudeGeometry(panel,{depth:.18,bevelEnabled:true,bevelSize:.012,bevelThickness:.012,bevelSegments:2,curveSegments:16}),'cedar',0,0,.49);
+  // The carved rear gable is behind four structural ribs. Its previous face
+  // at z=.49 filled the photographed vault with a flat perforated triangle.
+  emit(new T.ExtrudeGeometry(panel,{depth:.18,bevelEnabled:true,bevelSize:.012,bevelThickness:.012,bevelSegments:2,curveSegments:16}),'cedar',0,0,-.78);
   for(const z of [.53,-.26])for(let i=-5;i<=5;i++){
    const x=i*.53,y=C.capitalTop+.12;
    if(i%2===0)arch.brackets(x,y,z,.47,{detail:true,interlocked:true,material:'cedar'});
@@ -201,7 +206,7 @@ export function buildReference4Architecture(T,options={}) {
   // Lower eaves have real purlin ends and alternating engraved finials.
   for(const sign of[-1,1])for(let i=0;i<22;i++){
    const x=sign*(3.25+i*.25);if(Math.abs(x)>8.9)continue;
-   const y=H(7.55)+.24+.28*Math.pow(Math.abs(x)/9,8);
+   const y=H(7.90)+.24+.28*Math.pow(Math.abs(x)/9,8);
    box(x,y-.39,.61,.10,.13,.73,'cedar');
    if(i%4===0)arch.squareFitting(x,y-.39,1.00,.10,.12,0,false);
   }

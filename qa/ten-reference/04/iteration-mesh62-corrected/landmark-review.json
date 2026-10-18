@@ -1,0 +1,102 @@
+{
+  "method": "Manual photo landmarks with 5–7 px picking uncertainty; model surface centreline landmarks are projected mathematically with the untouched camera. This is a dimensional check, not an image fidelity score.",
+  "referenceSize": [
+    1254,
+    1254
+  ],
+  "cameraUnchanged": {
+    "position": [
+      0,
+      1.35,
+      23.34
+    ],
+    "target": [
+      0,
+      2.3,
+      0
+    ],
+    "fov": 64.1754241,
+    "near": 0.08,
+    "far": 1200
+  },
+  "landmarks": [
+    {
+      "feature": "karahafu left/right weather-line ends",
+      "reference": [
+        [
+          347,
+          321
+        ],
+        [
+          925,
+          327
+        ]
+      ],
+      "native49": [
+        [
+          332.8,
+          308.96
+        ],
+        [
+          921.2,
+          308.96
+        ]
+      ],
+      "mesh62b": [
+        [
+          337.15,
+          323.97
+        ],
+        [
+          916.85,
+          323.97
+        ]
+      ],
+      "note": "Tile radius and fascia thickness extend beyond the sampled weather-line. The 6 px photo/model axis offset is retained rather than hidden by a new camera."
+    },
+    {
+      "feature": "karahafu crown weather line",
+      "reference": [
+        [
+          633,
+          207
+        ]
+      ],
+      "native49": [
+        [
+          627,
+          207.59
+        ]
+      ],
+      "mesh62b": [
+        [
+          627,
+          207.59
+        ]
+      ]
+    },
+    {
+      "feature": "lower shoulder eave corner weather line",
+      "reference": [
+        [
+          1020,
+          327
+        ]
+      ],
+      "native49": [
+        [
+          1018.02,
+          352.01
+        ]
+      ],
+      "mesh62b": [
+        [
+          1017.78,
+          337
+        ]
+      ],
+      "note": "The genuine roof corner finial extends outside this tile-plane point."
+    }
+  ],
+  "visualAccepted": false
+}

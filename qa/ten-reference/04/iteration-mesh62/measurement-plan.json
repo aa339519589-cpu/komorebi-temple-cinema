@@ -1,0 +1,82 @@
+{
+  "reference": "/Users/mima1234/temple-cinema-live-sync/references/hd/3-\u7167\u7247-4.jpg",
+  "referenceUse": "Read-only comparison only. Original photograph copyright retained by its owner. No reference pixels, estimated photo depth, point clouds, Gaussian splats or projection textures enter the scene.",
+  "baselineActual": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-struct49/reference.png",
+  "baselinePhysical": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/physical-daylight/iteration-02/actual-scene04-daylight.png",
+  "status": "Candidate under review; not accepted",
+  "method": "Manual screen landmarks on native 1254 x 1254 reference; projection of source geometry under the unchanged physical camera. Single-photo dimensions remain hypotheses.",
+  "screenLandmarks": [
+    {
+      "feature": "Main roof ridge left/right",
+      "referencePixels": [
+        [
+          468,
+          132
+        ],
+        [
+          800,
+          133
+        ]
+      ],
+      "manualTolerancePixels": 5
+    },
+    {
+      "feature": "Front karahafu tile crown",
+      "referencePixels": [
+        [
+          633,
+          207
+        ]
+      ],
+      "manualTolerancePixels": 5
+    },
+    {
+      "feature": "Front karahafu left/right ends",
+      "referencePixels": [
+        [
+          347,
+          321
+        ],
+        [
+          925,
+          327
+        ]
+      ],
+      "manualTolerancePixels": 7
+    },
+    {
+      "feature": "Upper stair tread, lower stair tread",
+      "referencePixels": [
+        [
+          632,
+          568
+        ],
+        [
+          632,
+          752
+        ]
+      ],
+      "manualTolerancePixels": 5
+    }
+  ],
+  "fixedCamera": {
+    "position": [
+      0,
+      1.35,
+      23.34
+    ],
+    "target": [
+      0,
+      2.3,
+      0
+    ],
+    "fov": 64.1754241
+  },
+  "decisions": [
+    "Do not enlarge the architecture by changing focal length.",
+    "Broaden gable shoulders while retaining the measured crown; lower the front arris at its ends.",
+    "Move rear triangular infill behind actual spaced timber ribs to restore vault depth.",
+    "Replace the unrelated smooth slate face with a cropped CC0 granite face at its published metric scale.",
+    "Use 140 mm solid slabs with 28 mm actual rounded arrises, settling, crowns, shallow wear and independent tilt."
+  ]
+}
