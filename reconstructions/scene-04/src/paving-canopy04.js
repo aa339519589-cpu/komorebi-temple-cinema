@@ -31,7 +31,9 @@ export function createPavingCanopy04(sunDirection){
   const o=new T.Mesh(new T.CylinderGeometry(r1,r0,d.length(),12),wood);o.position.copy(a).addScaledVector(d,.5);o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),d.normalize());o.castShadow=o.receiveShadow=true;group.add(o);
  }
  for(let k=0;k<6;k++){const angle=k*Math.PI/3;twig(trunk[0].clone().add(new T.Vector3(0,.30,0)),trunk[0].clone().add(new T.Vector3(Math.cos(angle)*.8,0,Math.sin(angle)*.8)),.075);}
- for(const target of targets)twig(trunk.at(-1),target,.025);
+ // One primary bough feeds the connected smaller branch chain. Fanning every
+ // spray directly from the trunk produced unsupported parallel shadow bars.
+ twig(trunk.at(-1),targets.at(-1),.025);
  for(let k=1;k<targets.length;k++)twig(targets[k-1],targets[k],.009);
  leaves.instanceMatrix.needsUpdate=true;leaves.computeBoundingBox();leaves.computeBoundingSphere();group.add(leaves);
  group.userData.reconstruction={source:'Coarse manually observed shadow-region centres; authored supported tree and hidden bough geometry',regions,leafCount:count,heightMetres:height,trunkRoot:trunk[0].toArray(),shadowBitmap:false,referenceRGBLoaded:false,hiddenTreeMeasured:false,photographicAcceptance:false};
