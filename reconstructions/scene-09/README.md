@@ -7,3 +7,11 @@ Serve the repository and open `reconstructions/scene-09/index.html?render&defer&
 The water renders the actual scene through Three.js Reflector with a deterministic small wave deformation of its projective sampling. Emissive lanterns have opaque joinery, lattice frames and complete hanging supports. Thirteen local lights are unshadowed; the moon alone casts a 2048 shadow, limiting texture samplers and preventing animated shadow jitter. Wet pavers and gold fittings sample a procedurally generated environment map initialized on first explicit render.
 
 CPU checks: `node --check reconstructions/scene-09/src/main.js` and `node qa/ten-reference/09/cpu-check.mjs`. CPU construction checks every instance matrix for finite values. These do not substitute for the pending serialized GPU render, shader diagnostics or left/right visual review.
+
+## Second reconstruction pass
+
+The first GPU image did not meet the reference. The second pass replaces the lit facade box with an open recessed portal, turning door leaves, a rear gold altar, a detailed seated sculpture reused from the repository's restoration-buddha module, heavy red columns, curved multi-stage bearing arms and carved floral lintels. The pagoda has smaller windows with alternating ivory wall and timber frame, increased roof overhang and dense multi-stage brackets. Hanging lamps are now six-sided brass cages with actual curved wire rosettes, hanging chain links and narrow fittings.
+
+The garden now uses procedural botanical leaf silhouettes and complete pruned pine branch structures with needle cards. It has smaller fern-like shoots, variable granite forms, moss dressing and permanent tiny path-light sources. Water uses multi-frequency spatial waves and nine reflection taps. Clouds use six frequency bands. Wet stone slabs have beveled irregular outlines, fine bump texture and clearcoat. The raised veranda edge is diagonal rather than a straight horizontal cutoff.
+
+Reference camera height is 2.70m over the 1.45m stone board level; the shot camera remains 0.75–1.25m above that level. Shadows use PCF. Second-pass GPU and visual review remain pending; no acceptance is claimed.
