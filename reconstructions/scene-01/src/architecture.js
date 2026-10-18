@@ -2,8 +2,11 @@ import * as T from 'three';
 import {V,TAU,lin,surface} from './kernel.js';
 import {createRestoredBuddha} from './restoration-buddha.js';
 import {buildRestorationAltar} from './restoration-altar.js';
+import {createHallCurvedJoinery} from './sculpted-joinery.js';
 export function architecture(B){
 const {m}=B;
+const hallJoinery=createHallCurvedJoinery();
+for(const geometry of hallJoinery.resources)B.resources.add(geometry);
 const torus=new T.TorusGeometry(1,.10,6,16),disc=new T.CylinderGeometry(1,1,.12,12),finialTorus=new T.TorusGeometry(1,.10,8,24);
 const finialProfile=[[0,-1.48],[1.16,-1.48],[1.22,-1.36],[1.22,-1.22],[1.08,-1.16],[1.08,-1.02],[.79,-.91],[.60,-.73],[.64,-.60],[.95,-.42],[1.04,-.15],[1.0,.10],[.80,.34],[.50,.53],[.31,.61],[.27,.77],[.19,.94],[0,1.15]];
 const castFinial=new T.LatheGeometry(finialProfile.map(p=>new T.Vector2(...p)),64);
@@ -32,7 +35,23 @@ if(B.joineryKit&&useKit){
  });
  return;
 }
-B.box(0,0,0,.42,.26,.42,'red');for(let k=0;k<4;k++){const yy=.20+k*.22,ext=.26+k*.18;for(const axis of[0,1]){for(const sign of[-1,1]){const a=axis?[0,yy,sign*.05]:[sign*.05,yy,0],b=axis?[0,yy+.04,sign*ext]:[sign*ext,yy+.04,0],c=axis?[0,yy+.14,sign*(ext+.12)]:[sign*(ext+.12),yy+.14,0];B.between(a,b,.18,.18,k%2?'redLight':'wood');B.between(b,c,.18,.18,'red');B.box(c[0],c[1]+.14,c[2],.24,.22,.24,'redLight');if(axis===0)squareGold(c[0],c[1]+.14,c[2]+.128,.17,.17);}}B.box(0,yy+.12,0,.32,.15,.32,'wood');}B.box(0,1.15,0,1.72,.17,.27,'red');for(const s of[-1,1])ornament(s*.5,1.15,.15,.47,.11);},s);}
+// Continuous, bevelled, half-lapped arms take the former block bracket's
+// 1.72m spread and 1.23m bearing height; the caller keeps every original seat.
+for(const part of hallJoinery.parts)B.emit(part.geometry,part.material);
+for(const axis of[0,1])B.with(0,0,0,axis*Math.PI/2,()=>{
+ for(const side of[-1,1])for(const row of[0,1]){
+  const [xx,yy]=hallJoinery.seat(side*(row?.755:.655),row?.645:.27,0);
+  for(const branch of(row?[-.40,.40]:[0])){
+   const zz=hallJoinery.seat(0,0,branch)[2];
+   B.with(xx,yy,zz,side*Math.PI/2,()=>{
+    const w=.215*hallJoinery.scale[0],h=.105*hallJoinery.scale[1];
+    B.box(0,0,0,w,h,.014,'goldDark');
+    if(B.joineryKit)B.emit(B.joineryKit.relief,'gold',0,0,.008,w,h,.11);
+   });
+  }
+ }
+});
+},s);}
 function column(x,z,base,h,r=.27){B.cyl(x,base+.10,z,r*1.40,.20,'stoneLight');B.cyl(x,base+.25,z,r*1.20,.16,'stone');B.cyl(x,base+.34+h/2,z,r,h,'red',r*.93);B.cyl(x,base+.39,z,r*1.04,.12,'goldDark');B.cyl(x,base+.48,z,r*1.045,.04,'gold');for(const yy of[base+.65,base+h-.10]){B.cyl(x,yy,z,r*1.015,.14,'goldDark');for(let k=0;k<10;k++){const a=k*TAU/10;B.sphere(x+Math.sin(a)*r*1.03,yy,z+Math.cos(a)*r*1.03,.035,.045,.025,'gold',a);}}squareGold(x,base+h-.16,z+r+.01,r*1.75,.42);}
 function tileBetween(a,b,r=.062,tint=1){a=V(a);b=V(b);const z=b.clone().sub(a),len=z.length();z.normalize();let x=V([0,1,0]).cross(z).normalize();if(x.length()<.1)x.set(1,0,0);const y=z.clone().cross(x).normalize(),mat=new T.Matrix4().makeBasis(x,y,z);mat.scale(V([r,r,len]));mat.setPosition(a.add(b).multiplyScalar(.5));B.put(tile,'slate',mat,tint);}
 function roof({w,d,eave,rise,curl=.55,zc=0,inner=0,name='roof',detail=true,ridge=.53}){B.label(name,()=>{const hw=w/2,hd=d/2,rh=hw*ridge;const P=(side,t,u)=>{const span=rh+(hw-rh)*t;let x,z;if(side===0||side===2){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}return[x,eave+rise*(Math.max(0,1-t)**1.46)+curl*(t**8)*(.25+.75*(Math.abs(u)**5)),z+zc];};

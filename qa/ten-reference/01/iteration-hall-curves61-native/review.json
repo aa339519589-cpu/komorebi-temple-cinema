@@ -1,0 +1,49 @@
+{
+  "status": "unaccepted-review-candidate",
+  "baselineRootCommit": "109eee6",
+  "localBaselineOnlyCommit": "e7596d6",
+  "nativeSourceHash": "dbe40eb4818701ca6311ec6d50c1af8b6f42f33b5c2705fb948dc2ea8923ef58",
+  "nativeFrame": {
+    "file": "reference.png",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "genuineNativeDetail": {
+    "file": "detail-native.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "subfrustumInReferencePixels": [
+      790,
+      325,
+      450,
+      1254
+    ],
+    "unchangedCamera": true
+  },
+  "comparisonPanels": {
+    "comparison.png": [
+      "HD reference photo",
+      "actual native 3D candidate"
+    ],
+    "detail-comparison.png": [
+      "HD reference crop enlarged from450px",
+      "genuine1254px native 3D subfrustum"
+    ],
+    "before-after.png": [
+      "root r60 actual native render",
+      "actual native candidate"
+    ]
+  },
+  "change": "Replace only main-hall default stepped block capitals with closed bevelled curved arms, crossed half laps and small flaring seats. Fit actual solid bounds to1.72m width and1.23m rise before the original per-seat transforms. Preserve useKit=true paths for pagoda and hall inner-purlin capitals. Retain existing source materials, camera, roofs, columns and lighting.",
+  "reviewObservations": [
+    "Closed curved lower chords and separate tier seats are visible in the actual subfrustum.",
+    "Central cushions do not hide the curved arms.",
+    "Full scene remains visibly different from the supplied photograph; this is not acceptance."
+  ],
+  "renderPath": "Shared render-one-reconstruction.mjs queue; actual native WebGL scene. No Cycles frame or film for this pass.",
+  "photoSha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d"
+}
