@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {assignMetricTimberUV} from './scanned-timber.js';
 export const TAU=Math.PI*2;
 export const V=a=>new T.Vector3(...a);
 export const rng=s=>()=>((s=(Math.imul(s,1664525)+1013904223)>>>0)/4294967296);
@@ -10,8 +11,16 @@ standard('red',0x873f2a,.54,0,wood);standard('redLight',0xa25c3c,.55,0,wood);sta
 const leafData=new Uint8Array(256*256*4);for(let y=0;y<256;y++)for(let x=0;x<256;x++){const u=(x-128)/128,v=(y-128)/128,r=Math.hypot(u,v),a=Math.atan2(v,u),vein=Math.exp(-Math.pow(Math.sin(a*12)/.035,2))*(.5+.5*r),grain=noise(x*.33,y*.33,17),q=.73+.22*grain+.22*vein;const i=(y*256+x)*4;leafData[i]=90*q;leafData[i+1]=119*q;leafData[i+2]=46*q;leafData[i+3]=255;}const leafMap=new T.DataTexture(leafData,256,256);leafMap.colorSpace=T.SRGBColorSpace;leafMap.generateMipmaps=true;leafMap.minFilter=T.LinearMipmapLinearFilter;leafMap.needsUpdate=true;m.lotusLeaf=new T.MeshPhysicalMaterial({color:0xffffff,map:leafMap,roughness:.56,clearcoat:.48,clearcoatRoughness:.24,side:T.DoubleSide});
 m.glow=new T.MeshStandardMaterial({color:0xffbd4e,emissive:0xffa226,emissiveIntensity:3.0,roughness:.4});m.paperGlow=new T.MeshStandardMaterial({color:0xf3d495,emissive:0xffa32b,emissiveIntensity:.85,roughness:.8});for(const k of['wood','red','redLight','darkwood','endwood'])m[k].bumpScale=.005;for(const k of['stone','stoneLight','rock','rockWet','moss','earth','slate','tileEdge'])m[k].bumpScale=k==='slate'?.0025:.06; m.bark.bumpScale=.085;for(const k of ['leaf','leafLight','leafDark','pink','pinkLight','lotus','lotusInside'])m[k].side=T.DoubleSide;return m;}
 export class Builder{
-constructor(materials){this.m=materials;this.group=new T.Group();this.stack=[new T.Matrix4()];this.buckets=new Map();this.roles={};this.role='scene';this.boxG=new T.BoxGeometry(1,1,1);this.cylG=new T.CylinderGeometry(1,1,1,16);this.sphereG=new T.SphereGeometry(1,12,8);this.coneG=new T.ConeGeometry(1,1,12);this.resources=new Set([this.boxG,this.cylG,this.sphereG,this.coneG]);}
-put(g,mat,matrix,tint=1){if(!matrix.elements.every(Number.isFinite))throw Error('Nonfinite '+this.role);const ma=typeof mat==='string'?this.m[mat]:mat;const key=g.uuid+ma.uuid;let b=this.buckets.get(key);if(!b){b={g,m:ma,items:[],roles:new Set()};this.buckets.set(key,b);}b.items.push({m:matrix.clone().premultiply(this.stack.at(-1)),tint});b.roles.add(this.role);this.roles[this.role]=(this.roles[this.role]||0)+1;this.resources.add(g);}
+constructor(materials){this.m=materials;this.metricTimberGeometries=new Map();this.group=new T.Group();this.stack=[new T.Matrix4()];this.buckets=new Map();this.roles={};this.role='scene';this.boxG=new T.BoxGeometry(1,1,1);this.cylG=new T.CylinderGeometry(1,1,1,16);this.sphereG=new T.SphereGeometry(1,12,8);this.coneG=new T.ConeGeometry(1,1,12);this.resources=new Set([this.boxG,this.cylG,this.sphereG,this.coneG]);}
+put(g,mat,matrix,tint=1){if(!matrix.elements.every(Number.isFinite))throw Error('Nonfinite '+this.role);const ma=typeof mat==='string'?this.m[mat]:mat;
+if(ma.userData.metricTimberGrain){
+ const world=matrix.clone().premultiply(this.stack.at(-1)),scale=new T.Vector3().setFromMatrixScale(world);
+ const uvKey=g.uuid+'|'+scale.toArray().map(v=>v.toFixed(3)).join(',');
+ let mapped=this.metricTimberGeometries.get(uvKey);
+ if(!mapped){mapped=g.clone();assignMetricTimberUV(mapped,world);this.metricTimberGeometries.set(uvKey,mapped);}
+ g=mapped;
+}
+const key=g.uuid+ma.uuid;let b=this.buckets.get(key);if(!b){b={g,m:ma,items:[],roles:new Set()};this.buckets.set(key,b);}b.items.push({m:matrix.clone().premultiply(this.stack.at(-1)),tint});b.roles.add(this.role);this.roles[this.role]=(this.roles[this.role]||0)+1;this.resources.add(g);}
 emit(g,mat,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0,tint=1){const e=Array.isArray(rot)?new T.Euler(...rot):new T.Euler(0,rot,0);this.put(g,mat,new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromEuler(e),V([sx,sy,sz])),tint);}
 box(x,y,z,w,h,d,ma='wood',rot=0,tint=1){this.emit(this.boxG,ma,x,y,z,w,h,d,rot,tint);}
 cyl(x,y,z,r,h,ma='red',r2=r){if(r===r2)this.emit(this.cylG,ma,x,y,z,r,h,r);else this.emit(new T.CylinderGeometry(r2,r,h,16),ma,x,y,z);}

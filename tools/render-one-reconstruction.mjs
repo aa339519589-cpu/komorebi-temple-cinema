@@ -13,6 +13,8 @@ if(!Number.isInteger(reference)||reference<1||reference>10)throw Error('REFERENC
 const worktree=resolve(process.env.WORKTREE||`/Users/mima1234/temple-scene-${id}`),size=Number(process.env.SIZE||768);
 const iteration=process.env.ITERATION||'01',port=Number(process.env.PORT||4500);
 const motionFps=Number(process.env.MOTION_FPS||0),motionDuration=7;
+const detailCrop=process.env.DETAIL_CROP?process.env.DETAIL_CROP.split(',').map(Number):null;
+if(detailCrop&&(detailCrop.length!==4||!detailCrop.every(Number.isInteger)||Math.min(...detailCrop)<0||detailCrop[2]<1||detailCrop[3]<1||detailCrop[0]+detailCrop[2]>detailCrop[3]||detailCrop[1]+detailCrop[2]>detailCrop[3]||motionFps||process.env.SHOT_TIMES))throw Error('DETAIL_CROP requires x,y,size,fullSize and a still reference view.');
 if(motionFps!==0&&![24,25,30,60].includes(motionFps))throw Error('MOTION_FPS must be 24,25,30 or60.');
 const entry=`reconstructions/scene-${id}/index.html`,out=resolve(worktree,`qa/ten-reference/${id}/iteration-${iteration}`);
 if(!/^[a-z0-9-]+$/i.test(iteration))throw Error('Invalid iteration name.');
@@ -25,6 +27,7 @@ async function sourceIdentity(){
 const releaseGpu=await acquireGpuRenderSlot(`reference-${id}-${iteration}`);
 const identity=await sourceIdentity(),startedAt=new Date().toISOString();
 const report={reference,entry,worktree,size,startedAt,source:identity,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:worktree,encoding:'utf8'}).trim(),status:'building',visualAccepted:false,errors:[],requests:[]};
+if(detailCrop)report.detailCrop={pixels:detailCrop,scope:'A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot.'};
 const server=spawn(process.execPath,[resolve(worktree,'tools/server.mjs')],{cwd:worktree,env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});
 const serverReady=new Promise((yes,no)=>{server.stdout.on('data',b=>{if(b.toString().includes('http://'))yes();});server.on('error',no);server.on('exit',c=>no(Error('Preview server exited '+c)));});
 let browser,encoder,encoded,encoderError;
@@ -45,7 +48,7 @@ try{
  });
  await Promise.race([page.goto(`http://127.0.0.1:${port}/${entry}?render&defer&w=${size}&h=${size}`,{waitUntil:'load',timeout:600000}),fatal]);
  await Promise.race([page.waitForFunction(()=>window.temple?.ready&&typeof window.temple.renderReference==='function',null,{timeout:600000}),fatal]);
- const frames=motionFps?Array.from({length:motionFps*motionDuration},(_,i)=>(i+.5)/motionFps):process.env.SHOT_TIMES?process.env.SHOT_TIMES.split(',').map(Number):[null];
+ const frames=motionFps?Array.from({length:motionFps*motionDuration},(_,i)=>(i+.5)/motionFps):process.env.SHOT_TIMES?process.env.SHOT_TIMES.split(',').map(Number):detailCrop?[null,null]:[null];
  if(motionFps){
   encoder=spawn('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${size}x${size}`,'-framerate',String(motionFps),'-i','pipe:0','-an','-vf','vflip,scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p','-frames:v',String(frames.length),'-c:v','libx264','-preset','fast','-crf','15','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','iec61966-2-1','-movflags','+faststart',videoFile],{stdio:['pipe','ignore','inherit']});
   encoder.stdin.on('error',e=>encoderError=e);
@@ -56,22 +59,24 @@ try{
  report.frames=[];
  for(const localTime of frames){
   if(encoderError)throw encoderError;
-  const result=await Promise.race([page.evaluate(({reference,localTime})=>{
+  const crop=detailCrop&&report.frames.length===1?detailCrop:null;
+  const result=await Promise.race([page.evaluate(({reference,localTime,crop})=>{
    const t=window.temple,r=t.renderer,gl=r.getContext();
+   if(crop)t.camera.setViewOffset(crop[3],crop[3],crop[0],crop[1],crop[2],crop[2]);else t.camera.clearViewOffset();
    const pose=localTime===null?t.renderReference(reference):t.renderShot(localTime);gl.finish();
    const width=gl.drawingBufferWidth,height=gl.drawingBufferHeight,bytes=new Uint8Array(width*height*4);
    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.readPixels(0,0,width,height,gl.RGBA,gl.UNSIGNED_BYTE,bytes);
    const glError=gl.getError(),programs=r.info.programs.map(p=>({linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)}));let binary='';
    for(let i=0;i<bytes.length;i+=16384)binary+=String.fromCharCode(...bytes.subarray(i,i+16384));
    return{pose,width,height,glError,programs,contextLost:gl.isContextLost(),rgbaBase64:btoa(binary),info:t.info()};
-  },{reference,localTime}),fatal]);
+  },{reference,localTime,crop}),fatal]);
   const bytes=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;
   let nonblack=0,opaque=0;for(let i=0;i<bytes.length;i+=4){if(Math.max(bytes[i],bytes[i+1],bytes[i+2])>3)nonblack++;if(bytes[i+3]===255)opaque++;}
   const valid=result.glError===0&&!result.contextLost&&result.programs.every(p=>p.linked)&&nonblack>size*size*.05&&report.errors.length===0;
-  const index=report.frames.length,name=motionFps?`frame-${String(index).padStart(4,'0')}`:localTime===null?'reference':`shot-${String(localTime).replace('.','p')}`;
+  const index=report.frames.length,name=crop?'detail-native':motionFps?`frame-${String(index).padStart(4,'0')}`:localTime===null?'reference':`shot-${String(localTime).replace('.','p')}`;
   const savePixels=!motionFps||index===0||index===Math.floor(frames.length/2)||index===frames.length-1;
   if(valid&&savePixels)await writeFile(resolve(out,name+'.png'),encodeWebglPng(result.width,result.height,bytes));
-  report.frames.push({...result,name,localTime,valid,pngSaved:savePixels,nonblackFraction:nonblack/(size*size),opaqueFraction:opaque/(size*size),rgbaSha256:createHash('sha256').update(bytes).digest('hex')});
+  report.frames.push({...result,name,localTime,detailCrop:crop,valid,pngSaved:savePixels,nonblackFraction:nonblack/(size*size),opaqueFraction:opaque/(size*size),rgbaSha256:createHash('sha256').update(bytes).digest('hex')});
   if(!valid)throw Error('Actual GPU frame failed: '+name);
   if(motionFps){
    if(!encoder.stdin.write(bytes))await Promise.race([new Promise(resolve=>encoder.stdin.once('drain',resolve)),encoded.then(()=>{throw Error('Encoder closed before the last frame');})]);
