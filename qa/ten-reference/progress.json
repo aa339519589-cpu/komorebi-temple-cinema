@@ -1,16 +1,17 @@
 {
   "createdAt": "2026-10-18T06:46:03.203Z",
   "integrationCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-  "scope": "All ten actual 3D reference candidates; user-authorized Blender and image-assisted materials in scene05",
+  "scope": "All ten actual independent 3D scenes. Parallel modeling and material pass, with actual original/current images.",
   "runtimeChecks": {
-    "actualStillSize": "Per scene: 900px historical integrated stills, 1254px current scene05 and scene06 stills",
+    "actualStillSize": "1254 x1254 for all ten selected stills; live film rendering separately at1080 x1080.",
     "reviewCanvasSize": 1024,
     "entries": 10,
     "glErrors": 0,
     "shaderLinkFailures": 0,
     "referencePhotosRequestedInsideScene": 0,
     "namespaceSourceHashesVerified": true,
-    "latestLiveCheck": "qa/ten-reference/review-ui/report.json"
+    "latestLiveCheck": "qa/ten-reference/review-ui/report.json",
+    "latestScope": "Ten genuine seven-second1080x1080/30fps shots; exact namespace sources match the current selected models. This proves source identity, not photographic fidelity."
   },
   "visualAcceptance": false,
   "completedFilm": false,
@@ -36,11 +37,21 @@
       "entry": "/reconstructions/scene-01/index.html",
       "selectedCandidateCommit": "ddf7cc5",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "c10e3e6eb6e8b3d9ed867437274e71312e1ea5d258770559aafe6b41bcdae47d",
-      "actualFrame": "qa/ten-reference/01/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/01/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "0ca64fbf77b7045ba80d4f20180258bf095176240534133dde98a8ab5cab78cb",
+      "actualFrame": "qa/ten-reference/01/iteration-parallel40/reference.png",
+      "comparison": "qa/ten-reference/01/iteration-parallel40/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "4d231238972bab5098429c2f837167bcefdce557",
+      "renderedSize": 1254,
+      "imageSha256": "519f0d390abaa7b3d719f6d77b873810991d1c7a67758ddd736bd42ea5c8440d",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/01/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 2,
@@ -50,11 +61,21 @@
       "entry": "/reconstructions/scene-02/index.html",
       "selectedCandidateCommit": "d42a5ca",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "03b959e6585e143a239b7ef7a7dfd59881da3a9b08c01a5f6fe07e2f06f16cd3",
-      "actualFrame": "qa/ten-reference/02/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/02/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "250380dda4eb2ff3ca5f6a417ac1e82b5a5335c76887f9127f2a32a4186a30bb",
+      "actualFrame": "qa/ten-reference/02/iteration-parallel47/reference.png",
+      "comparison": "qa/ten-reference/02/iteration-parallel47/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "87022fc97580cf9025707f69f30eb3588e1188fd",
+      "renderedSize": 1254,
+      "imageSha256": "e2757d3cb11fd85cf9cbb2c5c58eea7f52b7b5f854b1e950319aef9ce9f5f6aa",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/02/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 3,
@@ -64,11 +85,21 @@
       "entry": "/reconstructions/scene-03/index.html",
       "selectedCandidateCommit": "11df7a3",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "7257d68cac80b26408e0935443984c65dc06a0332bc39c327d7dc73d0aad0c92",
-      "actualFrame": "qa/ten-reference/03/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/03/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "2c63ff748d7394ffa4be7e454c9d63bec286a9dadccded8b5612e23ad35f68f7",
+      "actualFrame": "qa/ten-reference/03/iteration-parallel44/reference.png",
+      "comparison": "qa/ten-reference/03/iteration-parallel44/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "d10ead04a58bf667bd5970ab4e6ce6b6573acac9",
+      "renderedSize": 1254,
+      "imageSha256": "92a7547a34f500b83dc4ad3383520d09f8da1fbd86c5f6a8715ca85201ca4669",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/03/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 4,
@@ -78,11 +109,21 @@
       "entry": "/reconstructions/scene-04/index.html",
       "selectedCandidateCommit": "4de6135",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "97d4cee2571545446a8f92891f389b7d52ccffc630ff1d256aa1690189f7e3a9",
-      "actualFrame": "qa/ten-reference/04/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/04/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "777abb9a201cca3557c1aa217eec8378bf004056aba96df72aa2517eed2dd863",
+      "actualFrame": "qa/ten-reference/04/iteration-parallel47/reference.png",
+      "comparison": "qa/ten-reference/04/iteration-parallel47/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "9b2c2b54defc9669f43cfe6e88395e474a8bd149",
+      "renderedSize": 1254,
+      "imageSha256": "47cb3fd7baa4948d1e879ffd102e724a6aab60b1aac740633044f4662acc811b",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 5,
@@ -94,12 +135,19 @@
       "integrationRenderCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
       "sceneSourceHash": "3d45895703d4d6f16d0a816ed20460ac5cb963bfd5070ba7a7829757bfc56f55",
       "actualFrame": "qa/ten-reference/05/iteration-exterior-satin35/reference.png",
-      "comparison": "qa/ten-reference/05/iteration-exterior-satin35/comparison.png",
+      "comparison": "qa/ten-reference/05/iteration-exterior-satin35/current-comparison.jpg",
       "gpuFramesValid": true,
       "visualAccepted": false,
-      "sourceCodeCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "sourceCodeCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
       "renderedSize": 1254,
-      "sourceHashVerifiedAgainstCurrentCode": true
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "imageSha256": "63ff6ff394a413552d0c9cc75079b0850bdb9eda7a357a8bef8c7ee10ec8974a",
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/05/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 6,
@@ -111,12 +159,19 @@
       "integrationRenderCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
       "sceneSourceHash": "ba8d446188b20e2012fa7b2fbbad19ba6158bcd275cccfb45180c7013bb3fe10",
       "actualFrame": "qa/ten-reference/06/iteration-seat-contact32/reference.png",
-      "comparison": "qa/ten-reference/06/iteration-seat-contact32/comparison.png",
+      "comparison": "qa/ten-reference/06/iteration-seat-contact32/current-comparison.jpg",
       "gpuFramesValid": true,
       "visualAccepted": false,
-      "sourceCodeCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "sourceCodeCommit": "cabfb3112be619fe045dd10696f4de0746d4d5d8",
       "renderedSize": 1254,
-      "sourceHashVerifiedAgainstCurrentCode": true
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "imageSha256": "261e2f88e4f18dff12ffaa8ce32a18ce42c9088f2c2af1ddee6d50f838d2369a",
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 7,
@@ -126,11 +181,21 @@
       "entry": "/reconstructions/scene-07/index.html",
       "selectedCandidateCommit": "cdefa85",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "5dd55ac2dffba2b1a4a841adea80f0e1554ae85f9e7b4226abfcaee2c2dcdf68",
-      "actualFrame": "qa/ten-reference/07/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/07/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+      "actualFrame": "qa/ten-reference/07/iteration-parallel45/reference.png",
+      "comparison": "qa/ten-reference/07/iteration-parallel45/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "187561b3d17b3a40bdf7dece8b083e5c84cea7ab",
+      "renderedSize": 1254,
+      "imageSha256": "0c4e79ca01486035bdcac54c69acdad86ebd848689a90fe2f97421ae147d5802",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 8,
@@ -140,11 +205,21 @@
       "entry": "/reconstructions/scene-08/index.html",
       "selectedCandidateCommit": "0ec3553",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "3be177aeed92a7f688d145826aabbd7979c765a4e879a5022e162a4273097a8d",
-      "actualFrame": "qa/ten-reference/08/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/08/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "039a1d3ac66cbca5d49f1773469bd04c768d1826a836b91411c2fce7988b5e91",
+      "actualFrame": "qa/ten-reference/08/iteration-parallel43/reference.png",
+      "comparison": "qa/ten-reference/08/iteration-parallel43/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "1413fc8a21bcc5a1bd320b129d1bac334608ce08",
+      "renderedSize": 1254,
+      "imageSha256": "802d372fd7ca6e779f8b68c5ed8df6454c5f2c89a2417e9d7115573a37446d0d",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 9,
@@ -154,11 +229,21 @@
       "entry": "/reconstructions/scene-09/index.html",
       "selectedCandidateCommit": "ac8b20a",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "81f6f2c7394cb25ccc962c931c5000a74621849df4a81b1fde24f6c9b81ef77d",
-      "actualFrame": "qa/ten-reference/09/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/09/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "74add508205cc4d9f59abd30c53f3a887c869673b1cfa0256963b5ab040cebd8",
+      "actualFrame": "qa/ten-reference/09/iteration-parallel44/reference.png",
+      "comparison": "qa/ten-reference/09/iteration-parallel44/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "b88a8d4a8a5b61229a529ec4c0c576b5c62b6a6a",
+      "renderedSize": 1254,
+      "imageSha256": "143abd3f1b29995cabf6a01e7fd631e1e6b8a672ccee28ea458829b74e2518a2",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/09/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     },
     {
       "reference": 10,
@@ -168,14 +253,24 @@
       "entry": "/reconstructions/scene-10/index.html",
       "selectedCandidateCommit": "32535cd",
       "integrationRenderCommit": "1cef9a37012ca4d2a07dacca2b4804d9e5e8b90d",
-      "sceneSourceHash": "9991c15dbe4c7235bdf81bf8998c1e79e35b8f890e9497e96b44f9c4b4f7f1b4",
-      "actualFrame": "qa/ten-reference/10/iteration-integrated-02/reference.png",
-      "comparison": "qa/ten-reference/10/iteration-integrated-02/comparison.png",
+      "sceneSourceHash": "1a79ff976b99a88dab7af234f1c23bf69c6bca056a186cc2e553396c778f528b",
+      "actualFrame": "qa/ten-reference/10/iteration-parallel46/reference.png",
+      "comparison": "qa/ten-reference/10/iteration-parallel46/current-comparison.jpg",
       "gpuFramesValid": true,
-      "visualAccepted": false
+      "visualAccepted": false,
+      "sourceCodeCommit": "ccdcac7cfdacce098bf5e8946f3adfc3cdd0622a",
+      "renderedSize": 1254,
+      "imageSha256": "470bd487e2ac8d285e5db130014a081ac34ba999679b8c3608935763427e3ac7",
+      "sourceHashVerifiedAgainstCurrentCode": true,
+      "movie": {
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/10/iteration-hour-1832-film/motion-review.mp4",
+        "frames": 210,
+        "duration": 7,
+        "sourceMatchesCurrent": true
+      }
     }
   ],
-  "updatedAt": "2026-10-18T08:24:10.862Z",
+  "updatedAt": "2026-10-18T10:24:40.014Z",
   "latestModelSourceCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
   "additionalMotionInspections": [
     {
@@ -217,5 +312,71 @@
       "movingFlickerAccepted": false,
       "completeFilm": false
     }
-  ]
+  ],
+  "contactSheet": "qa/ten-reference/hour-1832/all-ten-original-and-current.jpg",
+  "draftFilm": {
+    "status": "ten-scene-draft-rendered",
+    "sourceFrames": 2100,
+    "sourceDuration": 70,
+    "edits": [
+      {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/hour-1832-film/temple-ten-scenes-70s.mp4",
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "nb_read_frames": "2100"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "r_frame_rate": "0/0",
+            "nb_read_frames": "3282"
+          }
+        ],
+        "format": {
+          "duration": "70.000000",
+          "size": "247327464"
+        }
+      },
+      {
+        "file": "/Users/mima1234/temple-cinema-live-sync/output/hour-1832-film/temple-ten-scenes-60s.mp4",
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "nb_read_frames": "1800"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "r_frame_rate": "0/0",
+            "nb_read_frames": "2813"
+          }
+        ],
+        "format": {
+          "duration": "60.000000",
+          "size": "186684498"
+        }
+      }
+    ],
+    "visualAccepted": false,
+    "completeRequestedFidelity": false
+  }
 }

@@ -1,0 +1,130 @@
+{
+  "createdAt": "2026-10-18T10:24:40.015Z",
+  "status": "actual-ten-scene-film-draft",
+  "modelSourceCommit": "973d584471e1947ab0c0a5307ea62bf497b80dfd",
+  "sourceIdentities": [
+    {
+      "reference": 1,
+      "source": "0ca64fbf77b7045ba80d4f20180258bf095176240534133dde98a8ab5cab78cb",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 2,
+      "source": "250380dda4eb2ff3ca5f6a417ac1e82b5a5335c76887f9127f2a32a4186a30bb",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 3,
+      "source": "2c63ff748d7394ffa4be7e454c9d63bec286a9dadccded8b5612e23ad35f68f7",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 4,
+      "source": "777abb9a201cca3557c1aa217eec8378bf004056aba96df72aa2517eed2dd863",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 5,
+      "source": "3d45895703d4d6f16d0a816ed20460ac5cb963bfd5070ba7a7829757bfc56f55",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 6,
+      "source": "ba8d446188b20e2012fa7b2fbbad19ba6158bcd275cccfb45180c7013bb3fe10",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 7,
+      "source": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 8,
+      "source": "039a1d3ac66cbca5d49f1773469bd04c768d1826a836b91411c2fce7988b5e91",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 9,
+      "source": "74add508205cc4d9f59abd30c53f3a887c869673b1cfa0256963b5ab040cebd8",
+      "movieSourceMatchesCurrent": true
+    },
+    {
+      "reference": 10,
+      "source": "1a79ff976b99a88dab7af234f1c23bf69c6bca056a186cc2e553396c778f528b",
+      "movieSourceMatchesCurrent": true
+    }
+  ],
+  "media": [
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/output/hour-1832-film/temple-ten-scenes-70s.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "nb_read_frames": "2100"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "3282"
+        }
+      ],
+      "format": {
+        "duration": "70.000000",
+        "size": "247327464"
+      }
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/output/hour-1832-film/temple-ten-scenes-60s.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "nb_read_frames": "1800"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "r_frame_rate": "0/0",
+          "nb_read_frames": "2813"
+        }
+      ],
+      "format": {
+        "duration": "60.000000",
+        "size": "186684498"
+      }
+    }
+  ],
+  "visualAccepted": false,
+  "completeRequestedFidelity": false,
+  "limits": [
+    "All ten scenes remain visually below the supplied photographs.",
+    "The full sequence is rendered, but this is not a completed fidelity claim.",
+    "No full moving-flicker acceptance has been established."
+  ],
+  "audio": {
+    "file": "music/PerituneMaterial_Oboro.mp3",
+    "title": "Oboro",
+    "composer": "PeriTune / Sei Mutsuki",
+    "source": "https://peritune.com/blog/2019/04/08/oboro/",
+    "license": "CC BY 4.0",
+    "offsetSeconds": 25
+  }
+}
