@@ -1,0 +1,20 @@
+{
+  "sourceHash": "dd6b2272f28b2ed91683f368684244470e4a85eeaffe7faa97477be271923987",
+  "actualFrame": "iteration-mesh50/reference.png",
+  "photographicAcceptance": false,
+  "changes": [
+    "Six actual scanned rock meshes replace smooth procedural shore boulders.",
+    "Granite albedo/normal/roughness replaces uniform stone for paving and carved stone lanterns.",
+    "Short-distance lantern lighting replaces broad orange wash.",
+    "Raised actual reflection-film plane to the wet stone top and kept the drainage opening.",
+    "Corrected pagoda height/finial proportions while preserving its base and reference camera.",
+    "Modeled smooth lathed foreground bronze finial and adhered water beads on column and rail."
+  ],
+  "failedCandidate": "mesh47 failed after a normal-map change removed the required bump shader declaration; fixed in mesh48 without discarding the failed record.",
+  "remaining": [
+    "Architecture carving and pine silhouettes are still repetitive and simplified.",
+    "Physical water transport and warm bounced light are still weaker than the photograph.",
+    "Rain rings and paving wear still appear too regular.",
+    "No photograph or reference color is projected into the rendered scene."
+  ]
+}
