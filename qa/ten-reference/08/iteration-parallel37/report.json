@@ -1,0 +1,161 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-08-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T09:35:18.722Z",
+  "source": {
+    "hash": "153ddf615f3cfda3e61bac7fa79a0a750473307f8cf87a002c4a9abe90419428",
+    "files": {
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/main.js": "30697adc1a12a3c9f7796556012c9eabf89adefebd5ffb3dc3b96baef23804b8",
+      "reconstructions/scene-08/src/post.js": "569de11d90e613e9496bfb8e3e6939a48ccdbf480e90aee612719ae1c96317cc",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scene.js": "34bfa18217268d025ac5aca1fdf8905118661d6dfc18c1a0fa18c4fd86ed64ff"
+    }
+  },
+  "sourceCommit": "e6534e94cf0725b019950ff94e0ef9cac8372fc0",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/post.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-carved-cornices-blue-tile-r37",
+        "instances": 393716,
+        "triangles": 11642124,
+        "roles": {
+          "left-grand-hall": 11561,
+          "layered-walkways": 27363,
+          "five-tier-pagoda": 27348,
+          "foreground-veranda": 515,
+          "arched-stream-bridge": 114,
+          "gallery-stone-stair": 36,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 270,
+          "stone-lanterns": 237,
+          "branching-garden-trees": 203358,
+          "hanging-veranda-foliage": 13603,
+          "dense-layered-shrubs": 91490,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 8
+        },
+        "seed": 80247,
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 195,
+          "triangles": 11545790,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 30
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9935040406584098,
+      "opaqueFraction": 1,
+      "rgbaSha256": "5e3ef1d9e5d6553212d30fcc0868f386cd099717ad2803579194c60fa93055bf"
+    }
+  ],
+  "completedAt": "2026-10-18T09:35:20.430Z"
+}
