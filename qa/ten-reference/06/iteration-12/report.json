@@ -1,0 +1,46 @@
+{
+  "reference": 6,
+  "entry": "reconstructions/scene-06/index.html",
+  "worktree": "/Users/mima1234/temple-scene-06",
+  "size": 768,
+  "startedAt": "2026-10-18T05:57:18.857Z",
+  "source": {
+    "hash": "ee232270c8d076767198f84de9858900b5171b871b19d918e7c35c659814ecdc",
+    "files": {
+      "reconstructions/scene-06/index.html": "f54c086e03b4b272ffa47983ff78d2075c065b9d1b96949b270f46aaea0eb6f8",
+      "reconstructions/scene-06/src/reference6-coffer-relief.js": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53",
+      "reconstructions/scene-06/src/reference6-column-collar.js": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94",
+      "reconstructions/scene-06/src/reference6-main.js": "94b58e02a1d491b41d12d5b11e62eb2710242d99273b3a7911f982313d3f725a",
+      "reconstructions/scene-06/src/reference6-scene.js": "6d0e34ff503f9ceac57405c9e7dc5460175156463a004ce02a8982f03d2a10d2",
+      "reconstructions/scene-06/src/restoration-altar.js": "a9d00ab3b20fb832e7393b7862f4808eb21866751cdfcff86b80a8f0d4fc3ed0",
+      "reconstructions/scene-06/src/restoration-buddha.js": "36ad332fc80ce13c72f0375eccf1ddb39efcfd2f083ce62b684a6b2f8ddef8dc",
+      "reconstructions/scene-06/src/restoration-lighting.js": "23063b312965d240d6b808bd45079f7a34e44a7a4f7b11d15122ff93b02e9fb7",
+      "reconstructions/scene-06/src/restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25"
+    }
+  },
+  "sourceCommit": "7e54c277e78e1c74227e7dadacea40c4dff2deff",
+  "status": "failed",
+  "visualAccepted": false,
+  "errors": [
+    "Scene resource failed: 404 /vendor/examples/jsm/postprocessing/UnrealBloomPass.js"
+  ],
+  "requests": [
+    "/reconstructions/scene-06/index.html",
+    "/reconstructions/scene-06/src/reference6-main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/UnrealBloomPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-06/src/reference6-scene.js",
+    "/reconstructions/scene-06/src/restoration-lighting.js",
+    "/reconstructions/scene-06/src/restoration-render-diagnostics.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js"
+  ],
+  "backend": "metal",
+  "error": "Error: Scene resource failed: 404 /vendor/examples/jsm/postprocessing/UnrealBloomPass.js\n    at _Page.<anonymous> (file:///Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:35:159)\n    at _Page._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at _Page.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at _BrowserContext._onResponse (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:61930:16)\n    at Proxy.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:61881:78)\n    at Proxy._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at Proxy.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Connection.dispatch (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63525:25)\n    at Immediate.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63586:85)\n    at process.processImmediate (node:internal/timers:534:21)",
+  "completedAt": "2026-10-18T05:57:19.682Z"
+}

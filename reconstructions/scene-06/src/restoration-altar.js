@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 export const RESTORATION_ALTAR_LAYOUT = Object.freeze({
@@ -11,7 +12,7 @@ export const RESTORATION_ALTAR_LAYOUT = Object.freeze({
   floorLampX: 3.20, floorLampCenterOffsetX: -.025, floorLampScale: .72, floorLampYaw: .4, floorLampChamberRadialScale: .93,
   floorContactY: -.045, floorUrnX: 4.40, floorVaseX: 5.05,
   upperVaseX: 3.52, upperVaseY: 2.175, upperVaseZ: .815,
-  mainThroneHeight: .64, sideThroneHeight: .46,
+  mainSeatY:3.00, sideSeatY:2.85, mainThroneHeight: .64, sideThroneHeight: .46,
   innerRitualLotusX:1.92, innerRitualLotusZ:.19, innerRitualLotusSupportY:null,
   outerRitualLotusX:3.30, outerRitualLotusZ:.03, outerRitualLotusSupportY:null,
   throneRadii: [1.19,.82], throneCompensation: [1,1],
@@ -38,12 +39,16 @@ export function buildRestorationAltar(options = {}) {
   root.name = 'restoration-reference6-altar';
   if (options.terraces !== false) buildTerraces(b,layout);
   if (options.mandorlas !== false) {
-    buildMandorla(b, 0, 1.40, -.79, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],3-layout.mainThroneHeight,true);
+    buildMandorla(b, 0, 1.40, -.79, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],layout.mainSeatY-layout.mainThroneHeight,true);
     for (const side of [-1, 1]) buildMandorla(b, side * layout.sideFigureX, 1.80, -.87, .52,layout.headHaloCenters[1],layout.mandorlaApexY[1],layout.mandorlaWidthScales[1],2.175);
   }
   if (options.lotusThrones !== false) {
-    buildLotusThrone(b,0,3.00,0,layout.throneRadii[0],layout.mainThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
-    for(const side of [-1,1])buildLotusThrone(b,side*layout.sideFigureX,2.85,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+    buildThronePedestal(b,0,0,layout.throneRadii[0],2.36,layout.mainSeatY-layout.mainThroneHeight,layout.throneDepthAspect);
+    buildLotusThrone(b,0,layout.mainSeatY,0,layout.throneRadii[0],layout.mainThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+    for(const side of [-1,1]){
+      buildThronePedestal(b,side*layout.sideFigureX,-.08,layout.throneRadii[1],2.39,layout.sideSeatY-layout.sideThroneHeight,layout.throneDepthAspect);
+      buildLotusThrone(b,side*layout.sideFigureX,layout.sideSeatY,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+    }
   }
   if (options.ritualObjects !== false) buildRitualObjects(b,layout);
   if (options.offeringTable !== false) buildOfferingTable(b,layout);
@@ -56,7 +61,7 @@ export function buildRestorationAltar(options = {}) {
   root.userData.reference = 'user reference 6';
   root.userData.reconstructionRevision='reference6-cloud-recovery-cast-reconstruction-14';
   root.userData.coordinateSystem = 'altar-local; hall translation [6,3.48,-14.5], +Z faces worshipper';
-  root.userData.figureSeatAnchors = [[0,3.00,0],[-layout.sideFigureX,2.85,-.08],[layout.sideFigureX,2.85,-.08]];
+  root.userData.figureSeatAnchors = [[0,layout.mainSeatY,0],[-layout.sideFigureX,layout.sideSeatY,-.08],[layout.sideFigureX,layout.sideSeatY,-.08]];
   root.userData.figureTargetHeights = [2.10,1.45,1.45];
   // The original central vessel has a clear cylindrical chimney, not three
   // exposed incense sticks. Retain empty legacy keys to prevent false smoke.
@@ -95,13 +100,14 @@ export function buildRestorationHangingOrnaments(options = {}) {
     buildPendantStandard(b,side*layout.sidePendantX,layout.sidePendantY,layout.sidePendantZ,layout.sidePendantLength,layout.sidePendantWidth,layout.sideHeaderDrop,layout.sideHeaderCeilingContact);
     const lower=layout.sidePendantY+.080,upper=layout.hangingCeilingContacts[1]+.010;
     b.cylinder(side*layout.sidePendantX,(lower+upper)/2,layout.sidePendantZ+.025,.009,upper-lower,'gold');
-    buildCanopy(b, side * 5.65, 5.82, 3.0, .38);
-    buildVerticalSuspensionChain(b,side*5.65,5.82+.78*.38,3.0,layout.hangingCeilingContacts[2]);
+    buildCanopy(b,side*2.80,6.25,1.0,.48,1.60,.10);
+    buildVerticalSuspensionChain(b,side*2.80,6.25+.78*.48,1.0,layout.hangingCeilingContacts[2]);
+    buildLantern(b,side*6.30,3.75,0,.50);b.cylinder(side*6.30,5.98,0,.006,2.44,'oldgold');
   }
   b.finish();
   b.root.userData.hangingCeilingContactPoints = [-1,1].flatMap(side=>{
     const cx=side*layout.sidePendantX-side*(layout.sidePendantWidth/2+.61);
-    return [[side*layout.sidePendantX,layout.hangingCeilingContacts[1],layout.sidePendantZ+.025],[side*5.65,layout.hangingCeilingContacts[2],3.0],
+    return [[side*layout.sidePendantX,layout.hangingCeilingContacts[1],layout.sidePendantZ+.025],[side*2.80,layout.hangingCeilingContacts[2],1.0],
       ...[-.40,.40].map(dx=>[cx+dx,layout.sideHeaderCeilingContact[0],layout.sideHeaderCeilingContact[1]])];
   });
   return b.root;
@@ -117,8 +123,9 @@ class FurnishingBuilder {
     this.stack = [new T.Matrix4()];
     this.materials = {
       gold: supplied.gold || new T.MeshStandardMaterial({name:'restoration-polished-gilt',color:0xc59b49,metalness:.86,roughness:.31}),
+      trim: new T.MeshStandardMaterial({name:'scene06-aged-gilt-structural-bead',color:'#856026',metalness:.78,roughness:.52}),
       oldgold: supplied.oldgold || new T.MeshStandardMaterial({name:'restoration-carved-gilt-shadow',color:0x86602b,metalness:.77,roughness:.43}),
-      lacquer: new T.MeshStandardMaterial({name:'restoration-black-brown-lacquer',color:0x080605,metalness:0,roughness:.26}),
+      lacquer: new T.MeshPhysicalMaterial({name:'restoration-black-brown-lacquer',color:0x030201,metalness:0,roughness:.32,reflectivity:.24,clearcoat:.20,clearcoatRoughness:.30}),
       red: new T.MeshStandardMaterial({name:'restoration-vermillion-lacquer',color:0x521c13,metalness:.14,roughness:.30}),
       ivory: new T.MeshStandardMaterial({name:'restoration-candle-wax',color:0xe7d7b0,roughness:.68}),
       foliage: new T.MeshStandardMaterial({name:'restoration-offering-foliage',color:0x293524,metalness:0,roughness:.72}),
@@ -126,7 +133,7 @@ class FurnishingBuilder {
       paper: new T.MeshStandardMaterial({name:'restoration-lantern-warm-paper',color:0xe1b264,roughness:.62,emissive:0xffb54e,emissiveIntensity:.65,side:T.DoubleSide}),
       flame: supplied.flame || new T.MeshStandardMaterial({name:'restoration-flame',color:0xffd47e,emissive:0xffa831,emissiveIntensity:2}),
       textile: new T.MeshStandardMaterial({name:'restoration-black-brocade',color:0x0d0b0a,roughness:.91}),
-      brocadeThread: new T.MeshStandardMaterial({name:'restoration-brocade-woven-gold',color:0x9b7137,metalness:.25,roughness:.73}),
+      brocadeThread: new T.MeshStandardMaterial({name:'restoration-brocade-woven-gold',color:0x705635,metalness:.10,roughness:.90}),
       ritualGlass: new T.MeshPhysicalMaterial({name:'restoration-clear-ritual-chimney',color:0xffffff,metalness:0,roughness:.06,transmission:1,ior:1.48,thickness:0,opacity:1,transparent:false,depthWrite:true,depthTest:true,side:T.FrontSide}),
     };
   }
@@ -150,7 +157,7 @@ class FurnishingBuilder {
     if (!this.buckets.has(key)) this.buckets.set(key,{g,material,matrices:[]});
     this.buckets.get(key).matrices.push(this.stack.at(-1).clone().multiply(this.dummy.matrix));
   }
-  box(x,y,z,w,h,d,m='lacquer') { this.add(this.geometry('box',()=>new T.BoxGeometry(1,1,1)),m,x,y,z,w,h,d); }
+  box(x,y,z,w,h,d,m='lacquer') { const gilt=['gold','oldgold','trim'].includes(m);this.add(this.geometry(gilt?'rounded-cast-mount':'box',()=>gilt?new RoundedBoxGeometry(1,1,1,2,.055):new T.BoxGeometry(1,1,1)),m,x,y,z,w,h,d); }
   ball(x,y,z,rx,ry,rz,m='gold') { this.add(this.geometry('ball',()=>new T.SphereGeometry(1,12,8)),m,x,y,z,rx,ry,rz); }
   cylinder(x,y,z,r,h,m='gold') { this.add(this.geometry('cylinder',()=>new T.CylinderGeometry(1,1,1,16)),m,x,y,z,r,h,r); }
   torus(x,y,z,r,tube,m='gold',rx=0,ry=0,rz=0) {
@@ -457,10 +464,10 @@ function buildTerraces(b,layout) {
     const front=t.d/2+.025;
     for(const dy of [-t.h/2+.017,t.h/2-.017]) {
       b.box(0,t.y+dy,front-.008,frontWidth+.11,.064,.081,'lacquer');
-      b.box(0,t.y+dy,front+.020,frontWidth+.04,.0055,.014,'oldgold');
+      b.box(0,t.y+dy,front+.020,frontWidth+.04,.0055,.014,'trim');
       if(stepped)for(const side of [-1,1]){
-        b.box(side*(frontWidth+wingWidth)/2,t.y+dy,front-wingInset,wingWidth+.035,.010,.026,'oldgold');
-        b.box(side*frontWidth/2,t.y+dy,front-wingInset/2,.018,.010,wingInset+.045,'oldgold');
+        b.box(side*(frontWidth+wingWidth)/2,t.y+dy,front-wingInset,wingWidth+.035,.010,.026,'trim');
+        b.box(side*frontWidth/2,t.y+dy,front-wingInset/2,.018,.010,wingInset+.045,'trim');
       }
     }
     if(stepped){
@@ -471,8 +478,8 @@ function buildTerraces(b,layout) {
       // One gilt bead is emitted with the forward black ledge below.
       for(const side of [-1,1]){
         b.box(side*(frontWidth+wingWidth)/2,t.y+t.h/2+.042,-wingInset/2,wingWidth+.10,.055,t.d-wingInset+ledgeDepthExtra,'lacquer');
-        b.box(side*(frontWidth+wingWidth)/2,t.y+t.h/2+.073,front-wingInset+ledgeFrontExtra,wingWidth+.10,.009,.026,'oldgold');
-        b.box(side*(frontWidth/2+.04),t.y+t.h/2+.073,front-wingInset/2+ledgeFrontExtra,.020,.009,wingInset+.025,'oldgold');
+        b.box(side*(frontWidth+wingWidth)/2,t.y+t.h/2+.073,front-wingInset+ledgeFrontExtra,wingWidth+.10,.009,.026,'trim');
+        b.box(side*(frontWidth/2+.04),t.y+t.h/2+.073,front-wingInset/2+ledgeFrontExtra,.020,.009,wingInset+.025,'trim');
       }
     }
     if(level===0){
@@ -481,9 +488,9 @@ function buildTerraces(b,layout) {
       for(const side of [-1,1]){
         const x=side*t.w*.416,w=t.w*.145;
         b.box(x,t.y,front+.005,w,t.h-.075,.065,'lacquer');
-        for(const xx of [-1,1])b.box(x+xx*w/2,t.y,front+.048,.023,t.h-.055,.026,'oldgold');
+        for(const xx of [-1,1])b.box(x+xx*w/2,t.y,front+.048,.023,t.h-.055,.026,'trim');
         for(let k=0;k<8;k++){const a=k*Math.PI/4;b.leaf(x+Math.sin(a)*.017,t.y+Math.cos(a)*.017,front+.0385,.052,.10,-a,'gold',.4);}
-        b.ball(x,t.y,front+.0505,.029,.029,.015,'oldgold');
+        b.ball(x,t.y,front+.0505,.029,.029,.015,'trim');
       }
       b.box(0,t.y,front-.4725,t.w*.64,t.h-.11,.070,'lacquer');
     }else if(level===4){
@@ -492,7 +499,7 @@ function buildTerraces(b,layout) {
       const platformTop=1.98,platformBottom=1.8285;
       for(const side of [-1,1])b.box(side*2.18,(platformTop+platformBottom)/2,-.15,1.78,platformTop-platformBottom,1.92,'lacquer');
       b.box(0,(platformTop+platformBottom)/2,-.15,2.16,platformTop-platformBottom,1.92,'lacquer');
-      for(const y of [1.982,2.186])b.box(0,y,.97,6.05,.010,.036,'oldgold');
+      for(const y of [1.982,2.186])b.box(0,y,.97,6.05,.010,.036,'trim');
       // This narrow return joins the back-platform trim to the black wood.
       // Front ritual feet instead use the existing lower carved-row tread;
       // carrying a full shelf across their height would erase that step.
@@ -503,8 +510,8 @@ function buildTerraces(b,layout) {
       for(let j=-4;j<=4;j++){
         const xx=j*.65;
         for(const sign of[-1,1])ref6Scroll(b,xx+sign*.15,2.034,.999,.19,.105,sign*.2,'gold',sign);
-        ref6Rosette(b,xx,2.090,1.013,.044,0,'oldgold');
-        b.box(xx,2.080,1.001,.026,.147,.025,'oldgold');
+        ref6Rosette(b,xx,2.090,1.013,.044,0,'trim');
+        b.box(xx,2.080,1.001,.026,.147,.025,'trim');
       }
 
     }else{
@@ -523,8 +530,8 @@ function buildTerraces(b,layout) {
         framedScrollPanel(b,x,t.y,front+.018,pw,t.h-.083,(level+i)%2,t.d/2,singleDirection);
         cursor+=pw+gap;
         if(i<weights.length-1){
-          b.box(cursor-gap/2,t.y,front+.022,.052,t.h-.045,.098,'oldgold');
-          for(const yy of [-1,1])b.box(cursor-gap/2,t.y+yy*(t.h*.38),front+.063,.080,.038,.040,'oldgold');
+          b.box(cursor-gap/2,t.y,front+.022,.052,t.h-.045,.098,'trim');
+          for(const yy of [-1,1])b.box(cursor-gap/2,t.y+yy*(t.h*.38),front+.063,.080,.038,.040,'trim');
         }
       });
     }
@@ -532,18 +539,18 @@ function buildTerraces(b,layout) {
     // generate the photograph's stacked shadow bands rather than flat plates.
     if(level>0&&level<4){
       b.box(0,t.y+t.h/2+.037,front+.010,frontWidth+.16,.072,.12,'lacquer');
-      b.box(0,t.y+t.h/2+.071,front+.061,frontWidth+.18,.008,.018,'oldgold');
+      b.box(0,t.y+t.h/2+.071,front+.061,frontWidth+.18,.008,.018,'trim');
       b.box(0,t.y-t.h/2-.012,front-.008,frontWidth+.09,.027,.088,'lacquer');
       const mounts=Math.round(frontWidth/.42);
       for(let j=0;j<mounts;j++){
         const mx=-frontWidth*.47+j/(mounts-1)*frontWidth*.94;
-        ref6Rosette(b,mx,t.y+t.h/2+.036,front+.073,.026,0,'oldgold');
+        ref6Rosette(b,mx,t.y+t.h/2+.036,front+.073,.026,0,'trim');
       }
     }
     // Gilt corner caps visibly wrap the depth of the cabinet.
     for(const s of [-1,1])for(const [width,depthOffset] of stepped?[[frontWidth,0],[t.w,wingInset]]:[[t.w,0]]){
-      b.box(s*(width/2-.06),t.y,front+.035-depthOffset,.042,t.h-.042,.018,'oldgold');
-      b.box(s*(width/2+.006),t.y,front-.10-depthOffset,.013,t.h-.042,.25,'oldgold');
+      b.box(s*(width/2-.06),t.y,front+.035-depthOffset,.042,t.h-.042,.018,'trim');
+      b.box(s*(width/2+.006),t.y,front-.10-depthOffset,.013,t.h-.042,.25,'trim');
     }
   });
   for(const xx of [-2.14,-1.68,1.68,2.14]){
@@ -554,14 +561,14 @@ function buildTerraces(b,layout) {
       // front of it. Outer posts bridge the side-wing setback as required.
       const inset=Math.abs(xx)>layout.carvedFrontWidths[row-1]/2?.34:0;
       const bearingZ=tiers[row].d/2-inset+(isLedge?(row===3?.08:.04):0);
-      b.box(xx,yy,(1.56+bearingZ)/2,.12,.035,Math.abs(1.56-bearingZ)+.10,'oldgold');
+      b.box(xx,yy,(1.56+bearingZ)/2,.12,.035,Math.abs(1.56-bearingZ)+.10,'trim');
     }
-    b.ball(xx,1.91,1.56,.048,.064,.048,'oldgold');
+    b.ball(xx,1.91,1.56,.048,.064,.048,'trim');
   }
-  b.box(0,1.01,1.57,.43,.48,.13,'oldgold');
+  b.box(0,1.01,1.57,.43,.48,.13,'trim');
   b.box(0,1.01,1.645,.35,.40,.035,'lacquer');
   for(let k=0;k<10;k++){const a=k*Math.PI/5;b.leaf(Math.sin(a)*.025,1.01+Math.cos(a)*.025,1.6505,.06,.14,-a,'gold',.65);}
-  b.ball(0,1.01,1.6805,.040,.040,.02,'oldgold');
+  b.ball(0,1.01,1.6805,.040,.040,.02,'trim');
   // Raised plinth beneath central lotus. Attendants have individually stepped bases.
   const seatBottom=3.00-layout.mainThroneHeight;
   // The original central lotus stands on two recessed black-lacquer bands
@@ -570,15 +577,15 @@ function buildTerraces(b,layout) {
   const plinthBottom=2.175,plinthHeight=seatBottom-plinthBottom;
   for(const [lo,hi,w,d] of [[0,.12,2.52,1.76],[.12,.50,2.44,1.68],[.50,.88,2.36,1.60],[.88,1,2.52,1.76]])
     b.box(0,plinthBottom+(lo+hi)*plinthHeight/2,-.08,w,(hi-lo)*plinthHeight,d,'lacquer');
-  b.box(0,plinthBottom+.12*plinthHeight,-.08,2.54,.009,1.78,'oldgold');
-  b.box(0,plinthBottom+.50*plinthHeight,-.08,2.48,.012,1.72,'oldgold');
-  b.box(0,seatBottom-.003,-.08,2.59,.025,1.82,'oldgold');
+  b.box(0,plinthBottom+.12*plinthHeight,-.08,2.54,.009,1.78,'trim');
+  b.box(0,plinthBottom+.50*plinthHeight,-.08,2.48,.012,1.72,'trim');
+  b.box(0,seatBottom-.003,-.08,2.59,.025,1.82,'trim');
   for(const side of [-1,1])for(let i=0;i<3;i++) {
     const w=2.13-i*.13, y=2.05+i*.115,z=-.09,d=1.53-i*.085;
     b.box(side*layout.sideFigureX,y,z,w,.16,d,'lacquer');
-    b.box(side*layout.sideFigureX,y+.078,z,w+.065,.023,d+.055,'oldgold');
+    b.box(side*layout.sideFigureX,y+.078,z,w+.065,.023,d+.055,'trim');
     framedScrollPanel(b,side*layout.sideFigureX,y,z+d/2+.025,w-.15,.092,i%2,z+d/2);
-    if(i===2){const top=2.85-layout.sideThroneHeight;b.box(side*layout.sideFigureX,(2.35+top)/2,z,1.87,top-2.35,1.35,'lacquer');b.box(side*layout.sideFigureX,top-.006,z,1.91,.012,1.39,'oldgold');}
+    if(i===2){const top=2.85-layout.sideThroneHeight;b.box(side*layout.sideFigureX,(2.35+top)/2,z,1.87,top-2.35,1.35,'lacquer');b.box(side*layout.sideFigureX,top-.006,z,1.91,.012,1.39,'trim');}
   }
 }
 
@@ -651,7 +658,7 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   const data=REF6_CAST_PANEL_FIELDS[field],key='r6v12-source-cast-panel:'+field+':'+mirror+':'+w+':'+h;
   const g=b.geometry(key,()=>{
     const sx=w*.91/(data.bounds[2]-data.bounds[0]),sy=h*.89/(data.bounds[3]-data.bounds[1]);
-    const g=(w>1.05&&h>.12&&variant===0)?ref6ActualDragonGeometry(w*.93,h*.86,Math.round(y*10),singleDirection):ref6SweptPhotoCastingGeometry(data,sx,sy,0,mirror);g.scale(1,1,1.35);g.translate(0,0,.026);g.computeVertexNormals();
+    const g=ref6SweptPhotoCastingGeometry(data,sx,sy,0,mirror);g.scale(1,1,1.35);g.translate(0,0,.026);g.computeVertexNormals();
     g.userData.reference6PanelField={field,mirror,analogousField:!singleDirection,depthInferred:true};return g;
   });
   b.add(g,'gold',x,y,z+.012);
@@ -941,7 +948,7 @@ function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedH
     b.castCurve('recovered-mandorla-root:'+x,[[0,.20,-.06],[0,(.20+branchRootY)/2,-.044],[0,branchRootY,-.038]],chasedHeadWheel?.029:.021,'oldgold',16);
     if(chasedHeadWheel){
       const wheel=b.geometry('r6v2-chased-head-wheel',()=>{
-        const sh=new T.Shape();sh.absarc(0,0,.63,0,Math.PI*2,false);const hole=new T.Path();hole.absarc(0,0,.47,0,Math.PI*2,true);sh.holes.push(hole);
+        const sh=new T.Shape();sh.absarc(0,0,.63,0,Math.PI*2,false);const hole=new T.Path();hole.absarc(0,0,.47,0,Math.PI*2,true);sh.holes.push(hole);for(let k=0;k<48;k++){const a=k*Math.PI/24,h=new T.Path();h.absellipse(Math.sin(a)*.55,Math.cos(a)*.55,.013,.035,0,Math.PI*2,true,-a);sh.holes.push(h);}
         return new T.ExtrudeGeometry(sh,{depth:.024,bevelEnabled:true,bevelSize:.004,bevelThickness:.005,bevelSegments:2,curveSegments:48});
       });b.add(wheel,'oldgold',0,cy,.085,unit,unit,1);
       for(const r of[.47,.63])b.torus(0,cy,.116,r*unit,.009,'gold');
@@ -962,29 +969,40 @@ function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedH
   });
 }
 
+function buildThronePedestal(b,x,z,radius,bottom,top,depthAspect){
+  const h=top-bottom;if(h<=.002)return;
+  b.withTransform(x,bottom,z,[radius,1,radius*depthAspect],()=>{
+    b.lathe('max02-stepped-lotus-lacquer-plinth:'+h,[[0,0],[.79,0],[.82,.035],[.82,.075],[.72,.105],[.70,h-.07],[.78,h-.04],[.78,h],[0,h]],0,0,0,1,1,'lacquer',64);
+    for(const y of[.035,.081,h-.041])b.torus(0,y,0,.79,.009,'gold',Math.PI/2);
+    for(let k=0;k<24;k++){
+      const a=k*Math.PI/12;b.ball(Math.sin(a)*.72,h*.56,Math.cos(a)*.72,.014,.026,.009,'oldgold');
+    }
+  });
+}
+
 function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],depthAspect=.68) {
   b.withTransform(x,seatY-height,z,[radialCompensation[0],1,radialCompensation[1]*depthAspect],()=>{
-    // The observed seat consists of overlapping pointed petals. Narrower
-    // shoulders and a raised central fold replace the old inflated lobes.
+    // Broad cupped petals overlap in two staggered rows. Their shoulders
+    // carry the cast volume; the short pointed tips do not form thin spikes.
     b.lathe('r6r14-hidden-lotus-core',[[0,0],[.58,0],[.58,.045],[.46,.11],[.46,.94],[.54,1],[0,1]],0,0,0,radius,height,'oldgold',48);
-    const petal=b.geometry('r6r14-slender-ribbed-lotus-petal',()=>{
+    const petal=b.geometry('max02-broad-cupped-lotus-petal',()=>{
       const p=[],uv=[],ix=[],rows=28,cols=18,stride=(rows+1)*(cols+1);
       for(let surface=0;surface<2;surface++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
         const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t);
-        const width=t<=.78?.50*Math.pow(Math.sin(Math.PI*t/(2*.78)),.65):.50*Math.pow(Math.cos(Math.PI*.5*(t-.78)/.22),1.15);
-        const meridian=.12*wave+.48*t+.10*t*t;
-        const convex=.105*wave*(1-u*u),midrib=.025*Math.exp(-Math.pow(u/.13,2))*wave,edge=.010*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
+        const width=t<=.53?.50*Math.pow(Math.max(0,Math.sin(Math.PI*t/(2*.53))),.65):.50*Math.pow(Math.max(0,Math.cos(Math.PI*.5*(t-.53)/.47)),.95);
+        const meridian=.68*t-.14*t*t-.07*wave;
+        const convex=.10*wave*(1-u*u)+.004*Math.cos(u*5*Math.PI)*wave*wave*(1-u*u),midrib=.015*Math.exp(-Math.pow(u/.13,2))*wave,edge=.014*Math.exp(-Math.pow((Math.abs(u)-.89)/.085,2))*wave;
         p.push(u*width,t,meridian+(surface===0?convex+midrib+edge:-.040));uv.push(i/cols,t);
         if(j<rows&&i<cols){const a=surface*stride+j*(cols+1)+i;surface===0?ix.push(a,a+1,a+cols+1,a+1,a+cols+2,a+cols+1):ix.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}
       }
       closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='overlapping-pointed-petal-with-raised-fold';return g;
     });
     for(let row=0;row<2;row++){
-      const n=row?24:22,rr=radius*(row?.50:.56),base=height*(row?.25:0),hh=height*(row?.78:.71);
+      const n=row?24:22,rr=radius*(row?.55:.60),base=height*(row?.25:0),hh=height*(row?.78:.72);
       for(let k=0;k<n;k++){
         const a=(k+row*.53)/n*Math.PI*2,lean=.085*Math.sin(a);
         b.withTransform(Math.sin(a)*rr,base,Math.cos(a)*rr,1,()=>{
-          b.withTransform(0,0,0,1,()=>b.add(petal,'gold',0,0,0,radius*(row?.22:.23),hh,radius*(row?.37:.58),0,0,lean),a);
+          b.withTransform(0,0,0,1,()=>b.add(petal,'gold',0,0,0,radius*(row?.29:.30),hh,radius*(row?.40:.50),0,0,lean),a);
         });
       }
     }
@@ -1002,7 +1020,7 @@ function buildRitualObjects(b,layout) {
     buildUpperOfferingVase(b,side*layout.upperVaseX,layout.upperVaseY,layout.upperVaseZ,side);
     buildFloorOfferingVase(b,side*layout.floorVaseX,layout.floorContactY,1.90);
     buildFloorFloralOffering(b,side*layout.floorVaseX,layout.floorContactY,1.90,side);
-    buildLiddedUrn(b,side*layout.floorUrnX,layout.floorContactY,1.75,1);
+    buildLiddedUrn(b,side*layout.floorUrnX,layout.floorContactY,1.75,.79);
     for(let i=0;i<3;i++)buildCandlestick(b,side*(i===2?2.50:1.37+i*.60),2.33,1.17-(i%2)*.15,.57+(i===1?.24:0),i===2,1.8295);
     buildLotusOffering(b,side*layout.innerRitualLotusX,2.33,layout.innerRitualLotusZ,.45,-side,true,layout.innerRitualLotusSupportY);
     buildLotusOffering(b,side*layout.outerRitualLotusX,2.31,layout.outerRitualLotusZ,.38,-side,false,layout.outerRitualLotusSupportY);
@@ -1106,7 +1124,7 @@ function buildFloralOffering(b,x,y,z,side) {
       const xx=dx*(side<0?1:-1),yy=dy*(side<0?1:.93);
       b.naturalCurve('offering-natural-stem:'+side+':'+i,[[0,.255,0],[xx*.30,.35,dz*.35],[xx*.80,yy-.075,dz*.80],[xx,yy,dz]],.0055,'flowerStem',20,.0465);
       if(size===0){b.ball(xx,yy+.025,dz,.018,.048,.018,'ivory');return;}
-      for(let k=0;k<5;k++)b.add(petal,'ivory',xx,yy,dz,size,size*1.38,size,0,k*Math.PI*2/5+i*.37,0);
+      for(let k=0;k<5;k++)b.add(petal,'ivory',xx,yy,dz,size,size*.96,size,.50+.12*Math.sin(i*1.7),k*Math.PI*2/5+i*.37,0);
       for(let k=0;k<3;k++){
         const a=k*Math.PI*2/3+i*.6,tx=xx+Math.sin(a)*.012,tz=dz+Math.cos(a)*.012;
         b.cylinder(tx,yy+.039,tz,.0027,.066,'flowerStem');b.ball(tx,yy+.073,tz,.006,.011,.006,'oldgold');
@@ -1575,7 +1593,7 @@ function buildOfferingTable(b,layout) {
   const z=2.53;
   // Narrow gilded altar table with open negative space under the apron.
   b.box(0,.65,z,4.02,.080,.96,'lacquer');
-  b.box(0,.698,z,4.13,.020,1.02,'gold');
+  b.box(0,.698,z,4.13,.009,1.02,'oldgold');
   b.box(0,.595,z+.45,3.96,.14,.075,'lacquer');
   // The foreground rail is largely black between separate chased metal
   // fittings. It is not another full-length, compressed dragon cabinet panel.
@@ -1641,7 +1659,7 @@ function buildOfferingTable(b,layout) {
     const x=side*1.075,zz=z+.34;
     b.lathe('table-inner-carved-support',[[0,0],[.13,.008],[.135,.042],[.10,.070],[.078,.115],[.10,.205],[.077,.295],[.070,.375],[.110,.432],[.095,.480],[0,.490]],x,.085,zz,1,1,'lacquer',28);
     b.lathe('table-inner-red-core',[[0,0],[.061,.012],[.070,.045],[.073,.160],[.057,.290],[.065,.325],[0,.337]],x,.18,zz+.035,1,1,'red',24);
-    b.box(x,(floorY+.1195)/2,zz,.25,.1195-floorY,.25,'gold');
+    b.box(x,(floorY+.1195)/2,zz,.21,.1195-floorY,.21,'trim');
     b.box(x,.072,zz+.133,.18,.062,.018,'oldgold');
     for(const yy of [.15,.30,.52])b.torus(x,yy,zz,yy===.30?.102:.091,.012,'gold',Math.PI/2);
     for(const sign of [-1,1]){
@@ -1658,6 +1676,14 @@ function buildOfferingTable(b,layout) {
   // the bowl. Keep every existing exterior profile point and bowl position.
   b.lathe('censer-pedestal',[[0,-.002/1.495],[.23,-.002/1.495],[.25,.012],[.26,.045],[.18,.080],[.16,.12],[.28,.17],[.30,.23],[.25,.28],[.13,.31],[.18,.345],[.20,.35],[0,.35]],0,.71,z,1,1.495,'lacquer');
   for(const [yy,rr] of [[.78,.24],[1.12,.22],[1.18,.19]])b.torus(0,yy,z,rr,.013,'gold',Math.PI/2);
+  for(let k=0;k<8;k++)b.withTransform(0,0,z,1,()=>{
+   b.castCurve('central-pedestal-rooted-vine',[[0,.80,.18],[.018,.90,.267],[.020,1.00,.307],[0,1.10,.269],[-.020,1.18,.174]],.006,'gold',26);
+   for(const side of[-1,1]){
+    b.carvedCurve('central-pedestal-scroll-'+side,[[0,.91,.27],[side*.052,.94,.286],[side*.064,.995,.305],[side*.034,1.018,.31],[side*.018,.987,.31]],.012,.007,'gold',22);
+    b.leaf(side*.033,.854,.237,.038,.078,-side*.45,'oldgold',.25);
+   }
+   ref6Rosette(b,0,1.052,.303,.032,0,'gold');
+  },k*Math.PI/4);
   // The reference censer is a low six-lobed metal body with a dark chased
   // frontal cartouche, not an open flowerpot on a conical stand.
   const bowl=b.geometry('six-lobed-censer',()=>lobedVesselGeometry([[0,0],[.13,.015],[.25,.06],[.32,.15],[.33,.23],[.29,.31],[.23,.35],[.24,.38],[.20,.38],[.20,.35],[.24,.30],[.27,.22],[.25,.14],[.17,.09],[0,.09]],6,.075));
@@ -1893,26 +1919,22 @@ function buildOfferingTable(b,layout) {
     };
     const rosette=(cx,cy,r,plane='front')=>{
       for(let row=0;row<2;row++)for(let k=0;k<8;k++){
-        const length=r*(row===0?1:.52),w=length*.26;
-        const petal=new T.Shape();petal.moveTo(-w*.22,length*.20);
-        petal.bezierCurveTo(-w,length*.45,-w*.92,length*.72,-w*.34,length*.73);
-        petal.bezierCurveTo(-w*.48,length*.87,-w*.14,length*.93,0,length);
-        petal.bezierCurveTo(w*.14,length*.93,w*.48,length*.87,w*.34,length*.73);
-        petal.bezierCurveTo(w*.92,length*.72,w,length*.45,w*.22,length*.20);petal.closePath();
-        place(petal,cx,cy,k*Math.PI/4+row*Math.PI/8,plane);
+        const length=r*(row===0?1:.52),w=length*.26,a=k*Math.PI/4+row*Math.PI/8;
+        const path=[[0,length*.18],[-w*.6,length*.42],[-w*.65,length*.72],[0,length],[w*.65,length*.72],[w*.6,length*.42],[0,length*.18]].map(([x,y])=>[cx+x*Math.cos(a)-y*Math.sin(a),cy+x*Math.sin(a)+y*Math.cos(a)]);
+        ribbon(path,.0018,plane);
       }
-      const center=new T.Shape();center.absellipse(0,0,.014,.014,0,Math.PI*2,false,0);place(center,cx,cy,0,plane);
+      const center=new T.Shape();center.absellipse(0,0,.006,.006,0,Math.PI*2,false,0);place(center,cx,cy,0,plane);
     };
     // Three larger floral medallions and their diagonal connecting vines
     // are visible on the original bolster, not dozens of isolated badges.
-    for(const cx of[-.62,0,.62])rosette(cx,.267,.127);
+    for(const cx of[-.8,-.6,-.4,-.2,0,.2,.4,.6,.8])rosette(cx,.267,.061);
     for(let k=-4;k<=4;k++){
       const cx=k*.22;
       ribbon([[cx-.13,.165],[cx-.06,.214],[cx+.02,.302],[cx+.12,.367]],.0042);
       ribbon([[cx-.13,.367],[cx-.04,.311],[cx+.03,.225],[cx+.12,.165]],.0035);
-      for(const sign of[-1,1])rosette(cx+sign*.055,.225+sign*.059,.026);
+      for(const sign of[-1,1])rosette(cx+sign*.055,.225+sign*.059,.018);
     }
-    for(const cx of[-.62,0,.62])rosette(cx,.03,.14,'top');
+    for(const cx of[-.8,-.6,-.4,-.2,0,.2,.4,.6,.8])rosette(cx,.03,.065,'top');
     for(let k=-4;k<=4;k++){
       const cx=k*.22;
       ribbon([[cx-.13,-.28],[cx-.06,-.12],[cx+.04,.08],[cx+.13,.26]],.004,'top');
@@ -1982,7 +2004,7 @@ function buildCanopy(b,x,y,z,s,chainDrop=1,chainExtra=0,shallowTray=false) {
       }
     }
     for(let ring=0;ring<3;ring++){
-      const count=[34,25,17][ring],radius=[1.28,.88,.46][ring];
+      const count=(shallowTray?[34,25,17]:[14,10,6])[ring],radius=[1.28,.88,.46][ring];
       for(let k=0;k<count;k++){
         const a=k/count*Math.PI*2+ring*.19,xx=Math.sin(a)*radius*(1+.035*Math.sin(k*2.4)),zz=Math.cos(a)*radius+.085*Math.sin(k*1.7+ring);
         // The chains must attach to the tray/ribs, not begin in empty air at
@@ -2011,7 +2033,7 @@ function buildCanopy(b,x,y,z,s,chainDrop=1,chainExtra=0,shallowTray=false) {
           const yy=-.12-i*.195;
           const form=(i+k+ring)%3;
           if(form!==1){
-            const scale=form===0?[.48,.67,.48]:[.49,.39,.49];
+            const scale=form===0?(shallowTray?[.65,.80,.65]:[.82,.86,.82]):(shallowTray?[.55,.44,.55]:[.72,.47,.72]);
             b.withTransform(xx,yy,zz,scale,()=>{
               const bell=b.geometry('five-lobed-pendant-bell',()=>{
                 // A closed neck grips the real carrier; only the flared mouth

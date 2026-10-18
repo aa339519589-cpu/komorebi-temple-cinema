@@ -1,0 +1,304 @@
+{
+  "reference": 6,
+  "entry": "reconstructions/scene-06/index.html",
+  "worktree": "/Users/mima1234/temple-scene-06",
+  "size": 768,
+  "startedAt": "2026-10-18T05:48:12.602Z",
+  "source": {
+    "hash": "2d9a00a1f4c5c4d07d543b4cd5d28378ce89c769d8fc571a98b2a22646a7b44c",
+    "files": {
+      "reconstructions/scene-06/index.html": "f54c086e03b4b272ffa47983ff78d2075c065b9d1b96949b270f46aaea0eb6f8",
+      "reconstructions/scene-06/src/reference6-coffer-relief.js": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53",
+      "reconstructions/scene-06/src/reference6-column-collar.js": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94",
+      "reconstructions/scene-06/src/reference6-main.js": "81615d68b74b516c739472ca23a8b72c2f7587f17332b0151e40537137d3ed40",
+      "reconstructions/scene-06/src/reference6-scene.js": "715247ade871f94ca931729b26a6292fdd564585678366feedf9c6407a064e6c",
+      "reconstructions/scene-06/src/restoration-altar.js": "1300f186df47d78b12a77c9c1dfa4be8139ff43ff8d040dfcbbb710702e0ac7d",
+      "reconstructions/scene-06/src/restoration-buddha.js": "1f2b6bfee2ed4a6eec9cc10e00fb73e2ba4825ede4742f409eb3b0c124c77405",
+      "reconstructions/scene-06/src/restoration-lighting.js": "23063b312965d240d6b808bd45079f7a34e44a7a4f7b11d15122ff93b02e9fb7",
+      "reconstructions/scene-06/src/restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25"
+    }
+  },
+  "sourceCommit": "0d1e4f70d7df7d61d44148226bc160b5b43ed53f",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-06/index.html",
+    "/reconstructions/scene-06/src/reference6-main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-06/src/reference6-scene.js",
+    "/reconstructions/scene-06/src/restoration-lighting.js",
+    "/reconstructions/scene-06/src/restoration-render-diagnostics.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/reconstructions/scene-06/src/reference6-column-collar.js",
+    "/reconstructions/scene-06/src/reference6-coffer-relief.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/lights/RectAreaLightUniformsLib.js",
+    "/reconstructions/scene-06/src/restoration-altar.js",
+    "/reconstructions/scene-06/src/restoration-buddha.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/lights/RectAreaLightTexturesLib.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 6,
+        "frame": 1,
+        "width": 768,
+        "height": 768,
+        "revision": "scene-06-interior-depth-r9",
+        "camera": {
+          "position": [
+            0,
+            0.58,
+            8.4
+          ],
+          "target": [
+            0,
+            2.4,
+            -2.3
+          ],
+          "fov": 62
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 768,
+          "composerSamples": 4
+        },
+        "renderVariant": "scene-06-interior-depth-r9",
+        "validation": "Visual foundation candidate, not photographic acceptance."
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-06-interior-depth-r9",
+        "reference": 6,
+        "frame": 1,
+        "counts": {
+          "meshes": 1695,
+          "instances": 17739,
+          "triangles": 8000265
+        },
+        "independentInterior": true,
+        "exteriorWorldBuilt": false,
+        "photoPlanes": false,
+        "exposure": 1.05,
+        "lights": {
+          "sun": 1,
+          "indirectAreaProxies": 5,
+          "frontWindowShadowSamples": 6,
+          "practicals": 2
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 768
+        },
+        "renderVariant": "scene-06-interior-depth-r9",
+        "composerAA": {
+          "requestedSamples": 4,
+          "samples": 4,
+          "colorFormat": "RGBA16F",
+          "depthFormat": "DEPTH_COMPONENT24",
+          "colorSamples": [
+            4,
+            2
+          ],
+          "depthSamples": [
+            4,
+            2
+          ],
+          "maxSamples": 4,
+          "active": true,
+          "mode": "multisample-composer",
+          "scope": "Geometry coverage only; no promise to remove normal-map/specular aliasing."
+        },
+        "contactOcclusion": {
+          "method": "GTAO",
+          "radius": 0.18,
+          "thickness": 0.14,
+          "blendIntensity": 0.65,
+          "source": "Actual opaque geometry normals and depth",
+          "limitation": "Screen-space multiply approximation, not physical indirect-only transport"
+        },
+        "limits": [
+          "Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.",
+          "Independent room with complete reconstructed altar7365af and sculpture5338dd, not yet visually accepted.",
+          "Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.",
+          "Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.",
+          "Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison."
+        ],
+        "diagnostics": {
+          "revision": "persistent-render-diagnostics-v1",
+          "stage": "renderer-ready",
+          "failed": false,
+          "contextLost": false,
+          "guardValid": true,
+          "errors": []
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 0.9871317545572916,
+      "opaqueFraction": 1,
+      "rgbaSha256": "cf854c60af94412ea666049f13e32551445580d30d6e64cf9919f6156fe459ce"
+    }
+  ],
+  "completedAt": "2026-10-18T05:48:17.693Z"
+}
