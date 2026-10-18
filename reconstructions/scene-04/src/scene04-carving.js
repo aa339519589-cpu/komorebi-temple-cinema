@@ -53,6 +53,11 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
   for(let k=0;k<7;k++){const a=(k-3)*.30;petal(x+Math.sin(a)*.085*s,y-.045,z+.055,Math.PI-a,(.16+.045*Math.cos(a))*s,.031*s,mats.oldgold,.045);}
   petal(x,y+.10,z+.04,Math.PI,.18*s,.055*s,mats.gold,.055);
  }
+ for(const [j,x]of[-2.15,-1.10,1.10,2.15].entries()){
+  const y=canopyAt(x)-1.34;
+  scroll(x,y,.80,.72-j%2*.10,.30+j%2*.055,j*.71);
+  for(let k=0;k<4;k++)petal(x+(k-1.5)*.06,y+.12,.88,-.7+k*.45,.18,.032,mats.oldgold,.045);
+ }
  // Small curved kibana and layered cloud shoulders stay on the existing
  // column axes. Varied depths and carved leaves break the bare timber ends.
  const kneeShape=new T.Shape();kneeShape.moveTo(-.44,.12);kneeShape.lineTo(.44,.12);kneeShape.bezierCurveTo(.56,.06,.49,-.19,.34,-.19);kneeShape.bezierCurveTo(.20,-.18,.23,-.015,.11,-.025);kneeShape.bezierCurveTo(-.04,-.04,-.11,-.17,-.30,-.14);kneeShape.bezierCurveTo(-.43,-.12,-.51,-.035,-.44,.12);kneeShape.closePath();

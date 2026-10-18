@@ -1,0 +1,1032 @@
+{
+  "reference": 4,
+  "entry": "reconstructions/scene-04/index.html",
+  "worktree": "/Users/mima1234/temple-parallel-03-20261018",
+  "size": 1254,
+  "startedAt": "2026-10-18T10:48:24.971Z",
+  "source": {
+    "hash": "7c901b22d5d273b7af5ea91dee66956a870b9d09617dc8f748318d15736421b0",
+    "files": {
+      "reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-diff.png": "4f78aeb551287144c2c1b7f1f4d6c640dfc38d1d8bacb80534dd59001a393074",
+      "reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-nor_gl.png": "f5e7643b0a7e5d7ea063f3b4a34ebe34de24fd16665ff46156351e17d99670fc",
+      "reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-rough.png": "d98abb49a07b5da228fba1ce6923b7d905610ce78a40f4fa61984b39e97d86a5",
+      "reconstructions/scene-04/assets/monastery-stone-floor/monastery_stone_floor_diff_4k.jpg": "c1e1a3af80ed28d8de30f8b8c8583c4e8c9243d6f6b60f010a858f421e5c4253",
+      "reconstructions/scene-04/assets/monastery-stone-floor/monastery_stone_floor_nor_gl_4k.jpg": "cf2ea05c00a94d99bd0a39a07b71ec346c3e97d30a47e15931d18f37d49ad723",
+      "reconstructions/scene-04/assets/monastery-stone-floor/monastery_stone_floor_rough_4k.jpg": "6370b7ce90958ced9f56f47aef69830b22cc180a88aa06137b5b29d109af6c9d",
+      "reconstructions/scene-04/assets/monastery-stone-floor/provenance.json": "e2c5957d73cc88441c1c5545c5202c128a8bc90ebf25bb73c6473e2101440770",
+      "reconstructions/scene-04/index.html": "0f0384536abf38f80657468f006c9b9c07e3aca7c9d2518e38e862fd086a9eb3",
+      "reconstructions/scene-04/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-04/src/ornaments.js": "83cc048facf46c1edcc4ac122489792cd1d3ac5a37c70bfe2f5f7fd5efa62549",
+      "reconstructions/scene-04/src/reference4-architecture.js": "01df734c38ef0fcf6a9aced36f1a4d36f2828747bc034c2291472418869dce20",
+      "reconstructions/scene-04/src/reference4-atmosphere.js": "197ddb5f60d00313c483c939edf028ca8343c792a868719d03fcd2d0ac0b8cbe",
+      "reconstructions/scene-04/src/reference4-config.js": "cb7d685dddaf3b8bfa86e5264fbd112df243da891eddb0157cf3f5ba8d1ec816",
+      "reconstructions/scene-04/src/reference4-detail-kernel.js": "adda7f460d2f3bb127dace518ed52299be8b07d7f444aa08b1e855f803b28e0b",
+      "reconstructions/scene-04/src/reference4-distant-forest.js": "fd76516f49b6bf46d86b0ddda888548824e5e2c70690a4e6dc4d9301cc55f0df",
+      "reconstructions/scene-04/src/reference4-garden-stone.js": "5456e016deff0c45157e2afabe6559d2ef96ed5d990eb11e990448fb71a85c62",
+      "reconstructions/scene-04/src/reference4-garden.js": "0d8e39e4c0cb5029f1bb616101c41858cb83f85dfbfea6b0642e13c0e3a42828",
+      "reconstructions/scene-04/src/reference4-main.js": "46875c7a4584210013654e7b0e716de7ab9ff8969e171abef61fbf66d8b05dbb",
+      "reconstructions/scene-04/src/reference4-materials.js": "f503e84c813bdbdbfc84ae73220c095e7075e8de1e78614fd6dedf9be999a1de",
+      "reconstructions/scene-04/src/reference4-natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-04/src/reference4-pruned-crown.js": "6b6cb27fe22f666e45cce0a0011f708f08c3263677646ce8d4014de8c74b9fe7",
+      "reconstructions/scene-04/src/reference4-sanctuary.js": "7e4f34f6d276713e9080e93c6a2909cc1eac862d1c51c5b6c6d74c902dd7931e",
+      "reconstructions/scene-04/src/reference4-scene.js": "d010eec7f66beec91e6867638e4821681c30263dce61e925e8fdc1f60b9e1a45",
+      "reconstructions/scene-04/src/reference4-weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-04/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-04/src/restoration-landscape-lanterns-v2.js": "9415a0b440300d60f3fc69d372780b06fbb6c729a214b2eef1d632834cbba09c",
+      "reconstructions/scene-04/src/restoration-lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+      "reconstructions/scene-04/src/restoration-lotus-petal.js": "e7be770ab06d39791666e1e236c4d4445853b8706f086de33bc0650b003eb7ff",
+      "reconstructions/scene-04/src/restoration-pruned-pines-v1.js": "f41adbbcf83bf56541d34e2861f803e4450dcc260f92a0fc5e76712cd9484e6b",
+      "reconstructions/scene-04/src/restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25",
+      "reconstructions/scene-04/src/scene04-carving.js": "a1e36a7cc1571504b1d7e7f972e8ad8036fdc726ade1ef47f6fa0558d9398cf5",
+      "reconstructions/scene-04/src/scene04-lanterns.js": "37dec9b542ea359bb79266ec4bb6194b95d84ec31acae77c62c0ab01ef4523d4",
+      "reconstructions/scene-04/src/scene04-scanned-stone.js": "1ffc2add10386431ca71fae7dea8888e3bea0e28416682e9ba73d3a2a2f8781d",
+      "reconstructions/scene-04/src/scene04-surfaces.js": "a5cf6e2de65ccbecf7c9eff959a0d622b0725a5f8461ef31d35d970f5eed9665"
+    }
+  },
+  "sourceCommit": "9af8574d8d0019b065abaad92f912bd65d30b0c8",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-04/index.html",
+    "/reconstructions/scene-04/src/reference4-main.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-04/src/reference4-scene.js",
+    "/reconstructions/scene-04/src/reference4-config.js",
+    "/reconstructions/scene-04/src/scene04-scanned-stone.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-04/src/reference4-architecture.js",
+    "/reconstructions/scene-04/src/reference4-garden.js",
+    "/reconstructions/scene-04/src/reference4-sanctuary.js",
+    "/reconstructions/scene-04/src/reference4-distant-forest.js",
+    "/reconstructions/scene-04/src/reference4-atmosphere.js",
+    "/vendor/build/three.core.js",
+    "/reconstructions/scene-04/src/scene04-carving.js",
+    "/reconstructions/scene-04/src/scene04-surfaces.js",
+    "/reconstructions/scene-04/src/reference4-detail-kernel.js",
+    "/reconstructions/scene-04/src/reference4-materials.js",
+    "/reconstructions/scene-04/src/reference4-garden-stone.js",
+    "/vendor/examples/jsm/objects/Sky.js",
+    "/reconstructions/scene-04/src/restoration-buddha.js",
+    "/reconstructions/scene-04/src/reference4-weathered-boulder.js",
+    "/reconstructions/scene-04/src/reference4-pruned-crown.js",
+    "/reconstructions/scene-04/src/scene04-lanterns.js",
+    "/reconstructions/scene-04/src/restoration-pruned-pines-v1.js",
+    "/reconstructions/scene-04/src/restoration-lotus-leaf.js",
+    "/reconstructions/scene-04/src/restoration-lotus-petal.js",
+    "/reconstructions/scene-04/src/reference4-natural-forms.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-04/src/botany.js",
+    "/reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-diff.png",
+    "/reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-rough.png",
+    "/reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-nor_gl.png"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 4,
+        "revision": "scene-04-moulded-karahafu-dense-carved-bearing-struct49",
+        "width": 1254,
+        "height": 1254,
+        "frame": 1,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "surfaceAudit": [
+          {
+            "name": "reference4_stone",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "6b36f178-a9b9-4671-aee2-c23e81b6a70e",
+            "compiledUniformMap": "6b36f178-a9b9-4671-aee2-c23e81b6a70e",
+            "shaderCompiled": true
+          },
+          {
+            "name": "reference4_granite",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "131e8af5-ddc3-4d6a-8fe2-a8f781b288dc",
+            "compiledUniformMap": "131e8af5-ddc3-4d6a-8fe2-a8f781b288dc",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-0",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.225,
+            "materialMap": "505be638-a231-43ae-a087-8e46bd4028b6",
+            "compiledUniformMap": "505be638-a231-43ae-a087-8e46bd4028b6",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-3",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.225,
+            "materialMap": "b920b93b-a700-4c03-97d9-b89419e7a31a",
+            "compiledUniformMap": "b920b93b-a700-4c03-97d9-b89419e7a31a",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-2",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.225,
+            "materialMap": "65917c0e-0a9c-4270-8dc3-32d9e4c0ccdb",
+            "compiledUniformMap": "65917c0e-0a9c-4270-8dc3-32d9e4c0ccdb",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-1",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.225,
+            "materialMap": "022c72e8-d5f9-48c3-9614-8720e2846a92",
+            "compiledUniformMap": "022c72e8-d5f9-48c3-9614-8720e2846a92",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-pond-boulder-granite",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              4,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "216a8bb1-820c-4454-9c0d-140b31284f47",
+            "compiledUniformMap": "216a8bb1-820c-4454-9c0d-140b31284f47",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metric-quartz-granite-lantern",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "ea6baf15-7704-4a5f-9aeb-f1a7bee15427",
+            "compiledUniformMap": "ea6baf15-7704-4a5f-9aeb-f1a7bee15427",
+            "shaderCompiled": true
+          },
+          {
+            "name": "carved-granite-recess",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              4,
+              250
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "02ec6743-1c43-4326-9653-8ceed9f1ea25",
+            "compiledUniformMap": "02ec6743-1c43-4326-9653-8ceed9f1ea25",
+            "shaderCompiled": true
+          }
+        ],
+        "revision": "scene-04-moulded-karahafu-dense-carved-bearing-struct49",
+        "counts": {
+          "meshes": 1114,
+          "mixedInstances": 150892,
+          "triangles": 15606150,
+          "uniqueGeometries": 1082,
+          "lights": 12
+        },
+        "architecture": {
+          "entrance": {
+            "center": [
+              0,
+              5.54,
+              -0.62
+            ],
+            "clearWidth": 4.2,
+            "clearHeight": 4.08,
+            "frontZ": -0.355
+          },
+          "sanctuary": {
+            "center": [
+              0,
+              3.5,
+              -4.65
+            ],
+            "floor": 3.5,
+            "floorY": 3.5,
+            "frontOpeningWidth": 4.2,
+            "width": 4.2,
+            "depth": 5,
+            "frontZ": -0.65
+          },
+          "stair": {
+            "top": [
+              0,
+              3.5,
+              0
+            ],
+            "bottom": [
+              0,
+              0,
+              8
+            ],
+            "width": 5.6
+          },
+          "mainRidge": [
+            0,
+            16.5,
+            -5
+          ],
+          "canopy": {
+            "front": 1.55,
+            "back": -2.4,
+            "halfWidth": 6.5,
+            "crest": [
+              0,
+              11.549999992806702,
+              1.55
+            ],
+            "bargeboardMember": "entrance-saddled-bargeboard"
+          },
+          "tower": {
+            "position": [
+              -14.21,
+              2,
+              -12.0044
+            ],
+            "top": [
+              -14.21,
+              20.791999999999998,
+              -12.0044
+            ],
+            "height": 18.791999999999998,
+            "levels": [
+              {
+                "level": 1,
+                "eave": 4.3,
+                "width": 6.9,
+                "floor": 0.34
+              },
+              {
+                "level": 2,
+                "eave": 5.9,
+                "width": 6.7,
+                "floor": 4.99
+              },
+              {
+                "level": 3,
+                "eave": 7.5,
+                "width": 6.5,
+                "floor": 6.59
+              },
+              {
+                "level": 4,
+                "eave": 9.1,
+                "width": 6.3,
+                "floor": 8.19
+              },
+              {
+                "level": 5,
+                "eave": 10.7,
+                "width": 6.05,
+                "floor": 9.79
+              }
+            ],
+            "scale": 1.16
+          },
+          "lanternSupports": [
+            {
+              "x": -5.55,
+              "probeZ": 1.5,
+              "bodyCenter": [
+                -5.55,
+                5.8,
+                1.7
+              ]
+            },
+            {
+              "x": 5.55,
+              "probeZ": 1.5,
+              "bodyCenter": [
+                5.55,
+                5.8,
+                1.7
+              ]
+            }
+          ]
+        },
+        "garden": {
+          "hall": {
+            "axisX": 0,
+            "frontZ": 0,
+            "platformY": 3.5,
+            "platformHalfWidth": 7.6
+          },
+          "stairs": {
+            "top": [
+              0,
+              3.5,
+              0
+            ],
+            "bottom": [
+              0,
+              0,
+              8
+            ],
+            "width": 5.6
+          },
+          "towerReserved": {
+            "min": [
+              -18.01,
+              -15.804400000000001
+            ],
+            "max": [
+              -10.41,
+              -8.2044
+            ]
+          },
+          "lanterns": [
+            {
+              "index": 0,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": {
+                "isMaterial": true,
+                "uuid": "76a35fee-1751-4749-a3e4-379609cd445b",
+                "name": "",
+                "type": "MeshStandardMaterial",
+                "blending": 1,
+                "side": 2,
+                "vertexColors": false,
+                "opacity": 1,
+                "transparent": false,
+                "alphaHash": false,
+                "blendSrc": 204,
+                "blendDst": 205,
+                "blendEquation": 100,
+                "blendSrcAlpha": null,
+                "blendDstAlpha": null,
+                "blendEquationAlpha": null,
+                "blendColor": {
+                  "isColor": true,
+                  "r": 0,
+                  "g": 0,
+                  "b": 0
+                },
+                "blendAlpha": 0,
+                "depthFunc": 3,
+                "depthTest": true,
+                "depthWrite": true,
+                "stencilWriteMask": 255,
+                "stencilFunc": 519,
+                "stencilRef": 0,
+                "stencilFuncMask": 255,
+                "stencilFail": 7680,
+                "stencilZFail": 7680,
+                "stencilZPass": 7680,
+                "stencilWrite": false,
+                "clippingPlanes": null,
+                "clipIntersection": false,
+                "clipShadows": false,
+                "shadowSide": null,
+                "colorWrite": true,
+                "precision": null,
+                "polygonOffset": false,
+                "polygonOffsetFactor": 0,
+                "polygonOffsetUnits": 0,
+                "dithering": false,
+                "alphaToCoverage": false,
+                "premultipliedAlpha": false,
+                "forceSinglePass": false,
+                "allowOverride": true,
+                "visible": true,
+                "toneMapped": true,
+                "userData": {},
+                "version": 0,
+                "_alphaTest": 0,
+                "isMeshStandardMaterial": true,
+                "defines": {
+                  "STANDARD": ""
+                },
+                "color": {
+                  "isColor": true,
+                  "r": 0.5394794890033748,
+                  "g": 0.2704977910022518,
+                  "b": 0.040915196900556984
+                },
+                "roughness": 0.9,
+                "metalness": 0,
+                "map": null,
+                "lightMap": null,
+                "lightMapIntensity": 1,
+                "aoMap": null,
+                "aoMapIntensity": 1,
+                "emissive": {
+                  "isColor": true,
+                  "r": 1,
+                  "g": 0.37626212298046485,
+                  "b": 0.02028856305209031
+                },
+                "emissiveIntensity": 0.5,
+                "emissiveMap": null,
+                "bumpMap": null,
+                "bumpScale": 1,
+                "normalMap": null,
+                "normalMapType": 0,
+                "normalScale": {
+                  "x": 1,
+                  "y": 1
+                },
+                "displacementMap": null,
+                "displacementScale": 1,
+                "displacementBias": 0,
+                "roughnessMap": null,
+                "metalnessMap": null,
+                "alphaMap": null,
+                "envMap": null,
+                "envMapRotation": {
+                  "isEuler": true,
+                  "_x": 0,
+                  "_y": 0,
+                  "_z": 0,
+                  "_order": "XYZ"
+                },
+                "envMapIntensity": 1,
+                "wireframe": false,
+                "wireframeLinewidth": 1,
+                "wireframeLinecap": "round",
+                "wireframeLinejoin": "round",
+                "flatShading": false,
+                "fog": true,
+                "_listeners": {
+                  "dispose": [
+                    null
+                  ]
+                }
+              },
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                -3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldCenter": [
+                -3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldScale": [
+                0.7954545454545455,
+                0.7954545454545455,
+                0.7954545454545455
+              ],
+              "windows": []
+            },
+            {
+              "index": 1,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldCenter": [
+                3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldScale": [
+                0.7954545454545455,
+                0.7954545454545455,
+                0.7954545454545455
+              ],
+              "windows": []
+            },
+            {
+              "index": 2,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                -8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldCenter": [
+                -8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldScale": [
+                0.4023181818181818,
+                0.4023181818181818,
+                0.4023181818181818
+              ],
+              "windows": []
+            },
+            {
+              "index": 3,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldCenter": [
+                8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldScale": [
+                0.4023181818181818,
+                0.4023181818181818,
+                0.4023181818181818
+              ],
+              "windows": []
+            }
+          ],
+          "pines": [
+            {
+              "root": [
+                -4.9,
+                -0.08,
+                4.5
+              ],
+              "matrixWorld": [
+                -0.690269961391251,
+                0,
+                0.42320811190517577,
+                0,
+                0,
+                0.8096775441998023,
+                0,
+                0,
+                -0.42320811190517577,
+                0,
+                -0.690269961391251,
+                0,
+                -4.9,
+                -0.08,
+                4.5,
+                1
+              ]
+            },
+            {
+              "root": [
+                4.9,
+                -0.08,
+                4.5
+              ],
+              "matrixWorld": [
+                -0.9370159023330614,
+                0,
+                -0.3961639693562381,
+                0,
+                0,
+                1.017322314628521,
+                0,
+                0,
+                0.3961639693562381,
+                0,
+                -0.9370159023330614,
+                0,
+                4.9,
+                -0.08,
+                4.5,
+                1
+              ]
+            }
+          ],
+          "waterMeshes": [
+            {
+              "name": "connected-pond--1",
+              "type": "Mesh"
+            },
+            {
+              "name": "connected-pond-1",
+              "type": "Mesh"
+            }
+          ],
+          "bridge": {
+            "center": [
+              -10.8,
+              0,
+              5
+            ],
+            "span": 7.4,
+            "width": 1.65,
+            "rise": 0.9
+          },
+          "cameraPolicy": "The complete enclosing scene owns the camera; no recovered-camera claim."
+        },
+        "suspensions": [
+          {
+            "body": [
+              -5.55,
+              7.5,
+              1.7
+            ],
+            "supportContact": [
+              -5.55,
+              8.751362955932763,
+              1.5
+            ],
+            "supportObject": "entrance-deep-connected-canopy",
+            "armTop": 8.761362955932762,
+            "armBottom": 8.686362955932763,
+            "rodBottom": 8.14
+          },
+          {
+            "body": [
+              5.55,
+              7.5,
+              1.7
+            ],
+            "supportContact": [
+              5.55,
+              8.751362862169746,
+              1.5
+            ],
+            "supportObject": "entrance-deep-connected-canopy",
+            "armTop": 8.761362862169745,
+            "armBottom": 8.686362862169746,
+            "rodBottom": 8.14
+          }
+        ],
+        "forest": {
+          "trees": 6600,
+          "crowns": 19800
+        },
+        "environmentInitialized": true,
+        "lightBudget": {
+          "directionalShadows": 1,
+          "pointShadows": 0,
+          "rectAreaLights": 0
+        },
+        "limits": [
+          "Complete new source after execution-workspace reset, not a byte-identical recovery of v3.",
+          "Camera and hidden dimensions remain a single-view reconstruction hypothesis.",
+          "Actual rendered comparison is required; CPU validity is not visual acceptance.",
+          "Small-view complete geometric sanctuary. Hidden depth and detail interpretation are hypotheses; no photograph is used as a rendered surface.",
+          "Far forest at 250–690m; camera far plane must reach 1200m. Individual crown geometry is a distant LOD, not foreground botanically detailed foliage."
+        ],
+        "visualAcceptance": false,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241,
+          "reference": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "target": [
+              0,
+              2.3,
+              0
+            ],
+            "fov": 64.1754241,
+            "near": 0.08,
+            "far": 1200
+          }
+        },
+        "renderer": {
+          "triangles": 72640251,
+          "calls": 5425
+        },
+        "shot": {
+          "duration": 7,
+          "eyeHeight": [
+            1.05,
+            1.35
+          ],
+          "automaticAnimation": false
+        },
+        "surfaceScale": {
+          "stoneRepeatMetres": 0.25,
+          "scannedPavingRepeatMetres": 0.225,
+          "pavingThicknessMetres": 0.075,
+          "jointMetres": 0.024
+        },
+        "contactAO": {
+          "radiusMetres": 0.25,
+          "blend": 0.48,
+          "alphaCardsExcludedFromDepth": true
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 0.9970016203332748,
+      "rgbaSha256": "85157eef649a03a7d32f0be3c22685c4587031020af94b8150e0ab948a830dba"
+    }
+  ],
+  "completedAt": "2026-10-18T10:48:33.874Z"
+}
