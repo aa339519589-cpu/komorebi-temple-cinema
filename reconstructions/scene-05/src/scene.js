@@ -12,7 +12,7 @@ export function buildScene(){
  mats.slate.color.set('#434c51');mats.tileEdge.color.set('#a3a69f');mats.darkwood.color.set('#555b4d');mats.paper.color.set('#282e25');
  mats.gold.color.set('#e1af46');mats.oldgold.color.set('#c79a43');
  mats.gold.roughness=.40;mats.oldgold.roughness=.48;
- mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#efd59b');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.10;
+ mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#f2e5bb');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.12;
  // All surfaces are geometry and procedural textures. Baked source photographs are never used.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
  const primitive={box:new T.BoxGeometry(1,1,1),sphere:new T.SphereGeometry(1,16,10),cone:new T.ConeGeometry(1,1,16)};
@@ -108,9 +108,9 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  }
  function cornerTails(w,y,s){
    for(const sx of [-1,1])for(const sz of [-1,1]){
-     const start=new T.Vector3(sx*(w/2-.18),y+3.25,sz*(w/2-.18));
-     const end=new T.Vector3(sx*(w/2+1.32*s),y+1.85,sz*(w/2+1.32*s));
-     const mid=start.clone().lerp(end,.55).add(new T.Vector3(0,.06,0));
+     const start=new T.Vector3(sx*(w/2+1.65*s),y+3.95,sz*(w/2+1.65*s));
+     const end=new T.Vector3(sx*(w/2+1.60*s),y+1.85,sz*(w/2+1.60*s));
+     const mid=start.clone().lerp(end,.55).add(new T.Vector3(sx*.015,.025,sz*.015));
      const path=new T.CatmullRomCurve3([start,mid,end]),up=new T.Vector3(0,1,0),points=[];
      for(let j=0;j<=16;j++)points.push(path.getPoint(j/16).toArray());
      // Rectangular curved timber with real depth, connected to the crossing capital.
@@ -171,6 +171,8 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
        }
        wire([[-.13,.79,.13],[-.10,1.08,.13],[0,1.22,.13],[.10,1.08,.13],[.13,.79,.13]],.012,bronze);
      });
+     loft([[.075,.78],[.105,.78],[.105,1.20],[.075,1.20],[.075,.78]],bronze);
+     for(let k=0;k<12;k++){const a=k*Math.PI/6;group(Math.sin(a)*.13*s,.97*s,Math.cos(a)*.13*s,a,()=>instance(carvedLeaf,k%2?'gold':'oldgold',0,0,0,.25*s,.19*s,.25,[0,0,Math.PI/2]));}
      for(const yy of [.78,1.17])loft([[.105,yy],[.16,yy],[.16,yy+.026],[.105,yy+.026],[.105,yy]],gold);
      loft([[0,1.18],[.13,1.18],[.105,1.26],[.055,1.33],[0,1.33]],gold);
      instance(new T.CylinderGeometry(.014*s,.014*s,.34*s,8),bronze,0,1.48*s,0);
@@ -180,11 +182,12 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    });
  }
  // Sky: directional pale wisps are an analytic shader, with no image texture.
- const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4);float cloud=smoothstep(1.00,1.34,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.85);vec3 desired=mix(c/12.92,pow((c+.055)/1.055,vec3(2.4)),step(vec3(.04045),c));const mat3 inverseOutput=mat3(.64303825,.05926869,.00596190,.31118675,.93143649,.06392902,.04577546,.00929492,.93011838);const mat3 inverseInput=mat3(1.76474097,-.14702785,-.03633683,-.67577768,1.16025151,-.16243644,-.08896329,-.01322366,1.19877327);vec3 v=inverseOutput*desired;vec3 A=1.-.983729*v;vec3 B=.0245786-.432951*v;vec3 C=-.000090537-.238081*v;vec3 fitted=(-B+sqrt(B*B-4.*A*C))/(2.*A);vec3 radiance=max(vec3(0.),inverseInput*fitted)*(.6/.95);gl_FragColor=vec4(radiance,1.);}`});
+ const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4)+.12*noise(p*8.8)+.065*noise(p*17.6);float cloud=smoothstep(1.08,1.37,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.85);vec3 desired=mix(c/12.92,pow((c+.055)/1.055,vec3(2.4)),step(vec3(.04045),c));const mat3 inverseOutput=mat3(.64303825,.05926869,.00596190,.31118675,.93143649,.06392902,.04577546,.00929492,.93011838);const mat3 inverseInput=mat3(1.76474097,-.14702785,-.03633683,-.67577768,1.16025151,-.16243644,-.08896329,-.01322366,1.19877327);vec3 v=inverseOutput*desired;vec3 A=1.-.983729*v;vec3 B=.0245786-.432951*v;vec3 C=-.000090537-.238081*v;vec3 fitted=(-B+sqrt(B*B-4.*A*C))/(2.*A);vec3 radiance=max(vec3(0.),inverseInput*fitted)*(.6/.95);gl_FragColor=vec4(radiance,1.);}`});
  const sky=new T.Mesh(new T.SphereGeometry(120,32,16),skyMaterial);scene.add(sky);
  const hemi=new T.HemisphereLight('#cce5ff','#a3784c',1.12);scene.add(hemi);
  const sun=new T.DirectionalLight('#fff0ce',4.4);sun.position.set(-18,30,23);sun.target.position.set(0,9,0);sun.castShadow=true;
  sun.shadow.mapSize.set(3072,3072);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.00015;sun.shadow.normalBias=.025;sun.shadow.radius=1.5;scene.add(sun,sun.target);
+ const groundBounce=new T.DirectionalLight('#ffbf83',.68);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);scene.add(groundBounce,groundBounce.target);
  // Procedural environment radiance provides directional metal reflections.
  const faces=[],sunDirection=new T.Vector3(-18,21,23).normalize();
  for(let face=0;face<6;face++){
@@ -213,5 +216,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-dropped-gilded-tail-pierced-crown-v9',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-vertical-hip-pendants-warm-bounce-v10',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }
