@@ -147,9 +147,10 @@ function reliefArcs(x,y,arcs){let f=0;for(const a of arcs){
   f+=gate*(amp*gaussian(y-level,thickness)-amp*.25*gaussian(y-level+.056,thickness*.70));
 }return f;}
 function makeBuilder(variant){
-  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[],cloth:[]},names=[];
+  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[],cloth:[]},names=[],composites=[];
   return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
-    finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
+    composite(g,tag,materials){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag,continuousAnatomicalSurface:true};g.computeBoundingBox();g.computeBoundingSphere();composites.push({geometry:g,material:materials});return g;},
+    finish(){const out=[...composites];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
       g.userData={reconstruction:'reference6-recovered-proportion-r1',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
     }return out;}};
@@ -189,7 +190,7 @@ function face(center,attendant=false,variant='central'){
   const g=loft(rows,{nu:192,nv:240,relief});
   if(variant==='left')g.translate(0,-cy,0).rotateZ(.018).rotateY(.035).translate(0,cy,0);
   if(variant==='right')g.translate(0,-cy,0).rotateZ(-.012).rotateY(-.025).translate(0,cy,0);
-  g.userData.frontAt=(x,y)=>frontOf(rows,x,y)+relief(x,y);return g;
+  g.userData.frontAt=(x,y)=>frontOf(rows,x,y)+relief(x,y);g.userData.profileRows=rows;g.userData.faceRelief=relief;return g;
 }
 function faceAnatomy(b,g,cy,small=false){
  const sy=small?.91:1.02,wx=small?.79:.96,at=g.userData.frontAt;
@@ -216,7 +217,8 @@ function ears(b,cy,small=false){
   // concha is a shallow recess rather than the centre of an oval handle.
   const rows=[[-.435,0,0,.342,.090],[-.415,.018,.027,.350,.090],[-.37,.035,.044,.358,.078],[-.29,.043,.051,.365,.067],[-.17,.047,.055,.367,.055],[-.03,.059,.065,.360,.041],[.10,.062,.064,.348,.028],[.21,.044,.047,.330,.014],[.27,0,0,.310,.002]];
   for(const side of[-1,1]){
-   const g=surface(96,160,(u,v)=>{const dy=-.435+.705*v,[rx,rz,cx,cz]=sampleProfile(rows,dy),a=u*TAU;if(v===0||v===1)return[side*cx,cy+dy,cz];
+   const g=surface(96,160,(u,v)=>{const dy=-.435+.705*v,profile=sampleProfile(rows,dy);let[rx,rz,cx,cz]=profile;const a=u*TAU;if(v===0||v===1)return[side*cx,cy+dy,cz];
+    if(dy<-.37){const cap=Math.sqrt(Math.max(0,1-((dy+.37)/.065)**2));rx=.035*cap;rz=.044*cap;}
     const q=Math.sin(a),front=Math.max(0,Math.cos(a)),local=q*rx,r=Math.hypot((q-.02)/.84,(dy-.025)/.225);
     const bowl=-.026*gaussian(q+.22,.40)*gaussian(dy-.030,.105)-.004*gaussian(q-.58,.14)*gaussian(dy-.070,.12);
     const helix=.012*gaussian(r-1,.17)*(1-smooth(-dy,.19,.29));
@@ -388,10 +390,36 @@ function broadShoulderBand(){
  },.025);
 }
 
+function continuousCentralAnatomy(faceGeometry){
+ const faceRows=faceGeometry.userData.profileRows,faceRelief=faceGeometry.userData.faceRelief,join=faceRows[3][0],end=faceRows.at(-1)[0];
+ const transition=[
+  [2.08,...sampleProfile(MAIN_BODY,2.08)],[2.14,.500,.290,-.050],[2.19,.285,.200,-.040],
+  [2.225,.215,.152,-.040],[2.255,.200,.136,-.025],[2.285,.185,.142,-.005],
+  [2.315,.185,.177,.002],[2.365,.195,.205,.003],[2.420,.218,.229,.003],
+  [join,...sampleProfile(faceRows,join)]
+ ];
+ const nu=240,nv=740,g=surface(nu,nv,(u,v)=>{
+  const y=end*v,a=u*TAU,rows=y<=2.08?MAIN_BODY:y>=join?faceRows:transition,[rx,rz,cz]=sampleProfile(rows,y);
+  if(v===0||v===1)return[0,y,cz];const x=Math.sin(a)*rx,front=Math.max(0,Math.cos(a));
+  let relief;
+  if(y<=2.08)relief=mainRelief(x,y);else if(y>=join)relief=faceRelief(x,y);else{
+   relief=mainRelief(x,y)*(1-smooth(y,2.12,2.19))+faceRelief(x,y)*smooth(y,2.42,join);
+   relief+=.010*gaussian(x,.16)*gaussian(y-2.315,.070);
+   const gate=(1-smooth(Math.abs(x),.14,.205))*smooth(y,2.20,2.22)*(1-smooth(y,2.275,2.295));
+   for(const level of[2.225,2.251,2.275])relief-=.0011*gaussian(y-level-.006*(x/.18)**2,.008)*gate;
+  }
+  return[x,y,cz+Math.cos(a)*rz+relief*front**3];
+ },true);
+ // Shared vertices and normals continue from the torso through the neck and
+ // rounded jaw into the unchanged upper face; material groups do not split it.
+ let start=0,material=0;const ix=g.index,p=g.attributes.position;
+ for(let i=0;i<ix.count;i+=3){const y=(p.getY(ix.getX(i))+p.getY(ix.getX(i+1))+p.getY(ix.getX(i+2)))/3,next=y>=2.285?1:0;if(next!==material){g.addGroup(start,i-start,material);start=i;material=next;}}
+ g.addGroup(start,ix.count-start,material);g.userData.joinedSurface={body:true,neck:true,jaw:true,head:true,upperFaceUnchangedFromY:join,referenceSkinHeightWidthApprox:54/41,depthMeasured:false};return g;
+}
+
 function centralFigure(){
  const b=makeBuilder('central');
- b.add(loft(MAIN_BODY,{nu:240,nv:280,relief:mainRelief}),'full-seated-torso');
- neck(b,2.355);const fg=face(2.78);b.add(fg,'full-oval-face','face');faceAnatomy(b,fg,2.78);ears(b,2.78);crown(b,2.78,{central:true});
+ const fg=face(2.78);b.composite(continuousCentralAnatomy(fg),'continuous-torso-neck-rounded-jaw-head',['buddha','face']);faceAnatomy(b,fg,2.78);fg.dispose();ears(b,2.78);crown(b,2.78,{central:true});
  const arms=[
   [[-.40,2.20,-.025],[-.64,2.02,-.005],[-.82,1.65,.055],[-.92,1.09,.13],[-.92,.82,.19],[-.84,.67,.25]],
   [[.40,2.20,-.025],[.65,2.01,-.005],[.84,1.65,.045],[.94,1.10,.14],[.89,.74,.25],[.66,.67,.45],[.43,.64,.66]]
@@ -536,5 +564,5 @@ export function createRestoredBuddha({materials={},x=0,y=0,z=0,scale=1,widthScal
  const defaults={buddha:new T.MeshStandardMaterial({name:'buddha',color:'#cfaa5d',metalness:.94,roughness:.29}),oldgold:new T.MeshStandardMaterial({name:'oldgold',color:'#927036',metalness:.91,roughness:.37}),gold:new T.MeshStandardMaterial({name:'gold',color:'#d1ab58',metalness:.95,roughness:.27})};
  defaults.crease=new T.MeshStandardMaterial({name:'crease',color:'#604018',metalness:.78,roughness:.43});defaults.face=defaults.buddha.clone();defaults.face.roughness=.25;
  const group=new T.Group();group.name='reference6-rebuilt-buddha';group.position.set(x,y,z);group.scale.set(scale*widthScale,scale,scale*depthScale);
- for(const p of restoredBuddhaParts(variant)){const mesh=new T.Mesh(p.geometry,materials[p.material]||defaults[p.material]);mesh.castShadow=mesh.receiveShadow=true;mesh.name=p.geometry.name;group.add(mesh);}return group;
+ for(const p of restoredBuddhaParts(variant)){const pick=key=>materials[key]||defaults[key],mesh=new T.Mesh(p.geometry,Array.isArray(p.material)?p.material.map(pick):pick(p.material));mesh.castShadow=mesh.receiveShadow=true;mesh.name=p.geometry.name;group.add(mesh);}return group;
 }
