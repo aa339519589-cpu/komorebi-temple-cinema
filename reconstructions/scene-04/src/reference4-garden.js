@@ -135,7 +135,7 @@ export function buildReference4Garden(T,options={}){
  }
  livingMaple([-13,0,18],[-9,6.5,17],[[-4.5,8.6,12],[-3.2,9.7,15],[-7.6,8.1,9.8],[-5.7,9.0,13.4]],'west-frame');
  livingMaple([13,0,22],[9.1,7.2,20.5],[[4.5,8.5,13],[6.5,8.5,16],[3.5,9.0,15],[8.1,7.5,12.2]],'east-frame');
- livingMaple([10,0,29],[6.5,6.6,27],[[2.7,8.2,26],[5.4,7.3,25],[4.6,8.1,28],[7,7.8,24]],'near-path-shadow-crown');
+ livingMaple([11,0,37],[7.5,6.6,35],[[3.7,8.2,34],[6.4,7.3,33],[5.6,8.1,36],[9,7.8,32]],'near-path-shadow-crown');
  instances(smallLeaf,m.leafDark,lowMatrices,'curved-bank-leaf-instances',subgroups.plants);instances(smallLeaf,m.leaf,fernMatrices,'compound-fern-leaflets',subgroups.plants);instances(mapleLeaf,m.maple,mapleMatrices,'individual-maple-leaf-instances',subgroups.trees);instances(blossomGeometry,m.blossom,flowerMatrices,'five-petal-cherry-blossoms',subgroups.trees);
  const bridge={center:[-10.8,0,5],span:7.4,width:1.65,rise:.90},left=bridge.center[0]-bridge.span/2,right=bridge.center[0]+bridge.span/2,deckY=t=>.13+bridge.rise*(1-4*(t-.5)*(t-.5));for(const x of[left,right])island(x,5,1.05,1.55,'bridge-dry-abutment-'+x,.02);
  for(let i=0;i<38;i++){const t=(i+.5)/38,o=box([bridge.span/38+.005,.11,bridge.width],[left+t*bridge.span,deckY(t),5],m.bridge,'bridge-deck-board',subgroups.bridge);o.rotation.z=Math.atan(bridge.rise*(-8*(t-.5))/bridge.span);}

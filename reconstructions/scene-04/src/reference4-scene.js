@@ -22,7 +22,7 @@ function addSuspendedLamps(scene,architecture,materials){
  architecture.group.updateMatrixWorld(true);const members=[];
  architecture.group.traverse(o=>{if(o.isMesh&&o.geometry?.userData?.architectureMember==='entrance-saddled-bargeboard')members.push(o);});
  if(!members.length)throw Error('Actual entrance bargeboard is required for lamp suspension.');
- const paper=new T.MeshStandardMaterial({name:'reference4-warm-paper',color:'#f4dfb3',emissive:'#eeb65f',emissiveIntensity:.38,roughness:.84,side:T.DoubleSide});
+ const paper=new T.MeshStandardMaterial({name:'reference4-warm-paper',color:'#d9ae64',emissive:'#ffb248',emissiveIntensity:.46,roughness:.84,side:T.DoubleSide});
  const rows=[],axis=new T.Vector3(0,1,0);
  function mesh(g,m,p){const o=new T.Mesh(g,m);o.position.fromArray(p);o.castShadow=o.receiveShadow=true;scene.add(o);return o;}
  for(const x of [-5.55,5.55]){

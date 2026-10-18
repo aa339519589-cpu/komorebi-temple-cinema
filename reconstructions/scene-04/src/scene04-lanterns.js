@@ -9,7 +9,7 @@ function petalRelief(width=.16,length=.29,depth=.025){
 }
 export function buildRestorationStoneLanterns({materials:borrowed={},options={}}={}){
  const group=new T.Group();group.name='reference04-rebuilt-carved-granite-lanterns';
- const stone=stoneMaterial('metric-quartz-granite-lantern','#8d806c',{seed:611}),recess=stoneMaterial('carved-granite-recess','#786c58',{seed:612}),moss=new T.MeshStandardMaterial({color:'#465326',roughness:1,vertexColors:true,side:T.DoubleSide}),paper=new T.MeshStandardMaterial({color:'#e9c882',emissive:'#ffbe52',emissiveIntensity:.64,roughness:.9,side:T.DoubleSide}),bronze=new T.MeshStandardMaterial({color:'#44351c',metalness:.45,roughness:.69});
+ const stone=stoneMaterial('metric-quartz-granite-lantern','#8d806c',{seed:611}),recess=stoneMaterial('carved-granite-recess','#786c58',{seed:612}),moss=new T.MeshStandardMaterial({color:'#465326',roughness:1,vertexColors:true,side:T.DoubleSide}),paper=new T.MeshStandardMaterial({color:'#c28e39',emissive:'#ffa527',emissiveIntensity:.5,roughness:.9,side:T.DoubleSide}),bronze=new T.MeshStandardMaterial({color:'#44351c',metalness:.45,roughness:.69});
  const geometries=[],materials=[stone,recess,moss,paper,bronze],lanterns=[],emitters=[];let triangles=0;
  function addMerged(parts,mat,parent,name){if(!parts.length)return null;const clean=parts.map(g=>{g=g.index?g.toNonIndexed():g;for(const k of Object.keys(g.attributes))if(!['position','normal','uv','color'].includes(k))g.deleteAttribute(k);if(!g.attributes.color)g.setAttribute('color',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*3).fill(1),3));return g;}),g=mergeGeometries(clean,false);clean.forEach(q=>q.dispose());geometries.push(g);const mesh=new T.Mesh(g,mat);mesh.name=name;mesh.castShadow=mat!==paper;mesh.receiveShadow=mat!==paper;parent.add(mesh);triangles+=g.attributes.position.count/3;return mesh;}
  for(const [id,anchor]of(options.anchors??[]).entries()){
@@ -43,10 +43,12 @@ export function buildRestorationStoneLanterns({materials:borrowed={},options={}}
    for(let k=-3;k<=3;k++){const b=new T.BoxGeometry(.018,.63,.024);b.translate(k*.105,2.82,.50);b.rotateY(yaw);bars.push(b);}
    for(let k=-2;k<=2;k++){const b=new T.BoxGeometry(.75,.016,.025);b.translate(0,2.82+k*.116,.505);b.rotateY(yaw);bars.push(b);}
   }
+  // A real compression boss closes the roof-to-window support contact.
+  put(new T.CylinderGeometry(.43,.67,.36,8),stoneParts,[0,3.37,0]);
   // Substantial sculpted cap: a wavy old stone hip, closed 12 cm thick rim.
   const N=32,positions=[],uv=[],indices=[],colors=[];
   const height=(xx,zz)=>{const r=Math.min(1,Math.max(Math.abs(xx),Math.abs(zz))/1.04),corner=Math.pow(Math.abs(xx*zz)/(1.04*1.04),3);return 3.30+.47*Math.pow(1-r,1.38)+.15*corner+.006*Math.sin(xx*14+zz*11);};
-  for(let layer=0;layer<2;layer++)for(let j=0;j<=N;j++)for(let i=0;i<=N;i++){const xx=-1.04+i/N*2.08,zz=-1.04+j/N*2.08,yy=height(xx,zz)-(layer?.125:0);positions.push(xx,yy,zz);uv.push(xx*4,zz*4);colors.push(1,1,1);}
+  for(let layer=0;layer<2;layer++)for(let j=0;j<=N;j++)for(let i=0;i<=N;i++){const xx=-1.04+i/N*2.08,zz=-1.04+j/N*2.08,yy=height(xx,zz)-(layer?.24:0);positions.push(xx,yy,zz);uv.push(xx*4,zz*4);colors.push(1,1,1);}
   const layerSize=(N+1)*(N+1);for(let j=0;j<N;j++)for(let i=0;i<N;i++){const a=j*(N+1)+i,b=a+N+1;indices.push(a,b,a+1,a+1,b,b+1,a+layerSize,a+1+layerSize,b+layerSize,a+1+layerSize,b+1+layerSize,b+layerSize);}
   const rim=[...Array.from({length:N},(_,i)=>i),...Array.from({length:N},(_,j)=>j*(N+1)+N),...Array.from({length:N},(_,i)=>N*(N+1)+N-i),...Array.from({length:N},(_,j)=>(N-j)*(N+1))];
   for(let k=0;k<rim.length;k++){const a=rim[k],b=rim[(k+1)%rim.length];indices.push(a,a+layerSize,b,b,a+layerSize,b+layerSize);}
