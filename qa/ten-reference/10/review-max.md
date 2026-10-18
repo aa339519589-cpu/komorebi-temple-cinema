@@ -48,3 +48,34 @@ complete 0–7 second low camera path pass. The rendered depth postprocess is
 only exercised by the forthcoming actual GPU image. There will be no third
 visual tuning cycle in this delegated pass; material and botanical fidelity
 remain items for independent review even if the second render is valid.
+
+## Actual max02 result — not visually accepted
+
+The actual 900 × 900 GPU frame and all three original-left/render-right crops
+were inspected. `report.json` identifies source commit
+`f33193d5b19bbb4013b0f4603a6fd7fca268de4e`. It reports no resource errors,
+GL error zero, all 34 programs linked, a retained context and an opaque frame.
+The final CPU construction/finite-data/camera-path check also passes. These are
+execution checks, not photographic acceptance.
+
+The actual image improves the grille visibility, removes the broad white
+X-panels, lowers the bottom pagoda tier and concentrates practical highlights.
+It still fails the photographic target substantially:
+
+- The paving is too regular and reads as glazed tiles; reflections remain
+  straighter and less broken than the original wet rough stone.
+- Rain rings are repeated clean ellipses; the original has finer rings mixed
+  with irregular puddle texture and many small, sharp wet highlights.
+- Rocks remain smooth and exposed, with thin flat leaf layers over them rather
+  than dense, varied wet moss and planted crevices.
+- The main roof and wooden facade lack the source's dark, warm, deep hierarchy;
+  the depth-derived shading also exposes conspicuous pale/noisy distant foliage.
+- The near gold profile was stretched too far into an elongated urn.
+- The revised left soffit angle moves too much of the overhead canopy outside
+  the image; the large triangular framing mass in the original is missing.
+
+No acceptance percentage is asserted. The source remains a review candidate.
+Both valid actual frames are retained at `iteration-max01a/reference.png` and
+`iteration-max02/reference.png`; the compile failure remains separately in
+`iteration-max01/report.json`. This bounded pass stops here for independent
+review instead of continuing an automatic visual tuning loop.

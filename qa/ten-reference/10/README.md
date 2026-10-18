@@ -1,5 +1,9 @@
 # Reference 10 — independent rain-courtyard reconstruction
 
+Latest bounded review: [`review-max.md`](review-max.md), actual 900px frames
+in `iteration-max01a/` and `iteration-max02/`. Both remain visually unaccepted;
+the review records concrete remaining differences and regressions.
+
 Source inspected at full resolution: `references/hd/9-照片-10.jpg`.
 
 Entry: `reconstructions/scene-10/index.html?render&defer&w=768&h=768`.
