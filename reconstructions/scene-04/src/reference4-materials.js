@@ -2,10 +2,10 @@
 // Pure material/texture construction; no exposure, lighting, or geometry edits.
 export function createReference4MaterialSet(T, options={}) {
   const palette={
-    cedar:[0x6b3420,.78,0],red:[0x873c28,.72,0],endwood:[0x795334,.84,0],darkwood:[0x261b15,.88,0],
+    cedar:[0x4b2416,.84,0],red:[0x6e2d1c,.82,0],endwood:[0x795334,.84,0],darkwood:[0x261b15,.88,0],
     gold:[0xc1a04b,.34,.78],oldgold:[0x926c2d,.57,.61],black:[0x272b29,.65,.08],
-    slate:[0x424e59,.76,0],tileEdge:[0x717878,.81,0],stone:[0x8d8577,.95,0],
-    granite:[0x9d9586,.89,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
+    slate:[0x424e59,.76,0],tileEdge:[0x717878,.81,0],stone:[0x716250,.95,0],
+    granite:[0x83725d,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
   };
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
@@ -41,7 +41,7 @@ export function createReference4MaterialSet(T, options={}) {
     Object.assign(mats[key],{map:wood,bumpMap:woodHeight,bumpScale:key==='red'?.010:.018});
   }
   for(const key of ['stone','granite','slate'])if(materials.includes(mats[key])) {
-    Object.assign(mats[key],{map:stone,bumpMap:stoneHeight,bumpScale:key==='slate'?.009:.027});
+    Object.assign(mats[key],{map:stone,bumpMap:stoneHeight,bumpScale:key==='slate'?.006:.004});
   }
   const tiles=mats.slate.clone();tiles.name='reference4_variegated_tiles';tiles.vertexColors=true;
   tiles.onBeforeCompile=mats.slate.onBeforeCompile;tiles.customProgramCacheKey=mats.slate.customProgramCacheKey;
