@@ -1,8 +1,17 @@
 # 十张参考图逐景重建（进行中）
 
+最新照片深度重建版：[60／70秒影片及十景3D数据](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/depth-field-film-2026-10-18-v02)。十景分别由Apache2.0许可的Depth Anything V2 Small推断深度，再反投影成真正的三维高斯可见表面，通过Three.js／Spark实际移动相机渲染。光色保留在点辐射中；背面、闭合实体和可重新打光的PBR材质仍未补齐，项目没有宣称99.9%或完整实体建模验收。
+
+下载发行版两个MP4到`output/depth-field-film-v02/`，把三维模型ZIP在仓库根目录解压，再运行`PORT=4318 node tools/server.mjs`，打开[最新影片与左右三维对照](http://127.0.0.1:4318/depth-film.html)。
+
+- 开放重建器：`reconstructions/depth-field/`；相机与尺度假设、原图和权重哈希均有记录。
+- 三维查看器：`reconstructions/sharp-study-viewer/`，默认载入开放深度场v02；SHARP仅另存为方法研究比较，未用于这版影片。
+- 影片源代码：`tools/render-depth-field-film.mjs`与`tools/render-depth-field-shot.mjs`。实际渲染2100帧，1080×1080／30fps，每镜7秒；60秒版用9次叠化重叠剪辑。
+- 新版编号遵循高清照片顺序，05为佛坛、06为塔角。旧拼图实体场景的05／06顺序保留在单独映射中。
+
 当前分支：`work/ten-view-reconstruction-20261018`。全部十个独立场景都可查看。2026-10-18的五路并行修改覆盖了其余八个外景，修正屋面穿插、建筑比例、斗栱、石灯、园林、雨地和材质。
 
-**已经输出完整十镜头制作版，但十景均未达到参考图的摄影质量，项目未完成验收。**
+**18:32实体网格制作版为历史检查点，十景均未达到参考图的摄影质量，实体模型仍未完成验收。**
 
 运行 `PORT=4318 node tools/server.mjs`：
 
