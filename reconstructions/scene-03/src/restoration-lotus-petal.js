@@ -1,21 +1,20 @@
 import * as T from 'three';
 
-// One open, cupped petal lamina. The two narrow ends are unique shared vertices,
-// not 13 coincident copies forming collapsed triangles. Shape/UV range retained.
-export function createRestorationLotusPetal(seed=1){
-  const rows=28,cols=20,p=[0,0,0],uv=[.5,0],ids=[];
-  for(let j=1;j<rows;j++)for(let i=0;i<=cols;i++){
-    const t=j/rows,u=i/cols*2-1,w=.285*Math.pow(Math.sin(Math.PI*t),.58)*(1-.13*t);
-    const lean=.026*Math.sin(seed*2.1)*Math.sin(t*Math.PI),twist=.023*Math.sin(seed+t*3)*u*Math.sin(t*Math.PI);
-    p.push(u*w+lean,.17*Math.sin(Math.PI*t*.85)+.28*t*t+.13*u*u*Math.sin(Math.PI*t)+twist,.80*t-.13*t*t-.10*u*u*Math.sin(Math.PI*t));
-    uv.push(i/cols,t);
-  }
-  const tip=p.length/3;p.push(0,.357,.67);uv.push(.5,1);
-  for(let i=0;i<cols;i++)ids.push(0,1+i,2+i);
-  for(let j=0;j<rows-2;j++)for(let i=0;i<cols;i++){
-    const k=1+j*(cols+1)+i;ids.push(k,k+cols+1,k+1,k+1,k+cols+1,k+cols+2);
-  }
-  const last=1+(rows-2)*(cols+1);for(let i=0;i<cols;i++)ids.push(last+i,tip,last+i+1);
-  const g=new T.BufferGeometry();g.name=`lotus-petal-shared-ends-${seed}`;g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);g.computeVertexNormals();
-  g.userData={topology:'open lamina, unique base and tip, shared interior grid',retained:'same cupping, twist, width profile, placement and material as v4'};return g;
+// Individually cupped laminae: open outer petals, rising middle petals and
+// narrow inner petals have different curvature rather than scaled copies.
+export function createRestorationLotusPetal(seed=1,layer=0){
+ const rows=32,cols=24,pp=[],uv=[],ids=[];
+ const extent=[.78,.61,.39][layer],rise=[.28,.57,.73][layer],width=[.27,.255,.19][layer];
+ const shape=(t,u)=>{
+  const w=width*Math.pow(Math.sin(Math.PI*t),.63)*(1-.10*t),c=Math.sin(Math.PI*t);
+  const variation=1+.045*Math.sin(seed*2.14);
+  return [u*w+.013*Math.sin(seed+t*4)*c,rise*(.14*t+.86*t*t)+(.10+.03*layer)*u*u*c+.065*c,extent*(t-.09*t*t)*variation-.065*u*u*c];
+ };
+ pp.push(0,0,0);uv.push(.5,0);
+ for(let j=1;j<rows;j++)for(let i=0;i<=cols;i++){let t=j/rows,u=i/cols*2-1;pp.push(...shape(t,u));uv.push(i/cols,t);}
+ const tip=pp.length/3;pp.push(...shape(1,0));uv.push(.5,1);
+ for(let i=0;i<cols;i++)ids.push(0,1+i,2+i);
+ for(let j=0;j<rows-2;j++)for(let i=0;i<cols;i++){let k=1+j*(cols+1)+i;ids.push(k,k+cols+1,k+1,k+1,k+cols+1,k+cols+2);}
+ const last=1+(rows-2)*(cols+1);for(let i=0;i<cols;i++)ids.push(last+i,tip,last+i+1);
+ const g=new T.BufferGeometry();g.name=`lotus-petal-lamina-layer-${layer}-seed-${seed}`;g.setAttribute('position',new T.Float32BufferAttribute(pp,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);g.computeVertexNormals();return g;
 }

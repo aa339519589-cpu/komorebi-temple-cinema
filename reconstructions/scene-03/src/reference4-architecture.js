@@ -72,14 +72,20 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');
   for(const s of[-1,1])for(let i=0;i<9;i++)box(s*(3.2+i*.55),C.stairTopY+.49,.23,.11,.84,.11,'red');
  });
- role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=Math.abs(x)<3?C.capitalTop:Math.abs(x)<5?C.capitalTop-.9:C.capitalTop-1.3;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84);}
+ role('hall-red-columns',()=>{for(let i=0;i<C.columnAxes.length;i++){const x=C.columnAxes[i],cap=C.capitalTop-.10*Math.abs(x)/6.88;arch.footColumn(x,0,C.stairTopY,cap-C.stairTopY-.3,Math.abs(x)<3?.29:.26);arch.brackets(x,cap-.06,0,.84);}
   for(const z of[-3.6,-7.8])for(const x of[-6.88,-2.86,2.86,6.88]){arch.footColumn(x,z,C.stairTopY,5.8,.27);arch.brackets(x,C.stairTopY+6.02,z,.78);}
  });
  role('hall-enclosure-doors',()=>{
-  box(0,C.stairTopY+2.95,-8.65,14.2,5.9,.23,'darkwood');for(const s of[-1,1])box(s*7.02,C.stairTopY+2.9,-4.5,.20,5.8,8.4,'red');
+  box(0,5.65,-8.65,14.2,6.9,.23,'darkwood');for(const s of[-1,1]){box(s*7.02,5.65,-4.5,.20,6.9,8.4,'darkwood');for(let j=0;j<6;j++){box(s*6.88,6.35,-1.4-j*1.25,.16,3.4,.085,'cedar');box(s*6.84,7.85,-1.4-j*1.25,.12,.12,1.2,'oldgold');}}
   for(const s of[-1,1])for(const seg of[[3.0,4.55],[4.95,6.7]]){const x=s*(seg[0]+seg[1])/2,w=seg[1]-seg[0],h=3.8,y=C.stairTopY+h/2+.22;box(x,y,-.57,w,h,.16,'darkwood');for(const xx of[-w/2,w/2])box(x+xx,y,-.42,.09,h+.13,.12,'red');for(const yy of[-h/2,h/2])box(x,y+yy,-.39,w,.11,.13,'cedar');for(let k=1;k<8;k++)box(x-w/2+w*k/8,y,-.39,.032,h-.15,.045,'oldgold');for(let k=1;k<13;k++)box(x,y-h/2+h*k/13,-.385,w-.1,.025,.05,'cedar');}
   // Upper gallery is enclosed timber, not an unrelated open lattice triangle.
   
+ });
+ role('closed-sanctuary-carved-transoms',()=>{
+  box(0,7.55,-.72,13.5,2.55,.18,'darkwood');
+  for(const y of[6.48,7.25,8.28]){box(0,y,-.40,13.8,.23,.42,'cedar');box(0,y+.045,-.16,13.6,.052,.035,'oldgold');}
+  for(let j=-13;j<=13;j++){let x=j*.49;relief(x,7.72,-.49,.40,.46);rosette(x,6.83,-.49,.10);}
+  for(const x of[-6.4,-4.7,-2.9,0,2.9,4.7,6.4]){arch.brackets(x,8.60,-.22,.71);box(x,7.47,-.39,.16,2.6,.23,'red');}
  });
  role('central-real-portal',()=>{
   const clearW=4.2,clearH=4.08,z=-.62,y0=C.stairTopY;
@@ -92,7 +98,8 @@ export function buildReference4Architecture(T,options={}) {
  const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:14.4,rise:C.ridgeY-14.4,curl:.62,centerZ:C.ridgeZ,connected:false});
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:9.4,rise:3.1,curl:.56,centerZ:-4.5,inner:.45,frontGap:0});
  role('front-gable-fine-woodwork',()=>{
-  const hw=4.5,front=1.6,back=-2.9,base=14.4,peak=17.7,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.20);
+  const hw=4.5,front=1.6,back=-2.9,base=14.4,peak=17.15,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.20);
+  const pp=[],uu=[];for(let i=0;i<60;i++){let a=-hw+2*hw*i/60,b=-hw+2*hw*(i+1)/60;for(let p of[[a,base,front-.34],[b,base,front-.34],[a,curve(a)-.17,front-.34],[a,curve(a)-.17,front-.34],[b,base,front-.34],[b,curve(b)-.17,front-.34]]){pp.push(...p);uu.push(p[0],p[1]);}}emit(meshFromTriangles(pp,uu,'closed-carved-gable'),'darkwood');
   const grid=gridAt(lin(-hw,hw,60),lin(back,front,16),(x,z)=>curve(x));emit(shell(grid,-.14,0,'gable-ceramic'),'slate');
   for(let i=0;i<=36;i++){let x=-hw+2*hw*i/36,y=curve(x);for(let j=0;j<10;j++)tileBetween([x,y+.025,back+(front-back)*j/10],[x,y+.025,back+(front-back)*(j+.98)/10],.065);arch.tileEnd(V([x,y+.025,front+.03]),0,.075,i%2===0);between([x,y-.24,back],[x,y-.24,front+.07],.105,.14,'cedar');}
   for(let i=0;i<40;i++){const x0=-hw+2*hw*i/40,x1=-hw+2*hw*(i+1)/40;between([x0,curve(x0)-.16,front],[x1,curve(x1)-.16,front],.15,.21,'red');between([x0,curve(x0)-.045,front+.13],[x1,curve(x1)-.045,front+.13],.027,.035,'gold');}
@@ -103,9 +110,12 @@ export function buildReference4Architecture(T,options={}) {
  });
 
  role('upper-storey-dense-bracket-frieze',()=>{
-  for(const y of[11.35,12.1,13.1]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
+  box(0,12.50,-1.02,13.6,3.65,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
+  for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.65,.075,'plaster');for(const y of[11.98,12.72])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
+
+  for(const y of[11.35,12.85,13.6]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
   box(0,12.53,-.95,13.0,.72,.13,'black');
-  for(let j=-6;j<=6;j++){let x=j*1.06;arch.brackets(x,13.45,-.55,.91);arch.brackets(x,11.6,-.48,.72);box(x,12.55,-.7,.18,2.2,.23,'red');relief(x+.49,12.55,-.82,.55,.45);}
+  for(let j=-6;j<=6;j++){let x=j*1.06;arch.brackets(x,13.85,-.55,.91);arch.brackets(x,11.6,-.48,.72);box(x,12.55,-.7,.18,2.2,.23,'red');relief(x+.49,12.55,-.82,.55,.45);}
   for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.15,-.42,.12);}
   for(let j=0;j<72;j++){let x=-7.8+j*15.6/71;between([x,13.97,-2.5],[x,14.20,.20],.095,.14,'cedar');box(x,14.16,.20,.11,.14,.16,'oldgold');}
  });
