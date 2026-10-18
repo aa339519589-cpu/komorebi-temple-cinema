@@ -67,7 +67,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    arch.pagodaRoof({y:y+3.55,w:w+3.5*scale,d:w+3.5*scale,rise:2.35*scale,wallWidth:w,wallDepth:w,frameScale:scale,detail:true,soffitMaterial:'cedar'});
    levels.push({level,y,width:w,shaftTop:frame.shaftTop});
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
-     for(const xx of [-w/3,0,w/3])arch.brackets(xx,frame.purlinTop-.13*scale-.82*.54*scale,w/2,.54*scale,{detail:true,interlocked:true});
+     for(const xx of [-w/3,0,w/3])arch.brackets(xx,frame.purlinTop-.13*scale-.82*.64*scale,w/2,.64*scale,{detail:true,interlocked:true,horizontalScale:1.12});
      for(const xx of [-w/2,w/2]){
        arch.squareFitting(xx,frame.shaftTop-.13,w/2+.243*scale,.36*scale,.39*scale,0,true);
      }
@@ -216,5 +216,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-vertical-hip-pendants-warm-bounce-v10',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-photographed-eave-member-hierarchy-max01',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }

@@ -1,0 +1,26 @@
+Reference 05 focused review, 2026-10-18
+Baseline: iteration-10, source commit 7a0fa10.
+
+Viewed original references/hd/5-照片-6.jpg (1254 square), actual
+iteration-10/reference.png (768 square), and matching right-hip crops.
+
+Dominant structural differences in those crops:
+1. Baseline gives every dense little rafter a specular golden square end.
+   Original small cuts are red/brown timber; larger projecting arms carry
+   gilded chased caps. Baseline also has a tighter/smaller terminal ceramic
+   rhythm than the photographed large round tile ends.
+2. Baseline capitals are narrow and shallow beside the tall grey window bars.
+   Original has visibly broad, deep stacked bearing arms and thick continuous
+   timbers under each overhang.
+
+One geometry hypothesis for max01, with camera / lighting unchanged:
+- Stained timber ends for the two small rafter tiers; keep gold only on the
+  larger exposed structural arm ends. Enlarge ceramic pitch .255 -> .35 and
+  end radius .077 -> .102, including matching top roof tile columns.
+- Preserve the ring purlin bearing plane while deepening the capitals from
+  .90 -> 1.04 scale and widening by 1.15; deepen intermediate capitals and
+  the two ring timbers downwards, with their top bearing surface preserved.
+
+Only reconstructions/scene-05 and qa/ten-reference/05 are modified.
+No external assets, photographic planes, AI images, or runtime animation added.
+Visual acceptance remains pending an actual frozen-source GPU render.

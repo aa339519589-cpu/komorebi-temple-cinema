@@ -1571,17 +1571,18 @@ export function createRestorationArchitecture(ctx) {
         const tangent=sample(1.0241).sub(sample(1.0239)).normalize();
         const side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize();
         const q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
-        draw('box','oldgold',tip.toArray(),[.093,.095,.007],q,.84);
+        // The photograph's dense little rafter cuts are stained wood. Only
+        // the large projecting bracket arms have gilded square end plates.
+        draw('box','endwood',tip.toArray(),[.093,.095,.007],q,.84);
         const mainEnd=sample(.993);mainEnd.y-=.36;
-        draw('box','oldgold',mainEnd.toArray(),[.132,.158,.008],q,.82);
-        if(i%2===0){const mark=mainEnd.clone().addScaledVector(tangent,.005);flower(mark.x,mark.y,mark.z,.035,'gold',q,.88);} 
+        draw('box','endwood',mainEnd.toArray(),[.132,.158,.008],q,.82);
       }
       // Continuous thick ring purlins take the short rafters, leaving small real
       // rectangular voids between wood members rather than a broad fan cavity.
       for(const t of [.755,.895]){
         const points=[];
-        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=.49;points.push(p.toArray());}
-        wood(eaveSweep(points,.21,.25),'red');
+        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=.52;points.push(p.toArray());}
+        wood(eaveSweep(points,.25,.31),'red');
       }
       // Broad, square-section fascia follows the reference's sweep. Thin gold
       // framing is restricted to the lower molding and exposed primary ends.
@@ -1596,10 +1597,10 @@ export function createRestorationArchitecture(ctx) {
       wood(eaveSweep(molding,.122,.018),'oldgold',.80);
       // The round terminal row belongs to the ceramic tile spacing, not the
       // rafter spacing. Alternate flat rain channels remain visible between it.
-      const tiles=Math.max(5,Math.round((face<2?w:d)/.255));
+      const tiles=Math.max(5,Math.round((face<2?w:d)/.35));
       for(let i=0;i<=tiles;i++) {
         const p=evalP(face,1.014,-1+2*i/tiles);p.y-=.006;
-        if(opening?.woodOnly||!inOpening(p,.08)){tileEnd(p,angle,.077,detail); stats.tileEnds++;}
+        if(opening?.woodOnly||!inOpening(p,.11)){tileEnd(p,angle,.102,detail); stats.tileEnds++;}
       }
     }
     // Four uninterrupted diagonal hip-support timbers meet the fascia corners.
@@ -2440,7 +2441,10 @@ export function createRestorationArchitecture(ctx) {
   function pagodaStoreyFrame({w,d=w,y=0,level=0,scale=1-level*.115,
     roofWidth=w+3.3*scale,roofDepth=d+3.3*scale,roofRise=2.18*scale,
     roofY=y+3.55,windowMaterial='darkwood',detail=level<2}={}) {
-    const shaftRadius=.235*scale,bracketScale=.90*scale;
+    // Ref05: the stepped capital is a broad load-bearing mass. Keep the
+    // receiving purlin datum fixed while allowing the capital to deepen
+    // downwards, rather than leaving a thin decorative strip on a tall post.
+    const shaftRadius=.235*scale,bracketScale=1.04*scale;
     // The purlin bears against the underside of the main rafters, not through
     // the ceramic shell. Respect the existing hipRoof equation and soffit.
     // This frame is coupled only to the square pyramid pagodaRoof hook,
@@ -2455,7 +2459,7 @@ export function createRestorationArchitecture(ctx) {
     const posts=[],windows=[];
     const post=(x,z,corner)=>{
       footColumn(x,z,y+.2,shaftHeight,shaftRadius*(corner?1:.96));
-      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true});
+      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.15});
       posts.push({x,z,corner,shaftBottom,shaftTop,radius:shaftRadius*(corner?1:.96)});
     };
     // Twelve distinct posts: four true corner pillars and two between each
@@ -2606,7 +2610,7 @@ export function createRestorationArchitecture(ctx) {
         for(let row=0;row<rows;row++) {
           const t0=Math.max(.001,(row+.006)/rows),t1=(row+.994)/rows;
           const span=(face<2?w:d)*(t0+t1)*.5;
-          const tiles=Math.max(2,Math.round(span/.255));
+          const tiles=Math.max(2,Math.round(span/.35));
           for(let tile=0;tile<tiles;tile++) {
             const u0=-1+(tile+.006)*2/tiles,u1=-1+(tile+.994)*2/tiles;
             for(let j=0;j<3;j++)for(let k=0;k<5;k++) {
