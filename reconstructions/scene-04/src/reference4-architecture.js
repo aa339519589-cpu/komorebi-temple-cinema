@@ -127,7 +127,7 @@ export function buildReference4Architecture(T,options={}) {
   // Front bargeboard is a real closed curved beam, queried by the lantern arms.
   emit(mouldedBargeboard(),'cedar');
   for(const drop of[-.11,-.39])tube(xs.map(x=>[x,canopy(x,gFront)+drop,gFront+(drop>-.2?.110:.045)]),.012,'oldgold',120);
-  for(let i=0;i<rr.length;i++){const x=rr[i],y=canopy(x,gFront)-.47;box(x,y,gFront+.085,.115,.19,.22,'endwood');if(i%4===0)arch.squareFitting(x,y,gFront+.204,.105,.17,0,true);}
+  for(let i=0;i<rr.length;i++){const x=rr[i],y=canopy(x,gFront)-.47;box(x,y,gFront+.085,.095,.115,.22,'cedar');if(i%4===0)arch.squareFitting(x,y,gFront+.204,.085,.10,0,true);}
   for(let i=0;i<=48;i++){const x=-gHalf+2*gHalf*i/48;const ts=lin(upperFront,gFront+.06,8);for(let j=0;j<ts.length-1;j++)tileBetween([x,canopy(x,ts[j])+.038,ts[j]],[x,canopy(x,ts[j+1])+.038,ts[j+1]],.088,.94+.07*Math.sin(i*5+j));arch.tileEnd(V([x,canopy(x,gFront+.06)+.038,gFront+.095]),0,.108,i%2===0);if(i%4===0)rosette(x,canopy(x,gFront+.06)+.038,gFront+.127,.037,'oldgold');}
   // Discrete curved ribs and inset timber panels retain the arch depth.
   for(const x of[-2.9,0,2.9]){const y=canopy(x,.57)-.65;box(x,(y+C.capitalTop+.36)/2,.57,.18,Math.max(.05,y-C.capitalTop-.36),.20,'red');}
@@ -167,6 +167,12 @@ export function buildReference4Architecture(T,options={}) {
   const vaultXs=lin(-3.2,3.2,64),vault=gridAt(vaultXs,lin(-1.8,.78,24),(x,z)=>canopy(x,z)-.82);
   emit(shell(vault,-.11,.015,'karahafu-recessed-timber-vault'),'cedar');
   for(const z of [.78,.17,-.44,-1.05]){const grid=gridAt(vaultXs,[z-.07,z+.07],(x,zz)=>canopy(x,zz)-.64);emit(shell(grid,-.105,.025,'separate-curved-vault-rib'),'red');}
+  // Front-facing nested ribs catch the daylight entering beneath the eave.
+  // The deeper soffit remains a real vault, rather than a black flat mask.
+  for(let layer=0;layer<3;layer++){const xx=lin(-3.18+layer*.08,3.18-layer*.08,64),z=1.24-layer*.22,grid=gridAt(xx,[z-.09,z+.09],x=>canopy(x,gFront)-.62-layer*.21);emit(shell(grid,-.145,.025,'nested-front-curved-timber-rib'),layer%2?'cedar':'red');}
+  const panel=new T.Shape(),foot=C.capitalTop+.36;panel.moveTo(-3.0,foot);for(const x of lin(-3.0,3.0,80))panel.lineTo(x,Math.max(foot+.025,canopy(x,gFront)-1.0));panel.lineTo(3.0,foot);panel.closePath();
+  for(const x of[-2.2,-1.4,-.7,.7,1.4,2.2]){const hole=new T.Path(),y=foot+.19+.16*(1-Math.abs(x)/2.3);hole.absellipse(x,y,.105,.085,0,Math.PI*2,true);panel.holes.push(hole);}
+  emit(new T.ExtrudeGeometry(panel,{depth:.18,bevelEnabled:true,bevelSize:.012,bevelThickness:.012,bevelSegments:2,curveSegments:16}),'cedar',0,0,.49);
   for(const z of [.53,-.26])for(let i=-5;i<=5;i++){
    const x=i*.53,y=C.capitalTop+.12;
    if(i%2===0)arch.brackets(x,y,z,.47,{detail:true,interlocked:true,material:'cedar'});
