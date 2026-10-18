@@ -227,10 +227,13 @@ def main():
         bpy.context.view_layer.objects.active=cast;cast.select_set(True)
         reduce=cast.modifiers.new('Curvature-preserving portable cast','DECIMATE');reduce.ratio=90000/dense_after_holes['triangles'];reduce.use_collapse_triangulate=True
         bpy.ops.object.modifier_apply(modifier=reduce.name);cast.select_set(False)
+    # The BMesh winding audit writes mesh data. Complete it before evaluating
+    # weighted custom split normals, otherwise its to_mesh roundtrip erases
+    # those normals and the broad cast plane shows triangulation highlights.
+    records=[audit(o) for o in [cast]+fasteners]
     for p in cast.data.polygons:p.use_smooth=True
     normal=cast.modifiers.new('Preserve broad cast planes','WEIGHTED_NORMAL');normal.keep_sharp=True
     bpy.context.view_layer.objects.active=cast;bpy.ops.object.modifier_apply(modifier=normal.name)
-    records=[audit(o) for o in [cast]+fasteners]
     if min(v.co.z for v in cast.data.vertices)>BACK+.00001:raise RuntimeError('Cast backplate missing')
     for obj in list(source.objects)+[cast]+fasteners:obj.parent=root
     bpy.context.view_layer.update()

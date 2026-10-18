@@ -10,7 +10,7 @@ const cameraPass=createCameraPass(renderer,w,h);
 const reference={position:[0,2.65,13],target:[0,6.65,-9],fov:49};
 function renderView(position,target,time=0,fov=49){setTime(time);camera.position.fromArray(position);camera.userData.focusDistance=new T.Vector3(...position).distanceTo(new T.Vector3(...target));camera.fov=fov;camera.lookAt(...target);camera.updateProjectionMatrix();scene.updateMatrixWorld(true);cameraPass.render(scene,camera);return {position,target,time,fov};}
 function renderReference(n=8){if(n!==8)throw Error('Independent reference 08');return renderView(reference.position,reference.target,0,reference.fov);}
-const dolly=createDollyPath({points:[[-1.3,2.73,10.4],[-1.0,2.7,11.1],[-.3,2.66,12.35],reference.position],nearTarget:[-1.99,3.3,7.9],farTarget:reference.target,fov:reference.fov});
+const dolly=createDollyPath({points:[[-.6,2.73,9.25],[-.45,2.76,10.2],[-.1,2.70,11.65],reference.position],nearTarget:[-1.99,3.3,7.9],farTarget:reference.target,fov:reference.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:8,revision:'08-cast-hardware-closed-gallery-mesh70',...stats,camera:reference,renderer:cameraPass.info()}),dispose(){cameraPass.dispose();dispose();renderer.dispose();}};
 if(!Q.has('defer'))renderReference();
