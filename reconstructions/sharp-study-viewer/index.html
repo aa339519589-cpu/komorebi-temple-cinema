@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>照片重建 3D 高斯场 · 寺院空间研究</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./viewer.css">
+  <script type="importmap">{"imports":{"three":"../../vendor/build/three.module.js","three/addons/":"../../vendor/examples/jsm/","@sparkjsdev/spark":"./vendor/spark/spark.module.js"}}</script>
+</head>
+<body>
+  <header><div><span class="eyebrow">空间研究</span><h1>照片重建 3D 高斯场</h1><p>由单张照片推断的空间。移动视点，观察细节、视差与尚未重建的区域。</p></div><a href="../../index.html">返回项目</a></header>
+  <main>
+    <div id="stage"><canvas id="view" tabindex="0" aria-label="可移动视点的三维高斯重建"></canvas><div id="loading" role="status">正在读取三维场景…</div><span id="scene-label"></span></div>
+    <div class="transport"><div class="buttons"><button data-pose="source">源机位</button><button data-pose="left">向左平移</button><button data-pose="right">向右平移</button><button data-pose="near">拉近</button><button data-pose="far">拉远</button><button id="play">播放空间移动</button></div><label class="timeline">路径时间 <input id="time" type="range" min="0" max="7" step="0.001" value="0"><output id="time-value">0.000 s</output></label></div>
+    <p class="hint">拖动转向 · Shift 拖动侧倾 · WASD 前后左右移动 · Q / E 升降 · 滚轮前后移动 · R 返回源机位</p>
+    <p id="caption">三维高斯重建研究，非手工 CAD 模型。原照片只作为重建输入，不作为渲染背景。</p>
+  </main>
+  <script type="module" src="./viewer.js"></script>
+</body>
+</html>

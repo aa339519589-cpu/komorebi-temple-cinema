@@ -1,0 +1,48 @@
+{
+  "name": "@sparkjsdev/spark",
+  "version": "2.3.1",
+  "license": "MIT",
+  "copyright": "WORLD LABS TECHNOLOGIES, INC.",
+  "upstream": "https://github.com/sparkjsdev/spark",
+  "sourceCommit": "bf8aaa0dd1e0a5af6b2097e484586c60b01d3c5c",
+  "packageURL": "https://registry.npmjs.org/@sparkjsdev/spark/-/spark-2.3.1.tgz",
+  "packageIntegrity": "sha512-K+SyIbkO/dx1TLLudK8Jp3/noS13z/kdNPo6OK2waxQaGy81HBmKGnNBT/t/K9Ew3dsIXmWqsJXxGfmAu1T5Jg==",
+  "peerDependencies": {
+    "three": ">=0.180.0"
+  },
+  "localThreeRevision": "186",
+  "compatibility": "peer range >=0.180.0 includes existing Three r186",
+  "bundledFflate": {
+    "version": "0.8.2",
+    "license": "MIT",
+    "source": "https://github.com/101arrowz/fflate/tree/v0.8.2"
+  },
+  "note": "Unmodified upstream ES module and its source map; WASM and workers embedded in upstream bundle. Runtime fetches no external code.",
+  "files": [
+    {
+      "file": "spark.module.js",
+      "sha256": "2de375d5e489692f976abe3199c8435ecc00f97fabaf35e489eb7d368e1f6f60",
+      "bytes": 2816188
+    },
+    {
+      "file": "spark.module.js.map",
+      "sha256": "0e5c52686ffc3451081a69b8bdac9e3eacdaa5a02b8a01803b51642d704cf4fc",
+      "bytes": 1281243
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "51829693e5dccd9ca1daa093991faac3aaa93238eb8fd5f5cb4130af85791d64",
+      "bytes": 1088
+    },
+    {
+      "file": "fflate-LICENSE",
+      "sha256": "805f6cb28bb8b6d3a0badd83c93bccd9671fa01a3b4b92b7042b0743325ac243",
+      "bytes": 1069
+    },
+    {
+      "file": "package.json",
+      "sha256": "376a8ca629e1cd1c65b69a9ec9356ab9caafa2f4adad95afe74ae3a4316a612c",
+      "bytes": 3292
+    }
+  ]
+}
