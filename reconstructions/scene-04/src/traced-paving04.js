@@ -1,3 +1,4 @@
+import {sampleAggregateRelief04} from './granite-aggregate04.js';
 import * as T from 'three';
 import {reference4Config as C} from './reference4-config.js';
 
@@ -32,7 +33,7 @@ export function createTracedPaving04(){
 }
 
 export function tracedSlabGeometry(record){
- const {outline,top,thickness}=record,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,seed=739+record.column*139+record.row*31,isCurb=record.id.includes('curb'),gap=isCurb?.019:.025,bevel=isCurb?.007:.006;
+ const {outline,top,thickness}=record,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,seed=739+record.column*139+record.row*31,isCurb=record.id.includes('curb'),gap=isCurb?.019:.015,bevel=isCurb?.007:.006;
  const points=outline.map(([x,z])=>{const d=Math.hypot(x-cx,z-cz);return[x+(cx-x)*gap/d,z+(cz-z)*gap/d];});
  // Each arris has different sparse chips and a round, eroded corner. The
  // resulting perimeter is extruded through the whole stone, not a decal.
@@ -50,7 +51,7 @@ export function tracedSlabGeometry(record){
  for(let i=0;i<p.count;i+=3)faces.push({v:[0,1,2].map(k=>vertex(new T.Vector3().fromBufferAttribute(p,i+k))),top:[0,1,2].every(k=>n.getY(i+k)>.99)});
  // Split a shared edge in every adjacent triangle, including the bevel. This
  // keeps the top and side connected while adding actual shallow depressions.
- const spacing=isCurb?.035:.022,key=(a,b)=>a<b?a+':'+b:b+':'+a;
+ const spacing=isCurb?.035:record.row>=6?.006:.014,key=(a,b)=>a<b?a+':'+b:b+':'+a;
  for(let level=0;level<12;level++){
   const split=new Map();for(const f of faces)if(f.top)for(let k=0;k<3;k++){const a=f.v[k],b=f.v[(k+1)%3];if(vertices[a].distanceToSquared(vertices[b])>spacing*spacing&&!split.has(key(a,b))){split.set(key(a,b),vertices.length);vertices.push(vertices[a].clone().add(vertices[b]).multiplyScalar(.5));}}
   if(!split.size)break;const next=[];
@@ -59,11 +60,11 @@ export function tracedSlabGeometry(record){
  }
  const edgeDistance=(x,z)=>{let d=Infinity;for(let i=0;i<points.length;i++){const a=points[i],b=points[(i+1)%points.length],dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));}return d;};
  const extentX=Math.max(...points.map(p=>Math.abs(p[0]-cx))),extentZ=Math.max(...points.map(p=>Math.abs(p[1]-cz))),tiltX=.004*(hash(2,3,seed)-.5),tiltZ=.005*(hash(4,7,seed)-.5);
- const field=(x,z)=>{const e=edgeDistance(x,z),round=-.003*(1-T.MathUtils.smoothstep(e,.002,.030))*(.18+.82*noise(x*11,z*11,seed+79)),wear=.0017*(noise(x*14,z*14,seed)-.5)+.0009*(noise(x*38,z*38,seed+17)-.5)-.0024*T.MathUtils.smoothstep(noise(x*21,z*21,seed+33),.65,.82),basin=-.0018*Math.exp(-((x-cx)**2/(extentX*extentX*.44)+(z-cz)**2/(extentZ*extentZ*.58)));return round+wear*T.MathUtils.smoothstep(e,.005,.028)+basin+tiltX*(x-cx)/extentX+tiltZ*(z-cz)/extentZ;};
+ const field=(x,z)=>{const e=edgeDistance(x,z),round=-.003*(1-T.MathUtils.smoothstep(e,.002,.030))*(.18+.82*noise(x*11,z*11,seed+79)),wear=.0017*(noise(x*14,z*14,seed)-.5)+.0009*(noise(x*38,z*38,seed+17)-.5)-.0024*T.MathUtils.smoothstep(noise(x*21,z*21,seed+33),.65,.82),basin=-.0018*Math.exp(-((x-cx)**2/(extentX*extentX*.44)+(z-cz)**2/(extentZ*extentZ*.58)));const mineral=isCurb?0:sampleAggregateRelief04(x,z,seed)*T.MathUtils.smoothstep(e,.002,.012);return mineral+round+wear*T.MathUtils.smoothstep(e,.005,.028)+basin+tiltX*(x-cx)/extentX+tiltZ*(z-cz)/extentZ;};
  for(const q of vertices)q.y+=field(q.x,q.z)*T.MathUtils.smoothstep(q.y,top-thickness+.01,top-.02);
  const smooth=new T.BufferGeometry();smooth.setAttribute('position',new T.Float32BufferAttribute(vertices.flatMap(q=>[q.x,q.y,q.z]),3));smooth.setIndex(faces.flatMap(f=>f.v));smooth.computeVertexNormals();
  const positions=[],uv=[],flags=[],bevelNormals=[];for(const f of faces)for(const i of f.v){const q=vertices[i];positions.push(q.x,q.y,q.z);const nx=smooth.attributes.normal.getX(i),ny=smooth.attributes.normal.getY(i),nz=smooth.attributes.normal.getZ(i),bend=f.top?0:1-Math.abs(ny);uv.push(q.x+(q.y-top)*nx*bend,q.z+(q.y-top)*nz*bend);flags.push(f.top);bevelNormals.push(smooth.attributes.normal.getX(i),smooth.attributes.normal.getY(i),smooth.attributes.normal.getZ(i));}smooth.dispose();
  raw.dispose();const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();
- const nn=g.attributes.normal;for(let i=0;i<flags.length;i++)if(positions[i*3+1]>top-.014)nn.setXYZ(i,bevelNormals[i*3],bevelNormals[i*3+1],bevelNormals[i*3+2]);for(let i=0;i<flags.length;i++)if(flags[i]){const x=positions[i*3],z=positions[i*3+2],e=.0015,dx=(field(x+e,z)-field(x-e,z))/(2*e),dz=(field(x,z+e)-field(x,z-e))/(2*e),q=new T.Vector3(-dx,1,-dz).normalize();nn.setXYZ(i,q.x,q.y,q.z);}
+ const nn=g.attributes.normal;for(let i=0;i<flags.length;i++)if(positions[i*3+1]>top-.014)nn.setXYZ(i,bevelNormals[i*3],bevelNormals[i*3+1],bevelNormals[i*3+2]);for(let i=0;i<flags.length;i++)if(flags[i]){const x=positions[i*3],z=positions[i*3+2],e=.0005,dx=(field(x+e,z)-field(x-e,z))/(2*e),dz=(field(x,z+e)-field(x,z-e))/(2*e),q=new T.Vector3(-dx,1,-dz).normalize();nn.setXYZ(i,q.x,q.y,q.z);}
  g.userData.observedSlab=record.id;g.userData.referenceBitmapUsed=false;g.userData.surface={thickness,nominalSeam:.028,topSpacing:spacing,individualRoundCorners:true,actualClosedBevel:true};return g;
 }
