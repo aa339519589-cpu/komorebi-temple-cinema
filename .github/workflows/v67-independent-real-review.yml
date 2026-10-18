@@ -1,0 +1,51 @@
+name: Main-v67 independent actual 3D comparison
+on:
+  push:
+    branches: [work/komorebi-v67-independent-review-20261018]
+    paths: ['.github/workflows/v67-independent-real-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-reconstruction:
+    strategy:
+      fail-fast: false
+      matrix:
+        reference: [4, 6]
+    runs-on: macos-14
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Verify untouched reconstructed Three.js scene
+        run: |
+          node --check tools/review-new-reconstructions.mjs
+          node verify.mjs
+      - name: Install isolated actual Metal runtime
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Native reconstruction frame with GL readback
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          KOMOREBI_REFERENCE: '${{ matrix.reference }}'
+          KOMOREBI_SIZE: '640'
+        timeout-minutes: 15
+        run: |
+          set -o pipefail
+          node tools/review-new-reconstructions.mjs
+      - name: Preserve original 3D frame, source and validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-v67-independent-ref${{ matrix.reference }}-${{ github.sha }}
+          path: |
+            output/independent-reference4-v4/
+            output/independent-reference6-v13/
+          if-no-files-found: error
+          retention-days: 7
