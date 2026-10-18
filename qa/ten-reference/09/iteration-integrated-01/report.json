@@ -1,0 +1,230 @@
+{
+  "reference": 9,
+  "entry": "reconstructions/scene-09/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 768,
+  "startedAt": "2026-10-18T05:09:58.154Z",
+  "source": {
+    "hash": "77865ad4258c1c447d6c6bd295dcd9b9c5cdf76b03410e8bdb2b0aec4a4b7128",
+    "files": {
+      "reconstructions/scene-09/index.html": "f10bccc1d16c93aa46ee5c417fbee1460acd8713b1bcaa0f96f2274ebd1bae30",
+      "reconstructions/scene-09/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-09/src/main.js": "6652b9a6c8d93460cffefcb025384b759468a6771195999449e7e4b9d77b3e70",
+      "reconstructions/scene-09/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-09/src/restoration-pruned-pines-v1.js": "f41adbbcf83bf56541d34e2861f803e4450dcc260f92a0fc5e76712cd9484e6b"
+    }
+  },
+  "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-09/index.html",
+    "/reconstructions/scene-09/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-09/src/restoration-buddha.js",
+    "/reconstructions/scene-09/src/botany.js",
+    "/reconstructions/scene-09/src/restoration-pruned-pines-v1.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 9,
+        "revision": "night-garden-rebuild-03b",
+        "width": 768,
+        "height": 768,
+        "frames": 1,
+        "instances": 110947,
+        "meshes": 519,
+        "drawCalls": 526,
+        "triangles": 3202172,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 1,
+          "pointLights": 16
+        },
+        "constraints": {
+          "assets": "procedural geometry and shaders only; no downloaded textures/models/photos",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 9,
+        "revision": "night-garden-rebuild-03b",
+        "width": 768,
+        "height": 768,
+        "frames": 1,
+        "instances": 110947,
+        "meshes": 519,
+        "drawCalls": 526,
+        "triangles": 3202172,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 1,
+          "pointLights": 16
+        },
+        "constraints": {
+          "assets": "procedural geometry and shaders only; no downloaded textures/models/photos",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 0.9949154324001737,
+      "opaqueFraction": 0.9639739990234375,
+      "rgbaSha256": "babedb9b1dc517015ada3958450707f703651d4d50921de63671d64d5041cd2c"
+    }
+  ],
+  "completedAt": "2026-10-18T05:10:05.933Z"
+}

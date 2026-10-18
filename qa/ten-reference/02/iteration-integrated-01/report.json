@@ -1,0 +1,165 @@
+{
+  "reference": 2,
+  "entry": "reconstructions/scene-02/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 768,
+  "startedAt": "2026-10-18T05:09:36.831Z",
+  "source": {
+    "hash": "d73959fcbf0a74eef28ada855808961d39abedd8900668ada3f4de2cd59549d2",
+    "files": {
+      "reconstructions/scene-02/architecture.js": "39296acb5a30d11753497043f9e9f02d124cf5024e1ce06def0fa232e1bd425f",
+      "reconstructions/scene-02/garden.js": "65b30d09715aed02c1abe77a6a23b748f2c2d2878f6ca44ea2cfed039c7a1b1b",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "45bcd8613182bbae3242e8c34b11d5a682c946d7b9e6ec89ad9e0ea82fdfa925",
+      "reconstructions/scene-02/main.js": "8066c8b2e2315cf2bc88582535f0b183f76ba8ef8d61e634709307c4ccd11e4c"
+    }
+  },
+  "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-02/index.html",
+    "/reconstructions/scene-02/main.js",
+    "/reconstructions/scene-02/kernel.js",
+    "/reconstructions/scene-02/architecture.js",
+    "/reconstructions/scene-02/garden.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/build/three.module.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 768,
+        "height": 768
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-photo-rebuild-02",
+        "ready": true,
+        "frames": 1,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 55338,
+          "buckets": 379
+        },
+        "garden": {
+          "instances": 71645,
+          "buckets": 147
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 366,
+          "triangles": 6251055
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "No external textures, models, HDR maps, image backgrounds or AI visuals."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 0.997100830078125,
+      "opaqueFraction": 1,
+      "rgbaSha256": "f2d6b56186704899ea2c13ab526f734beb725d291e408568a4b1fe1a54e9a405"
+    }
+  ],
+  "completedAt": "2026-10-18T05:09:38.210Z"
+}

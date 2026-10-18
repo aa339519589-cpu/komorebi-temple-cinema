@@ -1,4 +1,22 @@
-# KOMOREBI v60
+# 十张参考图逐景重建（进行中）
+
+当前分支：`work/ten-view-reconstruction-20261018`。十个独立场景都在持续按高清参考图修改，**十张均未通过画面验收，电影尚未完成**。
+
+运行 `node tools/server.mjs`，打开 [十景左右对照](http://127.0.0.1:4317/compare-ten.html)。左侧为完整高清原图，右侧为对应场景的实际 Three.js 渲染；支持同步放大、拖动检查、固定参考机位和近景起点。
+
+- 场景源码：`reconstructions/scene-01/` 至 `scene-10/`。
+- 十图编号与入口：`reconstructions/ten-scenes.json`。
+- 实际图、左右对照与源指纹：`qa/ten-reference/`。
+- 运行检查：`node tools/check-ten-review.mjs`（默认对照页端口4318，可用PORT指定）。
+- 单景GPU检查：`REFERENCE=4 WORKTREE=/绝对项目目录 node tools/render-one-reconstruction.mjs`。
+
+程序只生成真实几何、材质、天空、植物、光照与反射。参考图只显示在对照页左侧；运行检查同时核对场景没有请求这些照片。几何和运行检查通过，不代表形体、细节、材质或摄影效果合格。旧电影和旧场景保留为历史记录。
+
+音乐署名与参考图权利说明见 [CREDITS.txt](CREDITS.txt) 和 [THIRD_PARTY.md](THIRD_PARTY.md)。
+
+---
+
+## 历史通用场景 v60
 
 完整可运行的寺院场景源码。需要Node.js24.2或更新：执行 `node verify.mjs` 后运行 `node serve.mjs`，按终端地址打开浏览器。参考10条件场景使用 `/?scene=reference10-porch`，其他参考共用默认场景。需要可用WebGL；复杂场景软件渲染可能慢或失败。不会自动上传或回传。
 

@@ -1,0 +1,214 @@
+{
+  "reference": 3,
+  "entry": "reconstructions/scene-03/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 768,
+  "startedAt": "2026-10-18T05:09:38.391Z",
+  "source": {
+    "hash": "4596e3b96655dbedc1e00cdf27b40eec860bf11a8d91eaba129d303f7205b7ee",
+    "files": {
+      "reconstructions/scene-03/index.html": "055f4b3a9530e7c502546f8a78abfd91fbedd21acff4884775309730788fb34c",
+      "reconstructions/scene-03/src/main.js": "750c47f331f672d900944d70c68b9d266f086bbe53ebb494ed226cdc9a590ee1",
+      "reconstructions/scene-03/src/reference4-architecture.js": "cbe907a6ba96080198854f2cf71866f29eacc10bfcda2a6419eb64327a5c7d36",
+      "reconstructions/scene-03/src/reference4-detail-kernel.js": "adda7f460d2f3bb127dace518ed52299be8b07d7f444aa08b1e855f803b28e0b",
+      "reconstructions/scene-03/src/reference4-materials.js": "fe835ecc4be994adef6e69c61398d34b0ec6ac8a74e09bcc11c4b7249d691c41",
+      "reconstructions/scene-03/src/reference4-natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-03/src/restoration-lotus-leaf.js": "26a369bf52eb1f0d72fd986b5c641c06f16dc097794c46ddc0e6281f1759964e",
+      "reconstructions/scene-03/src/restoration-lotus-petal.js": "2ba4e55e899cce8e158eb00af2b2d770a77777c7c2e3cc0b1a8444f0d12d1a25"
+    }
+  },
+  "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-03/index.html",
+    "/reconstructions/scene-03/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-03/src/reference4-architecture.js",
+    "/reconstructions/scene-03/src/restoration-lotus-leaf.js",
+    "/reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "/reconstructions/scene-03/src/reference4-natural-forms.js",
+    "/reconstructions/scene-03/src/reference4-detail-kernel.js",
+    "/reconstructions/scene-03/src/reference4-materials.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          1.6,
+          6.1,
+          -3
+        ],
+        "fov": 58,
+        "time": 0
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-lotus-low-water-v3",
+        "ready": true,
+        "frames": 1,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            1.6,
+            6.1,
+            -3
+          ],
+          "fov": 58
+        },
+        "geometryInstances": 20975,
+        "architecture": {
+          "meshes": 579,
+          "instances": 30857,
+          "triangles": 3436480,
+          "roles": {
+            "temple-platform-stair": 104,
+            "hall-red-columns": 1204,
+            "hall-enclosure-doors": 99,
+            "central-real-portal": 750,
+            "main-upper-roof": 5256,
+            "lower-shoulder-roof": 3734,
+            "front-gable-fine-woodwork": 792,
+            "upper-storey-dense-bracket-frieze": 2322,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 1585,
+            "tower-roof-1": 1860,
+            "tower-storey-2": 1625,
+            "tower-roof-2": 1742,
+            "tower-storey-3": 1625,
+            "tower-roof-3": 1698,
+            "tower-storey-4": 1625,
+            "tower-roof-4": 1650,
+            "tower-storey-5": 1625,
+            "tower-roof-5": 1544,
+            "tower-finial": 15
+          }
+        },
+        "renderer": {
+          "calls": 342,
+          "triangles": 4451633
+        },
+        "assets": "Procedural geometry and generated DataTexture/CanvasTexture only"
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 0.9805704752604166,
+      "opaqueFraction": 1,
+      "rgbaSha256": "04d9824131a4172f8dc9a77c209e64fe390a4f9bf3aa729983792300c801e4d0"
+    }
+  ],
+  "completedAt": "2026-10-18T05:09:40.625Z"
+}

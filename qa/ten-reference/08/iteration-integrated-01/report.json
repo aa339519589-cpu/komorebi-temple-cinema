@@ -1,0 +1,145 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 768,
+  "startedAt": "2026-10-18T05:09:56.555Z",
+  "source": {
+    "hash": "f43e0c904dd853a96f54254b477f912fb3aa067890cd8be7ac5c277a9c1b0ae7",
+    "files": {
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/main.js": "22bac5fb9f6a464f963fe906051db51ebfb36f217bbc75ce97b6e847e21e4015",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scene.js": "44dcf723c86588cf04fe7bc12fe789e8a6cbeb67953337852ac32a1fd6e8e2d3"
+    }
+  },
+  "sourceCommit": "481db356b043a010dde009dcec02110d9668b29d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/vendor/build/three.core.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-veranda-garden-r4",
+        "instances": 349165,
+        "triangles": 9206872,
+        "roles": {
+          "left-grand-hall": 11444,
+          "layered-walkways": 23343,
+          "five-tier-pagoda": 20466,
+          "foreground-veranda": 511,
+          "arched-stream-bridge": 114,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 234,
+          "stone-lanterns": 3495,
+          "branching-garden-trees": 190338,
+          "hanging-veranda-foliage": 2310,
+          "dense-layered-shrubs": 79083,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 14
+        },
+        "seed": 80247,
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 460,
+          "triangles": 9201034
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "ba2c246a83a75af81990bf60450d23d44a6cd73c78952f625f128fe396b738b9"
+    }
+  ],
+  "completedAt": "2026-10-18T05:09:57.986Z"
+}
