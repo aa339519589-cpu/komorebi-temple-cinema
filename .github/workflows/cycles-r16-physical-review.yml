@@ -1,0 +1,63 @@
+name: R16 source-preserving sanctuary Cycles A/B
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths:
+      - '.github/workflows/cycles-r16-physical-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: komorebi-r16-physical-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  photograph-alignment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: resumed-cycles-d39c722a551f1cfe5fb81361858d3eff45b9e657
+          run-id: 39087140818
+          github-token: ${{ github.token }}
+          path: source-readonly
+      - name: Validate preserved source and Python
+        run: |
+          set -euo pipefail
+          python3 -m py_compile tools/refine-cycles-r16-existing-source.py
+          test -s "$(find source-readonly -name existing-sanctuary-cycles.blend -type f -print -quit)"
+      - name: Install real Cycles renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y blender ffmpeg python3-numpy
+      - name: Render two source-identical photographic lighting candidates
+        timeout-minutes: 22
+        env:
+          KOMOREBI_R16_OUT: output/cycles-r16
+          KOMOREBI_R16_SAMPLES: '48'
+          KOMOREBI_R16_SIZE: '720'
+          OMP_NUM_THREADS: '4'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -euo pipefail
+          mkdir -p output/cycles-r16
+          BLEND="$(find source-readonly -name existing-sanctuary-cycles.blend -type f -print -quit)"
+          test -s "$BLEND"
+          sha256sum "$BLEND" > output/cycles-r16/preserved-blend.sha256
+          for MODE in reference-window reference-window-scatter; do
+            export KOMOREBI_R16_MODE="$MODE"
+            blender -b "$BLEND" -t 4 --python-exit-code 1 --python tools/refine-cycles-r16-existing-source.py 2>&1 | tee "output/cycles-r16/blender-$MODE.log"
+            ffmpeg -y -hide_banner -loglevel error -i references/hd/4-照片-5.jpg -i "output/cycles-r16/sanctuary-r16-$MODE.png" -filter_complex '[0:v]scale=720:720[a];[a][1:v]hstack[out]' -map '[out]' -frames:v 1 "output/cycles-r16/reference-left-$MODE-right.png"
+          done
+      - name: Preserve real pixels and source-integrity receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cycles-r16-source-aligned-${{ github.sha }}
+          path: output/cycles-r16/
+          retention-days: 7
+          if-no-files-found: warn
