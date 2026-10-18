@@ -1533,14 +1533,29 @@ export function createRestorationArchitecture(ctx) {
       sourceCrop:[581,390,689,405],resolvedDetail:'coarse gold silhouette and one dark hole only',transcribedText:null,usesFont:false,parts};
   }
 
+  const insetCeramicCap=turnedProfile([[0,-.20],[.79,-.20],[.93,-.14],[.99,-.045],[1,.04],[.97,.11],[.91,.145],[.84,.145],[.79,.10],[.78,.02],[0,.02]],40).rotateX(Math.PI/2);
+  const insetCeramicFlower=(()=>{
+    const pp=[],uv=[],segments=16,petals=12;
+    const tri=(a,b,c)=>{for(const p of[a,b,c]){pp.push(...p);uv.push(p[0]*.5+.5,p[1]*.5+.5);}};
+    for(let k=0;k<petals;k++){
+      const a=k*Math.PI*2/petals,ca=Math.cos(a),sa=Math.sin(a),P=(j,inner,z)=>{const t=j/segments*Math.PI*2,r=.49+(inner?.29:.36)*Math.cos(t),w=(inner?.075:.13)*Math.sin(t);return[ca*r-sa*w,sa*r+ca*w,z];};
+      for(let j=0;j<segments;j++){
+        const a=P(j,false,.10),b=P(j+1,false,.10),c=P(j,true,.10),d=P(j+1,true,.10),aa=P(j,false,0),bb=P(j+1,false,0),cc=P(j,true,0),dd=P(j+1,true,0);
+        tri(a,b,c);tri(b,d,c);tri(aa,bb,a);tri(bb,b,a);tri(cc,c,dd);tri(dd,c,d);
+      }
+    }
+    const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(pp,3));geometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));geometry.computeVertexNormals();return geometry;
+  })();
   function tileEnd(p,angle,r=.078,detail=true) {
     const rot=[0,angle,0],n=new T.Vector3(Math.sin(angle),0,Math.cos(angle));
-    draw(g.tileSeal,'slate',p.toArray(),[r,r,r],rot,.88);
-    const face=p.clone().addScaledVector(n,r*.19);
-    draw(g.ring,'tileEdge',face.toArray(),[r*.82,r*.82,r*.42],rot,.82);
+    // Ceramic lip and recessed face are one closed profile, not a pale torus
+    // projecting ahead of the tile. Shallow relief stays below the rim crest.
+    draw(insetCeramicCap,'tileEndCeramic',p.toArray(),[r,r,r],rot,.96);
     if(detail) {
-      const mark=face.clone().addScaledVector(n,.0015);
-      flower(mark.x,mark.y,mark.z,r*.56,'oldgold',rot,.87);
+      const mark=p.clone().addScaledVector(n,r*.028);
+      draw(insetCeramicFlower,'tileEndRelief',mark.toArray(),[r*.72,r*.72,r*.27],rot,.90);
+      const centre=p.clone().addScaledVector(n,r*.057);
+      draw(g.pin,'oldgold',centre.toArray(),[r*.065,r*.065,r*.035],rot,.75);
     }
   }
 

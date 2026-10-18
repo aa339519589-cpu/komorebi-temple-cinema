@@ -15,6 +15,10 @@ export async function buildScene(){
  mats.gold.color.set('#e1af46');mats.oldgold.color.set('#c79a43');
  mats.gold.roughness=.40;mats.oldgold.roughness=.48;
  mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#f2e5bb');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.12;
+ // Private cap surfaces keep the glazed ceramic recess distinct from the roof.
+ mats.tileEndCeramic=mats.slate.clone();mats.tileEndCeramic.name='scene05-dark-inset-tile-cap';mats.tileEndCeramic.color.set('#29343c');mats.tileEndCeramic.roughness=.62;
+ mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#4b514b');mats.tileEndRelief.roughness=.73;
+
  const joineryKit=await loadBlenderJoinery();Object.assign(mats,joineryKit.materials);
  // Solid code-built geometry and the user-authorized image-assisted relief.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
@@ -153,36 +157,68 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  function lantern(x,y,z,s){
    group(x,y,z,0,()=>{
      const bronze='lanternBronze',gold='oldgold';
-     function loft(profile,ma){instance(new T.LatheGeometry(profile.map(p=>new T.Vector2(p[0]*s,p[1]*s)),12),ma);}
-     function wire(points,r=.010,ma=gold){instance(new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(p[0]*s,p[1]*s,p[2]*s))),20,r*s,5,false),ma);}
-     // Bottom and hood are distinct closed shells. There is no opaque wall behind the panes.
-     loft([[0,-.58],[.055,-.58],[.10,-.53],[.20,-.47],[.32,-.40],[.34,-.34],[.30,-.34],[.30,-.38],[.18,-.44],[.055,-.52],[0,-.52]],bronze);
-     loft([[.035,.69],[.13,.69],[.29,.50],[.49,.43],[.52,.45],[.49,.48],[.32,.55],[.15,.73],[.035,.73],[.035,.69]],bronze);
-     for(const yy of [-.39,.35])loft([[.30,yy],[.35,yy],[.35,yy+.04],[.30,yy+.04],[.30,yy]],gold);
+     function loft(profile,ma,segments=6){const g=new T.LatheGeometry(profile.map(p=>new T.Vector2(p[0]*s,p[1]*s)),segments,-Math.PI/6);instance(g.toNonIndexed(),ma);}
+     function wire(points,r=.010,ma=gold){instance(new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(p[0]*s,p[1]*s,p[2]*s))),Math.max(12,points.length*3),r*s,6,false),ma);}
+     function ring(y,r,t=.012,ma=gold){loft([[r-t,y-t],[r+t,y-t],[r+t,y+t],[r-t,y+t],[r-t,y-t]],ma);}
+     const petalKey='scene05-pierced-lantern-petal';
+     if(!geometryCache.has(petalKey)){
+       const shape=new T.Shape();shape.moveTo(0,0);shape.bezierCurveTo(.035,.025,.050,.085,0,.135);shape.bezierCurveTo(-.050,.085,-.035,.025,0,0);
+       const aperture=new T.Path();aperture.moveTo(0,.026);aperture.bezierCurveTo(-.021,.047,-.029,.080,0,.109);aperture.bezierCurveTo(.029,.080,.021,.047,0,.026);shape.holes.push(aperture);
+       geometryCache.set(petalKey,new T.ExtrudeGeometry(shape,{depth:.012,steps:1,bevelEnabled:true,bevelThickness:.0025,bevelSize:.0025,bevelSegments:1,curveSegments:7}));
+     }
+     const petal=geometryCache.get(petalKey);
+     const crownKey='scene05-pierced-lantern-crown';
+     if(!geometryCache.has(crownKey)){
+       const shape=new T.Shape();shape.moveTo(-.078,.825);shape.lineTo(.078,.825);shape.lineTo(.071,1.18);shape.quadraticCurveTo(0,1.245,-.071,1.18);shape.closePath();
+       for(const cy of[.91,1.09]){const hole=new T.Path();hole.moveTo(0,cy-.071);hole.bezierCurveTo(-.049,cy-.030,-.049,cy+.030,0,cy+.071);hole.bezierCurveTo(.049,cy+.030,.049,cy-.030,0,cy-.071);shape.holes.push(hole);}
+       geometryCache.set(crownKey,new T.ExtrudeGeometry(shape,{depth:.012,steps:1,bevelEnabled:true,bevelThickness:.0025,bevelSize:.0025,bevelSegments:1,curveSegments:7}));
+     }
+     const crownPanel=geometryCache.get(crownKey);
+
+     // Closed stepped six-hip hood, rolled eave and an enclosed faceted bowl.
+     // The shade seats on the top chassis ring; no open cylinder faces remain.
+     loft([[0,.79],[.07,.79],[.13,.72],[.28,.58],[.46,.48],[.53,.49],[.54,.46],[.51,.425],[.37,.435],[.27,.49],[.12,.73],[.055,.755],[0,.755]],bronze);
+     ring(.455,.525,.018,gold);ring(.50,.465,.009,gold);
+     loft([[0,-.68],[.045,-.68],[.085,-.60],[.15,-.54],[.29,-.43],[.35,-.38],[.35,-.34],[.31,-.34],[.27,-.40],[.13,-.51],[.055,-.60],[0,-.61]],bronze);
+     for(const yy of[-.36,.36])ring(yy,.342,.019,gold);
+     ring(-.43,.282,.010,gold);
      for(let face=0;face<6;face++)group(0,0,0,face*Math.PI/3,()=>{
-       box(0,-.01*s,.269*s,.29*s,.68*s,.009*s,'lanternPaper');
-       for(const side of [-1,1])box(side*.157*s,-.01*s,.283*s,.024*s,.76*s,.030*s,bronze);
-       for(const yy of [-.32,-.10,.14,.32])box(0,yy*s,.286*s,.31*s,.012*s,.015*s,bronze);
-       box(0,-.01*s,.289*s,.010*s,.68*s,.014*s,bronze);
-       // Curled leaf tracery has real holes through to luminous paper.
-       for(const yy of [-.19,.035,.25]){
-         const pts=[];for(let j=0;j<=24;j++){const a=j/24*Math.PI*2;pts.push([.071*Math.sin(a),yy+.078*Math.cos(a),.299]);}wire(pts,.005,bronze);
-         wire([[-.145,yy-.055,.299],[0,yy+.072,.299],[.145,yy-.055,.299]],.004,bronze);
+       // Recessed paper is behind a solid chased six-corner metal chassis.
+       box(0,0,.277*s,.273*s,.716*s,.010*s,'lanternPaper');
+       for(const side of[-1,1]){
+         box(side*.157*s,0,.294*s,.024*s,.76*s,.038*s,bronze);
+         box(side*.155*s,0,.316*s,.009*s,.73*s,.009*s,gold);
+         for(const yy of[-.30,0,.30])instance('sphere',gold,side*.155*s,yy*s,.322*s,.015*s,.015*s,.008*s);
        }
-       // Six pierced crown petals grow between narrow rings instead of a smooth gold tube.
-       for(const side of [-1,1]){
-         const pts=[];for(let j=0;j<=24;j++){const a=j/24*Math.PI*2;pts.push([side*.075+.067*Math.sin(a),.96+.15*Math.cos(a),.123+.014*Math.sin(a*2)]);}wire(pts,.014,gold);
+       for(const yy of[-.35,.35])box(0,yy*s,.304*s,.31*s,.026*s,.025*s,bronze);
+       // Every floral leaf is a closed extruded ribbon with a real aperture.
+       // Two four-petal flowers and joining volutes replace the thin box grid.
+       for(const yy of[-.175,.175]){
+         for(let k=0;k<4;k++)instance(petal,k%2?gold:bronze,0,yy*s,.309*s,s,s,s,[0,0,k*Math.PI/2]);
+         instance(new T.TorusGeometry(.028*s,.007*s,6,20),gold,0,yy*s,.324*s);
+         for(const side of[-1,1])wire([[side*.145,yy+.12,.312],[side*.09,yy+.105,.319],[side*.13,yy+.045,.312]],.007,gold);
        }
-       wire([[-.13,.79,.13],[-.10,1.08,.13],[0,1.22,.13],[.10,1.08,.13],[.13,.79,.13]],.012,bronze);
+       wire([[0,-.045,.316],[.085,0,.316],[0,.045,.316],[-.085,0,.316],[0,-.045,.316]],.007,bronze);
+       // Scalloped pierced drum and rolled collars above the shade.
+       instance(crownPanel,gold,0,0,.133*s,s,s,s);
+       box(0,.985*s,.149*s,.012*s,.31*s,.016*s,bronze);
+       for(const side of[-1,1]){
+         wire([[side*.015,.84,.150],[side*.11,.90,.166],[side*.09,1.06,.160],[0,1.145,.150]],.012,gold);
+         instance(petal,gold,side*.065*s,.855*s,.154*s,.68*s,1.35*s,.7*s,[0,0,side*.28]);
+       }
+       // Upturned hip tip and small stamped leaf remain attached to the hood.
+       wire([[-.25,.465,.425],[0,.48,.490],[0,.535,.515]],.012,gold);
      });
-     loft([[.075,.78],[.105,.78],[.105,1.20],[.075,1.20],[.075,.78]],bronze);
-     for(let k=0;k<12;k++){const a=k*Math.PI/6;group(Math.sin(a)*.13*s,.97*s,Math.cos(a)*.13*s,a,()=>instance(carvedLeaf,k%2?'gold':'oldgold',0,0,0,.25*s,.19*s,.25,[0,0,Math.PI/2]));}
-     for(const yy of [.78,1.17])loft([[.105,yy],[.16,yy],[.16,yy+.026],[.105,yy+.026],[.105,yy]],gold);
-     loft([[0,1.18],[.13,1.18],[.105,1.26],[.055,1.33],[0,1.33]],gold);
-     instance(new T.CylinderGeometry(.014*s,.014*s,.34*s,8),bronze,0,1.48*s,0);
+     for(const yy of[.80,1.18])ring(yy,.16,.018,gold);
+     loft([[0,1.18],[.12,1.18],[.105,1.23],[.065,1.27],[.045,1.33],[0,1.33]],gold,12);
+     // Alternating oval links carry the cap to its retained real beam anchor.
+     for(let j=0;j<5;j++)instance(new T.TorusGeometry(.029*s,.0075*s,6,18),j%2?gold:bronze,0,(1.34+j*.058)*s,0,.82,1.30,.82,[0,j%2?Math.PI/2:0,0]);
      wire([[-Math.sign(x)*.22/s,1.65,-Math.sign(z)*.22/s],[0,1.65,0]],.014,bronze);
-     wire([[0,-.58,0],[.02,-.64,0],[-.01,-.72,0],[0,-.78,0]],.009,gold);
-     loft([[0,-.90],[.045,-.88],[.066,-.83],[.04,-.78],[0,-.77]],gold);
+     box(0,1.638*s,0,.085*s,.030*s,.085*s,bronze);
+     // A linked hanging pendant and fluted finial close the lower cup.
+     for(let j=0;j<3;j++)instance(new T.TorusGeometry(.023*s,.0055*s,6,16),gold,0,(-.69-j*.044)*s,0,.8,1.18,.8,[0,j%2?Math.PI/2:0,0]);
+     loft([[0,-.97],[.023,-.97],[.055,-.92],[.064,-.875],[.043,-.83],[.015,-.815],[0,-.815]],gold,12);
+     for(let k=0;k<6;k++){const a=k*Math.PI/3;wire([[Math.sin(a)*.025,-.95,Math.cos(a)*.025],[Math.sin(a)*.060,-.88,Math.cos(a)*.060],[Math.sin(a)*.025,-.83,Math.cos(a)*.025]],.0045,bronze);}
    });
  }
  // Sky: directional pale wisps are an analytic shader, with no image texture.
@@ -222,5 +258,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-blender-solid-kit-and-scanned-varnished-timber-v02',levels,triangles,parts,geometry:'Source-built beveled solid joinery, real half laps, displaced gilt fittings, ceramic rows and lobed leaves',joineryKit:joineryKit.info,timber:scannedTimber.info,canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-pierced-gilt-lantern-and-inset-ceramic-medallions-detail52',levels,triangles,parts,geometry:'Source-built beveled solid joinery, real half laps, displaced gilt fittings, ceramic rows and lobed leaves',joineryKit:joineryKit.info,timber:scannedTimber.info,canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
 }
