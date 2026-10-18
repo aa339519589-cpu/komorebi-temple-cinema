@@ -4,7 +4,7 @@ import * as T from 'three';
 // narrow inner petals have different curvature rather than scaled copies.
 export function createRestorationLotusPetal(seed=1,layer=0){
  const rows=32,cols=24,pp=[],uv=[],ids=[];
- const extent=[.78,.61,.39][layer],rise=[.28,.57,.73][layer],width=[.27,.255,.19][layer];
+ const extent=[.78,.61,.39][layer],rise=[.19,.39,.50][layer],width=[.27,.255,.19][layer];
  const shape=(t,u)=>{
   const w=width*Math.pow(Math.sin(Math.PI*t),.63)*(1-.10*t),c=Math.sin(Math.PI*t);
   const variation=1+.045*Math.sin(seed*2.14);
