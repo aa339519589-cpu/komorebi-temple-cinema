@@ -1,0 +1,290 @@
+{
+  "candidate": "camera74",
+  "status": "three-still-camera-review-not-full-motion-acceptance",
+  "baseCommit": "1f88db08d9f38c584f20c6bb43fb76aa9f987880",
+  "branch": "work/camera-reference-06-20261019",
+  "preservedPreviousBranch": {
+    "name": "work/mesh-reference-06-20261018",
+    "commit": "82285c23c057b8e3fcf9e2c05fdba209ae137507"
+  },
+  "subject": {
+    "label": "Existing central six-lobed gilt censer/cartouche and curled handles",
+    "point": [
+      0,
+      1.4709999999999999,
+      1.1922373832605224
+    ],
+    "altarLocalPoint": [
+      0,
+      1.426,
+      3.4922373832605222
+    ],
+    "mesh": "restoration-altar:merged-gold",
+    "instanceId": null,
+    "source": "Raycast against retained altar geometry at local Y1.426; no model edits"
+  },
+  "controls": [
+    [
+      0.18,
+      0.82,
+      2.1422373832605226
+    ],
+    [
+      0.24,
+      0.8,
+      3.706678037445392
+    ],
+    [
+      -0.07,
+      0.6,
+      7.085869850484711
+    ],
+    [
+      0,
+      0.58,
+      8.4
+    ]
+  ],
+  "start": {
+    "position": [
+      0.18,
+      0.82,
+      2.1422373832605226
+    ],
+    "quaternion": [
+      0.29069032182267135,
+      0.0894166514934571,
+      -0.0272962574791494,
+      0.9522387902002108
+    ],
+    "fov": 62
+  },
+  "end": {
+    "position": [
+      0,
+      0.58,
+      8.4
+    ],
+    "target": [
+      0,
+      2.4,
+      -2.3
+    ],
+    "quaternion": [
+      0.08414089476065134,
+      0,
+      0,
+      0.996453867386181
+    ],
+    "fov": 62
+  },
+  "mathOnlySampling": {
+    "seconds": 7,
+    "interval": 0.016666666666666666,
+    "samples": 421,
+    "eyeHeightRange": [
+      0.58,
+      0.82
+    ],
+    "fovRange": [
+      62,
+      62
+    ],
+    "maxSpeedMetresPerSecond": 1.9417986083837877,
+    "maxAngularSpeedDegreesPerSecond": 7.1059086936668105,
+    "firstSecondAngularChangeDegrees": 0.6171766879501166,
+    "firstSecondTravelMetres": 0.11215398563500681,
+    "firstStepSpeed": 0.00003790408797183972,
+    "lastStepSpeed": 0.00003186222977344082,
+    "maxRollDegrees": 0.6164462524017944,
+    "endpointVelocityAndAcceleration": "Analytically zero from quintic smootherstep; finite-difference values shown separately"
+  },
+  "endpoint": {
+    "positionExact": true,
+    "targetExact": true,
+    "fovExact": true,
+    "quaternionAngularErrorDegrees": 0,
+    "actualRenderedQuaternionArrayExact": true,
+    "actualRenderedPositionExact": true,
+    "actualRenderedTargetExact": true,
+    "focusPassDisabledAtEnd": true,
+    "referenceFocusMode": "Original scene has no DOF; new pass is bypassed, not refocused at the endpoint"
+  },
+  "retainedWorldFiles": [
+    {
+      "path": "reconstructions/scene-06/src/reference6-scene.js",
+      "sha256": "e1810f280d5188048f6703f4cc87250457f45857f02eab69f2905e588d2212f0",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/restoration-buddha.js",
+      "sha256": "90eb79e35fcb5b3cdb6db23cc0e327e64f0bd47a8f70418729fa0fbc21b1133b",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/restoration-altar.js",
+      "sha256": "deca4c4d0ff998d3366ab79644afcfa872642362eca3a935678b886d3d4b4120",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/restoration-lighting.js",
+      "sha256": "23063b312965d240d6b808bd45079f7a34e44a7a4f7b11d15122ff93b02e9fb7",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/floor-varnish.js",
+      "sha256": "e7b2c8f01e74c2dad0c0fca1923d3ba13db5e67764c02fc0548853c8702628ce",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-coffer-relief.js",
+      "sha256": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-column-collar.js",
+      "sha256": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/lens-bloom.js",
+      "sha256": "e21b284cc1a3301149a42a0ba8a303ab4bf26ec30031e424f56a53c4769a07d8",
+      "unchangedFromBase": true
+    }
+  ],
+  "unselected66HeadImported": false,
+  "nativeFrames": [
+    {
+      "time": 0,
+      "name": "shot-0",
+      "valid": true,
+      "pose": {
+        "position": [
+          0.18,
+          0.82,
+          2.1422373832605226
+        ],
+        "target": [
+          -2.7755575615628914e-17,
+          1.4709999999999999,
+          1.1922373832605229
+        ],
+        "quaternion": [
+          0.2906903218226714,
+          0.08941665149345711,
+          -0.02729625747914941,
+          0.9522387902002111
+        ],
+        "fov": 62
+      },
+      "focus": {
+        "enabled": true,
+        "focusDistance": 1.1656333042599631,
+        "fNumber": 2.8,
+        "strength": 1,
+        "focalLengthMm": 29.124890941134066,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "sha256": "bc548375eb6ccb123eaf4caa0e50dbd872a9d571757979dfccc27201e15838d6"
+    },
+    {
+      "time": 3.5,
+      "name": "shot-3p5",
+      "valid": true,
+      "pose": {
+        "position": [
+          0.08625,
+          0.7,
+          5.364985130881354
+        ],
+        "target": [
+          -0.3361971383628933,
+          2.587639745409232,
+          0.6648215150282732
+        ],
+        "quaternion": [
+          0.18867827162494877,
+          0.045009536324266,
+          -0.013740079414785427,
+          0.9809107307365805
+        ],
+        "fov": 62
+      },
+      "focus": {
+        "enabled": true,
+        "focusDistance": 5.082635478661511,
+        "fNumber": 2.8,
+        "strength": 1,
+        "focalLengthMm": 29.124890941134066,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "sha256": "e416277d6c0678f0875cda7153e17e343fff4e770f63d8f6c17cb48909ef9b29"
+    },
+    {
+      "time": 7,
+      "name": "shot-7",
+      "valid": true,
+      "pose": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 62
+      },
+      "focus": {
+        "enabled": false,
+        "focusDistance": 10.853681403100055,
+        "fNumber": 2.8,
+        "strength": 0,
+        "focalLengthMm": 29.124890941134066,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "sha256": "80ff8ee4fbbeb9ab8a74bb061ccdb04b598acf1393cd44864b4c2052ab17ad90"
+    }
+  ],
+  "rendering": {
+    "calls": 2,
+    "failedStartup": {
+      "iteration": "camera73",
+      "frames": 0,
+      "status": "failed",
+      "reason": "Censer body guard omitted the pre-existing table Z+.62 transform; fixed by reading the actual ritual-axis anchor"
+    },
+    "successfulNativeFrames": 3,
+    "shotTimes": [
+      0,
+      3.5,
+      7
+    ],
+    "fullMovie": false,
+    "testSuite": false,
+    "errors": []
+  },
+  "limits": [
+    "Only three actual stills inspected; mathematical continuity does not replace a full-motion aesthetic review",
+    "Depth-aware optical defocus uses actual opaque depth; transparent glass/hidden layers are approximations",
+    "Existing scene geometry, material and fidelity limitations remain outside this camera pass"
+  ],
+  "visualAccepted": false
+}

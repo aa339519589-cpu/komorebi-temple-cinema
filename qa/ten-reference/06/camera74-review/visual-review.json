@@ -1,0 +1,309 @@
+{
+  "candidate": "camera74",
+  "status": "three-still-camera-review-candidate",
+  "visualAccepted": false,
+  "baseCommit": "1f88db08d9f38c584f20c6bb43fb76aa9f987880",
+  "branch": "work/camera-reference-06-20261019",
+  "sourceHash": "a9801499289e22aed8d1892f8cb287c066782bf7f9a39de433ebb425b6ffcc21",
+  "nearSubject": {
+    "label": "Existing central six-lobed gilt censer/cartouche and curled handles",
+    "point": [
+      0,
+      1.4709999999999999,
+      1.1922373832605224
+    ],
+    "altarLocalPoint": [
+      0,
+      1.426,
+      3.4922373832605222
+    ],
+    "mesh": "restoration-altar:merged-gold",
+    "instanceId": null,
+    "source": "Raycast against retained altar geometry at local Y1.426; no model edits"
+  },
+  "start": {
+    "reference": 6,
+    "frame": 1,
+    "width": 1254,
+    "height": 1254,
+    "revision": "scene-06-sculpture-varnish-max03",
+    "camera": {
+      "position": [
+        0.18,
+        0.82,
+        2.1422373832605226
+      ],
+      "target": [
+        -2.7755575615628914e-17,
+        1.4709999999999999,
+        1.1922373832605229
+      ],
+      "quaternion": [
+        0.2906903218226714,
+        0.08941665149345711,
+        -0.02729625747914941,
+        0.9522387902002111
+      ],
+      "fov": 62
+    },
+    "shot": {
+      "seconds": 0,
+      "railProgress": 0,
+      "orientation": "quaternion-slerp",
+      "focusPoint": [
+        0,
+        1.4709999999999999,
+        1.1922373832605224
+      ],
+      "focusDistance": 1.1656333042599631,
+      "exactReferenceEndpoint": false
+    },
+    "focus": {
+      "enabled": true,
+      "focusDistance": 1.1656333042599631,
+      "fNumber": 2.8,
+      "strength": 1,
+      "focalLengthMm": 29.124890941134066,
+      "maxRadiusPixels": 6,
+      "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+      "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+      "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+    },
+    "quality": {
+      "sunShadow": 2048,
+      "pointShadow": 256,
+      "roomCube": 128,
+      "roomProbeCount": 2,
+      "floorReflection": 768,
+      "composerSamples": 4
+    },
+    "renderVariant": "scene-06-sculpture-varnish-max03",
+    "validation": "Visual foundation candidate, not photographic acceptance."
+  },
+  "middle": {
+    "reference": 6,
+    "frame": 2,
+    "width": 1254,
+    "height": 1254,
+    "revision": "scene-06-sculpture-varnish-max03",
+    "camera": {
+      "position": [
+        0.08625,
+        0.7,
+        5.364985130881354
+      ],
+      "target": [
+        -0.3361971383628933,
+        2.587639745409232,
+        0.6648215150282732
+      ],
+      "quaternion": [
+        0.18867827162494877,
+        0.045009536324266,
+        -0.013740079414785427,
+        0.9809107307365805
+      ],
+      "fov": 62
+    },
+    "shot": {
+      "seconds": 3.5,
+      "railProgress": 0.5,
+      "orientation": "quaternion-slerp",
+      "focusPoint": [
+        0,
+        1.7128047146652081,
+        0.28326056517388765
+      ],
+      "focusDistance": 5.082635478661511,
+      "exactReferenceEndpoint": false
+    },
+    "focus": {
+      "enabled": true,
+      "focusDistance": 5.082635478661511,
+      "fNumber": 2.8,
+      "strength": 1,
+      "focalLengthMm": 29.124890941134066,
+      "maxRadiusPixels": 6,
+      "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+      "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+      "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+    },
+    "quality": {
+      "sunShadow": 2048,
+      "pointShadow": 256,
+      "roomCube": 128,
+      "roomProbeCount": 2,
+      "floorReflection": 768,
+      "composerSamples": 4
+    },
+    "renderVariant": "scene-06-sculpture-varnish-max03",
+    "validation": "Visual foundation candidate, not photographic acceptance."
+  },
+  "end": {
+    "reference": 6,
+    "frame": 3,
+    "width": 1254,
+    "height": 1254,
+    "revision": "scene-06-sculpture-varnish-max03",
+    "camera": {
+      "position": [
+        0,
+        0.58,
+        8.4
+      ],
+      "target": [
+        0,
+        2.4,
+        -2.3
+      ],
+      "quaternion": [
+        0.08414089476065134,
+        0,
+        0,
+        0.996453867386181
+      ],
+      "fov": 62
+    },
+    "shot": {
+      "seconds": 7,
+      "railProgress": 1,
+      "orientation": "quaternion-slerp",
+      "focusPoint": [
+        0,
+        2.4,
+        -2.3
+      ],
+      "focusDistance": 10.853681403100055,
+      "exactReferenceEndpoint": true
+    },
+    "focus": {
+      "enabled": false,
+      "focusDistance": 10.853681403100055,
+      "fNumber": 2.8,
+      "strength": 0,
+      "focalLengthMm": 29.124890941134066,
+      "maxRadiusPixels": 6,
+      "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+      "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+      "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+    },
+    "quality": {
+      "sunShadow": 2048,
+      "pointShadow": 256,
+      "roomCube": 128,
+      "roomProbeCount": 2,
+      "floorReflection": 768,
+      "composerSamples": 4
+    },
+    "renderVariant": "scene-06-sculpture-varnish-max03",
+    "validation": "Visual foundation candidate, not photographic acceptance."
+  },
+  "pathMath": {
+    "seconds": 7,
+    "interval": 0.016666666666666666,
+    "samples": 421,
+    "eyeHeightRange": [
+      0.58,
+      0.82
+    ],
+    "fovRange": [
+      62,
+      62
+    ],
+    "maxSpeedMetresPerSecond": 1.9417986083837877,
+    "maxAngularSpeedDegreesPerSecond": 7.1059086936668105,
+    "firstSecondAngularChangeDegrees": 0.6171766879501166,
+    "firstSecondTravelMetres": 0.11215398563500681,
+    "firstStepSpeed": 3.790408797183972e-05,
+    "lastStepSpeed": 3.186222977344082e-05,
+    "maxRollDegrees": 0.6164462524017944,
+    "endpointVelocityAndAcceleration": "Analytically zero from quintic smootherstep; finite-difference values shown separately"
+  },
+  "endpointChecks": {
+    "positionExact": true,
+    "targetExact": true,
+    "fovExact": true,
+    "quaternionAngularErrorDegrees": 0,
+    "actualRenderedQuaternionArrayExact": true,
+    "actualRenderedPositionExact": true,
+    "actualRenderedTargetExact": true,
+    "focusPassDisabledAtEnd": true,
+    "referenceFocusMode": "Original scene has no DOF; new pass is bypassed, not refocused at the endpoint"
+  },
+  "worldGeometryMaterialsAndLightingUnchanged": true,
+  "unselected66HeadImported": false,
+  "cameraMethod": "Independent cubic position rail and shortest quaternion slerp with quintic minimum-jerk timing; fixed62deg FOV",
+  "focusMethod": "Existing opaque-depth CoC; original29.12mm focal length at f/2.8; focus follows actual censer before smoothly pulling to altar; bypass at reference and7s",
+  "archivalReferencePixelComparison": {
+    "archive": "qa/ten-reference/06/iteration-seat-contact32/reference.png",
+    "byteIdentical": false,
+    "meanAbsoluteRgbByteDifference": [
+      0.26334739996286205,
+      0.20635656489345736,
+      0.11390345153880788
+    ],
+    "rmsRgbByteDifference": [
+      0.949018936088723,
+      0.7685021669361171,
+      0.46904393505731296
+    ],
+    "interpretation": "Numerical camera, world sources and reference optics mode are retained; archive PNG is not claimed bit-identical across separate render histories. Cause of small pixel differences was not separately attributed."
+  },
+  "actualNativeFrames": [
+    {
+      "time": 0,
+      "path": "qa/ten-reference/06/iteration-camera74/shot-0.png",
+      "sha256": "3fecebe94c6db139b746129390bbb3ca164bf5ed8b51371f49379d462a7d11b0",
+      "actualNativeSize": [
+        1254,
+        1254
+      ],
+      "displayScaledTo": [
+        640,
+        640
+      ]
+    },
+    {
+      "time": 3.5,
+      "path": "qa/ten-reference/06/iteration-camera74/shot-3p5.png",
+      "sha256": "1c7eb447f1e1cd22c34b4c384305c4c5b1bd864ad4c14ba4637a7df6c86f63f7",
+      "actualNativeSize": [
+        1254,
+        1254
+      ],
+      "displayScaledTo": [
+        640,
+        640
+      ]
+    },
+    {
+      "time": 7,
+      "path": "qa/ten-reference/06/iteration-camera74/shot-7.png",
+      "sha256": "fa2a80972549b7c60c96ef123da33231b6f9cb7830b234ebf5e320117362b2b7",
+      "actualNativeSize": [
+        1254,
+        1254
+      ],
+      "displayScaledTo": [
+        640,
+        640
+      ]
+    }
+  ],
+  "rendererErrors": [],
+  "failedPreflight": {
+    "iteration": "camera73",
+    "nativeFrames": 0,
+    "reason": "Body Z-range guard omitted existing table Z+.62; corrected from model ritual-axis anchor",
+    "sourceSnapshot": "qa/ten-reference/06/camera73-source/"
+  },
+  "validation": "Two queued GPU jobs total: failed startup without frames, then exactly native0/3.5/7 stills. Pure math inspection at60Hz is not movie rendering. No full movie or test suite.",
+  "limits": [
+    "Three stills and numerical continuity do not establish full-motion aesthetic acceptance",
+    "Opaque-depth defocus approximates transparent glass and hidden background layers",
+    "The near view exposes existing censer and Buddha geometry/material limitations; no remodeling was performed"
+  ],
+  "noPhotoProjection": true,
+  "noSceneImageCards": true,
+  "noPhotographicDepth": true
+}
