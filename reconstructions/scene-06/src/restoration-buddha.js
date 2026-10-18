@@ -124,7 +124,7 @@ function forearmDrape(g){
  for(let i=0;i<p.count;i++){
   const x=p.getX(i),y=p.getY(i),z=p.getZ(i),front=smooth(n.getZ(i),.15,.85);if(!front)continue;
   let relief=0;
-  traces.forEach((tr,j)=>{const lo=tr[0][0],hi=tr.at(-1)[0];if(x<lo||x>hi)return;const at=sampleProfile(tr,x)[0],fade=smooth(x,lo,lo+.05)*(1-smooth(x,hi-.025,hi));relief+=(.007+j*.0007)*gaussian(y-at,.023)*fade;});
+  traces.forEach((tr,j)=>{const lo=tr[0][0],hi=tr.at(-1)[0];if(x<lo||x>hi)return;const at=sampleProfile(tr,x)[0],fade=smooth(x,lo,lo+.05)*(1-smooth(x,hi-.025,hi));relief+=(.020+j*.0010)*gaussian(y-at,.024)*fade;});
   p.setXYZ(i,x+n.getX(i)*relief*front,y+n.getY(i)*relief*front,z+n.getZ(i)*relief*front);
  }
  return recomputeSculptureNormals(g);
@@ -160,12 +160,12 @@ function makeBuilder(variant){
 // of the same continuous skin, not colored wires in front of it.
 function face(center,attendant=false,variant='central'){
   const sy=attendant?.91:1.0,wx=attendant?.79:.99,cy=center;
-  const rows=[[-.415,0,0,-.020],[-.397,.112,.091,-.005],[-.365,.157,.153,.002],[-.290,.233,.207,.003],[-.170,.297,.239,.002],[-.045,.337,.247,-.004],[.095,.344,.244,-.012],[.225,.333,.235,-.020],[.340,.285,.201,-.026],[.425,.185,.142,-.028],[.455,0,0,-.025]].map(p=>[cy+p[0]*sy,p[1]*wx,p[2],p[3]]);
+  const rows=[[-.415,0,0,-.020],[-.397,.112,.091,-.005],[-.365,.157,.153,.002],[-.290,.246,.213,.003],[-.170,.310,.245,.002],[-.045,.337,.247,-.004],[.095,.344,.244,-.012],[.225,.333,.235,-.020],[.340,.285,.201,-.026],[.425,.185,.142,-.028],[.455,0,0,-.025]].map(p=>[cy+p[0]*sy,p[1]*wx,p[2],p[3]]);
   const relief=(x,y)=>{
     const xx=x/wx,yy=(y-cy)/sy,G=(cx,cy,sx,sy)=>gaussian(xx-cx,sx)*gaussian(yy-cy,sy);
     let f=.021*G(-.205,-.16,.135,.14)+.021*G(.205,-.16,.135,.14);
-    const noseWidth=.051+.025*smooth(-yy,-.02,.13);
-    f+=.031*gaussian(xx,noseWidth)*gaussian(yy-.015,.150)+.054*G(0,-.105,.078,.045);
+    const noseWidth=.065+.027*smooth(-yy,-.02,.13);
+    f+=.031*gaussian(xx,noseWidth)*gaussian(yy-.015,.150)+.039*G(0,-.105,.083,.045);
     f+=.023*G(-.063,-.121,.031,.025)+.023*G(.063,-.121,.031,.025);
     f-=.017*G(-.055,-.146,.018,.012)+.017*G(.055,-.146,.018,.012);
     f+=.010*G(0,-.148,.020,.021)-.009*G(0,-.184,.024,.028);
@@ -243,7 +243,7 @@ function raisedHand(b,cx,cy,cz,{size=1,mirror=1}={}){
  const point=p=>[cx+mirror*p[0]*size,cy+p[1]*size,cz+p[2]*size];
  const palm=ellipsoid(0,0,0,1,1,1,0,56,48),pp=palm.attributes.position;
  for(let i=0;i<pp.count;i++){
-  const nx=pp.getX(i),ny=pp.getY(i),nz=pp.getZ(i),width=.104*(.82+.18*smooth(ny,-.8,.3)),xx=nx*width,yy=ny*.178;
+  const nx=pp.getX(i),ny=pp.getY(i),nz=pp.getZ(i),width=.122*(.82+.18*smooth(ny,-.8,.3)),xx=nx*width,yy=ny*.178;
   let depth=nz*.048;
   if(nz>0){depth-=.005*gaussian(yy+.027,.009)*gaussian(xx+.006,.078);depth-=.004*gaussian(yy-.048+.20*xx,.007)*gaussian(xx,.082);depth+=.009*gaussian(xx-.048,.04)*gaussian(yy+.045,.08);}
   pp.setXYZ(i,...point([xx,yy,depth]));
@@ -257,6 +257,7 @@ function raisedHand(b,cx,cy,cz,{size=1,mirror=1}={}){
   [[.065,-.091,.006],[.145,-.025,.034],[.153,.045,.062],[.130,.075,.068]]
  ];
  fingers.forEach((p,i)=>{
+  p=p.map(q=>[q[0]*1.35,q[1],q[2]]);
   b.add(finger(p.map(point),(i===4?.027:.022)*size),'anatomical-raised-finger-'+i);
   if(i<4){const q=point(p[2]),crease=[[q[0]-.013*size,q[1]-.005*size,q[2]+.018*size],[q[0],q[1]-.008*size,q[2]+.020*size],[q[0]+.013*size,q[1]-.005*size,q[2]+.018*size]];b.add(cord(crease,.0024*size),'finger-joint-'+i,'crease');}
  });
@@ -379,17 +380,24 @@ function centralFigure(){
  b.add(forearmDrape(sweep([[-1.13,.82,.20],[-1.01,.83,.23],[-.79,.96,.35],[-.57,1.17,.46],[-.46,1.27,.55]],.162,.108,{segments:96,radial:56,profile:t=>.82+.18*Math.sin(Math.PI*t)-.16*smooth(t,.85,1),relief:null})),'raised-forearm-cloth');
  for(const side of[-1,1])b.add(sweep([[side*.52,2.25,-.10],[side*.88,2.03,-.070],[side*1.148,1.64,-.010],[side*1.247,1.10,.09],[side*1.183,.72,.26]],.041,.030,{segments:96,radial:28,profile:t=>.8+.2*Math.sin(Math.PI*t)}),`outer-robe-roll-${side}`);
  for(const side of[-1,1])b.add(shoulderRobePanel(side),`continuous-side-robe-${side}`);
- const seatedLegs=[
-  [[-1.20,.30,.44],[-.96,.40,.60],[-.58,.51,.72],[-.08,.58,.76],[.43,.58,.64],[.83,.52,.47]],
-  [[1.20,.27,.40],[.96,.35,.58],[.58,.43,.74],[.14,.51,.86],[-.30,.61,.82],[-.72,.63,.55]]
- ];
- seatedLegs.forEach((ps,j)=>{
-  b.add(sweep(ps,.257,.172,{segments:112,radial:48,profile:t=>.66+.34*Math.sin(Math.PI*t),relief:(t,a)=>.008*Math.cos(4*a+2.7*t)*Math.sin(Math.PI*t)**2}),'cross-legged-clothed-thigh-'+j);
-  const side=j===0?-1:1;b.add(ellipsoid(side*1.13,.285,.47,.30,.186,.275,side*.12,56,48),'anatomical-outer-knee-'+j);
- });
- const feet=[[[.90,.50,.47],[.40,.61,.70],[-.10,.62,.80],[-.58,.54,.76],[-1.03,.39,.62]],[[-.90,.48,.43],[-.40,.63,.62],[.08,.74,.71],[.52,.72,.67],[1.03,.57,.54]]];
+ const thighRows=[[-.18,0,0,.42,.30],[0,.20,.29,.43,.36],[.35,.25,.40,.41,.43],[.75,.23,.42,.36,.45],[1.08,.19,.34,.29,.43],[1.32,.13,.24,.26,.36],[1.43,0,0,.25,.30]];
+ for(const side of[-1,1]){
+  const leg=surface(100,180,(u,v)=>{
+   const xx=-.18+1.61*v,[ry,rz,cy,cz]=sampleProfile(thighRows,xx),a=u*TAU;
+   if(v===0||v===1)return[side*xx,cy,cz];
+   const yy=cy+Math.sin(a)*ry+(side<0?.018:-.012)*Math.sin(Math.PI*v),front=Math.max(0,Math.cos(a));
+   let pleats=0;
+   for(const [base,amp,spread]of[[.42,.014,.038],[.32,.012,.032],[.23,.010,.028]]){
+    const fold=base-.14*(xx-.5)+.15*(xx-.5)**2;pleats+=(amp*gaussian(yy-fold,spread)-amp*.24*gaussian(yy-fold+.04,.019))*Math.sin(Math.PI*v);
+   }
+   return[side*xx,yy,cz+Math.cos(a)*rz+pleats*front**3];
+  },true);
+  if(side>0){for(let i=0;i<leg.index.count;i+=3){const q=leg.index.getX(i+1);leg.index.setX(i+1,leg.index.getX(i+2));leg.index.setX(i+2,q);}recomputeSculptureNormals(leg);}
+  b.add(leg,'continuous-seated-knee-cloth-'+side);
+ }
+ const feet=[[[.93,.56,.44],[.44,.65,.58],[-.04,.67,.68],[-.54,.61,.69],[-1.03,.48,.61]],[[-.92,.54,.40],[-.45,.65,.52],[.06,.69,.59],[.51,.64,.59],[1.03,.51,.53]]];
  feet.forEach((ps,j)=>{
-  const c=curve(ps),g=surface(48,88,(u,t)=>{const a=u*TAU,q=c.getPointAt(t),cap=t===0||t===1?0:Math.sin(Math.PI*t)**.28;return[q.x,q.y+Math.cos(a)*.092*cap,q.z+Math.sin(a)*.138*cap];},true);if(j===0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}b.add(g,`crossed-foot-${j}`);
+  const c=curve(ps),g=surface(48,88,(u,t)=>{const a=u*TAU,q=c.getPointAt(t),cap=t===0||t===1?0:Math.sin(Math.PI*t)**.28;return[q.x,q.y+Math.cos(a)*.057*cap,q.z+Math.sin(a)*.104*cap];},true);if(j===0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}b.add(g,`crossed-foot-${j}`);
   const side=j===0?-1:1,tip=ps.at(-1);for(let i=0;i<5;i++)b.add(finger([[tip[0]-side*.075,tip[1],tip[2]-.064+i*.032],[tip[0]+side*(.035-i*.008),tip[1]-.010,tip[2]-.061+i*.031]],.016-i*.0008),`crossed-toe-${j}-${i}`);
  });
  const cloth=closedPanel(112,140,(u,v)=>{

@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 export const RESTORATION_ALTAR_LAYOUT = Object.freeze({
@@ -95,13 +96,14 @@ export function buildRestorationHangingOrnaments(options = {}) {
     buildPendantStandard(b,side*layout.sidePendantX,layout.sidePendantY,layout.sidePendantZ,layout.sidePendantLength,layout.sidePendantWidth,layout.sideHeaderDrop,layout.sideHeaderCeilingContact);
     const lower=layout.sidePendantY+.080,upper=layout.hangingCeilingContacts[1]+.010;
     b.cylinder(side*layout.sidePendantX,(lower+upper)/2,layout.sidePendantZ+.025,.009,upper-lower,'gold');
-    buildCanopy(b, side * 5.65, 5.82, 3.0, .38);
-    buildVerticalSuspensionChain(b,side*5.65,5.82+.78*.38,3.0,layout.hangingCeilingContacts[2]);
+    buildCanopy(b,side*2.80,6.25,1.0,.40,2.25,.10);
+    buildVerticalSuspensionChain(b,side*2.80,6.25+.78*.40,1.0,layout.hangingCeilingContacts[2]);
+    buildLantern(b,side*6.30,3.75,0,.50);b.cylinder(side*6.30,5.98,0,.006,2.44,'oldgold');
   }
   b.finish();
   b.root.userData.hangingCeilingContactPoints = [-1,1].flatMap(side=>{
     const cx=side*layout.sidePendantX-side*(layout.sidePendantWidth/2+.61);
-    return [[side*layout.sidePendantX,layout.hangingCeilingContacts[1],layout.sidePendantZ+.025],[side*5.65,layout.hangingCeilingContacts[2],3.0],
+    return [[side*layout.sidePendantX,layout.hangingCeilingContacts[1],layout.sidePendantZ+.025],[side*2.80,layout.hangingCeilingContacts[2],1.0],
       ...[-.40,.40].map(dx=>[cx+dx,layout.sideHeaderCeilingContact[0],layout.sideHeaderCeilingContact[1]])];
   });
   return b.root;
@@ -117,6 +119,7 @@ class FurnishingBuilder {
     this.stack = [new T.Matrix4()];
     this.materials = {
       gold: supplied.gold || new T.MeshStandardMaterial({name:'restoration-polished-gilt',color:0xc59b49,metalness:.86,roughness:.31}),
+      trim: new T.MeshStandardMaterial({name:'scene06-aged-gilt-structural-bead',color:'#856026',metalness:.78,roughness:.52}),
       oldgold: supplied.oldgold || new T.MeshStandardMaterial({name:'restoration-carved-gilt-shadow',color:0x86602b,metalness:.77,roughness:.43}),
       lacquer: new T.MeshStandardMaterial({name:'restoration-black-brown-lacquer',color:0x080605,metalness:0,roughness:.26}),
       red: new T.MeshStandardMaterial({name:'restoration-vermillion-lacquer',color:0x521c13,metalness:.14,roughness:.30}),
@@ -150,7 +153,7 @@ class FurnishingBuilder {
     if (!this.buckets.has(key)) this.buckets.set(key,{g,material,matrices:[]});
     this.buckets.get(key).matrices.push(this.stack.at(-1).clone().multiply(this.dummy.matrix));
   }
-  box(x,y,z,w,h,d,m='lacquer') { this.add(this.geometry('box',()=>new T.BoxGeometry(1,1,1)),m,x,y,z,w,h,d); }
+  box(x,y,z,w,h,d,m='lacquer') { const gilt=['gold','oldgold','trim'].includes(m);this.add(this.geometry(gilt?'rounded-cast-mount':'box',()=>gilt?new RoundedBoxGeometry(1,1,1,2,.055):new T.BoxGeometry(1,1,1)),m,x,y,z,w,h,d); }
   ball(x,y,z,rx,ry,rz,m='gold') { this.add(this.geometry('ball',()=>new T.SphereGeometry(1,12,8)),m,x,y,z,rx,ry,rz); }
   cylinder(x,y,z,r,h,m='gold') { this.add(this.geometry('cylinder',()=>new T.CylinderGeometry(1,1,1,16)),m,x,y,z,r,h,r); }
   torus(x,y,z,r,tube,m='gold',rx=0,ry=0,rz=0) {
@@ -457,10 +460,10 @@ function buildTerraces(b,layout) {
     const front=t.d/2+.025;
     for(const dy of [-t.h/2+.017,t.h/2-.017]) {
       b.box(0,t.y+dy,front-.008,frontWidth+.11,.064,.081,'lacquer');
-      b.box(0,t.y+dy,front+.020,frontWidth+.04,.0055,.014,'oldgold');
+      b.box(0,t.y+dy,front+.020,frontWidth+.04,.0055,.014,'trim');
       if(stepped)for(const side of [-1,1]){
-        b.box(side*(frontWidth+wingWidth)/2,t.y+dy,front-wingInset,wingWidth+.035,.010,.026,'oldgold');
-        b.box(side*frontWidth/2,t.y+dy,front-wingInset/2,.018,.010,wingInset+.045,'oldgold');
+        b.box(side*(frontWidth+wingWidth)/2,t.y+dy,front-wingInset,wingWidth+.035,.010,.026,'trim');
+        b.box(side*frontWidth/2,t.y+dy,front-wingInset/2,.018,.010,wingInset+.045,'trim');
       }
     }
     if(stepped){
@@ -471,8 +474,8 @@ function buildTerraces(b,layout) {
       // One gilt bead is emitted with the forward black ledge below.
       for(const side of [-1,1]){
         b.box(side*(frontWidth+wingWidth)/2,t.y+t.h/2+.042,-wingInset/2,wingWidth+.10,.055,t.d-wingInset+ledgeDepthExtra,'lacquer');
-        b.box(side*(frontWidth+wingWidth)/2,t.y+t.h/2+.073,front-wingInset+ledgeFrontExtra,wingWidth+.10,.009,.026,'oldgold');
-        b.box(side*(frontWidth/2+.04),t.y+t.h/2+.073,front-wingInset/2+ledgeFrontExtra,.020,.009,wingInset+.025,'oldgold');
+        b.box(side*(frontWidth+wingWidth)/2,t.y+t.h/2+.073,front-wingInset+ledgeFrontExtra,wingWidth+.10,.009,.026,'trim');
+        b.box(side*(frontWidth/2+.04),t.y+t.h/2+.073,front-wingInset/2+ledgeFrontExtra,.020,.009,wingInset+.025,'trim');
       }
     }
     if(level===0){
@@ -481,9 +484,9 @@ function buildTerraces(b,layout) {
       for(const side of [-1,1]){
         const x=side*t.w*.416,w=t.w*.145;
         b.box(x,t.y,front+.005,w,t.h-.075,.065,'lacquer');
-        for(const xx of [-1,1])b.box(x+xx*w/2,t.y,front+.048,.023,t.h-.055,.026,'oldgold');
+        for(const xx of [-1,1])b.box(x+xx*w/2,t.y,front+.048,.023,t.h-.055,.026,'trim');
         for(let k=0;k<8;k++){const a=k*Math.PI/4;b.leaf(x+Math.sin(a)*.017,t.y+Math.cos(a)*.017,front+.0385,.052,.10,-a,'gold',.4);}
-        b.ball(x,t.y,front+.0505,.029,.029,.015,'oldgold');
+        b.ball(x,t.y,front+.0505,.029,.029,.015,'trim');
       }
       b.box(0,t.y,front-.4725,t.w*.64,t.h-.11,.070,'lacquer');
     }else if(level===4){
@@ -492,7 +495,7 @@ function buildTerraces(b,layout) {
       const platformTop=1.98,platformBottom=1.8285;
       for(const side of [-1,1])b.box(side*2.18,(platformTop+platformBottom)/2,-.15,1.78,platformTop-platformBottom,1.92,'lacquer');
       b.box(0,(platformTop+platformBottom)/2,-.15,2.16,platformTop-platformBottom,1.92,'lacquer');
-      for(const y of [1.982,2.186])b.box(0,y,.97,6.05,.010,.036,'oldgold');
+      for(const y of [1.982,2.186])b.box(0,y,.97,6.05,.010,.036,'trim');
       // This narrow return joins the back-platform trim to the black wood.
       // Front ritual feet instead use the existing lower carved-row tread;
       // carrying a full shelf across their height would erase that step.
@@ -503,8 +506,8 @@ function buildTerraces(b,layout) {
       for(let j=-4;j<=4;j++){
         const xx=j*.65;
         for(const sign of[-1,1])ref6Scroll(b,xx+sign*.15,2.034,.999,.19,.105,sign*.2,'gold',sign);
-        ref6Rosette(b,xx,2.090,1.013,.044,0,'oldgold');
-        b.box(xx,2.080,1.001,.026,.147,.025,'oldgold');
+        ref6Rosette(b,xx,2.090,1.013,.044,0,'trim');
+        b.box(xx,2.080,1.001,.026,.147,.025,'trim');
       }
 
     }else{
@@ -523,8 +526,8 @@ function buildTerraces(b,layout) {
         framedScrollPanel(b,x,t.y,front+.018,pw,t.h-.083,(level+i)%2,t.d/2,singleDirection);
         cursor+=pw+gap;
         if(i<weights.length-1){
-          b.box(cursor-gap/2,t.y,front+.022,.052,t.h-.045,.098,'oldgold');
-          for(const yy of [-1,1])b.box(cursor-gap/2,t.y+yy*(t.h*.38),front+.063,.080,.038,.040,'oldgold');
+          b.box(cursor-gap/2,t.y,front+.022,.052,t.h-.045,.098,'trim');
+          for(const yy of [-1,1])b.box(cursor-gap/2,t.y+yy*(t.h*.38),front+.063,.080,.038,.040,'trim');
         }
       });
     }
@@ -532,18 +535,18 @@ function buildTerraces(b,layout) {
     // generate the photograph's stacked shadow bands rather than flat plates.
     if(level>0&&level<4){
       b.box(0,t.y+t.h/2+.037,front+.010,frontWidth+.16,.072,.12,'lacquer');
-      b.box(0,t.y+t.h/2+.071,front+.061,frontWidth+.18,.008,.018,'oldgold');
+      b.box(0,t.y+t.h/2+.071,front+.061,frontWidth+.18,.008,.018,'trim');
       b.box(0,t.y-t.h/2-.012,front-.008,frontWidth+.09,.027,.088,'lacquer');
       const mounts=Math.round(frontWidth/.42);
       for(let j=0;j<mounts;j++){
         const mx=-frontWidth*.47+j/(mounts-1)*frontWidth*.94;
-        ref6Rosette(b,mx,t.y+t.h/2+.036,front+.073,.026,0,'oldgold');
+        ref6Rosette(b,mx,t.y+t.h/2+.036,front+.073,.026,0,'trim');
       }
     }
     // Gilt corner caps visibly wrap the depth of the cabinet.
     for(const s of [-1,1])for(const [width,depthOffset] of stepped?[[frontWidth,0],[t.w,wingInset]]:[[t.w,0]]){
-      b.box(s*(width/2-.06),t.y,front+.035-depthOffset,.042,t.h-.042,.018,'oldgold');
-      b.box(s*(width/2+.006),t.y,front-.10-depthOffset,.013,t.h-.042,.25,'oldgold');
+      b.box(s*(width/2-.06),t.y,front+.035-depthOffset,.042,t.h-.042,.018,'trim');
+      b.box(s*(width/2+.006),t.y,front-.10-depthOffset,.013,t.h-.042,.25,'trim');
     }
   });
   for(const xx of [-2.14,-1.68,1.68,2.14]){
@@ -554,14 +557,14 @@ function buildTerraces(b,layout) {
       // front of it. Outer posts bridge the side-wing setback as required.
       const inset=Math.abs(xx)>layout.carvedFrontWidths[row-1]/2?.34:0;
       const bearingZ=tiers[row].d/2-inset+(isLedge?(row===3?.08:.04):0);
-      b.box(xx,yy,(1.56+bearingZ)/2,.12,.035,Math.abs(1.56-bearingZ)+.10,'oldgold');
+      b.box(xx,yy,(1.56+bearingZ)/2,.12,.035,Math.abs(1.56-bearingZ)+.10,'trim');
     }
-    b.ball(xx,1.91,1.56,.048,.064,.048,'oldgold');
+    b.ball(xx,1.91,1.56,.048,.064,.048,'trim');
   }
-  b.box(0,1.01,1.57,.43,.48,.13,'oldgold');
+  b.box(0,1.01,1.57,.43,.48,.13,'trim');
   b.box(0,1.01,1.645,.35,.40,.035,'lacquer');
   for(let k=0;k<10;k++){const a=k*Math.PI/5;b.leaf(Math.sin(a)*.025,1.01+Math.cos(a)*.025,1.6505,.06,.14,-a,'gold',.65);}
-  b.ball(0,1.01,1.6805,.040,.040,.02,'oldgold');
+  b.ball(0,1.01,1.6805,.040,.040,.02,'trim');
   // Raised plinth beneath central lotus. Attendants have individually stepped bases.
   const seatBottom=3.00-layout.mainThroneHeight;
   // The original central lotus stands on two recessed black-lacquer bands
@@ -570,15 +573,15 @@ function buildTerraces(b,layout) {
   const plinthBottom=2.175,plinthHeight=seatBottom-plinthBottom;
   for(const [lo,hi,w,d] of [[0,.12,2.52,1.76],[.12,.50,2.44,1.68],[.50,.88,2.36,1.60],[.88,1,2.52,1.76]])
     b.box(0,plinthBottom+(lo+hi)*plinthHeight/2,-.08,w,(hi-lo)*plinthHeight,d,'lacquer');
-  b.box(0,plinthBottom+.12*plinthHeight,-.08,2.54,.009,1.78,'oldgold');
-  b.box(0,plinthBottom+.50*plinthHeight,-.08,2.48,.012,1.72,'oldgold');
-  b.box(0,seatBottom-.003,-.08,2.59,.025,1.82,'oldgold');
+  b.box(0,plinthBottom+.12*plinthHeight,-.08,2.54,.009,1.78,'trim');
+  b.box(0,plinthBottom+.50*plinthHeight,-.08,2.48,.012,1.72,'trim');
+  b.box(0,seatBottom-.003,-.08,2.59,.025,1.82,'trim');
   for(const side of [-1,1])for(let i=0;i<3;i++) {
     const w=2.13-i*.13, y=2.05+i*.115,z=-.09,d=1.53-i*.085;
     b.box(side*layout.sideFigureX,y,z,w,.16,d,'lacquer');
-    b.box(side*layout.sideFigureX,y+.078,z,w+.065,.023,d+.055,'oldgold');
+    b.box(side*layout.sideFigureX,y+.078,z,w+.065,.023,d+.055,'trim');
     framedScrollPanel(b,side*layout.sideFigureX,y,z+d/2+.025,w-.15,.092,i%2,z+d/2);
-    if(i===2){const top=2.85-layout.sideThroneHeight;b.box(side*layout.sideFigureX,(2.35+top)/2,z,1.87,top-2.35,1.35,'lacquer');b.box(side*layout.sideFigureX,top-.006,z,1.91,.012,1.39,'oldgold');}
+    if(i===2){const top=2.85-layout.sideThroneHeight;b.box(side*layout.sideFigureX,(2.35+top)/2,z,1.87,top-2.35,1.35,'lacquer');b.box(side*layout.sideFigureX,top-.006,z,1.91,.012,1.39,'trim');}
   }
 }
 
@@ -651,7 +654,7 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   const data=REF6_CAST_PANEL_FIELDS[field],key='r6v12-source-cast-panel:'+field+':'+mirror+':'+w+':'+h;
   const g=b.geometry(key,()=>{
     const sx=w*.91/(data.bounds[2]-data.bounds[0]),sy=h*.89/(data.bounds[3]-data.bounds[1]);
-    const g=(w>1.05&&h>.12&&variant===0)?ref6ActualDragonGeometry(w*.93,h*.86,Math.round(y*10),singleDirection):ref6SweptPhotoCastingGeometry(data,sx,sy,0,mirror);g.scale(1,1,1.35);g.translate(0,0,.026);g.computeVertexNormals();
+    const g=ref6SweptPhotoCastingGeometry(data,sx,sy,0,mirror);g.scale(1,1,1.35);g.translate(0,0,.026);g.computeVertexNormals();
     g.userData.reference6PanelField={field,mirror,analogousField:!singleDirection,depthInferred:true};return g;
   });
   b.add(g,'gold',x,y,z+.012);
@@ -1002,7 +1005,7 @@ function buildRitualObjects(b,layout) {
     buildUpperOfferingVase(b,side*layout.upperVaseX,layout.upperVaseY,layout.upperVaseZ,side);
     buildFloorOfferingVase(b,side*layout.floorVaseX,layout.floorContactY,1.90);
     buildFloorFloralOffering(b,side*layout.floorVaseX,layout.floorContactY,1.90,side);
-    buildLiddedUrn(b,side*layout.floorUrnX,layout.floorContactY,1.75,1);
+    buildLiddedUrn(b,side*layout.floorUrnX,layout.floorContactY,1.75,.79);
     for(let i=0;i<3;i++)buildCandlestick(b,side*(i===2?2.50:1.37+i*.60),2.33,1.17-(i%2)*.15,.57+(i===1?.24:0),i===2,1.8295);
     buildLotusOffering(b,side*layout.innerRitualLotusX,2.33,layout.innerRitualLotusZ,.45,-side,true,layout.innerRitualLotusSupportY);
     buildLotusOffering(b,side*layout.outerRitualLotusX,2.31,layout.outerRitualLotusZ,.38,-side,false,layout.outerRitualLotusSupportY);
