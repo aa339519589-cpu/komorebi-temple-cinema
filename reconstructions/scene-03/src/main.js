@@ -37,6 +37,7 @@ scene.add(new T.HemisphereLight('#d4e7ff','#66563b',1.30));const sun=new T.Direc
 // The double-roofed sanctuary is deliberately offset right and very close to the pond.
 const architecture=buildReference4Architecture(T,{stairTopY:4.0,stairBottomZ:7.8,stairWidth:5.5,capitalTop:9.1,ridgeY:19.6,hallYaw:hallPlacement.yaw,towerPosition:[-5.4-hallPlacement.x,-.4,-11.3-hallPlacement.z],towerHeight:24.0,towerSceneScale:1.06});architecture.group.position.set(hallPlacement.x,0,hallPlacement.z);scene.add(architecture.group);
 architecture.materials.red.color.set('#84472f');architecture.materials.cedar.color.set('#75472f');architecture.materials.endwood.color.set('#785336');architecture.materials.darkwood.color.set('#39261a');architecture.materials.slate.color.set('#2e414f');architecture.materials.slate.roughness=.72;architecture.materials.slate.bumpScale=.0015;architecture.materials.tileEdge.color.set('#687b86');architecture.materials.gold.color.set('#c6a157');architecture.materials.oldgold.color.set('#987442');architecture.materials.plaster.color.set('#76868a');
+for(const key of['red','cedar','endwood','darkwood'])architecture.materials[key].bumpScale=.006;
 // Close return eave at the right edge: underside is visible from the low pond.
 const nearCeiling=architecture.materials.darkwood.clone();nearCeiling.side=T.DoubleSide;mats.nearCeiling=nearCeiling;
 at([9.4,0,8.0],.10,()=>{

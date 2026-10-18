@@ -148,14 +148,14 @@ export function buildReference4Architecture(T,options={}) {
   const axes=[-6.15,-4.10,-2.05,0,2.05,4.10,6.15];
   for(let i=0;i<axes.length;i++){const x=axes[i];
    box(x,12.55,-.60,.37,2.40,.56,'red');
-   arch.brackets(x,11.58,-.47,.99,{detail:false,fittings:false,material:'cedar'});
-   arch.brackets(x,13.03,-.10,1.18,{detail:false,fittings:false,material:'cedar'});
-   emit(carvedKnee,'cedar',x,12.33,-.06,1.02,1.25,1.0,0,.92);emit(carvedKnee,'red',x,13.61,.31,1.03,1.2,1.25,0,.94);
+   arch.brackets(x,11.78,-.68,.83,{detail:false,fittings:false,material:'cedar'});
+   arch.brackets(x,13.23,-1.12,.86,{detail:false,fittings:false,material:'cedar'});
+   emit(carvedKnee,'cedar',x,12.48,-.46,.72,.72,.75,0,.92);emit(carvedKnee,'red',x,13.57,-.56,.73,.72,.82,0,.94);
    // Projecting side cheeks join the deep support to the rafter bearing.
-   emit(carvedKnee,'cedar',x,12.77,.03,.95,1.32,1.0,Math.PI/2,.86);
-   box(x,13.99,.17,.44,.24,1.65,'cedar');
-   box(x,13.94,1.012,.25,.13,.025,'oldgold');
-   if(i<axes.length-1){const mx=(x+axes[i+1])/2;emit(carvedFrogLeg,'cedar',mx,12.03,-.63,1.03,1.20,1,0,.91);emit(carvedFrogLeg,'red',mx,13.20,-.55,.86,.72,1,0,.88);tube([[mx-.48,12.14,-.49],[mx-.28,12.35,-.48],[mx,12.58,-.48],[mx+.28,12.35,-.48],[mx+.48,12.14,-.49]],.016,'oldgold',28);}
+   emit(carvedKnee,'cedar',x,12.86,-1.03,.70,.82,.82,Math.PI/2,.86);
+   box(x,13.99,-.93,.36,.22,1.14,'cedar');
+   box(x,13.94,-.346,.15,.10,.018,'oldgold');
+   if(i<axes.length-1){const mx=(x+axes[i+1])/2;emit(carvedFrogLeg,'cedar',mx,12.03,-.78,.92,.84,1,0,.91);emit(carvedFrogLeg,'red',mx,13.20,-.91,.80,.60,1,0,.88);tube([[mx-.42,12.12,-.64],[mx-.25,12.29,-.63],[mx,12.46,-.63],[mx+.25,12.29,-.63],[mx+.42,12.12,-.64]],.013,'oldgold',28);}
   }
   for(let j=0;j<72;j++){let x=-7.8+j*15.6/71;between([x,13.97,-2.5],[x,14.20,.20],.095,.14,'cedar');box(x,14.16,.20,.11,.14,.12,j%5===0?'oldgold':'endwood');}
  });
