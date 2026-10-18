@@ -387,8 +387,8 @@ function centralFigure(){
    if(v===0||v===1)return[side*xx,cy,cz];
    const yy=cy+Math.sin(a)*ry+(side<0?.018:-.012)*Math.sin(Math.PI*v),front=Math.max(0,Math.cos(a));
    let pleats=0;
-   for(const [base,amp,spread]of[[.42,.014,.038],[.32,.012,.032],[.23,.010,.028]]){
-    const fold=base-.14*(xx-.5)+.15*(xx-.5)**2;pleats+=(amp*gaussian(yy-fold,spread)-amp*.24*gaussian(yy-fold+.04,.019))*Math.sin(Math.PI*v);
+   for(const [base,amp,spread]of[[.45,.026,.033],[.33,.023,.030],[.22,.020,.027],[.13,.012,.026]]){
+    const fold=base-.17*(xx-.5)+.43*(xx-.72)**2;pleats+=(amp*gaussian(yy-fold,spread)-amp*.24*gaussian(yy-fold+.04,.019))*Math.sin(Math.PI*v);
    }
    return[side*xx,yy,cz+Math.cos(a)*rz+pleats*front**3];
   },true);
@@ -412,8 +412,8 @@ function centralFigure(){
    }
    return[x,y,z0+fold*Math.sin(Math.PI*u)];
  },.026);b.add(cloth,'folded-lap-cloth');
- raisedHand(b,-.49,1.50,.91,{size:1.25});
- b.add(sweep([[-.57,1.16,.46],[-.50,1.33,.76],[-.49,1.44,.90]],.078,.063,{segments:44,radial:24}),'raised-wrist');
+ raisedHand(b,-.49,1.30,.91,{size:1.25});
+ b.add(sweep([[-.57,1.10,.46],[-.50,1.17,.76],[-.49,1.24,.90]],.078,.063,{segments:44,radial:24}),'raised-wrist');
  b.add(sweep([[.67,.81,.61],[.43,.83,.78],[.20,.80,.89],[.06,.79,.93]],.075,.067,{segments:62,radial:28}),'lap-forearm');
  b.add(ellipsoid(-.055,.785,.946,.217,.055,.105,-.065),'open-lap-palm');
  for(let i=0;i<4;i++)b.add(finger([[-.10,.79,.877+i*.043],[-.26,.795,.888+i*.043],[-.33+.013*i,.781,.896+i*.040]],.020),`lap-digit-${i}`);

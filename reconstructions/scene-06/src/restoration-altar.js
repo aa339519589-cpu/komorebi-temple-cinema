@@ -96,8 +96,8 @@ export function buildRestorationHangingOrnaments(options = {}) {
     buildPendantStandard(b,side*layout.sidePendantX,layout.sidePendantY,layout.sidePendantZ,layout.sidePendantLength,layout.sidePendantWidth,layout.sideHeaderDrop,layout.sideHeaderCeilingContact);
     const lower=layout.sidePendantY+.080,upper=layout.hangingCeilingContacts[1]+.010;
     b.cylinder(side*layout.sidePendantX,(lower+upper)/2,layout.sidePendantZ+.025,.009,upper-lower,'gold');
-    buildCanopy(b,side*2.80,6.25,1.0,.40,2.25,.10);
-    buildVerticalSuspensionChain(b,side*2.80,6.25+.78*.40,1.0,layout.hangingCeilingContacts[2]);
+    buildCanopy(b,side*2.80,6.25,1.0,.48,1.60,.10);
+    buildVerticalSuspensionChain(b,side*2.80,6.25+.78*.48,1.0,layout.hangingCeilingContacts[2]);
     buildLantern(b,side*6.30,3.75,0,.50);b.cylinder(side*6.30,5.98,0,.006,2.44,'oldgold');
   }
   b.finish();
@@ -1985,7 +1985,7 @@ function buildCanopy(b,x,y,z,s,chainDrop=1,chainExtra=0,shallowTray=false) {
       }
     }
     for(let ring=0;ring<3;ring++){
-      const count=[34,25,17][ring],radius=[1.28,.88,.46][ring];
+      const count=(shallowTray?[34,25,17]:[14,10,6])[ring],radius=[1.28,.88,.46][ring];
       for(let k=0;k<count;k++){
         const a=k/count*Math.PI*2+ring*.19,xx=Math.sin(a)*radius*(1+.035*Math.sin(k*2.4)),zz=Math.cos(a)*radius+.085*Math.sin(k*1.7+ring);
         // The chains must attach to the tray/ribs, not begin in empty air at
@@ -2014,7 +2014,7 @@ function buildCanopy(b,x,y,z,s,chainDrop=1,chainExtra=0,shallowTray=false) {
           const yy=-.12-i*.195;
           const form=(i+k+ring)%3;
           if(form!==1){
-            const scale=form===0?[.48,.67,.48]:[.49,.39,.49];
+            const scale=form===0?(shallowTray?[.65,.80,.65]:[.82,.86,.82]):(shallowTray?[.55,.44,.55]:[.72,.47,.72]);
             b.withTransform(xx,yy,zz,scale,()=>{
               const bell=b.geometry('five-lobed-pendant-bell',()=>{
                 // A closed neck grips the real carrier; only the flared mouth
