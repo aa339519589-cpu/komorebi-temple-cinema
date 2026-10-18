@@ -1,6 +1,7 @@
 // Recovered from verified 435ffe plus preserved modeling transcript after the 2026-10-17 environment reset. New source identity, not a claim of byte-exact f9c4 recovery.
 import * as T from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { HEAD_SCULPT } from './buddha-head-sculpt-data.js';
 
 // Independent reference-6 reconstruction, 2026-10-17. NOT a deformation of 687a.
 // Three separately built seated figures. +Z is front; Y=0 is the seat.
@@ -147,10 +148,9 @@ function reliefArcs(x,y,arcs){let f=0;for(const a of arcs){
   f+=gate*(amp*gaussian(y-level,thickness)-amp*.25*gaussian(y-level+.056,thickness*.70));
 }return f;}
 function makeBuilder(variant){
-  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[],cloth:[]},names=[],composites=[];
+  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[],cloth:[]},names=[];
   return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
-    composite(g,tag,materials){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag,continuousAnatomicalSurface:true};g.computeBoundingBox();g.computeBoundingSphere();composites.push({geometry:g,material:materials});return g;},
-    finish(){const out=[...composites];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
+    finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
       g.userData={reconstruction:'reference6-recovered-proportion-r1',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
     }return out;}};
@@ -190,7 +190,7 @@ function face(center,attendant=false,variant='central'){
   const g=loft(rows,{nu:192,nv:240,relief});
   if(variant==='left')g.translate(0,-cy,0).rotateZ(.018).rotateY(.035).translate(0,cy,0);
   if(variant==='right')g.translate(0,-cy,0).rotateZ(-.012).rotateY(-.025).translate(0,cy,0);
-  g.userData.frontAt=(x,y)=>frontOf(rows,x,y)+relief(x,y);g.userData.profileRows=rows;g.userData.faceRelief=relief;return g;
+  g.userData.frontAt=(x,y)=>frontOf(rows,x,y)+relief(x,y);return g;
 }
 function faceAnatomy(b,g,cy,small=false){
  const sy=small?.91:1.02,wx=small?.79:.96,at=g.userData.frontAt;
@@ -205,34 +205,15 @@ function faceAnatomy(b,g,cy,small=false){
   }
   b.add(cord(lid,.0075),'sculpted-upper-eyelid-'+side);b.add(cord(slit,.0060),'recessed-eye-aperture-'+side,'crease');b.add(cord(brow,.005),'arched-brow-ridge-'+side);
   const nx=side*.055*wx,ny=cy-.146*sy;b.add(ellipsoid(nx,ny,at(nx,ny)+.001,.006,.0035,.002),'nostril-recess-'+side,'crease');
-  if(small){const ear=[];for(let k=0;k<=28;k++){const t=k/28,a=-.65+t*4.35;ear.push([side*(.381+.021*Math.cos(a))*.85,cy+(.04+.175*Math.sin(a))*.85,.059+.006*Math.cos(a)]);}b.add(cord(ear,.0065),'auricle-inner-helix-'+side);}
+  // Helix and open concha are distinct volumes inside each long auricle.
+  const ear=[];for(let k=0;k<=28;k++){const t=k/28,a=-.65+t*4.35;ear.push([side*(.381+.021*Math.cos(a))*(small?.85:1),cy+(.04+.175*Math.sin(a))*(small?.85:1),.059+.006*Math.cos(a)]);}
+  b.add(cord(ear,.0065),'auricle-inner-helix-'+side);
  }
  const mouth=[];for(let k=0;k<=28;k++){const x=(-.105+k/28*.210)*wx,y=cy+(-.237+.014*(x/(.12*wx))**2)*sy;mouth.push([x,y,at(x,y)+.002]);}
  b.add(cord(mouth,.0035),'quiet-closed-lip-line','crease');
  const uy=cy+.255*sy;b.add(ellipsoid(0,uy,at(0,uy)+.007,.014,.016,.008),'forehead-urna');
 }
 function ears(b,cy,small=false){
- if(!small){
-  // One closed cast auricle per side. The lobule has solid thickness; its
-  // concha is a shallow recess rather than the centre of an oval handle.
-  const rows=[[-.435,0,0,.342,.090],[-.415,.018,.027,.350,.090],[-.37,.035,.044,.358,.078],[-.29,.043,.051,.365,.067],[-.17,.047,.055,.367,.055],[-.03,.059,.065,.360,.041],[.10,.062,.064,.348,.028],[.21,.044,.047,.330,.014],[.27,0,0,.310,.002]];
-  for(const side of[-1,1]){
-   const g=surface(96,160,(u,v)=>{const dy=-.435+.705*v,profile=sampleProfile(rows,dy);let[rx,rz,cx,cz]=profile;const a=u*TAU;if(v===0||v===1)return[side*cx,cy+dy,cz];
-    if(dy<-.37){const cap=Math.sqrt(Math.max(0,1-((dy+.37)/.065)**2));rx=.035*cap;rz=.044*cap;}
-    const q=Math.sin(a),front=Math.max(0,Math.cos(a)),local=q*rx,r=Math.hypot((q-.02)/.84,(dy-.025)/.225);
-    const bowl=-.026*gaussian(q+.22,.40)*gaussian(dy-.030,.105)-.004*gaussian(q-.58,.14)*gaussian(dy-.070,.12);
-    const helix=.012*gaussian(r-1,.17)*(1-smooth(-dy,.19,.29));
-    const fork=clamp((dy-.010)/.145,0,1),gate=smooth(dy,-.18,-.09)*(1-smooth(dy,.15,.23));
-    const anti=.012*gaussian(q-(.10+.34*fork),.16)*gate+.008*gaussian(q-(.10-.32*fork),.14)*gate*fork;
-    const tragus=.012*gaussian(q+.64,.18)*gaussian(dy+.040,.046),lobe=.007*gaussian(dy+.35,.070);
-    return[side*(cx+local),cy+dy,cz+Math.cos(a)*rz+(bowl+helix+anti+tragus+lobe)*front**3];
-   },true);
-   if(side<0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}
-   b.add(g,`closed-lobule-concha-helix-${side}`);
-   b.add(ellipsoid(side*.309,cy+.14,-.005,.028,.14,.072),`auricle-temple-root-${side}`);
-  }
-  return;
- }
  const scale=small?.85:1,rows=[
   [-.36,0,0,.370,.045],[-.335,.037,.035,.382,.052],[-.24,.044,.049,.398,.044],
   [-.10,.050,.059,.400,.023],[.05,.065,.065,.385,.005],[.18,.062,.057,.366,-.007],[.27,0,0,.337,-.016]
@@ -251,9 +232,6 @@ function ears(b,cy,small=false){
  }
 }
 function neck(b,cy,small=false){
- // The central torso already carries the full tapered neck. A second loft
- // in the same place produced the oversized overlapping collar silhouette.
- if(!small)return;
  const w=small?.171:.221,depth=small?.167:.190;
  const rows=[[cy-.185,0,0,0],[cy-.155,w*.79,depth*.83,0],[cy-.105,w,depth,0],[cy+.035,w*.97,depth*.96,0],[cy+.115,w*.88,depth*.83,-.006],[cy+.185,0,0,-.010]];
  const relief=(x,y)=>{
@@ -329,7 +307,7 @@ function crown(b,cy,{central=false,variant='central'}={}){
 const MAIN_BODY=[
  [0,0,0,.10],[.035,.39,.29,.10],[.27,.50,.34,.08],[.53,.51,.36,.025],[.83,.49,.37,.005],
  [1.15,.515,.375,-.01],[1.49,.56,.373,-.025],[1.82,.60,.355,-.040],[2.08,.62,.325,-.050],
- [2.23,.49,.275,-.050],[2.285,.245,.178,-.035],[2.325,.198,.133,-.040],[2.385,.191,.112,-.060],[2.455,.186,.108,-.060],[2.505,0,0,-.035]
+ [2.23,.49,.275,-.050],[2.34,.191,.180,-.040],[2.43,.155,.141,-.030],[2.49,0,0,-.025]
 ].map(p=>[p[0],p[1]*(1+.10*smooth(p[0],.70,1.50)),p[2],p[3]]);
 const MAIN_BAND=[
  [.63,.12,.14],[.91,.29,.17],[1.18,.41,.19],[1.48,.55,.20],[1.80,.64,.20],[2.07,.59,.17],[2.25,.43,.105]
@@ -347,8 +325,6 @@ const MAIN_DRAPE_TRACES=[
 ];
 function mainRelief(x,y){
  let f=.024*gaussian(x+.08,.36)*gaussian(y-1.30,.56)+.020*smooth(x,-.38,.30)*smooth(y,.62,1.10)*(1-smooth(y,1.95,2.25));
- const neckGate=(1-smooth(Math.abs(x),.145,.205))*smooth(y,2.26,2.29)*(1-smooth(y,2.39,2.425));
- for(const [level,depth]of[[2.290,.0012],[2.318,.0014],[2.345,.0010]])f-=depth*gaussian(y-level-.007*(x/.16)**2,.009)*neckGate;
  for(let i=0;i<MAIN_DRAPE_TRACES.length;i++){const tr=MAIN_DRAPE_TRACES[i],lo=tr[0][0],hi=tr.at(-1)[0],fade=smooth(x,lo-.015,lo+.035)*(1-smooth(x,hi-.025,hi+.015));if(!fade)continue;
   const at=sampleProfile(tr,clamp(x,lo,hi))[0],amp=[.008,.011,.010,.012,.010,.009,.008,.009,.007,.007,.006,.006][i];
   f+=fade*(amp*gaussian(y-at,.028)-amp*.30*gaussian(y-at+.030,.017));
@@ -390,38 +366,18 @@ function broadShoulderBand(){
  },.025);
 }
 
-function continuousCentralAnatomy(faceGeometry){
- const faceRows=faceGeometry.userData.profileRows,faceRelief=faceGeometry.userData.faceRelief,join=2.535,end=faceRows.at(-1)[0];
- const transition=[
-  [2.08,...sampleProfile(MAIN_BODY,2.08)],[2.23,...sampleProfile(MAIN_BODY,2.23)],
-  [2.28,.235,.160,-.035],[2.33,.205,.140,-.040],[2.40,.205,.180,-.030],
-  [2.44,.215,.210,-.020],[join,...sampleProfile(faceRows,join)],[faceRows[4][0],...sampleProfile(faceRows,faceRows[4][0])]
- ];
- const nu=240,nv=740,g=surface(nu,nv,(u,v)=>{
-  const y=end*v,a=u*TAU;let profile=sampleProfile(y<=2.20?MAIN_BODY:y>=join?faceRows:transition,y);
-  if(y>2.20&&y<2.28){const old=sampleProfile(MAIN_BODY,y),w=smooth(y,2.20,2.28);profile=profile.map((n,i)=>T.MathUtils.lerp(old[i],n,w));}
-  if(y>2.43&&y<join){const old=sampleProfile(faceRows,y),w=smooth(y,2.43,join);profile=profile.map((n,i)=>T.MathUtils.lerp(n,old[i],w));}
-  const[rx,rz,cz]=profile;
-  if(v===0||v===1)return[0,y,cz];const x=Math.sin(a)*rx,front=Math.max(0,Math.cos(a));
-  let relief;
-  if(y<=2.20)relief=mainRelief(x,y);else if(y>=join)relief=faceRelief(x,y);else{
-   relief=mainRelief(x,y)*(1-smooth(y,2.20,2.27))+faceRelief(x,y)*smooth(y,2.43,join);
-   const gate=(1-smooth(Math.abs(x),.14,.205))*smooth(y,2.27,2.29)*(1-smooth(y,2.33,2.35));
-   for(const level of[2.290,2.316,2.338])relief-=.0010*gaussian(y-level-.006*(x/.18)**2,.009)*gate;
-  }
-  const chinDrop=y>2.28&&y<join?.065*gaussian(y-2.40,.050)*(1-smooth(y,2.43,join)):0;
-  return[x,y-chinDrop*front**3,cz+Math.cos(a)*rz+relief*front**3];
- },true);
- // Shared vertices and normals continue from the torso through the neck and
- // rounded jaw into the unchanged upper face; material groups do not split it.
- let start=0,material=0;const ix=g.index,p=g.attributes.position;
- for(let i=0;i<ix.count;i+=3){const y=(p.getY(ix.getX(i))+p.getY(ix.getX(i+1))+p.getY(ix.getX(i+2)))/3,next=y>=2.285?1:0;if(next!==material){g.addGroup(start,i-start,material);start=i;material=next;}}
- g.addGroup(start,ix.count-start,material);g.userData.joinedSurface={body:true,neck:true,jaw:true,head:true,upperFaceUnchangedFromY:join,referenceSkinHeightWidthApprox:54/41,depthMeasured:false};return g;
-}
-
 function centralFigure(){
  const b=makeBuilder('central');
- const fg=face(2.78);b.composite(continuousCentralAnatomy(fg),'continuous-torso-neck-rounded-jaw-head',['buddha','face']);faceAnatomy(b,fg,2.78);fg.dispose();ears(b,2.78);crown(b,2.78,{central:true});
+ b.add(loft(MAIN_BODY,{nu:240,nv:280,relief:mainRelief}),'full-seated-torso');
+ // Unselected CC0 anatomical candidate. Head, auricles and visible neck are
+ // one subdivided human skin topology; there is no separate neck collar.
+ const head=new T.BufferGeometry();
+ head.setAttribute('position',new T.Float32BufferAttribute(HEAD_SCULPT.position,3));
+ head.setAttribute('normal',new T.Float32BufferAttribute(HEAD_SCULPT.normal,3));
+ head.setAttribute('uv',new T.Float32BufferAttribute(HEAD_SCULPT.uv,2));
+ head.setIndex(HEAD_SCULPT.index);
+ b.add(head,'cc0-sculpted-connected-head-auricles-neck','face');
+ crown(b,2.78,{central:true});
  const arms=[
   [[-.40,2.20,-.025],[-.64,2.02,-.005],[-.82,1.65,.055],[-.92,1.09,.13],[-.92,.82,.19],[-.84,.67,.25]],
   [[.40,2.20,-.025],[.65,2.01,-.005],[.84,1.65,.045],[.94,1.10,.14],[.89,.74,.25],[.66,.67,.45],[.43,.64,.66]]
@@ -566,5 +522,5 @@ export function createRestoredBuddha({materials={},x=0,y=0,z=0,scale=1,widthScal
  const defaults={buddha:new T.MeshStandardMaterial({name:'buddha',color:'#cfaa5d',metalness:.94,roughness:.29}),oldgold:new T.MeshStandardMaterial({name:'oldgold',color:'#927036',metalness:.91,roughness:.37}),gold:new T.MeshStandardMaterial({name:'gold',color:'#d1ab58',metalness:.95,roughness:.27})};
  defaults.crease=new T.MeshStandardMaterial({name:'crease',color:'#604018',metalness:.78,roughness:.43});defaults.face=defaults.buddha.clone();defaults.face.roughness=.25;
  const group=new T.Group();group.name='reference6-rebuilt-buddha';group.position.set(x,y,z);group.scale.set(scale*widthScale,scale,scale*depthScale);
- for(const p of restoredBuddhaParts(variant)){const pick=key=>materials[key]||defaults[key],mesh=new T.Mesh(p.geometry,Array.isArray(p.material)?p.material.map(pick):pick(p.material));mesh.castShadow=mesh.receiveShadow=true;mesh.name=p.geometry.name;group.add(mesh);}return group;
+ for(const p of restoredBuddhaParts(variant)){const mesh=new T.Mesh(p.geometry,materials[p.material]||defaults[p.material]);mesh.castShadow=mesh.receiveShadow=true;mesh.name=p.geometry.name;group.add(mesh);}return group;
 }
