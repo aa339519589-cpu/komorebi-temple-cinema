@@ -138,10 +138,10 @@ function squareTurnedProfile(profile,corner=.065) {
 function joineryLower(x,length) {
   const u=Math.abs(x)/length;
   if(u<=.075)return -.255;
-  if(u>=.5)return -.035;
+  if(u>=.5)return -.30;
   if(u>=.265&&u<=.34)return -.13;
   const a=u<.265?[.075,-.255,.17,-.245,.205,-.13,.265,-.13]
-    :[.34,-.13,.41,-.13,.485,-.10,.5,-.035];
+    :[.34,-.13,.41,-.13,.485,-.30,.5,-.30];
   const bez=(t,j)=>(1-t)**3*a[j]+3*(1-t)**2*t*a[j+2]+3*(1-t)*t*t*a[j+4]+t**3*a[j+6];
   let lo=0,hi=1;for(let i=0;i<28;i++){const t=(lo+hi)/2;if(bez(t,0)<u)lo=t;else hi=t;}
   return bez((lo+hi)/2,1);
@@ -975,6 +975,11 @@ export function createRestorationArchitecture(ctx) {
       }
       if(detail) {
         flower(0,0,.020,Math.min(w,h)*.36,'gold');
+        g.chasedPetal ||= new T.SphereGeometry(1,6,3);
+        for(let j=0;j<8;j++){
+          const a=j*PI/4,r=Math.min(w,h)*.32;
+          draw(g.chasedPetal,'gold',[Math.cos(a)*r,Math.sin(a)*r,.025],[w*.14,h*.075,.003],[0,0,a]);
+        }
         for(const sx of [-1,1])for(const sy of [-1,1])
           draw(g.nail,'oldgold',[sx*(w*.5-border),sy*(h*.5-border),.021],[border*.42,border*.42,.006]);
       }
@@ -1356,9 +1361,9 @@ export function createRestorationArchitecture(ctx) {
         const firstY=axis===0?.165:.184;
         const secondY=axis===0?.4965:.4775;
         for(const side of [-1,1]) {
-          squareFitting(side*.6208*hs,(firstY+.02375)*s,0,.21*hs,.0825*s,side*PI/2,fine);
+          squareFitting(side*.6208*hs,(firstY+.02375)*s,0,.21*hs,.15*s,side*PI/2,fine);
           for(const branch of [-1,1])squareFitting(side*.6808*hs,(secondY+.02375)*s,
-            branch*.415*hs,.21*hs,.0825*s,side*PI/2,fine);
+            branch*.415*hs,.21*hs,.15*s,side*PI/2,fine);
         }
       });
     });
@@ -1537,51 +1542,39 @@ export function createRestorationArchitecture(ctx) {
       stats.roofFaces++;
       const angle=face===0?0:face===1?PI:face===2?PI/2:-PI/2;
       const count=Math.max(4,Math.round((face<2?w:d)/.29));
-      for(let i=0;i<=count;i++) {
-        // Avoid double rafters on the shared hip seam; diagonal hip timber
-        // below carries that load as one heavy member, not four superpositions.
-        if(i===0||i===count)continue;
-        const u=-1+2*i/count;
-        const main=[],fly=[];
-        for(let j=0;j<=12;j++) {
-          const t=.34+.64*j/12;
-          const p=separateTiers?mainRafterCentre(evalP,face,t,u):evalP(face,t,u);
-          if(!separateTiers)p.y-=.305;main.push(p.toArray());
-          const f=evalP(face,.69+.345*j/12,u);f.y-=.232;fly.push(f.toArray());
-        }
-        const mainGeo=separateTiers?hipJackCut(layeredRafterSweep(evalP,face,u,true,!!opening),face,true,()=>layeredRafterSweep(evalP,face,u,true,true),clip)
-          :rafterSweep(main,.115,.145,{capStart:!!opening,capEnd:!!opening});
-        const flyGeo=separateTiers?hipJackCut(layeredRafterSweep(evalP,face,u,false,!!opening),face,false,()=>layeredRafterSweep(evalP,face,u,false,true),clip)
-          :rafterSweep(fly,.092,.098,{capStart:!!opening,capEnd:!!opening});
-        wood(mainGeo,'cedar');wood(flyGeo,'endwood');
-        stats.rafters+=2;
-        const end=v(fly[fly.length-1]);
-        const tangent=separateTiers?evalP(face,1.0351,u).sub(evalP(face,1.0349,u)).normalize()
-          :end.clone().sub(v(fly[fly.length-2])).normalize();
-        const q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),tangent);
-        if(separateTiers) {
-          const side=new T.Vector3(tangent.z,0,-tangent.x).normalize();
-          const up=new T.Vector3().crossVectors(tangent,side).normalize();
-          q.setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
-        }
-        const tip=end.clone().addScaledVector(tangent,.007);
-        // Fine gold rectangular end plates, not spherical golden rafter tips.
-        if(!inOpening(tip,.06))draw('box','oldgold',tip.toArray(),[.090,.094,.013],q,.88);
-        if(detail && i%3===0 && !inOpening(tip,.06)) {
-          const crest=tip.clone().addScaledVector(tangent,.009);
-          flower(crest.x,crest.y,crest.z,.033,'gold',q,.91);
-        }
-        if(roofAudit) {
-          const oldA=evalP(face,.35,u),oldB=evalP(face,1.02,u);
-          let oldPenetration=-Infinity;
-          for(let j=0;j<=16;j++) {
-            const t=j/16,surface=evalP(face,.35+.67*t,u);
-            oldPenetration=Math.max(oldPenetration,
-              T.MathUtils.lerp(oldA.y,oldB.y,t)-.21+.055-surface.y);
+      const denseCount=Math.max(8,Math.round((face<2?w:d)/.205));
+      for(let i=1;i<denseCount;i++) {
+        const u=-1+2*i/denseCount;
+        // Rafters retain their transverse coordinate. The hip cuts their inner ends;
+        // they do not point radially at the roof apex.
+        const sample=(t,extra=0)=>evalP(face,t,Math.max(-1,Math.min(1,u/t)),extra);
+        const makeRafter=(main)=>{
+          const lo=Math.max(main?.705:.875,Math.abs(u)+.022),hi=main?.993:1.024;
+          if(lo>=hi)return null;
+          const frames=[];
+          for(let j=0;j<=12;j++){
+            const t=lo+(hi-lo)*j/12;
+            const tangent=sample(t+.0001).sub(sample(t-.0001)).normalize();
+            const side=new T.Vector3(tangent.z,0,-tangent.x).normalize();
+            const up=new T.Vector3().crossVectors(tangent,side).normalize();
+            const centre=sample(t);centre.y-=main?.36:.205;
+            frames.push({centre,tangent,side,up});
           }
-          roofAudit.push({roof:roofOrigin,face,u,oldPenetration,
-            newMaximumTopOffset:-.183,architecture:ARCHITECTURE_REVISION});
-        }
+          return rafterSectionSweep(frames,main?.130:.098,main?.18:.10,{capStart:true,capEnd:true,bevel:.004});
+        };
+        for(const main of [true,false]){const geo=makeRafter(main);if(geo){wood(geo,main?'cedar':'endwood');stats.rafters++;}}
+        const tip=sample(1.024);tip.y-=.205;
+        const tangent=sample(1.0241).sub(sample(1.0239)).normalize();
+        const side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize();
+        const q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
+        draw('box','oldgold',tip.toArray(),[.096,.095,.009],q,.84);
+      }
+      // Continuous thick ring purlins take the short rafters, leaving small real
+      // rectangular voids between wood members rather than a broad fan cavity.
+      for(const t of [.755,.895]){
+        const points=[];
+        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=.49;points.push(p.toArray());}
+        wood(eaveSweep(points,.21,.25),'red');
       }
       // Broad, square-section fascia follows the reference's sweep. Thin gold
       // framing is restricted to the lower molding and exposed primary ends.

@@ -2,12 +2,12 @@ import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
-export const POSE={position:[7.5,1.02,10],target:[-1.2,8.4,0],fov:65};
+export const POSE={position:[7.5,1.02,10],target:[-1.9,8.4,0],fov:65};
 export function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
  mats.red.color.set('#9d3f20');mats.cedar.color.set('#985430');mats.endwood.color.set('#c28545');
- mats.slate.color.set('#434c51');mats.tileEdge.color.set('#a3a69f');mats.darkwood.color.set('#342e26');
+ mats.slate.color.set('#434c51');mats.tileEdge.color.set('#a3a69f');mats.darkwood.color.set('#555b4d');mats.paper.color.set('#282e25');
  mats.gold.color.set('#e1af46');mats.oldgold.color.set('#c79a43');
  mats.gold.roughness=.40;mats.oldgold.roughness=.48;
  // All surfaces are geometry and procedural textures. Baked source photographs are never used.
@@ -23,7 +23,7 @@ export function buildScene(){
  function group(x,y,z,angle,fn){stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationY(angle)));try{fn();}finally{stack.pop();}}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);}
  const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack});
- mats.architecture_red.color.set('#a04727');mats.architecture_cedar.color.set('#a36137');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414c53');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');
+ mats.architecture_red.color.set('#a04727');mats.architecture_cedar.color.set('#a36137');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#414c53');mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
  const levels=[];
  for(let level=0;level<5;level++){
@@ -32,6 +32,12 @@ export function buildScene(){
    const frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth:w+3.5*scale,roofDepth:w+3.5*scale,roofRise:2.35*scale,roofY:y+3.55,windowMaterial:'paper',detail:true});
    arch.pagodaRoof({y:y+3.55,w:w+3.5*scale,d:w+3.5*scale,rise:2.35*scale,wallWidth:w,wallDepth:w,frameScale:scale,detail:true,soffitMaterial:'cedar'});
    levels.push({level,y,width:w,shaftTop:frame.shaftTop});
+   for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
+     for(const xx of [-w/3,0,w/3])arch.brackets(xx,frame.bracketY+.04,w/2,.56*scale,{detail:true,interlocked:true});
+     for(const xx of [-w/2,w/2]){
+       arch.squareFitting(xx,frame.shaftTop-.13,w/2+.243*scale,.36*scale,.39*scale,0,true);
+     }
+   });
    balcony(w,y,scale);
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
    const r=(w+3.5*scale)/2;
@@ -77,14 +83,14 @@ export function buildScene(){
    });
  }
  // Sky: directional pale wisps are an analytic shader, with no image texture.
- const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.22,.51,.88),pow(max(0.,d.y),.4));vec3 p=d*9.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4);float cloud=smoothstep(.98,1.25,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.92);gl_FragColor=vec4(c,1.);}`});
+ const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4);float cloud=smoothstep(1.15,1.56,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.68);gl_FragColor=vec4(c,1.);}`});
  const sky=new T.Mesh(new T.SphereGeometry(120,32,16),skyMaterial);scene.add(sky);
- const hemi=new T.HemisphereLight('#cce5ff','#76522d',2.0);scene.add(hemi);
- const sun=new T.DirectionalLight('#fff0ce',4.3);sun.position.set(-18,30,23);sun.target.position.set(0,9,0);sun.castShadow=true;
+ const hemi=new T.HemisphereLight('#cce5ff','#a3784c',1.12);scene.add(hemi);
+ const sun=new T.DirectionalLight('#fff0ce',4.4);sun.position.set(-18,30,23);sun.target.position.set(0,9,0);sun.castShadow=true;
  sun.shadow.mapSize.set(3072,3072);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.00015;sun.shadow.normalBias=.025;sun.shadow.radius=1.5;scene.add(sun,sun.target);
  // Procedural environment radiance provides directional metal reflections.
  const faces=[];for(let i=0;i<6;i++){const c=document.createElement('canvas');c.width=c.height=64;const cx=c.getContext('2d'),gr=cx.createLinearGradient(0,0,0,64);gr.addColorStop(0,'#c7defa');gr.addColorStop(.5,'#b4c2c2');gr.addColorStop(1,'#6b4b2c');cx.fillStyle=gr;cx.fillRect(0,0,64,64);faces.push(c);}
- const env=new T.CubeTexture(faces);env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;scene.environment=env;scene.environmentIntensity=.55;
+ const env=new T.CubeTexture(faces);env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;scene.environment=env;scene.environmentIntensity=.85;
  foliage();
  function foliage(){
    let seed=52;const rand=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
@@ -99,8 +105,9 @@ export function buildScene(){
    }}
    branch([-9,0,10],[-7,7.7,8],.24);branch([-7,7.7,8],[-4.8,10.8,7],.13);branch([-4.8,10.8,7],[.2,11.1,8],.075);
    for(let j=0;j<15;j++){
-     const a=[-8+j*.48,9.7+Math.sin(j*.8)*1.1,7.6+Math.sin(j)*1.1],b=[a[0]+.5,a[1]+.6,a[2]+.25];branch(a,b,.027);spray(b,1.7,100);
+     const t=j/14,a=[-4.8+t*5,10.8+t*.3,7+t],b=[a[0]-.45,a[1]+.4+rand()*.45,a[2]+.15];branch(a,b,.027);spray(b,1.65,145);
    }
+   spray([.2,11.1,8],1.8,160);spray([-4.8,10.8,7],2.2,220);
    for(let j=0;j<26;j++){const p=[-10+rand()*7,1+rand()*7,2+rand()*5];spray(p,2.8,65);}
    leafBatches.forEach((arr,j)=>{const mesh=new T.InstancedMesh(leafGeo,greens[j],arr.length);arr.forEach((m,i)=>mesh.setMatrixAt(i,m));mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);});
  }
@@ -116,5 +123,5 @@ export function buildScene(){
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-low-angle-v1',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-short-parallel-rafter-v2',levels,triangles,parts,geometry:'True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves',cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());env.dispose();skyMaterial.dispose();}};
 }

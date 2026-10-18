@@ -1,0 +1,196 @@
+{
+  "reference": 5,
+  "entry": "reconstructions/scene-05/index.html",
+  "worktree": "/Users/mima1234/temple-scene-05",
+  "size": 768,
+  "startedAt": "2026-10-18T04:44:09.296Z",
+  "source": {
+    "hash": "f84bebf4626b87094497d3b3d14c4d2ad549eda51e4831ba99750194f0c57042",
+    "files": {
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/architecture.js": "5d83ee913774387b6a203918a5d3412c19f8a64114149c21f5d66d5e0ed258a9",
+      "reconstructions/scene-05/src/main.js": "7e72612121f55b78c41a298db59b3d46b902b31b5af9972231f90bbffb7e1db1",
+      "reconstructions/scene-05/src/materials.js": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/scene.js": "8b33deb1431b8c7b45993d3e391ca25babb5d88b32b52603563aa3532aa888b6"
+    }
+  },
+  "sourceCommit": "5ef769279f8f370854dc1aa394697e28463e5734",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-05/index.html",
+    "/reconstructions/scene-05/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-05/src/scene.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-05/src/architecture.js",
+    "/reconstructions/scene-05/src/materials.js",
+    "/vendor/build/three.core.js",
+    "/reconstructions/scene-05/src/natural-forms.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "camera": [
+          7.5,
+          1.02,
+          10
+        ],
+        "fov": 65,
+        "triangles": 2638272,
+        "calls": 38
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 5,
+        "revision": "scene05-low-angle-v1",
+        "levels": [
+          {
+            "level": 0,
+            "y": 0.35,
+            "width": 8.8,
+            "shaftTop": 2.987717432155291
+          },
+          {
+            "level": 1,
+            "y": 4.6499999999999995,
+            "width": 8.14,
+            "shaftTop": 7.324122204443322
+          },
+          {
+            "level": 2,
+            "y": 8.95,
+            "width": 7.48,
+            "shaftTop": 11.660531890927489
+          },
+          {
+            "level": 3,
+            "y": 13.249999999999998,
+            "width": 6.820000000000001,
+            "shaftTop": 15.996972365630741
+          },
+          {
+            "level": 4,
+            "y": 17.55,
+            "width": 6.16,
+            "shaftTop": 20.33342457099878
+          }
+        ],
+        "triangles": 2579460,
+        "parts": 17035,
+        "geometry": "True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves",
+        "cameraHeightRange": [
+          0.72,
+          1.02
+        ],
+        "renderer": {
+          "frame": 18,
+          "calls": 38,
+          "triangles": 2638272,
+          "points": 0,
+          "lines": 0
+        },
+        "referencePose": {
+          "position": [
+            7.5,
+            1.02,
+            10
+          ],
+          "target": [
+            -1.2,
+            8.4,
+            0
+          ],
+          "fov": 65
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "4babc95ccd2b3a02933223105ac185540f3e23f1490eeacddfeeca634a2ab55f"
+    }
+  ],
+  "completedAt": "2026-10-18T04:44:12.961Z"
+}
