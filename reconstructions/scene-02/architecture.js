@@ -79,16 +79,16 @@ export function buildArchitecture(mats){
  });
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};
- for(let i=0;i<34;i++){let x=12.1+i*.235;b.box(x,1.27,24,.228,.16,30,'floor',0,.85+.2*(.5+.5*Math.sin(i*5.7)));for(let z of[12,20,28,36]){b.cyl(x,1.355,z,.013,.007,'black');}}
+ for(let i=0;i<23;i++){let x=14.82+i*.235;b.box(x,1.27,24,.228,.16,30,'floor',0,.85+.2*(.5+.5*Math.sin(i*5.7)));for(let z of[12,20,28,36]){b.cyl(x,1.355,z,.013,.007,'black');}}
  for(let z of[10,18,26,34,40]){column(16.0,z,1.36,8.6,.48);bracket(16.0,9.7,z,1.35);} // substantial vermilion column is cropped at the far right
  for(let z of[10,18,26,34,40]){b.box(15.6,10,z,8.7,.45,.52,'cedar');for(let x=12.3;x<20;x+=.9)fitting(x,10,z+.28,.34,.34);}
  b.box(16,10.62,25,9.8,.28,33,'darkwood');
  for(let z=8.5;z<41;z+=.46){b.box(16,10.42,z,10.8,.30,.22,'cedar');b.box(10.73,10.42,z,.13,.31,.26,'darkwood');}
  b.box(11.1,10.08,25,.38,.45,34,'red');b.box(19.6,10.08,25,.38,.45,34,'red');
  // The nearest balustrade runs diagonally across the image through physical perspective.
- for(let z=8;z<=41;z+=2.6){let x=11.7;b.box(x,1.85,z,.25,1.0,.25,'red');b.cyl(x,2.34,z,.23,.12,'gold');b.cyl(x,2.44,z,.15,.12,'gold');b.ball(x,2.53,z,.23,.12,.23);b.ball(x,2.66,z,.10,.10,.10);b.cyl(x,1.48,z,.20,.17,'oldgold');}
- for(let y of[1.6,1.96,2.28])b.box(11.7,y,24.5,.20,y===2.28?.19:.12,33,'red');
- for(let z=9.3;z<40;z+=2.6){b.box(11.7,1.82,z,.07,.64,1.77,'darkwood');b.at([11.58,1.82,z],Math.PI/2,()=>{for(let zz of[-.29,.29])b.box(0,zz,0,1.74,.065,.04,'gold');for(let xx of[-.84,.84])b.box(xx,0,0,.065,.64,.04,'gold');rosette(0,0,.035,.25);for(let s of[-1,1])for(let j=0;j<3;j++){let x=s*(.32+j*.15);b.tube([[x,-.22,.025],[x-s*.12,.05,.06],[x+s*.04,.22,.06],[x+s*.1,.04,.03]],.025,'oldgold',12);}});}
+ for(let z=8;z<=41;z+=2.6){let x=14.8;b.box(x,1.8,z,.25,.9,.25,'red');b.cyl(x,2.24,z,.23,.10,'gold');b.cyl(x,2.33,z,.15,.10,'gold');b.ball(x,2.41,z,.23,.10,.23);b.ball(x,2.51,z,.09,.08,.09);b.cyl(x,1.48,z,.20,.17,'oldgold');}
+ for(let y of[1.6,1.96,2.28])b.box(14.8,y,24.5,.20,y===2.28?.19:.12,33,'red');
+ for(let z=9.3;z<40;z+=2.6){b.box(14.8,1.82,z,.07,.64,1.77,'darkwood');b.at([14.68,1.82,z],Math.PI/2,()=>{for(let zz of[-.29,.29])b.box(0,zz,0,1.74,.065,.04,'gold');for(let xx of[-.84,.84])b.box(xx,0,0,.065,.64,.04,'gold');rosette(0,0,.035,.25);for(let s of[-1,1])for(let j=0;j<3;j++){let x=s*(.32+j*.15);b.tube([[x,-.22,.025],[x-s*.12,.05,.06],[x+s*.04,.22,.06],[x+s*.1,.04,.03]],.025,'oldgold',12);}});}
  // Large hexagonal bronze lanterns: emitting panes behind intricate metal tracery.
  function lantern(x,y,z,s=1,ceiling=10.3){b.at([x,y,z],0,()=>{for(let h of[-.67,.67]){b.put(new T.CylinderGeometry(.48,.48,.10,6),'gold',[0,h,0]);b.put(new T.CylinderGeometry(h>0?.27:.53,h>0?.53:.27,.25,6),'oldgold',[0,h+Math.sign(h)*.16,0]);}for(let side=0;side<6;side++){b.at([0,0,0],side*Math.PI/3,()=>{b.box(0,0,.414,.44,1.22,.025,'paper');for(let xx of[-.23,.23])b.box(xx,0,.44,.045,1.36,.06,'gold');for(let yy of[-.59,.59])b.box(0,yy,.44,.48,.055,.06,'gold');b.put(torus,'oldgold',[0,0,.45],[.19,.28,.32],[0,0,0]);for(let k=0;k<5;k++){let yy=-.5+k*.25;for(let ss of[-1,1])b.line([-.20,yy,.45],[.20,yy+ss*.23,.45],.017,'oldgold');}rosette(0,0,.47,.13);});}b.ball(0,-1.03,0,.15,.2,.15);b.ball(0,-1.26,0,.065,.13,.065);},s);
   const top=y+.99*s; b.line([x,top,z],[x,ceiling,z],.023,'oldgold');for(let yy=top+.1;yy<ceiling;yy+=.14)b.put(torus,'gold',[x,yy,z],[.047,.065,.047],[0,yy*8,0]);const light=new T.PointLight(0xffb75f,15*s,8*s,2);light.position.set(x,y,z);lights.push(light);}
