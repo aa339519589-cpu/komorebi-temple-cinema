@@ -1,0 +1,3217 @@
+{
+  "reference": 4,
+  "entry": "reconstructions/scene-04/index.html",
+  "worktree": "/Users/mima1234/temple-traced-stone04-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-18T19:21:42.732Z",
+  "source": {
+    "hash": "3afc2124db60ba945c3016e61c27a5f7b9c78b117e62b3f3baeee60008fe5fa9",
+    "files": {
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-04/asset-dependencies.json": "4fb3601223bb9324be363e3bc8eef36020ffd9b84ec8538d462f4b2a4ecde888",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-04/assets/granite-tile-04/granite_tile_04_diff_4k.jpg": "bdbc606f7f13fd422303e3a02d6d721b5980d0e531e7fe02ff0af9586e944def",
+      "reconstructions/scene-04/assets/granite-tile-04/granite_tile_04_nor_gl_4k.jpg": "62a82d3da12523231a5d16cfea1f8c214f9bb47d22694e970230087a9f7027be",
+      "reconstructions/scene-04/assets/granite-tile-04/granite_tile_04_rough_4k.jpg": "d0fa1ba236ef2cfccc9fde9b4b2f3235039a8426b4e334db6fcd26b0fad19953",
+      "reconstructions/scene-04/assets/granite-tile-04/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-diff.png": "4f78aeb551287144c2c1b7f1f4d6c640dfc38d1d8bacb80534dd59001a393074",
+      "reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-nor_gl.png": "f5e7643b0a7e5d7ea063f3b4a34ebe34de24fd16665ff46156351e17d99670fc",
+      "reconstructions/scene-04/assets/monastery-stone-floor/individual-stone-rough.png": "d98abb49a07b5da228fba1ce6923b7d905610ce78a40f4fa61984b39e97d86a5",
+      "reconstructions/scene-04/assets/monastery-stone-floor/monastery_stone_floor_diff_4k.jpg": "c1e1a3af80ed28d8de30f8b8c8583c4e8c9243d6f6b60f010a858f421e5c4253",
+      "reconstructions/scene-04/assets/monastery-stone-floor/monastery_stone_floor_nor_gl_4k.jpg": "cf2ea05c00a94d99bd0a39a07b71ec346c3e97d30a47e15931d18f37d49ad723",
+      "reconstructions/scene-04/assets/monastery-stone-floor/monastery_stone_floor_rough_4k.jpg": "6370b7ce90958ced9f56f47aef69830b22cc180a88aa06137b5b29d109af6c9d",
+      "reconstructions/scene-04/assets/monastery-stone-floor/provenance.json": "e2c5957d73cc88441c1c5545c5202c128a8bc90ebf25bb73c6473e2101440770",
+      "reconstructions/scene-04/assets/traced-stone04/manifest.json": "0117ec0462a2801ffc8eb3a60d1d04c5f420c1e4864e156e21df5a35898a3612",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-01-basecolor.png": "f6f75dee90d3290312c08487cf1b901e27ea0400685acb4b709f4ef4006c6eb6",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-01-normal.png": "a5a77cc2085620a65ca8f518e82001c7b8c1c607a1b4b40b59343b77a4b75e15",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-01-roughness.png": "7ce9d1c89256a302c2ab9842b5108ce877fa92fc7cc92893f0ea3450b8bd9f23",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-01-wetlayer.png": "fe23a728cf210809e5a0b35e21d5f63d0bc2af001b4fb87d68a4a82bfa78bb87",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-02-basecolor.png": "11097ac2a919727014d4cda327137872919e12cba60cc6b2e622eb668257b9c4",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-02-normal.png": "ab9a1e4c734d5bdffc8dc64425d80d498ae06211242b27aaacfd126a70acb888",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-02-roughness.png": "c3f499493148ea3a74bcf91c7e675787299fd3ec0953afeb1cb473f65ec0ae89",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-02-wetlayer.png": "d78587c56e5e293739da881ac178576a06ab43da20068124ef013ff3ca12e985",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-03-basecolor.png": "acc1a59476d99065db9d0c2827c182706f3e7bf388009035792aa5b8a29019ba",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-03-normal.png": "7b8baf79714cbda4099c897dd8aa9234dde6ddceee8ac639dcfa428b8c6d599f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-03-roughness.png": "35dce4cfb1b18ce6bd791f704bc3c90652a11b03b780d2cfd8061dc0aa3203ab",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-03-wetlayer.png": "e086b9a69242c9fb9e7a7ef0eed9e3db6748ee7bda37421c2059bad40b20e2e0",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-04-basecolor.png": "f4a2960f02db94e133d4c125b5ca9b33f9d8ea8f26acbf4f3679c1f372a38a95",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-04-normal.png": "c38d439c94ee1b87146a491164b27ebd12bbfc37fce52a43d04614f889ac2647",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-04-roughness.png": "371ae629def7f8d6190137b65f9ca48dbdc0eb84a99adf1d609c3eecf52601cf",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-04-wetlayer.png": "4303efb044c018358c2987fe0d0bed58cd9198e2d61a4d0044782fe01be9559a",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-05-basecolor.png": "4889058bd6e3dc5653fe2b2b19d50e1d3e11351553228b8a75f536320c55c740",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-05-normal.png": "bf66e99235a866d57ff6efb496535e1f3b5f07e9dd7c9b8cf980fb145d76e64b",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-05-roughness.png": "907a296697176120d6bb6c3db1e2960e861e84cdc8babbf207d794dcd7d91eef",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-05-wetlayer.png": "281ea5aa68e9dc99c3668d819f7e4dc10e4146009b3e968404bc601cca1711dd",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-06-basecolor.png": "a46173c3164802fffd6872a82c99318b86167172a576ea759c05126af6a074f9",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-06-normal.png": "685730976e11665627a0c174b8b59db3fe9e836aea78717d4e9eec27bf1d3596",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-06-roughness.png": "0e213fa0d72d4c4b6311abc51325769e40dea244e1356d6e8bc05c1e7848621b",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-06-wetlayer.png": "718c260f629357eb98bd85293d2662f93012998c2940c5992c283a357632657b",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-07-basecolor.png": "12509f4eb6be3d6ec6ffc1c4927f086f063c1a39023095c4d795c4c724fa08cb",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-07-normal.png": "fd77d3b16ff3c2b3cf950c3d5285ea1cb95e7e6afe5f6a7eafc3310a1d4d5014",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-07-roughness.png": "453920c07b4727e24b215698553ed11397472076d7bec9271ae9a99dc277deb3",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-07-wetlayer.png": "ac9d77728b61e21dfd38cbfbf684d7ae419a92234699943e3ea470d64153e06a",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-08-basecolor.png": "c4f8b67bf8e082030bca8fa1dd2508654a3dcc2cbe521167bfcec43c2b15c43d",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-08-normal.png": "2475c51b713ee93fa57ee9b133199656c8f7fa7370316fccc69b2d7b35f5571a",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-08-roughness.png": "ebb0781d2a3ae624071e35793e67bf79dc19a1634e451748368c104fe2cc0631",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-08-wetlayer.png": "276121e6c3084e3c968272539c34251056c3edec477e4816cb62704d1c970888",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-09-basecolor.png": "ca301bcf75aad99c1a1bc7da8cc5044c2a0142332f028f1b560f518f44e39825",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-09-normal.png": "235b4eb7f43552a5de63abafdcc101373e176a7a54f31dd4e2e1bd6ad58d8cd6",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-09-roughness.png": "8e067c0e2b4b8cff93d651ccecf8ca665f5b43430ae8a904f49b5ff043f16544",
+      "reconstructions/scene-04/assets/traced-stone04/observed-centre-09-wetlayer.png": "cf4cd745eda515fbb402fecc7a2374ea92cc45a9549fb4fe7bb923f79c5f90d6",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-01-basecolor.png": "76d7d5ecc44b4d90041211d0b97f1430bda0f280ab0c5a7ad2f572ef76c9aff1",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-01-normal.png": "8b11c6e1e8d3dc4044cd5368d6402ab1aa463aa914d572337125de8dd73459cf",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-01-roughness.png": "9417f9b599c66d8020bf78e96b4a3e16c50f5d01092d86ef8c2bd5954b91bcd2",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-01-wetlayer.png": "391d9379c7a212ca67ccb9de53348a98baeaeb60e7be300af9f517e83655a9c0",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-02-basecolor.png": "89b66a2cea3fb1396661b1bb045c49711dd7cee1ea03bb95a056e2560d1e9073",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-02-normal.png": "3a28c5d4e00d7fe6d257cf4eb0f1d377782e64a5389673d6cbdfef29ae3d3a43",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-02-roughness.png": "92ec591dd7039c203ff063fcd82d1e604a6aea225e3f2ef73bd5acef2fa1125d",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-02-wetlayer.png": "f6a50793a92f309aafa8cffdf1021ea764379d7f0002255dd2eec4aee26f8b27",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-03-basecolor.png": "64b3d31ff5e65e00d7d3abd00143d04ca6c1133053f5768653fec2f69ad7f21c",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-03-normal.png": "b6d455ccce42f5306862fa34a9f36e16363fc1d9838991391cddcb4b6b8e84d3",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-03-roughness.png": "d93be35febd0219711ad9db5db4ae98dc6bfdf30eb10e28293da8740ac9b50a3",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-03-wetlayer.png": "abdda326788050bc048ec7fcda64f3ae1cdbda6b4214412494fe7574bc260232",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-04-basecolor.png": "de33d7a66c5407a3b0b450c8a2eb2bd4dc9c6530f2d63c8cd206bf6f28c3ed94",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-04-normal.png": "76a47b6139ec31be12ee24b1cae6473016801e532433fab3b21223c744539050",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-04-roughness.png": "3bdada1e33bbbeaaeab2f463c94c12bc3d305024c45cdf951bf7d4a607b46663",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-04-wetlayer.png": "0160d81b64faf7fa7c9132d341caaea4e8e9fbb21573a4ca2834db769546097a",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-05-basecolor.png": "c3df7c759e04711a0ae59a4f24c384fe9435c4b6f81538721989b35661d3c94f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-05-normal.png": "f33bcccf2f27c15944fb312b7f68e16b7204747f18252923ca1d09fc4e224ee4",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-05-roughness.png": "1a00390617d942e3d4e7478804c17735233c6f4eb9533eb489a966da7ba048e0",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-05-wetlayer.png": "1dbc2685508cbe77af5e0428d03585dfe6d20502a23dfb87f4da57a50c35d07c",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-06-basecolor.png": "433f7bb3202f4602b19a0607e106f83af86c033b6267c9acadebdeeb44b71eaa",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-06-normal.png": "7a23b17e781b4e327cbfb04703171f56fbbb577649f564b72b49dcfd8d17da3f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-06-roughness.png": "f44b2fccb5a62e50190fe090272ea3f3408d5bba98a56a0a38a4cf55f0ce50a9",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-06-wetlayer.png": "dd655a5babb2b291821f70f83c2908e66488847fa8a0507f51b1842025aa1e7c",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-07-basecolor.png": "9a0c9d9c97458aa1742ae0892d1e71961bd92b3e4062c40a91100efdec255a4e",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-07-normal.png": "a3bcacc7fc31539db94744eb443c6e4cf7991dc9804a3556a358e6078aced73f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-07-roughness.png": "14440a7c24a26cd0ba1d3c620ae07c2e16d9589b8cdd4c67e5cd1adc693faded",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-07-wetlayer.png": "13cacb36e47221bb83c4ac44086809859d506138292ce72c5d7b97f3bfbfc1c4",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-08-basecolor.png": "9420ea9b0f817531825438b40b21e6fc347fa483b9fe749c2b064462017d8dc2",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-08-normal.png": "44c20cbd913b2d50d603f55691f7e2cd0d445f2eadc5e58a871dfce7e830ab0c",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-08-roughness.png": "7c511e97cdb5b1151a5f52b4c5509d4332de2b46f136de66a2d668db2d4e65ba",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-08-wetlayer.png": "78ec4dc0dc7b3623c64219ec0d2055533337fdccf31eb5a9c56065d5c9f8d8f9",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-09-basecolor.png": "f70dfdd726a155c67ed5fe05f91519c2bab593551351a70bb6e33e422dc09ce6",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-09-normal.png": "638fc9c5f5afc05daca702513befec82a99ee9b0755122e544d478edfdc3907f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-09-roughness.png": "01b2716d69d480ddc3a66102f9417ee11186ec33083d3ea9cad6020c307d7a9a",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-09-wetlayer.png": "6a0ddb0a69743aa6fd95d23cb17fdcb7ee79ca72807376e42c38ab8ae3cbcd28",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-10-basecolor.png": "1a0e781cb5ed6c9c005467f6fb1f03579ae3cd57980730c7766fdbd30f7142bf",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-10-normal.png": "01f1efea3c7bfd85009b9e1444a917b33a30281d51080893356c2b25c5f21e57",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-10-roughness.png": "8d693e556b93ad72972841e33c2e5172e4d76c7beb08d3367fd813ca6c4c8a8d",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-10-wetlayer.png": "8862703636d82f23597986df62b26e6336954a403bdaf313f0967b20d2f5834b",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-11-basecolor.png": "746de20fc22df1e4fbf5c6d4ef8bf30a1a36375159962f257ad5b6751323ecbb",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-11-normal.png": "0dcf01891c8db99140ad0fad4ebb7bf8395cf3591c1708b7174ad79236aaaa4e",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-11-roughness.png": "83fb48258690366b6c6eebbcd937d253d8d19f14a9c7036cfebbb403dd19611f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-east-11-wetlayer.png": "f427f0c6dd3b869d61fb4c49cc6b84cc3bbabf4ea9a4e0bfe845bdbb5c653d6a",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-01-basecolor.png": "eb32ce0a95856b7bc0114233bcfdfe6688973e61c491946c0cc995821a147fb1",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-01-normal.png": "a356e18203a20d9b6904da990af09f59d94c096924131abfe07c94c39cbcafe6",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-01-roughness.png": "2342246f7de37ea96cec7d557936e0687e8e3aecdb733899507bf7a0def28524",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-01-wetlayer.png": "aae09751879687653c2530fa74c73799ff27d471f9ceaff4b8ba4c928d898003",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-02-basecolor.png": "3407ab85fc8b283b830aa53a42008b20a396c764e4be305fc1d66f9bf50318dd",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-02-normal.png": "a2fb64e33bf44377a50a2efd1650b6ba1701b74fae3e7239f73a359a85069874",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-02-roughness.png": "6714950538e6c43922bd10fe2bb40b5b5222a4484b59d33f6010a1917c562370",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-02-wetlayer.png": "c107598688631801f6d33b279453007f9a9b095fc87bbe2138e9e35e11331128",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-03-basecolor.png": "f425c2f506d7752c715fc40f5c9d0ec706f2efdacc9d009933839221d2120364",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-03-normal.png": "3982a9879086b6af58ee5cf6478bc7cdb03db11c6d7cc12cc6667c578e68715b",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-03-roughness.png": "d0dad373e073f36c3296a512a0e5da18ec329d394e784d48cb481d53d54957a0",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-03-wetlayer.png": "05dc36edca0d0cb5d3b730301d2c43680cb387e6232e4bbc1ecd5e8010dd556f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-04-basecolor.png": "3201cb803356b8dc1aa1d768c6dd3d87e07f4f7cbf7917906003c97f0a820f8f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-04-normal.png": "c486955fc771e645e6f2149e0c1c83553c4677da82687bd1bf124f5865b92779",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-04-roughness.png": "d8d71e42566cedad149bc7508683170470e70db49f12a2d600f8638bf2986058",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-04-wetlayer.png": "98efec0a6dfae69e3984313b6a9917543f9c61deb16b2185e0f79acc926815ba",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-05-basecolor.png": "ce6024ff44e79f398e996fce9d21ee9271a001f6f792ed132767871c5fb28b31",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-05-normal.png": "b8b587c584fab67d72796988930090e19b04f1006ccb1a18b3709031234e9bea",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-05-roughness.png": "a93d0128e7f4b89c771e9e0a52aacf9b817e68d7c61385dc394bb28652f676ee",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-05-wetlayer.png": "b789858d21ca40f9d6e6f3c496a2823c680029f9c11cc31878e6299bdeb65367",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-06-basecolor.png": "d1108a94ecbd3883e183686924b3477a63e6fdba7cbc72bce842af63de92ebe4",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-06-normal.png": "9cec2f39c07ff626fe27da5f916bcdc52efb25058a7b77d1929ab0bd30e6546e",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-06-roughness.png": "deeb7e4bb076ebbc7326506f64f5085a1ca1b4a517487c6aa5a75bff3f75f302",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-06-wetlayer.png": "405ad72c069f2f01a8040fd2254d69c809cdea3dd20c552780d0838be358b719",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-07-basecolor.png": "d55e770714c7969fdcb1d8e93f9228ddd102523f60c31f02e5be0a4db08e44e4",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-07-normal.png": "79318be36a7945c486db0daf64f7b1a13218e294d3859d3a451166266c3f32e3",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-07-roughness.png": "df96f24e13c7078a244fd39a1d5f64e34e06c2188515a517d5a6b1d816b9f239",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-07-wetlayer.png": "047ee1a4385588f460883d844cfc59d65b3ddcc36932f2f1a8825202c218302b",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-08-basecolor.png": "2f4c04731cb98b1a9b69cc7af8b8e4d8a716b8b65324f18ff194c4591111924f",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-08-normal.png": "9d261c06fb5bce99a9c066dd705d31eebce12902eaac5c2af834f7a8aebb27d3",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-08-roughness.png": "c6a7fd5458e67e0a9dc014efb2d453c54b1318dabc70ee21349e6a4ebb79ae05",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-08-wetlayer.png": "ca0d2222f70ee13bbdf6f68f288ef60b833910cf90c873fd49b9ad9f2c115bbb",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-09-basecolor.png": "ac3e3f39a02733b82b28c42464aa7d1822f21ee949cd3f99f10af627d36df8a0",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-09-normal.png": "066336be1b68447e0ad2a6454631c2a404a2c6a5d91fe0a4e26d32390974acd4",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-09-roughness.png": "d557c2f67be33125777152c1949544a25b5fd5fe264643f1ac0055dc7c698e24",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-09-wetlayer.png": "ac9ea40a2aeba577125ce477253ffe8bc38bbcec49fdfd4ef5f188b7022cc26d",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-10-basecolor.png": "de4b10e514264e2b9f75b0926b343d26050664fa33a6d5779d0249bff97cf88c",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-10-normal.png": "09456022abb9ac1149f800e3c446da5bfec211419f312a67510bdb96d4bb9df9",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-10-roughness.png": "32ca45e95c14b98859a4418212d63383c121e2982a6e67cb80dd365622cdd25e",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-10-wetlayer.png": "4389f0d4528e56e54d472fecd83a94e81546d5cbca80f3f70fbce91a5bbab304",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-11-basecolor.png": "7fe0041cb842c4c006a39b436c6a54a58e36629a561a1add033a82ce22c704b2",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-11-normal.png": "9d4b093cfc7c825e18d95ac3ccc06e5c23025ed4ed210f9b80658baf8ea3351d",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-11-roughness.png": "1571247f36fe3099550b39c2fffb7d19e95965a054b5c6954059f9fb08043596",
+      "reconstructions/scene-04/assets/traced-stone04/observed-west-11-wetlayer.png": "746ac3077a837d79271d13037dad5c92512b4e0b99ce3012efbbcc0c38cff3f6",
+      "reconstructions/scene-04/index.html": "0f0384536abf38f80657468f006c9b9c07e3aca7c9d2518e38e862fd086a9eb3",
+      "reconstructions/scene-04/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-04/src/ornaments.js": "83cc048facf46c1edcc4ac122489792cd1d3ac5a37c70bfe2f5f7fd5efa62549",
+      "reconstructions/scene-04/src/reference4-architecture.js": "7580455f83c7a5f456523a86129b820407a93f158a744692a4da94416dc6462a",
+      "reconstructions/scene-04/src/reference4-atmosphere.js": "197ddb5f60d00313c483c939edf028ca8343c792a868719d03fcd2d0ac0b8cbe",
+      "reconstructions/scene-04/src/reference4-config.js": "92504a99e7c805e094ec20596d9478ea59816caa6f7356a310222858651d11ba",
+      "reconstructions/scene-04/src/reference4-detail-kernel.js": "adda7f460d2f3bb127dace518ed52299be8b07d7f444aa08b1e855f803b28e0b",
+      "reconstructions/scene-04/src/reference4-distant-forest.js": "fd76516f49b6bf46d86b0ddda888548824e5e2c70690a4e6dc4d9301cc55f0df",
+      "reconstructions/scene-04/src/reference4-garden-stone.js": "5456e016deff0c45157e2afabe6559d2ef96ed5d990eb11e990448fb71a85c62",
+      "reconstructions/scene-04/src/reference4-garden.js": "d4ae70fdf745086d358ca9d8ded5a620d3a9d77c2748186fa511379e49ccbfec",
+      "reconstructions/scene-04/src/reference4-main.js": "bcb28f458a9b10851e9ca8306924743149179053a73e04ab4f2d76e84a5496bf",
+      "reconstructions/scene-04/src/reference4-materials.js": "f503e84c813bdbdbfc84ae73220c095e7075e8de1e78614fd6dedf9be999a1de",
+      "reconstructions/scene-04/src/reference4-natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-04/src/reference4-pruned-crown.js": "6b6cb27fe22f666e45cce0a0011f708f08c3263677646ce8d4014de8c74b9fe7",
+      "reconstructions/scene-04/src/reference4-sanctuary.js": "7e4f34f6d276713e9080e93c6a2909cc1eac862d1c51c5b6c6d74c902dd7931e",
+      "reconstructions/scene-04/src/reference4-scene.js": "4f683dbb8c418227fe5b9f7ec9a9317353bdbf2aa1780464083321b2a7f0caf8",
+      "reconstructions/scene-04/src/reference4-weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-04/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-04/src/restoration-landscape-lanterns-v2.js": "9415a0b440300d60f3fc69d372780b06fbb6c729a214b2eef1d632834cbba09c",
+      "reconstructions/scene-04/src/restoration-lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+      "reconstructions/scene-04/src/restoration-lotus-petal.js": "e7be770ab06d39791666e1e236c4d4445853b8706f086de33bc0650b003eb7ff",
+      "reconstructions/scene-04/src/restoration-pruned-pines-v1.js": "f41adbbcf83bf56541d34e2861f803e4450dcc260f92a0fc5e76712cd9484e6b",
+      "reconstructions/scene-04/src/restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25",
+      "reconstructions/scene-04/src/scene04-carving.js": "a1e36a7cc1571504b1d7e7f972e8ad8036fdc726ade1ef47f6fa0558d9398cf5",
+      "reconstructions/scene-04/src/scene04-lanterns.js": "37dec9b542ea359bb79266ec4bb6194b95d84ec31acae77c62c0ab01ef4523d4",
+      "reconstructions/scene-04/src/scene04-scanned-stone.js": "6ed11009f85143b1d392ec91908bcaf0e511d9ca0ce2aeb372701ab7c5a6cb2f",
+      "reconstructions/scene-04/src/scene04-surfaces.js": "7599fed2cc5b100dfbae83f48c8be1ce7e13c70ad1c94552d79040255dcf7aa3",
+      "reconstructions/scene-04/src/traced-paving04.js": "1a22651b4890bc3eb88e734d692a3066a5d224cf1cd61d3927759c30b5e869ec",
+      "reconstructions/scene-04/src/traced-stone-material04.js": "07f3f61d73d079ccadfe8486c9960d21b1808324ea689e9f8085a41469625165"
+    }
+  },
+  "sourceCommit": "6c9be0cff11f3c886612765572a500aaa9df248f",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-04/index.html",
+    "/reconstructions/scene-04/src/reference4-main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-04/src/reference4-scene.js",
+    "/reconstructions/scene-04/src/reference4-config.js",
+    "/reconstructions/scene-04/src/scene04-scanned-stone.js",
+    "/reconstructions/scene-04/src/traced-stone-material04.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-04/src/reference4-architecture.js",
+    "/reconstructions/scene-04/src/reference4-garden.js",
+    "/reconstructions/scene-04/src/reference4-sanctuary.js",
+    "/reconstructions/scene-04/src/reference4-distant-forest.js",
+    "/reconstructions/scene-04/src/reference4-atmosphere.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/build/three.core.js",
+    "/reconstructions/scene-04/src/scene04-carving.js",
+    "/reconstructions/scene-04/src/scene04-surfaces.js",
+    "/reconstructions/scene-04/src/reference4-detail-kernel.js",
+    "/reconstructions/scene-04/src/reference4-materials.js",
+    "/reconstructions/scene-04/src/reference4-garden-stone.js",
+    "/reconstructions/scene-04/src/traced-paving04.js",
+    "/reconstructions/scene-04/src/reference4-weathered-boulder.js",
+    "/reconstructions/scene-04/src/reference4-pruned-crown.js",
+    "/reconstructions/scene-04/src/scene04-lanterns.js",
+    "/reconstructions/scene-04/src/restoration-pruned-pines-v1.js",
+    "/reconstructions/scene-04/src/restoration-lotus-leaf.js",
+    "/reconstructions/scene-04/src/restoration-lotus-petal.js",
+    "/vendor/examples/jsm/objects/Sky.js",
+    "/reconstructions/scene-04/src/restoration-buddha.js",
+    "/reconstructions/scene-04/src/botany.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-04/src/reference4-natural-forms.js",
+    "/reconstructions/scene-04/assets/traced-stone04/manifest.json",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-01-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-01-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-01-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-01-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-02-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-02-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-02-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-02-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-03-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-03-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-03-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-03-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-04-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-04-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-04-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-04-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-05-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-05-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-05-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-05-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-06-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-06-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-06-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-06-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-07-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-07-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-07-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-07-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-08-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-08-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-08-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-08-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-09-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-09-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-09-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-09-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-10-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-10-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-10-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-10-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-11-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-11-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-11-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-west-11-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-01-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-01-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-01-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-01-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-02-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-02-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-02-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-02-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-03-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-03-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-03-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-03-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-04-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-04-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-04-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-04-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-05-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-05-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-05-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-05-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-06-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-06-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-06-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-06-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-07-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-07-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-07-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-07-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-08-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-08-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-08-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-08-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-09-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-09-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-09-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-centre-09-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-01-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-01-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-01-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-01-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-02-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-02-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-02-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-02-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-03-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-03-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-03-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-03-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-04-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-04-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-04-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-04-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-05-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-05-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-05-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-05-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-06-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-06-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-06-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-06-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-07-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-07-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-07-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-07-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-08-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-08-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-08-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-08-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-09-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-09-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-09-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-09-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-10-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-10-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-10-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-10-wetlayer.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-11-basecolor.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-11-normal.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-11-roughness.png",
+    "/reconstructions/scene-04/assets/traced-stone04/observed-east-11-wetlayer.png"
+  ],
+  "detailCrop": {
+    "pixels": [
+      150,
+      800,
+      450,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 4,
+        "revision": "scene-04-mesh62b-broad-karahafu-worn-granite-paving",
+        "width": 1254,
+        "height": 1254,
+        "frame": 1,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "surfaceAudit": [
+          {
+            "name": "reference4_stone",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "0da21e72-1818-46f1-8658-e2e0f260a968",
+            "compiledUniformMap": "0da21e72-1818-46f1-8658-e2e0f260a968",
+            "shaderCompiled": true
+          },
+          {
+            "name": "reference4_granite",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "cdc4d5b6-75b1-430b-8a5d-22185d561e3d",
+            "compiledUniformMap": "cdc4d5b6-75b1-430b-8a5d-22185d561e3d",
+            "shaderCompiled": true
+          },
+          {
+            "name": "traced-granite-observed-west-01",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "5eaf35f8-f156-46ef-af0a-b5201b08abc1",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-02",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "2b53eba3-1c01-41d6-a93a-cd211c177979",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-03",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "4499414d-d926-4429-9f71-d3d4dbcac290",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-04",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "b17c107a-dcc0-4bf2-850c-e48ad333cf92",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-05",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "920a0de0-78e9-44c3-b182-877af6a35142",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-06",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "f0c7e3fa-db44-48c5-85a9-36fc34141923",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-07",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "84eb7c8e-176b-4496-adf4-ce4fa9ac918d",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-08",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "bdcd1035-c9f2-4765-9f06-df4019eca529",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-09",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "63a67fa8-b4c4-4e72-b19d-fe6280e42150",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-10",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "c99a68c4-4f0a-4b1e-b9c7-fe46af026d0f",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-11",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "c3e63a4a-2199-440a-b2a6-52793e322e6c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-01",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "750ee5ad-d91d-4ffc-9670-b61a5fbabcd6",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-02",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "03ec3b69-d092-45d7-9799-8a726abe9690",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-03",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "98346398-358d-407f-b011-6f7fa9432fd5",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-04",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "5940fc07-63c6-4fd7-8824-329451e0456b",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-05",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "6753e48a-5cf7-4893-9714-ea72f807091d",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-06",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "750f8853-7555-4af0-95a8-8ee9dc4bd0f7",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-07",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "9354c5f4-2414-413d-b00a-13f115e5a846",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-08",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "ec8563f0-2c8c-4b97-8cf6-d401d3184dfc",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-09",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "cea090a7-12b2-49d0-8282-90563fa90c19",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-01",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "0a9fa653-a95f-4019-9216-5b43083d0bde",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-02",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "5b42e032-7068-4241-a1dd-dd825d20d0ec",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-03",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "b6c02824-d98e-4e14-a278-24010c0d7393",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-04",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "af6332ca-7f04-4ed8-82b7-b0d32fdd8f9c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-05",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "bd00a795-3616-4ba7-a0c1-b4a24eb9b0a2",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-06",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "04de026e-5375-4011-b0ee-a4678d1d99b1",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-07",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "06a81893-f7b8-45e3-8ab6-8635139f095c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-08",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "40e7bbf7-bbe5-452e-8ffb-9a3ebf82d44f",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-09",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "b21dae8a-a0c9-4a5c-b0b0-0aee93cc16f8",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-10",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "52e22893-4cf4-46dd-9b01-c1c0c851a4f9",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-11",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "be987cd7-b5f9-4f64-9731-021f8ee2513c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "metre-scaled-pond-boulder-granite",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              4,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "18c65412-c55c-4059-940a-bb218903fcbc",
+            "compiledUniformMap": "18c65412-c55c-4059-940a-bb218903fcbc",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-1",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "4cb4134d-79a3-44ec-ae18-90b61cab34d4",
+            "compiledUniformMap": "4cb4134d-79a3-44ec-ae18-90b61cab34d4",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-2",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "363698e4-216f-4bf9-8861-61d958ba440c",
+            "compiledUniformMap": "363698e4-216f-4bf9-8861-61d958ba440c",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-3",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "397cbc22-d097-4c7b-8b23-c7ff74f7c73e",
+            "compiledUniformMap": "397cbc22-d097-4c7b-8b23-c7ff74f7c73e",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-0",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "35bf06a8-cca8-45f9-a84b-10e57a141a21",
+            "compiledUniformMap": "35bf06a8-cca8-45f9-a84b-10e57a141a21",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metric-quartz-granite-lantern",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "cbc378ce-8ad0-404c-90f4-0bcae4eb1774",
+            "compiledUniformMap": "cbc378ce-8ad0-404c-90f4-0bcae4eb1774",
+            "shaderCompiled": true
+          },
+          {
+            "name": "carved-granite-recess",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              4,
+              250
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "d96eced9-e93c-4d44-a762-70c971e51335",
+            "compiledUniformMap": "d96eced9-e93c-4d44-a762-70c971e51335",
+            "shaderCompiled": true
+          }
+        ],
+        "revision": "scene-04-mesh62b-broad-karahafu-worn-granite-paving",
+        "counts": {
+          "meshes": 1152,
+          "mixedInstances": 153346,
+          "triangles": 17584706,
+          "uniqueGeometries": 1118,
+          "lights": 12
+        },
+        "architecture": {
+          "entrance": {
+            "center": [
+              0,
+              5.54,
+              -0.62
+            ],
+            "clearWidth": 4.2,
+            "clearHeight": 4.08,
+            "frontZ": -0.355
+          },
+          "sanctuary": {
+            "center": [
+              0,
+              3.5,
+              -4.65
+            ],
+            "floor": 3.5,
+            "floorY": 3.5,
+            "frontOpeningWidth": 4.2,
+            "width": 4.2,
+            "depth": 5,
+            "frontZ": -0.65
+          },
+          "stair": {
+            "top": [
+              0,
+              3.5,
+              0
+            ],
+            "bottom": [
+              0,
+              0,
+              8
+            ],
+            "width": 5.6
+          },
+          "mainRidge": [
+            0,
+            16.5,
+            -5
+          ],
+          "canopy": {
+            "front": 1.55,
+            "back": -2.4,
+            "halfWidth": 6.4,
+            "crest": [
+              0,
+              11.549999999894464,
+              1.55
+            ],
+            "bargeboardMember": "entrance-saddled-bargeboard"
+          },
+          "tower": {
+            "position": [
+              -14.21,
+              2,
+              -12.0044
+            ],
+            "top": [
+              -14.21,
+              20.791999999999998,
+              -12.0044
+            ],
+            "height": 18.791999999999998,
+            "levels": [
+              {
+                "level": 1,
+                "eave": 4.3,
+                "width": 6.9,
+                "floor": 0.34
+              },
+              {
+                "level": 2,
+                "eave": 5.9,
+                "width": 6.7,
+                "floor": 4.99
+              },
+              {
+                "level": 3,
+                "eave": 7.5,
+                "width": 6.5,
+                "floor": 6.59
+              },
+              {
+                "level": 4,
+                "eave": 9.1,
+                "width": 6.3,
+                "floor": 8.19
+              },
+              {
+                "level": 5,
+                "eave": 10.7,
+                "width": 6.05,
+                "floor": 9.79
+              }
+            ],
+            "scale": 1.16
+          },
+          "lanternSupports": [
+            {
+              "x": -5.55,
+              "probeZ": 1.5,
+              "bodyCenter": [
+                -5.55,
+                5.8,
+                1.7
+              ]
+            },
+            {
+              "x": 5.55,
+              "probeZ": 1.5,
+              "bodyCenter": [
+                5.55,
+                5.8,
+                1.7
+              ]
+            }
+          ]
+        },
+        "garden": {
+          "hall": {
+            "axisX": 0,
+            "frontZ": 0,
+            "platformY": 3.5,
+            "platformHalfWidth": 7.6
+          },
+          "stairs": {
+            "top": [
+              0,
+              3.5,
+              0
+            ],
+            "bottom": [
+              0,
+              0,
+              8
+            ],
+            "width": 5.6
+          },
+          "towerReserved": {
+            "min": [
+              -18.01,
+              -15.804400000000001
+            ],
+            "max": [
+              -10.41,
+              -8.2044
+            ]
+          },
+          "lanterns": [
+            {
+              "index": 0,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": {
+                "isMaterial": true,
+                "uuid": "a364466b-7db0-4dda-8c30-b797ceb1b4aa",
+                "name": "",
+                "type": "MeshStandardMaterial",
+                "blending": 1,
+                "side": 2,
+                "vertexColors": false,
+                "opacity": 1,
+                "transparent": false,
+                "alphaHash": false,
+                "blendSrc": 204,
+                "blendDst": 205,
+                "blendEquation": 100,
+                "blendSrcAlpha": null,
+                "blendDstAlpha": null,
+                "blendEquationAlpha": null,
+                "blendColor": {
+                  "isColor": true,
+                  "r": 0,
+                  "g": 0,
+                  "b": 0
+                },
+                "blendAlpha": 0,
+                "depthFunc": 3,
+                "depthTest": true,
+                "depthWrite": true,
+                "stencilWriteMask": 255,
+                "stencilFunc": 519,
+                "stencilRef": 0,
+                "stencilFuncMask": 255,
+                "stencilFail": 7680,
+                "stencilZFail": 7680,
+                "stencilZPass": 7680,
+                "stencilWrite": false,
+                "clippingPlanes": null,
+                "clipIntersection": false,
+                "clipShadows": false,
+                "shadowSide": null,
+                "colorWrite": true,
+                "precision": null,
+                "polygonOffset": false,
+                "polygonOffsetFactor": 0,
+                "polygonOffsetUnits": 0,
+                "dithering": false,
+                "alphaToCoverage": false,
+                "premultipliedAlpha": false,
+                "forceSinglePass": false,
+                "allowOverride": true,
+                "visible": true,
+                "toneMapped": true,
+                "userData": {},
+                "version": 0,
+                "_alphaTest": 0,
+                "isMeshStandardMaterial": true,
+                "defines": {
+                  "STANDARD": ""
+                },
+                "color": {
+                  "isColor": true,
+                  "r": 0.5394794890033748,
+                  "g": 0.2704977910022518,
+                  "b": 0.040915196900556984
+                },
+                "roughness": 0.9,
+                "metalness": 0,
+                "map": null,
+                "lightMap": null,
+                "lightMapIntensity": 1,
+                "aoMap": null,
+                "aoMapIntensity": 1,
+                "emissive": {
+                  "isColor": true,
+                  "r": 1,
+                  "g": 0.37626212298046485,
+                  "b": 0.02028856305209031
+                },
+                "emissiveIntensity": 0.5,
+                "emissiveMap": null,
+                "bumpMap": null,
+                "bumpScale": 1,
+                "normalMap": null,
+                "normalMapType": 0,
+                "normalScale": {
+                  "x": 1,
+                  "y": 1
+                },
+                "displacementMap": null,
+                "displacementScale": 1,
+                "displacementBias": 0,
+                "roughnessMap": null,
+                "metalnessMap": null,
+                "alphaMap": null,
+                "envMap": null,
+                "envMapRotation": {
+                  "isEuler": true,
+                  "_x": 0,
+                  "_y": 0,
+                  "_z": 0,
+                  "_order": "XYZ"
+                },
+                "envMapIntensity": 1,
+                "wireframe": false,
+                "wireframeLinewidth": 1,
+                "wireframeLinecap": "round",
+                "wireframeLinejoin": "round",
+                "flatShading": false,
+                "fog": true,
+                "_listeners": {
+                  "dispose": [
+                    null
+                  ]
+                }
+              },
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                -3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldCenter": [
+                -3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldScale": [
+                0.7954545454545455,
+                0.7954545454545455,
+                0.7954545454545455
+              ],
+              "windows": []
+            },
+            {
+              "index": 1,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldCenter": [
+                3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldScale": [
+                0.7954545454545455,
+                0.7954545454545455,
+                0.7954545454545455
+              ],
+              "windows": []
+            },
+            {
+              "index": 2,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                -8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldCenter": [
+                -8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldScale": [
+                0.4023181818181818,
+                0.4023181818181818,
+                0.4023181818181818
+              ],
+              "windows": []
+            },
+            {
+              "index": 3,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldCenter": [
+                8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldScale": [
+                0.4023181818181818,
+                0.4023181818181818,
+                0.4023181818181818
+              ],
+              "windows": []
+            }
+          ],
+          "pines": [
+            {
+              "root": [
+                -4.9,
+                -0.08,
+                4.5
+              ],
+              "matrixWorld": [
+                -0.690269961391251,
+                0,
+                0.42320811190517577,
+                0,
+                0,
+                0.8096775441998023,
+                0,
+                0,
+                -0.42320811190517577,
+                0,
+                -0.690269961391251,
+                0,
+                -4.9,
+                -0.08,
+                4.5,
+                1
+              ]
+            },
+            {
+              "root": [
+                4.9,
+                -0.08,
+                4.5
+              ],
+              "matrixWorld": [
+                -0.9370159023330614,
+                0,
+                -0.3961639693562381,
+                0,
+                0,
+                1.017322314628521,
+                0,
+                0,
+                0.3961639693562381,
+                0,
+                -0.9370159023330614,
+                0,
+                4.9,
+                -0.08,
+                4.5,
+                1
+              ]
+            }
+          ],
+          "waterMeshes": [
+            {
+              "name": "connected-pond--1",
+              "type": "Mesh"
+            },
+            {
+              "name": "connected-pond-1",
+              "type": "Mesh"
+            }
+          ],
+          "bridge": {
+            "center": [
+              -10.8,
+              0,
+              5
+            ],
+            "span": 7.4,
+            "width": 1.65,
+            "rise": 0.9
+          },
+          "cameraPolicy": "The complete enclosing scene owns the camera; no recovered-camera claim."
+        },
+        "suspensions": [
+          {
+            "body": [
+              -5.55,
+              7.5,
+              1.7
+            ],
+            "supportContact": [
+              -5.55,
+              8.615343267287749,
+              1.5
+            ],
+            "supportObject": "entrance-deep-connected-canopy",
+            "armTop": 8.625343267287748,
+            "armBottom": 8.550343267287749,
+            "rodBottom": 8.14
+          },
+          {
+            "body": [
+              5.55,
+              7.5,
+              1.7
+            ],
+            "supportContact": [
+              5.55,
+              8.615343219373049,
+              1.5
+            ],
+            "supportObject": "entrance-deep-connected-canopy",
+            "armTop": 8.625343219373049,
+            "armBottom": 8.55034321937305,
+            "rodBottom": 8.14
+          }
+        ],
+        "forest": {
+          "trees": 6600,
+          "crowns": 19800
+        },
+        "environmentInitialized": true,
+        "pavingReflection": {
+          "actualSceneCapture": true,
+          "position": [
+            0,
+            0.28,
+            18.2
+          ],
+          "resolution": 256,
+          "scope": "Local reflection approximation; not ray-traced per-pixel reflections."
+        },
+        "lightBudget": {
+          "directionalShadows": 1,
+          "pointShadows": 0,
+          "rectAreaLights": 0
+        },
+        "limits": [
+          "Complete new source after execution-workspace reset, not a byte-identical recovery of v3.",
+          "Camera and hidden dimensions remain a single-view reconstruction hypothesis.",
+          "Actual rendered comparison is required; CPU validity is not visual acceptance.",
+          "Small-view complete geometric sanctuary. Hidden depth and detail interpretation are hypotheses; no photograph is used as a rendered surface.",
+          "Far forest at 250–690m; camera far plane must reach 1200m. Individual crown geometry is a distant LOD, not foreground botanically detailed foliage."
+        ],
+        "visualAcceptance": false,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241,
+          "reference": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "target": [
+              0,
+              2.3,
+              0
+            ],
+            "fov": 64.1754241,
+            "near": 0.08,
+            "far": 1200
+          }
+        },
+        "renderer": {
+          "triangles": 82533031,
+          "calls": 5615
+        },
+        "shot": {
+          "duration": 7,
+          "eyeHeight": [
+            0.55,
+            1.35
+          ],
+          "automaticAnimation": false
+        },
+        "surfaceScale": {
+          "stoneRepeatMetres": 0.25,
+          "scannedPavingRepeatMetres": 0.82,
+          "pavingThicknessMetres": 0.14,
+          "jointMetres": 0.028,
+          "roundedArrisMetres": 0.048
+        },
+        "contactAO": {
+          "radiusMetres": 0.25,
+          "blend": 0.48,
+          "alphaCardsExcludedFromDepth": true
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 0.9970016203332748,
+      "rgbaSha256": "33fd940cc630e4e86ba6491a6c86cb96849368864ab868b8cd76cf35d25016b2"
+    },
+    {
+      "pose": {
+        "reference": 4,
+        "revision": "scene-04-mesh62b-broad-karahafu-worn-granite-paving",
+        "width": 1254,
+        "height": 1254,
+        "frame": 2,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "surfaceAudit": [
+          {
+            "name": "reference4_stone",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "0da21e72-1818-46f1-8658-e2e0f260a968",
+            "compiledUniformMap": "0da21e72-1818-46f1-8658-e2e0f260a968",
+            "shaderCompiled": true
+          },
+          {
+            "name": "reference4_granite",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "cdc4d5b6-75b1-430b-8a5d-22185d561e3d",
+            "compiledUniformMap": "cdc4d5b6-75b1-430b-8a5d-22185d561e3d",
+            "shaderCompiled": true
+          },
+          {
+            "name": "traced-granite-observed-west-01",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "5eaf35f8-f156-46ef-af0a-b5201b08abc1",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-02",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "2b53eba3-1c01-41d6-a93a-cd211c177979",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-03",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "4499414d-d926-4429-9f71-d3d4dbcac290",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-04",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "b17c107a-dcc0-4bf2-850c-e48ad333cf92",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-05",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "920a0de0-78e9-44c3-b182-877af6a35142",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-06",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "f0c7e3fa-db44-48c5-85a9-36fc34141923",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-07",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "84eb7c8e-176b-4496-adf4-ce4fa9ac918d",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-08",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "bdcd1035-c9f2-4765-9f06-df4019eca529",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-09",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "63a67fa8-b4c4-4e72-b19d-fe6280e42150",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-10",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "c99a68c4-4f0a-4b1e-b9c7-fe46af026d0f",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-west-11",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "c3e63a4a-2199-440a-b2a6-52793e322e6c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-01",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "750ee5ad-d91d-4ffc-9670-b61a5fbabcd6",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-02",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "03ec3b69-d092-45d7-9799-8a726abe9690",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-03",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "98346398-358d-407f-b011-6f7fa9432fd5",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-04",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "5940fc07-63c6-4fd7-8824-329451e0456b",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-05",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "6753e48a-5cf7-4893-9714-ea72f807091d",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-06",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "750f8853-7555-4af0-95a8-8ee9dc4bd0f7",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-07",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "9354c5f4-2414-413d-b00a-13f115e5a846",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-08",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "ec8563f0-2c8c-4b97-8cf6-d401d3184dfc",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-centre-09",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "cea090a7-12b2-49d0-8282-90563fa90c19",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-01",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "0a9fa653-a95f-4019-9216-5b43083d0bde",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-02",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "5b42e032-7068-4241-a1dd-dd825d20d0ec",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-03",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "b6c02824-d98e-4e14-a278-24010c0d7393",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-04",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "af6332ca-7f04-4ed8-82b7-b0d32fdd8f9c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-05",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "bd00a795-3616-4ba7-a0c1-b4a24eb9b0a2",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-06",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "04de026e-5375-4011-b0ee-a4678d1d99b1",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-07",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "06a81893-f7b8-45e3-8ab6-8635139f095c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-08",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "40e7bbf7-bbe5-452e-8ffb-9a3ebf82d44f",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-09",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "b21dae8a-a0c9-4a5c-b0b0-0aee93cc16f8",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-10",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "52e22893-4cf4-46dd-9b01-c1c0c851a4f9",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "traced-granite-observed-east-11",
+            "albedoSize": [
+              1024,
+              1024
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.82,
+            "materialMap": "be987cd7-b5f9-4f64-9731-021f8ee2513c",
+            "compiledUniformMap": null,
+            "shaderCompiled": false
+          },
+          {
+            "name": "metre-scaled-pond-boulder-granite",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              4,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "18c65412-c55c-4059-940a-bb218903fcbc",
+            "compiledUniformMap": "18c65412-c55c-4059-940a-bb218903fcbc",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-1",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "4cb4134d-79a3-44ec-ae18-90b61cab34d4",
+            "compiledUniformMap": "4cb4134d-79a3-44ec-ae18-90b61cab34d4",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-2",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "363698e4-216f-4bf9-8861-61d958ba440c",
+            "compiledUniformMap": "363698e4-216f-4bf9-8861-61d958ba440c",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-3",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "397cbc22-d097-4c7b-8b23-c7ff74f7c73e",
+            "compiledUniformMap": "397cbc22-d097-4c7b-8b23-c7ff74f7c73e",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metre-scaled-worn-wet-paver-0",
+            "albedoSize": [
+              650,
+              650
+            ],
+            "normalXYByteRange": [
+              null,
+              null
+            ],
+            "physicalRepeatMetres": 0.3173828125,
+            "materialMap": "35bf06a8-cca8-45f9-a84b-10e57a141a21",
+            "compiledUniformMap": "35bf06a8-cca8-45f9-a84b-10e57a141a21",
+            "shaderCompiled": true
+          },
+          {
+            "name": "metric-quartz-granite-lantern",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              5,
+              249
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "cbc378ce-8ad0-404c-90f4-0bcae4eb1774",
+            "compiledUniformMap": "cbc378ce-8ad0-404c-90f4-0bcae4eb1774",
+            "shaderCompiled": true
+          },
+          {
+            "name": "carved-granite-recess",
+            "albedoSize": [
+              512,
+              512
+            ],
+            "normalXYByteRange": [
+              4,
+              250
+            ],
+            "physicalRepeatMetres": 0.25,
+            "materialMap": "d96eced9-e93c-4d44-a762-70c971e51335",
+            "compiledUniformMap": "d96eced9-e93c-4d44-a762-70c971e51335",
+            "shaderCompiled": true
+          }
+        ],
+        "revision": "scene-04-mesh62b-broad-karahafu-worn-granite-paving",
+        "counts": {
+          "meshes": 1152,
+          "mixedInstances": 153346,
+          "triangles": 17584706,
+          "uniqueGeometries": 1118,
+          "lights": 12
+        },
+        "architecture": {
+          "entrance": {
+            "center": [
+              0,
+              5.54,
+              -0.62
+            ],
+            "clearWidth": 4.2,
+            "clearHeight": 4.08,
+            "frontZ": -0.355
+          },
+          "sanctuary": {
+            "center": [
+              0,
+              3.5,
+              -4.65
+            ],
+            "floor": 3.5,
+            "floorY": 3.5,
+            "frontOpeningWidth": 4.2,
+            "width": 4.2,
+            "depth": 5,
+            "frontZ": -0.65
+          },
+          "stair": {
+            "top": [
+              0,
+              3.5,
+              0
+            ],
+            "bottom": [
+              0,
+              0,
+              8
+            ],
+            "width": 5.6
+          },
+          "mainRidge": [
+            0,
+            16.5,
+            -5
+          ],
+          "canopy": {
+            "front": 1.55,
+            "back": -2.4,
+            "halfWidth": 6.4,
+            "crest": [
+              0,
+              11.549999999894464,
+              1.55
+            ],
+            "bargeboardMember": "entrance-saddled-bargeboard"
+          },
+          "tower": {
+            "position": [
+              -14.21,
+              2,
+              -12.0044
+            ],
+            "top": [
+              -14.21,
+              20.791999999999998,
+              -12.0044
+            ],
+            "height": 18.791999999999998,
+            "levels": [
+              {
+                "level": 1,
+                "eave": 4.3,
+                "width": 6.9,
+                "floor": 0.34
+              },
+              {
+                "level": 2,
+                "eave": 5.9,
+                "width": 6.7,
+                "floor": 4.99
+              },
+              {
+                "level": 3,
+                "eave": 7.5,
+                "width": 6.5,
+                "floor": 6.59
+              },
+              {
+                "level": 4,
+                "eave": 9.1,
+                "width": 6.3,
+                "floor": 8.19
+              },
+              {
+                "level": 5,
+                "eave": 10.7,
+                "width": 6.05,
+                "floor": 9.79
+              }
+            ],
+            "scale": 1.16
+          },
+          "lanternSupports": [
+            {
+              "x": -5.55,
+              "probeZ": 1.5,
+              "bodyCenter": [
+                -5.55,
+                5.8,
+                1.7
+              ]
+            },
+            {
+              "x": 5.55,
+              "probeZ": 1.5,
+              "bodyCenter": [
+                5.55,
+                5.8,
+                1.7
+              ]
+            }
+          ]
+        },
+        "garden": {
+          "hall": {
+            "axisX": 0,
+            "frontZ": 0,
+            "platformY": 3.5,
+            "platformHalfWidth": 7.6
+          },
+          "stairs": {
+            "top": [
+              0,
+              3.5,
+              0
+            ],
+            "bottom": [
+              0,
+              0,
+              8
+            ],
+            "width": 5.6
+          },
+          "towerReserved": {
+            "min": [
+              -18.01,
+              -15.804400000000001
+            ],
+            "max": [
+              -10.41,
+              -8.2044
+            ]
+          },
+          "lanterns": [
+            {
+              "index": 0,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": {
+                "isMaterial": true,
+                "uuid": "a364466b-7db0-4dda-8c30-b797ceb1b4aa",
+                "name": "",
+                "type": "MeshStandardMaterial",
+                "blending": 1,
+                "side": 2,
+                "vertexColors": false,
+                "opacity": 1,
+                "transparent": false,
+                "alphaHash": false,
+                "blendSrc": 204,
+                "blendDst": 205,
+                "blendEquation": 100,
+                "blendSrcAlpha": null,
+                "blendDstAlpha": null,
+                "blendEquationAlpha": null,
+                "blendColor": {
+                  "isColor": true,
+                  "r": 0,
+                  "g": 0,
+                  "b": 0
+                },
+                "blendAlpha": 0,
+                "depthFunc": 3,
+                "depthTest": true,
+                "depthWrite": true,
+                "stencilWriteMask": 255,
+                "stencilFunc": 519,
+                "stencilRef": 0,
+                "stencilFuncMask": 255,
+                "stencilFail": 7680,
+                "stencilZFail": 7680,
+                "stencilZPass": 7680,
+                "stencilWrite": false,
+                "clippingPlanes": null,
+                "clipIntersection": false,
+                "clipShadows": false,
+                "shadowSide": null,
+                "colorWrite": true,
+                "precision": null,
+                "polygonOffset": false,
+                "polygonOffsetFactor": 0,
+                "polygonOffsetUnits": 0,
+                "dithering": false,
+                "alphaToCoverage": false,
+                "premultipliedAlpha": false,
+                "forceSinglePass": false,
+                "allowOverride": true,
+                "visible": true,
+                "toneMapped": true,
+                "userData": {},
+                "version": 0,
+                "_alphaTest": 0,
+                "isMeshStandardMaterial": true,
+                "defines": {
+                  "STANDARD": ""
+                },
+                "color": {
+                  "isColor": true,
+                  "r": 0.5394794890033748,
+                  "g": 0.2704977910022518,
+                  "b": 0.040915196900556984
+                },
+                "roughness": 0.9,
+                "metalness": 0,
+                "map": null,
+                "lightMap": null,
+                "lightMapIntensity": 1,
+                "aoMap": null,
+                "aoMapIntensity": 1,
+                "emissive": {
+                  "isColor": true,
+                  "r": 1,
+                  "g": 0.37626212298046485,
+                  "b": 0.02028856305209031
+                },
+                "emissiveIntensity": 0.5,
+                "emissiveMap": null,
+                "bumpMap": null,
+                "bumpScale": 1,
+                "normalMap": null,
+                "normalMapType": 0,
+                "normalScale": {
+                  "x": 1,
+                  "y": 1
+                },
+                "displacementMap": null,
+                "displacementScale": 1,
+                "displacementBias": 0,
+                "roughnessMap": null,
+                "metalnessMap": null,
+                "alphaMap": null,
+                "envMap": null,
+                "envMapRotation": {
+                  "isEuler": true,
+                  "_x": 0,
+                  "_y": 0,
+                  "_z": 0,
+                  "_order": "XYZ"
+                },
+                "envMapIntensity": 1,
+                "wireframe": false,
+                "wireframeLinewidth": 1,
+                "wireframeLinecap": "round",
+                "wireframeLinejoin": "round",
+                "flatShading": false,
+                "fog": true,
+                "_listeners": {
+                  "dispose": [
+                    null
+                  ]
+                }
+              },
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                -3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldCenter": [
+                -3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldScale": [
+                0.7954545454545455,
+                0.7954545454545455,
+                0.7954545454545455
+              ],
+              "windows": []
+            },
+            {
+              "index": 1,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldCenter": [
+                3.6,
+                2.163181818181818,
+                14.5
+              ],
+              "worldScale": [
+                0.7954545454545455,
+                0.7954545454545455,
+                0.7954545454545455
+              ],
+              "windows": []
+            },
+            {
+              "index": 2,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                -8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldCenter": [
+                -8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldScale": [
+                0.4023181818181818,
+                0.4023181818181818,
+                0.4023181818181818
+              ],
+              "windows": []
+            },
+            {
+              "index": 3,
+              "object": {
+                "name": "",
+                "type": "Group"
+              },
+              "paperMesh": {
+                "name": "warm-recessed-paper",
+                "type": "Mesh"
+              },
+              "material": "[shared]",
+              "localPosition": [
+                0,
+                2.82,
+                0
+              ],
+              "worldPosition": [
+                8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldCenter": [
+                8.8,
+                1.0545372727272726,
+                2.8
+              ],
+              "worldScale": [
+                0.4023181818181818,
+                0.4023181818181818,
+                0.4023181818181818
+              ],
+              "windows": []
+            }
+          ],
+          "pines": [
+            {
+              "root": [
+                -4.9,
+                -0.08,
+                4.5
+              ],
+              "matrixWorld": [
+                -0.690269961391251,
+                0,
+                0.42320811190517577,
+                0,
+                0,
+                0.8096775441998023,
+                0,
+                0,
+                -0.42320811190517577,
+                0,
+                -0.690269961391251,
+                0,
+                -4.9,
+                -0.08,
+                4.5,
+                1
+              ]
+            },
+            {
+              "root": [
+                4.9,
+                -0.08,
+                4.5
+              ],
+              "matrixWorld": [
+                -0.9370159023330614,
+                0,
+                -0.3961639693562381,
+                0,
+                0,
+                1.017322314628521,
+                0,
+                0,
+                0.3961639693562381,
+                0,
+                -0.9370159023330614,
+                0,
+                4.9,
+                -0.08,
+                4.5,
+                1
+              ]
+            }
+          ],
+          "waterMeshes": [
+            {
+              "name": "connected-pond--1",
+              "type": "Mesh"
+            },
+            {
+              "name": "connected-pond-1",
+              "type": "Mesh"
+            }
+          ],
+          "bridge": {
+            "center": [
+              -10.8,
+              0,
+              5
+            ],
+            "span": 7.4,
+            "width": 1.65,
+            "rise": 0.9
+          },
+          "cameraPolicy": "The complete enclosing scene owns the camera; no recovered-camera claim."
+        },
+        "suspensions": [
+          {
+            "body": [
+              -5.55,
+              7.5,
+              1.7
+            ],
+            "supportContact": [
+              -5.55,
+              8.615343267287749,
+              1.5
+            ],
+            "supportObject": "entrance-deep-connected-canopy",
+            "armTop": 8.625343267287748,
+            "armBottom": 8.550343267287749,
+            "rodBottom": 8.14
+          },
+          {
+            "body": [
+              5.55,
+              7.5,
+              1.7
+            ],
+            "supportContact": [
+              5.55,
+              8.615343219373049,
+              1.5
+            ],
+            "supportObject": "entrance-deep-connected-canopy",
+            "armTop": 8.625343219373049,
+            "armBottom": 8.55034321937305,
+            "rodBottom": 8.14
+          }
+        ],
+        "forest": {
+          "trees": 6600,
+          "crowns": 19800
+        },
+        "environmentInitialized": true,
+        "pavingReflection": {
+          "actualSceneCapture": true,
+          "position": [
+            0,
+            0.28,
+            18.2
+          ],
+          "resolution": 256,
+          "scope": "Local reflection approximation; not ray-traced per-pixel reflections."
+        },
+        "lightBudget": {
+          "directionalShadows": 1,
+          "pointShadows": 0,
+          "rectAreaLights": 0
+        },
+        "limits": [
+          "Complete new source after execution-workspace reset, not a byte-identical recovery of v3.",
+          "Camera and hidden dimensions remain a single-view reconstruction hypothesis.",
+          "Actual rendered comparison is required; CPU validity is not visual acceptance.",
+          "Small-view complete geometric sanctuary. Hidden depth and detail interpretation are hypotheses; no photograph is used as a rendered surface.",
+          "Far forest at 250–690m; camera far plane must reach 1200m. Individual crown geometry is a distant LOD, not foreground botanically detailed foliage."
+        ],
+        "visualAcceptance": false,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241,
+          "reference": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "target": [
+              0,
+              2.3,
+              0
+            ],
+            "fov": 64.1754241,
+            "near": 0.08,
+            "far": 1200
+          }
+        },
+        "renderer": {
+          "triangles": 72376319,
+          "calls": 2947
+        },
+        "shot": {
+          "duration": 7,
+          "eyeHeight": [
+            0.55,
+            1.35
+          ],
+          "automaticAnimation": false
+        },
+        "surfaceScale": {
+          "stoneRepeatMetres": 0.25,
+          "scannedPavingRepeatMetres": 0.82,
+          "pavingThicknessMetres": 0.14,
+          "jointMetres": 0.028,
+          "roundedArrisMetres": 0.048
+        },
+        "contactAO": {
+          "radiusMetres": 0.25,
+          "blend": 0.48,
+          "alphaCardsExcludedFromDepth": true
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        150,
+        800,
+        450,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "575d48c47587a5794153c770f5fc26aeff9432ee9f039ab15160767a9c337cf0"
+    }
+  ],
+  "completedAt": "2026-10-18T19:22:03.696Z"
+}

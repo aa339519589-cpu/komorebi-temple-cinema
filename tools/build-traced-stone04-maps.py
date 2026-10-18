@@ -26,10 +26,22 @@ diff=np.asarray(Image.open(scan/'granite-face-diff.png').convert('RGB'),np.float
 lin=np.where(diff<=.04045,diff/12.92,((diff+.055)/1.055)**2.4)
 # Neutral mineral base, preserving the actual scan's angular grains. This is a
 # material tint inference; the image's baked sunlight is not a texture input.
-lin*=np.array([.201,.195,.180],np.float32)/lin.mean(axis=(0,1))
+lin*=np.array([.142,.134,.119],np.float32)/lin.mean(axis=(0,1))
 nor=np.asarray(Image.open(scan/'granite-face-nor_gl.png').convert('RGB'),np.float32)/127.5-1
 rough=np.asarray(Image.open(scan/'granite-face-rough.png').convert('L'),np.float32)/255
 period=.82
+# Convert the scan into a periodic material without a mirrored seam. Each
+# shifted window fades to zero at its own wrap boundary; mineral grains remain
+# the original scanned grains, with no left/right butterfly duplication.
+def periodic_sample(image,px,py):
+ out=np.zeros(px.shape+(() if image.ndim==2 else (image.shape[2],)),np.float32)
+ for ox in [0,.5]:
+  for oy in [0,.5]:
+   qx=(px+ox)%1;qy=(py+oy)%1
+   wx=np.sin(np.pi*qx)**2;wy=np.sin(np.pi*qy)**2;w=wx*wy
+   a=cv2.remap(image,(qx*(image.shape[1]-1)).astype(np.float32),((1-qy)*(image.shape[0]-1)).astype(np.float32),cv2.INTER_LINEAR,borderMode=cv2.BORDER_REFLECT_101)
+   out+=a*(w if image.ndim==2 else w[:,:,None])
+ return out
 records=[]
 def noise(x,z,s):
  ix=np.floor(x);iz=np.floor(z);a=x-ix;b=z-iz;a=a*a*(3-2*a);b=b*b*(3-2*b)
@@ -43,16 +55,14 @@ for col in range(3):
   size=1024 if max(p[1] for p in pix)>1000 else 512
   xx,zz=np.meshgrid(np.linspace(lo[0],hi[0],size,dtype=np.float32),np.linspace(hi[1],lo[1],size,dtype=np.float32))
   seed=739+col*139+row*31
-  sx=((xx/period+.137*seed)%2);sx=np.where(sx>1,2-sx,sx)
-  sz=((zz/period+.219*seed)%2);sz=np.where(sz>1,2-sz,sz)
-  mx=(sx*(diff.shape[1]-1)).astype(np.float32);my=((1-sz)*(diff.shape[0]-1)).astype(np.float32)
-  alb=cv2.remap(lin,mx,my,cv2.INTER_LINEAR,borderMode=cv2.BORDER_REFLECT_101)
-  nn=cv2.remap(nor,mx,my,cv2.INTER_LINEAR,borderMode=cv2.BORDER_REFLECT_101)
-  rr=cv2.remap(rough,mx,my,cv2.INTER_LINEAR,borderMode=cv2.BORDER_REFLECT_101)
-  # Mirrored physical coordinates must mirror the normal's tangent components.
-  nn[:,:,0]*=np.where(((xx/period+.137*seed)%2)>1,-1,1)
-  nn[:,:,1]*=np.where(((zz/period+.219*seed)%2)>1,-1,1)
-  nn[:,:,:2]*=.88;nn/=np.maximum(np.linalg.norm(nn,axis=2,keepdims=True),.01)
+  angle=(seed*.417)%6.283185307;cc=np.cos(angle);ss=np.sin(angle)
+  px=((xx*cc+zz*ss)/period+.137*seed)%1;py=((-xx*ss+zz*cc)/period+.219*seed)%1
+  alb=periodic_sample(lin,px,py)
+  nn=periodic_sample(nor,px,py)
+  rr=periodic_sample(rough,px,py)
+  # Rotate the tangent slopes with the independently oriented physical scan.
+  nx=nn[:,:,0].copy();ny=nn[:,:,1].copy();nn[:,:,0]=cc*nx-ss*ny;nn[:,:,1]=ss*nx+cc*ny
+  nn[:,:,:2]*=.84;nn/=np.maximum(np.linalg.norm(nn,axis=2,keepdims=True),.01)
   ux=(xx-lo[0])/(hi[0]-lo[0]);uz=(zz-lo[1])/(hi[1]-lo[1]);macro=noise(xx*2.1,zz*2.1,seed+49);meso=noise(xx*11,zz*11,seed+91)
   # Local connected damp basins, especially the west column. Not independent
   # blue flecks and not a reflection painted into RGB. The clear layer obtains
@@ -67,18 +77,18 @@ for col in range(3):
   # low contrast weather bloom and darker optically saturated wet pores.
   variation=1+.055*np.sin(seed*1.97)
   alb*=variation*(.91+.20*macro)[:,:,None]
-  alb*= (1-.44*wet)[:,:,None]
+  alb*= (1-.51*wet)[:,:,None]
   # Pale surface weathering remains mineral variation, not painted highlights.
   bloom=np.clip((noise(xx*7.3,zz*7.3,seed+143)-.56)/.23,0,1)*(1-wet)
-  alb=alb*(1-.10*bloom[:,:,None])+.034*bloom[:,:,None]
+  alb=alb*(1-.08*bloom[:,:,None])+.010*bloom[:,:,None]
   srgb=np.where(alb<=.0031308,alb*12.92,1.055*np.maximum(alb,0)**(1/2.4)-.055)
   ro=np.clip(.62+.32*rr-.25*wet,.34,.94)
   # R: wet clear-layer coverage, G: roughness of that layer (uniform multiplier
   # 1). B unused. At dry points coverage is zero, avoiding a shell-like sheen.
-  coat=np.stack([wet,.095+.12*(1-wet)+.035*meso,np.zeros_like(wet)],axis=-1)
+  coat=np.stack([wet*.52,.15+.16*(1-wet)+.035*meso,np.zeros_like(wet)],axis=-1)
   save=lambda suffix,img:Image.fromarray(np.uint8(np.clip(img,0,1)*255)).save(OUT/(ident+'-'+suffix+'.png'),optimize=True)
   save('basecolor',srgb);save('normal',nn*.5+.5);save('roughness',np.repeat(ro[:,:,None],3,axis=2));save('wetlayer',coat)
   records.append({'id':ident,'boundsXZ':[lo.tolist(),hi.tolist()],'size':size,'physicalGraniteRepeatMetres':period,'source':'CC0 Granite Tile 04; per-stone authored damp/roughness fields','referenceRGBUsed':False})
-manifest={'revision':'traced-stone04-78','scope':'PBR material candidates, not accepted photographic matches','layoutSourceSha256':hashlib.sha256(src.encode()).hexdigest(),'referenceRGBUsed':False,'scanSource':'https://polyhaven.com/a/granite_tile_04','scanAuthor':'Amal Kumar','scanLicense':'CC0','physicalGraniteRepeatMetres':period,'albedoDryMeanLinearRGB':[.201,.195,.180],'clearLayerIOR':1.333,'assumptions':['Physical scale and neutral mineral reflectance inferred.','Wet-basin contours authored, not pixel-exact measurements.','Original UV layout is not used to depict an assembled floor.'],'records':records}
+manifest={'revision':'traced-stone04-79','scope':'PBR material candidates, not accepted photographic matches','observationInputSha256':hashlib.sha256(json.dumps({'edges':edges,'joints':joints},separators=(',',':')).encode()).hexdigest(),'referenceRGBUsed':False,'scanSource':'https://polyhaven.com/a/granite_tile_04','scanAuthor':'Amal Kumar','scanLicense':'CC0','physicalGraniteRepeatMetres':period,'albedoDryMeanLinearRGB':[.142,.134,.119],'clearLayerIOR':1.333,'assumptions':['Physical scale and neutral mineral reflectance inferred.','Wet-basin contours authored, not pixel-exact measurements.','Original UV layout is not used to depict an assembled floor.'],'records':records}
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print(f'Built {len(records)} individually mapped PBR stone sets; reference photograph never read.')
