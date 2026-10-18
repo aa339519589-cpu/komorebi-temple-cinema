@@ -2,6 +2,7 @@
 
 - **Scene04 paving material guide87:** the built-in image tool generated a neutral granite mineral diffuse study conditioned on the supplied floor reference. Original output, exact prompt and role are in `lookdev/stone-material87/`. `tools/build-image-assisted-granite87.py` creates the periodic mineral material and an authored shallow normal estimate; it is not a measured displacement scan. `tools/build-traced-stone04-maps.py --image-assisted87` assigns this material to independent real stone solids. No assembled-floor image or reference RGB projection supplies the scene layout or its shadows.
 - **Scene04 foreground scan geometry:** four foreground stones reuse the already credited Kless Gyzen / Poly Haven CC0 Rock Moss Set 01, with original scan UVs and PBR maps, uniformly scaled geometry and a documented neutral mineral tint. Their helper and source dependencies are inside `reconstructions/scene-04/`. The 31 paving stones, observed joint coordinates, curb cuts and inferred rear tree are independently authored geometry.
+- **Archived granite material trial:** Dimitrios Savva's CC0 [Granite Wall](https://polyhaven.com/a/granite_wall), original bytes and SHA256 in `reconstructions/scene-04/assets/rough-granite-wall/provenance.json`. Preserved as an unselected material experiment; the current stone material guide is separately documented above.
 
 The project code is MIT licensed. The following materials retain their own terms.
 
