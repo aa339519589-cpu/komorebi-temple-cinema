@@ -40,9 +40,9 @@ export function buildReference4Architecture(T,options={}) {
 
  // Common curved canopy/main-roof weather profile. Front remains the source-led arch.
  const gHalf=6.5,gFront=1.55,upperFront=C.ridgeZ+4.5,gBack=Math.min(-2.4,upperFront-.3),xs=Array.from(new Set([...lin(-gHalf,gHalf,80),...lin(-C.upperRoofWidth/2,C.upperRoofWidth/2,64).filter(x=>Math.abs(x)<=gHalf)].map(x=>x.toFixed(9)))).map(Number).sort((a,b)=>a-b);
- const archFront=x=>H(8.2)+2.5*(Math.exp(-3.4*(x/gHalf)**2)-Math.exp(-3.4))/(1-Math.exp(-3.4));
+ const archFront=x=>H(8.6)+2.45*(Math.exp(-3.4*(x/gHalf)**2)-Math.exp(-3.4))/(1-Math.exp(-3.4));
  const rawCanopy=(x,z)=>archFront(x)+.35*(gFront-z)/(gFront-gBack);
- function upperRaw(x,z){const t=(z-C.ridgeZ)/4.5,span=C.upperRoofWidth*(.275+.225*t),u=x/span;return H(10.17)+(C.ridgeY-H(10.17))*Math.pow(Math.max(0,1-t),1.48)+.62*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));}
+ function upperRaw(x,z){const t=(z-C.ridgeZ)/4.5,span=C.upperRoofWidth*(.275+.225*t),u=x/span;return H(11.60)+(C.ridgeY-H(11.60))*Math.pow(Math.max(0,1-t),1.48)+.62*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));}
  function joinTop(x,z){return z>=gBack&&Math.abs(x)<=gHalf?Math.max(upperRaw(x,z),rawCanopy(x,z)+.025):upperRaw(x,z);}
  function canopy(x,z){if(z<=upperFront)return joinTop(x,z)-.025;const f=smooth(Math.max(0,Math.min(1,(gFront-z)/(gFront-upperFront))));return rawCanopy(x,z)+(joinTop(x,upperFront)-.025-rawCanopy(x,upperFront))*f;}
  function roof({name,w,d,eave,rise,curl=.45,centerZ=0,inner=.0,frontGap=0,connected=false}){return role(name,()=>{
@@ -107,7 +107,7 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const span of[[2.86,4.73,C.capitalTop-.9],[4.73,6.88,C.capitalTop-1.3]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.32,.44,'red');relief(x,span[2]+.12,.272,w*.84,.24);}
  });
 
- const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:H(10.17),rise:C.ridgeY-H(10.17),curl:.62,centerZ:C.ridgeZ,connected:true});
+ const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:H(11.60),rise:C.ridgeY-H(11.60),curl:.62,centerZ:C.ridgeZ,connected:true});
  for(const x of[-3.9,0,3.9])rosette(x,C.ridgeY+.13,C.ridgeZ+.18,.17,'oldgold');
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.55),rise:2.36,curl:.56,centerZ:-4.5,inner:.50,frontGap:6.53});
  role('entrance-deep-connected-canopy',()=>{
