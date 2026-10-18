@@ -157,7 +157,9 @@ export function buildReference4Architecture(T,options={}) {
    box(x,13.94,-.346,.15,.10,.018,'oldgold');
    if(i<axes.length-1){const mx=(x+axes[i+1])/2;emit(carvedFrogLeg,'cedar',mx,12.03,-.78,.92,.84,1,0,.91);emit(carvedFrogLeg,'red',mx,13.20,-.91,.80,.60,1,0,.88);tube([[mx-.42,12.12,-.64],[mx-.25,12.29,-.63],[mx,12.46,-.63],[mx+.25,12.29,-.63],[mx+.42,12.12,-.64]],.013,'oldgold',28);}
   }
-  for(let j=0;j<72;j++){let x=-7.8+j*15.6/71;between([x,13.97,-2.5],[x,14.20,.20],.095,.14,'cedar');box(x,14.16,.20,.11,.14,.12,j%5===0?'oldgold':'endwood');}
+  // The ceramic front is z=-.5. Keep the rafter ends behind it, so the
+  // continuous tiled eave remains visible from the low pond camera.
+  for(let j=0;j<72;j++){let x=-7.35+j*14.7/71;between([x,13.97,-2.5],[x,14.20,-.62],.095,.14,'cedar');box(x,14.16,-.62,.11,.14,.12,j%5===0?'oldgold':'endwood');}
  });
  const towerLevels=[];grouped(...C.towerPosition,Math.PI/4,()=>{
   role('tower-stone-foundation',()=>{box(0,-.075,0,5.1,.45,5.1,'stone');box(0,.21,0,5.35,.12,5.35,'granite');});
