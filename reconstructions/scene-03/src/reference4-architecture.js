@@ -107,7 +107,7 @@ export function buildReference4Architecture(T,options={}) {
   for(const t of[.58,.77,.94])for(let k=0;k<44;k++){let a=P(-1+2*k/44,t),b=P(-1+2*(k+1)/44,t);a[1]-=.20;b[1]-=.20;between(a,b,.18,.25,'red');}
  });
  role('front-gable-fine-woodwork',()=>{
-  const hw=4.5,front=1.6,back=-2.9,base=14.4,peak=18.30,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.20);
+  const hw=4.5,front=-.30,back=-4.8,base=14.4,peak=19.20,curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.20);
   const pp=[],uu=[];for(let i=0;i<60;i++){let a=-hw+2*hw*i/60,b=-hw+2*hw*(i+1)/60;for(let p of[[a,base,front-.34],[b,base,front-.34],[a,curve(a)-.17,front-.34],[a,curve(a)-.17,front-.34],[b,base,front-.34],[b,curve(b)-.17,front-.34]]){pp.push(...p);uu.push(p[0],p[1]);}}emit(meshFromTriangles(pp,uu,'closed-carved-gable'),'darkwood');
   const grid=gridAt(lin(-hw,hw,60),lin(back,front,16),(x,z)=>curve(x));emit(shell(grid,-.14,0,'gable-ceramic'),'slate');
   for(let i=0;i<=36;i++){let x=-hw+2*hw*i/36,y=curve(x);for(let j=0;j<10;j++)tileBetween([x,y+.025,back+(front-back)*j/10],[x,y+.025,back+(front-back)*(j+.98)/10],.065);arch.tileEnd(V([x,y+.025,front+.03]),0,.075,i%2===0);between([x,y-.24,back],[x,y-.24,front+.07],.105,.14,'cedar');}
@@ -119,7 +119,7 @@ export function buildReference4Architecture(T,options={}) {
  });
 
  role('main-roof-gilded-lotus-finial',()=>{
-  const x=3.8,z=-4.6,y=18.8;emit(cyl,'oldgold',x,y+1.9,z,.055,3.8,.055);
+  const x=3.8,z=-4.6,y=19.9;emit(cyl,'oldgold',x,y+1.9,z,.055,3.8,.055);emit(cyl,'oldgold',x,y-.08,z,.25,.30,.25);emit(sphere,'gold',x,y+.10,z,.22,.18,.22);
   for(let j=0;j<8;j++){let h=y+.22+j*.42,r=.32*(1-j*.073);emit(new T.TorusGeometry(r,.025,7,24),'gold',x,h,z,1,1,1,[Math.PI/2,0,0]);for(let k=0;k<7;k++){let a=k*Math.PI*2/7;between([x+Math.cos(a)*r*.7,h,z+Math.sin(a)*r*.7],[x+Math.cos(a)*r*1.2,h+.20,z+Math.sin(a)*r*1.2],.024,.024,'gold',true);}}
   emit(sphere,'gold',x,y+3.85,z,.105,.22,.105);
  });
