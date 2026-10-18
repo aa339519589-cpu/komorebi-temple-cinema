@@ -3,12 +3,13 @@ export function buildArchitecture(mats){
  const b=new Builder(mats),lights=[];const torus=new T.TorusGeometry(1,.075,6,20);
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
+ const leafShape=new T.Shape();leafShape.moveTo(0,-.06);leafShape.bezierCurveTo(-.04,-.035,-.055,.025,0,.075);leafShape.bezierCurveTo(.045,.025,.035,-.025,0,-.06);const reliefLeaf=new T.ExtrudeGeometry(leafShape,{depth:.016,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,steps:1,curveSegments:4});
  const closeCylinder=new T.CylinderGeometry(1,1,1,48);
  function column(x,z,base,h,r=.24){
   const cy=(yy,rr,hh,ma)=>r>.4?b.put(closeCylinder,ma,[x,yy,z],[rr,hh,rr]):b.cyl(x,yy,z,rr,hh,ma);
   cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,'red');
   for(let y of[base+.4,base+h-.05]){cy(y,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}
-  if(r>.4){cy(base+.72,r*1.015,.72,'oldgold');for(let yy of[base+.36,base+1.08])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*.63,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.ball(x+Math.cos(aa)*r*1.05,base+.46+k*.15,z+Math.sin(aa)*r*1.05,.018,.032,.018,'gold');}}}
+  if(r>.4){cy(base+.72,r*1.015,.72,'oldgold');for(let yy of[base+.36,base+1.08])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*.63,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.put(reliefLeaf,k%2?'oldgold':'gold',[x+Math.cos(aa)*r*1.04,base+.46+k*.15,z+Math.sin(aa)*r*1.04],[.65,.65,.65],[0,Math.PI/2-aa,(k%2?1:-1)*.6]);}}}
  }
  const armShape=new T.Shape();armShape.moveTo(-.5,0);armShape.lineTo(-.5,.14);armShape.quadraticCurveTo(-.35,.20,-.27,.11);armShape.lineTo(.27,.11);armShape.quadraticCurveTo(.35,.20,.5,.14);armShape.lineTo(.5,0);armShape.closePath();const bracketArm=new T.ExtrudeGeometry(armShape,{depth:1,bevelEnabled:false,curveSegments:6});bracketArm.translate(0,0,-.5);
  function bracket(x,y,z,s=1){b.at([x,y,z],0,()=>{
@@ -46,7 +47,7 @@ export function buildArchitecture(mats){
  function rail(length,base=0,height=1.05){for(let y of[.28,.73,height])b.box(0,base+y,0,length,y===height?.16:.10,.15,'red');let n=Math.ceil(length/1.75);for(let k=0;k<=n;k++){const x=-length/2+length*k/n;b.box(x,base+.55,0,.18,1.1,.18,'red');b.cyl(x,base+1.13,0,.12,.10,'gold');b.ball(x,base+1.26,0,.095,.12,.095);}for(let k=0;k<n*3;k++)b.box(-length/2+length*(k+.5)/(n*3),base+.5,0,.045,.42,.045,'red');}
  // The main hall is a tall, occupied building raised over an articulated stone terrace.
  b.at([4,1.2,-10],0,()=>{
-  b.box(0,.298,-.8,18.4,3.204,13.5,'stone');b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
+  b.box(0,.298,-.8,18.4,3.204,13.5,'stone');for(let row=0;row<6;row++){for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,-1.04+row*.51,6.02,1.075,.485,.13,'stone',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,-1.04+row*.51,-7.1+j*1.1,.13,.485,1.075,'stone',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
   for(let i=0;i<24;i++){let y=(24-i)*3.224/24,z=6.15+i*.27;b.box(0,(y/2-1.2)/.92,z,5.7,y/.92,.28,'stone',0,.90+.10*Math.sin(i));b.box(0,(y-.027-1.2)/.92,z+.1,5.85,.055,.10,'lightstone');}
   for(let s of[-1,1]){b.line([s*3.1,3.2,6.0],[s*3.1,-.2174,12.7],.12,'red');for(let i=0;i<10;i++){let t=i/9;column(s*3.1,mix(6,12.7,t),(3.224*(1-t)-1.2)/.92,.9,.07);}b.at([s*6.2,2.2,6.15],0,()=>rail(5.1));}
   const axes=[-7.8,-5.2,-2.6,0,2.6,5.2,7.8];for(let z of[4.7,-.8,-6.3])for(let x of axes){if((z===-.8&&Math.abs(x)<7)||(z===4.7&&x===0))continue;column(x,z,2.2,6.1,.27);bracket(x,8.28,z,.92);}
@@ -71,7 +72,7 @@ export function buildArchitecture(mats){
   }
   // Deep timber trusses hold smaller nested cloud carvings in the gable recess.
   b.box(0,12.05,5.52,6.7,.16,.20,'cedar');for(let x of[-1.75,1.75])b.box(x,12.78,5.53,.15,2.6,.20,'cedar');
-  for(let row=0;row<4;row++){const yy=11.65+row*.72,half=3.5-row*.76;for(let x=-half+.2;x<half;x+=.52){b.put(scroll,'oldgold',[x,yy,5.62],[.75,.85,.8],[0,0,(row+Math.round(x*2))%2?Math.PI:0]);rosette(x,yy+.12,5.65,.055);}}
+  for(let row=0;row<4;row++){const yy=11.65+row*.72,half=3.5-row*.76;for(let x=-half+.2;x<half;x+=.52){b.put(scroll,'oldgold',[x,yy,5.62],[.75,.85,.8],[0,0,(row+Math.round(x*2))%2?Math.PI:0]);rosette(x,yy+.12,5.65,.055);for(let ss of[-1,1])b.put(reliefLeaf,'oldgold',[x+ss*.12,yy+.035,5.655],[.75,.9,.9],[0,0,ss*.7]);}}
   rosette(0,13.72,5.62,.23);b.cyl(0,12.25,5.59,.055,1.3,'gold');b.box(0,11.35,5.48,9.6,.17,.25,'cedar');
   // Closely spaced multi-tier bracket clusters cast real shadows under the deep eave.
   for(let x=-9.2;x<=9.21;x+=.66){bracket(x,7.95,6.0,.90);b.box(x,9.26,6.45,.17,.17,1.58,'cedar');fitting(x,8.64,6.48,.16,.22);}
@@ -110,7 +111,7 @@ export function buildArchitecture(mats){
  for(let j=0;j<36;j++){let z=8+j*34/36,zz=8+(j+1)*34/36;b.line([11.1-1.1*flare(z),9.08,z],[11.1-1.1*flare(zz),9.08,zz],.38,'red',true,.45);}b.box(19.6,9.08,25,.38,.45,34,'red');
  // Open lacquered balustrade: fine gilt castings sit between rounded red rails.
  const finial=new T.LatheGeometry([[0,0],[.085,0],[.10,.03],[.075,.06],[.065,.11],[.12,.15],[.10,.19],[.055,.22],[.04,.27],[0,.30]].map(p=>new T.Vector2(...p)),24);
- for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);b.cyl(x,1.44,z,.12,.15,'oldgold');}
+ for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);for(let j=0;j<16;j++){let aa=j*Math.PI/8;b.put(reliefLeaf,'oldgold',[x+Math.sin(aa)*.102,2.31,z+Math.cos(aa)*.102],[.32,.34,.35],[0,aa,j%2?.5:-.5]);}b.cyl(x,1.44,z,.12,.15,'oldgold');}
  for(let y of[1.55,1.96,2.27])b.line([14.4,y,8],[14.4,y,41],y===2.27?.065:.037,'red');
  for(let z=9.8;z<40;z+=3.6){b.at([14.34,1.77,z],Math.PI/2,()=>{
   // Small dense cast-bronze inserts occupy the lower centre of each timber bay.
