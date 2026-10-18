@@ -1,0 +1,114 @@
+{
+  "status": "actual-closed-hand-authored-metal-plate",
+  "visualAccepted": false,
+  "blender": "5.2.1 LTS",
+  "version": "v03",
+  "physicalWidthHeightM": [
+    0.42,
+    0.58
+  ],
+  "baseBackFrontM": [
+    -0.012,
+    -0.004
+  ],
+  "baseThicknessM": 0.008,
+  "reliefHeightM": [
+    0.003,
+    0.0125
+  ],
+  "closedUnionPitchM": 0.0007,
+  "denseUnionAudit": {
+    "name": "gate08_single_cast_floral_plaque",
+    "vertices": 924794,
+    "triangles": 1849584,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "signedVolumeM3": 0.0020366921113212223
+  },
+  "denseAfterBoresAudit": {
+    "name": "gate08_single_cast_floral_plaque",
+    "vertices": 924442,
+    "triangles": 1848896,
+    "boundaryEdges": 0,
+    "nonmanifoldEdges": 0,
+    "signedVolumeM3": 0.002034938930698949
+  },
+  "prototypeParts": [
+    {
+      "name": "gate08_single_cast_floral_plaque",
+      "vertices": 44994,
+      "triangles": 90000,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 0.002034778404140464
+    },
+    {
+      "name": "gate08_small_domed_fixing_0",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572302e-07
+    },
+    {
+      "name": "gate08_small_domed_fixing_1",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572302e-07
+    },
+    {
+      "name": "gate08_small_domed_fixing_2",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572303e-07
+    },
+    {
+      "name": "gate08_small_domed_fixing_3",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572302e-07
+    }
+  ],
+  "triangles": 92112,
+  "onlySceneInstance": {
+    "position": [
+      -1.983,
+      3.3,
+      7.9
+    ],
+    "rotationYRadians": 1.5707963267948966
+  },
+  "reference": {
+    "file": "references/hd/7-\u7167\u7247-8.jpg",
+    "comparisonCropXYWH": [
+      120,
+      594,
+      57,
+      194
+    ],
+    "observed": "Pointed top/bottom floral escutcheon; rolled shoulders; broad connected leaf-scroll/flower masses, rather than a radial wheel.",
+    "inferred": "Hidden depth, precise folds/veins and small fixing positions are artistic hypotheses at the supplied photo resolution."
+  },
+  "policy": {
+    "photoPixelsInGeometry": false,
+    "photoRGBInMaterial": false,
+    "heightImageRead": false,
+    "externalPatternImported": false,
+    "methodReference": "scene03 closed-solid authoring/audit practice only; no scene03 pattern, guide or geometry imported"
+  },
+  "limits": [
+    "Hand-drawn interpretation of visible large shapes, not a measured historic ornament.",
+    "Reference photograph copyright remains with its owner.",
+    "Closed volume and correct loading do not establish photographic fidelity."
+  ],
+  "gate-plaque.blendSha256": "00295e40c31bec709650f2955135d9128c49107ccca9d08f6616c1e239dc5937",
+  "gate-plaque.glbSha256": "14a436fa5020d80f9f3da20921367b510f9a9a7fa2764efe559c77a48461886f",
+  "hand-drawn-vectors.jsonSha256": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+  "build-source.pySha256": "f42df4b7634ddb8a3f8d8fe1f2c0c6055d2904028385f9d0280051d7dc89b39c"
+}

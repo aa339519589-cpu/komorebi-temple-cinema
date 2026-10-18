@@ -1,0 +1,160 @@
+{
+  "status": "export-audited-not-visual-acceptance",
+  "visualAccepted": false,
+  "asset": "gate-plaque-v04",
+  "sha256": "bd131590d4085efd8fec03a774af81d381b837f3c48411a06ae2695c3f7d0019",
+  "meshCount": 5,
+  "materialCount": 2,
+  "images": [],
+  "textures": [],
+  "parts": [
+    {
+      "name": "gate08_single_cast_floral_plaque",
+      "triangles": 90000,
+      "bounds": {
+        "min": [
+          -0.209730327129364,
+          -0.2898205920142398,
+          -0.012000127269583431
+        ],
+        "max": [
+          0.20973075926303864,
+          0.28980449916827766,
+          0.008946443069547396
+        ]
+      }
+    },
+    {
+      "name": "gate08_small_domed_fixing_0",
+      "triangles": 528,
+      "bounds": {
+        "min": [
+          -0.15660000126808882,
+          0.16940002444834434,
+          -0.005799977945130069
+        ],
+        "max": [
+          -0.1416000071913004,
+          0.184400024767528,
+          0.0014000249139565326
+        ]
+      }
+    },
+    {
+      "name": "gate08_small_domed_fixing_1",
+      "triangles": 528,
+      "bounds": {
+        "min": [
+          0.14160000998526812,
+          0.16940002444834434,
+          -0.005799977945130069
+        ],
+        "max": [
+          0.15660000406205654,
+          0.184400024767528,
+          0.0014000249139565326
+        ]
+      }
+    },
+    {
+      "name": "gate08_small_domed_fixing_2",
+      "triangles": 528,
+      "bounds": {
+        "min": [
+          -0.15660000126808882,
+          -0.18440002184804233,
+          -0.005800025481293327
+        ],
+        "max": [
+          -0.1416000071913004,
+          -0.16940002152885866,
+          0.0013999773777932751
+        ]
+      }
+    },
+    {
+      "name": "gate08_small_domed_fixing_3",
+      "triangles": 528,
+      "bounds": {
+        "min": [
+          0.14160000998526812,
+          -0.18440002184804233,
+          -0.005800025481293327
+        ],
+        "max": [
+          0.15660000406205654,
+          -0.16940002152885866,
+          0.0013999773777932751
+        ]
+      }
+    }
+  ],
+  "bounds": {
+    "min": [
+      -0.209730327129364,
+      -0.2898205920142398,
+      -0.012000127269583431
+    ],
+    "max": [
+      0.20973075926303864,
+      0.28980449916827766,
+      0.008946443069547396
+    ],
+    "size": [
+      0.41946108639240265,
+      0.5796250911825175,
+      0.020946570339130825
+    ]
+  },
+  "closedSolidAudit": [
+    {
+      "name": "gate08_single_cast_floral_plaque",
+      "vertices": 44994,
+      "triangles": 90000,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 0.0020294284896395613
+    },
+    {
+      "name": "gate08_small_domed_fixing_0",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572302e-7
+    },
+    {
+      "name": "gate08_small_domed_fixing_1",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572302e-7
+    },
+    {
+      "name": "gate08_small_domed_fixing_2",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572303e-7
+    },
+    {
+      "name": "gate08_small_domed_fixing_3",
+      "vertices": 266,
+      "triangles": 528,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "signedVolumeM3": 8.242864563572302e-7
+    }
+  ],
+  "unchangedAgainst": "2abf69f",
+  "sourceUnchanged": [
+    "src/main.js",
+    "src/gate-hardware.js",
+    "src/gallery-joinery.js",
+    "src/scanned-timber.js",
+    "src/rocks.js"
+  ],
+  "scope": "Exactly one inner-face plate at [-1.983,3.3,7.9], rotationY=pi/2. Main camera, movement, focus, FOV, architecture, lights and all other fittings retain the base source."
+}
