@@ -8,7 +8,7 @@ import {emitRestoredBuddha} from './restoration-buddha.js';
 
 // Independent room, not a material patch over the exterior-world reconstruction.
 // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
-export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-cast-surface-r7',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.78,8.40],target:[0,2.40,-2.3],fov:62},sunDirection:[-1,.68,-.78],sunIntensity:42.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
+export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-grazing-light-r8',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:62},sunDirection:[-1,.68,-.78],sunIntensity:42.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
 function woodMap(){
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=512;const c=canvas.getContext('2d'),im=c.createImageData(512,512);let seed=19473;const r=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
  for(let y=0;y<512;y++)for(let x=0;x<512;x++){const u=x+.85*Math.sin(y*.019)+.35*Math.sin(y*.061);const v=230+5*Math.sin(u*.38)+4*Math.sin(u*1.77)+(r()-.5)*4,j=(y*512+x)*4;im.data[j]=im.data[j+1]=im.data[j+2]=v;im.data[j+3]=255;}c.putImageData(im,0,0);const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;return map;
@@ -45,6 +45,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
   mat:new T.MeshStandardMaterial({name:'reference6-woven-straw',color:'#bda477',roughness:.91,bumpScale:.00045}),
  };
  materials.sculptureRecess=new T.MeshStandardMaterial({name:'scene06-recessed-gilt-anatomy',color:'#604018',metalness:.78,roughness:.43});
+ materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-cast-palm-gilt';materials.handGold.metalness=.92;materials.handGold.roughness=.29;
  materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-polished-gilt-face';materials.faceGold.roughness=.32;materials.faceGold.metalness=.68;materials.faceGold.color.set('#cda44f');
  materials.statueGold=materials.gold.clone();materials.statueGold.name='reference6-statue-ornament-private-gilt';
  const blockers=[],apertures=[],pillarRoots=[];
@@ -161,7 +162,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  // altar/sculpture reconstruction candidates are mounted at the unchanged local seats.
  for(const root of[altar,hanging])root.traverse(o=>{if(!o.isMesh)return;if(o.material.name==='restoration-black-brown-lacquer'){o.material.color.set('#030201');o.material.roughness=.32;}if(o.material.name==='restoration-lantern-warm-paper'){o.material.color.set('#fff0cd');o.material.emissive.set('#ffd68b');o.material.emissiveIntensity=1.3;o.castShadow=false;}});
  const sculptures=new T.Group();sculptures.name='reference6-rebuilt-triad';furniture.add(sculptures);
- const emit=(g,key,x,y,z,sx,sy,sz)=>{if(!g?.isBufferGeometry)throw Error('Sculpture must emit actual geometry.');const m=new T.Mesh(g,key==='face'?materials.faceGold:key==='crease'?materials.sculptureRecess:key==='oldgold'?materials.hair:key==='gold'?materials.statueGold:materials.buddha);m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.castShadow=m.receiveShadow=true;sculptures.add(m);};
+ const emit=(g,key,x,y,z,sx,sy,sz)=>{if(!g?.isBufferGeometry)throw Error('Sculpture must emit actual geometry.');const m=new T.Mesh(g,key==='hand'?materials.handGold:key==='face'?materials.faceGold:key==='crease'?materials.sculptureRecess:key==='oldgold'?materials.hair:key==='gold'?materials.statueGold:materials.buddha);m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.castShadow=m.receiveShadow=true;sculptures.add(m);};
  for(const [i,seat]of altar.userData.figureSeatAnchors.entries())emitRestoredBuddha(emit,{variant:['central','left','right'][i],x:seat[0],y:seat[1],z:seat[2],scale:(i===0?2.38:1.60)/3.26,widthScale:i===0?.98:.94,depthScale:1});
  const sun=new T.DirectionalLight('#ffe0a7',REFERENCE6_FOUNDATION.sunIntensity);sun.name='reference6-physical-left-window-daylight';sun.target.position.set(0,2.6,1.2);sun.position.copy(sun.target.position).addScaledVector(new T.Vector3(...REFERENCE6_FOUNDATION.sunDirection).normalize(),40);sun.castShadow=true;sun.shadow.mapSize.set(shadowSize,shadowSize);Object.assign(sun.shadow.camera,{left:-12,right:12,top:11,bottom:-11,near:1,far:90});sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00008;sun.shadow.normalBias=.009;sun.shadow.radius=3.0;scene.add(sun,sun.target);
  // Diffuse sky admitted at actual window rectangles. RectArea proxy is explicitly
@@ -183,7 +184,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  }
  const warmBounce=new T.HemisphereLight('#ffe2a7','#5d4023',.65);warmBounce.name='scene06-warm-diffuse-room-return';scene.add(warmBounce);
  const portalKey=new T.RectAreaLight('#ffdb9c',3.4,4.8,2.8);portalKey.name='scene06-entrance-warm-head-field';portalKey.position.set(0,5.4,7.0);portalKey.lookAt(0,4.8,-2.3);scene.add(portalKey);windowSky.push(portalKey);
- const floorBounce=new T.RectAreaLight('#ffd69c',.35,4.0,3.0);floorBounce.name='reference6-sunlit-floor-bounce-proxy';floorBounce.position.set(-2.5,.14,2.7);floorBounce.lookAt(0,3.5,-2.3);scene.add(floorBounce);windowSky.push(floorBounce);
+ const floorBounce=new T.RectAreaLight('#ffd69c',1.30,4.0,3.0);floorBounce.name='reference6-sunlit-floor-bounce-proxy';floorBounce.position.set(0,.18,3.2);floorBounce.lookAt(0,4.2,-2.3);scene.add(floorBounce);windowSky.push(floorBounce);
  const practicals=[];for(const side of[-1,1]){const l=new T.PointLight('#ffc577',1.4,2.2,2);l.name='reference6-floor-lantern-source';l.position.set(side*3.2-.025,1.35,-.12);l.castShadow=true;l.shadow.mapSize.set(256,256);l.shadow.bias=-.00015;l.shadow.normalBias=.008;scene.add(l);practicals.push(l);}
  const floor=new Reflector(new T.PlaneGeometry(13.4,15.8),{textureWidth:reflectionSize,textureHeight:reflectionSize,clipBias:.002,multisample:0,color:0xffffff});floor.name='reference6-polished-floor-reflection';floor.rotation.x=-Math.PI/2;floor.position.set(0,.004,2.1);floor.material.transparent=true;floor.material.depthWrite=false;floor.material.uniforms.reference6ReflectionLod={value:.85};const ft=floor.getRenderTarget().texture;ft.generateMipmaps=true;ft.minFilter=T.LinearMipmapLinearFilter;const fm=floor.material;
  fm.vertexShader=fm.vertexShader.replace('varying vec4 vUv;','varying vec4 vUv;varying vec3 vReferenceFloor;').replace('vUv = textureMatrix','vReferenceFloor=(modelMatrix*vec4(position,1.0)).xyz;vUv = textureMatrix');
@@ -200,8 +201,8 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
    // capture from the first and accidentally count its indirect energy twice.
    scene.environment=null;environment=capture([.4,1.45,2.4]);statueEnvironment=capture([0,4.40,.5]);
    scene.environment=environment.texture;scene.environmentIntensity=1.0;
-   materials.buddha.envMap=materials.faceGold.envMap=statueEnvironment.texture;materials.statueGold.envMap=statueEnvironment.texture;
-   materials.buddha.envMapIntensity=materials.faceGold.envMapIntensity=materials.statueGold.envMapIntensity=1.0;
+   materials.buddha.envMap=materials.handGold.envMap=materials.faceGold.envMap=statueEnvironment.texture;materials.statueGold.envMap=statueEnvironment.texture;
+   materials.buddha.envMapIntensity=materials.handGold.envMapIntensity=materials.faceGold.envMapIntensity=materials.statueGold.envMapIntensity=1.0;
    environmentInitialized=true;
   }catch(error){scene.environment=oldEnvironment;renderer.shadowMap.autoUpdate=oldShadowAuto;renderer.shadowMap.needsUpdate=oldShadowNeeds;for(const target of made)target.dispose();throw error;}
   finally{floor.visible=prior;pmrem.dispose();}

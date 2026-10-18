@@ -147,7 +147,7 @@ function reliefArcs(x,y,arcs){let f=0;for(const a of arcs){
   f+=gate*(amp*gaussian(y-level,thickness)-amp*.25*gaussian(y-level+.056,thickness*.70));
 }return f;}
 function makeBuilder(variant){
-  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[]},names=[];
+  const bins={buddha:[],oldgold:[],gold:[],crease:[],face:[],hand:[]},names=[];
   return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
     finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
@@ -240,10 +240,10 @@ function neck(b,cy,small=false){
 }
 
 function raisedHand(b,cx,cy,cz,{size=1,mirror=1}={}){
- const point=p=>[cx+mirror*p[0]*size,cy+p[1]*size,cz+p[2]*size];
+ const point=p=>{const x=mirror*p[0]*size,z=p[2]*size,a=mirror*.25;return[cx+x*Math.cos(a)+z*Math.sin(a),cy+p[1]*size,cz-x*Math.sin(a)+z*Math.cos(a)];};
  const palmRows=[[-.18,0,0,0],[-.145,.058,.025,0],[-.060,.101,.032,0],[.055,.113,.029,0],[.125,.100,.026,0],[.153,.053,.018,0],[.165,0,0,0]];
  const palm=loft(palmRows,{nu:80,nv:88,relief:(x,y)=>-.008*gaussian(x,.060)*gaussian(y,.075)+.013*gaussian(x-.058,.035)*gaussian(y+.066,.055)-.003*gaussian(y+.020+.14*x,.006)});
- palm.scale(size*mirror,size,size);palm.translate(cx,cy,cz);if(mirror<0){const ix=palm.index;for(let i=0;i<ix.count;i+=3){const t=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,t);}}recomputeSculptureNormals(palm);b.add(palm,'anatomical-raised-palm');
+ palm.scale(size*mirror,size,size);palm.rotateY(mirror*.25);palm.translate(cx,cy,cz);if(mirror<0){const ix=palm.index;for(let i=0;i<ix.count;i+=3){const t=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,t);}}recomputeSculptureNormals(palm);b.add(palm,'anatomical-raised-palm','hand');
  const fingers=[
   [[-.075,.085,.002],[-.106,.205,.012],[-.122,.286,.018],[-.119,.315,.012]],
   [[-.033,.137,.000],[-.043,.266,.009],[-.045,.350,.009],[-.039,.372,.000]],
@@ -253,7 +253,7 @@ function raisedHand(b,cx,cy,cz,{size=1,mirror=1}={}){
  ];
  fingers.forEach((p,i)=>{
   p=p.map(q=>[q[0]*1.05,q[1]*.88,q[2]+Math.max(0,q[1]-.20)*.22]);
-  b.add(finger(p.map(point),(i===4?.028:.028)*size),'anatomical-raised-finger-'+i);
+  b.add(finger(p.map(point),(i===4?.028:.028)*size),'anatomical-raised-finger-'+i,'hand');
   if(i<4){const q=point(p[2]),crease=[[q[0]-.013*size,q[1]-.005*size,q[2]+.018*size],[q[0],q[1]-.008*size,q[2]+.020*size],[q[0]+.013*size,q[1]-.005*size,q[2]+.018*size]];b.add(cord(crease,.0024*size),'finger-joint-'+i,'crease');}
  });
  return point;
