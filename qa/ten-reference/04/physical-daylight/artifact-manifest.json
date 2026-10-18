@@ -1,0 +1,63 @@
+{
+  "artifacts": {
+    "render-scene04-photographic.py": {
+      "bytes": 24912,
+      "sha256": "d845339a8102b893fa3dfddc9f89ef03c8ecbad3261b4fb3bb0f9ab5cee6cc7c",
+      "localReproducibleCache": false
+    },
+    "render-context02.py": {
+      "bytes": 5860,
+      "sha256": "674d0580c5f4ed086e6940a6ec0f24cb971c9dab5ef14530030a745178563e38",
+      "localReproducibleCache": false
+    },
+    "recipe.json": {
+      "bytes": 2491,
+      "sha256": "e0ebeffb816e8226b3703ece5790285dcde1ea47ee87502d5894388cf6ae3da7",
+      "localReproducibleCache": false
+    },
+    "declarative-context.json": {
+      "bytes": 2451,
+      "sha256": "4d9cd190941bbace1f85cce052aec3aa1989c5061927f173ef27db141a271cad",
+      "localReproducibleCache": false
+    },
+    "source-export/scene.json": {
+      "bytes": 807445,
+      "sha256": "dff8ee86dddfa65497ff090ac0ed01234963c406dfe327c1b98ee823fc0a2fce",
+      "localReproducibleCache": false
+    },
+    "source-export/export-report.json": {
+      "bytes": 700532,
+      "sha256": "34e013798fc0111d43b92c6aa332b00f96381067ff03825b51e53c62cdf2c59b",
+      "localReproducibleCache": false
+    },
+    "iteration-01/actual-scene04-daylight.png": {
+      "bytes": 2640553,
+      "sha256": "7203c695e6260b7a2bddba750bff0f2ed497991c47303a910ab46ab12390cf3f",
+      "localReproducibleCache": false
+    },
+    "iteration-02/actual-scene04-daylight.png": {
+      "bytes": 2684676,
+      "sha256": "b8b3980275df54c27598249ad21fbf46b0f998ca19dfbfedc47e740cd4bada50",
+      "localReproducibleCache": false
+    },
+    "iteration-01/editable-scene04-daylight.blend": {
+      "bytes": 581319909,
+      "sha256": "0bc840a23d8a2d72c9ccd30e11ee500f48b83915ac35645ed3ac3990af7ebf3f",
+      "localReproducibleCache": true
+    },
+    "iteration-02/editable-scene04-daylight.blend": {
+      "bytes": 581760179,
+      "sha256": "96a84efcf329a6f6225f512a6e2336e377793486343a922ea7fc9b142323a7ad",
+      "localReproducibleCache": true
+    },
+    "hdri/sky-2k.exr": {
+      "bytes": 18335204,
+      "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+      "localReproducibleCache": false
+    }
+  },
+  "largeLocalFiles": "Packed editable blend files and raw geometry buffers remain saved locally. Recreate raw buffers with the source exporter from the verified namespace.",
+  "sourceExportRawBufferHashes": "source-export/export-report.json",
+  "geometryAndCameraChanged": false,
+  "selectedLiveSceneChanged": false
+}
