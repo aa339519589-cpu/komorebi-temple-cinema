@@ -1,0 +1,57 @@
+name: Restore missing exterior reference 2 and 4 real frames
+on:
+  push:
+    branches: [work/live-reference-render-20261017]
+    paths: ['.github/workflows/restore-two-exterior-frames.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: recover-exterior-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  real-scene-preview:
+    runs-on: macos-14
+    timeout-minutes: 16
+    strategy:
+      fail-fast: false
+      matrix:
+        reference: [2, 4]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.2.0'
+      - name: Construct derivative preview with preserved geometry
+        env:
+          SITE_PREVIEW_SHADOW_SIZE: '2048'
+        run: |
+          node verify.mjs
+          node tools/prepare-site-mode.mjs
+          node --check src/world-site-start.js
+          node --check src/site-production.js
+          test -f render-v3.html
+      - name: Install pinned test browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/komorebi-runtime" --no-audit --no-fund playwright@1.56.1
+          "$RUNNER_TEMP/komorebi-runtime/node_modules/.bin/playwright" install chromium
+          command -v ffmpeg || brew install ffmpeg
+      - name: Render original geometry at bounded preview quality
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/komorebi-runtime/node_modules/playwright/index.mjs
+          REFERENCE: ${{ matrix.reference }}
+          SIZE: '640'
+        timeout-minutes: 12
+        run: |
+          set -o pipefail
+          node tools/render-reference-pass.mjs
+      - name: Preserve exact pixels and errors
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovered-reference-${{ matrix.reference }}-${{ github.sha }}
+          path: output/reference-pass-*/
+          retention-days: 7
+          if-no-files-found: warn
