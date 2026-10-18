@@ -1,3 +1,4 @@
+import {createDollyPath} from '/reconstructions/camera-dolly.js';
 import * as T from 'three';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
@@ -148,7 +149,8 @@ function setCamera(position,target,fov=52){camera.position.fromArray(position);c
 function draw(time=0){initializeEnvironment();water.material.uniforms.time.value=time;scene.updateMatrixWorld(true);renderer.setRenderTarget(null);renderer.info.reset();composer.render(0);frames++;return info();}
 function renderReference(n=9){if(n!==9)throw new RangeError('Scene 09 only');setCamera(REFERENCE.position,REFERENCE.target,REFERENCE.fov);return draw(0);}
 function renderView(position,target,time=0,fov=52){setCamera(position,target,fov);return draw(time);}
-function renderShot(localTime=0){const t=T.MathUtils.clamp(localTime/7,0,1),s=t*t*(3-2*t);return renderView([5.2+.8*s,2.2+.5*s,31.4+1.6*s],[4-4*s,5.6-.1*s,-1-9*s],localTime,38+14*s);}
+const dolly=createDollyPath({points:[[6.6,2.30,31.7],[6.5,2.35,32.05],[6.2,2.60,32.75],REFERENCE.position],nearTarget:[7.05,2.5,30.5],farTarget:REFERENCE.target,fov:REFERENCE.fov});
+function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
 function info(){return{reference:9,revision:'night-garden-stone-fixtures-and-local-lights-mesh70',width:W,height:H,frames,instances,meshes:buckets.size,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:{position:camera.position.toArray(),fov:camera.fov},diagnostics:{shaderErrors:errors,glError:gl.getError(),maxTextureUnits:renderer.capabilities.maxTextures,shadowCastingLights:scene.children.filter(o=>o.isLight&&o.castShadow).length,pointLights:scene.children.filter(x=>x.isPointLight).length},fixtureRevision:NIGHT_FIXTURE_REVISION,scannedMaterials:scannedNight.info,fixtureLocalLights:fixtureLights.length,constraints:{assets:'Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture',animation:'explicit renderShot only; no RAF'}};}
 function dispose(){composer.dispose();contactAO.dispose();bloom.dispose();wetDeck.dispose();for(const p of pines)p.dispose();for(const object of extras)object.traverse(o=>{if(o.isMesh)o.geometry.dispose();});pineCards.dispose();envTarget?.dispose();water.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();sky.geometry.dispose();skyMat.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};window.templeDiagnostics={snapshot:()=>info().diagnostics};if(!Q.has('defer'))renderReference(9);

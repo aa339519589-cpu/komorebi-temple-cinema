@@ -20,12 +20,12 @@ export function createDistantLandscape(){
  const terrain=new T.BufferGeometry();terrain.setAttribute('position',new T.Float32BufferAttribute(positions,3));terrain.setAttribute('uv',new T.Float32BufferAttribute(uv,2));terrain.setAttribute('color',new T.Float32BufferAttribute(colors,3));terrain.setIndex(indices);terrain.computeVertexNormals();
  const terrainMaterial=new T.MeshStandardMaterial({name:'distant-forested-earth',vertexColors:true,roughness:1});
  const land=new T.Mesh(terrain,terrainMaterial);land.receiveShadow=true;group.add(land);
- const crown=new T.SphereGeometry(1,7,5),bark=new T.CylinderGeometry(.10,.16,1,5),count=1800;
+ const crown=new T.SphereGeometry(1,7,5),bark=new T.CylinderGeometry(.10,.16,1,5),count=4500;
  const foliage=new T.InstancedMesh(crown,new T.MeshStandardMaterial({name:'distant-evergreen-crowns',color:0x41502b,roughness:1}),count*4);
  const trunks=new T.InstancedMesh(bark,new T.MeshStandardMaterial({name:'distant-evergreen-trunks',color:0x4b4030,roughness:1}),count);
  const rand=rng(730619),dummy=new T.Object3D(),tint=new T.Color();
  for(let k=0;k<count;k++){
-  const x=-102+rand()*204,z=-144+rand()*96,base=height(x,z)-.08,h=1.3+rand()*2.3,r=.48+rand()*.49;
+  const x=-102+rand()*204,z=-144+rand()*96,base=height(x,z)-.08,h=.55+rand()*1.0,r=.22+rand()*.27;
   dummy.position.set(x,base+h*.45,z);dummy.scale.set(1,h*.9,1);dummy.rotation.set(0,rand()*Math.PI*2,0);dummy.updateMatrix();trunks.setMatrixAt(k,dummy.matrix);
   for(let j=0;j<4;j++){
    const a=j*2.399963+k*.31;dummy.position.set(x+Math.cos(a)*r*.28,base+h*(.45+j*.15),z+Math.sin(a)*r*.28);

@@ -1,3 +1,4 @@
+import {createDollyPath} from '/reconstructions/camera-dolly.js';
 import * as T from 'three';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
@@ -20,6 +21,7 @@ function setPose(position,target,fov){camera.position.fromArray(position);camera
 function draw(){scene.updateMatrixWorld(true);renderer.info.reset();renderer.setRenderTarget(null);composer.render(0);renderer.setRenderTarget(null);return {camera:camera.position.toArray(),fov:camera.fov,triangles:renderer.info.render.triangles,calls:renderer.info.render.calls};}
 function renderReference(n=5){if(n!==5)throw new RangeError('Scene 05 only');setPose(POSE.position,POSE.target,POSE.fov);return draw();}
 function renderView(position,target,time=0,fov=POSE.fov){setPose(position,target,fov);return draw();}
-function renderShot(localTime=0){const t=T.MathUtils.clamp(localTime/7,0,1),s=t*t*(3-2*t);const mix=(a,b)=>a.map((v,i)=>T.MathUtils.lerp(v,b[i],s));setPose(mix([6.3,.72,8.6],POSE.position),mix([4.2,7.2,4.2],POSE.target),T.MathUtils.lerp(46,POSE.fov,s));return draw();}
+const dolly=createDollyPath({points:[[6.3,.72,8.6],[7.25,.76,9.55],[10,.95,11.9],POSE.position],nearTarget:[4.2,7.2,4.2],farTarget:POSE.target,fov:POSE.fov});
+function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({...world.info(),renderer:renderer.info.render,referencePose:POSE}),dispose(){world.dispose();contactAO.dispose();composer.dispose();renderer.dispose();}};
 if(!q.has('defer'))renderReference();

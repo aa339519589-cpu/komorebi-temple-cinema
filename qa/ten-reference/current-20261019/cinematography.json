@@ -1,0 +1,25 @@
+{
+  "status": "actual-mesh-shot-production-in-progress",
+  "visualAccepted": false,
+  "durationPerShot": 7,
+  "movement": "Cubic spatial dolly; arc-length sampling; smooth quaternion viewing attitude; fixed reference FOV. No image zoom or reference-image animation.",
+  "referenceCameraEndsPreserved": true,
+  "focus": "Actual distance-based focus for scenes01/03/06/08/10; reference-only depth softness replaced where near objects were blurred.",
+  "shotEvidence": {
+    "01": "../01/iteration-cinema67-film/report.json",
+    "02": "../02/iteration-dolly52/report.json",
+    "03": "../03/iteration-dolly52/report.json",
+    "04": "../04/iteration-dolly52/report.json",
+    "05": "../05/iteration-dolly52/report.json",
+    "06": "../06/iteration-camera74/report.json",
+    "07": "../07/iteration-dolly52/report.json",
+    "08": "../08/iteration-dolly52/report.json",
+    "09": "../09/iteration-dolly52/report.json",
+    "10": "../10/iteration-cinema51/report.json"
+  },
+  "limitations": [
+    "Three-frame storyboards are not a complete temporal-quality acceptance.",
+    "The current geometry, materials and lighting still do not match the references.",
+    "Scene07 preserves the original elevated veranda composition."
+  ]
+}

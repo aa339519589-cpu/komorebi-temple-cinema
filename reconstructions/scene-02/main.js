@@ -1,3 +1,4 @@
+import {createDollyPath} from '/reconstructions/camera-dolly.js';
 import {T,V,materials} from './kernel.js';
 import {installScannedTimber} from './scanned-timber.js';
 import {buildPagodaGrounding} from './pagoda-ground.js';
@@ -67,7 +68,8 @@ function setView(position,target,fov=52){camera.position.fromArray(position);cam
 function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorld(true);renderer.setRenderTarget(null);composer.render(0);frames++;return {frame:frames,position:camera.position.toArray(),fov:camera.fov,width,height};}
 function renderReference(n=2){if(n!==2)throw Error('This independent reconstruction supports reference 02 only.');setView(reference.position,reference.target,reference.fov);return draw();}
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
-function renderShot(localTime=0){let t=Math.max(0,Math.min(1,localTime/7)),u=t*t*(3-2*t);setView([T.MathUtils.lerp(15.8,16.2,u),T.MathUtils.lerp(2.48,2.72,u),T.MathUtils.lerp(21.8,25,u)],[-1,T.MathUtils.lerp(4.4,4.7,u),-7],T.MathUtils.lerp(47,52,u));return draw();}
+const dolly=createDollyPath({points:[[15.1,2.1,23.6],[15.18,2.25,23.9],[15.8,2.6,24.6],reference.position],nearTarget:[14.4,2.4,22.4],farTarget:reference.target,fov:reference.fov});
+function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
 function info(){return{reference:2,revision:'scene02-mesh66b-turned-sorin-warm-painted-timber',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);
