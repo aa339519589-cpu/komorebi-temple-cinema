@@ -1,6 +1,6 @@
 # 参考 01：夕照寺院池庭
 
-第二轮独立 Three.js 场景，参照 `references/hd/0-照片-1.jpg` 实看重建。
+第三轮独立 Three.js 场景，参照 `references/hd/0-照片-1.jpg` 实看重建。
 
 入口：`/reconstructions/scene-01/index.html?render&defer&w=768&h=768`。由仓库静态 HTTP 服务提供；importmap 指向仓库根 `../../vendor/`。
 
@@ -11,3 +11,5 @@
 CPU 检查：`node --experimental-loader ./qa/ten-reference/01/cpu-loader.mjs qa/ten-reference/01/cpu-check.mjs`。
 
 尚需逐轮 GPU 对照图检查，CPU 检查不代表视觉验收。
+
+第三轮根据真实第二轮对照重建细叶曲面/叶脉、平滑岸石与三维风化、连续苔藓石岸与蕨类、三级真实檐椽和雕花檐枋；增加真实深度驱动的近景镜头失焦，桥、塔、主殿保持焦内。输出通过线性 HDR 目标同步写入默认 framebuffer。
