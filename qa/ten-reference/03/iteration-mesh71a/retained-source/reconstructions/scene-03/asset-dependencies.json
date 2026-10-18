@@ -1,0 +1,103 @@
+{
+  "scene": "03",
+  "revision": "mesh71a",
+  "referencePhotographs": {
+    "usedByRuntime": false,
+    "comparisonInput": "references/hd/2-照片-3.jpg",
+    "copyright": "Retained by the original photograph owner. No source-photo RGB, projected texture, inferred depth, point cloud or Gaussian splat is used."
+  },
+  "copiedSource": [
+    {
+      "from": "reconstructions/scene-05/src/sculpted-joinery.js",
+      "to": "src/scene03-solid-joinery.js",
+      "sourceCommit": "d08f98b",
+      "sourceSha256": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "scope": "Closed author-built curved half-lapped timber parts and pierced end fitting. Ceramic masks and corner-only members are not emitted in scene03."
+    },
+    {
+      "from": "reconstructions/scene-06/src/restoration-buddha.js",
+      "to": "src/scene03-sanctuary-buddha.js",
+      "sourceCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "sourceSha256": "90eb79e35fcb5b3cdb6db23cc0e327e64f0bd47a8f70418729fa0fbc21b1133b",
+      "scope": "Self-contained authored 3D sculpture module. Only the central seated icon is instantiated at scene03 local scale0.60; scene06 site, altar, camera, lights and appearance are not copied. The hidden exact scene03 iconography remains an interpretation."
+    }
+  ],
+  "retainedPBR": [
+    {
+      "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+      "license": "CC0-1.0",
+      "provenance": "assets/timber/provenance.json",
+      "scope": "Local timber surface maps on independently built members; no scene RGB"
+    }
+  ],
+  "authoredGeometry": [
+    "Continuous closed curve-swept rounded-square roof rafters with caps",
+    "Main hall bearings fitted between actual supporting beam tops and the roof rafter underside",
+    "Closed 1–2.4 mm cupped lotus petals with curved ovate outline, rolled rims and fine geometric pleats",
+    "Closed 1.6–2.8 mm peltate lotus leaves with a depressed centre, uneven rim and 19 physical radial veins",
+    "Smooth closed ovoid five-lobed lotus bud",
+    "Two entrance beam faces receive eight instances of a shared closed 32,108-triangle carved-gilt/deep-wood prototype. The retained structural beams, columns, roofs and camera are unchanged."
+  ],
+  "proceduralBotanicalMaps": "Locally generated petal/leaf pigments and fine venation; no photograph inputs",
+  "visualAccepted": false,
+  "roofConstructionReferences": [
+    {
+      "inspectedSource": "reconstructions/scene-07/src/physical-roofs.js",
+      "sourceRevision": "scene07-solid-curved-roof-67",
+      "sourceSha256": "a468cbf29be7e2b2c940e2ed9336d8718fbdf0116b37cdc23ee293006738b321",
+      "scope": "Reviewed closed pan/cover course construction, eave fascia separation and roof/support contacts. Scene03 keeps its own fixed site, camera and dimensions; no site transform was copied."
+    }
+  ],
+  "roofCorrections": [
+    "Retained physical camera and column/platform placement. Upper hipped roof width 13.6 m and eave 15.4 m; ridge stays at 19.6 m.",
+    "Recessed front gable crown 18.62 m at z=-0.60 m and x=0.60 m. Its smaller closed dark diaphragm is below the curved ceramic roof and thick bargeboard.",
+    "New short closed 18 mm clay pan/cover courses plus short eave tails; closed continuous wood/metal fascia.",
+    "The previous curved upper bearings are retained as solids and follow the raised receiver beam to the roof underside.",
+    "Reduced the two white upper-storey strips to narrow grey recessed fields."
+  ],
+  "files": [
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-03/tools/build-ranma-relief.py",
+    "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend"
+  ],
+  "carvedRanma": {
+    "scope": "Central portal crossbeams only: hall-local y=8.70 and 9.30m; x=-2.01,-0.67,0.67,2.01m; front datum z=0.330m.",
+    "prototype": "assets/ranma-frieze-v01/ranma-relief.glb",
+    "editableBlender": "assets/ranma-frieze-v01/ranma-relief.blend",
+    "builder": "tools/build-ranma-relief.py",
+    "buildReport": "assets/ranma-frieze-v01/build-report.json",
+    "heightStudy": "assets/ranma-frieze-v01/source-height-guide.png",
+    "originalHeightStudy": "lookdev/ranma-frieze-study/generated-height-guide-v02.png",
+    "originalStudySha256": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+    "copiedProvenance": "assets/ranma-frieze-v01/imagegen-provenance.json",
+    "referenceComparison": "references/hd/3-照片-4.jpg crop x=350,y=290,w=925,h=420; copyright retained by its owner.",
+    "studyRole": "Selected imagegen interpretation of floral carving; non-metric height/aperture guide only, not an exact historic replica.",
+    "runtimeLoadsStudyBitmap": false,
+    "visibleMaterialPolicy": "The exported GLB contains no images or textures. Gold uses independent uniform PBR; the separate wood backplate uses independent pigment with retained CC0 normal/roughness.",
+    "geometry": "True cutouts, closed sidewalls/back faces, raised leaf volumes up to 26mm above the 6mm leaf root, editable 0.8mm eased edges; separate 27mm wood backplate with 2mm edge easing. Three grid-pitch smoothing steps affect only solid heights; the aperture outline remains separate.",
+    "triangleBudget": {
+      "prototype": 32108,
+      "instances": 8,
+      "total": 256864
+    },
+    "visualAccepted": false,
+    "roundTwoCorrection": "Reduced high-frequency geometric height ridges and maximum height from34mm to26mm; retained the physical apertures and separate backplate. Uniform aged gold #c3a45f, roughness0.43, metalness0.86."
+  },
+  "entranceSanctuary": {
+    "scope": "Retained central portal only; remove accidental transom board/rails/stile inside the declared4.2m wide x4.08m tall aperture. Preserve both side fields and the transom above its lintel.",
+    "diagnosis": "No principal icon geometry existed in scene03. The old full-width panel at y7.55,z-0.72 plus y6.48/7.25 rails and x0 stile occluded the upper entry, while the sole inner object was a bowl on a tiny table.",
+    "newRoom": "Physical floorboards, two side return walls, rear wall at z-5.08, ceiling return, stepped plinth, closed lotus seat, complete seated gold icon, thick open arch and supported offering table with hollow vessel and candles.",
+    "figure": {
+      "localSeat": [
+        0.35,
+        4.85,
+        -3.6
+      ],
+      "scale": 0.6,
+      "crownY": 7.004,
+      "kneeWidth": 1.74
+    },
+    "light": "Retained exterior lights/environment; two small physical candle point sources, 1cd each, inverse-square decay. No emissive icon, gold image, fake glow plane or exposure lift.",
+    "visualAccepted": false
+  }
+}

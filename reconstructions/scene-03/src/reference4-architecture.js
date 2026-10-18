@@ -8,7 +8,7 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
-export const REFERENCE4_ARCHITECTURE_REVISION='scene03-mesh70-two-closed-carved-entrance-beams';
+export const REFERENCE4_ARCHITECTURE_REVISION='scene03-mesh71-open-portal-and-supported-sanctuary';
 export function buildReference4Architecture(T,options={}) {
  const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:15.0,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
@@ -117,10 +117,18 @@ export function buildReference4Architecture(T,options={}) {
   for(const x of C.columnAxes){const rr=Math.abs(x)<3?.297:.267;for(const y of[4.65,5.34,7.88]){emit(cyl,'oldgold',x,y,.0,rr,.065,rr);emit(cyl,'black',x,y+.11,.0,rr+.002,.13,rr+.002);}for(let j=0;j<4;j++){const y=5.75+j*.31;relief(x,y,.29,.31,.29);}for(const y of[4.95,7.4]){box(x,y,.285,.30,.32,.038,'black');rosette(x,y,.315,.10,'oldgold');}}
  });
  role('closed-sanctuary-carved-transoms',()=>{
-  box(0,7.55,-.72,13.5,2.55,.18,'darkwood');
-  for(const y of[6.48,7.25,8.28]){box(0,y,-.40,13.8,.23,.42,'cedar');box(0,y+.045,-.16,13.6,.052,.035,'oldgold');}
-  for(let j=-13;j<=13;j++){let x=j*.49;relief(x,7.72,-.49,.40,.46);rosette(x,6.83,-.49,.10);}
-  for(const x of[-6.4,-4.7,-2.9,0,2.9,4.7,6.4]){arch.brackets(x,8.60,-.22,.71);box(x,7.47,-.39,.16,2.6,.23,'red');}
+  // The former single 13.5 m panel and its rails incorrectly crossed the
+  // declared 4.2 x 4.08 m entrance. Keep the two side fields, and close only
+  // the real transom above the existing portal lintel.
+  const openingHalf=2.10,openingTop=C.stairTopY+4.08,panelTop=8.825;
+  for(const s of[-1,1])box(s*(6.75+openingHalf)/2,7.55,-.72,6.75-openingHalf,2.55,.18,'darkwood');
+  if(panelTop>openingTop)box(0,(panelTop+openingTop)/2,-.72,openingHalf*2,panelTop-openingTop,.18,'darkwood');
+  for(const y of[6.48,7.25,8.28]){
+   if(y-.115>=openingTop){box(0,y,-.40,13.8,.23,.42,'cedar');box(0,y+.045,-.16,13.6,.052,.035,'oldgold');}
+   else for(const s of[-1,1]){box(s*(6.9+openingHalf)/2,y,-.40,6.9-openingHalf,.23,.42,'cedar');box(s*(6.8+openingHalf)/2,y+.045,-.16,6.8-openingHalf,.052,.035,'oldgold');}
+  }
+  for(let j=-13;j<=13;j++){const x=j*.49;if(Math.abs(x)<openingHalf+.20)continue;relief(x,7.72,-.49,.40,.46);rosette(x,6.83,-.49,.10);}
+  for(const x of[-6.4,-4.7,-2.9,0,2.9,4.7,6.4]){arch.brackets(x,8.60,-.22,.71);if(Math.abs(x)>openingHalf)box(x,7.47,-.39,.16,2.6,.23,'red');}
  });
  role('central-real-portal',()=>{
   const clearW=4.2,clearH=4.08,z=-.62,y0=C.stairTopY;

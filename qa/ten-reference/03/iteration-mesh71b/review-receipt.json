@@ -1,0 +1,112 @@
+{
+  "status": "two-local-entry-causes-corrected-and-rendered",
+  "visualAccepted": false,
+  "baseCommit": "8dce6e8",
+  "inputViews": [
+    "references/hd/2-照片-3.jpg",
+    "qa/ten-reference/03/iteration-mesh70b/reference.png",
+    "qa/ten-reference/03/iteration-mesh70b/detail-native.png",
+    "root qa/ten-reference/03/iteration-mesh-film-20261019-r01/frame-0209.png"
+  ],
+  "diagnosis": {
+    "missingIcon": "No Buddha geometry was imported, created or emitted in scene03. Its sole original offering was a bowl on a small table, plus a hanging lantern.",
+    "closedAperture": {
+      "declaredPortal": {
+        "width": 4.2,
+        "bottomY": 4.0,
+        "topY": 8.08
+      },
+      "incorrectPanel": {
+        "center": [
+          0,
+          7.55,
+          -0.72
+        ],
+        "size": [
+          13.5,
+          2.55,
+          0.18
+        ],
+        "bottomY": 6.275,
+        "topY": 8.825
+      },
+      "alsoAcrossPortal": [
+        "rails y6.48 and y7.25",
+        "central stile x0, y6.17–8.77"
+      ],
+      "clearUpperHeightBlockedM": 1.805
+    },
+    "missingRoom": "The remote hall wall at z-8.65 was the only rear enclosure. There was no supported icon, inner shrine, throne, offering assembly or inner recess."
+  },
+  "physicalModel": {
+    "portal": "Cut only within the already-declared central4.2x4.08m aperture. Side transom fields, the top lintel and old supporting brackets remain.",
+    "room": {
+      "returnWallCenterSpacingM": 4.44,
+      "clearWidthM": 4.32,
+      "frontZ": -1.06,
+      "rearZ": -5.08,
+      "floorY": 4.0,
+      "floorboardTopY": 4.054
+    },
+    "figure": {
+      "center": [
+        -0.18,
+        4.85,
+        -3.6
+      ],
+      "scale": 0.6,
+      "crownY": 7.004,
+      "kneeWidth": 1.74,
+      "fullAuthoredAnatomy": true,
+      "variant": "Reference06 central seated icon reused as an interpreted stand-in"
+    },
+    "support": {
+      "plinthBottomY": 4.02,
+      "seatContactY": 4.85,
+      "lotusTopContactY": 4.855,
+      "tableHeightM": 0.67,
+      "tableLegBottomY": 4.03,
+      "tableLegTopY": 4.6,
+      "tableSlabBottomY": 4.58,
+      "note": "Plinth and table feet overlap the solid floorboard contact slightly; the seat top supports the figure rather than floating."
+    },
+    "parts": "Individual floorboards/returns/rear wall/ceiling, stepped plinth, thick lotus petals, complete central icon with face/hand/robe anatomy, a thick open arch, supported curved-apron table, hollow handled incense vessel, dish and two candle assemblies.",
+    "additionalTriangles": 875540,
+    "meshes": 114,
+    "light": "The existing exterior sun/sky and exposure are unchanged. Two1cd inverse-square candle point sources only; no glowing icon, albedo photograph, projected surface, flat gold replacement or general fill added."
+  },
+  "reusedGeometry": {
+    "from": "reconstructions/scene-06/src/restoration-buddha.js",
+    "sourceCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+    "sha256": "90eb79e35fcb5b3cdb6db23cc0e327e64f0bd47a8f70418729fa0fbc21b1133b",
+    "onlyVariant": "central",
+    "limits": "The icon is an interpreted stand-in from authored scene06 geometry. The reference03 image does not resolve its exact hidden anatomy, mudra, carving or historical identity."
+  },
+  "rounds": [
+    {
+      "iteration": "mesh71a",
+      "sourceHash": "29a2c0a931653b27e47cff5f6c0c2e04bb947a2a23878472333a3bd9033a20e9",
+      "actualViews": [
+        "native1254 full",
+        "native1254 subfrustum625,500,350,1254"
+      ],
+      "viewed": true,
+      "finding": "Opened entry reveals a real idol/throne/table and rear depth. The unchanged hanging lantern covers half the face and the front table hides part of the lower seated silhouette. Inner scanned roughness product makes side/rear wood overly reflective.",
+      "sourcePreserved": true,
+      "allSourceFileHashesReconstructedFromSnapshotAndUnchangedFinalFiles": true
+    },
+    {
+      "iteration": "mesh71b",
+      "sourceHash": "1464e8c7f7ba778f4a970bee2edf8571c98ab7de70974b014e3c91254fcf02cf",
+      "actualViews": [
+        "native1254 full",
+        "native1254 subfrustum625,500,350,1254"
+      ],
+      "viewed": true,
+      "correction": "Icon with its supporting lotus plinth x+.35→-.18; front offering table height.82→.67 with shortened supported legs and centerx0. Independent inner wood roughness.55–.83 with CC0 normal retained; no dark roughness multiplier. Exterior lantern/camera/columns/frieze unchanged.",
+      "finding": "Face is clear of the hanging lantern; raised hand, robe and seated knees are visible with the real supply table and vessels. Interior retains dark depth without a glow panel."
+    }
+  ],
+  "maximumRemainingDifference": "Scene03 iconography is not resolved precisely by the supplied reference; the reused figure, thick arch and sparse offering arrangement remain interpreted. The internal carved posts, gilded cutwork, altar surfaces and cloth are simpler than the HD reference. Existing front table and original hanging lantern still naturally obscure small lower/right portions of the icon.",
+  "validation": "Only two shared-mutex render-one native full+genuine subfrustum rounds. No test suite or movie rendered. Source, camera/path, roof, columns and previous ranma asset hashes checked against8dce6e8."
+}
