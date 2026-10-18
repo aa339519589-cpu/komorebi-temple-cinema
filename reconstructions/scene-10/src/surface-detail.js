@@ -19,7 +19,7 @@ export function installSurfaceDetail(material,kind){
  vec3 sp=vSurfacePosition;
  float broad=sdFbm(sp*3.4),grain=sdNoise(sp*210.),fine=sdNoise(sp*470.);
  diffuseColor.rgb*=.52+.70*broad+.28*grain;
- diffuseColor.rgb+=vec3(.085,.078,.060)*smoothstep(.84,.96,fine)*(.25+.75*broad);
+ diffuseColor.rgb+=vec3(.014,.013,.011)*smoothstep(.84,.96,fine)*(.25+.75*broad);
  diffuseColor.rgb*=1.-.35*smoothstep(.80,.93,sdNoise(sp*91.));`;
  if(kind==='wet')code+=`\nvec4 stoneWetSample=texture2D(floorWetMap,vec2((vSurfacePosition.x+4.6)/9.2,(vSurfacePosition.z+2.)/21.4));diffuseColor.rgb*=mix(.72,1.18,stoneWetSample.g)*mix(.28,1.,stoneWetSample.r);`;
  if(kind==='wood')code=`
@@ -34,6 +34,6 @@ export function installSurfaceDetail(material,kind){
  if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
  roughnessFactor=clamp(roughnessFactor+(.65-stoneWetSample.g)*.18+(sdFbm(vSurfacePosition*4.)-.48)*.36,.13,.49);`);
  };
- material.customProgramCacheKey=()=>`rain-surface-v11-${kind}`;
+ material.customProgramCacheKey=()=>`rain-surface-max01-${kind}`;
  material.needsUpdate=true;
 }

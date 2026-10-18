@@ -11,15 +11,29 @@ export function createPavingWetMask(T,polygons){
  const texture=new T.DataTexture(data,width,height);texture.generateMipmaps=true;texture.minFilter=T.LinearMipmapLinearFilter;texture.magFilter=T.LinearFilter;texture.needsUpdate=true;return texture;
 }
 
-// Mip-filtered mineral aggregate at millimetre scale. The light grains are
-// ordinary diffuse stone minerals, not emissive or painted lighting spots.
+// Subtle diffuse mineral aggregate. Bright wet glints come from the actual
+// reflected scene and lights, rather than white grains in the stone albedo.
 export function createWetStoneGrain(T){
  const n=1024,data=new Uint8Array(n*n*4);
  function hash(x,y){let q=Math.imul(x,374761393)^Math.imul(y,668265263)^97169;q=Math.imul(q^(q>>>13),1274126177);return((q^(q>>>16))>>>0)/4294967296;}
  for(let y=0;y<n;y++)for(let x=0;x<n;x++){
   const micro=hash(x,y),mineral=hash(x>>1,y>>1),coarse=hash(x>>4,y>>4);
-  let q=24+22*micro+8*coarse;if(mineral>.80)q+=42+42*micro;if(micro<.065)q*=.42;
+  let q=25+10*micro+7*coarse;if(mineral>.87)q+=8+12*micro;if(micro<.065)q*=.58;
   const i=(y*n+x)*4;data[i]=Math.min(255,q*1.04+2);data[i+1]=Math.min(255,q);data[i+2]=Math.min(255,q*.88);data[i+3]=255;
  }
- const texture=new T.DataTexture(data,n,n);texture.colorSpace=T.SRGBColorSpace;texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.repeat.set(.125,.125);texture.generateMipmaps=true;texture.minFilter=T.LinearMipmapLinearFilter;texture.magFilter=T.LinearFilter;texture.needsUpdate=true;return texture;
+ const texture=new T.DataTexture(data,n,n);texture.colorSpace=T.SRGBColorSpace;texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.repeat.set(.60,.60);texture.generateMipmaps=true;texture.minFilter=T.LinearMipmapLinearFilter;texture.magFilter=T.LinearFilter;texture.needsUpdate=true;return texture;
+}
+
+// Clip the paving itself around a 19 cm drainage slot. The grille must remain
+// below the adjoining slab edges, with actual empty space above it.
+export function clipPavingAtDrain(points){
+ const c=Math.cos(.46),s=Math.sin(.46),distance=p=>c*(p[0]+1.9)-s*(p[1]-8.5);
+ function halfPlane(sign){
+  const out=[];for(let i=0;i<points.length;i++){
+   const a=points[i],b=points[(i+1)%points.length],da=sign*distance(a)-.095,db=sign*distance(b)-.095;
+   if(da>=0)out.push(a);
+   if((da>=0)!==(db>=0)){const t=da/(da-db);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }return out;
+ }
+ return[halfPlane(1),halfPlane(-1)].filter(p=>p.length>=3);
 }

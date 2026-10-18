@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
-import {createPavingWetMask,createWetStoneGrain} from './paving-mask.js';
+import {createPavingWetMask,createWetStoneGrain,clipPavingAtDrain} from './paving-mask.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {createRestorationArchitecture} from './architecture.js';
 import {createReference4MaterialSet} from './materials.js';
@@ -65,23 +65,58 @@ const finialProfile=[[.20,0],[.22,.035],[.20,.065],[.15,.08],[.12,.13],[.23,.22]
 const finialGeo=new T.LatheGeometry(finialProfile,48);
 box(3.20,.85,8.0,.31,1.70,.31,'nearLacquer');box(3.2,1.70,8,.43,.11,.43,'black');emit(finialGeo,'gold',3.2,1.76,8);
 for(const yy of[1.80,1.88,2.22])emit(new T.TorusGeometry(.205,.016,6,40),'oldgold',3.2,yy,8,1,1,1,[Math.PI/2,0,0]);
-for(const y of[.50,.92,1.54])box(3.2,y,11,.18,.13,6.1,'nearLacquer');
+// The near handrails return diagonally into the lower-right foreground.
+for(const y of[.50,.92,1.54]){
+ const a=[3.2,y,8.05],b=[1.91,y,14.2],d=V(b).sub(V(a)),q=new T.Quaternion().setFromUnitVectors(V([0,0,1]),d.clone().normalize());
+ emit(new RoundedBoxGeometry(.22,.16,d.length(),2,.028),'nearLacquer',...(V(a).add(V(b)).multiplyScalar(.5)).toArray(),1,1,1,q);
+}
 // Wet paving is built as individually shaped solid slabs with fine irregular seams.
 function noiseTexture(){const N=256,data=new Uint8Array(N*N*4);for(let y=0;y<N;y++)for(let x=0;x<N;x++){let q=R(.30,.70)+.12*Math.sin(x*.08+Math.sin(y*.07));let i=(y*N+x)*4;data[i]=data[i+1]=data[i+2]=Math.round(q*255);data[i+3]=255;}const t=new T.DataTexture(data,N,N);t.needsUpdate=true;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(3,3);t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;return t;}
-const wetBump=noiseTexture(),wetStone=new T.MeshPhysicalMaterial({color:'#171814',roughness:.30,metalness:0,bumpMap:wetBump,bumpScale:.009,clearcoat:.95,clearcoatRoughness:.055});const normalBytes=new Uint8Array(256*256*4),heightData=wetBump.image.data;for(let y=0;y<256;y++)for(let x=0;x<256;x++){const h=(dx,dy)=>heightData[(((y+dy+256)%256)*256+(x+dx+256)%256)*4]/255;let dx=(h(1,0)-h(-1,0))*.75,dy=(h(0,1)-h(0,-1))*.75,n=new T.Vector3(-dx,-dy,1).normalize(),i=(y*256+x)*4;normalBytes[i]=(n.x*.5+.5)*255;normalBytes[i+1]=(n.y*.5+.5)*255;normalBytes[i+2]=(n.z*.5+.5)*255;normalBytes[i+3]=255;}const wetNormal=new T.DataTexture(normalBytes,256,256);wetNormal.wrapS=wetNormal.wrapT=T.RepeatWrapping;wetNormal.repeat.set(.85,.85);wetNormal.generateMipmaps=true;wetNormal.minFilter=T.LinearMipmapLinearFilter;wetNormal.magFilter=T.LinearFilter;wetNormal.needsUpdate=true;
-wetStone.clearcoatNormalMap=wetNormal;wetStone.clearcoatNormalScale=new T.Vector2(.85,.85);const lacquerNormal=wetNormal.clone();lacquerNormal.repeat.set(6,5);lacquerNormal.needsUpdate=true;m.nearLacquer.clearcoatNormalMap=lacquerNormal;m.nearLacquer.clearcoatNormalScale=new T.Vector2(.20,.20);
+const wetBump=noiseTexture(),wetStone=new T.MeshPhysicalMaterial({color:'#171814',roughness:.30,metalness:0,bumpMap:wetBump,bumpScale:.009,clearcoat:.95,clearcoatRoughness:.055});const normalBytes=new Uint8Array(256*256*4),heightData=wetBump.image.data;for(let y=0;y<256;y++)for(let x=0;x<256;x++){const h=(dx,dy)=>heightData[(((y+dy+256)%256)*256+(x+dx+256)%256)*4]/255;let dx=(h(1,0)-h(-1,0))*.75,dy=(h(0,1)-h(0,-1))*.75,n=new T.Vector3(-dx,-dy,1).normalize(),i=(y*256+x)*4;normalBytes[i]=(n.x*.5+.5)*255;normalBytes[i+1]=(n.y*.5+.5)*255;normalBytes[i+2]=(n.z*.5+.5)*255;normalBytes[i+3]=255;}const wetNormal=new T.DataTexture(normalBytes,256,256);wetNormal.wrapS=wetNormal.wrapT=T.RepeatWrapping;wetNormal.repeat.set(1.40,1.40);wetNormal.generateMipmaps=true;wetNormal.minFilter=T.LinearMipmapLinearFilter;wetNormal.magFilter=T.LinearFilter;wetNormal.needsUpdate=true;
+wetStone.clearcoatNormalMap=wetNormal;wetStone.clearcoatNormalScale=new T.Vector2(.45,.45);const lacquerNormal=wetNormal.clone();lacquerNormal.repeat.set(6,5);lacquerNormal.needsUpdate=true;m.nearLacquer.clearcoatNormalMap=lacquerNormal;m.nearLacquer.clearcoatNormalScale=new T.Vector2(.20,.20);
 wetStone.map=createWetStoneGrain(T);wetStone.color.set('#ffffff');m.wet=wetStone;installSurfaceDetail(wetStone,'wet');
 box(0,-.22,8,9,.06,22,'darkwood');const floorPolygons=[],rows=26,cols=8,verts=[];for(let j=0;j<=rows;j++){verts[j]=[];for(let i=0;i<=cols;i++){const t=j/rows,left=-3.9-.65*t,right=1.6+2.81*t;verts[j][i]=[left+(right-left)*i/cols+(i&&i<cols?R(-.13,.13):0),-2+j*.82+(j&&j<rows?R(-.14,.14):0)];};}
-for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){let points=[verts[j][i],verts[j][i+1],verts[j+1][i+1],verts[j+1][i]],cx=points.reduce((a,p)=>a+p[0],0)/4,cz=points.reduce((a,p)=>a+p[1],0)/4,shape=new T.Shape();const hash=Math.sin((j*13+i*37+41)*12.9898)*43758.5453;floorPolygons.push({points,wetness:.28+.72*(hash-Math.floor(hash))});points.forEach((p,k)=>{const next=points[(k+1)%4];for(let n=0;n<5;n++){const t=n/5;let x=p[0]*(1-t)+next[0]*t,z=p[1]*(1-t)+next[1]*t;x+=(cx-x)*.004+R(-.009,.009);z+=(cz-z)*.004+R(-.009,.009);k||n?shape.lineTo(x,-z):shape.moveTo(x,-z);}});shape.closePath();const g=new T.ExtrudeGeometry(shape,{depth:.12,bevelEnabled:true,bevelSize:.009,bevelThickness:.007,bevelSegments:1,steps:1});g.rotateX(-Math.PI/2);g.translate(0,-.09+R(-.003,.003),0);const pa=g.attributes.position;for(let k=0;k<pa.count;k++){const x=pa.getX(k),z=pa.getZ(k);pa.setY(k,pa.getY(k)+.0025*Math.sin(x*29+z*7)*Math.sin(z*21));}g.computeVertexNormals();emit(g,'wet',0,0,0,1,1,1,0,R(.78,1.16));}
+for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
+ const slabSeed=seed,original=[verts[j][i],verts[j][i+1],verts[j+1][i+1],verts[j+1][i]],hash=Math.sin((j*13+i*37+41)*12.9898)*43758.5453;
+ const wetness=.28+.72*(hash-Math.floor(hash)),topOffset=R(-.005,.005),tint=R(.74,1.13);
+ for(const points of clipPavingAtDrain(original)){
+  const cx=points.reduce((a,p)=>a+p[0],0)/points.length,cz=points.reduce((a,p)=>a+p[1],0)/points.length,shape=new T.Shape();
+  const chipped=[];
+  points.forEach((p,k)=>{const next=points[(k+1)%points.length];for(let n=0;n<5;n++){
+   const t=n/5;let x=p[0]*(1-t)+next[0]*t,z=p[1]*(1-t)+next[1]*t;
+   // Inset every piece so the actual dark inter-slab gaps stay legible.
+   x+=(cx-x)*.013+R(-.006,.006);z+=(cz-z)*.013+R(-.006,.006);chipped.push([x,z]);
+   k||n?shape.lineTo(x,-z):shape.moveTo(x,-z);
+  }});
+  shape.closePath();floorPolygons.push({points:chipped,wetness});
+  const g=new T.ExtrudeGeometry(shape,{depth:.12,bevelEnabled:true,bevelSize:.006,bevelThickness:.005,bevelSegments:1,steps:1});
+  g.rotateX(-Math.PI/2);g.translate(0,-.09+topOffset,0);const pa=g.attributes.position;
+  for(let k=0;k<pa.count;k++){const x=pa.getX(k),z=pa.getZ(k);pa.setY(k,pa.getY(k)+.0025*Math.sin(x*29+z*7)*Math.sin(z*21));}
+  g.computeVertexNormals();emit(g,'wet',0,0,0,1,1,1,0,tint);
+ }
+ // Keep the existing independent garden layout unchanged by clipping topology.
+ seed=slabSeed;for(let k=0;k<42;k++)rand();
+}
 const floorWetMap=createPavingWetMask(T,floorPolygons);wetStone.userData.floorWetMap=floorWetMap;
 // Narrow iron drainage grille crosses the lower frame diagonally.
-group(-1.9,.027,8.5,.46,()=>{box(0,-.02,0,.105,.035,13,'black');for(let i=0;i<215;i++)box(0,0,-6.4+i*.060,.125,.008,.022,'black');});
+group(-1.9,-.004,8.5,.46,()=>{box(0,-.105,0,.19,.025,13,'black');for(const side of[-1,1])box(side*.077,0,0,.016,.027,13,'black');for(let i=0;i<215;i++)box(0,0,-6.4+i*.060,.165,.014,.019,'black');});
 // Rain-film reflection uses actual geometry and a bounded physical plane.
-const mirror=new Reflector(new T.PlaneGeometry(8.9,22),{clipBias:.002,textureWidth:768,textureHeight:768,color:0xbfc3bf,multisample:2});mirror.rotation.x=-Math.PI/2;mirror.position.set(-.1,.052,8.5);mirror.material.transparent=true;mirror.material.depthWrite=false;mirror.material.uniforms.floorWetMap={value:floorWetMap};
+const mirror=new Reflector(new T.PlaneGeometry(8.9,22),{clipBias:.002,textureWidth:768,textureHeight:768,color:0x808080,multisample:2});mirror.rotation.x=-Math.PI/2;mirror.position.set(-.1,.041,8.5);mirror.material.transparent=true;mirror.material.depthWrite=false;mirror.material.uniforms.floorWetMap={value:floorWetMap};
 mirror.material.vertexShader='varying vec3 vFilmPosition;\n'+mirror.material.vertexShader.replace('vUv = textureMatrix * vec4( position, 1.0 );','vUv = textureMatrix * vec4( position, 1.0 );vFilmPosition=(modelMatrix*vec4(position,1.0)).xyz;');
 mirror.material.fragmentShader='uniform sampler2D floorWetMap;varying vec3 vFilmPosition;\n'+detailNoise+mirror.material.fragmentShader;
-mirror.material.fragmentShader=mirror.material.fragmentShader.replace('vec4 base = texture2DProj( tDiffuse, vUv );',`vec3 sp=vFilmPosition;float film=sdFbm(sp*12.7);vec4 uv=vUv;uv.xy+=(vec2(sdNoise(sp*79.),sdNoise(sp*91.+2.3))-.5)*vec2(.004,.008)*uv.w;vec4 base=texture2DProj(tDiffuse,uv)*.36;vec4 u2=uv;u2.y+=.004*uv.w;base+=texture2DProj(tDiffuse,u2)*.22;u2.y-=.008*uv.w;base+=texture2DProj(tDiffuse,u2)*.22;u2.y-=.006*uv.w;base+=texture2DProj(tDiffuse,u2)*.10;u2.y+=.020*uv.w;base+=texture2DProj(tDiffuse,u2)*.10;`)
-.replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );','vec4 wet=texture2D(floorWetMap,vec2((sp.x+4.6)/9.2,(sp.z+2.)/21.4));float pave=wet.b;float alpha=mix(.21,wet.r*(.035+.64*wet.g)*smoothstep(.27,.75,film),pave);vec2 dp=vec2(sp.x+1.9,sp.z-8.5);float drain=abs(cos(.46)*dp.x-sin(.46)*dp.y);float drainZ=abs(sin(.46)*dp.x+cos(.46)*dp.y);alpha*=mix(1.,smoothstep(.050,.075,drain),step(drainZ,6.5));gl_FragColor=vec4(blendOverlay(base.rgb,color),alpha);');scene.add(mirror);
+mirror.material.fragmentShader=mirror.material.fragmentShader.replace('vec4 base = texture2DProj( tDiffuse, vUv );',`vec3 sp=vFilmPosition;
+float film=sdFbm(sp*9.4);vec4 uv=vUv;
+// Tiny actual reflection fragments follow stable centimetre ripples.
+vec2 rip=vec2(sdNoise(sp*91.),sdNoise(sp*113.+2.3))-.5;
+uv.xy+=rip*vec2(.0022,.0048)*uv.w;
+vec4 base=texture2DProj(tDiffuse,uv)*.82;vec4 u2=uv;u2.y+=.0016*uv.w;base+=texture2DProj(tDiffuse,u2)*.18;`)
+.replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );',`vec4 wet=texture2D(floorWetMap,vec2((sp.x+4.6)/9.2,(sp.z+2.)/21.4));
+float pave=wet.b,patch=smoothstep(.24,.70,film);
+float grazing=pow(1.-clamp(abs(normalize(cameraPosition-sp).y),0.,1.),3.);
+float alpha=mix(.17,wet.r*(.10+.78*wet.g)*patch*(.38+.62*grazing),pave);
+vec2 dp=vec2(sp.x+1.9,sp.z-8.5);float drain=abs(cos(.46)*dp.x-sin(.46)*dp.y);float drainZ=abs(sin(.46)*dp.x+cos(.46)*dp.y);
+alpha*=mix(1.,smoothstep(.085,.113,drain),step(drainZ,6.5));
+gl_FragColor=vec4(base.rgb,alpha);`);scene.add(mirror);
 // Shallow garden water, irregular rock-and-moss margins.
 m.water=new T.MeshPhysicalMaterial({color:'#33413d',roughness:.18,metalness:.1,clearcoat:1});box(0,-.11,-5,45,.08,37,'water');
 const rocks=Array.from({length:8},(_,i)=>createWeatheredBoulderGeometry(T,{scale:[1,.85,1],seed:1703+i*71,sectors:48,rings:22})),rockMoss=rocks.map((g,i)=>createBoulderMossGeometry(T,g,{seed:1703+i*71,offset:.004}));
@@ -90,7 +125,7 @@ for(let k=0;k<85;k++){const z=R(-23,5),x=(rand()<.45?-1:1)*R(4.5,16);rock(x,z,R(
 // Ornamental stone lanterns have distinct carved shafts, open glowing chambers, hip caps.
 function stoneCanopy(){const pp=[],uv=[],N=24;function P(x,z){const t=Math.max(Math.abs(x),Math.abs(z));return [x*.83,2.80+.48*Math.pow(1-t,1.6)+.16*Math.pow(Math.abs(x*z),4)+.012*Math.sin(x*17+z*13),z*.83];}function tri(a,b,c){for(const p of[a,b,c]){pp.push(...p);uv.push(p[0],p[2]);}}for(let j=0;j<N;j++)for(let i=0;i<N;i++){const a=P(-1+2*i/N,-1+2*j/N),b=P(-1+2*(i+1)/N,-1+2*j/N),c=P(-1+2*i/N,-1+2*(j+1)/N),d=P(-1+2*(i+1)/N,-1+2*(j+1)/N);tri(a,c,b);tri(b,c,d);}for(let side=0;side<4;side++)for(let j=0;j<N;j++){let u=-1+j*2/N,v=-1+(j+1)*2/N,a=side===0?P(u,-1):side===1?P(1,u):side===2?P(-u,1):P(-1,-u),b=side===0?P(v,-1):side===1?P(1,v):side===2?P(-v,1):P(-1,-v),c=[a[0],a[1]-.13,a[2]],d=[b[0],b[1]-.13,b[2]];tri(a,b,c);tri(b,d,c);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pp,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();return g;}
 const stoneCap=stoneCanopy(),pedestal=new T.LatheGeometry([[.48,0],[.52,.07],[.47,.16],[.31,.25],[.29,.37],[.22,.45],[.18,.59],[.17,1.31],[.24,1.44],[.34,1.51],[.40,1.62],[.38,1.72]].map(p=>new T.Vector2(...p)),12);
-function stoneLantern(x,z,s=1){group(x,x===-2.9?.4:0,z,R(-.12,.12),()=>{
+function stoneLantern(x,z,s=1){const isNear=x===-2.9,baseY=isNear?1.10:0;group(x,baseY,z,R(-.12,.12),()=>{
  box(0,.12,0,1.08,.24,1.08,'carvedStone');emit(pedestal,'carvedStone',0,.25,0);box(0,1.97,0,.88,.18,.88,'carvedStone');
  // A recessed warm core, four solid corner piers and genuine open apertures.
  emit(new T.CylinderGeometry(.145,.16,.50,12),'stonePaper',0,2.38,0);
@@ -99,7 +134,7 @@ function stoneLantern(x,z,s=1){group(x,x===-2.9?.4:0,z,R(-.12,.12),()=>{
  emit(new T.TorusGeometry(.105,.023,6,18),'carvedStone',0,1.45,.19,1,1,1);for(let j=0;j<5;j++)box(-.10+j*.05,1.07,.18,.016,.38,.02,'carvedStone');});
  emit(stoneCap,'carvedStone');for(let i=0;i<17;i++){const a=R(0,6.28),r=R(.18,.75);emit(rocks[i%8],'moss',Math.cos(a)*r,2.87+.3*(1-r),Math.sin(a)*r,R(.10,.24),R(.025,.045),R(.12,.24),R(0,6));}
  emit(new T.LatheGeometry([[.22,0],[.24,.06],[.16,.12],[.15,.20],[.23,.30],[.21,.41],[.10,.50],[.08,.61],[0,.69]].map(p=>new T.Vector2(...p)),14),'carvedStone',0,3.29,0);
- },s>1.1?[s*.82,s,s*.82]:s);const l=new T.PointLight('#ffb348',14*s,60,2);l.position.set(x,2.35*s+(x===-2.9?.4:0),z);scene.add(l);}
+ },isNear?[s*.82,1.10,s*.82]:s);const l=new T.PointLight('#ffb348',14*s,60,2);l.position.set(x,2.35*(isNear?1.10:s)+baseY,z);scene.add(l);}
 stoneLantern(-2.9,-3.0,1.30);for(const [x,z,s]of[[-6,-2.7,.72],[-7.5,-6,.8],[-9,-10,.7],[-2,-7,.64],[4,-10,.75],[10,-1,.65]])stoneLantern(x,z,s);
 // All foliage is three-dimensional leaf geometry attached to irregular woody branching.
 const leafPos=[],leafUv=[];const leafP=(u,t)=>{const width=Math.sin(Math.PI*t)*.22;return[u*width,Math.sin(Math.PI*t)*.06+Math.abs(u)*.035,(t-.5)*.65];};for(let j=0;j<4;j++)for(let i=0;i<2;i++){const a=leafP(-1+i,j/4),b=leafP(i,j/4),c=leafP(-1+i,(j+1)/4),d=leafP(i,(j+1)/4);for(const p of[a,c,b,b,c,d]){leafPos.push(...p);leafUv.push(p[0],p[2]);}}const leafGeo=new T.BufferGeometry();leafGeo.setAttribute('position',new T.Float32BufferAttribute(leafPos,3));leafGeo.setAttribute('uv',new T.Float32BufferAttribute(leafUv,2));leafGeo.computeVertexNormals();
@@ -130,6 +165,19 @@ for(const [x,z,h,kind]of[[-4,-12,4.8,'pink'],[-1.6,-15,4.2,'pink'],[-10,-10,4.4,
 for(const [x,z,sx,sz,h]of[[2.3,-4.3,2.0,1.3,1.0],[5.1,-5.1,2.2,1.4,1.2],[7.2,-5.8,2.0,1.6,1.35]]){emit(rocks[3],'granite',x,h*.42,z,sx,h*1.2,sz,.2);emit(rockMoss[3],'moss',x,h*.42,z,sx,h*1.2,sz,.2);const surface=new T.Mesh(rocks[3],m.granite);surface.position.set(x,h*.42,z);surface.scale.set(sx,h*1.2,sz);surface.rotation.y=.2;surface.updateMatrixWorld(true);const ray=new T.Raycaster();for(let i=0;i<12;i++){let xx=x+R(-.8,.8)*sx,zz=z+R(-.65,.65)*sz;ray.set(V([xx,15,zz]),V([0,-1,0]));const hit=ray.intersectObject(surface,false)[0],base=hit?hit.point.y-.035:h*.42;group(0,base,0,0,()=>shrub(xx,zz,R(.55,.90)));}}
 // Red maple leaves on wet stone: actual tiny lobed meshes lie against the paving.
 for(let i=0;i<65;i++){const x=R(-4.3,4.2),z=R(1,18),s=R(.06,.15);emit(mapleGeo,'maple',x,.062,z,s,s,s,[0,R(0,6.28),0],R(.7,1.4));}
+// Raised planted banks hide most of the bridge piers. Every plant roots into
+// a real irregular stone/soil surface; the path to the left stays open.
+for(const [x,z,sx,sz,top]of[[.9,-2.7,1.35,1.2,1.1],[2.8,-2.9,1.6,1.4,1.65],[4.8,-3.6,1.55,1.6,1.75],[6.6,-4.3,1.35,1.6,1.8]]){
+ const variant=Math.floor(rand()*8),y=top*.43,sy=top*.86;
+ emit(rocks[variant],'granite',x,y,z,sx,sy,sz,.3,R(.58,.80));emit(rockMoss[variant],'moss',x,y,z,sx,sy,sz,.3,R(.80,1.20));
+ const surface=new T.Mesh(rocks[variant],m.granite);surface.position.set(x,y,z);surface.scale.set(sx,sy,sz);surface.rotation.y=.3;surface.updateMatrixWorld(true);const ray=new T.Raycaster();
+ for(let k=0;k<14;k++){
+  const xx=x+R(-.66,.66)*sx,zz=z+R(-.56,.56)*sz;ray.set(V([xx,12,zz]),V([0,-1,0]));const hit=ray.intersectObject(surface,false)[0];
+  if(hit)group(0,hit.point.y-.035,0,0,()=>shrub(xx,zz,R(.82,1.23)));
+ }
+}
+// Broad evergreen branches interrupt the right facade, as in the photograph.
+tree(10.4,-2.7,11.7,'leaf',1.45);
 const skyDome=new T.Mesh(new T.SphereGeometry(170,32,16),new T.ShaderMaterial({side:T.BackSide,depthWrite:false,vertexShader:`varying vec3 vSky;void main(){vSky=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:detailNoise+`varying vec3 vSky;void main(){vec3 d=normalize(vSky);float cloud=.75*sdFbm(vec3(d.x*6.,d.y*18.,d.z*6.)+vec3(0.,3.,0.))+.25*sdFbm(d*31.);vec3 c=mix(vec3(.27,.32,.36),vec3(.72,.77,.80),smoothstep(.25,.75,cloud));c=mix(c,vec3(.64,.69,.71),pow(1.-max(d.y,0.),3.)*.6);gl_FragColor=vec4(c,1.);
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
@@ -141,14 +189,14 @@ const envScene=new T.Scene();envScene.background=new T.Color('#bac1c5');envScene
 const unique=new Map();let objects=0;for(const b of buckets.values()){if(b.matrix.length===1){let g=b.g.clone();g.applyMatrix4(b.matrix[0]);if(g.index)g=g.toNonIndexed();if(!g.attributes.normal)g.computeVertexNormals();for(const k of Object.keys(g.attributes))if(!['position','normal','uv'].includes(k))g.deleteAttribute(k);if(!g.attributes.uv)g.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*2),2));let a=unique.get(b.ma);if(!a){a=[];unique.set(b.ma,a);}a.push(g);continue;}const mesh=new T.InstancedMesh(b.g,b.ma,b.matrix.length);for(let i=0;i<b.matrix.length;i++){mesh.setMatrixAt(i,b.matrix[i]);mesh.setColorAt(i,new T.Color().setScalar(b.tint[i]));}mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);objects+=b.matrix.length;}
 for(const [ma,gs]of unique){const geometry=mergeGeometries(gs,false);if(!geometry)throw Error('Failed merging '+ma.name);const mesh=new T.Mesh(geometry,ma);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);for(const g of gs)g.dispose();objects+=gs.length;}
 // Fixed rain rings remain geometrically stable; time changes expansion smoothly.
-const ringGeo=new T.TorusGeometry(1,.010,4,64),ringMat=new T.MeshBasicMaterial({color:'#dde2e0',transparent:true,opacity:.40,depthWrite:false}),rings=new T.InstancedMesh(ringGeo,ringMat,25),ringSeeds=[];rings.rotation.x=-Math.PI/2;for(let i=0;i<25;i++)ringSeeds.push({x:R(-4.2,4.2),z:R(-.5,18),phase:rand(),radius:R(.035,.075)});scene.add(rings);
-const ringAlpha=new T.InstancedBufferAttribute(new Float32Array(25),1);ringGeo.setAttribute('ringCycleAlpha',ringAlpha);
+const impactCount=36,ringCount=impactCount*2,ringGeo=new T.TorusGeometry(1,.012,4,64),ringMat=new T.MeshBasicMaterial({color:'#cbd4d4',transparent:true,opacity:.57,depthWrite:false}),rings=new T.InstancedMesh(ringGeo,ringMat,ringCount),ringSeeds=[];rings.rotation.x=-Math.PI/2;for(let i=0;i<impactCount;i++)ringSeeds.push({x:R(-3.7,3.7),z:R(2,15),phase:rand(),radius:R(.065,.13)});scene.add(rings);
+const ringAlpha=new T.InstancedBufferAttribute(new Float32Array(ringCount),1);ringGeo.setAttribute('ringCycleAlpha',ringAlpha);
 ringMat.onBeforeCompile=shader=>{shader.vertexShader='attribute float ringCycleAlpha;varying float vRingCycleAlpha;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvRingCycleAlpha=ringCycleAlpha;');shader.fragmentShader='varying float vRingCycleAlpha;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.a*=vRingCycleAlpha;');};ringMat.customProgramCacheKey=()=> 'smooth-rain-ring-cycle-v1';
 const rainPos=[];for(let i=0;i<1800;i++){let x=R(-21,21),y=R(0,27),z=R(-30,12);rainPos.push(x,y,z,x-.055,y-.35,z+.03);}const rainGeo=new T.BufferGeometry();rainGeo.setAttribute('position',new T.Float32BufferAttribute(rainPos,3));const rain=new T.LineSegments(rainGeo,new T.LineBasicMaterial({color:'#c5d0d4',transparent:true,opacity:.12,depthWrite:false}));scene.add(rain);
-function update(time){let mat=new T.Matrix4();for(let i=0;i<ringSeeds.length;i++){const q=ringSeeds[i],phase=(time*.22+q.phase)%1,r=q.radius*(.5+phase*1.8);mat.compose(V([q.x,-q.z,.061]),new T.Quaternion(),V([r,r,1]));rings.setMatrixAt(i,mat);ringAlpha.setX(i,T.MathUtils.smoothstep(phase,0,.16)*(1-T.MathUtils.smoothstep(phase,.60,1)));}rings.instanceMatrix.needsUpdate=true;ringAlpha.needsUpdate=true;rain.position.y=-(time*.7)%1;}
+function update(time){let mat=new T.Matrix4();for(let i=0;i<ringSeeds.length;i++){const q=ringSeeds[i],phase=(time*.36+q.phase)%1,r=q.radius*(.42+phase*1.7),a=T.MathUtils.smoothstep(phase,0,.12)*(1-T.MathUtils.smoothstep(phase,.62,1));for(let j=0;j<2;j++){const rr=r*(j?.72:1);mat.compose(V([q.x,-q.z,.043+j*.0002]),new T.Quaternion(),V([rr,rr,1]));rings.setMatrixAt(i*2+j,mat);ringAlpha.setX(i*2+j,a*(j?.68:1));}}rings.instanceMatrix.needsUpdate=true;ringAlpha.needsUpdate=true;rain.position.y=-(time*.7)%1;}
 const nearEnvironmentTarget=new T.WebGLCubeRenderTarget(256,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),nearCubeCamera=new T.CubeCamera(.08,220,nearEnvironmentTarget);nearCubeCamera.position.set(0,2.3,7);let nearEnvironmentReady=false;
 function captureNearEnvironment(){if(nearEnvironmentReady)return;nearEnvironmentReady=true;if(!renderer.capabilities)return;const hidden=[];scene.traverse(o=>{if(o.isMesh&&(o.material===m.gold||o.material===m.oldgold)){hidden.push([o,o.visible]);o.visible=false;}});const wasMirror=mirror.visible;mirror.visible=false;nearCubeCamera.update(renderer,scene);mirror.visible=wasMirror;for(const [o,v]of hidden)o.visible=v;renderer.shadowMap.needsUpdate=true;for(const mat of[m.gold,m.oldgold,m.nearLacquer]){mat.envMap=nearEnvironmentTarget.texture;mat.needsUpdate=true;}}
 function renderView(position,target,time=0,fov=65){camera.position.fromArray(position);camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);update(time);scene.updateMatrixWorld(true);captureNearEnvironment();renderer.setRenderTarget(null);renderer.render(scene,camera);return {position,target,time,fov,width:W,height:H};}
 function renderReference(n=10){if(n!==10)throw Error('Only scene 10 exists');return renderView(fixed.position,fixed.target,0,fixed.fov);}
 function renderShot(localTime=0){const t=T.MathUtils.clamp(localTime/7,0,1),s=t*t*(3-2*t),pos=[-.5+.5*s,.43+.57*s,7+7*s],target=[-1*(1-s),.65+4.75*s,-.5-13.5*s];return renderView(pos,target,localTime,65-5*s);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-dark-mineral-stone-balanced-glints-v11',objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-recessed-drain-layered-courtyard-max01',objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
