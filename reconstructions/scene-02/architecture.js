@@ -2,8 +2,14 @@ import {T,V,mix,Builder,gridGeometry} from './kernel.js';
 export function buildArchitecture(mats){
  const b=new Builder(mats),lights=[];const torus=new T.TorusGeometry(1,.075,6,20);
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
- function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'oldgold');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
- function column(x,z,base,h,r=.24){b.cyl(x,base+.15,z,r*1.37,.30,'black');b.cyl(x,base+.32,z,r*1.32,.07,'gold');b.cyl(x,base+h/2+.3,z,r,h-.3,'red');for(let y of[base+.4,base+h-.05]){b.cyl(x,y,z,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}}
+ function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
+ const closeCylinder=new T.CylinderGeometry(1,1,1,48);
+ function column(x,z,base,h,r=.24){
+  const cy=(yy,rr,hh,ma)=>r>.4?b.put(closeCylinder,ma,[x,yy,z],[rr,hh,rr]):b.cyl(x,yy,z,rr,hh,ma);
+  cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,'red');
+  for(let y of[base+.4,base+h-.05]){cy(y,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}
+  if(r>.4){cy(base+.72,r*1.015,.72,'oldgold');for(let yy of[base+.36,base+1.08])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*.63,z+Math.sin(aa)*rad]);}b.tube(pts,.017,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.ball(x+Math.cos(aa)*r*1.05,base+.46+k*.15,z+Math.sin(aa)*r*1.05,.035,.055,.035,'gold');}}}
+ }
  function bracket(x,y,z,s=1){b.at([x,y,z],0,()=>{b.box(0,-.02,0,.42,.24,.42,'red');for(let k=0;k<3;k++){let yy=k*.23,span=.4+k*.28;b.box(0,yy,0,span*2,.15,.24,'cedar');b.box(0,yy+.045,0,.23,.15,span*2,'red');for(let q of[-1,1]){b.box(q*span,yy+.10,0,.2,.2,.32,'cedar');b.box(0,yy+.13,q*span,.32,.22,.2,'red');fitting(q*span,yy+.10,.17,.17,.17);}}},s);}
  const cap=new T.CylinderGeometry(.075,.075,.045,12);cap.rotateX(Math.PI/2);
  function roofEnd(p,yaw=0){b.put(cap,'tileEnd',p,[1,1,1],[0,yaw,0]);b.ball(p[0],p[1],p[2]+.027,.025,.025,.017,'oldgold');}
@@ -46,14 +52,23 @@ export function buildArchitecture(mats){
   b.box(0,7.65,4.3,5.8,.55,.6,'red');for(let i=-5;i<=5;i++)rosette(i*.48,7.65,4.65,.16);
   // Lower hipped skirt carries dense parallel tile courses and exposed bracket tiers.
   roof({w:22.8,d:16,eave:9.0,rise:3.4,center:[0,0,-.8],curl:.7,inner:.36});
-  // A tall gabled roof rises above the skirt; the carved triangular front is fully three-dimensional.
-  b.box(0,10.45,5.05,16,1.42,.22,'darkwood');for(let x=-7.5;x<=7.5;x+=.5)b.box(x,10.45,5.19,.10,1.42,.12,'cedar');b.box(0,11.16,5.16,16.3,.2,.30,'red');
-  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-8,11.15,5.1,8,11.15,5.1,0,17.2,5.1],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
-  for(let k=-7;k<=7;k++){let h=5.7*(1-Math.abs(k)/8);b.box(k,11.2+h/2,5.13,.13,h,.16,'cedar');}for(let y=11.4;y<16.5;y+=.6){let w=16*(1-(y-11.15)/6.1);b.box(0,y,5.18,w,.10,.15,'cedar');}
-  gableRoof(17.5,12.3,11.4,6.3,-.7);
-  for(let s of[-1,1]){let points=Array.from({length:32},(_,i)=>{let t=i/31;return[s*8.75*t,11.4+6.3*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.27,5.56];});b.tube(points,.14,'gold',44);for(let i=1;i<22;i++){let p=points[Math.round(i*31/22)];rosette(p[0],p[1]-.26,p[2],.17);}}
-  fitting(0,12.5,5.35,2.1,1.1);rosette(0,15.1,5.37,.45);
-  for(let s of[-1,1]){const light=new T.PointLight(0xffae49,45,12,2);light.position.set(s*2.2,5.5,-.5);lights.push(light);}
+  // A broad blue tiled hipped roof encloses the volume. A small carved gable
+  // is seated within its front slope rather than replacing the whole roof with a wall.
+  b.at([0,0,-1.0],Math.PI/2,()=>roof({w:14.6,d:21.7,eave:10.65,rise:5.65,curl:.68}));
+  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-4.65,11.25,5.45,4.65,11.25,5.45,0,15.05,5.45],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
+  gableRoof(10.2,4.9,11.15,4.25,3.0);
+  for(let s of[-1,1]){
+   const points=Array.from({length:40},(_,i)=>{let t=i/39;return[s*5.1*t,11.15+4.25*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.15,5.59];});
+   b.tube(points,.10,'oldgold',48);b.tube(points.map(p=>[p[0],p[1]+.08,p[2]+.03]),.034,'gold',48);
+   for(let j=0;j<21;j++){const p=points[Math.round((j+.5)*39/21)];rosette(p[0],p[1]-.18,p[2]+.04,.11);}
+  }
+  // Interlaced gilt foliage relief on the dark gable, and a carved central pendant.
+  for(let s of[-1,1])for(let j=0;j<7;j++){let x=s*(.38+j*.43),h=3.2*(1-Math.abs(x)/4.5);b.tube([[x-.28,11.4,5.53],[x+s*.10,11.65+h*.5,5.58],[x-s*.18,11.6+h*.8,5.6],[x+s*.25,11.5+h*.95,5.56]],.027,'oldgold',20);for(let k=0;k<4;k++)rosette(x+s*Math.sin(k*2)*.15,11.5+h*(k+.4)/4,5.6,.09);}
+  rosette(0,13.72,5.62,.23);b.cyl(0,12.25,5.59,.055,1.3,'gold');b.box(0,11.35,5.48,9.6,.17,.25,'cedar');
+  // Closely spaced multi-tier bracket clusters cast real shadows under the deep eave.
+  for(let x=-9.2;x<=9.21;x+=.66){bracket(x,8.5,6.0,.58);b.box(x,9.26,6.45,.17,.17,1.58,'cedar');fitting(x,8.64,6.48,.16,.22);}
+  for(let z=-6.2;z<6.3;z+=.72)for(let x of[-8.55,8.55]){bracket(x,8.45,z,.56);b.box(x,9.22,z,1.3,.16,.16,'cedar');}
+  for(let s of[-1,1]){const light=new T.PointLight(0xffae49,45,12,2);light.position.set(4+s*2.2,5.5,-10.5);lights.push(light);}
   // Golden altar, vase and central statue silhouette seen through the four-column entry.
   b.box(0,2.75,-3.7,3.5,.85,1.3,'oldgold');b.box(0,3.22,-3.7,3.75,.13,1.5,'gold');b.ball(0,4.4,-3.7,.62,.93,.40,'gold');b.ball(0,5.4,-3.7,.36,.43,.32,'gold');b.ball(0,5.83,-3.7,.20,.18,.20,'oldgold');b.ball(0,3.7,-3.3,.9,.22,.5,'gold');
  });
@@ -79,16 +94,22 @@ export function buildArchitecture(mats){
  });
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};
- for(let i=0;i<23;i++){let x=14.82+i*.235;b.box(x,1.27,24,.228,.16,30,'floor',0,.85+.2*(.5+.5*Math.sin(i*5.7)));for(let z of[12,20,28,36]){b.cyl(x,1.355,z,.013,.007,'black');}}
+ for(let i=0;i<25;i++){let x=14.42+i*.235;b.box(x,1.27,24,.228,.16,30,'floor',0,.85+.2*(.5+.5*Math.sin(i*5.7)));for(let z of[12,20,28,36]){b.cyl(x,1.355,z,.013,.007,'black');}}
  for(let z of[10,18,26,34,40]){column(16.0,z,1.36,8.6,.48);bracket(16.0,9.7,z,1.35);} // substantial vermilion column is cropped at the far right
  for(let z of[10,18,26,34,40]){b.box(15.6,10,z,8.7,.45,.52,'cedar');for(let x=12.3;x<20;x+=.9)fitting(x,10,z+.28,.34,.34);}
  b.box(16,10.62,25,9.8,.28,33,'darkwood');
  for(let z=8.5;z<41;z+=.46){b.box(16,10.42,z,10.8,.30,.22,'cedar');b.box(10.73,10.42,z,.13,.31,.26,'darkwood');}
  b.box(11.1,10.08,25,.38,.45,34,'red');b.box(19.6,10.08,25,.38,.45,34,'red');
- // The nearest balustrade runs diagonally across the image through physical perspective.
- for(let z=8;z<=41;z+=2.6){let x=14.8;b.box(x,1.8,z,.25,.9,.25,'red');b.cyl(x,2.24,z,.23,.10,'gold');b.cyl(x,2.33,z,.15,.10,'gold');b.ball(x,2.41,z,.23,.10,.23);b.ball(x,2.51,z,.09,.08,.09);b.cyl(x,1.48,z,.20,.17,'oldgold');}
- for(let y of[1.6,1.96,2.28])b.box(14.8,y,24.5,.20,y===2.28?.19:.12,33,'red');
- for(let z=9.3;z<40;z+=2.6){b.box(14.8,1.82,z,.07,.64,1.77,'darkwood');b.at([14.68,1.82,z],Math.PI/2,()=>{for(let zz of[-.29,.29])b.box(0,zz,0,1.74,.065,.04,'gold');for(let xx of[-.84,.84])b.box(xx,0,0,.065,.64,.04,'gold');rosette(0,0,.035,.25);for(let s of[-1,1])for(let j=0;j<3;j++){let x=s*(.32+j*.15);b.tube([[x,-.22,.025],[x-s*.12,.05,.06],[x+s*.04,.22,.06],[x+s*.1,.04,.03]],.025,'oldgold',12);}});}
+ // Open lacquered balustrade: fine gilt castings sit between rounded red rails.
+ const finial=new T.LatheGeometry([[0,0],[.085,0],[.10,.03],[.075,.06],[.065,.11],[.12,.15],[.10,.19],[.055,.22],[.04,.27],[0,.30]].map(p=>new T.Vector2(...p)),24);
+ for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);b.cyl(x,1.44,z,.12,.15,'oldgold');}
+ for(let y of[1.55,1.96,2.27])b.line([14.4,y,8],[14.4,y,41],y===2.27?.065:.037,'red');
+ for(let z=9.8;z<40;z+=3.6){b.at([14.34,1.79,z],Math.PI/2,()=>{
+  // Thin frames leave most of each panel open to the water behind.
+  for(let yy of[-.20,.20])b.box(0,yy,0,2.90,.026,.024,'oldgold');
+  for(let xx of[-1.44,1.44])b.box(xx,0,0,.03,.43,.026,'oldgold');
+  for(let j=-2;j<=2;j++){let cx=j*.5;rosette(cx,0,.02,.105);for(let ss of[-1,1])b.tube([[cx,-.16,.02],[cx+ss*.20,-.08,.025],[cx+ss*.17,.16,.025],[cx+ss*.06,.08,.025]],.012,'oldgold',16);}
+ });}
  // Large hexagonal bronze lanterns: emitting panes behind intricate metal tracery.
  function lantern(x,y,z,s=1,ceiling=10.3){b.at([x,y,z],0,()=>{for(let h of[-.67,.67]){b.put(new T.CylinderGeometry(.48,.48,.10,6),'gold',[0,h,0]);b.put(new T.CylinderGeometry(h>0?.27:.53,h>0?.53:.27,.25,6),'oldgold',[0,h+Math.sign(h)*.16,0]);}for(let side=0;side<6;side++){b.at([0,0,0],side*Math.PI/3,()=>{b.box(0,0,.414,.44,1.22,.025,'paper');for(let xx of[-.23,.23])b.box(xx,0,.44,.045,1.36,.06,'gold');for(let yy of[-.59,.59])b.box(0,yy,.44,.48,.055,.06,'gold');b.put(torus,'oldgold',[0,0,.45],[.19,.28,.32],[0,0,0]);for(let k=0;k<5;k++){let yy=-.5+k*.25;for(let ss of[-1,1])b.line([-.20,yy,.45],[.20,yy+ss*.23,.45],.017,'oldgold');}rosette(0,0,.47,.13);});}b.ball(0,-1.03,0,.15,.2,.15);b.ball(0,-1.26,0,.065,.13,.065);},s);
   const top=y+.99*s; b.line([x,top,z],[x,ceiling,z],.023,'oldgold');for(let yy=top+.1;yy<ceiling;yy+=.14)b.put(torus,'gold',[x,yy,z],[.047,.065,.047],[0,yy*8,0]);const light=new T.PointLight(0xffb75f,15*s,8*s,2);light.position.set(x,y,z);lights.push(light);}

@@ -3,7 +3,7 @@ import {buildArchitecture} from './architecture.js';
 import {buildGarden} from './garden.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 const query=new URLSearchParams(location.search),width=Math.min(2048,Math.max(64,Number(query.get('w'))||960)),height=Math.min(2048,Math.max(64,Number(query.get('h'))||960));
-const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(width,height);renderer.setPixelRatio(1);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;document.body.append(renderer.domElement);
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(width,height);renderer.setPixelRatio(1);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;document.body.append(renderer.domElement);
 const scene=new T.Scene();scene.name='reference02-completely-rebuilt-veranda';scene.fog=new T.FogExp2(0xc4a47b,.005);
 const {mats,textures}=materials();mats.slate.side=T.DoubleSide;
 const architecture=buildArchitecture(mats),garden=buildGarden(mats);scene.add(architecture.group,garden.group,...architecture.lights,...garden.lights);
@@ -15,14 +15,14 @@ varying vec3 vWorld;uniform vec3 sun;uniform float skyGain;
 float hash(vec3 p){p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z);}
 float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}
 float fbm(vec3 p){return .5*noise(p)+.25*noise(p*2.03)+.125*noise(p*4.13)+.0625*noise(p*8.31);}
-void main(){vec3 d=normalize(vWorld-cameraPosition);float h=max(d.y,0.),nearSun=pow(max(0.,dot(d,sun)),7.);vec3 color=mix(vec3(1.15,.48,.14),vec3(.32,.46,.65),smoothstep(0.,.65,h));color=mix(color,vec3(1.65,.91,.30),nearSun*.45);float glow=pow(max(0.,dot(d,sun)),42.);color+=vec3(1.2,.65,.18)*glow;float disc=smoothstep(.99987,.99993,dot(d,sun));color+=vec3(9.,7.,3.5)*disc;
-vec3 p=d/max(.12,d.y)*3.4;float cloud=fbm(p*2.3+vec3(1.1,0,2));float detail=noise(p*22.);float mask=smoothstep(.48,.61,cloud+.07*detail)*smoothstep(.035,.12,h);vec3 lit=mix(vec3(.55,.51,.51),vec3(1.9,1.31,.67),.45+.55*nearSun);color=mix(color,lit,mask*.88);gl_FragColor=vec4(color*skyGain,1.);#include <tonemapping_fragment>\n#include <colorspace_fragment>}
+void main(){vec3 d=normalize(vWorld-cameraPosition);float h=max(d.y,0.),nearSun=pow(max(0.,dot(d,sun)),7.);vec3 color=mix(vec3(1.12,.44,.10),vec3(.16,.29,.50),smoothstep(0.,.40,h));color=mix(color,vec3(1.8,.82,.21),nearSun*.26);float glow=pow(max(0.,dot(d,sun)),42.);color+=vec3(1.2,.65,.18)*glow;float disc=smoothstep(.99987,.99993,dot(d,sun));
+vec3 p=d/max(.12,d.y)*3.4;float cloud=fbm(p*3.0+vec3(1.1,0,2));float detail=noise(p*25.);float mask=smoothstep(.47,.58,cloud+.05*detail)*smoothstep(.035,.12,h);float relief=fbm(p*3.0+sun*.55+vec3(1.1,0,2));vec3 lit=mix(vec3(.24,.27,.36),vec3(2.2,1.02,.35),smoothstep(.39,.61,relief)*(.5+.5*nearSun));color=mix(color,lit,mask*.90);color+=vec3(10.,7.,2.3)*disc;gl_FragColor=vec4(color*skyGain,1.);#include <tonemapping_fragment>\n#include <colorspace_fragment>}
 `});
 // Shader include directives must start on their own lines.
 skyMaterial.fragmentShader=skyMaterial.fragmentShader.replace(';#include',';\n#include');
 const sky=new T.Mesh(new T.SphereGeometry(220,40,24),skyMaterial);sky.name='procedural-golden-cloud-atmosphere';scene.add(sky);
-const sun=new T.DirectionalLight(0xffc47c,3.7);sun.position.copy(sunDirection.clone().multiplyScalar(70));sun.target.position.set(-2,4,0);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-34,right:34,top:34,bottom:-34,near:1,far:125});sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00015;sun.shadow.normalBias=.04;sun.shadow.radius=2;scene.add(sun,sun.target);
-scene.add(new T.HemisphereLight(0xc4d3eb,0x7a411b,1.15));const frontFill=new T.DirectionalLight(0xffc58d,1.15);frontFill.position.set(-24,18,32);scene.add(frontFill);
+const sun=new T.DirectionalLight(0xffbc68,4.2);sun.position.copy(sunDirection.clone().multiplyScalar(70));sun.target.position.set(-2,4,0);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-34,right:34,top:34,bottom:-34,near:1,far:125});sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00015;sun.shadow.normalBias=.04;sun.shadow.radius=2;scene.add(sun,sun.target);
+scene.add(new T.HemisphereLight(0xc4d3eb,0x684b31,.52));const frontFill=new T.DirectionalLight(0xc9d8ef,.72);frontFill.position.set(18,26,25);scene.add(frontFill);
 const camera=new T.PerspectiveCamera(52,width/height,.12,300);
 const reference={position:[16.2,2.72,25],target:[-1.0,4.7,-7],fov:52};
 const reflectors=[];
@@ -34,7 +34,7 @@ function mirror(name,w,d,p,opacity=.8,ripple=.0015){
 }
 const water=new T.Mesh(new T.PlaneGeometry(61.5,61),mats.water);water.rotation.x=-Math.PI/2;water.position.set(-16,.004,15);water.receiveShadow=true;scene.add(water);
 mirror('actual-pond-reflection',61.5,61,[-16,.016,15],.92,.0009);
-mirror('wet-cedar-veranda-reflection',5.4,30,[17.5,1.356,24],.44,.00004);
+mirror('wet-cedar-veranda-reflection',5.9,30,[17.35,1.356,24],.44,.00004);
 // Metal receives the same procedural sky radiance as visible atmosphere, captured once.
 const environmentScene=new T.Scene();const environmentSky=sky.clone();environmentSky.material=skyMaterial.clone();environmentSky.material.uniforms.skyGain.value=.65;environmentScene.add(environmentSky);const pmrem=new T.PMREMGenerator(renderer);const envTarget=pmrem.fromScene(environmentScene,.06,.1,250);scene.environment=envTarget.texture;scene.environmentIntensity=.72;pmrem.dispose();environmentSky.material.dispose();
 let frames=0,disposed=false;
@@ -43,6 +43,6 @@ function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorl
 function renderReference(n=2){if(n!==2)throw Error('This independent reconstruction supports reference 02 only.');setView(reference.position,reference.target,reference.fov);return draw();}
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
 function renderShot(localTime=0){let t=Math.max(0,Math.min(1,localTime/7)),u=t*t*(3-2*t);setView([T.MathUtils.lerp(15.8,16.2,u),T.MathUtils.lerp(2.48,2.72,u),T.MathUtils.lerp(21.8,25,u)],[-1,T.MathUtils.lerp(4.4,4.7,u),-7],T.MathUtils.lerp(47,52,u));return draw();}
-function info(){return{reference:2,revision:'scene02-photo-rebuild-01',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-photo-rebuild-02',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,garden:garden.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','No external textures, models, HDR maps, image backgrounds or AI visuals.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);
