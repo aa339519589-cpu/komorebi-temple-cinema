@@ -6,6 +6,7 @@ import {createReference4MaterialSet} from './materials.js';
 import {buildMapleCanopy} from './foliage.js';
 import {loadBlenderJoinery} from './blender-joinery.js';
 import {createSculptedJoinery} from './sculpted-joinery.js';
+import {createRafterEndCopper} from './rafter-end-copper.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
 export const POSE={position:[11.87,1.02,12.94],target:[-3.64,14.93,0],fov:34};
 export async function buildScene(){
@@ -21,8 +22,11 @@ export async function buildScene(){
  mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#4b514b');mats.tileEndRelief.roughness=.73;
  mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#1b242a');mats.cornerCeramic.roughness=.57;mats.cornerCeramic.bumpScale=.0025;
 
- const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery();
- const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,relief:sculptedJoinery.relief,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:sculptedJoinery.info,dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();}};Object.assign(mats,joineryKit.materials);
+ const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createRafterEndCopper(),endCopperSmall=createRafterEndCopper({detail:'small'});
+ const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();}};Object.assign(mats,joineryKit.materials);
+ mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-thin-cast-copper-end-cup',color:'#aa7d34',metalness:.88,roughness:.57,envMapIntensity:.60});
+ mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-shallow-cast-floral-copper',color:'#c49b4b',metalness:.88,roughness:.51,envMapIntensity:.72});
+ mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-lower-patinated-copper-grooves',color:'#4a381c',metalness:.62,roughness:.78,envMapIntensity:.40});
  // Solid code-built geometry and the user-authorized image-assisted relief.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
  const primitive={box:new T.BoxGeometry(1,1,1),sphere:new T.SphereGeometry(1,16,10),cone:new T.ConeGeometry(1,1,16)};
@@ -128,8 +132,10 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      const rim=new T.Shape();rim.moveTo(-.16*s,-.22*s);rim.lineTo(.16*s,-.22*s);rim.lineTo(.16*s,.22*s);rim.lineTo(-.16*s,.22*s);rim.closePath();
      const geometry=new T.ExtrudeGeometry(rim,{steps:20,bevelEnabled:false,extrudePath:path});instance(geometry,'red');
      const normal=end.clone().sub(mid).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
-     const goldEnd=end.clone().addScaledVector(normal,.008);instance('box','oldgold',...goldEnd.toArray(),.317*s,.438*s,.014,q);
-     group(goldEnd.x,goldEnd.y,goldEnd.z,Math.atan2(sx,sz),()=>{arch.squareFitting(0,0,.018,.30*s,.40*s,0,true);});
+     const goldEnd=end.clone().addScaledVector(normal,.008);
+     // The sleeve and its flower follow the real downward cut-plane normal.
+     // The old yaw-only plaque left that true underside as a blank gold box.
+     for(const p of endCopper.parts)instance(p.geometry,p.material,...goldEnd.toArray(),.324*s,.444*s,.324*s,q);
      // Small carved cheek leaves follow the load-bearing timber instead of floating in the bay.
      for(let j=0;j<4;j++){const p=path.getPoint(.30+j*.14);group(p.x,p.y,p.z,Math.atan2(sx,sz),()=>{instance(carvedLeaf,'oldgold',.165*s,0,0,.18*s,.14*s,.16,[0,Math.PI/2,j%2?.6:-.6]);});}
    }
@@ -227,12 +233,15 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  // Sky: directional pale wisps are an analytic shader, with no image texture.
  const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4)+.12*noise(p*8.8)+.065*noise(p*17.6);float cloud=smoothstep(1.08,1.37,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.85);vec3 desired=mix(c/12.92,pow((c+.055)/1.055,vec3(2.4)),step(vec3(.04045),c));const mat3 inverseOutput=mat3(.64303825,.05926869,.00596190,.31118675,.93143649,.06392902,.04577546,.00929492,.93011838);const mat3 inverseInput=mat3(1.76474097,-.14702785,-.03633683,-.67577768,1.16025151,-.16243644,-.08896329,-.01322366,1.19877327);vec3 v=inverseOutput*desired;vec3 A=1.-.983729*v;vec3 B=.0245786-.432951*v;vec3 C=-.000090537-.238081*v;vec3 fitted=(-B+sqrt(B*B-4.*A*C))/(2.*A);vec3 radiance=max(vec3(0.),inverseInput*fitted)*(.6/.95);gl_FragColor=vec4(radiance,1.);}`});
  const sky=new T.Mesh(new T.SphereGeometry(120,32,16),skyMaterial);scene.add(sky);
- const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.50);scene.add(hemi);
- const sun=new T.DirectionalLight('#fff0ce',4.4);sun.position.set(-18,30,23);sun.target.position.set(0,9,0);sun.castShadow=true;
+ const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.48);scene.add(hemi);
+ const sun=new T.DirectionalLight('#ffe4b9',4.4);sun.position.set(-18,25,23);sun.target.position.set(0,9,0);sun.castShadow=true;
  sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000025;sun.shadow.normalBias=.006;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
- const groundBounce=new T.DirectionalLight('#ffbf83',.20);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);scene.add(groundBounce,groundBounce.target);
+ // Bounded first-bounce courtyard proxy. Its own actual shadows preserve
+ // the separate eave layers; it is not a screen exposure or flat ambient lift.
+ const groundBounce=new T.DirectionalLight('#ffbf83',.28);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
+ groundBounce.shadow.mapSize.set(2048,2048);Object.assign(groundBounce.shadow.camera,{left:-18,right:18,top:25,bottom:-12,near:1,far:85});groundBounce.shadow.bias=-.000025;groundBounce.shadow.normalBias=.004;groundBounce.shadow.autoUpdate=false;groundBounce.shadow.needsUpdate=true;scene.add(groundBounce,groundBounce.target);
  // Procedural environment radiance provides directional metal reflections.
- const faces=[],sunDirection=new T.Vector3(-18,21,23).normalize();
+ const faces=[],sunDirection=new T.Vector3(-18,16,23).normalize();
  for(let face=0;face<6;face++){
    const canvas=document.createElement('canvas');canvas.width=canvas.height=128;const ctx=canvas.getContext('2d'),pixels=ctx.createImageData(128,128);
    for(let y=0;y<128;y++)for(let x=0;x<128;x++){
@@ -261,5 +270,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-sculpted-interlocked-corner-joinery-struct64',levels,triangles,parts,geometry:'Authored closed curved and beveled timber profiles, half-lapped arms, corner raked ang, deep open gilt leaf carving, recessed ceramic masks and individual tile rows',joineryKit:joineryKit.info,timber:scannedTimber.info,canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-cast-copper-pigmented-vermilion-mesh72',levels,triangles,parts,geometry:'Retained closed timber and site with new closed thin copper end cups, broad shallow floral/volute relief and patinated groove floors',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffe4b9',courtyardBounce:.28,courtyardBounceCastsShadows:true,limits:'Analytical sky/environment and inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
 }

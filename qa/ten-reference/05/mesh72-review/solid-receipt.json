@@ -1,0 +1,143 @@
+{
+  "candidate": "mesh72",
+  "status": "new-solid-topology-inspected-not-visually-accepted",
+  "source": "reconstructions/scene-05/src/rafter-end-copper.js",
+  "sourceSha256": "23479a6b98916fa47ac7d8009e6749c4bd7c3bd1af1d7eac3474e6db3d732cab",
+  "weldTolerance": 0.000001,
+  "details": {
+    "full": [
+      {
+        "material": "fittingCopper",
+        "finite": true,
+        "triangles": 3468,
+        "weldedVertices": 1752,
+        "collapsedTrianglesAfterWeld": 0,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "bounds": {
+          "min": [
+            -0.5109999775886536,
+            -0.5109999775886536,
+            -0.0989999994635582
+          ],
+          "max": [
+            0.5109999775886536,
+            0.5109999775886536,
+            0.03849999979138374
+          ]
+        }
+      },
+      {
+        "material": "fittingPatina",
+        "finite": true,
+        "triangles": 332,
+        "weldedVertices": 168,
+        "collapsedTrianglesAfterWeld": 0,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "bounds": {
+          "min": [
+            -0.4339999854564667,
+            -0.4339999854564667,
+            0.010999999940395355
+          ],
+          "max": [
+            0.4339999854564667,
+            0.4339999854564667,
+            0.023000000044703484
+          ]
+        }
+      },
+      {
+        "material": "fittingEdge",
+        "finite": true,
+        "triangles": 4488,
+        "weldedVertices": 2270,
+        "collapsedTrianglesAfterWeld": 0,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "bounds": {
+          "min": [
+            -0.4964999854564667,
+            -0.4964999854564667,
+            0.014000000432133675
+          ],
+          "max": [
+            0.4964999854564667,
+            0.4964999854564667,
+            0.05900000035762787
+          ]
+        }
+      }
+    ],
+    "small": [
+      {
+        "material": "fittingCopper",
+        "finite": true,
+        "triangles": 1212,
+        "weldedVertices": 624,
+        "collapsedTrianglesAfterWeld": 0,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "bounds": {
+          "min": [
+            -0.5109999775886536,
+            -0.5109999775886536,
+            -0.0989999994635582
+          ],
+          "max": [
+            0.5109999775886536,
+            0.5109999775886536,
+            0.03849999979138374
+          ]
+        }
+      },
+      {
+        "material": "fittingPatina",
+        "finite": true,
+        "triangles": 124,
+        "weldedVertices": 64,
+        "collapsedTrianglesAfterWeld": 0,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "bounds": {
+          "min": [
+            -0.4339999854564667,
+            -0.4339999854564667,
+            0.010999999940395355
+          ],
+          "max": [
+            0.4339999854564667,
+            0.4339999854564667,
+            0.023000000044703484
+          ]
+        }
+      },
+      {
+        "material": "fittingEdge",
+        "finite": true,
+        "triangles": 1688,
+        "weldedVertices": 870,
+        "collapsedTrianglesAfterWeld": 0,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "bounds": {
+          "min": [
+            -0.4964999854564667,
+            -0.4964999854564667,
+            0.014000000432133675
+          ],
+          "max": [
+            0.4964999854564667,
+            0.4964999854564667,
+            0.05900000035762787
+          ]
+        }
+      }
+    ]
+  },
+  "referencePhotographTexture": false,
+  "depthFromPhoto": false,
+  "scope": "Only new closed copper sleeves and broad cast petals/volutes; no scene-wide suite or movie.",
+  "visualAccepted": false
+}

@@ -13,9 +13,22 @@ export async function installScannedTimber(mats){
  // has a broader, subdued highlight; remap roughness as material processing.
  for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.min(255,values.data[i]*1.40+62));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
  ctx.putImageData(values,0,0);const roughness=new T.CanvasTexture(canvas);rawRoughness.dispose();
+ // Opaque vermilion paint covers the dark furniture scan's brown pigment.
+ // The same CC0 scanned luminance remains a small bounded modulation, with
+ // the original normal/roughness microstructure. No scene photograph enters.
+ const pigmentCanvas=document.createElement('canvas');pigmentCanvas.width=albedo.image.width;pigmentCanvas.height=albedo.image.height;
+ const pigmentCtx=pigmentCanvas.getContext('2d',{willReadFrequently:true});pigmentCtx.drawImage(albedo.image,0,0);
+ const pigmentPixels=pigmentCtx.getImageData(0,0,pigmentCanvas.width,pigmentCanvas.height),linear=Array.from({length:256},(_,i)=>{const v=i/255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;});
+ let meanLuma=0;for(let i=0;i<pigmentPixels.data.length;i+=4)meanLuma+=.2126*linear[pigmentPixels.data[i]]+.7152*linear[pigmentPixels.data[i+1]]+.0722*linear[pigmentPixels.data[i+2]];
+ meanLuma/=pigmentPixels.data.length/4;
+ for(let i=0;i<pigmentPixels.data.length;i+=4){
+  const l=.2126*linear[pigmentPixels.data[i]]+.7152*linear[pigmentPixels.data[i+1]]+.0722*linear[pigmentPixels.data[i+2]],v=Math.max(.68,Math.min(1,.45+.45*Math.sqrt(l/meanLuma))),srgb=v<=.0031308?v*12.92:1.055*v**(1/2.4)-.055,q=Math.round(srgb*255);
+  pigmentPixels.data[i]=pigmentPixels.data[i+1]=pigmentPixels.data[i+2]=q;
+ }
+ pigmentCtx.putImageData(pigmentPixels,0,0);const pigmentMap=new T.CanvasTexture(pigmentCanvas);pigmentMap.colorSpace=T.SRGBColorSpace;
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of [normal,roughness])tex.colorSpace=T.NoColorSpace;
- for(const tex of [albedo,normal,roughness]){
+ for(const tex of [albedo,normal,roughness,pigmentMap]){
   tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.minFilter=T.LinearMipmapLinearFilter;
   tex.magFilter=T.LinearFilter;tex.generateMipmaps=true;tex.anisotropy=8;tex.needsUpdate=true;
  }
@@ -24,17 +37,18 @@ export async function installScannedTimber(mats){
  // supplied scan is a very dark table: measured linear maxima .0666/.0452/
  // .0222. These gains keep every sampled albedo channel below one.
  const colors={red:[6.0,3.8,3.0],cedar:[6.8,4.6,3.5],endwood:[7.6,5.8,4.2],darkwood:[2.2,1.9,1.65]};
+ const pigments={red:'#b65325',cedar:'#9d592f'};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.30,.30);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
-  mat.color.setRGB(...colors[kind]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=.04;mat.clearcoatRoughness=.45;mat.specularIntensity=.5;}
-  mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-varnished-timber-v01';
-  mat.userData.metricTimberGrain=true;mat.envMapIntensity=.7;mat.needsUpdate=true;
+  const painted=kind==='red'||kind==='cedar';mat.map=painted?pigmentMap:albedo;mat.normalMap=normal;mat.normalScale.set(painted?.18:.30,painted?.18:.30);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
+  if(painted)mat.color.set(pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=painted?.06:.04;mat.clearcoatRoughness=.45;mat.specularIntensity=painted?.45:.5;}
+  mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'scene05-scanned-grain-opaque-vermilion-pigment-v02';
+  mat.userData.metricTimberGrain=true;mat.envMapIntensity=painted?.60:.7;mat.needsUpdate=true;
  }
- return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps'},
-  dispose(){for(const tex of[albedo,normal,roughness])tex.dispose();}};
+ return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps',pigments,pigmentCoverage:'CC0 scan luminance normalized to .68–1 under opaque vermilion; source photo unused',sourceMeanLinearLuma:meanLuma},
+  dispose(){for(const tex of[albedo,normal,roughness,pigmentMap])tex.dispose();}};
 }
 
 export function assignMetricTimberUV(geometry,matrix){

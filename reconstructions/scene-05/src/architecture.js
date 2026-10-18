@@ -964,6 +964,11 @@ export function createRestorationArchitecture(ctx) {
   }
 
   function squareFitting(x,y,z,w,h,rot=0,detail=true) {
+    if(ctx.joineryKit?.fittingParts&&detail&&w>=.08&&h>=.065){
+      const pieces=(w<.14||h<.12)?ctx.joineryKit.fittingPartsSmall??ctx.joineryKit.fittingParts:ctx.joineryKit.fittingParts;
+      group(x,y,z,rot,()=>{for(const p of pieces)draw(p.geometry,p.material,[0,0,.001],[w,h,Math.min(w,h)]);});
+      return;
+    }
     if(ctx.joineryKit&&detail&&w>=.14&&h>=.12){
       group(x,y,z,rot,()=>draw(ctx.joineryKit.relief,'kit_gilt',[0,0,.001],[w,h,Math.min(w,h)]));
       return;

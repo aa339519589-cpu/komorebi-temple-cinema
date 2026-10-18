@@ -1,0 +1,157 @@
+{
+  "candidate": "mesh72",
+  "status": "unselected-review-candidate",
+  "visualAccepted": false,
+  "baseline": "struct64-native; current scene05 matched exact retained source identity before editing",
+  "baselineSourceHash": "4f52366ca8dc7be8e5c31163f5c9d77f0106d5b9a8159dc93849a7df8a42e840",
+  "nativeSourceHash": "daaba26326b0e4f10245bda01eedfdee4feac5eb20e844333033007337af1621",
+  "scope": [
+    "Closed thin copper end sleeves with broad floral/volute relief",
+    "Warm pigmented timber and physically shaded sun/courtyard-source calibration"
+  ],
+  "sourceModules": [
+    "reconstructions/scene-05/src/rafter-end-copper.js",
+    "reconstructions/scene-05/src/scanned-timber.js",
+    "reconstructions/scene-05/src/scene.js",
+    "reconstructions/scene-05/src/architecture.js"
+  ],
+  "metalGeometry": [
+    "Closed four-sided copper return and thin front plate",
+    "Eight smooth closed curved petals with interior surface vertices",
+    "Four finite-width closed volutes and corner lobes",
+    "Lower dark patinated groove floor and rounded rivets",
+    "End sleeves on hanging corner timbers aligned with their actual cut-plane normal",
+    "Lower subdivisions for small fittings; very small/detail-false legacy pieces remain"
+  ],
+  "timber": {
+    "source": "Unchanged Poly Haven CC0 lacquered_cherry_wood scan",
+    "method": "Opaque pigment over mean-normalized scanned luminance; original normal and roughness maps retained",
+    "sourceMeanLinearLuminance": 0.015213019170802358,
+    "pigments": {
+      "red": "#b65325",
+      "cedar": "#9d592f"
+    },
+    "modulationRange": [
+      0.68,
+      1
+    ]
+  },
+  "lighting": {
+    "exposureUnchanged": 0.95,
+    "sunIntensityUnchanged": 4.4,
+    "sunColor": [
+      "#fff0ce",
+      "#ffe4b9"
+    ],
+    "sunAltitudeDegrees": [
+      35.71712858671121,
+      28.715230845152366
+    ],
+    "sunAzimuthUnchanged": true,
+    "courtyardBounceIntensity": [
+      0.2,
+      0.28
+    ],
+    "courtyardBounceNowCastsActualShadows": true,
+    "approximation": "Inferred first-bounce directional proxy and analytical environment, not measured full GI"
+  },
+  "unchanged": [
+    "Reference camera and FOV",
+    "Tower/site and storey anchors",
+    "Roof geometry/layout",
+    "Deep blue-gray roof material colors/roughness",
+    "Canopy geometry and placement",
+    "Global source assets"
+  ],
+  "referenceCamera": {
+    "position": [
+      11.87,
+      1.02,
+      12.94
+    ],
+    "target": [
+      -3.64,
+      14.93,
+      0
+    ],
+    "fov": 34
+  },
+  "referencePhotographUsedAsTexture": false,
+  "scenePhotoCard": false,
+  "photoDepth": false,
+  "cc0MaterialScanUsed": true,
+  "newCopperClosure": {
+    "full": {
+      "finite": true,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "triangles": 8288
+    },
+    "small": {
+      "finite": true,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "triangles": 3024
+    }
+  },
+  "nativeRenders": {
+    "71": {
+      "sourceHash": "e14fd0b95f9a4ed92dde6d148d522fdcab9eb084fd4525e0bfd63c72d9be3a94",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "detailCrop": null
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "detailCrop": [
+            745,
+            690,
+            320,
+            1254
+          ]
+        }
+      ]
+    },
+    "72": {
+      "sourceHash": "daaba26326b0e4f10245bda01eedfdee4feac5eb20e844333033007337af1621",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "detailCrop": null
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "detailCrop": [
+            745,
+            690,
+            320,
+            1254
+          ]
+        }
+      ]
+    }
+  },
+  "unresolved": [
+    "Flower and volute forms remain simplified and are not a measured copy of each original copper casting",
+    "Timber paint is more uniform than the aged photographed surface; gloss and wear still differ",
+    "Some copper highlights still lose fine carving under the direct sun",
+    "Tiny legacy end pieces and existing window ornament remain coarse",
+    "Courtyard bounce is an explicit shadowed proxy rather than full GI",
+    "Broader roof/body proportions, ceramic corner masks and foliage still differ outside this bounded pass"
+  ],
+  "validation": "Exactly two queued1254 full+native-detail renders, local copper topology inspection and JS parse checks. No test suite or movie run. Closed geometry and linked programs are not visual acceptance.",
+  "comparisonSourceHashes": {
+    "references/hd/5-照片-6.jpg": "f377888cf752d1e51ff36654a734fd91c97cfd5a1a42f13beb6e0c934588b871",
+    "qa/ten-reference/05/iteration-struct64-native/reference.png": "540e8a8935a8fb5e39a4f685c9c93b38c9dc3d1ec4c5e5c1f89f775de60e7ccd",
+    "qa/ten-reference/05/iteration-mesh72/reference.png": "3b07f1f79eda6eaf6215e9691e5cff488a22dc72696aea838de185c0f048a39e",
+    "qa/ten-reference/05/iteration-mesh71/detail-native.png": "51e985c431395c667ecb64fcdedd909f1fd547494f778bdf20ef811d1176c026",
+    "qa/ten-reference/05/iteration-mesh72/detail-native.png": "f501961d6d11185c7e0d61a34a3e6b00e02339b1cc94a5a76b3fd8a69ace90fd"
+  }
+}
