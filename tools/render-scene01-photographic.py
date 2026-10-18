@@ -77,7 +77,7 @@ for rec in scene_data['materials']:
         for name in ['Emission Color','Emission']:
             if name in bs.inputs:links.new(em.outputs[0],bs.inputs[name]);break
     # Real thin-leaf/paper transmission, using the same source colour/map.
-    thin_foliage=rec['name'].lower().startswith(('leaf','maple','lotusleaf'))
+    thin_foliage=rec['name'].lower().startswith(('leaf','maple','lotusleaf','pineleaf'))
     thin_paper=('paper' in rec['name'].lower() and max(emission[:3])>0)
     if thin_foliage or thin_paper:
         translucent=n.new('ShaderNodeBsdfTranslucent')
@@ -216,6 +216,14 @@ if hdri_path:
     for lamp in list(scene.objects):
         if lamp.type=='LIGHT' and lamp.data.type=='SUN':bpy.data.objects.remove(lamp,do_unlink=True)
     report['measuredSky']={'file':str(Path(hdri_path).resolve()),'rotationRadians':mapping.inputs['Rotation'].default_value[2],'license':'CC0-1.0'}
+# A declared off-camera film light opens the deep portico, while retaining
+# actual geometric shadows, material response, GI and measured sky transport.
+fill_power=float(os.environ.get('CYCLES_FRONT_BOUNCE','0'))
+if fill_power>0:
+    fill=bpy.data.lights.new('off-camera broad warm production fill','AREA');fill.energy=fill_power;fill.shape='RECTANGLE';fill.size=14;fill.size_y=10;fill.color=(1,.83,.65)
+    obj=bpy.data.objects.new(fill.name,fill);scene.collection.objects.link(obj);obj.location=(-9,-10,12)
+    obj.rotation_euler=(Vector((1,8,5))-obj.location).to_track_quat('-Z','Y').to_euler()
+    report['productionFill']={'powerWatts':fill_power,'sizeMetres':[14,10],'positionZUp':list(obj.location),'targetZUp':[1,8,5],'purpose':'Declared cinematic shadow-side fill; not recovered reference lighting'}
 scene.cycles.seed=73061;scene.cycles.use_animated_seed=False
 
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','32'))

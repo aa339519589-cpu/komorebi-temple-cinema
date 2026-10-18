@@ -11,7 +11,7 @@ export async function installScannedTimber(mats){
  const values=ctx.getImageData(0,0,canvas.width,canvas.height);
  // The scan is a very smooth furniture varnish. The exposed temple coating
  // has a broader, subdued highlight; remap roughness as material processing.
- for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.min(255,values.data[i]*1.40+62));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
+ for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.min(255,values.data[i]*1.20+38));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
  ctx.putImageData(values,0,0);const roughness=new T.CanvasTexture(canvas);rawRoughness.dispose();
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of [normal,roughness])tex.colorSpace=T.NoColorSpace;
@@ -23,14 +23,14 @@ export async function installScannedTimber(mats){
  // Linear albedo gains represent the lighter stained temple timber. The
  // supplied scan is a very dark table: measured linear maxima .0666/.0452/
  // .0222. These gains keep every sampled albedo channel below one.
- const colors={red:[6.9,5.7,4.7],redLight:[8.1,7.2,6.1],wood:[7.1,6.6,5.8],endwood:[8.7,8.0,6.9],darkwood:[1.9,1.9,1.8]};
+ const colors={red:[6.2,2.8,2.0],redLight:[7.1,4.2,3.1],wood:[6.2,4.7,3.4],endwood:[7.6,6.2,4.7],darkwood:[1.9,1.5,1.3]};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
   mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.30,.30);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
   mat.color.setRGB(...colors[key]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=.04;mat.clearcoatRoughness=.45;mat.specularIntensity=.5;}
-  mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-varnished-timber-v01';
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.28:.13;mat.clearcoatRoughness=.28;mat.specularIntensity=.70;}
+  mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-varnished-timber-red-lacquer-v02';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=.7;mat.needsUpdate=true;
  }
  return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps'},

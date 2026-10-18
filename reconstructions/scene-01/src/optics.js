@@ -8,7 +8,7 @@ export function createOptics(renderer,width,height,camera){
  const material=new T.ShaderMaterial({name:'scene01-physical-depth-softness',depthTest:false,depthWrite:false,uniforms:{tColor:{value:target.texture},tDepth:{value:target.depthTexture},tAO:{value:ao.gtaoMap},resolution:{value:new T.Vector2(width,height)},cameraNear:{value:camera.near},cameraFar:{value:camera.far}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',fragmentShader:`
  varying vec2 vUv;uniform sampler2D tColor;uniform sampler2D tDepth;uniform sampler2D tAO;uniform vec2 resolution;uniform float cameraNear;uniform float cameraFar;
  #include <packing>
- void main(){float d=texture2D(tDepth,vUv).x;float distance=-perspectiveDepthToViewZ(d,cameraNear,cameraFar);float nearBlur=clamp((5.8-distance)/4.8,0.,1.);float farBlur=clamp((distance-65.)/100.,0.,1.)*.24;float radius=.14+3.0*nearBlur+farBlur;vec3 color=texture2D(tColor,vUv).rgb*.20;float weight=.20;
+ void main(){float d=texture2D(tDepth,vUv).x;float distance=-perspectiveDepthToViewZ(d,cameraNear,cameraFar);float nearBlur=clamp((10.0-distance)/9.0,0.,1.);float farBlur=clamp((distance-65.)/100.,0.,1.)*.24;float radius=.14+8.5*nearBlur+farBlur;vec3 color=texture2D(tColor,vUv).rgb*.20;float weight=.20;
  for(int k=0;k<16;k++){float a=float(k)*2.3999632;float r=sqrt((float(k)+.5)/16.);vec2 offset=vec2(cos(a),sin(a))*r*radius/resolution;float w=.05;color+=texture2D(tColor,vUv+offset).rgb*w;weight+=w;}
  color/=weight;float contact=texture2D(tAO,vUv).r;color*=mix(1.,contact,.58);gl_FragColor=vec4(color,1.);
  #include <tonemapping_fragment>

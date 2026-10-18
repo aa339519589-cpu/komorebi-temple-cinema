@@ -10,7 +10,7 @@ import {reconstructionSourceIdentity} from './reconstruction-source-identity.mjs
 
 const reference=Number(process.env.REFERENCE),id=String(reference).padStart(2,'0');
 if(!Number.isInteger(reference)||reference<1||reference>10)throw Error('REFERENCE must be 1..10.');
-const worktree=resolve(process.env.WORKTREE||`/Users/mima1234/temple-scene-${id}`),size=Number(process.env.SIZE||768);
+const worktree=resolve(process.env.WORKTREE||process.cwd()),size=Number(process.env.SIZE||768);
 const iteration=process.env.ITERATION||'01',port=Number(process.env.PORT||4500);
 const motionFps=Number(process.env.MOTION_FPS||0),motionDuration=7;
 const detailCrop=process.env.DETAIL_CROP?process.env.DETAIL_CROP.split(',').map(Number):null;
