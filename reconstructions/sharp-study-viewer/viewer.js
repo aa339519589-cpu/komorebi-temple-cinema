@@ -7,7 +7,7 @@ import {SHOT_SETTINGS,DEPTH_FIELD_SHOT_SETTINGS} from './shot-settings.js';
 const query=new URLSearchParams(location.search),capture=query.has('capture');
 if(capture)document.body.classList.add('capture');
 const status=document.querySelector('#loading'),canvas=document.querySelector('#view');
-const dataset=query.get('dataset')??'depth-field';
+const dataset=query.get('dataset')??'depth-field-v02';
 if(!/^[a-z0-9-]+$/i.test(dataset))throw Error('Invalid dataset namespace.');
 const metaURL=new URL(query.get('meta')??`../../output/${dataset}/${query.get('scene')??'01'}/viewer.json`,location.href);
 const renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});

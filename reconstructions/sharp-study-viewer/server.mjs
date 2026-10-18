@@ -5,8 +5,8 @@ import {resolve,dirname,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const directory=dirname(fileURLToPath(import.meta.url)),root=resolve(directory,'../..');
-const studies=resolve(process.env.STUDY_ROOT??process.env.SHARP_STUDY_ROOT??resolve(root,'output/depth-field'));
-const rawPrefix=process.env.META_PREFIX??process.env.STUDY_PREFIX??(process.env.SHARP_STUDY_ROOT?'/output/sharp-study/':'/output/depth-field/');
+const studies=resolve(process.env.STUDY_ROOT??process.env.SHARP_STUDY_ROOT??resolve(root,'output/depth-field-v02'));
+const rawPrefix=process.env.META_PREFIX??process.env.STUDY_PREFIX??(process.env.SHARP_STUDY_ROOT?'/output/sharp-study/':'/output/depth-field-v02/');
 const prefix='/'+rawPrefix.replace(/^\/+|\/+$/g,'')+'/';
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.map':'application/json','.wasm':'application/wasm','.png':'image/png','.jpg':'image/jpeg','.ply':'application/octet-stream','.spz':'application/octet-stream'};
 const server=http.createServer(async(req,res)=>{

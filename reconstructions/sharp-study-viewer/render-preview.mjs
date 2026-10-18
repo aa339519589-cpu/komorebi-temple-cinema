@@ -11,7 +11,7 @@ import {encodeWebglPng} from '../../tools/encode-webgl-png.mjs';
 const viewer=dirname(fileURLToPath(import.meta.url)),root=resolve(viewer,'../..');
 const id=String(process.env.SCENE??'01').padStart(2,'0');
 if(!/^\d{2}$/.test(id))throw Error('SCENE must be a two-digit scene number.');
-const studies=resolve(process.env.STUDY_ROOT??process.env.SHARP_STUDY_ROOT??resolve(root,'output/depth-field'));
+const studies=resolve(process.env.STUDY_ROOT??process.env.SHARP_STUDY_ROOT??resolve(root,'output/depth-field-v02'));
 const rawPrefix=process.env.META_PREFIX??process.env.STUDY_PREFIX??`/output/${basename(studies)}/`;
 const prefix='/'+rawPrefix.replace(/^\/+|\/+$/g,'')+'/';
 const metadata=resolve(studies,id,process.env.METADATA??'viewer.json');
