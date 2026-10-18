@@ -7,7 +7,9 @@ import * as T from 'three';
 import {buildReference4Scene} from './reference4-scene.js';
 import {reference4Config as C} from './reference4-config.js';
 import {loadScannedStoneMaps} from './scene04-scanned-stone.js';
-await loadScannedStoneMaps();
+import {loadTracedStoneMaps04} from './traced-stone-material04.js';
+import {loadReference4ForegroundScans} from './reference4-foreground-scans.js';
+await Promise.all([loadScannedStoneMaps(),loadTracedStoneMaps04(),loadReference4ForegroundScans()]);
 const query=new URLSearchParams(location.search),size=k=>Math.min(2048,Math.max(64,Number(query.get(k))||960));
 const width=size('w'),height=size('h');
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
@@ -28,7 +30,7 @@ function renderInspection(kind){const poses={floor:{p:[0,.65,19.5],t:[.15,.045,1
 const dolly=createDollyPath({points:[[0,.55,20.4],[.08,.62,21.4],[.1,1.10,22.4],C.camera.position],nearTarget:[0,.05,18.8],farTarget:C.camera.target,fov:C.camera.fov});
 function renderShot(localTime=0){const inspections={[-104]:'floor',[-105]:'eaves',[-106]:'lantern'};if(inspections[localTime])return renderInspection(inspections[localTime]);const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
 function surfaceAudit(){const seen=new Set(),out=[];world.scene.traverse(o=>{if(o.isMesh)for(const m of Array.isArray(o.material)?o.material:[o.material]){if(!m?.userData.maps||seen.has(m))continue;seen.add(m);const data=m.normalMap.image.data||[];let lo=data.length?255:null,hi=data.length?0:null;for(let i=0;i<data.length;i+=4){lo=Math.min(lo,data[i],data[i+1]);hi=Math.max(hi,data[i],data[i+1]);}out.push({name:m.name,albedoSize:[m.map.image.width,m.map.image.height],normalXYByteRange:[lo,hi],physicalRepeatMetres:m.userData.physicalTextureRepeatMetres??.25,materialMap:m.map.uuid,compiledUniformMap:m.userData.compiledShader?.uniforms.map?.value?.uuid??null,shaderCompiled:!!m.userData.compiledShader});}});return out;}
-function info(){return{surfaceAudit:surfaceAudit(),...world.info(),camera:{position:camera.position.toArray(),fov:camera.fov,reference:C.camera},renderer:{triangles:renderer.info.render.triangles,calls:renderer.info.render.calls},shot:{duration:7,eyeHeight:[.55,C.camera.position[1]],automaticAnimation:false},surfaceScale:{stoneRepeatMetres:.25,scannedPavingRepeatMetres:.3173828125,pavingThicknessMetres:.14,jointMetres:.036,roundedArrisMetres:.015},contactAO:{radiusMetres:.25,blend:.48,alphaCardsExcludedFromDepth:true}};}
+function info(){return{surfaceAudit:surfaceAudit(),...world.info(),camera:{position:camera.position.toArray(),fov:camera.fov,reference:C.camera},renderer:{triangles:renderer.info.render.triangles,calls:renderer.info.render.calls},shot:{duration:7,eyeHeight:[.55,C.camera.position[1]],automaticAnimation:false},surfaceScale:{stoneRepeatMetres:.25,scannedPavingRepeatMetres:[.2783203125,.143798828125],pavingThicknessMetres:.14,jointMetres:.028,roundedArrisMetres:.028},contactAO:{radiusMetres:.25,blend:.48,alphaCardsExcludedFromDepth:true}};}
 function dispose(){world.architecture.dispose();world.garden.dispose();world.scene.traverse(o=>{if(o.isMesh){o.geometry?.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])m?.dispose();}});composer.dispose();contactAO.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene:world.scene,camera,renderReference,renderView,renderShot,renderInspection,info,dispose};
 document.querySelector('#loading')?.remove();if(!query.has('defer'))renderReference(4);

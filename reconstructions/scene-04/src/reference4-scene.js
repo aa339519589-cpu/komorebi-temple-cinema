@@ -7,6 +7,7 @@ import {buildReference4Sanctuary} from './reference4-sanctuary.js';
 import {buildReference4DistantForest} from './reference4-distant-forest.js';
 import {buildReference4Atmosphere} from './reference4-atmosphere.js';
 import {reference4Config as C} from './reference4-config.js';
+import {createPavingCanopy04} from './paving-canopy04.js';
 
 function describe(value,seen=new WeakSet()){
  if(value==null||typeof value==='string'||typeof value==='boolean'||typeof value==='number')return value;
@@ -72,6 +73,7 @@ export function buildReference4Scene(){
  const architecture=buildReference4Architecture(T,C.architecture),garden=buildReference4Garden(T,C.garden);scene.add(architecture.group,garden.group);
  const waterReflection=createWaterReflection(scene,garden);
  const sunDirection=new T.Vector3(...C.lighting.sunDirection).normalize();
+ const pavingCanopy=createPavingCanopy04(sunDirection);scene.add(pavingCanopy);
  const sky=buildReference4Atmosphere(T,{sunDirection,displayRadiance:C.lighting.skyDisplayRadiance});scene.add(sky);
  const sun=new T.DirectionalLight('#ffdfb4',C.lighting.sunIntensity);sun.name='reference4-front-right-daylight';sun.target.position.set(0,5,0);sun.position.copy(sun.target.position).addScaledVector(sunDirection,55);sun.castShadow=true;
  sun.shadow.mapSize.setScalar(C.lighting.shadowSize);Object.assign(sun.shadow.camera,{left:-25,right:25,top:28,bottom:-28,near:5,far:100});sun.shadow.camera.updateProjectionMatrix();Object.assign(sun.shadow,{bias:-.000035,normalBias:.012,radius:2});scene.add(sun,sun.target);
@@ -80,13 +82,20 @@ export function buildReference4Scene(){
  const suspensions=addSuspendedLamps(scene,architecture,sanctuary.materials);
  for(const x of [-1.3,1.3]){const light=new T.PointLight('#ffcf86',3.5,6,2);light.name='reference4-small-sanctuary-practical';light.position.set(x,C.architecture.stairTopY+3.45,-4.1);scene.add(light);}
  const distantForest=buildReference4DistantForest(T);scene.add(distantForest.group);
- let environmentTarget=null;
+ let environmentTarget=null,pavingEnvironmentTarget=null;
  function initializeEnvironment(renderer){
   if(environmentTarget)return;
   const envScene=new T.Scene(),envSky=sky.clone();envSky.material=sky.material.clone();envSky.material.uniforms.showSunDisc.value=0;envSky.material.uniforms.reference4SkyRadiance.value=1;envScene.add(envSky);
-  const pmrem=new T.PMREMGenerator(renderer);try{environmentTarget=pmrem.fromScene(envScene,.05,.1,300);scene.environment=environmentTarget.texture;scene.environmentIntensity=C.lighting.environmentIntensity;}finally{pmrem.dispose();envSky.material.dispose();}
+  const pmrem=new T.PMREMGenerator(renderer);try{
+   environmentTarget=pmrem.fromScene(envScene,.05,.1,300);scene.environment=environmentTarget.texture;scene.environmentIntensity=C.lighting.environmentIntensity;
+   // Reflections in a damp processional floor see actual trees and timber,
+   // rather than an isolated blue sky dome. Paving hides itself for the probe.
+   const cube=new T.WebGLCubeRenderTarget(256,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),probe=new T.CubeCamera(.08,150,cube);probe.position.set(0,.28,18.2);scene.add(probe);
+   const pathVisible=garden.subgroups.path.visible,reflectionVisible=waterReflection.visible;garden.subgroups.path.visible=false;waterReflection.visible=false;
+   try{scene.updateMatrixWorld(true);probe.update(renderer,scene);pavingEnvironmentTarget=pmrem.fromCubemap(cube.texture);for(const material of garden.group.userData.pavingMaterials??[]){material.envMap=pavingEnvironmentTarget.texture;material.needsUpdate=true;}}finally{garden.subgroups.path.visible=pathVisible;waterReflection.visible=reflectionVisible;probe.removeFromParent();cube.dispose();}
+  }finally{pmrem.dispose();envSky.material.dispose();}
  }
- function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe(architecture.sockets),garden:describe(garden.sockets),suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},environmentInitialized:!!environmentTarget,lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
+ function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe(architecture.sockets),garden:describe(garden.sockets),suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},environmentInitialized:!!environmentTarget,pavingReflection:{actualSceneCapture:!!pavingEnvironmentTarget,position:[0,.28,18.2],resolution:256,scope:'Local reflection approximation; not ray-traced per-pixel reflections.'},lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
  scene.updateMatrixWorld(true);
  return{scene,architecture,garden,sky,sun,focal:sanctuary.group,sanctuary,distantForest,waterReflection,initializeEnvironment,info};
 }

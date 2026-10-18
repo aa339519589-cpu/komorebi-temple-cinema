@@ -1,0 +1,15 @@
+{
+  "status": "generated-material-study-unaccepted",
+  "purpose": "Neutral diffuse mineral-character guide for actual independently modeled scene04 stone solids; not a scene frame",
+  "tool": "built-in image_gen",
+  "prompt": "Create a single square PBR diffuse/albedo material sample for an actual 3D reconstruction, using the supplied temple photograph only as a visual reference for the mineral character of the foreground worn granite paving. Output ONLY an orthographic material texture filling the entire image, no temple, no assembled paving, no slab edges or joints, no border, no perspective, no words. The pictured stone has ancient foot-worn warm grey/buff granite, a fine crystalline matrix with irregular 1–5 mm quartz/feldspar grains, sparse shallow open pores and low rounded wear pits. Represent approximately 60 by 60 centimetres of ONE continuous stone surface. Neutral flat cross-polarized diffuse illumination: absolutely no cast shadows, no leaf shadows, no sun streaks, no mirror reflections, no baked wet patches or dramatic shading. The neutral dry mean colour is moderate warm grey with subtle beige feldspar, never pink, orange, white marble or charcoal. Natural subtly varied mineral shapes with mixed sizes and low-contrast silvery quartz; detailed high-resolution photogrammetric surface character, not evenly sprinkled dots, gravel, cobblestones, bumps, repeated Voronoi cells, fabric or sandpaper. The surface is mostly FLAT from long wear, with shallow muted pores. This is a texture asset, not a rendered film frame, not a finished floor; only diffuse reflectance should be represented.",
+  "reference": "references/hd/3-照片-4.jpg",
+  "output": "generated-granite-albedo-v01.png",
+  "original": "/Users/mima1234/.codex/generated_images/01a143e6-02b8-7ad0-a43a-b0a10a2f9f28/exec-74a681e4-7530-48ca-9351-e6118ea928b9.png",
+  "physicalExtentMetres": [
+    0.6,
+    0.6
+  ],
+  "physicalExtentStatus": "Authored material-scale hypothesis",
+  "photographicAcceptance": false
+}
