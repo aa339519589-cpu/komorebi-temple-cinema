@@ -1,0 +1,107 @@
+{
+  "status": "reviewed-no-scene-edit",
+  "scene": 1,
+  "baseCommit": "cedb249ff37cc5a3a0f9380e4094c0ad79739fd1",
+  "sourceHash": "51fbdbc8c8f79f17f01d77b5653c7ce0041a9ddbfc66e569aac216f780455113",
+  "evidence": {
+    "photograph": {
+      "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/0-照片-1.jpg",
+      "sha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d"
+    },
+    "nativeReport": "../iteration-cinema67/report.json",
+    "nativeSourceHash": "51fbdbc8c8f79f17f01d77b5653c7ce0041a9ddbfc66e569aac216f780455113",
+    "frames": [
+      {
+        "path": "/Users/mima1234/temple-scene01-floor-20261019/qa/ten-reference/01/iteration-cinema67/shot-0.png",
+        "time": 0,
+        "sha256": "2b83f091c891ea425a7b34d3c7b249068a046eeb6c393ab109190546bd276d1c",
+        "size": [
+          1254,
+          1254
+        ],
+        "viewed": true
+      },
+      {
+        "path": "/Users/mima1234/temple-scene01-floor-20261019/qa/ten-reference/01/iteration-cinema67/shot-3p5.png",
+        "time": 3.5,
+        "sha256": "080d5946bbf8a35411cf69825ac3b0e44d0ae3f95f0fa164812b8b464c6fa7a5",
+        "size": [
+          1254,
+          1254
+        ],
+        "viewed": true
+      },
+      {
+        "path": "/Users/mima1234/temple-scene01-floor-20261019/qa/ten-reference/01/iteration-cinema67/shot-7.png",
+        "time": 7,
+        "sha256": "4c6d81f6afcb6323c936233efb0468499fdc703faf2ad80b3fd5b96260f7d279",
+        "size": [
+          1254,
+          1254
+        ],
+        "viewed": true
+      }
+    ],
+    "comparison": {
+      "file": "floor-crop-original-left-native67-right.png",
+      "panels": [
+        "original photograph",
+        "actual native shot7 from current source"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 950,
+        "width": 304,
+        "height": 304
+      },
+      "scale": 1,
+      "newNativeSubfrustum": false
+    }
+  },
+  "sourceFindings": {
+    "boards": {
+      "file": "reconstructions/scene-01/src/architecture.js",
+      "role": "foreground-veranda-real-deck",
+      "count": 43,
+      "geometry": "Separate closed BoxGeometry instances, long axis X",
+      "pitchZMetres": 0.35,
+      "widthZMetres": 0.337,
+      "openJointMetres": 0.013,
+      "thicknessMetres": 0.14,
+      "topYMetres": 1.8,
+      "bottomYMetres": 1.66,
+      "roundedArris": false,
+      "intermediateEndJoints": false
+    },
+    "reflection": {
+      "file": "reconstructions/scene-01/src/scene.js",
+      "count": 1,
+      "role": "real-reflected-garden-pond-ripple-surface",
+      "planeYMetres": 0.13,
+      "floorSpanningMirror": false
+    },
+    "timber": {
+      "file": "reconstructions/scene-01/src/scanned-timber.js",
+      "source": "Existing Poly Haven lacquered_cherry_wood CC0 scan",
+      "uv": "Metric, aligned to each board long axis; one texture tile per metre",
+      "colorSpace": "Albedo sRGB; normal and roughness numeric",
+      "newAssets": false
+    }
+  },
+  "visualFinding": "The existing native frames show separate plank seams and no planar mirror covering the veranda. In the photograph, the near floor is almost entirely hidden by the left post, foreground balustrade and vegetation. Its tiny visible strip does not resolve intermediate board ends, arris radii or wood-grain scale.",
+  "decision": "Preserve the existing floor. There is a factual lack of rounded arrises and intermediate end joints in code, but the supplied image does not establish a specific correction. No invented end pattern, bevel, material, lighting, camera or layout change is made.",
+  "limits": [
+    "This is a bounded floor review, not visual acceptance of the scene.",
+    "Metric UV and separate boxes do not prove faithful wood appearance.",
+    "The CPU crop contains no extra geometric detail; the current source-matched 1254 native frames are the actual image evidence."
+  ],
+  "changes": {
+    "sceneSource": false,
+    "publicRenderer": false,
+    "otherScenes": false,
+    "newGpuJobs": 0,
+    "tests": 0,
+    "movies": 0,
+    "push": false
+  }
+}
