@@ -46,3 +46,21 @@ Final allowed hypothesis, max02, no further geometry/camera change:
 
 This is the second and final modification/render round for this handoff.
 Neither a successful GPU run nor these changes imply visual acceptance.
+
+Max02 visual verdict: REJECTED, not the selected source.
+- Actual 900 square GPU image: iteration-max02/reference.png, source c183727.
+  GPU valid=true, glError=0, contextLost=false, no resource errors.
+- Compared final-hip.png to source-hip.png and after-hip.png. The new lacquer
+  lobe makes the red pendant timber a pale continuous stripe. In the original
+  that member remains deep red around gold floral patches. This is a material
+  regression, and the added subtle stain/AO did not resolve the main CG reading.
+- Restored all three second-round source files to the actual max01 source.
+  No unrendered material blend is being handed off. The selected real GPU image
+  remains iteration-max01/reference.png (source 69fbd23), with matching source
+  file hashes checked after the restoration.
+
+Selected candidate: max01 geometry only.
+Unresolved: convincing varied dark timber, carved lantern/cap character,
+near-leaf canopy coverage, natural sky detail, and overall photographic light.
+This is a narrower improvement in structural hierarchy, not photo matching.
+Two rendering rounds completed; further work awaits parent visual review.

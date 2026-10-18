@@ -14,7 +14,7 @@ const world=buildScene(),scene=world.scene;
 const camera=new T.PerspectiveCamera(POSE.fov,dim('w')/dim('h'),.08,200);
 const composerTarget=new T.WebGLRenderTarget(dim('w'),dim('h'),{type:T.HalfFloatType,samples:4});
 const composer=new EffectComposer(renderer,composerTarget);composer.addPass(new RenderPass(scene,camera));
-const contactAO=new GTAOPass(scene,camera,dim('w'),dim('h'));contactAO.updateGtaoMaterial({radius:.60,distanceExponent:2,thickness:.32,distanceFallOff:1,samples:32});contactAO.blendIntensity=.65;contactAO.updatePdMaterial({radius:5,samples:24,lumaPhi:6,depthPhi:2,normalPhi:3});
+const contactAO=new GTAOPass(scene,camera,dim('w'),dim('h'));contactAO.updateGtaoMaterial({radius:.38,distanceExponent:2,thickness:.32,distanceFallOff:1,samples:32});contactAO.blendIntensity=.45;contactAO.updatePdMaterial({radius:5,samples:24,lumaPhi:6,depthPhi:2,normalPhi:3});
 composer.addPass(contactAO);composer.addPass(new OutputPass());renderer.info.autoReset=false;
 function setPose(position,target,fov){camera.position.fromArray(position);camera.fov=fov;camera.lookAt(...target);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);}
 function draw(){scene.updateMatrixWorld(true);renderer.info.reset();renderer.setRenderTarget(null);composer.render(0);renderer.setRenderTarget(null);return {camera:camera.position.toArray(),fov:camera.fov,triangles:renderer.info.render.triangles,calls:renderer.info.render.calls};}
