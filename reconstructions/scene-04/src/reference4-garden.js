@@ -4,6 +4,7 @@ import {stoneMaterial,polygonSlab,applyMetricUV} from './scene04-surfaces.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {stoneMaps,createWeatheredFlagstone} from './reference4-garden-stone.js';
 import {createWeatheredBoulderGeometry,createBoulderMossGeometry} from './reference4-weathered-boulder.js';
+import {foregroundScan04,disposeReference4ForegroundScans} from './reference4-foreground-scans.js';
 import {createPrunedCrownGeometry} from './reference4-pruned-crown.js';
 import {buildRestorationStoneLanterns} from './scene04-lanterns.js';
 import {buildRestorationPrunedPine} from './restoration-pruned-pines-v1.js';
@@ -20,6 +21,7 @@ export function buildReference4Garden(T,options={}){
  plan.towerExclusion={min:[plan.towerPosition[0]-plan.towerHalfWidth,plan.towerPosition[2]-plan.towerHalfWidth],max:[plan.towerPosition[0]+plan.towerHalfWidth,plan.towerPosition[2]+plan.towerHalfWidth]};
  let seed=options.seed??174221;const random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296),rr=(a,b)=>a+(b-a)*random(),V=p=>new T.Vector3(...p);
  const group=new T.Group();group.name='reference4-independent-complete-garden';const ownedG=new Set(),ownedM=new Set(),ownedT=new Set(),children=[],rockBounds=[],records={supports:[],treeRoots:[],plantRoots:[],stoneSlabs:[],rockBounds:[],water:[],assumptions:[]};
+ children.push({dispose:disposeReference4ForegroundScans});
  const ownG=g=>(ownedG.add(g),g),ownM=m=>(ownedM.add(m),m);const subgroups={};for(const k of['ground','path','water','shore','plants','trees','bridge','lanterns']){const g=new T.Group();g.name='reference4-'+k;group.add(g);subgroups[k]=g;}
  function texture(n,fn,srgb=false){const d=new Uint8Array(n*n*4);for(let y=0;y<n;y++)for(let x=0;x<n;x++){const q=fn(x,y,n),i=(y*n+x)*4;for(let k=0;k<4;k++)d[i+k]=T.MathUtils.clamp(q[k]??255,0,255);}const t=new T.DataTexture(d,n,n,T.RGBAFormat);t.wrapS=t.wrapT=T.RepeatWrapping;t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.anisotropy=8;if(srgb)t.colorSpace=T.SRGBColorSpace;t.needsUpdate=true;ownedT.add(t);return t;}
  const mineral=texture(256,(x,y)=>{const q=205+18*Math.sin(x*.12+y*.06)*Math.cos(y*.15)+rr(-20,20);return[q,q*.97,q*.91];},true),bark=texture(256,(x,y)=>{const q=180+35*Math.sin(x*.37+2*Math.sin(y*.035))+rr(-13,13);return[q,q*.87,q*.71];},true),mossMap=texture(128,()=>{const q=rr(170,255);return[q*.93,q,q*.80];},true),ripple=texture(256,(x,y)=>[128+24*Math.sin(x*.27+y*.14),128+24*Math.cos(y*.24-x*.11),252]);ripple.repeat.set(18,22);
@@ -74,7 +76,23 @@ export function buildReference4Garden(T,options={}){
  }
  for(const [g,mat,mm,name]of[[edgeLeaf,m.leafDark,edgePlants,'observed-curb-connected-groundcover'],[edgeStone,m.stone,edgePebbles,'observed-curb-loose-mineral-fragments']]){const o=new T.InstancedMesh(g,mat,mm.length);o.name=name;mm.forEach((q,i)=>o.setMatrixAt(i,q));o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();subgroups.path.add(o);}
  group.userData.pavingMaterials=pavingMaterials;
- function rock(x,y,z,sx,sy,sz,name){const shapeSeed=1003+Math.round(Math.abs(x*31+z*47)),g=createWeatheredBoulderGeometry(T,{scale:[sx,sy,sz],seed:shapeSeed,sectors:Math.max(sx,sz)>.7?64:32,rings:Math.max(sx,sz)>.7?26:14}),o=mesh(g,m.stone,name,subgroups.shore,[x,y,z]);o.rotation.y=rr(-Math.PI,Math.PI);o.updateMatrixWorld(true);let bounds=new T.Box3().setFromObject(o);if(bounds.max.z>0&&bounds.min.z<plan.pathEndZ+.3){const edge=bounds.max.z>plan.stairBottomZ?halfCauseway+.06:2.9;if(x<0&&bounds.max.x>-edge)x-=bounds.max.x+edge;else if(x>0&&bounds.min.x<edge)x+=edge-bounds.min.x;o.position.x=x;o.updateMatrixWorld(true);bounds=new T.Box3().setFromObject(o);}const r=.58*plan.lanternHeight/3.34+.04;if([-1,1].some(side=>bounds.min.x<side*plan.lanternX+r&&bounds.max.x>side*plan.lanternX-r&&bounds.min.z<plan.lanternZ+r&&bounds.max.z>plan.lanternZ-r&&bounds.max.y>plan.soilY)){o.removeFromParent();records.rockBounds.push({name,excludedFor:'actual lantern foot envelope'});return null;}const mossGeometry=createBoulderMossGeometry(T,g);delete g.userData.boulderData;const mapped=applyMetricUV(g);o.geometry=mapped;ownedG.add(mapped);if(ownedG.delete(g))g.dispose();const moss=mesh(mossGeometry,m.moss,name+'-clipped-colonies',subgroups.shore,[x,y,z]);moss.rotation.copy(o.rotation);rockBounds.push(bounds);records.rockBounds.push({name,min:bounds.min.toArray(),max:bounds.max.toArray()});return o;}
+ function rock(x,y,z,sx,sy,sz,name){
+  const scan=foregroundScan04(name,sx,sz),shapeSeed=1003+Math.round(Math.abs(x*31+z*47));
+  const g=scan?.geometry??createWeatheredBoulderGeometry(T,{scale:[sx,sy,sz],seed:shapeSeed,sectors:Math.max(sx,sz)>.7?64:32,rings:Math.max(sx,sz)>.7?26:14});
+  const o=mesh(g,scan?ownM(scan.material):m.stone,name,subgroups.shore,[x,y,z]);
+  o.rotation.y=rr(-Math.PI,Math.PI);o.updateMatrixWorld(true);let bounds=new T.Box3().setFromObject(o);
+  if(bounds.max.z>0&&bounds.min.z<plan.pathEndZ+.3){const edge=bounds.max.z>plan.stairBottomZ?halfCauseway+.06:2.9;if(x<0&&bounds.max.x>-edge)x-=bounds.max.x+edge;else if(x>0&&bounds.min.x<edge)x+=edge-bounds.min.x;o.position.x=x;o.updateMatrixWorld(true);bounds=new T.Box3().setFromObject(o);}
+  const r=.58*plan.lanternHeight/3.34+.04;
+  if([-1,1].some(side=>bounds.min.x<side*plan.lanternX+r&&bounds.max.x>side*plan.lanternX-r&&bounds.min.z<plan.lanternZ+r&&bounds.max.z>plan.lanternZ-r&&bounds.max.y>plan.soilY)){o.removeFromParent();records.rockBounds.push({name,excludedFor:'actual lantern foot envelope'});return null;}
+  if(scan){
+   // Bake placement before the existing global flared-bank deformation. Keep
+   // scan UVs and its original squat proportions, with no extra moss shell.
+   o.updateMatrix();g.applyMatrix4(o.matrix);o.position.set(0,0,0);o.rotation.set(0,0,0);o.scale.set(1,1,1);o.updateMatrix();o.userData.realScan=scan.source;
+  }else{
+   const mossGeometry=createBoulderMossGeometry(T,g);delete g.userData.boulderData;const mapped=applyMetricUV(g);o.geometry=mapped;ownedG.add(mapped);if(ownedG.delete(g))g.dispose();const moss=mesh(mossGeometry,m.moss,name+'-clipped-colonies',subgroups.shore,[x,y,z]);moss.rotation.copy(o.rotation);
+  }
+  rockBounds.push(bounds);records.rockBounds.push({name,min:bounds.min.toArray(),max:bounds.max.toArray(),...(scan?{scan:scan.source}:{})});return o;
+ }
  for(const side of[-1,1]){for(let i=0;i<24;i++){const z=1.3+i*1.08,x=side*(halfCauseway+.57+.31*Math.sin(i*1.39));rock(x,-.13,z,rr(.36,.67),rr(.25,.48),rr(.39,.70),'inner-shore-rock-'+side+'-'+i);}for(const [cx,cz,rx,rz]of[[side*plan.pineX,plan.pineZ,1.65,3.4],[side*plan.lanternX,plan.lanternZ,1.38,2.05],[side*12.8,15,3,4.2],[side*10.5,1.1,3,2.1]])for(let i=0;i<10;i++){const a=i/10*TAU;rock(cx+Math.cos(a)*rx,-.13,cz+Math.sin(a)*rz,rr(.34,.65),rr(.26,.44),rr(.38,.70),'island-layer-rock-'+side+'-'+cz+'-'+i);}rock(side*(halfCauseway+1.02),.38,16.7,1.28,1.10,1.43,'foreground-heavy-boulder-'+side);rock(side*(halfCauseway+.50),.22,18.4,1.0,.82,1.0,'secondary-front-boulder-'+side);}
 
  for(const side of[-1,1])for(let i=0;i<36;i++){
