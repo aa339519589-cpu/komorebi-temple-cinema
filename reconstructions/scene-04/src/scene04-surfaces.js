@@ -41,7 +41,7 @@ float ssHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float ssNoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(ssHash(i),ssHash(i+vec2(1,0)),f.x),mix(ssHash(i+vec2(0,1)),ssHash(i+vec2(1,1)),f.x),f.y);}
 `;
 export function stoneMaterial(name,color='#82725e',{wet=false,seed=1,roughness=.96}={}){
- const maps=metricStoneMaps(seed),m=new T.MeshPhysicalMaterial({name,color,...maps,roughness,normalScale:new T.Vector2(.92,.92),metalness:0,clearcoat:0});
+ const maps=metricStoneMaps(seed),m=new T.MeshPhysicalMaterial({name,color,...maps,roughness,normalScale:new T.Vector2(.46,.46),metalness:0,clearcoat:0});
  m.onBeforeCompile=shader=>{
   m.userData.compiledShader=shader;
   shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 ssPosition;\nvarying vec3 ssWorldNormal;').replace('#include <project_vertex>',`vec4 ssP=vec4(transformed,1.0);\n#ifdef USE_INSTANCING\nssP=instanceMatrix*ssP;\n#endif\nssPosition=(modelMatrix*ssP).xyz;vec3 ssN=normal;
@@ -88,7 +88,7 @@ export function polygonSlab(outline,top=.045,thickness=.075,seed=1){
  const edgeDistance=(x,z)=>{let d=10;for(let j=0;j<points.length;j++){const a=points[j],b=points[(j+1)%points.length],dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));}return d;};
  // Broad wear changes the actual low-angle silhouette. Chipped joint lips sit
  // below the centres; the metre-scaled shader supplies the smaller aggregate.
- const field=(x,z)=>.009*(smoothNoise(x*14,z*14,seed)-.5)+.004*(smoothNoise(x*36,z*36,seed+18)-.5)-.014*(1-T.MathUtils.smoothstep(edgeDistance(x,z),.008,.055))*(.42+.58*smoothNoise(x*24,z*24,seed+39)),p=g.attributes.position;
+ const field=(x,z)=>.0045*(smoothNoise(x*14,z*14,seed)-.5)+.0015*(smoothNoise(x*36,z*36,seed+18)-.5)-.014*(1-T.MathUtils.smoothstep(edgeDistance(x,z),.008,.055))*(.42+.58*smoothNoise(x*24,z*24,seed+39)),p=g.attributes.position;
  for(let i=0;i<p.count;i++){const x=p.getX(i),z=p.getZ(i),blend=T.MathUtils.smoothstep(p.getY(i),top-thickness+.015,top-.015);p.setY(i,p.getY(i)+field(x,z)*blend);}
  g.computeVertexNormals();const normals=g.attributes.normal;
  for(let i=0;i<p.count;i++)if(flags[i]){const x=p.getX(i),z=p.getZ(i),e=.002,dx=(field(x+e,z)-field(x-e,z))/(2*e),dz=(field(x,z+e)-field(x,z-e))/(2*e),n=new T.Vector3(-dx,1,-dz).normalize();normals.setXYZ(i,n.x,n.y,n.z);}

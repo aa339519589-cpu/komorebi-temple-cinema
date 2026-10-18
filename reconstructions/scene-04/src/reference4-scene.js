@@ -75,7 +75,7 @@ export function buildReference4Scene(){
  const sky=buildReference4Atmosphere(T,{sunDirection,displayRadiance:C.lighting.skyDisplayRadiance});scene.add(sky);
  const sun=new T.DirectionalLight('#ffdfb4',C.lighting.sunIntensity);sun.name='reference4-front-right-daylight';sun.target.position.set(0,5,0);sun.position.copy(sun.target.position).addScaledVector(sunDirection,55);sun.castShadow=true;
  sun.shadow.mapSize.setScalar(C.lighting.shadowSize);Object.assign(sun.shadow.camera,{left:-25,right:25,top:28,bottom:-28,near:5,far:100});sun.shadow.camera.updateProjectionMatrix();Object.assign(sun.shadow,{bias:-.000035,normalBias:.012,radius:2});scene.add(sun,sun.target);
- const hemi=new T.HemisphereLight('#d9e8ff','#665139',C.lighting.skyIntensity);hemi.name='reference4-low-sky-fill';scene.add(hemi);
+ const hemi=new T.HemisphereLight('#dae5ee','#7b644b',C.lighting.skyIntensity);hemi.name='reference4-low-sky-fill';scene.add(hemi);
  const sanctuary=buildReference4Sanctuary(T,{floorY:C.architecture.stairTopY});scene.add(sanctuary.group);
  const suspensions=addSuspendedLamps(scene,architecture,sanctuary.materials);
  for(const x of [-1.3,1.3]){const light=new T.PointLight('#ffcf86',3.5,6,2);light.name='reference4-small-sanctuary-practical';light.position.set(x,C.architecture.stairTopY+3.45,-4.1);scene.add(light);}
