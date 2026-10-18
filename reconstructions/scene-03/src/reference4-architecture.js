@@ -118,6 +118,11 @@ export function buildReference4Architecture(T,options={}) {
   rosette(0,base+.66,front-.05,.34);rosette(0,peak-.24,front+.1,.17);
  });
 
+ role('main-roof-gilded-lotus-finial',()=>{
+  const x=3.8,z=-4.6,y=18.8;emit(cyl,'oldgold',x,y+1.9,z,.055,3.8,.055);
+  for(let j=0;j<8;j++){let h=y+.22+j*.42,r=.32*(1-j*.073);emit(new T.TorusGeometry(r,.025,7,24),'gold',x,h,z,1,1,1,[Math.PI/2,0,0]);for(let k=0;k<7;k++){let a=k*Math.PI*2/7;between([x+Math.cos(a)*r*.7,h,z+Math.sin(a)*r*.7],[x+Math.cos(a)*r*1.2,h+.20,z+Math.sin(a)*r*1.2],.024,.024,'gold',true);}}
+  emit(sphere,'gold',x,y+3.85,z,.105,.22,.105);
+ });
  role('upper-storey-dense-bracket-frieze',()=>{
   for(let j=-6;j<=6;j++)box(j*1.06,11.17,-.76,.86,.65,.08,'plaster');for(const y of[10.80,11.55])box(0,y,-.68,13.5,.08,.10,'oldgold');for(let j=-13;j<=13;j++){const x=j*.49;relief(x,11.17,-.66,.40,.31);}
   box(0,12.50,-1.02,13.6,3.65,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
