@@ -967,6 +967,10 @@ export function createRestorationArchitecture(ctx) {
     // Forged framing strips surround exposed end grain; no solid gold cube.
     group(x,y,z,rot,()=>{
       const border = Math.min(w,h)*.075;
+      if(detail&&w>=.14&&h>=.12){
+        box(0,0,-.002,w*.90,h*.90,.008,'oldgold');
+        box(0,0,.003,w*.72,h*.72,.004,'darkwood');
+      }
       // Actual applied straps leave the timber visible between them, rather
       // than replacing every exposed end with a uniform thick gilt square.
       for(const side of [-1,1]) {
@@ -1542,7 +1546,7 @@ export function createRestorationArchitecture(ctx) {
       stats.roofFaces++;
       const angle=face===0?0:face===1?PI:face===2?PI/2:-PI/2;
       const count=Math.max(4,Math.round((face<2?w:d)/.29));
-      const denseCount=Math.max(8,Math.round((face<2?w:d)/.17));
+      const denseCount=Math.max(8,Math.round((face<2?w:d)/.245));
       for(let i=1;i<denseCount;i++) {
         const u=-1+2*i/denseCount;
         // Rafters retain their transverse coordinate. The hip cuts their inner ends;
@@ -1560,24 +1564,25 @@ export function createRestorationArchitecture(ctx) {
             const centre=sample(t);centre.y-=main?.36:.205;
             frames.push({centre,tangent,side,up});
           }
-          return rafterSectionSweep(frames,main?.110:.080,main?.14:.085,{capStart:true,capEnd:true,bevel:.004});
+          return rafterSectionSweep(frames,main?.135:.095,main?.16:.10,{capStart:true,capEnd:true,bevel:.004});
         };
         for(const main of [true,false]){const geo=makeRafter(main);if(geo){wood(geo,main?'cedar':'endwood');stats.rafters++;}}
         const tip=sample(1.024);tip.y-=.205;
         const tangent=sample(1.0241).sub(sample(1.0239)).normalize();
         const side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize();
         const q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
-        draw('box','oldgold',tip.toArray(),[.078,.080,.007],q,.84);
+        // The photograph's dense little rafter cuts are stained wood. Only
+        // the large projecting bracket arms have gilded square end plates.
+        draw('box','endwood',tip.toArray(),[.093,.095,.007],q,.84);
         const mainEnd=sample(.993);mainEnd.y-=.36;
-        draw('box','oldgold',mainEnd.toArray(),[.108,.138,.008],q,.82);
-        if(i%2===0){const mark=mainEnd.clone().addScaledVector(tangent,.005);flower(mark.x,mark.y,mark.z,.035,'gold',q,.88);} 
+        draw('box','endwood',mainEnd.toArray(),[.132,.158,.008],q,.82);
       }
       // Continuous thick ring purlins take the short rafters, leaving small real
       // rectangular voids between wood members rather than a broad fan cavity.
       for(const t of [.755,.895]){
         const points=[];
-        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=.49;points.push(p.toArray());}
-        wood(eaveSweep(points,.21,.25),'red');
+        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=.52;points.push(p.toArray());}
+        wood(eaveSweep(points,.25,.31),'red');
       }
       // Broad, square-section fascia follows the reference's sweep. Thin gold
       // framing is restricted to the lower molding and exposed primary ends.
@@ -1592,10 +1597,10 @@ export function createRestorationArchitecture(ctx) {
       wood(eaveSweep(molding,.122,.018),'oldgold',.80);
       // The round terminal row belongs to the ceramic tile spacing, not the
       // rafter spacing. Alternate flat rain channels remain visible between it.
-      const tiles=Math.max(5,Math.round((face<2?w:d)/.255));
+      const tiles=Math.max(5,Math.round((face<2?w:d)/.35));
       for(let i=0;i<=tiles;i++) {
         const p=evalP(face,1.014,-1+2*i/tiles);p.y-=.006;
-        if(opening?.woodOnly||!inOpening(p,.08)){tileEnd(p,angle,.077,detail); stats.tileEnds++;}
+        if(opening?.woodOnly||!inOpening(p,.11)){tileEnd(p,angle,.102,detail); stats.tileEnds++;}
       }
     }
     // Four uninterrupted diagonal hip-support timbers meet the fascia corners.
@@ -2436,7 +2441,10 @@ export function createRestorationArchitecture(ctx) {
   function pagodaStoreyFrame({w,d=w,y=0,level=0,scale=1-level*.115,
     roofWidth=w+3.3*scale,roofDepth=d+3.3*scale,roofRise=2.18*scale,
     roofY=y+3.55,windowMaterial='darkwood',detail=level<2}={}) {
-    const shaftRadius=.235*scale,bracketScale=.72*scale;
+    // Ref05: the stepped capital is a broad load-bearing mass. Keep the
+    // receiving purlin datum fixed while allowing the capital to deepen
+    // downwards, rather than leaving a thin decorative strip on a tall post.
+    const shaftRadius=.235*scale,bracketScale=1.04*scale;
     // The purlin bears against the underside of the main rafters, not through
     // the ceramic shell. Respect the existing hipRoof equation and soffit.
     // This frame is coupled only to the square pyramid pagodaRoof hook,
@@ -2451,7 +2459,7 @@ export function createRestorationArchitecture(ctx) {
     const posts=[],windows=[];
     const post=(x,z,corner)=>{
       footColumn(x,z,y+.2,shaftHeight,shaftRadius*(corner?1:.96));
-      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true});
+      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.15});
       posts.push({x,z,corner,shaftBottom,shaftTop,radius:shaftRadius*(corner?1:.96)});
     };
     // Twelve distinct posts: four true corner pillars and two between each
@@ -2491,8 +2499,11 @@ export function createRestorationArchitecture(ctx) {
           for(const yy of [windowBottom,windowTop])box(xx,yy,.022,clear+.06*scale,.075*scale,.095*scale,'red');
           for(const side of [-1,1])box(xx+side*clear/2,windowY,.022,.065*scale,windowHeight,.095*scale,'red');
           const bars=Math.max(6,Math.round(clear/(.18*scale)));
-          for(let j=1;j<bars;j++)box(xx-clear/2+j*clear/bars,windowY,.020,
-            .040*scale,windowHeight-.055*scale,.055*scale,'darkwood');
+          for(let j=1;j<bars;j++){
+            const barX=xx-clear/2+j*clear/bars;
+            if(k===1&&Math.abs(barX)<.45*scale)continue;
+            box(barX,windowY,.020,.040*scale,windowHeight-.055*scale,.055*scale,'windowBars');
+          }
           for(const f of [.32,.69])box(xx,windowBottom+windowHeight*f,.057,
             clear,.028*scale,.035*scale,'endwood');
           // Only a small nailed joint strap occurs at each actual window end.
@@ -2599,7 +2610,7 @@ export function createRestorationArchitecture(ctx) {
         for(let row=0;row<rows;row++) {
           const t0=Math.max(.001,(row+.006)/rows),t1=(row+.994)/rows;
           const span=(face<2?w:d)*(t0+t1)*.5;
-          const tiles=Math.max(2,Math.round(span/.255));
+          const tiles=Math.max(2,Math.round(span/.35));
           for(let tile=0;tile<tiles;tile++) {
             const u0=-1+(tile+.006)*2/tiles,u1=-1+(tile+.994)*2/tiles;
             for(let j=0;j<3;j++)for(let k=0;k<5;k++) {
@@ -2658,7 +2669,14 @@ export function createRestorationArchitecture(ctx) {
         const curlPoints=[corner.clone().addScaledVector(outward,-.20),corner.clone(),
           corner.clone().addScaledVector(outward,.14).add(v([0,.13,0])),
           corner.clone().addScaledVector(outward,.19).add(v([0,.30,0]))];
-        strip(curlPoints.map(p=>p.toArray()),.065,'slate',16);
+        group(corner.x,corner.y,corner.z,Math.atan2(outward.x,outward.z),()=>{
+          const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
+          draw(crest,'slate',[0,.005,0],[.78,.78,.82]);
+          draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);
+          draw(g.ring,'tileEdge',[0,.17,.109],[.132,.132,.05]);
+          flower(0,.17,.119,.093,'oldgold');
+          for(const side of [-1,1])draw(g.nail,'oldgold',[side*.19,.005,.083],[.022,.022,.014]);
+        });
       }
       // Compact summit tile hides the seam; no two spurious hall ridge ends.
       if(!roofOpening)draw(g.tileSeal,'slate',[0,rise+.052,0],[.15,.15,.15],[PI/2,0,0]);

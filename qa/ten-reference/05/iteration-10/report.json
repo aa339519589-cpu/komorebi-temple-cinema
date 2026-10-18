@@ -1,0 +1,238 @@
+{
+  "reference": 5,
+  "entry": "reconstructions/scene-05/index.html",
+  "worktree": "/Users/mima1234/temple-scene-05",
+  "size": 768,
+  "startedAt": "2026-10-18T05:55:43.121Z",
+  "source": {
+    "hash": "53eea5c0e0fba691f562e0eaab7b83321744c47c6e2e05146199af637574f4ab",
+    "files": {
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/architecture.js": "45039b7794a13f76d0db115beee0934b36f75dcb9df41b82a78aee776917933b",
+      "reconstructions/scene-05/src/foliage.js": "e68595c29bb1775d29e308ea9fc754090c1c30de0283f2ea55c0f876b9942a65",
+      "reconstructions/scene-05/src/main.js": "bf65aa504706e4a9453e57e448daf12ff92169c9da8b1f2bd702153407e36283",
+      "reconstructions/scene-05/src/materials.js": "7c2c274d6aa87c8248f7ab8eb911d76bee1d06896a2c3d5433349a1072389c12",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/scene.js": "ae809ce2395c6af8637e364e441b4314466ba2cf8b9a0713388ba873912d7ecb"
+    }
+  },
+  "sourceCommit": "7a0fa10c67ffb228339935fde23cea6c59acd848",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-05/index.html",
+    "/reconstructions/scene-05/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-05/src/scene.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-05/src/architecture.js",
+    "/reconstructions/scene-05/src/materials.js",
+    "/reconstructions/scene-05/src/foliage.js",
+    "/vendor/build/three.core.js",
+    "/reconstructions/scene-05/src/natural-forms.js"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "camera": [
+          11.87,
+          1.02,
+          12.94
+        ],
+        "fov": 34,
+        "triangles": 23358893,
+        "calls": 890
+      },
+      "width": 768,
+      "height": 768,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 5,
+        "revision": "scene05-vertical-hip-pendants-warm-bounce-v10",
+        "levels": [
+          {
+            "level": 0,
+            "y": 0.35,
+            "width": 8.8,
+            "shaftTop": 2.813117432155291
+          },
+          {
+            "level": 1,
+            "y": 5.1,
+            "width": 8.14,
+            "shaftTop": 7.612617204443321
+          },
+          {
+            "level": 2,
+            "y": 9.85,
+            "width": 7.48,
+            "shaftTop": 12.412121890927487
+          },
+          {
+            "level": 3,
+            "y": 14.6,
+            "width": 6.820000000000001,
+            "shaftTop": 17.211657365630742
+          },
+          {
+            "level": 4,
+            "y": 19.35,
+            "width": 6.16,
+            "shaftTop": 22.011204570998782
+          }
+        ],
+        "triangles": 5559765,
+        "parts": 41715,
+        "geometry": "True 3D four-sided joinery, ceramic rows, gilded metal fittings, lanterns, individual lobed leaves",
+        "canopy": {
+          "leaves": 13750
+        },
+        "cameraHeightRange": [
+          0.72,
+          1.02
+        ],
+        "renderer": {
+          "frame": 26,
+          "calls": 890,
+          "triangles": 23358893,
+          "points": 0,
+          "lines": 0
+        },
+        "referencePose": {
+          "position": [
+            11.87,
+            1.02,
+            12.94
+          ],
+          "target": [
+            -3.64,
+            14.93,
+            0
+          ],
+          "fov": 34
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "valid": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "56e2d827f591f54f324977cf029535b5d4864db8e0ec2e46775ccb8d0f3d9275"
+    }
+  ],
+  "completedAt": "2026-10-18T05:55:48.373Z"
+}

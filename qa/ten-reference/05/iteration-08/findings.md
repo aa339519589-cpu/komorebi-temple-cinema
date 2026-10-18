@@ -1,0 +1,5 @@
+# Eighth local comparison
+
+`corner-comparison.png` keeps the original left and actual render right. Sky hue, MSAA, and the upper-tier camera are improved, but the image is not accepted. The original has a long dropped timber termination with a gold end below the lantern, a visibly exposed pierced lantern crown, lighter weathered gray window bars and bright under-eave gilt reflections. The reconstruction still hides the crown within its main roof member and places the timber termination too high, while shadowed bronze is too dull.
+
+Revision nine lowers the carved timber termination, moves the lantern just outside the hip-member line on a real hook and adjusts its suspension height, replaces repeated C-shaped tracery with joined circular/diamond filigree, assigns dedicated weathered gray material to window slats, and uses brighter sunlit-ground radiance for actual metal reflections. The gold changes are local material/environment responses, not a global yellow filter. Next actual frame must check bearing geometry, silhouette and lamp overlap.
