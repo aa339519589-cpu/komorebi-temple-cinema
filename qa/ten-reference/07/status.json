@@ -45,16 +45,16 @@
     "water and sunset detail"
   ],
   "physicalRendering": {
-    "latestCandidate": "cycles-62",
-    "previousCandidate": "cycles-61",
+    "latestCandidate": "cycles-64",
+    "previousCandidate": "cycles-62",
     "renderer": "Blender Cycles / Metal / OIDN",
     "resolution": [
       1254,
       1254
     ],
     "samples": 128,
-    "nativeGeometryHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
-    "sourceTriangles": 20931362,
+    "nativeGeometryHash": "87f61da6dd42cd171bde821c7126b067c54a8dfc5c9b5b005a6ad2c1ec72f4cb",
+    "sourceTriangles": 31110893,
     "measuredSkyAsset": "qwantani_sunset_puresky CC0-1.0",
     "mappingCorrections": [
       "phi=pi-2*pi*u",
@@ -62,6 +62,8 @@
     ],
     "duplicateSunAndProxyFillsDisabled": true,
     "photographicAcceptance": false,
-    "primaryReviewPending": true
+    "primaryReviewPending": true,
+    "correctedScannedStoneProportions": true,
+    "originalStoneUvPreserved": true
   }
 }

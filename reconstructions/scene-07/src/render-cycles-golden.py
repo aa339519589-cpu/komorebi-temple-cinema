@@ -8,8 +8,8 @@ import bpy, json, math, os, sys, time, hashlib
 from pathlib import Path
 import numpy as np
 from mathutils import Matrix, Vector
-ROOT=Path(os.environ.get('SCENE_PACKAGE','qa/ten-reference/07/cycles-61/export')).resolve()
-OUT=Path(os.environ.get('CYCLES_OUTPUT','qa/ten-reference/07/cycles-62/render')).resolve();OUT.mkdir(parents=True,exist_ok=True)
+ROOT=Path(os.environ.get('SCENE_PACKAGE','qa/ten-reference/07/cycles-64/export')).resolve()
+OUT=Path(os.environ.get('CYCLES_OUTPUT','qa/ten-reference/07/cycles-64/render')).resolve();OUT.mkdir(parents=True,exist_ok=True)
 MODE=os.environ.get('LIGHTING_MODE','golden-hour07')
 scene_data=json.loads((ROOT/'scene.json').read_text())
 report={'sourceStatistics':scene_data['statistics'],'lightingMode':MODE,'blender':bpy.app.version_string,'scope':scene_data.get('renderingScope'),'geometryRebuilt':False,'excluded':scene_data['excluded'],'warnings':[],'status':'importing','started':time.time()}
@@ -31,7 +31,7 @@ def value(node,names,v):
 
 instance_colored={mid for o in scene_data['meshes'] if 'instanceColors' in o for mid in o['materials']}
 textures={t['id']:t for t in scene_data['textures']}; material_records={m['id']:m for m in scene_data['materials']};materials={}
-scanned_ids={r['id'] for r in scene_data['materials'] if all(k in r['textures'] for k in ['map','normalMap','roughnessMap'])}
+scanned_ids={r['id'] for r in scene_data['materials'] if all(k in r['textures'] for k in ['map','normalMap','roughnessMap']) and abs(float(r.get('roughness') or 0)-.9)<.00001 and any(np.max(np.abs(np.array(r.get('color') or [0,0,0])-c))<.00001 for c in [[3.1,3.3,4.3],[2.1,2.3,3.0],[.7,.85,1.1]])}
 def linear_hex(c):
     v=[((c>>k)&255)/255 for k in [16,8,0]]
     return np.array([x/12.92 if x<=.04045 else ((x+.055)/1.055)**2.4 for x in v])
@@ -39,6 +39,7 @@ leaf_colors=[linear_hex(c) for c in [0x314f18,0x8a9c3c,0x606325,0x58763b,0xffd2d
 leaf_ids={r['id'] for r in scene_data['materials'] if r.get('color') and any(np.max(np.abs(np.array(r['color'])-c))<.00001 for c in leaf_colors)}
 paper_ids={r['id'] for r in scene_data['materials'] if .1<float(r.get('emissiveIntensity') or 0)<=.7 and float(r.get('metalness') or 0)==0 and any(float(c)>0 for c in (r.get('emissive') or [0,0,0]))}
 report['thinMaterialSelection']={'foliageSourcePaletteIds':list(leaf_ids),'paperNonzeroEmissionIds':list(paper_ids),'defaultIntensityOneNotPaper':True}
+image_cache={}
 report['scannedTimber']={'materials':list(scanned_ids),'uv':'Exact source shader metric projection from per-member dimensions, normals and instance translation','roughness':'Source shader clamp(.36 + .72 * mapG * .9, .42, .94)','maps':'Original CC0 cherry albedo/OpenGL normal/roughness and source linear color gains'}
 for rec in scene_data['materials']:
     mat=bpy.data.materials.new(rec['name'] or rec['id']);mat.use_nodes=True;n=mat.node_tree.nodes;n.clear();links=mat.node_tree.links
@@ -56,8 +57,10 @@ for rec in scene_data['materials']:
     for channel,tid in rec['textures'].items():
         tex=textures[tid]
         if 'file' not in tex: report['warnings'].append('No portable image for '+rec['name']+'/'+channel);continue
-        image=bpy.data.images.load(str(ROOT/'assets'/tex['file']),check_existing=False)
-        image.colorspace_settings.name='sRGB' if channel in ['map','emissiveMap'] and tex.get('colorSpace')=='srgb' else 'Non-Color'
+        space='sRGB' if channel in ['map','emissiveMap'] and tex.get('colorSpace')=='srgb' else 'Non-Color';cache_key=(tex['file'],space)
+        if cache_key not in image_cache:
+            image=bpy.data.images.load(str(ROOT/'assets'/tex['file']),check_existing=False);image.colorspace_settings.name=space;image_cache[cache_key]=image
+        image=image_cache[cache_key]
         tn=n.new('ShaderNodeTexImage');tn.image=image;tn.extension='REPEAT';tn.interpolation='Linear';tex_nodes[channel]=tn
         mul=n.new('ShaderNodeVectorMath');mul.operation='MULTIPLY';sx,sy=tex.get('repeat',[1,1]);ox,oy=tex.get('offset',[0,0]);
         if not tex.get('flipY',True): sy=-sy;oy=1-oy
@@ -223,13 +226,13 @@ scene.render.resolution_x=int(os.environ.get('CYCLES_SIZE','640'));scene.render.
 try:scene.view_settings.view_transform='AgX'
 except:scene.view_settings.view_transform='Filmic'
 scene.view_settings.exposure=float(os.environ.get('CYCLES_EXPOSURE','0'));scene.view_settings.gamma=1
-render_name=os.environ.get('CYCLES_RENDER_NAME','scene07-cycles62.png')
+render_name=os.environ.get('CYCLES_RENDER_NAME','scene07-cycles64.png')
 if Path(render_name).name!=render_name:raise ValueError('CYCLES_RENDER_NAME must be a filename')
 scene.render.filepath=str(OUT/render_name);scene.render.film_transparent=False
 report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['status']='rendering';report['materialTransfer']='Original portable PBR values, source scanned timber metric UV/roughness response and physical thin-leaf transmission. Measured world transport and physical source-footprint pond replace the GLSL approximations.';report['lightCalibration']={'transfer':'Source positions/colors; area*pi and point*4pi power conversion','sunGain':float(os.environ.get('CYCLES_SUN_GAIN','.28')),'worldGain':float(os.environ.get('CYCLES_WORLD_GAIN','1.0')),'exposure':scene.view_settings.exposure,'nativeWebglPixelEquivalence':False}
 (OUT/'report.json').write_text(json.dumps(report,indent=2));
 if os.environ.get('CYCLES_SAVE_BLEND','1')=='1':
-    blend_name=os.environ.get('CYCLES_BLEND_NAME','scene07-cycles62.blend')
+    blend_name=os.environ.get('CYCLES_BLEND_NAME','scene07-cycles64.blend')
     if Path(blend_name).name!=blend_name:raise ValueError('CYCLES_BLEND_NAME must be a filename')
     bpy.ops.file.pack_all()
     bpy.ops.wm.save_as_mainfile(filepath=str(OUT/blend_name),compress=True)

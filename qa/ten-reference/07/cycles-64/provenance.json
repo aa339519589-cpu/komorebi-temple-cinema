@@ -1,0 +1,42 @@
+{
+  "reference": 7,
+  "nativeModelSnapshotCommit": "bc83738",
+  "nativeSourceHash": "87f61da6dd42cd171bde821c7126b067c54a8dfc5c9b5b005a6ad2c1ec72f4cb",
+  "servedSourceAllMatch": true,
+  "sharedRockAssetCommit": "86726cf",
+  "sharedAssetBytesIdentical": true,
+  "geometryStatistics": {
+    "meshes": 1590,
+    "geometries": 1528,
+    "materials": 92,
+    "textures": 8,
+    "instances": 198536,
+    "triangles": 31110893
+  },
+  "sourceBuilderSha256": "9d0da2a02b5075e0e326dbb4f94007c52632535de3b7adf85a822ee72ead7549",
+  "renderSha256": "85a5f2c16858716d6bf1a4e09ffa573dfffd95a3da4df5ae915f6e59b86da2b5",
+  "renderer": "Blender Cycles 5.2.1 LTS / Metal / 128 samples / OIDN",
+  "editablePackedBlend": {
+    "file": "render/scene07-cycles64.blend",
+    "bytes": 1276922354,
+    "sha256": "6c60b306341d1a6c1895fbf3d6f71f51b287ed97741f96aacfb88e833476a039",
+    "packedImages": 9,
+    "primaryAgentArchivesLargeFiles": true
+  },
+  "geometryPackage": "export/scene.json + export/assets/",
+  "measuredSky": {
+    "asset": "qwantani_sunset_puresky",
+    "license": "CC0-1.0",
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "mappingFormula": "phi = pi - 2*pi*u; World TextureCoordinate Normal is -ray_D, multiplied by(-1,-1,-1) BEFORE Mapping",
+    "duplicateSunAndProxyFillDisabled": true
+  },
+  "scannedStoneTransfer": "Uniform source mesh proportions and original GLTF UV/PBR channels retained. Only the five cherry timber materials use metric UV.",
+  "actualInspection": [
+    "Natural squat stone forms, surface breakup and the dressed tower plinth are visible gains over62.",
+    "Camera, pond footprint and the62 physical lighting are retained.",
+    "The overall blue/orange reference lighting, roof proportions, retaining faces, veranda support and canopy layering still differ substantially. The result is not accepted as a photographic match."
+  ],
+  "photographicAcceptance": false,
+  "motionFramesExported": 0
+}

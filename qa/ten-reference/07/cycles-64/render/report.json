@@ -1,0 +1,220 @@
+{
+  "sourceStatistics": {
+    "meshes": 1590,
+    "geometries": 1528,
+    "materials": 92,
+    "textures": 8,
+    "instances": 198536,
+    "triangles": 31110893
+  },
+  "lightingMode": "golden-hour07",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 7,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792331539.8200252,
+  "buildScript": {
+    "file": "render-cycles-golden.py",
+    "sha256": "9d0da2a02b5075e0e326dbb4f94007c52632535de3b7adf85a822ee72ead7549"
+  },
+  "nativeSourceHash": "87f61da6dd42cd171bde821c7126b067c54a8dfc5c9b5b005a6ad2c1ec72f4cb",
+  "thinMaterialSelection": {
+    "foliageSourcePaletteIds": [
+      "a1ba20ba-268e-4168-99f2-049e41a005d6",
+      "f90e5a39-575a-4501-abc7-4deea5a018bc",
+      "74f1a9f2-c54a-4a46-b312-c7ee89d7766c",
+      "0db388c1-2ffa-4725-b17c-4e9d3b5d5225",
+      "d438e802-ab2e-47a1-aae5-1e56c829a113",
+      "3d9ced4c-1693-467b-843f-3cb57a74b0f3",
+      "7ba1b2ba-4a81-4807-93ce-70f730579168",
+      "a6c5606b-743f-40f4-8b81-9d7967fa28b9",
+      "5f30ea57-f49a-4906-a5ab-688215c60e8e",
+      "9623bf2f-3e58-4f2c-b21d-f3fa63572264",
+      "c6e873fd-b357-4440-bf84-ea3d543e2e57"
+    ],
+    "paperNonzeroEmissionIds": [
+      "dfeed62b-b09d-44b7-a982-01c8fff248ff",
+      "7af69250-4cdc-4431-bb2a-531fd3769444"
+    ],
+    "defaultIntensityOneNotPaper": true
+  },
+  "scannedTimber": {
+    "materials": [
+      "f48dc4fb-9a6f-4ab7-8cc9-baca657765ce",
+      "152f40ec-6f1c-4fa3-9d07-dd8045279081",
+      "5b3de538-9a08-4a9e-a1eb-6e36ddebae46",
+      "1a4636cd-de42-411b-8e60-06b148371a0e",
+      "c0b87719-3294-4ae4-a7de-5dc971603414"
+    ],
+    "uv": "Exact source shader metric projection from per-member dimensions, normals and instance translation",
+    "roughness": "Source shader clamp(.36 + .72 * mapG * .9, .42, .94)",
+    "maps": "Original CC0 cherry albedo/OpenGL normal/roughness and source linear color gains"
+  },
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "measuredSky": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "provider": "Poly Haven",
+    "asset": "qwantani_sunset_puresky",
+    "license": "CC0-1.0",
+    "maximumLuminance": 58971.4765625,
+    "meanLuminance": 0.835347056388855,
+    "sunPixel": [
+      1228,
+      546
+    ],
+    "measuredAzimuthDegrees": -35.947265624999986,
+    "measuredAltitudeDegrees": 6.064453125,
+    "targetDirectionYUp": [
+      -0.816849946975708,
+      0.30031248927116394,
+      -0.49251246452331543
+    ],
+    "targetAzimuthDegrees": 148.9124948568817,
+    "targetAltitudeDegrees": 17.47637291429879,
+    "lookupEuler": [
+      -0.1038506031036377,
+      -0.17026591300964355,
+      3.0656442642211914
+    ],
+    "mappingFormula": "phi = pi - 2*pi*u; World TextureCoordinate Normal is -ray_D, multiplied by(-1,-1,-1) BEFORE Mapping",
+    "radianceUse": "Same measured environment for camera, GI and reflections; no projected frame",
+    "sourceURL": "https://polyhaven.com/a/qwantani_sunset_puresky"
+  },
+  "disabledProxyLights": [
+    {
+      "type": "HemisphereLight",
+      "intensity": 0.66
+    },
+    {
+      "type": "DirectionalLight",
+      "intensity": 7
+    },
+    {
+      "type": "DirectionalLight",
+      "intensity": 2.5
+    }
+  ],
+  "physicalSurfaceReplacement": {
+    "source": "Only the existing irregular pond Reflector",
+    "sourceYUpTop": 0.015,
+    "planTransform": "(x,z)->(x,z*.6-3)",
+    "footprint": [
+      [
+        -15,
+        3
+      ],
+      [
+        -9,
+        2
+      ],
+      [
+        -4,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        15,
+        12
+      ],
+      [
+        12,
+        15
+      ],
+      [
+        16,
+        22
+      ],
+      [
+        15,
+        30
+      ],
+      [
+        9,
+        34
+      ],
+      [
+        1,
+        32
+      ],
+      [
+        -8,
+        28
+      ],
+      [
+        -14,
+        27
+      ],
+      [
+        -16,
+        20
+      ],
+      [
+        -13,
+        15
+      ],
+      [
+        -16,
+        10
+      ]
+    ],
+    "closureDepth": 0.3,
+    "bed": "Existing source soil box top atY=-.3 retained",
+    "wetDeck": "No source wet-deck reflector or floor footprint exists; no visible deck plane is invented"
+  },
+  "addedPhysicalContext": {
+    "kind": "Finite atmospheric transport",
+    "density": 0.0002,
+    "anisotropy": 0.35,
+    "inferredNotRecovered": true
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 31110893,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Original portable PBR values, source scanned timber metric UV/roughness response and physical thin-leaf transmission. Measured world transport and physical source-footprint pond replace the GLSL approximations.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.28,
+    "worldGain": 1.0,
+    "exposure": 0.0,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792331754.4894679,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 128,
+  "photographicAcceptance": false
+}
