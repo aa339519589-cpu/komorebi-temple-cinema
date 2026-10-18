@@ -51,3 +51,11 @@ CPU module syntax, full construction and finite geometry/matrix checks pass; the
 The fourth actual image exposed an oversized raised grate resembling ladder rungs. The grate is narrowed to 12.5 cm, set flush with the stone and given thinner denser crossbars. The tower's visible finial was substantially shorter than the source; its mast and ringed portion now extend upward while the roof/column composition remains fixed. Exposed hillside boulders are reduced and more finely branched blossom/maple planting screens the terrain. Only the two near lacquer assemblies receive a physical wet clearcoat, and distant cedar tips receive terminal foliage instead of bare pole ends.
 
 The fourth-frame image/report are retained. Syntax and full CPU checks, including the 0–7 second low camera path, pass. A fifth actual GPU comparison remains necessary; no visual acceptance is asserted.
+
+## Iteration 06: projection-based hall and bridge calibration
+
+The fourth actual image's main hall remained substantially displaced: its lower-left eave projected to about (0.392, 0.408), upper-left eave to (0.427, 0.232), and entry threshold to (0.875, 0.619). Approximate manual photograph observations are (0.473, 0.352), (0.496, 0.264), and (0.870, 0.510). `layout-probes.mjs` records those observations and projects explicit 3D model anchors with the real camera; it is a CPU geometric calibration tool, not automatic image matching or visual acceptance.
+
+The hall is repositioned rightward onto an actual deeper stone platform, rotated further, and modestly compressed vertically. Its new corresponding CPU projections are (0.469, 0.358), (0.496, 0.259), and (0.873, 0.502). Continuous masonry courses and a supported full-depth stair supply the raised platform. The porch opening is shifted within the visible facade. The bridge is rebuilt as a longer gentle asymmetric arch with raised landings, full-depth stone piers, a descending left stair and supported stone approach on the right. Its visible front-rail crest projects to approximately (0.717, 0.466), near the photograph's roughly (0.70, 0.48).
+
+The seventh-second camera path, finite geometry and instance matrices, and JavaScript syntax checks pass. The changed overall layout requires the next actual GPU frame before judging the visual outcome.
