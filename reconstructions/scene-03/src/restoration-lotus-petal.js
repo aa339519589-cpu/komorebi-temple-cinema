@@ -4,11 +4,11 @@ import * as T from 'three';
 // narrow inner petals have different curvature rather than scaled copies.
 export function createRestorationLotusPetal(seed=1,layer=0){
  const rows=32,cols=24,pp=[],uv=[],ids=[];
- const extent=[.78,.61,.39][layer],rise=[.19,.39,.50][layer],width=[.27,.255,.19][layer];
+ const extent=[.72,.56,.34][layer],rise=[.34,.52,.62][layer],width=[.27,.25,.17][layer];
  const shape=(t,u)=>{
   const w=width*Math.pow(Math.sin(Math.PI*t),.63)*(1-.10*t),c=Math.sin(Math.PI*t);
-  const variation=1+.045*Math.sin(seed*2.14);
-  return [u*w+.013*Math.sin(seed+t*4)*c,rise*(.14*t+.86*t*t)+(.10+.03*layer)*u*u*c+.065*c,extent*(t-.09*t*t)*variation-.065*u*u*c];
+  const variation=1+.075*Math.sin(seed*2.14);
+  return [u*w+.020*Math.sin(seed+t*4)*c,rise*(.10*t+.90*t*t)+(.11+.03*layer)*u*u*c+.045*c,extent*(t-.07*t*t)*variation-.085*u*u*c];
  };
  pp.push(0,0,0);uv.push(.5,0);
  for(let j=1;j<rows;j++)for(let i=0;i<=cols;i++){let t=j/rows,u=i/cols*2-1;pp.push(...shape(t,u));uv.push(i/cols,t);}

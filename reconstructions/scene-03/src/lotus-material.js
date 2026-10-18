@@ -2,7 +2,7 @@ import * as T from 'three';
 
 export function createLotusPetalMaterials(){
  const width=128,height=512,bytes=new Uint8Array(width*height*4);
- const base=[255,243,221],middle=[250,194,214],tip=[218,98,151];
+ const base=[255,245,224],middle=[253,211,224],tip=[230,151,184];
  const smooth=x=>x*x*(3-2*x);
  for(let y=0;y<height;y++)for(let x=0;x<width;x++){
   const t=y/(height-1),u=x/(width-1),a=t<.56?base:middle,b=t<.56?middle:tip;
@@ -22,5 +22,9 @@ export function createLotusPetalMaterials(){
   roughness:.66,metalness:0,sheen:.12,sheenRoughness:.85,
   sheenColor:new T.Color('#ffe5ed'),specularIntensity:.30,clearcoat:0,side:T.DoubleSide
  }));
+ for(const material of materials){material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
+  vec3 petalSun=normalize((viewMatrix*vec4(-.4472,.7826,.4472,0.)).xyz);
+  float transmittedPetalLight=pow(max(0.,dot(-normal,petalSun)),1.4)*.22;
+  reflectedLight.indirectDiffuse+=diffuseColor.rgb*transmittedPetalLight;`);};material.customProgramCacheKey=()=> 'reference03-lotus-thin-petal-light-38';}
  return{materials,texture};
 }
