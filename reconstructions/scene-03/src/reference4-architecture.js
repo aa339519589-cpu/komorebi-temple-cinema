@@ -13,7 +13,7 @@ export function buildReference4Architecture(T,options={}) {
  const cube=new RoundedBoxGeometry(1,1,1,2,.025),cyl=new T.CylinderGeometry(1,1,1,24),sphere=new T.SphereGeometry(1,12,8);let activeRole='architecture';
  const V=a=>new T.Vector3(...a), H=y=>y+C.stairTopY-3;
  function emit(g,ma,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0,tint=1){const m=typeof ma==='string'?mats[ma]:ma;if(!m)throw Error('Missing material '+ma);const e=Array.isArray(rot)?new T.Euler(...rot):new T.Euler(0,Number(rot)||0,0),tr=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromEuler(e),V([sx,sy,sz])).premultiply(stack.at(-1));put(g,m,tr,tint);}
- function put(g,m,tr,tint=1){if(!activeRole.startsWith('tower')){tr=new T.Matrix4().makeTranslation(0,0,-4).multiply(new T.Matrix4().makeRotationY(.12)).multiply(new T.Matrix4().makeTranslation(0,0,4)).multiply(tr);}if(!tr.elements.every(Number.isFinite))throw Error('Nonfinite transform');const key=g.uuid+':'+m.uuid;let b=buckets.get(key);if(!b){b={g,m,items:[]};buckets.set(key,b);}b.items.push({tr,tint,role:activeRole});geometries.add(g);roles[activeRole]=(roles[activeRole]||0)+1;}
+ function put(g,m,tr,tint=1){if(!activeRole.startsWith('tower')){tr=new T.Matrix4().makeTranslation(0,0,-4).multiply(new T.Matrix4().makeRotationY(.12)).multiply(new T.Matrix4().makeTranslation(0,0,4)).multiply(tr);}if(!tr.elements.every(Number.isFinite))throw Error('Nonfinite transform');const key=g.uuid+':'+m.uuid;let b=buckets.get(key);if(!b){b={g,m,items:[]};buckets.set(key,b);}if(m===mats.red||m===mats.cedar){const a=tr.elements;const h=Math.sin(a[12]*13.7+a[13]*5.2+a[14]*18.3)*43758.5453;tint*=.90+.16*(h-Math.floor(h));}b.items.push({tr,tint,role:activeRole});geometries.add(g);roles[activeRole]=(roles[activeRole]||0)+1;}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){if(w>0&&h>0&&d>0)emit(cube,ma,x,y,z,w,h,d,rot,tint);}
  function grouped(x,y,z,yaw,fn,scale=1){const q=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromAxisAngle(V([0,1,0]),yaw),V([scale,scale,scale]));stack.push(stack.at(-1).clone().multiply(q));try{fn();}finally{stack.pop();}}
  function role(name,fn){const r=activeRole;activeRole=name;try{return fn();}finally{activeRole=r;}}
@@ -119,7 +119,7 @@ export function buildReference4Architecture(T,options={}) {
  });
 
  role('upper-storey-dense-bracket-frieze',()=>{
-  box(0,11.17,-.76,13.3,.65,.08,'plaster');for(const y of[10.80,11.55])box(0,y,-.68,13.5,.08,.10,'oldgold');for(let j=-13;j<=13;j++){const x=j*.49;relief(x,11.17,-.66,.40,.31);}
+  for(let j=-6;j<=6;j++)box(j*1.06,11.17,-.76,.86,.65,.08,'plaster');for(const y of[10.80,11.55])box(0,y,-.68,13.5,.08,.10,'oldgold');for(let j=-13;j<=13;j++){const x=j*.49;relief(x,11.17,-.66,.40,.31);}
   box(0,12.50,-1.02,13.6,3.65,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
   for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.65,.075,'plaster');for(const y of[11.98,12.72])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
 
