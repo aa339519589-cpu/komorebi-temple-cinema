@@ -204,15 +204,33 @@ function faceAnatomy(b,g,cy,small=false){
   }
   b.add(cord(lid,.0075),'sculpted-upper-eyelid-'+side);b.add(cord(slit,.0060),'recessed-eye-aperture-'+side,'crease');b.add(cord(brow,.005),'arched-brow-ridge-'+side);
   const nx=side*.055*wx,ny=cy-.146*sy;b.add(ellipsoid(nx,ny,at(nx,ny)+.001,.006,.0035,.002),'nostril-recess-'+side,'crease');
-  // Helix and open concha are distinct volumes inside each long auricle.
-  const ear=[];for(let k=0;k<=28;k++){const t=k/28,a=-.65+t*4.35;ear.push([side*(.381+.021*Math.cos(a))*(small?.85:1),cy+(.04+.175*Math.sin(a))*(small?.85:1),.059+.006*Math.cos(a)]);}
-  b.add(cord(ear,.0065),'auricle-inner-helix-'+side);
+  if(small){const ear=[];for(let k=0;k<=28;k++){const t=k/28,a=-.65+t*4.35;ear.push([side*(.381+.021*Math.cos(a))*.85,cy+(.04+.175*Math.sin(a))*.85,.059+.006*Math.cos(a)]);}b.add(cord(ear,.0065),'auricle-inner-helix-'+side);}
  }
  const mouth=[];for(let k=0;k<=28;k++){const x=(-.105+k/28*.210)*wx,y=cy+(-.237+.014*(x/(.12*wx))**2)*sy;mouth.push([x,y,at(x,y)+.002]);}
  b.add(cord(mouth,.0035),'quiet-closed-lip-line','crease');
  const uy=cy+.255*sy;b.add(ellipsoid(0,uy,at(0,uy)+.007,.014,.016,.008),'forehead-urna');
 }
 function ears(b,cy,small=false){
+ if(!small){
+  // One closed cast auricle per side. The lobule has solid thickness; its
+  // concha is a shallow recess rather than the centre of an oval handle.
+  const rows=[[-.37,0,0,.342,.090],[-.35,.020,.024,.350,.090],[-.31,.034,.039,.358,.084],[-.23,.039,.044,.365,.074],[-.13,.045,.047,.367,.059],[0,.052,.056,.360,.044],[.12,.055,.058,.348,.030],[.22,.040,.045,.330,.018],[.27,0,0,.310,.002]];
+  for(const side of[-1,1]){
+   const g=surface(96,160,(u,v)=>{const dy=-.37+.64*v,[rx,rz,cx,cz]=sampleProfile(rows,dy),a=u*TAU;if(v===0||v===1)return[side*cx,cy+dy,cz];
+    const q=Math.sin(a),front=Math.max(0,Math.cos(a)),local=q*rx,r=Math.hypot((q-.02)/.84,(dy-.025)/.225);
+    const bowl=-.022*gaussian(q+.17,.39)*gaussian(dy-.035,.115);
+    const helix=.012*gaussian(r-1,.17)*(1-smooth(-dy,.19,.29));
+    const fork=clamp((dy-.055)/.145,0,1),gate=smooth(dy,-.18,-.09)*(1-smooth(dy,.15,.23));
+    const anti=.010*gaussian(q-(.10+.34*fork),.16)*gate+.006*gaussian(q-(.10-.32*fork),.14)*gate*fork;
+    const tragus=.012*gaussian(q+.64,.18)*gaussian(dy+.040,.046),lobe=.006*gaussian(dy+.29,.064);
+    return[side*(cx+local),cy+dy,cz+Math.cos(a)*rz+(bowl+helix+anti+tragus+lobe)*front**3];
+   },true);
+   if(side<0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}
+   b.add(g,`closed-lobule-concha-helix-${side}`);
+   b.add(ellipsoid(side*.309,cy+.14,-.005,.028,.14,.072),`auricle-temple-root-${side}`);
+  }
+  return;
+ }
  const scale=small?.85:1,rows=[
   [-.36,0,0,.370,.045],[-.335,.037,.035,.382,.052],[-.24,.044,.049,.398,.044],
   [-.10,.050,.059,.400,.023],[.05,.065,.065,.385,.005],[.18,.062,.057,.366,-.007],[.27,0,0,.337,-.016]
@@ -231,6 +249,9 @@ function ears(b,cy,small=false){
  }
 }
 function neck(b,cy,small=false){
+ // The central torso already carries the full tapered neck. A second loft
+ // in the same place produced the oversized overlapping collar silhouette.
+ if(!small)return;
  const w=small?.171:.221,depth=small?.167:.190;
  const rows=[[cy-.185,0,0,0],[cy-.155,w*.79,depth*.83,0],[cy-.105,w,depth,0],[cy+.035,w*.97,depth*.96,0],[cy+.115,w*.88,depth*.83,-.006],[cy+.185,0,0,-.010]];
  const relief=(x,y)=>{
@@ -306,7 +327,7 @@ function crown(b,cy,{central=false,variant='central'}={}){
 const MAIN_BODY=[
  [0,0,0,.10],[.035,.39,.29,.10],[.27,.50,.34,.08],[.53,.51,.36,.025],[.83,.49,.37,.005],
  [1.15,.515,.375,-.01],[1.49,.56,.373,-.025],[1.82,.60,.355,-.040],[2.08,.62,.325,-.050],
- [2.23,.49,.275,-.050],[2.34,.191,.180,-.040],[2.43,.155,.141,-.030],[2.49,0,0,-.025]
+ [2.23,.49,.275,-.050],[2.34,.172,.157,-.028],[2.43,.146,.128,-.020],[2.49,0,0,-.020]
 ].map(p=>[p[0],p[1]*(1+.10*smooth(p[0],.70,1.50)),p[2],p[3]]);
 const MAIN_BAND=[
  [.63,.12,.14],[.91,.29,.17],[1.18,.41,.19],[1.48,.55,.20],[1.80,.64,.20],[2.07,.59,.17],[2.25,.43,.105]
@@ -324,6 +345,8 @@ const MAIN_DRAPE_TRACES=[
 ];
 function mainRelief(x,y){
  let f=.024*gaussian(x+.08,.36)*gaussian(y-1.30,.56)+.020*smooth(x,-.38,.30)*smooth(y,.62,1.10)*(1-smooth(y,1.95,2.25));
+ const neckGate=(1-smooth(Math.abs(x),.105,.175))*smooth(y,2.26,2.29)*(1-smooth(y,2.39,2.425));
+ for(const level of[2.305,2.343,2.378])f-=.0018*gaussian(y-level-.009*(x/.16)**2,.007)*neckGate;
  for(let i=0;i<MAIN_DRAPE_TRACES.length;i++){const tr=MAIN_DRAPE_TRACES[i],lo=tr[0][0],hi=tr.at(-1)[0],fade=smooth(x,lo-.015,lo+.035)*(1-smooth(x,hi-.025,hi+.015));if(!fade)continue;
   const at=sampleProfile(tr,clamp(x,lo,hi))[0],amp=[.008,.011,.010,.012,.010,.009,.008,.009,.007,.007,.006,.006][i];
   f+=fade*(amp*gaussian(y-at,.028)-amp*.30*gaussian(y-at+.030,.017));
