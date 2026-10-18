@@ -1,0 +1,1023 @@
+{
+  "kind": "actual-3d-gaussian-viewer-frames",
+  "dataset": "depth-field",
+  "metadataPrefix": "/output/depth-field/",
+  "scene": "01",
+  "iteration": "depth01",
+  "startedAt": "2026-10-18T14:42:47.319Z",
+  "visualAccepted": false,
+  "sourceCommit": "0cf9829149f82d8995d364ee4fac63da85bf241e",
+  "width": 1254,
+  "height": 1254,
+  "frames": [
+    {
+      "name": "shot-0",
+      "time": 0,
+      "pose": {
+        "translationCV": [
+          0,
+          0,
+          0.44238817095756533
+        ],
+        "rotationCV": [
+          0,
+          0,
+          0
+        ],
+        "cameraToWorldCV": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0.44238817095756533,
+          1
+        ],
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          -0.44238817095756533,
+          1
+        ],
+        "position": [
+          0,
+          0,
+          -0.44238817095756533
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "projection": [
+          2.3943848167162836,
+          0,
+          0,
+          0,
+          0,
+          2.3943848167162836,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0033845302094813816,
+          0
+        ],
+        "time": 0,
+        "kind": "forward-dolly-to-source",
+        "focalScale": 1.22,
+        "effectiveIntrinsics": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1501.2792800811098,
+          "fy": 1501.2792800811098,
+          "cx": 627,
+          "cy": 627,
+          "projection": [
+            2.3943848167162836,
+            0,
+            0,
+            0,
+            0,
+            2.3943848167162836,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0033845302094813816,
+            0
+          ]
+        },
+        "depthScale": 16.92263412475586,
+        "sourceIntrinsicsPreserved": false,
+        "matrixStorage": "column-major"
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "contextLost": false,
+      "info": {
+        "kind": "photo-reconstructed-3d-gaussian-field",
+        "title": "照片重建3D高斯场",
+        "viewerVersion": "gaussian-viewer-04",
+        "threeRevision": "186",
+        "sparkVersion": "2.3.1",
+        "ready": true,
+        "modelURL": "/output/depth-field/01/01.ply",
+        "metadataURL": "/output/depth-field/01/viewer.json",
+        "reconstruction": {
+          "method": "Depth Anything V2 Small relative inverse-depth inference, independent per-pixel backprojection, no triangle connectivity",
+          "model": "vits; features64; channels48,96,192,384",
+          "device": "mps",
+          "source": "https://github.com/DepthAnything/Depth-Anything-V2",
+          "sourceCommit": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+          "checkpointUrl": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth",
+          "checkpointSha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+          "torch": "2.8.0",
+          "generatedAt": "2026-10-18T14:36:47.693396+00:00",
+          "elapsedSeconds": 17.207
+        },
+        "units": "arbitrary declared scene metres; not measured metric depth",
+        "depthInterpretation": "single-image estimated depth/scale, not surveyed dimensions",
+        "gaussianCount": 1572516,
+        "shDegree": 0,
+        "gaussianProperties": [
+          {
+            "type": "float",
+            "name": "x"
+          },
+          {
+            "type": "float",
+            "name": "y"
+          },
+          {
+            "type": "float",
+            "name": "z"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_0"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_1"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_2"
+          },
+          {
+            "type": "float",
+            "name": "opacity"
+          },
+          {
+            "type": "float",
+            "name": "scale_0"
+          },
+          {
+            "type": "float",
+            "name": "scale_1"
+          },
+          {
+            "type": "float",
+            "name": "scale_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_0"
+          },
+          {
+            "type": "float",
+            "name": "rot_1"
+          },
+          {
+            "type": "float",
+            "name": "rot_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_3"
+          }
+        ],
+        "coordinateSystem": "opencv-camera",
+        "fieldTransform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "calibration": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1230.5567869517295,
+          "fy": 1230.5567869517295,
+          "cx": 627,
+          "cy": 627
+        },
+        "depthScale": 16.92263412475586,
+        "depthScaleMethod": "metadata median source-camera z",
+        "intrinsicsAnimated": true,
+        "shotPlan": {
+          "duration": 7,
+          "medianDepth": 16.92263412475586,
+          "q05Depth": 3.40298593044281,
+          "travel": 0.44238817095756533,
+          "focalScaleStart": 1.22,
+          "focalScaleEnd": 1,
+          "lateralTravel": 0,
+          "verticalTravel": 0,
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "endPose": "exact original OpenCV identity-relative source camera and original K",
+          "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+        },
+        "sourceBackgroundImage": false,
+        "colorEncoding": "PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform",
+        "renderedPrimitives": "anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing",
+        "projection": [
+          2.3943848167162836,
+          0,
+          0,
+          0,
+          0,
+          2.3943848167162836,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0033845302094813816,
+          0
+        ],
+        "pose": {
+          "translationCV": [
+            0,
+            0,
+            0.44238817095756533
+          ],
+          "rotationCV": [
+            0,
+            0,
+            0
+          ],
+          "cameraToWorldCV": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0.44238817095756533,
+            1
+          ],
+          "cameraToWorld": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            -0.44238817095756533,
+            1
+          ],
+          "position": [
+            0,
+            0,
+            -0.44238817095756533
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "projection": [
+            2.3943848167162836,
+            0,
+            0,
+            0,
+            0,
+            2.3943848167162836,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0033845302094813816,
+            0
+          ],
+          "time": 0,
+          "kind": "forward-dolly-to-source",
+          "focalScale": 1.22,
+          "effectiveIntrinsics": {
+            "width": 1254,
+            "height": 1254,
+            "fx": 1501.2792800811098,
+            "fy": 1501.2792800811098,
+            "cx": 627,
+            "cy": 627,
+            "projection": [
+              2.3943848167162836,
+              0,
+              0,
+              0,
+              0,
+              2.3943848167162836,
+              0,
+              0,
+              0,
+              0,
+              -1.000002000002,
+              -1,
+              0,
+              0,
+              -0.0033845302094813816,
+              0
+            ]
+          },
+          "depthScale": 16.92263412475586,
+          "sourceIntrinsicsPreserved": false,
+          "matrixStorage": "column-major"
+        },
+        "renderer": {
+          "frame": 4,
+          "calls": 1,
+          "triangles": 3145032,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "rgbaSha256": "4a933cddec4777bf75b2daed109cb23d00cc8bb8f1b8657231a845ca6d580d55"
+    },
+    {
+      "name": "shot-7",
+      "time": 7,
+      "pose": {
+        "translationCV": [
+          0,
+          0,
+          0
+        ],
+        "rotationCV": [
+          0,
+          0,
+          0
+        ],
+        "cameraToWorldCV": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "projection": [
+          1.9626105055051506,
+          0,
+          0,
+          0,
+          0,
+          1.9626105055051506,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0033845302094813816,
+          0
+        ],
+        "time": 7,
+        "kind": "forward-dolly-to-source",
+        "focalScale": 1,
+        "effectiveIntrinsics": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1230.5567869517295,
+          "fy": 1230.5567869517295,
+          "cx": 627,
+          "cy": 627,
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0033845302094813816,
+            0
+          ]
+        },
+        "depthScale": 16.92263412475586,
+        "sourceIntrinsicsPreserved": true,
+        "matrixStorage": "column-major"
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "contextLost": false,
+      "info": {
+        "kind": "photo-reconstructed-3d-gaussian-field",
+        "title": "照片重建3D高斯场",
+        "viewerVersion": "gaussian-viewer-04",
+        "threeRevision": "186",
+        "sparkVersion": "2.3.1",
+        "ready": true,
+        "modelURL": "/output/depth-field/01/01.ply",
+        "metadataURL": "/output/depth-field/01/viewer.json",
+        "reconstruction": {
+          "method": "Depth Anything V2 Small relative inverse-depth inference, independent per-pixel backprojection, no triangle connectivity",
+          "model": "vits; features64; channels48,96,192,384",
+          "device": "mps",
+          "source": "https://github.com/DepthAnything/Depth-Anything-V2",
+          "sourceCommit": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+          "checkpointUrl": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth",
+          "checkpointSha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+          "torch": "2.8.0",
+          "generatedAt": "2026-10-18T14:36:47.693396+00:00",
+          "elapsedSeconds": 17.207
+        },
+        "units": "arbitrary declared scene metres; not measured metric depth",
+        "depthInterpretation": "single-image estimated depth/scale, not surveyed dimensions",
+        "gaussianCount": 1572516,
+        "shDegree": 0,
+        "gaussianProperties": [
+          {
+            "type": "float",
+            "name": "x"
+          },
+          {
+            "type": "float",
+            "name": "y"
+          },
+          {
+            "type": "float",
+            "name": "z"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_0"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_1"
+          },
+          {
+            "type": "float",
+            "name": "f_dc_2"
+          },
+          {
+            "type": "float",
+            "name": "opacity"
+          },
+          {
+            "type": "float",
+            "name": "scale_0"
+          },
+          {
+            "type": "float",
+            "name": "scale_1"
+          },
+          {
+            "type": "float",
+            "name": "scale_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_0"
+          },
+          {
+            "type": "float",
+            "name": "rot_1"
+          },
+          {
+            "type": "float",
+            "name": "rot_2"
+          },
+          {
+            "type": "float",
+            "name": "rot_3"
+          }
+        ],
+        "coordinateSystem": "opencv-camera",
+        "fieldTransform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "calibration": {
+          "width": 1254,
+          "height": 1254,
+          "fx": 1230.5567869517295,
+          "fy": 1230.5567869517295,
+          "cx": 627,
+          "cy": 627
+        },
+        "depthScale": 16.92263412475586,
+        "depthScaleMethod": "metadata median source-camera z",
+        "intrinsicsAnimated": true,
+        "shotPlan": {
+          "duration": 7,
+          "medianDepth": 16.92263412475586,
+          "q05Depth": 3.40298593044281,
+          "travel": 0.44238817095756533,
+          "focalScaleStart": 1.22,
+          "focalScaleEnd": 1,
+          "lateralTravel": 0,
+          "verticalTravel": 0,
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "endPose": "exact original OpenCV identity-relative source camera and original K",
+          "scope": "Real forward dolly returns to observed source camera; never moves behind the source."
+        },
+        "sourceBackgroundImage": false,
+        "colorEncoding": "PLY SH radiance is sRGB; Spark writes directly to an sRGB framebuffer without tone mapping or a second gamma transform",
+        "renderedPrimitives": "anisotropic 3D Gaussian ellipsoids projected from per-point covariance with depth-sorted alpha compositing",
+        "projection": [
+          1.9626105055051506,
+          0,
+          0,
+          0,
+          0,
+          1.9626105055051506,
+          0,
+          0,
+          0,
+          0,
+          -1.000002000002,
+          -1,
+          0,
+          0,
+          -0.0033845302094813816,
+          0
+        ],
+        "pose": {
+          "translationCV": [
+            0,
+            0,
+            0
+          ],
+          "rotationCV": [
+            0,
+            0,
+            0
+          ],
+          "cameraToWorldCV": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cameraToWorld": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.000002000002,
+            -1,
+            0,
+            0,
+            -0.0033845302094813816,
+            0
+          ],
+          "time": 7,
+          "kind": "forward-dolly-to-source",
+          "focalScale": 1,
+          "effectiveIntrinsics": {
+            "width": 1254,
+            "height": 1254,
+            "fx": 1230.5567869517295,
+            "fy": 1230.5567869517295,
+            "cx": 627,
+            "cy": 627,
+            "projection": [
+              1.9626105055051506,
+              0,
+              0,
+              0,
+              0,
+              1.9626105055051506,
+              0,
+              0,
+              0,
+              0,
+              -1.000002000002,
+              -1,
+              0,
+              0,
+              -0.0033845302094813816,
+              0
+            ]
+          },
+          "depthScale": 16.92263412475586,
+          "sourceIntrinsicsPreserved": true,
+          "matrixStorage": "column-major"
+        },
+        "renderer": {
+          "frame": 6,
+          "calls": 1,
+          "triangles": 3145032,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "rgbaSha256": "ca3be15cb019bc8aa4d51747d8b04b818bdf647e1621c8c785ffd2ecacccac0b"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "/reconstructions/sharp-study-viewer/index.html",
+    "/reconstructions/sharp-study-viewer/viewer.css",
+    "/reconstructions/sharp-study-viewer/viewer.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/sharp-study-viewer/vendor/spark/spark.module.js",
+    "/reconstructions/sharp-study-viewer/camera.js",
+    "/reconstructions/sharp-study-viewer/ply-header.js",
+    "/reconstructions/sharp-study-viewer/shot-settings.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/output/depth-field/01/viewer.json",
+    "/output/depth-field/01/01.ply",
+    "/output/depth-field/01/01.ply"
+  ],
+  "model": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/output/depth-field/01/01.ply",
+    "sha256": "41aba826c64da7ce0389bde9db054f4cf14c65b92dcb1ae5cd630e4ecaec760c"
+  },
+  "metadata": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/output/depth-field/01/viewer.json",
+    "sha256": "a122a8f88217c874752d587816756863a4cec4f40ce2f5b6719f82ee24d66cb3",
+    "data": {
+      "id": "01",
+      "model": {
+        "url": "./01.ply",
+        "format": "binary-ply-gaussian-splat",
+        "gaussianCount": 1572516,
+        "sha256": "41aba826c64da7ce0389bde9db054f4cf14c65b92dcb1ae5cd630e4ecaec760c"
+      },
+      "image": {
+        "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/0-照片-1.jpg",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d"
+      },
+      "intrinsics": {
+        "fx": 1230.5567869517295,
+        "fy": 1230.5567869517295,
+        "cx": 627,
+        "cy": 627,
+        "width": 1254,
+        "height": 1254,
+        "assumption": "Independent horizontal54deg FOV unless --fov overrides; not measured",
+        "horizontalFovDegrees": 54
+      },
+      "coordinateSystem": "opencv-camera",
+      "units": "arbitrary declared scene metres; not measured metric depth",
+      "sourceCamera": {
+        "cameraToWorld": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "worldToCamera": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "matrixOrder": "row-major"
+      },
+      "depth": {
+        "positiveZQuantiles": {
+          "p01": 3.000000500679016,
+          "p05": 3.40298593044281,
+          "p10": 4.1880784034729,
+          "median": 16.92263412475586,
+          "p90": 31.865985870361328,
+          "p99": 40
+        },
+        "mapping": {
+          "relativeInverseDepthPercentile01": 0,
+          "relativeInverseDepthPercentile99": 8.718483018875123,
+          "near": 3,
+          "far": 40,
+          "formula": "s=clip((prediction-p01)/(p99-p01),0,1); z=1/(1/far+s*(1/near-1/far))"
+        },
+        "inferenceInputShape": [
+          1,
+          3,
+          1260,
+          1260
+        ]
+      },
+      "gaussianEncoding": {
+        "sphericalHarmonicsDegree": 0,
+        "color": "original unresized sRGB pixels encoded SH0 (rgb-.5)/sqrt(1/(4*pi))",
+        "opacity": "logit",
+        "opacityValue": 0.995,
+        "scale": "log principal standard deviations; tangent sigma=z*footprint/f, thickness=.08*tangent",
+        "projectedSigmaPixels": 0.62,
+        "quaternion": "wxyz; camera-plane tangent axes identity; no edge-gradient stretching"
+      },
+      "reconstruction": {
+        "method": "Depth Anything V2 Small relative inverse-depth inference, independent per-pixel backprojection, no triangle connectivity",
+        "model": "vits; features64; channels48,96,192,384",
+        "device": "mps",
+        "source": "https://github.com/DepthAnything/Depth-Anything-V2",
+        "sourceCommit": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+        "checkpointUrl": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth",
+        "checkpointSha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+        "torch": "2.8.0",
+        "generatedAt": "2026-10-18T14:36:47.693396+00:00",
+        "elapsedSeconds": 17.207
+      },
+      "license": {
+        "code": "Apache-2.0",
+        "weights": "Depth-Anything-V2-Small Apache-2.0; no Base/Large/Giant weights used",
+        "url": "https://github.com/DepthAnything/Depth-Anything-V2#license",
+        "attribution": "Depth Anything V2, Lihe Yang et al.; source LICENSE preserved"
+      },
+      "limitations": [
+        "Relative depth mapped to a declared unmeasured scale; focal length assumed independently.",
+        "Visible colored surface only; hidden geometry is unknown, not a closed CAD model.",
+        "Lighting/reflections encoded in source colors; no relightable PBR material reconstruction.",
+        "No SHARP model, predicted depth, PLY or camera metadata used."
+      ]
+    }
+  },
+  "rendererSource": [
+    {
+      "file": "reconstructions/sharp-study-viewer/camera.js",
+      "sha256": "1e4d3e76f86bc5a6842b5b3e071b8fb25febc995fd02fb54dc73022b49123fb6"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/index.html",
+      "sha256": "72171b1e49f72e2b0b838046ed0d907afec5b7dbc67bd0cbeef5a659fc762e6e"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/licenses/depth-anything-v2/LICENSE.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/licenses/sharp/LICENSE.txt",
+      "sha256": "cf9fd1ebe78d3effd9f782d053ffbed7f69b033e5260e706c0f216e0bd4675fa"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/licenses/sharp/LICENSE_MODEL.txt",
+      "sha256": "e177a921ef25a523c429c6916e819c769bb4942619aadd16afe0108105a2baaf"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/ply-header.js",
+      "sha256": "b7d204515fef25661bf6315f9cebdef4ddd9830d866d9b2cee59f27a3edd4770"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/render-all-shot-previews.mjs",
+      "sha256": "fbf6d1545346284b1eb5c28c792fcd47116b4e0bec2af1fbc318dd0c935d945f"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/render-preview.mjs",
+      "sha256": "cc548cc00b23eee02923b454c7006d9de3605cc84e7efd9c91b765aa52b17186"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/server.mjs",
+      "sha256": "39af29724c0a71f74830b3297aea52e970e6f46799331508a203d112a354bdbc"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/shot-settings.js",
+      "sha256": "f2898a4a09a095e19b69e6a0dec8fa05cbfae2bf75a9c1a87711ef4f660961e1"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/LICENSE",
+      "sha256": "51829693e5dccd9ca1daa093991faac3aaa93238eb8fd5f5cb4130af85791d64"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/fflate-LICENSE",
+      "sha256": "805f6cb28bb8b6d3a0badd83c93bccd9671fa01a3b4b92b7042b0743325ac243"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/package.json",
+      "sha256": "376a8ca629e1cd1c65b69a9ec9356ab9caafa2f4adad95afe74ae3a4316a612c"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/provenance.json",
+      "sha256": "9ed75352a0e807b504bfffccad5deedf7470441cd9677a267318e94f5b51054f"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/spark.module.js",
+      "sha256": "2de375d5e489692f976abe3199c8435ecc00f97fabaf35e489eb7d368e1f6f60"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/vendor/spark/spark.module.js.map",
+      "sha256": "0e5c52686ffc3451081a69b8bdac9e3eacdaa5a02b8a01803b51642d704cf4fc"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/viewer.css",
+      "sha256": "2c4799bd54391d80d2c8e8017b8b787d13c0a6b8941370665e1703c5293e62c3"
+    },
+    {
+      "file": "reconstructions/sharp-study-viewer/viewer.js",
+      "sha256": "adf8a6e5499b0e0f75cebc611a3f9d80e9ccc95e55b98553c07227c6df36e717"
+    },
+    {
+      "file": "vendor/build/three.core.js",
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "file": "vendor/build/three.module.js",
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    },
+    {
+      "file": "vendor/examples/jsm/postprocessing/Pass.js",
+      "sha256": "444b409c235ead986893c472e720da1b779a56985c7d10b279c7944b52bd61c5"
+    }
+  ],
+  "rendererSourceHash": "95e3827ea3574ba4d475704ea20f7e455d2a3a475d7b092cbea954ded0aace29",
+  "backend": "metal",
+  "cameraMode": "deterministic forward-dolly-to-source",
+  "status": "rendered-for-visual-review",
+  "completedAt": "2026-10-18T14:42:49.417Z"
+}

@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {SparkRenderer,SplatMesh} from '@sparkjsdev/spark';
 import {CV_TO_THREE,sourceCalibration,applyIntrinsics,poseFromCV,pullbackPlan,pullbackPose,trajectoryPose} from './camera.js';
 import {inspectGaussianPly} from './ply-header.js';
-import {SHOT_SETTINGS} from './shot-settings.js';
+import {SHOT_SETTINGS,DEPTH_FIELD_SHOT_SETTINGS} from './shot-settings.js';
 
 const query=new URLSearchParams(location.search),capture=query.has('capture');
 if(capture)document.body.classList.add('capture');
@@ -100,7 +100,8 @@ async function initialize() {
   depth=Number(metadataDepth??zs[Math.floor(zs.length/2)]);
   if(!(depth>0))throw Error('Gaussian field has no finite positive source-camera depth. Check coordinate convention.');
   const id=String(record.id??query.get('scene')??'01').padStart(2,'0');
-  shotPlan=pullbackPlan({...record,shot:{...SHOT_SETTINGS[id],...record.shot}},depth);
+  const art=record.reconstruction?.method?.includes('Depth Anything')?DEPTH_FIELD_SHOT_SETTINGS[id]:SHOT_SETTINGS[id];
+  shotPlan=pullbackPlan({...record,shot:{...art,...record.shot}},depth);
   camera.near=Math.max(.0001,depth*.0001);camera.far=Math.max(100,depth*100);resize();
   model.maxSh=header.shDegree;
   ready=state.ready=true;state.metadata=record;state.plyHeader=header;
