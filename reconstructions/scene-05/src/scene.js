@@ -10,6 +10,7 @@ export function buildScene(){
  mats.slate.color.set('#434c51');mats.tileEdge.color.set('#a3a69f');mats.darkwood.color.set('#555b4d');mats.paper.color.set('#282e25');
  mats.gold.color.set('#e1af46');mats.oldgold.color.set('#c79a43');
  mats.gold.roughness=.40;mats.oldgold.roughness=.48;
+ mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#efd59b');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.10;
  // All surfaces are geometry and procedural textures. Baked source photographs are never used.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
  const primitive={box:new T.BoxGeometry(1,1,1),sphere:new T.SphereGeometry(1,16,10),cone:new T.ConeGeometry(1,1,16)};
@@ -69,7 +70,7 @@ export function buildScene(){
      loft([[0,-.66],[.07,-.64],[.12,-.57],[.08,-.51],[.19,-.43],[.27,-.36],[.34,-.36],[.34,.36],[.48,.39],[.44,.48],[.34,.47],[.16,.64],[.11,.70],[.11,.94],[.20,1.02],[.17,1.22],[.07,1.27],[0,1.27]],metal);
      // Paper faces sit just outside the hollow frame; bars cast true minute shadows.
      for(let face=0;face<6;face++)group(0,0,0,face*Math.PI/3,()=>{
-       box(0,0,.296*s,.31*s,.66*s,.012*s,'paper');
+       box(0,0,.296*s,.31*s,.66*s,.012*s,'lanternPaper');
        for(const side of [-1,1])box(side*.165*s,0,.309*s,.025*s,.73*s,.035*s,'black');
        for(const yy of [-.34,0,.34])box(0,yy*s,.316*s,.35*s,.018*s,.027*s,'oldgold');
        for(const side of [-1,1])box(side*.085*s,0,.318*s,.014*s,.66*s,.016*s,'oldgold');
