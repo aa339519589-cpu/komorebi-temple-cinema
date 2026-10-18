@@ -2,7 +2,7 @@ import * as T from 'three';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {GTAOPass} from 'three/addons/postprocessing/GTAOPass.js';
-import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
+import {createLensBloomPass} from './lens-bloom.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {buildReference6Scene,REFERENCE6_FOUNDATION} from './reference6-scene.js';
 import {createRestorationScatteringPass} from './restoration-lighting.js';
@@ -43,7 +43,7 @@ const scattering=createRestorationScatteringPass(camera,sun,depthTarget.depthTex
 const inheritedMask='float room=(1.0-smoothstep(11.0,12.2,abs(p.x-6.0)))*smoothstep(-20.5,-19.6,p.z)*(1.0-smoothstep(-2.2,-1.6,p.z));\n          room*=smoothstep(6.03,6.32,p.y)*(1.0-smoothstep(16.8,17.8,p.y));';
 if(scattering.material.fragmentShader.split(inheritedMask).length!==2)throw Error('Pinned scattering mask changed.');
 scattering.material.fragmentShader=scattering.material.fragmentShader.replace(inheritedMask,'float room=(1.0-smoothstep(6.65,6.8,abs(p.x)))*smoothstep(-5.8,-5.55,p.z)*(1.0-smoothstep(9.8,10.0,p.z));\n          room*=smoothstep(.02,.10,p.y)*(1.0-smoothstep(7.05,7.2,p.y));float leftDust=exp(-pow((p.x+4.7)/1.5,2.0))*smoothstep(-4.5,-2.5,p.z)*(1.0-smoothstep(5.2,7.0,p.z));room*=.003+.997*leftDust;');
-scattering.material.needsUpdate=true;composer.addPass(scattering);const lensBloom=new UnrealBloomPass(new T.Vector2(width,height),.18,.35,1.2);composer.addPass(lensBloom);composer.addPass(new OutputPass());
+scattering.material.needsUpdate=true;composer.addPass(scattering);const lensBloom=createLensBloomPass(width,height);composer.addPass(lensBloom);composer.addPass(new OutputPass());
 let frame=0,activeTarget=[...REFERENCE6_FOUNDATION.camera.target];
 function renderOpaqueDepth(){
  const oldTarget=renderer.getRenderTarget(),oldAuto=renderer.autoClear,oldOverride=scene.overrideMaterial,oldBackground=scene.background,oldClear=renderer.getClearColor(new T.Color()),oldAlpha=renderer.getClearAlpha();
