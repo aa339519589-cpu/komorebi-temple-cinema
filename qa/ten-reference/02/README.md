@@ -17,6 +17,6 @@ node --check reconstructions/scene-02/garden.js
 node --experimental-loader ./qa/ten-reference/02/loader.mjs ./qa/ten-reference/02/cpu-check.mjs
 ```
 
-Initial CPU build: 44,082 architecture instances, 76,196 garden instances, 369 buckets, approximately 5.85 million triangles, zero non-finite vertex components.
+Initial CPU build: 44,060 architecture instances, 74,392 garden instances, 369 buckets, approximately 5.67 million triangles, zero non-finite vertex components.
 
 GPU rendering and direct side-by-side visual acceptance are separate and remain pending. No visual acceptance is asserted by these CPU checks.
