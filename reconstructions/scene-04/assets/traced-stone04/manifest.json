@@ -1,21 +1,30 @@
 {
-  "revision": "traced-stone04-79",
+  "revision": "traced-stone04-80",
   "scope": "PBR material candidates, not accepted photographic matches",
   "observationInputSha256": "9d58888e3ff4b77378505704c532d3901b07ca70bc9b5176f2ff7703dfc92fa5",
   "referenceRGBUsed": false,
-  "scanSource": "https://polyhaven.com/a/granite_tile_04",
-  "scanAuthor": "Amal Kumar",
+  "scanSource": "https://polyhaven.com/a/granite_wall",
+  "scanAuthor": "Dimitrios Savva",
+  "scanCropPixels": [
+    650,
+    60,
+    1250,
+    370
+  ],
   "scanLicense": "CC0",
-  "physicalGraniteRepeatMetres": 0.82,
+  "physicalGraniteRepeatMetres": [
+    0.2783203125,
+    0.143798828125
+  ],
   "albedoDryMeanLinearRGB": [
-    0.142,
-    0.134,
-    0.119
+    0.158,
+    0.156,
+    0.146
   ],
   "clearLayerIOR": 1.333,
   "assumptions": [
     "Physical scale and neutral mineral reflectance inferred.",
-    "Wet-basin contours authored, not pixel-exact measurements.",
+    "Damp contours coarsely manually observed; not pixel-exact recovered material state.",
     "Original UV layout is not used to depict an assembled floor."
   ],
   "records": [
@@ -23,16 +32,19 @@
       "id": "observed-west-01",
       "boundsXZ": [
         [
-          -3.5396550471033565,
-          5.2232091412286525
+          -3.694655047103357,
+          5.068209141228653
         ],
         [
-          -1.0900217536516312,
-          9.768983249480202
+          -0.9350217536516312,
+          9.923983249480202
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -40,16 +52,19 @@
       "id": "observed-west-02",
       "boundsXZ": [
         [
-          -2.9851289116104605,
-          9.132053166113245
+          -3.1401289116104607,
+          8.977053166113246
         ],
         [
-          -0.9814334395773386,
-          12.000755534382282
+          -0.8264334395773387,
+          12.155755534382282
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -57,16 +72,19 @@
       "id": "observed-west-03",
       "boundsXZ": [
         [
-          -2.642926420594697,
-          11.544231919633365
+          -2.797926420594697,
+          11.389231919633366
         ],
         [
-          -0.9107135467524121,
-          13.454233269472041
+          -0.7557135467524121,
+          13.60923326947204
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -74,16 +92,19 @@
       "id": "observed-west-04",
       "boundsXZ": [
         [
-          -2.379058291303437,
-          13.40423326947204
+          -2.5340582913034373,
+          13.249233269472041
         ],
         [
-          -0.8401372731188645,
-          15.374219880388585
+          -0.6851372731188645,
+          15.529219880388585
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -91,16 +112,19 @@
       "id": "observed-west-05",
       "boundsXZ": [
         [
-          -2.2000302310073896,
-          15.126143353772676
+          -2.35503023100739,
+          14.971143353772677
         ],
         [
-          -0.7913335930005467,
-          16.701895706363086
+          -0.6363335930005467,
+          16.856895706363087
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -108,16 +132,19 @@
       "id": "observed-west-06",
       "boundsXZ": [
         [
-          -2.056821870900799,
-          16.44457104693017
+          -2.211821870900799,
+          16.28957104693017
         ],
         [
-          -0.7547241623702898,
-          17.69783404405904
+          -0.5997241623702898,
+          17.85283404405904
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -125,16 +152,19 @@
       "id": "observed-west-07",
       "boundsXZ": [
         [
-          -1.9248905371720721,
-          17.524335656249804
+          -2.0798905371720724,
+          17.369335656249802
         ],
         [
-          -0.7212343300781494,
-          18.60890551740735
+          -0.5662343300781494,
+          18.763905517407352
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -142,16 +172,19 @@
       "id": "observed-west-08",
       "boundsXZ": [
         [
-          -1.813154829559595,
-          18.382955410278694
+          -1.968154829559595,
+          18.227955410278692
         ],
         [
-          -0.6689043457122057,
-          19.641397815166183
+          -0.5139043457122057,
+          19.796397815166184
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -159,16 +192,19 @@
       "id": "observed-west-09",
       "boundsXZ": [
         [
-          -1.6830871624775179,
-          19.44082968584347
+          -1.838087162477518,
+          19.28582968584347
         ],
         [
-          -0.6303467436983258,
-          20.533048366581152
+          -0.4753467436983258,
+          20.688048366581153
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -176,16 +212,19 @@
       "id": "observed-west-10",
       "boundsXZ": [
         [
-          -1.5806624671484355,
-          20.346367364733222
+          -1.7356624671484355,
+          20.19136736473322
         ],
         [
-          -0.6168381351116499,
-          21.013110131383055
+          -0.4618381351116499,
+          21.168110131383056
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -193,16 +232,19 @@
       "id": "observed-west-11",
       "boundsXZ": [
         [
-          -1.5060075532679047,
-          20.900673790614242
+          -1.6610075532679047,
+          20.74567379061424
         ],
         [
-          -0.5995173496690449,
-          21.400584783943895
+          -0.44451734966904494,
+          21.555584783943896
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -210,16 +252,19 @@
       "id": "observed-centre-01",
       "boundsXZ": [
         [
-          -1.335140135349895,
-          5.708793016199616
+          -1.490140135349895,
+          5.5537930161996165
         ],
         [
-          0.20489821164050875,
-          10.044535393563413
+          0.3598982116405087,
+          10.199535393563412
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -227,16 +272,19 @@
       "id": "observed-centre-02",
       "boundsXZ": [
         [
-          -1.133249272461098,
-          9.85817535269962
+          -1.288249272461098,
+          9.70317535269962
         ],
         [
-          0.20352077544395636,
-          13.146891851603108
+          0.35852077544395633,
+          13.301891851603107
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -244,16 +292,19 @@
       "id": "observed-centre-03",
       "boundsXZ": [
         [
-          -0.9834995947634723,
-          12.935920717913861
+          -1.1384995947634722,
+          12.780920717913862
         ],
         [
-          0.2031369717463018,
-          15.073351208268262
+          0.35813697174630177,
+          15.228351208268261
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -261,16 +312,19 @@
       "id": "observed-centre-04",
       "boundsXZ": [
         [
-          -0.9070470684985623,
-          14.864198699744582
+          -1.0620470684985623,
+          14.709198699744583
         ],
         [
-          0.20384016543451308,
-          16.42254220632228
+          0.3588401654345131,
+          16.57754220632228
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -278,16 +332,19 @@
       "id": "observed-centre-05",
       "boundsXZ": [
         [
-          -0.8543065075007119,
-          16.29897508782476
+          -1.009306507500712,
+          16.14397508782476
         ],
         [
-          0.20421403106365194,
-          17.13986397666025
+          0.3592140310636519,
+          17.294863976660253
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -295,16 +352,19 @@
       "id": "observed-centre-06",
       "boundsXZ": [
         [
-          -0.8296123023056384,
-          16.970766624849603
+          -0.9846123023056383,
+          16.8157666248496
         ],
         [
-          0.26314624309295,
-          18.740784757916373
+          0.41814624309294995,
+          18.895784757916374
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -312,16 +372,19 @@
       "id": "observed-centre-07",
       "boundsXZ": [
         [
-          -0.7664276399847116,
-          18.674705745971508
+          -0.9214276399847117,
+          18.519705745971507
         ],
         [
-          0.3462147433326479,
-          19.86456609782449
+          0.5012147433326479,
+          20.01956609782449
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -329,16 +392,19 @@
       "id": "observed-centre-08",
       "boundsXZ": [
         [
-          -0.7084060385475177,
-          19.740086729214518
+          -0.8634060385475177,
+          19.585086729214517
         ],
         [
-          0.41141948167793657,
-          20.942091770808837
+          0.5664194816779365,
+          21.097091770808838
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -346,16 +412,19 @@
       "id": "observed-centre-09",
       "boundsXZ": [
         [
-          -0.6675044937826835,
-          20.85713067946523
+          -0.8225044937826835,
+          20.702130679465228
         ],
         [
-          0.45853345068768586,
-          21.400584783943895
+          0.6135334506876858,
+          21.555584783943896
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -363,16 +432,19 @@
       "id": "observed-east-01",
       "boundsXZ": [
         [
-          0.15347266707891866,
-          5.4693135034978315
+          -0.0015273329210813424,
+          5.314313503497832
         ],
         [
-          2.9162907296064313,
-          10.17814893515672
+          3.0712907296064316,
+          10.33314893515672
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -380,16 +452,19 @@
       "id": "observed-east-02",
       "boundsXZ": [
         [
-          0.15246171183995422,
-          9.994535393563412
+          -0.002538288160045782,
+          9.839535393563413
         ],
         [
-          2.3908421577399523,
-          12.985920717913862
+          2.5458421577399526,
+          13.140920717913861
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -397,16 +472,19 @@
       "id": "observed-east-03",
       "boundsXZ": [
         [
-          0.15246171183995422,
-          12.598183719860314
+          -0.002538288160045782,
+          12.443183719860315
         ],
         [
-          2.088518132989106,
-          14.967928380932836
+          2.2435181329891063,
+          15.122928380932835
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -414,16 +492,19 @@
       "id": "observed-east-04",
       "boundsXZ": [
         [
-          0.15308202573281507,
-          14.64217744696121
+          -0.0019179742671849298,
+          14.48717744696121
         ],
         [
-          1.8817250656456437,
-          16.34897508782476
+          2.0367250656456437,
+          16.50397508782476
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -431,16 +512,19 @@
       "id": "observed-east-05",
       "boundsXZ": [
         [
-          0.1538018225064453,
-          16.185630588366326
+          -0.0011981774935546918,
+          16.030630588366325
         ],
         [
-          1.7400253517793025,
-          17.39201985642437
+          1.8950253517793025,
+          17.54701985642437
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -448,16 +532,19 @@
       "id": "observed-east-06",
       "boundsXZ": [
         [
-          0.15431718527629312,
-          17.287782043104098
+          -0.000682814723706876,
+          17.132782043104097
         ],
         [
-          1.6258592884735172,
-          18.396173664445186
+          1.7808592884735173,
+          18.551173664445187
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -465,16 +552,19 @@
       "id": "observed-east-07",
       "boundsXZ": [
         [
-          0.1895388000387552,
-          18.27092098243304
+          0.0345388000387552,
+          18.11592098243304
         ],
         [
-          1.5234811081928366,
-          19.14932371733011
+          1.6784811081928366,
+          19.30432371733011
         ]
       ],
       "size": 512,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -482,16 +572,19 @@
       "id": "observed-east-08",
       "boundsXZ": [
         [
-          0.23154703773168292,
-          19.018047100185974
+          0.07654703773168292,
+          18.863047100185973
         ],
         [
-          1.4533653524718575,
-          19.589005078061646
+          1.6083653524718575,
+          19.744005078061647
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -499,16 +592,19 @@
       "id": "observed-east-09",
       "boundsXZ": [
         [
-          0.2728911879003353,
-          19.517626792342007
+          0.11789118790033531,
+          19.362626792342006
         ],
         [
-          1.4184025197495596,
-          20.44129270872779
+          1.5734025197495596,
+          20.59629270872779
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -516,16 +612,19 @@
       "id": "observed-east-10",
       "boundsXZ": [
         [
-          0.33262430925360986,
-          20.346367364733222
+          0.1776243092536099,
+          20.19136736473322
         ],
         [
-          1.3575093866548587,
-          21.052931811415576
+          1.5125093866548587,
+          21.207931811415577
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     },
@@ -533,16 +632,19 @@
       "id": "observed-east-11",
       "boundsXZ": [
         [
-          0.3728488146453231,
-          20.971186385508926
+          0.21784881464532313,
+          20.816186385508924
         ],
         [
-          1.311230273089222,
-          21.400584783943895
+          1.466230273089222,
+          21.555584783943896
         ]
       ],
       "size": 1024,
-      "physicalGraniteRepeatMetres": 0.82,
+      "physicalGraniteRepeatMetres": [
+        0.2783203125,
+        0.143798828125
+      ],
       "source": "CC0 Granite Tile 04; per-stone authored damp/roughness fields",
       "referenceRGBUsed": false
     }

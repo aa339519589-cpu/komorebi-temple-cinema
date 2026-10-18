@@ -32,19 +32,19 @@ export function createTracedPaving04(){
 }
 
 export function tracedSlabGeometry(record){
- const {outline,top,thickness}=record,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,seed=739+record.column*139+record.row*31,isCurb=record.id.includes('curb'),gap=isCurb?.019:.025,bevel=isCurb?.009:.011;
+ const {outline,top,thickness}=record,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,seed=739+record.column*139+record.row*31,isCurb=record.id.includes('curb'),gap=isCurb?.019:.025,bevel=isCurb?.007:.006;
  const points=outline.map(([x,z])=>{const d=Math.hypot(x-cx,z-cz);return[x+(cx-x)*gap/d,z+(cz-z)*gap/d];});
  // Each arris has different sparse chips and a round, eroded corner. The
  // resulting perimeter is extruded through the whole stone, not a decal.
  const boundary=[];
  for(let j=0;j<points.length;j++){
-  const prev=points[(j+points.length-1)%points.length],a=points[j],b=points[(j+1)%points.length],pl=Math.hypot(prev[0]-a[0],prev[1]-a[1]),len=Math.hypot(b[0]-a[0],b[1]-a[1]),r=Math.min(isCurb?.027:.048,pl*.19,len*.19)*( .65+.45*hash(j,3,seed)),enter=[a[0]+(prev[0]-a[0])*r/pl,a[1]+(prev[1]-a[1])*r/pl],leave=[a[0]+(b[0]-a[0])*r/len,a[1]+(b[1]-a[1])*r/len];
+  const prev=points[(j+points.length-1)%points.length],a=points[j],b=points[(j+1)%points.length],pl=Math.hypot(prev[0]-a[0],prev[1]-a[1]),len=Math.hypot(b[0]-a[0],b[1]-a[1]),r=Math.min(isCurb?.025:.028,pl*.19,len*.19)*( .65+.45*hash(j,3,seed)),enter=[a[0]+(prev[0]-a[0])*r/pl,a[1]+(prev[1]-a[1])*r/pl],leave=[a[0]+(b[0]-a[0])*r/len,a[1]+(b[1]-a[1])*r/len];
   for(let k=0;k<5;k++){const t=k/4;boundary.push([(1-t)**2*enter[0]+2*(1-t)*t*a[0]+t*t*leave[0],(1-t)**2*enter[1]+2*(1-t)*t*a[1]+t*t*leave[1]]);}
-  const nextR=Math.min(isCurb?.027:.048,len*.19)*( .65+.45*hash((j+1)%points.length,3,seed)),end=[b[0]+(a[0]-b[0])*nextR/len,b[1]+(a[1]-b[1])*nextR/len],n=Math.max(2,Math.ceil(len/.028));
+  const nextR=Math.min(isCurb?.025:.028,len*.19)*( .65+.45*hash((j+1)%points.length,3,seed)),end=[b[0]+(a[0]-b[0])*nextR/len,b[1]+(a[1]-b[1])*nextR/len],n=Math.max(2,Math.ceil(len/.028));
   for(let k=1;k<n;k++){const t=k/n,x=T.MathUtils.lerp(leave[0],end[0],t),z=T.MathUtils.lerp(leave[1],end[1],t),rr=Math.hypot(cx-x,cz-z),chip=(.0015+.003*noise(t*31,j,seed)+.011*Math.pow(noise(t*14,j*7,seed+43),7))*Math.sin(Math.PI*t);boundary.push([x+(cx-x)/rr*chip,z+(cz-z)/rr*chip]);}
  }
  const shape=new T.Shape();boundary.forEach(([x,z],i)=>i?shape.lineTo(x,-z):shape.moveTo(x,-z));shape.closePath();
- const raw=new T.ExtrudeGeometry(shape,{depth:thickness,steps:1,bevelEnabled:true,bevelSize:bevel,bevelThickness:.010,bevelSegments:4,curveSegments:1});raw.rotateX(-Math.PI/2);raw.translate(0,top-thickness,0);
+ const raw=new T.ExtrudeGeometry(shape,{depth:thickness,steps:1,bevelEnabled:true,bevelSize:bevel,bevelThickness:.004,bevelSegments:4,curveSegments:1});raw.rotateX(-Math.PI/2);raw.translate(0,top-thickness,0);
  const p=raw.attributes.position,n=raw.attributes.normal,vertices=[],cache=new Map(),vertex=q=>{const key=q.x.toFixed(6)+':'+q.y.toFixed(6)+':'+q.z.toFixed(6);if(cache.has(key))return cache.get(key);const i=vertices.length;vertices.push(q);cache.set(key,i);return i;};
  let faces=[];
  for(let i=0;i<p.count;i+=3)faces.push({v:[0,1,2].map(k=>vertex(new T.Vector3().fromBufferAttribute(p,i+k))),top:[0,1,2].every(k=>n.getY(i+k)>.99)});
@@ -59,11 +59,11 @@ export function tracedSlabGeometry(record){
  }
  const edgeDistance=(x,z)=>{let d=Infinity;for(let i=0;i<points.length;i++){const a=points[i],b=points[(i+1)%points.length],dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));}return d;};
  const extentX=Math.max(...points.map(p=>Math.abs(p[0]-cx))),extentZ=Math.max(...points.map(p=>Math.abs(p[1]-cz))),tiltX=.004*(hash(2,3,seed)-.5),tiltZ=.005*(hash(4,7,seed)-.5);
- const field=(x,z)=>{const e=edgeDistance(x,z),round=-.008*(1-T.MathUtils.smoothstep(e,.002,.046)),wear=.0032*(noise(x*14,z*14,seed)-.5)+.0012*(noise(x*38,z*38,seed+17)-.5)-.004*T.MathUtils.smoothstep(noise(x*21,z*21,seed+33),.65,.82),basin=-.004*Math.exp(-((x-cx)**2/(extentX*extentX*.44)+(z-cz)**2/(extentZ*extentZ*.58)));return round+wear*T.MathUtils.smoothstep(e,.005,.028)+basin+tiltX*(x-cx)/extentX+tiltZ*(z-cz)/extentZ;};
+ const field=(x,z)=>{const e=edgeDistance(x,z),round=-.003*(1-T.MathUtils.smoothstep(e,.002,.030))*(.18+.82*noise(x*11,z*11,seed+79)),wear=.0017*(noise(x*14,z*14,seed)-.5)+.0009*(noise(x*38,z*38,seed+17)-.5)-.0024*T.MathUtils.smoothstep(noise(x*21,z*21,seed+33),.65,.82),basin=-.0018*Math.exp(-((x-cx)**2/(extentX*extentX*.44)+(z-cz)**2/(extentZ*extentZ*.58)));return round+wear*T.MathUtils.smoothstep(e,.005,.028)+basin+tiltX*(x-cx)/extentX+tiltZ*(z-cz)/extentZ;};
  for(const q of vertices)q.y+=field(q.x,q.z)*T.MathUtils.smoothstep(q.y,top-thickness+.01,top-.02);
  const smooth=new T.BufferGeometry();smooth.setAttribute('position',new T.Float32BufferAttribute(vertices.flatMap(q=>[q.x,q.y,q.z]),3));smooth.setIndex(faces.flatMap(f=>f.v));smooth.computeVertexNormals();
- const positions=[],uv=[],flags=[],bevelNormals=[];for(const f of faces)for(const i of f.v){const q=vertices[i];positions.push(q.x,q.y,q.z);uv.push(q.x,q.z);flags.push(f.top);bevelNormals.push(smooth.attributes.normal.getX(i),smooth.attributes.normal.getY(i),smooth.attributes.normal.getZ(i));}smooth.dispose();
+ const positions=[],uv=[],flags=[],bevelNormals=[];for(const f of faces)for(const i of f.v){const q=vertices[i];positions.push(q.x,q.y,q.z);const nx=smooth.attributes.normal.getX(i),ny=smooth.attributes.normal.getY(i),nz=smooth.attributes.normal.getZ(i),bend=f.top?0:1-Math.abs(ny);uv.push(q.x+(q.y-top)*nx*bend,q.z+(q.y-top)*nz*bend);flags.push(f.top);bevelNormals.push(smooth.attributes.normal.getX(i),smooth.attributes.normal.getY(i),smooth.attributes.normal.getZ(i));}smooth.dispose();
  raw.dispose();const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();
- const nn=g.attributes.normal;for(let i=0;i<flags.length;i++)nn.setXYZ(i,bevelNormals[i*3],bevelNormals[i*3+1],bevelNormals[i*3+2]);for(let i=0;i<flags.length;i++)if(flags[i]){const x=positions[i*3],z=positions[i*3+2],e=.0015,dx=(field(x+e,z)-field(x-e,z))/(2*e),dz=(field(x,z+e)-field(x,z-e))/(2*e),q=new T.Vector3(-dx,1,-dz).normalize();nn.setXYZ(i,q.x,q.y,q.z);}
+ const nn=g.attributes.normal;for(let i=0;i<flags.length;i++)if(positions[i*3+1]>top-.014)nn.setXYZ(i,bevelNormals[i*3],bevelNormals[i*3+1],bevelNormals[i*3+2]);for(let i=0;i<flags.length;i++)if(flags[i]){const x=positions[i*3],z=positions[i*3+2],e=.0015,dx=(field(x+e,z)-field(x-e,z))/(2*e),dz=(field(x,z+e)-field(x,z-e))/(2*e),q=new T.Vector3(-dx,1,-dz).normalize();nn.setXYZ(i,q.x,q.y,q.z);}
  g.userData.observedSlab=record.id;g.userData.referenceBitmapUsed=false;g.userData.surface={thickness,nominalSeam:.028,topSpacing:spacing,individualRoundCorners:true,actualClosedBevel:true};return g;
 }

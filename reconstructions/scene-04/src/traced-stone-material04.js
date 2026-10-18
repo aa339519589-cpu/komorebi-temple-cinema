@@ -15,5 +15,5 @@ export function tracedStoneMaterial04(record){
  // incidence Fresnel reflectance is ((1.333-1)/(1.333+1))^2 instead.
  const waterF0=((1.333-1)/(1.333+1))**2;
  m.onBeforeCompile=shader=>{const old='material.clearcoatF0 = vec3( 0.04 );';if(!shader.fragmentShader.includes('#include <lights_physical_fragment>'))throw Error('Pinned physical shader changed');shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',T.ShaderChunk.lights_physical_fragment.replace(old,`material.clearcoatF0 = vec3( ${waterF0.toFixed(9)} );`));};
- m.customProgramCacheKey=()=> 'traced-stone04-water-film79';m.userData.maps={map,normalMap,roughnessMap,clearcoatMap:coat};m.userData.physicalTextureRepeatMetres=.82;m.userData.waterLayerIOR=1.333;m.userData.referenceRGBUsed=false;m.userData.materialHypotheses=data.record;return m;
+ m.customProgramCacheKey=()=> 'traced-stone04-water-film80';m.userData.maps={map,normalMap,roughnessMap,clearcoatMap:coat};m.userData.physicalTextureRepeatMetres=data.record.physicalGraniteRepeatMetres;m.userData.waterLayerIOR=1.333;m.userData.referenceRGBUsed=false;m.userData.materialHypotheses=data.record;return m;
 }
