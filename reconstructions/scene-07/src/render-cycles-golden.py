@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 from mathutils import Matrix, Vector
 ROOT=Path(os.environ.get('SCENE_PACKAGE','qa/ten-reference/07/cycles-61/export')).resolve()
-OUT=Path(os.environ.get('CYCLES_OUTPUT','qa/ten-reference/07/cycles-61/render')).resolve();OUT.mkdir(parents=True,exist_ok=True)
+OUT=Path(os.environ.get('CYCLES_OUTPUT','qa/ten-reference/07/cycles-62/render')).resolve();OUT.mkdir(parents=True,exist_ok=True)
 MODE=os.environ.get('LIGHTING_MODE','golden-hour07')
 scene_data=json.loads((ROOT/'scene.json').read_text())
 report={'sourceStatistics':scene_data['statistics'],'lightingMode':MODE,'blender':bpy.app.version_string,'scope':scene_data.get('renderingScope'),'geometryRebuilt':False,'excluded':scene_data['excluded'],'warnings':[],'status':'importing','started':time.time()}
@@ -37,6 +37,8 @@ def linear_hex(c):
     return np.array([x/12.92 if x<=.04045 else ((x+.055)/1.055)**2.4 for x in v])
 leaf_colors=[linear_hex(c) for c in [0x314f18,0x8a9c3c,0x606325,0x58763b,0xffd2d7,0xeaaabb,0xeee1c3]]
 leaf_ids={r['id'] for r in scene_data['materials'] if r.get('color') and any(np.max(np.abs(np.array(r['color'])-c))<.00001 for c in leaf_colors)}
+paper_ids={r['id'] for r in scene_data['materials'] if .1<float(r.get('emissiveIntensity') or 0)<=.7 and float(r.get('metalness') or 0)==0 and any(float(c)>0 for c in (r.get('emissive') or [0,0,0]))}
+report['thinMaterialSelection']={'foliageSourcePaletteIds':list(leaf_ids),'paperNonzeroEmissionIds':list(paper_ids),'defaultIntensityOneNotPaper':True}
 report['scannedTimber']={'materials':list(scanned_ids),'uv':'Exact source shader metric projection from per-member dimensions, normals and instance translation','roughness':'Source shader clamp(.36 + .72 * mapG * .9, .42, .94)','maps':'Original CC0 cherry albedo/OpenGL normal/roughness and source linear color gains'}
 for rec in scene_data['materials']:
     mat=bpy.data.materials.new(rec['name'] or rec['id']);mat.use_nodes=True;n=mat.node_tree.nodes;n.clear();links=mat.node_tree.links
@@ -87,7 +89,7 @@ for rec in scene_data['materials']:
         emul=n.new('ShaderNodeMixRGB');emul.blend_type='MULTIPLY';emul.inputs[0].default_value=1;emul.inputs[2].default_value=emission;links.new(tex_nodes['emissiveMap'].outputs['Color'],emul.inputs[1])
         for name in ['Emission Color','Emission']:
             if name in bs.inputs:links.new(emul.outputs[0],bs.inputs[name]);break
-    if rec['id'] in leaf_ids or (.1<float(rec.get('emissiveIntensity') or 0)<=.7 and float(rec.get('metalness') or 0)==0):
+    if rec['id'] in leaf_ids or rec['id'] in paper_ids:
         trans=n.new('ShaderNodeBsdfTranslucent')
         if base_socket:links.new(base_socket,trans.inputs['Color'])
         else:trans.inputs['Color'].default_value=color
@@ -174,9 +176,9 @@ hdri_path=Path(os.environ.get('TEMPLE_SKY_EXR','/Users/mima1234/temple-cinema-li
 env=wn.new('ShaderNodeTexEnvironment');env.image=bpy.data.images.load(str(hdri_path));env.image.colorspace_settings.name='Linear Rec.709';env.projection='EQUIRECTANGULAR'
 pixels=np.empty(env.image.size[0]*env.image.size[1]*4,dtype=np.float32);env.image.pixels.foreach_get(pixels);rgb=pixels.reshape(env.image.size[1],env.image.size[0],4)[:,:,:3];luma=rgb@np.asarray([.2126,.7152,.0722],dtype=np.float32);sun_y,sun_x=np.unravel_index(np.argmax(luma),luma.shape)
 measured_azimuth=math.pi-2*math.pi*((sun_x+.5)/env.image.size[0]);measured_altitude=math.pi*((sun_y+.5)/env.image.size[1]-.5)
-# The visible source07 sky sun is the photo anchor. Old key/fill directions
-# were proxy lights and are not duplicated when the measured sun is present.
-target_yup=Vector((-.58,.035,-.81)).normalized();target=Vector((target_yup.x,-target_yup.z,target_yup.y));target_azimuth=math.atan2(target.y,target.x);target_altitude=math.asin(target.z)
+# Coherent physical calibration uses the authored key bearing/elevation.
+# The separate old background sun was only2 degrees and was hill-occluded.
+primary=max((r for r in scene_data['lights'] if r['type']=='DirectionalLight'),key=lambda r:r['intensity']);primary_matrix=Matrix(np.array(primary['matrix']).reshape(4,4).T.tolist());target_yup=(primary_matrix.translation-Vector(primary['target'])).normalized();target=Vector((target_yup.x,-target_yup.z,target_yup.y));target_azimuth=math.atan2(target.y,target.x);target_altitude=math.asin(target.z)
 tilt_axis=Vector((math.sin(measured_azimuth),-math.cos(measured_azimuth),0));yaw=Matrix.Rotation(measured_azimuth-target_azimuth,4,'Z');tilt=Matrix.Rotation(measured_altitude-target_altitude,4,tilt_axis);lookup=tilt@yaw
 uv=wn.new('ShaderNodeTexCoord');outward=wn.new('ShaderNodeVectorMath');outward.operation='MULTIPLY';outward.inputs[1].default_value=(-1,-1,-1);mapping=wn.new('ShaderNodeMapping');mapping.inputs['Rotation'].default_value=lookup.to_euler('XYZ');wl.new(uv.outputs['Normal'],outward.inputs[0]);wl.new(outward.outputs[0],mapping.inputs['Vector']);wl.new(mapping.outputs[0],env.inputs['Vector']);wl.new(env.outputs[0],background.inputs['Color'])
 report['measuredSky']={'file':str(hdri_path),'sha256':hashlib.sha256(hdri_path.read_bytes()).hexdigest(),'provider':'Poly Haven','asset':'qwantani_sunset_puresky','license':'CC0-1.0','maximumLuminance':float(luma.max()),'meanLuminance':float(luma.mean()),'sunPixel':[int(sun_x),int(sun_y)],'measuredAzimuthDegrees':math.degrees(measured_azimuth),'measuredAltitudeDegrees':math.degrees(measured_altitude),'targetDirectionYUp':list(target_yup),'targetAzimuthDegrees':math.degrees(target_azimuth),'targetAltitudeDegrees':math.degrees(target_altitude),'lookupEuler':list(mapping.inputs['Rotation'].default_value),'mappingFormula':'phi = pi - 2*pi*u; World TextureCoordinate Normal is -ray_D, multiplied by(-1,-1,-1) BEFORE Mapping','radianceUse':'Same measured environment for camera, GI and reflections; no projected frame','sourceURL':'https://polyhaven.com/a/qwantani_sunset_puresky'}
@@ -192,8 +194,8 @@ water=bpy.data.materials.new('physical green pond water IOR1.333');water.use_nod
 geo=n.new('ShaderNodeNewGeometry');noise=n.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=9;noise.inputs['Detail'].default_value=3;l.new(geo.outputs['Position'],noise.inputs['Vector']);bump=n.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.24;bump.inputs['Distance'].default_value=.003;l.new(noise.outputs['Fac'],bump.inputs['Height']);l.new(bump.outputs[0],bs.inputs['Normal']);absorption=n.new('ShaderNodeVolumeAbsorption');absorption.inputs['Color'].default_value=(.10,.28,.22,1);absorption.inputs['Density'].default_value=.50;l.new(absorption.outputs[0],n.get('Material Output').inputs['Volume']);mesh.materials.append(water)
 report['physicalSurfaceReplacement']={'source':'Only the existing irregular pond Reflector','sourceYUpTop':.015,'planTransform':'(x,z)->(x,z*.6-3)','footprint':outline,'closureDepth':.30,'bed':'Existing source soil box top atY=-.3 retained','wetDeck':'No source wet-deck reflector or floor footprint exists; no visible deck plane is invented'}
 # Physical finite atmospheric transport, not a color overlay.
-haze=bpy.data.materials.new('inferred atmospheric scattering');haze.use_nodes=True;hn=haze.node_tree.nodes;hl=haze.node_tree.links;hn.clear();scatter=hn.new('ShaderNodeVolumeScatter');scatter.inputs['Density'].default_value=.0008;scatter.inputs['Anisotropy'].default_value=.35;out=hn.new('ShaderNodeOutputMaterial');hl.new(scatter.outputs[0],out.inputs['Volume']);bpy.ops.mesh.primitive_cube_add(size=1,location=(0,60,45));air=bpy.context.object;air.name='finite atmospheric transport - inferred density';air.dimensions=(600,600,110);bpy.ops.object.transform_apply(location=False,rotation=False,scale=True);air.data.materials.append(haze)
-report['addedPhysicalContext']={'kind':'Finite atmospheric transport','density':.0008,'anisotropy':.35,'inferredNotRecovered':True}
+haze=bpy.data.materials.new('inferred atmospheric scattering');haze.use_nodes=True;hn=haze.node_tree.nodes;hl=haze.node_tree.links;hn.clear();scatter=hn.new('ShaderNodeVolumeScatter');scatter.inputs['Density'].default_value=.0002;scatter.inputs['Anisotropy'].default_value=.35;out=hn.new('ShaderNodeOutputMaterial');hl.new(scatter.outputs[0],out.inputs['Volume']);bpy.ops.mesh.primitive_cube_add(size=1,location=(0,60,45));air=bpy.context.object;air.name='finite atmospheric transport - inferred density';air.dimensions=(600,600,110);bpy.ops.object.transform_apply(location=False,rotation=False,scale=True);air.data.materials.append(haze)
+report['addedPhysicalContext']={'kind':'Finite atmospheric transport','density':.0002,'anisotropy':.35,'inferredNotRecovered':True}
 scene.cycles.seed=73067;scene.cycles.use_animated_seed=False
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','32'))
 if os.environ.get('CYCLES_DEVICE')=='METAL':
@@ -221,13 +223,13 @@ scene.render.resolution_x=int(os.environ.get('CYCLES_SIZE','640'));scene.render.
 try:scene.view_settings.view_transform='AgX'
 except:scene.view_settings.view_transform='Filmic'
 scene.view_settings.exposure=float(os.environ.get('CYCLES_EXPOSURE','0'));scene.view_settings.gamma=1
-render_name=os.environ.get('CYCLES_RENDER_NAME','scene07-cycles61.png')
+render_name=os.environ.get('CYCLES_RENDER_NAME','scene07-cycles62.png')
 if Path(render_name).name!=render_name:raise ValueError('CYCLES_RENDER_NAME must be a filename')
 scene.render.filepath=str(OUT/render_name);scene.render.film_transparent=False
 report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['status']='rendering';report['materialTransfer']='Original portable PBR values, source scanned timber metric UV/roughness response and physical thin-leaf transmission. Measured world transport and physical source-footprint pond replace the GLSL approximations.';report['lightCalibration']={'transfer':'Source positions/colors; area*pi and point*4pi power conversion','sunGain':float(os.environ.get('CYCLES_SUN_GAIN','.28')),'worldGain':float(os.environ.get('CYCLES_WORLD_GAIN','1.0')),'exposure':scene.view_settings.exposure,'nativeWebglPixelEquivalence':False}
 (OUT/'report.json').write_text(json.dumps(report,indent=2));
 if os.environ.get('CYCLES_SAVE_BLEND','1')=='1':
-    blend_name=os.environ.get('CYCLES_BLEND_NAME','scene07-cycles61.blend')
+    blend_name=os.environ.get('CYCLES_BLEND_NAME','scene07-cycles62.blend')
     if Path(blend_name).name!=blend_name:raise ValueError('CYCLES_BLEND_NAME must be a filename')
     bpy.ops.file.pack_all()
     bpy.ops.wm.save_as_mainfile(filepath=str(OUT/blend_name),compress=True)

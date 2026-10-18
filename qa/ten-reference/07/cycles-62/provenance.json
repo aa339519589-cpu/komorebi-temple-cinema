@@ -1,0 +1,71 @@
+{
+  "nativeSourceHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+  "geometryExport": "../cycles-61/export/",
+  "servedSourceProof": "../cycles-61/served-source-proof.json",
+  "namespaceProofIncluding09": "../cycles-61/namespace-receipt-proof.json",
+  "scriptSha256": "6be504848f74148207664c40b11428dfdae616c894b6330b84d6d980e47f0473",
+  "renderSha256": "908eb402bd6dab827eaf2fff68e6fea352a982c6bcaa407cb94010b7c39efcf3",
+  "editablePackedBlend": {
+    "file": "render/scene07-cycles62.blend",
+    "bytes": 918607620,
+    "sha256": "e8538117b244b87ea02f9e2b8f5aa716b9b4142e48b2683c0d23fbac1b16b983",
+    "primaryAgentArchivesLargeFiles": true
+  },
+  "measuredSky": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "provider": "Poly Haven",
+    "asset": "qwantani_sunset_puresky",
+    "license": "CC0-1.0",
+    "maximumLuminance": 58971.4765625,
+    "meanLuminance": 0.835347056388855,
+    "sunPixel": [
+      1228,
+      546
+    ],
+    "measuredAzimuthDegrees": -35.947265624999986,
+    "measuredAltitudeDegrees": 6.064453125,
+    "targetDirectionYUp": [
+      -0.816849946975708,
+      0.30031248927116394,
+      -0.49251246452331543
+    ],
+    "targetAzimuthDegrees": 148.9124948568817,
+    "targetAltitudeDegrees": 17.47637291429879,
+    "lookupEuler": [
+      -0.1038506031036377,
+      -0.17026591300964355,
+      3.0656442642211914
+    ],
+    "mappingFormula": "phi = pi - 2*pi*u; World TextureCoordinate Normal is -ray_D, multiplied by(-1,-1,-1) BEFORE Mapping",
+    "radianceUse": "Same measured environment for camera, GI and reflections; no projected frame",
+    "sourceURL": "https://polyhaven.com/a/qwantani_sunset_puresky"
+  },
+  "thinMaterialSelection": {
+    "foliageSourcePaletteIds": [
+      "8a4382d2-1c2d-4738-8df6-97ad26f61c86",
+      "db6dbe86-6038-4cf7-bcd4-716f80129ad8",
+      "01d72d09-9b28-49bb-b10a-14aa39e8100d",
+      "c652b448-e780-45ba-9257-4c1b8b0a40e4",
+      "1c9c56d5-99d2-4e94-9565-23ca26ae7e4d",
+      "7620bb9c-1d58-479e-a249-6d9352ab1fa4",
+      "ad43bd51-9a89-4bd1-b98c-a4bd0128446c",
+      "893ed128-2f92-4281-b2e5-7550b2f3ac08",
+      "05554136-9365-4450-bfb7-23b99158bca0",
+      "5acb821a-1e71-474d-bf4c-d5d72d15150c",
+      "0970e0d4-5436-4592-b095-d0de87814788"
+    ],
+    "paperNonzeroEmissionIds": [
+      "83ac4670-916d-4cd7-aaf7-9c521932ee89",
+      "94f8a532-ff8f-4d0d-81e6-515f7822d26e"
+    ],
+    "defaultIntensityOneNotPaper": true
+  },
+  "inspection": [
+    "Exact source geometry/camera retained, coherent measured lighting and physical pond reflections.",
+    "Authored key elevation adds directional sun highlights and foliage separation compared61, but the full frame is still substantially cooler/flatter than the reference golden scene.",
+    "Actual model gaps include the broad roof planes, exposed foundation boxes, simple stone forms, incomplete veranda floor context and sparse crown/bank layering.",
+    "Path tracing is not treated as photographic fidelity."
+  ],
+  "photographicAcceptance": false
+}

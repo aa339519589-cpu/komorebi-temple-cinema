@@ -40,5 +40,25 @@
     "large exposed masonry and rock masses",
     "patchy distant forest",
     "water and sunset detail"
-  ]
+  ],
+  "physicalRendering": {
+    "latestCandidate": "cycles-62",
+    "previousCandidate": "cycles-61",
+    "renderer": "Blender Cycles / Metal / OIDN",
+    "resolution": [
+      1254,
+      1254
+    ],
+    "samples": 128,
+    "nativeGeometryHash": "507652403fc2c3dcaf6dadc9dab2415958e2bcc0dfa05b04cf09f3db76e05f94",
+    "sourceTriangles": 20931362,
+    "measuredSkyAsset": "qwantani_sunset_puresky CC0-1.0",
+    "mappingCorrections": [
+      "phi=pi-2*pi*u",
+      "World Normal multiplied by(-1,-1,-1) before Mapping"
+    ],
+    "duplicateSunAndProxyFillsDisabled": true,
+    "photographicAcceptance": false,
+    "primaryReviewPending": true
+  }
 }
