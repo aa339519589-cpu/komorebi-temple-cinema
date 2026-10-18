@@ -1,7 +1,7 @@
 // Per-stone wetness and recessed joints are rasterised solely from the actual
 // generated quadrilateral layout. R=edge contact, G=wetness, B=paving presence.
 export function createPavingWetMask(T,polygons){
- const width=512,height=1024,data=new Uint8Array(width*height*4),x0=-4.6,z0=-2,spanX=9.2,spanZ=21.4;
+ const width=1024,height=2048,data=new Uint8Array(width*height*4),x0=-4.6,z0=-2,spanX=9.2,spanZ=21.4;
  const inside=(x,z,p)=>{let yes=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const a=p[i],b=p[j];if(((a[1]>z)!==(b[1]>z))&&(x<(b[0]-a[0])*(z-a[1])/(b[1]-a[1])+a[0]))yes=!yes;}return yes;};
  const distance=(x,z,a,b)=>{const dx=b[0]-a[0],dz=b[1]-a[1],t=Math.max(0,Math.min(1,((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz)));return Math.hypot(x-a[0]-dx*t,z-a[1]-dz*t);};
  for(const {points:p,wetness}of polygons){const xmin=Math.min(...p.map(q=>q[0])),xmax=Math.max(...p.map(q=>q[0])),zmin=Math.min(...p.map(q=>q[1])),zmax=Math.max(...p.map(q=>q[1]));
