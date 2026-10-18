@@ -45,3 +45,9 @@ CPU: 116 meshes, approximately 15.80 million instanced triangles, 636,196 parts/
 The nearest red maple canopy cores visibly exposed large polygonal lumps in the upper-right; those cores are removed for red maple and blossom foliage. The raised tower required genuine terrain support, so a smoothly sloping wooded hillside and additional rock/shrub planting now underlie its base. The main hall entrance is moved toward the visible center-right, its lattice and lower panel are removed in the actual open bays, and the recessed Buddha/practical light and carved curved entrance trim are repositioned accordingly. The drain is shifted to the reference's bottom-center to left-midground diagonal.
 
 CPU module syntax, full construction and finite geometry/matrix checks pass; the fourth actual GPU comparison remains required. The scene remains a reconstruction candidate.
+
+## Iteration 05 after actual iteration-04 PNG
+
+The fourth actual image exposed an oversized raised grate resembling ladder rungs. The grate is narrowed to 12.5 cm, set flush with the stone and given thinner denser crossbars. The tower's visible finial was substantially shorter than the source; its mast and ringed portion now extend upward while the roof/column composition remains fixed. Exposed hillside boulders are reduced and more finely branched blossom/maple planting screens the terrain. Only the two near lacquer assemblies receive a physical wet clearcoat, and distant cedar tips receive terminal foliage instead of bare pole ends.
+
+The fourth-frame image/report are retained. Syntax and full CPU checks, including the 0–7 second low camera path, pass. A fifth actual GPU comparison remains necessary; no visual acceptance is asserted.
