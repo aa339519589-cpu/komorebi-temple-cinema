@@ -130,12 +130,15 @@ for rec in scene_data['lights']:
     if MODE=='upper-window' and rec['name']=='production-front-room-bounce':light.energy*=.3
 
 cam_data=bpy.data.cameras.new('source-reference6-camera');camera=bpy.data.objects.new('source-reference6-camera',cam_data);scene.collection.objects.link(camera);camera.matrix_world=Matrix(np.array(scene_data['cameraMatrix']).reshape(4,4).T.tolist());cam_data.sensor_fit='VERTICAL';cam_data.sensor_height=24;cam_data.lens=12/math.tan(math.radians(scene_data['view']['fov'])/2);cam_data.clip_start=.1;cam_data.clip_end=200;scene.camera=camera
+# Light Euler targets must reach matrix_world before the rigid conversion reads it.
+bpy.context.view_layer.update()
 if MODE=='outdoor-day':
     # Rigidly convert the entire recovered world, including every light and
     # the camera, into Blender's ordinary Z-up frame. Distances, silhouette
     # and relative camera pose are preserved by this single shared rotation.
     conversion=Matrix.Rotation(math.pi/2,4,'X')
     for obj in list(scene.objects):obj.matrix_world=conversion@obj.matrix_world
+    bpy.context.view_layer.update()
     report['worldCoordinateConversion']='All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.'
 world=bpy.data.worlds.new('Procedural exterior fill for path-traced review');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.45,.55,.7,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=float(os.environ.get('CYCLES_WORLD_GAIN','.3'))
 if MODE=='outdoor-day':
