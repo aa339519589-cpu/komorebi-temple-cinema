@@ -1,0 +1,38 @@
+{
+  "status": "bounded-candidate-for-primary-review",
+  "visualAccepted": false,
+  "reference": "references/hd/6-照片-7.jpg",
+  "priorNativeComparison": "qa/ten-reference/07/iteration-model64/reference.png",
+  "priorPhysicalComparison": "qa/ten-reference/07/cycles-64/render/scene07-cycles64.png",
+  "sourceRevision": "scene07-solid-curved-roof-67",
+  "sourceHash": "f9dcf6e83f9bb71ff41410f5b95cfc87f5a05e952b5f51e0af37b374833ca2b2",
+  "actualEvidence": [
+    "iteration-mesh65/reference.png",
+    "iteration-mesh65/report.json",
+    "iteration-mesh66/reference.png",
+    "iteration-mesh66/detail-native.png",
+    "iteration-mesh66/report.json",
+    "iteration-mesh67/reference.png",
+    "iteration-mesh67/detail-native.png",
+    "iteration-mesh67/report.json"
+  ],
+  "finalNativeSize": [1254,1254],
+  "finalSubfrustum": [505,120,700,1254],
+  "cameraChanged": false,
+  "lightingChanged": false,
+  "scannedStonesChanged": false,
+  "newExternalDependencies": [],
+  "actualGeometry": "Seven closed curved roof assemblies, individually closed short pan/cover tile courses, closed fascia/purlins/double rafters and caps, bearing receivers, solid gable diaphragm/truss and ridge ornaments. Four-sided recessed pagoda enclosure/column/bracket/veranda construction.",
+  "inspection": [
+    "The pagoda's tier outlines are more compact and its formerly bare visible side now contains real enclosure, veranda and supporting members.",
+    "Main roof eaves have closed thickness and connected timber layers. The main slope tile rolls run continuously to the hip boundary instead of all kinking at the gable shoulder.",
+    "The gray ceramic avoids the previous bright blue body, but remains too dark under the unchanged native lighting to match the photograph's cool highlights."
+  ],
+  "remainingLimits": [
+    "Interpretive architecture, not a measured reconstruction or accepted photographic match.",
+    "Main hall ridge/eave silhouette and detailed gilded carving still differ from the photograph.",
+    "A dedicated close contact/intersection review is still required for the existing hall bracket grid and the narrowed upper roof receivers.",
+    "This pass has actual native GPU evidence only; no new independent Cycles render was requested or run by this worker."
+  ],
+  "verification": "Node syntax checks, git diff whitespace check, and actual shared-queue renders only. No test suite or motion job."
+}

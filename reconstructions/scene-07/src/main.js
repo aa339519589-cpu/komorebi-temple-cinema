@@ -11,6 +11,7 @@ import {Reflector} from 'three/addons/objects/Reflector.js';
 import {createWeatheredBoulderGeometry,createBoulderMossGeometry} from './boulder.js';
 import {installScannedTimber,addTimberExtent} from './scanned-timber.js';
 import {loadScannedGardenStones} from './scanned-garden-stones.js';
+import {createRoofMaterials,buildPhysicalRoof,PHYSICAL_ROOF_REVISION} from './physical-roofs.js';
 const qp=new URLSearchParams(location.search),W=+(qp.get('w')||innerWidth),H=+(qp.get('h')||innerHeight);
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(W,H);renderer.setPixelRatio(1);renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;document.body.append(renderer.domElement);
 const scene=new T.Scene();scene.background=new T.Color(0x9bafbd);scene.fog=new T.FogExp2(0xc1b4a0,.0046);const camera=new T.PerspectiveCamera(46,W/H,.1,350);
@@ -30,7 +31,7 @@ function sphere(x,y,z,sx,sy,sz,m){emit(geo.ball,m,x,y,z,sx,sy,sz);}
 function ring(x,y,z,r,t,m='gold'){emit(new T.TorusGeometry(r,t,5,16),m,x,y,z,1,1,1,[Math.PI/2,0,0]);}
 let arch;
 function column(x,z,y,h,r=.23){arch.footColumn(x,z,y,h-.30,r);}
-function bracket(x,y,z,s=1){arch.brackets(x,y,z,s,{detail:true});}
+function bracket(x,y,z,s=1,options={}){arch.brackets(x,y,z,s,{detail:true,...options});}
 function rail(points,height=.9){for(let i=0;i<points.length;i++){const [x,y,z]=points[i];box(x,y+height/2,z,.15,height,.15,'red');emit(geo.cyl,'gold',x,y+height+.05,z,.105,.12,.105);sphere(x,y+height+.16,z,.10,.13,.10,'gold');if(i){const p=points[i-1];for(const h of[.22,height-.1])rod([p[0],p[1]+h,p[2]],[x,y+h,z],.065,'red');for(let j=1;j<=2;j++){const t=j/3;box(p[0]+(x-p[0])*t,p[1]+(y-p[1])*t+height*.5,p[2]+(z-p[2])*t,.055,height*.56,.055,'red');}}}}
 // Each ceramic ridge is made of overlapping half-round segments; four curved roof surfaces join at the hips.
 const halfTile=halfBarrel(10),nearHalfTile=halfBarrel(24,TAU);
@@ -43,6 +44,15 @@ function lattice(x,y,z,w,h){box(x,y,z,w,h,.15,'dark');box(x,y,z+.09,w-.1,h-.1,.0
 const masonryForms=Array.from({length:7},(_,i)=>flagstone(103+i*17));
 const keyAlias={cedar:'wood',endwood:'wood',darkwood:'dark',oldgold:'gold',slate:'tile',tileEdge:'tile',black:'dark'};
 arch=createRestorationArchitecture({instance(g,m,x,y,z,sx,sy,sz,rot,tint){emit(g,keyAlias[m]||m,x,y,z,sx,sy,sz,Array.isArray(rot)?rot:[0,rot||0,0],tint);},group(x,y,z,a,fn,sc=1){group(x,y,z,a,sc,fn);},box(x,y,z,w,h,d,m,rot=0,tint=1){emit(geo.box,keyAlias[m]||m,x,y,z,w,h,d,Array.isArray(rot)?rot:[0,rot||0,0],tint);},roofAudit:[]});
+const roofMaterials=createRoofMaterials(),physicalRoofAudits=[];
+mats.tile=roofMaterials.ceramic;
+function physicalRoof(spec,oldDimensions){
+  physicalRoofAudits.push(buildPhysicalRoof({emit,box,rod,bracket,materials:roofMaterials},spec));
+  // Keep the established downstream garden sequence exactly registered.
+  // The former roof used one random tint per individual cylindrical segment.
+  const [w,d,gabled=false]=oldDimensions;
+  for(let face=0;face<4;face++){const n=Math.ceil((face%2?d:w)/.19);for(let i=0;i<=n;i++)for(let j=0;j<18;j++)if(!(gabled&&face%2===1&&j/18<.44))R();}
+}
 function rosette(x,y,z,r=.09){for(let i=0;i<8;i++){const a=i*TAU/8;emit(geo.ball,'gold',x+Math.cos(a)*r*.5,y+Math.sin(a)*r*.5,z,r*.45,r*.17,r*.09,[0,0,a]);}sphere(x,y,z+.005,r*.22,r*.22,r*.12,'gold');}
 function carvedPanel(x,y,z,w,h){box(x,y,z,w,h,.10,'wood');box(x,y,z+.06,w-.08,h-.08,.035,'dark');for(const yy of[-h/2+.05,h/2-.05])box(x,y+yy,z+.09,w-.12,.026,.025,'gold');for(const xx of[-w/2+.05,w/2-.05])box(x+xx,y,z+.09,.026,h-.12,.025,'gold');for(const side of[-1,1])for(let j=0;j<3;j++){const xx=x+side*w*(.16+j*.105);tube([[xx-side*w*.09,y-h*.23,z+.085],[xx-side*w*.05,y+h*.18,z+.1],[xx+side*w*.04,y+h*.11,z+.1],[xx+side*w*.07,y-h*.19,z+.085]],.015,'gold');}rosette(x,y,z+.12,Math.min(.14,h*.33));}
 function hangingLamp(x,y,z,anchor){rod([x,anchor,z],[x,y+.40,z],.012,'gold');const bottom=new T.LatheGeometry([new T.Vector2(.08,0),new T.Vector2(.24,.05),new T.Vector2(.26,.12),new T.Vector2(.20,.18)],6),top=new T.LatheGeometry([new T.Vector2(.19,0),new T.Vector2(.28,.10),new T.Vector2(.22,.19),new T.Vector2(.06,.25)],6);emit(bottom,'gold',x,y-.36,z);emit(top,'gold',x,y+.29,z);for(let k=0;k<6;k++){const a=k*TAU/6,xx=x+Math.cos(a)*.21,zz=z+Math.sin(a)*.21;rod([xx,y-.20,zz],[xx,y+.31,zz],.020,'gold');group(x,y,z,-a+Math.PI/2,1,()=>{box(0,.035,.175,.18,.45,.018,'windowGlow');for(const xx of[-.06,0,.06])box(xx,.035,.19,.009,.45,.014,'gold');for(const yy of[-.13,.02,.17])box(0,yy,.19,.18,.009,.014,'gold');});}sphere(x,y-.43,z,.055,.10,.055,'gold');const l=new T.PointLight(0xffb34e,17,8,2);l.position.copy(V([x,y,z]).applyMatrix4(transform));scene.add(l);}
@@ -59,14 +69,14 @@ for(const x of[-5.8,-3.5,3.5,5.8]){lattice(x,3.55,.75,1.25,3.2);carvedPanel(x,5.
 for(const x of[-2.1,2.1]){box(x,3.8,1.9,.18,4.0,.35,'gold');for(let j=0;j<14;j++)rosette(x,1.95+j*.27,2.13,.085);}
 carvedPanel(0,5.6,3.90,1.9,.36);for(const x of[-5.7,-2.6,2.6,5.7])hangingLamp(x,4.7,3.8,6.55);
 for(let ix=-5;ix<=5;ix++)for(let iz=0;iz<5;iz++){box(ix*1.25,6.05,-3+iz*1.2,1.1,.08,1.04,'dark');rosette(ix*1.25,6.0,-3+iz*1.2,.08);}
-group(0,0,-2,0,1,()=>roof(17.5,16,7.15,1.6,.58));
+group(0,0,-2,0,1,()=>physicalRoof({w:16.2,d:16,e:7.38,rise:1.37,curl:.48,label:'hall-lower-roof',supports:[{xs:[-6.9,-4.6,-2.3,2.3,4.6,6.9],z:5.7,head:7.14},{xs:[-6.9,-4.6,-2.3,2.3,4.6,6.9],z:-1.9,head:7.14}]},[17.5,16]));
 // Enclosed recessed upper wall leaves the red open veranda clearly legible.
 box(0,9.55,-1.9,12.7,2.4,.18,'red');for(const x of[-5.4,-3.6,-1.8,0,1.8,3.6,5.4])lattice(x,9.5,-1.7,1.25,1.65);
 for(const z of[-4.55,3.4])for(let i=-3;i<=3;i++){column(i*2.22,z,8.6,1.8,.18);bracket(i*2.22,10.4,z,.88);}
 for(const y of[9.95,10.25,10.55]){box(0,y,3.4,14.8,.16,.32,'red');for(let i=0;i<25;i++)carvedPanel(-7.2+i*.6,y,3.58,.45,.13);}
 rail(Array.from({length:17},(_,i)=>[-7.2+i*.9,8.5,3.95]),.82);
 for(const s of[-1,1])rail(Array.from({length:9},(_,i)=>[s*7.2,8.5,-3.9+i*.98]),.82);
-group(0,0,-3,0,1,()=>roof(17.5,18.7,11.2,5.2,.72,false,true));
+group(.35,0,-3,0,1,()=>physicalRoof({w:14.8,d:18.7,e:10.6,rise:6.15,curl:.65,gabled:true,label:'hall-upper-irimoya-roof',supports:[{xs:[-7.01,-4.79,-2.57,-.35,1.87,4.09,6.31],z:6.4,head:11.10},{xs:[-7.01,-4.79,-2.57,-.35,1.87,4.09,6.31],z:-1.55,head:11.10}]},[17.5,18.7,true]));
 });
 const sanctuary=buildReference4Sanctuary(T,{floorY:1.8});sanctuary.group.position.set(4.971,6.584,-10.453);sanctuary.group.rotation.y=-.25;sanctuary.group.scale.set(1.12,.9856,1.12);scene.add(sanctuary.group);
 for(const x of[2.3,6.9]){const l=new T.PointLight(0xffb24f,18,12,2);l.position.set(x,8.5,-6);scene.add(l);}
@@ -75,7 +85,37 @@ function tower(){group(-13.2,6.9,-12.8,0,1,()=>{transform.multiply(new T.Matrix4
 // The plinth is a real irregular stone wall, using the scan's preserved UVs.
 const jitter=n=>{const q=Math.sin(n*127.1+913.7)*43758.5453;return q-Math.floor(q);};
 for(let face=0;face<2;face++)group(0,0,0,face*Math.PI/2,1,()=>{for(let row=0;row<24;row++)for(let col=0;col<8;col++){const x=-2.88+col*.82+(row%2)*.41;if(x>2.90)continue;const id=(row*3+col*5+face)%scannedStones.variants.length,v=scannedStones.variants[id],q=jitter(row*31+col*7+face*101);const scale=.39+q*.025;emit(v.geometry,v.dry,x,-5.84+row*.26,3.04,scale,scale,scale,[0,(v.extent.z>v.extent.x?Math.PI/2:0)+(q-.5)*.10,(q-.5)*.04],.85+q*.15);}});
-const ys=[3.7,6.7,9.7,12.65,15.55],ws=[8.7,8.3,7.8,7.35,6.85];for(let l=0;l<5;l++){let y=ys[l],w=ws[l],floor=l?ys[l-1]+.65:.6,b=w*.64;box(0,(y+floor)/2,0,b,y-floor,b,'red');for(const z of[-b/2,b/2])for(const x of[-b/2,0,b/2]){column(x,z,floor,y-floor-.3,.14);bracket(x,y-.28,z,.75);}for(const s of[-1,1]){rail(Array.from({length:9},(_,i)=>[-b*.55+i*b*1.1/8,floor+.02,s*(b/2+.18)]),.55);for(let x=-1;x<=1;x++)lattice(x*b*.29,(floor+y)/2,b/2+.03,b*.2,(y-floor)*.55);}for(const side of[-1,1]){for(let k=0;k<11;k++)bracket(-b*.48+k*b*.96/10,y-.4,side*b/2,.42);for(const yy of[y-.65,y-.30])box(0,yy,side*b/2,b+.3,.14,.26,'red');}roof(w,w,y,1.25,.62);}rod([0,16.4,0],[0,21.4,0],.055,'gold');for(let j=0;j<15;j++)ring(0,16.7+j*.29,0,.48-j*.02,.035);sphere(0,21.4,0,.13,.26,.13,'gold');});}
+// Tier datums are rebuilt as real floor/frame sections. The spire tip and
+// tower placement stay fixed; reducing the naked upper wall intervals leaves
+// room for the longer physical finial seen above the compact top roof.
+const ys=[3.7,6.4,9.05,11.65,14.2],ws=[8.1,7.75,7.35,6.95,6.55],oldWs=[8.7,8.3,7.8,7.35,6.85];
+for(let l=0;l<5;l++){
+  const y=ys[l],w=ws[l],floor=l?ys[l-1]+.61:.6,b=w*.64,core=b*.74;
+  box(0,(y+floor)/2,0,core,y-floor-.08,core,'dark');
+  box(0,floor-.035,0,b+.46,.18,b+.46,'wood');
+  box(0,floor+.075,0,b+.34,.065,b+.34,'red');
+  // The recessed enclosure and actual lattice/boarding are built on all four
+  // sides, including the formerly bare right face visible from the camera.
+  for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,1,()=>{
+    for(let bay=-1;bay<=1;bay++){
+      const x=bay*core*.31;
+      lattice(x,(floor+y)/2-.04,core/2+.025,core*.245,(y-floor)*.56);
+      box(x,floor+.20,core/2+.015,core*.28,.29,.10,'red');
+      box(x,y-.38,core/2+.015,core*.28,.25,.10,'red');
+    }
+    for(const xx of[-core/2,-core/6,core/6,core/2])box(xx,(floor+y)/2,core/2+.085,.095,y-floor,.13,'red');
+    rail(Array.from({length:9},(_,i)=>[-b*.54+i*b*1.08/8,floor+.04,b/2+.20]),.55);
+    for(const yy of[y-.70,y-.38])box(0,yy,b/2,b+.36,.17,.27,'red');
+    for(let k=0;k<9;k++)bracket(-b*.48+k*b*.96/8,y-.48,b/2,.44,{interlocked:true});
+  });
+  const posts=new Set();for(const z of[-b/2,b/2])for(const x of[-b/2,0,b/2])posts.add(x+','+z);for(const x of[-b/2,b/2])posts.add(x+',0');
+  for(const p of posts){const [x,z]=p.split(',').map(Number);column(x,z,floor,y-floor-.30,.14);bracket(x,y-.32,z,.68,{interlocked:true});}
+  physicalRoof({w,d:w,e:y,rise:1.12,curl:.48,pagoda:true,label:'pagoda-tier-'+(l+1),supports:[{xs:[-b/2,0,b/2],z:b/2,head:y+.23},{xs:[-b/2,0,b/2],z:-b/2,head:y+.23}]},[oldWs[l],oldWs[l]]);
+}
+rod([0,15.25,0],[0,21.4,0],.065,'gold');
+for(let j=0;j<17;j++)ring(0,15.60+j*.32,0,.56-j*.023,.035);
+for(const yy of[15.36,15.48])box(0,yy,0,.49,.10,.49,'gold');
+sphere(0,21.4,0,.13,.26,.13,'gold');});}
 hall();tower();
 // Roofed galleries fill the actual complex, including the left courtyard pavilion.
 function gallery(x,z,w,rot=0){group(x,4,z,rot,1,()=>{box(0,-.65,0,w,3.3,3.2,'stone');for(let row=0;row<14;row++)for(let col=0;col<Math.ceil(w/.66);col++){const xx=-w/2+.33+col*.66+(row%2)*.17;if(xx>w/2-.2)continue;emit(masonryForms[(row+col)%7],'stone',xx,-2.13+row*.23,1.69,.64,.225,.32,[0,0,0],rr(.72,1.06));}for(let i=0;i<=Math.ceil(w/1.7);i++){const xx=-w/2+i*w/Math.ceil(w/1.7);column(xx,1.1,1,2.5,.12);bracket(xx,3.5,1.1,.45);lattice(xx,2.0,-.9,1.1,1.3);}rail(Array.from({length:Math.ceil(w)+1},(_,i)=>[-w/2+i*w/Math.ceil(w),1,1.35]),.6);roof(w+1.2,4.3,3.8,1,.25);});}
@@ -152,4 +192,4 @@ let composer=null;if(renderer.isWebGLRenderer){composer=new EffectComposer(rende
 function renderView(position,target,time=0,fov=46){ensureRadiance();camera.position.fromArray(position);camera.fov=fov;camera.aspect=W/H;camera.lookAt(V(target));camera.updateProjectionMatrix();renderer.setRenderTarget(null);if(composer)composer.render(0);else renderer.render(scene,camera);renderer.setRenderTarget(null);return true;}
 function renderReference(n=7){return renderView([10.7,12.8,36.0],[0.0,7.0,-2.0],0,47);}
 function renderShot(t=0){const s=Math.max(0,Math.min(1,t/7)),u=s*s*(3-2*s);return renderView([9.1+1.6*u,11.7+1.1*u,31.8+4.2*u],[-2.5+2.5*u,5.2+1.8*u,10-12*u],t,44+3*u);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,revision:'scene-07-proportional-scanned-stones-plinth-model64',instances:instanceCount,triangles,referenceCamera:[10.7,12.8,36],externalAssets:true,assetProvenance: "reconstructions/scene-07/assets/scanned-timber-provenance.json",stoneAssetProvenance:"reconstructions/scene-07/assets/scanned-garden-stones-provenance.json"}),dispose(){scannedTimber.dispose();scannedStones.dispose();scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,revision:'scene-07-solid-irimoya-and-pagoda-roofs-mesh67',roofRevision:PHYSICAL_ROOF_REVISION,physicalRoofs:physicalRoofAudits,instances:instanceCount,triangles,referenceCamera:[10.7,12.8,36],externalAssets:true,assetProvenance: "reconstructions/scene-07/assets/scanned-timber-provenance.json",stoneAssetProvenance:"reconstructions/scene-07/assets/scanned-garden-stones-provenance.json",roofProvenance:"reconstructions/scene-07/assets/physical-roof-provenance.json"}),dispose(){scannedTimber.dispose();scannedStones.dispose();scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());
