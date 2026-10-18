@@ -9,21 +9,21 @@ export function metricStoneMaps(seed=1,size=512){
  // grains, smaller mica, and 15–35 mm eroded pockets. Separate these scales:
  // the former smooth, low-amplitude noise read as a flat ochre fabric.
  const crystal=(x,z)=>{
-  const cells=37,u=x/size*cells,v=z/size*cells,a=Math.floor(u),b=Math.floor(v),wrap=k=>(k%cells+cells)%cells;
+  const cells=23,u=x/size*cells,v=z/size*cells,a=Math.floor(u),b=Math.floor(v),wrap=k=>(k%cells+cells)%cells;
   let nearest=10,second=10,mineral=0;
   for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){
-   const ix=a+i,iz=b+j,wx=wrap(ix),wz=wrap(iz),sx=ix+.16+.68*hash(wx,wz,seed+41),sz=iz+.16+.68*hash(wx,wz,seed+67),d=(u-sx)**2+(v-sz)**2;
+   const ix=a+i,iz=b+j,wx=wrap(ix),wz=wrap(iz);if(hash(wx,wz,seed+95)<.13)continue;const sx=ix+.06+.88*hash(wx,wz,seed+41),sz=iz+.06+.88*hash(wx,wz,seed+67),d=(u-sx)**2+(v-sz)**2;
    if(d<nearest){second=nearest;nearest=d;mineral=hash(wx,wz,seed+87);}else if(d<second)second=d;
   }
   return{radius:Math.sqrt(nearest),edge:Math.sqrt(second)-Math.sqrt(nearest),mineral};
  };
  for(let z=0;z<size;z++)for(let x=0;x<size;x++){
-  const i=z*size+x,q=hash(x,z,seed),c=crystal(x,z),meso=periodicNoise(x,z,11,seed+9,size),fine=periodicNoise(x,z,113,seed+17,size),quartz=T.MathUtils.smoothstep(c.mineral,.69,.91),mica=1-T.MathUtils.smoothstep(c.mineral,.07,.16),feldspar=T.MathUtils.smoothstep(c.mineral,.34,.65)*(1-quartz),grain=1-T.MathUtils.smoothstep(c.radius,.12,.60),pocket=T.MathUtils.smoothstep(meso,.54,.78),fracture=1-T.MathUtils.smoothstep(c.edge,.015,.10);
-  const f=.79+.12*(meso-.5)+.11*(fine-.5)+.07*(q-.5)+.15*quartz-.20*mica-.045*fracture;
+  const i=z*size+x,q=hash(x,z,seed),wx=x+33*(periodicNoise(x,z,5,seed+52,size)-.5)+11*(periodicNoise(x,z,17,seed+63,size)-.5),wz=z+31*(periodicNoise(x,z,7,seed+65,size)-.5)+13*(periodicNoise(x,z,13,seed+69,size)-.5),c=crystal(wx,wz),meso=periodicNoise(x,z,9,seed+9,size),fractured=periodicNoise(wx,wz,31,seed+25,size),fine=periodicNoise(x,z,113,seed+17,size),quartz=T.MathUtils.smoothstep(c.mineral,.74,.93),mica=1-T.MathUtils.smoothstep(c.mineral,.12,.27),feldspar=T.MathUtils.smoothstep(c.mineral,.34,.65)*(1-quartz),grain=1-T.MathUtils.smoothstep(c.radius,.05+.15*c.mineral,.48+.24*c.mineral),pocket=T.MathUtils.smoothstep(meso,.53,.77),fracture=1-T.MathUtils.smoothstep(c.edge,.008,.07);
+  const f=.76+.16*(meso-.5)+.09*(fine-.5)+.07*(q-.5)+.13*quartz-.32*mica-.04*fracture;
   albedo[i*4]=Math.min(255,255*(f+.028*feldspar));albedo[i*4+1]=Math.min(255,255*f);albedo[i*4+2]=Math.min(255,255*(f-.022*feldspar));albedo[i*4+3]=255;
   const rr=232-46*quartz+12*pocket-7*mica;rough[i*4]=rough[i*4+1]=rough[i*4+2]=rr;rough[i*4+3]=255;
   // Heights are in metres, so finite differences yield an actual surface slope.
-  height[i]=.0015*grain+.00050*(fine-.5)-.0034*pocket-.00055*fracture-.00045*mica;
+  height[i]=(.0004+.0018*c.mineral)*grain*T.MathUtils.smoothstep(c.mineral,.18,.56)+.0019*(fractured-.5)+.00045*(fine-.5)-.0038*pocket-.0006*fracture-.0007*mica;
  }
  for(let z=0;z<size;z++)for(let x=0;x<size;x++){
   const i=z*size+x,spacing=.5/size,dx=(height[z*size+(x+1)%size]-height[z*size+(x+size-1)%size])/spacing,dz=(height[((z+1)%size)*size+x]-height[((z+size-1)%size)*size+x])/spacing,v=new T.Vector3(-dx,-dz,1).normalize();normal[i*4]=(v.x*.5+.5)*255;normal[i*4+1]=(v.y*.5+.5)*255;normal[i*4+2]=(v.z*.5+.5)*255;normal[i*4+3]=255;
@@ -61,10 +61,10 @@ ssNX.xy*=normalScale;ssNY.xy*=normalScale;ssNZ.xy*=normalScale;
 vec3 ssAX=vec3(ssBase.x*abs(ssNX.z),ssBase.y+ssNX.y,ssBase.z+ssNX.x),ssAY=vec3(ssBase.x+ssNY.x,ssBase.y*abs(ssNY.z),ssBase.z+ssNY.y),ssAZ=vec3(ssBase.x+ssNZ.x,ssBase.y+ssNZ.y,ssBase.z*abs(ssNZ.z));
 normal=normalize(mat3(viewMatrix)*normalize(ssAX*ssW.x+ssAY*ssW.y+ssAZ*ssW.z));
 `)
-   .replace('#include <color_fragment>',`#include <color_fragment>\nvec3 ssCW=ssWeights();float ssMacro=dot(vec3(ssNoise(ssPosition.zy*1.9),ssNoise(ssPosition.xz*1.9),ssNoise(ssPosition.xy*1.9)),ssCW);float ssWeather=dot(vec3(ssNoise(ssPosition.zy*8.3)+.23*ssNoise(ssPosition.zy*49.0),ssNoise(ssPosition.xz*8.3)+.23*ssNoise(ssPosition.xz*49.0),ssNoise(ssPosition.xy*8.3)+.23*ssNoise(ssPosition.xy*49.0)),ssCW);float ssPale=smoothstep(.66,.84,ssWeather);diffuseColor.rgb*=.84+.30*ssMacro;diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*1.45+vec3(.025,.028,.030),ssPale*.62);`)
+   .replace('#include <color_fragment>',`#include <color_fragment>\nvec3 ssCW=ssWeights();float ssMacro=dot(vec3(ssNoise(ssPosition.zy*1.9),ssNoise(ssPosition.xz*1.9),ssNoise(ssPosition.xy*1.9)),ssCW);float ssWeather=dot(vec3(ssNoise(ssPosition.zy*8.3)+.23*ssNoise(ssPosition.zy*49.0),ssNoise(ssPosition.xz*8.3)+.23*ssNoise(ssPosition.xz*49.0),ssNoise(ssPosition.xy*8.3)+.23*ssNoise(ssPosition.xy*49.0)),ssCW);float ssPale=smoothstep(.66,.84,ssWeather);diffuseColor.rgb*=.78+.40*ssMacro;diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*1.40+vec3(.015,.017,.020),ssPale*.42);`)
    .replace('#include <roughnessmap_fragment>',`${T.ShaderChunk.roughnessmap_fragment.replace('texture2D( roughnessMap, vRoughnessMapUv )','ssTriSample(roughnessMap)')}\n${wet?'float ssWet=smoothstep(.53,.76,ssNoise(ssPosition.xz*.93+vec2(7.3,1.1))+.18*ssNoise(ssPosition.xz*3.1))*smoothstep(.30,.74,ssNoise(ssPosition.xz*4.7)+.2*ssNoise(ssPosition.xz*9.1));roughnessFactor=mix(roughnessFactor,.19,ssWet*.88);diffuseColor.rgb*=1.0-.23*ssWet;':''}`);
  };
- m.customProgramCacheKey=()=>`scene04-world-triplanar-stone-max01-${wet}`;m.userData.physicalTextureRepeatMetres=.25;m.userData.maps=maps;return m;
+ m.customProgramCacheKey=()=>`scene04-world-triplanar-stone-max02-${wet}`;m.userData.physicalTextureRepeatMetres=.25;m.userData.maps=maps;return m;
 }
 export function polygonSlab(outline,top=.045,thickness=.075,seed=1){
  const cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,points=outline.map(([x,z])=>{const r=Math.hypot(x-cx,z-cz);return[x+(cx-x)*.012/r,z+(cz-z)*.012/r];}),shape=new T.Shape();
@@ -72,7 +72,8 @@ export function polygonSlab(outline,top=.045,thickness=.075,seed=1){
  for(let j=0;j<points.length;j++){
   const a=points[j],b=points[(j+1)%points.length],v=new T.Vector2(b[0]-a[0],b[1]-a[1]),len=v.length(),n=new T.Vector2(-v.y,v.x).normalize();
   const count=Math.max(4,Math.ceil(len/.045));
-  for(let k=0;k<=count;k++){const t=.014+.972*k/count,inset=k===0||k===count?0:.002+.011*Math.pow(hash(j,k,seed),3),chip=inset+.0025*(hash(j,k,seed+7)-.5);boundary.push([a[0]+v.x*t+n.x*chip,a[1]+v.y*t+n.y*chip]);}
+  const corner=.022+.020*hash(j,0,seed+13);
+  for(let k=0;k<=count;k++){const t=corner+(1-2*corner)*k/count,inset=k===0||k===count?0:.002+.025*Math.pow(hash(j,k,seed),5),chip=inset+.0025*(hash(j,k,seed+7)-.5);boundary.push([a[0]+v.x*t+n.x*chip,a[1]+v.y*t+n.y*chip]);}
  }
  boundary.forEach(([x,z],j)=>j?shape.lineTo(x,-z):shape.moveTo(x,-z));shape.closePath();
  let g=new T.ExtrudeGeometry(shape,{depth:thickness,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,curveSegments:1,steps:1});g.rotateX(-Math.PI/2);g.translate(0,top-thickness,0);

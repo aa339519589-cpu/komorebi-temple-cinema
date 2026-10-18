@@ -47,7 +47,7 @@ export function buildReference4Garden(T,options={}){
   mesh(gg,m.soil,'continuous-planted-stair-embankment-'+side,subgroups.ground);
   for(let j=0;j<30;j++){const x=side*rr(3.8,15.8),z=rr(-.8,7.7);rock(x,bankY(x,z)-.13,z,rr(.36,.83),rr(.28,.65),rr(.3,.7),'terrace-outcrop-'+side+'-'+j);}
  }
- const paving=['#929699','#777e85','#a19d98','#858b90'].map((color,i)=>{const mm=ownM(stoneMaterial('metre-scaled-worn-wet-paver-'+i,color,{wet:true,seed:741+i*31}));for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
+ const paving=['#7c7e80','#6a7077','#8e8176','#767d83'].map((color,i)=>{const mm=ownM(stoneMaterial('metre-scaled-worn-wet-paver-'+i,color,{wet:true,seed:741+i*31}));for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
  const rows=23,cols=3,nodes=[];
  for(let j=0;j<=rows;j++){const row=[];for(let i=0;i<=cols;i++){const z=plan.stairBottomZ+j*(plan.pathEndZ-plan.stairBottomZ)/rows+(j===0||j===rows?0:rr(-.17,.17)),h=pathHalf(z);row.push([-h+i*2*h/cols+(i===0||i===cols?0:rr(-.32,.32)*h/hw),z]);}nodes.push(row);}
  for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){

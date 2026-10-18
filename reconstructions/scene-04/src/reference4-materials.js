@@ -5,8 +5,8 @@ export function createReference4MaterialSet(T, options={}) {
   const palette={
     cedar:[0x62321f,.84,0],red:[0x7b3523,.82,0],endwood:[0x795334,.84,0],darkwood:[0x261b15,.88,0],
     gold:[0xc1a04b,.34,.78],oldgold:[0x926c2d,.57,.61],black:[0x272b29,.65,.08],
-    slate:[0x38434b,.76,0],tileEdge:[0x717878,.81,0],stone:[0x72797e,.95,0],
-    granite:[0x898e92,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
+    slate:[0x38434b,.76,0],tileEdge:[0x717878,.81,0],stone:[0x62676c,.95,0],
+    granite:[0x73777b,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
   };
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
