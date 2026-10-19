@@ -1,0 +1,143 @@
+{
+  "status": "bounded-component-review-not-photographically-accepted",
+  "branch": "work/hall10-132-20261019",
+  "baseCommit": "5333c11d9ec313841a29199c3ae352586c693f8e",
+  "renderJobsUsed": 2,
+  "renderJobsAuthorized": 2,
+  "finalSourceCommit": "52e9e01556fd1ac3f9d64882e42582b6f764fcdb",
+  "finalSourceIdentitySha256": "5221e4fcee7124c6dc33125aff83ab24655c84e63fad7edf786922d0f06b20b8",
+  "visualAccepted": false,
+  "visualImprovementObserved": true,
+  "improvementScope": "Hall assembly only: connected timber frame, closed roof underside, denser physical eave members, recessed carved bands and finite gilded relief. B reveals bracket layers hidden by the too-thick girts in A.",
+  "preservedFirstErrors": [
+    "A girts and fascia obscured much of the bracket relief.",
+    "A rafter sleeves were too large and widely spaced.",
+    "A central ring frieze motif remained sparse and emblematic."
+  ],
+  "remainingObservedMismatches": [
+    "Carved and gilded details remain too repetitive relative to the reference.",
+    "The hall remains cooler and flatter than the reference in the unchanged scene atmosphere.",
+    "The broad roof silhouette and full-scene photographic fidelity are not accepted by this bounded pass."
+  ],
+  "unchanged": {
+    "layout125Sha256": "f131dcc5236c34a5c9a020052310cfbbe1d4e7648aab48b64666f6560e8fb940",
+    "routeGardenCameraSectionSha256": "0688412d5df4a5673e149b1fc886998be4e32d15cf6f041f5d69de03be2fa6a4",
+    "scope": "CPU audit compares the complete layout module and the bridge/stairs/garden/camera source section byte-for-byte with layout125-d; the actual independent side view also retains the open route."
+  },
+  "constructionAudit": {
+    "file": "qa/ten-reference/10/hall132/construction-audit.json",
+    "meaning": "Finite construction, recorded column/header registration and unchanged layout/camera/route/RNG; not a fidelity metric."
+  },
+  "comparison": {
+    "file": "qa/ten-reference/10/hall132/comparison-provenance.json",
+    "meaning": "Native 1:1 pixel crops only; no image retouching, AI replacement, resampling or relighting."
+  },
+  "renders": [
+    {
+      "candidate": "a",
+      "status": "preserved-intermediate-with-observed-errors",
+      "sourceCommit": "4db9526f81a115a65a69e182d4a3e19068876616",
+      "sourceIdentitySha256": "2faf4ce0e0bd3bf49448390740710d23742f364c122c801a85fa55714d09ed40",
+      "errors": [],
+      "frames": [
+        {
+          "file": "qa/ten-reference/10/iteration-hall132-a/shot--1250.png",
+          "sha256": "697bc1c01058901dc027cd32bad95168c33869f2fe3f43477c28e27980edccf0",
+          "pose": {
+            "position": [
+              0,
+              1,
+              14
+            ],
+            "target": [
+              0,
+              4.65,
+              -14
+            ],
+            "time": 0,
+            "fov": 60,
+            "width": 1254,
+            "height": 1254
+          },
+          "valid": true,
+          "scope": "Established physical reference camera."
+        },
+        {
+          "file": "qa/ten-reference/10/iteration-hall132-a/shot--125.png",
+          "sha256": "6c50d60e28257d0bb58962cb09109caa10a4529d52a9815e00095526d331a310",
+          "pose": {
+            "position": [
+              -4,
+              7.5,
+              1
+            ],
+            "target": [
+              6.5,
+              2.5,
+              -6.5
+            ],
+            "time": 0,
+            "fov": 63,
+            "width": 1254,
+            "height": 1254
+          },
+          "valid": true,
+          "scope": "Same independent layout125 contact review camera."
+        }
+      ]
+    },
+    {
+      "candidate": "b",
+      "status": "bounded-hall-improvement-for-parent-review",
+      "sourceCommit": "52e9e01556fd1ac3f9d64882e42582b6f764fcdb",
+      "sourceIdentitySha256": "5221e4fcee7124c6dc33125aff83ab24655c84e63fad7edf786922d0f06b20b8",
+      "errors": [],
+      "frames": [
+        {
+          "file": "qa/ten-reference/10/iteration-hall132-b/shot--1250.png",
+          "sha256": "5786156f67f6373c4d519a96b2364ea338c6b953b03de1f3bb555d891a00947d",
+          "pose": {
+            "position": [
+              0,
+              1,
+              14
+            ],
+            "target": [
+              0,
+              4.65,
+              -14
+            ],
+            "time": 0,
+            "fov": 60,
+            "width": 1254,
+            "height": 1254
+          },
+          "valid": true,
+          "scope": "Established physical reference camera."
+        },
+        {
+          "file": "qa/ten-reference/10/iteration-hall132-b/shot--125.png",
+          "sha256": "d89f09b48d76452a0b20b6c9c427c0ad7429063333327930d9e775fb974e5402",
+          "pose": {
+            "position": [
+              -4,
+              7.5,
+              1
+            ],
+            "target": [
+              6.5,
+              2.5,
+              -6.5
+            ],
+            "time": 0,
+            "fov": 63,
+            "width": 1254,
+            "height": 1254
+          },
+          "valid": true,
+          "scope": "Same independent layout125 contact review camera."
+        }
+      ]
+    }
+  ]
+}
