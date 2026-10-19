@@ -69,7 +69,7 @@ normal=normalize(mat3(viewMatrix)*normalize(ssAX*ssW.x+ssAY*ssW.y+ssAZ*ssW.z));
  m.customProgramCacheKey=()=>`scene04-world-triplanar-granite62-${wet}-${!!scan}-${scan?seed:0}`;m.userData.physicalTextureRepeatMetres=scan?scannedStoneRepeatMetres:.25;m.userData.maps=maps;return m;
 }
 export function polygonSlab(outline,top=.045,thickness=.075,seed=1,wear={}){
- const path=wear.processional===true,joint=path?.018:.012,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,points=outline.map(([x,z])=>{const r=Math.hypot(x-cx,z-cz);return[x+(cx-x)*joint/r,z+(cz-z)*joint/r];}),shape=new T.Shape();
+ const path=wear.processional===true,joint=Number.isFinite(wear.jointRatio)?T.MathUtils.clamp(wear.jointRatio,.002,.05):(path?.018:.012),cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,points=outline.map(([x,z])=>{const r=Math.hypot(x-cx,z-cz);return[x+(cx-x)*joint/r,z+(cz-z)*joint/r];}),shape=new T.Shape();
  const boundary=[];
  for(let j=0;j<points.length;j++){
   const a=points[j],b=points[(j+1)%points.length],v=new T.Vector2(b[0]-a[0],b[1]-a[1]),len=v.length(),n=new T.Vector2(-v.y,v.x).normalize();

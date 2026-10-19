@@ -105,9 +105,19 @@ export function buildReference4Architecture(T,options={}) {
   }
   for(const step of p.steps){
    solidFootprint(step.outline,step.bottom,step.coreTop,'stone','closed-flared-tread-core-'+step.index);
-   for(let k=0;k<4;k++){
-    const a=-1+k*.5,b=a+.5,h0=p.halfWidth(step.back),h1=p.halfWidth(step.front);
-    const g=polygonSlab([[a*h0,step.back],[b*h0,step.back],[b*h1,step.front],[a*h1,step.front]],step.top,step.cap,1307+step.index*31+k*107);g.userData.architectureMember='closed-flared-tread-cap-'+step.index;emit(g,'granite');
+   // Vary the stone courses from tread to tread: a uniform four-panel grid
+   // made the entire stair read as one mechanically repeated stack. Each
+   // closed granite cap is now a slightly different, staggered cut block.
+   const pieces=4+(step.index%2),cuts=[-1],h0=p.halfWidth(step.back),h1=p.halfWidth(step.front);
+   for(let j=1;j<pieces;j++){
+    const q=(Math.sin((step.index+1)*127.1+j*311.7)*43758.5453)%1,noise=q<0?q+1:q;
+    cuts.push(-1+2*j/pieces+(noise-.5)*.18);
+   }
+   cuts.push(1);
+   for(let k=0;k<pieces;k++){
+    const a=cuts[k],b=cuts[k+1],g=polygonSlab([[a*h0,step.back],[b*h0,step.back],[b*h1,step.front],[a*h1,step.front]],step.top,step.cap,1307+step.index*31+k*107,{processional:true,jointRatio:.008});
+    g.userData.architectureMember='closed-staggered-flared-tread-cap-'+step.index+'-'+k;
+    const tint=.91+.12*(.5+.5*Math.sin((step.index+1)*19.17+(k+1)*43.73));emit(g,'stairGranite',0,0,0,1,1,1,0,tint);
    }
    for(const s of[-1,1]){
     const a=p.halfWidth(step.back),b=p.halfWidth(step.front),outline=[[s*(a+.025),step.back],[s*(a+.31),step.back],[s*(b+.31),step.front],[s*(b+.025),step.front]];

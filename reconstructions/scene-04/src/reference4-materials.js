@@ -1,4 +1,5 @@
 import {stoneMaterial} from './scene04-surfaces.js';
+import {scannedStoneMaps,scannedStoneRepeatMetres} from './scene04-scanned-stone.js';
 import * as T from 'three';
 let generatedMaps=null;
 let generatedMapsPromise=null;
@@ -54,6 +55,16 @@ export function createReference4MaterialSet(T, options={}) {
     material.map=generatedMaps.granite.albedo;material.bumpMap=generatedMaps.granite.height;material.bumpScale=.0022;material.roughnessMap=generatedMaps.granite.roughness;
     material.userData.maps={...old,map:material.map,bumpMap:material.bumpMap,roughnessMap:material.roughnessMap};
   }
+  // The entrance tread caps are warmer limestone-granite than the garden
+  // paving. Give the real staircase blocks their own muted ochre-gray response.
+  if(!scannedStoneMaps)throw Error('The licensed granite scan must load before stair material construction');
+  const baseGranite=mats.granite,stairGranite=baseGranite.clone(),stairMapScale=1/scannedStoneRepeatMetres,baseCompile=baseGranite.onBeforeCompile;
+  stairGranite.name='reference4-warm-weathered-scanned-stair-granite';stairGranite.color.set('#8b7d69');stairGranite.roughness=.94;
+  stairGranite.map=scannedStoneMaps.map;stairGranite.normalMap=scannedStoneMaps.normalMap;stairGranite.normalScale.set(.78,.78);stairGranite.roughnessMap=scannedStoneMaps.roughnessMap;stairGranite.bumpMap=null;
+  stairGranite.onBeforeCompile=shader=>{baseCompile(shader);const old='ssPosition*4.0',scale=`ssPosition*${stairMapScale.toFixed(8)}`;if(!shader.fragmentShader.includes(old))throw Error('Pinned triplanar stair-granite mapping changed');shader.fragmentShader=shader.fragmentShader.replaceAll(old,scale);};
+  stairGranite.customProgramCacheKey=()=>`${baseGranite.customProgramCacheKey()}-cc0-stair-${stairMapScale.toFixed(5)}`;
+  stairGranite.userData.maps={map:stairGranite.map,normalMap:stairGranite.normalMap,roughnessMap:stairGranite.roughnessMap};stairGranite.userData.physicalTextureRepeatMetres=scannedStoneRepeatMetres;stairGranite.userData.materialProvider='Poly Haven Granite Tile 04, CC0-1.0';
+  materials.push(stairGranite);mats.stairGranite=stairGranite;
   const tiles=mats.slate.clone();tiles.name='reference4_variegated_tiles';tiles.vertexColors=true;
   tiles.onBeforeCompile=mats.slate.onBeforeCompile;tiles.customProgramCacheKey=mats.slate.customProgramCacheKey;
   materials.push(tiles);mats.tiles=tiles;
