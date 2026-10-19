@@ -1,0 +1,225 @@
+{
+  "status": "physical-lighting-candidate-not-selected",
+  "frozenCommit": "4cb7c2b83d51d448c10a2b319ada51b662a0aaa0",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "sceneSourceChanged": false,
+  "publicRendererChanged": false,
+  "geometryRebuilt": false,
+  "sourceStatistics": {
+    "meshes": 1347,
+    "geometries": 1313,
+    "materials": 85,
+    "textures": 164,
+    "instances": 153712,
+    "triangles": 23669477
+  },
+  "upstream": {
+    "exporter": "/Users/mima1234/temple-traced-stone04-20261019/tools/export-reconstructed-scene.mjs",
+    "exporterSHA256": "a939154c3c39ac3db4925f83c91620c3f6822bff120074e3e50be3597f96feac",
+    "builder": "/Users/mima1234/temple-traced-stone04-20261019/tools/render-scene04-physical.py",
+    "builderSHA256": "a8bdfc4f50dbccedaf2018ee13108da813a0b45051f162a573dbb48da7b8ed4d",
+    "privateExporterSHA256": "b2f581f1126ad8a686c999c5d9f2ffcdaa2cbb5313f4ec7c6e17f4114b69b67b",
+    "privateBuilderSHA256": "75f87a55c2bb27477f520621f2f326222c323d17025a7f3a1802cc93f538bbaa"
+  },
+  "commands": {
+    "cwd": "/Users/mima1234/temple-scene04-physical-compare-20261019",
+    "export": "REFERENCE=4 SCENE_EXPORT=output/scene04-physical-frozen-export EXPORT_PORT=4527 node lookdev/scene04-physical/tools/export-scene04.mjs",
+    "physical": "CYCLES_DEVICE=METAL CYCLES_DENOISE=1 CYCLES_SAMPLES=48 CYCLES_SIZE=1254 CYCLES_SUN_GAIN=1 CYCLES_WORLD_GAIN=1 CYCLES_EXPOSURE=0 node tools/run-blender-queued.mjs lookdev/scene04-physical/tools/render-scene04-physical.py",
+    "floor": "node tools/run-blender-queued.mjs lookdev/scene04-physical/tools/render-floor-and-audit.py",
+    "comparison": "node lookdev/scene04-physical/tools/assemble-review.mjs",
+    "ratio02": "node tools/run-blender-queued.mjs lookdev/scene04-physical/tools/render-world-ratio02.py"
+  },
+  "renderer": {
+    "engine": "Cycles",
+    "version": "5.2.1 LTS",
+    "device": "GPU",
+    "samples": 48,
+    "seed": 904101,
+    "denoiser": "OIDN",
+    "size": [
+      1254,
+      1254
+    ],
+    "viewTransform": "AgX",
+    "exposure": 0
+  },
+  "lighting": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion is a declared working-unit hypothesis, not absolute SI calibration",
+    "sunGain": 1,
+    "worldGain": 1,
+    "exposure": 0,
+    "nativeWebglPixelEquivalence": false,
+    "probeImported": false,
+    "environmentCount": 1,
+    "seed": 904101
+  },
+  "sky": {
+    "asset": "kloppenheim_06_puresky",
+    "provider": "Poly Haven",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/kloppenheim_06_puresky",
+    "file": "/Users/mima1234/temple-scene04-physical-compare-20261019/assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+    "colorSpace": "Linear Rec.709",
+    "gain": 1,
+    "sourcePeakRGB": [
+      3.878281831741333,
+      2.33495831489563,
+      1.2185457944869995
+    ],
+    "sourcePeakLuminanceBeforeCap": 33.0755615234375,
+    "sourceMeanLuminance": 0.589473307132721,
+    "sourcePeakPixel": [
+      1255,
+      538
+    ],
+    "sourcePeakAltitudeDegrees": 4.658203125,
+    "targetDirectionZUp": [
+      0.49878376722335815,
+      -0.6858276128768921,
+      0.5299577713012695
+    ],
+    "mappedPeakDirectionZUp": [
+      0.49878373742103577,
+      -0.6858275532722473,
+      0.5299577713012695
+    ],
+    "alignmentDot": 0.9999999403953552,
+    "rotationEuler": [
+      0.352780818939209,
+      0.33624234795570374,
+      0.2678641974925995
+    ],
+    "horizontalIrradianceRGBBeforeCap": [
+      2.9628210369023633,
+      3.2861549483146577,
+      3.8699403286990726
+    ],
+    "oneDegreeCapIrradianceRGB": [
+      0.0037995538034348753,
+      0.0020430103720863457,
+      0.000733542197315621
+    ],
+    "removedDirectCapIrradianceRGB": [
+      0.0025739004921145497,
+      0.0012634554904739546,
+      0.00025540376146029344
+    ],
+    "directCapRadiusDegrees": 1,
+    "capReplacement": "Maximum bounded by measured 2–4 degree ring, no colour grading",
+    "absolutePhotometricCalibration": false,
+    "nativeProbesImported": false,
+    "nativeDiffuseProbeGainImported": false,
+    "formulaSource": "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h",
+    "assetSHA256": "5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063",
+    "provenance": "assets/polyhaven/kloppenheim-06-puresky/provenance.json",
+    "auditFieldClarification": "sourcePeakRGB in the original report is sampled after the direct-cap processing; sourcePeakLuminanceBeforeCap, sourceMeanLuminance and horizontalIrradianceRGBBeforeCap retain the original EXR values."
+  },
+  "changedTranslation": [
+    "Per-stone water-film map R coverage/G roughness, coat normal scale and IOR1.333, numeric vs sRGB colour space, source Clamp/repeat/offset preserved.",
+    "Existing other-stone source metric world triplanar sampling/normal blend ported into nodes.",
+    "Source SUN/camera/common rigid coordinate conversion retained with view_layer.update; actual SUN ray audited.",
+    "One measured CC0 sky replaces native probe/hemisphere approximations; direct cap removed from fill to avoid double SUN.",
+    "Leaf alpha cutout masks the complete BSDF, including transmitted lobe; only named actual emissive paper is thin paper."
+  ],
+  "transportHypotheses": [
+    "SUN8/World1/exposure0 are initial working units, not measured photographic illuminance.",
+    "Thin-leaf scattering weight.26, explicit warm-paper weight.45, source emission retained; pond surface uses waterIOR1.333/transmission1.",
+    "Point intensity*4pi and area luminance*area*pi power are declared transfer hypotheses."
+  ],
+  "limits": [
+    "Original stone GLSL macro-weathering on nine surrounding stone materials is omitted; existing image textures/metric sampling are retained.",
+    "Cycles/Principled and native Three.js BSDFs/display transforms are not pixel equivalents.",
+    "Geometry/camera remain the single-view reconstructed hypothesis."
+  ],
+  "jobs": {
+    "newFullFrames": 2,
+    "newNativeFloorDetails": 1,
+    "suites": 0,
+    "movies": 0,
+    "push": false
+  },
+  "photographicAcceptance": false,
+  "actualFloor": {
+    "size": [
+      1254,
+      1254
+    ],
+    "crop": [
+      80,
+      850,
+      400,
+      1254
+    ],
+    "cameraMatrixUnchanged": true,
+    "sun": {
+      "origin": [
+        27.43310546875,
+        -37.720516204833984,
+        34.14767837524414
+      ],
+      "target": [
+        0,
+        3.7748949921478925e-7,
+        5
+      ],
+      "actualOrigin": [
+        27.43310546875,
+        -37.720516204833984,
+        34.14767837524414
+      ],
+      "expected": [
+        -0.49878375450311213,
+        0.6858275930836445,
+        -0.5299578085176914
+      ],
+      "actual": [
+        -0.4987837584946618,
+        0.6858276232266718,
+        -0.5299577657523222
+      ],
+      "dot": 0.9999999999999986,
+      "errorDegrees": 0.000003078324659199975,
+      "strength": 8,
+      "angularDiameterRadians": 0.00930000003427267,
+      "unitStatus": "Declared working units, not measured scene irradiance"
+    },
+    "materialsAudited": 31
+  },
+  "tools": {
+    "floorSHA256": "7e4aa00dc28bce33f13b6adee9ed0d8ed85223996c0815a3631e4e243b2b75bc",
+    "comparisonSHA256": "8a1add476064c0c847765738b139e5067f1786057dd28a8936607e16f67479c4",
+    "ratio02SHA256": "838e3a0456895f0f7834d9784f687eabea70f543eec9e022ec64bce32791a365"
+  },
+  "ratio02": {
+    "status": "path-traced-ratio-comparison",
+    "parentBlend": "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-physical/results/physical01/scene04-physical01.blend",
+    "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+    "onlyLookChange": {
+      "worldStrength": [
+        1,
+        0.20000000298023224
+      ]
+    },
+    "hypothesis": "Artistic daylight-to-sky ratio comparison: measured-sky horizontal RGB about[2.96,3.29,3.87] was comparable to source SUN horizontalR4.24. Reduce only sky fill; not measured reference illuminance.",
+    "preservedStateSHA256": "a88a55762c9b1250818844328c79d68eb732ce88d89b36ccc233cc7e581d442a",
+    "cameraGeometryMaterialLightsRenderStatePreserved": true,
+    "sourceTriangles": 23669477,
+    "sunStrength": 8,
+    "sunAngularDiameterRadians": 0.00930000003427267,
+    "sunDirection": [
+      -0.49878376722335815,
+      0.6858276128768921,
+      -0.5299577713012695
+    ],
+    "exposureEV": 0,
+    "samples": 48,
+    "seed": 904101,
+    "size": [
+      1254,
+      1254
+    ],
+    "started": 1792367842.206115,
+    "photographicAcceptance": false,
+    "finished": 1792367878.874301
+  }
+}

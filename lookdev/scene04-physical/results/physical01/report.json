@@ -1,0 +1,3822 @@
+{
+  "sourceStatistics": {
+    "meshes": 1347,
+    "geometries": 1313,
+    "materials": 85,
+    "textures": 164,
+    "instances": 153712,
+    "triangles": 23669477
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 4,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "reference4-both-ponds-actual-planar-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "reference4-atmosphere-with-real-density-clouds",
+      "type": "Mesh",
+      "material": "SkyShader",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: reference4_stone",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: reference4_granite",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: metre-scaled-pond-boulder-granite",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: metre-scaled-worn-wet-paver-1",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: metre-scaled-worn-wet-paver-2",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: metre-scaled-worn-wet-paver-3",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: metre-scaled-worn-wet-paver-0",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: metric-quartz-granite-lantern",
+    "Original stone GLSL macro-weather modulation unported, metric projection/normal and original maps retained: carved-granite-recess"
+  ],
+  "status": "path-traced-review",
+  "started": 1792367355.1336808,
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "sourceCommit": "4cb7c2b83d51d448c10a2b319ada51b662a0aaa0",
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "actualLightRayAudit": [
+    {
+      "name": "reference4-front-right-daylight",
+      "origin": [
+        27.43310546875,
+        -37.720516204833984,
+        34.14767837524414
+      ],
+      "target": [
+        0.0,
+        3.7748949921478925e-07,
+        5.0
+      ],
+      "actualOrigin": [
+        27.43310546875,
+        -37.720516204833984,
+        34.14767837524414
+      ],
+      "originErrorMetres": 0.0,
+      "expected": [
+        -0.49878376722335815,
+        0.6858276128768921,
+        -0.5299578309059143
+      ],
+      "actual": [
+        -0.49878376722335815,
+        0.6858276128768921,
+        -0.5299577713012695
+      ],
+      "dot": 1,
+      "errorDegrees": 0.0
+    }
+  ],
+  "measuredSky": {
+    "asset": "kloppenheim_06_puresky",
+    "provider": "Poly Haven",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/kloppenheim_06_puresky",
+    "file": "/Users/mima1234/temple-scene04-physical-compare-20261019/assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+    "colorSpace": "Linear Rec.709",
+    "gain": 1.0,
+    "sourcePeakRGB": [
+      3.878281831741333,
+      2.33495831489563,
+      1.2185457944869995
+    ],
+    "sourcePeakLuminanceBeforeCap": 33.0755615234375,
+    "sourceMeanLuminance": 0.589473307132721,
+    "sourcePeakPixel": [
+      1255,
+      538
+    ],
+    "sourcePeakAltitudeDegrees": 4.658203125,
+    "targetDirectionZUp": [
+      0.49878376722335815,
+      -0.6858276128768921,
+      0.5299577713012695
+    ],
+    "mappedPeakDirectionZUp": [
+      0.49878373742103577,
+      -0.6858275532722473,
+      0.5299577713012695
+    ],
+    "alignmentDot": 0.9999999403953552,
+    "rotationEuler": [
+      0.352780818939209,
+      0.33624234795570374,
+      0.2678641974925995
+    ],
+    "horizontalIrradianceRGBBeforeCap": [
+      2.9628210369023633,
+      3.2861549483146577,
+      3.8699403286990726
+    ],
+    "oneDegreeCapIrradianceRGB": [
+      0.0037995538034348753,
+      0.0020430103720863457,
+      0.000733542197315621
+    ],
+    "removedDirectCapIrradianceRGB": [
+      0.0025739004921145497,
+      0.0012634554904739546,
+      0.00025540376146029344
+    ],
+    "directCapRadiusDegrees": 1,
+    "capReplacement": "Maximum bounded by measured 2\u20134 degree ring, no colour grading",
+    "absolutePhotometricCalibration": false,
+    "nativeProbesImported": false,
+    "nativeDiffuseProbeGainImported": false,
+    "formulaSource": "https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h"
+  },
+  "cameraMatrixError": 8.568167686462402e-08,
+  "materialAudit": [
+    {
+      "name": "traced-granite-observed-west-01",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-11.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.36236698635752745,
+            0.20594038719813446
+          ],
+          "offset": [
+            1.338821015049472,
+            -1.0437489529457533
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-12.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.36236698635752745,
+            0.20594038719813446
+          ],
+          "offset": [
+            1.338821015049472,
+            -1.0437489529457533
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-13.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.36236698635752745,
+            0.20594038719813446
+          ],
+          "offset": [
+            1.338821015049472,
+            -1.0437489529457533
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-14.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.36236698635752745,
+            0.20594038719813446
+          ],
+          "offset": [
+            1.338821015049472,
+            -1.0437489529457533
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-14.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.36236698635752745,
+            0.20594038719813446
+          ],
+          "offset": [
+            1.338821015049472,
+            -1.0437489529457533
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-12.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.36236698635752745,
+            0.20594038719813446
+          ],
+          "offset": [
+            1.338821015049472,
+            -1.0437489529457533
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-02",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-15.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.43220899728920087,
+            0.31459378203582816
+          ],
+          "offset": [
+            1.357191968245987,
+            -2.8241251070642717
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-16.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.43220899728920087,
+            0.31459378203582816
+          ],
+          "offset": [
+            1.357191968245987,
+            -2.8241251070642717
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-17.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.43220899728920087,
+            0.31459378203582816
+          ],
+          "offset": [
+            1.357191968245987,
+            -2.8241251070642717
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-18.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.43220899728920087,
+            0.31459378203582816
+          ],
+          "offset": [
+            1.357191968245987,
+            -2.8241251070642717
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-18.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.43220899728920087,
+            0.31459378203582816
+          ],
+          "offset": [
+            1.357191968245987,
+            -2.8241251070642717
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-16.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.43220899728920087,
+            0.31459378203582816
+          ],
+          "offset": [
+            1.357191968245987,
+            -2.8241251070642717
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-03",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-19.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.48966491828962366,
+            0.45045017656077946
+          ],
+          "offset": [
+            1.3700464121208817,
+            -5.130281529090515
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-20.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.48966491828962366,
+            0.45045017656077946
+          ],
+          "offset": [
+            1.3700464121208817,
+            -5.130281529090515
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-21.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.48966491828962366,
+            0.45045017656077946
+          ],
+          "offset": [
+            1.3700464121208817,
+            -5.130281529090515
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-22.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.48966491828962366,
+            0.45045017656077946
+          ],
+          "offset": [
+            1.3700464121208817,
+            -5.130281529090515
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-22.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.48966491828962366,
+            0.45045017656077946
+          ],
+          "offset": [
+            1.3700464121208817,
+            -5.130281529090515
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-20.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.48966491828962366,
+            0.45045017656077946
+          ],
+          "offset": [
+            1.3700464121208817,
+            -5.130281529090515
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-04",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-23.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.5408559858234965,
+            0.43859906685943434
+          ],
+          "offset": [
+            1.3705605952771256,
+            -5.811101348593409
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-24.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5408559858234965,
+            0.43859906685943434
+          ],
+          "offset": [
+            1.3705605952771256,
+            -5.811101348593409
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-25.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5408559858234965,
+            0.43859906685943434
+          ],
+          "offset": [
+            1.3705605952771256,
+            -5.811101348593409
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-26.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5408559858234965,
+            0.43859906685943434
+          ],
+          "offset": [
+            1.3705605952771256,
+            -5.811101348593409
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-26.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5408559858234965,
+            0.43859906685943434
+          ],
+          "offset": [
+            1.3705605952771256,
+            -5.811101348593409
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-24.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5408559858234965,
+            0.43859906685943434
+          ],
+          "offset": [
+            1.3705605952771256,
+            -5.811101348593409
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-05",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-27.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.5818362460752183,
+            0.530292325302591
+          ],
+          "offset": [
+            1.370241949002994,
+            -7.939082421510542
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-28.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5818362460752183,
+            0.530292325302591
+          ],
+          "offset": [
+            1.370241949002994,
+            -7.939082421510542
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-29.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5818362460752183,
+            0.530292325302591
+          ],
+          "offset": [
+            1.370241949002994,
+            -7.939082421510542
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-30.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5818362460752183,
+            0.530292325302591
+          ],
+          "offset": [
+            1.370241949002994,
+            -7.939082421510542
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-30.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5818362460752183,
+            0.530292325302591
+          ],
+          "offset": [
+            1.370241949002994,
+            -7.939082421510542
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-28.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5818362460752183,
+            0.530292325302591
+          ],
+          "offset": [
+            1.370241949002994,
+            -7.939082421510542
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-06",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-31.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6203097955591907,
+            0.6396876289124903
+          ],
+          "offset": [
+            1.3720147725518212,
+            -10.420237079012313
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-32.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6203097955591907,
+            0.6396876289124903
+          ],
+          "offset": [
+            1.3720147725518212,
+            -10.420237079012313
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-33.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6203097955591907,
+            0.6396876289124903
+          ],
+          "offset": [
+            1.3720147725518212,
+            -10.420237079012313
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-34.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6203097955591907,
+            0.6396876289124903
+          ],
+          "offset": [
+            1.3720147725518212,
+            -10.420237079012313
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-34.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6203097955591907,
+            0.6396876289124903
+          ],
+          "offset": [
+            1.3720147725518212,
+            -10.420237079012313
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-32.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6203097955591907,
+            0.6396876289124903
+          ],
+          "offset": [
+            1.3720147725518212,
+            -10.420237079012313
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-07",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-35.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6606519996505056,
+            0.7170669809040326
+          ],
+          "offset": [
+            1.3740838424368937,
+            -12.45497707933581
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-36.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6606519996505056,
+            0.7170669809040326
+          ],
+          "offset": [
+            1.3740838424368937,
+            -12.45497707933581
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-37.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6606519996505056,
+            0.7170669809040326
+          ],
+          "offset": [
+            1.3740838424368937,
+            -12.45497707933581
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-38.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6606519996505056,
+            0.7170669809040326
+          ],
+          "offset": [
+            1.3740838424368937,
+            -12.45497707933581
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-38.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6606519996505056,
+            0.7170669809040326
+          ],
+          "offset": [
+            1.3740838424368937,
+            -12.45497707933581
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-36.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6606519996505056,
+            0.7170669809040326
+          ],
+          "offset": [
+            1.3740838424368937,
+            -12.45497707933581
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-08",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-39.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6876394480230004,
+            0.6375752127613079
+          ],
+          "offset": [
+            1.3533809006221622,
+            -11.621692548912073
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-40.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6876394480230004,
+            0.6375752127613079
+          ],
+          "offset": [
+            1.3533809006221622,
+            -11.621692548912073
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-41.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6876394480230004,
+            0.6375752127613079
+          ],
+          "offset": [
+            1.3533809006221622,
+            -11.621692548912073
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-42.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6876394480230004,
+            0.6375752127613079
+          ],
+          "offset": [
+            1.3533809006221622,
+            -11.621692548912073
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-42.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6876394480230004,
+            0.6375752127613079
+          ],
+          "offset": [
+            1.3533809006221622,
+            -11.621692548912073
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-40.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6876394480230004,
+            0.6375752127613079
+          ],
+          "offset": [
+            1.3533809006221622,
+            -11.621692548912073
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-09",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-43.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.7338154693436391,
+            0.7131555254091448
+          ],
+          "offset": [
+            1.3488167938279574,
+            -13.753796002558984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-44.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7338154693436391,
+            0.7131555254091448
+          ],
+          "offset": [
+            1.3488167938279574,
+            -13.753796002558984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-45.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7338154693436391,
+            0.7131555254091448
+          ],
+          "offset": [
+            1.3488167938279574,
+            -13.753796002558984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-46.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7338154693436391,
+            0.7131555254091448
+          ],
+          "offset": [
+            1.3488167938279574,
+            -13.753796002558984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-46.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7338154693436391,
+            0.7131555254091448
+          ],
+          "offset": [
+            1.3488167938279574,
+            -13.753796002558984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-44.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7338154693436391,
+            0.7131555254091448
+          ],
+          "offset": [
+            1.3488167938279574,
+            -13.753796002558984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-10",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-47.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.785037602791781,
+            1.0238110116033272
+          ],
+          "offset": [
+            1.3625603024658763,
+            -20.672144247341926
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-48.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.785037602791781,
+            1.0238110116033272
+          ],
+          "offset": [
+            1.3625603024658763,
+            -20.672144247341926
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-49.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.785037602791781,
+            1.0238110116033272
+          ],
+          "offset": [
+            1.3625603024658763,
+            -20.672144247341926
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-50.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.785037602791781,
+            1.0238110116033272
+          ],
+          "offset": [
+            1.3625603024658763,
+            -20.672144247341926
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-50.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.785037602791781,
+            1.0238110116033272
+          ],
+          "offset": [
+            1.3625603024658763,
+            -20.672144247341926
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-48.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.785037602791781,
+            1.0238110116033272
+          ],
+          "offset": [
+            1.3625603024658763,
+            -20.672144247341926
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-west-11",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-51.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.8220370349400299,
+            1.2347035763632035
+          ],
+          "offset": [
+            1.365409724101342,
+            -25.614757623335777
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-52.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8220370349400299,
+            1.2347035763632035
+          ],
+          "offset": [
+            1.365409724101342,
+            -25.614757623335777
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-53.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8220370349400299,
+            1.2347035763632035
+          ],
+          "offset": [
+            1.365409724101342,
+            -25.614757623335777
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-54.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8220370349400299,
+            1.2347035763632035
+          ],
+          "offset": [
+            1.365409724101342,
+            -25.614757623335777
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-54.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8220370349400299,
+            1.2347035763632035
+          ],
+          "offset": [
+            1.365409724101342,
+            -25.614757623335777
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-52.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8220370349400299,
+            1.2347035763632035
+          ],
+          "offset": [
+            1.365409724101342,
+            -25.614757623335777
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-01",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-55.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.540529336392824,
+            0.21525085094525737
+          ],
+          "offset": [
+            0.8054644584929918,
+            -1.195458672710795
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-56.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.540529336392824,
+            0.21525085094525737
+          ],
+          "offset": [
+            0.8054644584929918,
+            -1.195458672710795
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-57.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.540529336392824,
+            0.21525085094525737
+          ],
+          "offset": [
+            0.8054644584929918,
+            -1.195458672710795
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-58.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.540529336392824,
+            0.21525085094525737
+          ],
+          "offset": [
+            0.8054644584929918,
+            -1.195458672710795
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-58.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.540529336392824,
+            0.21525085094525737
+          ],
+          "offset": [
+            0.8054644584929918,
+            -1.195458672710795
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-56.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.540529336392824,
+            0.21525085094525737
+          ],
+          "offset": [
+            0.8054644584929918,
+            -1.195458672710795
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-02",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-59.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6072493249875137,
+            0.2778768486777704
+          ],
+          "offset": [
+            0.7822885011176576,
+            -2.696287789175984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-60.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6072493249875137,
+            0.2778768486777704
+          ],
+          "offset": [
+            0.7822885011176576,
+            -2.696287789175984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-61.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6072493249875137,
+            0.2778768486777704
+          ],
+          "offset": [
+            0.7822885011176576,
+            -2.696287789175984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-62.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6072493249875137,
+            0.2778768486777704
+          ],
+          "offset": [
+            0.7822885011176576,
+            -2.696287789175984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-62.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6072493249875137,
+            0.2778768486777704
+          ],
+          "offset": [
+            0.7822885011176576,
+            -2.696287789175984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-60.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6072493249875137,
+            0.2778768486777704
+          ],
+          "offset": [
+            0.7822885011176576,
+            -2.696287789175984
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-03",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-63.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6681648854351104,
+            0.4085917879756394
+          ],
+          "offset": [
+            0.760705451303055,
+            -5.2221792481073175
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-64.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6681648854351104,
+            0.4085917879756394
+          ],
+          "offset": [
+            0.760705451303055,
+            -5.2221792481073175
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-65.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6681648854351104,
+            0.4085917879756394
+          ],
+          "offset": [
+            0.760705451303055,
+            -5.2221792481073175
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-66.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6681648854351104,
+            0.4085917879756394
+          ],
+          "offset": [
+            0.760705451303055,
+            -5.2221792481073175
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-66.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6681648854351104,
+            0.4085917879756394
+          ],
+          "offset": [
+            0.760705451303055,
+            -5.2221792481073175
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-64.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6681648854351104,
+            0.4085917879756394
+          ],
+          "offset": [
+            0.760705451303055,
+            -5.2221792481073175
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-04",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-67.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.7037856179705114,
+            0.5352334816801063
+          ],
+          "offset": [
+            0.7474534524170308,
+            -7.872855632788785
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-68.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7037856179705114,
+            0.5352334816801063
+          ],
+          "offset": [
+            0.7474534524170308,
+            -7.872855632788785
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-69.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7037856179705114,
+            0.5352334816801063
+          ],
+          "offset": [
+            0.7474534524170308,
+            -7.872855632788785
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-70.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7037856179705114,
+            0.5352334816801063
+          ],
+          "offset": [
+            0.7474534524170308,
+            -7.872855632788785
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-70.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7037856179705114,
+            0.5352334816801063
+          ],
+          "offset": [
+            0.7474534524170308,
+            -7.872855632788785
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-68.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7037856179705114,
+            0.5352334816801063
+          ],
+          "offset": [
+            0.7474534524170308,
+            -7.872855632788785
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-05",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-71.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.7307161067886072,
+            0.8688936088451016
+          ],
+          "offset": [
+            0.7375165217173264,
+            -14.027396775165473
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-72.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7307161067886072,
+            0.8688936088451016
+          ],
+          "offset": [
+            0.7375165217173264,
+            -14.027396775165473
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-73.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7307161067886072,
+            0.8688936088451016
+          ],
+          "offset": [
+            0.7375165217173264,
+            -14.027396775165473
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-74.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7307161067886072,
+            0.8688936088451016
+          ],
+          "offset": [
+            0.7375165217173264,
+            -14.027396775165473
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-74.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7307161067886072,
+            0.8688936088451016
+          ],
+          "offset": [
+            0.7375165217173264,
+            -14.027396775165473
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-72.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7307161067886072,
+            0.8688936088451016
+          ],
+          "offset": [
+            0.7375165217173264,
+            -14.027396775165473
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-06",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-75.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.7128810608784094,
+            0.4807650395458827
+          ],
+          "offset": [
+            0.7019114626215766,
+            -8.084432706390153
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-76.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7128810608784094,
+            0.4807650395458827
+          ],
+          "offset": [
+            0.7019114626215766,
+            -8.084432706390153
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-77.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7128810608784094,
+            0.4807650395458827
+          ],
+          "offset": [
+            0.7019114626215766,
+            -8.084432706390153
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-78.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7128810608784094,
+            0.4807650395458827
+          ],
+          "offset": [
+            0.7019114626215766,
+            -8.084432706390153
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-78.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7128810608784094,
+            0.4807650395458827
+          ],
+          "offset": [
+            0.7019114626215766,
+            -8.084432706390153
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-76.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7128810608784094,
+            0.4807650395458827
+          ],
+          "offset": [
+            0.7019114626215766,
+            -8.084432706390153
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-07",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-79.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.7029173401035406,
+            0.6667287382885762
+          ],
+          "offset": [
+            0.6476874657959363,
+            -12.347620045487277
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-80.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7029173401035406,
+            0.6667287382885762
+          ],
+          "offset": [
+            0.6476874657959363,
+            -12.347620045487277
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-81.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7029173401035406,
+            0.6667287382885762
+          ],
+          "offset": [
+            0.6476874657959363,
+            -12.347620045487277
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-82.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7029173401035406,
+            0.6667287382885762
+          ],
+          "offset": [
+            0.6476874657959363,
+            -12.347620045487277
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-82.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7029173401035406,
+            0.6667287382885762
+          ],
+          "offset": [
+            0.6476874657959363,
+            -12.347620045487277
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-80.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7029173401035406,
+            0.6667287382885762
+          ],
+          "offset": [
+            0.6476874657959363,
+            -12.347620045487277
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-08",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-83.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.699386034068213,
+            0.6613734561000923
+          ],
+          "offset": [
+            0.603854125090295,
+            -12.953056498120658
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-84.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.699386034068213,
+            0.6613734561000923
+          ],
+          "offset": [
+            0.603854125090295,
+            -12.953056498120658
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-85.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.699386034068213,
+            0.6613734561000923
+          ],
+          "offset": [
+            0.603854125090295,
+            -12.953056498120658
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-86.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.699386034068213,
+            0.6613734561000923
+          ],
+          "offset": [
+            0.603854125090295,
+            -12.953056498120658
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-86.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.699386034068213,
+            0.6613734561000923
+          ],
+          "offset": [
+            0.603854125090295,
+            -12.953056498120658
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-84.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.699386034068213,
+            0.6613734561000923
+          ],
+          "offset": [
+            0.603854125090295,
+            -12.953056498120658
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-centre-09",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-87.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6963604296464561,
+            1.1717091695409314
+          ],
+          "offset": [
+            0.5727595826766504,
+            -24.256876346164038
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-88.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6963604296464561,
+            1.1717091695409314
+          ],
+          "offset": [
+            0.5727595826766504,
+            -24.256876346164038
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-89.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6963604296464561,
+            1.1717091695409314
+          ],
+          "offset": [
+            0.5727595826766504,
+            -24.256876346164038
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-90.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6963604296464561,
+            1.1717091695409314
+          ],
+          "offset": [
+            0.5727595826766504,
+            -24.256876346164038
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-90.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6963604296464561,
+            1.1717091695409314
+          ],
+          "offset": [
+            0.5727595826766504,
+            -24.256876346164038
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-88.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6963604296464561,
+            1.1717091695409314
+          ],
+          "offset": [
+            0.5727595826766504,
+            -24.256876346164038
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-01",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-91.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.32543417138646374,
+            0.19924941026995732
+          ],
+          "offset": [
+            0.0004970463236033739,
+            -1.0588738315616137
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-92.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.32543417138646374,
+            0.19924941026995732
+          ],
+          "offset": [
+            0.0004970463236033739,
+            -1.0588738315616137
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-93.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.32543417138646374,
+            0.19924941026995732
+          ],
+          "offset": [
+            0.0004970463236033739,
+            -1.0588738315616137
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-94.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.32543417138646374,
+            0.19924941026995732
+          ],
+          "offset": [
+            0.0004970463236033739,
+            -1.0588738315616137
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-94.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.32543417138646374,
+            0.19924941026995732
+          ],
+          "offset": [
+            0.0004970463236033739,
+            -1.0588738315616137
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-92.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.32543417138646374,
+            0.19924941026995732
+          ],
+          "offset": [
+            0.0004970463236033739,
+            -1.0588738315616137
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-02",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-95.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.39240608740695115,
+            0.3029031457261812
+          ],
+          "offset": [
+            0.0009960397255949543,
+            -2.9804262231944563
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-96.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.39240608740695115,
+            0.3029031457261812
+          ],
+          "offset": [
+            0.0009960397255949543,
+            -2.9804262231944563
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-97.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.39240608740695115,
+            0.3029031457261812
+          ],
+          "offset": [
+            0.0009960397255949543,
+            -2.9804262231944563
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-98.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.39240608740695115,
+            0.3029031457261812
+          ],
+          "offset": [
+            0.0009960397255949543,
+            -2.9804262231944563
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-98.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.39240608740695115,
+            0.3029031457261812
+          ],
+          "offset": [
+            0.0009960397255949543,
+            -2.9804262231944563
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-96.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.39240608740695115,
+            0.3029031457261812
+          ],
+          "offset": [
+            0.0009960397255949543,
+            -2.9804262231944563
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-03",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-99.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.4452247906970961,
+            0.37316988238714044
+          ],
+          "offset": [
+            0.0011301088147853003,
+            -4.643421405261854
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-100.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4452247906970961,
+            0.37316988238714044
+          ],
+          "offset": [
+            0.0011301088147853003,
+            -4.643421405261854
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-101.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4452247906970961,
+            0.37316988238714044
+          ],
+          "offset": [
+            0.0011301088147853003,
+            -4.643421405261854
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-102.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4452247906970961,
+            0.37316988238714044
+          ],
+          "offset": [
+            0.0011301088147853003,
+            -4.643421405261854
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-102.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4452247906970961,
+            0.37316988238714044
+          ],
+          "offset": [
+            0.0011301088147853003,
+            -4.643421405261854
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-100.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4452247906970961,
+            0.37316988238714044
+          ],
+          "offset": [
+            0.0011301088147853003,
+            -4.643421405261854
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-04",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-103.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.4905223623860897,
+            0.4958355661165002
+          ],
+          "offset": [
+            0.000940809268535281,
+            -7.183257830844205
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-104.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4905223623860897,
+            0.4958355661165002
+          ],
+          "offset": [
+            0.000940809268535281,
+            -7.183257830844205
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-105.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4905223623860897,
+            0.4958355661165002
+          ],
+          "offset": [
+            0.000940809268535281,
+            -7.183257830844205
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-106.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4905223623860897,
+            0.4958355661165002
+          ],
+          "offset": [
+            0.000940809268535281,
+            -7.183257830844205
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-106.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4905223623860897,
+            0.4958355661165002
+          ],
+          "offset": [
+            0.000940809268535281,
+            -7.183257830844205
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-104.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.4905223623860897,
+            0.4958355661165002
+          ],
+          "offset": [
+            0.000940809268535281,
+            -7.183257830844205
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-05",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-107.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.5273639866621995,
+            0.6594612749275415
+          ],
+          "offset": [
+            0.0006318756597299242,
+            -10.571580085696501
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-108.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5273639866621995,
+            0.6594612749275415
+          ],
+          "offset": [
+            0.0006318756597299242,
+            -10.571580085696501
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-109.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5273639866621995,
+            0.6594612749275415
+          ],
+          "offset": [
+            0.0006318756597299242,
+            -10.571580085696501
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-110.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5273639866621995,
+            0.6594612749275415
+          ],
+          "offset": [
+            0.0006318756597299242,
+            -10.571580085696501
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-110.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5273639866621995,
+            0.6594612749275415
+          ],
+          "offset": [
+            0.0006318756597299242,
+            -10.571580085696501
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-108.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5273639866621995,
+            0.6594612749275415
+          ],
+          "offset": [
+            0.0006318756597299242,
+            -10.571580085696501
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-06",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-111.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.5613114605629367,
+            0.7050239052134976
+          ],
+          "offset": [
+            0.0003832717298577847,
+            -12.079020903200936
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-112.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5613114605629367,
+            0.7050239052134976
+          ],
+          "offset": [
+            0.0003832717298577847,
+            -12.079020903200936
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-113.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5613114605629367,
+            0.7050239052134976
+          ],
+          "offset": [
+            0.0003832717298577847,
+            -12.079020903200936
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-114.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5613114605629367,
+            0.7050239052134976
+          ],
+          "offset": [
+            0.0003832717298577847,
+            -12.079020903200936
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-114.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5613114605629367,
+            0.7050239052134976
+          ],
+          "offset": [
+            0.0003832717298577847,
+            -12.079020903200936
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-112.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.5613114605629367,
+            0.7050239052134976
+          ],
+          "offset": [
+            0.0003832717298577847,
+            -12.079020903200936
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-07",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-115.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6082938525518338,
+            0.841465582866242
+          ],
+          "offset": [
+            -0.021009739738091827,
+            -15.2439240086418
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-116.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6082938525518338,
+            0.841465582866242
+          ],
+          "offset": [
+            -0.021009739738091827,
+            -15.2439240086418
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-117.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6082938525518338,
+            0.841465582866242
+          ],
+          "offset": [
+            -0.021009739738091827,
+            -15.2439240086418
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-118.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6082938525518338,
+            0.841465582866242
+          ],
+          "offset": [
+            -0.021009739738091827,
+            -15.2439240086418
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-118.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6082938525518338,
+            0.841465582866242
+          ],
+          "offset": [
+            -0.021009739738091827,
+            -15.2439240086418
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-116.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6082938525518338,
+            0.841465582866242
+          ],
+          "offset": [
+            -0.021009739738091827,
+            -15.2439240086418
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-08",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-119.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.6528189344502118,
+            1.1351279233674476
+          ],
+          "offset": [
+            -0.0499713556073174,
+            -21.411971483216462
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-120.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6528189344502118,
+            1.1351279233674476
+          ],
+          "offset": [
+            -0.0499713556073174,
+            -21.411971483216462
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-121.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6528189344502118,
+            1.1351279233674476
+          ],
+          "offset": [
+            -0.0499713556073174,
+            -21.411971483216462
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-122.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6528189344502118,
+            1.1351279233674476
+          ],
+          "offset": [
+            -0.0499713556073174,
+            -21.411971483216462
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-122.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6528189344502118,
+            1.1351279233674476
+          ],
+          "offset": [
+            -0.0499713556073174,
+            -21.411971483216462
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-120.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.6528189344502118,
+            1.1351279233674476
+          ],
+          "offset": [
+            -0.0499713556073174,
+            -21.411971483216462
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-09",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-123.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.687043775007579,
+            0.8105922249434063
+          ],
+          "offset": [
+            -0.08099640677517418,
+            -15.695194732353318
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-124.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.687043775007579,
+            0.8105922249434063
+          ],
+          "offset": [
+            -0.08099640677517418,
+            -15.695194732353318
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-125.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.687043775007579,
+            0.8105922249434063
+          ],
+          "offset": [
+            -0.08099640677517418,
+            -15.695194732353318
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-126.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.687043775007579,
+            0.8105922249434063
+          ],
+          "offset": [
+            -0.08099640677517418,
+            -15.695194732353318
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-126.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.687043775007579,
+            0.8105922249434063
+          ],
+          "offset": [
+            -0.08099640677517418,
+            -15.695194732353318
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-124.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.687043775007579,
+            0.8105922249434063
+          ],
+          "offset": [
+            -0.08099640677517418,
+            -15.695194732353318
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-10",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-127.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.7491281586178172,
+            0.983705463301992
+          ],
+          "offset": [
+            -0.13306337171691848,
+            -19.862358388225616
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-128.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7491281586178172,
+            0.983705463301992
+          ],
+          "offset": [
+            -0.13306337171691848,
+            -19.862358388225616
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-129.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7491281586178172,
+            0.983705463301992
+          ],
+          "offset": [
+            -0.13306337171691848,
+            -19.862358388225616
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-130.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7491281586178172,
+            0.983705463301992
+          ],
+          "offset": [
+            -0.13306337171691848,
+            -19.862358388225616
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-130.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7491281586178172,
+            0.983705463301992
+          ],
+          "offset": [
+            -0.13306337171691848,
+            -19.862358388225616
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-128.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.7491281586178172,
+            0.983705463301992
+          ],
+          "offset": [
+            -0.13306337171691848,
+            -19.862358388225616
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    },
+    {
+      "name": "traced-granite-observed-east-11",
+      "colorLinear": [
+        1,
+        1,
+        1
+      ],
+      "roughnessScalar": 1,
+      "metalness": 0,
+      "ior": 1.5,
+      "clearcoatIOR": 1.333,
+      "normalScale": [
+        1,
+        1
+      ],
+      "clearcoatNormalScale": [
+        0.85,
+        0.85
+      ],
+      "textures": {
+        "map": {
+          "file": "texture-131.png",
+          "colorSpace": "srgb",
+          "blenderColorSpace": "sRGB",
+          "repeat": [
+            0.8010372096093887,
+            1.3524508602082772
+          ],
+          "offset": [
+            -0.17450500660020257,
+            -28.152869183337376
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "normalMap": {
+          "file": "texture-132.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8010372096093887,
+            1.3524508602082772
+          ],
+          "offset": [
+            -0.17450500660020257,
+            -28.152869183337376
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "roughnessMap": {
+          "file": "texture-133.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8010372096093887,
+            1.3524508602082772
+          ],
+          "offset": [
+            -0.17450500660020257,
+            -28.152869183337376
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatMap": {
+          "file": "texture-134.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8010372096093887,
+            1.3524508602082772
+          ],
+          "offset": [
+            -0.17450500660020257,
+            -28.152869183337376
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatRoughnessMap": {
+          "file": "texture-134.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8010372096093887,
+            1.3524508602082772
+          ],
+          "offset": [
+            -0.17450500660020257,
+            -28.152869183337376
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        },
+        "clearcoatNormalMap": {
+          "file": "texture-132.png",
+          "colorSpace": "",
+          "blenderColorSpace": "Non-Color",
+          "repeat": [
+            0.8010372096093887,
+            1.3524508602082772
+          ],
+          "offset": [
+            -0.17450500660020257,
+            -28.152869183337376
+          ],
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true
+        }
+      }
+    }
+  ],
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 23669477,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "All31 per-stone PBR channels/UV transforms/clamp/linear white base and water-film IOR1.333 retained. Existing other-stone metric triplanar sampling and its world-normal blend ported to nodes. Older stone macro-weather GLSL modulation omitted and disclosed. Pond IOR1.333/transmission1, leaf scattering.26 and explicit lamp-paper scattering.45 are physical transport hypotheses; all image maps retain their source colour spaces.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion is a declared working-unit hypothesis, not absolute SI calibration",
+    "sunGain": 1.0,
+    "worldGain": 1.0,
+    "exposure": 0.0,
+    "nativeWebglPixelEquivalence": false,
+    "probeImported": false,
+    "environmentCount": 1,
+    "seed": 904101
+  },
+  "finished": 1792367488.545782,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 48,
+  "photographicAcceptance": false
+}
