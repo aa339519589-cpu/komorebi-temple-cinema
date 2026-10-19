@@ -8,6 +8,19 @@ export function createPondSurface(width,height){
  });
  surface.name='view-dependent-pond-water';
  surface.rotation.x=-Math.PI/2;surface.position.set(0,-.055,10);
+ // A reflected camera reverses the screen-horizontal basis on this pond.
+ // Reflector copies the input projection, including an off-axis view offset.
+ // Mirror that offset while it copies the matrix; otherwise a native detail
+ // subfrustum samples a clamped column of the reflection target as stripes.
+ // The input camera is restored before its own draw; centered film views
+ // have zero horizontal offset and therefore keep the same projection.
+ const reflect=surface.onBeforeRender;
+ surface.onBeforeRender=function(renderer,scene,camera,geometry,material,group){
+  const projection=camera.projectionMatrix.elements,offsetX=projection[8];
+  projection[8]=-offsetX;
+  try{return reflect.call(this,renderer,scene,camera,geometry,material,group);}
+  finally{projection[8]=offsetX;}
+ };
  const material=surface.material;
  material.transparent=true;material.depthWrite=true;
  material.uniforms.waterTime={value:0};
