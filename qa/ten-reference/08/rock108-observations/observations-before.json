@@ -1,0 +1,29 @@
+{
+  "baseCommit": "8c1708d3fa36860109e53705e9b6d7c63fadf914",
+  "reference": "references/hd/7-照片-8.jpg",
+  "baseline": "qa/ten-reference/08/iteration-mesh-film-20261019-r02/frame-0209.png",
+  "baselineSourceExactBeforeChanges": "cf84d5cb49a3f6fa7b0933ebda11323d9dac09373bc5d54b45dce579481ab696",
+  "comparisonCoordinateSystem": "1254 reference pixels.1440 actual endpoint resampled only for the labelled comparison crop; new actuals will be native1254.",
+  "selectedReferenceRock": {
+    "description": "One clearly wrinkled dark gray main boulder left of the central shrub and left of the bridge stone landing, immediately above foreground planting/rail",
+    "approximateVisibleBox": [497,805,105,113],
+    "outlineObservations": ["Crown aroundx540–570,y805–820 is interrupted by small foliage.", "Right wrinkled face nearx590,y845–900 remains readable.", "Left and lower boundaries disappear into shrubs/ferns and a low stone edge, so complete mass/footing dimensions cannot be recovered."],
+    "contact": "Partly hidden by ferns nearx575–595,y907–920; no exact historical terrain height or buried shape is claimed.",
+    "otherRock": "The right rock near the bridge is screened by the central shrub and does not receive a second speculative replacement."
+  },
+  "selectedActualRock": {
+    "description": "Large pale pear-shaped body with small procedural green cap, above the near railing and left of bridge landing",
+    "confirmedGeneratorCall": "rock(-.55,1.35,-.3,.95,2.7,.9,2)",
+    "rawWorldCentre": [-0.55,1.651,-0.3],
+    "nonuniformScale": [0.95,2.7,0.9],
+    "threeConfirmedClearRockProbePixels": [[589,900],[559,864],[622,917]],
+    "probeEvidence": "old-rock-locations.json raycasts exact original procedural rock meshes under the frozen camera; it deliberately does not replace optical plant/rail visibility with invented measurements. All listed clear gray-pixel rays hit fixed-centre-tall.",
+    "groundIssue": "Old centre lies in the downcut rill region. A squat scan cannot simply be lifted to this old stretched centre and claimed to touch terrain."
+  },
+  "newGeometryPolicy": "One retained Poly Haven rock04 scan selected for its naturally more upright mass among the six pieces, original geometry arrays/UV/PBR. Uniform scale/rigid yaw/position only. Actual lower scan vertices must intersect original west-bank triangle terrain, with no new soil or moss hemisphere.",
+  "rngPolicy": "The one fixed call consumes zero random draws; all original115 random rocks,14 channel rocks and subsequent foliage calls remain unchanged. Original pre-plant consumption ends at50042 draws/state1062665593, reproduced in locate-old-rocks.mjs.",
+  "sourcePhotoUsedAsSurface": false,
+  "referenceCopyright": "Original owner retained; all comparison crops are QA only.",
+  "hiddenGeometry": "Scan selection and placement are interpretive. Hidden fractures/root shape are not called exact recovery.",
+  "visualAccepted": false
+}

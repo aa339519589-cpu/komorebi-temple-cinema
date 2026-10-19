@@ -1,0 +1,174 @@
+{
+  "status": "retained-original-scan-and-uniform-instance-transform-inspected",
+  "sourceNode": "rock_moss_set_01_rock01",
+  "providerMesh": "modelShape.005",
+  "sourceAccessors": {
+    "POSITION": {
+      "accessor": 0,
+      "count": 6078,
+      "components": 3,
+      "componentType": 5126,
+      "sha256": "45a6e384295591a6461751b8c011af95365dbd4989f2ba3c1c6b9ba20a8060ca"
+    },
+    "NORMAL": {
+      "accessor": 1,
+      "count": 6078,
+      "components": 3,
+      "componentType": 5126,
+      "sha256": "a846ae260f7b3b99ee25a3d3e2628913bba8c4e65aef32d2d6e592b0bb5c7e87"
+    },
+    "TEXCOORD_0": {
+      "accessor": 2,
+      "count": 6078,
+      "components": 2,
+      "componentType": 5126,
+      "sha256": "3affbaf3bffeefe3115521a9e6d3cf64b00d400ff2fe712f55360e82f4e2e296"
+    },
+    "indices": {
+      "accessor": 3,
+      "count": 33000,
+      "components": 1,
+      "componentType": 5123,
+      "sha256": "a250e8d14d3dc57c0514e06326aeda4ff46b739d2304c7c97b24d54ee04b9196"
+    }
+  },
+  "sourceGeometryArraysEdited": false,
+  "sourceUVNormalAndIndexArraysPreserved": true,
+  "originalPBRMapBytes": "retained-scan-bytes.json",
+  "actualTriangles": 11000,
+  "uniformAxisLengths": [
+    1.1,
+    1.1,
+    1.1
+  ],
+  "transformDeterminant": 1.3310000000000004,
+  "expectedDeterminant": 1.3310000000000004,
+  "rigidPitch": 1.15,
+  "rigidYaw": 0.15,
+  "actualObjectPosition": [
+    -0.7524804155935806,
+    1.2255563408567127,
+    -0.14228586463171908
+  ],
+  "support": {
+    "method": "Lower original scan vertices raycast onto original triangulated terrain",
+    "samples": 1293,
+    "embeddedSamples": 118,
+    "maximumPenetrationMetres": 0.16,
+    "contacts": [
+      {
+        "height": 1.2741187257348623,
+        "localY": -0.3589911460876465,
+        "rigidRotatedY": -1.1284179200244362,
+        "x": -1.1621778652027261,
+        "z": -0.0699185363569615,
+        "terrainY": 0.1457008057104261
+      },
+      {
+        "height": 1.2257630538810058,
+        "localY": -0.4308950901031494,
+        "rigidRotatedY": -1.0660187170533841,
+        "x": -1.149870475553694,
+        "z": -0.18449759074210648,
+        "terrainY": 0.15974433682762168
+      },
+      {
+        "height": 1.242831151423822,
+        "localY": -0.4958345293998718,
+        "rigidRotatedY": -1.0326694308642248,
+        "x": -1.6322883918916036,
+        "z": -0.2776828537059796,
+        "terrainY": 0.21016172055959714
+      },
+      {
+        "height": 1.278848826169468,
+        "localY": -0.4946599006652832,
+        "rigidRotatedY": -1.0730292380271846,
+        "x": -1.5903067225538794,
+        "z": -0.2582051276845631,
+        "terrainY": 0.2058195881422833
+      },
+      {
+        "height": 1.228383877874657,
+        "localY": -0.3795607089996338,
+        "rigidRotatedY": -1.0337362805084935,
+        "x": -1.6024315339480038,
+        "z": -0.1370802384398381,
+        "terrainY": 0.19464759736616344
+      },
+      {
+        "height": 1.2354543335788395,
+        "localY": -0.38959598541259766,
+        "rigidRotatedY": -1.0407886461527016,
+        "x": -1.5876222300461098,
+        "z": -0.1460179285700486,
+        "terrainY": 0.19466568742613788
+      },
+      {
+        "height": 1.28738907755809,
+        "localY": -0.5329324007034302,
+        "rigidRotatedY": -1.0763281350416503,
+        "x": -1.6052235553715508,
+        "z": -0.3028521500364221,
+        "terrainY": 0.2110609425164398
+      },
+      {
+        "height": 1.3013540328267612,
+        "localY": -0.48713043332099915,
+        "rigidRotatedY": -1.0998332001776165,
+        "x": -1.5517667637610693,
+        "z": -0.23713560999786604,
+        "terrainY": 0.20152083264914467
+      },
+      {
+        "height": 1.2776327832198533,
+        "localY": -0.42986157536506653,
+        "rigidRotatedY": -1.0809366976535302,
+        "x": -1.5709620867262042,
+        "z": -0.17657585587565178,
+        "terrainY": 0.19669608556632312
+      },
+      {
+        "height": 1.3127403522040093,
+        "localY": -0.5061505436897278,
+        "rigidRotatedY": -1.1089775919077591,
+        "x": -1.55860049738106,
+        "z": -0.2559649605793627,
+        "terrainY": 0.20376276029625018
+      },
+      {
+        "height": 1.2770435573346015,
+        "localY": -0.41601598262786865,
+        "rigidRotatedY": -1.0834698606556694,
+        "x": -1.5472248373667852,
+        "z": -0.15875644324815297,
+        "terrainY": 0.1935736966789321
+      },
+      {
+        "height": 1.339899874961731,
+        "localY": -0.528479814529419,
+        "rigidRotatedY": -1.136117974268203,
+        "x": -1.5339525598726775,
+        "z": -0.27072857249941573,
+        "terrainY": 0.20378190069352797
+      }
+    ]
+  },
+  "actualWorldVertexBounds": {
+    "min": [
+      -1.966356381361837,
+      -0.39153858043884204,
+      -1.065198359970812
+    ],
+    "max": [
+      0.7057972996661112,
+      3.081949044397078,
+      0.990531804685342
+    ]
+  },
+  "rngFinalState": 2186526841,
+  "rngMatchesFirstCandidate": true,
+  "baselineFixedCallConsumesNoSceneRandom": true,
+  "sourceHash": "2697b25a18db73c6ccee623c37041586b0139b70f291ec075270a49db7deca20",
+  "visualAccepted": false
+}

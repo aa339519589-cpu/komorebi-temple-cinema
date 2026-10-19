@@ -1,0 +1,89 @@
+{
+  "scope": "CPU geometric estimates, not actual image/acceptance",
+  "results": [
+    {
+      "label": "108a rock04 upright",
+      "index": 3,
+      "scale": 1.55,
+      "rotation": [
+        0,
+        0.85,
+        0
+      ],
+      "anchor": [
+        -1.1,
+        -2.4
+      ],
+      "objectPosition": [
+        -1.3267139923453088,
+        1.2780957927431298,
+        -2.3649223440971774
+      ],
+      "worldBounds": {
+        "min": [
+          -3.0592616633285137,
+          0.2535914113249016,
+          -4.254790175728166
+        ],
+        "max": [
+          0.16798291432666868,
+          2.9944871713842582,
+          -0.7232784917253277
+        ]
+      },
+      "pixelBounds": {
+        "min": [
+          336.94285064933376,
+          846.0887675619781
+        ],
+        "max": [
+          642.4336074369238,
+          1109.1452461636436
+        ]
+      },
+      "caveat": "Whole-body bounds include hidden/underground parts. Rail and plants are deliberately not guessed or modified."
+    },
+    {
+      "label": "possible rock01 naturally long axis tilted upright",
+      "index": 0,
+      "scale": 1.1,
+      "rotation": [
+        1.15,
+        0.15,
+        0
+      ],
+      "anchor": [
+        -0.75,
+        -0.15
+      ],
+      "objectPosition": [
+        -0.7524804155935806,
+        1.2255563408567127,
+        -0.14228586463171908
+      ],
+      "worldBounds": {
+        "min": [
+          -1.966356381361837,
+          -0.39153858043884204,
+          -1.065198359970812
+        ],
+        "max": [
+          0.7057972996661112,
+          3.081949044397078,
+          0.990531804685342
+        ]
+      },
+      "pixelBounds": {
+        "min": [
+          416.5358680251276,
+          831.372418701408
+        ],
+        "max": [
+          707.3884704187495,
+          1234.8434341146933
+        ]
+      },
+      "caveat": "Whole-body bounds include hidden/underground parts. Rail and plants are deliberately not guessed or modified."
+    }
+  ]
+}

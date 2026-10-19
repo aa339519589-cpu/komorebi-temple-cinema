@@ -1,0 +1,16 @@
+// CPU bounds/contact estimates only. No pixel substitute for the actual scene.
+import * as T from '../../../../vendor/build/three.module.js';
+import {readFile,writeFile} from 'node:fs/promises';
+const base=new URL('../../../../assets/polyhaven/rock-moss-set-01/',import.meta.url),gltf=JSON.parse(await readFile(new URL('rock_moss_set_01_4k.gltf',base),'utf8')),bin=await readFile(new URL('rock_moss_set_01.bin',base));
+function scan(index){const p=gltf.meshes[index].primitives[0],a=gltf.accessors[p.attributes.POSITION],v=gltf.bufferViews[a.bufferView],pos=[];for(let i=0;i<a.count;i++)for(let j=0;j<3;j++)pos.push(bin.readFloatLE((v.byteOffset||0)+(a.byteOffset||0)+i*(v.byteStride||12)+j*4));return pos;}
+const cam=new T.PerspectiveCamera(49,1,.06,180);cam.position.set(0,2.65,13);cam.lookAt(0,6.65,-9);cam.updateProjectionMatrix();cam.updateMatrixWorld(true);
+const ground=z=>Math.max(0,Math.min(1.7,(4-z)*.07)),pp=[],ix=[];
+for(let j=0;j<=100;j++)for(let i=0;i<=100;i++){const x=-28+i*56/100,z=-42+j*60/100,channel=z>-7&&z<9?1-T.MathUtils.smoothstep(Math.abs(x-.8),1.4,2):0,land=ground(z)-.08+.06*Math.sin(x*1.7+z*.9)*Math.sin(z*1.4-x*.6);pp.push(x,land*(1-channel)-.5*channel,z);}
+for(let j=0;j<100;j++)for(let i=0;i<100;i++){const a=j*101+i,b=a+1,c=a+101,d=c+1;ix.push(a,c,b,b,c,d);}
+const terrain=new T.BufferGeometry();terrain.setAttribute('position',new T.Float32BufferAttribute(pp,3));terrain.setIndex(ix);const surface=new T.Mesh(terrain,new T.MeshBasicMaterial({side:T.DoubleSide}));surface.updateMatrixWorld(true);
+const ray=new T.Raycaster(new T.Vector3(),new T.Vector3(0,-1,0),0,100);
+function predict(c){const raw=scan(c.index),points=[];for(let i=0;i<raw.length;i+=3)points.push(new T.Vector3(...raw.slice(i,i+3)));const box=new T.Box3().setFromPoints(points),centre=box.getCenter(new T.Vector3()),q=new T.Quaternion().setFromEuler(new T.Euler(...c.rotation)),offset=new T.Vector3(centre.x,0,centre.z).multiplyScalar(c.scale).applyQuaternion(q),x=c.anchor[0]-offset.x,z=c.anchor[1]-offset.z,rotated=points.map(p=>p.clone().multiplyScalar(c.scale).applyQuaternion(q)),lo=Math.min(...rotated.map(p=>p.y)),hi=Math.max(...rotated.map(p=>p.y));let ty=-Infinity;for(const v of rotated){if(v.y>lo+(hi-lo)*.22)continue;ray.ray.origin.set(v.x+x,50,v.z+z);const h=ray.intersectObject(surface,false)[0];if(h)ty=Math.max(ty,h.point.y-v.y);}ty-=.16;
+ const world=rotated.map(p=>p.add(new T.Vector3(x,ty,z))),bb=new T.Box3().setFromPoints(world),screen=new T.Box2();for(const p of world){const v=p.clone().project(cam);screen.expandByPoint(new T.Vector2((v.x+1)*627,(1-v.y)*627));}
+ return{...c,objectPosition:[x,ty,z],worldBounds:{min:bb.min.toArray(),max:bb.max.toArray()},pixelBounds:{min:screen.min.toArray(),max:screen.max.toArray()},caveat:'Whole-body bounds include hidden/underground parts. Rail and plants are deliberately not guessed or modified.'};}
+const results=[predict({label:'108a rock04 upright',index:3,scale:1.55,rotation:[0,.85,0],anchor:[-1.1,-2.4]}),predict({label:'possible rock01 naturally long axis tilted upright',index:0,scale:1.10,rotation:[1.15,.15,0],anchor:[-.75,-.15]})];
+await writeFile(new URL('./scan-placement-predictions.json',import.meta.url),JSON.stringify({scope:'CPU geometric estimates, not actual image/acceptance',results},null,2));console.log(JSON.stringify(results,null,2));

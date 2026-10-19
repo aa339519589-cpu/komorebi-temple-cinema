@@ -1,0 +1,190 @@
+{
+  "status": "one-scanned-rock-local-candidate-ready-for-parent-review",
+  "baseCommit": "8c1708d3fa36860109e53705e9b6d7c63fadf914",
+  "nativeRounds": 2,
+  "size": 1254,
+  "detailCrop": [
+    430,
+    750,
+    350,
+    1254
+  ],
+  "renderer": "tools/render-one-reconstruction.mjs shared GPU mutex; first candidate waited for r05",
+  "sourceHashes": {
+    "baseline": "cf84d5cb49a3f6fa7b0933ebda11323d9dac09373bc5d54b45dce579481ab696",
+    "108a": "6cb48cc8c8c63bc6cef790fb2b8c30020a55946376bd856bc3027085d9057790",
+    "108b": "2697b25a18db73c6ccee623c37041586b0139b70f291ec075270a49db7deca20"
+  },
+  "allFramesValid": true,
+  "errors": [],
+  "framesActuallyViewed": [
+    "108a/reference.png",
+    "108a/detail-native.png",
+    "108b/reference.png",
+    "108b/detail-native.png"
+  ],
+  "firstCandidate": "Failed visibility: original upright rock04 scan placed farther back on bank was screened by existing shrub/old neighbour. Kept exact source and actual images; not claimed improvement.",
+  "secondCandidate": "Original rock01 scan reoriented rigidly along its actual long axis. Wrinkled scanned face is now visible in the vacated pear-body region; the former synthetic cap for this body is absent.",
+  "unchanged": "Frozen camera/lights/exposure/veranda/plants/terrain/water sources. Other31 tracked scene files unchanged. Only one fixed old body and its cap skipped, with zero random consumption.",
+  "actualScan": {
+    "asset": "Poly Haven rock_moss_set_01",
+    "author": "Kless Gyzen",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/rock_moss_set_01",
+    "node": "rock_moss_set_01_rock01",
+    "originalMesh": "",
+    "triangles": 11000,
+    "geometryArraysUnmodified": true,
+    "originalUVAndPBRMapsRetained": true,
+    "nonuniformStretch": false,
+    "greenCapAdded": false,
+    "placement": {
+      "node": "rock_moss_set_01_rock01",
+      "anchorXZ": [
+        -0.75,
+        -0.15
+      ],
+      "uniformScale": 1.1,
+      "pitch": 1.15,
+      "yaw": 0.15,
+      "embed": 0.16,
+      "neutralTint": 0.75
+    },
+    "visualAccepted": false,
+    "objectPosition": [
+      -0.7524804155935806,
+      1.2255563408567127,
+      -0.14228586463171908
+    ],
+    "support": {
+      "method": "Lower original scan vertices raycast onto original triangulated terrain",
+      "samples": 1293,
+      "embeddedSamples": 118,
+      "maximumPenetrationMetres": 0.16,
+      "contacts": [
+        {
+          "height": 1.2741187257348623,
+          "localY": -0.3589911460876465,
+          "rigidRotatedY": -1.1284179200244362,
+          "x": -1.1621778652027261,
+          "z": -0.0699185363569615,
+          "terrainY": 0.1457008057104261
+        },
+        {
+          "height": 1.2257630538810058,
+          "localY": -0.4308950901031494,
+          "rigidRotatedY": -1.0660187170533841,
+          "x": -1.149870475553694,
+          "z": -0.18449759074210648,
+          "terrainY": 0.15974433682762168
+        },
+        {
+          "height": 1.242831151423822,
+          "localY": -0.4958345293998718,
+          "rigidRotatedY": -1.0326694308642248,
+          "x": -1.6322883918916036,
+          "z": -0.2776828537059796,
+          "terrainY": 0.21016172055959714
+        },
+        {
+          "height": 1.278848826169468,
+          "localY": -0.4946599006652832,
+          "rigidRotatedY": -1.0730292380271846,
+          "x": -1.5903067225538794,
+          "z": -0.2582051276845631,
+          "terrainY": 0.2058195881422833
+        },
+        {
+          "height": 1.228383877874657,
+          "localY": -0.3795607089996338,
+          "rigidRotatedY": -1.0337362805084935,
+          "x": -1.6024315339480038,
+          "z": -0.1370802384398381,
+          "terrainY": 0.19464759736616344
+        },
+        {
+          "height": 1.2354543335788395,
+          "localY": -0.38959598541259766,
+          "rigidRotatedY": -1.0407886461527016,
+          "x": -1.5876222300461098,
+          "z": -0.1460179285700486,
+          "terrainY": 0.19466568742613788
+        },
+        {
+          "height": 1.28738907755809,
+          "localY": -0.5329324007034302,
+          "rigidRotatedY": -1.0763281350416503,
+          "x": -1.6052235553715508,
+          "z": -0.3028521500364221,
+          "terrainY": 0.2110609425164398
+        },
+        {
+          "height": 1.3013540328267612,
+          "localY": -0.48713043332099915,
+          "rigidRotatedY": -1.0998332001776165,
+          "x": -1.5517667637610693,
+          "z": -0.23713560999786604,
+          "terrainY": 0.20152083264914467
+        },
+        {
+          "height": 1.2776327832198533,
+          "localY": -0.42986157536506653,
+          "rigidRotatedY": -1.0809366976535302,
+          "x": -1.5709620867262042,
+          "z": -0.17657585587565178,
+          "terrainY": 0.19669608556632312
+        },
+        {
+          "height": 1.3127403522040093,
+          "localY": -0.5061505436897278,
+          "rigidRotatedY": -1.1089775919077591,
+          "x": -1.55860049738106,
+          "z": -0.2559649605793627,
+          "terrainY": 0.20376276029625018
+        },
+        {
+          "height": 1.2770435573346015,
+          "localY": -0.41601598262786865,
+          "rigidRotatedY": -1.0834698606556694,
+          "x": -1.5472248373667852,
+          "z": -0.15875644324815297,
+          "terrainY": 0.1935736966789321
+        },
+        {
+          "height": 1.339899874961731,
+          "localY": -0.528479814529419,
+          "rigidRotatedY": -1.136117974268203,
+          "x": -1.5339525598726775,
+          "z": -0.27072857249941573,
+          "terrainY": 0.20378190069352797
+        }
+      ]
+    },
+    "worldBounds": {
+      "min": [
+        -1.966356381361837,
+        -0.39153858043884204,
+        -1.065198359970812
+      ],
+      "max": [
+        0.7057972996661112,
+        3.081949044397078,
+        0.990531804685342
+      ]
+    }
+  },
+  "originalBytesVerified": true,
+  "rngStateBothCandidates": 2186526841,
+  "retained108aAllSourceFilesReconstructExactly": true,
+  "limitations": [
+    "The scanned surface remains warm brown under the unchanged scene illumination; photograph rock is darker gray.",
+    "Visible silhouette and occlusion do not reproduce the exact source rock. The scan is a different licensed real stone, not recovered photogrammetry.",
+    "Neighbouring procedural gray rock/green cap is unchanged and remains visibly crude.",
+    "Buried/root fractures and placement/orientation remain inference, despite real terrain intersections.",
+    "This candidate and complete scene remain unaccepted."
+  ],
+  "visualAccepted": false,
+  "testSuiteRun": false,
+  "movieRendered": false,
+  "pushed": false
+}

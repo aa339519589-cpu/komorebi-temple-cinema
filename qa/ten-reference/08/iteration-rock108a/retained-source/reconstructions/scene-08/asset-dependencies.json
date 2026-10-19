@@ -1,0 +1,26 @@
+{
+  "files": [
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+  ],
+  "heroRock108": {
+    "asset": "rock_moss_set_01",
+    "provider": "Poly Haven",
+    "author": "Kless Gyzen",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/rock_moss_set_01",
+    "provenance": "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "selection": "rock_moss_set_01_rock04 replaces exactly fixed-centre-tall rock(-.55,1.35,-.3,.95,2.7,.9,2) and its procedural moss cap",
+    "transform": "Rigid yaw and uniform scale only. Original geometry arrays, UVs and PBR maps preserved; material neutral RGB multiplier.75 only.",
+    "placement": "On original west-bank triangle terrain, with original lower scan vertices embedded. Hidden fissures and placement remain an interpretation.",
+    "referencePhotograph": "Comparison only, never sampled or loaded by runtime; original photograph copyright retained.",
+    "newAssetBytesDownloaded": false,
+    "globalSceneChanges": false
+  }
+}

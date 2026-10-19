@@ -1,0 +1,699 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-rock08-108-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-19T02:42:32.336Z",
+  "source": {
+    "hash": "6cb48cc8c8c63bc6cef790fb2b8c30020a55946376bd856bc3027085d9057790",
+    "files": {
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-08/asset-dependencies.json": "4253b3224f8b564a93eeed66b5e11e9169e33ef4e2bfcfc089f48e2ca0e9b67f",
+      "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json": "e2bbe36fc8955a2177e7387ffb24d450417aec5271a680dceec64c5b81e83f26",
+      "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json": "e3c6bab6f20acbb0263ad4317537763f18d87f92c991ef0b94399fd672fc64a7",
+      "reconstructions/scene-08/assets/gate-plaque-v03/gate-plaque.glb": "14a436fa5020d80f9f3da20921367b510f9a9a7fa2764efe559c77a48461886f",
+      "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+      "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json": "15992a312377a3a0a607607db41d3c63f5544ee3bccca1ee55a7b14ec28ee49e",
+      "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json": "a302e66df3e6497b08e8674b1cb0273ec3cfe7b67ee3110e8ae664fcd7c289ca",
+      "reconstructions/scene-08/assets/gate-plaque-v04/gate-plaque.glb": "bd131590d4085efd8fec03a774af81d381b837f3c48411a06ae2695c3f7d0019",
+      "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json": "c9928fa7dd96025c03e9ff82591726cfb159c1d44f2665d850d25c3aa1a71589",
+      "reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb": "9ef2a3b967431e204980256aad6050d2a56cb6776d221e36fd116aed835da640",
+      "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/timber/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "reconstructions/scene-08/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-08/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-08/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/gallery-joinery.js": "e59e936041c8501b1dcf262d9283bb0e1a050ffa88d7265bd0a3dd81a562707c",
+      "reconstructions/scene-08/src/gate-hardware.js": "97b11925d69e24e62c6efa272ac48aac8722ec8d82ee21f23a8b38dd57cbb04a",
+      "reconstructions/scene-08/src/hero-garden-rock.js": "33997f6001fe01fcda1aa98551a160a0fe7c745c0c930a235712d5b99157ad26",
+      "reconstructions/scene-08/src/hero-gate-plaque.js": "32a01172231544449a2ecaa79815fa9f21494c26eee659ba1e89a821eea4b502",
+      "reconstructions/scene-08/src/main.js": "3ef5b82df464d6a01c91f1384cb58344817bf74aa72260e9364951be064b480f",
+      "reconstructions/scene-08/src/post.js": "a64cee534dc1c79edbd2c652dd4d7ee1808460a594d45d4741275975d75cbfe2",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scanned-timber.js": "0bfc1e600193feb654e128e2b87bdd8728a47b412381c05078233e1029f28e5b",
+      "reconstructions/scene-08/src/scene.js": "6d0986897e3024787e80c15c7bb8b51be78f8d8c9958569c76a11b7b91eb1051"
+    }
+  },
+  "sourceCommit": "8c1708d3fa36860109e53705e9b6d7c63fadf914",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/post.js",
+    "/reconstructions/scene-08/src/scanned-timber.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/reconstructions/scene-08/src/gallery-joinery.js",
+    "/reconstructions/scene-08/src/gate-hardware.js",
+    "/reconstructions/scene-08/src/hero-gate-plaque.js",
+    "/reconstructions/scene-08/src/hero-garden-rock.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-08/assets/timber/diffuse-2k.jpg",
+    "/reconstructions/scene-08/assets/timber/normal-gl-2k.png",
+    "/reconstructions/scene-08/assets/timber/roughness-2k.jpg"
+  ],
+  "detailCrop": {
+    "pixels": [
+      430,
+      750,
+      350,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-cast-hardware-closed-gallery-mesh70",
+        "instances": 444887,
+        "triangles": 15795670,
+        "roles": {
+          "left-grand-hall": 9714,
+          "layered-walkways": 27363,
+          "five-tier-pagoda": 28216,
+          "foreground-veranda": 708,
+          "arched-stream-bridge": 114,
+          "gallery-stone-stair": 36,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 269,
+          "stone-lanterns": 501,
+          "branching-garden-trees": 254002,
+          "hanging-veranda-foliage": 13603,
+          "dense-layered-shrubs": 92540,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 8
+        },
+        "seed": 80247,
+        "rngFinalState": 2186526841,
+        "heroRock108": {
+          "asset": "Poly Haven rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/rock_moss_set_01",
+          "node": "rock_moss_set_01_rock04",
+          "originalMesh": "",
+          "triangles": 10589,
+          "geometryArraysUnmodified": true,
+          "originalUVAndPBRMapsRetained": true,
+          "nonuniformStretch": false,
+          "greenCapAdded": false,
+          "placement": {
+            "node": "rock_moss_set_01_rock04",
+            "anchorXZ": [
+              -1.1,
+              -2.4
+            ],
+            "uniformScale": 1.55,
+            "yaw": 0.85,
+            "embed": 0.16,
+            "neutralTint": 0.75
+          },
+          "visualAccepted": false,
+          "objectPosition": [
+            -1.3267139923453088,
+            1.2780957927431298,
+            -2.3649223440971774
+          ],
+          "support": {
+            "method": "Lower original scan vertices raycast onto original triangulated terrain",
+            "samples": 2091,
+            "embeddedSamples": 213,
+            "maximumPenetrationMetres": 0.16,
+            "contacts": [
+              {
+                "height": 1.3591225457141107,
+                "localY": -0.5766806602478027,
+                "x": -1.4662094524483549,
+                "z": -3.813514402018764,
+                "terrainY": 0.46526752233001645
+              },
+              {
+                "height": 1.3629539310044152,
+                "localY": -0.5796597003936768,
+                "x": -1.4990066621338627,
+                "z": -3.7782248742622557,
+                "terrainY": 0.4644813953942162
+              },
+              {
+                "height": 1.2988192457739829,
+                "localY": -0.5368242859840393,
+                "x": -1.29998891107218,
+                "z": -3.915030972923039,
+                "terrainY": 0.4667416024987219
+              },
+              {
+                "height": 1.326037419176248,
+                "localY": -0.5558646321296692,
+                "x": -1.236401971281204,
+                "z": -3.8658039302363565,
+                "terrainY": 0.4644472393752608
+              },
+              {
+                "height": 1.296268486390406,
+                "localY": -0.5343831181526184,
+                "x": -1.3722634507430145,
+                "z": -3.9286273655840853,
+                "terrainY": 0.46797465325384735
+              },
+              {
+                "height": 1.3415859775466288,
+                "localY": -0.564708411693573,
+                "x": -1.309980658056939,
+                "z": -3.897681535782061,
+                "terrainY": 0.46628793942159064
+              },
+              {
+                "height": 1.3624105101219128,
+                "localY": -0.579614520072937,
+                "x": -1.2782107733810837,
+                "z": -3.838160468609462,
+                "terrainY": 0.46400800400886055
+              },
+              {
+                "height": 1.3779409654167312,
+                "localY": -0.5886664390563965,
+                "x": -1.3603925707272764,
+                "z": -3.8566370596896165,
+                "terrainY": 0.46550798487931644
+              },
+              {
+                "height": 1.319728736760186,
+                "localY": -0.55007404088974,
+                "x": -1.3927981755374694,
+                "z": -3.8951795949153616,
+                "terrainY": 0.46711397338108895
+              },
+              {
+                "height": 1.3328338220723,
+                "localY": -0.561032235622406,
+                "x": -1.2260065536252887,
+                "z": -3.8319287599227687,
+                "terrainY": 0.46323385685757046
+              },
+              {
+                "height": 1.38843355665241,
+                "localY": -0.5965100526809692,
+                "x": -1.3341640863940103,
+                "z": -3.81419127260307,
+                "terrainY": 0.46384297499690774
+              },
+              {
+                "height": 1.3008863333258391,
+                "localY": -0.5773150324821472,
+                "x": -1.4042042655862434,
+                "z": -3.055860796669317,
+                "terrainY": 0.4060480329785108
+              }
+            ]
+          },
+          "worldBounds": {
+            "min": [
+              -3.332210165838559,
+              0.2535914113249016,
+              -4.643735366837916
+            ],
+            "max": [
+              1.1322101658385586,
+              2.9944871713842582,
+              -0.15626463316208383
+            ]
+          }
+        },
+        "meshPass": {
+          "candidate": "one-cast-plaque83",
+          "heroPlaque": {
+            "asset": "gate-plaque-v05",
+            "sceneInstances": 1,
+            "position": [
+              -1.983,
+              3.3,
+              7.9
+            ],
+            "rotationY": 1.5707963267948966,
+            "construction": "One closed unioned cast plate and four closed small domed fixings; hand-authored curves, no image data",
+            "triangleCount": 92112,
+            "visualAccepted": false
+          },
+          "leftHallClosedBracketPieces": 30,
+          "scope": "Exactly one left inner gate plaque; mesh70 gallery, all other hardware, site and camera retained"
+        },
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 512,
+          "triangles": 15455830,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 22.360679774997898,
+          "focalLengthMM": 39.49739516097068,
+          "verticalSensorMM": 36,
+          "focalSource": "original camera.fov; viewOffset excluded"
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9995993681463337,
+      "opaqueFraction": 1,
+      "rgbaSha256": "df8d25623f65f0696acc082c80c48d819ce4d65ff7a0ceb86cca6cf4740ded0e"
+    },
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-cast-hardware-closed-gallery-mesh70",
+        "instances": 444887,
+        "triangles": 15795670,
+        "roles": {
+          "left-grand-hall": 9714,
+          "layered-walkways": 27363,
+          "five-tier-pagoda": 28216,
+          "foreground-veranda": 708,
+          "arched-stream-bridge": 114,
+          "gallery-stone-stair": 36,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 269,
+          "stone-lanterns": 501,
+          "branching-garden-trees": 254002,
+          "hanging-veranda-foliage": 13603,
+          "dense-layered-shrubs": 92540,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 8
+        },
+        "seed": 80247,
+        "rngFinalState": 2186526841,
+        "heroRock108": {
+          "asset": "Poly Haven rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/rock_moss_set_01",
+          "node": "rock_moss_set_01_rock04",
+          "originalMesh": "",
+          "triangles": 10589,
+          "geometryArraysUnmodified": true,
+          "originalUVAndPBRMapsRetained": true,
+          "nonuniformStretch": false,
+          "greenCapAdded": false,
+          "placement": {
+            "node": "rock_moss_set_01_rock04",
+            "anchorXZ": [
+              -1.1,
+              -2.4
+            ],
+            "uniformScale": 1.55,
+            "yaw": 0.85,
+            "embed": 0.16,
+            "neutralTint": 0.75
+          },
+          "visualAccepted": false,
+          "objectPosition": [
+            -1.3267139923453088,
+            1.2780957927431298,
+            -2.3649223440971774
+          ],
+          "support": {
+            "method": "Lower original scan vertices raycast onto original triangulated terrain",
+            "samples": 2091,
+            "embeddedSamples": 213,
+            "maximumPenetrationMetres": 0.16,
+            "contacts": [
+              {
+                "height": 1.3591225457141107,
+                "localY": -0.5766806602478027,
+                "x": -1.4662094524483549,
+                "z": -3.813514402018764,
+                "terrainY": 0.46526752233001645
+              },
+              {
+                "height": 1.3629539310044152,
+                "localY": -0.5796597003936768,
+                "x": -1.4990066621338627,
+                "z": -3.7782248742622557,
+                "terrainY": 0.4644813953942162
+              },
+              {
+                "height": 1.2988192457739829,
+                "localY": -0.5368242859840393,
+                "x": -1.29998891107218,
+                "z": -3.915030972923039,
+                "terrainY": 0.4667416024987219
+              },
+              {
+                "height": 1.326037419176248,
+                "localY": -0.5558646321296692,
+                "x": -1.236401971281204,
+                "z": -3.8658039302363565,
+                "terrainY": 0.4644472393752608
+              },
+              {
+                "height": 1.296268486390406,
+                "localY": -0.5343831181526184,
+                "x": -1.3722634507430145,
+                "z": -3.9286273655840853,
+                "terrainY": 0.46797465325384735
+              },
+              {
+                "height": 1.3415859775466288,
+                "localY": -0.564708411693573,
+                "x": -1.309980658056939,
+                "z": -3.897681535782061,
+                "terrainY": 0.46628793942159064
+              },
+              {
+                "height": 1.3624105101219128,
+                "localY": -0.579614520072937,
+                "x": -1.2782107733810837,
+                "z": -3.838160468609462,
+                "terrainY": 0.46400800400886055
+              },
+              {
+                "height": 1.3779409654167312,
+                "localY": -0.5886664390563965,
+                "x": -1.3603925707272764,
+                "z": -3.8566370596896165,
+                "terrainY": 0.46550798487931644
+              },
+              {
+                "height": 1.319728736760186,
+                "localY": -0.55007404088974,
+                "x": -1.3927981755374694,
+                "z": -3.8951795949153616,
+                "terrainY": 0.46711397338108895
+              },
+              {
+                "height": 1.3328338220723,
+                "localY": -0.561032235622406,
+                "x": -1.2260065536252887,
+                "z": -3.8319287599227687,
+                "terrainY": 0.46323385685757046
+              },
+              {
+                "height": 1.38843355665241,
+                "localY": -0.5965100526809692,
+                "x": -1.3341640863940103,
+                "z": -3.81419127260307,
+                "terrainY": 0.46384297499690774
+              },
+              {
+                "height": 1.3008863333258391,
+                "localY": -0.5773150324821472,
+                "x": -1.4042042655862434,
+                "z": -3.055860796669317,
+                "terrainY": 0.4060480329785108
+              }
+            ]
+          },
+          "worldBounds": {
+            "min": [
+              -3.332210165838559,
+              0.2535914113249016,
+              -4.643735366837916
+            ],
+            "max": [
+              1.1322101658385586,
+              2.9944871713842582,
+              -0.15626463316208383
+            ]
+          }
+        },
+        "meshPass": {
+          "candidate": "one-cast-plaque83",
+          "heroPlaque": {
+            "asset": "gate-plaque-v05",
+            "sceneInstances": 1,
+            "position": [
+              -1.983,
+              3.3,
+              7.9
+            ],
+            "rotationY": 1.5707963267948966,
+            "construction": "One closed unioned cast plate and four closed small domed fixings; hand-authored curves, no image data",
+            "triangleCount": 92112,
+            "visualAccepted": false
+          },
+          "leftHallClosedBracketPieces": 30,
+          "scope": "Exactly one left inner gate plaque; mesh70 gallery, all other hardware, site and camera retained"
+        },
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 329,
+          "triangles": 15354750,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 22.360679774997898,
+          "focalLengthMM": 39.49739516097068,
+          "verticalSensorMM": 36,
+          "focalSource": "original camera.fov; viewOffset excluded"
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        430,
+        750,
+        350,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.999992368917073,
+      "opaqueFraction": 1,
+      "rgbaSha256": "a2a5fde37bb281106e4db3d856c1a011554d87afaae325cf639fae5b60112f48"
+    }
+  ],
+  "completedAt": "2026-10-19T02:42:37.456Z"
+}
