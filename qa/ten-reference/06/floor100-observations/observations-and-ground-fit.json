@@ -1,0 +1,170 @@
+{
+  "status": "manual-visible-floor-seam-points-inverted-to-fixed-camera-ground",
+  "reference": "references/hd/4-照片-5.jpg",
+  "sourcePixels": [
+    1254,
+    1254
+  ],
+  "measurementUncertaintyPixels": 3,
+  "cameraHeldFixed": {
+    "position": [
+      0,
+      0.58,
+      8.4
+    ],
+    "target": [
+      0,
+      2.4,
+      -2.3
+    ],
+    "fov": 62
+  },
+  "sourceDoesNotDetermineMetricScale": "World dimensions are conditioned on the already frozen scene camera/floorY. No claim of measured architectural dimensions.",
+  "observations": {
+    "left": {
+      "pixels": [
+        [
+          127,
+          1253
+        ],
+        [
+          235,
+          1165
+        ],
+        [
+          335,
+          1070
+        ],
+        [
+          409,
+          1005
+        ],
+        [
+          457,
+          963
+        ]
+      ],
+      "world": [
+        [
+          -0.6558765977752701,
+          0,
+          6.912867092710723
+        ],
+        [
+          -0.6397256128630627,
+          0,
+          6.573938442992812
+        ],
+        [
+          -0.647035756774108,
+          0,
+          5.955861541331324
+        ],
+        [
+          -0.6396588298067309,
+          0,
+          5.195506379267121
+        ],
+        [
+          -0.6309892525009794,
+          0,
+          4.372543884993225
+        ]
+      ],
+      "fittedX": -0.6426572099440302
+    },
+    "right": {
+      "pixels": [
+        [
+          1053,
+          1253
+        ],
+        [
+          973,
+          1165
+        ],
+        [
+          885,
+          1070
+        ],
+        [
+          822,
+          1005
+        ]
+      ],
+      "world": [
+        [
+          0.5588068613045301,
+          0,
+          6.912867092710723
+        ],
+        [
+          0.5646557705372951,
+          0,
+          6.573938442992812
+        ],
+        [
+          0.5716959768757526,
+          0,
+          5.955861541331325
+        ],
+        [
+          0.5721718890473052,
+          0,
+          5.195506379267121
+        ]
+      ],
+      "fittedX": 0.5668326244412207
+    },
+    "transverse": [
+      {
+        "pixels": [
+          [
+            260,
+            1005
+          ],
+          [
+            1000,
+            1005
+          ]
+        ],
+        "worldZ": 5.195506379267121,
+        "confidence": "low: aligns with mat front edge and glare"
+      },
+      {
+        "pixels": [
+          [
+            260,
+            1070
+          ],
+          [
+            1000,
+            1070
+          ]
+        ],
+        "worldZ": 5.955861541331324,
+        "confidence": "medium: thin transverse seam fragment visible outside bright reflections"
+      },
+      {
+        "pixels": [
+          [
+            260,
+            1165
+          ],
+          [
+            1000,
+            1165
+          ]
+        ],
+        "worldZ": 6.573938442992812,
+        "confidence": "medium: thin transverse seam fragment visible outside bright reflections"
+      }
+    ]
+  },
+  "grainDirection": "Broad wood/lacquer streaks parallel entrance-to-altar; no gold/window reflection is an albedo pattern.",
+  "unknowns": [
+    "Reflections and glare obscure central subsidiary joints; no exact extra count is inferred from reflected objects.",
+    "Off-frame/under-mat panel subdivision and the perimeter transition remain structural inference."
+  ],
+  "visualAccepted": false
+}

@@ -1,0 +1,31 @@
+{
+  "status": "floor-only-source-changes-and-retained100a-verified",
+  "baseCommit": "41a7b6a1425e34501164df7509edcae54ea16bcd",
+  "mainBuilderOutsideFloorBlockAndCaptureCallExactlyEqual": true,
+  "protectedTrackedFileCount": 12,
+  "protectedGitBlobIDs": {
+    "reconstructions/scene-06/README.md": "d7326abb5338f117b0006b89726f2c5438f99645",
+    "reconstructions/scene-06/index.html": "b7769731d3b21a54cf6592fee7ecf7b24c6b647e",
+    "reconstructions/scene-06/src/lens-bloom.js": "812fb38338822085788db403f0bfe03e32806f75",
+    "reconstructions/scene-06/src/reference6-camera-shot.js": "88bfce7de3c23a5d8b29c74c086268f027c53135",
+    "reconstructions/scene-06/src/reference6-coffer-relief.js": "0bab7ba75c77f7dcd1020a30dfbdec316a37713c",
+    "reconstructions/scene-06/src/reference6-column-collar.js": "f28943332bc89e017fc68dabee73db93f09b2abd",
+    "reconstructions/scene-06/src/reference6-main.js": "f5d99f5a3e7a585e129e3a73ec31be66b42fe4ca",
+    "reconstructions/scene-06/src/restoration-altar.js": "4343e067d0d3b09127fbf3ee005d4e6329e3619a",
+    "reconstructions/scene-06/src/restoration-buddha.js": "e961d7a5d1f5a94ef8b318c11f39629734a59f97",
+    "reconstructions/scene-06/src/restoration-lighting.js": "fbae11b7b6739fac45e3ec74848785b49d0e8746",
+    "reconstructions/scene-06/src/restoration-render-diagnostics.js": "32c4cfd3b267f24e64faae6000a2f64abe2b2de1",
+    "reconstructions/scene-06/src/shot-focus.js": "8e21fba40d31d196312acce7c6c4093f918d1e50"
+  },
+  "allStatueAltarHangingDecorativeGeometryMaterialsLightsCameraWallsColumnsUnchanged": true,
+  "sharedVendorUnmodified": true,
+  "nativeSubfrustumFix": "Only scene06 private wrapper reverses P[8] while Reflector copies it; original main projection restored. Concept/code follows parent scene03 water-surface.js local fix.",
+  "baselineFilmSourceExact": "a9801499289e22aed8d1892f8cb287c066782bf7f9a39de433ebb425b6ffcc21",
+  "retained100aReconstructsEverySourceFileExactly": true,
+  "retained100aSourceHash": "393aaba3c14c1d97ad141541d1ae466b175be42f855ae446924e8f4e85a31215",
+  "visibleCapturePlaneWritesColor": false,
+  "visibleCapturePlaneWritesDepth": false,
+  "reflectiveVisibleReceivers": "Opaque closed wood floor solids only; no shader-painted seams",
+  "diffuseSource": "Retained independent woodMap() and floor brown pigment; no captured/ref-photo radiance is written to diffuse",
+  "visualAccepted": false
+}

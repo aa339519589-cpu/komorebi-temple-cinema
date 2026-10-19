@@ -1,0 +1,74 @@
+{
+  "status": "two-native-floor-rounds-plus-one-independent-view-reviewed",
+  "baseCommit": "41a7b6a1425e34501164df7509edcae54ea16bcd",
+  "sourceHashes": {
+    "baseline": "a9801499289e22aed8d1892f8cb287c066782bf7f9a39de433ebb425b6ffcc21",
+    "100a": "393aaba3c14c1d97ad141541d1ae466b175be42f855ae446924e8f4e85a31215",
+    "100b": "a24d4085d73aaf73b3a1c3ad83114f6f4d9d6597beb7dce42c1687b7e33dde79",
+    "top": "a24d4085d73aaf73b3a1c3ad83114f6f4d9d6597beb7dce42c1687b7e33dde79"
+  },
+  "actualNativeFullDetailRounds": 2,
+  "extraInspectionViews": 1,
+  "nativeSize": 1254,
+  "detailCrop": [
+    250,
+    900,
+    350,
+    1254
+  ],
+  "extraView": {
+    "position": [
+      0,
+      2.2,
+      7.6
+    ],
+    "target": [
+      0,
+      0,
+      5.9
+    ],
+    "fov": 70,
+    "purpose": "See board faces/joins at a steeper real camera angle; not the reference camera or film path."
+  },
+  "allFramesValid": true,
+  "errors": [],
+  "actualViewsInspected": [
+    "100a/reference.png",
+    "100a/detail-native.png",
+    "100b/reference.png",
+    "100b/detail-native.png",
+    "100b-top/inspection-view.png"
+  ],
+  "changes": [
+    "21 closed50mm timber panels in the central foreground patch; two measured longitudinal seams and selected transverse seam fragments conditioned on retained camera.",
+    "Visible full-floor mirror overlay removed; actual opaque floor solids receive the real-room planar capture in their clearcoat BRDF.",
+    "Noncolour/nondepth capture helper draws first, disables custom room sampling and swaps a fallback during reflection capture to avoid texture feedback, restores target for physical board draws.",
+    "Private off-axis Reflector P[8] correction, matching parent scene03 method. Input main projection restored; shared vendor untouched.",
+    "Existing substrate lowered40mm so its top exactly meets board bottoms atY-.05 rather than intersecting bodies."
+  ],
+  "100aReview": "Correct physical reflections and seam locations, but gap/bevel appeared overly black/heavy. Exact earlier source and actuals retained.",
+  "100bReview": "Gaps reduced from1.4 to.9mm and bevels from.65 to.4mm. Thin straight visible joints and coherent reflected geometry remain in native off-axis detail. Real overhead view exposes wood faces/panel layout at lower Fresnel.",
+  "geometry": {
+    "panels": 21,
+    "triangles": 588,
+    "closedPositiveVolume": true,
+    "thicknessMetres": 0.05,
+    "gapMetres": 0.0009,
+    "bevelMetres": 0.0004,
+    "topY": 0,
+    "substrateContactY": -0.05
+  },
+  "protectedFiles": 12,
+  "nonfloorMainBuilderInverseExact": true,
+  "illuminationCameraExposureSubjectsWallsAndColumnsChanged": false,
+  "limitations": [
+    "Reference glare/mat front makes theY1005 seam ambiguous; unseen rows/perimeter remain inferred.",
+    "Reference reflections are brighter/softer and its lighting is substantially different. The retained scene creates strong orange lattice bands; those were not painted into diffuse or corrected by a global grade.",
+    "Planar room capture is a768px approximation. It is now received by true board geometry, but is not multi-bounce/ray-traced reflection.",
+    "PBR wood microsurface, joints outside the observed patch and the complete scene remain unaccepted."
+  ],
+  "visualAccepted": false,
+  "movieRendered": false,
+  "testSuiteRun": false,
+  "pushed": false
+}

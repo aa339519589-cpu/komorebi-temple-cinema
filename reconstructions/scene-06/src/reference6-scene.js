@@ -5,7 +5,8 @@ import {Reflector} from 'three/addons/objects/Reflector.js';
 import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
 import {buildRestorationAltar,buildRestorationHangingOrnaments} from './restoration-altar.js';
 import {emitRestoredBuddha} from './restoration-buddha.js';
-import {bindFloorVarnish,bindFloorReflection} from './floor-varnish.js';
+import {bindFloorVarnish,bindFloorReflection,createFloorReflectionState} from './floor-varnish.js';
+import {FOREGROUND_FLOOR_PATCH,createForegroundFloorPanel} from './foreground-floor-panels.js';
 
 // Independent room, not a material patch over the exterior-world reconstruction.
 // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
@@ -64,14 +65,19 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  function mesh(g,m,p=[0,0,0],rot=null,parent=architecture){const o=new T.Mesh(g,m);o.position.fromArray(p);if(rot)o.rotation.set(...rot);o.castShadow=true;o.receiveShadow=true;parent.add(o);blockers.push(o);return o;}
  const box=(p,s,m=materials.beam)=>mesh(new T.BoxGeometry(...s),m,p);
  const cylinder=(p,r,h,m=materials.column)=>mesh(new T.CylinderGeometry(r,r*1.015,h,48),m,p);
- box([0,-.13,2.1],[13.8,.24,16.2],materials.dark);
+ const floorReflectionState=createFloorReflectionState();
+ box([0,-.17,2.1],[13.8,.24,16.2],materials.dark); // top -.05 contacts board undersides
  for(let i=0;i<19;i++){
   const x=-6.84+(i+.5)*.72,offset=(i%3)*.58;
   for(let k=-1;k<10;k++){
-   const lo=Math.max(-5.9,-5.9+k*1.74+offset),hi=Math.min(10.1,-5.9+(k+1)*1.74+offset);if(hi<=lo)continue;
-   const m=materials.floor.clone();m.color.multiplyScalar(.91+.15*((i*13+k*7+71)%19)/18);const grain=wood.clone();grain.repeat.set(.6,(hi-lo)/.8);grain.offset.set((i*17%31)/31,(k*11%23)/23);grain.needsUpdate=true;m.map=m.bumpMap=grain;bindFloorVarnish(m);
+   const lo=Math.max(-5.9,-5.9+k*1.74+offset);let hi=Math.min(10.1,-5.9+(k+1)*1.74+offset);if(i>=7&&i<=11)hi=Math.min(hi,FOREGROUND_FLOOR_PATCH.z[0]);if(hi<=lo)continue;
+   const m=materials.floor.clone();m.color.multiplyScalar(.91+.15*((i*13+k*7+71)%19)/18);const grain=wood.clone();grain.repeat.set(.6,(hi-lo)/.8);grain.offset.set((i*17%31)/31,(k*11%23)/23);grain.needsUpdate=true;m.map=m.bumpMap=grain;bindFloorVarnish(m,floorReflectionState,i);
    const board=box([x,-.025,(lo+hi)/2],[.7193,.05,hi-lo-.0008],m);board.name='scene06-jointed-polished-floorboard';
   }
+ }
+ for(let i=0;i<FOREGROUND_FLOOR_PATCH.x.length-1;i++)for(let k=0;k<FOREGROUND_FLOOR_PATCH.z.length-1;k++){
+  const m=materials.floor.clone(),grain=wood.clone();grain.repeat.set(1,1);grain.offset.set((i*17+k*7)%31/31,(k*11+i*3)%23/23);grain.needsUpdate=true;m.map=grain;m.color.multiplyScalar(.96+.06*((i*13+k*7+71)%19)/18);bindFloorVarnish(m,floorReflectionState,101+i*13+k*3);
+  const g=createForegroundFloorPanel(FOREGROUND_FLOOR_PATCH.x[i],FOREGROUND_FLOOR_PATCH.x[i+1],FOREGROUND_FLOOR_PATCH.z[k],FOREGROUND_FLOOR_PATCH.z[k+1]),panel=mesh(g,m);panel.name='scene06-observed-foreground-thick-wood-panel';
  }
  box([0,3.6,-5.8],[13.8,7.2,.26],materials.dark);// Inferred broad entrance behind the camera, not a black reflection trap.
  box([-5.35,3.6,10.2],[3.1,7.2,.24],materials.dark);box([5.35,3.6,10.2],[3.1,7.2,.24],materials.dark);box([0,6.80,10.2],[7.6,.80,.24],materials.beam);box([0,.065,10.2],[7.6,.13,.24],materials.beam);
@@ -198,7 +204,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  const portalKey=new T.RectAreaLight('#ffdb9c',3.4,4.8,2.8);portalKey.name='scene06-entrance-warm-head-field';portalKey.position.set(0,5.4,7.0);portalKey.lookAt(0,4.8,-2.3);scene.add(portalKey);windowSky.push(portalKey);
  const floorBounce=new T.RectAreaLight('#ffd69c',1.30,4.0,3.0);floorBounce.name='reference6-sunlit-floor-bounce-proxy';floorBounce.position.set(0,.18,3.2);floorBounce.lookAt(0,4.2,-2.3);scene.add(floorBounce);windowSky.push(floorBounce);
  const practicals=[];for(const side of[-1,1]){const l=new T.PointLight('#ffc577',1.4,2.2,2);l.name='reference6-floor-lantern-source';l.position.set(side*3.2-.025,1.35,-.12);l.castShadow=true;l.shadow.mapSize.set(256,256);l.shadow.bias=-.00015;l.shadow.normalBias=.008;scene.add(l);practicals.push(l);}
- const floor=new Reflector(new T.PlaneGeometry(13.4,15.8),{textureWidth:reflectionSize,textureHeight:reflectionSize,clipBias:.002,multisample:0,color:0xffffff});floor.name='reference6-polished-floor-reflection';floor.rotation.x=-Math.PI/2;floor.position.set(0,.004,2.1);bindFloorReflection(floor,reflectionSize);floor.renderOrder=2;scene.add(floor);
+ const floor=new Reflector(new T.PlaneGeometry(13.4,15.8),{textureWidth:reflectionSize,textureHeight:reflectionSize,clipBias:.002,multisample:0,color:0xffffff});floor.rotation.x=-Math.PI/2;floor.position.set(0,0,2.1);bindFloorReflection(floor,reflectionSize,floorReflectionState);scene.add(floor);
  scene.updateMatrixWorld(true);let environment=null,statueEnvironment=null,environmentInitialized=false;
  function initializeEnvironment(renderer){
   if(environmentInitialized)throw Error('Reference6 environment initialized once.');
