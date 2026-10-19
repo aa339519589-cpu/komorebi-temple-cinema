@@ -1,0 +1,296 @@
+{
+  "status": "construction-audited-not-visually-accepted",
+  "scope": "Finite closed members, explicit bearings, and unchanged physical route/camera. These checks do not establish photographic fidelity.",
+  "base": "5333c11d9ec313841a29199c3ae352586c693f8e",
+  "layout125Sha256": "f131dcc5236c34a5c9a020052310cfbbe1d4e7648aab48b64666f6560e8fb940",
+  "unchangedRouteGardenCameraSectionSha256": "0688412d5df4a5673e149b1fc886998be4e32d15cf6f041f5d69de03be2fa6a4",
+  "rngCalls": 419,
+  "instances": 50148,
+  "uniqueGeometry": 136,
+  "bounds": {
+    "min": [
+      -1.5199718253956611,
+      -1.0004999999999997,
+      -27.70358847610198
+    ],
+    "max": [
+      29.2744571017129,
+      19.989749999999997,
+      0.07832374326398295
+    ]
+  },
+  "byMaterial": {
+    "stone": 55,
+    "granite": 323,
+    "darkwood": 599,
+    "red": 2422,
+    "black": 70,
+    "oldgold": 29839,
+    "endwood": 648,
+    "gold": 3377,
+    "window1": 1,
+    "window0": 7,
+    "window3": 1,
+    "window4": 1,
+    "window2": 3,
+    "cedar": 2398,
+    "tileEdge": 10400,
+    "slate": 4
+  },
+  "hall": {
+    "revision": "scene10-hall132-a-solid-soffit-and-bearing-frame",
+    "scope": "Hall front and roof underside only; layout125 camera, bridge, stairs, floor and rigid scans retained.",
+    "roofs": [
+      {
+        "label": "lower",
+        "w": 23,
+        "d": 13.6,
+        "e": 6.05,
+        "rise": 3.45,
+        "curl": 1.1,
+        "closedTimberDepth": 0.18,
+        "rafterTiers": 2,
+        "rafters": 516,
+        "outerProfile": "Unchanged layout125 analytical roof profile"
+      },
+      {
+        "label": "upper",
+        "w": 21.5,
+        "d": 12.9,
+        "e": 10.45,
+        "rise": 7.7,
+        "curl": 0.4,
+        "closedTimberDepth": 0.18,
+        "rafterTiers": 2,
+        "rafters": 488,
+        "outerProfile": "Unchanged layout125 analytical roof profile"
+      }
+    ],
+    "bearingRows": [
+      {
+        "level": 0,
+        "index": 0,
+        "z": 4.5,
+        "sets": 18,
+        "scale": 0.72,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      },
+      {
+        "level": 0,
+        "index": 1,
+        "z": 5.28,
+        "sets": 28,
+        "scale": 0.48,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      },
+      {
+        "level": 0,
+        "index": 2,
+        "z": 6.02,
+        "sets": 29,
+        "scale": 0.42,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      },
+      {
+        "level": 0,
+        "index": 3,
+        "z": 6.52,
+        "sets": 33,
+        "scale": 0.34,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      },
+      {
+        "level": 1,
+        "index": 0,
+        "z": 4.5,
+        "sets": 18,
+        "scale": 0.72,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      },
+      {
+        "level": 1,
+        "index": 1,
+        "z": 5.28,
+        "sets": 28,
+        "scale": 0.48,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      },
+      {
+        "level": 1,
+        "index": 2,
+        "z": 6.02,
+        "sets": 29,
+        "scale": 0.42,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      },
+      {
+        "level": 1,
+        "index": 3,
+        "z": 6.52,
+        "sets": 33,
+        "scale": 0.34,
+        "capitalPrototype": {
+          "bottom": -0.15,
+          "top": 0.82
+        },
+        "receiverOffset": -0.42,
+        "girtDepth": 0.24
+      }
+    ],
+    "columns": [
+      {
+        "level": 0,
+        "x": -8.2,
+        "bottom": 1.6,
+        "shaftTop": 5.431627904822048,
+        "bearingBeamCenter": 5.431627904822048
+      },
+      {
+        "level": 0,
+        "x": -6.1499999999999995,
+        "bottom": 1.6,
+        "shaftTop": 5.425186600124468,
+        "bearingBeamCenter": 5.425186600124468
+      },
+      {
+        "level": 0,
+        "x": 0,
+        "bottom": 1.6,
+        "shaftTop": 5.4244700015637095,
+        "bearingBeamCenter": 5.4244700015637095
+      },
+      {
+        "level": 0,
+        "x": 2.0500000000000007,
+        "bottom": 1.6,
+        "shaftTop": 5.424470110784646,
+        "bearingBeamCenter": 5.424470110784646
+      },
+      {
+        "level": 0,
+        "x": 4.1,
+        "bottom": 1.6,
+        "shaftTop": 5.424497962123312,
+        "bearingBeamCenter": 5.424497962123312
+      },
+      {
+        "level": 0,
+        "x": 6.149999999999999,
+        "bottom": 1.6,
+        "shaftTop": 5.425186600124468,
+        "bearingBeamCenter": 5.425186600124468
+      },
+      {
+        "level": 0,
+        "x": 8.2,
+        "bottom": 1.6,
+        "shaftTop": 5.431627904822048,
+        "bearingBeamCenter": 5.431627904822048
+      },
+      {
+        "level": 1,
+        "x": -8.2,
+        "bottom": 6,
+        "shaftTop": 10.458960730062357,
+        "bearingBeamCenter": 10.458960730062357
+      },
+      {
+        "level": 1,
+        "x": -6.1499999999999995,
+        "bottom": 6,
+        "shaftTop": 10.453769476111455,
+        "bearingBeamCenter": 10.453769476111455
+      },
+      {
+        "level": 1,
+        "x": -4.1,
+        "bottom": 6,
+        "shaftTop": 10.45321448066999,
+        "bearingBeamCenter": 10.45321448066999
+      },
+      {
+        "level": 1,
+        "x": -2.05,
+        "bottom": 6,
+        "shaftTop": 10.453192034383301,
+        "bearingBeamCenter": 10.453192034383301
+      },
+      {
+        "level": 1,
+        "x": 0,
+        "bottom": 6,
+        "shaftTop": 10.453191946358649,
+        "bearingBeamCenter": 10.453191946358649
+      },
+      {
+        "level": 1,
+        "x": 2.0500000000000007,
+        "bottom": 6,
+        "shaftTop": 10.453192034383301,
+        "bearingBeamCenter": 10.453192034383301
+      },
+      {
+        "level": 1,
+        "x": 4.1,
+        "bottom": 6,
+        "shaftTop": 10.45321448066999,
+        "bearingBeamCenter": 10.45321448066999
+      },
+      {
+        "level": 1,
+        "x": 6.149999999999999,
+        "bottom": 6,
+        "shaftTop": 10.453769476111455,
+        "bearingBeamCenter": 10.453769476111455
+      },
+      {
+        "level": 1,
+        "x": 8.2,
+        "bottom": 6,
+        "shaftTop": 10.458960730062357,
+        "bearingBeamCenter": 10.458960730062357
+      }
+    ],
+    "ornament": {
+      "giltWraps": 1004,
+      "volumetricLeaves": 256,
+      "rosettes": 41
+    },
+    "photographSampled": false
+  }
+}
