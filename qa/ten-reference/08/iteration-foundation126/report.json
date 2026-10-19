@@ -1,0 +1,5735 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-layout08-122-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-19T05:14:43.711Z",
+  "source": {
+    "hash": "c7ea1481a8fc23a4fbc8eb0b74b7c64f7b4fe716c681019db254857100deec8d",
+    "files": {
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-08/asset-dependencies.json": "8e33fed13610db990a810237284b32a475f0d9b69acad214906253401e27869a",
+      "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json": "e2bbe36fc8955a2177e7387ffb24d450417aec5271a680dceec64c5b81e83f26",
+      "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json": "e3c6bab6f20acbb0263ad4317537763f18d87f92c991ef0b94399fd672fc64a7",
+      "reconstructions/scene-08/assets/gate-plaque-v03/gate-plaque.glb": "14a436fa5020d80f9f3da20921367b510f9a9a7fa2764efe559c77a48461886f",
+      "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+      "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json": "15992a312377a3a0a607607db41d3c63f5544ee3bccca1ee55a7b14ec28ee49e",
+      "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json": "a302e66df3e6497b08e8674b1cb0273ec3cfe7b67ee3110e8ae664fcd7c289ca",
+      "reconstructions/scene-08/assets/gate-plaque-v04/gate-plaque.glb": "bd131590d4085efd8fec03a774af81d381b837f3c48411a06ae2695c3f7d0019",
+      "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json": "c9928fa7dd96025c03e9ff82591726cfb159c1d44f2665d850d25c3aa1a71589",
+      "reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb": "9ef2a3b967431e204980256aad6050d2a56cb6776d221e36fd116aed835da640",
+      "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/timber/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "reconstructions/scene-08/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-08/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-08/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/corridor-layout.js": "001dc90c72787a636cffb4561b29addce4b8937ecde89b041269fa4441cdb4e7",
+      "reconstructions/scene-08/src/gallery-joinery.js": "e59e936041c8501b1dcf262d9283bb0e1a050ffa88d7265bd0a3dd81a562707c",
+      "reconstructions/scene-08/src/gate-hardware.js": "97b11925d69e24e62c6efa272ac48aac8722ec8d82ee21f23a8b38dd57cbb04a",
+      "reconstructions/scene-08/src/grounded-foundations.js": "921987dedebff13649d911f7180ee609b9959279b58d42fa8bc395d82a334fd5",
+      "reconstructions/scene-08/src/hero-garden-rock.js": "bb6341ba1075839b1e2125561f96ad93e82f89b7cabf529e150401170a2e306b",
+      "reconstructions/scene-08/src/hero-gate-plaque.js": "32a01172231544449a2ecaa79815fa9f21494c26eee659ba1e89a821eea4b502",
+      "reconstructions/scene-08/src/main.js": "3ef5b82df464d6a01c91f1384cb58344817bf74aa72260e9364951be064b480f",
+      "reconstructions/scene-08/src/post.js": "a64cee534dc1c79edbd2c652dd4d7ee1808460a594d45d4741275975d75cbfe2",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scanned-timber.js": "0bfc1e600193feb654e128e2b87bdd8728a47b412381c05078233e1029f28e5b",
+      "reconstructions/scene-08/src/scene.js": "03c9dcd840684976a6a19e9a5bf9bf9977117bb1163b8d767292408d67dbdb09"
+    }
+  },
+  "sourceCommit": "3ccd1fa1e1bd16e7b0ab10f1efc6439a39879153",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/post.js",
+    "/reconstructions/scene-08/src/scanned-timber.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/reconstructions/scene-08/src/gallery-joinery.js",
+    "/reconstructions/scene-08/src/gate-hardware.js",
+    "/reconstructions/scene-08/src/hero-gate-plaque.js",
+    "/reconstructions/scene-08/src/hero-garden-rock.js",
+    "/reconstructions/scene-08/src/corridor-layout.js",
+    "/reconstructions/scene-08/src/grounded-foundations.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-08/assets/timber/diffuse-2k.jpg",
+    "/reconstructions/scene-08/assets/timber/normal-gl-2k.png",
+    "/reconstructions/scene-08/assets/timber/roughness-2k.jpg"
+  ],
+  "detailCrop": {
+    "pixels": [
+      560,
+      750,
+      400,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-cast-hardware-closed-gallery-mesh70",
+        "instances": 443853,
+        "triangles": 15573739,
+        "roles": {
+          "left-grand-hall": 8824,
+          "layered-walkways": 27368,
+          "five-tier-pagoda": 28177,
+          "foreground-veranda": 558,
+          "arched-stream-bridge": 113,
+          "gallery-stone-stair": 38,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 269,
+          "grounded-foundations126": 39,
+          "stone-lanterns": 501,
+          "branching-garden-trees": 254002,
+          "hanging-veranda-foliage": 13603,
+          "dense-layered-shrubs": 92540,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 8
+        },
+        "seed": 80247,
+        "rngFinalState": 2186526841,
+        "foundation126": {
+          "revision": "scene08-grounded-open-foundations126",
+          "bridge": {
+            "capTop": 2.8,
+            "capBottom": 2.56,
+            "capPlan": [
+              1.05,
+              1.7
+            ],
+            "oldBottomY": 0.7,
+            "oldCentreGroundY": -0.4,
+            "firstBoardUnderside": 2.79526397168733,
+            "bearingOverlapMetres": 0.004736028312669838,
+            "piers": [
+              {
+                "foot": {
+                  "label": "foundation126-bridge-flank-0",
+                  "origin": [
+                    1.5988324097654565,
+                    0,
+                    -4.1602152568009
+                  ],
+                  "yaw": 0.5794662977791094,
+                  "foot": [
+                    0.76,
+                    0.5
+                  ],
+                  "head": [
+                    0.7,
+                    0.46
+                  ],
+                  "bearingTopY": -0.2599999999999929,
+                  "shoulderY": -0.3599999999999929,
+                  "embedTargetMetres": 0.08,
+                  "centreGroundY": -0.4,
+                  "centreFootY": -0.47999998927116394,
+                  "samples": [
+                    {
+                      "local": [
+                        -0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        1.1648900211782651,
+                        -4.17501401983174
+                      ],
+                      "groundY": -0.3999999999999929,
+                      "footY": -0.47999999999999293,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        1.7589860799576085,
+                        -4.563793999952695
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        1.7935943911864922,
+                        -4.556564560563316
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        0.225
+                      ],
+                      "world": [
+                        2.0400042377420275,
+                        -4.1800248049989435
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        0.25
+                      ],
+                      "world": [
+                        2.032774798352648,
+                        -4.1454164937700595
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.355,
+                        0.25
+                      ],
+                      "world": [
+                        1.4386787395733045,
+                        -3.7566365136491036
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        0.225
+                      ],
+                      "world": [
+                        1.4040704283444208,
+                        -3.7638659530384833
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        1.1576605817888852,
+                        -4.140405708602856
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    }
+                  ]
+                },
+                "pier": {
+                  "label": "foundation126-bridge-pier-0",
+                  "bottomY": -0.2599999999999929,
+                  "topY": 2.56,
+                  "courses": 11,
+                  "foot": [
+                    0.7,
+                    0.46
+                  ],
+                  "head": [
+                    0.62,
+                    0.38
+                  ]
+                }
+              },
+              {
+                "foot": {
+                  "label": "foundation126-bridge-flank-1",
+                  "origin": [
+                    2.2011675902345433,
+                    0,
+                    -3.2397847431991003
+                  ],
+                  "yaw": 0.5794662977791094,
+                  "foot": [
+                    0.76,
+                    0.5
+                  ],
+                  "head": [
+                    0.7,
+                    0.46
+                  ],
+                  "bearingTopY": 0.31033798977359284,
+                  "shoulderY": 0.21033798977359283,
+                  "embedTargetMetres": 0.08,
+                  "centreGroundY": -0.4000000000000071,
+                  "centreFootY": -0.47999998927116394,
+                  "samples": [
+                    {
+                      "local": [
+                        -0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        1.767225201647352,
+                        -3.2545835062299404
+                      ],
+                      "groundY": -0.3999999999999929,
+                      "footY": -0.47999999999999293,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        2.361321260426695,
+                        -3.6433634863508964
+                      ],
+                      "groundY": -0.2883561258811156,
+                      "footY": -0.3683561258811156,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        2.395929571655579,
+                        -3.6361340469615167
+                      ],
+                      "groundY": -0.232072570158401,
+                      "footY": -0.312072570158401,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        0.225
+                      ],
+                      "world": [
+                        2.6423394182111144,
+                        -3.259594291397144
+                      ],
+                      "groundY": 0.17033798977359282,
+                      "footY": 0.09033798977359282,
+                      "penetration": 0.08
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        0.25
+                      ],
+                      "world": [
+                        2.6351099788217347,
+                        -3.22498598016826
+                      ],
+                      "groundY": 0.15871575654724523,
+                      "footY": 0.07871575654724523,
+                      "penetration": 0.08
+                    },
+                    {
+                      "local": [
+                        -0.355,
+                        0.25
+                      ],
+                      "world": [
+                        2.0410139200423916,
+                        -2.836206000047304
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        0.225
+                      ],
+                      "world": [
+                        2.0064056088135076,
+                        -2.843435439436684
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        1.759995762257972,
+                        -3.2199751950010564
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    }
+                  ]
+                },
+                "pier": {
+                  "label": "foundation126-bridge-pier-1",
+                  "bottomY": 0.31033798977359284,
+                  "topY": 2.56,
+                  "courses": 9,
+                  "foot": [
+                    0.7,
+                    0.46
+                  ],
+                  "head": [
+                    0.62,
+                    0.38
+                  ]
+                }
+              }
+            ],
+            "minimumClearOpeningWidthMetres": 0.6000000000000001,
+            "clearHeightAboveWaterMetres": 1.56,
+            "highEndFootingOnly": {
+              "label": "foundation126-high-end-sole-only",
+              "origin": [
+                7.50189,
+                0,
+                -7.36591
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                1.05,
+                1.7
+              ],
+              "head": [
+                1.05,
+                1.7
+              ],
+              "bearingTopY": 0.95,
+              "shoulderY": 0.87,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.7255340053038992,
+              "centreFootY": 0.6455339789390564,
+              "samples": [
+                {
+                  "local": [
+                    -0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    6.618071672545797,
+                    -7.803363042115443
+                  ],
+                  "groundY": 1.533519596349227,
+                  "footY": 0.845,
+                  "penetration": 0.688519596349227
+                },
+                {
+                  "local": [
+                    0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    7.45482668491107,
+                    -8.350940478905521
+                  ],
+                  "groundY": 1.2996579808358395,
+                  "footY": 0.845,
+                  "penetration": 0.4546579808358395
+                },
+                {
+                  "local": [
+                    0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    7.489434996139953,
+                    -8.343711039516142
+                  ],
+                  "groundY": 1.2557333830661217,
+                  "footY": 0.845,
+                  "penetration": 0.4107333830661217
+                },
+                {
+                  "local": [
+                    0.525,
+                    0.825
+                  ],
+                  "world": [
+                    8.392937766843584,
+                    -6.963065269113442
+                  ],
+                  "groundY": 0.6465682585591281,
+                  "footY": 0.5665682585591282,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.5,
+                    0.85
+                  ],
+                  "world": [
+                    8.385708327454203,
+                    -6.928456957884558
+                  ],
+                  "groundY": 0.6430323690189113,
+                  "footY": 0.5630323690189113,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.5,
+                    0.85
+                  ],
+                  "world": [
+                    7.548953315088931,
+                    -6.38087952109448
+                  ],
+                  "groundY": 0.6173752658113898,
+                  "footY": 0.5373752658113898,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    0.825
+                  ],
+                  "world": [
+                    7.514345003860048,
+                    -6.3881089604838595
+                  ],
+                  "groundY": 0.6206426378727414,
+                  "footY": 0.5406426378727415,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    6.610842233156417,
+                    -7.768754730886559
+                  ],
+                  "groundY": 1.5159187690940419,
+                  "footY": 0.845,
+                  "penetration": 0.6709187690940419
+                }
+              ]
+            }
+          },
+          "wing": {
+            "upperPierFeetY": 1.5,
+            "upperPierHeadsY": 3.86,
+            "footings": [
+              {
+                "label": "foundation126-wing-foot-0",
+                "origin": [
+                  -1.5571455281253563,
+                  0,
+                  -11.542935711690891
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 1.2004596296836452,
+                "centreFootY": 1.1204596757888794,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -1.650716841884217,
+                      -12.069499486785077
+                    ],
+                    "groundY": 1.0360076039864694,
+                    "footY": 0.9560076039864694,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -1.045424431221968,
+                      -11.69839155424431
+                    ],
+                    "groundY": 1.0168361310404421,
+                    "footY": 0.9368361310404422,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -1.037178498893747,
+                      -11.664011260469556
+                    ],
+                    "groundY": 1.0145631764696503,
+                    "footY": 0.9345631764696504,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -1.4291939205917414,
+                      -11.024617868924926
+                    ],
+                    "groundY": 0.9650590178109297,
+                    "footY": 0.8850590178109298,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -1.4635742143664956,
+                      -11.016371936596705
+                    ],
+                    "groundY": 0.9668508970616756,
+                    "footY": 0.8868508970616756,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -2.0688666250287446,
+                      -11.387479869137472
+                    ],
+                    "groundY": 1.403405651081391,
+                    "footY": 1.323405651081391,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -2.0771125573569655,
+                      -11.421860162912226
+                    ],
+                    "groundY": 1.408701570730203,
+                    "footY": 1.328701570730203,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -1.6850971356589712,
+                      -12.061253554456856
+                    ],
+                    "groundY": 1.2101119441417785,
+                    "footY": 1.1301119441417784,
+                    "penetration": 0.08000000000000007
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-1",
+                "origin": [
+                  -3.4414329884203827,
+                  0,
+                  -8.469584809666372
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 0.7779542042210892,
+                "centreFootY": 0.6979541778564453,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -3.5350043021792437,
+                      -8.996148584760558
+                    ],
+                    "groundY": 0.7830054077698421,
+                    "footY": 0.7030054077698421,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -2.9297118915169946,
+                      -8.625040652219791
+                    ],
+                    "groundY": 0.7979365415404729,
+                    "footY": 0.7179365415404729,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -2.9214659591887733,
+                      -8.590660358445037
+                    ],
+                    "groundY": 0.7973441663835459,
+                    "footY": 0.7173441663835459,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -3.313481380886768,
+                      -7.951266966900407
+                    ],
+                    "groundY": 0.7589462635400466,
+                    "footY": 0.6789462635400466,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -3.3478616746615217,
+                      -7.943021034572186
+                    ],
+                    "groundY": 0.7573074098766597,
+                    "footY": 0.6773074098766597,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -3.9531540853237708,
+                      -8.314128967112953
+                    ],
+                    "groundY": 0.789168439127991,
+                    "footY": 0.709168439127991,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -3.961400017651992,
+                      -8.348509260887708
+                    ],
+                    "groundY": 0.7894172943264905,
+                    "footY": 0.7094172943264906,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -3.5693845959539976,
+                      -8.987902652432338
+                    ],
+                    "groundY": 0.7839430207444664,
+                    "footY": 0.7039430207444665,
+                    "penetration": 0.07999999999999996
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-2",
+                "origin": [
+                  -5.325720448715409,
+                  0,
+                  -5.3962339076418555
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 1.3140784102605416,
+                "centreFootY": 1.2340784072875977,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -5.41929176247427,
+                      -5.922797682736042
+                    ],
+                    "groundY": 1.3809039754490922,
+                    "footY": 1.300903975449092,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -4.813999351812021,
+                      -5.5516897501952736
+                    ],
+                    "groundY": 1.5300679502276622,
+                    "footY": 1.375,
+                    "penetration": 0.15506795022766218
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -4.8057534194838,
+                      -5.51730945642052
+                    ],
+                    "groundY": 1.3240151340997115,
+                    "footY": 1.2440151340997114,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -5.197768841181794,
+                      -4.87791606487589
+                    ],
+                    "groundY": 0.7121242097434476,
+                    "footY": 0.6321242097434476,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -5.232149134956549,
+                      -4.869670132547669
+                    ],
+                    "groundY": 0.715739816447704,
+                    "footY": 0.635739816447704,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -5.837441545618797,
+                      -5.2407780650884375
+                    ],
+                    "groundY": 1.163952952875111,
+                    "footY": 1.0839529528751108,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -5.845687477947019,
+                      -5.275158358863191
+                    ],
+                    "groundY": 1.1457483179311985,
+                    "footY": 1.0657483179311984,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -5.453672056249024,
+                      -5.914551750407821
+                    ],
+                    "groundY": 1.3207876263844696,
+                    "footY": 1.2407876263844695,
+                    "penetration": 0.08000000000000007
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-3",
+                "origin": [
+                  1.6057204487154093,
+                  0,
+                  -9.603766092358144
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 0.85220327094531,
+                "centreFootY": 0.772203266620636,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      1.5121491349565486,
+                      -10.13032986745233
+                    ],
+                    "groundY": 0.9191991369259753,
+                    "footY": 0.8391991369259754,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      2.1174415456187976,
+                      -9.759221934911563
+                    ],
+                    "groundY": 0.851586660123111,
+                    "footY": 0.7715866601231111,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      2.125687477947019,
+                      -9.724841641136809
+                    ],
+                    "groundY": 0.8463866318271869,
+                    "footY": 0.7663866318271869,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      1.7336720562490242,
+                      -9.08544824959218
+                    ],
+                    "groundY": 0.7918641567185105,
+                    "footY": 0.7118641567185106,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      1.69929176247427,
+                      -9.077202317263959
+                    ],
+                    "groundY": 0.7922888153121121,
+                    "footY": 0.7122888153121122,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      1.093999351812021,
+                      -9.448310249804726
+                    ],
+                    "groundY": 0.881055562269502,
+                    "footY": 0.801055562269502,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      1.0857534194837999,
+                      -9.48269054357948
+                    ],
+                    "groundY": 0.8854527537816281,
+                    "footY": 0.8054527537816282,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      1.4777688411817944,
+                      -10.12208393512411
+                    ],
+                    "groundY": 0.9205639635878669,
+                    "footY": 0.8405639635878669,
+                    "penetration": 0.07999999999999996
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-4",
+                "origin": [
+                  -0.2785670115796173,
+                  0,
+                  -6.530415190333628
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": -0.4,
+                "centreFootY": -0.47999998927116394,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -0.3721383253384781,
+                      -7.056978965427814
+                    ],
+                    "groundY": 0.4072858324419357,
+                    "footY": 0.3272858324419357,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      0.2331540853237709,
+                      -6.685871032887046
+                    ],
+                    "groundY": -0.322760609268407,
+                    "footY": -0.402760609268407,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      0.24140001765199215,
+                      -6.651490739112292
+                    ],
+                    "groundY": -0.39372208893771443,
+                    "footY": -0.47372208893771445,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -0.15061540404600232,
+                      -6.0120973475676625
+                    ],
+                    "groundY": -0.4,
+                    "footY": -0.48000000000000004,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -0.18499569782075645,
+                      -6.003851415239441
+                    ],
+                    "groundY": -0.4,
+                    "footY": -0.48000000000000004,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -0.7902881084830055,
+                      -6.37495934778021
+                    ],
+                    "groundY": -0.04069093270658897,
+                    "footY": -0.12069093270658897,
+                    "penetration": 0.08
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -0.7985340408112267,
+                      -6.409339641554963
+                    ],
+                    "groundY": -0.021781812139693102,
+                    "footY": -0.1017818121396931,
+                    "penetration": 0.08
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -0.4065186191132322,
+                      -7.048733033099593
+                    ],
+                    "groundY": 0.3903593755464314,
+                    "footY": 0.3103593755464314,
+                    "penetration": 0.08000000000000002
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-5",
+                "origin": [
+                  -2.1628544718746436,
+                  0,
+                  -3.45706428830911
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 0.5625190926219127,
+                "centreFootY": 0.48251909017562866,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -2.2564257856335046,
+                      -3.9836280634032963
+                    ],
+                    "groundY": 1.4387689718130332,
+                    "footY": 1.3587689718130331,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -1.6511333749712556,
+                      -3.612520130862528
+                    ],
+                    "groundY": 1.0604955869394392,
+                    "footY": 0.9804955869394393,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -1.6428874426430342,
+                      -3.578139837087774
+                    ],
+                    "groundY": 1.312980836383138,
+                    "footY": 1.2329808363831378,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -2.0349028643410287,
+                      -2.9387464455431447
+                    ],
+                    "groundY": 0.4067380158089833,
+                    "footY": 0.32673801580898326,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -2.0692831581157827,
+                      -2.9305005132149233
+                    ],
+                    "groundY": 0.4059862732118802,
+                    "footY": 0.3259862732118802,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -2.6745755687780317,
+                      -3.301608445755692
+                    ],
+                    "groundY": 0.438674444572392,
+                    "footY": 0.358674444572392,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -2.682821501106253,
+                      -3.3359887395304457
+                    ],
+                    "groundY": 0.4386280164337393,
+                    "footY": 0.35862801643373926,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -2.2908060794082585,
+                      -3.975382131075075
+                    ],
+                    "groundY": 1.4018819812412984,
+                    "footY": 1.3218819812412983,
+                    "penetration": 0.08000000000000007
+                  }
+                ]
+              }
+            ],
+            "identifiedMiddleRightPierCoursed": true
+          },
+          "groundSurfaceCount": 319,
+          "supportSamples": [
+            {
+              "label": "foundation126-bridge-flank-0",
+              "origin": [
+                1.5988324097654565,
+                0,
+                -4.1602152568009
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                0.76,
+                0.5
+              ],
+              "head": [
+                0.7,
+                0.46
+              ],
+              "bearingTopY": -0.2599999999999929,
+              "shoulderY": -0.3599999999999929,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": -0.4,
+              "centreFootY": -0.47999998927116394,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    1.1648900211782651,
+                    -4.17501401983174
+                  ],
+                  "groundY": -0.3999999999999929,
+                  "footY": -0.47999999999999293,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    1.7589860799576085,
+                    -4.563793999952695
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    1.7935943911864922,
+                    -4.556564560563316
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.225
+                  ],
+                  "world": [
+                    2.0400042377420275,
+                    -4.1800248049989435
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.25
+                  ],
+                  "world": [
+                    2.032774798352648,
+                    -4.1454164937700595
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.25
+                  ],
+                  "world": [
+                    1.4386787395733045,
+                    -3.7566365136491036
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.225
+                  ],
+                  "world": [
+                    1.4040704283444208,
+                    -3.7638659530384833
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    1.1576605817888852,
+                    -4.140405708602856
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                }
+              ]
+            },
+            {
+              "label": "foundation126-bridge-flank-1",
+              "origin": [
+                2.2011675902345433,
+                0,
+                -3.2397847431991003
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                0.76,
+                0.5
+              ],
+              "head": [
+                0.7,
+                0.46
+              ],
+              "bearingTopY": 0.31033798977359284,
+              "shoulderY": 0.21033798977359283,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": -0.4000000000000071,
+              "centreFootY": -0.47999998927116394,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    1.767225201647352,
+                    -3.2545835062299404
+                  ],
+                  "groundY": -0.3999999999999929,
+                  "footY": -0.47999999999999293,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    2.361321260426695,
+                    -3.6433634863508964
+                  ],
+                  "groundY": -0.2883561258811156,
+                  "footY": -0.3683561258811156,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    2.395929571655579,
+                    -3.6361340469615167
+                  ],
+                  "groundY": -0.232072570158401,
+                  "footY": -0.312072570158401,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.225
+                  ],
+                  "world": [
+                    2.6423394182111144,
+                    -3.259594291397144
+                  ],
+                  "groundY": 0.17033798977359282,
+                  "footY": 0.09033798977359282,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.25
+                  ],
+                  "world": [
+                    2.6351099788217347,
+                    -3.22498598016826
+                  ],
+                  "groundY": 0.15871575654724523,
+                  "footY": 0.07871575654724523,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.25
+                  ],
+                  "world": [
+                    2.0410139200423916,
+                    -2.836206000047304
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.225
+                  ],
+                  "world": [
+                    2.0064056088135076,
+                    -2.843435439436684
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    1.759995762257972,
+                    -3.2199751950010564
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-0",
+              "origin": [
+                -1.5571455281253563,
+                0,
+                -11.542935711690891
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 1.2004596296836452,
+              "centreFootY": 1.1204596757888794,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -1.650716841884217,
+                    -12.069499486785077
+                  ],
+                  "groundY": 1.0360076039864694,
+                  "footY": 0.9560076039864694,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -1.045424431221968,
+                    -11.69839155424431
+                  ],
+                  "groundY": 1.0168361310404421,
+                  "footY": 0.9368361310404422,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -1.037178498893747,
+                    -11.664011260469556
+                  ],
+                  "groundY": 1.0145631764696503,
+                  "footY": 0.9345631764696504,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -1.4291939205917414,
+                    -11.024617868924926
+                  ],
+                  "groundY": 0.9650590178109297,
+                  "footY": 0.8850590178109298,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -1.4635742143664956,
+                    -11.016371936596705
+                  ],
+                  "groundY": 0.9668508970616756,
+                  "footY": 0.8868508970616756,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -2.0688666250287446,
+                    -11.387479869137472
+                  ],
+                  "groundY": 1.403405651081391,
+                  "footY": 1.323405651081391,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -2.0771125573569655,
+                    -11.421860162912226
+                  ],
+                  "groundY": 1.408701570730203,
+                  "footY": 1.328701570730203,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -1.6850971356589712,
+                    -12.061253554456856
+                  ],
+                  "groundY": 1.2101119441417785,
+                  "footY": 1.1301119441417784,
+                  "penetration": 0.08000000000000007
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-1",
+              "origin": [
+                -3.4414329884203827,
+                0,
+                -8.469584809666372
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.7779542042210892,
+              "centreFootY": 0.6979541778564453,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -3.5350043021792437,
+                    -8.996148584760558
+                  ],
+                  "groundY": 0.7830054077698421,
+                  "footY": 0.7030054077698421,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -2.9297118915169946,
+                    -8.625040652219791
+                  ],
+                  "groundY": 0.7979365415404729,
+                  "footY": 0.7179365415404729,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -2.9214659591887733,
+                    -8.590660358445037
+                  ],
+                  "groundY": 0.7973441663835459,
+                  "footY": 0.7173441663835459,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -3.313481380886768,
+                    -7.951266966900407
+                  ],
+                  "groundY": 0.7589462635400466,
+                  "footY": 0.6789462635400466,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -3.3478616746615217,
+                    -7.943021034572186
+                  ],
+                  "groundY": 0.7573074098766597,
+                  "footY": 0.6773074098766597,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -3.9531540853237708,
+                    -8.314128967112953
+                  ],
+                  "groundY": 0.789168439127991,
+                  "footY": 0.709168439127991,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -3.961400017651992,
+                    -8.348509260887708
+                  ],
+                  "groundY": 0.7894172943264905,
+                  "footY": 0.7094172943264906,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -3.5693845959539976,
+                    -8.987902652432338
+                  ],
+                  "groundY": 0.7839430207444664,
+                  "footY": 0.7039430207444665,
+                  "penetration": 0.07999999999999996
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-2",
+              "origin": [
+                -5.325720448715409,
+                0,
+                -5.3962339076418555
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 1.3140784102605416,
+              "centreFootY": 1.2340784072875977,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -5.41929176247427,
+                    -5.922797682736042
+                  ],
+                  "groundY": 1.3809039754490922,
+                  "footY": 1.300903975449092,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -4.813999351812021,
+                    -5.5516897501952736
+                  ],
+                  "groundY": 1.5300679502276622,
+                  "footY": 1.375,
+                  "penetration": 0.15506795022766218
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -4.8057534194838,
+                    -5.51730945642052
+                  ],
+                  "groundY": 1.3240151340997115,
+                  "footY": 1.2440151340997114,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -5.197768841181794,
+                    -4.87791606487589
+                  ],
+                  "groundY": 0.7121242097434476,
+                  "footY": 0.6321242097434476,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -5.232149134956549,
+                    -4.869670132547669
+                  ],
+                  "groundY": 0.715739816447704,
+                  "footY": 0.635739816447704,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -5.837441545618797,
+                    -5.2407780650884375
+                  ],
+                  "groundY": 1.163952952875111,
+                  "footY": 1.0839529528751108,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -5.845687477947019,
+                    -5.275158358863191
+                  ],
+                  "groundY": 1.1457483179311985,
+                  "footY": 1.0657483179311984,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -5.453672056249024,
+                    -5.914551750407821
+                  ],
+                  "groundY": 1.3207876263844696,
+                  "footY": 1.2407876263844695,
+                  "penetration": 0.08000000000000007
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-3",
+              "origin": [
+                1.6057204487154093,
+                0,
+                -9.603766092358144
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.85220327094531,
+              "centreFootY": 0.772203266620636,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    1.5121491349565486,
+                    -10.13032986745233
+                  ],
+                  "groundY": 0.9191991369259753,
+                  "footY": 0.8391991369259754,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    2.1174415456187976,
+                    -9.759221934911563
+                  ],
+                  "groundY": 0.851586660123111,
+                  "footY": 0.7715866601231111,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    2.125687477947019,
+                    -9.724841641136809
+                  ],
+                  "groundY": 0.8463866318271869,
+                  "footY": 0.7663866318271869,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    1.7336720562490242,
+                    -9.08544824959218
+                  ],
+                  "groundY": 0.7918641567185105,
+                  "footY": 0.7118641567185106,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    1.69929176247427,
+                    -9.077202317263959
+                  ],
+                  "groundY": 0.7922888153121121,
+                  "footY": 0.7122888153121122,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    1.093999351812021,
+                    -9.448310249804726
+                  ],
+                  "groundY": 0.881055562269502,
+                  "footY": 0.801055562269502,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    1.0857534194837999,
+                    -9.48269054357948
+                  ],
+                  "groundY": 0.8854527537816281,
+                  "footY": 0.8054527537816282,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    1.4777688411817944,
+                    -10.12208393512411
+                  ],
+                  "groundY": 0.9205639635878669,
+                  "footY": 0.8405639635878669,
+                  "penetration": 0.07999999999999996
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-4",
+              "origin": [
+                -0.2785670115796173,
+                0,
+                -6.530415190333628
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": -0.4,
+              "centreFootY": -0.47999998927116394,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -0.3721383253384781,
+                    -7.056978965427814
+                  ],
+                  "groundY": 0.4072858324419357,
+                  "footY": 0.3272858324419357,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    0.2331540853237709,
+                    -6.685871032887046
+                  ],
+                  "groundY": -0.322760609268407,
+                  "footY": -0.402760609268407,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    0.24140001765199215,
+                    -6.651490739112292
+                  ],
+                  "groundY": -0.39372208893771443,
+                  "footY": -0.47372208893771445,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -0.15061540404600232,
+                    -6.0120973475676625
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -0.18499569782075645,
+                    -6.003851415239441
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -0.7902881084830055,
+                    -6.37495934778021
+                  ],
+                  "groundY": -0.04069093270658897,
+                  "footY": -0.12069093270658897,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -0.7985340408112267,
+                    -6.409339641554963
+                  ],
+                  "groundY": -0.021781812139693102,
+                  "footY": -0.1017818121396931,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -0.4065186191132322,
+                    -7.048733033099593
+                  ],
+                  "groundY": 0.3903593755464314,
+                  "footY": 0.3103593755464314,
+                  "penetration": 0.08000000000000002
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-5",
+              "origin": [
+                -2.1628544718746436,
+                0,
+                -3.45706428830911
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.5625190926219127,
+              "centreFootY": 0.48251909017562866,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -2.2564257856335046,
+                    -3.9836280634032963
+                  ],
+                  "groundY": 1.4387689718130332,
+                  "footY": 1.3587689718130331,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -1.6511333749712556,
+                    -3.612520130862528
+                  ],
+                  "groundY": 1.0604955869394392,
+                  "footY": 0.9804955869394393,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -1.6428874426430342,
+                    -3.578139837087774
+                  ],
+                  "groundY": 1.312980836383138,
+                  "footY": 1.2329808363831378,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -2.0349028643410287,
+                    -2.9387464455431447
+                  ],
+                  "groundY": 0.4067380158089833,
+                  "footY": 0.32673801580898326,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -2.0692831581157827,
+                    -2.9305005132149233
+                  ],
+                  "groundY": 0.4059862732118802,
+                  "footY": 0.3259862732118802,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -2.6745755687780317,
+                    -3.301608445755692
+                  ],
+                  "groundY": 0.438674444572392,
+                  "footY": 0.358674444572392,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -2.682821501106253,
+                    -3.3359887395304457
+                  ],
+                  "groundY": 0.4386280164337393,
+                  "footY": 0.35862801643373926,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -2.2908060794082585,
+                    -3.975382131075075
+                  ],
+                  "groundY": 1.4018819812412984,
+                  "footY": 1.3218819812412983,
+                  "penetration": 0.08000000000000007
+                }
+              ]
+            },
+            {
+              "label": "foundation126-high-end-sole-only",
+              "origin": [
+                7.50189,
+                0,
+                -7.36591
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                1.05,
+                1.7
+              ],
+              "head": [
+                1.05,
+                1.7
+              ],
+              "bearingTopY": 0.95,
+              "shoulderY": 0.87,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.7255340053038992,
+              "centreFootY": 0.6455339789390564,
+              "samples": [
+                {
+                  "local": [
+                    -0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    6.618071672545797,
+                    -7.803363042115443
+                  ],
+                  "groundY": 1.533519596349227,
+                  "footY": 0.845,
+                  "penetration": 0.688519596349227
+                },
+                {
+                  "local": [
+                    0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    7.45482668491107,
+                    -8.350940478905521
+                  ],
+                  "groundY": 1.2996579808358395,
+                  "footY": 0.845,
+                  "penetration": 0.4546579808358395
+                },
+                {
+                  "local": [
+                    0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    7.489434996139953,
+                    -8.343711039516142
+                  ],
+                  "groundY": 1.2557333830661217,
+                  "footY": 0.845,
+                  "penetration": 0.4107333830661217
+                },
+                {
+                  "local": [
+                    0.525,
+                    0.825
+                  ],
+                  "world": [
+                    8.392937766843584,
+                    -6.963065269113442
+                  ],
+                  "groundY": 0.6465682585591281,
+                  "footY": 0.5665682585591282,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.5,
+                    0.85
+                  ],
+                  "world": [
+                    8.385708327454203,
+                    -6.928456957884558
+                  ],
+                  "groundY": 0.6430323690189113,
+                  "footY": 0.5630323690189113,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.5,
+                    0.85
+                  ],
+                  "world": [
+                    7.548953315088931,
+                    -6.38087952109448
+                  ],
+                  "groundY": 0.6173752658113898,
+                  "footY": 0.5373752658113898,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    0.825
+                  ],
+                  "world": [
+                    7.514345003860048,
+                    -6.3881089604838595
+                  ],
+                  "groundY": 0.6206426378727414,
+                  "footY": 0.5406426378727415,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    6.610842233156417,
+                    -7.768754730886559
+                  ],
+                  "groundY": 1.5159187690940419,
+                  "footY": 0.845,
+                  "penetration": 0.6709187690940419
+                }
+              ]
+            }
+          ],
+          "scope": "Only old low bridge abutment, separate broad wing lower foundation, identified middle-right wing stone-pier surface form, and measured gap-filling sole beneath unchanged high-end body. Middle-gallery supports/site/camera/lights/assets unchanged.",
+          "photoRGBOrProjection": false,
+          "visualAccepted": false
+        },
+        "layout122": {
+          "revision": "scene08-connected-corridor-layout122",
+          "portal": {
+            "origin": [
+              0.02,
+              0,
+              8.1
+            ],
+            "yaw": -0.1,
+            "halfSpan": 2.17,
+            "columnWidth": 0.61,
+            "columnDepth": 0.64,
+            "floor": 0.94,
+            "columnTop": 6.425,
+            "beamCentre": 6.62,
+            "beamDepth": 0.4,
+            "rafterBottom": 6.82
+          },
+          "nearRail": {
+            "point": [
+              -1.0679026999999999,
+              0.94,
+              5.8226616
+            ],
+            "handrailY": 1.91,
+            "planLength": 5.060664852220507,
+            "normal": [
+              -0.6837204401081401,
+              0,
+              0.7297440371653141
+            ]
+          },
+          "hall": {
+            "position": [
+              -6.7,
+              2.95,
+              -5.8
+            ],
+            "yaw": 0.08,
+            "w": 11,
+            "d": 8,
+            "h": 4.5,
+            "raised": 2,
+            "roofRise": 4.8,
+            "roofEaveDrop": 0.45,
+            "roofCurl": 1.1
+          },
+          "wing": {
+            "position": [
+              -1.86,
+              1.5,
+              -7.5
+            ],
+            "yaw": -0.55,
+            "w": 5.3,
+            "d": 10.3,
+            "h": 3.7,
+            "raised": 3
+          },
+          "pagoda": {
+            "position": [
+              4.7,
+              3.016,
+              -24
+            ],
+            "yaw": -0.4,
+            "scale": 1.2,
+            "tierPitch": 2.75,
+            "roomHeight": 1.9,
+            "topRoofRise": 2,
+            "spireLocalOffset": -2.68,
+            "foundationGround": 1.7
+          },
+          "middleGallery": {
+            "position": [
+              1.47,
+              4.28,
+              -9
+            ],
+            "yaw": -0.1,
+            "h": 2.02,
+            "floor": 4.5
+          },
+          "rightGallery": {
+            "position": [
+              7.9,
+              3.7,
+              -10
+            ],
+            "yaw": -0.15,
+            "h": 4.8,
+            "floor": 4.2
+          },
+          "bridge": {
+            "run": 6.694779137522016,
+            "yaw": 0.5794662977791094,
+            "landingA": [
+              1.9,
+              2.95,
+              -3.7
+            ],
+            "landingB": [
+              7.50189,
+              4.2,
+              -7.36591
+            ],
+            "width": 1.5,
+            "arch": 0.32
+          },
+          "stair": {
+            "a": [
+              1.9,
+              2.95,
+              -3.7
+            ],
+            "b": [
+              1.3,
+              4.5,
+              -7.1
+            ],
+            "width": 1.11,
+            "steps": 10
+          },
+          "visualAccepted": false
+        },
+        "heroRock108": {
+          "asset": "Poly Haven rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/rock_moss_set_01",
+          "node": "rock_moss_set_01_rock01",
+          "originalMesh": "",
+          "triangles": 11000,
+          "geometryArraysUnmodified": true,
+          "originalUVAndPBRMapsRetained": true,
+          "nonuniformStretch": false,
+          "greenCapAdded": false,
+          "placement": {
+            "node": "rock_moss_set_01_rock01",
+            "anchorXZ": [
+              -0.75,
+              -0.15
+            ],
+            "uniformScale": 1.1,
+            "pitch": 1.15,
+            "yaw": 0.15,
+            "embed": 0.16,
+            "neutralTint": [
+              0.5554334918504523,
+              0.8833543991605919,
+              3.538044076536976
+            ]
+          },
+          "visualAccepted": false,
+          "objectPosition": [
+            -0.7524804155935806,
+            1.2255563408567127,
+            -0.14228586463171908
+          ],
+          "support": {
+            "method": "Lower original scan vertices raycast onto original triangulated terrain",
+            "samples": 1293,
+            "embeddedSamples": 118,
+            "maximumPenetrationMetres": 0.16,
+            "contacts": [
+              {
+                "height": 1.2741187257348623,
+                "localY": -0.3589911460876465,
+                "rigidRotatedY": -1.1284179200244362,
+                "x": -1.1621778652027261,
+                "z": -0.0699185363569615,
+                "terrainY": 0.1457008057104261
+              },
+              {
+                "height": 1.2257630538810058,
+                "localY": -0.4308950901031494,
+                "rigidRotatedY": -1.0660187170533841,
+                "x": -1.149870475553694,
+                "z": -0.18449759074210648,
+                "terrainY": 0.15974433682762168
+              },
+              {
+                "height": 1.242831151423822,
+                "localY": -0.4958345293998718,
+                "rigidRotatedY": -1.0326694308642248,
+                "x": -1.6322883918916036,
+                "z": -0.2776828537059796,
+                "terrainY": 0.21016172055959714
+              },
+              {
+                "height": 1.278848826169468,
+                "localY": -0.4946599006652832,
+                "rigidRotatedY": -1.0730292380271846,
+                "x": -1.5903067225538794,
+                "z": -0.2582051276845631,
+                "terrainY": 0.2058195881422833
+              },
+              {
+                "height": 1.228383877874657,
+                "localY": -0.3795607089996338,
+                "rigidRotatedY": -1.0337362805084935,
+                "x": -1.6024315339480038,
+                "z": -0.1370802384398381,
+                "terrainY": 0.19464759736616344
+              },
+              {
+                "height": 1.2354543335788395,
+                "localY": -0.38959598541259766,
+                "rigidRotatedY": -1.0407886461527016,
+                "x": -1.5876222300461098,
+                "z": -0.1460179285700486,
+                "terrainY": 0.19466568742613788
+              },
+              {
+                "height": 1.28738907755809,
+                "localY": -0.5329324007034302,
+                "rigidRotatedY": -1.0763281350416503,
+                "x": -1.6052235553715508,
+                "z": -0.3028521500364221,
+                "terrainY": 0.2110609425164398
+              },
+              {
+                "height": 1.3013540328267612,
+                "localY": -0.48713043332099915,
+                "rigidRotatedY": -1.0998332001776165,
+                "x": -1.5517667637610693,
+                "z": -0.23713560999786604,
+                "terrainY": 0.20152083264914467
+              },
+              {
+                "height": 1.2776327832198533,
+                "localY": -0.42986157536506653,
+                "rigidRotatedY": -1.0809366976535302,
+                "x": -1.5709620867262042,
+                "z": -0.17657585587565178,
+                "terrainY": 0.19669608556632312
+              },
+              {
+                "height": 1.3127403522040093,
+                "localY": -0.5061505436897278,
+                "rigidRotatedY": -1.1089775919077591,
+                "x": -1.55860049738106,
+                "z": -0.2559649605793627,
+                "terrainY": 0.20376276029625018
+              },
+              {
+                "height": 1.2770435573346015,
+                "localY": -0.41601598262786865,
+                "rigidRotatedY": -1.0834698606556694,
+                "x": -1.5472248373667852,
+                "z": -0.15875644324815297,
+                "terrainY": 0.1935736966789321
+              },
+              {
+                "height": 1.339899874961731,
+                "localY": -0.528479814529419,
+                "rigidRotatedY": -1.136117974268203,
+                "x": -1.5339525598726775,
+                "z": -0.27072857249941573,
+                "terrainY": 0.20378190069352797
+              }
+            ]
+          },
+          "worldBounds": {
+            "min": [
+              -1.966356381361837,
+              -0.39153858043884204,
+              -1.065198359970812
+            ],
+            "max": [
+              0.7057972996661112,
+              3.081949044397078,
+              0.990531804685342
+            ]
+          }
+        },
+        "meshPass": {
+          "candidate": "one-cast-plaque83",
+          "heroPlaque": {
+            "asset": "gate-plaque-v05",
+            "sceneInstances": 1,
+            "position": [
+              -1.983,
+              3.3,
+              7.9
+            ],
+            "rotationY": 1.5707963267948966,
+            "construction": "One closed unioned cast plate and four closed small domed fixings; hand-authored curves, no image data",
+            "triangleCount": 92112,
+            "visualAccepted": false,
+            "layoutWorldPosition": [
+              -1.8237427182601817,
+              3.3,
+              7.915008678953427
+            ]
+          },
+          "leftHallClosedBracketPieces": 30,
+          "scope": "Exactly one left inner gate plaque; mesh70 gallery, all other hardware, site and camera retained"
+        },
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 488,
+          "triangles": 15167681,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 22.360679774997898,
+          "focalLengthMM": 39.49739516097068,
+          "verticalSensorMM": 36,
+          "focalSource": "original camera.fov; viewOffset excluded"
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9996101788471469,
+      "opaqueFraction": 1,
+      "rgbaSha256": "0b065aeb0829327cf232fbebc0e4ab25d13067b03fb4eac5b11674710b1c8e71"
+    },
+    {
+      "pose": {
+        "position": [
+          0,
+          2.65,
+          13
+        ],
+        "target": [
+          0,
+          6.65,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "08-cast-hardware-closed-gallery-mesh70",
+        "instances": 443853,
+        "triangles": 15573739,
+        "roles": {
+          "left-grand-hall": 8824,
+          "layered-walkways": 27368,
+          "five-tier-pagoda": 28177,
+          "foreground-veranda": 558,
+          "arched-stream-bridge": 113,
+          "gallery-stone-stair": 38,
+          "garden-ground": 50,
+          "weathered-garden-rocks": 269,
+          "grounded-foundations126": 39,
+          "stone-lanterns": 501,
+          "branching-garden-trees": 254002,
+          "hanging-veranda-foliage": 13603,
+          "dense-layered-shrubs": 92540,
+          "fern-and-ground-cover": 15400,
+          "garden-flowers": 2363,
+          "stream-lotus": 8
+        },
+        "seed": 80247,
+        "rngFinalState": 2186526841,
+        "foundation126": {
+          "revision": "scene08-grounded-open-foundations126",
+          "bridge": {
+            "capTop": 2.8,
+            "capBottom": 2.56,
+            "capPlan": [
+              1.05,
+              1.7
+            ],
+            "oldBottomY": 0.7,
+            "oldCentreGroundY": -0.4,
+            "firstBoardUnderside": 2.79526397168733,
+            "bearingOverlapMetres": 0.004736028312669838,
+            "piers": [
+              {
+                "foot": {
+                  "label": "foundation126-bridge-flank-0",
+                  "origin": [
+                    1.5988324097654565,
+                    0,
+                    -4.1602152568009
+                  ],
+                  "yaw": 0.5794662977791094,
+                  "foot": [
+                    0.76,
+                    0.5
+                  ],
+                  "head": [
+                    0.7,
+                    0.46
+                  ],
+                  "bearingTopY": -0.2599999999999929,
+                  "shoulderY": -0.3599999999999929,
+                  "embedTargetMetres": 0.08,
+                  "centreGroundY": -0.4,
+                  "centreFootY": -0.47999998927116394,
+                  "samples": [
+                    {
+                      "local": [
+                        -0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        1.1648900211782651,
+                        -4.17501401983174
+                      ],
+                      "groundY": -0.3999999999999929,
+                      "footY": -0.47999999999999293,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        1.7589860799576085,
+                        -4.563793999952695
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        1.7935943911864922,
+                        -4.556564560563316
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        0.225
+                      ],
+                      "world": [
+                        2.0400042377420275,
+                        -4.1800248049989435
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        0.25
+                      ],
+                      "world": [
+                        2.032774798352648,
+                        -4.1454164937700595
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.355,
+                        0.25
+                      ],
+                      "world": [
+                        1.4386787395733045,
+                        -3.7566365136491036
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        0.225
+                      ],
+                      "world": [
+                        1.4040704283444208,
+                        -3.7638659530384833
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        1.1576605817888852,
+                        -4.140405708602856
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    }
+                  ]
+                },
+                "pier": {
+                  "label": "foundation126-bridge-pier-0",
+                  "bottomY": -0.2599999999999929,
+                  "topY": 2.56,
+                  "courses": 11,
+                  "foot": [
+                    0.7,
+                    0.46
+                  ],
+                  "head": [
+                    0.62,
+                    0.38
+                  ]
+                }
+              },
+              {
+                "foot": {
+                  "label": "foundation126-bridge-flank-1",
+                  "origin": [
+                    2.2011675902345433,
+                    0,
+                    -3.2397847431991003
+                  ],
+                  "yaw": 0.5794662977791094,
+                  "foot": [
+                    0.76,
+                    0.5
+                  ],
+                  "head": [
+                    0.7,
+                    0.46
+                  ],
+                  "bearingTopY": 0.31033798977359284,
+                  "shoulderY": 0.21033798977359283,
+                  "embedTargetMetres": 0.08,
+                  "centreGroundY": -0.4000000000000071,
+                  "centreFootY": -0.47999998927116394,
+                  "samples": [
+                    {
+                      "local": [
+                        -0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        1.767225201647352,
+                        -3.2545835062299404
+                      ],
+                      "groundY": -0.3999999999999929,
+                      "footY": -0.47999999999999293,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        -0.25
+                      ],
+                      "world": [
+                        2.361321260426695,
+                        -3.6433634863508964
+                      ],
+                      "groundY": -0.2883561258811156,
+                      "footY": -0.3683561258811156,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        2.395929571655579,
+                        -3.6361340469615167
+                      ],
+                      "groundY": -0.232072570158401,
+                      "footY": -0.312072570158401,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        0.38,
+                        0.225
+                      ],
+                      "world": [
+                        2.6423394182111144,
+                        -3.259594291397144
+                      ],
+                      "groundY": 0.17033798977359282,
+                      "footY": 0.09033798977359282,
+                      "penetration": 0.08
+                    },
+                    {
+                      "local": [
+                        0.355,
+                        0.25
+                      ],
+                      "world": [
+                        2.6351099788217347,
+                        -3.22498598016826
+                      ],
+                      "groundY": 0.15871575654724523,
+                      "footY": 0.07871575654724523,
+                      "penetration": 0.08
+                    },
+                    {
+                      "local": [
+                        -0.355,
+                        0.25
+                      ],
+                      "world": [
+                        2.0410139200423916,
+                        -2.836206000047304
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        0.225
+                      ],
+                      "world": [
+                        2.0064056088135076,
+                        -2.843435439436684
+                      ],
+                      "groundY": -0.4,
+                      "footY": -0.48000000000000004,
+                      "penetration": 0.08000000000000002
+                    },
+                    {
+                      "local": [
+                        -0.38,
+                        -0.225
+                      ],
+                      "world": [
+                        1.759995762257972,
+                        -3.2199751950010564
+                      ],
+                      "groundY": -0.4000000000000071,
+                      "footY": -0.48000000000000714,
+                      "penetration": 0.08000000000000002
+                    }
+                  ]
+                },
+                "pier": {
+                  "label": "foundation126-bridge-pier-1",
+                  "bottomY": 0.31033798977359284,
+                  "topY": 2.56,
+                  "courses": 9,
+                  "foot": [
+                    0.7,
+                    0.46
+                  ],
+                  "head": [
+                    0.62,
+                    0.38
+                  ]
+                }
+              }
+            ],
+            "minimumClearOpeningWidthMetres": 0.6000000000000001,
+            "clearHeightAboveWaterMetres": 1.56,
+            "highEndFootingOnly": {
+              "label": "foundation126-high-end-sole-only",
+              "origin": [
+                7.50189,
+                0,
+                -7.36591
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                1.05,
+                1.7
+              ],
+              "head": [
+                1.05,
+                1.7
+              ],
+              "bearingTopY": 0.95,
+              "shoulderY": 0.87,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.7255340053038992,
+              "centreFootY": 0.6455339789390564,
+              "samples": [
+                {
+                  "local": [
+                    -0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    6.618071672545797,
+                    -7.803363042115443
+                  ],
+                  "groundY": 1.533519596349227,
+                  "footY": 0.845,
+                  "penetration": 0.688519596349227
+                },
+                {
+                  "local": [
+                    0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    7.45482668491107,
+                    -8.350940478905521
+                  ],
+                  "groundY": 1.2996579808358395,
+                  "footY": 0.845,
+                  "penetration": 0.4546579808358395
+                },
+                {
+                  "local": [
+                    0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    7.489434996139953,
+                    -8.343711039516142
+                  ],
+                  "groundY": 1.2557333830661217,
+                  "footY": 0.845,
+                  "penetration": 0.4107333830661217
+                },
+                {
+                  "local": [
+                    0.525,
+                    0.825
+                  ],
+                  "world": [
+                    8.392937766843584,
+                    -6.963065269113442
+                  ],
+                  "groundY": 0.6465682585591281,
+                  "footY": 0.5665682585591282,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.5,
+                    0.85
+                  ],
+                  "world": [
+                    8.385708327454203,
+                    -6.928456957884558
+                  ],
+                  "groundY": 0.6430323690189113,
+                  "footY": 0.5630323690189113,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.5,
+                    0.85
+                  ],
+                  "world": [
+                    7.548953315088931,
+                    -6.38087952109448
+                  ],
+                  "groundY": 0.6173752658113898,
+                  "footY": 0.5373752658113898,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    0.825
+                  ],
+                  "world": [
+                    7.514345003860048,
+                    -6.3881089604838595
+                  ],
+                  "groundY": 0.6206426378727414,
+                  "footY": 0.5406426378727415,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    6.610842233156417,
+                    -7.768754730886559
+                  ],
+                  "groundY": 1.5159187690940419,
+                  "footY": 0.845,
+                  "penetration": 0.6709187690940419
+                }
+              ]
+            }
+          },
+          "wing": {
+            "upperPierFeetY": 1.5,
+            "upperPierHeadsY": 3.86,
+            "footings": [
+              {
+                "label": "foundation126-wing-foot-0",
+                "origin": [
+                  -1.5571455281253563,
+                  0,
+                  -11.542935711690891
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 1.2004596296836452,
+                "centreFootY": 1.1204596757888794,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -1.650716841884217,
+                      -12.069499486785077
+                    ],
+                    "groundY": 1.0360076039864694,
+                    "footY": 0.9560076039864694,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -1.045424431221968,
+                      -11.69839155424431
+                    ],
+                    "groundY": 1.0168361310404421,
+                    "footY": 0.9368361310404422,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -1.037178498893747,
+                      -11.664011260469556
+                    ],
+                    "groundY": 1.0145631764696503,
+                    "footY": 0.9345631764696504,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -1.4291939205917414,
+                      -11.024617868924926
+                    ],
+                    "groundY": 0.9650590178109297,
+                    "footY": 0.8850590178109298,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -1.4635742143664956,
+                      -11.016371936596705
+                    ],
+                    "groundY": 0.9668508970616756,
+                    "footY": 0.8868508970616756,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -2.0688666250287446,
+                      -11.387479869137472
+                    ],
+                    "groundY": 1.403405651081391,
+                    "footY": 1.323405651081391,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -2.0771125573569655,
+                      -11.421860162912226
+                    ],
+                    "groundY": 1.408701570730203,
+                    "footY": 1.328701570730203,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -1.6850971356589712,
+                      -12.061253554456856
+                    ],
+                    "groundY": 1.2101119441417785,
+                    "footY": 1.1301119441417784,
+                    "penetration": 0.08000000000000007
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-1",
+                "origin": [
+                  -3.4414329884203827,
+                  0,
+                  -8.469584809666372
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 0.7779542042210892,
+                "centreFootY": 0.6979541778564453,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -3.5350043021792437,
+                      -8.996148584760558
+                    ],
+                    "groundY": 0.7830054077698421,
+                    "footY": 0.7030054077698421,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -2.9297118915169946,
+                      -8.625040652219791
+                    ],
+                    "groundY": 0.7979365415404729,
+                    "footY": 0.7179365415404729,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -2.9214659591887733,
+                      -8.590660358445037
+                    ],
+                    "groundY": 0.7973441663835459,
+                    "footY": 0.7173441663835459,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -3.313481380886768,
+                      -7.951266966900407
+                    ],
+                    "groundY": 0.7589462635400466,
+                    "footY": 0.6789462635400466,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -3.3478616746615217,
+                      -7.943021034572186
+                    ],
+                    "groundY": 0.7573074098766597,
+                    "footY": 0.6773074098766597,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -3.9531540853237708,
+                      -8.314128967112953
+                    ],
+                    "groundY": 0.789168439127991,
+                    "footY": 0.709168439127991,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -3.961400017651992,
+                      -8.348509260887708
+                    ],
+                    "groundY": 0.7894172943264905,
+                    "footY": 0.7094172943264906,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -3.5693845959539976,
+                      -8.987902652432338
+                    ],
+                    "groundY": 0.7839430207444664,
+                    "footY": 0.7039430207444665,
+                    "penetration": 0.07999999999999996
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-2",
+                "origin": [
+                  -5.325720448715409,
+                  0,
+                  -5.3962339076418555
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 1.3140784102605416,
+                "centreFootY": 1.2340784072875977,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -5.41929176247427,
+                      -5.922797682736042
+                    ],
+                    "groundY": 1.3809039754490922,
+                    "footY": 1.300903975449092,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -4.813999351812021,
+                      -5.5516897501952736
+                    ],
+                    "groundY": 1.5300679502276622,
+                    "footY": 1.375,
+                    "penetration": 0.15506795022766218
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -4.8057534194838,
+                      -5.51730945642052
+                    ],
+                    "groundY": 1.3240151340997115,
+                    "footY": 1.2440151340997114,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -5.197768841181794,
+                      -4.87791606487589
+                    ],
+                    "groundY": 0.7121242097434476,
+                    "footY": 0.6321242097434476,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -5.232149134956549,
+                      -4.869670132547669
+                    ],
+                    "groundY": 0.715739816447704,
+                    "footY": 0.635739816447704,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -5.837441545618797,
+                      -5.2407780650884375
+                    ],
+                    "groundY": 1.163952952875111,
+                    "footY": 1.0839529528751108,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -5.845687477947019,
+                      -5.275158358863191
+                    ],
+                    "groundY": 1.1457483179311985,
+                    "footY": 1.0657483179311984,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -5.453672056249024,
+                      -5.914551750407821
+                    ],
+                    "groundY": 1.3207876263844696,
+                    "footY": 1.2407876263844695,
+                    "penetration": 0.08000000000000007
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-3",
+                "origin": [
+                  1.6057204487154093,
+                  0,
+                  -9.603766092358144
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 0.85220327094531,
+                "centreFootY": 0.772203266620636,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      1.5121491349565486,
+                      -10.13032986745233
+                    ],
+                    "groundY": 0.9191991369259753,
+                    "footY": 0.8391991369259754,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      2.1174415456187976,
+                      -9.759221934911563
+                    ],
+                    "groundY": 0.851586660123111,
+                    "footY": 0.7715866601231111,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      2.125687477947019,
+                      -9.724841641136809
+                    ],
+                    "groundY": 0.8463866318271869,
+                    "footY": 0.7663866318271869,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      1.7336720562490242,
+                      -9.08544824959218
+                    ],
+                    "groundY": 0.7918641567185105,
+                    "footY": 0.7118641567185106,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      1.69929176247427,
+                      -9.077202317263959
+                    ],
+                    "groundY": 0.7922888153121121,
+                    "footY": 0.7122888153121122,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      1.093999351812021,
+                      -9.448310249804726
+                    ],
+                    "groundY": 0.881055562269502,
+                    "footY": 0.801055562269502,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      1.0857534194837999,
+                      -9.48269054357948
+                    ],
+                    "groundY": 0.8854527537816281,
+                    "footY": 0.8054527537816282,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      1.4777688411817944,
+                      -10.12208393512411
+                    ],
+                    "groundY": 0.9205639635878669,
+                    "footY": 0.8405639635878669,
+                    "penetration": 0.07999999999999996
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-4",
+                "origin": [
+                  -0.2785670115796173,
+                  0,
+                  -6.530415190333628
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": -0.4,
+                "centreFootY": -0.47999998927116394,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -0.3721383253384781,
+                      -7.056978965427814
+                    ],
+                    "groundY": 0.4072858324419357,
+                    "footY": 0.3272858324419357,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      0.2331540853237709,
+                      -6.685871032887046
+                    ],
+                    "groundY": -0.322760609268407,
+                    "footY": -0.402760609268407,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      0.24140001765199215,
+                      -6.651490739112292
+                    ],
+                    "groundY": -0.39372208893771443,
+                    "footY": -0.47372208893771445,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -0.15061540404600232,
+                      -6.0120973475676625
+                    ],
+                    "groundY": -0.4,
+                    "footY": -0.48000000000000004,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -0.18499569782075645,
+                      -6.003851415239441
+                    ],
+                    "groundY": -0.4,
+                    "footY": -0.48000000000000004,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -0.7902881084830055,
+                      -6.37495934778021
+                    ],
+                    "groundY": -0.04069093270658897,
+                    "footY": -0.12069093270658897,
+                    "penetration": 0.08
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -0.7985340408112267,
+                      -6.409339641554963
+                    ],
+                    "groundY": -0.021781812139693102,
+                    "footY": -0.1017818121396931,
+                    "penetration": 0.08
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -0.4065186191132322,
+                      -7.048733033099593
+                    ],
+                    "groundY": 0.3903593755464314,
+                    "footY": 0.3103593755464314,
+                    "penetration": 0.08000000000000002
+                  }
+                ]
+              },
+              {
+                "label": "foundation126-wing-foot-5",
+                "origin": [
+                  -2.1628544718746436,
+                  0,
+                  -3.45706428830911
+                ],
+                "yaw": -0.55,
+                "foot": [
+                  0.76,
+                  0.8
+                ],
+                "head": [
+                  0.62,
+                  0.66
+                ],
+                "bearingTopY": 1.5,
+                "shoulderY": 1.4,
+                "embedTargetMetres": 0.08,
+                "centreGroundY": 0.5625190926219127,
+                "centreFootY": 0.48251909017562866,
+                "samples": [
+                  {
+                    "local": [
+                      -0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -2.2564257856335046,
+                      -3.9836280634032963
+                    ],
+                    "groundY": 1.4387689718130332,
+                    "footY": 1.3587689718130331,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      -0.4
+                    ],
+                    "world": [
+                      -1.6511333749712556,
+                      -3.612520130862528
+                    ],
+                    "groundY": 1.0604955869394392,
+                    "footY": 0.9804955869394393,
+                    "penetration": 0.07999999999999996
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -1.6428874426430342,
+                      -3.578139837087774
+                    ],
+                    "groundY": 1.312980836383138,
+                    "footY": 1.2329808363831378,
+                    "penetration": 0.08000000000000007
+                  },
+                  {
+                    "local": [
+                      0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -2.0349028643410287,
+                      -2.9387464455431447
+                    ],
+                    "groundY": 0.4067380158089833,
+                    "footY": 0.32673801580898326,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -2.0692831581157827,
+                      -2.9305005132149233
+                    ],
+                    "groundY": 0.4059862732118802,
+                    "footY": 0.3259862732118802,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.355,
+                      0.4
+                    ],
+                    "world": [
+                      -2.6745755687780317,
+                      -3.301608445755692
+                    ],
+                    "groundY": 0.438674444572392,
+                    "footY": 0.358674444572392,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      0.375
+                    ],
+                    "world": [
+                      -2.682821501106253,
+                      -3.3359887395304457
+                    ],
+                    "groundY": 0.4386280164337393,
+                    "footY": 0.35862801643373926,
+                    "penetration": 0.08000000000000002
+                  },
+                  {
+                    "local": [
+                      -0.38,
+                      -0.375
+                    ],
+                    "world": [
+                      -2.2908060794082585,
+                      -3.975382131075075
+                    ],
+                    "groundY": 1.4018819812412984,
+                    "footY": 1.3218819812412983,
+                    "penetration": 0.08000000000000007
+                  }
+                ]
+              }
+            ],
+            "identifiedMiddleRightPierCoursed": true
+          },
+          "groundSurfaceCount": 319,
+          "supportSamples": [
+            {
+              "label": "foundation126-bridge-flank-0",
+              "origin": [
+                1.5988324097654565,
+                0,
+                -4.1602152568009
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                0.76,
+                0.5
+              ],
+              "head": [
+                0.7,
+                0.46
+              ],
+              "bearingTopY": -0.2599999999999929,
+              "shoulderY": -0.3599999999999929,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": -0.4,
+              "centreFootY": -0.47999998927116394,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    1.1648900211782651,
+                    -4.17501401983174
+                  ],
+                  "groundY": -0.3999999999999929,
+                  "footY": -0.47999999999999293,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    1.7589860799576085,
+                    -4.563793999952695
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    1.7935943911864922,
+                    -4.556564560563316
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.225
+                  ],
+                  "world": [
+                    2.0400042377420275,
+                    -4.1800248049989435
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.25
+                  ],
+                  "world": [
+                    2.032774798352648,
+                    -4.1454164937700595
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.25
+                  ],
+                  "world": [
+                    1.4386787395733045,
+                    -3.7566365136491036
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.225
+                  ],
+                  "world": [
+                    1.4040704283444208,
+                    -3.7638659530384833
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    1.1576605817888852,
+                    -4.140405708602856
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                }
+              ]
+            },
+            {
+              "label": "foundation126-bridge-flank-1",
+              "origin": [
+                2.2011675902345433,
+                0,
+                -3.2397847431991003
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                0.76,
+                0.5
+              ],
+              "head": [
+                0.7,
+                0.46
+              ],
+              "bearingTopY": 0.31033798977359284,
+              "shoulderY": 0.21033798977359283,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": -0.4000000000000071,
+              "centreFootY": -0.47999998927116394,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    1.767225201647352,
+                    -3.2545835062299404
+                  ],
+                  "groundY": -0.3999999999999929,
+                  "footY": -0.47999999999999293,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.25
+                  ],
+                  "world": [
+                    2.361321260426695,
+                    -3.6433634863508964
+                  ],
+                  "groundY": -0.2883561258811156,
+                  "footY": -0.3683561258811156,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    2.395929571655579,
+                    -3.6361340469615167
+                  ],
+                  "groundY": -0.232072570158401,
+                  "footY": -0.312072570158401,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.225
+                  ],
+                  "world": [
+                    2.6423394182111144,
+                    -3.259594291397144
+                  ],
+                  "groundY": 0.17033798977359282,
+                  "footY": 0.09033798977359282,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.25
+                  ],
+                  "world": [
+                    2.6351099788217347,
+                    -3.22498598016826
+                  ],
+                  "groundY": 0.15871575654724523,
+                  "footY": 0.07871575654724523,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.25
+                  ],
+                  "world": [
+                    2.0410139200423916,
+                    -2.836206000047304
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.225
+                  ],
+                  "world": [
+                    2.0064056088135076,
+                    -2.843435439436684
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.225
+                  ],
+                  "world": [
+                    1.759995762257972,
+                    -3.2199751950010564
+                  ],
+                  "groundY": -0.4000000000000071,
+                  "footY": -0.48000000000000714,
+                  "penetration": 0.08000000000000002
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-0",
+              "origin": [
+                -1.5571455281253563,
+                0,
+                -11.542935711690891
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 1.2004596296836452,
+              "centreFootY": 1.1204596757888794,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -1.650716841884217,
+                    -12.069499486785077
+                  ],
+                  "groundY": 1.0360076039864694,
+                  "footY": 0.9560076039864694,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -1.045424431221968,
+                    -11.69839155424431
+                  ],
+                  "groundY": 1.0168361310404421,
+                  "footY": 0.9368361310404422,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -1.037178498893747,
+                    -11.664011260469556
+                  ],
+                  "groundY": 1.0145631764696503,
+                  "footY": 0.9345631764696504,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -1.4291939205917414,
+                    -11.024617868924926
+                  ],
+                  "groundY": 0.9650590178109297,
+                  "footY": 0.8850590178109298,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -1.4635742143664956,
+                    -11.016371936596705
+                  ],
+                  "groundY": 0.9668508970616756,
+                  "footY": 0.8868508970616756,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -2.0688666250287446,
+                    -11.387479869137472
+                  ],
+                  "groundY": 1.403405651081391,
+                  "footY": 1.323405651081391,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -2.0771125573569655,
+                    -11.421860162912226
+                  ],
+                  "groundY": 1.408701570730203,
+                  "footY": 1.328701570730203,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -1.6850971356589712,
+                    -12.061253554456856
+                  ],
+                  "groundY": 1.2101119441417785,
+                  "footY": 1.1301119441417784,
+                  "penetration": 0.08000000000000007
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-1",
+              "origin": [
+                -3.4414329884203827,
+                0,
+                -8.469584809666372
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.7779542042210892,
+              "centreFootY": 0.6979541778564453,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -3.5350043021792437,
+                    -8.996148584760558
+                  ],
+                  "groundY": 0.7830054077698421,
+                  "footY": 0.7030054077698421,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -2.9297118915169946,
+                    -8.625040652219791
+                  ],
+                  "groundY": 0.7979365415404729,
+                  "footY": 0.7179365415404729,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -2.9214659591887733,
+                    -8.590660358445037
+                  ],
+                  "groundY": 0.7973441663835459,
+                  "footY": 0.7173441663835459,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -3.313481380886768,
+                    -7.951266966900407
+                  ],
+                  "groundY": 0.7589462635400466,
+                  "footY": 0.6789462635400466,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -3.3478616746615217,
+                    -7.943021034572186
+                  ],
+                  "groundY": 0.7573074098766597,
+                  "footY": 0.6773074098766597,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -3.9531540853237708,
+                    -8.314128967112953
+                  ],
+                  "groundY": 0.789168439127991,
+                  "footY": 0.709168439127991,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -3.961400017651992,
+                    -8.348509260887708
+                  ],
+                  "groundY": 0.7894172943264905,
+                  "footY": 0.7094172943264906,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -3.5693845959539976,
+                    -8.987902652432338
+                  ],
+                  "groundY": 0.7839430207444664,
+                  "footY": 0.7039430207444665,
+                  "penetration": 0.07999999999999996
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-2",
+              "origin": [
+                -5.325720448715409,
+                0,
+                -5.3962339076418555
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 1.3140784102605416,
+              "centreFootY": 1.2340784072875977,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -5.41929176247427,
+                    -5.922797682736042
+                  ],
+                  "groundY": 1.3809039754490922,
+                  "footY": 1.300903975449092,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -4.813999351812021,
+                    -5.5516897501952736
+                  ],
+                  "groundY": 1.5300679502276622,
+                  "footY": 1.375,
+                  "penetration": 0.15506795022766218
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -4.8057534194838,
+                    -5.51730945642052
+                  ],
+                  "groundY": 1.3240151340997115,
+                  "footY": 1.2440151340997114,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -5.197768841181794,
+                    -4.87791606487589
+                  ],
+                  "groundY": 0.7121242097434476,
+                  "footY": 0.6321242097434476,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -5.232149134956549,
+                    -4.869670132547669
+                  ],
+                  "groundY": 0.715739816447704,
+                  "footY": 0.635739816447704,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -5.837441545618797,
+                    -5.2407780650884375
+                  ],
+                  "groundY": 1.163952952875111,
+                  "footY": 1.0839529528751108,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -5.845687477947019,
+                    -5.275158358863191
+                  ],
+                  "groundY": 1.1457483179311985,
+                  "footY": 1.0657483179311984,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -5.453672056249024,
+                    -5.914551750407821
+                  ],
+                  "groundY": 1.3207876263844696,
+                  "footY": 1.2407876263844695,
+                  "penetration": 0.08000000000000007
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-3",
+              "origin": [
+                1.6057204487154093,
+                0,
+                -9.603766092358144
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.85220327094531,
+              "centreFootY": 0.772203266620636,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    1.5121491349565486,
+                    -10.13032986745233
+                  ],
+                  "groundY": 0.9191991369259753,
+                  "footY": 0.8391991369259754,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    2.1174415456187976,
+                    -9.759221934911563
+                  ],
+                  "groundY": 0.851586660123111,
+                  "footY": 0.7715866601231111,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    2.125687477947019,
+                    -9.724841641136809
+                  ],
+                  "groundY": 0.8463866318271869,
+                  "footY": 0.7663866318271869,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    1.7336720562490242,
+                    -9.08544824959218
+                  ],
+                  "groundY": 0.7918641567185105,
+                  "footY": 0.7118641567185106,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    1.69929176247427,
+                    -9.077202317263959
+                  ],
+                  "groundY": 0.7922888153121121,
+                  "footY": 0.7122888153121122,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    1.093999351812021,
+                    -9.448310249804726
+                  ],
+                  "groundY": 0.881055562269502,
+                  "footY": 0.801055562269502,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    1.0857534194837999,
+                    -9.48269054357948
+                  ],
+                  "groundY": 0.8854527537816281,
+                  "footY": 0.8054527537816282,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    1.4777688411817944,
+                    -10.12208393512411
+                  ],
+                  "groundY": 0.9205639635878669,
+                  "footY": 0.8405639635878669,
+                  "penetration": 0.07999999999999996
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-4",
+              "origin": [
+                -0.2785670115796173,
+                0,
+                -6.530415190333628
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": -0.4,
+              "centreFootY": -0.47999998927116394,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -0.3721383253384781,
+                    -7.056978965427814
+                  ],
+                  "groundY": 0.4072858324419357,
+                  "footY": 0.3272858324419357,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    0.2331540853237709,
+                    -6.685871032887046
+                  ],
+                  "groundY": -0.322760609268407,
+                  "footY": -0.402760609268407,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    0.24140001765199215,
+                    -6.651490739112292
+                  ],
+                  "groundY": -0.39372208893771443,
+                  "footY": -0.47372208893771445,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -0.15061540404600232,
+                    -6.0120973475676625
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -0.18499569782075645,
+                    -6.003851415239441
+                  ],
+                  "groundY": -0.4,
+                  "footY": -0.48000000000000004,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -0.7902881084830055,
+                    -6.37495934778021
+                  ],
+                  "groundY": -0.04069093270658897,
+                  "footY": -0.12069093270658897,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -0.7985340408112267,
+                    -6.409339641554963
+                  ],
+                  "groundY": -0.021781812139693102,
+                  "footY": -0.1017818121396931,
+                  "penetration": 0.08
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -0.4065186191132322,
+                    -7.048733033099593
+                  ],
+                  "groundY": 0.3903593755464314,
+                  "footY": 0.3103593755464314,
+                  "penetration": 0.08000000000000002
+                }
+              ]
+            },
+            {
+              "label": "foundation126-wing-foot-5",
+              "origin": [
+                -2.1628544718746436,
+                0,
+                -3.45706428830911
+              ],
+              "yaw": -0.55,
+              "foot": [
+                0.76,
+                0.8
+              ],
+              "head": [
+                0.62,
+                0.66
+              ],
+              "bearingTopY": 1.5,
+              "shoulderY": 1.4,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.5625190926219127,
+              "centreFootY": 0.48251909017562866,
+              "samples": [
+                {
+                  "local": [
+                    -0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -2.2564257856335046,
+                    -3.9836280634032963
+                  ],
+                  "groundY": 1.4387689718130332,
+                  "footY": 1.3587689718130331,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.355,
+                    -0.4
+                  ],
+                  "world": [
+                    -1.6511333749712556,
+                    -3.612520130862528
+                  ],
+                  "groundY": 1.0604955869394392,
+                  "footY": 0.9804955869394393,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -1.6428874426430342,
+                    -3.578139837087774
+                  ],
+                  "groundY": 1.312980836383138,
+                  "footY": 1.2329808363831378,
+                  "penetration": 0.08000000000000007
+                },
+                {
+                  "local": [
+                    0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -2.0349028643410287,
+                    -2.9387464455431447
+                  ],
+                  "groundY": 0.4067380158089833,
+                  "footY": 0.32673801580898326,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -2.0692831581157827,
+                    -2.9305005132149233
+                  ],
+                  "groundY": 0.4059862732118802,
+                  "footY": 0.3259862732118802,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.355,
+                    0.4
+                  ],
+                  "world": [
+                    -2.6745755687780317,
+                    -3.301608445755692
+                  ],
+                  "groundY": 0.438674444572392,
+                  "footY": 0.358674444572392,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    0.375
+                  ],
+                  "world": [
+                    -2.682821501106253,
+                    -3.3359887395304457
+                  ],
+                  "groundY": 0.4386280164337393,
+                  "footY": 0.35862801643373926,
+                  "penetration": 0.08000000000000002
+                },
+                {
+                  "local": [
+                    -0.38,
+                    -0.375
+                  ],
+                  "world": [
+                    -2.2908060794082585,
+                    -3.975382131075075
+                  ],
+                  "groundY": 1.4018819812412984,
+                  "footY": 1.3218819812412983,
+                  "penetration": 0.08000000000000007
+                }
+              ]
+            },
+            {
+              "label": "foundation126-high-end-sole-only",
+              "origin": [
+                7.50189,
+                0,
+                -7.36591
+              ],
+              "yaw": 0.5794662977791094,
+              "foot": [
+                1.05,
+                1.7
+              ],
+              "head": [
+                1.05,
+                1.7
+              ],
+              "bearingTopY": 0.95,
+              "shoulderY": 0.87,
+              "embedTargetMetres": 0.08,
+              "centreGroundY": 0.7255340053038992,
+              "centreFootY": 0.6455339789390564,
+              "samples": [
+                {
+                  "local": [
+                    -0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    6.618071672545797,
+                    -7.803363042115443
+                  ],
+                  "groundY": 1.533519596349227,
+                  "footY": 0.845,
+                  "penetration": 0.688519596349227
+                },
+                {
+                  "local": [
+                    0.5,
+                    -0.85
+                  ],
+                  "world": [
+                    7.45482668491107,
+                    -8.350940478905521
+                  ],
+                  "groundY": 1.2996579808358395,
+                  "footY": 0.845,
+                  "penetration": 0.4546579808358395
+                },
+                {
+                  "local": [
+                    0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    7.489434996139953,
+                    -8.343711039516142
+                  ],
+                  "groundY": 1.2557333830661217,
+                  "footY": 0.845,
+                  "penetration": 0.4107333830661217
+                },
+                {
+                  "local": [
+                    0.525,
+                    0.825
+                  ],
+                  "world": [
+                    8.392937766843584,
+                    -6.963065269113442
+                  ],
+                  "groundY": 0.6465682585591281,
+                  "footY": 0.5665682585591282,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    0.5,
+                    0.85
+                  ],
+                  "world": [
+                    8.385708327454203,
+                    -6.928456957884558
+                  ],
+                  "groundY": 0.6430323690189113,
+                  "footY": 0.5630323690189113,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.5,
+                    0.85
+                  ],
+                  "world": [
+                    7.548953315088931,
+                    -6.38087952109448
+                  ],
+                  "groundY": 0.6173752658113898,
+                  "footY": 0.5373752658113898,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    0.825
+                  ],
+                  "world": [
+                    7.514345003860048,
+                    -6.3881089604838595
+                  ],
+                  "groundY": 0.6206426378727414,
+                  "footY": 0.5406426378727415,
+                  "penetration": 0.07999999999999996
+                },
+                {
+                  "local": [
+                    -0.525,
+                    -0.825
+                  ],
+                  "world": [
+                    6.610842233156417,
+                    -7.768754730886559
+                  ],
+                  "groundY": 1.5159187690940419,
+                  "footY": 0.845,
+                  "penetration": 0.6709187690940419
+                }
+              ]
+            }
+          ],
+          "scope": "Only old low bridge abutment, separate broad wing lower foundation, identified middle-right wing stone-pier surface form, and measured gap-filling sole beneath unchanged high-end body. Middle-gallery supports/site/camera/lights/assets unchanged.",
+          "photoRGBOrProjection": false,
+          "visualAccepted": false
+        },
+        "layout122": {
+          "revision": "scene08-connected-corridor-layout122",
+          "portal": {
+            "origin": [
+              0.02,
+              0,
+              8.1
+            ],
+            "yaw": -0.1,
+            "halfSpan": 2.17,
+            "columnWidth": 0.61,
+            "columnDepth": 0.64,
+            "floor": 0.94,
+            "columnTop": 6.425,
+            "beamCentre": 6.62,
+            "beamDepth": 0.4,
+            "rafterBottom": 6.82
+          },
+          "nearRail": {
+            "point": [
+              -1.0679026999999999,
+              0.94,
+              5.8226616
+            ],
+            "handrailY": 1.91,
+            "planLength": 5.060664852220507,
+            "normal": [
+              -0.6837204401081401,
+              0,
+              0.7297440371653141
+            ]
+          },
+          "hall": {
+            "position": [
+              -6.7,
+              2.95,
+              -5.8
+            ],
+            "yaw": 0.08,
+            "w": 11,
+            "d": 8,
+            "h": 4.5,
+            "raised": 2,
+            "roofRise": 4.8,
+            "roofEaveDrop": 0.45,
+            "roofCurl": 1.1
+          },
+          "wing": {
+            "position": [
+              -1.86,
+              1.5,
+              -7.5
+            ],
+            "yaw": -0.55,
+            "w": 5.3,
+            "d": 10.3,
+            "h": 3.7,
+            "raised": 3
+          },
+          "pagoda": {
+            "position": [
+              4.7,
+              3.016,
+              -24
+            ],
+            "yaw": -0.4,
+            "scale": 1.2,
+            "tierPitch": 2.75,
+            "roomHeight": 1.9,
+            "topRoofRise": 2,
+            "spireLocalOffset": -2.68,
+            "foundationGround": 1.7
+          },
+          "middleGallery": {
+            "position": [
+              1.47,
+              4.28,
+              -9
+            ],
+            "yaw": -0.1,
+            "h": 2.02,
+            "floor": 4.5
+          },
+          "rightGallery": {
+            "position": [
+              7.9,
+              3.7,
+              -10
+            ],
+            "yaw": -0.15,
+            "h": 4.8,
+            "floor": 4.2
+          },
+          "bridge": {
+            "run": 6.694779137522016,
+            "yaw": 0.5794662977791094,
+            "landingA": [
+              1.9,
+              2.95,
+              -3.7
+            ],
+            "landingB": [
+              7.50189,
+              4.2,
+              -7.36591
+            ],
+            "width": 1.5,
+            "arch": 0.32
+          },
+          "stair": {
+            "a": [
+              1.9,
+              2.95,
+              -3.7
+            ],
+            "b": [
+              1.3,
+              4.5,
+              -7.1
+            ],
+            "width": 1.11,
+            "steps": 10
+          },
+          "visualAccepted": false
+        },
+        "heroRock108": {
+          "asset": "Poly Haven rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/rock_moss_set_01",
+          "node": "rock_moss_set_01_rock01",
+          "originalMesh": "",
+          "triangles": 11000,
+          "geometryArraysUnmodified": true,
+          "originalUVAndPBRMapsRetained": true,
+          "nonuniformStretch": false,
+          "greenCapAdded": false,
+          "placement": {
+            "node": "rock_moss_set_01_rock01",
+            "anchorXZ": [
+              -0.75,
+              -0.15
+            ],
+            "uniformScale": 1.1,
+            "pitch": 1.15,
+            "yaw": 0.15,
+            "embed": 0.16,
+            "neutralTint": [
+              0.5554334918504523,
+              0.8833543991605919,
+              3.538044076536976
+            ]
+          },
+          "visualAccepted": false,
+          "objectPosition": [
+            -0.7524804155935806,
+            1.2255563408567127,
+            -0.14228586463171908
+          ],
+          "support": {
+            "method": "Lower original scan vertices raycast onto original triangulated terrain",
+            "samples": 1293,
+            "embeddedSamples": 118,
+            "maximumPenetrationMetres": 0.16,
+            "contacts": [
+              {
+                "height": 1.2741187257348623,
+                "localY": -0.3589911460876465,
+                "rigidRotatedY": -1.1284179200244362,
+                "x": -1.1621778652027261,
+                "z": -0.0699185363569615,
+                "terrainY": 0.1457008057104261
+              },
+              {
+                "height": 1.2257630538810058,
+                "localY": -0.4308950901031494,
+                "rigidRotatedY": -1.0660187170533841,
+                "x": -1.149870475553694,
+                "z": -0.18449759074210648,
+                "terrainY": 0.15974433682762168
+              },
+              {
+                "height": 1.242831151423822,
+                "localY": -0.4958345293998718,
+                "rigidRotatedY": -1.0326694308642248,
+                "x": -1.6322883918916036,
+                "z": -0.2776828537059796,
+                "terrainY": 0.21016172055959714
+              },
+              {
+                "height": 1.278848826169468,
+                "localY": -0.4946599006652832,
+                "rigidRotatedY": -1.0730292380271846,
+                "x": -1.5903067225538794,
+                "z": -0.2582051276845631,
+                "terrainY": 0.2058195881422833
+              },
+              {
+                "height": 1.228383877874657,
+                "localY": -0.3795607089996338,
+                "rigidRotatedY": -1.0337362805084935,
+                "x": -1.6024315339480038,
+                "z": -0.1370802384398381,
+                "terrainY": 0.19464759736616344
+              },
+              {
+                "height": 1.2354543335788395,
+                "localY": -0.38959598541259766,
+                "rigidRotatedY": -1.0407886461527016,
+                "x": -1.5876222300461098,
+                "z": -0.1460179285700486,
+                "terrainY": 0.19466568742613788
+              },
+              {
+                "height": 1.28738907755809,
+                "localY": -0.5329324007034302,
+                "rigidRotatedY": -1.0763281350416503,
+                "x": -1.6052235553715508,
+                "z": -0.3028521500364221,
+                "terrainY": 0.2110609425164398
+              },
+              {
+                "height": 1.3013540328267612,
+                "localY": -0.48713043332099915,
+                "rigidRotatedY": -1.0998332001776165,
+                "x": -1.5517667637610693,
+                "z": -0.23713560999786604,
+                "terrainY": 0.20152083264914467
+              },
+              {
+                "height": 1.2776327832198533,
+                "localY": -0.42986157536506653,
+                "rigidRotatedY": -1.0809366976535302,
+                "x": -1.5709620867262042,
+                "z": -0.17657585587565178,
+                "terrainY": 0.19669608556632312
+              },
+              {
+                "height": 1.3127403522040093,
+                "localY": -0.5061505436897278,
+                "rigidRotatedY": -1.1089775919077591,
+                "x": -1.55860049738106,
+                "z": -0.2559649605793627,
+                "terrainY": 0.20376276029625018
+              },
+              {
+                "height": 1.2770435573346015,
+                "localY": -0.41601598262786865,
+                "rigidRotatedY": -1.0834698606556694,
+                "x": -1.5472248373667852,
+                "z": -0.15875644324815297,
+                "terrainY": 0.1935736966789321
+              },
+              {
+                "height": 1.339899874961731,
+                "localY": -0.528479814529419,
+                "rigidRotatedY": -1.136117974268203,
+                "x": -1.5339525598726775,
+                "z": -0.27072857249941573,
+                "terrainY": 0.20378190069352797
+              }
+            ]
+          },
+          "worldBounds": {
+            "min": [
+              -1.966356381361837,
+              -0.39153858043884204,
+              -1.065198359970812
+            ],
+            "max": [
+              0.7057972996661112,
+              3.081949044397078,
+              0.990531804685342
+            ]
+          }
+        },
+        "meshPass": {
+          "candidate": "one-cast-plaque83",
+          "heroPlaque": {
+            "asset": "gate-plaque-v05",
+            "sceneInstances": 1,
+            "position": [
+              -1.983,
+              3.3,
+              7.9
+            ],
+            "rotationY": 1.5707963267948966,
+            "construction": "One closed unioned cast plate and four closed small domed fixings; hand-authored curves, no image data",
+            "triangleCount": 92112,
+            "visualAccepted": false,
+            "layoutWorldPosition": [
+              -1.8237427182601817,
+              3.3,
+              7.915008678953427
+            ]
+          },
+          "leftHallClosedBracketPieces": 30,
+          "scope": "Exactly one left inner gate plaque; mesh70 gallery, all other hardware, site and camera retained"
+        },
+        "description": "Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.",
+        "camera": {
+          "position": [
+            0,
+            2.65,
+            13
+          ],
+          "target": [
+            0,
+            6.65,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 291,
+          "triangles": 15074855,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 22.360679774997898,
+          "focalLengthMM": 39.49739516097068,
+          "verticalSensorMM": 36,
+          "focalSource": "original camera.fov; viewOffset excluded"
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        560,
+        750,
+        400,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9939968814307771,
+      "opaqueFraction": 1,
+      "rgbaSha256": "19fc3dd54b143084c2fcef1a04969d1f55789e13839c9bdc8656c277ede610ce"
+    }
+  ],
+  "completedAt": "2026-10-19T05:14:47.924Z"
+}

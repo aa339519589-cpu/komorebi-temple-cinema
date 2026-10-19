@@ -1,0 +1,225 @@
+{
+  "scope": "Only exact-raycast-identified low bridge abutment and separate wing lower base, identified wing-pier coursing and high-end ground sole. Unaccepted visual candidate; do not claim scene/site/all10 completion.",
+  "baseCommit": "3ccd1fa1e1bd16e7b0ab10f1efc6439a39879153",
+  "diagnosis": "qa/ten-reference/08/layout122/gray-occluder-findings.md",
+  "runtimeFiles": [
+    "reconstructions/scene-08/src/scene.js",
+    "reconstructions/scene-08/src/corridor-layout.js",
+    "reconstructions/scene-08/src/grounded-foundations.js"
+  ],
+  "source": {
+    "hash": "c7ea1481a8fc23a4fbc8eb0b74b7c64f7b4fe716c681019db254857100deec8d",
+    "files": {
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-08/asset-dependencies.json": "8e33fed13610db990a810237284b32a475f0d9b69acad214906253401e27869a",
+      "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json": "e2bbe36fc8955a2177e7387ffb24d450417aec5271a680dceec64c5b81e83f26",
+      "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json": "e3c6bab6f20acbb0263ad4317537763f18d87f92c991ef0b94399fd672fc64a7",
+      "reconstructions/scene-08/assets/gate-plaque-v03/gate-plaque.glb": "14a436fa5020d80f9f3da20921367b510f9a9a7fa2764efe559c77a48461886f",
+      "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+      "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json": "15992a312377a3a0a607607db41d3c63f5544ee3bccca1ee55a7b14ec28ee49e",
+      "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json": "a302e66df3e6497b08e8674b1cb0273ec3cfe7b67ee3110e8ae664fcd7c289ca",
+      "reconstructions/scene-08/assets/gate-plaque-v04/gate-plaque.glb": "bd131590d4085efd8fec03a774af81d381b837f3c48411a06ae2695c3f7d0019",
+      "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json": "c9928fa7dd96025c03e9ff82591726cfb159c1d44f2665d850d25c3aa1a71589",
+      "reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb": "9ef2a3b967431e204980256aad6050d2a56cb6776d221e36fd116aed835da640",
+      "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/timber/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "reconstructions/scene-08/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-08/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-08/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/corridor-layout.js": "001dc90c72787a636cffb4561b29addce4b8937ecde89b041269fa4441cdb4e7",
+      "reconstructions/scene-08/src/gallery-joinery.js": "e59e936041c8501b1dcf262d9283bb0e1a050ffa88d7265bd0a3dd81a562707c",
+      "reconstructions/scene-08/src/gate-hardware.js": "97b11925d69e24e62c6efa272ac48aac8722ec8d82ee21f23a8b38dd57cbb04a",
+      "reconstructions/scene-08/src/grounded-foundations.js": "921987dedebff13649d911f7180ee609b9959279b58d42fa8bc395d82a334fd5",
+      "reconstructions/scene-08/src/hero-garden-rock.js": "bb6341ba1075839b1e2125561f96ad93e82f89b7cabf529e150401170a2e306b",
+      "reconstructions/scene-08/src/hero-gate-plaque.js": "32a01172231544449a2ecaa79815fa9f21494c26eee659ba1e89a821eea4b502",
+      "reconstructions/scene-08/src/main.js": "3ef5b82df464d6a01c91f1384cb58344817bf74aa72260e9364951be064b480f",
+      "reconstructions/scene-08/src/post.js": "a64cee534dc1c79edbd2c652dd4d7ee1808460a594d45d4741275975d75cbfe2",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scanned-timber.js": "0bfc1e600193feb654e128e2b87bdd8728a47b412381c05078233e1029f28e5b",
+      "reconstructions/scene-08/src/scene.js": "03c9dcd840684976a6a19e9a5bf9bf9977117bb1163b8d767292408d67dbdb09"
+    }
+  },
+  "sourceMatchesActual": true,
+  "materialsSourceExact": true,
+  "lightsSourceExact": true,
+  "cameraMainExact": true,
+  "retainedAssets": [
+    {
+      "file": "reconstructions/scene-08/src/hero-garden-rock.js",
+      "sha256": "bb6341ba1075839b1e2125561f96ad93e82f89b7cabf529e150401170a2e306b",
+      "exact": true
+    },
+    {
+      "file": "reconstructions/scene-08/src/hero-gate-plaque.js",
+      "sha256": "32a01172231544449a2ecaa79815fa9f21494c26eee659ba1e89a821eea4b502",
+      "exact": true
+    },
+    {
+      "file": "reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb",
+      "sha256": "9ef2a3b967431e204980256aad6050d2a56cb6776d221e36fd116aed835da640",
+      "exact": true
+    },
+    {
+      "file": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+      "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "exact": true
+    }
+  ],
+  "physicalAudit": {
+    "file": "qa/ten-reference/08/foundation126/physical-audit.json",
+    "passed": true,
+    "checks": {
+      "actualRenderedGeometryCountsExact": true,
+      "unchanged42StructuralMatrices": true,
+      "rngExact": true,
+      "rockExact": true,
+      "allNewGeometriesClosedFinitePositive": true,
+      "allFootingsEmbedded": true,
+      "centralApertureActuallyEmpty": true,
+      "bridgeBearingOverlapMetres": 0.004736028312669838,
+      "capToPiersGapMetres": [
+        0,
+        0
+      ],
+      "wingCapsAtPreservedPierFeet": true,
+      "highBodySoleSeat": true
+    },
+    "supports": [
+      {
+        "label": "foundation126-bridge-flank-0",
+        "bearingTopY": -0.2599999999999929,
+        "centreEmbeddedMetres": 0.07999998927116392,
+        "minCornerEmbed": 0.08000000000000002,
+        "maxCornerEmbed": 0.08000000000000002,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-bridge-flank-1",
+        "bearingTopY": 0.31033798977359284,
+        "centreEmbeddedMetres": 0.07999998927115681,
+        "minCornerEmbed": 0.08,
+        "maxCornerEmbed": 0.08000000000000002,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-wing-foot-0",
+        "bearingTopY": 1.5,
+        "centreEmbeddedMetres": 0.07999995389476577,
+        "minCornerEmbed": 0.07999999999999996,
+        "maxCornerEmbed": 0.08000000000000007,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-wing-foot-1",
+        "bearingTopY": 1.5,
+        "centreEmbeddedMetres": 0.08000002636464387,
+        "minCornerEmbed": 0.07999999999999996,
+        "maxCornerEmbed": 0.07999999999999996,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-wing-foot-2",
+        "bearingTopY": 1.5,
+        "centreEmbeddedMetres": 0.08000000297294396,
+        "minCornerEmbed": 0.07999999999999996,
+        "maxCornerEmbed": 0.15506795022766218,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-wing-foot-3",
+        "bearingTopY": 1.5,
+        "centreEmbeddedMetres": 0.08000000432467402,
+        "minCornerEmbed": 0.07999999999999996,
+        "maxCornerEmbed": 0.07999999999999996,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-wing-foot-4",
+        "bearingTopY": 1.5,
+        "centreEmbeddedMetres": 0.07999998927116392,
+        "minCornerEmbed": 0.08,
+        "maxCornerEmbed": 0.08000000000000002,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-wing-foot-5",
+        "bearingTopY": 1.5,
+        "centreEmbeddedMetres": 0.08000000244628402,
+        "minCornerEmbed": 0.07999999999999996,
+        "maxCornerEmbed": 0.08000000000000007,
+        "sampleCount": 9
+      },
+      {
+        "label": "foundation126-high-end-sole-only",
+        "bearingTopY": 0.95,
+        "centreEmbeddedMetres": 0.08000002636484282,
+        "minCornerEmbed": 0.07999999999999996,
+        "maxCornerEmbed": 0.688519596349227,
+        "sampleCount": 9
+      }
+    ],
+    "newGeometryCount": 47,
+    "realApertureRayCount": 9,
+    "unchangedOtherStructuralMatrices": 42
+  },
+  "actualRender": {
+    "report": "qa/ten-reference/08/iteration-foundation126/report.json",
+    "sourceHash": "c7ea1481a8fc23a4fbc8eb0b74b7c64f7b4fe716c681019db254857100deec8d",
+    "status": "rendered-review",
+    "errors": [],
+    "size": 1254,
+    "detailCrop": {
+      "pixels": [
+        560,
+        750,
+        400,
+        1254
+      ],
+      "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+    },
+    "frames": [
+      {
+        "name": "reference",
+        "valid": true,
+        "glError": 0,
+        "linked": true,
+        "contextLost": false,
+        "rgbaSha256": "0b065aeb0829327cf232fbebc0e4ab25d13067b03fb4eac5b11674710b1c8e71",
+        "instances": 443853,
+        "triangles": 15573739,
+        "rng": 2186526841
+      },
+      {
+        "name": "detail-native",
+        "valid": true,
+        "glError": 0,
+        "linked": true,
+        "contextLost": false,
+        "rgbaSha256": "19fc3dd54b143084c2fcef1a04969d1f55789e13839c9bdc8656c277ede610ce",
+        "instances": 443853,
+        "triangles": 15573739,
+        "rng": 2186526841
+      }
+    ],
+    "visualAccepted": false
+  },
+  "wrapperJobsUsed": 1,
+  "alternateBrowserJobsUsed": 0,
+  "visualAccepted": false,
+  "review": "Old broad blocks replaced by actual grounded load-bearing supports. Original camera still intersects flanking stone piers; native crop confirms intended photographic rill remains unmatched. No tuning loop followed.",
+  "remaining": [
+    "Camera-view rill aperture remains wrong despite real physical opening",
+    "Middle-gallery pier and stone-lantern pedestal remain visible behind supports",
+    "Courses/materials still too regular, complete site/terrain unresolved",
+    "High-end sole has one deeply embedded corner under existing rock, maximum.689m",
+    "All10photographicfidelityunaccepted"
+  ]
+}

@@ -74,6 +74,6 @@ export function buildCorridorBridge(api){
  const {box,between,railing}=api,C=CORRIDOR_LAYOUT.bridge,dx=C.b[0]-C.a[0],dz=C.b[2]-C.a[2],run=Math.hypot(dx,dz),yaw=Math.atan2(-dz,dx),normal=[-dz/run,dx/run],height=t=>C.a[1]+(C.b[1]-C.a[1])*t+C.arch*Math.sin(t*Math.PI);
  for(let i=0;i<C.segments;i++){const t=(i+.5)/C.segments;box(C.a[0]+dx*t,height(t)-.10,C.a[2]+dz*t,run/C.segments+.015,.19,C.width,'wood',yaw);}
  for(const sign of [-1,1])railing([C.a[0]+normal[0]*sign*(C.width/2-.08),C.a[2]+normal[1]*sign*(C.width/2-.08)],[C.b[0]+normal[0]*sign*(C.width/2-.08),C.b[2]+normal[1]*sign*(C.width/2-.08)],height);
- for(const [p,ground]of [[C.a,.7],[C.b,.95]])box(p[0],(p[1]-.15+ground)/2,p[2],1.05,p[1]-.15-ground,C.width+.2,'stone',yaw);
+ for(const [p,ground]of [[C.b,.95]])box(p[0],(p[1]-.15+ground)/2,p[2],1.05,p[1]-.15-ground,C.width+.2,'stone',yaw);
  return {run,yaw,landingA:C.a,landingB:C.b,width:C.width,arch:C.arch};
 }
