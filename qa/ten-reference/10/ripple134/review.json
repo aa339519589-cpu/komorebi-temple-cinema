@@ -1,0 +1,99 @@
+{
+  "status": "unaccepted-partial-candidate",
+  "branch": "work/ripple10-134-20261019",
+  "baseCommit": "180e540997d635451baf5fe910a5b297d8b5e0ab",
+  "before": {
+    "sourceCommit": "52e9e01556fd1ac3f9d64882e42582b6f764fcdb",
+    "sourceIdentitySha256": "5221e4fcee7124c6dc33125aff83ab24655c84e63fad7edf786922d0f06b20b8",
+    "image": "qa/ten-reference/10/iteration-hall132-b/shot--1250.png",
+    "preserved": true
+  },
+  "after": {
+    "sourceCommit": "2e9e568b5fe2dfc5398f549d16a9e350f1caed82",
+    "sourceIdentitySha256": "24407acf90de49f233da62fa1f10e65bf700ef65c6559558a96300208eefd436",
+    "images": [
+      {
+        "file": "qa/ten-reference/10/iteration-ripple134-a/reference.png",
+        "sha256": "a01a7dae31876ae50a42d3a08492f5a067b8f3bcf20712c6b8a644f6a2c56973",
+        "valid": true,
+        "pose": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            4.65,
+            -14
+          ],
+          "time": 0,
+          "fov": 60,
+          "width": 1254,
+          "height": 1254
+        },
+        "detailCrop": null,
+        "scope": "Established full reference camera, unchanged."
+      },
+      {
+        "file": "qa/ten-reference/10/iteration-ripple134-a/detail-native.png",
+        "sha256": "8d206eb5f6b1210705923e0729b3f50e69c9e8ba8ceb18ce2ef802c5841a5aef",
+        "valid": true,
+        "pose": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            4.65,
+            -14
+          ],
+          "time": 0,
+          "fov": 60,
+          "width": 1254,
+          "height": 1254
+        },
+        "detailCrop": [
+          600,
+          900,
+          330,
+          1254
+        ],
+        "scope": "Genuine same-camera 330x330 subfrustum, independently rendered at 1254; not an upscaled image."
+      }
+    ]
+  },
+  "actualWrapperJobs": 1,
+  "actualWrapperFrames": 2,
+  "authorizedMaximumActualFrames": 2,
+  "technicalChecks": "Both actual frames have no browser/resource/GL errors, linked shaders and valid pixels. This is not visual acceptance.",
+  "visualAccepted": false,
+  "positiveObserved": [
+    "The detached complete bright white torus rings are absent in the actual full frame and native detail.",
+    "The existing hall, layout, open bridge/stair route, stones and camera are retained.",
+    "Water response no longer has a white diffuse/emissive/alpha outline; it only perturbs the existing water coat and actual reflected scene."
+  ],
+  "failedOrUnresolved": [
+    "The replacement water-wave response is too weak/sparse to read as the reference rain impacts in the full actual image.",
+    "The native detail does not establish convincing replacement ripple density or varied impact crests.",
+    "The reference water has much richer fragmented reflections and bright/dark local wave structure; this candidate does not reproduce that density or contrast.",
+    "No motion validation is included in the two-frame budget; temporal realism is unaccepted."
+  ],
+  "causeLimit": "Strict water gating, sparse retained impacts and strong physical amplitude/footprint attenuation are plausible contributors to the weak result; their individual contributions were not isolated by an actual ablation.",
+  "unchangedActualReceipts": [
+    "layout",
+    "hall132",
+    "bridgeHallPlan",
+    "bridgeAbutment125",
+    "pathCurbRecords125",
+    "nearStoneRecords",
+    "nearBankOutcrop",
+    "scannedStone",
+    "camera"
+  ],
+  "scopeAudit": "qa/ten-reference/10/ripple134/scope-audit.json",
+  "comparisonProvenance": "qa/ten-reference/10/ripple134/comparison-provenance.json",
+  "noMergeOrPush": true
+}
