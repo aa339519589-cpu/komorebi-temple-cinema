@@ -1,0 +1,109 @@
+{
+  "status": "actual reference and close view inspected; foreground hardware candidate remains unaccepted",
+  "visualAccepted": false,
+  "sourceHash": "e521904ee90ccbbf1e7be8be3ee3e795998fc111656f204d3a10d2018a135112",
+  "reference": "references/hd/0-\u7167\u7247-1.jpg",
+  "referenceSha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d",
+  "beforeActual": "qa/ten-reference/01/iteration-layout124-d/reference.png",
+  "actual": "qa/ten-reference/01/iteration-hardware131-b/shot--125.png",
+  "closeActual": "qa/ten-reference/01/iteration-hardware131-b/shot--131.png",
+  "nativeCropComparisons": {
+    "panelOrder": [
+      "original reference",
+      "actual124-d",
+      "actual hardware131-b"
+    ],
+    "files": [
+      "lantern-reference-before-after-native.png",
+      "post-left-reference-before-after-native.png",
+      "post-near-reference-before-after-native.png"
+    ],
+    "processing": "Exact identical native1254 pixel rectangles, concatenated without resampling, retouching or color correction."
+  },
+  "physicalHardware": {
+    "finial": {
+      "heightInRadiusUnits": 2.63,
+      "maximumSeatRadiusUnits": 0.82,
+      "domeRadiusUnits": 0.62,
+      "petals": 8,
+      "carvedBandRepeats": 10,
+      "allCapsUseSharedAssembly": true,
+      "seatDiameterMatchesWoodPostWidth": 1.02,
+      "woodPostHeadY": 2.62
+    },
+    "lantern": {
+      "position": [
+        -3.53,
+        6.94,
+        8.35
+      ],
+      "scale": 0.9,
+      "yaw": 0.38,
+      "bodyRadius": 0.43,
+      "bodyBottom": -0.48,
+      "bodyTop": 0.4,
+      "roofRadius": 0.64,
+      "screenHolesPerFace": 33,
+      "screenOpenAreaRatio": 0.46112260664482874,
+      "actualCeilingUndersideY": 10.270000000000001,
+      "chainTopMountFaceY": 10.270000000000001,
+      "chainBottomEyeY": 8.146
+    }
+  },
+  "actualCloseCamera": {
+    "reference": 1,
+    "frame": 2,
+    "width": 1254,
+    "height": 1254,
+    "camera": {
+      "position": [
+        -2.55,
+        7.12,
+        10.9
+      ],
+      "fov": 50
+    },
+    "triangles": 115541112,
+    "calls": 6438,
+    "inspection": {
+      "kind": "hardware131-actual-camera-close-view",
+      "scope": "Physical close camera on the existing hexagonal lantern; full scene and actual geometry/materials retained.",
+      "visualAccepted": false
+    }
+  },
+  "visibleChange": [
+    "Original cylindrical roof/sill assemblies replaced by six-sided eaves, straight face frames, stepped crown, curled ridge ends, hanging ears and pierced floral/fret castings.",
+    "Actual ceiling intersection used for mount plate, screws, linked chain and crown eye.",
+    "Smooth bulb caps replaced by fluted lotus/giboshi cast cores, narrow drums, layered seats, ten-repeat continuous vegetal relief bands and rivets.",
+    "Cap seats now match existing wooden post widths; original post-head height and anchor positions held.",
+    "Local scanned wood finish and procedural metal pitting/scratches/roughness added without any reference-photo RGB."
+  ],
+  "remainingVisibleGaps": [
+    "Floral aperture pattern still looks too regular and graphic compared with the finely curved lattice in the supplied reference.",
+    "Crown/sill ornament density and some lip/knob proportions remain simplified.",
+    "Bronze/gilt appearance remains cleaner and more uniform than the original; engraved detail and specular highlights still differ.",
+    "All previously recorded whole-scene landscape, foundation, waterfall, architecture and lighting discrepancies remain."
+  ],
+  "preservedFailedActual": "qa/ten-reference/01/iteration-hardware131-a; actual frames, native crops and two exact source snapshots retained.",
+  "topologyDiagnostic": {
+    "rawFile": "../iteration-hardware131-a/geometry-inspection.json",
+    "scope": "Pre-final actual-a hardware geometry; ornamental sheet exact-edge pairing returned64 unmatched subdivisions. Raw failure preserved; no watertight certification claimed or used as a fidelity claim.",
+    "suspensionContact": "Actual source ceiling underside and mounting top share Y10.270000000000001.",
+    "finalPerforationCertificateRun": false
+  },
+  "scopePreservation": "retained-layout-check.json",
+  "provenance": "reconstructions/scene-01/hardware131-provenance.json",
+  "renderBudget": {
+    "wrapperJobs": 2,
+    "nativeReferenceFrames": 2,
+    "physicalCloseCameraFrames": 2,
+    "sequence": "Initial a, then one pixel-driven correction b following parent instruction to correct contour/color from actual pixels. No further iterations.",
+    "runner": "tools/render-one-reconstruction.mjs",
+    "sharedMutex": true,
+    "softwareSuites": false,
+    "adHocBrowser": false,
+    "push": false
+  },
+  "referencePhotoRGBUsedOnModel": false,
+  "AIReplacementFrameUsed": false
+}

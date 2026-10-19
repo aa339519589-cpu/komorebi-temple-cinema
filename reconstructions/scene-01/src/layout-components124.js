@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {V,lin,surface} from './kernel.js';
 import {layout124 as L} from './layout124.js';
+import {buildBalustradeFinial131} from './foreground-hardware131.js';
 
 export function verandaEdge124(z){const a=L.foreground.postL,b=L.foreground.postN,t=(z-a[2])/(b[2]-a[2]);return[a[0]+(b[0]-a[0])*t,L.foreground.deckY,z];}
 export function solidTerrain124(grid,bottom=-.35){const g=surface(grid,.72),p=g.attributes.position,n=grid.length*grid[0].length;for(let i=n;i<p.count;i++)p.setY(i,bottom);g.computeVertexNormals();return g;}
@@ -40,7 +41,6 @@ export function emitHallCap124(B){const plan=stairLandingPlan124();for(const cel
 
 export function buildForeground124(B,{carvedFitting,squareGold}){
  const F=L.foreground,a=F.postL,b=F.postN,dx=b[0]-a[0],dz=b[2]-a[2],yaw=Math.atan2(dx,dz),length=Math.hypot(dx,dz),dir=V([dx,0,dz]).normalize(),normal=V([dir.z,0,-dir.x]);
- const capProfile=[[0,-1.48],[.76,-1.48],[.80,-1.36],[.80,-1.22],[.70,-1.16],[.70,-1.02],[.52,-.91],[.40,-.73],[.42,-.60],[.62,-.42],[.68,-.15],[.65,.10],[.52,.34],[.33,.53],[.20,.61],[.18,.77],[.12,.94],[0,1.15]],cap=new T.LatheGeometry(capProfile.map(p=>new T.Vector2(...p)),64);
  B.label('foreground124-connected-deck',()=>{
   const [cx,,cz]=F.columnPosition;
   for(let z=10.8;z<22;z+=.20){const right=verandaEdge124(z)[0]-.055,left=-6.0,r=F.columnRadius+.025,dz=z-cz,cuts=[left,right];
@@ -81,7 +81,7 @@ export function buildForeground124(B,{carvedFitting,squareGold}){
   const start=V([a[0],0,a[2]]).addScaledVector(dir,-1.5),end=V([b[0],0,b[2]]).addScaledVector(dir,3.5),spans=[start,V([a[0],0,a[2]]),V([b[0],0,b[2]]),end];
   for(const [y,w,h]of[[2.53,.17,.13],[2.20,.12,.12],[1.87,.14,.12],[1.825,.20,.05]]){const matrix=new T.Matrix4().makeBasis(normal,dir,V([0,-1,0]));matrix.scale(V([w,start.distanceTo(end),h]));matrix.setPosition(start.clone().add(end).multiplyScalar(.5).setY(y));B.put(B.boxG,'redLight',matrix);}
   for(const [p,r]of[[start,.22],[V(a),.22],[V(b),.095],[end,.095]])B.with(p.x,0,p.z,yaw,()=>{
-   const width=r>.15?.34:.19;B.box(0,(1.8+F.postHeadY-.024)/2,0,width,F.postHeadY-.024-1.8,width,'redLight');B.box(0,F.postHeadY-.012,0,width*1.15,.024,width*1.15,'bronze');B.emit(cap,'giltBronze',0,F.postHeadY+1.48*r,0,r,r,r);
+   const width=r>.15?.34:.19;B.box(0,(1.8+F.postHeadY-.024)/2,0,width,F.postHeadY-.024-1.8,width,'redLight');B.box(0,F.postHeadY-.012,0,width*1.15,.024,width*1.15,'hardwareBronze131');buildBalustradeFinial131(B,V([0,F.postHeadY,0]),r,0);
   });
   for(let k=0;k<spans.length-1;k++){
    const pa=spans[k],pb=spans[k+1],n=Math.max(2,Math.ceil(pa.distanceTo(pb)/.65));
