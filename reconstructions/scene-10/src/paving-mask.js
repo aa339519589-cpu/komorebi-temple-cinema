@@ -1,3 +1,4 @@
+import {scene10Layout125 as L} from './layout125.js';
 // Per-stone wetness and recessed joints are rasterised solely from the actual
 // generated quadrilateral layout. R=edge contact, G=wetness, B=paving presence.
 export function createPavingWetMask(T,polygons){
@@ -27,7 +28,7 @@ export function createWetStoneGrain(T){
 // Clip the paving itself around a 19 cm drainage slot. The grille must remain
 // below the adjoining slab edges, with actual empty space above it.
 export function clipPavingAtDrain(points){
- const c=Math.cos(.46),s=Math.sin(.46),distance=p=>c*(p[0]+1.9)-s*(p[1]-8.5);
+ const c=Math.cos(L.drain.yaw),s=Math.sin(L.drain.yaw),distance=p=>c*(p[0]-L.drain.position[0])-s*(p[1]-L.drain.position[2]);
  function halfPlane(sign){
   const out=[];for(let i=0;i<points.length;i++){
    const a=points[i],b=points[(i+1)%points.length],da=sign*distance(a)-.095,db=sign*distance(b)-.095;
