@@ -6,6 +6,7 @@ import {createCurvedEaveRafter} from './scene03-curved-rafter.js';
 import {createClosedRoofTile} from './scene03-roof-solids.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createGraniteEntrySteps} from './granite-entry-steps.js';
+import {emitTowerEnclosureFace} from './tower-enclosure03.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
@@ -225,7 +226,17 @@ export function buildReference4Architecture(T,options={}) {
     box(0,floor-.06,0,body+.55,.12,body+.55,'cedar');for(const z of[-body/2,body/2])for(let j=-2;j<=2;j++){arch.brackets(j*body/5,y-.29,z,.42);box(j*body/5,y-.42,z+.02,.31,.08,.37,'oldgold');}
     for(const x of[-half,0,half])for(const z of[-half,half]){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
     for(const z of[-half,0,half])for(const x of[-half,half])if(z===0){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
-    for(const side of[0,1,2,3])grouped(0,0,0,side*Math.PI/2,()=>{box(0,(floor+y-.4)/2,-half,body,Math.max(.25,y-.4-floor),.12,'darkwood');box(0,y-.30,half,body+.55,.19,.22,'red');box(0,floor+.38,half+.2,body+.62,.10,.10,'red');box(0,floor+.12,half+.2,body+.62,.09,.10,'red');for(let i=0;i<=12;i++)box(-body*.49+i*body*.98/12,floor+.25,half+.2,.06,.34,.06,'red');for(const x of[-body*.25,0,body*.25]){const h=Math.min(.68,(y-floor)*.55),yy=(floor+y-.4)/2;box(x,yy,half-.06,.60,h,.08,'plaster',0,.64);for(let k=0;k<=3;k++)box(x-.28+k*.56/3,yy,half+.005,.025,h,.035,'oldgold');for(let k=0;k<=3;k++)box(x,yy-h/2+k*h/3,half+.008,.60,.025,.035,'cedar');}});
+    // The old four continuous back walls rotated over the front windows.
+    // Only the three clearly exposed upper rooms get segmented thick infill
+    // and real openings. Lower garden-occluded construction is retained.
+    if(level>=2)box(0,y-.44,0,body-.14,.08,body-.14,'darkwood');
+    for(const side of[0,1,2,3])grouped(0,0,0,side*Math.PI/2,()=>{
+     if(level>=2)emitTowerEnclosureFace(box,{width:body,faceZ:half,floor,top:y-.4});
+     else box(0,(floor+y-.4)/2,-half,body,Math.max(.25,y-.4-floor),.12,'darkwood');
+     box(0,y-.30,half,body+.55,.19,.22,'red');box(0,floor+.38,half+.2,body+.62,.10,.10,'red');box(0,floor+.12,half+.2,body+.62,.09,.10,'red');
+     for(let i=0;i<=12;i++)box(-body*.49+i*body*.98/12,floor+.25,half+.2,.06,.34,.06,'red');
+     if(level<2)for(const x of[-body*.25,0,body*.25]){const h=Math.min(.68,(y-floor)*.55),yy=(floor+y-.4)/2;box(x,yy,half-.06,.60,h,.08,'plaster',0,.64);for(let k=0;k<=3;k++)box(x-.28+k*.56/3,yy,half+.005,.025,h,.035,'oldgold');for(let k=0;k<=3;k++)box(x,yy-h/2+k*h/3,half+.008,.60,.025,.035,'cedar');}
+    });
    });roof({name:'tower-roof-'+(level+1),w,d:w,eave:y,rise:1.06,curl:.37});role('tower-corner-bells-'+level,()=>{for(const sx of[-1,1])for(const sz of[-1,1]){const x=sx*w*.493,z=sz*w*.493;between([x,y+.20,z],[x,y-.24,z],.012,.012,'oldgold',true);emit(new T.LatheGeometry([new T.Vector2(0,0),new T.Vector2(.075,0),new T.Vector2(.065,.045),new T.Vector2(.040,.14),new T.Vector2(0,.17)],16),'oldgold',x,y-.42,z);emit(sphere,'gold',x,y-.46,z,.024,.035,.024);}});
   }
   role('tower-finial',()=>{const bottom=eaves[4]+1.06+.31,top=C.towerHeight;emit(cyl,'oldgold',0,(bottom+top-.25)/2,0,.038,top-bottom-.25,.038);for(let i=0;i<13;i++){const y=bottom+.15+i*(top-bottom-.58)/12,r=.39*(1-i*.043);const g=new T.TorusGeometry(r,.027,6,28);emit(g,'oldgold',0,y,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'oldgold',0,top-.16,0,.11,.16,.11);});
