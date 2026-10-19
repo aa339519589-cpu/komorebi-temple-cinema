@@ -4,7 +4,7 @@ import {installSurfaceDetail} from './surface-detail.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
-export const HALL132_REVISION='scene10-hall132-a-solid-soffit-and-bearing-frame';
+export const HALL132_REVISION='scene10-hall132-b-exposed-bracket-relief';
 export function createHall132Palette(original){
   const specs={red:['#81341d',.48,'wood'],cedar:['#703b20',.64,'wood'],darkwood:['#351f15',.74,'wood'],endwood:['#a46a35',.65,'wood'],gold:['#d2a444',.30,'gold'],oldgold:['#ac7d30',.42,'gold']};
   const palette={};
@@ -57,10 +57,11 @@ export function buildHall132(api,L){
   const records={revision:HALL132_REVISION,scope:'Hall front and roof underside only; layout125 camera, bridge, stairs, floor and rigid scans retained.',roofs:[],bearingRows:[],columns:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
   const leaf=leafGeometry(),rosette=new T.TorusGeometry(.13,.022,7,20),boss=new T.SphereGeometry(1,12,8);
   const foliate=(x,y,z,s=1)=>{
-    emit(rosette,'oldgold',x,y,z,s,s,s);emit(boss,'gold',x,y,z+.015,.065*s,.065*s,.035*s);records.ornament.rosettes++;
+    emit(rosette,'oldgold',x,y,z,s,s,s);emit(boss,'gold',x,y,z+.022,.040*s,.040*s,.028*s);records.ornament.rosettes++;
+    for(let k=0;k<8;k++){const a=k*Math.PI/4;emit(leaf,'gold',x+Math.cos(a)*.080*s,y+Math.sin(a)*.080*s,z+.027*s,.125*s,.17*s,.25*s,[0,0,a]);records.ornament.volumetricLeaves++;}
     for(const sign of[-1,1]){
       tube([[x+sign*.12*s,y,z],[x+sign*.28*s,y+.10*s,z+.025*s],[x+sign*.43*s,y+.015*s,z],[x+sign*.49*s,y+.07*s,z]],.018*s,'oldgold');
-      for(const [dx,dy,a]of[[.24,.08,.60],[.35,-.01,-.55],[.43,.05,.75]]){emit(leaf,'gold',x+sign*dx*s,y+dy*s,z+.022*s,.20*s,.20*s,.20*s,[0,0,sign===1?a:Math.PI-a]);records.ornament.volumetricLeaves++;}
+      for(const [dx,dy,a]of[[.17,-.07,-.72],[.24,.08,.60],[.31,.10,1.05],[.35,-.01,-.55],[.43,.05,.75]]){emit(leaf,'gold',x+sign*dx*s,y+dy*s,z+.022*s,.20*s,.20*s,.20*s,[0,0,sign===1?a:Math.PI-a]);records.ornament.volumetricLeaves++;}
     }
   };
   // Metal is a thin returned sheath around an existing timber section,
@@ -68,7 +69,7 @@ export function buildHall132(api,L){
   function sleeve(end,prior,width,height,length=.11){
     const tangent=V(end).sub(V(prior)).normalize(),side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize(),q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
     const part=(dx,dy,dz,w,h,d)=>{const p=V(end).addScaledVector(side,dx).addScaledVector(up,dy).addScaledVector(tangent,dz);emit('box','oldgold',p.x,p.y,p.z,w,h,d,q);};
-    const thick=.012;
+    const thick=.007;
     for(const sign of[-1,1]){part(sign*(width/2+.004),0,-length/2,thick,height+.022,length);part(0,sign*(height/2+.004),-length/2,width,thick,length);}
     part(0,0,.003,width+.022,height+.022,thick);records.ornament.giltWraps++;
   }
@@ -90,26 +91,26 @@ export function buildHall132(api,L){
       for(let j=1;j<=26;j++)for(let i=0;i<50;i++)between(at(face,j/26,-1+2*i/50,.023),at(face,j/26,-1+2*(i+1)/50,.023),.024,'tileEdge');
       draw(new T.TubeGeometry(new T.CatmullRomCurve3(curve(face,1,0).map(V)),96,.12,7,false),'slate');
       for(const sign of[-1,1])draw(new T.TubeGeometry(new T.CatmullRomCurve3(Array.from({length:20},(_,i)=>V(at(face,i/19,sign)))),57,.095,7,false),'slate');
-      draw(timber(curve(face,1,-.21),.24,.25),'red');draw(timber(curve(face,1.009,-.34),.23,.10),'darkwood');draw(timber(curve(face,1.012,-.23),.030,.035),'oldgold');
-      for(const t of[.53,.72,.88])draw(timber(curve(face,t,-.43,32),.20,.20),'cedar');
-      const n=Math.ceil((face%2?d:w)/.29);
+      draw(timber(curve(face,1,-.20),.18,.16),'red');draw(timber(curve(face,1.009,-.29),.15,.065),'darkwood');draw(timber(curve(face,1.012,-.22),.022,.025),'oldgold');
+      for(const t of[.53,.72,.88])draw(timber(curve(face,t,-.43,32),.20,.26),'cedar');
+      const n=Math.ceil((face%2?d:w)/.205);
       for(let i=0;i<=n;i++){
-        const u=-1+2*i/n,main=Array.from({length:17},(_,j)=>at(face,.40+.615*j/16,u,-.27)),flying=Array.from({length:10},(_,j)=>at(face,.76+.277*j/9,u,-.14));
-        draw(timber(main,.125,.18),'cedar');draw(timber(flying,.10,.10),'red');sleeve(main.at(-1),main.at(-2),.125,.18);sleeve(flying.at(-1),flying.at(-2),.10,.10,.08);rafters+=2;
+        const u=-1+2*i/n,main=Array.from({length:17},(_,j)=>at(face,.40+.615*j/16,u,-.24)),flying=Array.from({length:10},(_,j)=>at(face,.76+.277*j/9,u,-.14));
+        draw(timber(main,.095,.125),'cedar');draw(timber(flying,.070,.075),'red');sleeve(main.at(-1),main.at(-2),.095,.125,.075);sleeve(flying.at(-1),flying.at(-2),.070,.075,.055);rafters+=2;
       }
     }
-    draw(top.finish(),'slate');draw(deck.finish(),'darkwood');
+    draw(top.finish(),'slate');draw(deck.finish(),'cedar');
     for(const [ma,geometries]of pieces){const merged=mergeGeometries(geometries.map(g=>g.index?g.toNonIndexed():g),false);emit(merged,ma);for(const g of geometries)g.dispose();}
-    box(0,e+rise+.07,0,w*.53,.17,.19,'slate');records.roofs.push({label,w,d,e,rise,curl,closedTimberDepth:.18,rafterTiers:2,rafters,outerProfile:'Unchanged layout125 analytical roof profile'});
+    box(0,e+rise+.07,0,w*.53,.17,.19,'slate');records.roofs.push({label,w,d,e,rise,curl,closedTimberDepth:.152,deckTopOffset:-.028,deckBottomOffset:-.18,rafterTiers:2,rafters,outerProfile:'Unchanged layout125 analytical roof profile'});
     return surf;
   }
   const profile=level=>surface(level?21.5:23,level?12.9:13.6,level?10.45:6.05,level?7.7:3.45,level?.4:1.1);
   const rows=[{z:4.50,s:.72,pitch:1.025},{z:5.28,s:.48,pitch:.6833},{z:6.02,s:.42,pitch:.6833},{z:6.52,s:.34,pitch:.62}];
   function rowBase(surf,x,row){return surf.heightAt(x,row.z-.2)-.51-.97*row.s;}
   function frame(level){
-    const base=1.3+level*4.4,surf=profile(level),first=rows[0],headerY=rowBase(surf,0,first)-.12,top=base+4.1;
+    const base=1.3+level*4.4,surf=profile(level),first=rows[0],headerY=rowBase(surf,0,first)-.07,top=base+4.1;
     for(let i=0;i<9;i++){
-      const x=-8.2+i*2.05,columnTop=rowBase(surf,x,first)-.12;
+      const x=-8.2+i*2.05,columnTop=rowBase(surf,x,first)-.07;
       if(!(level===0&&(i===2||i===3))){arch.footColumn(x,4.3,base,columnTop-base-.3,.22);box(x,base+.15,4.3,.51,.26,.51,'black');records.columns.push({level,x,bottom:base+.3,shaftTop:columnTop,bearingBeamCenter:columnTop});
         for(const sign of[-1,1]){box(x+sign*.238,columnTop-.13,4.3,.018,.22,.47,'oldgold');box(x,columnTop-.13,4.3+sign*.238,.47,.22,.018,'oldgold');}foliate(x,columnTop-.13,4.55,.35);
       }
@@ -132,21 +133,28 @@ export function buildHall132(api,L){
       // Short genuine posts tie the recessed carved band into the head beam.
       for(const sx of[-.75,0,.75])box(xx+sx,headerY-.22,3.48,.10,.28,.19,'red');
     }
-    for(const yy of[base+.25,headerY])box(0,yy,4.3,18.5,.25,.40,'red');
+    for(const yy of[base+.25,headerY])box(0,yy,4.3,18.5,.22,.34,'red');
     rows.forEach((row,index)=>{
       const limit=index===0?9.15:index===1?9.48:index===2?9.9:10.15,n=Math.floor(limit*2/row.pitch),points=[];
       for(let i=0;i<=n;i++){
         const x=-limit+2*limit*i/n,baseY=rowBase(surf,x,row),seat=baseY+.15*row.s,roofY=surf.heightAt(x,row.z-.2);
         arch.brackets(x,seat,row.z,row.s,{detail:true,interlocked:true,material:index%2?'cedar':'red'});
-        points.push([x,baseY-.12,row.z]);
+        const girtDepth=index===0?.14:.105;points.push([x,baseY-girtDepth/2,row.z]);
         // Receiver over the capital shares the rafter/purlin bearing plane.
-        box(x,roofY-.42,row.z,.72,.18,.23,'cedar');
+        const receiverWidth=row.s*.90,receiverY=roofY-.42;
+        box(x,receiverY,row.z,receiverWidth,.24,.23,'cedar');
+        // A returned metal border follows the actual receiver end. Its open
+        // timber centre and raised boss remain visible under the thin girts.
+        const fz=row.z+.122;
+        for(const sign of[-1,1]){box(x+sign*(receiverWidth/2-.009),receiverY,fz,.018,.18,.012,'oldgold');box(x,receiverY+sign*.083,fz,receiverWidth,.014,.012,'oldgold');box(x+sign*(receiverWidth/2+.003),receiverY,row.z+.075,.012,.18,.105,'oldgold');}
+        emit(boss,'gold',x,receiverY,fz+.012,.025,.025,.014);
+        records.ornament.giltWraps++;
       }
-      emit(timber(points,.40,.24),index%2?'cedar':'red');
+      emit(timber(points,index===0?.34:.18,index===0?.14:.105),index%2?'cedar':'red');
       if(index>0)for(let i=0;i<=16;i++){
-        const x=-8.2+i*1.025,inner=rows[index-1],a=[x,rowBase(surf,x,inner)-.10,inner.z],b=[x,rowBase(surf,x,row)-.10,row.z];between(a,b,.18,'cedar',true);
+        const x=-8.2+i*1.025,inner=rows[index-1],a=[x,rowBase(surf,x,inner)-.05,inner.z],b=[x,rowBase(surf,x,row)-.05,row.z];between(a,b,.12,'cedar',true);
       }
-      records.bearingRows.push({level,index,z:row.z,sets:n+1,scale:row.s,capitalPrototype:{bottom:-.15,top:.82},receiverOffset:-.42,girtDepth:.24});
+      records.bearingRows.push({level,index,z:row.z,sets:n+1,scale:row.s,capitalPrototype:{bottom:-.15,top:.82},receiverOffset:-.42,girtDepth:index===0?.14:.105});
     });
     if(level===1)railUpper(base);
     group(0,0,.2,0,()=>roof(level?21.5:23,level?12.9:13.6,level?10.45:6.05,level?7.7:3.45,level?.4:1.1,level?'upper':'lower'));
