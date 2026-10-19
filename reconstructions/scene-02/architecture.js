@@ -1,7 +1,9 @@
 import {T,V,mix,Builder,gridGeometry} from './kernel.js';
 import {buildHallEntry} from './hall-entry.js';
 import {buildTurnedSorin} from './sorin-solids.js';
-import {buildVerandaBoards,buildLowerVerandaRail} from './veranda-boards.js';
+import {buildVerandaBoards} from './veranda-boards.js';
+import {buildVerandaRail} from './veranda-rail117.js';
+import {layout} from './layout117.js';
 export function buildArchitecture(mats){
  // The exposed tower finial must use the outdoor sky environment rather
  // than the close veranda probe later assigned to the shared gold material.
@@ -11,9 +13,9 @@ export function buildArchitecture(mats){
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
  const leafShape=new T.Shape();leafShape.moveTo(0,-.06);leafShape.bezierCurveTo(-.04,-.035,-.055,.025,0,.075);leafShape.bezierCurveTo(.045,.025,.035,-.025,0,-.06);const reliefLeaf=new T.ExtrudeGeometry(leafShape,{depth:.016,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,steps:1,curveSegments:4});
- let columnXComp=1;const closeCylinder=new T.CylinderGeometry(1,1,1,48);
+ let columnXComp=1,columnZComp=1;const closeCylinder=new T.CylinderGeometry(1,1,1,48);
  function column(x,z,base,h,r=.24){
-  const cy=(yy,rr,hh,ma)=>b.put(r>.4?closeCylinder:b.cylinderGeo,ma,[x,yy,z],[rr*columnXComp,hh,rr]);
+  const cy=(yy,rr,hh,ma)=>b.put(r>.4?closeCylinder:b.cylinderGeo,ma,[x,yy,z],[rr*columnXComp,hh,rr*columnZComp]);
   cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,'red');
   for(let y of[base+.4,base+h-.05]){cy(y,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}
   if(r>.4){cy(base+.72,r*1.015,.72,'oldgold');for(let yy of[base+.36,base+1.08])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*.63,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.put(reliefLeaf,k%2?'oldgold':'gold',[x+Math.cos(aa)*r*1.04,base+.46+k*.15,z+Math.sin(aa)*r*1.04],[.65,.65,.65],[0,Math.PI/2-aa,(k%2?1:-1)*.6]);}}}
@@ -28,8 +30,8 @@ export function buildArchitecture(mats){
  const scroll=new T.TubeGeometry(new T.CatmullRomCurve3([[-.24,-.09,0],[-.31,.05,.018],[-.10,.14,.025],[.08,.02,.026],[.25,.13,.018],[.31,-.02,.015],[.09,-.1,.02]].map(V)),24,.022,6,false);
  const cap=new T.CylinderGeometry(.075,.075,.045,12);cap.rotateX(Math.PI/2);
  function roofEnd(p,yaw=0){b.put(cap,'tileEnd',p,[1,1,1],[0,yaw,0]);b.put(torus,'tileEnd',[p[0],p[1],p[2]+.026],[.043,.043,.043],[0,yaw,0]);}
- function roof({w,d,eave,rise,center=[0,0,0],curl=.65,inner=0,scale=1}){b.at(center,0,()=>{
-  const hw=w/2,hd=d/2,ridge=w*.24;const P=(side,t,u)=>{let x,z,span=mix(ridge,hw,t);if(side%2===0){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}let y=eave+rise*Math.pow(Math.max(0,1-t),1.5)+curl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));return[x,y,z];};
+ function roof({w,d,eave,rise,center=[0,0,0],curl=.65,inner=0,scale=1,ridgeOffset=0}){b.at(center,0,()=>{
+  const hw=w/2,hd=d/2,ridge=w*.24;const P=(side,t,u)=>{let x,z,span=mix(ridge,hw,t);if(side%2===0){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}let y=eave+rise*Math.pow(Math.max(0,1-t),1.5)+curl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));return[x,y,z+ridgeOffset*(1-t)];};
   for(let side=0;side<4;side++){
    const rows=Array.from({length:19},(_,j)=>Array.from({length:49},(_,i)=>P(side,mix(inner,1,j/18),-1+2*i/48)));
    const g=gridGeometry(rows);
@@ -68,42 +70,58 @@ export function buildArchitecture(mats){
  function windowPanel(x,y,z,w,h,pane='paper'){b.box(x,y,z,w,h,.16,'darkwood');b.box(x,y,z+.13,w-.13,h-.13,.03,pane);for(let j=0;j<=18;j++)b.box(x-w/2+w*j/18,y,z+.18,.019,h,.04,'cedar');for(let j=0;j<=22;j++)b.box(x,y-h/2+h*j/22,z+.19,w,.016,.035,'cedar');for(let xx of[-w/2,w/2])b.box(x+xx,y,z+.18,.065,h,.11,'red');}
  function rail(length,base=0,height=1.05){for(let y of[.28,.73,height])b.box(0,base+y,0,length,y===height?.16:.10,.15,'red');let n=Math.ceil(length/1.75);for(let k=0;k<=n;k++){const x=-length/2+length*k/n;b.box(x,base+.55,0,.18,1.1,.18,'red');b.cyl(x,base+1.13,0,.12,.10,'gold');b.ball(x,base+1.26,0,.095,.12,.095);}for(let k=0;k<n*3;k++)b.box(-length/2+length*(k+.5)/(n*3),base+.5,0,.045,.42,.045,'red');}
  // The main hall is a tall, occupied building raised over an articulated stone terrace.
- const hallBase=2.73,hallY=.76,hallX=.50,hallFloor=hallBase+2.2*hallY;
- columnXComp=1/hallX;b.at([3.5,hallBase,-10],0,()=>{
+ const hallBase=layout.hall.position[1],hallY=layout.hall.scale[1],hallX=layout.hall.scale[0],hallZ=layout.hall.scale[2],hallFloor=hallBase+2.2*hallY;
+ columnXComp=1/hallX;columnZComp=1/hallZ;b.at(layout.hall.position,layout.hall.yaw,()=>{
   const foundationBottom=-hallBase/hallY,foundationTop=1.9;
   b.box(0,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'stone');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'stone',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,yy,-7.1+j*1.1,.13,.475,1.075,'stone',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
-  for(let i=0;i<24;i++){let y=(24-i)*hallFloor/24,z=6.15+i*.27;b.box(0,(y/2-hallBase)/hallY,z,5.7,y/hallY,.28,'stone',0,.90+.10*Math.sin(i));b.box(0,(y-.027-hallBase)/hallY,z+.1,5.85,.055,.10,'lightstone');}
-  for(let s of[-1,1]){b.line([s*3.1,3.2,6.0],[s*3.1,(.72-hallBase)/hallY,12.7],.12,'red');for(let i=0;i<10;i++){let t=i/9;column(s*3.1,mix(6,12.7,t),(hallFloor*(1-t)-hallBase)/hallY,.9,.07);}b.at([s*6.2,2.2,6.15],0,()=>rail(5.1));}
+  for(let side of[-1,1])b.at([side*6.2,2.2,6.15],0,()=>rail(5.1));
   const axes=[-7.8,-5.2,-2.6,0,2.6,5.2,7.8];
   buildHallEntry({b,mats,lights,column,bracket,fitting,rosette,scroll});
   // Lower hipped skirt carries dense parallel tile courses and exposed bracket tiers.
-  b.at([0,0,-.8],Math.PI/2,()=>roof({w:16,d:22.8,eave:9.0,rise:6.2,curl:.7}));
+  b.at([0,0,(layout.hall.roofFront+layout.hall.roofBack)/2],Math.PI/2,()=>roof({w:layout.hall.roofFront-layout.hall.roofBack,d:layout.hall.roofWidth,eave:9.0,rise:6.2,curl:.7,ridgeOffset:layout.hall.gableCenterX}));
   // A small front gable is seated into one continuous steep hip roof.
   // Its lower edges sink into the tile plane rather than creating a second full eave.
-  gableRoof(10.8,4.0,10.8,4.6,3.5);
-  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-5.1,11.1,5.48,5.1,11.1,5.48,0,15.22,5.48],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
+  const {gableWidth:gW,gableEave:gE,gableRise:gR,gableFront:gF,gableCenterX:gX}=layout.hall;
+  b.at([gX,0,0],0,()=>{
+  gableRoof(gW,4.0,gE,gR,gF-2);
+  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-gW*.47,gE+.30,gF-.02,gW*.47,gE+.30,gF-.02,0,gE+gR-.18,gF-.02],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
   for(let sign of[-1,1]){
-   const points=Array.from({length:49},(_,i)=>{const t=i/48;return[sign*5.4*t,10.8+4.6*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.13,5.60];});
+   const points=Array.from({length:49},(_,i)=>{const t=i/48;return[sign*gW/2*t,gE+gR*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.13,gF+.10];});
    b.tube(points,.105,'oldgold',56);b.tube(points.map(p=>[p[0],p[1]+.065,p[2]+.03]),.028,'gold',56);
-   for(let j=1;j<18;j++){const p=points[Math.round(j*48/19)];rosette(p[0],p[1]-.13,p[2]+.04,.095);}
-   b.line([0,14.6,5.53],[sign*3.8,11.35,5.53],.13,'cedar',true,.15);
+   for(let j=1;j<24;j++){const p=points[Math.round(j*48/25)];rosette(p[0],p[1]-.13,p[2]+.04,.095);}
+   b.line([0,gE+gR-.8,gF+.03],[sign*gW*.35,gE+.55,gF+.03],.13,'cedar',true,.15);
   }
-  b.box(0,11.70,5.51,8.0,.21,.22,'cedar');for(let x of[-1.75,0,1.75])b.box(x,12.55,5.52,.18,1.80,.22,'cedar');
-  for(let x=-3.2;x<3.3;x+=.55){b.put(scroll,'oldgold',[x,11.73,5.65],[.85,1.05,.8],[0,0,Math.round(x*2)%2?Math.PI:0]);rosette(x,11.83,5.67,.07);}
-  rosette(0,13.7,5.64,.29);for(let sign of[-1,1])b.put(scroll,'oldgold',[sign*.45,13.35,5.64],[1.4,1.5,.9],[0,0,sign<0?Math.PI:0]);
+  b.box(0,gE+.90,gF+.01,gW*.74,.21,.22,'cedar');for(let x of[-gW*.16,0,gW*.16])b.box(x,gE+gR*.42,gF+.02,.18,gR*.39,.22,'cedar');
+  for(let x=-gW*.30;x<gW*.31;x+=.55){b.put(scroll,'oldgold',[x,gE+.93,gF+.15],[.85,1.05,.8],[0,0,Math.round(x*2)%2?Math.PI:0]);rosette(x,gE+1.03,gF+.17,.07);}
+  rosette(0,gE+gR*.63,gF+.14,.29);for(let sign of[-1,1])b.put(scroll,'oldgold',[sign*.45,gE+gR*.56,gF+.14],[1.4,1.5,.9],[0,0,sign<0?Math.PI:0]);
+  });
   // Deep primary cantilever beams connect real column heads to the eave row.
   for(let x of axes){b.box(x,8.50,5.42,.43,.34,2.25,'cedar');b.box(x,8.13,4.72,.78,.25,.80,'darkwood');fitting(x,8.15,5.18,.62,.23);}
   // Closely spaced multi-tier bracket clusters cast real shadows under the deep eave.
   for(let x=-9.2;x<=9.21;x+=.66){bracket(x,7.95,6.0,.90);b.box(x,9.26,6.45,.17,.17,1.58,'cedar');fitting(x,8.64,6.48,.16,.22);}
   for(let z=-6.2;z<6.3;z+=.72)for(let x of[-8.55,8.55]){bracket(x,7.95,z,.87);b.box(x,9.22,z,1.3,.16,.16,'cedar');}
- },[hallX,hallY,1]);columnXComp=1;
- // Camera-to-tower azimuth is about 38 degrees. A small positive yaw makes
- // the photographed unequal three-quarter faces; it is not a front-on tower.
- b.at([-15.6,5.1,-16],.075,()=>{
+ },layout.hall.scale);columnXComp=columnZComp=1;
+ // The photographed forecourt stair reaches the raised bridge approach.
+ // Its plan is recovered independently of the hall column grid.
+ const hallMatrix=new T.Matrix4().compose(V(layout.hall.position),new T.Quaternion().setFromAxisAngle(V([0,1,0]),layout.hall.yaw),V(layout.hall.scale));
+ const stairTop=V([0,2.2,6.15]).applyMatrix4(hallMatrix),stairBottom=V([5.55722966,1.7,1.34483218]),stairDirection=stairTop.clone().sub(stairBottom),stairRun=Math.hypot(stairDirection.x,stairDirection.z),stairYaw=Math.atan2(stairDirection.x,stairDirection.z),stairWidth=2.85;
+ for(let i=0;i<20;i++){const t=(i+.5)/20,p=stairBottom.clone().lerp(stairTop,t),top=T.MathUtils.lerp(stairBottom.y,stairTop.y,(i+1)/20);b.at([p.x,0,p.z],stairYaw,()=>{b.box(0,(top+1.35)/2,0,stairWidth,top-1.35,stairRun/20+.014,'stone');b.box(0,top-.025,0,stairWidth+.06,.05,stairRun/20,'lightstone');for(let side of[-1,1]){b.box(side*(stairWidth/2+.16),(top+1.64)/2,0,.25,top-1.10,stairRun/20+.015,'stone');b.box(side*(stairWidth/2+.16),top+.33,0,.31,.09,stairRun/20+.015,'lightstone');}});}
+ // A shallow stone approach bears on a graded planted bank, not a tall
+ // exposed retaining block across the pond.
+ b.box(5.9,1.48,.55,5.4,.36,2.1,'stone');b.box(5.9,1.68,.55,5.5,.08,2.2,'lightstone');
+ const bridgeApproachA=V([5.71,2.10,3.38]),bridgeApproachB=V([5.75,1.63,1.4]);b.line(bridgeApproachA.toArray(),bridgeApproachB.toArray(),2.30,'stone',true,.18);
+ const bankRows=Array.from({length:25},(_,j)=>Array.from({length:33},(_,i)=>{const x=.3+i*11.9/32,z=-4.4+j*7.2/24,q=Math.max(Math.abs(x-5.9)/4.8,Math.abs(z+.8)/3.6);return[x,1.35*(1-T.MathUtils.smoothstep(q,.55,1))-.05,z];})),bank=gridGeometry(bankRows),bp=Array.from(bank.attributes.position.array),bi=Array.from(bank.index.array),ring=[];
+ for(let i=0;i<33;i++)ring.push(i);for(let j=1;j<25;j++)ring.push(j*33+32);for(let i=31;i>=0;i--)ring.push(24*33+i);for(let j=23;j>0;j--)ring.push(j*33);
+ const lower=ring.map(i=>{const n=bp.length/3;bp.push(bp[i*3],-.3,bp[i*3+2]);return n;}),bottom=bp.length/3;bp.push(5.9,-.3,1.2);
+ for(let i=0;i<ring.length;i++){const n=(i+1)%ring.length;bi.push(ring[i],ring[n],lower[i],ring[n],lower[n],lower[i],bottom,lower[i],lower[n]);}
+ const bankSolid=new T.BufferGeometry();bankSolid.setAttribute('position',new T.Float32BufferAttribute(bp,3));bankSolid.setIndex(bi);bankSolid.computeVertexNormals();b.put(bankSolid,'moss');bank.dispose();
+ // Native photograph contours recover the opposite near-corner orientation
+ // from the old positive yaw, and a shorter physical tier pitch.
+ b.at(layout.pagoda.position,layout.pagoda.yaw,()=>{
   b.box(0,.30,0,7.6,.6,7.6,'stone');b.box(0,.65,0,8,.14,8,'lightstone');
   mats.pagodaPaper=mats.paper.clone();mats.pagodaPaper.name='scene02-pagoda-paper';mats.pagodaPaper.color.setHex(0x634125);mats.pagodaPaper.emissive.setHex(0xba641e);mats.pagodaPaper.emissiveIntensity=.70;
   for(let level=0;level<5;level++){
-   const floor=.8+level*2.65,w=9.4-level*.45,body=w*.48,eave=floor+2.10;
+   const floor=.8+level*layout.pagoda.tierPitch,w=9.4-level*.45,body=w*.48,eave=floor+2.10;
    b.box(0,floor+.04,0,body+1.18,.24,body+1.18,'cedar');b.box(0,floor+.19,0,body+1.26,.075,body+1.26,'red');
    for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{
     b.box(0,floor+.39,body/2-.10,body,.39,.16,'red');b.box(0,floor+1.58,body/2-.10,body,.28,.16,'darkwood');
@@ -118,41 +136,31 @@ export function buildArchitecture(mats){
    for(let x of[-body*.16,body*.16]){b.cyl(x,floor+1.16,0,.11,.09,'oldgold');b.put(b.sphere,'hallFlame',[x,floor+1.29,0],[.055,.095,.055]);}
    pagodaRoof(w,eave,1.40,.52);
   }
-  // The original roof seat and tower axis are retained. Solid flanged
-  // annuli and a continuous spindle replace the sparse wire-loop spring.
-  sorinStats=buildTurnedSorin(b);
- },[.90,1.10,.90]);
+  // The solid finial moves with the recovered top roof seat. Its physical
+  // annular plates and central spindle remain three-dimensional.
+  b.at([0,layout.pagoda.sorinYOffset,0],0,()=>{sorinStats=buildTurnedSorin(b);});
+ },layout.pagoda.scale);
  // Enclosing low galleries anchor the far pond edge and continue behind the main hall.
  function gallery(pos,length,yaw=0){b.at(pos,yaw,()=>{b.box(0,.35,0,length,.7,4.3,'stone');for(let x=-length/2+.6;x<length/2;x+=2){column(x,1.2,.7,3.6,.14);bracket(x,4.4,1.2,.55);windowPanel(x,2.35,-1.1,1.7,2.5);}b.box(0,4.35,1.2,length+.5,.28,.3,'red');roof({w:length+1.5,d:5.5,eave:4.8,rise:1.6,curl:.4});b.at([0,.7,1.6],0,()=>rail(length));});}
- gallery([-14,0,-6],15);gallery([16,1,-11],12);gallery([-22,0,0],10,Math.PI/2);
+ gallery([-14,.65,-6],15);gallery([16,3.3,-11],12);gallery([-22,1.1,0],10,Math.PI/2);
  // Curved bridge carries actual curved deck strips, balusters, gilded caps and stone piers.
- b.at([1,0,5],0,()=>{const arch=x=>1.2+1.25*(1-(x/7.5)**2);for(let i=0;i<60;i++){let x=-7.5+15*(i+.5)/60,dy=-2.5*x/56.25;b.box(x,arch(x),0,.27,.22,2.9,'cedar',[0,0,Math.atan(dy)]);}
-  for(let z of[-1.5,1.5]){for(let i=0;i<50;i++){let x=-7.5+15*i/50,xx=-7.5+15*(i+1)/50;for(let h of[-.16,.35,.85])b.line([x,arch(x)+h,z],[xx,arch(xx)+h,z],h<0?.40:.12,'red',true,h<0?.35:.14);}
-   for(let i=0;i<=10;i++){let x=-7.5+i*1.5,y=arch(x);b.box(x,y+.48,z,.22,1.05,.22,'red');b.cyl(x,y+1.03,z,.16,.12,'gold');b.ball(x,y+1.18,z,.13,.17,.13);if(i%2===0)fitting(x,y-.06,z+.16,.38,.38);}
-   for(let i=0;i<40;i++){let x=-7.3+i*.375;b.box(x,arch(x)+.46,z,.075,.49,.075,'red');}
-  }for(let x of[-5.3,0,5.3])for(let z of[-.9,.9]){let support=arch(x)-.3;b.cyl(x,support/2,z,.34,support,'stone');b.box(x,support+.06,z,.75,.18,.75,'lightstone');}
- },[.8,1,1]);
+ b.at(layout.bridge.position,layout.bridge.yaw,()=>{const arch=x=>1.2+layout.bridge.archRise*(1-(x/7.5)**2)+layout.bridge.slope*x/7.5;for(let i=0;i<60;i++){let x=-7.5+15*(i+.5)/60,dy=-2*layout.bridge.archRise*x/56.25+layout.bridge.slope/7.5;b.box(x,arch(x),0,.27,.22,2.9,'cedar',[0,0,Math.atan(dy)]);}
+  for(let z of[-1.5,1.5]){for(let i=0;i<50;i++){let x=-7.5+15*i/50,xx=-7.5+15*(i+1)/50;for(let h of[-.16,.25,.65])b.line([x,arch(x)+h,z],[xx,arch(xx)+h,z],h<0?.40:.12,'red',true,h<0?.35:.14);}
+   for(let i=0;i<=10;i++){let x=-7.5+i*1.5,y=arch(x);b.box(x,y+.36,z,.22,.80,.22,'red');b.cyl(x,y+.77,z,.16,.10,'gold');b.ball(x,y+.91,z,.13,.14,.13);if(i%2===0)fitting(x,y-.06,z+.16,.38,.38);}
+   for(let i=0;i<40;i++){let x=-7.3+i*.375;b.box(x,arch(x)+.34,z,.075,.37,.075,'red');}
+  }for(let x of[-5.3,0,5.3])for(let z of[-.9,.9]){let support=arch(x)-.3+layout.bridge.position[1];b.cyl(x,support/2-layout.bridge.position[1],z,.34,support,'stone');b.box(x,support-layout.bridge.position[1]+.06,z,.75,.18,.75,'lightstone');}
+ },layout.bridge.scale);
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};
- const verandaBoards=buildVerandaBoards(T,b);let lowerVerandaRail;
- for(let z of[10,18,26,34,40]){column(16.0,z,1.36,7.6,.48);bracket(16.0,8.7,z,1.35);} // substantial vermilion column is cropped at the far right
- for(let z of[10,18,26,34,40]){b.box(15.6,9.0,z,8.7,.45,.52,'cedar');for(let x=12.3;x<20;x+=.9)fitting(x,9.0,z+.28,.34,.34);}
- b.box(16,9.62,25,9.8,.28,33,'darkwood');
- const flare=z=>{let t=Math.max(0,Math.min(1,(z-11)/8));return t*t*(3-2*t);};for(let z=8.5;z<41;z+=.46){let t=flare(z);b.box(16,9.42,z,10.8+2.2*t,.30,.22,'cedar');b.box(10.73-1.1*t,9.42,z,.13,.31,.26,'darkwood');}
- for(let j=0;j<36;j++){let z=8+j*34/36,zz=8+(j+1)*34/36;b.line([11.1-1.1*flare(z),9.08,z],[11.1-1.1*flare(zz),9.08,zz],.38,'red',true,.45);}b.box(19.6,9.08,25,.38,.45,34,'red');
- // Open lacquered balustrade: fine gilt castings sit between rounded red rails.
- b.at([.2,.27,0],0,()=>{
- const finial=new T.LatheGeometry([[0,0],[.085,0],[.11,.025],[.105,.045],[.075,.065],[.075,.10],[.135,.135],[.145,.16],[.135,.185],[.09,.215],[.045,.245],[.025,.28],[0,.30]].map(p=>new T.Vector2(...p)),24);
- for(let z=8;z<=41;z+=3.6){let x=14.4;b.box(x,1.81,z,.16,.94,.16,'red');b.put(finial,'gold',[x,2.25,z]);for(let j=0;j<16;j++){let aa=j*Math.PI/8;b.put(reliefLeaf,'oldgold',[x+Math.sin(aa)*.102,2.31,z+Math.cos(aa)*.102],[.32,.34,.35],[0,aa,j%2?.5:-.5]);}b.cyl(x,1.44,z,.12,.15,'oldgold');}
- lowerVerandaRail=buildLowerVerandaRail(T,b);
- for(let y of[1.96,2.27])b.line([14.4,y,8],[14.4,y,41],y===2.27?.065:.037,'red');
- for(let z=9.8;z<40;z+=3.6){b.at([14.34,1.77,z],Math.PI/2,()=>{
-  // Small dense cast-bronze inserts occupy the lower centre of each timber bay.
-  b.box(0,0,0,1.15,.55,.025,'darkwood');for(let yy of[-.275,.275])b.box(0,yy,.026,1.17,.025,.025,'oldgold');for(let xx of[-.575,.575])b.box(xx,0,.026,.025,.55,.025,'oldgold');
-  for(let ss of[-1,1])for(let row=0;row<3;row++){let cx=ss*(.13+row*.13);b.tube([[cx,-.24,.035],[cx-ss*.13,-.15,.045],[cx+ss*.11,.03,.045],[cx-ss*.08,.22,.045],[cx+ss*.03,.12,.045],[cx+ss*.08,.01,.045]],.012,'gold',24);for(let k=0;k<4;k++)b.put(b.sphere,'oldgold',[cx+ss*.06*Math.sin(k*2),-.19+k*.12,.055],[.025,.043,.015],[0,0,ss*(k%2?.7:-.7)]);}
-  for(let yy of[-.12,.12]){b.put(torus,'gold',[0,yy,.048],[.09,.09,.09]);rosette(0,yy,.056,.047);}
- });}
- },[1,.80,1]);
+ const verandaBoards=buildVerandaBoards(T,b);
+ const canopy=layout.canopy,edgeX=z=>canopy.entryWorld[0]+(z-canopy.entryWorld[2])*(canopy.farWorld[0]-canopy.entryWorld[0])/(canopy.farWorld[2]-canopy.entryWorld[2]);
+ for(let z of[2,10,18,26,34,40]){column(canopy.columnX,z,1.36,7.6,.48);bracket(canopy.columnX,8.7,z,1.35);}
+ for(let z of[2,10,18,26,34,40]){const outside=edgeX(z),span=20.5-outside;b.box(outside+span/2,9.0,z,span,.45,.52,'cedar');for(let x=outside+.6;x<20;x+=.9)fitting(x,9.0,z+.28,.34,.34);}
+ // Closed deck strips and real rafter ends follow the measured outer envelope.
+ // The former short horizontal fascia is replaced by one continuing canopy.
+ for(let z=-2;z<41;z+=.46){const outside=edgeX(z),span=20.5-outside;b.box(outside+span/2,9.62,z,span,.28,.465,'darkwood');b.box(outside+span/2,9.30,z,span,.44,.22,'cedar');b.box(outside+.07,9.30,z,.14,.44,.26,'darkwood');}
+ b.line([20.35,9.08,-2],[20.35,9.08,41],.38,'red',true,.45);
+ const foregroundRail=buildVerandaRail(T,b);
  // Six sided bronze lantern with emitting pierced panes, lattice curls and cast roof.
  const lampGlow=new T.MeshBasicMaterial({color:0xffc478,toneMapped:false});
  function lantern(x,y,z,s=1,ceiling=9.3){b.at([x,y,z],0,()=>{
@@ -165,6 +173,6 @@ export function buildArchitecture(mats){
   b.ball(0,.98,0,.13,.14,.13,'black');b.ball(0,-1.00,0,.11,.16,.11,'oldgold');b.ball(0,-1.21,0,.045,.11,.045,'gold');
  },s);
   const top=y+1.11*s;b.line([x,top,z],[x,ceiling,z],.016,'oldgold');for(let yy=top+.06;yy<ceiling;yy+=.13)b.put(torus,'oldgold',[x,yy,z],[.035,.048,.035],[0,yy*8,0]);const light=new T.PointLight(0xffb75f,22*s,8*s,2);light.position.set(x,y,z);lights.push(light);}
- lantern(13.6,6.5,15.5,.77);lantern(13.2,7.5,5.5,.48,9.3);lantern(18,7.8,7,.5,9.3);
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,verandaBoards,lowerVerandaRail},deck};
+ for(const lamp of layout.hangingLamps)lantern(...lamp.position,lamp.scale,9.3);lantern(18,7.8,7,.5,9.3);
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,verandaBoards,foregroundRail,layoutFit:{method:'fixed-camera native contour recovery',source:'tools/fit-layout02-117.py',visualAccepted:false}},deck};
 }

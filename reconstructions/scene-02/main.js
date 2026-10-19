@@ -4,6 +4,7 @@ import {installScannedTimber} from './scanned-timber.js';
 import {buildPagodaGrounding} from './pagoda-ground.js';
 import {buildArchitecture} from './architecture.js';
 import {buildGarden} from './garden.js';
+import {layout} from './layout117.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
@@ -11,7 +12,7 @@ import {GTAOPass} from 'three/addons/postprocessing/GTAOPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 const query=new URLSearchParams(location.search),width=Math.min(2048,Math.max(64,Number(query.get('w'))||960)),height=Math.min(2048,Math.max(64,Number(query.get('h'))||960));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(width,height);renderer.setPixelRatio(1);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.94;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;document.body.append(renderer.domElement);
-const scene=new T.Scene();scene.name='reference02-completely-rebuilt-veranda';scene.fog=new T.FogExp2(0xd3b181,.005);
+const scene=new T.Scene();scene.name='reference02-layout117-recovered-veranda';scene.fog=new T.FogExp2(0xd3b181,.005);
 const {mats,textures}=materials();mats.slate.side=T.DoubleSide;
 const architecture=buildArchitecture(mats),garden=buildGarden(mats),grounding=buildPagodaGrounding(mats);scene.add(architecture.group,garden.group,grounding.group,...architecture.lights,...garden.lights);
 const sunDirection=V([-.87,.23,-.75]).normalize();
@@ -31,7 +32,7 @@ const sky=new T.Mesh(new T.SphereGeometry(220,40,24),skyMaterial);sky.name='proc
 const sun=new T.DirectionalLight(0xffddb0,8.5);sun.target.position.set(-2,4,0);sun.position.copy(sun.target.position).add(sunDirection.clone().multiplyScalar(90));sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-34,right:34,top:34,bottom:-34,near:1,far:125});sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00008;sun.shadow.normalBias=.008;sun.shadow.radius=2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
 scene.add(new T.HemisphereLight(0xc6d5e8,0x3c3023,.10));const frontFill=new T.DirectionalLight(0xd3deec,.08);frontFill.position.set(18,26,25);scene.add(frontFill);const pondBounce=new T.DirectionalLight(0xffd09a,.18);pondBounce.name='soft-pond-bounce-approximation';pondBounce.position.set(-20,3.5,20);pondBounce.target.position.set(-1,5,-7);scene.add(pondBounce,pondBounce.target);
 const camera=new T.PerspectiveCamera(52,width/height,.12,300);
-const reference={position:[16.2,2.72,25],target:[-1.0,4.7,-7],fov:52};
+const reference={position:layout.referenceCamera.position,target:layout.referenceCamera.target,fov:layout.referenceCamera.fov};
 const reflectors=[];
 function mirror(name,w,d,p,opacity=.8,ripple=.0015){
  const o=new Reflector(new T.PlaneGeometry(w,d),{textureWidth:Math.min(width,1024),textureHeight:Math.min(height,1024),clipBias:.004,color:0x9a9a9a,multisample:0});o.rotation.x=-Math.PI/2;o.position.fromArray(p);o.name=name;o.material.transparent=true;o.material.depthWrite=false;
@@ -69,8 +70,10 @@ function setView(position,target,fov=52){camera.position.fromArray(position);cam
 function draw(){if(disposed)throw Error('Scene disposed');scene.updateMatrixWorld(true);renderer.setRenderTarget(null);composer.render(0);frames++;return {frame:frames,position:camera.position.toArray(),fov:camera.fov,width,height};}
 function renderReference(n=2){if(n!==2)throw Error('This independent reconstruction supports reference 02 only.');setView(reference.position,reference.target,reference.fov);return draw();}
 function renderView(position,target,time=0,fov=52){setView(position,target,fov);return draw();}
-const dolly=createDollyPath({points:[[15.1,2.1,23.6],[15.18,2.25,23.9],[15.8,2.6,24.6],reference.position],nearTarget:[14.4,2.4,22.4],farTarget:reference.target,fov:reference.fov});
+// Retain the real camera pullback. The close start now clears the recovered
+// rail/deck edge on its walkable side; the photographic endpoint is unchanged.
+const dolly=createDollyPath({points:[[15.7,2.1,23.6],[15.7,2.25,23.9],[15.9,2.6,24.6],reference.position],nearTarget:[15.2,2.4,22.7],farTarget:reference.target,fov:reference.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-function info(){return{reference:2,revision:'scene02-mesh73-closed-veranda-boards-lower-sill',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-layout117-fixed-camera-architecture-and-joined-rail',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);

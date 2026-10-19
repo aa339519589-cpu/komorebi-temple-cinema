@@ -1,0 +1,480 @@
+{
+  "status": "bounded layout rebuild candidate; visual fidelity unaccepted",
+  "visualAccepted": false,
+  "reference": "references/hd/1-\u7167\u7247-2.jpg",
+  "referenceSize": [
+    1254,
+    1254
+  ],
+  "baseline": {
+    "actual": "qa/ten-reference/02/iteration-mesh73b/reference.png",
+    "report": "qa/ten-reference/02/iteration-mesh73b/report.json",
+    "sourceHash": "e6952a0e1eea960b52bbceafe9187ceb17bbe68c7eaf1c2e15784d11a4485b53",
+    "baselineMatchesStartingSource": true
+  },
+  "actualAfter": {
+    "native": "qa/ten-reference/02/iteration-layout117-c/reference.png",
+    "nativeSubfrustum": "qa/ten-reference/02/iteration-layout117-c/detail-native.png",
+    "sourceHash": "2f2e782ff042ec1c242732fed4f2dc2a1465e2fa48098ae6fb6099b94201d9bd",
+    "sourceCommitAtRender": "814c879ad6e9b1552f254005e90902ce219501c5",
+    "report": "qa/ten-reference/02/iteration-layout117-c/report.json"
+  },
+  "camera": {
+    "position": [
+      16.2,
+      2.72,
+      25.0
+    ],
+    "target": [
+      -1.0,
+      4.7,
+      -7.0
+    ],
+    "fov": 52,
+    "status": "unchanged"
+  },
+  "trueMotion": {
+    "physicalCameraPullbackRetained": true,
+    "referenceEndpointUnchanged": true,
+    "closeStartAdjustedForRecoveredRailClearance": true,
+    "nativeMotionRerenderedInThisPass": false
+  },
+  "geometryChanges": [
+    "Opposite near-corner pagoda yaw, measured tier pitch and footprint, translated solid finial and load-bearing hill.",
+    "Hall footprint, yaw, width/height/depth, wide front gable, connected hip ridge and front gable visibility.",
+    "Rotated uphill bridge, lower measured balustrade, water-anchored stone piers, hall stair and shallow bridge approach.",
+    "Entire foreground rail replaced by continuous closed broad beams, uniform square posts/finials, structural stiles and framed lower inset panels; deck and rail share a spatial bearing curve.",
+    "Foreground canopy extends along recovered envelope, with cropped column and hanging lamp positions adjusted from native reference coordinates."
+  ],
+  "measurement": {
+    "count": 15,
+    "method": "Hand-read visible native photograph contours; metric dimensions fit by pinhole reprojection at fixed reference camera, with weak metric priors. No photographic pixels are consumed by scene geometry or materials.",
+    "projectionMetric": "Euclidean error of selected 3D anchors under fixed camera; not silhouette or overall image similarity.",
+    "beforeProjectionRmsPixels": 39.91250883108262,
+    "afterProjectionRmsPixels": 2.611909793868382,
+    "nativeManualMetric": "13 clear outer anchors hand-read on the final native actual at +/-4px. H5 is partly occluded; B1 is occluded and excluded from this manual subset. This subset does not establish photographic fidelity.",
+    "nativeManualVisibleAnchorRmsPixels": 2.2188007849009166
+  },
+  "landmarks": [
+    {
+      "id": "P1",
+      "group": "pagoda",
+      "description": "finial tip",
+      "referencePixel": [
+        414.0,
+        77.0
+      ],
+      "beforeProjection": [
+        416.2899536622606,
+        79.6061287509309
+      ],
+      "fitProjection": [
+        412.8489492934983,
+        77.03571430242698
+      ],
+      "beforeErrorPixels": 3.4692643084275607,
+      "fitErrorPixels": 1.1516046371632316,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        413,
+        77
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 1.0
+    },
+    {
+      "id": "P2",
+      "group": "pagoda",
+      "description": "upper roof near corner",
+      "referencePixel": [
+        390.0,
+        224.0
+      ],
+      "beforeProjection": [
+        441.4823297197439,
+        215.11037328544114
+      ],
+      "fitProjection": [
+        392.82638085997183,
+        225.26821125334516
+      ],
+      "beforeErrorPixels": 52.2441933280305,
+      "fitErrorPixels": 3.097868387896171,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        394,
+        226
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 4.47213595499958
+    },
+    {
+      "id": "P3",
+      "group": "pagoda",
+      "description": "lowest roof left tip",
+      "referencePixel": [
+        267.0,
+        529.0
+      ],
+      "beforeProjection": [
+        257.0567219739619,
+        536.6131406144401
+      ],
+      "fitProjection": [
+        267.9354565587398,
+        525.3842356966053
+      ],
+      "beforeErrorPixels": 12.523126124028698,
+      "fitErrorPixels": 3.7348133113976107,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        267,
+        526
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 3.0
+    },
+    {
+      "id": "P4",
+      "group": "pagoda",
+      "description": "lowest roof right tip",
+      "referencePixel": [
+        549.0,
+        529.0
+      ],
+      "beforeProjection": [
+        554.6334463736307,
+        549.4584271028265
+      ],
+      "fitProjection": [
+        548.8476251957695,
+        526.0829764600797
+      ],
+      "beforeErrorPixels": 21.2198717613052,
+      "fitErrorPixels": 2.9210005842883953,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        549,
+        527
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 2.0
+    },
+    {
+      "id": "H1",
+      "group": "hall",
+      "description": "gable tip",
+      "referencePixel": [
+        723.0,
+        196.0
+      ],
+      "beforeProjection": [
+        730.5260534204454,
+        204.22264132835733
+      ],
+      "fitProjection": [
+        721.1798721186028,
+        196.00740267147563
+      ],
+      "beforeErrorPixels": 11.146896900133557,
+      "fitErrorPixels": 1.820142935097235,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        721,
+        197
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 2.23606797749979
+    },
+    {
+      "id": "H2",
+      "group": "hall",
+      "description": "front eave left tip",
+      "referencePixel": [
+        499.0,
+        418.0
+      ],
+      "beforeProjection": [
+        510.309813693984,
+        413.79304879631064
+      ],
+      "fitProjection": [
+        500.3370213035842,
+        419.7662220687397
+      ],
+      "beforeErrorPixels": 12.066910301433873,
+      "fitErrorPixels": 2.215212486950437,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        499,
+        420
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 2.0
+    },
+    {
+      "id": "H3",
+      "group": "hall",
+      "description": "front eave right corner",
+      "referencePixel": [
+        879.0,
+        337.0
+      ],
+      "beforeProjection": [
+        946.3564791006777,
+        359.5838595714188
+      ],
+      "fitProjection": [
+        878.444077114614,
+        333.68912990967476
+      ],
+      "beforeErrorPixels": 71.04172006632156,
+      "fitErrorPixels": 3.3572177483008465,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        879,
+        334
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 3.0
+    },
+    {
+      "id": "H4",
+      "group": "hall",
+      "description": "left front column foot",
+      "referencePixel": [
+        643.0,
+        632.0
+      ],
+      "beforeProjection": [
+        616.7286521061966,
+        634.456036929595
+      ],
+      "fitProjection": [
+        642.3998828493341,
+        626.1714478845828
+      ],
+      "beforeErrorPixels": 26.385902250193823,
+      "fitErrorPixels": 5.8593651837599126,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        642,
+        629
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 3.1622776601683795
+    },
+    {
+      "id": "H5",
+      "group": "hall",
+      "description": "right front column foot",
+      "referencePixel": [
+        880.0,
+        610.0
+      ],
+      "beforeProjection": [
+        901.3251549524402,
+        626.9852048827819
+      ],
+      "fitProjection": [
+        881.0482802009104,
+        613.7328025130458
+      ],
+      "beforeErrorPixels": 27.262784499307188,
+      "fitErrorPixels": 3.8772033711197227,
+      "actualVisibility": "partly occluded by planted foreground",
+      "nativeManualPixelEstimate": null,
+      "nativeManualReadUncertaintyPixels": null
+    },
+    {
+      "id": "B1",
+      "group": "bridge",
+      "description": "near left finial tip",
+      "referencePixel": [
+        128.0,
+        711.0
+      ],
+      "beforeProjection": [
+        142.07137127132415,
+        705.3902395518417
+      ],
+      "fitProjection": [
+        128.06190626501035,
+        711.1005071582358
+      ],
+      "beforeErrorPixels": 15.148363005327289,
+      "fitErrorPixels": 0.11804268085811453,
+      "actualVisibility": "model finial is occluded by the left stone lantern; this layout issue remains open",
+      "nativeManualPixelEstimate": null,
+      "nativeManualReadUncertaintyPixels": null
+    },
+    {
+      "id": "B2",
+      "group": "bridge",
+      "description": "near right finial tip",
+      "referencePixel": [
+        669.0,
+        674.0
+      ],
+      "beforeProjection": [
+        667.8602905106615,
+        707.6821207407838
+      ],
+      "fitProjection": [
+        669.0785452158302,
+        673.8360539710649
+      ],
+      "beforeErrorPixels": 33.701397527652006,
+      "fitErrorPixels": 0.18179012991197757,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        669,
+        674
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 0.0
+    },
+    {
+      "id": "B3",
+      "group": "bridge",
+      "description": "near handrail crest",
+      "referencePixel": [
+        430.0,
+        646.0
+      ],
+      "beforeProjection": [
+        380.8972623191908,
+        665.2181247599949
+      ],
+      "fitProjection": [
+        429.86226601126316,
+        646.0722392200453
+      ],
+      "beforeErrorPixels": 52.72964220475128,
+      "fitErrorPixels": 0.15552863583954554,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        430,
+        646
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 0.0
+    },
+    {
+      "id": "R1",
+      "group": "rail",
+      "description": "nearest post finial tip",
+      "referencePixel": [
+        550.0,
+        855.0
+      ],
+      "beforeProjection": [
+        551.094241181979,
+        871.801621300488
+      ],
+      "fitProjection": [
+        549.9999999999999,
+        855.0000000000001
+      ],
+      "beforeErrorPixels": 16.83721598392536,
+      "fitErrorPixels": 1.6077746776921858e-13,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        550,
+        855
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 0.0
+    },
+    {
+      "id": "R2",
+      "group": "rail",
+      "description": "middle post finial tip",
+      "referencePixel": [
+        887.0,
+        767.0
+      ],
+      "beforeProjection": [
+        944.0747962001585,
+        782.3785805878797
+      ],
+      "fitProjection": [
+        886.9999999999995,
+        767.0
+      ],
+      "beforeErrorPixels": 59.11034682851675,
+      "fitErrorPixels": 4.547473508864641e-13,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        887,
+        768
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 1.0
+    },
+    {
+      "id": "R3",
+      "group": "rail",
+      "description": "far post finial tip",
+      "referencePixel": [
+        1147.0,
+        744.0
+      ],
+      "beforeProjection": [
+        1070.9944103530033,
+        753.4979205178328
+      ],
+      "fitProjection": [
+        1147.0,
+        744.0
+      ],
+      "beforeErrorPixels": 76.59673721347872,
+      "fitErrorPixels": 0.0,
+      "actualVisibility": "visible native contour",
+      "nativeManualPixelEstimate": [
+        1147,
+        745
+      ],
+      "nativeManualReadUncertaintyPixels": 4,
+      "nativeManualErrorPixels": 1.0
+    }
+  ],
+  "renderBudget": {
+    "native1254ReferenceFrames": 3,
+    "nativeSubfrustumFrames": 1,
+    "runner": "tools/render-one-reconstruction.mjs",
+    "mutex": "shared gpu-render-slot.mjs",
+    "softwareTestSuitesRun": false
+  },
+  "retainedCandidates": {
+    "a": {
+      "status": "rejected visual candidate",
+      "reasons": [
+        "Wide gable remained occluded by old hip.",
+        "Oversized flat gray bridge landing wall."
+      ],
+      "sourceHash": "84425316c5569a452a8870302d0b30c8dedd7f3d7fef8a60cd38db4ea841fa46"
+    },
+    "b": {
+      "status": "superseded visual candidate",
+      "reasons": [
+        "Bank intruded under bridge.",
+        "Bridge fence too tall above deck.",
+        "Foreground canopy envelope still wrong."
+      ],
+      "sourceHash": "3047e04592eda111781c6c5fa07ffa1b67d89d760cf22ae3abb4cd8f3fc77c7f"
+    },
+    "c": {
+      "status": "layout review candidate; not fidelity accepted",
+      "sourceHash": "2f2e782ff042ec1c242732fed4f2dc2a1465e2fa48098ae6fb6099b94201d9bd"
+    }
+  },
+  "nativeReviewLimitations": [
+    "Left stone lantern still occludes the bridge left finial that was used as a spatial anchor. Its position must be reviewed in the next broad garden-layout pass.",
+    "Planting arrangement, pond open-water distribution, lighting, roof finish and many details remain markedly unlike the photograph.",
+    "Sparse contour recovery does not prove apparent volume/depth everywhere; the native reference-before-after panels are the review evidence.",
+    "The source photograph does not admit perfectly regular rail perspective. A smooth plan and 69mm local deck rise with uniform structural dimensions are inferred.",
+    "No new native motion sequence was rendered under the still-render cap; physical camera movement is retained in source."
+  ],
+  "comparison": "qa/ten-reference/02/iteration-layout117-c/native-reference-before-after.png"
+}

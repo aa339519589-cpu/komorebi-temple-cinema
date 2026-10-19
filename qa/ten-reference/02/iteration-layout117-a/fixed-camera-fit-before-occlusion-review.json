@@ -1,0 +1,745 @@
+{
+  "reference": "references/hd/1-\u7167\u7247-2.jpg",
+  "nativePixels": [
+    1254,
+    1254
+  ],
+  "camera": {
+    "position": [
+      16.2,
+      2.72,
+      25.0
+    ],
+    "target": [
+      -1.0,
+      4.7,
+      -7.0
+    ],
+    "fov": 52,
+    "status": "unchanged"
+  },
+  "measurementMethod": "Hand-read visible native photograph contours; metric dimensions fit by pinhole reprojection at fixed reference camera, with weak metric priors. No photographic pixels are consumed by scene geometry or materials.",
+  "uncertaintyPixels": {
+    "clearContours": 3,
+    "partlyOccluded": 5
+  },
+  "visualAccepted": false,
+  "limitations": [
+    "Original reference perspective is imperfect. Fixed-camera fit retains nonzero contour residuals.",
+    "Broad proportions and rail joinery pass only; foliage, lighting, roof finish and many architectural details remain materially different."
+  ],
+  "fits": {
+    "pagoda": {
+      "parameters": [
+        -15.653576564399296,
+        5.546551778040175,
+        -15.842052933340328,
+        0.8415755399530989,
+        1.1716825470849022,
+        -0.27345374939230405,
+        2.2489289368170575
+      ],
+      "beforeParameters": [
+        -15.6,
+        5.1,
+        -16.0,
+        0.9,
+        1.1,
+        0.075,
+        2.65
+      ],
+      "targets": [
+        [
+          414.0,
+          77.0
+        ],
+        [
+          390.0,
+          224.0
+        ],
+        [
+          299.0,
+          270.0
+        ],
+        [
+          521.0,
+          264.0
+        ],
+        [
+          389.0,
+          499.0
+        ],
+        [
+          267.0,
+          529.0
+        ],
+        [
+          549.0,
+          529.0
+        ]
+      ],
+      "beforeProjection": [
+        [
+          416.2899536622606,
+          79.6061287509309
+        ],
+        [
+          441.4823297197439,
+          215.11037328544114
+        ],
+        [
+          292.04863079010784,
+          241.67166164472462
+        ],
+        [
+          529.3856908402528,
+          271.025383105407
+        ],
+        [
+          446.12552676855995,
+          524.6085345986787
+        ],
+        [
+          257.0567219739619,
+          536.6131406144401
+        ],
+        [
+          554.6334463736307,
+          549.4584271028265
+        ]
+      ],
+      "fitProjection": [
+        [
+          412.8489492934983,
+          77.03571430242698
+        ],
+        [
+          392.82638085997183,
+          225.26821125334516
+        ],
+        [
+          298.6048656227486,
+          265.5893771058899
+        ],
+        [
+          523.2082434624642,
+          266.99410471960744
+        ],
+        [
+          384.9839842285808,
+          504.8287744753426
+        ],
+        [
+          267.9354565587398,
+          525.3842356966053
+        ],
+        [
+          548.8476251957695,
+          526.0829764600797
+        ]
+      ],
+      "beforeRmsPixels": 34.30580570650927,
+      "fitRmsPixels": 4.087573135838259
+    },
+    "hall": {
+      "parameters": [
+        2.806487523828569,
+        3.0838743719291903,
+        -12.052804118961358,
+        0.5507670901749787,
+        0.8294324951031192,
+        0.6663453367213374,
+        -0.2704425869385706,
+        24.318208762308384,
+        10.318012540435827,
+        -10.860123572071092,
+        17.599870597758677,
+        6.264896383979258,
+        10.85042426421813,
+        16.687196574869095
+      ],
+      "beforeParameters": [
+        3.5,
+        2.73,
+        -10.0,
+        0.5,
+        0.76,
+        1.0,
+        0.0,
+        22.8,
+        7.2,
+        -8.8,
+        10.8,
+        5.5,
+        11.18,
+        16.25
+      ],
+      "targets": [
+        [
+          723.0,
+          196.0
+        ],
+        [
+          606.0,
+          397.0
+        ],
+        [
+          873.0,
+          330.0
+        ],
+        [
+          499.0,
+          418.0
+        ],
+        [
+          879.0,
+          337.0
+        ],
+        [
+          1128.0,
+          427.0
+        ],
+        [
+          643.0,
+          632.0
+        ],
+        [
+          880.0,
+          610.0
+        ],
+        [
+          643.0,
+          487.0
+        ],
+        [
+          880.0,
+          445.0
+        ]
+      ],
+      "beforeProjection": [
+        [
+          730.5260534204454,
+          204.22264132835733
+        ],
+        [
+          642.3352256786181,
+          371.96979704282904
+        ],
+        [
+          839.9754276229764,
+          345.3159111472184
+        ],
+        [
+          510.309813693984,
+          413.79304879631064
+        ],
+        [
+          946.3564791006777,
+          359.5838595714188
+        ],
+        [
+          1070.5223243649202,
+          472.03186887543643
+        ],
+        [
+          616.7286521061966,
+          634.456036929595
+        ],
+        [
+          901.3251549524402,
+          626.9852048827819
+        ],
+        [
+          616.7927304942779,
+          487.25779675225976
+        ],
+        [
+          899.4109687140783,
+          462.3966988522716
+        ]
+      ],
+      "fitProjection": [
+        [
+          721.4966908575183,
+          196.02140168672997
+        ],
+        [
+          606.2199816046925,
+          393.91011682459134
+        ],
+        [
+          874.1798606834082,
+          332.5538213862492
+        ],
+        [
+          500.3370213035842,
+          419.7662220687397
+        ],
+        [
+          878.444077114614,
+          333.68912990967476
+        ],
+        [
+          1128.2761315049077,
+          426.21486616527164
+        ],
+        [
+          642.3998828493341,
+          626.1714478845828
+        ],
+        [
+          881.0482802009104,
+          613.7328025130458
+        ],
+        [
+          642.3086121505595,
+          486.3802192521837
+        ],
+        [
+          879.2802628508693,
+          449.67112916031897
+        ]
+      ],
+      "beforeRmsPixels": 40.89754853702073,
+      "fitRmsPixels": 3.304625292603693
+    },
+    "bridge": {
+      "parameters": [
+        0.7874028638373505,
+        0.24665784765985274,
+        5.009781814064174,
+        0.6713042406621766,
+        0.9879249393904802,
+        0.39334431636154843,
+        1.32776645261485,
+        0.33720367602478274
+      ],
+      "beforeParameters": [
+        1.0,
+        0.0,
+        5.0,
+        0.8,
+        1.0,
+        0.0,
+        1.25,
+        0.0
+      ],
+      "targets": [
+        [
+          128.0,
+          711.0
+        ],
+        [
+          669.0,
+          674.0
+        ],
+        [
+          430.0,
+          646.0
+        ]
+      ],
+      "beforeProjection": [
+        [
+          142.07137127132415,
+          705.3902395518417
+        ],
+        [
+          667.8602905106615,
+          707.6821207407838
+        ],
+        [
+          380.8972623191908,
+          665.2181247599949
+        ]
+      ],
+      "fitProjection": [
+        [
+          128.07377590303327,
+          711.1085952665967
+        ],
+        [
+          669.0951979384052,
+          673.8130378897752
+        ],
+        [
+          429.83415512752686,
+          646.0821900814155
+        ]
+      ],
+      "beforeRmsPixels": 37.17379123387464,
+      "fitRmsPixels": 0.1784311493178284
+    },
+    "rail": {
+      "capToTopRailMetres": 0.24,
+      "postHeightMetres": 1.12,
+      "postAxes": [
+        [
+          15.193872543879204,
+          2.487151594449816,
+          23.368270846691118
+        ],
+        [
+          15.301670941934049,
+          2.555915138604973,
+          22.03832476365354
+        ],
+        [
+          15.586114982218282,
+          2.5316018838120358,
+          19.442761528529996
+        ]
+      ],
+      "topRailTargets": [
+        [
+          550.0,
+          1020.0
+        ],
+        [
+          887.0,
+          870.0
+        ],
+        [
+          1147.0,
+          804.0
+        ]
+      ],
+      "deckHeights": [
+        1.3671515944498158,
+        1.4359151386049729,
+        1.4116018838120357
+      ],
+      "targets": [
+        [
+          550.0,
+          855.0
+        ],
+        [
+          887.0,
+          767.0
+        ],
+        [
+          1147.0,
+          744.0
+        ]
+      ],
+      "beforeProjection": [
+        [
+          551.094241181979,
+          871.801621300488
+        ],
+        [
+          944.0747962001585,
+          782.3785805878797
+        ],
+        [
+          1070.9944103530033,
+          753.4979205178328
+        ]
+      ],
+      "fitProjection": [
+        [
+          550.0,
+          855.0
+        ],
+        [
+          887.0,
+          767.0
+        ],
+        [
+          1147.0,
+          744.0
+        ]
+      ],
+      "beforeRmsPixels": 56.69975042869121,
+      "fitRmsPixels": 0,
+      "note": "Equal 1.12m post height and equal .24m cap-to-handrail distance recover the actual spatial rail from cap and beam landmarks. A smooth deck edge varies only 69mm in elevation; continuous beams and two inset panels per structural bay share this same path."
+    }
+  },
+  "landmarks": [
+    {
+      "id": "P1",
+      "group": "pagoda",
+      "description": "finial tip",
+      "referencePixel": [
+        414.0,
+        77.0
+      ],
+      "beforeProjection": [
+        416.2899536622606,
+        79.6061287509309
+      ],
+      "fitProjection": [
+        412.8489492934983,
+        77.03571430242698
+      ],
+      "beforeErrorPixels": 3.4692643084275607,
+      "fitErrorPixels": 1.1516046371632316
+    },
+    {
+      "id": "P2",
+      "group": "pagoda",
+      "description": "upper roof near corner",
+      "referencePixel": [
+        390.0,
+        224.0
+      ],
+      "beforeProjection": [
+        441.4823297197439,
+        215.11037328544114
+      ],
+      "fitProjection": [
+        392.82638085997183,
+        225.26821125334516
+      ],
+      "beforeErrorPixels": 52.2441933280305,
+      "fitErrorPixels": 3.097868387896171
+    },
+    {
+      "id": "P3",
+      "group": "pagoda",
+      "description": "lowest roof left tip",
+      "referencePixel": [
+        267.0,
+        529.0
+      ],
+      "beforeProjection": [
+        257.0567219739619,
+        536.6131406144401
+      ],
+      "fitProjection": [
+        267.9354565587398,
+        525.3842356966053
+      ],
+      "beforeErrorPixels": 12.523126124028698,
+      "fitErrorPixels": 3.7348133113976107
+    },
+    {
+      "id": "P4",
+      "group": "pagoda",
+      "description": "lowest roof right tip",
+      "referencePixel": [
+        549.0,
+        529.0
+      ],
+      "beforeProjection": [
+        554.6334463736307,
+        549.4584271028265
+      ],
+      "fitProjection": [
+        548.8476251957695,
+        526.0829764600797
+      ],
+      "beforeErrorPixels": 21.2198717613052,
+      "fitErrorPixels": 2.9210005842883953
+    },
+    {
+      "id": "H1",
+      "group": "hall",
+      "description": "gable tip",
+      "referencePixel": [
+        723.0,
+        196.0
+      ],
+      "beforeProjection": [
+        730.5260534204454,
+        204.22264132835733
+      ],
+      "fitProjection": [
+        721.4966908575183,
+        196.02140168672997
+      ],
+      "beforeErrorPixels": 11.146896900133557,
+      "fitErrorPixels": 1.5034614760824534
+    },
+    {
+      "id": "H2",
+      "group": "hall",
+      "description": "front eave left tip",
+      "referencePixel": [
+        499.0,
+        418.0
+      ],
+      "beforeProjection": [
+        510.309813693984,
+        413.79304879631064
+      ],
+      "fitProjection": [
+        500.3370213035842,
+        419.7662220687397
+      ],
+      "beforeErrorPixels": 12.066910301433873,
+      "fitErrorPixels": 2.215212486950437
+    },
+    {
+      "id": "H3",
+      "group": "hall",
+      "description": "front eave right corner",
+      "referencePixel": [
+        879.0,
+        337.0
+      ],
+      "beforeProjection": [
+        946.3564791006777,
+        359.5838595714188
+      ],
+      "fitProjection": [
+        878.444077114614,
+        333.68912990967476
+      ],
+      "beforeErrorPixels": 71.04172006632156,
+      "fitErrorPixels": 3.3572177483008465
+    },
+    {
+      "id": "H4",
+      "group": "hall",
+      "description": "left front column foot",
+      "referencePixel": [
+        643.0,
+        632.0
+      ],
+      "beforeProjection": [
+        616.7286521061966,
+        634.456036929595
+      ],
+      "fitProjection": [
+        642.3998828493341,
+        626.1714478845828
+      ],
+      "beforeErrorPixels": 26.385902250193823,
+      "fitErrorPixels": 5.8593651837599126
+    },
+    {
+      "id": "H5",
+      "group": "hall",
+      "description": "right front column foot",
+      "referencePixel": [
+        880.0,
+        610.0
+      ],
+      "beforeProjection": [
+        901.3251549524402,
+        626.9852048827819
+      ],
+      "fitProjection": [
+        881.0482802009104,
+        613.7328025130458
+      ],
+      "beforeErrorPixels": 27.262784499307188,
+      "fitErrorPixels": 3.8772033711197227
+    },
+    {
+      "id": "B1",
+      "group": "bridge",
+      "description": "near left finial tip",
+      "referencePixel": [
+        128.0,
+        711.0
+      ],
+      "beforeProjection": [
+        142.07137127132415,
+        705.3902395518417
+      ],
+      "fitProjection": [
+        128.07377590303327,
+        711.1085952665967
+      ],
+      "beforeErrorPixels": 15.148363005327289,
+      "fitErrorPixels": 0.13128524591735694
+    },
+    {
+      "id": "B2",
+      "group": "bridge",
+      "description": "near right finial tip",
+      "referencePixel": [
+        669.0,
+        674.0
+      ],
+      "beforeProjection": [
+        667.8602905106615,
+        707.6821207407838
+      ],
+      "fitProjection": [
+        669.0951979384052,
+        673.8130378897752
+      ],
+      "beforeErrorPixels": 33.701397527652006,
+      "fitErrorPixels": 0.20980342737032429
+    },
+    {
+      "id": "B3",
+      "group": "bridge",
+      "description": "near handrail crest",
+      "referencePixel": [
+        430.0,
+        646.0
+      ],
+      "beforeProjection": [
+        380.8972623191908,
+        665.2181247599949
+      ],
+      "fitProjection": [
+        429.83415512752686,
+        646.0821900814155
+      ],
+      "beforeErrorPixels": 52.72964220475128,
+      "fitErrorPixels": 0.18509384432964734
+    },
+    {
+      "id": "R1",
+      "group": "rail",
+      "description": "nearest post finial tip",
+      "referencePixel": [
+        550.0,
+        855.0
+      ],
+      "beforeProjection": [
+        551.094241181979,
+        871.801621300488
+      ],
+      "fitProjection": [
+        550.0,
+        855.0
+      ],
+      "beforeErrorPixels": 16.83721598392536,
+      "fitErrorPixels": 0.0
+    },
+    {
+      "id": "R2",
+      "group": "rail",
+      "description": "middle post finial tip",
+      "referencePixel": [
+        887.0,
+        767.0
+      ],
+      "beforeProjection": [
+        944.0747962001585,
+        782.3785805878797
+      ],
+      "fitProjection": [
+        887.0,
+        767.0
+      ],
+      "beforeErrorPixels": 59.11034682851675,
+      "fitErrorPixels": 0.0
+    },
+    {
+      "id": "R3",
+      "group": "rail",
+      "description": "far post finial tip",
+      "referencePixel": [
+        1147.0,
+        744.0
+      ],
+      "beforeProjection": [
+        1070.9944103530033,
+        753.4979205178328
+      ],
+      "fitProjection": [
+        1147.0,
+        744.0
+      ],
+      "beforeErrorPixels": 76.59673721347872,
+      "fitErrorPixels": 0.0
+    }
+  ]
+}

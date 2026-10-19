@@ -1,0 +1,625 @@
+{
+  "reference": 2,
+  "entry": "reconstructions/scene-02/index.html",
+  "worktree": "/Users/mima1234/temple-layout02-117-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-19T03:58:14.747Z",
+  "source": {
+    "hash": "3047e04592eda111781c6c5fa07ffa1b67d89d760cf22ae3abb4cd8f3fc77c7f",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-02/altar-figure.js": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13",
+      "reconstructions/scene-02/architecture.js": "0838a74fb911b0f89059b86eec9a6cd3ef7115281e34139ff41e9e7d5a524abb",
+      "reconstructions/scene-02/asset-dependencies.json": "667693c235f875b5417ed5758e72a978eee41ef8caa4532aa5e4562df081a3e9",
+      "reconstructions/scene-02/garden.js": "0f797835e1b0972af2308d59e5db1c50a657dee8c3413c68a5f6fb167709b66a",
+      "reconstructions/scene-02/hall-entry.js": "95a2b92ad70cb1198e4a52cb2e6db7d5e211c487d740f43ef2c4b99143f3f288",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "9177c90cfbad2b569d0020530990c9a084928d8ed96c8580042afeec0d6af2af",
+      "reconstructions/scene-02/layout117.js": "5ad4aca5a15c5468bea38f068bb7865a55c13906ee883d26bd90ad3cfdccde2f",
+      "reconstructions/scene-02/main.js": "6c436333e151f9bd61f5a76d10be3be5451c8b5223f64df69d81f2a12f5ddde8",
+      "reconstructions/scene-02/pagoda-ground.js": "bfa8d33cf20db850820f743a73010a1c29b741f6802617f6130b246b1c961303",
+      "reconstructions/scene-02/scanned-timber.js": "0823c0126f811524aea11a28e87efd3a825543dd9092645fcc7bfaddcec37937",
+      "reconstructions/scene-02/sorin-solids.js": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c",
+      "reconstructions/scene-02/veranda-boards.js": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2",
+      "reconstructions/scene-02/veranda-rail117.js": "19efe78fe494834f34f0a5d518a47b941503b4dc96a92d6fe3abf5b04d0551ad"
+    }
+  },
+  "sourceCommit": "814c879ad6e9b1552f254005e90902ce219501c5",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-02/index.html",
+    "/reconstructions/scene-02/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/reconstructions/scene-02/kernel.js",
+    "/reconstructions/scene-02/scanned-timber.js",
+    "/reconstructions/scene-02/pagoda-ground.js",
+    "/reconstructions/scene-02/architecture.js",
+    "/reconstructions/scene-02/garden.js",
+    "/reconstructions/scene-02/layout117.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-02/hall-entry.js",
+    "/reconstructions/scene-02/sorin-solids.js",
+    "/reconstructions/scene-02/veranda-boards.js",
+    "/reconstructions/scene-02/veranda-rail117.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/reconstructions/scene-02/altar-figure.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          16.2,
+          2.72,
+          25
+        ],
+        "fov": 52,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 2,
+        "revision": "scene02-layout117-fixed-camera-architecture-and-joined-rail",
+        "ready": true,
+        "frames": 1,
+        "source": "actual procedural three-dimensional geometry only",
+        "architecture": {
+          "instances": 61924,
+          "buckets": 872,
+          "sorin": {
+            "kind": "closed lathe annular plates, rolled rims and continuous central post",
+            "plates": 19,
+            "rows": [
+              {
+                "height": 15.680000000000001,
+                "outerRadius": 0.48,
+                "rolledRimThickness": 0.10752,
+                "webThickness": 0.024640000000000002,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 15.95995862131477,
+                "outerRadius": 0.46799999999999997,
+                "rolledRimThickness": 0.10592,
+                "webThickness": 0.024273333333333334,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.23582827887692,
+                "outerRadius": 0.45599999999999996,
+                "rolledRimThickness": 0.10432000000000001,
+                "webThickness": 0.02390666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.507418553041894,
+                "outerRadius": 0.444,
+                "rolledRimThickness": 0.10271999999999999,
+                "webThickness": 0.02354,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 16.774516944919817,
+                "outerRadius": 0.432,
+                "rolledRimThickness": 0.10112,
+                "webThickness": 0.023173333333333334,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.036884563822472,
+                "outerRadius": 0.42,
+                "rolledRimThickness": 0.09952,
+                "webThickness": 0.022806666666666666,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.294250576896022,
+                "outerRadius": 0.408,
+                "rolledRimThickness": 0.09792000000000001,
+                "webThickness": 0.02244,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.54630493298543,
+                "outerRadius": 0.39599999999999996,
+                "rolledRimThickness": 0.09631999999999999,
+                "webThickness": 0.022073333333333334,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 17.792688618464428,
+                "outerRadius": 0.384,
+                "rolledRimThickness": 0.09472,
+                "webThickness": 0.021706666666666666,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.032980277034962,
+                "outerRadius": 0.372,
+                "rolledRimThickness": 0.09312,
+                "webThickness": 0.02134,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.266677280637083,
+                "outerRadius": 0.36,
+                "rolledRimThickness": 0.09152,
+                "webThickness": 0.020973333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.493167964743723,
+                "outerRadius": 0.348,
+                "rolledRimThickness": 0.08992,
+                "webThickness": 0.02060666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.711689038751512,
+                "outerRadius": 0.33599999999999997,
+                "rolledRimThickness": 0.08832,
+                "webThickness": 0.02024,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 18.92125641994199,
+                "outerRadius": 0.32399999999999995,
+                "rolledRimThickness": 0.08671999999999999,
+                "webThickness": 0.019873333333333333,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.120544103387935,
+                "outerRadius": 0.31199999999999994,
+                "rolledRimThickness": 0.08512,
+                "webThickness": 0.01950666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.307648499460022,
+                "outerRadius": 0.3,
+                "rolledRimThickness": 0.08352,
+                "webThickness": 0.019139999999999997,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.47955087856557,
+                "outerRadius": 0.28800000000000003,
+                "rolledRimThickness": 0.08192,
+                "webThickness": 0.018773333333333336,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.630494633714903,
+                "outerRadius": 0.276,
+                "rolledRimThickness": 0.08032,
+                "webThickness": 0.01840666666666667,
+                "boreRadius": 0.08
+              },
+              {
+                "height": 19.740000000000002,
+                "outerRadius": 0.264,
+                "rolledRimThickness": 0.07872,
+                "webThickness": 0.01804,
+                "boreRadius": 0.08
+              }
+            ],
+            "baseSeat": 14.9,
+            "bootTop": 15.3,
+            "top": 20.71,
+            "axisPreserved": true,
+            "referencePhotographUsedAsTexture": false
+          },
+          "verandaBoards": {
+            "boardCount": 225,
+            "boardColumns": 25,
+            "direction": "Z, following recovered veranda edge and bearing plane",
+            "boardWidthMetres": 0.228,
+            "thicknessMetres": 0.045,
+            "longJointMetres": 0.0069999999999999785,
+            "endJointMetres": 0.004,
+            "lengthRangeMetres": [
+              1.1979999999999986,
+              3.597999999999999
+            ],
+            "arrisRangeMetres": [
+              0.0015,
+              0.0022
+            ],
+            "topDifferenceRangeMetres": [
+              -0.0012,
+              0.0012
+            ],
+            "footprint": {
+              "edge": "shared verandaEdge(z) with foreground rail",
+              "widthMetres": 5.868,
+              "minZ": 9,
+              "maxZ": 39
+            },
+            "joists": 51,
+            "joistPitchMetres": 0.6,
+            "bearers": 18,
+            "nails": 900,
+            "triangles": 132300,
+            "segmentExamples": [
+              [
+                0,
+                9,
+                12.597999999999999
+              ],
+              [
+                0,
+                12.602,
+                16.198
+              ],
+              [
+                0,
+                16.201999999999998,
+                19.798000000000002
+              ],
+              [
+                0,
+                19.802,
+                23.398
+              ],
+              [
+                1,
+                9,
+                10.197999999999999
+              ],
+              [
+                1,
+                10.202,
+                13.797999999999998
+              ],
+              [
+                1,
+                13.802,
+                17.398
+              ],
+              [
+                1,
+                17.401999999999997,
+                20.998
+              ],
+              [
+                2,
+                9,
+                11.398
+              ],
+              [
+                2,
+                11.402000000000001,
+                14.998
+              ],
+              [
+                2,
+                15.002,
+                18.598000000000003
+              ],
+              [
+                2,
+                18.602,
+                22.198000000000004
+              ]
+            ],
+            "limits": "Board end layout and concealed framing are inferred; deck edge and level follow the recovered balustrade."
+          },
+          "foregroundRail": {
+            "kind": "one spatial balustrade with closed continuous broad beams and joined inset-panel bays",
+            "measuredPosts": [
+              [
+                15.586114982218282,
+                1.4116018838120357,
+                19.442761528529996
+              ],
+              [
+                15.301670941934049,
+                1.4359151386049729,
+                22.03832476365354
+              ],
+              [
+                15.193872543879204,
+                1.3671515944498158,
+                23.368270846691118
+              ]
+            ],
+            "structuralPostCount": 7,
+            "postSectionMetres": 0.12,
+            "postHeightMetres": 1.12,
+            "topRailSectionMetres": [
+              0.12,
+              0.075
+            ],
+            "middleRailSectionMetres": [
+              0.1,
+              0.105
+            ],
+            "bottomRailSectionMetres": [
+              0.12,
+              0.105
+            ],
+            "timberBeams": 4,
+            "insetPanels": 40,
+            "intermediateStiles": 34,
+            "deckControlPoints": [
+              [
+                16.2,
+                1.35,
+                8
+              ],
+              [
+                15.95,
+                1.35,
+                17
+              ],
+              [
+                15.586114982218282,
+                1.4116018838120357,
+                19.442761528529996
+              ],
+              [
+                15.301670941934049,
+                1.4359151386049729,
+                22.03832476365354
+              ],
+              [
+                15.193872543879204,
+                1.3671515944498158,
+                23.368270846691118
+              ],
+              [
+                14.9,
+                1.35,
+                26
+              ],
+              [
+                14.4,
+                1.35,
+                40
+              ]
+            ],
+            "photographicPixelsUsed": false,
+            "limits": "Curved plan, 69mm local deck rise and unequal bay lengths are inferred from visible cap/beam axes; the source photograph does not admit perfectly regular perspective."
+          },
+          "layoutFit": {
+            "method": "fixed-camera native contour recovery",
+            "source": "tools/fit-layout02-117.py",
+            "visualAccepted": false
+          }
+        },
+        "timber": {
+          "revision": "scene02-linear-grain-painted-timber-73-veranda",
+          "sourceLinearMeanY": 0.01505120736,
+          "normalMapPreserved": true,
+          "roughnessMapPreserved": true,
+          "floorReflection": "Actual board clearcoat/PBR roughness and the existing captured scene probe; no spanning mirror plane",
+          "targets": [
+            {
+              "name": "scene02-red",
+              "role": "pigment with normalised scan grain",
+              "pigment": "#bb4b29",
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-cedar",
+              "role": "pigment with normalised scan grain",
+              "pigment": "#9c4928",
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "pigment with normalised scan grain",
+              "pigment": "#925034",
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            },
+            {
+              "name": "scene02-darkwood",
+              "role": "retained original dark scan",
+              "pigment": null,
+              "sourceLinearMeanY": 0.01505120736,
+              "normalStrength": 0.18,
+              "photoRGB": false
+            }
+          ]
+        },
+        "garden": {
+          "instances": 434404,
+          "buckets": 433
+        },
+        "grounding": {
+          "closedGroundVolume": true,
+          "groundBottom": -0.92,
+          "groundJoin": -0.12,
+          "siteGroundHalfExtent": 60,
+          "raisedHillHalfExtent": [
+            12,
+            10
+          ],
+          "shoulderY": 5.096551778040175,
+          "footingContactY": 5.546551778040175,
+          "galleryLandingY": 6.750455595169912,
+          "mainSteps": 31,
+          "upperSteps": 6,
+          "instances": 8558,
+          "buckets": 7,
+          "worldCentre": [
+            -15.653576564399296,
+            -15.842052933340328
+          ],
+          "yaw": -0.27345374939230405
+        },
+        "camera": {
+          "position": [
+            16.2,
+            2.72,
+            25
+          ],
+          "target": [
+            -1,
+            4.7,
+            -7
+          ],
+          "fov": 52
+        },
+        "renderer": {
+          "calls": 1,
+          "triangles": 1
+        },
+        "limits": [
+          "Visual acceptance pending independent reference comparison.",
+          "CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.",
+          "Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.",
+          "Veranda board end joints and concealed framing are inferred where the source photo does not resolve them."
+        ],
+        "visualAcceptance": false
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.992422970577088,
+      "opaqueFraction": 1,
+      "rgbaSha256": "f404ee1422446576b91faf1fb35edb83d3dcb2cc03569856e99c8e480312c7b6"
+    }
+  ],
+  "completedAt": "2026-10-19T03:58:17.927Z"
+}

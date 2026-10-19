@@ -1,12 +1,13 @@
 import {T,Builder,gridGeometry} from './kernel.js';
+import {layout} from './layout117.js';
 
 // Closed, planted ground volume under the raised tower. Coordinates in this
 // group are metres, unlike the tower's .9/1.1/.9 architectural scale.
 export function buildPagodaGrounding(mats){
- const b=new Builder(mats),cx=-15.6,cz=-16,yaw=.075;
+ const b=new Builder(mats),cx=layout.pagoda.position[0],cz=layout.pagoda.position[2],yaw=layout.pagoda.yaw;
  let seed=205102;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
  const smooth=(a,c,x)=>{const t=Math.max(0,Math.min(1,(x-a)/(c-a)));return t*t*(3-2*t);};
- const start=-11.55,end=-4.20,flightWidth=1.65,plinthBottom=5.1,shoulder=4.65;
+ const start=-11.55,end=-4.20,flightWidth=1.65,plinthBottom=layout.pagoda.position[1],shoulder=plinthBottom-.45;
  function height(u,v){
   const radius=Math.pow((Math.abs(u)/12)**4+(Math.abs(v)/10)**4,.25),angle=Math.atan2(v,u);
   const r=radius*(1+smooth(.47,.82,radius)*(.027*Math.sin(angle*5)+.018*Math.sin(angle*9+.6)));
@@ -37,7 +38,7 @@ export function buildPagodaGrounding(mats){
    b.box(0,5.075,4.10,8.4,.05,.35,'lightstone');
   });
   for(let i=0;i<31;i++){const u0=start+(end-start)*i/31,u1=start+(end-start)*(i+1)/31,top=plinthBottom*(i+1)/31;b.box((u0+u1)/2,(top-.12)/2,0,u1-u0+.006,top+.12,flightWidth,'stone',0,.82+random()*.22);b.box((u0+u1)/2,top-.016,0,u1-u0,.032,flightWidth+.05,'lightstone');}
-  const gallery=5.1+1.1*(.8+.19+.075/2);
+  const gallery=plinthBottom+layout.pagoda.scale[1]*(.8+.19+.075/2);
   for(let i=0;i<6;i++){const u0=end+1.60*i/6,u1=end+1.60*(i+1)/6,top=plinthBottom+(gallery-plinthBottom)*(i+1)/6;b.box((u0+u1)/2,(top+plinthBottom)/2,0,u1-u0+.006,top-plinthBottom,flightWidth,'stone');b.box((u0+u1)/2,top-.014,0,u1-u0,.028,flightWidth+.05,'lightstone');}
   // Low contour courses retain planted shoulders; there is no exposed 5m wall.
   for(let side of[-1,1])for(let i=0;i<9;i++){const u=side*(5.55+.18*Math.sin(i)),v=-3.7+i*.90,h=height(u,v);b.put(rockGeo,hillsideRock,[u,h-.04,v],[.48,.24,.48],[0,random()*3,0],.82+random()*.25);}
@@ -54,5 +55,5 @@ export function buildPagodaGrounding(mats){
     for(let j=1;j<=16;j++){const t=j/16,sign=j%2?1:-1,s=.26+random()*.17;b.put(leaf,'leaf',[u+(tip[0]-u)*t,h+(tip[1]-h)*t,v+(tip[2]-v)*t],[s,s,s],[.25,a+sign*.8,sign*.2],.75+random()*.35);}}
   }
  });
- return {group:b.finish(),stats:{closedGroundVolume:true,groundBottom:-.92,groundJoin:-.12,siteGroundHalfExtent:60,raisedHillHalfExtent:[12,10],shoulderY:4.65,footingContactY:5.10,galleryLandingY:5.1+1.1*(.8+.19+.075/2),mainSteps:31,upperSteps:6,instances:b.count,buckets:b.buckets.size,worldCentre:[cx,cz],yaw}};
+ return {group:b.finish(),stats:{closedGroundVolume:true,groundBottom:-.92,groundJoin:-.12,siteGroundHalfExtent:60,raisedHillHalfExtent:[12,10],shoulderY:shoulder,footingContactY:plinthBottom,galleryLandingY:plinthBottom+layout.pagoda.scale[1]*(.8+.19+.075/2),mainSteps:31,upperSteps:6,instances:b.count,buckets:b.buckets.size,worldCentre:[cx,cz],yaw}};
 }
