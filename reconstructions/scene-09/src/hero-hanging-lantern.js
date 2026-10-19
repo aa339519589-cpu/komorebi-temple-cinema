@@ -1,9 +1,9 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
-// One bounded replacement: the near right veranda lamp only. Dimensions are
+// The two foreground veranda lamps reuse one closed metal assembly. Dimensions are
 // authored construction estimates from comparison, not a measured historic lamp.
-export const HERO_LANTERN_REVISION='scene09-one-bronze-pierced-hanging-lantern-76b';
+export const HERO_LANTERN_REVISION='scene09-two-bronze-pierced-hanging-lanterns-103b';
 const V=a=>new T.Vector3(...a),hash=(x,y)=>{const q=Math.sin(x*127.1+y*311.7+79.3)*43758.5453;return q-Math.floor(q);};
 const rect=(w,h)=>{const s=new T.Shape();s.moveTo(-w/2,-h/2);s.lineTo(w/2,-h/2);s.lineTo(w/2,h/2);s.lineTo(-w/2,h/2);s.closePath();return s;};
 function extrude(shape,depth,bevel=.001){const g=new T.ExtrudeGeometry(shape,{depth:depth-2*bevel,steps:1,bevelEnabled:bevel>0,bevelSize:bevel,bevelThickness:bevel,bevelSegments:1,curveSegments:6});g.translate(0,0,-depth/2+bevel);return g;}
@@ -86,8 +86,8 @@ export function createHeroHangingLantern(M,materials,textures){
   for(const a of[0,Math.PI/2])put(bar(.32,.014,.014),0,0,-.783,0,1,1,1,[0,a,0]);
   const meshes=accum.map(list=>{const g=mergeGeometries(list,false);for(const q of list)q.dispose();return g;});
   const triangles=meshes.reduce((n,g)=>n+g.attributes.position.count/3,0),bounds=new T.Box3();for(const g of meshes){g.computeBoundingBox();bounds.union(g.boundingBox);}
-  const info={revision:HERO_LANTERN_REVISION,anchor:[7.7,7.3,21.6],assemblyScale:1.35*.88,localBounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},triangles,closedMetalComponents:placements.length,metalMeshes:2,originalPaperSheets:4,originalLight:{color:0xffd39b,unscaledIntensity:38,unscaledDistance:7,decay:2},photoSampled:false,visualAccepted:false};
-  function install(api,x=7.7,y=7.3,z=21.6,s=1.35){api.group(x,y,z,0,()=>{
+  const info={revision:HERO_LANTERN_REVISION,anchor:[7.7,7.3,21.6],assemblyScale:1.35*.88,installations:[],localBounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},triangles,closedMetalComponents:placements.length,metalMeshes:2,originalPaperSheets:4,originalLight:{color:0xffd39b,unscaledIntensity:38,unscaledDistance:7,decay:2},photoSampled:false,visualAccepted:false};
+  function install(api,x=7.7,y=7.3,z=21.6,s=1.35){info.installations.push({position:[x,y,z],scale:s*.88});api.group(x,y,z,0,()=>{
     api.emit(meshes[0],patina);api.emit(meshes[1],edge);
     // Exact original paper transforms, material object, emissive attenuation and
     // local physical source. Other lamps and the external suspension stay intact.
