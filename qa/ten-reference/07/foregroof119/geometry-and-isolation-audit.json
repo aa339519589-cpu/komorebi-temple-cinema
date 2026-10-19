@@ -1,0 +1,266 @@
+{
+  "scope": "CPU integrity, projected roof registration and complete main.js isolation; not a photographic-fidelity acceptance.",
+  "baseCommit": "4ed9eb2d80ccab050e02efb6d9207769ef934047",
+  "revision": "scene07-measured-whole-gallery-roof-119",
+  "roof": {
+    "revision": "scene07-measured-whole-gallery-roof-119",
+    "footprint": [
+      9.6,
+      7.043106
+    ],
+    "visiblePitchFace": {
+      "ridgeWidth": 8,
+      "eaveWidth": 9.6,
+      "run": 3.521553,
+      "rise": 1.114107,
+      "curl": 0.38802
+    },
+    "oldLocalProfilePreserved": false,
+    "worldTransform": {
+      "position": [
+        1.904158,
+        8.938616,
+        30.756336
+      ],
+      "yaw": 1.078179
+    },
+    "tileLanes": 21,
+    "courses": 8,
+    "tilePitchMetres": 0.48,
+    "coverWidthMetres": 0.32,
+    "panWidthMetres": 0.4,
+    "nominalCourseLengthMetres": 0.440194125,
+    "ceramicWallMetres": [
+      0.022,
+      0.028
+    ],
+    "arrisBevelMetres": 0.004,
+    "embossDepthMetres": 0.02,
+    "counts": {
+      "covers": 146,
+      "pans": 150,
+      "raisedTerminals": 18,
+      "metalEnds": 30
+    },
+    "metricScaleInferred": true,
+    "fitRmsPixels": 9.801790877076128,
+    "photoTextureOrProjection": false,
+    "visualAccepted": false
+  },
+  "finite": true,
+  "geometries": [
+    {
+      "name": "gallery-closed-curved-bedding",
+      "indexed": true,
+      "vertices": 4290,
+      "triangles": 8576,
+      "signedVolume": 7.437519977301936,
+      "criticalRoofAssembly": true,
+      "closedIndexedEdges": true
+    },
+    {
+      "name": "gallery-solid-ceramic-end-seal",
+      "indexed": true,
+      "vertices": 322,
+      "triangles": 640,
+      "signedVolume": 0.006619815284535373,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": true
+    },
+    {
+      "name": "gallery-cast-bronze-medallion",
+      "indexed": true,
+      "vertices": 258,
+      "triangles": 512,
+      "signedVolume": 0.001795578997013276,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": true
+    },
+    {
+      "name": "gallery-thick-rolled-medallion-rim",
+      "indexed": true,
+      "vertices": 384,
+      "triangles": 768,
+      "signedVolume": 0.000668580418312684,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": true
+    },
+    {
+      "name": "",
+      "indexed": false,
+      "vertices": 3840,
+      "triangles": 1280,
+      "signedVolume": 0.00011901597400109576,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": false
+    },
+    {
+      "name": "",
+      "indexed": false,
+      "vertices": 3840,
+      "triangles": 1280,
+      "signedVolume": 0.00011901597363804898,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": false
+    },
+    {
+      "name": "",
+      "indexed": false,
+      "vertices": 3840,
+      "triangles": 1280,
+      "signedVolume": 0.0001190159733017354,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": false
+    },
+    {
+      "name": "",
+      "indexed": false,
+      "vertices": 3840,
+      "triangles": 1280,
+      "signedVolume": 0.00011901597279567471,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": false
+    },
+    {
+      "name": "",
+      "indexed": false,
+      "vertices": 3840,
+      "triangles": 1280,
+      "signedVolume": 0.0001190159725353683,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": false
+    },
+    {
+      "name": "gallery-raised-cast-centre",
+      "indexed": true,
+      "vertices": 194,
+      "triangles": 384,
+      "signedVolume": 0.00006302475547429095,
+      "criticalRoofAssembly": false,
+      "closedIndexedEdges": true
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "indexed": true,
+      "vertices": 30660,
+      "triangles": 60736,
+      "signedVolume": 0.5345291292989557,
+      "criticalRoofAssembly": true,
+      "closedIndexedEdges": true
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "indexed": true,
+      "vertices": 18900,
+      "triangles": 37200,
+      "signedVolume": 0.60979138241217,
+      "criticalRoofAssembly": true,
+      "closedIndexedEdges": true
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "indexed": true,
+      "vertices": 10710,
+      "triangles": 21216,
+      "signedVolume": 0.18123996902591608,
+      "criticalRoofAssembly": true,
+      "closedIndexedEdges": true
+    }
+  ],
+  "emissionCount": 274,
+  "supportRods": 64,
+  "boxes": 1,
+  "features": [
+    {
+      "id": "hip-ridge-junction",
+      "target": [
+        58,
+        754
+      ],
+      "actualPixel": [
+        57.9681338809091,
+        754.0180024268302
+      ],
+      "fitPixel": [
+        57.96866598696019,
+        754.018282977472
+      ],
+      "fitToSourceDeltaPixels": 0.0006015359608857171,
+      "referenceResidualPixels": 0.036599684666570396
+    },
+    {
+      "id": "hip-eave-corner",
+      "target": [
+        421,
+        937
+      ],
+      "actualPixel": [
+        428.2743230924364,
+        945.0485887949729
+      ],
+      "fitPixel": [
+        428.2610561445832,
+        945.04815315177
+      ],
+      "fitToSourceDeltaPixels": 0.01327409847559336,
+      "referenceResidualPixels": 10.848758364150147
+    },
+    {
+      "id": "near-eave-terminal",
+      "target": [
+        56,
+        1137
+      ],
+      "actualPixel": [
+        58.636303824275615,
+        1136.1035624409521
+      ],
+      "fitPixel": [
+        58.621058615420715,
+        1136.085862352856
+      ],
+      "fitToSourceDeltaPixels": 0.023360426186970838,
+      "referenceResidualPixels": 2.7845463097535124
+    },
+    {
+      "id": "middle-eave-terminal",
+      "target": [
+        232,
+        1056
+      ],
+      "actualPixel": [
+        229.46132744401592,
+        1063.9175162225629
+      ],
+      "fitPixel": [
+        229.4451074835439,
+        1063.9043558330786
+      ],
+      "fitToSourceDeltaPixels": 0.02088738779961424,
+      "referenceResidualPixels": 8.314560811074335
+    },
+    {
+      "id": "far-eave-terminal",
+      "target": [
+        376,
+        1003
+      ],
+      "actualPixel": [
+        368.72064008843853,
+        987.7425578671734
+      ],
+      "fitPixel": [
+        368.70518807193093,
+        987.7372248088027
+      ],
+      "fitToSourceDeltaPixels": 0.016346446884165367,
+      "referenceResidualPixels": 16.904988055559198
+    }
+  ],
+  "rmsPixels": 9.801644131179724,
+  "mainOutsideTwoAuthorizedLinesExact": true,
+  "mainAfterAuthorizedLinesRestoredSHA256": "baa3b8f5846f951a261ce29c652e48b1174c68fb67683a5801ed180795c20acc",
+  "baseMainSHA256": "baa3b8f5846f951a261ce29c652e48b1174c68fb67683a5801ed180795c20acc",
+  "photoRGBOrProjection": false,
+  "passed": true
+}

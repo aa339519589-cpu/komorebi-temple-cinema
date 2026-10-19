@@ -14,7 +14,7 @@ import {createWeatheredBoulderGeometry,createBoulderMossGeometry} from './boulde
 import {installScannedTimber,addTimberExtent} from './scanned-timber.js';
 import {loadScannedGardenStones} from './scanned-garden-stones.js';
 import {createRoofMaterials,buildPhysicalRoof,PHYSICAL_ROOF_REVISION} from './physical-roofs.js';
-import {buildForegroundGalleryRoof,FOREGROUND_ROOF_REVISION} from './foreground-gallery-roof.js';
+import {buildForegroundGalleryRoof,FOREGROUND_ROOF_REVISION,FOREGROUND_ROOF_LAYOUT} from './foreground-gallery-roof.js';
 import {loadIslandLanternStone,buildIslandStoneLantern} from './island-stone-lantern.js';
 const qp=new URLSearchParams(location.search),W=+(qp.get('w')||innerWidth),H=+(qp.get('h')||innerHeight);
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(W,H);renderer.setPixelRatio(1);renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;document.body.append(renderer.domElement);
@@ -167,7 +167,7 @@ lantern(-6.8,3,5.5,2.8);lantern(9,2,5.7,2.8);lantern(-14,8,2.5);lantern(2.3,5,2.
 // Foreground is a built veranda and a separate low roof seen from above.
 transform=new T.Matrix4();
 let foregroundRoof;
-group(2.3,6.4,24.5,-.22,1,()=>{foregroundRoof=buildForegroundGalleryRoof({emit,box,rod,tube});});
+group(...FOREGROUND_ROOF_LAYOUT.position,FOREGROUND_ROOF_LAYOUT.yaw,1,()=>{foregroundRoof=buildForegroundGalleryRoof({emit,box,rod,tube});});
 // The former near roof advanced 24 lanes * (9 courses + 2 extra pipes).
 // Preserve downstream framing/maple/forest randomness without retaining PVC.
 for(let i=0;i<24*(9+2);i++)R();

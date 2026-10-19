@@ -1,21 +1,24 @@
 {
-  "revision": "scene07-short-lapped-gallery-tiles-68b",
+  "revision": "scene07-measured-whole-gallery-roof-119",
   "source": "reconstructions/scene-07/src/foreground-gallery-roof.js",
-  "construction": "Project-authored closed short clay pan/cover shells, real lap steps, 4 mm arrises, thin closed bedding, segmented hip/ridge caps and closed embossed bronze/gilt terminal seals.",
-  "geometryMethod": "Adapts the closed two-layer tile shell method previously authored in scene03/scene03-roof-solids.js; dimensions, retained roof sampler, course layout, stamped terminal geometry and material are scene07-local.",
+  "scope": "Whole separate low near-gallery roof: replace the former steep expanding hip wedge, physical pitch, footprint, yaw and placement. Main hall/pagoda, bridge/rail, camera, light and garden remain unchanged in this branch.",
+  "construction": "Project-authored closed clay pan/cover shells and bedding, 8 courses and 21 parallel lanes on a broad shallow slope, segmented hip/ridge caps, closed bronze/gilt terminal seals and support datums following the new footprint. Former unsupported gold ridge horns omitted.",
+  "geometryMethod": "Foreground roof uses a fitted real 3D parameterized surface; existing closed tile shells and materials are retained. The mesh67 curve and transform are deliberately replaced.",
   "reference": "references/hd/6-\u7167\u7247-7.jpg, comparison only",
   "sourcePhotoRgbDepthOrProjection": false,
   "newExternalDependencies": [],
-  "materials": "Deterministic mathematical neutral ceramic albedo/roughness/pores with restrained colour variation; 0 metalness, high roughness and low clearcoat. Cast terminal materials have real thick rolled rims and pierced raised leaves. No whole-roof exposure or lighting change.",
-  "fixedWorldTransform": {
+  "materials": "Existing deterministic neutral ceramic, roughness, pores and aged metal materials retained. No exposure or lighting adjustment.",
+  "worldTransform": {
     "position": [
-      2.3,
-      6.4,
-      24.5
+      1.904158,
+      8.938616,
+      30.756336
     ],
-    "yaw": -0.22
+    "yaw": 1.078179
   },
-  "fixedLocalWeatherProfile": "The mesh67 roof P(t,u) is retained exactly: x=u*(2.88+3.12*t), y=2*(1-t)^1.65+.28*t^7*(.2+.8*abs(u)^5), z=4.5*t.",
+  "localSurface": {"ridgeHalf": 4.0,"eaveHalf": 4.8,"run": 3.521553,"rise": 1.114107,"curl": 0.388020,"formula": "x=u*(ridgeHalf+(eaveHalf-ridgeHalf)*t); y=rise*max(0,1-t)^1.65+curl*t^7*(.2+.8*abs(u)^5); z=run*t"},
+  "rowDimensions": {"tilePitchMetres": 0.48,"coverWidthMetres": 0.32,"panWidthMetres": 0.40,"courses": 8,"courseRunMetres": 0.440194125,"eaveTerminalLaneStride": 2},
+  "fit": {"source": "qa/ten-reference/07/foregroof119/fit-roof.mjs","result": "qa/ten-reference/07/foregroof119/fit-result.json","points": 5,"rmsPixelsAt1254": 9.801790877076128,"annotationUncertaintyPixels": [10,20],"metricScaleInferred": true,"limits": "Single-view dimensions/absolute height/depth are nonunique. Ridge half-span reaches its declared 4 m fit bound. Point residuals do not establish photographic fidelity."},
   "retainedRandomStream": "Consume the former near-roof 24*(9+2)=264 tint samples after replacement to preserve later maple/forest placement.",
   "copyright": "Original reference photograph copyright remains with its owner.",
   "visualAccepted": false

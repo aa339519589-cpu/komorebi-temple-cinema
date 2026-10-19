@@ -1,17 +1,22 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
-export const FOREGROUND_ROOF_REVISION='scene07-short-lapped-gallery-tiles-68b';
+export const FOREGROUND_ROOF_REVISION='scene07-measured-whole-gallery-roof-119';
+// Fixed-camera fit of the whole foreground slope and its two edge families.
+// World dimensions/depth are a metric hypothesis, not recovered photo depth.
+export const FOREGROUND_ROOF_LAYOUT=Object.freeze({position:Object.freeze([1.904158,8.938616,30.756336]),yaw:1.078179,ridgeHalf:4.0,eaveHalf:4.8,run:3.521553,rise:1.114107,curl:.388020,tilePitch:.48,courses:8});
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const q=Math.sin(x*127.1+y*311.7+83.7)*43758.5453;return q-Math.floor(q);};
 const lin=(a,b,n)=>Array.from({length:n+1},(_,i)=>a+(b-a)*i/n);
 const smooth=(a,b,x)=>{const t=T.MathUtils.clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
 const V=p=>new T.Vector3(...p);
 
-// The mesh67 gallery's exact old local weather profile and footprint.
-export function foregroundPoint(t,u){const span=2.88+3.12*t;return[u*span,2*Math.pow(Math.max(0,1-t),1.65)+.28*Math.pow(t,7)*(.2+.8*Math.pow(Math.abs(u),5)),4.5*t];}
+export const foregroundSpan=t=>FOREGROUND_ROOF_LAYOUT.ridgeHalf+(FOREGROUND_ROOF_LAYOUT.eaveHalf-FOREGROUND_ROOF_LAYOUT.ridgeHalf)*t;
+// Broad shallow face with a short hip shoulder, rather than the former steep
+// wedge which doubled its width over a long near-camera run.
+export function foregroundPoint(t,u){const {rise,curl,run}=FOREGROUND_ROOF_LAYOUT;return[u*foregroundSpan(t),rise*Math.pow(Math.max(0,1-t),1.65)+curl*Math.pow(t,7)*(.2+.8*Math.pow(Math.abs(u),5)),run*t];}
 function frameAt(t,u,parallel=false){
- const p=V(foregroundPoint(t,u)),e=.0001,ta=Math.max(0,t-e),tb=Math.min(1,t+e),x=p.x,a=V(foregroundPoint(ta,parallel?x/(2.88+3.12*ta):u)),b=V(foregroundPoint(tb,parallel?x/(2.88+3.12*tb):u)),forward=b.sub(a).normalize(),across=new T.Vector3(0,1,0).cross(forward).normalize(),up=forward.clone().cross(across).normalize();return{p,forward,across,up};
+ const p=V(foregroundPoint(t,u)),e=.0001,ta=Math.max(0,t-e),tb=Math.min(1,t+e),x=p.x,a=V(foregroundPoint(ta,parallel?x/foregroundSpan(ta):u)),b=V(foregroundPoint(tb,parallel?x/foregroundSpan(tb):u)),forward=b.sub(a).normalize(),across=new T.Vector3(0,1,0).cross(forward).normalize(),up=forward.clone().cross(across).normalize();return{p,forward,across,up};
 }
 
 // Closed clay shells, with a shallow bevel, millimetre pitting and a real
@@ -69,28 +74,29 @@ function makeMaterials(){
  return{ceramic,ceramicEnd,bronze,gilt,deck,dispose(){for(const m of[ceramic,ceramicEnd,bronze,gilt,deck])m.dispose();for(const t of textures)t.dispose();}};
 }
 export function buildForegroundGalleryRoof(api){
- const {emit,rod,tube,box}=api,materials=makeMaterials(),covers=[],pans=[],special=[],ends=createEndParts(),pitch=.48,courses=15,counts={covers:0,pans:0,raisedTerminals:0,metalEnds:0};
+ const {emit,rod,box}=api,materials=makeMaterials(),covers=[],pans=[],special=[],ends=createEndParts(),{ridgeHalf,eaveHalf,tilePitch:pitch,courses,run}=FOREGROUND_ROOF_LAYOUT,lanes=Math.round(2*eaveHalf/pitch),ridgeSegments=Math.ceil(2*ridgeHalf/pitch),counts={covers:0,pans:0,raisedTerminals:0,metalEnds:0};
  const add=(g,list)=>{list.push(g);};
  emit(closedDeck(),materials.deck,0,0,0);
- for(let i=0;i<=25;i++){
-  const x=-6+pitch*i,start=Math.max(0,(Math.abs(x)-2.88)/3.12);
+ for(let i=0;i<=lanes;i++){
+  const x=-eaveHalf+pitch*i,start=Math.max(0,(Math.abs(x)-ridgeHalf)/(eaveHalf-ridgeHalf));
   for(let j=0;j<courses;j++){
    const ta=Math.max(start,j/courses),tb=Math.min(1,(j+1)/courses+.008);if(tb<=ta+.001)continue;
-   add(createGalleryTile(lin(ta,tb,6).map(t=>foregroundPoint(t,x/(2.88+3.12*t))),.32,{variant:i*31+j*7}),covers);counts.covers++;
+   add(createGalleryTile(lin(ta,tb,6).map(t=>foregroundPoint(t,x/foregroundSpan(t))),.32,{variant:i*31+j*7}),covers);counts.covers++;
   }
-  if(i<25){const xx=x+pitch/2,begin=Math.max(0,(Math.abs(xx)-2.88)/3.12);for(let j=0;j<courses;j++){const ta=Math.max(begin,j/courses),tb=Math.min(1,(j+1)/courses+.008);if(tb<=ta+.001)continue;add(createGalleryTile(lin(ta,tb,6).map(t=>foregroundPoint(t,xx/(2.88+3.12*t))),.40,{cover:false,crown:.03,bed:.21,lap:.022,thickness:.022,variant:i*23+j*11}),pans);counts.pans++;}}
-  placeEnd(1,x/6,.24);
+  if(i<lanes){const xx=x+pitch/2,begin=Math.max(0,(Math.abs(xx)-ridgeHalf)/(eaveHalf-ridgeHalf));for(let j=0;j<courses;j++){const ta=Math.max(begin,j/courses),tb=Math.min(1,(j+1)/courses+.008);if(tb<=ta+.001)continue;add(createGalleryTile(lin(ta,tb,6).map(t=>foregroundPoint(t,xx/foregroundSpan(t))),.40,{cover:false,crown:.03,bed:.21,lap:.022,thickness:.022,variant:i*23+j*11}),pans);counts.pans++;}}
+  // The photograph resolves broad terminals on alternate near-eave lanes.
+  if(i%2===1||i===0||i===lanes)placeEnd(1,x/eaveHalf,.24);
   // Selected raised short terminal pieces preserve the reference's scattered
   // glazed/cast medallions without the former full rows of long round pipes.
-  if(i%2===0)for(const t of[.20,.40])if(Math.abs(x)<2.88+3.12*t-.16){const u=x/(2.88+3.12*t),points=lin(t-.05,t,6).map((q,k)=>{const uq=x/(2.88+3.12*q),f=frameAt(q,uq,true);return f.p.addScaledVector(f.up,.24+.19*(k/6)**1.3).toArray();});add(createGalleryTile(points,.40,{bed:0,crown:.20,lap:0,thickness:.028,variant:i*13+t*31}),special);counts.raisedTerminals++;const curve=new T.CatmullRomCurve3(points.map(V));placeEnd(t,u,.43,curve.getPoint(1),curve.getTangent(1));}
+  if(i%2===0)for(const t of[.20,.40])if(Math.abs(x)<foregroundSpan(t)-.16){const u=x/foregroundSpan(t),points=lin(t-.05,t,6).map((q,k)=>{const uq=x/foregroundSpan(q),f=frameAt(q,uq,true);return f.p.addScaledVector(f.up,.24+.19*(k/6)**1.3).toArray();});add(createGalleryTile(points,.40,{bed:0,crown:.20,lap:0,thickness:.028,variant:i*13+t*31}),special);counts.raisedTerminals++;const curve=new T.CatmullRomCurve3(points.map(V));placeEnd(t,u,.43,curve.getPoint(1),curve.getTangent(1));}
  }
- for(const sign of[-1,1])for(let j=0;j<15;j++){const ta=j/15,tb=Math.min(1,(j+1)/15+.008);add(createGalleryTile(lin(ta,tb,6).map(t=>foregroundPoint(t,sign)),.34,{bed:.27,crown:.17,lap:.025,thickness:.027,variant:sign*53+j*19}),special);}
- for(let j=0;j<14;j++){const xa=-2.88+j*5.76/14,xb=-2.88+(j+1.08)*5.76/14;add(createGalleryTile(lin(xa,Math.min(2.88,xb),6).map(x=>[x,2.14,0]),.31,{bed:.035,crown:.17,lap:.025,thickness:.027,variant:j*29}),special);}
+ for(const sign of[-1,1])for(let j=0;j<courses;j++){const ta=j/courses,tb=Math.min(1,(j+1)/courses+.008);add(createGalleryTile(lin(ta,tb,6).map(t=>foregroundPoint(t,sign)),.34,{bed:.27,crown:.17,lap:.025,thickness:.027,variant:sign*53+j*19}),special);}
+ for(let j=0;j<ridgeSegments;j++){const xa=-ridgeHalf+j*2*ridgeHalf/ridgeSegments,xb=-ridgeHalf+(j+1.08)*2*ridgeHalf/ridgeSegments;add(createGalleryTile(lin(xa,Math.min(ridgeHalf,xb),6).map(x=>[x,FOREGROUND_ROOF_LAYOUT.rise+.14,0]),.31,{bed:.035,crown:.17,lap:.025,thickness:.027,variant:j*29}),special);}
  for(const list of[covers,pans,special]){const g=mergeGeometries(list,false);g.name='foreground-lapped-ceramic-assembly';emit(g,materials.ceramic,0,0,0);for(const p of list)p.dispose();}
- // Retained support datums and ridge-end ornaments, all under the same old transform.
+ // Rafters, fascia and ridge seat follow the rebuilt footprint/profile.
  for(let i=0;i<=23;i++){const u=-1+2*i/23,a=foregroundPoint(.82,u),b=foregroundPoint(1.035,u);a[1]-=.22;b[1]-=.22;rod(a,b,.065,'red');}
  for(let j=0;j<40;j++){const a=foregroundPoint(1,-1+j*.05),b=foregroundPoint(1,-1+(j+1)*.05);a[1]-=.14;b[1]-=.14;rod(a,b,.10,'wood');}
- box(0,2.13,0,5.91,.25,.28,'tile');for(const sign of[-1,1])tube([[sign*2.88,2.1,0],[sign*3.08,2.3,0],[sign*3.11,2.65,0],[sign*2.96,2.8,0]],.075,'gold');
+ box(0,FOREGROUND_ROOF_LAYOUT.rise+.13,0,2*ridgeHalf+.15,.25,.28,'tile');
  function placeEnd(t,u,lift,centre=null,tangent=null){const f=frameAt(t,u,true),forward=tangent?tangent.clone().normalize():f.forward,across=new T.Vector3(0,1,0).cross(forward).normalize(),up=forward.clone().cross(across).normalize(),p=(centre?centre.clone():f.p.clone().addScaledVector(f.up,lift)).addScaledVector(forward,.035),basis=new T.Matrix4().makeBasis(across,up,forward),e=new T.Euler().setFromRotationMatrix(basis),rot=[e.x,e.y,e.z];for(const part of ends)emit(part.g,part.m==='ceramic'?materials.ceramicEnd:materials[part.m],p.x,p.y,p.z,1,1,1,rot);counts.metalEnds++;}
- return{audit:{revision:FOREGROUND_ROOF_REVISION,footprint:[12,9],oldLocalProfilePreserved:true,worldTransform:{position:[2.3,6.4,24.5],yaw:-.22},tilePitchMetres:pitch,coverWidthMetres:.32,panWidthMetres:.40,nominalCourseLengthMetres:.33,ceramicWallMetres:[.022,.028],arrisBevelMetres:.004,embossDepthMetres:.02,counts,photoTextureOrProjection:false,visualAccepted:false},dispose(){materials.dispose();}};
+ return{audit:{revision:FOREGROUND_ROOF_REVISION,footprint:[2*eaveHalf,2*run],visiblePitchFace:{ridgeWidth:2*ridgeHalf,eaveWidth:2*eaveHalf,run,rise:FOREGROUND_ROOF_LAYOUT.rise,curl:FOREGROUND_ROOF_LAYOUT.curl},oldLocalProfilePreserved:false,worldTransform:{position:[...FOREGROUND_ROOF_LAYOUT.position],yaw:FOREGROUND_ROOF_LAYOUT.yaw},tileLanes:lanes+1,courses,tilePitchMetres:pitch,coverWidthMetres:.32,panWidthMetres:.40,nominalCourseLengthMetres:run/courses,ceramicWallMetres:[.022,.028],arrisBevelMetres:.004,embossDepthMetres:.02,counts,metricScaleInferred:true,fitRmsPixels:9.801790877076128,photoTextureOrProjection:false,visualAccepted:false},dispose(){materials.dispose();}};
 }

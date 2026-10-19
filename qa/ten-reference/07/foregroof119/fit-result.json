@@ -1,0 +1,188 @@
+{
+  "scope": "Whole foreground gallery roof orientation, slope and footprint fit; hand-measured features with approximately 10–20px annotation uncertainty. Not an exact photographic recovery.",
+  "camera": {
+    "position": [
+      10.7,
+      12.8,
+      36
+    ],
+    "target": [
+      0,
+      7,
+      -2
+    ],
+    "fov": 47,
+    "size": 1254
+  },
+  "dimensions": {
+    "ridgeHalf": 4.000000331175679,
+    "eaveHalf": 4.8,
+    "tilePitch": 0.48,
+    "capStride": 2
+  },
+  "parameterOrder": [
+    "x",
+    "y",
+    "z",
+    "yawRadians",
+    "run",
+    "rise",
+    "curl",
+    "ridgeHalf"
+  ],
+  "parameters": [
+    1.9041582896078806,
+    8.93861597921856,
+    30.756335609180795,
+    1.0781786867327972,
+    3.5215529043514016,
+    1.1141073897298215,
+    0.38801975622578005,
+    4.000000331175679
+  ],
+  "objective": 481.1087092225789,
+  "bounds": [
+    [
+      -5,
+      8
+    ],
+    [
+      5.3,
+      9.8
+    ],
+    [
+      22,
+      32
+    ],
+    [
+      0.1,
+      1.65
+    ],
+    [
+      1.6,
+      7.5
+    ],
+    [
+      0.3,
+      2.5
+    ],
+    [
+      0.03,
+      1.2
+    ],
+    [
+      0.4,
+      4
+    ]
+  ],
+  "observations": [
+    {
+      "id": "hip-ridge-junction",
+      "kind": "hip",
+      "t": 0,
+      "u": 1,
+      "target": [
+        58,
+        754
+      ],
+      "weight": 1,
+      "pixel": [
+        57.96866598696019,
+        754.018282977472
+      ],
+      "world": [
+        3.948949542058523,
+        10.364637372427032,
+        27.274177242196554
+      ],
+      "errorPixels": 0.03627792218997854
+    },
+    {
+      "id": "hip-eave-corner",
+      "kind": "cap",
+      "t": 1,
+      "u": 1,
+      "target": [
+        421,
+        937
+      ],
+      "weight": 1,
+      "pixel": [
+        428.2610561445832,
+        945.04815315177
+      ],
+      "world": [
+        7.224732047687036,
+        9.57782493109944,
+        28.16443263700386
+      ],
+      "errorPixels": 10.83954360151452
+    },
+    {
+      "id": "near-eave-terminal",
+      "kind": "cap",
+      "t": 1,
+      "x": 2.4,
+      "target": [
+        56,
+        1137
+      ],
+      "weight": 1,
+      "pixel": [
+        58.621058615420715,
+        1136.085862352856
+      ],
+      "world": [
+        6.1888830060747,
+        9.278502395565079,
+        30.33230961480354
+      ],
+      "errorPixels": 2.775895513775135
+    },
+    {
+      "id": "middle-eave-terminal",
+      "kind": "cap",
+      "t": 1,
+      "x": 3.36,
+      "target": [
+        232,
+        1056
+      ],
+      "weight": 1,
+      "pixel": [
+        229.4451074835439,
+        1063.9043558330786
+      ],
+      "world": [
+        6.62693682165077,
+        9.324118088725864,
+        29.477887543790505
+      ],
+      "errorPixels": 8.307004087308945
+    },
+    {
+      "id": "far-eave-terminal",
+      "kind": "cap",
+      "t": 1,
+      "x": 4.32,
+      "target": [
+        376,
+        1003
+      ],
+      "weight": 1,
+      "pixel": [
+        368.70518807193093,
+        987.7372248088027
+      ],
+      "world": [
+        7.034935967828896,
+        9.457063749573035,
+        28.607333472038974
+      ],
+      "errorPixels": 16.91645907401802
+    }
+  ],
+  "rmsPixels": 9.801790877076128,
+  "physicalScaleInferred": true,
+  "referenceRGBUsed": false
+}
