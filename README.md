@@ -14,9 +14,9 @@
 
 此后新增：03荷叶细脉材质、按轮廓定位的闭合花苞与细茎、主殿下缘分段厚壁、真实塔窗和有明确光圈参数的拉远对焦；04按塔尖／檐角对齐的塔体及上三层真实窗洞；06按可见板缝定位的21块前景厚木板和板面清漆反射；09两盏近景镂空铸花铜灯和不规则细纤维纸面。03／04旧塔墙埋住窗格的错误已修，06可见整面反射盖片已撤除。各项原生全图、局部及06上视实际图均已保存。色彩、光照、雕刻与园林仍有明显差距，十景继续保持未验收。
 
-2026-10-19的[最新1440方形十景制作存档r03](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r03)提供60秒、70秒及十条原始镜头，来源固定为`db08d1e`。本版包含04石面浅坑与有地基的后方石道延续；其后的夜寺灯具等代码修改尚未进入本片。实际原图／实渲对照、三个时刻画面和逐景来源见`qa/ten-reference/current-20261019-r03/`。十景仍未达到参考精度。
+2026-10-19的[最新1440方形十景制作存档r04](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r04)提供60秒、70秒及十条原始镜头，来源固定为`0f9dec9`。本版重新渲染03／04／06／09；实际原图／实渲对照、三个时刻画面和逐景来源见`qa/ten-reference/current-20261019-r04/`。其后的06扫描木纹、09实体相轮和04静态阴影缓存尚未进入本片。十景仍未达到参考精度。
 
-此前的[r02存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r02)固定为`4cb7c2b`，[r01存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r01)固定为`ba9ada9`，均保留为未验收制作过程。
+此前的[r03存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r03)固定为`db08d1e`，[r02存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r02)固定为`4cb7c2b`，[r01存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r01)固定为`ba9ada9`，均保留为未验收制作过程。
 
 **18:32实体网格制作版为历史检查点，十景均未达到参考图的摄影质量，实体模型仍未完成验收。**
 
