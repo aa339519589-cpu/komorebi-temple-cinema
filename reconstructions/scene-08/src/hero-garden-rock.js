@@ -3,7 +3,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 
 // A single authentic CC0 scan. Vertices, normals, indices and UV arrays are
 // never edited; one rigid yaw, one uniform scale and placement do all fitting.
-export const HERO_ROCK_108=Object.freeze({node:'rock_moss_set_01_rock01',anchorXZ:[-.75,-.15],uniformScale:1.10,pitch:1.15,yaw:.15,embed:.16,neutralTint:[0.5554334918504523,0.8833543991605919,1.0]});
+export const HERO_ROCK_108=Object.freeze({node:'rock_moss_set_01_rock01',anchorXZ:[-.75,-.15],uniformScale:1.10,pitch:1.15,yaw:.15,embed:.16,neutralTint:[0.5554334918504523,0.8833543991605919,3.538044076536976]});
 export async function loadHeroGardenRock(){
  const asset=await new GLTFLoader().loadAsync('/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf');
  let selected;asset.scene.traverse(o=>{if(o.isMesh&&o.name===HERO_ROCK_108.node)selected=o;});
@@ -11,6 +11,10 @@ export async function loadHeroGardenRock(){
  const geometry=selected.geometry.clone(),material=selected.material.clone(),textures=new Set();
  geometry.computeBoundingBox();const bounds=geometry.boundingBox,centre=bounds.getCenter(new T.Vector3());
  material.name='scene08-one-cc0-rock01-neutral';material.color.setRGB(...HERO_ROCK_108.neutralTint);
+ // A large constant gain on dark scan channels is valid; bound the resulting
+ // diffuse reflectance rather than incorrectly bounding the factor itself.
+ material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>','#include <map_fragment>\ndiffuseColor.rgb=min(diffuseColor.rgb,vec3(.85));');};
+ material.customProgramCacheKey=()=> 'scene08-rock-neutral112b-bounded-reflectance';
  for(const name of['map','normalMap','roughnessMap','metalnessMap','aoMap'])if(material[name])textures.add(material[name]);
  const info={asset:'Poly Haven rock_moss_set_01',author:'Kless Gyzen',license:'CC0-1.0',source:'https://polyhaven.com/a/rock_moss_set_01',node:selected.name,originalMesh:selected.geometry.name,triangles:(geometry.index?.count??geometry.attributes.position.count)/3,geometryArraysUnmodified:true,originalUVAndPBRMapsRetained:true,nonuniformStretch:false,greenCapAdded:false,placement:HERO_ROCK_108,visualAccepted:false};
  function place(emit,terrainGeometry){

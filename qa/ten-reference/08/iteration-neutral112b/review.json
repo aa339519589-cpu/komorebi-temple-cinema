@@ -1,0 +1,9 @@
+{
+  "visualAccepted": false,
+  "localGeometryAndMaterialIncrementSelected": true,
+  "viewed": ["reference.png", "detail-native.png", "../iteration-neutral112/reference.png", "../iteration-rock108b/reference.png"],
+  "finding": "The real scanned rock folds now appear in a more neutral grey mineral palette instead of the previous ochre. A fixed three-channel PBR gain is derived from robust approximate semantic rock colour samples. Effective diffuse reflectance is capped at.85; no emissive term or spatial photo texture is added.",
+  "scope": "One retained closed scan/UV/PBR at the existing108b rigid pose and terrain contact. Other rocks, vegetation, layout, lights and camera remain unchanged.",
+  "remaining": ["Blue/pale glints and the silhouette still differ from the dark reference boulder.", "Neighbouring procedural stone and its coarse green cap remain inaccurate.", "Full garden/photo matching remains unaccepted."],
+  "referenceImageProjected": false
+}
