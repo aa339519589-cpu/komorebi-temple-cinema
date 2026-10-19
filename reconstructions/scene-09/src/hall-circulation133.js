@@ -31,13 +31,16 @@ export async function buildCirculation133({emit,box,between,group,materials:M,sc
   [stone.map,stone.normalMap,stone.roughnessMap]=maps;stone.color.setHex(0xb4b3ad);
   const cap=stone.clone();cap.name='route133-damp-tread-granite';cap.color.setRGB(1.27,1.25,1.18);cap.roughness=.65;ownedMaterials.push(cap);
   const soil=M.cutStoneDark.clone();soil.name='route133-supported-earth';soil.color.setHex(0x383b2c);soil.normalScale.set(.6,.6);ownedMaterials.push(soil);
-  const plan=circulation133,S=plan.stair,top=plan.hall.floor,rise=(top-S.lowerY)/S.count,run=(S.lowerZ-S.upperZ)/S.count,records=[],plants=[];
+  const plan=circulation133,S=plan.stair,top=plan.hall.floor,rise=(top-S.lowerY)/S.count,run=(S.lowerZ-S.upperZ)/S.count,records=[],plants=[],walkSurfaces=[];
+  const worldPolygon=(poly,y)=>poly.map(([x,z])=>{const p=toWorld(x,y,z);return[p[0],p[2]];});
   function solid(poly,lo,hi,mat,name){emit(prism(poly,lo,hi,name),mat);}
   function block(x,y,z,w,h,d,mat,tint=1){emit(metreBox(w,h,d),mat,x,y,z,1,1,1,0,tint);}
   group(...plan.hall.position,plan.hall.yaw,()=>{
     // New upper landing meets the front edge of the existing hall slab at
     // z=6.1. It does not run underneath it or terminate against a vertical wall.
-    solid([[-3.25,6.1],[3.25,6.1],[3.25,S.upperZ],[-3.25,S.upperZ]],-.15,top-.13,stone,'supported-upper-landing');
+    const upperLanding=[[-3.25,6.1],[3.25,6.1],[3.25,S.upperZ],[-3.25,S.upperZ]];
+    solid(upperLanding,-.15,top-.13,stone,'supported-upper-landing');
+    walkSurfaces.push({poly:worldPolygon(upperLanding,top),height:top*1.17});
     for(let j=0;j<5;j++)block(-3.25+(j+.5)*1.3,top-.065,(6.1+S.upperZ)/2,1.292,.13,S.upperZ-6.1,cap,.96+.04*Math.sin(j*2.3));
     // The flight is a single closed stepped masonry volume. Tread caps are
     // separately jointed stones, not one giant board for each whole step.
@@ -49,10 +52,14 @@ export async function buildCirculation133({emit,box,between,group,materials:M,sc
     for(let i=0;i<S.count;i++){
       const y=S.lowerY+(i+1)*rise,z=S.lowerZ-(i+.5)*run,joints=i%2?[-3.25,-2.55,-1.02,.55,2.12,3.25]:[-3.25,-1.96,-.66,.64,1.94,3.25];
       for(let k=0;k<joints.length-1;k++){const a=joints[k],b=joints[k+1];block((a+b)/2,y-.065,z,b-a-.008,.13,run-.006,cap,.91+.10*(.5+.5*Math.sin(i*3.17+k*6.2)));}
+      const tread=[[ -S.width/2,S.lowerZ-i*run],[S.width/2,S.lowerZ-i*run],[S.width/2,S.lowerZ-(i+1)*run],[-S.width/2,S.lowerZ-(i+1)*run]];
+      walkSurfaces.push({poly:worldPolygon(tread,y),height:y*1.17});
       records.push({riser:i+1,localTop:y,worldTop:y*1.17,frontZ:S.lowerZ-i*run,backZ:S.lowerZ-(i+1)*run});
     }
     // Broad landing at the foot is at the same elevation as the bridge deck.
-    solid([[-3.43,S.lowerZ],[3.43,S.lowerZ],[3.43,13.3],[-3.43,13.3]],-.15,S.lowerY-.13,stone,'supported-lower-stair-landing');
+    const lowerLanding=[[-3.43,S.lowerZ],[3.43,S.lowerZ],[3.43,13.3],[-3.43,13.3]];
+    solid(lowerLanding,-.15,S.lowerY-.13,stone,'supported-lower-stair-landing');
+    walkSurfaces.push({poly:worldPolygon(lowerLanding,S.lowerY),height:S.lowerY*1.17});
     for(let r=0;r<4;r++)for(let i=0;i<6;i++)block(-3.43+(i+.5)*6.86/6,S.lowerY-.065,10.6+(r+.5)*.675,6.86/6-.009,.13,.667,cap,.93+.06*Math.sin(i*2.7+r)**2);
     // Stone cheeks follow the same rise/run as the tread nosings. Their caps
     // support a red handrail whose posts have one continuous sloped top line.
@@ -72,20 +79,6 @@ export async function buildCirculation133({emit,box,between,group,materials:M,sc
     }
     // Closed sloping rock/soil banks hide no camera-specific surfaces. All
     // rocks and planting are seated on the same sloping ground from either side.
-    for(const side of[-1,1]){
-      const xs=side<0?[-10.6,-3.67]:[3.67,10.6],rows=8,cols=18,p=[],uv=[],ix=[],height=z=>Math.max(.18,2.28*(1-(z-6)/3.9));
-      for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){const x=xs[0]+(xs[1]-xs[0])*i/cols,z=6+3.9*j/rows,y=height(z)+.06*Math.sin(x*2.3+z*3);p.push(x,y,z);uv.push(x,z);if(j<rows&&i<cols){const a=j*(cols+1)+i,b=a+1,c=a+cols+1,d=c+1;ix.push(a,c,b,b,c,d);}}
-      const perimeter=[];for(let i=0;i<=cols;i++)perimeter.push(i);for(let j=1;j<=rows;j++)perimeter.push(j*(cols+1)+cols);for(let i=cols-1;i>=0;i--)perimeter.push(rows*(cols+1)+i);for(let j=rows-1;j>0;j--)perimeter.push(j*(cols+1));
-      for(let k=0;k<perimeter.length;k++){const a=perimeter[k],b=perimeter[(k+1)%perimeter.length],c=p.length/3;p.push(p[a*3],-.15,p[a*3+2],p[b*3],-.15,p[b*3+2]);uv.push(p[a*3],-.15,p[b*3],-.15);ix.push(a,b,c,b,c+1,c);}
-      const c=p.length/3;p.push((xs[0]+xs[1])/2,-.15,7.95);uv.push(0,0);for(let k=0;k<perimeter.length;k++){const a=(rows+1)*(cols+1)+k*2,b=(rows+1)*(cols+1)+((k+1)%perimeter.length)*2;ix.push(c,a,b);}
-      const bank=new T.BufferGeometry();bank.setAttribute('position',new T.Float32BufferAttribute(p,3));bank.setAttribute('uv',new T.Float32BufferAttribute(uv,2));bank.setIndex(ix);bank.computeVertexNormals();bank.name='closed-earth-bank-next-to-stair';emit(bank,soil);
-      for(let i=0;i<34;i++){
-        const u=((i*.61803398875)%1),z=6.4+((i*.41421356)%1)*3.0,x=xs[0]+.45+u*(xs[1]-xs[0]-.9),y=height(z),scan=scans.variants[i%scans.variants.length],s=.40+.28*(.5+.5*Math.sin(i*6.1));
-        scan.geometry.computeBoundingBox();const bottom=scan.geometry.boundingBox.min.y;
-        emit(scan.geometry,scan.material,x,y-bottom*s-.14,z,s,s,s,i*2.399,.92);
-        if(i%3===0)plants.push(toWorld(x,y+.06,z));
-      }
-    }
   },plan.hall.scale);
 
   // The turning apron stays outside the end of the bridge. The previous
@@ -97,10 +90,12 @@ export async function buildCirculation133({emit,box,between,group,materials:M,sc
   const clip=(poly,axis,limit,sign)=>{const out=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],da=sign*(a[axis]-limit),db=sign*(b[axis]-limit);if(da>=0)out.push(a);if((da>=0)!==(db>=0)){const t=da/(da-db);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}}return out;};
   for(let r=0;r<7;r++)for(let c=0;c<4;c++){const x=5+c*.72,z=-1.4+r*.72;let poly=apron;for(const [axis,limit,sign]of[[0,x+.005,1],[0,x+.715,-1],[1,z+.005,1],[1,z+.715,-1]])poly=clip(poly,axis,limit,sign);if(poly.length>2)solid(poly,floor-.13,floor,cap,'separate-bridge-apron-paver-'+r+'-'+c);}
   const normal=[Math.cos(plan.hall.yaw),-Math.sin(plan.hall.yaw)],plane=normal[0]*toe[0]+normal[1]*toe[2],end=s=>{const p=pt(0,s),t=(plane-normal[0]*p[0]-normal[1]*p[1])/(normal[0]*ux+normal[1]*uz);return pt(t,s);};
-  const pathPolygons=[apron,[[-3.43,S.lowerZ],[3.43,S.lowerZ],[3.43,13.3],[-3.43,13.3]].map(([x,z])=>{const p=toWorld(x,S.lowerY,z);return[p[0],p[2]];})];
+  walkSurfaces.push({poly:apron,height:floor});
+  const pathPolygons=walkSurfaces.map(s=>s.poly);
   for(let i=0;i<steps;i++){
     const a=len*i/steps,b=len*(i+1)/steps,finish=s=>i===steps-1?end(s):pt(b,s),poly=[pt(a,-width/2),pt(a,width/2),finish(width/2),finish(-width/2)];
     pathPolygons.push(poly);
+    walkSurfaces.push({poly,height:floor});
     solid(poly,-.18,floor-.13,stone,'supported-path-section-'+i);
     for(let side=0;side<2;side++){const aa=-width/2+side*width/2+.005,bb=aa+width/2-.01,q=[pt(a+.004,aa),pt(a+.004,bb),finish(bb),finish(aa)];solid(q,floor-.13,floor,cap,'jointed-path-paving-'+i+'-'+side);}
   }
@@ -110,8 +105,10 @@ export async function buildCirculation133({emit,box,between,group,materials:M,sc
     const a=poly[j],b=poly[i];if((a[1]>z)!==(b[1]>z)&&x<(b[0]-a[0])*(z-a[1])/(b[1]-a[1])+a[0])inside=!inside;
     const dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));
   }return inside?0:d;}
-  const pathDistance=(x,z)=>Math.min(...pathPolygons.map(p=>distance(p,x,z))),bankY=(x,z)=>{const d=pathDistance(x,z),t=T.MathUtils.smoothstep(d,.02,1.65);let h=1.06-1.27*t+.045*Math.sin(x*2.7+z*1.9)*Math.sin(z*2.8);if(x<5.16&&x>-6.36&&z>-.10&&z<3.30)h=Math.min(h,.58);return h;};
-  const nx=64,nz=60,x0=-5,z0=-9,dxg=15/nx,dzg=14/nz,pp=[],uv=[],ix=[];
+  const nearestWalkSurface=(x,z)=>{let d=Infinity,height=.06;for(const route of walkSurfaces){const q=distance(route.poly,x,z);if(q<d){d=q;height=route.height;}}return{distance:d,height};};
+  const pathDistance=(x,z)=>nearestWalkSurface(x,z).distance;
+  const bankY=(x,z)=>{const {distance:d,height}=nearestWalkSurface(x,z),t=T.MathUtils.smoothstep(d,.02,1.80),wave=.025*Math.sin(x*2.7+z*1.9)*Math.sin(z*2.8)*t;let h=.06+Math.max(0,height-.24-.06)*(1-t)+wave;if(x<5.16&&x>-6.36&&z>-.10&&z<3.30)h=Math.min(h,.58);return h;};
+  const nx=88,nz=84,x0=-5,z0=-9,dxg=15/nx,dzg=14/nz,pp=[],uv=[],ix=[];
   for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){const x=x0+i*dxg,z=z0+j*dzg;pp.push(x,bankY(x,z),z);uv.push(x,z);if(i<nx&&j<nz){const a=j*(nx+1)+i,b=a+1,c=a+nx+1,d=c+1;ix.push(a,c,b,b,c,d);}}
   const edges=[];for(let i=0;i<=nx;i++)edges.push(i);for(let j=1;j<=nz;j++)edges.push(j*(nx+1)+nx);for(let i=nx-1;i>=0;i--)edges.push(nz*(nx+1)+i);for(let j=nz-1;j>0;j--)edges.push(j*(nx+1));
   const bottom=[];for(const i of edges){bottom.push(pp.length/3);pp.push(pp[i*3],-.30,pp[i*3+2]);uv.push(pp[i*3],pp[i*3+2]);}
