@@ -1,6 +1,7 @@
 import {loadAggregateRelief04} from './granite-aggregate04.js';
 import * as T from 'three';
 const loaded=new Map();
+let continuationMaps=null;
 export async function loadTracedStoneMaps04(){
  await loadAggregateRelief04();
  const root=new URL('../assets/traced-stone04/',import.meta.url),manifest=await(await fetch(new URL('manifest.json',root))).json(),loader=new T.TextureLoader();
@@ -8,7 +9,18 @@ export async function loadTracedStoneMaps04(){
   const maps=await Promise.all(['basecolor','normal','roughness','wetlayer'].map(s=>loader.loadAsync(new URL(r.id+'-'+s+'.png',root).href)));
   const lo=r.boundsXZ[0],hi=r.boundsXZ[1];for(const [i,t]of maps.entries()){t.name=r.id+'-'+['basecolor','normal','roughness','wetlayer'][i];t.wrapS=t.wrapT=T.ClampToEdgeWrapping;t.repeat.set(1/(hi[0]-lo[0]),1/(hi[1]-lo[1]));t.offset.set(-lo[0]/(hi[0]-lo[0]),-lo[1]/(hi[1]-lo[1]));t.anisotropy=8;if(i===0)t.colorSpace=T.SRGBColorSpace;}
   loaded.set(r.id,{record:r,maps});
- }));return manifest;
+ }));
+ const dryRoot=new URL('../assets/granite-image87/',import.meta.url);
+ continuationMaps=await Promise.all(['diff','nor_gl','rough'].map(s=>loader.loadAsync(new URL('granite-image87-'+s+'.png',dryRoot).href)));
+ for(const [i,t]of continuationMaps.entries()){t.name='authored-rear-dry-granite-'+i;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(1/.60,1/.60);t.anisotropy=8;if(i===0)t.colorSpace=T.SRGBColorSpace;}
+ return manifest;
+}
+export function unobservedContinuationMaterial04(){
+ if(!continuationMaps)throw Error('Rear continuation mineral maps must load');
+ const [map,normalMap,roughnessMap]=continuationMaps,m=new T.MeshPhysicalMaterial({name:'authored-unobserved-rear-dry-granite',color:0xffffff,map,normalMap,normalScale:new T.Vector2(1,1),roughness:1,roughnessMap,metalness:0,clearcoat:0,envMapIntensity:1});
+ const diffuse='iblIrradiance += getIBLIrradiance( geometryNormal );';
+ m.onBeforeCompile=shader=>{if(!T.ShaderChunk.lights_fragment_maps.includes(diffuse))throw Error('Pinned diffuse probe shader changed');shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_maps>',T.ShaderChunk.lights_fragment_maps.replace(diffuse,'iblIrradiance += 0.06 * getIBLIrradiance( geometryNormal );'));};
+ m.customProgramCacheKey=()=> 'authored-dry-rear-granite95';m.userData.maps={map,normalMap,roughnessMap};m.userData.physicalTextureRepeatMetres=.60;m.userData.observationStatus='Inferred continuation outside the supplied view; not measured reference detail';return m;
 }
 export function tracedStoneMaterial04(record){
  const data=loaded.get(record.id);if(!data)throw Error('Missing individually authored stone material '+record.id);
