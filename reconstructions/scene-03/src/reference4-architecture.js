@@ -6,6 +6,7 @@ import {createCurvedEaveRafter} from './scene03-curved-rafter.js';
 import {createClosedRoofTile} from './scene03-roof-solids.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createGraniteEntrySteps} from './granite-entry-steps.js';
+import {buildUpperGalleryInfill03} from './upper-gallery-infill03.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
@@ -204,9 +205,14 @@ export function buildReference4Architecture(T,options={}) {
   for(let j=0;j<8;j++){let h=y+.22+j*.42,r=.37*(1-j*.073);emit(cyl,'oldgold',x,h+.03,z,r*.48,.18,r*.48);for(let k=0;k<6;k++){let a=k*Math.PI*2/6;emit(sphere,'gold',x+Math.cos(a)*r*.62,h+.12,z+Math.sin(a)*r*.62,.075,.18,.105,[0,a,Math.sin(a)*.3]);}emit(new T.TorusGeometry(r,.025,7,24),'gold',x,h,z,1,1,1,[Math.PI/2,0,0]);for(let k=0;k<7;k++){let a=k*Math.PI*2/7;between([x+Math.cos(a)*r*.7,h,z+Math.sin(a)*r*.7],[x+Math.cos(a)*r*1.2,h+.20,z+Math.sin(a)*r*1.2],.024,.024,'gold',true);}}
   emit(sphere,'gold',x,y+3.85,z,.105,.22,.105);
  });
+ let upperFrontInfill;
  role('upper-storey-dense-bracket-frieze',()=>{
-  for(let j=-6;j<=6;j++)box(j*1.06,11.17,-.76,.86,.25,.08,'roofFrieze',0,.82);for(const y of[10.99,11.35])box(0,y,-.68,13.5,.08,.10,'oldgold');for(let j=-13;j<=13;j++){const x=j*.49;relief(x,11.17,-.66,.40,.31);}
-  box(0,12.20,-1.02,13.6,4.25,.22,'darkwood');for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
+  // Preserve the upper wall; replace only its formerly unsegmented lower
+  // front strip with the observed pale infill and finite open front rail.
+  const retainedBottom=11.23,retainedTop=14.325;
+  box(0,(retainedBottom+retainedTop)/2,-1.02,13.6,retainedTop-retainedBottom,.22,'darkwood');
+  upperFrontInfill=buildUpperGalleryInfill03({emit,role});
+  for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
   for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.25,.075,'roofFrieze');for(const y of[12.17,12.53])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
 
   for(const y of[11.35,12.85,14.05]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
