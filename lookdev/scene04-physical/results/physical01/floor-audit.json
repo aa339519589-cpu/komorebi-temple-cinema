@@ -1,0 +1,3441 @@
+{
+  "status": "actual-native-floor-detail-and-node-audit",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "parentBlend": "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-physical/results/physical01/scene04-physical01.blend",
+  "nativeDetail": {
+    "originalCrop": [
+      80,
+      850,
+      400,
+      1254
+    ],
+    "virtualFullSize": 3931,
+    "actualImageSize": [
+      1254,
+      1254
+    ],
+    "sameCameraMatrix": true,
+    "upscaledScreenshot": false
+  },
+  "geometryTrianglesPreserved": 23669477,
+  "materialChanges": false,
+  "lightChanges": false,
+  "sun": {
+    "origin": [
+      27.43310546875,
+      -37.720516204833984,
+      34.14767837524414
+    ],
+    "target": [
+      0.0,
+      3.7748949921478925e-07,
+      5.0
+    ],
+    "actualOrigin": [
+      27.43310546875,
+      -37.720516204833984,
+      34.14767837524414
+    ],
+    "expected": [
+      -0.49878375450311213,
+      0.6858275930836445,
+      -0.5299578085176914
+    ],
+    "actual": [
+      -0.4987837584946618,
+      0.6858276232266718,
+      -0.5299577657523222
+    ],
+    "dot": 0.9999999999999986,
+    "errorDegrees": 3.078324659199975e-06,
+    "strength": 8.0,
+    "angularDiameterRadians": 0.00930000003427267,
+    "unitStatus": "Declared working units, not measured scene irradiance"
+  },
+  "worldStrength": 1.0,
+  "exposure": 0.0,
+  "samples": 48,
+  "seed": 904101,
+  "actualMaterials": [
+    {
+      "name": "traced-granite-observed-centre-01",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-55.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-56.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-57.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-58.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-58.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-56.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-02",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-59.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-60.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-61.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-62.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-62.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-60.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-03",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-63.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-64.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-65.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-66.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-66.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-64.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-04",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-67.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-68.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-69.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-70.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-70.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-68.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-05",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-71.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-72.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-73.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-74.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-74.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-72.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-06",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-75.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-76.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-77.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-78.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-78.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-76.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-07",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-79.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-80.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-81.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-82.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-82.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-80.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-08",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-83.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-84.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-85.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-86.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-86.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-84.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-centre-09",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-87.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-88.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-89.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-90.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-90.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-88.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-01",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-91.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-92.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-93.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-94.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-94.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-92.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-02",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-95.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-96.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-97.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-98.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-98.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-96.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-03",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-99.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-100.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-101.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-102.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-102.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-100.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-04",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-103.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-104.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-105.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-106.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-106.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-104.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-05",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-107.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-108.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-109.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-110.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-110.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-108.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-06",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-111.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-112.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-113.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-114.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-114.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-112.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-07",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-115.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-116.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-117.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-118.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-118.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-116.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-08",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-119.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-120.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-121.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-122.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-122.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-120.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-09",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-123.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-124.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-125.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-126.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-126.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-124.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-10",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-127.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-128.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-129.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-130.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-130.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-128.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-east-11",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-131.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-132.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-133.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-134.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-134.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-132.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-01",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-11.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-12.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-13.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-14.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-14.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-12.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-02",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-15.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-16.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-17.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-18.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-18.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-16.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-03",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-19.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-20.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-21.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-22.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-22.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-20.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-04",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-23.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-24.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-25.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-26.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-26.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-24.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-05",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-27.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-28.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-29.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-30.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-30.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-28.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-06",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-31.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-32.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-33.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-34.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-34.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-32.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-07",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-35.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-36.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-37.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-38.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-38.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-36.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-08",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-39.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-40.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-41.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-42.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-42.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-40.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-09",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-43.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-44.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-45.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-46.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-46.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-44.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-10",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-47.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-48.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-49.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-50.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-50.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-48.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    },
+    {
+      "name": "traced-granite-observed-west-11",
+      "coatIOR": 1.3329999446868896,
+      "baseColor": {
+        "default": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeMixRGB",
+            "socket": "Color"
+          }
+        ]
+      },
+      "roughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatWeight": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "coatRoughness": {
+        "default": 1.0,
+        "links": [
+          {
+            "node": "ShaderNodeMath",
+            "socket": "Value"
+          }
+        ]
+      },
+      "normal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "coatNormal": {
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "links": [
+          {
+            "node": "ShaderNodeNormalMap",
+            "socket": "Normal"
+          }
+        ]
+      },
+      "images": [
+        {
+          "name": "texture-51.png",
+          "packed": true,
+          "colorSpace": "sRGB",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-52.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-53.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-54.png",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-54.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        },
+        {
+          "name": "texture-52.png.001",
+          "packed": true,
+          "colorSpace": "Non-Color",
+          "extension": "EXTEND"
+        }
+      ]
+    }
+  ],
+  "photographicAcceptance": false
+}

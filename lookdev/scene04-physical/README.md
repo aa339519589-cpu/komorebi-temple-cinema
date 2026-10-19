@@ -1,0 +1,22 @@
+Private scene04 Cycles comparison, frozen at `4cb7c2b83d51d448c10a2b319ada51b662a0aaa0`.
+
+The two actual 1254 images and one actual 1254 floor subfrustum preserve the frozen architecture, paving, plants, stones and camera. Scene source and public renderer files have no diff. Source identity is `d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8`; exported/imported triangles are 23,669,477. The reference photograph is used only in the CPU comparison figures.
+
+The concrete transfer defect was the frozen exporter's omission of coating maps, coating-normal scale, water-layer IOR and sampler wrapping. The 31 existing stones require their separate base roughness, wetlayer red coverage/green roughness, water IOR1.333, ClampToEdge and repeat/offset. The private exporter carries these fields; the actual saved material nodes are checked in `results/physical01/floor-audit.json`. White source colour remains linear [1,1,1]; colour maps are decoded once from sRGB, while normal/roughness/coating maps remain numeric. The source's zero-emission materials are not classified as glowing paper.
+
+Actual light transport uses the existing CC0 Poly Haven `kloppenheim_06_puresky` environment, original SUN positions/direction/colour and physical shadows/GI. The native local reflection probe and its diffuse gain .06 are omitted. The measured sky is aligned to the SUN; its 1° bright cap is bounded by the measured 2–4° ring to avoid duplicate direct-sun energy. The removed horizontal RGB integral is only [.002574,.001263,.000255], compared with the raw sky [2.963,3.286,3.870]. These are working radiance units, not calibrated photographic illuminance. Original EXR hash, licence, integral, orientation and alignment are in `recipe.json`.
+
+| Actual candidate | SUN / angular diameter | World | Exposure | Observed result |
+| --- | --- | --- | --- | --- |
+| physical01 | 8 / .0093 rad | 1 | 0 EV |Continuous contact/indirect transitions, but a flat grey floor and weak leaf-shadow contrast. |
+| physical02 |unchanged |.2 |unchanged |Stronger stair/floor contrast and warm wet reflections; darker sky, eaves and garden lose the photograph's bright daylight balance. |
+
+Both use Cycles 48 samples, Metal, OIDN and fixed seed 904101. The second script changes only World strength. Its camera, object transforms/counts, material nodes, lights and render-state fingerprint remain unchanged. The independent actual SUN direction audit gives dot .9999999999999986 and 3.08e-6° error; the imported camera matrix error is 8.57e-8.
+
+The floor subfrustum confirms that wet regions, local glints and surface detail survive the transfer. It does not show a new map/channel error. The source has small ~.067–.134m leaves at ~7.1m height: a finite .53° sun gives penumbra comparable to their width. This is a plausible contributor to weaker physical dapple, along with the sky fill; it is not a reason to shrink the sun to imitate raster shadows. The broad smooth paving, repeated surrounding stone forms and simplified planting remain visible. Neither candidate is selected as an overall photographic improvement.
+
+Reproduction commands and exact tool hashes are in `recipe.json`. All export and Blender jobs acquire the shared GPU mutex. Editable packed blends remain locally in each candidate directory and are excluded from Git due to size. The source export buffers remain in `output/scene04-physical-frozen-export`. No suite, film or push was run.
+
+Material limitations remain explicit: nine older surrounding stone materials retain their original maps and metric triplanar normal/projection, while their GLSL macro-weather modulation is omitted. Thin-leaf scattering .26, explicit lamp-paper scattering .45, water transmission and light-unit conversion are physical transport hypotheses. They are not recovered measurements of the photographed site.
+
+Technical sources: [Blender world environment](https://docs.staging.blender.org/manual/en/latest/render/lights/world.html), [Blender environment texture colour spaces](https://docs.blender.org/manual/en/3.0/render/shader_nodes/textures/environment.html), [Blender SUN strength API](https://docs.staging.blender.org/api/current/bpy.types.SunLight.html), [Cycles equirectangular mapping implementation](https://github.com/blender/blender/blob/main/intern/cycles/kernel/camera/projection.h), [Poly Haven sky and CC0 source](https://polyhaven.com/a/kloppenheim_06_puresky).

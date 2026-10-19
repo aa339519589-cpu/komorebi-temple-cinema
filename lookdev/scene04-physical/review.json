@@ -1,0 +1,52 @@
+{
+  "status": "bounded-physical-comparison-not-selected",
+  "reviewedAt": "2026-10-19T00:01:36.713Z",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "reviewed": [
+    "reference04 photograph full1254",
+    "source-matched integrated-paving93 native full1254",
+    "native floor subfrustum80,850,400,1254",
+    "physical01 full1254",
+    "physical01 true floor subfrustum1254",
+    "physical02 full1254",
+    "original/native/physical02 comparison"
+  ],
+  "confirmedTransferFixes": [
+    "WetlayerR coverage/G roughness and independent base roughness restored.",
+    "CoatNormalScale.85 and waterCoatIOR1.333 restored.",
+    "All31 linear white bases, source sRGB versus numeric image spaces, EXTEND samplers and UV repeat/offset retained in actual Blender nodes.",
+    "Existing metric triplanar map and normal sampling retained on older stone.",
+    "Leaf alpha holes mask the entire scattering mixture.",
+    "Original SUN conversion updated before reading matrices and actual ray audited; no native reflection-probe energy added."
+  ],
+  "observedGains": [
+    "Physical contact, recess and indirect-light transitions are more continuous than native local probe/direct-only evaluation.",
+    "The true floor detail retains wet regions, local warm glints and granular surface response.",
+    "World.2 gives stronger stair/floor contrast than World1."
+  ],
+  "observedLosses": [
+    "World1 fills the floor too evenly, producing a flatter grey response.",
+    "World.2 darkens the sky, eaves and garden and still does not reproduce the reference daylight.",
+    "Finite solar angular size weakens dapple from the small high source leaves; source geometry was not altered to compensate.",
+    "Broad paving surfaces and simplified/repeated surrounding stones, vegetation and architectural proportions retain a strong CG appearance."
+  ],
+  "decision": "Keep both actual candidates and all evidence in private lookdev. No source integration or photographic acceptance recommended from this bounded comparison.",
+  "limits": [
+    "Source illumination working-unit choices are not physically measured reference illuminance.",
+    "Nine old-stone GLSL macro-weather modulations omitted, portable maps/metric sampling retained.",
+    "Thin material scattering and water transport are declared hypotheses.",
+    "Camera/geometry are frozen reconstruction hypotheses, not new measurements."
+  ],
+  "jobs": {
+    "actualFull1254": 2,
+    "actualNativeFloor1254": 1,
+    "additionalFullAllowed": 0,
+    "newNativeRenders": 0,
+    "suites": 0,
+    "movies": 0,
+    "push": false
+  },
+  "sceneSourceEdited": false,
+  "publicRendererEdited": false,
+  "photographicAcceptance": false
+}
