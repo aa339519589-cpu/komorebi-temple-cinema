@@ -1,0 +1,62 @@
+{
+  "status": "bounded-local-candidate-ready-for-parent-visual-review",
+  "scope": "Only scene09 nearest upper-right hanging lantern",
+  "baseCommit": "db08d1e2a575b5e1f3e2a61fa1c332c0a58e37ba",
+  "actualGpuRounds": 2,
+  "renderer": "tools/render-one-reconstruction.mjs shared GPU mutex",
+  "fullSize": 1254,
+  "detailCrop": [
+    880,
+    0,
+    350,
+    1254
+  ],
+  "detailScope": "Second actual native1254 subfrustum from unchanged reference camera, not a raster upscale",
+  "actualSourceHashes": {
+    "76a": "d3adbb2918d84274b6142a8d26e4e1b05a1b6dba8a6590c5b06f0b5e86f90c35",
+    "76b": "69027d10db5afd93f33e8f627ca6841d69bd38913cb34bafa26bebe2aa927fa8"
+  },
+  "actualFramesValid": true,
+  "errors": [],
+  "round76a": {
+    "viewed": [
+      "reference.png",
+      "detail-native.png"
+    ],
+    "observed": "Fine corner frame and open underside visible. Continuous flower silhouette remained thick, circular apron perforations looked mechanical and metal rims had near-white highlights. Retained as a rejected earlier candidate with source snapshot."
+  },
+  "round76b": {
+    "viewed": [
+      "reference.png",
+      "detail-native.png"
+    ],
+    "observed": "Eight narrow solid petal rims now leave open negative spaces between petals. Fine four-corner vines visibly attach the bloom to the frame. Smaller quatrefoil apron openings replace round holes. Open brace cradle and small turned drops replace the solid black cone. White edge highlights remain despite private roughness correction.",
+    "triangles": 35460,
+    "closedComponents": 187,
+    "prototypeCount": 74,
+    "metalMeshes": 2
+  },
+  "retainedOriginals": {
+    "anchor": [
+      7.7,
+      7.3,
+      21.6
+    ],
+    "maximumWorldBoundsDifferenceMetres": 5.6294203076845406e-08,
+    "paperTransformsAndMaterial": true,
+    "paperEmissionFiberAndColor": true,
+    "allLightParameters": true,
+    "cameraDollyExposurePostprocessingBackgroundSiteOtherLamps": true,
+    "protectedFileCount": 31
+  },
+  "limitations": [
+    "Metal arrises and underside remain too bright in the unchanged local illumination; no light/source/exposure adjustment was made.",
+    "Cap, lower suspension and pierced apron still use regular authored construction. Reference ornament has not been surveyed or exactly reproduced.",
+    "Paper grain remains the pre-existing material; its visible regular banding is outside this bounded metal/geometry change.",
+    "The global temple, pond, plants and scene09 photographic fidelity remain unaccepted."
+  ],
+  "visualAccepted": false,
+  "movieRendered": false,
+  "testSuiteRun": false,
+  "pushed": false
+}
