@@ -1,0 +1,340 @@
+{
+  "status": "actual source solids inspected; photographic fidelity remains unaccepted",
+  "visualAccepted": false,
+  "sourceHash": "7fc9ce88d874360c9e10f32599bce007fc8f1ebc17521627a93573347347b20e",
+  "scope": "Entire new stair, transition landing, full tread/curb width, continuous footing and its interface with actual existing hall platform/paving. Pre-existing hall paving/platform overlaps are outside this correction.",
+  "actualEmittedSolids": {
+    "stair": 57,
+    "platform": 185,
+    "capPieces": 4
+  },
+  "plan": {
+    "flightTop": [
+      4.925231841333445,
+      3.675,
+      -6.878987829111476
+    ],
+    "bottom": [
+      4.504840117639069,
+      2.1,
+      -4.643252888634258
+    ],
+    "run": 2.27491536665024,
+    "widthAxis": [
+      -0.982777193935476,
+      0,
+      -0.184794445480138
+    ],
+    "capLocal": [
+      [
+        -3,
+        5.64
+      ],
+      [
+        1.5,
+        5.64
+      ],
+      [
+        1.0378551733004486,
+        6.0598011490632295
+      ],
+      [
+        -2.5378551733004486,
+        7.940198850936769
+      ]
+    ],
+    "supportLocal": [
+      [
+        1.2137748307501997,
+        5.9
+      ],
+      [
+        1.0378551733004486,
+        6.0598011490632295
+      ],
+      [
+        -2.5378551733004486,
+        7.940198850936769
+      ],
+      [
+        -2.947762057661689,
+        5.9
+      ]
+    ],
+    "flightFootingLocal": [
+      [
+        -2.5378551733004486,
+        7.940198850936769
+      ],
+      [
+        1.0378551733004486,
+        6.0598011490632295
+      ],
+      [
+        2.09670310087617,
+        8.073276004056456
+      ],
+      [
+        -1.479007245724726,
+        9.953673705929997
+      ]
+    ],
+    "capWorld": [
+      [
+        4.006174035471254,
+        -9.34220376554169
+      ],
+      [
+        7.533371531935076,
+        -6.547766823877172
+      ],
+      [
+        6.9104417730831065,
+        -6.505703049241596
+      ],
+      [
+        2.940021909583783,
+        -7.252272608981356
+      ]
+    ],
+    "supportWorld": [
+      [
+        7.147565686327164,
+        -6.521715009989443
+      ],
+      [
+        6.9104417730831065,
+        -6.505703049241596
+      ],
+      [
+        2.940021909583783,
+        -7.252272608981356
+      ],
+      [
+        3.8856629098275524,
+        -9.105971102228953
+      ]
+    ],
+    "flightFootingWorld": [
+      [
+        2.940021909583783,
+        -7.252272608981356
+      ],
+      [
+        6.9104417730831065,
+        -6.505703049241596
+      ],
+      [
+        6.49005004938873,
+        -4.269968108764379
+      ],
+      [
+        2.5196301858894072,
+        -5.016537668504136
+      ]
+    ],
+    "hallCapCells": [
+      [
+        [
+          12.2,
+          -4.079620420844401
+        ],
+        [
+          12.2,
+          0.18984261059882712
+        ],
+        [
+          1.0378551733004537,
+          6.059801149063227
+        ]
+      ],
+      [
+        [
+          12.2,
+          0.18984261059882712
+        ],
+        [
+          12.2,
+          6.15
+        ],
+        [
+          1.0852890243601045,
+          6.15
+        ],
+        [
+          1.0378551733004493,
+          6.059801149063231
+        ]
+      ],
+      [
+        [
+          -12.2,
+          -5.95
+        ],
+        [
+          -5.328606737311618,
+          -5.95
+        ],
+        [
+          -2.897533266951775,
+          6.15
+        ],
+        [
+          -12.2,
+          6.15
+        ]
+      ],
+      [
+        [
+          -5.328606737311618,
+          -5.95
+        ],
+        [
+          12.2,
+          -5.95
+        ],
+        [
+          12.2,
+          -4.079620420844401
+        ],
+        [
+          1.2137748307502019,
+          5.9
+        ],
+        [
+          -2.947762057661689,
+          5.9
+        ]
+      ]
+    ],
+    "capBottomY": 3.62,
+    "capTopY": 3.675,
+    "supportBottomY": 0.050000000000000266,
+    "wallFrontLocalZ": 5.9,
+    "frontFullEdgeLocal": [
+      [
+        -2.5378551733004486,
+        7.940198850936769
+      ],
+      [
+        1.0378551733004486,
+        6.0598011490632295
+      ]
+    ],
+    "topReference": [
+      5.484119229666349,
+      3.675,
+      -7.5844273284042405
+    ]
+  },
+  "fullFlightEdgeClearanceFromHallWallMetres": 0.15980114906322918,
+  "backPavingInterface": {
+    "actualPavingFrontLocalZ": 5.640000000000001,
+    "landingBackLocalZ": 5.64,
+    "gapMetres": -8.881784197001252e-16,
+    "pavingTopWorldY": 3.675,
+    "landingTopWorldY": 3.675
+  },
+  "capSubtraction": {
+    "oldArea": 295.23999999999995,
+    "removedArea": 1.0063210300339782,
+    "retainedArea": 294.23367309834066,
+    "areaResidual": 0.000005871625319286977
+  },
+  "continuousFooting": {
+    "bottomWorldY": 0.050000000000000266,
+    "hallFoundationBottomWorldY": 0.050000000000000266,
+    "topWorldY": 1.95,
+    "stairBottomWorldY": 1.95,
+    "gapAtStairMetres": 0,
+    "footprint": [
+      [
+        2.940021909583783,
+        -7.252272608981356
+      ],
+      [
+        6.9104417730831065,
+        -6.505703049241596
+      ],
+      [
+        6.49005004938873,
+        -4.269968108764379
+      ],
+      [
+        2.5196301858894072,
+        -5.016537668504136
+      ]
+    ]
+  },
+  "stepDimensions": {
+    "count": 9,
+    "riser": 0.17499999999999996,
+    "tread": 0.2527683740722489
+  },
+  "criticalClosedSolids": [
+    {
+      "name": "layout124-supported-transition-landing",
+      "finite": true,
+      "signedVolume": 15.584777904707565,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "name": "layout124-paving-to-flight-landing-cap",
+      "finite": true,
+      "signedVolume": 0.30203196004919025,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "name": "layout124-continuous-stair-masonry-footing",
+      "finite": true,
+      "signedVolume": 17.46225069196817,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "name": "",
+      "finite": true,
+      "signedVolume": 1,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "name": "layout124-hall-cap-with-exact-landing-cut",
+      "finite": true,
+      "signedVolume": 4.289071449668482,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "name": "layout124-hall-cap-with-exact-landing-cut",
+      "finite": true,
+      "signedVolume": 6.077759047907916,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "name": "layout124-hall-cap-with-exact-landing-cut",
+      "finite": true,
+      "signedVolume": 17.613328088601534,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "name": "layout124-hall-cap-with-exact-landing-cut",
+      "finite": true,
+      "signedVolume": 24.98188713835304,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    }
+  ],
+  "newStairPairInterpenetrations": [],
+  "stairVersusHallInterpenetrations": [],
+  "linearToleranceMetres": 0.00001,
+  "limits": [
+    "Existing soil intentionally covers buried foundation volumes; this audit tests masonry interfaces rather than prohibiting foundation embedment.",
+    "The reference-point residuals do not measure visible whole-image fidelity.",
+    "The final actual reference/oblique frames must be inspected separately."
+  ]
+}

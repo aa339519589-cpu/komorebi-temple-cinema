@@ -6,6 +6,38 @@ export function verandaEdge124(z){const a=L.foreground.postL,b=L.foreground.post
 export function solidTerrain124(grid,bottom=-.35){const g=surface(grid,.72),p=g.attributes.position,n=grid.length*grid[0].length;for(let i=n;i<p.count;i++)p.setY(i,bottom);g.computeVertexNormals();return g;}
 export function bridgeSupport124(x,z){const G=L.bridge,c=Math.cos(G.yaw),s=Math.sin(G.yaw),dx=x-G.position[0],dz=z-G.position[2],u=(c*dx-s*dz)/G.scale[0],v=(s*dx+c*dz)/G.scale[2];let h=0;for(const end of[-G.halfSpan,G.halfSpan]){const r=Math.max(Math.abs(u-end)/1.9,Math.abs(v)/2.2);if(r<1){const top=G.position[1]+G.deckBaseline+G.slope*end/G.halfSpan-.14;h=Math.max(h,.14+(top-.14)*(1-T.MathUtils.smoothstep(r,.28,1)));}}return h;}
 
+const area124=p=>p.reduce((s,a,i)=>{const b=p[(i+1)%p.length];return s+a[0]*b[1]-b[0]*a[1];},0)/2;
+function cleanPolygon124(points){
+ let p=points.filter((q,i)=>!i||Math.hypot(q[0]-points[i-1][0],q[1]-points[i-1][1])>1e-8);
+ if(p.length>2&&Math.hypot(p[0][0]-p.at(-1)[0],p[0][1]-p.at(-1)[1])<1e-8)p.pop();
+ let changed=true;while(changed&&p.length>3){changed=false;for(let i=0;i<p.length;i++){const a=p[(i+p.length-1)%p.length],b=p[i],c=p[(i+1)%p.length];if(Math.abs((b[0]-a[0])*(c[1]-b[1])-(b[1]-a[1])*(c[0]-b[0]))<1e-9){p.splice(i,1);changed=true;break;}}}
+ if(p.length<3||Math.abs(area124(p))<1e-9)return[];if(area124(p)<0)p.reverse();return p;
+}
+function clipHalfPlane124(poly,a,b,inside=true){
+ const sign=inside?1:-1,side=p=>sign*((b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0])),out=[];
+ for(let i=0;i<poly.length;i++){const p=poly[i],q=poly[(i+1)%poly.length],sp=side(p),sq=side(q),pin=sp>=-1e-9,qin=sq>=-1e-9;if(pin)out.push(p);if(pin!==qin){const t=sp/(sp-sq);out.push([p[0]+t*(q[0]-p[0]),p[1]+t*(q[1]-p[1])]);}}
+ return cleanPolygon124(out);
+}
+function subtractConvex124(outer,hole){let inside=cleanPolygon124(outer),kept=[];for(let i=0;i<hole.length&&inside.length;i++){const a=hole[i],b=hole[(i+1)%hole.length],outside=clipHalfPlane124(inside,a,b,false);if(outside.length)kept.push(outside);inside=clipHalfPlane124(inside,a,b,true);}return kept;}
+export function prism124(poly,lo,hi,name){
+ poly=cleanPolygon124(poly);if(poly.length<3||hi<=lo)throw Error('Invalid landing prism');const p=[],ix=[],n=poly.length;
+ for(const y of[lo,hi])for(const [x,z]of poly)p.push(x,y,z);
+ for(let i=1;i<n-1;i++)ix.push(0,i+1,i,n,n+i,n+i+1);
+ for(let i=0;i<n;i++){const j=(i+1)%n;ix.push(i,j,n+i,j,n+j,n+i);}
+ let volume=0;for(let i=0;i<ix.length;i+=3){const a=V(p.slice(ix[i]*3,ix[i]*3+3)),b=V(p.slice(ix[i+1]*3,ix[i+1]*3+3)),c=V(p.slice(ix[i+2]*3,ix[i+2]*3+3));volume+=a.dot(b.cross(c))/6;}if(volume<0)for(let i=0;i<ix.length;i+=3)[ix[i+1],ix[i+2]]=[ix[i+2],ix[i+1]];
+ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(p.flatMap((v,i)=>i%3===0?[p[i],p[i+2]]:[]),2));g.setIndex(ix);g.computeVertexNormals();g.name=name;g.userData.closedVolume=Math.abs(volume);return g;
+}
+export function stairLandingPlan124(){
+ const H=L.hall,S=L.stair,c=Math.cos(H.yaw),s=Math.sin(H.yaw),origin=V(H.position),axisX=V([c,0,-s]),axisZ=V([s,0,c]);
+ const toLocal=p=>{const q=p.clone().sub(origin);return[q.dot(axisX),q.dot(axisZ)];},toWorld=q=>origin.clone().addScaledVector(axisX,q[0]).addScaledVector(axisZ,q[1]);
+ const reference=V(S.top),bottom=V(S.bottom),flightTop=reference.clone().addScaledVector(axisZ,S.topLanding.forwardOffset),d=flightTop.clone().sub(bottom),run=Math.hypot(d.x,d.z),widthAxis=V([d.z,0,-d.x]).normalize(),cx=toLocal(reference)[0];
+ const backA=[cx-S.topLanding.backWidth/2,S.topLanding.pavingBackZ],backB=[cx+S.topLanding.backWidth/2,S.topLanding.pavingBackZ],half=(S.width+.54)/2,frontA=toLocal(flightTop.clone().addScaledVector(widthAxis,half)),frontB=toLocal(flightTop.clone().addScaledVector(widthAxis,-half));
+ const capLocal=cleanPolygon124([backA,backB,frontB,frontA]),supportLocal=clipHalfPlane124(capLocal,[-100,S.topLanding.wallFrontZ],[100,S.topLanding.wallFrontZ]),flightFootingLocal=cleanPolygon124([toLocal(bottom.clone().addScaledVector(widthAxis,half)),toLocal(bottom.clone().addScaledVector(widthAxis,-half)),frontB,frontA]);
+ const oldCap=[[-12.2,-5.95],[12.2,-5.95],[12.2,6.15],[-12.2,6.15]],hallCapCells=subtractConvex124(oldCap,supportLocal).flatMap(cell=>subtractConvex124(cell,flightFootingLocal)),worldPoly=p=>p.map(q=>{const v=toWorld(q);return[v.x,v.z];});
+ return{flightTop:flightTop.toArray(),bottom:S.bottom,run,widthAxis:widthAxis.toArray(),capLocal,supportLocal,flightFootingLocal,capWorld:worldPoly(capLocal),supportWorld:worldPoly(supportLocal),flightFootingWorld:worldPoly(flightFootingLocal),hallCapCells,capBottomY:H.position[1]+1.27,capTopY:S.top[1],supportBottomY:H.position[1]-2.30,wallFrontLocalZ:S.topLanding.wallFrontZ,frontFullEdgeLocal:[frontA,frontB],topReference:S.top};
+}
+export function emitHallCap124(B){const plan=stairLandingPlan124();for(const cell of plan.hallCapCells)B.emit(prism124(cell,1.09,1.27,'layout124-hall-cap-with-exact-landing-cut'),'stoneLight');}
+
 export function buildForeground124(B,{carvedFitting,squareGold}){
  const F=L.foreground,a=F.postL,b=F.postN,dx=b[0]-a[0],dz=b[2]-a[2],yaw=Math.atan2(dx,dz),length=Math.hypot(dx,dz),dir=V([dx,0,dz]).normalize(),normal=V([dir.z,0,-dir.x]);
  const capProfile=[[0,-1.48],[.76,-1.48],[.80,-1.36],[.80,-1.22],[.70,-1.16],[.70,-1.02],[.52,-.91],[.40,-.73],[.42,-.60],[.62,-.42],[.68,-.15],[.65,.10],[.52,.34],[.33,.53],[.20,.61],[.18,.77],[.12,.94],[0,1.15]],cap=new T.LatheGeometry(capProfile.map(p=>new T.Vector2(...p)),64);
@@ -61,17 +93,19 @@ export function buildForeground124(B,{carvedFitting,squareGold}){
 }
 
 export function buildStair124(B){
- const S=L.stair,a=V(S.bottom),b=V(S.top),d=b.clone().sub(a),run=Math.hypot(d.x,d.z),yaw=Math.atan2(d.x,d.z);
+ const S=L.stair,plan=stairLandingPlan124(),a=V(S.bottom),b=V(plan.flightTop),d=b.clone().sub(a),run=plan.run,yaw=Math.atan2(d.x,d.z);
  B.label('layout124-connected-hall-flight-and-landing',()=>{
-  B.box(a.x,S.bearingY+.015,a.z,S.width+.20,.03,2.7,'stone');
+  B.emit(prism124(plan.supportWorld,plan.supportBottomY,plan.capBottomY,'layout124-supported-transition-landing'),'stone');
+  B.emit(prism124(plan.capWorld,plan.capBottomY,plan.capTopY,'layout124-paving-to-flight-landing-cap'),'stoneLight');
+  B.emit(prism124(plan.flightFootingWorld,plan.supportBottomY,S.bearingY,'layout124-continuous-stair-masonry-footing'),'stone');
   for(let i=0;i<S.steps;i++){
    const t=(i+.5)/S.steps,p=a.clone().lerp(b,t),top=T.MathUtils.lerp(a.y,b.y,(i+1)/S.steps);
-   B.with(p.x,0,p.z,yaw,()=>{B.box(0,(S.bearingY+top)/2,0,S.width,top-S.bearingY,run/S.steps+.004,'stone');B.box(0,top-.025,0,S.width+.04,.05,run/S.steps,'stoneLight');
-    for(const sign of[-1,1]){B.box(sign*(S.width/2+.13),(S.bearingY+top+.24)/2,0,.22,top+.24-S.bearingY,run/S.steps+.005,'stone');B.box(sign*(S.width/2+.13),top+.265,0,.28,.05,run/S.steps+.005,'stoneLight');}
+   B.with(p.x,0,p.z,yaw,()=>{B.box(0,(S.bearingY+top-.05)/2,0,S.width,top-.05-S.bearingY,run/S.steps,'stone');B.box(0,top-.025,0,S.width+.04,.05,run/S.steps,'stoneLight');
+    for(const sign of[-1,1]){B.box(sign*(S.width/2+.13),(S.bearingY+top+.24)/2,0,.22,top+.24-S.bearingY,run/S.steps,'stone');B.box(sign*(S.width/2+.13),top+.265,0,.28,.05,run/S.steps,'stoneLight');}
    });
   }
  });
- B.layout124??={};B.layout124.stair={top:S.top,bottom:S.bottom,width:S.width,steps:S.steps,run,connectedHallFloorY:S.top[1],landingY:S.landingY,bearingY:S.bearingY};
+ B.layout124??={};B.layout124.stair={hallPavingReference:S.top,flightTop:plan.flightTop,bottom:S.bottom,width:S.width,steps:S.steps,run,riser:(b.y-a.y)/S.steps,tread:run/S.steps,connectedHallFloorY:plan.capTopY,landingY:S.landingY,bearingY:S.bearingY,continuousFootingBottomY:plan.supportBottomY,transitionLanding:{capLocal:plan.capLocal,supportLocal:plan.supportLocal,fullFrontEdgeLocal:plan.frontFullEdgeLocal,foundationCapWasCut:true}};
 }
 
 export function bankHeight124(x,z,original){

@@ -1,0 +1,22 @@
+{
+  "status": "preflight CPU failure preserved; never GPU-rendered",
+  "visualAccepted": false,
+  "sourceHash": "837524b1be783e21e90fe4395f25a1a193e93d371ce5334712f88305638fd1f8",
+  "finding": "Last upper stair cheek still intersected the 0.25m existing hall-cap overhang just outside the wall. The initial landing support cut omitted the adjacent full stair envelope.",
+  "intersections": [
+    {
+      "newEmittedIndex": 238,
+      "oldEmittedIndex": 1,
+      "verticalOverlapMetres": 0.1799999475479126,
+      "minimumHorizontalOverlapMetres": 0.07623559703286631
+    },
+    {
+      "newEmittedIndex": 238,
+      "oldEmittedIndex": 2,
+      "verticalOverlapMetres": 0.1799999475479126,
+      "minimumHorizontalOverlapMetres": 0.033615743691086664
+    }
+  ],
+  "correction": "Subtract both adjacent landing-support and entire stair-footing footprints from the old cap; rerun actual-emitted-solid inspection before the fourth render.",
+  "provenance": "Exact failing console values from tools/audit-layout01-stair124.mjs; this compact diagnostic records an intermediate CPU failure, not a photographic render receipt."
+}

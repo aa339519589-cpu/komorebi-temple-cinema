@@ -1,0 +1,78 @@
+{
+  "status": "rendered and visually inspected structural correction; whole scene remains unaccepted",
+  "visualAccepted": false,
+  "sourceHash": "7fc9ce88d874360c9e10f32599bce007fc8f1ebc17521627a93573347347b20e",
+  "sourceCommitAtRender": "6c10785e224448d4d7eccf6116441ca2ceb7f0bd",
+  "reference": "references/hd/0-\u7167\u7247-1.jpg",
+  "referenceSha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d",
+  "nativeReference": "qa/ten-reference/01/iteration-layout124-d/shot--125.png",
+  "nativeContactView": "qa/ten-reference/01/iteration-layout124-d/shot--124.png",
+  "actualBefore": "qa/ten-reference/01/iteration-cinema67/shot-7.png",
+  "previousFailedActual": "qa/ten-reference/01/iteration-layout124-c/reference.png",
+  "nativeComparison": {
+    "file": "qa/ten-reference/01/iteration-layout124-d/reference-before-after-native.png",
+    "panels": [
+      "canonical original",
+      "actual baseline cinema67",
+      "actual layout124-d"
+    ],
+    "processing": "Native1254 RGB panels copied without resizing, retouching or filtering."
+  },
+  "imageAliases": {
+    "reference.png": "Exact byte copy of shot--125.png",
+    "stair-contact-actual.png": "Exact byte copy of shot--124.png"
+  },
+  "changeScope": [
+    "Full-width transition landing from the actual hall-paving edge to the straight flight.",
+    "Exact closed polygon removal of the old cap around both landing and full stair envelope.",
+    "Nine adjacent treads with separate bearing cores and caps; shared full footing to hall foundation grade.",
+    "Inspection metadata and internal negative shot IDs expose actual emitted instance geometry/materials without changing normal reference or movie paths."
+  ],
+  "inspectedActualPixels": {
+    "referenceFrame": "Stair is joined at full width; visible foundation wall and artificial landscape remain. Composition and other geometry are held from c.",
+    "contactOblique": "Actual original instance matrices/geometries/materials show the top apron, nine adjacent treads, cheeks and continuous footing. Non-target meshes/soil/plants/water/sky omitted explicitly to expose the contacts."
+  },
+  "physicalChecks": {
+    "actualNewSolids": 57,
+    "closedCriticalSolids": 8,
+    "newStairSelfInterpenetrations": 0,
+    "stairVersusActualHallInterpenetrations": 0,
+    "fullEdgeMinimumWallClearanceMetres": 0.15980114906322918,
+    "pavingEdgeGapMetres": -8.881784197001252e-16,
+    "footingBottomWorldY": 0.050000000000000266,
+    "treadMetres": 0.2527683740722489,
+    "riserMetres": 0.17499999999999996,
+    "details": "geometry-contact-inspection.json"
+  },
+  "remainingVisibleFailures": [
+    "Exposed hall-foundation wall, bare earth masses and enlarged foundation faces still differ from the original concealed planted terraces.",
+    "Waterfall channel beds and bank shapes still read as an engineered fountain rather than the reference rock garden.",
+    "Hall/pagoda construction detail, crude stone shapes, foliage, material/light response and overall photographed appearance remain far from the reference.",
+    "The physical landing correction moves the actual upper-flight centre away from the former centre-only fitted point; the coordinate record reports that increased residual."
+  ],
+  "preservedFailures": [
+    "iteration-layout124-a",
+    "iteration-layout124-b",
+    "iteration-layout124-c",
+    "preserved-preflight-contact-failure.json"
+  ],
+  "renderBudget": {
+    "initialAuthorizedWrapperJobs": 3,
+    "extraParentAuthorizedTargetedWrapperJobs": 1,
+    "totalWrapperJobs": 4,
+    "finalJobNativeFrames": 2,
+    "sharedGpuMutex": true,
+    "runner": "tools/render-one-reconstruction.mjs",
+    "noFurtherRender": true
+  },
+  "verification": {
+    "softwareSuitesRun": false,
+    "adHocBrowserRun": false,
+    "referencePhotoTextureOrReplacementUsed": false,
+    "sourceVisuallyChecked": true,
+    "sameSourceHashInAuditAndActual": true,
+    "cameraReferenceUnchanged": true,
+    "true3DDollyRetained": true
+  },
+  "stopCondition": "Stop after the fourth targeted job. This record is not fidelity acceptance."
+}
