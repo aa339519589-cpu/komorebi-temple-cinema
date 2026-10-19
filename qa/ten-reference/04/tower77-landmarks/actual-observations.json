@@ -1,0 +1,423 @@
+{
+  "status": "actual77a-manually-observed-with-explicit-occlusions",
+  "coordinateSystem": "1254x1254 native full frame, top-left origin; x right / y down. No registration, crop remapping or image warp.",
+  "method": "Visual point selection on native image and 2x nearest-pixel measurement grid. Visible clay/grey end/corner fragments are manual samples; tubular ridge end centreline and raster edge can differ by several pixels. These are not subpixel recovered camera/metric-survey points.",
+  "reference": "references/hd/3-照片-4.jpg",
+  "baseline": "qa/ten-reference/04/iteration-integrated-paving93/reference.png",
+  "actual": "qa/ten-reference/04/iteration-tower77a/reference.png",
+  "points": [
+    {
+      "id": "backR5",
+      "label": "5 rear-right visible eave end",
+      "reference": [
+        284,
+        266
+      ],
+      "actual": null,
+      "uncertainty": 5,
+      "fit": true,
+      "occlusion": "Baseline actual rear corner covered by main hall; photo target is visible",
+      "idIndex": 0,
+      "after": [
+        292,
+        270
+      ],
+      "afterUncertainty": 5,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "afterDelta": [
+        8,
+        4
+      ]
+    },
+    {
+      "id": "tip",
+      "label": "Finial tip",
+      "reference": [
+        190,
+        75
+      ],
+      "actual": [
+        233,
+        129
+      ],
+      "uncertainty": 2,
+      "fit": true,
+      "idIndex": 1,
+      "after": [
+        188,
+        75
+      ],
+      "afterUncertainty": 2,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "baselineDelta": [
+        43,
+        54
+      ],
+      "afterDelta": [
+        -2,
+        0
+      ]
+    },
+    {
+      "id": "L5",
+      "label": "5 front-left raised eave end",
+      "reference": [
+        56,
+        215
+      ],
+      "actual": [
+        79,
+        250
+      ],
+      "uncertainty": 8,
+      "fit": true,
+      "occlusion": "Baseline corner partly hidden by maple; manual visible fragment only",
+      "idIndex": 2,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Maple hides actual physical corner; retain null. Projected centreline is not an observed point.",
+      "baselineDelta": [
+        23,
+        35
+      ]
+    },
+    {
+      "id": "R5",
+      "label": "5 front-right raised eave end",
+      "reference": [
+        234,
+        210
+      ],
+      "actual": [
+        297,
+        250
+      ],
+      "uncertainty": 5,
+      "fit": true,
+      "occlusion": "Baseline tip partly hidden by main hall",
+      "idIndex": 3,
+      "after": [
+        235,
+        211
+      ],
+      "afterUncertainty": 4,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "baselineDelta": [
+        63,
+        40
+      ],
+      "afterDelta": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "L4",
+      "label": "4 front-left raised eave end",
+      "reference": [
+        50,
+        279
+      ],
+      "actual": [
+        65,
+        303
+      ],
+      "uncertainty": 5,
+      "fit": true,
+      "idIndex": 4,
+      "after": [
+        54,
+        278
+      ],
+      "afterUncertainty": 5,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "baselineDelta": [
+        15,
+        24
+      ],
+      "afterDelta": [
+        4,
+        -1
+      ]
+    },
+    {
+      "id": "R4",
+      "label": "4 front-right raised eave end",
+      "reference": [
+        234,
+        272
+      ],
+      "actual": [
+        298,
+        310
+      ],
+      "uncertainty": 5,
+      "fit": true,
+      "idIndex": 5,
+      "after": [
+        238,
+        273
+      ],
+      "afterUncertainty": 5,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "baselineDelta": [
+        64,
+        38
+      ],
+      "afterDelta": [
+        4,
+        1
+      ]
+    },
+    {
+      "id": "L3",
+      "label": "3 front-left raised eave end",
+      "reference": [
+        50,
+        339
+      ],
+      "actual": [
+        56,
+        351
+      ],
+      "uncertainty": 5,
+      "fit": true,
+      "idIndex": 6,
+      "after": [
+        49,
+        343
+      ],
+      "afterUncertainty": 5,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "baselineDelta": [
+        6,
+        12
+      ],
+      "afterDelta": [
+        -1,
+        4
+      ]
+    },
+    {
+      "id": "R3",
+      "label": "3 front-right raised eave end",
+      "reference": [
+        234,
+        333
+      ],
+      "actual": null,
+      "uncertainty": 5,
+      "fit": false,
+      "occlusion": "Baseline hall overlaps tip",
+      "idIndex": 7,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Main hall still partly overlaps the intended corner; do not use an ambiguous fragment as a precise point."
+    },
+    {
+      "id": "L2",
+      "label": "2 front-left eave end",
+      "reference": null,
+      "actual": [
+        53,
+        413
+      ],
+      "uncertainty": 5,
+      "fit": false,
+      "occlusion": "Photograph lower gallery/flowers hide actual corner; roof fragment does not identify corner",
+      "idIndex": 8,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "R2",
+      "label": "2 front-right eave end",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Gallery and main hall",
+      "idIndex": 9,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "L1",
+      "label": "1 front-left eave end",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Lower gallery and planting",
+      "idIndex": 10,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "R1",
+      "label": "1 front-right eave end",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Lower gallery and planting",
+      "idIndex": 11,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeL5",
+      "label": "5 visible ridge-seat left end",
+      "reference": [
+        170,
+        190
+      ],
+      "actual": null,
+      "uncertainty": 4,
+      "fit": true,
+      "occlusion": "Baseline long ridge screened by near eave and maple. Original seat remains a target-outline constraint, not an invented actual point",
+      "idIndex": 12,
+      "after": [
+        170,
+        190
+      ],
+      "afterUncertainty": 5,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "afterDelta": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ridgeR5",
+      "label": "5 visible ridge-seat right end",
+      "reference": [
+        202,
+        191
+      ],
+      "actual": null,
+      "uncertainty": 4,
+      "fit": true,
+      "occlusion": "Baseline long ridge screened by near eave and maple",
+      "idIndex": 13,
+      "after": [
+        204,
+        190
+      ],
+      "afterUncertainty": 5,
+      "afterStatus": "Manual estimate of visible roof end/seat or finial on native1254 full image; pixel uncertainty stated.",
+      "afterDelta": [
+        2,
+        -1
+      ]
+    },
+    {
+      "id": "ridgeL4",
+      "label": "4 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 14,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeR4",
+      "label": "4 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 15,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeL3",
+      "label": "3 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 16,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeR3",
+      "label": "3 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 17,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeL2",
+      "label": "2 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 18,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeR2",
+      "label": "2 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 19,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeL1",
+      "label": "1 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 20,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    },
+    {
+      "id": "ridgeR1",
+      "label": "1 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation",
+      "idIndex": 21,
+      "after": null,
+      "afterUncertainty": null,
+      "afterStatus": "Occluded or not reliably identifiable; no invented coordinates."
+    }
+  ],
+  "widthEvidence": {
+    "level4FrontEaveObservedSpanPixels": {
+      "reference": 184,
+      "baseline": 233,
+      "after": 184
+    },
+    "endpointUncertaintyPixels": 5,
+    "afterMidpointHorizontalDeltaPixels": 4,
+    "highestLeftCornerAfter": "Hidden by unchanged maple; not assigned a width from imagined pixels."
+  },
+  "visualAccepted": false
+}

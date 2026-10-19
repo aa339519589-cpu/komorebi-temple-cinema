@@ -1,0 +1,56 @@
+{
+  "status": "one-native-round-viewed-ready-for-parent-review",
+  "baseCommit": "f4cb1598d1755f1de68e80d9027efb73915c313e",
+  "sourceHash": "d21ddb5888255a0929d610436f0ce744f3498b2cdec59063e31719244ee3a204",
+  "actualGpuRounds": 1,
+  "remainingRoundUsed": false,
+  "renderer": "tools/render-one-reconstruction.mjs, shared GPU mutex",
+  "detailCrop": [
+    15,
+    50,
+    355,
+    1254
+  ],
+  "nativeSize": 1254,
+  "framesViewed": [
+    "reference.png",
+    "detail-native.png"
+  ],
+  "actualFramesValid": true,
+  "errors": [],
+  "fittedTowerParameters": {
+    "position": [
+      -15.900260499093745,
+      2,
+      -12.0044
+    ],
+    "scale": 1.16,
+    "widthScale": 0.8233786463534434,
+    "eaves": [
+      4.507119688219024,
+      6.385210237971118,
+      8.263300787723212,
+      10.141391337475305,
+      12.0194818872274
+    ],
+    "rise": 1.9034561537819705,
+    "curl": 0.37,
+    "top": 17.91537398057979,
+    "yaw": -0.056650511557074415,
+    "ridgeRatio": 0.1026946167933868,
+    "depthRatio": 0.8344768956713122
+  },
+  "actualMeasurements": "../tower77-landmarks/actual-observations.json",
+  "protectedTrackedFiles": 185,
+  "scope": "Tower generator position/dimensions and necessary independent closed foundation support only. Camera, main hall, material sources, illumination, garden plan and seeds unchanged.",
+  "remainingDifferences": [
+    "Rear-right upper eave about +8,+4 px; other visible manual points about 0–5 px, within stated point uncertainty.",
+    "Upper-left eave still obscured by existing maple and is not assigned an observed after-coordinate.",
+    "Tower timber/windows remain too dark/flat and finial remains an empty-ring construction; neither changed or accepted in this proportion-only pass.",
+    "Roof tile/beam sculptural fidelity and the complete scene remain unaccepted."
+  ],
+  "visualAccepted": false,
+  "testSuiteRun": false,
+  "movieRendered": false,
+  "pushed": false
+}

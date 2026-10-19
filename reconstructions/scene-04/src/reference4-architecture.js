@@ -8,7 +8,7 @@ import {createWeatheredFlagstone} from './reference4-garden-stone.js';
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
 export const REFERENCE4_ARCHITECTURE_REVISION='reference4-mesh62-broad-karahafu-deep-colonnade';
 export function buildReference4Architecture(T,options={}) {
- const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:16.4,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
+ const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:16.4,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,towerYaw:0,towerWidthFactor:1,towerDepthRatio:1,towerEaveBase:4.3,towerEavePitch:1.6,towerTopRoofRise:.66,towerTopRidgeHalfRatio:.275,towerGroundY:-.8,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
  const group=new T.Group();group.name=REFERENCE4_ARCHITECTURE_REVISION;
  const {mats,materials,textures}=createReference4MaterialSet(T,C),geometries=new Set(),buckets=new Map(),stack=[new T.Matrix4()],roles={};
@@ -56,8 +56,8 @@ export function buildReference4Architecture(T,options={}) {
   for(const i of[0,path.length-1])for(let k=1;k<rim.length-1;k++){const a=P(i,0),b=P(i,k),c=P(i,k+1);if(i===0)tri(a,c,b,[0,0],[0,1],[1,1]);else tri(a,b,c,[0,0],[1,1],[0,1]);}
   return meshFromTriangles(p,uv,'entrance-saddled-bargeboard');
  }
- function roof({name,w,d,eave,rise,curl=.45,centerZ=0,inner=.0,frontGap=0,connected=false}){return role(name,()=>{
-  const hw=w/2,hd=d/2,rh=w*.275;const P=(side,t,u)=>{const span=rh+(hw-rh)*t;let x,z;if(side===0||side===2){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}
+ function roof({name,w,d,eave,rise,curl=.45,centerZ=0,inner=.0,frontGap=0,connected=false,ridgeHalfRatio=.275}){return role(name,()=>{
+  const hw=w/2,hd=d/2,rh=w*ridgeHalfRatio;const P=(side,t,u)=>{const span=rh+(hw-rh)*t;let x,z;if(side===0||side===2){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}
    let y=eave+rise*Math.pow(Math.max(0,1-t),1.48)+curl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));z+=centerZ;if(connected&&side===0)y=joinTop(x,z);return[x,y,z];};
   for(let side=0;side<4;side++){
    const ranges=side===0&&frontGap?[[-1,-.001],[.001,1]]:[[-1,1]];
@@ -218,18 +218,21 @@ export function buildReference4Architecture(T,options={}) {
   grouped(s*16.8,1.7,.6,Math.PI/2,()=>{role('return-gallery-red-frame',()=>{for(const z of[-1.35,1.35])for(let i=0;i<=5;i++){const x=-4.3+i*1.72;arch.footColumn(x,z,1,3.1,.15);arch.brackets(x,4.25,z,.52);}for(const z of[-1.35,1.35]){box(0,4.45,z,9.2,.24,.25,'red');box(0,1.8,z,9.2,.12,.14,'red');for(let i=0;i<37;i++)box(-4.3+i*.24,1.45,z,.07,.65,.07,'red');}box(0,2.7,-1.45,9.3,2.7,.15,'plaster');});roof({name:'return-gallery-roof',w:10.3,d:4.5,eave:4.65,rise:1.18,curl:.32});});
  }
 
- const towerLevels=[];grouped(...C.towerPosition,0,()=>{
-  role('tower-stone-foundation',()=>{box(0,-.075,0,5.1,.45,5.1,'stone');box(0,.21,0,5.35,.12,5.35,'granite');});
-  const widths=[6.90,6.70,6.50,6.30,6.05],eaves=[4.30,5.90,7.50,9.10,10.70];
-  for(let level=0;level<5;level++){const w=widths[level],y=eaves[level],floor=level?eaves[level-1]+.69:.34,body=w*.61,half=body/2;towerLevels.push({level:level+1,eave:y,width:w,floor});
+ // Scene04 tower-only dimensions fitted to documented 1254px silhouette points.
+ // Member radii, tile sections, materials and uniform assembly scale are retained.
+ const towerLevels=[];grouped(...C.towerPosition,C.towerYaw,()=>{
+  const q=C.towerWidthFactor,dr=C.towerDepthRatio,ground=(C.towerGroundY-C.towerPosition[1])/C.towerSceneScale;
+  role('tower-stone-foundation',()=>{if(ground<-.30)box(0,(ground-.30)/2,0,5.1*q,-.30-ground,5.1*q*dr,'stone');box(0,-.075,0,5.1*q,.45,5.1*q*dr,'stone');box(0,.21,0,5.35*q,.12,5.35*q*dr,'granite');});
+  const widths=[6.90,6.70,6.50,6.30,6.05].map(w=>w*q),eaves=Array.from({length:5},(_,i)=>C.towerEaveBase+i*C.towerEavePitch);
+  for(let level=0;level<5;level++){const w=widths[level],d=w*dr,y=eaves[level],floor=level?eaves[level-1]+.69:.34,body=w*.61,bodyDepth=d*.61,half=body/2,halfDepth=bodyDepth/2;towerLevels.push({level:level+1,eave:y,width:w,depth:d,floor});
    role('tower-storey-'+(level+1),()=>{
-    box(0,floor-.06,0,body+.55,.12,body+.55,'cedar');
-    for(const x of[-half,0,half])for(const z of[-half,half]){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
-    for(const z of[-half,0,half])for(const x of[-half,half])if(z===0){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
-    for(const side of[0,1,2,3])grouped(0,0,0,side*Math.PI/2,()=>{box(0,(floor+y-.4)/2,-half,body,Math.max(.25,y-.4-floor),.12,'darkwood');box(0,y-.30,half,body+.55,.19,.22,'red');box(0,floor+.38,half+.2,body+.62,.10,.10,'red');box(0,floor+.12,half+.2,body+.62,.09,.10,'red');for(let i=0;i<=12;i++)box(-body*.49+i*body*.98/12,floor+.25,half+.2,.06,.34,.06,'red');for(const x of[-body*.25,0,body*.25]){const h=Math.min(.68,(y-floor)*.55),yy=(floor+y-.4)/2;box(x,yy,half-.06,.60,h,.08,'black');for(let k=0;k<=3;k++)box(x-.28+k*.56/3,yy,half+.005,.025,h,.035,'oldgold');for(let k=0;k<=3;k++)box(x,yy-h/2+k*h/3,half+.008,.60,.025,.035,'cedar');}});
-   });roof({name:'tower-roof-'+(level+1),w,d:w,eave:y,rise:.66,curl:.37});
+    box(0,floor-.06,0,body+.55,.12,bodyDepth+.55,'cedar');
+    for(const x of[-half,0,half])for(const z of[-halfDepth,halfDepth]){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
+    for(const z of[-halfDepth,0,halfDepth])for(const x of[-half,half])if(z===0){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
+    for(const side of[0,1,2,3])grouped(0,0,0,side*Math.PI/2,()=>{const faceBody=side%2?bodyDepth:body,faceHalf=side%2?half:halfDepth;box(0,(floor+y-.4)/2,-faceHalf,faceBody,Math.max(.25,y-.4-floor),.12,'darkwood');box(0,y-.30,faceHalf,faceBody+.55,.19,.22,'red');box(0,floor+.38,faceHalf+.2,faceBody+.62,.10,.10,'red');box(0,floor+.12,faceHalf+.2,faceBody+.62,.09,.10,'red');for(let i=0;i<=12;i++)box(-faceBody*.49+i*faceBody*.98/12,floor+.25,faceHalf+.2,.06,.34,.06,'red');for(const x of[-faceBody*.25,0,faceBody*.25]){const h=Math.min(.68,(y-floor)*.55),yy=(floor+y-.4)/2;box(x,yy,faceHalf-.06,.60,h,.08,'black');for(let k=0;k<=3;k++)box(x-.28+k*.56/3,yy,faceHalf+.005,.025,h,.035,'oldgold');for(let k=0;k<=3;k++)box(x,yy-h/2+k*h/3,faceHalf+.008,.60,.025,.035,'cedar');}});
+   });roof({name:'tower-roof-'+(level+1),w,d,eave:y,rise:level===4?C.towerTopRoofRise:.66,curl:.37,ridgeHalfRatio:level===4?C.towerTopRidgeHalfRatio:.275});
   }
-  role('tower-finial',()=>{const bottom=eaves[4]+.66+.31,top=C.towerHeight;emit(cyl,'oldgold',0,(bottom+top-.25)/2,0,.038,top-bottom-.25,.038);for(let i=0;i<13;i++){const y=bottom+.15+i*(top-bottom-.58)/12,r=.39*(1-i*.043);const g=new T.TorusGeometry(r,.027,6,28);emit(g,'oldgold',0,y,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'oldgold',0,top-.16,0,.11,.16,.11);});
+  role('tower-finial',()=>{const bottom=eaves[4]+C.towerTopRoofRise+.31,top=C.towerHeight;emit(cyl,'oldgold',0,(bottom+top-.25)/2,0,.038,top-bottom-.25,.038);for(let i=0;i<13;i++){const y=bottom+.15+i*(top-bottom-.58)/12,r=.39*(1-i*.043);const g=new T.TorusGeometry(r,.027,6,28);emit(g,'oldgold',0,y,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'oldgold',0,top-.16,0,.11,.16,.11);});
  },C.towerSceneScale);
 
  group.add(buildDeepEntranceCarving(mats,{capitalTop:C.capitalTop,canopyAt:x=>canopy(x,gFront+.08),front:gFront+.115}));
