@@ -156,6 +156,17 @@ export function buildReference4Architecture(T,options={}) {
 
  const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:upperEave,rise:C.ridgeY-upperEave,curl:upperCurl,centerZ:C.ridgeZ,connected:true,ridgeHalfRatio:upperRidgeHalfRatio,ridgeOffsetX:upperRidgeOffset,eaveOffsetX:upperEaveOffset});
  for(const x of[-3.9,0,3.9])rosette(x+upperRidgeOffset,C.ridgeY+.13,C.ridgeZ+.18,.17,'oldgold');
+ role('main-upper-roof-bearing-frieze',()=>{
+  // Separate upper eaves expose an actual two-tier bearing row. Its girts
+  // and small closed bracket assemblies follow the hip, above the gallery.
+  for(const sign of[-1,1]){
+   const axes=Array.from({length:9},(_,i)=>sign*(3.05+i*.57));
+   for(const x of axes)for(const drop of[.93,.55])arch.brackets(x,upperRaw(x,upperFront)-drop,upperFront-.03,.40,{detail:true,material:'cedar'});
+   for(let i=0;i<axes.length-1;i++)for(const drop of[1.02,.52]){
+    const x=axes[i],xx=axes[i+1];between([x,upperRaw(x,upperFront)-drop,upperFront+.04],[xx,upperRaw(xx,upperFront)-drop,upperFront+.04],.115,.30,'red');
+   }
+  }
+ });
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:H(7.90),rise:2.17,curl:.56,centerZ:-4.5,inner:.50,frontGap:6.43});
  role('entrance-deep-connected-canopy',()=>{
   const zs=lin(upperFront,gFront,15),weather=gridAt(xs,zs,canopy);emit(shell(weather,-.035,.025,'connected-canopy-ceramics'),'slate');emit(shell(weather,-.16,-.035,'connected-canopy-timber-deck'),'cedar');
