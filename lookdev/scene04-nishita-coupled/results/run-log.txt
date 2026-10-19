@@ -1,0 +1,14 @@
+{"event":"gpu-slot-acquired","label":"blender-render-coupled-nishita.py","pid":36040,"waitSeconds":0.001}
+00:00.418  blend            | Read blend: "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-physical/results/physical01/scene04-physical01.blend"
+/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/render-coupled-nishita.py:34: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  for n in m.node_tree.nodes if m.use_nodes else []:
+/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/render-coupled-nishita.py:36: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  materials.append({'name':m.name,'nodes':nodes,'links':[(l.from_node.name,l.from_socket.identifier,l.to_node.name,l.to_socket.identifier) for l in m.node_tree.links] if m.use_nodes else []})
+/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/render-coupled-nishita.py:52: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('scene04-coupled-native-Nishita');world.use_nodes=True;s.world=world
+00:54.862  render           | Saved: '/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/results/scene04-nishita-coupled.png'
+Info: Saved as "scene04-nishita-coupled.blend"
+NISHITA_COUPLED_COMPLETE {"gain": 0.05599522834137026, "solarRGB": [4.239662170410156, 3.3893683262704744, 2.4525071449120794], "skyRGB": [0.37109021379181933, 0.4689895545401481, 0.6613645284632318], "directionErrorDegrees": 0.0018098356101353267, "triangles": 23669477}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

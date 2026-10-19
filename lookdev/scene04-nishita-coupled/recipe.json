@@ -1,0 +1,205 @@
+{
+  "status": "one-frame-coupled-Nishita-study-not-selected",
+  "parentCommit": "b93edbfbdb6411dca515bdbe5381bcec702da4ba",
+  "sourceCommit": "4cb7c2b83d51d448c10a2b319ada51b662a0aaa0",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "blender": {
+    "version": "5.2.1 LTS",
+    "buildHash": "9e2066aef7ef"
+  },
+  "baseBlend": {
+    "file": "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-physical/results/physical01/scene04-physical01.blend",
+    "sha256": "7dad42be2ca56bf872909dc8375a507707a6b1e17ee7478ca830502caf7f5f5b",
+    "rebuildRecipe": "../scene04-physical/recipe.json",
+    "geometryMaterialsCamera": "Frozen4cb source and existing physical importer, unchanged in this new study"
+  },
+  "sourceCode": {
+    "producer": "render-coupled-nishita.py",
+    "producerSHA256": "24ad8c2a332a85eb5f3eb1b861e778fa94b1252842bd42f3a750458c0f7c45ab",
+    "readOnlyProbeAudit": "audit-existing-probe.py",
+    "auditSHA256": "57ea7cf845085d3bfacb3b6385e5ce709c54c70097e05dfcc02dc2db859edfc4",
+    "comparison": "assemble-review.mjs",
+    "comparisonSHA256": "bcf8d58ca386b5cd893d140b1acf589b97d6db51e099af0c7115a93f28763a7d"
+  },
+  "command": {
+    "cwd": "/Users/mima1234/temple-scene04-physical-compare-20261019",
+    "render": "node tools/run-blender-queued.mjs lookdev/scene04-nishita-coupled/render-coupled-nishita.py",
+    "comparison": "node lookdev/scene04-nishita-coupled/assemble-review.mjs"
+  },
+  "parameters": {
+    "sun_disc": true,
+    "sun_intensity": 1,
+    "sun_size": 0.00930000003427267,
+    "sun_elevation": 0.5585507750511169,
+    "sun_rotation": 2.512796401977539,
+    "altitude": 100,
+    "air_density": 1,
+    "ozone_density": 1,
+    "aerosol_density": 1,
+    "sky_type": "SINGLE_SCATTERING"
+  },
+  "nativeDefaults": {
+    "sun_disc": true,
+    "sun_intensity": 1,
+    "sun_size": 0.009512044489383698,
+    "sun_elevation": 0.2617993950843811,
+    "sun_rotation": 0,
+    "altitude": 100,
+    "air_density": 1,
+    "ozone_density": 1,
+    "aerosol_density": 1
+  },
+  "sourceSun": {
+    "originalStrength": 8,
+    "newIndependentStrength": 0,
+    "angularDiameterRadians": 0.00930000003427267,
+    "worldOutwardDirection": [
+      0.49878376712545935,
+      -0.6858276127422813,
+      0.5299577711972521
+    ],
+    "sourceMatrixDot": 0.999999999999999,
+    "sourceMatrixErrorDegrees": 0.000002561320938754782,
+    "modeledDirection": [
+      0.49878370911928543,
+      -0.6858276502181266,
+      0.5299577772931453
+    ],
+    "modelDirectionDot": 0.9999999999999976
+  },
+  "environment": {
+    "file": "/Users/mima1234/temple-scene04-physical-compare-20261019/output/scene04-nishita-coupled/native-nishita-world-unit-gain.exr",
+    "sha256": "13c0085e0e3c483603c179b356c0c5ef8d544f1e5cabc6e8cd9c642ff42df274",
+    "size": [
+      8192,
+      4096
+    ],
+    "samples": 8,
+    "colorSpace": "scene-linear Rec.709 float32",
+    "probeSceneMeshes": 0,
+    "uniformModelGain": 0.05599522834137026,
+    "actualWorldNodeStrength": 0.05599522963166237,
+    "anchorSourceHorizontalR": 4.239662170410156,
+    "anchorMeaning": "Source SUN8*directionY is a working brightness anchor, not measured SI irradiance.",
+    "samplingNote": "Reused the one existing float probe. Only its longitude is rigidly re-labelled around Z after the documented API-angle sign correction; no second probe render.",
+    "probeLongitudeRelabelRadians": 1.2575925845357865,
+    "unitGainIntegral": {
+      "horizontalTotalRGB": [
+        82.34188020616519,
+        68.90511915209032,
+        55.609589702748444
+      ],
+      "solarCapRGB": [
+        75.71640196995499,
+        60.53111042631454,
+        43.79989734837235
+      ],
+      "solarCapRadiusDegrees": 0.4164253757176725,
+      "solarDiscRadiusDegrees": 0.2664253757176725,
+      "solarCapSolidAngle": 0.00016562007297092686,
+      "solarTheoreticalSolidAngle": 0.0000679289652534606,
+      "neighborSkyRingDegrees": [
+        0.65,
+        1
+      ],
+      "neighborSkyMeanRadianceRGB": [
+        19.338196453613445,
+        17.298869356904373,
+        15.89187442427498
+      ],
+      "capSkyBaselineRGB": [
+        0.0016974139987592015,
+        0.0015184116615812623,
+        0.0013949124045250475
+      ],
+      "directSolarRGB": [
+        75.71470455595623,
+        60.52959201465296,
+        43.79850243596782
+      ],
+      "skyWithoutDirectSolarRGB": [
+        6.6271756502089545,
+        8.37552713743736,
+        11.811087266780625
+      ],
+      "peakLinearLuminance": 2162342.6044749995,
+      "peakPixel": [
+        6963,
+        2776
+      ],
+      "solarPixelsAboveLuminance1000": 162,
+      "renderedSolarCentroidDirection": [
+        0.49878187098505,
+        -0.6858092079414192,
+        0.5299833728329749
+      ],
+      "renderedSolarCentroidDot": 0.9999999995011121,
+      "renderedSolarCentroidErrorDegrees": 0.0018098356101353267
+    },
+    "scaledDirectSolarRGB": [
+      4.239662170410156,
+      3.3893683262704744,
+      2.4525071449120794
+    ],
+    "scaledSkyRGB": [
+      0.37109021379181933,
+      0.4689895545401481,
+      0.6613645284632318
+    ],
+    "scaledTotalRGB": [
+      4.610752384201976,
+      3.8583578808106225,
+      3.1138716733753116
+    ],
+    "directToSkyRatioRGB": [
+      11.424882718110686,
+      7.2269590942037185,
+      3.7082532239985793
+    ],
+    "solarSamplingLimitation": "Finite8-sample/pixel angular quadrature; neighboring sky baseline is an estimate, while all model sun/sky radiance gets the same gain."
+  },
+  "renderer": {
+    "engine": "Cycles",
+    "device": "Metal",
+    "samples": 48,
+    "seed": 904101,
+    "size": [
+      1254,
+      1254
+    ],
+    "denoiser": "OPENIMAGEDENOISE",
+    "exposureEV": 0,
+    "viewTransform": "AgX"
+  },
+  "preservedStateSHA256": "03cae90ee773f698d07a78f5b6db225e3de7c0369d3176f8049f6995ae53b034",
+  "geometryTriangles": 23669477,
+  "coordinateCorrection": {
+    "cause": "Cycles SkyTextureNode::simplify_settings reverses the API sun_rotation before the internal sky.h expression; the first code incorrectly used that internal angle as the API angle.",
+    "evidence": "results/coordinate-check01/audit.json",
+    "failedSource": "results/coordinate-check01/render-source.py",
+    "failedSourceSHA256": "3f0d22d97e6d293e41a7a957c1c43b3a5c8b53382abb1ea2e89fa8cd6fd84003",
+    "failedSceneFullFrames": 0,
+    "rawFloatSampleReused": true,
+    "correction": "API d=(sin(rotation)*cos(elevation),cos(rotation)*cos(elevation),sin(elevation)); the one earlier EXR is rigidly re-labelled aroundZ, preserving all horizontal sun/sky integrals.",
+    "source": "https://github.com/blender/blender/blob/main/intern/cycles/scene/shader_nodes.cpp"
+  },
+  "newAssets": false,
+  "photoRGBUsed": false,
+  "independentSUNStrength": 0,
+  "oneUniformGainForAllWorldRadiance": true,
+  "exposureChanged": false,
+  "cameraBackgroundSpecialCase": false,
+  "sourceSceneEdited": false,
+  "oldStudyEdited": false,
+  "publicToolsEdited": false,
+  "jobs": {
+    "newFull1254": 1,
+    "worldOnlyFloatSamples": 1,
+    "extraFloatReadAudit": 1,
+    "newFloorRenders": 0,
+    "suites": 0,
+    "movies": 0,
+    "push": false
+  },
+  "photographicAcceptance": false
+}

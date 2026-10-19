@@ -1,0 +1,49 @@
+{
+  "status": "one-frame-coupled-model-candidate-not-selected",
+  "reviewedAt": "2026-10-19T00:33:42.098Z",
+  "actualFrame": "results/scene04-nishita-coupled.png",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "viewed": [
+    "reference04 original1254",
+    "source-matched native integrated-paving93 full1254",
+    "previous actual physical01/02",
+    "new actual Nishita coupled full1254"
+  ],
+  "observed": [
+    "Physical indirect/contact transitions remain continuous.",
+    "The coupling yields one documented sun/sky ratio instead of two independently chosen energies.",
+    "The image retains a dark blue sky, dark eave/garden areas and smooth grey paving; it does not resolve the photographic gap.",
+    "No reference cloud structure is present in the clear-sky model."
+  ],
+  "decision": "Keep as a bounded independent model test; do not select as an overall photographic improvement. No second full-frame adjustment.",
+  "limitations": [
+    "No cloud model, so the reference clouds are absent.",
+    "World scale uses a declared working anchor, not recovered site illuminance.",
+    "Frozen geometry/material reconstruction and previously disclosed nonportable old-stone macro-weather limits remain."
+  ],
+  "interpretation": "This image does not establish that uncoupled lighting was the only cause of the gap, or that the atmospheric model is invalid. The brightness anchor and photographed atmospheric/camera response remain unmeasured.",
+  "immutable": {
+    "sourceScene": true,
+    "oldStudy": true,
+    "publicRenderer": true,
+    "geometry": true,
+    "materialNodes": true,
+    "camera": true,
+    "exposure": true
+  },
+  "allowedChanges": [
+    "Native Nishita world with coupled solar disc and sky.",
+    "Original independent SUN energy0.",
+    "Single uniform world gain from one float cap integral."
+  ],
+  "jobs": {
+    "newFull1254": 1,
+    "worldOnlyFloatSamples": 1,
+    "readOnlyFloatAudit": 1,
+    "additionalFullFrames": 0,
+    "suites": 0,
+    "movies": 0,
+    "push": false
+  },
+  "photographicAcceptance": false
+}
