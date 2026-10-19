@@ -39,7 +39,7 @@ export function createTracedPaving04(){
 }
 
 export function tracedSlabGeometry(record){
- const {outline,top,thickness}=record,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,seed=739+record.column*139+record.row*31,isCurb=record.id.includes('curb'),gap=isCurb?.019:.015,bevel=isCurb?.007:.006;
+ const {outline,top,thickness}=record,cx=outline.reduce((a,p)=>a+p[0],0)/outline.length,cz=outline.reduce((a,p)=>a+p[1],0)/outline.length,seed=739+record.column*139+record.row*31+(record.detailSeed??0)*.73,isCurb=record.id.includes('curb'),gap=record.jointGap??(isCurb?.019:.015),bevel=record.edgeBevel??(isCurb?.007:.006);
  const points=outline.map(([x,z])=>{const d=Math.hypot(x-cx,z-cz);return[x+(cx-x)*gap/d,z+(cz-z)*gap/d];});
  // Each arris has different sparse chips and a round, eroded corner. The
  // resulting perimeter is extruded through the whole stone, not a decal.

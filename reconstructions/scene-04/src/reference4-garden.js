@@ -64,7 +64,30 @@ export function buildReference4Garden(T,options={}){
  for(let k=0;k<266;k++)random();
  const traced=createTracedPaving04();
  const pavingMaterials=[];
- for(const record of traced.records){const g=tracedSlabGeometry(record),mat=ownM(tracedStoneMaterial04(record));pavingMaterials.push(mat);for(const t of Object.values(mat.userData.maps))ownedT.add(t);mesh(g,mat,record.id,subgroups.path);records.stoneSlabs.push({...record,source:'observed reference joint centres; inferred scale and wear',referenceBitmapUsed:false});}
+ const pavingHash=(x,z,s)=>{const q=Math.sin(x*127.1+z*311.7+s*17.13)*43758.5453;return q-Math.floor(q);};
+ function splitObservedFlagstones(record){
+  const p=record.outline,[a,b,c,d]=p;
+  const across=(Math.hypot(b[0]-a[0],b[1]-a[1])+Math.hypot(c[0]-d[0],c[1]-d[1]))*.5;
+  const along=(Math.hypot(d[0]-a[0],d[1]-a[1])+Math.hypot(c[0]-b[0],c[1]-b[1]))*.5;
+  const seed=record.column*193+record.row*79+43,nu=Math.max(1,Math.ceil(across/.76)),nv=Math.max(1,Math.ceil(along/.58));
+  const cuts=(count,axis,total)=>{const weights=Array.from({length:count},(_,i)=>.50+.96*pavingHash(i,axis,seed+axis*29)),sum=weights.reduce((x,y)=>x+y,0),out=[0];for(const w of weights)out.push(out.at(-1)+w/sum);out[out.length-1]=1;return out;};
+  const us=cuts(nu,1,across),vs=cuts(nv,2,along),nodes=[];
+  for(let j=0;j<=nv;j++){nodes[j]=[];for(let i=0;i<=nu;i++){
+   let u=us[i],v=vs[j];
+   if(i>0&&i<nu&&j>0&&j<nv){u=T.MathUtils.clamp(u+(.28*(pavingHash(i,j,seed+11)-.5))/nu,us[i-1]+.28/nu,us[i+1]-.28/nu);v=T.MathUtils.clamp(v+(.24*(pavingHash(i,j,seed+23)-.5))/nv,vs[j-1]+.24/nv,vs[j+1]-.24/nv);}
+   const w0=(1-u)*(1-v),w1=u*(1-v),w2=u*v,w3=(1-u)*v;
+   nodes[j][i]=[a[0]*w0+b[0]*w1+c[0]*w2+d[0]*w3,a[1]*w0+b[1]*w1+c[1]*w2+d[1]*w3];
+  }}
+  const tiles=[];for(let j=0;j<nv;j++)for(let i=0;i<nu;i++){
+   const outline=[nodes[j][i],nodes[j][i+1],nodes[j+1][i+1],nodes[j+1][i]],tileIndex=j*nu+i;
+   tiles.push({...record,id:`${record.id}-flagstone-${String(tileIndex+1).padStart(2,'0')}`,sourceRecordId:record.id,column:record.column,row:record.row,detailSeed:tileIndex,outline,thickness:.115+.045*pavingHash(tileIndex,record.column,seed+37),top:record.top+.006*(pavingHash(tileIndex,record.row,seed+47)-.5),jointGap:.007,edgeBevel:.011,source:'observed outer joint subdivided into fitted irregular flagstones'});
+  }
+  return tiles;
+ }
+ for(const record of traced.records){
+  const mat=ownM(tracedStoneMaterial04(record));pavingMaterials.push(mat);for(const t of Object.values(mat.userData.maps))ownedT.add(t);
+  for(const tile of splitObservedFlagstones(record)){mesh(tracedSlabGeometry(tile),mat,tile.id,subgroups.path);records.stoneSlabs.push({...tile,sourceRecordId:record.id,referenceBitmapUsed:false});}
+ }
  // Continue the constructed path behind the supplied view, so its top and
  // support remain complete when inspected from above. These slabs are authored
  // extrapolation, explicitly separate from the 31 observed visible stones.

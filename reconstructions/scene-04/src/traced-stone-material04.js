@@ -24,7 +24,7 @@ export function unobservedContinuationMaterial04(){
 }
 export function tracedStoneMaterial04(record){
  const data=loaded.get(record.id);if(!data)throw Error('Missing individually authored stone material '+record.id);
- const [map,normalMap,roughnessMap,coat]=data.maps,m=new T.MeshPhysicalMaterial({name:'traced-granite-'+record.id,color:0xffffff,map,normalMap,normalScale:new T.Vector2(1,1),roughness:1,roughnessMap,metalness:0,ior:1.5,clearcoat:1,clearcoatMap:coat,clearcoatNormalMap:normalMap,clearcoatNormalScale:new T.Vector2(.85,.85),clearcoatRoughness:1,clearcoatRoughnessMap:coat,envMapIntensity:1.0});
+ const [map,normalMap,roughnessMap,coat]=data.maps,m=new T.MeshPhysicalMaterial({name:'traced-granite-'+record.id,color:'#f0d6b5',map,normalMap,normalScale:new T.Vector2(1,1),roughness:1,roughnessMap,metalness:0,ior:1.5,clearcoat:.7,clearcoatMap:coat,clearcoatNormalMap:normalMap,clearcoatNormalScale:new T.Vector2(.85,.85),clearcoatRoughness:1,clearcoatRoughnessMap:coat,envMapIntensity:1.0});
  // Three's clearcoat uses n=1.5. This layer is a water film, so its normal-
  // incidence Fresnel reflectance is ((1.333-1)/(1.333+1))^2 instead.
  const waterF0=((1.333-1)/(1.333+1))**2;
