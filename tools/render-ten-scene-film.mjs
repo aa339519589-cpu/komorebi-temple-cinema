@@ -7,7 +7,8 @@ import {reconstructionSourceIdentity} from './reconstruction-source-identity.mjs
 const root=resolve(fileURLToPath(new URL('..',import.meta.url)));
 const iteration=process.env.FILM_ITERATION||'hour-1832-film';
 if(!/^[a-zA-Z0-9_-]+$/.test(iteration))throw Error('Invalid film iteration');
-const size=Number(process.env.FILM_SIZE||1080),fps=30;
+const size=Number(process.env.FILM_SIZE||1080),fps=Number(process.env.FILM_FPS||30),shotDuration=7,expectedShotFrames=fps*shotDuration;
+if(![24,25,30,60].includes(fps))throw Error('FILM_FPS must be 24,25,30 or60.');
 const reuseIterations=(process.env.FILM_REUSE_ITERATIONS||process.env.FILM_REUSE_ITERATION||'').split(',').filter(Boolean);
 if(reuseIterations.some(v=>!/^[a-zA-Z0-9_-]+$/.test(v)))throw Error('Invalid cached film iteration');
 const out=resolve(root,'output',iteration);await mkdir(out,{recursive:true});
@@ -23,7 +24,7 @@ try{
   for(const reuseIteration of reuseIterations){
    try{
     const cached=JSON.parse(await readFile(resolve(root,'qa/ten-reference',id,'iteration-'+reuseIteration,'report.json'),'utf8'));
-    if(cached.status==='motion-review-rendered'&&cached.source.hash===identities[reference-1]&&cached.size===size&&cached.motion?.fps===fps&&cached.motion.expectedFrames===210&&(await stat(cached.motion.file)).size>1000){receipt=cached;reused=true;break;}
+    if(cached.status==='motion-review-rendered'&&cached.source.hash===identities[reference-1]&&cached.size===size&&cached.motion?.fps===fps&&cached.motion.expectedFrames===expectedShotFrames&&(await stat(cached.motion.file)).size>1000){receipt=cached;reused=true;break;}
    }catch(e){if(e.code!=='ENOENT')throw e;}
   }
   if(!receipt){
@@ -39,16 +40,17 @@ try{
  await run('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',concatFile,'-c','copy','-movflags','+faststart',cut]);
  const master=resolve(out,'temple-ten-scenes-70s.mp4');
  await run('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',cut,'-ss','25','-i',music,'-map','0:v:0','-map','1:a:0','-c:v','copy','-af','loudnorm=I=-20:TP=-2:LRA=9,afade=t=in:d=1.5,afade=t=out:st=67:d=3','-c:a','aac','-b:a','192k','-ar','48000','-t','70','-movflags','+faststart',master]);
- // The seven-second source shots are kept intact. Overlapping them creates
- // an exact one-minute edit: eight 33-frame dissolves and one36-frame dissolve.
+ // The seven-second source shots are kept intact. Distribute exactly ten
+ // seconds of overlap across the nine transitions so the edit is 60 seconds.
+ const transitionFrames=fps===30?[33,33,33,33,33,33,33,33,36]:Array.from({length:9},(_,i)=>Math.floor(10*fps/9)+(i<10*fps%9?1:0));
  const args=['-y','-hide_banner','-loglevel','error','-filter_complex_threads','1'];for(const shot of report.shots)args.push('-i',shot.file);args.push('-ss','25','-i',music);
  const filters=[];for(let i=0;i<10;i++)filters.push(`[${i}:v]settb=AVTB,setpts=PTS-STARTPTS,format=yuv420p[v${i}]`);
  let previous='v0',length=7;
- for(let i=1;i<10;i++){const duration=i===9?1.2:1.1,offset=length-duration,label='blend'+i;filters.push(`[${previous}][v${i}]xfade=transition=fade:duration=${duration}:offset=${offset.toFixed(3)}[${label}]`);length+=7-duration;previous=label;}
+ for(let i=1;i<10;i++){const duration=transitionFrames[i-1]/fps,offset=length-duration,label='blend'+i;filters.push(`[${previous}][v${i}]xfade=transition=fade:duration=${duration}:offset=${offset.toFixed(6)}[${label}]`);length+=7-duration;previous=label;}
  const minute=resolve(out,'temple-ten-scenes-60s.mp4');
- args.push('-filter_complex',filters.join(';'),'-map',`[${previous}]`,'-map','10:a:0','-af','loudnorm=I=-20:TP=-2:LRA=9,afade=t=in:d=1.5,afade=t=out:st=57:d=3','-c:v','libx264','-preset','fast','-crf','16','-pix_fmt','yuv420p','-r','30','-c:a','aac','-b:a','192k','-ar','48000','-t','60','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','iec61966-2-1','-movflags','+faststart',minute);
+ args.push('-filter_complex',filters.join(';'),'-map',`[${previous}]`,'-map','10:a:0','-af','loudnorm=I=-20:TP=-2:LRA=9,afade=t=in:d=1.5,afade=t=out:st=57:d=3','-c:v','libx264','-preset','fast','-crf','16','-pix_fmt','yuv420p','-r',String(fps),'-fps_mode','cfr','-c:a','aac','-b:a','192k','-ar','48000','-t','60','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','iec61966-2-1','-movflags','+faststart',minute);
  await run('ffmpeg',args);
- report.status='ten-scene-draft-rendered';report.completedAt=new Date().toISOString();report.sourceFrames=2100;report.sourceDuration=70;report.edits=[{file:master,duration:70,sourceShotsKeptAtSevenSeconds:true},{file:minute,duration:60,overlapFrames:[33,33,33,33,33,33,33,33,36]}];
+ report.status='ten-scene-draft-rendered';report.completedAt=new Date().toISOString();report.sourceFrames=10*expectedShotFrames;report.sourceDuration=70;report.edits=[{file:master,duration:70,sourceShotsKeptAtSevenSeconds:true},{file:minute,duration:60,fps,overlapFrames:transitionFrames}];
  report.audio={file:'music/PerituneMaterial_Oboro.mp3',title:'Oboro',composer:'PeriTune / Sei Mutsuki',source:'https://peritune.com/blog/2019/04/08/oboro/',license:'CC BY 4.0',offsetSeconds:25};
  await save();console.log(JSON.stringify({status:report.status,edits:report.edits,visualAccepted:false}));
 }catch(e){report.status='failed';report.error=String(e.stack||e);await save();throw e;}
