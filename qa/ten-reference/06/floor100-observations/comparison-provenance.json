@@ -1,0 +1,33 @@
+{
+  "reference": {
+    "path": "references/hd/4-照片-5.jpg",
+    "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      844,
+      1254,
+      410
+    ],
+    "copyright": "Original owner retained; comparison-only QA crop/grid. Never a scene asset."
+  },
+  "baseline": {
+    "path": "qa/ten-reference/06/iteration-mesh-film-20261019-r01/frame-0209.png",
+    "sha256": "2d5d645ddb0d561fc5f8b72ce1305c9b8dccf81372cf030dd4db7634b0550baf",
+    "dimensions": [
+      1440,
+      1440
+    ],
+    "comparisonResample": [
+      1254,
+      1254
+    ],
+    "sourceExactBeforeChange": "a9801499289e22aed8d1892f8cb287c066782bf7f9a39de433ebb425b6ffcc21"
+  },
+  "actualNativeFrames": "100a/100b are actual1254 renders, not resampled crops",
+  "newExternalOrGeneratedBitmapAssets": 0,
+  "privateMaterial": "Original existing procedural wood albedo and floor brown pigment; actual-room capture only enters clearcoat indirect BRDF. No photo/AI RGB."
+}
