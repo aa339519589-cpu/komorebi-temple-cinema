@@ -1,0 +1,61 @@
+{
+  "status": "unaccepted-actual3d-rain-film-candidate",
+  "sourceSha256": "81ef6b0c319946c28cbad6ed353ee7cffeb099e594845aff9ddb24efb357bd28",
+  "sourceCommit": "ed6787a3ed822a89cdd87b21e8788e2ddeab89a5",
+  "actualFrames": [
+    {
+      "name": "reference",
+      "valid": true,
+      "camera": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "fov": 60
+      }
+    },
+    {
+      "name": "detail-native",
+      "valid": true,
+      "camera": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "fov": 60
+      }
+    }
+  ],
+  "visualAccepted": false,
+  "change": "Removed the 110 emissive torus outlines from the wet pavement and built one changing 3D water-film relief mesh whose centers are placed on generated wet paving and whose vertices fade at dry stone boundaries.",
+  "observedAtCurrentOutput": "Small irregular silver-grey ripples now read in the closest wet paving. They use the existing physical water-reflection field. No white/diffuse ring colour is added.",
+  "actualGeometry": {
+    "revision": "scene10-grounded-pbr-rainwaves135",
+    "seeds": 55,
+    "additionalDistributedPositions": 24,
+    "groundedImpacts": 74,
+    "generatedVertices": 94794,
+    "generatedTriangles": 177600,
+    "waterSurfaceY": 0.066,
+    "ringWidthMetres": 0.019,
+    "staticRNGDraws": 0,
+    "ringMaterial": "physical wet-film reflectance; no emissive/diffuse white outline",
+    "contact": "Impact centers are snapped to a real wet paving polygon; every ripple vertex is gated by that polygon coverage/wetness mask and remains within 0.8–5.2 mm relief.",
+    "surface": "Existing shallow wet-film surface over the actual authored flagstone geometry; no replacement ground sheet."
+  },
+  "unresolved": "The rain marks remain weaker and more regular than the reference; lighting/materials, hall detail and the distant hillside remain far from photographic fidelity. Temporal playback/flicker has not been visually assessed. This image is not the requested 60-second film.",
+  "beforeAfter": "before-after-wet-detail.jpg",
+  "photoComparison": "reference-vs-actual.jpg"
+}
