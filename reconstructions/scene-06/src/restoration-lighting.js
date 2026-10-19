@@ -546,7 +546,7 @@ export function createRestorationLighting({ scene, sun, renderer, materials = {}
 export function createRestorationScatteringPass(camera, sun, depth, options={}) {
   const pass=new ShaderPass({
     defines:{RESTORATION_SHADOW_PCF:1},
-    uniforms:{tDiffuse:{value:null},tDepth:{value:depth},tShadow:{value:null},inverseProjection:{value:camera.projectionMatrixInverse},cameraWorld:{value:camera.matrixWorld},sunShadowMatrix:{value:sun.shadow.matrix},sunDirection:{value:new T.Vector3()},sunColor:{value:new T.Color()},density:{value:finite(options.density,.010)},shadowTexel:{value:new T.Vector2(1/8192,1/8192)},shadowReady:{value:0}},
+    uniforms:{tDiffuse:{value:null},tDepth:{value:depth},tShadow:{value:null},inverseProjection:{value:camera.projectionMatrixInverse},cameraWorld:{value:camera.matrixWorld},sunShadowMatrix:{value:sun.shadow.matrix},sunDirection:{value:new T.Vector3()},sunColor:{value:new T.Color()},density:{value:finite(options.density,.010)},scatteringGain:{value:Math.max(0,Math.min(8,finite(options.scatteringGain,1)))},shadowTexel:{value:new T.Vector2(1/8192,1/8192)},shadowReady:{value:0}},
     vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
     fragmentShader:`#include <packing>
       uniform sampler2D tDiffuse,tDepth;
@@ -556,7 +556,7 @@ export function createRestorationScatteringPass(camera, sun, depth, options={}) 
         uniform sampler2D tShadow;
       #endif
       uniform mat4 inverseProjection,cameraWorld,sunShadowMatrix;
-      uniform vec3 sunDirection,sunColor;uniform vec2 shadowTexel;uniform float density,shadowReady;varying vec2 vUv;
+      uniform vec3 sunDirection,sunColor;uniform vec2 shadowTexel;uniform float density,shadowReady,scatteringGain;varying vec2 vUv;
       float visibility(vec3 p){vec4 q=sunShadowMatrix*vec4(p,1.0);q.xyz/=max(q.w,.00001);
         if(any(lessThan(q.xyz,vec3(0)))||any(greaterThan(q.xyz,vec3(1))))return 0.0;
         float s=0.0;for(int j=0;j<2;j++)for(int i=0;i<2;i++){
@@ -578,7 +578,7 @@ export function createRestorationScatteringPass(camera, sun, depth, options={}) 
           if(room>.001)scatter+=transmission*(1.0-extinction)*visibility(p);transmission*=extinction;
         }
         float g=.24,c=dot(ray,sunDirection),phase=(1.0-g*g)/pow(max(.05,1.0+g*g-2.0*g*c),1.5);
-        gl_FragColor=vec4(base.rgb*transmission+sunColor*scatter*phase*.07957747,base.a);
+        gl_FragColor=vec4(base.rgb*transmission+sunColor*scatter*phase*.07957747*scatteringGain,base.a);
       }`
   });
   // ShaderPass clones uniforms, so restore these live identities explicitly.

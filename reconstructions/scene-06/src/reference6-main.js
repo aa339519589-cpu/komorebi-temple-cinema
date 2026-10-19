@@ -7,7 +7,7 @@ import {createReference6CameraShot} from './reference6-camera-shot.js';
 import {createShotFocusPass} from './shot-focus.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {buildReference6Scene,REFERENCE6_FOUNDATION} from './reference6-scene.js';
-import {loadFloorSurface106} from './floor-scan106.js';
+import {loadFloorSurface106,loadTempleWoodTexture} from './floor-scan106.js';
 import {createRestorationScatteringPass} from './restoration-lighting.js';
 import {installRestorationRenderDiagnostics} from './restoration-render-diagnostics.js';
 
@@ -29,9 +29,9 @@ const composerAA=diagnostics.run('reference6-composer-aa-capability',()=>{
  return Object.freeze({requestedSamples:4,samples,colorFormat:'RGBA16F',depthFormat:'DEPTH_COMPONENT24',colorSamples:Object.freeze(colorSamples),depthSamples:Object.freeze(depthSamples),maxSamples,active:samples>0,mode:samples>0?'multisample-composer':'unsupported-format-no-aa',scope:'Geometry coverage only; no promise to remove normal-map/specular aliasing.'});
 });
 const camera=new T.PerspectiveCamera(REFERENCE6_FOUNDATION.camera.fov,width/height,.06,60);camera.position.fromArray(REFERENCE6_FOUNDATION.camera.position);camera.lookAt(new T.Vector3(...REFERENCE6_FOUNDATION.camera.target));camera.updateMatrixWorld(true);
-const floorSurface=await loadFloorSurface106();
+const [floorSurface,timberMap]=await Promise.all([loadFloorSurface106(),loadTempleWoodTexture()]);
 let room;
-try {room=diagnostics.run('reference6-room-build',()=>buildReference6Scene({reflectionSize:768,shadowSize:2048,roomCubeSize:128,floorSurface}));diagnostics.run('reference6-room-environment-capture',()=>room.initializeEnvironment(renderer));}catch(error){renderer.dispose();throw error;}
+try {room=diagnostics.run('reference6-room-build',()=>buildReference6Scene({reflectionSize:768,shadowSize:2048,roomCubeSize:128,floorSurface,timberMap}));diagnostics.run('reference6-room-environment-capture',()=>room.initializeEnvironment(renderer));}catch(error){renderer.dispose();throw error;}
 const {scene,sun}=room;
 // Locate the actual central bowl/cartouche surface without changing any
 // geometry or material. Altar-local Y1.426 lies across the six-lobed body.
@@ -56,10 +56,10 @@ contactAO.setGBuffer(depthTarget.depthTexture,depthTarget.texture);
 contactAO.updateGtaoMaterial({radius:.18,thickness:.14,distanceExponent:1,distanceFallOff:1,scale:1,samples:16,screenSpaceRadius:false});
 contactAO.updatePdMaterial({radius:3.5,samples:16,depthPhi:2,normalPhi:3,lumaPhi:10});
 contactAO.blendIntensity=.65;contactAO.output=GTAOPass.OUTPUT.Default;composer.addPass(contactAO);
-const scattering=createRestorationScatteringPass(camera,sun,depthTarget.depthTexture,{density:.022});
+const scattering=createRestorationScatteringPass(camera,sun,depthTarget.depthTexture,{density:.022,scatteringGain:3.5});
 const inheritedMask='float room=(1.0-smoothstep(11.0,12.2,abs(p.x-6.0)))*smoothstep(-20.5,-19.6,p.z)*(1.0-smoothstep(-2.2,-1.6,p.z));\n          room*=smoothstep(6.03,6.32,p.y)*(1.0-smoothstep(16.8,17.8,p.y));';
 if(scattering.material.fragmentShader.split(inheritedMask).length!==2)throw Error('Pinned scattering mask changed.');
-scattering.material.fragmentShader=scattering.material.fragmentShader.replace(inheritedMask,'float room=(1.0-smoothstep(6.65,6.8,abs(p.x)))*smoothstep(-5.8,-5.55,p.z)*(1.0-smoothstep(9.8,10.0,p.z));\n          room*=smoothstep(.02,.10,p.y)*(1.0-smoothstep(7.05,7.2,p.y));float leftDust=exp(-pow((p.x+4.7)/1.5,2.0))*smoothstep(-4.5,-2.5,p.z)*(1.0-smoothstep(5.2,7.0,p.z));room*=.003+.997*leftDust;');
+scattering.material.fragmentShader=scattering.material.fragmentShader.replace(inheritedMask,'float room=(1.0-smoothstep(6.65,6.8,abs(p.x)))*smoothstep(-5.8,-5.55,p.z)*(1.0-smoothstep(9.8,10.0,p.z));\n          room*=smoothstep(.02,.10,p.y)*(1.0-smoothstep(7.05,7.2,p.y));\n          vec3 beamStart=vec3(-6.65,5.1765,-4.4861),beamEnd=vec3(0.0,4.4,-1.4),beamAxis=normalize(beamEnd-beamStart),beamDelta=p-beamStart;\n          float beamAlong=dot(beamDelta,beamAxis),beamRadius=length(beamDelta-beamAxis*beamAlong);\n          float clearWindowShaft=smoothstep(0.0,.35,beamAlong)*(1.0-smoothstep(7.8,8.4,beamAlong))*exp(-pow(beamRadius/.92,2.0));\n          room*=.003+.997*clearWindowShaft;');
 scattering.material.needsUpdate=true;composer.addPass(scattering);composer.addPass(shotFocus.pass);const lensBloom=createLensBloomPass(width,height);composer.addPass(lensBloom);composer.addPass(new OutputPass());
 let frame=0,activeTarget=[...REFERENCE6_FOUNDATION.camera.target],activeShot=null;
 function renderOpaqueDepth(){
@@ -70,7 +70,7 @@ function renderOpaqueDepth(){
 }
 function renderFrame(reference=6){if(Number(reference)!==6)throw Error('This isolated foundation reconstructs reference 6 only.');return diagnostics.run('reference6-render-frame',()=>{camera.updateMatrixWorld(true);renderOpaqueDepth();scattering.sync({mist:.022});composer.render(0);frame++;return{reference:6,frame,width,height,revision:REFERENCE6_FOUNDATION.revision,camera:{position:camera.position.toArray(),target:[...activeTarget],quaternion:camera.quaternion.toArray(),fov:camera.fov},shot:activeShot,focus:shotFocus.info(),quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:768,composerSamples:composerAA.samples},renderVariant:'scene-06-sculpture-varnish-max03',validation:'Visual foundation candidate, not photographic acceptance.'};});}
 const counts={meshes:0,instances:0,triangles:0};scene.traverse(o=>{if(o.isMesh){counts.meshes++;const n=o.isInstancedMesh?o.count:1;counts.instances+=n;counts.triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3*n;}});
-function info(){return{revision:REFERENCE6_FOUNDATION.revision,reference:6,frame,counts:{...counts},independentInterior:true,exteriorWorldBuilt:false,photoPlanes:false,exposure:renderer.toneMappingExposure,lights:{sun:1,indirectAreaProxies:room.windowSky.length,frontWindowShadowSamples:6,practicals:2},quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:768},renderVariant:'scene-06-sculpture-varnish-max03',cameraShot:{...shot.info,current:activeShot,focus:shotFocus.info()},composerAA,contactOcclusion:{method:'GTAO',radius:.18,thickness:.14,blendIntensity:.65,source:'Actual opaque geometry normals and depth',limitation:'Screen-space multiply approximation, not physical indirect-only transport'},limits:[...room.limits],diagnostics:diagnostics.snapshot()};}
+function info(){return{revision:REFERENCE6_FOUNDATION.revision,reference:6,frame,counts:{...counts},independentInterior:true,exteriorWorldBuilt:false,photoPlanes:false,exposure:renderer.toneMappingExposure,lights:{sun:1,indirectAreaProxies:room.windowSky.length,frontWindowShadowSamples:6,practicals:2},quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:768},renderVariant:'scene-06-sculpture-varnish-max03',cameraShot:{...shot.info,current:activeShot,focus:shotFocus.info()},composerAA,solarScattering:{shadowReady:scattering.uniforms.shadowReady.value,hasShadowDepthTexture:Boolean(scattering.uniforms.tShadow.value),pcfDefine:scattering.material.defines.RESTORATION_SHADOW_PCF,density:scattering.uniforms.density.value,gain:scattering.uniforms.scatteringGain.value,sunDirection:scattering.uniforms.sunDirection.value.toArray()},materialSources:{architecturalTimber:'Generated 1254px repeating hinoki albedo on existing modeled columns, beams, and central ceiling; no photo planes.'},contactOcclusion:{method:'GTAO',radius:.18,thickness:.14,blendIntensity:.65,source:'Actual opaque geometry normals and depth',limitation:'Screen-space multiply approximation, not physical indirect-only transport'},limits:[...room.limits],diagnostics:diagnostics.snapshot()};}
 function applyView(position,target,fov){activeShot=null;activeTarget=[...target];camera.position.fromArray(position);camera.fov=fov;camera.lookAt(new T.Vector3(...target));camera.updateProjectionMatrix();camera.updateMatrixWorld(true);shotFocus.sync({focusDistance:shot.info.focus.referenceFocusDistance,strength:0,enabled:false});}
 function renderReference(n=6){if(Number(n)!==6)throw Error('Scene 06 only.');applyView(REFERENCE6_FOUNDATION.camera.position,REFERENCE6_FOUNDATION.camera.target,REFERENCE6_FOUNDATION.camera.fov);return renderFrame(6);}
 function renderView(position,target,time=0,fov=62){applyView(position,target,fov);return renderFrame(6);}

@@ -12,6 +12,14 @@ export async function loadFloorSurface106(){
  return{map,roughnessMap,record};
 }
 
+// Generated seamless timber albedo used only on the real modeled hall wood.
+// The generated pixels are a material surface, never a camera-facing scene plate.
+export async function loadTempleWoodTexture(){
+ const url=new URL('/reconstructions/scene-06/assets/generated-wood-texture-20261020/temple-hinoki-albedo.png',location.origin),map=await new T.TextureLoader().loadAsync(url.href);
+ map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;map.minFilter=T.LinearMipmapLinearFilter;map.magFilter=T.LinearFilter;map.generateMipmaps=true;map.needsUpdate=true;
+ return map;
+}
+
 export function bindFloorScan106(material,grain,source){
  if(!source)return;
  const rough=source.roughnessMap.clone();rough.repeat.copy(grain.repeat);rough.offset.copy(grain.offset);rough.rotation=grain.rotation;rough.center.copy(grain.center);rough.needsUpdate=true;

@@ -159,16 +159,22 @@ for rec in scene_data['materials']:
         report['physicalSurfaceReplacement']={'reference':2,'sourceGeometry':'Existing Three.js water plane and scene02-water PBR/bump data','worldYBeforeThreeToBlender':.004,'surfaceRiseMetres':.012,'finalWaterHeight':.016,'material':'Cycles Principled water, IOR 1.333, source procedural ripple bump and physical scene reflection','geometryRebuilt':False,'photographUsed':False}
     materials[rec['id']]=mat
 
-geo={g['id']:g for g in scene_data['geometries']}; loaded={};imported_triangles=0
+geo={g['id']:g for g in scene_data['geometries']}; loaded={};imported_triangles=0;collapsed_instance_count=0
 for at,record in enumerate(scene_data['meshes']):
     g=geo[record['geometry']]
     if g['id'] not in loaded:
         loaded[g['id']]={k:binary(v).reshape(-1,v['itemSize']) for k,v in g['attributes'].items()};loaded[g['id']]['index']=binary(g['index']).reshape(-1,3)
-    data=loaded[g['id']];p=data['position'];indices=data['index'];count=record['instances'];vcount=len(p);fcount=len(indices)
+    data=loaded[g['id']];p=data['position'];indices=data['index'];count=record['instances'];original_count=count;instance_indices=np.arange(count);vcount=len(p);fcount=len(indices)
     world=np.array(record['matrix'],dtype=np.float64).reshape(4,4).T
     if 'instanceMatrices' in record:
         local=binary(record['instanceMatrices']).reshape(count,4,4).transpose(0,2,1);transforms=np.einsum('ij,njk->nik',world,local)
     else:transforms=world[None,:,:]
+    determinants=np.linalg.det(transforms[:,:3,:3]);valid=np.isfinite(determinants)&(np.abs(determinants)>1e-12)
+    if not np.all(valid):
+        collapsed_instance_count+=int(np.count_nonzero(~valid));
+        report.setdefault('excludedCollapsedInstances',[]).append({'name':record['name'],'count':int(np.count_nonzero(~valid)),'reason':'Zero-area source transform has no rasterized surface and no invertible normal matrix.'})
+        transforms=transforms[valid];instance_indices=instance_indices[valid];count=len(transforms)
+        if count==0:continue
     coords=np.empty((count*vcount,3),dtype=np.float32);normals=np.empty_like(coords) if 'normal' in data else None
     for i,transform in enumerate(transforms):
         coords[i*vcount:(i+1)*vcount]=p@transform[:3,:3].T+transform[:3,3]
@@ -188,7 +194,9 @@ for at,record in enumerate(scene_data['meshes']):
     if 'color' in data or 'instanceColors' in record or any(mid in instance_colored for mid in record['materials']):
         colors=np.ones((len(coords),4),dtype=np.float32)
         if 'color' in data: colors[:,:min(4,data['color'].shape[1])]=np.tile(data['color'],(count,1))[:,:4]
-        if 'instanceColors' in record: colors[:,:3]*=np.repeat(binary(record['instanceColors']).reshape(count,3),vcount,axis=0)
+        if 'instanceColors' in record:
+            instance_colors=binary(record['instanceColors']).reshape(original_count,3)[instance_indices]
+            colors[:,:3]*=np.repeat(instance_colors,vcount,axis=0)
         attr=mesh.color_attributes.new(name='sourceColor',type='FLOAT_COLOR',domain='POINT');attr.data.foreach_set('color',colors.ravel())
     for mid in record['materials']:mesh.materials.append(materials[mid])
     if len(record['materials'])>1 and g['groups']:
@@ -213,6 +221,23 @@ for rec in scene_data['lights']:
     if MODE=='upper-window' and rec['name']=='production-left-window-bounce':
         obj.location=(-6.4,10.7,-6);obj.rotation_euler=(Vector((-1.54,8.4,-9.7))-obj.location).to_track_quat('-Z','Y').to_euler();light.size=2.2;light.size_y=3.5;light.energy=460
     if MODE=='upper-window' and rec['name']=='production-front-room-bounce':light.energy*=.3
+    if canonical_reference==6 and MODE=='upper-window' and typ=='SUN':
+        # In the source reconstruction, the nominal sun passed above the
+        # upper edge of the left clerestory. Fit it through a measured clear
+        # cell in the rear-left aperture, then onto the Buddha's camera-facing
+        # surface so both direct light and the volume path are visible.
+        # This changes only incident lighting; all exported scene geometry,
+        # camera pose, and source materials remain untouched.
+        altar_target=Vector((0.0,4.4,-1.4))
+        # Hit the rear-left opening at (-6.68, 5.18, -4.5), avoiding its
+        # actual shutter and grille members before raking across the triad.
+        sun_from_target=(Vector((-6.68,5.18,-4.5))-altar_target).normalized()
+        obj.location=altar_target+sun_from_target*40.0
+        obj.rotation_euler=(altar_target-obj.location).to_track_quat('-Z','Y').to_euler()
+        light.energy=float(os.environ.get('CYCLES_SCENE06_SUN_ENERGY','28.0'))
+        light.angle=math.radians(float(os.environ.get('CYCLES_SCENE06_SUN_ANGLE','0.5')))
+        aperture_hit=altar_target+sun_from_target*((-6.8-altar_target.x)/sun_from_target.x)
+        report['scene06SunFit']={'method':'Direct sun aimed from the left through the existing rear-left grille cell, then onto the camera-facing side of the modeled Buddha group; no added shadow masks or geometry','targetYUp':list(altar_target),'sourceDirectionFromTargetYUp':list(sun_from_target),'leftWallIntersectionYUp':list(aperture_hit),'apertureBoundsY':[1.05,5.6],'apertureZBounds':[-5.35,-3.65],'incomingEnergy':light.energy,'angularDiameterDegrees':float(os.environ.get('CYCLES_SCENE06_SUN_ANGLE','0.5')),'photographUsed':False}
 
 cam_data=bpy.data.cameras.new('source-reference-camera');camera=bpy.data.objects.new('source-reference-camera',cam_data);scene.collection.objects.link(camera);camera.matrix_world=Matrix(np.array(scene_data['cameraMatrix']).reshape(4,4).T.tolist());cam_data.sensor_fit='VERTICAL';cam_data.sensor_height=24;cam_data.lens=12/math.tan(math.radians(scene_data['view']['fov'])/2);cam_data.clip_start=.1;cam_data.clip_end=500 if canonical_reference==2 else 200;scene.camera=camera
 # Light Euler targets must reach matrix_world before the rigid conversion reads it.
@@ -226,6 +251,18 @@ if MODE=='outdoor-day':
     bpy.context.view_layer.update()
     report['worldCoordinateConversion']='All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.'
 world=bpy.data.worlds.new('Procedural exterior fill for path-traced review');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.45,.55,.7,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=float(os.environ.get('CYCLES_WORLD_GAIN','.3'))
+if canonical_reference==6 and MODE=='upper-window' and os.environ.get('CYCLES_SCENE06_VOLUME','1')=='1':
+    # A finite, low-density room volume lets only the real window/sun shadows
+    # define the shafts; there is no painted beam card or post-process streak.
+    bpy.ops.mesh.primitive_cube_add(size=1,location=(0.0,3.6,2.0))
+    air=bpy.context.object;air.name='scene06 finite warm-air volume inside room';air.dimensions=(13.3,6.6,15.2)
+    air_material=bpy.data.materials.new('scene06 clear warm air, physically scattered');air_material.use_nodes=True
+    nodes=air_material.node_tree.nodes;nodes.clear();links=air_material.node_tree.links
+    volume=nodes.new('ShaderNodeVolumePrincipled');volume.inputs['Color'].default_value=(.96,.89,.80,1)
+    volume.inputs['Density'].default_value=float(os.environ.get('CYCLES_SCENE06_VOLUME_DENSITY','.008'))
+    volume.inputs['Anisotropy'].default_value=float(os.environ.get('CYCLES_SCENE06_VOLUME_ANISOTROPY','.25'))
+    output=nodes.new('ShaderNodeOutputMaterial');links.new(volume.outputs['Volume'],output.inputs['Volume']);air.data.materials.append(air_material)
+    report['scene06VolumetricAir']={'method':'Principled volume confined to the reconstructed sanctuary interior; direct Cycles scattering and source-geometry occlusion create the visible light shafts','dimensionsYUp':[13.3,6.6,15.2],'centerYUp':[0.0,3.6,2.0],'density':float(os.environ.get('CYCLES_SCENE06_VOLUME_DENSITY','.022')),'anisotropy':float(os.environ.get('CYCLES_SCENE06_VOLUME_ANISOTROPY','.58')),'photographUsed':False}
 use_scene02_source_sky=canonical_reference==2 and MODE=='outdoor-day' and os.environ.get('CYCLES_USE_SOURCE_SKY','1')=='1'
 use_scene02_sun_proxy=canonical_reference==2 and MODE=='outdoor-day' and os.environ.get('CYCLES_SUN_DISK_PROXY','0')=='1'
 if MODE=='outdoor-day':
@@ -309,7 +346,7 @@ scene.view_settings.exposure=float(os.environ.get('CYCLES_EXPOSURE','.5'));scene
 render_name=os.environ.get('CYCLES_RENDER_NAME','sanctuary-cycles.png')
 if Path(render_name).name!=render_name:raise ValueError('CYCLES_RENDER_NAME must be a filename')
 scene.render.filepath=str(OUT/render_name);scene.render.film_transparent=False
-report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['status']='rendering';report['materialTransfer']='Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.';report['lightCalibration']={'transfer':'Source positions/colors; area*pi and point*4pi power conversion','sunGain':float(os.environ.get('CYCLES_SUN_GAIN','.28')),'worldGain':float(os.environ.get('CYCLES_WORLD_GAIN','.3')),'exposure':scene.view_settings.exposure,'nativeWebglPixelEquivalence':False}
+report['importedTriangles']=imported_triangles;report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['excludedCollapsedInstanceCount']=collapsed_instance_count;report['status']='rendering';report['materialTransfer']='Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.';report['lightCalibration']={'transfer':'Source positions/colors; area*pi and point*4pi power conversion','sunGain':float(os.environ.get('CYCLES_SUN_GAIN','.28')),'worldGain':float(os.environ.get('CYCLES_WORLD_GAIN','.3')),'exposure':scene.view_settings.exposure,'nativeWebglPixelEquivalence':False}
 (OUT/'report.json').write_text(json.dumps(report,indent=2));
 if os.environ.get('CYCLES_SAVE_BLEND','1')=='1':
     blend_name=os.environ.get('CYCLES_BLEND_NAME','existing-sanctuary-cycles.blend')
