@@ -3,6 +3,7 @@ import {polygonSlab} from './scene04-surfaces.js';
 import {createRestorationArchitecture} from './reference4-detail-kernel.js';
 import {createReference4MaterialSet} from './reference4-materials.js';
 import {createWeatheredFlagstone} from './reference4-garden-stone.js';
+import {emitTowerEnclosureFace} from './tower-enclosure04.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
@@ -229,7 +230,13 @@ export function buildReference4Architecture(T,options={}) {
     box(0,floor-.06,0,body+.55,.12,bodyDepth+.55,'cedar');
     for(const x of[-half,0,half])for(const z of[-halfDepth,halfDepth]){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
     for(const z of[-halfDepth,0,halfDepth])for(const x of[-half,half])if(z===0){arch.footColumn(x,z,floor,Math.max(.25,y-floor-.56),.105);arch.brackets(x,y-.33,z,.39);}
-    for(const side of[0,1,2,3])grouped(0,0,0,side*Math.PI/2,()=>{const faceBody=side%2?bodyDepth:body,faceHalf=side%2?half:halfDepth;box(0,(floor+y-.4)/2,-faceHalf,faceBody,Math.max(.25,y-.4-floor),.12,'darkwood');box(0,y-.30,faceHalf,faceBody+.55,.19,.22,'red');box(0,floor+.38,faceHalf+.2,faceBody+.62,.10,.10,'red');box(0,floor+.12,faceHalf+.2,faceBody+.62,.09,.10,'red');for(let i=0;i<=12;i++)box(-faceBody*.49+i*faceBody*.98/12,floor+.25,faceHalf+.2,.06,.34,.06,'red');for(const x of[-faceBody*.25,0,faceBody*.25]){const h=Math.min(.68,(y-floor)*.55),yy=(floor+y-.4)/2;box(x,yy,faceHalf-.06,.60,h,.08,'black');for(let k=0;k<=3;k++)box(x-.28+k*.56/3,yy,faceHalf+.005,.025,h,.035,'oldgold');for(let k=0;k<=3;k++)box(x,yy-h/2+k*h/3,faceHalf+.008,.60,.025,.035,'cedar');}});
+    if(level>=2)box(0,y-.44,0,body-.14,.08,bodyDepth-.14,'darkwood'); // closed inner ceiling, supported by the retained frame
+    for(const side of[0,1,2,3])grouped(0,0,0,side*Math.PI/2,()=>{const faceBody=side%2?bodyDepth:body,faceHalf=side%2?half:halfDepth;
+      if(level>=2)emitTowerEnclosureFace(box,{width:faceBody,faceZ:faceHalf,floor,top:y-.4});
+      else box(0,(floor+y-.4)/2,-faceHalf,faceBody,Math.max(.25,y-.4-floor),.12,'darkwood');
+      box(0,y-.30,faceHalf,faceBody+.55,.19,.22,'red');box(0,floor+.38,faceHalf+.2,faceBody+.62,.10,.10,'red');box(0,floor+.12,faceHalf+.2,faceBody+.62,.09,.10,'red');for(let i=0;i<=12;i++)box(-faceBody*.49+i*faceBody*.98/12,floor+.25,faceHalf+.2,.06,.34,.06,'red');
+      if(level<2)for(const x of[-faceBody*.25,0,faceBody*.25]){const h=Math.min(.68,(y-floor)*.55),yy=(floor+y-.4)/2;box(x,yy,faceHalf-.06,.60,h,.08,'black');for(let k=0;k<=3;k++)box(x-.28+k*.56/3,yy,faceHalf+.005,.025,h,.035,'oldgold');for(let k=0;k<=3;k++)box(x,yy-h/2+k*h/3,faceHalf+.008,.60,.025,.035,'cedar');}
+    });
    });roof({name:'tower-roof-'+(level+1),w,d,eave:y,rise:level===4?C.towerTopRoofRise:.66,curl:.37,ridgeHalfRatio:level===4?C.towerTopRidgeHalfRatio:.275});
   }
   role('tower-finial',()=>{const bottom=eaves[4]+C.towerTopRoofRise+.31,top=C.towerHeight;emit(cyl,'oldgold',0,(bottom+top-.25)/2,0,.038,top-bottom-.25,.038);for(let i=0;i<13;i++){const y=bottom+.15+i*(top-bottom-.58)/12,r=.39*(1-i*.043);const g=new T.TorusGeometry(r,.027,6,28);emit(g,'oldgold',0,y,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'oldgold',0,top-.16,0,.11,.16,.11);});

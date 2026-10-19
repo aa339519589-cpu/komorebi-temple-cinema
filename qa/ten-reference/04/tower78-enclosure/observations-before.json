@@ -1,0 +1,24 @@
+{
+  "baseCommit": "d9c9040ed3c8966eed998bb12ef27dc6f435e310",
+  "scope": "Only visible upper storeys3,4,5 of scene04 pagoda; proportion/placement77a frozen",
+  "primaryComparison": "references/hd/3-照片-4.jpg",
+  "constructionComparison": "references/hd/5-照片-6.jpg",
+  "referenceCopyright": "Original photograph ownership retained. Comparison only; no sampled color, image projection, height guide or scene texture.",
+  "observationRegions1254PixelsApproximate": [
+    {"storey": 5, "referenceROI": [105,245,110,27], "observation": "Pale wall/infill behind fine dark timber framing; partly screened by roof and foliage. Count and joints not exactly measurable."},
+    {"storey": 4, "referenceROI": [105,303,110,31], "observation": "Pale rectangular wall fields and dark window divisions sit between red structure and rails."},
+    {"storey": 3, "referenceROI": [105,366,110,33], "observation": "Pale wall and window bay distinctions remain visible above lower gallery/flowers; lower framing partly occluded."}
+  ],
+  "constructionReferenceUse": "Scene05 exterior shows thick red timber frames, recessed vertical timber lattice and pale infill. Its gold ornament, exposure and exact bay dimensions are not copied.",
+  "confirmedCodeOcclusion": {
+    "oldWall": "Four opposing continuous darkwood boxes, thickness.12; current face outer surface faceHalf+.06",
+    "oldBlackWindowOuterSurface": "faceHalf-.02",
+    "oldVerticalLatticeOuterSurface": "faceHalf+.0225",
+    "oldHorizontalLatticeOuterSurface": "faceHalf+.0255",
+    "cause": "The uncut opposite continuous wall is in front of window/grid geometry and occludes it. There is also no pale segmented wall infill."
+  },
+  "plannedGeometry": "120mm closed plaster piers/spandrels around actual openings, supported timber jambs/headers/sills and recessed open5x3 lattice; existing closed floor and a closed inner ceiling create real room depth. No opaque face-sized backdrop over openings.",
+  "hiddenSides": "Back/left side enclosure and exact window grid counts are structural inference, not claimed measured recovery. Lower two storeys stay unchanged.",
+  "cameraLightMaterialsTowerDimensionsGardenChanged": false,
+  "visualAccepted": false
+}

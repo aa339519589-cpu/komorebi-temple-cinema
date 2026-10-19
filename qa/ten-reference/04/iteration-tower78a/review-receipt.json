@@ -1,0 +1,52 @@
+{
+  "status": "one-native-round-viewed-local-candidate",
+  "baseCommit": "d9c9040ed3c8966eed998bb12ef27dc6f435e310",
+  "sourceHash": "2f578fdc2fb0b887da78386930371ddfe697f0da3d2597f5324361c4756da24e",
+  "actualGpuRounds": 1,
+  "renderer": "tools/render-one-reconstruction.mjs shared GPU mutex",
+  "nativeSize": 1254,
+  "detailCrop": [
+    15,
+    50,
+    355,
+    1254
+  ],
+  "framesViewed": [
+    "reference.png",
+    "detail-native.png"
+  ],
+  "allFramesValid": true,
+  "errors": [],
+  "actualObservedChanges": [
+    "Storeys3–5 now show pale thick wall fields and exposed recessed timber jambs/grilles in the original black horizontal bands.",
+    "Front/right visible faces and shaded room depth are apparent; the rail and maple legitimately still screen parts of windows.",
+    "The upper wall material is still flat/cool gray in the unchanged daylight; no emission, paper card or supplementary source was introduced."
+  ],
+  "construction": {
+    "solidPlasterThicknessMetres": 0.12,
+    "timberFrameDepthMetres": 0.16,
+    "grilleStockMetres": [
+      0.022,
+      0.02,
+      0.034
+    ],
+    "closedParts": 495,
+    "replacedOldClosedBoxes": 336,
+    "netAddedTriangles": 1908,
+    "newMaterialOrLightAssets": 0,
+    "openWindowCells": 540,
+    "ceilingSolids": 3
+  },
+  "protectedTrackedSceneFiles": 186,
+  "retained77aConfigWholeFile": true,
+  "sceneConfigRevision": "The77a config revision string is retained deliberately with the frozen proportion/camera/light config; this report source hash identifies the new enclosure source.",
+  "limitations": [
+    "Exact lattice count, joinery and unobserved rear/left enclosure are structural inference; the original small tower bays do not resolve them metrically.",
+    "Plaster looks flat gray, room apertures remain dark and some lattice remains screened by the retained rails/maple.",
+    "Lower two storeys, original empty-ring finial and all material/lighting fidelity remain outside this bounded pass and unaccepted."
+  ],
+  "visualAccepted": false,
+  "movieRendered": false,
+  "testSuiteRun": false,
+  "pushed": false
+}
