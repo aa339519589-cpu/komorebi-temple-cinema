@@ -12,7 +12,9 @@
 
 最新构造增量还包括05方斗的平直承压面、10近右岸真实扫描石脚，以及04按可见砖缝定位的31块独立石板、单独路缘和湿润材质。04的局部反射与漫反射照明已分开控制，新增树叶阴影来自有树干和枝条支撑的实际三维叶片；隐藏树形、材料微结构和湿区仍是推断。01地板核对确认已有43块独立板，没有依据重铺被遮挡的板端。每项均保留实际渲染与未解决差距，整景摄影匹配仍未验收。
 
-2026-10-19的[1440方形十景制作存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r01)提供60秒、70秒及十条原始镜头，来源固定为`ba9ada9`。它早于上述最新修改，属于未验收制作存档。
+2026-10-19的[最新1440方形十景制作存档r03](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r03)提供60秒、70秒及十条原始镜头，来源固定为`db08d1e`。本版包含04石面浅坑与有地基的后方石道延续；其后的夜寺灯具等代码修改尚未进入本片。实际原图／实渲对照、三个时刻画面和逐景来源见`qa/ten-reference/current-20261019-r03/`。十景仍未达到参考精度。
+
+此前的[r02存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r02)固定为`4cb7c2b`，[r01存档](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/mesh-rendering-2026-10-19-r01)固定为`ba9ada9`，均保留为未验收制作过程。
 
 **18:32实体网格制作版为历史检查点，十景均未达到参考图的摄影质量，实体模型仍未完成验收。**
 
