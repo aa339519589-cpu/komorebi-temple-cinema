@@ -1,0 +1,118 @@
+{
+  "scope": "Comparison evidence only; no original-image data appears in source geometry, material, lighting or background",
+  "panelOrder": [
+    "original",
+    "native103b",
+    "spire105",
+    "spire105b"
+  ],
+  "cropXYWH": [
+    290,
+    0,
+    80,
+    220
+  ],
+  "displayScale": "nearest 4x CPU enlargement, not native detail",
+  "statistics": [
+    {
+      "name": "original",
+      "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/8-照片-9.jpg",
+      "boundsXYXY": [
+        315,
+        71,
+        343,
+        151
+      ],
+      "selection": "R>65, R>1.4*B, R>1.05*G; descriptive warm visible pixels, not a fitted texture or acceptance score",
+      "selectedPixels": 591,
+      "encodedRGBQuantiles25_50_75": [
+        [
+          83.0,
+          47.0,
+          23.0
+        ],
+        [
+          110.0,
+          70.0,
+          44.0
+        ],
+        [
+          161.0,
+          115.0,
+          73.0
+        ]
+      ]
+    },
+    {
+      "name": "native103b",
+      "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/09/iteration-paper103b/reference.png",
+      "boundsXYXY": [
+        312,
+        71,
+        343,
+        183
+      ],
+      "selection": "R>65, R>1.4*B, R>1.05*G; descriptive warm visible pixels, not a fitted texture or acceptance score",
+      "selectedPixels": 0,
+      "encodedRGBQuantiles25_50_75": null
+    },
+    {
+      "name": "spire105",
+      "path": "/Users/mima1234/temple-spire09-105-20261019/qa/ten-reference/09/iteration-spire105/reference.png",
+      "boundsXYXY": [
+        312,
+        88,
+        343,
+        169
+      ],
+      "selection": "R>65, R>1.4*B, R>1.05*G; descriptive warm visible pixels, not a fitted texture or acceptance score",
+      "selectedPixels": 692,
+      "encodedRGBQuantiles25_50_75": [
+        [
+          110.0,
+          67.0,
+          34.75
+        ],
+        [
+          195.0,
+          144.0,
+          77.5
+        ],
+        [
+          232.0,
+          194.25,
+          119.0
+        ]
+      ]
+    },
+    {
+      "name": "spire105b",
+      "path": "/Users/mima1234/temple-spire09-105-20261019/qa/ten-reference/09/iteration-spire105b/reference.png",
+      "boundsXYXY": [
+        312,
+        86,
+        343,
+        169
+      ],
+      "selection": "R>65, R>1.4*B, R>1.05*G; descriptive warm visible pixels, not a fitted texture or acceptance score",
+      "selectedPixels": 964,
+      "encodedRGBQuantiles25_50_75": [
+        [
+          93.75,
+          66.75,
+          37.0
+        ],
+        [
+          144.0,
+          103.0,
+          52.0
+        ],
+        [
+          199.0,
+          150.0,
+          78.0
+        ]
+      ]
+    }
+  ]
+}
