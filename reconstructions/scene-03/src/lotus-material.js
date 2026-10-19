@@ -29,7 +29,7 @@ export function createLotusPetalMaterials(){
  return{materials,texture};
 }
 
-export function createLotusLeafMaterial(){
+export async function createLotusLeafMaterial(){
  const size=512,c=new Uint8Array(size*size*4),h=new Uint8Array(c.length);
  for(let y=0;y<size;y++)for(let x=0;x<size;x++){
   const u=(x/(size-1)-.5)*2,v=(y/(size-1)-.5)*2,r=Math.hypot(u,v),a=Math.atan2(v,u),primary=Math.pow(Math.max(0,Math.cos(a*19+.10*Math.sin(r*5))),24),secondary=Math.pow(Math.max(0,Math.cos(r*95+Math.sin(a*19)*3)),24),grain=Math.sin(x*12.713+y*3.713)*43758.5453%1,q=.91+.035*Math.sin(a*3+r*6)-.055*primary-.012*secondary+.008*grain,i=(y*size+x)*4;
@@ -37,6 +37,9 @@ export function createLotusLeafMaterial(){
   const hh=128+28*primary+5*secondary+3*grain;h[i]=h[i+1]=h[i+2]=hh;h[i+3]=255;
  }
  const tex=(bytes,srgb)=>{const t=new T.DataTexture(bytes,size,size,T.RGBAFormat);if(srgb)t.colorSpace=T.SRGBColorSpace;t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.anisotropy=8;t.needsUpdate=true;return t;};
- const albedo=tex(c,true),bump=tex(h,false),material=new T.MeshPhysicalMaterial({name:'closed-lotus-leaf-waxy-cuticle',color:'#607e3b',map:albedo,bumpMap:bump,bumpScale:.00045,vertexColors:true,roughness:.48,metalness:0,clearcoat:.08,clearcoatRoughness:.58,sheen:.13,sheenRoughness:.8,sheenColor:new T.Color('#adc482'),side:T.FrontSide});
+ const root=new URL('../assets/lotus-leaf96/',import.meta.url),record=await(await fetch(new URL('material.json',root))).json();
+ const albedo=await new T.TextureLoader().loadAsync(new URL('neutral-leaf-diffuse-v01.png',root).href);albedo.name='generated-neutral-peltate-leaf-tissue96';albedo.colorSpace=T.SRGBColorSpace;albedo.flipY=false;albedo.generateMipmaps=true;albedo.minFilter=T.LinearMipmapLinearFilter;albedo.magFilter=T.LinearFilter;albedo.anisotropy=8;
+ const bump=tex(h,false),color=new T.Color().setRGB(...record.materialLinearColorGain),material=new T.MeshPhysicalMaterial({name:'closed-lotus-leaf-waxy-cuticle-fine-tissue96',color,map:albedo,bumpMap:bump,bumpScale:.00045,vertexColors:true,roughness:.48,metalness:0,clearcoat:.08,clearcoatRoughness:.58,sheen:.13,sheenRoughness:.8,sheenColor:new T.Color('#adc482'),side:T.FrontSide});
+ material.userData.atlasStudy={asset:'lotus-leaf96',inputImageSize:record.imageSize,meanLinearAlbedo:record.targetMeanLinearRGB,generatedMaterialGuide:true,referenceRGBProjected:false,photographicAcceptance:false};
  return{material,textures:[albedo,bump]};
 }
