@@ -1,0 +1,799 @@
+{
+  "reference": 3,
+  "entry": "reconstructions/scene-03/index.html",
+  "worktree": "/Users/mima1234/temple-lotus03-material96-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-19T01:02:17.982Z",
+  "source": {
+    "hash": "f8715f3b208ace8f77b2f066d4a07435d5db9876f42b13b0a6bd70028c9afefc",
+    "files": {
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-03/asset-dependencies.json": "0c2762acacf892e6677f1da362dff1926b5ea9d27c7a234440cafc0ef564485b",
+      "reconstructions/scene-03/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-03/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-03/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-03/assets/granite-tile-04/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-03/assets/lotus-leaf96/material.json": "86cacfc0ff72930644a8fbdc98f9f4231199e0c201975beacedc814779244a0d",
+      "reconstructions/scene-03/assets/lotus-leaf96/neutral-leaf-diffuse-v01.png": "dd45a5ebf6bbf4c6fec0bbb071417cddd81f1f7573454760e7180eefb79b4725",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/build-report.json": "3e5dd33b3108d3b7a4adca9aa32caf55a966f203c2f855219f6b6010ddf17387",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/imagegen-provenance.json": "04b8b45fdf97993d90531add59030d5f9c46dbdc0d8b3a20a9ad70a175702bf4",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend": "26a9cd0ad96d24c08961e32d9137ad307ec2566e83839a3b2b02b15aed66998e",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb": "e1f3d9ad9e819111def15b7501ff6630c4d83de552398dbaa4eb4e8fa618b1a4",
+      "reconstructions/scene-03/assets/ranma-frieze-v01/source-height-guide.png": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+      "reconstructions/scene-03/assets/timber/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "reconstructions/scene-03/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-03/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-03/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-03/index.html": "055f4b3a9530e7c502546f8a78abfd91fbedd21acff4884775309730788fb34c",
+      "reconstructions/scene-03/src/entrance-sanctuary.js": "254fa189487fae5085b62936e787d1b23bc80c72dc5e59c2b5e47bf0135d4880",
+      "reconstructions/scene-03/src/granite-entry-steps.js": "4a58fa883ef175e772ad6b9e4b116aa4f884ce17f05bdaccc37778ea3b9b9514",
+      "reconstructions/scene-03/src/hall-layout.js": "23950e6a4f9c840a9c2334c37d2dcb757f7c880e3580edfdc0ee261f2e3e41b1",
+      "reconstructions/scene-03/src/lotus-material.js": "f4ec4337efcef845e1f36ebca641a96474947d477d4e31103b55f2517383cd00",
+      "reconstructions/scene-03/src/main.js": "548bfb802b08db7d9e06739abf12576ba9744d86b1dc918f300effe4bfeb98a0",
+      "reconstructions/scene-03/src/ranma-relief.js": "5f7263c7c38e01ae10f1bc18ac5461519fbdfc0fd4e6532f429143f19d7b4c6b",
+      "reconstructions/scene-03/src/reference4-architecture.js": "0577a9ad52343576fbca09e475148595a9434c25e793b1efac461a96a5f27583",
+      "reconstructions/scene-03/src/reference4-detail-kernel.js": "18193225a51a63a81e5f399c10b4262819854191c971876e9c977b0ba4065024",
+      "reconstructions/scene-03/src/reference4-materials.js": "f3ef009732ba14953ba3b8f1898cd79c8791fc6fb36e9be52681403163125325",
+      "reconstructions/scene-03/src/reference4-natural-forms.js": "4c112d34fd4680894e97a1bf7ae87215f737e13627ec7cdf73daea1901f4c515",
+      "reconstructions/scene-03/src/restoration-lotus-leaf.js": "cef3d7232eb5fd6388a58ebc9cff7a5d68980d7cc21df90be6f0abf6715e1fa9",
+      "reconstructions/scene-03/src/restoration-lotus-petal.js": "ed101e101992f9ef602d6c53ccab4760899aafd73a40a420c162132d64debd4b",
+      "reconstructions/scene-03/src/scanned-timber.js": "766c2c3bc5a9abf626f5334433956bc00f3482ff5180fa0d16f4646f5ddb0684",
+      "reconstructions/scene-03/src/scene03-curved-rafter.js": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+      "reconstructions/scene-03/src/scene03-roof-solids.js": "6ee6b30a2875bdcc8cce70cdae33ed3a9487f3051d1d50197a44e799b978d5ec",
+      "reconstructions/scene-03/src/scene03-sanctuary-buddha.js": "90eb79e35fcb5b3cdb6db23cc0e327e64f0bd47a8f70418729fa0fbc21b1133b",
+      "reconstructions/scene-03/src/scene03-solid-joinery.js": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "reconstructions/scene-03/src/water-surface.js": "001a659a6195b5456427ac1eb19328b99562848c59b416665beb948cebd5f161",
+      "reconstructions/scene-03/tools/build-ranma-relief.py": "da30e89793e5a5e6533d02525d45f0ccd4d81868b8719f75d5e465912559cc08"
+    }
+  },
+  "sourceCommit": "5a0548deaa5a8164b74b210dece02bf1a03ee644",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-03/index.html",
+    "/reconstructions/scene-03/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/reconstructions/scene-03/src/scanned-timber.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-03/src/reference4-architecture.js",
+    "/reconstructions/scene-03/src/restoration-lotus-leaf.js",
+    "/reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "/reconstructions/scene-03/src/reference4-natural-forms.js",
+    "/reconstructions/scene-03/src/hall-layout.js",
+    "/reconstructions/scene-03/src/water-surface.js",
+    "/reconstructions/scene-03/src/lotus-material.js",
+    "/reconstructions/scene-03/src/ranma-relief.js",
+    "/reconstructions/scene-03/src/entrance-sanctuary.js",
+    "/reconstructions/scene-03/src/granite-entry-steps.js",
+    "/reconstructions/scene-03/src/reference4-detail-kernel.js",
+    "/reconstructions/scene-03/src/reference4-materials.js",
+    "/reconstructions/scene-03/src/scene03-solid-joinery.js",
+    "/reconstructions/scene-03/src/scene03-curved-rafter.js",
+    "/reconstructions/scene-03/src/scene03-roof-solids.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/reconstructions/scene-03/src/scene03-sanctuary-buddha.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/reconstructions/scene-03/assets/lotus-leaf96/material.json",
+    "/reconstructions/scene-03/assets/lotus-leaf96/neutral-leaf-diffuse-v01.png",
+    "/reconstructions/scene-03/assets/timber/diffuse-2k.jpg",
+    "/reconstructions/scene-03/assets/timber/normal-gl-2k.png",
+    "/reconstructions/scene-03/assets/timber/roughness-2k.jpg",
+    "/reconstructions/scene-03/assets/granite-tile-04/granite-face-diff.png",
+    "/reconstructions/scene-03/assets/granite-tile-04/granite-face-nor_gl.png",
+    "/reconstructions/scene-03/assets/granite-tile-04/granite-face-rough.png",
+    "/reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb"
+  ],
+  "detailCrop": {
+    "pixels": [
+      0,
+      954,
+      300,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "frame": 1,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          1.6,
+          6.1,
+          -3
+        ],
+        "fov": 58,
+        "time": 0
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-mesh72-dark-granite-stair-blocks",
+        "ready": true,
+        "frames": 1,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            1.6,
+            6.1,
+            -3
+          ],
+          "fov": 58
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 108554,
+        "architecture": {
+          "meshes": 1585,
+          "instances": 31525,
+          "triangles": 10424946,
+          "roles": {
+            "temple-platform-stair": 190,
+            "hall-red-columns": 630,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 661,
+            "central-real-portal": 540,
+            "main-upper-roof": 766,
+            "lower-shoulder-roof": 3645,
+            "lower-eave-complete-parallel-rafters": 567,
+            "front-gable-thick-ceramics-and-recessed-carving": 134,
+            "main-roof-gilded-lotus-finial": 125,
+            "upper-storey-dense-bracket-frieze": 2028,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          },
+          "closedBearingInstances": 43,
+          "curvedRafters": 482,
+          "entryStair": {
+            "count": 20,
+            "width": 5.5,
+            "height": 4,
+            "front": 0,
+            "back": 7.8,
+            "rise": 0.2,
+            "run": 0.39,
+            "blocks": 105,
+            "landingCaps": 5,
+            "originalLandingCapBounds": {
+              "frontZ": 0.425,
+              "backZ": 0,
+              "topY": 4,
+              "bottomY": 3.87
+            },
+            "jointsMetres": [
+              0.004,
+              0.006
+            ],
+            "roundedArrisMetres": [
+              0.0025,
+              0.0065
+            ],
+            "sparseChips": 24,
+            "isolatedMillimetrePits": 15,
+            "wearDepthMaxMetres": 0.0026,
+            "triangles": 70090,
+            "allClosedManifold": true,
+            "normalPolicy": "Hard bearing faces; continuous normals only across the physical millimetre arrises",
+            "photoUsed": false
+          },
+          "roofConstruction": {
+            "upperWidth": 13.6,
+            "upperEave": 15.4,
+            "mainRidgeY": 19.6,
+            "closedClayThickness": 0.018,
+            "dormerCrown": 18.62,
+            "dormerFront": -0.6
+          }
+        },
+        "ranma": {
+          "prototypeTriangles": 32108,
+          "modules": 8,
+          "totalTriangles": 256864,
+          "localCenters": [
+            [
+              -2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -0.67,
+              8.7,
+              0.33
+            ],
+            [
+              0.67,
+              8.7,
+              0.33
+            ],
+            [
+              2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -2.01,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              -0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              2.01,
+              9.299999999999999,
+              0.33
+            ]
+          ],
+          "guideRole": "Approved AI height study drives closed geometry only; no image texture",
+          "visualAccepted": false
+        },
+        "sanctuary": {
+          "scope": "One opened retained portal and a supported recessed inner shrine",
+          "floorY": 4,
+          "innerRoom": {
+            "width": 4.44,
+            "frontZ": -1.06,
+            "backZ": -5.08
+          },
+          "figure": {
+            "center": [
+              -0.18,
+              4.85,
+              -3.6
+            ],
+            "scale": 0.6,
+            "crownY": 7.004,
+            "kneeWidth": 1.74,
+            "fullAuthoredAnatomy": true,
+            "variant": "Reference06 central seated icon reused as an interpreted stand-in"
+          },
+          "triangles": 875540,
+          "meshes": 114,
+          "visualAccepted": false
+        },
+        "entryGranite": {
+          "source": "Poly Haven Granite Tile04, CC0, independent face crop",
+          "repeatMetres": 0.3173828125,
+          "normalScale": 0.28,
+          "roughnessRange": [
+            0.74,
+            0.94
+          ],
+          "referencePhotoUsed": false
+        },
+        "renderer": {
+          "calls": 584,
+          "triangles": 16421934,
+          "compositeCalls": 1
+        },
+        "assets": "Authored architecture, retained shrine and105closed granite stair/cap stones at the original20levels with independently lit CC0 mineral PBR; no reference image textures"
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9988457987072945,
+      "opaqueFraction": 1,
+      "rgbaSha256": "4efed7416ded0e113bc40fb28196586f0750fd4c5211559b2984258bba4efafc"
+    },
+    {
+      "pose": {
+        "frame": 2,
+        "position": [
+          -2.4,
+          0.72,
+          18.2
+        ],
+        "target": [
+          1.6,
+          6.1,
+          -3
+        ],
+        "fov": 58,
+        "time": 0
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 3,
+        "revision": "scene-03-mesh72-dark-granite-stair-blocks",
+        "ready": true,
+        "frames": 2,
+        "camera": {
+          "position": [
+            -2.4,
+            0.72,
+            18.2
+          ],
+          "target": [
+            1.6,
+            6.1,
+            -3
+          ],
+          "fov": 58
+        },
+        "hallPlacement": {
+          "yaw": -0.5942,
+          "x": 6.3163,
+          "z": -1.2975,
+          "pivotZ": -4
+        },
+        "water": {
+          "fresnelF0": 0.020373187841971414,
+          "phase": "world-space metres",
+          "opaqueMirror": false
+        },
+        "geometryInstances": 108554,
+        "architecture": {
+          "meshes": 1585,
+          "instances": 31525,
+          "triangles": 10424946,
+          "roles": {
+            "temple-platform-stair": 190,
+            "hall-red-columns": 630,
+            "hall-enclosure-doors": 243,
+            "columns-gilt-bronze-collars": 516,
+            "closed-sanctuary-carved-transoms": 661,
+            "central-real-portal": 540,
+            "main-upper-roof": 766,
+            "lower-shoulder-roof": 3645,
+            "lower-eave-complete-parallel-rafters": 567,
+            "front-gable-thick-ceramics-and-recessed-carving": 134,
+            "main-roof-gilded-lotus-finial": 125,
+            "upper-storey-dense-bracket-frieze": 2028,
+            "tower-stone-foundation": 2,
+            "tower-storey-1": 2737,
+            "tower-roof-1": 1650,
+            "tower-corner-bells-0": 12,
+            "tower-storey-2": 2777,
+            "tower-roof-2": 1544,
+            "tower-corner-bells-1": 12,
+            "tower-storey-3": 2777,
+            "tower-roof-3": 1498,
+            "tower-corner-bells-2": 12,
+            "tower-storey-4": 2777,
+            "tower-roof-4": 1456,
+            "tower-corner-bells-3": 12,
+            "tower-storey-5": 2777,
+            "tower-roof-5": 1410,
+            "tower-corner-bells-4": 12,
+            "tower-finial": 15
+          },
+          "closedBearingInstances": 43,
+          "curvedRafters": 482,
+          "entryStair": {
+            "count": 20,
+            "width": 5.5,
+            "height": 4,
+            "front": 0,
+            "back": 7.8,
+            "rise": 0.2,
+            "run": 0.39,
+            "blocks": 105,
+            "landingCaps": 5,
+            "originalLandingCapBounds": {
+              "frontZ": 0.425,
+              "backZ": 0,
+              "topY": 4,
+              "bottomY": 3.87
+            },
+            "jointsMetres": [
+              0.004,
+              0.006
+            ],
+            "roundedArrisMetres": [
+              0.0025,
+              0.0065
+            ],
+            "sparseChips": 24,
+            "isolatedMillimetrePits": 15,
+            "wearDepthMaxMetres": 0.0026,
+            "triangles": 70090,
+            "allClosedManifold": true,
+            "normalPolicy": "Hard bearing faces; continuous normals only across the physical millimetre arrises",
+            "photoUsed": false
+          },
+          "roofConstruction": {
+            "upperWidth": 13.6,
+            "upperEave": 15.4,
+            "mainRidgeY": 19.6,
+            "closedClayThickness": 0.018,
+            "dormerCrown": 18.62,
+            "dormerFront": -0.6
+          }
+        },
+        "ranma": {
+          "prototypeTriangles": 32108,
+          "modules": 8,
+          "totalTriangles": 256864,
+          "localCenters": [
+            [
+              -2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -0.67,
+              8.7,
+              0.33
+            ],
+            [
+              0.67,
+              8.7,
+              0.33
+            ],
+            [
+              2.01,
+              8.7,
+              0.33
+            ],
+            [
+              -2.01,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              -0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              0.67,
+              9.299999999999999,
+              0.33
+            ],
+            [
+              2.01,
+              9.299999999999999,
+              0.33
+            ]
+          ],
+          "guideRole": "Approved AI height study drives closed geometry only; no image texture",
+          "visualAccepted": false
+        },
+        "sanctuary": {
+          "scope": "One opened retained portal and a supported recessed inner shrine",
+          "floorY": 4,
+          "innerRoom": {
+            "width": 4.44,
+            "frontZ": -1.06,
+            "backZ": -5.08
+          },
+          "figure": {
+            "center": [
+              -0.18,
+              4.85,
+              -3.6
+            ],
+            "scale": 0.6,
+            "crownY": 7.004,
+            "kneeWidth": 1.74,
+            "fullAuthoredAnatomy": true,
+            "variant": "Reference06 central seated icon reused as an interpreted stand-in"
+          },
+          "triangles": 875540,
+          "meshes": 114,
+          "visualAccepted": false
+        },
+        "entryGranite": {
+          "source": "Poly Haven Granite Tile04, CC0, independent face crop",
+          "repeatMetres": 0.3173828125,
+          "normalScale": 0.28,
+          "roughnessRange": [
+            0.74,
+            0.94
+          ],
+          "referencePhotoUsed": false
+        },
+        "renderer": {
+          "calls": 157,
+          "triangles": 15551636,
+          "compositeCalls": 1
+        },
+        "assets": "Authored architecture, retained shrine and105closed granite stair/cap stones at the original20levels with independently lit CC0 mineral PBR; no reference image textures"
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        0,
+        954,
+        300,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "237d8695875388c05b052fadfe6fff951ea54061537da636819ab168cc2b5ae5"
+    }
+  ],
+  "completedAt": "2026-10-19T01:02:22.590Z"
+}

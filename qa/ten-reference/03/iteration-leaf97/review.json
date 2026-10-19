@@ -1,0 +1,11 @@
+{
+  "visualAccepted": false,
+  "materialIncrementSelected": true,
+  "reflectionProjectionFixSelected": true,
+  "viewed": ["reference.png", "detail-native.png", "../iteration-leaf96/detail-native.png", "../iteration-leaf96-baseline/detail-native.png"],
+  "finding": "The mirrored off-axis view offset now samples the reflected scene instead of a clamped vertical column. The native lower-left water detail no longer has the previous horizontal stripes. Fine leaf veins are visible on the existing real curved leaf geometry.",
+  "fullReferenceRGBAsha256BeforeAndAfter": "4f9d83e3969f704d3370c5d4de7877128d9881a65ef9b77cd8768817dc1714b0",
+  "fullReferencePixelIdentical": true,
+  "scope": "The projection correction is active for off-axis review subfrusta. The ordinary centered reference and film projections are unchanged. This corrects inspection, not an observed stripe defect in the prior movie.",
+  "remaining": ["The flower silhouette and tissue are still too simple at this magnification.", "Garden geometry, illumination, reflected detail and full-scene photographic fidelity remain unaccepted."]
+}
