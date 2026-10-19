@@ -1,0 +1,3002 @@
+{
+  "reference": 10,
+  "entry": "reconstructions/scene-10/index.html",
+  "worktree": "/Users/mima1234/temple-layout10-125-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-19T05:13:32.162Z",
+  "source": {
+    "hash": "58d48c4fe96edfb2500bdf7a874922fb647c9274d8a5cc4dcbd3700e459536d3",
+    "files": {
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-04/assets/granite-tile-04/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-10/asset-dependencies.json": "b0a7cf9c1d7b3da409f1c2b89dd5333ea9d79f442b3c1aff893900311e7a8d01",
+      "reconstructions/scene-10/index.html": "72276586699e97b2d8e826ae4e05105cd61b2b233c9079077f455793963f45a1",
+      "reconstructions/scene-10/src/architecture.js": "46b9ba71d8cbfe055779e32fa614087ca83f64300b7983274c4beab0a1813659",
+      "reconstructions/scene-10/src/buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-10/src/dolly-path.js": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c",
+      "reconstructions/scene-10/src/layout125.js": "863c1ea309734875d64507788a7d54974b29da695c945bace71a3c97bd5c489b",
+      "reconstructions/scene-10/src/main.js": "7834f461382f11be4384d870c38240de0b9e03caf61eca529b6d622395796a9a",
+      "reconstructions/scene-10/src/materials.js": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5",
+      "reconstructions/scene-10/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-10/src/near-bank-outcrop.js": "4a5167de2665496d83f39e4c2dd34442855c10c35d3257308b42257e59edaf6e",
+      "reconstructions/scene-10/src/near-rain-stones.js": "7d3d69d9f02118182bdf955703df858b3974682c1fc16f5687cdc1eeb0cf97e7",
+      "reconstructions/scene-10/src/near-surface-reflection.js": "f340fd45f0edf62257bcc786f0dc5a593f26924450b37634f4f7e3cb541a254b",
+      "reconstructions/scene-10/src/optics.js": "6216f859c404a85bc6b2739384580330322beffb3b12a5381526e25470743313",
+      "reconstructions/scene-10/src/paving-mask.js": "e3144d971b4fe258a2bee1b939a6f24fd680d676a7d4c6d08e54e5582f5dd27e",
+      "reconstructions/scene-10/src/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-10/src/surface-detail.js": "93d8d1efe23b09b87a6ced3d5107d8f45f280a118844378933f7143aafb11e4e",
+      "reconstructions/scene-10/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-10/src/worn-flagstone.js": "9528372c000e64245e60bd9f391e464ff5ea9123b0742b487e04cb2bf0579c75"
+    }
+  },
+  "sourceCommit": "5e23f37537d5d237c8bc3ca8b551fdc05b4d3a76",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-10/index.html",
+    "/reconstructions/scene-10/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-10/src/paving-mask.js",
+    "/reconstructions/scene-10/src/worn-flagstone.js",
+    "/reconstructions/scene-10/src/near-rain-stones.js",
+    "/reconstructions/scene-10/src/near-surface-reflection.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-10/src/architecture.js",
+    "/reconstructions/scene-10/src/materials.js",
+    "/reconstructions/scene-10/src/natural-forms.js",
+    "/reconstructions/scene-10/src/weathered-boulder.js",
+    "/reconstructions/scene-10/src/buddha.js",
+    "/reconstructions/scene-10/src/surface-detail.js",
+    "/reconstructions/scene-10/src/scanned-garden-stones.js",
+    "/reconstructions/scene-10/src/near-bank-outcrop.js",
+    "/reconstructions/scene-10/src/dolly-path.js",
+    "/reconstructions/scene-10/src/optics.js",
+    "/reconstructions/scene-10/src/layout125.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png"
+  ],
+  "detailCrop": {
+    "pixels": [
+      450,
+      440,
+      620,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-whole-layout125",
+        "layout": {
+          "revision": "scene10-whole-layout125",
+          "camera": {
+            "position": [
+              0,
+              1,
+              14
+            ],
+            "target": [
+              0,
+              4.65,
+              -14
+            ],
+            "fov": 60
+          },
+          "pagoda": {
+            "position": [
+              -7.24,
+              6.79,
+              -20
+            ],
+            "yaw": -0.1,
+            "scale": [
+              0.88,
+              0.72,
+              0.88
+            ],
+            "tierDecrement": 0.055,
+            "finialHeight": 7.2
+          },
+          "hall": {
+            "position": [
+              14,
+              2.6,
+              -14
+            ],
+            "yaw": -0.58,
+            "scale": [
+              1.12,
+              0.95,
+              1.12
+            ],
+            "floorLocalY": 1.3,
+            "entranceX": -2.85,
+            "upperLandingLocal": [
+              -2.85,
+              1.3,
+              6.75
+            ]
+          },
+          "bridge": {
+            "position": [
+              3,
+              1.22,
+              -4.2
+            ],
+            "yaw": 0.12,
+            "span": 9.5,
+            "width": 2,
+            "archRise": 1.18,
+            "phaseSkew": 0.2,
+            "endRise": 0.53,
+            "deckOffset": 0.25,
+            "deckThickness": 0.18,
+            "approachCount": 7,
+            "approachRun": 0.25,
+            "railHeight": 1
+          },
+          "veranda": {
+            "column": [
+              -3.35,
+              0,
+              7.9
+            ],
+            "radius": 0.5,
+            "shoeHeight": 0.8,
+            "ceilingY": 7.1,
+            "ceilingYaw": 0.75,
+            "ceilingCenter": [
+              0.07,
+              -1.4
+            ],
+            "hangingLamp": [
+              -2.83,
+              5.85,
+              6.35
+            ],
+            "lampScale": 0.76
+          },
+          "foregroundRail": {
+            "position": [
+              1.2,
+              0,
+              11.8
+            ],
+            "postHeight": 0.82,
+            "finialBase": 0.9,
+            "finialHeightScale": 0.82,
+            "returnEnd": [
+              0.72,
+              0,
+              14.2
+            ],
+            "levels": [
+              0.27,
+              0.52,
+              0.78
+            ]
+          },
+          "heroStoneLantern": {
+            "position": [
+              -2.8,
+              0.77,
+              -3
+            ],
+            "scale": [
+              1.066,
+              0.98,
+              1.066
+            ],
+            "supportTop": 0.7
+          },
+          "drain": {
+            "position": [
+              -1.9,
+              -0.004,
+              8.5
+            ],
+            "yaw": 0.77,
+            "halfWidth": 0.095,
+            "length": 13
+          },
+          "path": {
+            "farRight": 3.9,
+            "turnStartZ": 5,
+            "nearRight": 1,
+            "turnEndZ": 11.4,
+            "nearBankOffsetX": 1.45
+          },
+          "groundY": 0.067
+        },
+        "bridgeHallPlan": {
+          "bridgeEnd": [
+            7.715841020305865,
+            2,
+            -4.768632984622367
+          ],
+          "hallLanding": [
+            7.186950259324159,
+            3.835,
+            -9.425634772880848
+          ],
+          "start": [
+            7.642492712946991,
+            2,
+            -5.414481283998922
+          ],
+          "width": 2.45,
+          "count": 12,
+          "run": 4.036938349593954,
+          "rise": 1.835,
+          "unit": [
+            -0.11284354978288233,
+            -0.993612768271623
+          ],
+          "steps": [
+            {
+              "index": 0,
+              "top": 2.1529166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.425317071814253,
+                  -5.276247935514891
+                ],
+                [
+                  6.387355200679017,
+                  -5.610510726255051
+                ],
+                [
+                  8.821706482944494,
+                  -5.8869774232231125
+                ],
+                [
+                  8.85966835407973,
+                  -5.552714632482952
+                ]
+              ]
+            },
+            {
+              "index": 1,
+              "top": 2.305833333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.387355200679017,
+                  -5.610510726255051
+                ],
+                [
+                  6.349393329543781,
+                  -5.944773516995212
+                ],
+                [
+                  8.783744611809258,
+                  -6.221240213963273
+                ],
+                [
+                  8.821706482944494,
+                  -5.8869774232231125
+                ]
+              ]
+            },
+            {
+              "index": 2,
+              "top": 2.45875,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.349393329543781,
+                  -5.944773516995212
+                ],
+                [
+                  6.311431458408545,
+                  -6.279036307735373
+                ],
+                [
+                  8.745782740674022,
+                  -6.555503004703434
+                ],
+                [
+                  8.783744611809258,
+                  -6.221240213963273
+                ]
+              ]
+            },
+            {
+              "index": 3,
+              "top": 2.611666666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.311431458408545,
+                  -6.279036307735373
+                ],
+                [
+                  6.273469587273309,
+                  -6.613299098475533
+                ],
+                [
+                  8.707820869538786,
+                  -6.889765795443594
+                ],
+                [
+                  8.745782740674022,
+                  -6.555503004703434
+                ]
+              ]
+            },
+            {
+              "index": 4,
+              "top": 2.7645833333333334,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.273469587273309,
+                  -6.613299098475533
+                ],
+                [
+                  6.2355077161380725,
+                  -6.947561889215693
+                ],
+                [
+                  8.66985899840355,
+                  -7.2240285861837545
+                ],
+                [
+                  8.707820869538786,
+                  -6.889765795443594
+                ]
+              ]
+            },
+            {
+              "index": 5,
+              "top": 2.9175,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.2355077161380725,
+                  -6.947561889215693
+                ],
+                [
+                  6.1975458450028365,
+                  -7.281824679955854
+                ],
+                [
+                  8.631897127268314,
+                  -7.558291376923915
+                ],
+                [
+                  8.66985899840355,
+                  -7.2240285861837545
+                ]
+              ]
+            },
+            {
+              "index": 6,
+              "top": 3.0704166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.1975458450028365,
+                  -7.281824679955854
+                ],
+                [
+                  6.1595839738676,
+                  -7.616087470696014
+                ],
+                [
+                  8.593935256133078,
+                  -7.892554167664075
+                ],
+                [
+                  8.631897127268314,
+                  -7.558291376923915
+                ]
+              ]
+            },
+            {
+              "index": 7,
+              "top": 3.2233333333333336,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.1595839738676,
+                  -7.616087470696014
+                ],
+                [
+                  6.121622102732365,
+                  -7.950350261436174
+                ],
+                [
+                  8.555973384997841,
+                  -8.226816958404235
+                ],
+                [
+                  8.593935256133078,
+                  -7.892554167664075
+                ]
+              ]
+            },
+            {
+              "index": 8,
+              "top": 3.3762499999999998,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.121622102732365,
+                  -7.950350261436174
+                ],
+                [
+                  6.083660231597129,
+                  -8.284613052176335
+                ],
+                [
+                  8.518011513862605,
+                  -8.561079749144396
+                ],
+                [
+                  8.555973384997841,
+                  -8.226816958404235
+                ]
+              ]
+            },
+            {
+              "index": 9,
+              "top": 3.529166666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.083660231597129,
+                  -8.284613052176335
+                ],
+                [
+                  6.045698360461893,
+                  -8.618875842916497
+                ],
+                [
+                  8.48004964272737,
+                  -8.895342539884558
+                ],
+                [
+                  8.518011513862605,
+                  -8.561079749144396
+                ]
+              ]
+            },
+            {
+              "index": 10,
+              "top": 3.682083333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.045698360461893,
+                  -8.618875842916497
+                ],
+                [
+                  6.007736489326657,
+                  -8.953138633656655
+                ],
+                [
+                  8.442087771592133,
+                  -9.229605330624716
+                ],
+                [
+                  8.48004964272737,
+                  -8.895342539884558
+                ]
+              ]
+            },
+            {
+              "index": 11,
+              "top": 3.835,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.007736489326657,
+                  -8.953138633656655
+                ],
+                [
+                  5.969774618191421,
+                  -9.287401424396817
+                ],
+                [
+                  8.404125900456897,
+                  -9.563868121364878
+                ],
+                [
+                  8.442087771592133,
+                  -9.229605330624716
+                ]
+              ]
+            }
+          ],
+          "turningLanding": {
+            "center": [
+              7.715841020305865,
+              2,
+              -4.768632984622367
+            ],
+            "halfWidth": 1.4,
+            "top": 2,
+            "bottom": -0.18
+          }
+        },
+        "nearStoneRecords": [
+          {
+            "id": "9:3",
+            "seed": 2021,
+            "profile": {
+              "chips": [
+                [
+                  0.09,
+                  0.041,
+                  0.014,
+                  0.01
+                ],
+                [
+                  0.64,
+                  0.024,
+                  0.009,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.18,
+                0.21,
+                0.18,
+                0.12,
+                0.0048
+              ],
+              "pits": 51
+            },
+            "triangles": 88756,
+            "pitCount": 53,
+            "footprintXZ": [
+              -1.3074339628219604,
+              5.494631767272949,
+              -0.14624899625778198,
+              6.172167778015137
+            ],
+            "topYRange": [
+              0.03901049767231973,
+              0.049378303005947
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.009
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:4",
+            "seed": 2058,
+            "profile": {
+              "chips": [
+                [
+                  0.31,
+                  0.032,
+                  0.018,
+                  0.011
+                ],
+                [
+                  0.82,
+                  0.019,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                0.11,
+                -0.15,
+                0.14,
+                0.22,
+                0.0052
+              ],
+              "pits": 43
+            },
+            "triangles": 129086,
+            "pitCount": 46,
+            "footprintXZ": [
+              -0.4559909999370575,
+              5.311674118041992,
+              0.7475500106811523,
+              6.167548179626465
+            ],
+            "topYRange": [
+              0.03274019640117447,
+              0.04430492933921871
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.018,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:5",
+            "seed": 2095,
+            "profile": {
+              "chips": [
+                [
+                  0.16,
+                  0.027,
+                  0.01,
+                  0.007
+                ],
+                [
+                  0.53,
+                  0.043,
+                  0.022,
+                  0.013
+                ],
+                [
+                  0.93,
+                  0.019,
+                  0.008,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.12,
+                -0.24,
+                0.2,
+                0.12,
+                0.0036
+              ],
+              "pits": 56
+            },
+            "triangles": 132174,
+            "pitCount": 59,
+            "footprintXZ": [
+              0.6251479983329773,
+              5.310797214508057,
+              1.7889569997787476,
+              6.229189872741699
+            ],
+            "topYRange": [
+              0.03817887471230913,
+              0.05064891952022982
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.01,
+              0.022,
+              0.008
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:3",
+            "seed": 2118,
+            "profile": {
+              "chips": [
+                [
+                  0.24,
+                  0.021,
+                  0.009,
+                  0.005
+                ],
+                [
+                  0.72,
+                  0.037,
+                  0.017,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.22,
+                0.04,
+                0.17,
+                0.15,
+                0.0043
+              ],
+              "pits": 47
+            },
+            "triangles": 137792,
+            "pitCount": 50,
+            "footprintXZ": [
+              -1.515231966972351,
+              6.09641695022583,
+              -0.4688259959220886,
+              7.054994106292725
+            ],
+            "topYRange": [
+              0.03745050033910251,
+              0.04889342584754317
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.017
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:4",
+            "seed": 2155,
+            "profile": {
+              "chips": [
+                [
+                  0.04,
+                  0.029,
+                  0.013,
+                  0.008
+                ],
+                [
+                  0.47,
+                  0.045,
+                  0.023,
+                  0.014
+                ]
+              ],
+              "basin": [
+                -0.2,
+                -0.12,
+                0.21,
+                0.18,
+                0.006
+              ],
+              "pits": 61
+            },
+            "triangles": 149334,
+            "pitCount": 64,
+            "footprintXZ": [
+              -0.7009810209274292,
+              6.122311115264893,
+              0.6129810214042664,
+              7.1444411277771
+            ],
+            "topYRange": [
+              0.036887517364700625,
+              0.04691680901915798
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.013,
+              0.023
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:5",
+            "seed": 2192,
+            "profile": {
+              "chips": [
+                [
+                  0.39,
+                  0.028,
+                  0.011,
+                  0.006
+                ],
+                [
+                  0.89,
+                  0.04,
+                  0.019,
+                  0.012
+                ]
+              ],
+              "basin": [
+                0.13,
+                0.19,
+                0.18,
+                0.12,
+                0.0041
+              ],
+              "pits": 44
+            },
+            "triangles": 154722,
+            "pitCount": 46,
+            "footprintXZ": [
+              0.28088200092315674,
+              6.121119976043701,
+              1.5526269674301147,
+              7.147401809692383
+            ],
+            "topYRange": [
+              0.03609937909626158,
+              0.04587689840290467
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.019
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:3",
+            "seed": 2215,
+            "profile": {
+              "chips": [
+                [
+                  0.13,
+                  0.033,
+                  0.015,
+                  0.009
+                ],
+                [
+                  0.57,
+                  0.02,
+                  0.008,
+                  0.006
+                ],
+                [
+                  0.78,
+                  0.026,
+                  0.011,
+                  0.007
+                ]
+              ],
+              "basin": [
+                -0.09,
+                0.17,
+                0.15,
+                0.21,
+                0.0053
+              ],
+              "pits": 53
+            },
+            "triangles": 206724,
+            "pitCount": 55,
+            "footprintXZ": [
+              -1.5095000267028809,
+              7.007853031158447,
+              0.11673399806022644,
+              7.866264820098877
+            ],
+            "topYRange": [
+              0.03703758763880426,
+              0.04761331479683272
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.015,
+              0.008,
+              0.011
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:4",
+            "seed": 2252,
+            "profile": {
+              "chips": [
+                [
+                  0.28,
+                  0.046,
+                  0.024,
+                  0.014
+                ],
+                [
+                  0.68,
+                  0.022,
+                  0.01,
+                  0.007
+                ]
+              ],
+              "basin": [
+                0.17,
+                -0.09,
+                0.22,
+                0.16,
+                0.0065
+              ],
+              "pits": 57
+            },
+            "triangles": 86454,
+            "pitCount": 59,
+            "footprintXZ": [
+              -0.6900389790534973,
+              7.068613052368164,
+              0.5837910175323486,
+              7.932275772094727
+            ],
+            "topYRange": [
+              0.03934906508775326,
+              0.04956063312203124
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.024,
+              0.01
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:5",
+            "seed": 2289,
+            "profile": {
+              "chips": [
+                [
+                  0.07,
+                  0.023,
+                  0.009,
+                  0.006
+                ],
+                [
+                  0.48,
+                  0.036,
+                  0.016,
+                  0.01
+                ]
+              ],
+              "basin": [
+                -0.21,
+                -0.08,
+                0.16,
+                0.2,
+                0.0044
+              ],
+              "pits": 48
+            },
+            "triangles": 107884,
+            "pitCount": 51,
+            "footprintXZ": [
+              0.2784929871559143,
+              6.955452919006348,
+              1.3188929557800293,
+              7.926621913909912
+            ],
+            "topYRange": [
+              0.03446586295204328,
+              0.04535700698602884
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.016
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:3",
+            "seed": 2312,
+            "profile": {
+              "chips": [
+                [
+                  0.36,
+                  0.039,
+                  0.021,
+                  0.013
+                ],
+                [
+                  0.75,
+                  0.029,
+                  0.012,
+                  0.008
+                ]
+              ],
+              "basin": [
+                0.06,
+                0.19,
+                0.21,
+                0.15,
+                0.0058
+              ],
+              "pits": 64
+            },
+            "triangles": 101746,
+            "pitCount": 67,
+            "footprintXZ": [
+              -1.1988500356674194,
+              7.755757808685303,
+              0.1338289976119995,
+              8.715278625488281
+            ],
+            "topYRange": [
+              0.03945060739168266,
+              0.049841882486960434
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.021,
+              0.012
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:4",
+            "seed": 2349,
+            "profile": {
+              "chips": [
+                [
+                  0.18,
+                  0.03,
+                  0.014,
+                  0.009
+                ],
+                [
+                  0.62,
+                  0.047,
+                  0.025,
+                  0.015
+                ],
+                [
+                  0.91,
+                  0.018,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                -0.17,
+                -0.13,
+                0.18,
+                0.22,
+                0.0062
+              ],
+              "pits": 59
+            },
+            "triangles": 96176,
+            "pitCount": 61,
+            "footprintXZ": [
+              -0.5269650220870972,
+              7.889389991760254,
+              0.5832160115242004,
+              8.714163780212402
+            ],
+            "topYRange": [
+              0.04068902734235283,
+              0.053689890163706115
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.025,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:5",
+            "seed": 2386,
+            "profile": {
+              "chips": [
+                [
+                  0.43,
+                  0.025,
+                  0.011,
+                  0.008
+                ],
+                [
+                  0.85,
+                  0.035,
+                  0.018,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.18,
+                0.11,
+                0.17,
+                0.14,
+                0.0046
+              ],
+              "pits": 46
+            },
+            "triangles": 89514,
+            "pitCount": 48,
+            "footprintXZ": [
+              0.2992689907550812,
+              7.723771095275879,
+              1.312047004699707,
+              8.648362159729004
+            ],
+            "topYRange": [
+              0.03587351790579072,
+              0.04887268602107232
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.018
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          }
+        ],
+        "nearBankOutcrop": {
+          "scope": "Three interlocking physical scan pieces forming one exposed local bank outcrop; rigid whole-bank offset follows the revised path boundary",
+          "assemblyOffsetX": 1.45,
+          "source": {
+            "asset": "rock_moss_set_01",
+            "author": "Kless Gyzen",
+            "license": "CC0-1.0",
+            "pieces": 6,
+            "source": "https://polyhaven.com/a/rock_moss_set_01"
+          },
+          "records": [
+            {
+              "part": "upright-main-stone",
+              "variant": 3,
+              "x": 5.07,
+              "z": 3.98,
+              "scale": 0.67,
+              "rotation": [
+                0.1,
+                -0.65,
+                -0.1
+              ],
+              "bottom": -0.27,
+              "y": 0.2960360365360608,
+              "bounds": [
+                [
+                  4.376636144434639,
+                  -0.27,
+                  3.1349280986653447
+                ],
+                [
+                  5.818427496690981,
+                  0.8947350387503364,
+                  4.466199090841204
+                ]
+              ],
+              "vertices": 5691,
+              "triangles": 10589,
+              "material": "scanned-weathered-moss-stone-3-wet"
+            },
+            {
+              "part": "low-waterline-shoulder",
+              "variant": 0,
+              "x": 4.47,
+              "z": 4.4,
+              "scale": 0.5,
+              "rotation": [
+                -0.04,
+                0.32,
+                0.035
+              ],
+              "bottom": -0.18,
+              "y": 0.04096884458614691,
+              "bounds": [
+                [
+                  4.106846258490545,
+                  -0.18,
+                  3.9199379119518185
+                ],
+                [
+                  4.926685790941495,
+                  0.2686400211570937,
+                  4.818075684846545
+                ]
+              ],
+              "vertices": 6078,
+              "triangles": 11000,
+              "material": "scanned-weathered-moss-stone-0-wet"
+            },
+            {
+              "part": "submerged-toe-stone",
+              "variant": 4,
+              "x": 5.48,
+              "z": 4.54,
+              "scale": 0.38,
+              "rotation": [
+                0.06,
+                -0.8,
+                0.02
+              ],
+              "bottom": -0.16,
+              "y": -0.008491798561900188,
+              "bounds": [
+                [
+                  5.154412764842459,
+                  -0.16,
+                  4.190966952258707
+                ],
+                [
+                  5.860141459743572,
+                  0.1468630203054993,
+                  4.817389229860148
+                ]
+              ],
+              "vertices": 8538,
+              "triangles": 16548,
+              "material": "scanned-weathered-moss-stone-4-wet"
+            }
+          ],
+          "substrate": "Stone bodies extend below the existing water/soil level; the low shoulder and toe interrupt the waterline rather than hovering above it",
+          "geometryTransfer": "Original scanned positions, normals and UVs unmodified; rigid pose and one scale factor per stone only",
+          "acceptance": "Local modeling candidate, not a photographic match"
+        },
+        "nearSurfaceReflection": {
+          "stoneIds": [
+            "9:3",
+            "9:4",
+            "9:5",
+            "10:3",
+            "10:4",
+            "10:5",
+            "11:3",
+            "11:4",
+            "11:5",
+            "12:3",
+            "12:4",
+            "12:5"
+          ],
+          "dimensions": [
+            1024,
+            1088
+          ],
+          "boundsXZ": [
+            -1.540231966972351,
+            5.285797214508056,
+            1.8139569997787475,
+            8.74027862548828
+          ],
+          "texelMetres": [
+            0.0032755751628428696,
+            0.0031750748262685887
+          ],
+          "heightQuantizationMetres": 0.00031372549019607844,
+          "actualTopYRange": [
+            0.026162000373005867,
+            0.053690001368522644
+          ],
+          "poreWaterLevelRange": [
+            0.04092492933921871,
+            0.049659890163706116
+          ],
+          "topTrianglesRead": 738875,
+          "coveredTexels": 740281,
+          "newTriangles": 0,
+          "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+          "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+          "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+          "planeY": 0.066,
+          "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+          "probeReady": true,
+          "probePosition": [
+            0,
+            2.3,
+            7
+          ],
+          "probeIntensity": 1,
+          "probeAssigned": true,
+          "roughness": 0.39,
+          "clearcoat": 0.55
+        },
+        "scannedStone": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "objects": 771576,
+        "drawCalls": 1209,
+        "triangles": 121337429,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            4.65,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "338e5c5425288caa03bee78f06f53f1ec60ffdcccd0df9a909d081ea04d47377"
+    },
+    {
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-whole-layout125",
+        "layout": {
+          "revision": "scene10-whole-layout125",
+          "camera": {
+            "position": [
+              0,
+              1,
+              14
+            ],
+            "target": [
+              0,
+              4.65,
+              -14
+            ],
+            "fov": 60
+          },
+          "pagoda": {
+            "position": [
+              -7.24,
+              6.79,
+              -20
+            ],
+            "yaw": -0.1,
+            "scale": [
+              0.88,
+              0.72,
+              0.88
+            ],
+            "tierDecrement": 0.055,
+            "finialHeight": 7.2
+          },
+          "hall": {
+            "position": [
+              14,
+              2.6,
+              -14
+            ],
+            "yaw": -0.58,
+            "scale": [
+              1.12,
+              0.95,
+              1.12
+            ],
+            "floorLocalY": 1.3,
+            "entranceX": -2.85,
+            "upperLandingLocal": [
+              -2.85,
+              1.3,
+              6.75
+            ]
+          },
+          "bridge": {
+            "position": [
+              3,
+              1.22,
+              -4.2
+            ],
+            "yaw": 0.12,
+            "span": 9.5,
+            "width": 2,
+            "archRise": 1.18,
+            "phaseSkew": 0.2,
+            "endRise": 0.53,
+            "deckOffset": 0.25,
+            "deckThickness": 0.18,
+            "approachCount": 7,
+            "approachRun": 0.25,
+            "railHeight": 1
+          },
+          "veranda": {
+            "column": [
+              -3.35,
+              0,
+              7.9
+            ],
+            "radius": 0.5,
+            "shoeHeight": 0.8,
+            "ceilingY": 7.1,
+            "ceilingYaw": 0.75,
+            "ceilingCenter": [
+              0.07,
+              -1.4
+            ],
+            "hangingLamp": [
+              -2.83,
+              5.85,
+              6.35
+            ],
+            "lampScale": 0.76
+          },
+          "foregroundRail": {
+            "position": [
+              1.2,
+              0,
+              11.8
+            ],
+            "postHeight": 0.82,
+            "finialBase": 0.9,
+            "finialHeightScale": 0.82,
+            "returnEnd": [
+              0.72,
+              0,
+              14.2
+            ],
+            "levels": [
+              0.27,
+              0.52,
+              0.78
+            ]
+          },
+          "heroStoneLantern": {
+            "position": [
+              -2.8,
+              0.77,
+              -3
+            ],
+            "scale": [
+              1.066,
+              0.98,
+              1.066
+            ],
+            "supportTop": 0.7
+          },
+          "drain": {
+            "position": [
+              -1.9,
+              -0.004,
+              8.5
+            ],
+            "yaw": 0.77,
+            "halfWidth": 0.095,
+            "length": 13
+          },
+          "path": {
+            "farRight": 3.9,
+            "turnStartZ": 5,
+            "nearRight": 1,
+            "turnEndZ": 11.4,
+            "nearBankOffsetX": 1.45
+          },
+          "groundY": 0.067
+        },
+        "bridgeHallPlan": {
+          "bridgeEnd": [
+            7.715841020305865,
+            2,
+            -4.768632984622367
+          ],
+          "hallLanding": [
+            7.186950259324159,
+            3.835,
+            -9.425634772880848
+          ],
+          "start": [
+            7.642492712946991,
+            2,
+            -5.414481283998922
+          ],
+          "width": 2.45,
+          "count": 12,
+          "run": 4.036938349593954,
+          "rise": 1.835,
+          "unit": [
+            -0.11284354978288233,
+            -0.993612768271623
+          ],
+          "steps": [
+            {
+              "index": 0,
+              "top": 2.1529166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.425317071814253,
+                  -5.276247935514891
+                ],
+                [
+                  6.387355200679017,
+                  -5.610510726255051
+                ],
+                [
+                  8.821706482944494,
+                  -5.8869774232231125
+                ],
+                [
+                  8.85966835407973,
+                  -5.552714632482952
+                ]
+              ]
+            },
+            {
+              "index": 1,
+              "top": 2.305833333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.387355200679017,
+                  -5.610510726255051
+                ],
+                [
+                  6.349393329543781,
+                  -5.944773516995212
+                ],
+                [
+                  8.783744611809258,
+                  -6.221240213963273
+                ],
+                [
+                  8.821706482944494,
+                  -5.8869774232231125
+                ]
+              ]
+            },
+            {
+              "index": 2,
+              "top": 2.45875,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.349393329543781,
+                  -5.944773516995212
+                ],
+                [
+                  6.311431458408545,
+                  -6.279036307735373
+                ],
+                [
+                  8.745782740674022,
+                  -6.555503004703434
+                ],
+                [
+                  8.783744611809258,
+                  -6.221240213963273
+                ]
+              ]
+            },
+            {
+              "index": 3,
+              "top": 2.611666666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.311431458408545,
+                  -6.279036307735373
+                ],
+                [
+                  6.273469587273309,
+                  -6.613299098475533
+                ],
+                [
+                  8.707820869538786,
+                  -6.889765795443594
+                ],
+                [
+                  8.745782740674022,
+                  -6.555503004703434
+                ]
+              ]
+            },
+            {
+              "index": 4,
+              "top": 2.7645833333333334,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.273469587273309,
+                  -6.613299098475533
+                ],
+                [
+                  6.2355077161380725,
+                  -6.947561889215693
+                ],
+                [
+                  8.66985899840355,
+                  -7.2240285861837545
+                ],
+                [
+                  8.707820869538786,
+                  -6.889765795443594
+                ]
+              ]
+            },
+            {
+              "index": 5,
+              "top": 2.9175,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.2355077161380725,
+                  -6.947561889215693
+                ],
+                [
+                  6.1975458450028365,
+                  -7.281824679955854
+                ],
+                [
+                  8.631897127268314,
+                  -7.558291376923915
+                ],
+                [
+                  8.66985899840355,
+                  -7.2240285861837545
+                ]
+              ]
+            },
+            {
+              "index": 6,
+              "top": 3.0704166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.1975458450028365,
+                  -7.281824679955854
+                ],
+                [
+                  6.1595839738676,
+                  -7.616087470696014
+                ],
+                [
+                  8.593935256133078,
+                  -7.892554167664075
+                ],
+                [
+                  8.631897127268314,
+                  -7.558291376923915
+                ]
+              ]
+            },
+            {
+              "index": 7,
+              "top": 3.2233333333333336,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.1595839738676,
+                  -7.616087470696014
+                ],
+                [
+                  6.121622102732365,
+                  -7.950350261436174
+                ],
+                [
+                  8.555973384997841,
+                  -8.226816958404235
+                ],
+                [
+                  8.593935256133078,
+                  -7.892554167664075
+                ]
+              ]
+            },
+            {
+              "index": 8,
+              "top": 3.3762499999999998,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.121622102732365,
+                  -7.950350261436174
+                ],
+                [
+                  6.083660231597129,
+                  -8.284613052176335
+                ],
+                [
+                  8.518011513862605,
+                  -8.561079749144396
+                ],
+                [
+                  8.555973384997841,
+                  -8.226816958404235
+                ]
+              ]
+            },
+            {
+              "index": 9,
+              "top": 3.529166666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.083660231597129,
+                  -8.284613052176335
+                ],
+                [
+                  6.045698360461893,
+                  -8.618875842916497
+                ],
+                [
+                  8.48004964272737,
+                  -8.895342539884558
+                ],
+                [
+                  8.518011513862605,
+                  -8.561079749144396
+                ]
+              ]
+            },
+            {
+              "index": 10,
+              "top": 3.682083333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.045698360461893,
+                  -8.618875842916497
+                ],
+                [
+                  6.007736489326657,
+                  -8.953138633656655
+                ],
+                [
+                  8.442087771592133,
+                  -9.229605330624716
+                ],
+                [
+                  8.48004964272737,
+                  -8.895342539884558
+                ]
+              ]
+            },
+            {
+              "index": 11,
+              "top": 3.835,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  6.007736489326657,
+                  -8.953138633656655
+                ],
+                [
+                  5.969774618191421,
+                  -9.287401424396817
+                ],
+                [
+                  8.404125900456897,
+                  -9.563868121364878
+                ],
+                [
+                  8.442087771592133,
+                  -9.229605330624716
+                ]
+              ]
+            }
+          ],
+          "turningLanding": {
+            "center": [
+              7.715841020305865,
+              2,
+              -4.768632984622367
+            ],
+            "halfWidth": 1.4,
+            "top": 2,
+            "bottom": -0.18
+          }
+        },
+        "nearStoneRecords": [
+          {
+            "id": "9:3",
+            "seed": 2021,
+            "profile": {
+              "chips": [
+                [
+                  0.09,
+                  0.041,
+                  0.014,
+                  0.01
+                ],
+                [
+                  0.64,
+                  0.024,
+                  0.009,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.18,
+                0.21,
+                0.18,
+                0.12,
+                0.0048
+              ],
+              "pits": 51
+            },
+            "triangles": 88756,
+            "pitCount": 53,
+            "footprintXZ": [
+              -1.3074339628219604,
+              5.494631767272949,
+              -0.14624899625778198,
+              6.172167778015137
+            ],
+            "topYRange": [
+              0.03901049767231973,
+              0.049378303005947
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.009
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:4",
+            "seed": 2058,
+            "profile": {
+              "chips": [
+                [
+                  0.31,
+                  0.032,
+                  0.018,
+                  0.011
+                ],
+                [
+                  0.82,
+                  0.019,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                0.11,
+                -0.15,
+                0.14,
+                0.22,
+                0.0052
+              ],
+              "pits": 43
+            },
+            "triangles": 129086,
+            "pitCount": 46,
+            "footprintXZ": [
+              -0.4559909999370575,
+              5.311674118041992,
+              0.7475500106811523,
+              6.167548179626465
+            ],
+            "topYRange": [
+              0.03274019640117447,
+              0.04430492933921871
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.018,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:5",
+            "seed": 2095,
+            "profile": {
+              "chips": [
+                [
+                  0.16,
+                  0.027,
+                  0.01,
+                  0.007
+                ],
+                [
+                  0.53,
+                  0.043,
+                  0.022,
+                  0.013
+                ],
+                [
+                  0.93,
+                  0.019,
+                  0.008,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.12,
+                -0.24,
+                0.2,
+                0.12,
+                0.0036
+              ],
+              "pits": 56
+            },
+            "triangles": 132174,
+            "pitCount": 59,
+            "footprintXZ": [
+              0.6251479983329773,
+              5.310797214508057,
+              1.7889569997787476,
+              6.229189872741699
+            ],
+            "topYRange": [
+              0.03817887471230913,
+              0.05064891952022982
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.01,
+              0.022,
+              0.008
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:3",
+            "seed": 2118,
+            "profile": {
+              "chips": [
+                [
+                  0.24,
+                  0.021,
+                  0.009,
+                  0.005
+                ],
+                [
+                  0.72,
+                  0.037,
+                  0.017,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.22,
+                0.04,
+                0.17,
+                0.15,
+                0.0043
+              ],
+              "pits": 47
+            },
+            "triangles": 137792,
+            "pitCount": 50,
+            "footprintXZ": [
+              -1.515231966972351,
+              6.09641695022583,
+              -0.4688259959220886,
+              7.054994106292725
+            ],
+            "topYRange": [
+              0.03745050033910251,
+              0.04889342584754317
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.017
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:4",
+            "seed": 2155,
+            "profile": {
+              "chips": [
+                [
+                  0.04,
+                  0.029,
+                  0.013,
+                  0.008
+                ],
+                [
+                  0.47,
+                  0.045,
+                  0.023,
+                  0.014
+                ]
+              ],
+              "basin": [
+                -0.2,
+                -0.12,
+                0.21,
+                0.18,
+                0.006
+              ],
+              "pits": 61
+            },
+            "triangles": 149334,
+            "pitCount": 64,
+            "footprintXZ": [
+              -0.7009810209274292,
+              6.122311115264893,
+              0.6129810214042664,
+              7.1444411277771
+            ],
+            "topYRange": [
+              0.036887517364700625,
+              0.04691680901915798
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.013,
+              0.023
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:5",
+            "seed": 2192,
+            "profile": {
+              "chips": [
+                [
+                  0.39,
+                  0.028,
+                  0.011,
+                  0.006
+                ],
+                [
+                  0.89,
+                  0.04,
+                  0.019,
+                  0.012
+                ]
+              ],
+              "basin": [
+                0.13,
+                0.19,
+                0.18,
+                0.12,
+                0.0041
+              ],
+              "pits": 44
+            },
+            "triangles": 154722,
+            "pitCount": 46,
+            "footprintXZ": [
+              0.28088200092315674,
+              6.121119976043701,
+              1.5526269674301147,
+              7.147401809692383
+            ],
+            "topYRange": [
+              0.03609937909626158,
+              0.04587689840290467
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.019
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:3",
+            "seed": 2215,
+            "profile": {
+              "chips": [
+                [
+                  0.13,
+                  0.033,
+                  0.015,
+                  0.009
+                ],
+                [
+                  0.57,
+                  0.02,
+                  0.008,
+                  0.006
+                ],
+                [
+                  0.78,
+                  0.026,
+                  0.011,
+                  0.007
+                ]
+              ],
+              "basin": [
+                -0.09,
+                0.17,
+                0.15,
+                0.21,
+                0.0053
+              ],
+              "pits": 53
+            },
+            "triangles": 206724,
+            "pitCount": 55,
+            "footprintXZ": [
+              -1.5095000267028809,
+              7.007853031158447,
+              0.11673399806022644,
+              7.866264820098877
+            ],
+            "topYRange": [
+              0.03703758763880426,
+              0.04761331479683272
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.015,
+              0.008,
+              0.011
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:4",
+            "seed": 2252,
+            "profile": {
+              "chips": [
+                [
+                  0.28,
+                  0.046,
+                  0.024,
+                  0.014
+                ],
+                [
+                  0.68,
+                  0.022,
+                  0.01,
+                  0.007
+                ]
+              ],
+              "basin": [
+                0.17,
+                -0.09,
+                0.22,
+                0.16,
+                0.0065
+              ],
+              "pits": 57
+            },
+            "triangles": 86454,
+            "pitCount": 59,
+            "footprintXZ": [
+              -0.6900389790534973,
+              7.068613052368164,
+              0.5837910175323486,
+              7.932275772094727
+            ],
+            "topYRange": [
+              0.03934906508775326,
+              0.04956063312203124
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.024,
+              0.01
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:5",
+            "seed": 2289,
+            "profile": {
+              "chips": [
+                [
+                  0.07,
+                  0.023,
+                  0.009,
+                  0.006
+                ],
+                [
+                  0.48,
+                  0.036,
+                  0.016,
+                  0.01
+                ]
+              ],
+              "basin": [
+                -0.21,
+                -0.08,
+                0.16,
+                0.2,
+                0.0044
+              ],
+              "pits": 48
+            },
+            "triangles": 107884,
+            "pitCount": 51,
+            "footprintXZ": [
+              0.2784929871559143,
+              6.955452919006348,
+              1.3188929557800293,
+              7.926621913909912
+            ],
+            "topYRange": [
+              0.03446586295204328,
+              0.04535700698602884
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.016
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:3",
+            "seed": 2312,
+            "profile": {
+              "chips": [
+                [
+                  0.36,
+                  0.039,
+                  0.021,
+                  0.013
+                ],
+                [
+                  0.75,
+                  0.029,
+                  0.012,
+                  0.008
+                ]
+              ],
+              "basin": [
+                0.06,
+                0.19,
+                0.21,
+                0.15,
+                0.0058
+              ],
+              "pits": 64
+            },
+            "triangles": 101746,
+            "pitCount": 67,
+            "footprintXZ": [
+              -1.1988500356674194,
+              7.755757808685303,
+              0.1338289976119995,
+              8.715278625488281
+            ],
+            "topYRange": [
+              0.03945060739168266,
+              0.049841882486960434
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.021,
+              0.012
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:4",
+            "seed": 2349,
+            "profile": {
+              "chips": [
+                [
+                  0.18,
+                  0.03,
+                  0.014,
+                  0.009
+                ],
+                [
+                  0.62,
+                  0.047,
+                  0.025,
+                  0.015
+                ],
+                [
+                  0.91,
+                  0.018,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                -0.17,
+                -0.13,
+                0.18,
+                0.22,
+                0.0062
+              ],
+              "pits": 59
+            },
+            "triangles": 96176,
+            "pitCount": 61,
+            "footprintXZ": [
+              -0.5269650220870972,
+              7.889389991760254,
+              0.5832160115242004,
+              8.714163780212402
+            ],
+            "topYRange": [
+              0.04068902734235283,
+              0.053689890163706115
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.025,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:5",
+            "seed": 2386,
+            "profile": {
+              "chips": [
+                [
+                  0.43,
+                  0.025,
+                  0.011,
+                  0.008
+                ],
+                [
+                  0.85,
+                  0.035,
+                  0.018,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.18,
+                0.11,
+                0.17,
+                0.14,
+                0.0046
+              ],
+              "pits": 46
+            },
+            "triangles": 89514,
+            "pitCount": 48,
+            "footprintXZ": [
+              0.2992689907550812,
+              7.723771095275879,
+              1.312047004699707,
+              8.648362159729004
+            ],
+            "topYRange": [
+              0.03587351790579072,
+              0.04887268602107232
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.018
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          }
+        ],
+        "nearBankOutcrop": {
+          "scope": "Three interlocking physical scan pieces forming one exposed local bank outcrop; rigid whole-bank offset follows the revised path boundary",
+          "assemblyOffsetX": 1.45,
+          "source": {
+            "asset": "rock_moss_set_01",
+            "author": "Kless Gyzen",
+            "license": "CC0-1.0",
+            "pieces": 6,
+            "source": "https://polyhaven.com/a/rock_moss_set_01"
+          },
+          "records": [
+            {
+              "part": "upright-main-stone",
+              "variant": 3,
+              "x": 5.07,
+              "z": 3.98,
+              "scale": 0.67,
+              "rotation": [
+                0.1,
+                -0.65,
+                -0.1
+              ],
+              "bottom": -0.27,
+              "y": 0.2960360365360608,
+              "bounds": [
+                [
+                  4.376636144434639,
+                  -0.27,
+                  3.1349280986653447
+                ],
+                [
+                  5.818427496690981,
+                  0.8947350387503364,
+                  4.466199090841204
+                ]
+              ],
+              "vertices": 5691,
+              "triangles": 10589,
+              "material": "scanned-weathered-moss-stone-3-wet"
+            },
+            {
+              "part": "low-waterline-shoulder",
+              "variant": 0,
+              "x": 4.47,
+              "z": 4.4,
+              "scale": 0.5,
+              "rotation": [
+                -0.04,
+                0.32,
+                0.035
+              ],
+              "bottom": -0.18,
+              "y": 0.04096884458614691,
+              "bounds": [
+                [
+                  4.106846258490545,
+                  -0.18,
+                  3.9199379119518185
+                ],
+                [
+                  4.926685790941495,
+                  0.2686400211570937,
+                  4.818075684846545
+                ]
+              ],
+              "vertices": 6078,
+              "triangles": 11000,
+              "material": "scanned-weathered-moss-stone-0-wet"
+            },
+            {
+              "part": "submerged-toe-stone",
+              "variant": 4,
+              "x": 5.48,
+              "z": 4.54,
+              "scale": 0.38,
+              "rotation": [
+                0.06,
+                -0.8,
+                0.02
+              ],
+              "bottom": -0.16,
+              "y": -0.008491798561900188,
+              "bounds": [
+                [
+                  5.154412764842459,
+                  -0.16,
+                  4.190966952258707
+                ],
+                [
+                  5.860141459743572,
+                  0.1468630203054993,
+                  4.817389229860148
+                ]
+              ],
+              "vertices": 8538,
+              "triangles": 16548,
+              "material": "scanned-weathered-moss-stone-4-wet"
+            }
+          ],
+          "substrate": "Stone bodies extend below the existing water/soil level; the low shoulder and toe interrupt the waterline rather than hovering above it",
+          "geometryTransfer": "Original scanned positions, normals and UVs unmodified; rigid pose and one scale factor per stone only",
+          "acceptance": "Local modeling candidate, not a photographic match"
+        },
+        "nearSurfaceReflection": {
+          "stoneIds": [
+            "9:3",
+            "9:4",
+            "9:5",
+            "10:3",
+            "10:4",
+            "10:5",
+            "11:3",
+            "11:4",
+            "11:5",
+            "12:3",
+            "12:4",
+            "12:5"
+          ],
+          "dimensions": [
+            1024,
+            1088
+          ],
+          "boundsXZ": [
+            -1.540231966972351,
+            5.285797214508056,
+            1.8139569997787475,
+            8.74027862548828
+          ],
+          "texelMetres": [
+            0.0032755751628428696,
+            0.0031750748262685887
+          ],
+          "heightQuantizationMetres": 0.00031372549019607844,
+          "actualTopYRange": [
+            0.026162000373005867,
+            0.053690001368522644
+          ],
+          "poreWaterLevelRange": [
+            0.04092492933921871,
+            0.049659890163706116
+          ],
+          "topTrianglesRead": 738875,
+          "coveredTexels": 740281,
+          "newTriangles": 0,
+          "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+          "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+          "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+          "planeY": 0.066,
+          "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+          "probeReady": true,
+          "probePosition": [
+            0,
+            2.3,
+            7
+          ],
+          "probeIntensity": 1,
+          "probeAssigned": true,
+          "roughness": 0.39,
+          "clearcoat": 0.55
+        },
+        "scannedStone": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "objects": 771576,
+        "drawCalls": 780,
+        "triangles": 95371482,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            4.65,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        450,
+        440,
+        620,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "0b27910d8fbd8ba3d5b4e2c86985f9a273dbff9739a92b8c4a2fd39ed72dfc58"
+    }
+  ],
+  "completedAt": "2026-10-19T05:13:46.119Z"
+}

@@ -7,15 +7,15 @@ export const scene10Layout125=Object.freeze({
  hall:{position:[14,2.6,-14],yaw:-.58,scale:[1.12,.95,1.12],floorLocalY:1.3,entranceX:-2.85,upperLandingLocal:[-2.85,1.3,6.75]},
  bridge:{position:[3.0,1.22,-4.2],yaw:.12,span:9.5,width:2.0,archRise:1.18,phaseSkew:.20,endRise:.53,deckOffset:.25,deckThickness:.18,approachCount:7,approachRun:.25,railHeight:1.0},
  veranda:{column:[-3.35,0,7.9],radius:.50,shoeHeight:.80,ceilingY:7.1,ceilingYaw:.75,ceilingCenter:[.07,-1.4],hangingLamp:[-2.83,5.85,6.35],lampScale:.76},
- foregroundRail:{position:[1.20,0,11.8],postHeight:.82,finialBase:.90,finialHeightScale:.82,returnEnd:[.72,0,14.2],levels:[.27,.52,.78]},
+ foregroundRail:{position:[1.20,0,11.8],baseY:.10,postHeight:.87,postWidth:.39,capWidth:.48,finialBase:.925,finialHeightScale:.82,finialWidthScale:.70,returnEnd:[.72,0,14.2],levels:[.27,.52,.78]},
  heroStoneLantern:{position:[-2.80,.77,-3.0],scale:[1.066,.98,1.066],supportTop:.70},
- drain:{position:[-1.9,-.004,8.5],yaw:.77,halfWidth:.095,length:13},
+ drain:{position:[-1.9,-.004,8.5],yaw:.56275,halfWidth:.095,length:13},
  path:{farRight:3.9,turnStartZ:5.0,nearRight:1.0,turnEndZ:11.4,nearBankOffsetX:1.45},
  groundY:.067
 });
 
 export function rightPathEdge125(z){const p=scene10Layout125.path,t=Math.max(0,Math.min(1,(z-p.turnStartZ)/(p.turnEndZ-p.turnStartZ)));return p.farRight+(p.nearRight-p.farRight)*t;}
-export function leftPathEdge125(z){const base=-3.9-.65*Math.max(0,Math.min(1,(z+2)/21.32)),v=scene10Layout125.veranda,dz=z-v.column[2],radius=.80;return Math.abs(dz)<radius?Math.max(base,v.column[0]+Math.sqrt(radius*radius-dz*dz)):base;}
+export function leftPathEdge125(z){const base=-3.9-.65*Math.max(0,Math.min(1,(z+2)/21.32)),v=scene10Layout125.veranda;return Math.abs(z-v.column[2])<1.10?Math.max(base,v.column[0]+.80):base;}
 
 export function bridgePoint125(t,side=0,dy=0){
  const b=scene10Layout125.bridge,p=b.phaseSkew;
