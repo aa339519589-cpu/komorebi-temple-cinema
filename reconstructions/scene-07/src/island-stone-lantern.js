@@ -14,9 +14,9 @@ export async function loadIslandLanternStone(){
 // Only the nearest island lantern. Nominal old local bounds are preserved:
 // x/z±1.06, y0..4.05. The parent's garden transform includes Z compression.
 // Stone04's detailed cap/cavity construction was inspected, not its proportions.
-export function buildIslandStoneLantern({parentMatrix=new T.Matrix4(),maps=null,glowMaterial=null}={}){
+export function buildIslandStoneLantern({parentMatrix=new T.Matrix4(),maps=null,glowMaterial=null,anchor=[4.8,.2,14.2],uniformScale=5.8/3.7}={}){
  const root=new T.Group();root.name='scene07-nearest-island-carved-stone-lantern';root.matrixAutoUpdate=false;
- const scale=5.8/3.7;root.matrix.copy(parentMatrix).multiply(new T.Matrix4().makeTranslation(4.8,.2,14.2)).multiply(new T.Matrix4().makeScale(scale,scale,scale));
+ const scale=uniformScale;root.matrix.copy(parentMatrix).multiply(new T.Matrix4().makeTranslation(...anchor)).multiply(new T.Matrix4().makeScale(scale,scale,scale));
  const meters=new T.Vector3().setFromMatrixScale(root.matrix),bins=new Map(),ownedGeos=new Set(),ownedMaterials=new Set();
  function stone(name,color){
   const m=new T.MeshStandardMaterial({name,color,roughness:.94,metalness:0,map:maps?.map??null,normalMap:maps?.normalMap??null,roughnessMap:maps?.roughnessMap??null});m.normalScale.set(.28,.28);
@@ -105,6 +105,6 @@ export function buildIslandStoneLantern({parentMatrix=new T.Matrix4(),maps=null,
  }
  root.updateMatrixWorld(true);
  const localBounds=new T.Box3();prototypes.forEach(g=>{g.computeBoundingBox();localBounds.union(g.boundingBox);});
- const info={anchorLocal:[4.8,.2,14.2],uniformLocalScale:scale,worldAnchor:new T.Vector3(4.8,.2,14.2).applyMatrix4(parentMatrix).toArray(),localBounds:{min:localBounds.min.toArray(),max:localBounds.max.toArray()},worldBounds:new T.Box3().setFromObject(root),fireBagCentreY:2.84,fireBagClearHeight:.40,verticalBarsPerFace:7,horizontalBarsPerFace:5,closedCurvedRoof:true,roofMaximumHalfWidth:1.06,mossPatches:11,mossFibreSolids:132,triangles,lightsAdded:0,originalGlowMaterialRetained:true,visualAccepted:false};
+ const info={anchorLocal:anchor,uniformLocalScale:scale,worldAnchor:new T.Vector3(...anchor).applyMatrix4(parentMatrix).toArray(),localBounds:{min:localBounds.min.toArray(),max:localBounds.max.toArray()},worldBounds:new T.Box3().setFromObject(root),fireBagCentreY:2.84,fireBagClearHeight:.40,verticalBarsPerFace:7,horizontalBarsPerFace:5,closedCurvedRoof:true,roofMaximumHalfWidth:1.06,mossPatches:11,mossFibreSolids:132,triangles,lightsAdded:0,originalGlowMaterialRetained:true,visualAccepted:false};
  return {group:root,prototypes,info,dispose(){for(const g of prototypes)g.dispose();for(const g of ownedGeos)g.dispose();for(const m of ownedMaterials)m.dispose();maps?.textures.forEach(t=>t.dispose());root.removeFromParent();}};
 }

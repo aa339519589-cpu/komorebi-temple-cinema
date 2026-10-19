@@ -1,0 +1,215 @@
+// Authored landmark fits; depths inferred at fixed physical heights. See tools/fit-layout07-118.mjs.
+export const layout118={
+  "revision": "layout118",
+  "imageDimensions": [
+    1254,
+    1254
+  ],
+  "reference": "references/hd/6-照片-7.jpg",
+  "method": "Manually observed image landmarks. Actual3D camera ray intersects authored physical height; depths and unseen joinery are inferred, not recovered ground truth. No reference texture/depth projection.",
+  "camera": {
+    "position": [
+      10.7,
+      12.8,
+      36
+    ],
+    "target": [
+      0,
+      7,
+      -2
+    ],
+    "fov": 47
+  },
+  "landmarks": {
+    "railCorner": {
+      "pixel": [
+        479,
+        1005
+      ],
+      "height": 7.4,
+      "world": [
+        5.941572034737194,
+        7.4,
+        24.153506914561575
+      ],
+      "reprojection": [
+        478.9999999999959,
+        1005.000000000003
+      ]
+    },
+    "railRightEnd": {
+      "pixel": [
+        1390,
+        1298
+      ],
+      "height": 7.4,
+      "world": [
+        13.013293631520195,
+        7.4,
+        26.812051297164274
+      ],
+      "reprojection": [
+        1390.0000000000016,
+        1298.0000000000064
+      ]
+    },
+    "railLeftEnd": {
+      "pixel": [
+        -180,
+        1307
+      ],
+      "height": 7.4,
+      "world": [
+        3.7437044242458404,
+        7.4,
+        29.51663505047591
+      ],
+      "reprojection": [
+        -180.00000000000122,
+        1306.9999999999993
+      ]
+    },
+    "bridgeLeft": {
+      "pixel": [
+        404,
+        710
+      ],
+      "height": 3.8,
+      "world": [
+        -7.751062679658208,
+        3.8000000000000007,
+        -4.144178227777289
+      ],
+      "reprojection": [
+        404.00000000000335,
+        709.9999999999958
+      ]
+    },
+    "bridgeQuarter": {
+      "pixel": [
+        475,
+        699
+      ],
+      "height": 4.5,
+      "world": [
+        -4.968399410314047,
+        4.5,
+        -3.0707405803711936
+      ],
+      "reprojection": [
+        475.0000000000024,
+        699.0000000000002
+      ]
+    },
+    "bridgeCrown": {
+      "pixel": [
+        561,
+        702
+      ],
+      "height": 5,
+      "world": [
+        -1.5921963343019456,
+        4.999999999999999,
+        -0.9621666493219578
+      ],
+      "reprojection": [
+        560.999999999997,
+        701.9999999999997
+      ]
+    },
+    "bridgeThreeQuarter": {
+      "pixel": [
+        653,
+        725
+      ],
+      "height": 4.5,
+      "world": [
+        1.0128748721397773,
+        4.5,
+        -1.0000206605856192
+      ],
+      "reprojection": [
+        653.000000000001,
+        724.9999999999964
+      ]
+    },
+    "bridgeRight": {
+      "pixel": [
+        755,
+        759
+      ],
+      "height": 4.5,
+      "world": [
+        4.398758939076542,
+        4.5,
+        2.1000647686707694
+      ],
+      "reprojection": [
+        755.0000000000025,
+        758.9999999999989
+      ]
+    },
+    "bridgeStairEnd": {
+      "pixel": [
+        1005,
+        817
+      ],
+      "height": 2.5,
+      "world": [
+        10.302310868394292,
+        2.5,
+        -1.541991001504634
+      ],
+      "reprojection": [
+        1005.0000000000022,
+        817.0000000000003
+      ]
+    }
+  },
+  "landing": [
+    {
+      "pixel": [
+        653,
+        677
+      ],
+      "world": [
+        -1.5176056959663082,
+        4,
+        -10.647981808523333
+      ]
+    },
+    {
+      "pixel": [
+        788,
+        680
+      ],
+      "world": [
+        2.988650844829319,
+        4,
+        -11.334291330775194
+      ]
+    },
+    {
+      "pixel": [
+        810,
+        726
+      ],
+      "world": [
+        4.787536499604085,
+        4,
+        -4.316301005289354
+      ]
+    },
+    {
+      "pixel": [
+        720,
+        732
+      ],
+      "world": [
+        2.474310146787076,
+        4,
+        -2.844555584431994
+      ]
+    }
+  ]
+};
