@@ -9,6 +9,7 @@ import {reference4Config as C} from './reference4-config.js';
 import {loadScannedStoneMaps} from './scene04-scanned-stone.js';
 import {loadTracedStoneMaps04} from './traced-stone-material04.js';
 import {loadReference4ForegroundScans} from './reference4-foreground-scans.js';
+import {createGlobalGrade109} from './grade109.js';
 await Promise.all([loadScannedStoneMaps(),loadTracedStoneMaps04(),loadReference4ForegroundScans()]);
 const query=new URLSearchParams(location.search),size=k=>Math.min(2048,Math.max(64,Number(query.get(k))||960));
 const width=size('w'),height=size('h');
@@ -44,6 +45,7 @@ class SurfaceContactAO extends GTAOPass{
 }
 const composer=new EffectComposer(renderer);composer.renderTarget1.samples=4;composer.renderTarget2.samples=4;composer.setSize(width,height);composer.addPass(new RenderPass(world.scene,camera));
 const contactAO=new SurfaceContactAO(world.scene,camera,width,height,undefined,{radius:.25,thickness:.12,distanceExponent:1,distanceFallOff:.65},{radius:3,lumaPhi:8,depthPhi:3,normalPhi:4});contactAO.blendIntensity=.48;composer.addPass(contactAO);composer.addPass(new OutputPass());
+const grade109=await createGlobalGrade109();composer.addPass(grade109);
 
 function shadowMapSnapshot(){return{map:world.sun.shadow.map?.texture.uuid??null,matrix:world.sun.shadow.matrix.toArray(),cameraLayers:camera.layers.mask};}
 function draw(){
