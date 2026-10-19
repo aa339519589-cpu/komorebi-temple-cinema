@@ -1,0 +1,8 @@
+{
+  "visualAccepted": false,
+  "performanceIncrementSelected": true,
+  "viewed": ["../iteration-shadow104-triplet/shot--11041.png"],
+  "evidence": "The recorded original/cached same-view GPU RGBA hashes and CPU pixels are identical. The static cached moving-camera frame submits zero shadow triangles while preserving map identity and fixed light-space matrix.",
+  "scope": "First complete beauty frame refreshes shadows after initialization probes; AO normal rendering cannot overwrite the map with a reduced-visibility scene.",
+  "limit": "This establishes the bounded cache behavior, not complete flicker-free cinematography or photographic fidelity. Cold compilation and warm frame timings are not used as a speedup ratio."
+}

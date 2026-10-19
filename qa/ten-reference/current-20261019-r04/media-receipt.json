@@ -1,0 +1,146 @@
+{
+  "status": "technical-media-receipt",
+  "sourceCommit": "0f9dec9c4d1b6781f9e477e293fb3de9a9966036",
+  "visualAccepted": false,
+  "frameReviewScope": "First/middle/last actual source frames; does not establish every-frame photographic fidelity",
+  "masters": [
+    {
+      "file": "temple-ten-scenes-60s.mp4",
+      "bytes": 206226326,
+      "sha256": "e3f335838ed902e0303d2aef0eadcea8cef6a6fa72c178a9c0a463dbe57906d1",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 1440,
+            "r_frame_rate": "30/1",
+            "nb_frames": "1800"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "nb_frames": "2814"
+          }
+        ],
+        "format": {
+          "duration": "60.000000"
+        }
+      }
+    },
+    {
+      "file": "temple-ten-scenes-70s.mp4",
+      "bytes": 267788320,
+      "sha256": "6aaead8f54d9fad71d6f50512c3292f693a42a1dec2e059001baa3cea0ac3b60",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 1440,
+            "r_frame_rate": "30/1",
+            "nb_frames": "2100"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "nb_frames": "3283"
+          }
+        ],
+        "format": {
+          "duration": "70.000000"
+        }
+      }
+    }
+  ],
+  "shots": [
+    {
+      "reference": 1,
+      "sha256": "ab80e4fc0a002e9b3dc0f70b8d1446df8c28eda57789ca3e2dd9dd1ccbb7043a",
+      "sourceHash": "51fbdbc8c8f79f17f01d77b5653c7ce0041a9ddbfc66e569aac216f780455113",
+      "reusedIdenticalSourceShot": true,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 2,
+      "sha256": "b5f2aa98e163ed1f99f825e4eacf96d8357d9cdfd3a106efbc3d38880b7ae69c",
+      "sourceHash": "e6952a0e1eea960b52bbceafe9187ceb17bbe68c7eaf1c2e15784d11a4485b53",
+      "reusedIdenticalSourceShot": true,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 3,
+      "sha256": "ab25f34b0e087e6c89d593797296c92e3e04c61e4ef7bf217682504181d17d8b",
+      "sourceHash": "7c2853e8159d6219a9b6b660fc065118e70da367efac2e43c850052c238018f5",
+      "reusedIdenticalSourceShot": false,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 4,
+      "sha256": "9a9e14f1490df3a57846b74d4e260929c56433ade8ca97025e5f6f1095aa49eb",
+      "sourceHash": "a2d1489902ebb9c25dfceadfa8c26d20f4b2703ea0272e3403d6529ee5541299",
+      "reusedIdenticalSourceShot": false,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 5,
+      "sha256": "2d950afffe0371ee685825a4fa0ec7de4a51194ead041b5364bb86ac117e0cd6",
+      "sourceHash": "3dea3c48107954c57a41d404758a24cb1798ad8733b2602ee3645798bc589740",
+      "reusedIdenticalSourceShot": true,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 6,
+      "sha256": "ac6f9aa20c1876c924914f15feb663a56c7a19580cccab3ac10841b8164a4b08",
+      "sourceHash": "09abe3ec020ce033086bf05c3f48ab864b9f14a6f7a71cfb49660cecf4f97b3e",
+      "reusedIdenticalSourceShot": false,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 7,
+      "sha256": "e780693183339f050114501726505b539ea305103c19a85a764dfa5c1c6da55e",
+      "sourceHash": "8d291b06919a0e1f8ff5b120c61e2a094c0f1d770fefc4ed0d2205304c967537",
+      "reusedIdenticalSourceShot": true,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 8,
+      "sha256": "f5cceff5dae966f403578e7bf3437ab5525821c54282ef351c5290f3895355e0",
+      "sourceHash": "cf84d5cb49a3f6fa7b0933ebda11323d9dac09373bc5d54b45dce579481ab696",
+      "reusedIdenticalSourceShot": true,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 9,
+      "sha256": "56c1369196e21be0c5478752e5176b8e706a9f776a5cfc1d668959b554539e77",
+      "sourceHash": "035c0473d9d6c43a79fcf4735ccc953c3b089b2a4e91dd6091cf48b5dd9aa61f",
+      "reusedIdenticalSourceShot": false,
+      "actualWebgl": true,
+      "visualAccepted": false
+    },
+    {
+      "reference": 10,
+      "sha256": "c1dadf0f0a49d6b18f7014dee4ee26ab78f1760fe7935fad91adb3954ecab023",
+      "sourceHash": "7940abb13d286f5688f9e7ca08b18c24caf367846f850e97576533e051c60498",
+      "reusedIdenticalSourceShot": true,
+      "actualWebgl": true,
+      "visualAccepted": false
+    }
+  ]
+}

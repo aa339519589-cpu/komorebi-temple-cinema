@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Record constant material gains for an unselected floor-surface candidate.
+"""Record constant material gains for a selected floor-surface increment.
 
 Only the project's existing credited CC0 PBR asset is sampled. The target
 reflectance is an authored brown palette choice, not inferred photo albedo.
@@ -20,7 +20,7 @@ target=np.array([.085,.035,.018])
 gain=target/mean
 out=root/'reconstructions/scene-06/assets/floor-scan106'
 out.mkdir(parents=True,exist_ok=True)
-record={'status':'unselected-actual-material-study','visualAccepted':False,
+record={'status':'selected-local-surface-increment-unaccepted-scene','visualAccepted':False,
  'source':'Poly Haven lacquered_cherry_wood; CC0; existing original maps retained unchanged',
  'sourceLinearMeanRGB':mean.tolist(),'authoredTargetLinearMeanRGB':target.tolist(),
  'materialLinearGain':gain.tolist(),'maximumEffectiveRGB':(linear*gain).max(axis=(0,1)).tolist(),
