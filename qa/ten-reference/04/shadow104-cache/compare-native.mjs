@@ -1,0 +1,15 @@
+// CPU pixel comparison and actual recorded GPU work; no browser or render.
+import {readFile,writeFile} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const dir=new URL('../iteration-shadow104-triplet/',import.meta.url),r=JSON.parse(await readFile(new URL('report.json',dir),'utf8'));
+const decode=name=>execFileSync('ffmpeg',['-v','error','-i',new URL(name,dir).pathname,'-frames:v','1','-f','rawvideo','-pix_fmt','rgba','pipe:1'],{maxBuffer:16*1024*1024});
+const a=decode('shot--11040.png'),b=decode('shot--11041.png');let changed=0,channels=0,max=0,sq=0,absolute=0;
+if(a.length!==b.length||a.length!==1254*1254*4)throw Error('Native dimensions differ');
+for(let i=0;i<a.length;i+=4){let any=false;for(let j=0;j<4;j++){const d=Math.abs(a[i+j]-b[i+j]);if(d){channels++;any=true;}max=Math.max(max,d);sq+=d*d;absolute+=d;}if(any)changed++;}
+const samples=r.frames.map(f=>{const p=f.info.shadowCache.lastProfile;return{mode:p.mode,frame:p.frame,gpuSynchronizedFrameMs:p.gpuSynchronizedFrameMs,totalTriangles:p.triangles,totalDrawCalls:p.calls,shadowTriangles:p.shadowInvocations.reduce((s,x)=>s+x.triangles,0),shadowDrawCalls:p.shadowInvocations.reduce((s,x)=>s+x.calls,0),shadowPassesWithDraws:p.shadowInvocations.filter(x=>x.triangles>0).length,shadowInvocations:p.shadowInvocations,cacheFrozenAfter:p.cacheFrozenAfter,shadowAutoUpdateAfter:p.shadowAutoUpdateAfter,mapAfter:p.after,rgbaSha256:f.rgbaSha256,camera:f.info.camera};});
+const movingMapUnchanged=samples[1].mapAfter.map===samples[2].mapAfter.map&&JSON.stringify(samples[1].mapAfter.matrix)===JSON.stringify(samples[2].mapAfter.matrix)&&samples[1].mapAfter.cameraLayers===samples[2].mapAfter.cameraLayers;
+const result={status:changed===0&&movingMapUnchanged?'strict-native-pixels-identical':'failed',width:1254,height:1254,changedPixels:changed,totalPixels:a.length/4,changedChannels:channels,maximumAbsoluteRGBAError:max,meanAbsoluteRGBAError:absolute/a.length,rmseRGBA:Math.sqrt(sq/a.length),baselineDecodedSHA256:createHash('sha256').update(a).digest('hex'),candidateDecodedSHA256:createHash('sha256').update(b).digest('hex'),baselineAndCandidateRawGpuSHA256Equal:r.frames[0].rgbaSha256===r.frames[1].rgbaSha256,movingMapIdentifierMatrixAndLayersUnchanged:movingMapUnchanged,samples,sourceHash:r.source.hash,allFramesValid:r.frames.every(f=>f.valid),errors:r.errors,timingCaveat:'Frame1 includes cold shader/draw compilation; frame2 warmed refreshes one complete map; frame3 is a warm cached moving view. Raw timings are not a pure cold-vs-warm speedup.',cacheValidationPassed:changed===0&&movingMapUnchanged&&samples[2].shadowTriangles===0,visualAccepted:false};
+await writeFile(new URL('./pixel-and-performance.json',import.meta.url),JSON.stringify(result,null,2));
+console.log(JSON.stringify({status:result.status,pixelsChanged:changed,maxError:max,rmse:result.rmseRGBA,mapUnchanged:movingMapUnchanged,samples:samples.map(s=>({mode:s.mode,ms:s.gpuSynchronizedFrameMs,triangles:s.totalTriangles,shadowTriangles:s.shadowTriangles,shadowCalls:s.shadowDrawCalls}))}));
+if(!result.cacheValidationPassed)process.exitCode=2;
