@@ -9,6 +9,7 @@ import {granite} from './reference4-natural-forms.js';
 import {hallPlacement,referenceCamera,hallFixtureMatrix} from './hall-layout.js';
 import {createPondSurface} from './water-surface.js';
 import {createLotusPetalMaterials,createLotusLeafMaterial} from './lotus-material.js';
+import {createLotusBudMaterial98,foregroundBudPose98} from './lotus-bud98.js';
 import {installRanmaRelief} from './ranma-relief.js';
 import {createEntranceSanctuary} from './entrance-sanctuary.js';
 import {installEntryGranite} from './granite-entry-steps.js';
@@ -126,7 +127,7 @@ for(let i=0;i<95;i++){let z=range(9,24),x=range(-10,12);if(z>15.8&&Math.abs(x+2.
 // Close foreground is intentionally large and asymmetric, as in the low-water reference.
 lotus(-3.6,15.3,.55,1.45,false);lotus(-1.2,17.1,.06,1.9,false);lotus(-2.35,15.5,.40,.35,true);lotus(-4.4,15.1,.24,.30,true);lotus(5.0,15.7,.17,.95,false);lotus(5.6,15,.28,.38,true);lotus(4.0,11.0,.25,.4,true);
 // The left foreground reference is a closed bud, not another open flower.
-{const x=-2.88,z=16.45,y=.18;emit(createRestorationLotusBud(),pinks[1],[x,y,z]);between([x-.15,-.08,z+.08],[x,y,z],.016,lotusUnder);}
+{const bud=createLotusBudMaterial98(),pose=foregroundBudPose98,[x,y,z]=pose.position;mats.lotusBud98=bud.material;for(const t of bud.textures)textures.add(t);emit(createRestorationLotusBud(),bud.material,pose.position,[pose.scale,pose.scale,pose.scale],pose.rotation);const neck=new T.Vector3(0,.05*pose.scale,0).applyEuler(new T.Euler(...pose.rotation)).add(V(pose.position));between([x-.15,-.08,z+.08],neck.toArray(),.0048,lotusUnder);}
 // Procedural cloud volume, beyond the architectural silhouette.
 
 // A low trained pine has a curved trunk, tiered branch fans and real needle
