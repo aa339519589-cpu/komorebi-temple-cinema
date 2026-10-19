@@ -111,6 +111,15 @@ for(const side of[-1,1]){
 }
 // Keep the established later garden RNG independent of this structural rewrite.
 for(let k=0;k<legacyBridgeRandomCalls;k++)rand();
+// Existing rigid CC0 scans form a grounded island at the near bridge pier.
+const bridgeAbutment125=[];let footingTop=-.20;
+for(const [i,variant,scale]of[[0,0,.72],[1,3,.62]]){
+ const scan=scannedStones.variants[variant],yaw=i?.22:-.18,rotation=new T.Matrix4().makeRotationY(yaw).scale(V([scale,scale,scale])),bounds=new T.Box3(),position=scan.geometry.attributes.position;
+ for(let j=0;j<position.count;j++)bounds.expandByPoint(V([position.getX(j),position.getY(j),position.getZ(j)]).applyMatrix4(rotation));
+ const bottom=i?footingTop-.12:-.20,y=bottom-bounds.min.y;bounds.translate(V([-.65,y,-3.30]));
+ if(bounds.max.z>=-2.02||bounds.min.x<=-1.68||bounds.max.y>=1.64)throw Error('Bridge bank stone leaves its bounded support envelope');
+ emit(scan.geometry,scan.wet,-.65,y,-3.30,scale,scale,scale,yaw);footingTop=bounds.max.y;bridgeAbutment125.push({variant,scale,yaw,position:[-.65,y,-3.30],bounds:[bounds.min.toArray(),bounds.max.toArray()],source:'Existing CC0 scan, positions/normals/UVs retained'});
+}
 // Sheltered foreground is one supported column and a rotated veranda roof.
 group(...L.veranda.column,0,()=>{
  const v=L.veranda,shaftTop=v.ceilingY-.165;
@@ -126,12 +135,14 @@ group(...L.veranda.column,0,()=>{
 const finialProfile=[[0,0],[.21,0],[.225,.025],[.225,.058],[.204,.078],[.155,.092],[.128,.127],[.145,.157],[.210,.203],[.244,.263],[.236,.318],[.198,.366],[.136,.405],[.082,.435],[.060,.459],[.059,.491],[.040,.527],[0,.566]].map(([r,y])=>new T.Vector2(r,y));
 const finialGeo=new T.LatheGeometry(finialProfile,48);
 const nearRail=L.foregroundRail,[nearX,,nearZ]=nearRail.position;
-box(nearX,nearRail.postHeight/2,nearZ,.31,nearRail.postHeight,.31,'nearLacquer');box(nearX,nearRail.postHeight,nearZ,.43,.11,.43,'black');emit(finialGeo,'gold',nearX,nearRail.finialBase,nearZ,1,nearRail.finialHeightScale,1);
-for(const y of[.04,.12,.46])emit(new T.TorusGeometry(.205,.016,6,40),'oldgold',nearX,nearRail.finialBase+y*nearRail.finialHeightScale,nearZ,1,1,1,[Math.PI/2,0,0]);
+box(nearX,(nearRail.postHeight+nearRail.baseY)/2,nearZ,nearRail.postWidth,nearRail.postHeight-nearRail.baseY,nearRail.postWidth,'nearLacquer');box(nearX,nearRail.postHeight,nearZ,nearRail.capWidth,.11,nearRail.capWidth,'black');emit(finialGeo,'gold',nearX,nearRail.finialBase,nearZ,nearRail.finialWidthScale,nearRail.finialHeightScale,nearRail.finialWidthScale);
+for(const y of[.04,.12,.46])emit(new T.TorusGeometry(.205,.016,6,40),'oldgold',nearX,nearRail.finialBase+y*nearRail.finialHeightScale,nearZ,nearRail.finialWidthScale,1,nearRail.finialWidthScale,[Math.PI/2,0,0]);
 for(const y of nearRail.levels){
  const a=[nearX,y,nearZ+.05],b=[nearRail.returnEnd[0],y,nearRail.returnEnd[2]],d=V(b).sub(V(a)),q=new T.Quaternion().setFromUnitVectors(V([0,0,1]),d.clone().normalize());
  emit(new RoundedBoxGeometry(.22,.16,d.length(),2,.028),'nearLacquer',...(V(a).add(V(b)).multiplyScalar(.5)).toArray(),1,1,1,q);
 }
+// The returning veranda rail stands on a complete apron, above the water film.
+solidFootprint125([[L.path.nearRight,L.path.turnEndZ],[4.6,L.path.turnEndZ],[4.6,20],[L.path.nearRight,20]],-.25,nearRail.baseY,'granite');
 // Wet paving is built as individually shaped solid slabs with fine irregular seams.
 function noiseTexture(){const N=256,data=new Uint8Array(N*N*4);for(let y=0;y<N;y++)for(let x=0;x<N;x++){let q=R(.30,.70)+.12*Math.sin(x*.08+Math.sin(y*.07));let i=(y*N+x)*4;data[i]=data[i+1]=data[i+2]=Math.round(q*255);data[i+3]=255;}const t=new T.DataTexture(data,N,N);t.needsUpdate=true;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(3,3);t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;return t;}
 const wetBump=noiseTexture(),wetStone=new T.MeshPhysicalMaterial({color:'#171814',roughness:.39,metalness:0,bumpMap:wetBump,bumpScale:.014,clearcoat:.20,clearcoatRoughness:.075,specularIntensity:.55});const normalBytes=new Uint8Array(256*256*4),heightData=wetBump.image.data;for(let y=0;y<256;y++)for(let x=0;x<256;x++){const h=(dx,dy)=>heightData[(((y+dy+256)%256)*256+(x+dx+256)%256)*4]/255;let dx=(h(1,0)-h(-1,0))*.75,dy=(h(0,1)-h(0,-1))*.75,n=new T.Vector3(-dx,-dy,1).normalize(),i=(y*256+x)*4;normalBytes[i]=(n.x*.5+.5)*255;normalBytes[i+1]=(n.y*.5+.5)*255;normalBytes[i+2]=(n.z*.5+.5)*255;normalBytes[i+3]=255;}const wetNormal=new T.DataTexture(normalBytes,256,256);wetNormal.wrapS=wetNormal.wrapT=T.RepeatWrapping;wetNormal.repeat.set(1.40,1.40);wetNormal.generateMipmaps=true;wetNormal.minFilter=T.LinearMipmapLinearFilter;wetNormal.magFilter=T.LinearFilter;wetNormal.needsUpdate=true;
@@ -161,6 +172,12 @@ for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
  }
  // Keep the existing independent garden layout unchanged by clipping topology.
  seed=slabSeed;for(let k=0;k<42;k++)rand();
+}
+// Closed worn curb stones carry the curved path edge into the veranda apron.
+const pathCurbRecords125=[];
+for(let i=0;i<31;i++){
+ const a=-2+i*.70,b=a+.688,x0=rightPathEdge125(a),x1=rightPathEdge125(b),points=[[x0+.012,a],[x0+.22,a],[x1+.22,b],[x1+.012,b]],g=createWornFlagstone(T,{points,topOffset:.035,seed:12591+i*31});
+ emit(g,'granite');pathCurbRecords125.push({points,closed:true});
 }
 const floorWetMap=createPavingWetMask(T,floorPolygons);wetStone.userData.floorWetMap=floorWetMap;m.wetNear.userData.floorWetMap=floorWetMap;
 const nearSurface=nearSurfaceBuilder.finish();
@@ -286,4 +303,4 @@ function renderView(position,target,time=0,fov=65){camera.position.fromArray(pos
 function renderReference(n=10){if(n!==10)throw Error('Only scene 10 exists');return renderView(fixed.position,fixed.target,0,fixed.fov);}
 const dolly=createDollyPath({points:[[-.7,.25,9],[-.75,.34,10.5],[-.2,.85,12.8],fixed.position],nearTarget:[-.8,.067,7.8],farTarget:fixed.target,fov:fixed.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:L.revision,layout:L,bridgeHallPlan,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentTarget.texture,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();optics.dispose();scannedStones.dispose();nearSurface.texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:L.revision,layout:L,bridgeHallPlan,bridgeAbutment125,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentTarget.texture,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();optics.dispose();scannedStones.dispose();nearSurface.texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
