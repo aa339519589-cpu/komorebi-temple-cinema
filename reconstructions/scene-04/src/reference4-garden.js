@@ -7,6 +7,7 @@ import {createWeatheredBoulderGeometry,createBoulderMossGeometry} from './refere
 import {foregroundScan04,disposeReference4ForegroundScans} from './reference4-foreground-scans.js';
 import {createPrunedCrownGeometry} from './reference4-pruned-crown.js';
 import {buildRestorationStoneLanterns} from './scene04-lanterns.js';
+import {createReference4StairPlan} from './reference4-stair-plan.js';
 import {buildRestorationPrunedPine} from './restoration-pruned-pines-v1.js';
 import {createRestorationLotusLeaf} from './restoration-lotus-leaf.js';
 import {createRestorationLotusPetal} from './restoration-lotus-petal.js';
@@ -42,11 +43,17 @@ export function buildReference4Garden(T,options={}){
   for(const [x,z,rx,rz,name]of[[plan.pineX,plan.pineZ,1.6,3.4,'pine'],[plan.lanternX,plan.lanternZ,1.35,2.05,'large-lantern'],[10.5,1.1,3,2.1,'cherry'],[8.8,2.8,.75,.85,'small-lantern'],[12.8,15,3,4.2,'maple']])island(side*x,z,rx,rz,name+'-dry-island-'+side);
  }
 
- const bankY=(x,z)=>Math.pow(Math.max(0,Math.min(1,(8-z)/10)),1.17)*3.15*(.94+.06*Math.sin(x*.7+z*.2));
+ const stairPlan=createReference4StairPlan({stairTopY:plan.stairTopY,stairTopZ:0,stairBottomZ:plan.stairBottomZ,stairWidth:5.65,...options.stairDimensions});
+ const bankY=(x,z)=>stairPlan.walkY(z)-.12;
  for(const side of[-1,1]){
   const pp=[],ii=[],nn=24,mm=20;
-  for(let j=0;j<=mm;j++)for(let i=0;i<=nn;i++){const x=side*(3.45+i/nn*13.6),z=-2+j/mm*10;pp.push(x,bankY(x,z),z);}
+  for(let j=0;j<=mm;j++)for(let i=0;i<=nn;i++){const z=stairPlan.z0-2+j/mm*(stairPlan.run+2),x=side*(stairPlan.halfWidth(z)+.44+i/nn*13.6);pp.push(x,bankY(x,z),z);}
   for(let j=0;j<mm;j++)for(let i=0;i<nn;i++){const a=j*(nn+1)+i,b=a+nn+1;side>0?ii.push(a,b,a+1,a+1,b,b+1):ii.push(a,a+1,b,a+1,b+1,b);}
+  // Close the terrain mass at the shared lower-earth support datum.
+  const topCount=pp.length/3,topIndices=[...ii];for(let i=0;i<topCount;i++)pp.push(pp[i*3],-.85,pp[i*3+2]);
+  for(let i=0;i<topIndices.length;i+=3)ii.push(topIndices[i]+topCount,topIndices[i+2]+topCount,topIndices[i+1]+topCount);
+  const boundary=[...Array.from({length:nn+1},(_,i)=>i),...Array.from({length:mm},(_,i)=>(i+1)*(nn+1)+nn),...Array.from({length:nn},(_,i)=>mm*(nn+1)+nn-1-i),...Array.from({length:mm-1},(_,i)=>(mm-1-i)*(nn+1))];
+  for(let i=0;i<boundary.length;i++){const a=boundary[i],b=boundary[(i+1)%boundary.length];side>0?ii.push(a,b,a+topCount,b,b+topCount,a+topCount):ii.push(a,a+topCount,b,b,a+topCount,b+topCount);}
   const gg=new T.BufferGeometry();gg.setAttribute('position',new T.Float32BufferAttribute(pp,3));gg.setAttribute('uv',new T.Float32BufferAttribute(pp.flatMap((_,i)=>i%3===0?[pp[i]*.7,pp[i+2]*.7]:[]),2));gg.setIndex(ii);gg.computeVertexNormals();
   mesh(gg,m.soil,'continuous-planted-stair-embankment-'+side,subgroups.ground);
   for(let j=0;j<30;j++){const x=side*rr(3.8,15.8),z=rr(-.8,7.7);rock(x,bankY(x,z)-.13,z,rr(.36,.83),rr(.28,.65),rr(.3,.7),'terrace-outcrop-'+side+'-'+j);}
@@ -101,7 +108,7 @@ export function buildReference4Garden(T,options={}){
   const o=mesh(g,scan?ownM(scan.material):m.stone,name,subgroups.shore,[x,y,z]);
   o.rotation.y=rr(-Math.PI,Math.PI);o.updateMatrixWorld(true);let bounds=new T.Box3().setFromObject(o);
   if(bounds.max.z>0&&bounds.min.z<plan.pathEndZ+.3){const edge=bounds.max.z>plan.stairBottomZ?halfCauseway+.06:2.9;if(x<0&&bounds.max.x>-edge)x-=bounds.max.x+edge;else if(x>0&&bounds.min.x<edge)x+=edge-bounds.min.x;o.position.x=x;o.updateMatrixWorld(true);bounds=new T.Box3().setFromObject(o);}
-  const r=.58*plan.lanternHeight/3.34+.04;
+  const r=.58*plan.lanternHeight/3.34*(plan.lanternWidthFactor??1)+.04;
   if([-1,1].some(side=>bounds.min.x<side*plan.lanternX+r&&bounds.max.x>side*plan.lanternX-r&&bounds.min.z<plan.lanternZ+r&&bounds.max.z>plan.lanternZ-r&&bounds.max.y>plan.soilY)){o.removeFromParent();records.rockBounds.push({name,excludedFor:'actual lantern foot envelope'});return null;}
   if(scan){
    // Bake placement before the existing global flared-bank deformation. Keep
@@ -124,7 +131,7 @@ export function buildReference4Garden(T,options={}){
  for(const side of[-1,1]){const pine=buildRestorationPrunedPine({materials:m,needleGeometry,options:{id:side<0?'west-island-existing-pine':'east-island-existing-pine'}});children.push(pine);const scale=plan.pineHeight/(pine.bounds.max.y-pine.bounds.min.y);pine.group.scale.setScalar(scale);pine.group.position.set(side*plan.pineX,plan.soilY,plan.pineZ);pine.group.rotation.y=side<0?Math.PI+.55:Math.PI-.4;subgroups.trees.add(pine.group);pine.group.updateMatrixWorld(true);
   const matrix=new T.Matrix4(),position=new T.Vector3(),quaternion=new T.Quaternion(),sc=new T.Vector3(),base=new T.Vector3(0,0,470/512-.5);for(let i=0;i<pine.foliageMesh.count;i++){pine.foliageMesh.getMatrixAt(i,matrix);matrix.decompose(position,quaternion,sc);const anchor=base.clone().applyMatrix4(matrix);quaternion.multiply(new T.Quaternion().setFromEuler(new T.Euler(.48*Math.sin(i*2.399)+.16,.28*Math.cos(i*.73),.32*Math.sin(i*1.19))));position.copy(anchor).sub(base.clone().multiply(sc).applyQuaternion(quaternion));matrix.compose(position,quaternion,sc);pine.foliageMesh.setMatrixAt(i,matrix);}pine.foliageMesh.instanceMatrix.needsUpdate=true;pine.foliageMesh.computeBoundingBox();pine.foliageMesh.computeBoundingSphere();
   const parts=[];for(const [j,pad]of pine.pads.entries()){const h=side<0?6.5:5.2,anchor=V(pad.anchor),world=anchor.clone().applyMatrix4(pine.group.matrixWorld),rx=h*(.156-.0033*pad.tier),rz=h*(.109-.0025*pad.tier),reserve=world.z>0&&world.z<8.2?T.MathUtils.clamp((Math.abs(world.x)-3.03)/(Math.max(rx,rz)*scale*1.28),.35,1):1,g=createPrunedCrownGeometry(T,{radiusX:rx*reserve,radiusZ:rz*reserve,halfHeight:h*.049,phase:j*.73});g.rotateY(Math.atan2(anchor.x,anchor.z));g.translate(anchor.x,anchor.y+h*.020,anchor.z);parts.push(g);}const crown=mergeGeometries(parts,false);parts.forEach(g=>g.dispose());mesh(crown,m.crown,'thick-overlapping-pruned-crown-'+side,pine.group);pines.push(pine);records.treeRoots.push({kind:'pruned-pine',position:pine.group.position.toArray(),height:plan.pineHeight});}
- const lanternAsset=buildRestorationStoneLanterns({materials:{paper:m.paper},options:{anchors:[[-plan.lanternX,plan.soilY,plan.lanternZ,plan.lanternHeight/3.34],[plan.lanternX,plan.soilY,plan.lanternZ,plan.lanternHeight/3.34],[-8.8,plan.soilY,2.8,.53],[8.8,plan.soilY,2.8,.53]]}});children.push(lanternAsset);subgroups.lanterns.add(lanternAsset.group);
+ const lanternAsset=buildRestorationStoneLanterns({materials:{paper:m.paper},options:{heroWidthFactor:plan.lanternWidthFactor??1,heroInwardYaw:plan.lanternInwardYaw??0,anchors:[[-plan.lanternX,plan.soilY,plan.lanternZ,plan.lanternHeight/3.34],[plan.lanternX,plan.soilY,plan.lanternZ,plan.lanternHeight/3.34],[-8.8,plan.soilY,2.8,.53],[8.8,plan.soilY,2.8,.53]]}});children.push(lanternAsset);subgroups.lanterns.add(lanternAsset.group);
  function instances(g,mat,matrices,name,parent){if(!matrices.length)return null;const o=new T.InstancedMesh(g,mat,matrices.length),color=new T.Color();o.name=name;matrices.forEach((a,i)=>{o.setMatrixAt(i,a);const q=name.includes('maple')?.46+.63*(.5+.5*Math.sin(i*2.399)):.87+.13*(.5+.5*Math.sin(i*2.399));o.setColorAt(i,color.setRGB(q*.97,q,q*.89));});o.instanceMatrix.needsUpdate=true;o.instanceColor.needsUpdate=true;o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();parent.add(o);return o;}
  const lotusLeaf=ownG(createRestorationLotusLeaf(7)),lotusPetal=ownG(createRestorationLotusPetal(4)),leafMatrices=[],petalMatrices=[];
  for(const side of[-1,1])for(let i=0;i<168;i++){const z=rr(6.8,26.4),x=side*(i%3===0?rr(7.1,13.5):rr(halfCauseway+.55,halfCauseway+3.6));if(Math.hypot((Math.abs(x)-plan.lanternX)/1.7,(z-plan.lanternZ)/2.4)<1||Math.hypot((Math.abs(x)-(halfCauseway+1.02))/1.5,(z-16.7)/1.8)<1)continue;const height=rr(.04,.50),radius=z>13?rr(.84,1.38):rr(.56,1.0),o=new T.Object3D();o.position.set(x,plan.waterY+height,z);o.rotation.set(rr(-.18,.18),rr(0,TAU),rr(-.14,.14));o.scale.set(radius,1,radius);o.updateMatrix();leafMatrices.push(o.matrix.clone());line([x+.08,-.59,z-.06],[x,plan.waterY+height-.015,z],.013,m.leafDark,'lotus-petiole',subgroups.plants,.009);
@@ -137,7 +144,7 @@ export function buildReference4Garden(T,options={}){
  const smallLeaf=leafGeometry(),mapleLeaf=leafGeometry(true),blossomGeometry=(()=>{const p=[],uv=[],ix=[];for(let k=0;k<5;k++){const a=k*TAU/5,c=Math.cos(a),s=Math.sin(a),at=p.length/3;p.push(c*.32,s*.32,.10);uv.push(.5,.5);for(let j=0;j<8;j++){const t=j*TAU/8,r=.35+.30*Math.cos(t),w=.27*Math.sin(t),x=c*r-s*w,y=s*r+c*w;p.push(x,y,.025+.06*Math.cos(t));uv.push(.5+x*.6,.5+y*.6);}for(let j=0;j<8;j++)ix.push(at,at+1+j,at+1+(j+1)%8);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return ownG(g);})();
  const lowMatrices=[],mapleMatrices=[],flowerMatrices=[],fernMatrices=[];
  function cluster(center,rx,ry,rz,count,array,scale,flower=false){for(let i=0;i<count;i++){const a=rr(0,TAU),y=rr(-1,1),r=Math.sqrt(1-y*y)*Math.sqrt(random()),o=new T.Object3D();o.position.set(center[0]+Math.cos(a)*rx*r,center[1]+y*ry,center[2]+Math.sin(a)*rz*r);o.rotation.set(flower?rr(-Math.PI,Math.PI):rr(-.85,.85),rr(0,TAU),flower?rr(-Math.PI,Math.PI):rr(-.75,.75));const s=scale*rr(.7,1.25);o.scale.set(s,flower?s*.7:s,s);o.updateMatrix();array.push(o.matrix.clone());}}
- function clearPlantRoot(x,z){const r=.58*plan.lanternHeight/3.34+.10;if([-1,1].some(side=>Math.abs(x-side*plan.lanternX)<r&&Math.abs(z-plan.lanternZ)<r))return false;return !rockBounds.some(b=>b.max.y>plan.soilY&&x>b.min.x-.02&&x<b.max.x+.02&&z>b.min.z-.02&&z<b.max.z+.02);}
+ function clearPlantRoot(x,z){const r=.58*plan.lanternHeight/3.34*(plan.lanternWidthFactor??1)+.10;if([-1,1].some(side=>Math.abs(x-side*plan.lanternX)<r&&Math.abs(z-plan.lanternZ)<r))return false;return !rockBounds.some(b=>b.max.y>plan.soilY&&x>b.min.x-.02&&x<b.max.x+.02&&z>b.min.z-.02&&z<b.max.z+.02);}
 
  for(const side of[-1,1])for(let j=0;j<260;j++){
   const x=side*rr(3.7,15.8),z=rr(-1.4,7.5),y=bankY(x,z),root=[x,y-.05,z];

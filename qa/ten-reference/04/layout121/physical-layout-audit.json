@@ -1,0 +1,556 @@
+{
+  "status": "Physical plan and CPU projection audit only; actual render comparison remains required",
+  "visualAccepted": false,
+  "baseCommit": "814c879ad6e9b1552f254005e90902ce219501c5",
+  "reference": "references/hd/3-照片-4.jpg",
+  "referenceDimensions": [
+    1254,
+    1254
+  ],
+  "camera": {
+    "position": [
+      0,
+      1.35,
+      23.34
+    ],
+    "target": [
+      0,
+      2.3,
+      0
+    ],
+    "fov": 64.1754241,
+    "near": 0.08,
+    "far": 1200
+  },
+  "cameraDecision": "Retained unchanged; outer canopy, stair-foot/path vanishing structure already close. Source geometry/proportions are corrected instead. Dolly path remains coherent because reference camera and floor/stair-foot anchors are retained.",
+  "landmarkCount": 18,
+  "meanLandmarkErrorPixels": {
+    "baseline": 16.404755300863076,
+    "candidate": 5.33396956983915
+  },
+  "landmarks": [
+    {
+      "name": "ridgeLeft",
+      "referencePixels": [
+        469,
+        139
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -4.51,
+        16.785,
+        -5
+      ],
+      "candidateWorld": [
+        -4.523599999999999,
+        16.785,
+        -5
+      ],
+      "baselineProjectedPixels": [
+        471.18337212499057,
+        133.99510860176463
+      ],
+      "candidateProjectedPixels": [
+        470.7135038014651,
+        133.99510860176463
+      ],
+      "baselineErrorPixels": 5.460407653675342,
+      "candidateErrorPixels": 5.290088202078086
+    },
+    {
+      "name": "ridgeRight",
+      "referencePixels": [
+        812,
+        137
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        4.51,
+        16.785,
+        -5
+      ],
+      "candidateWorld": [
+        5.283599999999999,
+        16.785,
+        -5
+      ],
+      "baselineProjectedPixels": [
+        782.8166278750094,
+        133.99510860176463
+      ],
+      "candidateProjectedPixels": [
+        809.5438436896674,
+        133.99510860176463
+      ],
+      "baselineErrorPixels": 29.337664884937,
+      "candidateErrorPixels": 3.880989066716851
+    },
+    {
+      "name": "upperCurlLeft",
+      "referencePixels": [
+        292,
+        202
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -8.329149999999998,
+        12.916421602917309,
+        -0.34250000000000025
+      ],
+      "candidateWorld": [
+        -8.204474,
+        12.814330392507914,
+        -0.34250000000000025
+      ],
+      "baselineProjectedPixels": [
+        281.86901911431835,
+        188.03356739899132
+      ],
+      "candidateProjectedPixels": [
+        286.97666018311105,
+        192.18556550486147
+      ],
+      "baselineErrorPixels": 17.253927474768314,
+      "candidateErrorPixels": 11.025292167344453
+    },
+    {
+      "name": "upperCurlRight",
+      "referencePixels": [
+        974,
+        202
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        8.329149999999998,
+        12.916421602917309,
+        -0.34250000000000025
+      ],
+      "candidateWorld": [
+        8.426274000000001,
+        12.814330392507914,
+        -0.34250000000000025
+      ],
+      "baselineProjectedPixels": [
+        972.1309808856815,
+        188.03356739899132
+      ],
+      "candidateProjectedPixels": [
+        976.2155411416035,
+        192.18556550486147
+      ],
+      "baselineErrorPixels": 14.090935811655868,
+      "candidateErrorPixels": 10.061398859477872
+    },
+    {
+      "name": "entranceCanopyCrown",
+      "referencePixels": [
+        627,
+        204
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        0,
+        11.588000000000001,
+        1.55
+      ],
+      "candidateWorld": [
+        0,
+        11.588000000000001,
+        1.55
+      ],
+      "baselineProjectedPixels": [
+        627,
+        205.90711748940288
+      ],
+      "candidateProjectedPixels": [
+        627,
+        205.90711748940288
+      ],
+      "baselineErrorPixels": 1.9071174894028786,
+      "candidateErrorPixels": 1.9071174894028786
+    },
+    {
+      "name": "portalClearUpperLeft",
+      "referencePixels": [
+        543,
+        409
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -2.1,
+        7.58,
+        -0.355
+      ],
+      "candidateWorld": [
+        -2.1,
+        7.58,
+        -0.355
+      ],
+      "baselineProjectedPixels": [
+        539.2395132358611,
+        407.1309681307289
+      ],
+      "candidateProjectedPixels": [
+        539.2395132358611,
+        407.1309681307289
+      ],
+      "baselineErrorPixels": 4.199350048711724,
+      "candidateErrorPixels": 4.199350048711724
+    },
+    {
+      "name": "portalClearUpperRight",
+      "referencePixels": [
+        715,
+        409
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        2.1,
+        7.58,
+        -0.355
+      ],
+      "candidateWorld": [
+        2.1,
+        7.58,
+        -0.355
+      ],
+      "baselineProjectedPixels": [
+        714.7604867641389,
+        407.1309681307289
+      ],
+      "candidateProjectedPixels": [
+        714.7604867641389,
+        407.1309681307289
+      ],
+      "baselineErrorPixels": 1.8843159815974881,
+      "candidateErrorPixels": 1.8843159815974881
+    },
+    {
+      "name": "threshold",
+      "referencePixels": [
+        627,
+        571
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        0,
+        3.5,
+        -0.355
+      ],
+      "candidateWorld": [
+        0,
+        3.5,
+        -0.355
+      ],
+      "baselineProjectedPixels": [
+        627,
+        577.1503196130449
+      ],
+      "candidateProjectedPixels": [
+        627,
+        577.1503196130449
+      ],
+      "baselineErrorPixels": 6.150319613044871,
+      "candidateErrorPixels": 6.150319613044871
+    },
+    {
+      "name": "stairTopLeft",
+      "referencePixels": [
+        532,
+        573
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -2.8,
+        3.5,
+        0
+      ],
+      "candidateWorld": [
+        -2.2,
+        3.5,
+        0
+      ],
+      "baselineProjectedPixels": [
+        507.3834318868684,
+        575.7781687277342
+      ],
+      "candidateProjectedPixels": [
+        533.0155536253966,
+        575.7781687277342
+      ],
+      "baselineErrorPixels": 24.772840917993413,
+      "candidateErrorPixels": 2.957967316556464
+    },
+    {
+      "name": "stairTopRight",
+      "referencePixels": [
+        725,
+        573
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        2.8,
+        3.5,
+        0
+      ],
+      "candidateWorld": [
+        2.2,
+        3.5,
+        0
+      ],
+      "baselineProjectedPixels": [
+        746.6165681131316,
+        575.7781687277342
+      ],
+      "candidateProjectedPixels": [
+        720.9844463746034,
+        575.7781687277342
+      ],
+      "baselineErrorPixels": 21.794362538725903,
+      "candidateErrorPixels": 4.8829184304261934
+    },
+    {
+      "name": "stairFootLeft",
+      "referencePixels": [
+        440,
+        749
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -2.8,
+        0,
+        8
+      ],
+      "candidateWorld": [
+        -2.825,
+        0.048,
+        8
+      ],
+      "baselineProjectedPixels": [
+        443.6628063700611,
+        756.1705665064646
+      ],
+      "candidateProjectedPixels": [
+        442.04950741922323,
+        753.0141363441336
+      ],
+      "baselineErrorPixels": 8.051905024787159,
+      "candidateErrorPixels": 4.507080124731005
+    },
+    {
+      "name": "stairFootRight",
+      "referencePixels": [
+        814,
+        749
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        2.8,
+        0,
+        8
+      ],
+      "candidateWorld": [
+        2.825,
+        0.048,
+        8
+      ],
+      "baselineProjectedPixels": [
+        810.3371936299388,
+        756.1705665064646
+      ],
+      "candidateProjectedPixels": [
+        811.9504925807768,
+        753.0141363441336
+      ],
+      "baselineErrorPixels": 8.051905024787184,
+      "candidateErrorPixels": 4.507080124731005
+    },
+    {
+      "name": "terminalLeft",
+      "referencePixels": [
+        426,
+        613
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -3.03,
+        1.62,
+        8.02
+      ],
+      "candidateWorld": [
+        -3.055,
+        2.178,
+        8.02
+      ],
+      "baselineProjectedPixels": [
+        429.1974491427538,
+        650.0620920470438
+      ],
+      "candidateProjectedPixels": [
+        427.8604300488867,
+        613.6849501832543
+      ],
+      "baselineErrorPixels": 37.19976274015801,
+      "candidateErrorPixels": 1.982512728922737
+    },
+    {
+      "name": "terminalRight",
+      "referencePixels": [
+        837,
+        613
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        3.03,
+        1.62,
+        8.02
+      ],
+      "candidateWorld": [
+        3.055,
+        2.178,
+        8.02
+      ],
+      "baselineProjectedPixels": [
+        824.8025508572462,
+        650.0620920470438
+      ],
+      "candidateProjectedPixels": [
+        826.1395699511133,
+        613.6849501832543
+      ],
+      "baselineErrorPixels": 39.01764257991015,
+      "candidateErrorPixels": 10.882007976485784
+    },
+    {
+      "name": "lanternTipLeft",
+      "referencePixels": [
+        223,
+        454
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -3.6,
+        3.42,
+        14.5
+      ],
+      "candidateWorld": [
+        -3.28,
+        3.14,
+        15.25
+      ],
+      "baselineProjectedPixels": [
+        223.27094453618014,
+        435.3662317201106
+      ],
+      "candidateProjectedPixels": [
+        224.84722770728447,
+        448.05341601455797
+      ],
+      "baselineErrorPixels": 18.635738011956988,
+      "candidateErrorPixels": 6.226886163924558
+    },
+    {
+      "name": "lanternTipRight",
+      "referencePixels": [
+        1034,
+        454
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        3.6,
+        3.42,
+        14.5
+      ],
+      "candidateWorld": [
+        3.28,
+        3.14,
+        15.25
+      ],
+      "baselineProjectedPixels": [
+        1030.7290554638198,
+        435.3662317201106
+      ],
+      "candidateProjectedPixels": [
+        1029.1527722927156,
+        448.05341601455797
+      ],
+      "baselineErrorPixels": 18.9186785602848,
+      "candidateErrorPixels": 7.671862716588565
+    },
+    {
+      "name": "lanternFootLeft",
+      "referencePixels": [
+        219,
+        850
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        -3.6,
+        -0.08,
+        14.5
+      ],
+      "candidateWorld": [
+        -3.28,
+        -0.08,
+        15.25
+      ],
+      "baselineProjectedPixels": [
+        216.72160510845154,
+        830.8092944045111
+      ],
+      "candidateProjectedPixels": [
+        218.2849128156696,
+        846.0400087627097
+      ],
+      "baselineErrorPixels": 19.325482258783698,
+      "candidateErrorPixels": 4.024037808049212
+    },
+    {
+      "name": "lanternFootRight",
+      "referencePixels": [
+        1036,
+        850
+      ],
+      "readingUncertaintyPixels": 5,
+      "baselineWorld": [
+        3.6,
+        -0.08,
+        14.5
+      ],
+      "candidateWorld": [
+        3.28,
+        -0.08,
+        15.25
+      ],
+      "baselineProjectedPixels": [
+        1037.2783948915485,
+        830.8092944045111
+      ],
+      "candidateProjectedPixels": [
+        1035.7150871843303,
+        846.0400087627097
+      ],
+      "baselineErrorPixels": 19.233238800354624,
+      "candidateErrorPixels": 3.970227438314935
+    }
+  ],
+  "physicalChecks": {
+    "closedExtrudedTreadCores": 18,
+    "closedFlagstoneCaps": 72,
+    "closedFlankStones": 36,
+    "allTreadsShareOneDatum": true,
+    "landingCapStopsBeforeSecondTread": true,
+    "balustradesRemainOutsideClearFlight": true,
+    "pathSlabsClippedAtStairFoot": true,
+    "retainedVisiblePavingSlabs": 31,
+    "stairTopWidth": 4.4,
+    "stairBottomWidth": 5.65,
+    "stairRise": 0.19177777777777777,
+    "stairRun": 0.4444444444444444
+  },
+  "limits": [
+    "Selected landmarks cannot prove photographic fidelity.",
+    "Stone wear cap/core joins intentionally share their buried support, not a Boolean-union claim.",
+    "Hidden metric scale and inferred roof asymmetry remain authored hypotheses."
+  ]
+}

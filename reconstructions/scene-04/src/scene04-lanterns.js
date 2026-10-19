@@ -13,7 +13,7 @@ export function buildRestorationStoneLanterns({materials:borrowed={},options={}}
  const geometries=[],materials=[stone,recess,moss,paper,bronze],lanterns=[],emitters=[];let triangles=0;
  function addMerged(parts,mat,parent,name){if(!parts.length)return null;const clean=parts.map(g=>{g=g.index?g.toNonIndexed():g;for(const k of Object.keys(g.attributes))if(!['position','normal','uv','color'].includes(k))g.deleteAttribute(k);if(!g.attributes.color)g.setAttribute('color',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*3).fill(1),3));return g;}),g=mergeGeometries(clean,false);clean.forEach(q=>q.dispose());geometries.push(g);const mesh=new T.Mesh(g,mat);mesh.name=name;mesh.castShadow=mat!==paper;mesh.receiveShadow=mat!==paper;parent.add(mesh);triangles+=g.attributes.position.count/3;return mesh;}
  for(const [id,anchor]of(options.anchors??[]).entries()){
-  const [x,y,z,oldScale]=anchor,scale=oldScale*3.34/4.4,body=new T.Group();body.position.set(x,y,z);body.scale.setScalar(scale);group.add(body);lanterns.push(body);
+  const [x,y,z,oldScale]=anchor,scale=oldScale*3.34/4.4,width=id<2?(options.heroWidthFactor??1):1,body=new T.Group();body.position.set(x,y,z);body.scale.set(scale*width,scale,scale*width);if(id<2)body.rotation.y=-Math.sign(x)*(options.heroInwardYaw??0);group.add(body);lanterns.push(body);
   const stoneParts=[],darkParts=[],lightParts=[],bars=[],mossParts=[];
   function put(g,list,p=[0,0,0],rot=[0,0,0]){g.rotateX(rot[0]);g.rotateY(rot[1]);g.rotateZ(rot[2]);g.translate(...p);list.push(applyMetricUV(g));}
   function box(size,p,list=stoneParts,bevel=.018){put(new RoundedBoxGeometry(...size,2,bevel),list,p);}

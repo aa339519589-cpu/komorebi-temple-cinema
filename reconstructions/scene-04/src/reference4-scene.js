@@ -70,7 +70,7 @@ function createWaterReflection(scene,garden){
 }
 export function buildReference4Scene(){
  const scene=new T.Scene();scene.name='reference4-complete-exterior-v4';scene.fog=new T.FogExp2('#9eafb5',.0015);
- const architecture=buildReference4Architecture(T,C.architecture),garden=buildReference4Garden(T,C.garden);scene.add(architecture.group,garden.group);
+ const architecture=buildReference4Architecture(T,C.architecture),garden=buildReference4Garden(T,{...C.garden,stairDimensions:C.architecture});scene.add(architecture.group,garden.group);
  const waterReflection=createWaterReflection(scene,garden);
  const sunDirection=new T.Vector3(...C.lighting.sunDirection).normalize();
  const pavingCanopy=createPavingCanopy04(sunDirection);scene.add(pavingCanopy);

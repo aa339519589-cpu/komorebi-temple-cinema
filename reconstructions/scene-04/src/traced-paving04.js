@@ -27,7 +27,13 @@ export function createTracedPaving04(){
  for(let column=0;column<3;column++)for(let row=0;row<joints[column].length-1;row++){
   const a=joints[column][row],b=joints[column][row+1],l=edgeProfiles[column],r=edgeProfiles[column+1];
   const pixels=[[interpolate(l,a[0]),a[0]],[interpolate(r,a[1]),a[1]],[interpolate(r,b[1]),b[1]],[interpolate(l,b[0]),b[0]]];
-  records.push({id:'observed-'+['west','centre','east'][column]+'-'+String(row+1).padStart(2,'0'),column,row,pixels,outline:pixels.map(world),top:groundY,thickness:.14});
+  const originalOutline=pixels.map(world),outline=[],minimumZ=C.architecture.stairBottomZ;
+  for(let j=0;j<originalOutline.length;j++){
+   const a=originalOutline[j],b=originalOutline[(j+1)%originalOutline.length],insideA=a[1]>=minimumZ,insideB=b[1]>=minimumZ;
+   if(insideA)outline.push(a);
+   if(insideA!==insideB){const t=(minimumZ-a[1])/(b[1]-a[1]);outline.push([a[0]+(b[0]-a[0])*t,minimumZ]);}
+  }
+  if(outline.length>=3)records.push({id:'observed-'+['west','centre','east'][column]+'-'+String(row+1).padStart(2,'0'),column,row,pixels,outline,top:groundY,thickness:.14,physicalClipAtStairFootZ:minimumZ});
  }
  return{records,edgeProfiles,world,groundY,edgePoint:(side,y)=>world([interpolate(edgeProfiles[side<0?0:3],y),y]),scope:'Observed visible joints; hidden shape, metric scale and surface relief remain inferred.'};
 }
