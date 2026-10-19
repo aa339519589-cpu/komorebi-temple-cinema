@@ -1,0 +1,562 @@
+{
+  "status": "2d-observation-and-bounded-pinhole-fit-before-render",
+  "sourceImageSize": [
+    1254,
+    1254
+  ],
+  "coordinateSystem": "Top-left origin, x right, y down. Native pixels; no image registration or warp.",
+  "observations": [
+    {
+      "id": "backR5",
+      "label": "5 rear-right visible eave end",
+      "reference": [
+        284,
+        266
+      ],
+      "actual": null,
+      "uncertainty": 5,
+      "fit": true,
+      "occlusion": "Baseline actual rear corner covered by main hall; photo target is visible"
+    },
+    {
+      "id": "tip",
+      "label": "Finial tip",
+      "reference": [
+        190,
+        75
+      ],
+      "actual": [
+        233,
+        129
+      ],
+      "uncertainty": 2,
+      "fit": true
+    },
+    {
+      "id": "L5",
+      "label": "5 front-left raised eave end",
+      "reference": [
+        56,
+        215
+      ],
+      "actual": [
+        79,
+        250
+      ],
+      "uncertainty": 8,
+      "fit": true,
+      "occlusion": "Baseline corner partly hidden by maple; manual visible fragment only"
+    },
+    {
+      "id": "R5",
+      "label": "5 front-right raised eave end",
+      "reference": [
+        234,
+        210
+      ],
+      "actual": [
+        297,
+        250
+      ],
+      "uncertainty": 5,
+      "fit": true,
+      "occlusion": "Baseline tip partly hidden by main hall"
+    },
+    {
+      "id": "L4",
+      "label": "4 front-left raised eave end",
+      "reference": [
+        50,
+        279
+      ],
+      "actual": [
+        65,
+        303
+      ],
+      "uncertainty": 5,
+      "fit": true
+    },
+    {
+      "id": "R4",
+      "label": "4 front-right raised eave end",
+      "reference": [
+        234,
+        272
+      ],
+      "actual": [
+        298,
+        310
+      ],
+      "uncertainty": 5,
+      "fit": true
+    },
+    {
+      "id": "L3",
+      "label": "3 front-left raised eave end",
+      "reference": [
+        50,
+        339
+      ],
+      "actual": [
+        56,
+        351
+      ],
+      "uncertainty": 5,
+      "fit": true
+    },
+    {
+      "id": "R3",
+      "label": "3 front-right raised eave end",
+      "reference": [
+        234,
+        333
+      ],
+      "actual": null,
+      "uncertainty": 5,
+      "fit": false,
+      "occlusion": "Baseline hall overlaps tip"
+    },
+    {
+      "id": "L2",
+      "label": "2 front-left eave end",
+      "reference": null,
+      "actual": [
+        53,
+        413
+      ],
+      "uncertainty": 5,
+      "fit": false,
+      "occlusion": "Photograph lower gallery/flowers hide actual corner; roof fragment does not identify corner"
+    },
+    {
+      "id": "R2",
+      "label": "2 front-right eave end",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Gallery and main hall"
+    },
+    {
+      "id": "L1",
+      "label": "1 front-left eave end",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Lower gallery and planting"
+    },
+    {
+      "id": "R1",
+      "label": "1 front-right eave end",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Lower gallery and planting"
+    },
+    {
+      "id": "ridgeL5",
+      "label": "5 visible ridge-seat left end",
+      "reference": [
+        170,
+        190
+      ],
+      "actual": null,
+      "uncertainty": 4,
+      "fit": true,
+      "occlusion": "Baseline long ridge screened by near eave and maple. Original seat remains a target-outline constraint, not an invented actual point"
+    },
+    {
+      "id": "ridgeR5",
+      "label": "5 visible ridge-seat right end",
+      "reference": [
+        202,
+        191
+      ],
+      "actual": null,
+      "uncertainty": 4,
+      "fit": true,
+      "occlusion": "Baseline long ridge screened by near eave and maple"
+    },
+    {
+      "id": "ridgeL4",
+      "label": "4 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    },
+    {
+      "id": "ridgeR4",
+      "label": "4 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    },
+    {
+      "id": "ridgeL3",
+      "label": "3 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    },
+    {
+      "id": "ridgeR3",
+      "label": "3 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    },
+    {
+      "id": "ridgeL2",
+      "label": "2 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    },
+    {
+      "id": "ridgeR2",
+      "label": "2 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    },
+    {
+      "id": "ridgeL1",
+      "label": "1 ridge L",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    },
+    {
+      "id": "ridgeR1",
+      "label": "1 ridge R",
+      "reference": null,
+      "actual": null,
+      "fit": false,
+      "occlusion": "Next storey, upper eave and/or gallery prevent reliable ridge-end observation"
+    }
+  ],
+  "prior": {
+    "position": [
+      -14.21,
+      2,
+      -12.0044
+    ],
+    "scale": 1.16,
+    "widthScale": 1,
+    "eaves": [
+      4.3,
+      5.9,
+      7.5,
+      9.1,
+      10.7
+    ],
+    "rise": 0.66,
+    "curl": 0.37,
+    "top": 16.2
+  },
+  "priorProjection": {
+    "tip": [
+      233.4349138991965,
+      128.78442388176066
+    ],
+    "tipWorld": [
+      -14.21,
+      20.791999999999998,
+      -12.0044
+    ],
+    "L1": [
+      45.591265344709164,
+      467.4189781406663
+    ],
+    "R1": [
+      304.2441514695729,
+      467.4189781406663
+    ],
+    "backR1": [
+      371.5211181863374,
+      509.1671863240705
+    ],
+    "ridgeL1": [
+      165.89336557501179,
+      477.19185258474283
+    ],
+    "ridgeR1": [
+      289.58304061603184,
+      477.19185258474283
+    ],
+    "L2": [
+      52.909480981473315,
+      409.92542980407364
+    ],
+    "R2": [
+      302.51317741803257,
+      409.92542980407364
+    ],
+    "backR2": [
+      368.2640904076698,
+      462.15894690788986
+    ],
+    "ridgeL2": [
+      168.65803292884613,
+      425.513833759938
+    ],
+    "ridgeR2": [
+      288.5083184464762,
+      425.513833759938
+    ],
+    "L3": [
+      60.137806963450004,
+      353.1380748169236
+    ],
+    "R3": [
+      300.8034649236341,
+      353.1380748169236
+    ],
+    "backR3": [
+      364.9997498040515,
+      415.045162482745
+    ],
+    "ridgeL3": [
+      171.41102305890678,
+      374.05408922015937
+    ],
+    "ridgeR3": [
+      287.43813561914953,
+      374.05408922015937
+    ],
+    "L4": [
+      67.27788935351107,
+      297.0439813390024
+    ],
+    "R4": [
+      299.1146246439126,
+      297.0439813390024
+    ],
+    "backR4": [
+      361.72807171917844,
+      367.82547718755166
+    ],
+    "ridgeL4": [
+      174.1524097915402,
+      322.8112389804684
+    ],
+    "ridgeR4": [
+      286.37246343518854,
+      322.8112389804684
+    ],
+    "L5": [
+      75.75892537743988,
+      242.026820247316
+    ],
+    "R5": [
+      296.8392389731003,
+      242.026820247316
+    ],
+    "backR5": [
+      357.49943608575705,
+      320.2359328245669
+    ],
+    "ridgeL5": [
+      177.32664750872954,
+      271.7839146642784
+    ],
+    "ridgeR5": [
+      284.8668922604824,
+      271.7839146642784
+    ]
+  },
+  "fittedParameters": {
+    "position": [
+      -15.900260499093745,
+      2,
+      -12.0044
+    ],
+    "scale": 1.16,
+    "widthScale": 0.8233786463534434,
+    "eaves": [
+      4.507119688219024,
+      6.385210237971118,
+      8.263300787723212,
+      10.141391337475305,
+      12.0194818872274
+    ],
+    "rise": 1.9034561537819705,
+    "curl": 0.37,
+    "top": 17.91537398057979,
+    "yaw": -0.056650511557074415,
+    "ridgeRatio": 0.1026946167933868,
+    "depthRatio": 0.8344768956713122
+  },
+  "parameterNames": [
+    "x",
+    "plan width factor",
+    "first eave",
+    "storey pitch",
+    "yaw",
+    "roof rise",
+    "ridge half-width ratio",
+    "top",
+    "roof/frame depth/width ratio"
+  ],
+  "parameterVector": [
+    -15.900260499093745,
+    0.8233786463534434,
+    4.507119688219024,
+    1.8780905497520939,
+    -0.056650511557074415,
+    1.9034561537819705,
+    0.1026946167933868,
+    17.91537398057979,
+    0.8344768956713122
+  ],
+  "parameterBounds": {
+    "lo": [
+      -18,
+      0.65,
+      4.3,
+      1.6,
+      -0.4,
+      0.8,
+      0.04,
+      16.2,
+      0.65
+    ],
+    "hi": [
+      -14,
+      0.95,
+      6,
+      2.4,
+      0.4,
+      2.6,
+      0.25,
+      20,
+      1.05
+    ]
+  },
+  "predictedPoints": {
+    "tip": [
+      187.6056935285269,
+      74.95619469877978
+    ],
+    "tipWorld": [
+      -15.900260499093745,
+      22.781833817472556,
+      -12.0044
+    ],
+    "L1": [
+      37.7962643554367,
+      469.2321316930713
+    ],
+    "R1": [
+      236.25348054390412,
+      466.9231551795266
+    ],
+    "backR1": [
+      302.71844666366354,
+      496.74363231748276
+    ],
+    "ridgeL1": [
+      130.97166170417114,
+      471.05614181049214
+    ],
+    "ridgeR1": [
+      230.05202089500446,
+      469.9201773800473
+    ],
+    "L2": [
+      43.808630174639326,
+      404.34415718774824
+    ],
+    "R2": [
+      235.54249535982885,
+      401.38512474547747
+    ],
+    "backR2": [
+      300.1635361339362,
+      439.7811868136451
+    ],
+    "ridgeL2": [
+      133.62394864361292,
+      410.6025474547698
+    ],
+    "ridgeR2": [
+      229.59970546169967,
+      409.1641213342211
+    ],
+    "L3": [
+      49.76119962647027,
+      340.1015301676241
+    ],
+    "R3": [
+      234.8391323555268,
+      336.54970058389
+    ],
+    "backR3": [
+      297.61020150191274,
+      382.85387639028835
+    ],
+    "ridgeL3": [
+      136.26357398916704,
+      350.4375488951494
+    ],
+    "ridgeR3": [
+      229.1497116940136,
+      348.719916788644
+    ],
+    "L4": [
+      55.6548603597188,
+      276.4946707545383
+    ],
+    "R4": [
+      234.1432696131315,
+      272.4056444059391
+    ],
+    "backR4": [
+      295.05844130999566,
+      325.96166854986257
+    ],
+    "ridgeL4": [
+      138.89062819157266,
+      290.559084487312
+    ],
+    "ridgeR4": [
+      228.702021762575,
+      288.58516886084794
+    ],
+    "L5": [
+      61.56675116502682,
+      213.80026615328197
+    ],
+    "R5": [
+      234.04392734235918,
+      209.21730733883336
+    ],
+    "backR5": [
+      292.5690930862741,
+      268.8839350087385
+    ],
+    "ridgeL5": [
+      169.46719198589335,
+      190.93666964896232
+    ],
+    "ridgeR5": [
+      201.5464944314554,
+      190.0469617476439
+    ]
+  },
+  "predictedCoordinateRMSEPixels": 3.004704172185435,
+  "assumptions": [
+    "Camera/depth/vertical base anchor and original uniform assembly scale held fixed. A single image does not determine absolute depth.",
+    "Eave end centreline projections fitted within manual-point uncertainty. Actual geometry/raster silhouettes require fresh native review.",
+    "Original top ridge seat is a visible short outline constraint, not evidence of exact hidden framing."
+  ],
+  "materialsChanged": false,
+  "gardenSeedChanged": false,
+  "visualAccepted": false
+}
