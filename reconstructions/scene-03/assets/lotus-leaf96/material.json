@@ -1,0 +1,36 @@
+{
+  "status": "same-mean-diffuse-material-comparison",
+  "photographicAcceptance": false,
+  "imageSize": [
+    1254,
+    1254
+  ],
+  "imageSha256": "dd45a5ebf6bbf4c6fec0bbb071417cddd81f1f7573454760e7180eefb79b4725",
+  "uvDisc": {
+    "centre": [
+      0.5,
+      0.5
+    ],
+    "radius": 0.49
+  },
+  "atlasMeanLinearRGB": [
+    0.11995538156197745,
+    0.18927191873356772,
+    0.05749404710536394
+  ],
+  "targetMeanLinearRGB": [
+    0.08797239453130805,
+    0.16561026026350584,
+    0.028859602216886403
+  ],
+  "materialLinearColorGain": [
+    0.7333759718471261,
+    0.8749859005583936,
+    0.501958092530834
+  ],
+  "normalisationPurpose": "Hold original effective mean leaf albedo to isolate natural fine venation; not a measured reference reflectance",
+  "geometryUnchanged": true,
+  "bumpUnchanged": true,
+  "lightingUnchanged": true,
+  "promptAndOrigin": "lookdev/lotus03-material96/imagegen-provenance.json"
+}

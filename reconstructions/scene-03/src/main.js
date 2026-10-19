@@ -114,7 +114,7 @@ for(let i=0;i<85;i++){let x=i%2?range(-2.2,2.8):range(8.8,11.8),z=range(-1.5,3.9
  }));
 }
 // Lotus surfaces use sculpted, radial pleats and separate curved veins.
-const leafMaterialSet=createLotusLeafMaterial(),lotusLeaf=leafMaterialSet.material;mats.lotusLeaf=lotusLeaf;for(const t of leafMaterialSet.textures)textures.add(t);const lotusUnder=mat('lotus stems','#738346',.65);
+const leafMaterialSet=await createLotusLeafMaterial(),lotusLeaf=leafMaterialSet.material;mats.lotusLeaf=lotusLeaf;for(const t of leafMaterialSet.textures)textures.add(t);const lotusUnder=mat('lotus stems','#738346',.65);
 const lotusGeos=Array.from({length:6},(_,i)=>createRestorationLotusLeaf(i+3));
 const petalMaterialSet=createLotusPetalMaterials(),pinks=petalMaterialSet.materials;textures.add(petalMaterialSet.texture);
 const pollen=mat('lotus golden pollen','#e7b933',.76);
