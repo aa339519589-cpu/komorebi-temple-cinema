@@ -1,4 +1,5 @@
 import {loadAggregateRelief04} from './granite-aggregate04.js';
+import {getReference4GeneratedMaps} from './reference4-materials.js';
 import * as T from 'three';
 const loaded=new Map();
 let continuationMaps=null;
@@ -24,11 +25,11 @@ export function unobservedContinuationMaterial04(){
 }
 export function tracedStoneMaterial04(record){
  const data=loaded.get(record.id);if(!data)throw Error('Missing individually authored stone material '+record.id);
- const [map,normalMap,roughnessMap,coat]=data.maps,m=new T.MeshPhysicalMaterial({name:'traced-granite-'+record.id,color:'#f0d6b5',map,normalMap,normalScale:new T.Vector2(1,1),roughness:1,roughnessMap,metalness:0,ior:1.5,clearcoat:.7,clearcoatMap:coat,clearcoatNormalMap:normalMap,clearcoatNormalScale:new T.Vector2(.85,.85),clearcoatRoughness:1,clearcoatRoughnessMap:coat,envMapIntensity:1.0});
+ const [map,normalMap,roughnessMap,coat]=data.maps,graniteDetail=getReference4GeneratedMaps().granite,m=new T.MeshPhysicalMaterial({name:'traced-granite-'+record.id,color:'#f0d6b5',map,normalMap,normalScale:new T.Vector2(1,1),bumpMap:graniteDetail.height,bumpScale:.0018,roughness:1,roughnessMap,metalness:0,ior:1.5,clearcoat:.7,clearcoatMap:coat,clearcoatNormalMap:normalMap,clearcoatNormalScale:new T.Vector2(.85,.85),clearcoatRoughness:1,clearcoatRoughnessMap:coat,envMapIntensity:1.0});
  // Three's clearcoat uses n=1.5. This layer is a water film, so its normal-
  // incidence Fresnel reflectance is ((1.333-1)/(1.333+1))^2 instead.
  const waterF0=((1.333-1)/(1.333+1))**2;
  const diffuseProbeGain=.06;
  m.onBeforeCompile=shader=>{const old='material.clearcoatF0 = vec3( 0.04 );',diffuse='iblIrradiance += getIBLIrradiance( geometryNormal );';if(!shader.fragmentShader.includes('#include <lights_physical_fragment>')||!T.ShaderChunk.lights_fragment_maps.includes(diffuse))throw Error('Pinned physical shader changed');shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',T.ShaderChunk.lights_physical_fragment.replace(old,`material.clearcoatF0 = vec3( ${waterF0.toFixed(9)} );`)).replace('#include <lights_fragment_maps>',T.ShaderChunk.lights_fragment_maps.replace(diffuse,`iblIrradiance += ${diffuseProbeGain.toFixed(5)} * getIBLIrradiance( geometryNormal );`));};
- m.customProgramCacheKey=()=> 'traced-stone04-water-film89-diffuse-probe06';m.userData.maps={map,normalMap,roughnessMap,clearcoatMap:coat};m.userData.diffuseProbeGain=diffuseProbeGain;m.userData.physicalTextureRepeatMetres=data.record.physicalGraniteRepeatMetres;m.userData.waterLayerIOR=1.333;m.userData.referenceRGBUsed=false;m.userData.materialHypotheses=data.record;return m;
+ m.customProgramCacheKey=()=> 'traced-stone04-water-film89-diffuse-probe06-generated-granite-bump';m.userData.maps={map,normalMap,roughnessMap,clearcoatMap:coat,bumpMap:graniteDetail.height};m.userData.generatedDetailSource='generated-materials-20261019/warm-granite-source.png';m.userData.diffuseProbeGain=diffuseProbeGain;m.userData.physicalTextureRepeatMetres=data.record.physicalGraniteRepeatMetres;m.userData.waterLayerIOR=1.333;m.userData.referenceRGBUsed=false;m.userData.materialHypotheses=data.record;return m;
 }

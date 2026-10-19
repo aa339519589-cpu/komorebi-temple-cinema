@@ -9,6 +9,8 @@ import {reference4Config as C} from './reference4-config.js';
 import {loadScannedStoneMaps} from './scene04-scanned-stone.js';
 import {loadTracedStoneMaps04} from './traced-stone-material04.js';
 import {loadReference4ForegroundScans} from './reference4-foreground-scans.js';
+import {loadReference4GeneratedMaps} from './reference4-materials.js';
+await loadReference4GeneratedMaps();
 await Promise.all([loadScannedStoneMaps(),loadTracedStoneMaps04(),loadReference4ForegroundScans()]);
 const query=new URLSearchParams(location.search),size=k=>Math.min(2048,Math.max(64,Number(query.get(k))||960));
 const width=size('w'),height=size('h');

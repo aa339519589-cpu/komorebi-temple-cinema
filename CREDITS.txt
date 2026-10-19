@@ -8,6 +8,7 @@ Scene05 also uses the CC0 Lacquered Cherry Wood PBR maps by Poly Haven: Jenelle 
 Source: https://polyhaven.com/a/lacquered_cherry_wood
 License: https://polyhaven.com/license
 The current scene code modifies material tint, exterior-coating roughness and member-aligned UVs. Original map bytes and checksums are retained.
+Scene04's latest material pass uses three built-in image-generated surface studies for cedar, flagstone granite and charcoal mineral microdetail. Original outputs, exact prompts, source hashes and the browser-side neutral albedo/height/roughness conversion are retained in reconstructions/scene-04/assets/generated-materials-20261019/ and its loader. They provide surface detail on the independently modeled geometry; they are not scene images.
 The supplied reference photographs are visual-comparison inputs and are not loaded by a 3D scene. No photograph or generated replacement frame is presented as an actual modeled scene.
 An additional CC0 sculpture scan published by the Minneapolis Institute of Art is retained as a separate, unselected anatomical study; it is not installed in the ten reference scenes. See THIRD_PARTY.md and its provenance files.
 Three.js is MIT licensed. Its license is included at vendor/LICENSE.

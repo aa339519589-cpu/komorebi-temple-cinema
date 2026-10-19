@@ -80,7 +80,7 @@ export function buildReference4Garden(T,options={}){
   }}
   const tiles=[];for(let j=0;j<nv;j++)for(let i=0;i<nu;i++){
    const outline=[nodes[j][i],nodes[j][i+1],nodes[j+1][i+1],nodes[j+1][i]],tileIndex=j*nu+i;
-   tiles.push({...record,id:`${record.id}-flagstone-${String(tileIndex+1).padStart(2,'0')}`,sourceRecordId:record.id,column:record.column,row:record.row,detailSeed:tileIndex,outline,thickness:.115+.045*pavingHash(tileIndex,record.column,seed+37),top:record.top+.006*(pavingHash(tileIndex,record.row,seed+47)-.5),jointGap:.007,edgeBevel:.011,source:'observed outer joint subdivided into fitted irregular flagstones'});
+   tiles.push({...record,id:`${record.id}-flagstone-${String(tileIndex+1).padStart(2,'0')}`,sourceRecordId:record.id,column:record.column,row:record.row,detailSeed:tileIndex,outline,thickness:.115+.045*pavingHash(tileIndex,record.column,seed+37),top:record.top+.006*(pavingHash(tileIndex,record.row,seed+47)-.5),jointGap:.007,edgeBevel:.011,detailSpacing:.050,boundarySpacing:.090,source:'observed outer joint subdivided into fitted irregular flagstones'});
   }
   return tiles;
  }

@@ -1,0 +1,88 @@
+{
+  "sourceCommit": "b0fe2b5c8740a57cbb5f8c3c264cb3665498f9fb",
+  "sourceHash": "74893addd32f4804ce340fdcd24e8b2372442b82ef524a47217d96a90d212366",
+  "sourceStatistics": {
+    "meshes": 1842,
+    "geometries": 1745,
+    "materials": 60,
+    "textures": 17,
+    "instances": 140013,
+    "triangles": 19216984
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 3,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "view-dependent-pond-water",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792426156.4521332,
+  "physicalSurfaceReplacement": {
+    "reference": 3,
+    "sourceGeometry": "Existing Three.js pond-bed plane with pond green depths material",
+    "worldYBeforeThreeToBlender": -0.3,
+    "surfaceRiseMetres": 0.245,
+    "finalWaterHeight": -0.055,
+    "material": "Cycles Principled water, IOR 1.333, shallow procedural micro-ripple normal; actual scene geometry and environment reflections",
+    "geometryRebuilt": false,
+    "photographUsed": false
+  },
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "outdoorSky": {
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering with a code-generated directional 3D noise cloud field; no bitmap background",
+    "cloudNoiseScale": 4.2,
+    "cloudFactorRamp": [
+      0.45,
+      0.55,
+      0.64
+    ],
+    "cloudAltitudeGateZ": [
+      -0.04,
+      0.2
+    ],
+    "sunDisc": false,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      -0.46114295721054077,
+      0.8070001602172852,
+      0.3689143657684326
+    ]
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 19216984,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.28,
+    "worldGain": 0.3,
+    "exposure": 0.5,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792426229.657941,
+  "resolution": [
+    960,
+    960
+  ],
+  "samples": 48,
+  "photographicAcceptance": false
+}

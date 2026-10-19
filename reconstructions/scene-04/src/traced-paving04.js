@@ -47,7 +47,7 @@ export function tracedSlabGeometry(record){
  for(let j=0;j<points.length;j++){
   const prev=points[(j+points.length-1)%points.length],a=points[j],b=points[(j+1)%points.length],pl=Math.hypot(prev[0]-a[0],prev[1]-a[1]),len=Math.hypot(b[0]-a[0],b[1]-a[1]),r=Math.min(isCurb?.025:.028,pl*.19,len*.19)*( .65+.45*hash(j,3,seed)),enter=[a[0]+(prev[0]-a[0])*r/pl,a[1]+(prev[1]-a[1])*r/pl],leave=[a[0]+(b[0]-a[0])*r/len,a[1]+(b[1]-a[1])*r/len];
   for(let k=0;k<5;k++){const t=k/4;boundary.push([(1-t)**2*enter[0]+2*(1-t)*t*a[0]+t*t*leave[0],(1-t)**2*enter[1]+2*(1-t)*t*a[1]+t*t*leave[1]]);}
-  const nextR=Math.min(isCurb?.025:.028,len*.19)*( .65+.45*hash((j+1)%points.length,3,seed)),end=[b[0]+(a[0]-b[0])*nextR/len,b[1]+(a[1]-b[1])*nextR/len],n=Math.max(2,Math.ceil(len/.028));
+  const nextR=Math.min(isCurb?.025:.028,len*.19)*( .65+.45*hash((j+1)%points.length,3,seed)),end=[b[0]+(a[0]-b[0])*nextR/len,b[1]+(a[1]-b[1])*nextR/len],boundarySpacing=record.boundarySpacing??.028,n=Math.max(2,Math.ceil(len/boundarySpacing));
   for(let k=1;k<n;k++){const t=k/n,x=T.MathUtils.lerp(leave[0],end[0],t),z=T.MathUtils.lerp(leave[1],end[1],t),rr=Math.hypot(cx-x,cz-z),chip=(.0015+.003*noise(t*31,j,seed)+.011*Math.pow(noise(t*14,j*7,seed+43),7))*Math.sin(Math.PI*t);boundary.push([x+(cx-x)/rr*chip,z+(cz-z)/rr*chip]);}
  }
  const shape=new T.Shape();boundary.forEach(([x,z],i)=>i?shape.lineTo(x,-z):shape.moveTo(x,-z));shape.closePath();
@@ -57,7 +57,7 @@ export function tracedSlabGeometry(record){
  for(let i=0;i<p.count;i+=3)faces.push({v:[0,1,2].map(k=>vertex(new T.Vector3().fromBufferAttribute(p,i+k))),top:[0,1,2].every(k=>n.getY(i+k)>.99)});
  // Split a shared edge in every adjacent triangle, including the bevel. This
  // keeps the top and side connected while adding actual shallow depressions.
- const spacing=isCurb?.035:record.row>=6?.006:.014,key=(a,b)=>a<b?a+':'+b:b+':'+a;
+ const spacing=record.detailSpacing??(isCurb?.035:record.row>=6?.006:.014),key=(a,b)=>a<b?a+':'+b:b+':'+a;
  for(let level=0;level<12;level++){
   const split=new Map();for(const f of faces)if(f.top)for(let k=0;k<3;k++){const a=f.v[k],b=f.v[(k+1)%3];if(vertices[a].distanceToSquared(vertices[b])>spacing*spacing&&!split.has(key(a,b))){split.set(key(a,b),vertices.length);vertices.push(vertices[a].clone().add(vertices[b]).multiplyScalar(.5));}}
   if(!split.size)break;const next=[];

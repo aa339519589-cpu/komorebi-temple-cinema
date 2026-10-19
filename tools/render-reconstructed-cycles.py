@@ -12,7 +12,9 @@ ROOT=Path(os.environ.get('SCENE_PACKAGE','output/pathtrace-reference-06')).resol
 OUT=Path(os.environ.get('CYCLES_OUTPUT','output/pathtrace-light-review-06')).resolve();OUT.mkdir(parents=True,exist_ok=True)
 MODE=os.environ.get('LIGHTING_MODE','as-exported')
 scene_data=json.loads((ROOT/'scene.json').read_text())
-report={'sourceStatistics':scene_data['statistics'],'lightingMode':MODE,'blender':bpy.app.version_string,'scope':scene_data.get('renderingScope'),'geometryRebuilt':False,'excluded':scene_data['excluded'],'warnings':[],'status':'importing','started':time.time()}
+source_export=json.loads((ROOT/'export-report.json').read_text())
+canonical_reference=int(scene_data.get('view',{}).get('reference',0))
+report={'sourceCommit':source_export.get('sourceCommit'),'sourceHash':source_export.get('sourceHash'),'sourceStatistics':scene_data['statistics'],'lightingMode':MODE,'blender':bpy.app.version_string,'scope':scene_data.get('renderingScope'),'geometryRebuilt':False,'excluded':scene_data['excluded'],'warnings':[],'status':'importing','started':time.time()}
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene=bpy.context.scene
 
@@ -29,6 +31,7 @@ def value(node,names,v):
 
 instance_colored={mid for o in scene_data['meshes'] if 'instanceColors' in o for mid in o['materials']}
 textures={t['id']:t for t in scene_data['textures']}; material_records={m['id']:m for m in scene_data['materials']};materials={}
+scene03_water_ids={r['id'] for r in scene_data['materials'] if canonical_reference==3 and r['name']=='pond green depths'}
 for rec in scene_data['materials']:
     mat=bpy.data.materials.new(rec['name'] or rec['id']);mat.use_nodes=True;n=mat.node_tree.nodes;n.clear();links=mat.node_tree.links
     bs=n.new('ShaderNodeBsdfPrincipled');out=n.new('ShaderNodeOutputMaterial');links.new(bs.outputs['BSDF'],out.inputs['Surface'])
@@ -74,6 +77,14 @@ for rec in scene_data['materials']:
     if 'emissiveMap' in tex_nodes:
         for name in ['Emission Color','Emission']:
             if name in bs.inputs:links.new(tex_nodes['emissiveMap'].outputs['Color'],bs.inputs[name]);break
+    if rec['id'] in scene03_water_ids:
+        value(bs,['Base Color'],(.018,.044,.028,1));value(bs,['Roughness'],.055);value(bs,['IOR'],1.333)
+        value(bs,['Metallic'],0);value(bs,['Transmission Weight','Transmission'],.035)
+        value(bs,['Coat Weight','Clearcoat'],.72);value(bs,['Coat Roughness','Clearcoat Roughness'],.035)
+        position=n.new('ShaderNodeNewGeometry');wave=n.new('ShaderNodeTexNoise');wave.inputs['Scale'].default_value=2.7;wave.inputs['Detail'].default_value=2.4;wave.inputs['Roughness'].default_value=.64
+        links.new(position.outputs['Position'],wave.inputs['Vector']);bump=n.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.075;bump.inputs['Distance'].default_value=.0009
+        links.new(wave.outputs['Fac'],bump.inputs['Height']);links.new(bump.outputs['Normal'],bs.inputs['Normal'])
+        report['physicalSurfaceReplacement']={'reference':3,'sourceGeometry':'Existing Three.js pond-bed plane with pond green depths material','worldYBeforeThreeToBlender':-.30,'surfaceRiseMetres':.245,'finalWaterHeight':-.055,'material':'Cycles Principled water, IOR 1.333, shallow procedural micro-ripple normal; actual scene geometry and environment reflections','geometryRebuilt':False,'photographUsed':False}
     materials[rec['id']]=mat
 
 geo={g['id']:g for g in scene_data['geometries']}; loaded={};imported_triangles=0
@@ -91,6 +102,7 @@ for at,record in enumerate(scene_data['meshes']):
         coords[i*vcount:(i+1)*vcount]=p@transform[:3,:3].T+transform[:3,3]
         if normals is not None:
             ns=data['normal']@np.linalg.inv(transform[:3,:3]);length=np.maximum(np.linalg.norm(ns,axis=1),1e-12);normals[i*vcount:(i+1)*vcount]=ns/length[:,None]
+    if canonical_reference==3 and any(mid in scene03_water_ids for mid in record['materials']):coords[:,1]+=.245
     faces=(indices[None,:,:]+(np.arange(count,dtype=np.uint32)*vcount)[:,None,None]).reshape(-1,3)
     for i,tr in enumerate(transforms):
         if np.linalg.det(tr[:3,:3])<0:faces[i*fcount:(i+1)*fcount]=faces[i*fcount:(i+1)*fcount][:,[0,2,1]]
@@ -143,16 +155,28 @@ if MODE=='outdoor-day':
 world=bpy.data.worlds.new('Procedural exterior fill for path-traced review');scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.45,.55,.7,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=float(os.environ.get('CYCLES_WORLD_GAIN','.3'))
 if MODE=='outdoor-day':
     nodes=world.node_tree.nodes;links=world.node_tree.links
-    sky=nodes.new('ShaderNodeTexSky');sky.sky_type='MULTIPLE_SCATTERING' if bpy.app.version>=(5,0,0) else 'NISHITA';sky.sun_disc=False
     direct=next((r for r in scene_data['lights'] if r['type']=='DirectionalLight' and r['intensity']>1),None)
     direction=Vector((-.5,.72,.48))
     if direct and direct.get('target'):
         transform=Matrix(np.array(direct['matrix']).reshape(4,4).T.tolist());direction=(transform.translation-Vector(direct['target'])).normalized()
-    sky.sun_elevation=math.asin(max(-1,min(1,direction.y)));sky.sun_rotation=math.atan2(-direction.z,direction.x)
-    sky.altitude=150;sky.air_density=1;sky.ozone_density=1.0
-    if hasattr(sky,'dust_density'):sky.dust_density=.75
-    links.new(sky.outputs['Color'],nodes['Background'].inputs['Color'])
-    report['outdoorSky']={'type':sky.sky_type,'source':'Blender atmospheric scattering, no bitmap background','sunDisc':False,'worldUp':'Whole scene converted to Z-up','sourceDirectionYUp':list(direction)}
+    hdri=Path(__file__).resolve().parents[1]/'assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr'
+    if canonical_reference==3 and os.environ.get('CYCLES_USE_HDRI','0')=='1' and hdri.exists():
+        environment=nodes.new('ShaderNodeTexEnvironment');environment.projection='EQUIRECTANGULAR';environment.interpolation='Linear';environment.image=bpy.data.images.load(str(hdri),check_existing=True)
+        coordinate=nodes.new('ShaderNodeTexCoord');mapping=nodes.new('ShaderNodeMapping');mapping.inputs['Rotation'].default_value[2]=math.radians(float(os.environ.get('CYCLES_HDRI_ROTATION','0')));links.new(coordinate.outputs['Normal'],mapping.inputs['Vector']);links.new(mapping.outputs['Vector'],environment.inputs['Vector']);links.new(environment.outputs['Color'],nodes['Background'].inputs['Color'])
+        report['outdoorSky']={'type':'HDRI','file':'assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr','provider':'Poly Haven CC0-1.0','source':'Measured outdoor radiance for camera, diffuse transport and reflections; no temple or reference geometry','rotationDegrees':float(os.environ.get('CYCLES_HDRI_ROTATION','0')),'worldUp':'Whole scene converted to Z-up','sourceDirectionYUp':list(direction)}
+    else:
+        sky=nodes.new('ShaderNodeTexSky');sky.sky_type='MULTIPLE_SCATTERING' if bpy.app.version>=(5,0,0) else 'NISHITA';sky.sun_disc=False
+        sky.sun_elevation=math.asin(max(-1,min(1,direction.y)));sky.sun_rotation=math.atan2(-direction.z,direction.x)
+        sky.altitude=150;sky.air_density=1;sky.ozone_density=1.0
+        if hasattr(sky,'dust_density'):sky.dust_density=.75
+        # A procedural 3D cloud field keeps the no-bitmap fallback useful.
+        coordinate=nodes.new('ShaderNodeTexCoord');cloud_noise=nodes.new('ShaderNodeTexNoise');cloud_noise.inputs['Scale'].default_value=4.2;cloud_noise.inputs['Detail'].default_value=4.0;cloud_noise.inputs['Roughness'].default_value=.67
+        links.new(coordinate.outputs['Normal'],cloud_noise.inputs['Vector'])
+        density=nodes.new('ShaderNodeValToRGB');density.color_ramp.elements[0].position=.45;density.color_ramp.elements[0].color=(0,0,0,1);density.color_ramp.elements[1].position=.64;density.color_ramp.elements[1].color=(1,1,1,1);mid=density.color_ramp.elements.new(.55);mid.color=(.48,.48,.48,1);links.new(cloud_noise.outputs['Fac'],density.inputs['Fac'])
+        separate=nodes.new('ShaderNodeSeparateXYZ');links.new(coordinate.outputs['Normal'],separate.inputs['Vector']);horizon=nodes.new('ShaderNodeValToRGB');horizon.color_ramp.elements[0].position=-.04;horizon.color_ramp.elements[0].color=(0,0,0,1);horizon.color_ramp.elements[1].position=.20;horizon.color_ramp.elements[1].color=(1,1,1,1);links.new(separate.outputs['Z'],horizon.inputs['Fac'])
+        cloud_factor=nodes.new('ShaderNodeMath');cloud_factor.operation='MULTIPLY';links.new(density.outputs['Color'],cloud_factor.inputs[0]);links.new(horizon.outputs['Color'],cloud_factor.inputs[1])
+        cloud_color=nodes.new('ShaderNodeMixRGB');cloud_color.blend_type='MIX';cloud_color.inputs[2].default_value=(.93,.91,.85,1);links.new(cloud_factor.outputs[0],cloud_color.inputs[0]);links.new(sky.outputs['Color'],cloud_color.inputs[1]);links.new(cloud_color.outputs['Color'],nodes['Background'].inputs['Color'])
+        report['outdoorSky']={'type':sky.sky_type,'source':'Blender atmospheric scattering with a code-generated directional 3D noise cloud field; no bitmap background','cloudNoiseScale':4.2,'cloudFactorRamp':[.45,.55,.64],'cloudAltitudeGateZ':[-.04,.20],'sunDisc':False,'worldUp':'Whole scene converted to Z-up','sourceDirectionYUp':list(direction)}
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('CYCLES_SAMPLES','32'))
 if os.environ.get('CYCLES_DEVICE')=='METAL':
     preferences=bpy.context.preferences.addons['cycles'].preferences;preferences.compute_device_type='METAL';preferences.get_devices()
