@@ -87,8 +87,9 @@ group(...L.bridge.position,L.bridge.yaw,()=>{
   for(const side of[-w+.12,w-.12])between(P(t0,side,-.12),P(t1,side,-.12),.14,'cedar',true);
  }
  for(const side of[-b.width/2-.1,b.width/2+.1]){
-  for(let i=0;i<=9;i++){const p=P(i/9,side);box(p[0],p[1]+.52,side,.14,1.04,.14,'red');emit(sphere,'oldgold',p[0],p[1]+1.10,side,.075,.08,.075);}
-  for(const h of[.25,.6,1.0])tube(Array.from({length:41},(_,i)=>P(i/40,side,h)),.065,'red');
+  const end=side<0?b.exitRailCutT:1,stations=Array.from({length:10},(_,i)=>i/9).filter(t=>t<end-1e-8);stations.push(end);
+  for(const t of stations){const p=P(t,side);box(p[0],p[1]+.52,side,.14,1.04,.14,'red');emit(sphere,'oldgold',p[0],p[1]+1.10,side,.075,.08,.075);}
+  for(const h of[.25,.6,1.0])tube(Array.from({length:41},(_,i)=>P(end*i/40,side,h)),.065,'red');
  }
  for(const t of[.12,.5,.88]){
   const p=P(t,0),bottom=-b.position[1]-.18,top=p[1]-b.deckThickness,count=Math.ceil((top-bottom)/.30);
@@ -110,6 +111,12 @@ for(const side of[-1,1]){
  const points=[];
  for(let i=0;i<=12;i++){const t=i/12,x=bridgeHallPlan.start[0]+ux*bridgeHallPlan.run*t-uz*side*1.34,z=bridgeHallPlan.start[2]+uz*bridgeHallPlan.run*t+ux*side*1.34,y=bridgeHallPlan.start[1]+bridgeHallPlan.rise*t;points.push([x,y+.96,z]);if(i%2===0){box(x,y+.48,z,.15,.96,.15,'red');emit(sphere,'oldgold',x,y+1.03,z,.075,.08,.075);}}
  for(const drop of[0,.48])tube(points.map(([x,y,z])=>[x,y-drop,z]),.065,'red');
+}
+// Open the bridge's inner side at the turn and join the remaining guard to
+// the outside stair post. Treads start beyond the full bridge-deck footprint.
+for(const [bridgeHeight,stairHeight]of[[1,.96],[.6,.48]]){
+ const a=bridgeToWorld125(bridgePoint125(L.bridge.exitRailCutT,-L.bridge.width/2-.10,bridgeHeight)),b=[bridgeHallPlan.start[0]+uz*1.34,bridgeHallPlan.start[1]+stairHeight,bridgeHallPlan.start[2]-ux*1.34],mid=a.map((v,i)=>(v+b[i])/2);
+ tube([a,mid,b],.065,'red');
 }
 // Keep the established later garden RNG independent of this structural rewrite.
 for(let k=0;k<legacyBridgeRandomCalls;k++)rand();
