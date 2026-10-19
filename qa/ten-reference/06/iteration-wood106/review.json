@@ -1,0 +1,10 @@
+{
+  "visualAccepted": false,
+  "materialIncrementSelected": true,
+  "viewed": ["reference.png", "detail-native.png", "baseline ../iteration-panels100b/reference.png"],
+  "change": "Replace the floor body's four-sine grey grain with the project's existing CC0 scanned cherry-wood diffuse/roughness, oriented along the boards. Document a single authored brown reflectance target and roughness-mean normalization; preserve all original image bytes.",
+  "findings": ["Irregular wood grain and local coating/body response are visible at the floor's real scale.", "Floor body is less red and more brown/amber under the retained light.", "The real panel gaps and actual floor coating reflection remain visible."],
+  "scope": "Only floor body material/texture inputs. Existing closed boards, seams, clearcoat model, camera and direct light definitions retained. Recomputed room probes may physically include the changed floor colour.",
+  "remaining": ["Orange/gold window-light bands remain too regular and noisy.", "Scan scale and reflectance target are authored choices, not measured photo recovery.", "Reference reflection softness and full interior photographic fidelity remain unaccepted."],
+  "referenceRGBProjected": false
+}
