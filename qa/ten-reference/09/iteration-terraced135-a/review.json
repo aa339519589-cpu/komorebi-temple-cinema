@@ -1,0 +1,46 @@
+{
+  "status": "actual-3d-terrain-following-stair-candidate-not-accepted",
+  "previousSourceSha256": "7771b620797ae33c18a8af53a1cbe928b78c03d5c4267d9435b5a29b8ff45839",
+  "sourceSha256": "259a83831783b0c9d64bac7776f562cc9efa77d81d409081df3306213c41e3f6",
+  "frames": [
+    {
+      "name": "shot--1330",
+      "valid": true,
+      "localTime": -1330,
+      "camera": {
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "name": "shot--133",
+      "valid": true,
+      "localTime": -133,
+      "camera": {
+        "position": [
+          15,
+          9,
+          9
+        ],
+        "fov": 58
+      }
+    }
+  ],
+  "observedChange": "The generated closed earth bank now samples the actual bridge apron, each of 14 stair treads, both landings and every flat path section. The former uniform bank elevation is gone; the terrain falls away from each route surface and retains scan stones outside the clear walking width.",
+  "measurements": {
+    "stairRisers": 14,
+    "riseMetres": 0.16895,
+    "treadRunMetres": 0.29999999999999993,
+    "scannedBankStones": 76
+  },
+  "manualReview": {
+    "referencePose": "Route reaches hall floor, bridge end and lower apron without visible separation in the side pose.",
+    "remaining": "Large hall foundation and exposed stair cheeks still read too dark and too uniform; planting remains visibly procedural; no photographic acceptance."
+  },
+  "visualAccepted": false,
+  "sideComparison": "side-before-after.jpg"
+}
