@@ -1,0 +1,395 @@
+{
+  "status": "strict-native-pixels-identical",
+  "width": 1254,
+  "height": 1254,
+  "changedPixels": 0,
+  "totalPixels": 1572516,
+  "changedChannels": 0,
+  "maximumAbsoluteRGBAError": 0,
+  "meanAbsoluteRGBAError": 0,
+  "rmseRGBA": 0,
+  "baselineDecodedSHA256": "088e58dd4d0e85fdd3bf758c4c5dcdf5a566f1a907ffcc1f14cd36592259780b",
+  "candidateDecodedSHA256": "088e58dd4d0e85fdd3bf758c4c5dcdf5a566f1a907ffcc1f14cd36592259780b",
+  "baselineAndCandidateRawGpuSHA256Equal": true,
+  "movingMapIdentifierMatrixAndLayersUnchanged": true,
+  "samples": [
+    {
+      "mode": "legacy-reference",
+      "frame": 1,
+      "gpuSynchronizedFrameMs": 1478.6000000238419,
+      "totalTriangles": 136836788,
+      "totalDrawCalls": 6013,
+      "shadowTriangles": 53387310,
+      "shadowDrawCalls": 2676,
+      "shadowPassesWithDraws": 2,
+      "shadowInvocations": [
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 26705055,
+          "calls": 1339,
+          "gpuSynchronizedMs": 24.09999990463257
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "ao-normal",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 26682255,
+          "calls": 1337,
+          "gpuSynchronizedMs": 4.299999952316284
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        }
+      ],
+      "cacheFrozenAfter": false,
+      "shadowAutoUpdateAfter": true,
+      "mapAfter": {
+        "map": "580bec8d-39dd-4b63-b50f-de74886c6753",
+        "matrix": [
+          0.01617472168606377,
+          -0.005566181067280355,
+          -0.005250355253798312,
+          0,
+          -5.551115123125783e-19,
+          0.015143286727159788,
+          -0.0055785024571607085,
+          0,
+          -0.011763433953500924,
+          -0.007653498967510488,
+          -0.00721923847397268,
+          0,
+          0.5,
+          0.42428356636420117,
+          0.5542083017594878,
+          1
+        ],
+        "cameraLayers": 1
+      },
+      "rgbaSha256": "8bbbb6a9937237735b02b411b0a3755467d591efeb6941517b89479f8d6f391c",
+      "camera": {
+        "position": [
+          0,
+          1.35,
+          23.34
+        ],
+        "fov": 64.1754241,
+        "reference": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "target": [
+            0,
+            2.3,
+            0
+          ],
+          "fov": 64.1754241,
+          "near": 0.08,
+          "far": 1200
+        }
+      }
+    },
+    {
+      "mode": "cached-first-reference",
+      "frame": 2,
+      "gpuSynchronizedFrameMs": 24.40000009536743,
+      "totalTriangles": 110154533,
+      "totalDrawCalls": 4676,
+      "shadowTriangles": 26705055,
+      "shadowDrawCalls": 1339,
+      "shadowPassesWithDraws": 1,
+      "shadowInvocations": [
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": true,
+          "triangles": 26705055,
+          "calls": 1339,
+          "gpuSynchronizedMs": 4.100000023841858
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "ao-normal",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": true,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        }
+      ],
+      "cacheFrozenAfter": true,
+      "shadowAutoUpdateAfter": false,
+      "mapAfter": {
+        "map": "580bec8d-39dd-4b63-b50f-de74886c6753",
+        "matrix": [
+          0.01617472168606377,
+          -0.005566181067280355,
+          -0.005250355253798312,
+          0,
+          -5.551115123125783e-19,
+          0.015143286727159788,
+          -0.0055785024571607085,
+          0,
+          -0.011763433953500924,
+          -0.007653498967510488,
+          -0.00721923847397268,
+          0,
+          0.5,
+          0.42428356636420117,
+          0.5542083017594878,
+          1
+        ],
+        "cameraLayers": 1
+      },
+      "rgbaSha256": "8bbbb6a9937237735b02b411b0a3755467d591efeb6941517b89479f8d6f391c",
+      "camera": {
+        "position": [
+          0,
+          1.35,
+          23.34
+        ],
+        "fov": 64.1754241,
+        "reference": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "target": [
+            0,
+            2.3,
+            0
+          ],
+          "fov": 64.1754241,
+          "near": 0.08,
+          "far": 1200
+        }
+      }
+    },
+    {
+      "mode": "cached-moving-t6",
+      "frame": 3,
+      "gpuSynchronizedFrameMs": 15.200000047683716,
+      "totalTriangles": 83448862,
+      "totalDrawCalls": 3336,
+      "shadowTriangles": 0,
+      "shadowDrawCalls": 0,
+      "shadowPassesWithDraws": 0,
+      "shadowInvocations": [
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "ao-normal",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        },
+        {
+          "phase": "beauty",
+          "autoUpdate": false,
+          "needsUpdate": false,
+          "triangles": 0,
+          "calls": 0,
+          "gpuSynchronizedMs": 0
+        }
+      ],
+      "cacheFrozenAfter": true,
+      "shadowAutoUpdateAfter": false,
+      "mapAfter": {
+        "map": "580bec8d-39dd-4b63-b50f-de74886c6753",
+        "matrix": [
+          0.01617472168606377,
+          -0.005566181067280355,
+          -0.005250355253798312,
+          0,
+          -5.551115123125783e-19,
+          0.015143286727159788,
+          -0.0055785024571607085,
+          0,
+          -0.011763433953500924,
+          -0.007653498967510488,
+          -0.00721923847397268,
+          0,
+          0.5,
+          0.42428356636420117,
+          0.5542083017594878,
+          1
+        ],
+        "cameraLayers": 1
+      },
+      "rgbaSha256": "8c582eb55cc5343d9065035d70f8bc5e2ffa027987f2ca1cbe8d62e52a88dc3f",
+      "camera": {
+        "position": [
+          0.007048068898151532,
+          1.331460377908891,
+          23.271670957853946
+        ],
+        "fov": 64.1754241,
+        "reference": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "target": [
+            0,
+            2.3,
+            0
+          ],
+          "fov": 64.1754241,
+          "near": 0.08,
+          "far": 1200
+        }
+      }
+    }
+  ],
+  "sourceHash": "0da13d42f99524647acf398cf07f255db6fb5e35340b5610cec5fffdc667a635",
+  "allFramesValid": true,
+  "errors": [],
+  "timingCaveat": "Frame1 includes cold shader/draw compilation; frame2 warmed refreshes one complete map; frame3 is a warm cached moving view. Raw timings are not a pure cold-vs-warm speedup.",
+  "cacheValidationPassed": true,
+  "visualAccepted": false
+}
