@@ -1,12 +1,13 @@
 import * as T from 'three';
 import {CORRIDOR_LAYOUT as L} from './corridor-layout.js';
+import {WATERCOURT131} from './watercourt131.js';
 
 const W=L.wing,wingMatrix=new T.Matrix4().makeTranslation(...W.position).multiply(new T.Matrix4().makeRotationY(W.yaw));
 const toWorld=([x,z])=>{const p=new T.Vector3(x,0,z).applyMatrix4(wingMatrix);return[p.x,p.z];};
 export const CORRIDOR_SITE130={
  revision:'attached-low-galleries130',leftFloor:4.5,rightFloor:4.2,
  leftPlan:[[.35,-4.5],[3.30,-4.5],[3.30,2.1],[.35,2.1]].map(toWorld),
- rightPlan:[[3.75,-11.7],[4.25,-11.7],[4.25,-12.9],[11.2,-12.9],[11.2,-6.6],[6.6,-6.6],[6.6,-9.35],[3.75,-9.35]],
+ rightPlan:WATERCOURT131.rightCourtPlan,
  rightSoil:3.98,
 };
 const area=P=>P.reduce((s,a,i)=>{const b=P[(i+1)%P.length];return s+a[0]*b[1]-b[0]*a[1];},0)/2;
@@ -27,19 +28,18 @@ function leanRoof(api){const x0=2.02,x1=3.35,z0=-3.1,z1=1.1;
 }
 
 export function buildAttachedPorch130(api,terrain,upperRoofY){
- const {emit,box,between,lattice}=api,main=new T.Matrix4().makeTranslation(...L.hall.position).multiply(new T.Matrix4().makeRotationY(L.hall.yaw)),inverse=wingMatrix.clone().invert(),clip=[[-5.075,-3.575],[5.075,-3.575],[5.075,3.575],[-5.075,3.575]].map(([x,z])=>{const p=new T.Vector3(x,0,z).applyMatrix4(main).applyMatrix4(inverse);return[p.x,p.z];}),base=[[.35,-4.5],[3.3,-4.5],[3.3,2.1],[.35,2.1]],floorParts=subtract(base,clip),piers=[];
- for(const [i,P]of floorParts.entries()){emit(floorSolid(P,2.88,.18,'corridor130-left-stone-floor-'+i),'stone');emit(floorSolid(P,3,.12,'corridor130-left-timber-floor-'+i),'wood');}
- for(const x of[.65,1.90,3.12])for(const z of[-4.1,-3.0,-.05,1.15]){if(!floorParts.some(P=>pointInPlan(x,z,P)))continue;const samples=[[-.23,-.25],[.23,-.25],[.23,.25],[-.23,.25],[0,0]].map(([dx,dz])=>{const p=new T.Vector3(x+dx,0,z+dz).applyMatrix4(wingMatrix);return{x:p.x,z:p.z,soil:terrain.heightAt(p.x,p.z)};}),top=2.40,bottom=Math.min(...samples.map(p=>p.soil-W.position[1]-.12),top-.30);bearingPier(api,x,z,bottom,top,'corridor130-left-bearing-'+piers.length,piers);piers.at(-1).groundSamples=samples;}
- for(const x of[.65,1.9,3.12])for(const P of floorParts){let strip=[[x-.14,-4.4],[x+.14,-4.4],[x+.14,2.0],[x-.14,2.0]],C=area(P)>0?P:P.slice().reverse();for(let i=0;i<C.length&&strip.length;i++)strip=half(strip,C[i],C[(i+1)%C.length],true);if(strip.length>2&&Math.abs(area(strip))>.001)emit(floorSolid(strip,2.70,.30,'corridor130-left-supported-floor-beam'),'wood');}
- for(const z of[-3.0,-.05,1.15]){porchColumn(api,3.12,z,3,4.92);between([1.9,4.92,z],[3.12,4.92,z],.11,'redlight',false,.18);}box(3.12,4.99,-.925,.18,.14,4.65,'red');
+ const {emit,box,between,lattice}=api,main=new T.Matrix4().makeTranslation(...L.hall.position).multiply(new T.Matrix4().makeRotationY(L.hall.yaw)),inverse=wingMatrix.clone().invert(),clip=[[-5.075,-3.575],[5.075,-3.575],[5.075,3.575],[-5.075,3.575]].map(([x,z])=>{const p=new T.Vector3(x,0,z).applyMatrix4(main).applyMatrix4(inverse);return[p.x,p.z];}),base=[[.35,-4.5],[3.3,-4.5],[3.3,2.1],[.35,2.1]],floorParts=subtract(base,clip).flatMap(P=>subtract(P,WATERCOURT131.stairOpeningLocal)),piers=[];
+ for(const [i,P]of floorParts.entries())for(const [inside,top]of[[true,3.45],[false,3.0]]){const part=half(P,[2.12,-100],[2.12,100],inside);if(part.length>2&&Math.abs(area(part))>.001){emit(floorSolid(part,top-.12,.18,'corridor131-left-stepped-stone-floor-'+i),'stone');emit(floorSolid(part,top,.12,'corridor131-left-stepped-timber-floor-'+i),'wood');}}
+ for(const x of[.65,1.90,3.12])for(const z of[-4.1,-3.0,-.05,1.15]){if(!floorParts.some(P=>pointInPlan(x,z,P)))continue;const samples=[[-.23,-.25],[.23,-.25],[.23,.25],[-.23,.25],[0,0]].map(([dx,dz])=>{const p=new T.Vector3(x+dx,0,z+dz).applyMatrix4(wingMatrix);return{x:p.x,z:p.z,soil:terrain.heightAt(p.x,p.z)};}),top=x<2.12?2.85:2.40,bottom=Math.min(...samples.map(p=>p.soil-W.position[1]-.12),top-.30);bearingPier(api,x,z,bottom,top,'corridor130-left-bearing-'+piers.length,piers);piers.at(-1).groundSamples=samples;}
+ for(const x of[.65,1.9,3.12])for(const P of floorParts){let strip=[[x-.14,-4.4],[x+.14,-4.4],[x+.14,2.0],[x-.14,2.0]],C=area(P)>0?P:P.slice().reverse();for(let i=0;i<C.length&&strip.length;i++)strip=half(strip,C[i],C[(i+1)%C.length],true);if(strip.length>2&&Math.abs(area(strip))>.001)emit(floorSolid(strip,x<2.12?3.15:2.70,.30,'corridor131-left-supported-floor-beam'),'wood');}
+ for(const z of[-3.0,-.05]){porchColumn(api,3.12,z,3,4.82);between([1.9,4.82,z],[3.12,4.82,z],.11,'redlight',false,.18);}box(3.12,4.94,-.925,.18,.24,4.65,'red');
  // A real tall side facade carries the main roof; the low covered walkway
  // abuts it. The doorway is a void between infill bays, not a dark painted box.
- for(const z of[-4.3,-3.0,-1.5,0,1.4]){const top=upperRoofY(z)-.06;porchColumn(api,1.908,z,3,top,.14);}
- for(const [a,b]of[[-4.3,-3],[-3,-1.5],[-1.5,-.55],[.55,1.4]]){const z=(a+b)/2,d=b-a;box(1.908,4.02,z,.14,1.82,d-.14,'wall');api.group(1.99,0,z,Math.PI/2,()=>lattice(0,4.10,0,d*.68,1.32));box(1.908,6.05,z,.15,.24,d,'red');const top=Math.min(upperRoofY(a),upperRoofY(b))-.5;if(top>6.6){box(1.908,(top+6.35)/2,z,.13,top-6.35,d-.16,'wall');api.group(2.0,0,z,Math.PI/2,()=>lattice(0,(top+6.38)/2,0,d*.68,Math.max(.2,top-6.52)));}}
- for(const z of[-.55,.55])box(1.908,4.20,z,.23,2.4,.16,'red');box(1.908,5.42,0,.25,.18,1.25,'red');
- const start=new T.Vector3(5.06,4.95-L.hall.position[1],1.1).applyMatrix4(main).applyMatrix4(inverse),end=new T.Vector3(2.8,3,1.5),dir=end.clone().sub(start),run=Math.hypot(dir.x,dir.z),yaw=Math.atan2(dir.x,dir.z);for(let i=0;i<3;i++){const t=(i+.5)/3,top=start.y+(end.y-start.y)*(i+1)/3;box(start.x+dir.x*t,top-.07,start.z+dir.z*t,.90,.14,run/3+.04,'wood',yaw);}for(const side of[-1,1]){const ox=-dir.z/run*.31*side,oz=dir.x/run*.31*side;between([start.x+ox,start.y-.21,start.z+oz],[end.x+ox,end.y-.21,end.z+oz],.13,'wood',false,.19);}
+ for(const z of[-4.3,-3.0,-1.5,0,1.6]){const top=upperRoofY(z)-.06;porchColumn(api,1.908,z,3.45,top,.14);}
+ for(const [a,b]of[[-4.3,-3],[-3,-1.5],[-1.5,.32]]){const z=(a+b)/2,d=b-a;box(1.908,4.02,z,.14,1.82,d-.14,'wall');api.group(1.99,0,z,Math.PI/2,()=>lattice(0,4.10,0,d*.68,1.32));box(1.908,6.05,z,.15,.24,d,'red');const top=Math.min(upperRoofY(a),upperRoofY(b))-.5;if(top>6.6){box(1.908,(top+6.35)/2,z,.13,top-6.35,d-.16,'wall');api.group(2.0,0,z,Math.PI/2,()=>lattice(0,(top+6.38)/2,0,d*.68,Math.max(.2,top-6.52)));}}
+ for(const z of[.32,1.48])box(1.908,4.425,z,.23,1.95,.16,'red');box(1.908,5.42,.9,.25,.18,1.30,'red');
  const roof=leanRoof(api);
- return{revision:'one-attached-main-hall-porch130',floorWorldY:4.5,floorLocalPolygons:floorParts,mainFoundationClipLocal:clip,roof,piers,doorLocalZ:[-.55,.55],mainHallConnection:{from:start.toArray(),to:end.toArray(),steps:3},photoReading:'Covered side porch attached to the tall hall facade, not another complete independent hall',physicalAcceptance:false};
+ return{revision:'one-attached-main-hall-porch130',floorWorldY:4.5,floorLocalPolygons:floorParts,mainFoundationClipLocal:clip,roof,piers,doorLocalZ:[.32,1.48],interiorFloorWorldY:4.95,stairWell:WATERCOURT131.stairOpeningLocal,photoReading:'Covered side porch attached to the tall hall facade, not another complete independent hall',physicalAcceptance:false};
 }
 
 export function buildRightCourt130(api,terrain){
@@ -50,7 +50,7 @@ export function buildRightCourt130(api,terrain){
  api.group(5.9,0,-10.6,0,()=>api.roof(4.6,2.8,6.7,1.5,.45,.22,.22));
  // The taller pavilion has its posts outside the low roof footprint and
  // continuous upper beams above its crown. Both levels share one L-shaped deck.
- const highPosts=[[6.8,-7.9],[10.8,-7.9],[4.6,-12.55],[10.8,-12.55]];for(const [x,z]of highPosts){porchColumn(api,x,z,4.2,8.45,.18);api.brackets(x,8.3,z,.65);}for(const [a,b]of[[highPosts[0],highPosts[1]],[highPosts[2],highPosts[3]],[highPosts[1],highPosts[3]],[highPosts[0],highPosts[2]]])between([a[0],8.60,a[1]],[b[0],8.60,b[1]],.16,'red',false,.24);
+ const highPosts=[[7.35,-8.45],[10.8,-7.9],[4.6,-12.55],[10.8,-12.55]];for(const [x,z]of highPosts){porchColumn(api,x,z,4.2,8.45,.18);api.brackets(x,8.3,z,.65);}for(const [a,b]of[[highPosts[0],highPosts[1]],[highPosts[2],highPosts[3]],[highPosts[1],highPosts[3]],[highPosts[0],highPosts[2]]])between([a[0],8.60,a[1]],[b[0],8.60,b[1]],.16,'red',false,.24);
  function upperSurfaceY(x,z){const dx=x-7.9,dz=z+9.6,c=Math.cos(-.15),s=Math.sin(-.15),xx=Math.abs(c*dx-s*dz),zz=Math.abs(s*dx+c*dz),rh=7.5*.22,hw=3.75,hd=2.8,t=Math.max(zz/hd,(xx-rh)/(hw-rh)),span=rh+(hw-rh)*t,u=zz/hd>=((xx-rh)/(hw-rh))?xx/span:zz/(hd*t);return 9+1.85*Math.pow(Math.max(0,1-t),1.65)+.60*Math.pow(t,8)*(.22+.78*Math.pow(u,7));}
  for(const [x,z]of highPosts){const top=upperSurfaceY(x,z)-.26;if(top>8.76)box(x,(top+8.76)/2,z,.18,top-8.76,.20,'wood');}
  api.group(7.9,0,-9.6,-.15,()=>api.roof(7.5,5.6,9,1.85,.60,.22,.35));

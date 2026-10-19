@@ -12,8 +12,8 @@ export const CORRIDOR_LAYOUT=Object.freeze({
  pagoda:{position:[4.7,3.016,-24],yaw:-.40,scale:1.2,tierPitch:2.75,roomHeight:1.9,topRoofRise:2.0,spireLocalOffset:-2.68,foundationGround:1.70},
  middleGallery:{position:[1.47,4.28,-9],yaw:-.1,h:2.02,floor:4.5},
  rightGallery:{position:[7.9,3.7,-10],yaw:-.15,h:4.8,floor:4.2},
- bridge:{a:[1.90,2.95,-3.7],b:[7.50189,4.2,-7.36591],width:1.5,arch:.32,segments:28},
- stair:{a:[1.90,2.95,-3.7],b:[1.30,4.5,-7.1],width:1.11,steps:10},
+ bridge:{a:[1.48,2.95,-3.67],b:[7.50189,4.2,-7.36591],width:1.20,arch:.24,segments:32},
+ stair:{a:[1.505941843230182,2.95,-4.380635399958479],b:[-0.5571675001538217,4.95,-5.645538493970673],width:.94,steps:10},
 });
 
 export function buildCorridorPortal(api,heroPlaque){

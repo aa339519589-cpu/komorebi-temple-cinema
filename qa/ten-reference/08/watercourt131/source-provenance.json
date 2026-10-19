@@ -1,0 +1,270 @@
+{
+  "status": "unaccepted-continuous-route-candidate",
+  "baseACommit": "b84aadb",
+  "branch": "work/watercourt131-20261019",
+  "actualWrapperJobsThisPhase": 2,
+  "finalOriginalViewRechecked": false,
+  "frames": [
+    {
+      "label": "A",
+      "sourceHash": "87d10d0bb5e0b239a23f5b3e36e4c3d093d566e44dc0f339db960b8dc0e0cec5",
+      "sourceCommitAtRender": "2e63bd11b76f6b75b9ea6fd79c7b2360bfbddc0a",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "rgbaSha256": "6ae55082014d82c2bda7abca5baacd288138f3a20d67294931bbb33276fe29c6",
+          "pose": {
+            "position": [
+              0,
+              2.65,
+              13
+            ],
+            "target": [
+              0,
+              6.65,
+              -9
+            ],
+            "time": 0,
+            "fov": 49
+          }
+        }
+      ],
+      "files": {
+        "reference.png": "5ab3f26a71ea278ebf142130500c051308ec40962d52a456e97801b6161d4439"
+      }
+    },
+    {
+      "label": "B1-original",
+      "sourceHash": "adcbafbd23685fdb223e2fd00f534db63bae49f8af45761f0a22f414d0e2f809",
+      "sourceCommitAtRender": "b84aadbcb4aecd0bb9a0fd142620fdac85284c85",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "rgbaSha256": "38e0d912268cb053e5a1b55827be9c0abaa7e4363426b9242a8b7ab164a2a1d6",
+          "pose": {
+            "position": [
+              0,
+              2.65,
+              13
+            ],
+            "target": [
+              0,
+              6.65,
+              -9
+            ],
+            "time": 0,
+            "fov": 49
+          }
+        }
+      ],
+      "files": {
+        "reference.png": "5a8145aeb4bd0de936c64eb93e8b5341754ddc45db7d982b2f2a234b6506fa2a"
+      }
+    },
+    {
+      "label": "B2-side-final",
+      "sourceHash": "a661c3f5cecfd790db38b6cde46b94aae22cebf8f7449d76e8f13b417aaec97d",
+      "sourceCommitAtRender": "b84aadbcb4aecd0bb9a0fd142620fdac85284c85",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "valid": true,
+          "rgbaSha256": "1f3b957f448626af46181cbba32825d73d4758297c15f49b33cdf076eaa109f4",
+          "pose": {
+            "position": [
+              12,
+              7,
+              -2
+            ],
+            "target": [
+              -1,
+              5.5,
+              -7
+            ],
+            "time": 0,
+            "fov": 58
+          }
+        }
+      ],
+      "files": {
+        "inspection-view.png": "c4c725f00d948a110f30cb93712b5ec9cb5240f73cf1aba4a8c8858805fac938"
+      }
+    }
+  ],
+  "B1ToB2ChangedSources": [
+    {
+      "runtimeFile": "reconstructions/scene-08/src/pine130.js",
+      "B1": "49d0137d6fbc0ce467846e8af459c94ac1f73191c75a1752cc760748df069d91",
+      "B2": "7955e58ead9e44932a1721b5c42d4dce6fa0b4a88d9f67fab65d2aa6da5de995",
+      "snapshot": "qa/ten-reference/08/watercourt131/B1-source/pine130.js",
+      "snapshotMatchesB1": true
+    },
+    {
+      "runtimeFile": "reconstructions/scene-08/src/scene.js",
+      "B1": "927ee391c38faf0402716aa9800e798c257d40243c0b76887a18b79dcf0c7b10",
+      "B2": "5c802a5b0f7331a61442d4475a0c50a0ad8121a6f737a300f7e65393f843b2e4",
+      "snapshot": "qa/ten-reference/08/watercourt131/B1-source/scene.js",
+      "snapshotMatchesB1": true
+    },
+    {
+      "runtimeFile": "reconstructions/scene-08/src/terraced-banks.js",
+      "B1": "1b9796c41bcb85b1ee9114de5da1abdcd4eb72a68d55f0779ad941de11c13d4c",
+      "B2": "60ad8cea587b01a0d379468e624bb0c278973fa61fb156af03afb050f5cb6bfb",
+      "snapshot": "qa/ten-reference/08/watercourt131/B1-source/terraced-banks.js",
+      "snapshotMatchesB1": true
+    },
+    {
+      "runtimeFile": "reconstructions/scene-08/src/watercourt131.js",
+      "B1": "1b3d3f381abf69ac9ec7201d68356c1fb102763bd0d53e3f3db726b59e812a34",
+      "B2": "2835740c6cc232369f3e49b0e9a51eba2c7c4b5c9279e74deb1f571078cd8504",
+      "snapshot": "qa/ten-reference/08/watercourt131/B1-source/watercourt131.js",
+      "snapshotMatchesB1": true
+    }
+  ],
+  "bridgeHeads": {
+    "a": [
+      1.48,
+      2.95,
+      -3.67
+    ],
+    "b": [
+      7.50189,
+      4.2,
+      -7.36591
+    ],
+    "width": 1.2,
+    "arch": 0.24,
+    "span": 7.065614615884454,
+    "bankSeats": [
+      {
+        "world": [
+          1.48,
+          2.6,
+          -3.67
+        ],
+        "soil": 2.268615642393395
+      },
+      {
+        "world": [
+          7.50189,
+          3.88,
+          -7.36591
+        ],
+        "soil": 3.7
+      }
+    ],
+    "waterClearSpan": true
+  },
+  "stairEnds": {
+    "upper": [
+      -0.5571675001538217,
+      4.95,
+      -5.645538493970673
+    ],
+    "lower": [
+      1.505941843230182,
+      2.95,
+      -4.380635399958479
+    ],
+    "steps": 10,
+    "riser": 0.2,
+    "run": 2.4199999999999995,
+    "width": 0.94
+  },
+  "pruning": {
+    "method": "Prune complete generated bough/twig branches against real structural mesh bounds in world space",
+    "structuralBounds": 41618,
+    "blockedBranchQueries": 270,
+    "notCameraDependent": true
+  },
+  "pine": {
+    "revision": "connected-irregular-central-garden-pine130",
+    "root": [
+      2.7,
+      2.071152620204699,
+      -11.3
+    ],
+    "soilY": 2.106152620204699,
+    "trunkPath": [
+      [
+        2.7,
+        2.071152620204699,
+        -11.3
+      ],
+      [
+        2.5500000000000003,
+        2.9911526202046987,
+        -11.5
+      ],
+      [
+        2.1500000000000004,
+        4.191152620204699,
+        -11.700000000000001
+      ],
+      [
+        2.35,
+        5.271152620204699,
+        -11.65
+      ],
+      [
+        2.1,
+        6.511152620204699,
+        -11.5
+      ]
+    ],
+    "primaryBoughs": 9,
+    "closedBranchSegments": 220,
+    "needlePackets": 35200,
+    "prunedBoughs": 1,
+    "prunedTwigs": 20,
+    "worldBounds": {
+      "min": [
+        0.9848890982168796,
+        2.071152620204699,
+        -13.802493658894269
+      ],
+      "max": [
+        5.569357044190599,
+        6.993612825761982,
+        -6.986321313067738
+      ]
+    },
+    "worldCrownBounds": {
+      "min": [
+        0.9848890982168796,
+        3.905108535532116,
+        -13.802493658894269
+      ],
+      "max": [
+        5.569357044190599,
+        6.993612825761982,
+        -6.986321313067738
+      ]
+    },
+    "seed": 130803,
+    "role": "One rooted garden pine with independently connected, uneven branch pads",
+    "limits": "Manual single-view silhouette interpretation; individual needles retain existing real mesh bundles",
+    "visualAccepted": false
+  },
+  "noReferenceRGBProjection": true,
+  "newDownloadedAssets": false,
+  "pushed": false,
+  "merged": false,
+  "visualAccepted": false,
+  "physicalSiteAccepted": false,
+  "allTenPhotoQualityAccepted": false,
+  "limits": [
+    "B1 original failed after excessive bank/plant elevation",
+    "B2 side is a different final source; final original view has not been rerendered",
+    "B2 still has stiff bank/stone-foot forms, coarse joints and inherited upper-gallery problems",
+    "Object-space branch pruning does not prove every plant/structure surface is clear"
+  ]
+}
