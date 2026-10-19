@@ -1,0 +1,60 @@
+{
+  "status": "failed-boundary-candidate-retained",
+  "viewed": [
+    "original04 full1254",
+    "baselineNishita full1254",
+    "reference/source ROI overlays",
+    "actual calibrated full1254"
+  ],
+  "actualStatistics": "results/actual-statistics.json",
+  "exposureEV": 3.2272518530808156,
+  "gains": {
+    "paving": [
+      0.00010000000000000009,
+      0.00010000000000000009,
+      0.00010000000000000009
+    ],
+    "roof": [
+      0.00010000000000000009,
+      0.00010000000000000009,
+      0.00010000000000000009
+    ],
+    "painted_timber": [
+      0.006532642693929594,
+      0.00045282718288679777,
+      0.00045282718288679777
+    ],
+    "gilding": [
+      0.37018973984647696,
+      0.3052556369750723,
+      0.3755294053003366
+    ]
+  },
+  "observedGains": [
+    "Sky luminance and gold ROI quantile statistics improve."
+  ],
+  "observedFailures": [
+    "Sky becomes pale grey-blue rather than the reference saturated bright blue.",
+    "Nearly zero baseColour strips timber/stone pigment while unchanged dielectric highlights remain bright.",
+    "Paving and red-column RGB errors worsen in actual render; overall photographic appearance remains unsuitable."
+  ],
+  "decision": "Do not adopt. Keep the bounded failing experiment and all source/data. No further lighting/exposure/material experiments in this task.",
+  "protected": {
+    "sourceSceneEdited": false,
+    "publicToolsEdited": false,
+    "priorStudyEdited": false,
+    "geometryCameraLightingWorldNormalsRoughnessIORUnchanged": true,
+    "stateSHA256": "75aae5b03301840d1b465e183b3e133dadb821b349be0fd675ce03b6d1ffe03f",
+    "triangles": 23669477
+  },
+  "jobs": {
+    "statistics512": 1,
+    "final1254": 1,
+    "failedBeforeRenderFormatSetup": 1,
+    "metadataOnlyFormatRead": 1,
+    "suites": 0,
+    "movies": 0,
+    "push": false
+  },
+  "photographicAcceptance": false
+}

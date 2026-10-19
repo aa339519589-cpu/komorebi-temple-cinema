@@ -1,0 +1,119 @@
+{
+  "status": "failed-one-shot-statistical-artistic-calibration",
+  "parentCommit": "ae81e9f4802c337938b0513e8cb2df0a82852f60",
+  "sourceCommit": "4cb7c2b83d51d448c10a2b319ada51b662a0aaa0",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "producerHashes": {
+    "render-statistics-pass.py": "82ef4d2a4347b22b4063865e63a24e6267c835cdf5974822ba3bc9cebe531d22",
+    "solve-calibration.py": "b2cc1c40ebc752226a4cd08cf8f60a91af164fb7deeeb3568307d07ee63547c4",
+    "render-fitted-full.py": "20ec037669592cdca6942cc76a72ff0e9c83d2203081828b97f6d04ff53dba60",
+    "assemble-review.py": "d62b3fe2a132bf38ffd1ac2b3ad71a964ac9f417d398a8fddd8e9d8bc09383ad",
+    "inspect-output-format.py": "9c88da6948533f4e867a479d0ff1551891872e10d2ba05e22c49c3b5d914b711"
+  },
+  "selection": {
+    "file": "selections.json",
+    "sha256": "63991194ac02419ea4164b10ff617b2f397f4418d2d259657eb222b7d6284dea"
+  },
+  "materialClasses": {
+    "file": "material-classes.json",
+    "sha256": "099d4fc9828f88211922b8c1be0443ad58de912059adb96b87073b8c7494a2fc"
+  },
+  "ocio": {
+    "device": "sRGB",
+    "view": "AgX",
+    "look": "None",
+    "exposureEV": 0,
+    "gamma": 1,
+    "ocioConfig": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/colormanagement/config.ocio",
+    "sha256": "47a7d83e79c1d21f49ba6c505efe311da723471688c614b5c366e1da7eb8ea3a",
+    "software": "PyOpenColorIO2.5 from Blender5.2 bundled Python"
+  },
+  "globalExposureEV": 3.2272518530808156,
+  "classGains": {
+    "paving": [
+      0.00010000000000000009,
+      0.00010000000000000009,
+      0.00010000000000000009
+    ],
+    "roof": [
+      0.00010000000000000009,
+      0.00010000000000000009,
+      0.00010000000000000009
+    ],
+    "painted_timber": [
+      0.006532642693929594,
+      0.00045282718288679777,
+      0.00045282718288679777
+    ],
+    "gilding": [
+      0.37018973984647696,
+      0.3052556369750723,
+      0.3755294053003366
+    ]
+  },
+  "parameterCount": 13,
+  "baseBlend": "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/results/scene04-nishita-coupled.blend",
+  "baseDependency": "../scene04-nishita-coupled/recipe.json",
+  "statisticsPass": {
+    "file": "results/calibration-pass512.exr",
+    "sha256": "80d4f66896308b7f8f7cae2287e0bd7f350633438e0434c111f4656dcea6d2a8",
+    "size": [
+      512,
+      512
+    ],
+    "samples": 64,
+    "seed": 904101,
+    "displayTransformAppliedToRawEXR": false,
+    "passes": [
+      "Combined",
+      "DiffuseColor",
+      "DiffuseDirect",
+      "DiffuseIndirect",
+      "MaterialIndex",
+      "wetCoverage"
+    ],
+    "renderCount": 1
+  },
+  "final": {
+    "file": "results/scene04-reference-calibrated.png",
+    "sha256": "3eb64ff3b1267b09e11f6fd3c77ab8a26586952da9f37780c623ccbc94bf3ac1",
+    "size": [
+      1254,
+      1254
+    ],
+    "samples": 48,
+    "seed": 904101,
+    "actualExposureEV": 3.2272517681121826,
+    "renderCount": 1
+  },
+  "protected": {
+    "sourceSceneEdited": false,
+    "publicToolsEdited": false,
+    "priorStudyEdited": false,
+    "geometryCameraLightingWorldNormalsRoughnessIORUnchanged": true,
+    "stateSHA256": "75aae5b03301840d1b465e183b3e133dadb821b349be0fd675ce03b6d1ffe03f",
+    "triangles": 23669477
+  },
+  "commands": {
+    "cwd": "/Users/mima1234/temple-scene04-physical-compare-20261019",
+    "statistics": "node tools/run-blender-queued.mjs lookdev/scene04-reference-calibration/render-statistics-pass.py",
+    "fit": "/Applications/Blender.app/Contents/Resources/5.2/python/bin/python3.13 lookdev/scene04-reference-calibration/solve-calibration.py",
+    "final": "node tools/run-blender-queued.mjs lookdev/scene04-reference-calibration/render-fitted-full.py",
+    "review": "/Applications/Blender.app/Contents/Resources/5.2/python/bin/python3.13 lookdev/scene04-reference-calibration/assemble-review.py"
+  },
+  "limits": [
+    "Single photograph artistic appearance hypothesis; neither true camera response nor measured reflectance recovered.",
+    "The one-pass response approximates GI recolouring, metal Fresnel and energy redistribution; the final path trace is the actual validation.",
+    "Sky chromaticity is not fitted separately, and material texture/spatial light variation is retained.",
+    "Near-zero stone/roof and very low painted-timber gains are a boundary diagnostic, not plausible measured material recovery.",
+    "Sky brightness improves but source spectrum and fixed AgX do not reproduce the reference sky RGB.",
+    "Class-gain fit has local least-squares/one-pass approximation and differing single-view ROI lighting; no global or physical-identification guarantee."
+  ],
+  "spatialReferenceColorTransfer": false,
+  "artisticSinglePhotographHypothesis": true,
+  "webpageAdoption": false,
+  "suites": 0,
+  "movies": 0,
+  "push": false,
+  "photographicAcceptance": false
+}

@@ -1,0 +1,1158 @@
+{
+  "status": "actual-statistics-pass",
+  "baseBlend": "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/results/scene04-nishita-coupled.blend",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "triangles": 23669477,
+  "camera": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.040668994188308716,
+    -0.9991726875305176,
+    -23.34000015258789,
+    0.0,
+    0.9991726875305176,
+    -0.040668994188308716,
+    1.3500018119812012,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "size": [
+    512,
+    512
+  ],
+  "samples": 64,
+  "seed": 904101,
+  "sceneLinear": true,
+  "display": {
+    "device": "sRGB",
+    "view": "AgX",
+    "look": "None",
+    "exposureEV": 0.0,
+    "gamma": 1.0,
+    "ocioConfig": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/colormanagement/config.ocio"
+  },
+  "passes": [
+    "Combined",
+    "DiffuseColor",
+    "DiffuseDirect",
+    "DiffuseIndirect",
+    "IndexMA",
+    "wet_coverage"
+  ],
+  "materials": [
+    {
+      "index": 1,
+      "name": "080942e3-1c3b-4b25-8f2c-4eee8cd50b0d",
+      "category": null,
+      "baseColorDefault": [
+        0.5394794940948486,
+        0.27049779891967773,
+        0.040915198624134064,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8999999761581421
+    },
+    {
+      "index": 2,
+      "name": "ab5e0156-9850-49ca-a603-d92f59075d48",
+      "category": null,
+      "baseColorDefault": [
+        0.061246052384376526,
+        0.08650045841932297,
+        0.019382361322641373,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 3,
+      "name": "b8f7113f-e650-4a41-8c58-3238ef24e70e",
+      "category": null,
+      "baseColorDefault": [
+        0.05780543014407158,
+        0.03560131415724754,
+        0.011612244881689548,
+        1.0
+      ],
+      "metalness": 0.44999998807907104,
+      "roughness": 0.6899999976158142
+    },
+    {
+      "index": 4,
+      "name": "carved-granite-recess",
+      "category": null,
+      "baseColorDefault": [
+        0.08228270709514618,
+        0.10461648553609848,
+        0.13013647496700287,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 5,
+      "name": "kiln-fired-ceramic",
+      "category": "roof",
+      "baseColorDefault": [
+        0.039546236395835876,
+        0.05612849071621895,
+        0.07036009430885315,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.4699999988079071
+    },
+    {
+      "index": 6,
+      "name": "metre-scaled-pond-boulder-granite",
+      "category": null,
+      "baseColorDefault": [
+        0.13013647496700287,
+        0.14702726900577545,
+        0.12477181851863861,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8899999856948853
+    },
+    {
+      "index": 7,
+      "name": "metre-scaled-worn-wet-paver-0",
+      "category": null,
+      "baseColorDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 8,
+      "name": "metre-scaled-worn-wet-paver-1",
+      "category": null,
+      "baseColorDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 9,
+      "name": "metre-scaled-worn-wet-paver-2",
+      "category": null,
+      "baseColorDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 10,
+      "name": "metre-scaled-worn-wet-paver-3",
+      "category": null,
+      "baseColorDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 11,
+      "name": "metric-quartz-granite-lantern",
+      "category": null,
+      "baseColorDefault": [
+        0.18447498977184296,
+        0.19806931912899017,
+        0.20863686501979828,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 12,
+      "name": "observed-joint-moss-0",
+      "category": null,
+      "baseColorDefault": [
+        0.05612849071621895,
+        0.07818742096424103,
+        0.014443843625485897,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9399999976158142
+    },
+    {
+      "index": 13,
+      "name": "observed-joint-moss-1",
+      "category": null,
+      "baseColorDefault": [
+        0.09989872574806213,
+        0.1384316086769104,
+        0.02518685907125473,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9399999976158142
+    },
+    {
+      "index": 14,
+      "name": "observed-joint-moss-2",
+      "category": null,
+      "baseColorDefault": [
+        0.03310476616024971,
+        0.04817182570695877,
+        0.009721217676997185,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9399999976158142
+    },
+    {
+      "index": 15,
+      "name": "observed-paving-dark-mineral-earth",
+      "category": null,
+      "baseColorDefault": [
+        0.023153366521000862,
+        0.023153366521000862,
+        0.014443843625485897,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 16,
+      "name": "reference4-aged-red-bridge",
+      "category": null,
+      "baseColorDefault": [
+        0.3277781009674072,
+        0.05126945674419403,
+        0.02518685907125473,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.6499999761581421
+    },
+    {
+      "index": 17,
+      "name": "reference4-cherry-pink",
+      "category": null,
+      "baseColorDefault": [
+        0.6583748459815979,
+        0.2541520893573761,
+        0.37123769521713257,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8500000238418579
+    },
+    {
+      "index": 18,
+      "name": "reference4-discontinuous-rock-moss",
+      "category": null,
+      "baseColorDefault": [
+        0.0666259378194809,
+        0.09305896610021591,
+        0.02955683507025242,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9800000190734863
+    },
+    {
+      "index": 19,
+      "name": "reference4-distant-hill-earth",
+      "category": null,
+      "baseColorDefault": [
+        0.028426039963960648,
+        0.05612849071621895,
+        0.020288562402129173,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 20,
+      "name": "reference4-distant-living-crowns",
+      "category": null,
+      "baseColorDefault": [
+        0.1946178376674652,
+        0.2158605009317398,
+        0.08437620848417282,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9700000286102295
+    },
+    {
+      "index": 21,
+      "name": "reference4-distant-wood",
+      "category": null,
+      "baseColorDefault": [
+        0.08228270709514618,
+        0.06301001459360123,
+        0.03560131415724754,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 22,
+      "name": "reference4-earth",
+      "category": null,
+      "baseColorDefault": [
+        0.0802198201417923,
+        0.05612849071621895,
+        0.028426039963960648,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 23,
+      "name": "reference4-green-clear-pond-surface",
+      "category": null,
+      "baseColorDefault": [
+        0.9399999976158142,
+        0.9800000190734863,
+        0.9599999785423279,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.08500000089406967
+    },
+    {
+      "index": 24,
+      "name": "reference4-living-grey-brown-bark",
+      "category": null,
+      "baseColorDefault": [
+        0.0666259378194809,
+        0.045186202973127365,
+        0.026241222396492958,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8500000238418579
+    },
+    {
+      "index": 25,
+      "name": "reference4-lotus-centre",
+      "category": null,
+      "baseColorDefault": [
+        0.5647115111351013,
+        0.37123769521713257,
+        0.039546236395835876,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8500000238418579
+    },
+    {
+      "index": 26,
+      "name": "reference4-lotus-green",
+      "category": null,
+      "baseColorDefault": [
+        0.09305896610021591,
+        0.18116424977779388,
+        0.039546236395835876,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.6700000166893005
+    },
+    {
+      "index": 27,
+      "name": "reference4-lotus-pink",
+      "category": null,
+      "baseColorDefault": [
+        0.672443151473999,
+        0.26635560393333435,
+        0.3967552185058594,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.6200000047683716
+    },
+    {
+      "index": 28,
+      "name": "reference4-low-green-leaves",
+      "category": null,
+      "baseColorDefault": [
+        0.05126945674419403,
+        0.08437620848417282,
+        0.023153366521000862,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8500000238418579
+    },
+    {
+      "index": 29,
+      "name": "reference4-maple-olive",
+      "category": null,
+      "baseColorDefault": [
+        0.13286831974983215,
+        0.15896083414554596,
+        0.026241222396492958,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8500000238418579
+    },
+    {
+      "index": 30,
+      "name": "reference4-pine-individual-needles",
+      "category": null,
+      "baseColorDefault": [
+        0.7454041838645935,
+        0.7835378050804138,
+        0.533276379108429,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8500000238418579
+    },
+    {
+      "index": 31,
+      "name": "reference4-pond-bed",
+      "category": null,
+      "baseColorDefault": [
+        0.061246052384376526,
+        0.08865558356046677,
+        0.061246052384376526,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 32,
+      "name": "reference4-thick-layered-pine-crown",
+      "category": null,
+      "baseColorDefault": [
+        0.1441284716129303,
+        0.2345505803823471,
+        0.05612849071621895,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9200000166893005
+    },
+    {
+      "index": 33,
+      "name": "reference4-warm-paper",
+      "category": null,
+      "baseColorDefault": [
+        0.6938717365264893,
+        0.423267662525177,
+        0.12743768095970154,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8399999737739563
+    },
+    {
+      "index": 34,
+      "name": "reference4_black",
+      "category": null,
+      "baseColorDefault": [
+        0.020288562402129173,
+        0.024157632142305374,
+        0.022173885256052017,
+        1.0
+      ],
+      "metalness": 0.07999999821186066,
+      "roughness": 0.6499999761581421
+    },
+    {
+      "index": 35,
+      "name": "reference4_cedar",
+      "category": null,
+      "baseColorDefault": [
+        0.12213877588510513,
+        0.03189603239297867,
+        0.013702083379030228,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8399999737739563
+    },
+    {
+      "index": 36,
+      "name": "reference4_darkwood",
+      "category": null,
+      "baseColorDefault": [
+        0.019382361322641373,
+        0.010960093699395657,
+        0.007499032188206911,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8799999952316284
+    },
+    {
+      "index": 37,
+      "name": "reference4_endwood",
+      "category": null,
+      "baseColorDefault": [
+        0.19120168685913086,
+        0.08650045841932297,
+        0.03433980792760849,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8399999737739563
+    },
+    {
+      "index": 38,
+      "name": "reference4_gold",
+      "category": "gilding",
+      "baseColorDefault": [
+        0.533276379108429,
+        0.35153260827064514,
+        0.07036009430885315,
+        1.0
+      ],
+      "metalness": 0.7799999713897705,
+      "roughness": 0.3400000035762787
+    },
+    {
+      "index": 39,
+      "name": "reference4_granite",
+      "category": null,
+      "baseColorDefault": [
+        0.17144110798835754,
+        0.18447498977184296,
+        0.19806931912899017,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 40,
+      "name": "reference4_oldgold",
+      "category": "gilding",
+      "baseColorDefault": [
+        0.28744083642959595,
+        0.14995978772640228,
+        0.026241222396492958,
+        1.0
+      ],
+      "metalness": 0.6100000143051147,
+      "roughness": 0.5699999928474426
+    },
+    {
+      "index": 41,
+      "name": "reference4_plaster",
+      "category": null,
+      "baseColorDefault": [
+        0.5520114302635193,
+        0.4910208582878113,
+        0.366252601146698,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9200000166893005
+    },
+    {
+      "index": 42,
+      "name": "reference4_red",
+      "category": "painted_timber",
+      "baseColorDefault": [
+        0.19806931912899017,
+        0.03560131415724754,
+        0.016807375475764275,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8199999928474426
+    },
+    {
+      "index": 43,
+      "name": "reference4_stone",
+      "category": null,
+      "baseColorDefault": [
+        0.12213877588510513,
+        0.13563333451747894,
+        0.14995978772640228,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9599999785423279
+    },
+    {
+      "index": 44,
+      "name": "reference4_tileEdge",
+      "category": "roof",
+      "baseColorDefault": [
+        0.16513219475746155,
+        0.18782077729701996,
+        0.18782077729701996,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8100000023841858
+    },
+    {
+      "index": 45,
+      "name": "sanctuary-black-lacquer",
+      "category": null,
+      "baseColorDefault": [
+        0.008568125776946545,
+        0.0043914420530200005,
+        0.0030352699104696512,
+        1.0
+      ],
+      "metalness": 0.11999999731779099,
+      "roughness": 0.3100000023841858
+    },
+    {
+      "index": 46,
+      "name": "sanctuary-dark-wood",
+      "category": null,
+      "baseColorDefault": [
+        0.03560131415724754,
+        0.014443843625485897,
+        0.007499032188206911,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.6299999952316284
+    },
+    {
+      "index": 47,
+      "name": "sanctuary-gilding",
+      "category": "gilding",
+      "baseColorDefault": [
+        0.6239603757858276,
+        0.38132601976394653,
+        0.06301001459360123,
+        1.0
+      ],
+      "metalness": 0.8799999952316284,
+      "roughness": 0.3400000035762787
+    },
+    {
+      "index": 48,
+      "name": "sanctuary-hair",
+      "category": null,
+      "baseColorDefault": [
+        0.014443843625485897,
+        0.008568125776946545,
+        0.0036765073891729116,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.6299999952316284
+    },
+    {
+      "index": 49,
+      "name": "sanctuary-real-oil-flame",
+      "category": null,
+      "baseColorDefault": [
+        1.0,
+        0.8713670969009399,
+        0.4910208582878113,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.800000011920929
+    },
+    {
+      "index": 50,
+      "name": "sanctuary-recessed-gilt",
+      "category": "gilding",
+      "baseColorDefault": [
+        0.28744083642959595,
+        0.16513219475746155,
+        0.04373503103852272,
+        1.0
+      ],
+      "metalness": 0.7799999713897705,
+      "roughness": 0.44999998807907104
+    },
+    {
+      "index": 51,
+      "name": "scene04-inferred-canopy-twigs",
+      "category": null,
+      "baseColorDefault": [
+        0.09084171056747437,
+        0.05612849071621895,
+        0.024157632142305374,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9399999976158142
+    },
+    {
+      "index": 52,
+      "name": "scene04-real-moss-boulder-0",
+      "category": null,
+      "baseColorDefault": [
+        0.4000000059604645,
+        0.6600000262260437,
+        1.1799999475479126,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9200000166893005
+    },
+    {
+      "index": 53,
+      "name": "scene04-real-moss-boulder-4",
+      "category": null,
+      "baseColorDefault": [
+        0.4000000059604645,
+        0.6600000262260437,
+        1.1799999475479126,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.9200000166893005
+    },
+    {
+      "index": 54,
+      "name": "scene04-small-live-maple-leaves",
+      "category": null,
+      "baseColorDefault": [
+        0.061246052384376526,
+        0.09084171056747437,
+        0.023153366521000862,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 0.8299999833106995
+    },
+    {
+      "index": 55,
+      "name": "traced-granite-observed-centre-01",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 56,
+      "name": "traced-granite-observed-centre-02",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 57,
+      "name": "traced-granite-observed-centre-03",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 58,
+      "name": "traced-granite-observed-centre-04",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 59,
+      "name": "traced-granite-observed-centre-05",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 60,
+      "name": "traced-granite-observed-centre-06",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 61,
+      "name": "traced-granite-observed-centre-07",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 62,
+      "name": "traced-granite-observed-centre-08",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 63,
+      "name": "traced-granite-observed-centre-09",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 64,
+      "name": "traced-granite-observed-east-01",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 65,
+      "name": "traced-granite-observed-east-02",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 66,
+      "name": "traced-granite-observed-east-03",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 67,
+      "name": "traced-granite-observed-east-04",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 68,
+      "name": "traced-granite-observed-east-05",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 69,
+      "name": "traced-granite-observed-east-06",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 70,
+      "name": "traced-granite-observed-east-07",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 71,
+      "name": "traced-granite-observed-east-08",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 72,
+      "name": "traced-granite-observed-east-09",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 73,
+      "name": "traced-granite-observed-east-10",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 74,
+      "name": "traced-granite-observed-east-11",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 75,
+      "name": "traced-granite-observed-west-01",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 76,
+      "name": "traced-granite-observed-west-02",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 77,
+      "name": "traced-granite-observed-west-03",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 78,
+      "name": "traced-granite-observed-west-04",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 79,
+      "name": "traced-granite-observed-west-05",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 80,
+      "name": "traced-granite-observed-west-06",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 81,
+      "name": "traced-granite-observed-west-07",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 82,
+      "name": "traced-granite-observed-west-08",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 83,
+      "name": "traced-granite-observed-west-09",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 84,
+      "name": "traced-granite-observed-west-10",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    },
+    {
+      "index": 85,
+      "name": "traced-granite-observed-west-11",
+      "category": "paving",
+      "baseColorDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metalness": 0.0,
+      "roughness": 1.0
+    }
+  ],
+  "appearanceChanged": false,
+  "analysisOnlyMaterialIndicesAndAOV": true,
+  "started": 1792370996.620598,
+  "finished": 1792371014.779807
+}
