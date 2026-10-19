@@ -2,6 +2,7 @@ import * as T from 'three';
 import {buildScene,CAMERA} from './scene.js';
 import {createOptics} from './optics.js';
 import {createDollyPath} from './dolly-path.js';
+import {renderStairContact124} from './contact-inspection124.js';
 const query=new URLSearchParams(location.search),dim=k=>Math.min(2048,Math.max(64,Number(query.get(k))||768)),width=dim('w'),height=dim('h');
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance',alpha:false});renderer.setPixelRatio(1);renderer.setSize(width,height);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.03;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.setClearColor(0x2c2316,1);document.body.appendChild(renderer.domElement);
 const camera=new T.PerspectiveCamera(CAMERA.fov,width/height,CAMERA.near,CAMERA.far);const world=await buildScene({width,height});world.initializeEnvironment(renderer);const optics=createOptics(renderer,width,height,camera);renderer.info.autoReset=false;let frames=0,disposed=false;
@@ -10,5 +11,5 @@ function render(time=0){if(disposed)throw Error('Scene is disposed');world.setTi
 function renderReference(n=1){if(n!==1)throw new RangeError('Independent reconstruction supports reference 01 only');setCamera(CAMERA.position,CAMERA.target,CAMERA.fov);return render(0);}
 function renderView(position,target,time=0,fov=CAMERA.fov){if(!Array.isArray(position)||!Array.isArray(target)||position.length!==3||target.length!==3||![...position,...target,time,fov].every(Number.isFinite))throw new TypeError('Finite camera and target arrays are required');setCamera(position,target,fov);return render(time);}
 const dolly=createDollyPath({points:[[-2.25,2.45,13.85],[-2.2,2.50,14.4],[-.8,3.05,16.2],CAMERA.position],nearTarget:[-1.58,2.88,13.7],farTarget:CAMERA.target,fov:CAMERA.fov});
-function renderShot(localTime=0){const p=dolly(localTime);setCamera(p.position,p.target,p.fov);return render(localTime);}
+function renderShot(localTime=0){if(localTime===-125)return renderReference(1);if(localTime===-124)return renderStairContact124(world.scene,renderView);const p=dolly(localTime);setCamera(p.position,p.target,p.fov);return render(localTime);}
 window.temple={ready:true,renderer,scene:world.scene,camera,renderReference,renderView,renderShot,info:()=>({...world.info(),frames,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles}}),dispose(){if(disposed)return;disposed=true;optics.dispose();world.dispose();renderer.dispose();renderer.domElement.remove();}};setCamera(CAMERA.position,CAMERA.target,CAMERA.fov);document.getElementById('loading')?.remove();if(!query.has('defer'))renderReference(1);

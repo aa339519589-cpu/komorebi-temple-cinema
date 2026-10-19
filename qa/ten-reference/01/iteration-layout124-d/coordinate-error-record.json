@@ -1,0 +1,354 @@
+{
+  "canonicalReference": "references/hd/0-\u7167\u7247-1.jpg",
+  "referenceSha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d",
+  "sourceHash": "7fc9ce88d874360c9e10f32599bce007fc8f1ebc17521627a93573347347b20e",
+  "actual": "qa/ten-reference/01/iteration-layout124-d/shot--125.png",
+  "pixels": [
+    1254,
+    1254
+  ],
+  "cameraHeld": true,
+  "annotationUncertaintyPixels": {
+    "clearContours": 4,
+    "partlyOccluded": 8,
+    "hiddenEnds": 12
+  },
+  "landmarks": [
+    {
+      "id": "P0",
+      "group": "pagoda",
+      "reference": [
+        413.0,
+        78.0
+      ],
+      "before": [
+        422.0572330011511,
+        75.3503835331494
+      ],
+      "after": [
+        413.1082904055902,
+        78.08438866642746
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        0.10829040559019631,
+        0.08438866642745779
+      ],
+      "errorDistancePixels": 0.13728896155297396,
+      "beforeErrorDistancePixels": 9.436839357462116
+    },
+    {
+      "id": "P1",
+      "group": "pagoda",
+      "reference": [
+        377.0,
+        220.0
+      ],
+      "before": [
+        421.5112195068619,
+        191.53914883579444
+      ],
+      "after": [
+        378.69935396121423,
+        212.13219478537718
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        1.6993539612142285,
+        -7.86780521462282
+      ],
+      "errorDistancePixels": 8.049233676614223,
+      "beforeErrorDistancePixels": 52.83245887689786
+    },
+    {
+      "id": "P4",
+      "group": "pagoda",
+      "reference": [
+        367.0,
+        555.0
+      ],
+      "before": [
+        414.54258537819186,
+        576.0286661989139
+      ],
+      "after": [
+        368.1075087478359,
+        559.304388594715
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        1.1075087478358796,
+        4.304388594714965
+      ],
+      "errorDistancePixels": 4.444585110091297,
+      "beforeErrorDistancePixels": 51.98559633733182
+    },
+    {
+      "id": "P5",
+      "group": "pagoda",
+      "reference": [
+        267.0,
+        577.0
+      ],
+      "before": [
+        250.07808377176076,
+        593.9174582033378
+      ],
+      "after": [
+        261.99999884659456,
+        582.2458524001536
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        -5.000001153405435,
+        5.245852400153581
+      ],
+      "errorDistancePixels": 7.2469979259175155,
+      "beforeErrorDistancePixels": 23.92805133932196
+    },
+    {
+      "id": "P6",
+      "group": "pagoda",
+      "reference": [
+        548.0,
+        592.0
+      ],
+      "before": [
+        564.7952203578473,
+        601.8312344444545
+      ],
+      "after": [
+        544.2279466945175,
+        581.7201726336575
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        -3.7720533054824728,
+        -10.279827366342488
+      ],
+      "errorDistancePixels": 10.950033644752201,
+      "beforeErrorDistancePixels": 19.461053352027868
+    },
+    {
+      "id": "B0",
+      "group": "bridge",
+      "reference": [
+        132.0,
+        766.0
+      ],
+      "before": [
+        117.4059724340728,
+        818.9100208949033
+      ],
+      "after": [
+        133.89742864489534,
+        773.3577494709198
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        1.8974286448953421,
+        7.357749470919771
+      ],
+      "errorDistancePixels": 7.598467788922287,
+      "beforeErrorDistancePixels": 54.8858447297128
+    },
+    {
+      "id": "B1",
+      "group": "bridge",
+      "reference": [
+        355.0,
+        747.0
+      ],
+      "before": [
+        347.92582461273906,
+        763.4555249924933
+      ],
+      "after": [
+        351.58989995703456,
+        743.4503819162288
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        -3.410100042965439,
+        -3.549618083771179
+      ],
+      "errorDistancePixels": 4.922252618839089,
+      "beforeErrorDistancePixels": 17.911679435170264
+    },
+    {
+      "id": "B2",
+      "group": "bridge",
+      "reference": [
+        626.0,
+        796.0
+      ],
+      "before": [
+        662.546599579492,
+        869.2857916846165
+      ],
+      "after": [
+        627.5135386013893,
+        792.2130927167605
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        1.513538601389314,
+        -3.786907283239543
+      ],
+      "errorDistancePixels": 4.078169426317182,
+      "beforeErrorDistancePixels": 81.89298629104157
+    },
+    {
+      "id": "R1",
+      "group": "foreground",
+      "reference": [
+        85,
+        938
+      ],
+      "after": [
+        84.99999999999989,
+        938.0
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        -1.1368683772161603e-13,
+        0.0
+      ],
+      "errorDistancePixels": 1.1368683772161603e-13
+    },
+    {
+      "id": "R2",
+      "group": "foreground",
+      "reference": [
+        550,
+        1130
+      ],
+      "after": [
+        550.0,
+        1130.0000000000002
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        0.0,
+        2.2737367544323206e-13
+      ],
+      "errorDistancePixels": 2.2737367544323206e-13
+    },
+    {
+      "id": "C1",
+      "group": "foreground",
+      "reference": [
+        80,
+        938
+      ],
+      "after": [
+        79.99999999999989,
+        938.0
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        -1.1368683772161603e-13,
+        0.0
+      ],
+      "errorDistancePixels": 1.1368683772161603e-13
+    },
+    {
+      "id": "H1",
+      "group": "hall",
+      "reference": [
+        575,
+        721
+      ],
+      "after": [
+        575.0000000000003,
+        719.970707681812
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        3.410605131648481e-13,
+        -1.029292318188027
+      ],
+      "errorDistancePixels": 1.029292318188027
+    },
+    {
+      "id": "H2",
+      "group": "hall",
+      "reference": [
+        848,
+        718
+      ],
+      "after": [
+        848.0,
+        716.370921365901
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        0.0,
+        -1.6290786340989598
+      ],
+      "errorDistancePixels": 1.6290786340989598
+    },
+    {
+      "id": "S1",
+      "group": "stair",
+      "reference": [
+        875,
+        716
+      ],
+      "after": [
+        856.262965267656,
+        715.6009810441858
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "previousLandingAnchorProjection": [
+        874.9674486021527,
+        716.2373703924064
+      ],
+      "note": "The old centre-height anchor is now on the transition landing. This final point is the actual upper-flight centre after the full-width physical correction; its residual increased.",
+      "errorVectorPixels": [
+        -18.737034732344,
+        -0.3990189558141992
+      ],
+      "errorDistancePixels": 18.741282952033046
+    },
+    {
+      "id": "S2",
+      "group": "stair",
+      "reference": [
+        860,
+        795
+      ],
+      "after": [
+        860.0,
+        795.0
+      ],
+      "measurementKind": "manually annotated reference contour/axis versus projected physical source point",
+      "errorVectorPixels": [
+        0.0,
+        0.0
+      ],
+      "errorDistancePixels": 0.0
+    }
+  ],
+  "warning": "These are selected projected source contours/axes. Some are partly occluded. They are not measured whole-raster errors and do not establish photographic fidelity. Stair S1 was updated to its actual final flight end rather than retaining the old hidden centre anchor.",
+  "stairFullWidthGeometry": {
+    "actualWorldTopCentre": [
+      4.925231841333445,
+      3.675,
+      -6.878987829111476
+    ],
+    "actualHallLocalOuterTopEnds": [
+      [
+        -2.5378551733004486,
+        7.940198850936769
+      ],
+      [
+        1.0378551733004486,
+        6.0598011490632295
+      ]
+    ],
+    "referenceFullEdgeNotPreciselyVisible": true,
+    "minimumWallClearanceMetres": 0.15980114906322918
+  },
+  "visualAccepted": false
+}
