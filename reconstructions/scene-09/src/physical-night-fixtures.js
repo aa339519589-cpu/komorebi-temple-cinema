@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {createWashiTissue103} from './washi-tissue103.js';
 
 export const NIGHT_FIXTURE_REVISION='scene09-stone-fixtures-and-local-light-70';
 const hash=(x,y=0,z=0)=>{const a=Math.sin(x*127.1+y*311.7+z*74.7+91.3)*43758.5453;return a-Math.floor(a);};
@@ -58,13 +59,9 @@ export function metricTimberGeometry(geometry,matrix,cache){
 }
 
 export function installNightPaper(M,materials,textures){
-  const n=256,base=new Uint8Array(n*n*4),emission=new Uint8Array(n*n*4);
-  for(let y=0;y<n;y++)for(let x=0;x<n;x++){
-    const i=(y*n+x)*4,fiber=.85+.09*hash(x,y)+.055*Math.sin(x*.63+Math.sin(y*.12))+.025*Math.sin(y*1.9),r=Math.hypot((x/n-.5)*1.25,(y/n-.5)*.95),lamp=.24+.76*Math.exp(-r*r*7.5);
-    base[i]=240*fiber;base[i+1]=224*fiber;base[i+2]=185*fiber;base[i+3]=255;emission[i]=emission[i+1]=emission[i+2]=255*lamp*fiber;emission[i+3]=255;
-  }
-  const tex=d=>{const t=new T.DataTexture(d,n,n);t.wrapS=t.wrapT=T.RepeatWrapping;t.needsUpdate=true;textures.push(t);return t;},paper=tex(base),light=tex(emission);paper.colorSpace=T.SRGBColorSpace;
-  M.paper.name='scene09-independent-lantern-paper';M.paper.color.setHex(0xbda06a);M.paper.emissive.setHex(0xffba5a);M.paper.emissiveIntensity=2.10;M.paper.map=paper;M.paper.emissiveMap=light;M.paper.bumpMap=paper;M.paper.bumpScale=.0015;M.paper.roughness=.84;
+  const {n,base,emission,info}=createWashiTissue103();
+  const tex=d=>{const t=new T.DataTexture(d,n,n);t.wrapS=t.wrapT=T.RepeatWrapping;t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.anisotropy=8;t.needsUpdate=true;textures.push(t);return t;},paper=tex(base),light=tex(emission);paper.colorSpace=T.SRGBColorSpace;
+  M.paper.name='scene09-independent-washi-tissue103';M.paper.color.setHex(0xbda06a);M.paper.emissive.setHex(0xffba5a);M.paper.emissiveIntensity=2.10;M.paper.map=paper;M.paper.emissiveMap=light;M.paper.bumpMap=paper;M.paper.bumpScale=.00004;M.paper.roughness=.84;M.paper.userData.tissue=info;
   M.windowPaper=M.paper.clone();M.windowPaper.name='scene09-recessed-room-paper';M.windowPaper.color.setHex(0xa48c64);M.windowPaper.emissiveIntensity=.72;
   M.pagodaPaper=M.windowPaper.clone();M.pagodaPaper.name='scene09-pagoda-paper';M.pagodaPaper.color.setHex(0x97805a);M.pagodaPaper.emissiveIntensity=.54;
   M.stonePaper=M.paper.clone();M.stonePaper.name='scene09-stone-lantern-inset-paper';M.stonePaper.emissiveIntensity=1.50;

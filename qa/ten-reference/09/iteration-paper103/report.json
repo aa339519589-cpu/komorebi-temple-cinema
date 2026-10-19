@@ -1,0 +1,841 @@
+{
+  "reference": 9,
+  "entry": "reconstructions/scene-09/index.html",
+  "worktree": "/Users/mima1234/temple-night09-paper103-20261019",
+  "size": 1254,
+  "startedAt": "2026-10-19T01:37:24.645Z",
+  "source": {
+    "hash": "56a0a0f3fc536d7ec74d5cd73fc4e40a0c3ecbef34536ccbeeffe4a68867c3b1",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-09/asset-dependencies.json": "f69383e9bf66d531b8c298aef9d2fec40ec4fe1ca5fc8b6c5365055ad807b5e8",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png": "0d46b0bfe3ed488f9855f51ec917355642d20afc45b5cbd1f6afad202ac747b6",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-provenance.json": "ec0c27f2dc67fed7f5c10e6c3d82dfcedea8aa7403fbf67dc50beada58700897",
+      "reconstructions/scene-09/assets/hero-hanging-lantern/provenance.json": "ed1e24b793fe9ff1619e309708b1765bad481242ac6db9c5df62ee0036c92448",
+      "reconstructions/scene-09/assets/physical-night-fixtures-provenance.json": "346141cb35cad7de65e9d009e1d84994ac0457b84fb8339608f52c456d3ba688",
+      "reconstructions/scene-09/index.html": "f10bccc1d16c93aa46ee5c417fbee1460acd8713b1bcaa0f96f2274ebd1bae30",
+      "reconstructions/scene-09/src/arched-garden-bridge.js": "2b7927c4863e40d0f683b4f2b465b0dd0d041d3d2071d131c48d1e9b9c0a7f9b",
+      "reconstructions/scene-09/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-09/src/bridge-coating.js": "932ebddf0d0723f81bf2230edbb9c37cfb9f3321875f3807f854a2327d369d85",
+      "reconstructions/scene-09/src/carved-joinery.js": "9190d3a92771139b0de1a8b83303472e1588bce05a44941af3b03e0921be3044",
+      "reconstructions/scene-09/src/garden-ferns.js": "77ef4f483cebdd0780e60fb2c258669b939bcfda2b454996a0abebdf3daa04b7",
+      "reconstructions/scene-09/src/hero-hanging-lantern.js": "85d524f955a00e8d02a90df6def9689b4e6d4bfcdbde93c2b7938f37a1f1e91d",
+      "reconstructions/scene-09/src/highlight-scatter.js": "7cfd3bed7479213f870d7be3868baf58a293f6644ce156a81507f2bad41b4b62",
+      "reconstructions/scene-09/src/lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+      "reconstructions/scene-09/src/lotus-petal.js": "921e5dcb2a87f784688909107b6e04f541bbd80b0d34885dab673aa29ece455f",
+      "reconstructions/scene-09/src/main.js": "f7dcfc7f9d85e04fdbc5286991e6bfd7da353e4ed2ce3d9e900d6bab394ef3dc",
+      "reconstructions/scene-09/src/physical-night-fixtures.js": "1eeceb833f2e8e51cd6a61a5cfe1daf2d423f6beb4ca3019d6d60f981993a80e",
+      "reconstructions/scene-09/src/pine-needles.js": "2b0c81a1ac2cc15d93da182a85e211061dcf7bfd492f1546a36f04dc611e514a",
+      "reconstructions/scene-09/src/process-bridge-roughness.py": "905116fb8b487cd1087968a72d51de9213b775e1a1d41ac3ba7f26df6c937141",
+      "reconstructions/scene-09/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-09/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-09/src/restoration-pruned-pines-v1.js": "f41adbbcf83bf56541d34e2861f803e4450dcc260f92a0fc5e76712cd9484e6b",
+      "reconstructions/scene-09/src/washi-tissue103.js": "738fbb6e1465af712de6ea1da93150b38daef1934c1ed5102de9a6e2ee3a7ddc",
+      "reconstructions/scene-09/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1"
+    }
+  },
+  "sourceCommit": "45dca955d899aad2ae14ed37932231b9933daf5d",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-09/index.html",
+    "/reconstructions/scene-09/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-09/src/highlight-scatter.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-09/src/pine-needles.js",
+    "/reconstructions/scene-09/src/lotus-leaf.js",
+    "/reconstructions/scene-09/src/lotus-petal.js",
+    "/reconstructions/scene-09/src/carved-joinery.js",
+    "/reconstructions/scene-09/src/restoration-altar.js",
+    "/reconstructions/scene-09/src/weathered-boulder.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-09/src/restoration-buddha.js",
+    "/reconstructions/scene-09/src/botany.js",
+    "/reconstructions/scene-09/src/restoration-pruned-pines-v1.js",
+    "/reconstructions/scene-09/src/garden-ferns.js",
+    "/reconstructions/scene-09/src/arched-garden-bridge.js",
+    "/reconstructions/scene-09/src/physical-night-fixtures.js",
+    "/reconstructions/scene-09/src/bridge-coating.js",
+    "/reconstructions/scene-09/src/hero-hanging-lantern.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/reconstructions/scene-09/src/washi-tissue103.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-09/assets/bridge-coating-roughness-2k.png"
+  ],
+  "detailCrop": {
+    "pixels": [
+      880,
+      0,
+      350,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 9,
+        "revision": "night-garden-one-hero-bronze-lantern-mesh76b",
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 329518,
+        "meshes": 4247,
+        "drawCalls": 35040,
+        "triangles": 94578640,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 2,
+          "pointLights": 67
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-one-bronze-pierced-hanging-lantern-76b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "originalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 38,
+            "unscaledDistance": 7,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 56,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 9,
+        "revision": "night-garden-one-hero-bronze-lantern-mesh76b",
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 329518,
+        "meshes": 4247,
+        "drawCalls": 35040,
+        "triangles": 94578640,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 2,
+          "pointLights": 67
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-one-bronze-pierced-hanging-lantern-76b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "originalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 38,
+            "unscaledDistance": 7,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 56,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9106877131933793,
+      "opaqueFraction": 0.9697255862579459,
+      "rgbaSha256": "b6aa11ac17e5be9a292c18d0604804426fedbfa020db60ced756bda23903ce31"
+    },
+    {
+      "pose": {
+        "reference": 9,
+        "revision": "night-garden-one-hero-bronze-lantern-mesh76b",
+        "width": 1254,
+        "height": 1254,
+        "frames": 2,
+        "instances": 329518,
+        "meshes": 4247,
+        "drawCalls": 34453,
+        "triangles": 76768620,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 2,
+          "pointLights": 67
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-one-bronze-pierced-hanging-lantern-76b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "originalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 38,
+            "unscaledDistance": 7,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 56,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 9,
+        "revision": "night-garden-one-hero-bronze-lantern-mesh76b",
+        "width": 1254,
+        "height": 1254,
+        "frames": 2,
+        "instances": 329518,
+        "meshes": 4247,
+        "drawCalls": 34453,
+        "triangles": 76768620,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 2,
+          "pointLights": 67
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-one-bronze-pierced-hanging-lantern-76b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "originalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 38,
+            "unscaledDistance": 7,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 56,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        880,
+        0,
+        350,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9824218004777058,
+      "opaqueFraction": 1,
+      "rgbaSha256": "a81c7c4bcc3cc649686ba5f0889544b9415d6594a5885bc09c5249df18c88f93"
+    }
+  ],
+  "completedAt": "2026-10-19T01:37:34.005Z"
+}
