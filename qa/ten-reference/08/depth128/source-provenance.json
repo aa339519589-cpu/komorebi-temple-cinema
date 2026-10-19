@@ -1,0 +1,81 @@
+{
+  "task": "Whole scene08 legacy-gallery depth diagnosis128",
+  "baseCommit": "d361dde83ed65eac9c6f845aeef39ff36ddd9288",
+  "runtimeSourceHash": "d7cdb6206c2be19d414793dc225f748eda88596806310ff0807863737117718c",
+  "runtimeFilesChanged": false,
+  "actualGpuJobs": 0,
+  "status": "CPU geometry candidate; visibility rejected; runtime unchanged",
+  "geometryCertificatePassed": true,
+  "overallPassed": false,
+  "physicalSiteAccepted": false,
+  "visualAccepted": false,
+  "allTenPhotoQualityAccepted": false,
+  "generatedPartCount": 18325,
+  "actualVertexCount": 2035260,
+  "minimumCertifiedEnvelopeGap": 0.25151323029374684,
+  "anchorUncertaintyPixels": [
+    15,
+    25
+  ],
+  "bounds": {
+    "scale": [
+      1,
+      1.6
+    ],
+    "yaw": [
+      -1.6,
+      1.6
+    ],
+    "z": [
+      -52,
+      -14
+    ],
+    "floor": [
+      1.2,
+      8.5
+    ],
+    "minimumEnvelopeGap": 0.25
+  },
+  "scopeLimit": "Three moved complete gallery assemblies versus five protected complete component envelopes and each other. Does not certify unrelated static junctions, proposed higher terrain, accesses or vegetation.",
+  "qaSourceHashes": {
+    "inspect-depth.mjs": "d217207049d9ef5e3d3815ca0ed14a31ba815950fcc07e8eec508db3a153f986",
+    "search-depth.mjs": "d90d0c6b12f9706a7e4af5940bb1411c5ad7ba99f1733c3ce453d3570d1a06af",
+    "certify-transforms.mjs": "7e9727b866fb46b76a813b371ed796fcc714a30ce0da9d7b99c20d6f682a2042",
+    "capture-envelopes.mjs": "a12dec7d88519022847326e04b7a2aeefeaed632dc5032055d799e7a39a2a573"
+  },
+  "nextRequiredEvidence": {
+    "status": "Required connected reconstruction, not yet added to runtime or asserted verified",
+    "keepPagodaBenchAtOrBelow": 3.65,
+    "foregroundZAtOrAbove": -2.8,
+    "upperCourts": [
+      {
+        "gallery": "west-legacy",
+        "y": 6.380581440834232,
+        "finishedFloor": 6.580581440834232
+      },
+      {
+        "gallery": "east-legacy",
+        "y": 6.008605272511407,
+        "finishedFloor": 6.208605272511408
+      },
+      {
+        "gallery": "rear-legacy",
+        "y": 6.380581440834232,
+        "finishedFloor": 6.580581440834232
+      }
+    ],
+    "rearVolumeExtentMinimum": {
+      "x": [
+        -14,
+        27
+      ],
+      "z": [
+        -55,
+        -24
+      ],
+      "bottom": -1.6
+    },
+    "coupling": "Closed upper terraced soil/rock banks must support complete gallery bases and remain outside pagoda occupied volume; ground/plant contacts must be resampled. Preserve the current main bridge/middle/right-gallery endpoints because those assemblies are fixed. New upper-court access needs real stairs/door bays; do not imply old overlapping solids constituted a walkway."
+  },
+  "noReferenceRGBProjection": true
+}

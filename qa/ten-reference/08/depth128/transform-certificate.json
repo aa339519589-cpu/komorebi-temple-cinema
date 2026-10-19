@@ -1,0 +1,736 @@
+{
+  "scope": "CPU-only transformation of every actual generated gallery mesh/instance, conservative full-volume separation certificate and original-camera observability; no runtime change or GPU frame",
+  "baseCommit": "d361dde83ed65eac9c6f845aeef39ff36ddd9288",
+  "checks": {
+    "allGeneratedAssemblyVerticesContained": true,
+    "allCandidateToProtectedAndEachOtherEnvelopesSeparated": true,
+    "allOriginalSixContainmentsClear": true,
+    "allRoomsAtLeast1p8": true,
+    "allUniformScalesWithinAuthorizedRange": true,
+    "runtimeUnchangedSinceRejected127": true,
+    "measuredRoofRaysSeeTheirTransformedGallery": false
+  },
+  "geometryCertificatePassed": true,
+  "runtimeSourceHash": "d7cdb6206c2be19d414793dc225f748eda88596806310ff0807863737117718c",
+  "passed": false,
+  "proposals": [
+    {
+      "name": "west-legacy",
+      "origin": [
+        -2.3662770059595766,
+        0.9805814408342314,
+        -35
+      ],
+      "yaw": -0.48,
+      "scale": 1.6,
+      "floor": 6.580581440834232,
+      "soilCourt": 6.380581440834232,
+      "roomClearance": 3.1519999999999997,
+      "rms": 18.720539392354546,
+      "predictions": [
+        {
+          "target": [
+            650,
+            562
+          ],
+          "predicted": [
+            634.4386923308451,
+            549.7836705004155
+          ],
+          "error": 19.78365494079688
+        },
+        {
+          "target": [
+            794,
+            608
+          ],
+          "predicted": [
+            779.3327198127508,
+            615.6109729311337
+          ],
+          "error": 16.524406707949353
+        },
+        {
+          "target": [
+            607,
+            537
+          ],
+          "predicted": [
+            626.2962059809552,
+            538.5579292318183
+          ],
+          "error": 19.35899555118508
+        }
+      ],
+      "partCount": 5525,
+      "vertexCount": 602590,
+      "vertexEscapeCount": 0,
+      "maxVertexEscape": 2.239417149496603e-7,
+      "worldBounds": {
+        "min": [
+          -10.886747413426832,
+          0.9805812835693359,
+          -43.48524964113997
+        ],
+        "max": [
+          6.134095051622182,
+          15.212463388322021,
+          -26.53599917625698
+        ]
+      },
+      "envelope": {
+        "name": "west-legacy",
+        "centre": [
+          -2.3372573999527257,
+          -34.97306795449862
+        ],
+        "axes": [
+          [
+            0.8869949227792842,
+            0.4617791755414829
+          ],
+          [
+            -0.4617791755414829,
+            0.8869949227792842
+          ]
+        ],
+        "half": [
+          6.4178231749731545,
+          6.289394925988723
+        ],
+        "y": [
+          0.9805812882463406,
+          15.212463157085606
+        ]
+      }
+    },
+    {
+      "name": "east-legacy",
+      "origin": [
+        15.73350107427673,
+        2.5836052725114076,
+        -31
+      ],
+      "yaw": -0.32000000000000006,
+      "scale": 1.45,
+      "floor": 6.208605272511408,
+      "soilCourt": 6.008605272511407,
+      "roomClearance": 2.7114999999999996,
+      "rms": 7.702047481883957,
+      "predictions": [
+        {
+          "target": [
+            845,
+            596
+          ],
+          "predicted": [
+            843.2275603716713,
+            594.5987889749821
+          ],
+          "error": 2.25941022674098
+        },
+        {
+          "target": [
+            980,
+            613
+          ],
+          "predicted": [
+            988.4558793076574,
+            609.5197997961219
+          ],
+          "error": 9.144052073601792
+        },
+        {
+          "target": [
+            1114,
+            615
+          ],
+          "predicted": [
+            1113.9353823484948,
+            602.2880367506885
+          ],
+          "error": 12.712127480981735
+        },
+        {
+          "target": [
+            1000,
+            558
+          ],
+          "predicted": [
+            998.1113625795583,
+            564.4242870134512
+          ],
+          "error": 6.696149261858712
+        }
+      ],
+      "partCount": 6675,
+      "vertexCount": 740104,
+      "vertexEscapeCount": 0,
+      "maxVertexEscape": 3.0647674620354337e-7,
+      "worldBounds": {
+        "min": [
+          6.167374805311013,
+          2.5836052894592285,
+          -38.841427192535946
+        ],
+        "max": [
+          25.282320293473305,
+          13.810847842355997,
+          -23.166508791049836
+        ]
+      },
+      "envelope": {
+        "name": "east-legacy",
+        "centre": [
+          15.813075244607681,
+          -30.9643690265379
+        ],
+        "axes": [
+          [
+            0.9492354180824408,
+            0.3145665606161178
+          ],
+          [
+            -0.3145665606161178,
+            0.9492354180824408
+          ]
+        ],
+        "half": [
+          8.356607168540359,
+          5.549505072832107
+        ],
+        "y": [
+          2.5836052725114076,
+          13.81084745619671
+        ]
+      }
+    },
+    {
+      "name": "rear-legacy",
+      "origin": [
+        3,
+        4.930581440834231,
+        -49
+      ],
+      "yaw": 0,
+      "scale": 1.1,
+      "floor": 6.580581440834232,
+      "soilCourt": 6.380581440834232,
+      "roomClearance": 2.167,
+      "rms": null,
+      "contourStatus": "No independent visible rear roof samples in the pre-change actual view; retain behind upper galleries as a weakly constrained complete assembly.",
+      "partCount": 6125,
+      "vertexCount": 692566,
+      "vertexEscapeCount": 0,
+      "maxVertexEscape": 2.575518394110077e-7,
+      "worldBounds": {
+        "min": [
+          -2.8156877347705063,
+          4.9305813908576965,
+          -52.401539184863765
+        ],
+        "max": [
+          9.198500171303749,
+          12.057399999592917,
+          -45.583877298699235
+        ]
+      },
+      "envelope": {
+        "name": "rear-legacy",
+        "centre": [
+          3.191406201869249,
+          -48.992708241939546
+        ],
+        "axes": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "half": [
+          6.007093758136034,
+          3.4088308691978457
+        ],
+        "y": [
+          4.930581440834231,
+          12.057399716285893
+        ]
+      }
+    }
+  ],
+  "separationCertificates": [
+    {
+      "a": "west-legacy",
+      "b": "fitted-hall",
+      "gap": 15.751460121619214,
+      "axis": [
+        0.0799146939691727,
+        0.9968017063026194
+      ]
+    },
+    {
+      "a": "west-legacy",
+      "b": "wing",
+      "gap": 11.976956438107987,
+      "axis": [
+        -0.4617791755414829,
+        0.8869949227792842
+      ]
+    },
+    {
+      "a": "west-legacy",
+      "b": "middle-gallery",
+      "gap": 14.815710529775968,
+      "axis": [
+        -0.09983341664682815,
+        0.9950041652780257
+      ]
+    },
+    {
+      "a": "west-legacy",
+      "b": "right-gallery",
+      "gap": 11.312883949633234,
+      "axis": [
+        -0.14943813247359922,
+        0.9887710779360422
+      ]
+    },
+    {
+      "a": "west-legacy",
+      "b": "pagoda",
+      "gap": 0.25151323029374684,
+      "axis": [
+        0.8869949227792842,
+        0.4617791755414829
+      ]
+    },
+    {
+      "a": "east-legacy",
+      "b": "fitted-hall",
+      "gap": 19.173782741127873,
+      "axis": [
+        -0.3145665606161178,
+        0.9492354180824408
+      ]
+    },
+    {
+      "a": "east-legacy",
+      "b": "wing",
+      "gap": 16.231140431708965,
+      "axis": [
+        -0.5226872289306592,
+        0.8525245220595057
+      ]
+    },
+    {
+      "a": "east-legacy",
+      "b": "middle-gallery",
+      "gap": 16.97038444126738,
+      "axis": [
+        -0.3145665606161178,
+        0.9492354180824408
+      ]
+    },
+    {
+      "a": "east-legacy",
+      "b": "right-gallery",
+      "gap": 12.391982286248638,
+      "axis": [
+        -0.3145665606161178,
+        0.9492354180824408
+      ]
+    },
+    {
+      "a": "east-legacy",
+      "b": "pagoda",
+      "gap": 0.6255900080797812,
+      "axis": [
+        -0.3894183423086505,
+        0.9210609940028851
+      ]
+    },
+    {
+      "a": "rear-legacy",
+      "b": "fitted-hall",
+      "gap": 35.07568093082038,
+      "axis": [
+        0,
+        1
+      ]
+    },
+    {
+      "a": "rear-legacy",
+      "b": "wing",
+      "gap": 31.774051286689115,
+      "axis": [
+        0,
+        1
+      ]
+    },
+    {
+      "a": "rear-legacy",
+      "b": "middle-gallery",
+      "gap": 33.95467418442452,
+      "axis": [
+        0,
+        1
+      ]
+    },
+    {
+      "a": "rear-legacy",
+      "b": "right-gallery",
+      "gap": 31.21068754146033,
+      "axis": [
+        0,
+        1
+      ]
+    },
+    {
+      "a": "rear-legacy",
+      "b": "pagoda",
+      "gap": 16.285673266867544,
+      "axis": [
+        0,
+        1
+      ]
+    },
+    {
+      "a": "west-legacy",
+      "b": "east-legacy",
+      "gap": 2.795468803457286,
+      "axis": [
+        0.9492354180824408,
+        0.3145665606161178
+      ]
+    },
+    {
+      "a": "west-legacy",
+      "b": "rear-legacy",
+      "gap": 2.901410071434613,
+      "axis": [
+        -0.4617791755414829,
+        0.8869949227792842
+      ]
+    },
+    {
+      "a": "east-legacy",
+      "b": "rear-legacy",
+      "gap": 6.7230124028156535,
+      "axis": [
+        0,
+        1
+      ]
+    }
+  ],
+  "minimumCertifiedGap": 0.25151323029374684,
+  "oldSix": [
+    {
+      "gallery": "west-legacy",
+      "oldPoint": [
+        -6.174432622917683,
+        3.605,
+        -6.3339592427231795
+      ],
+      "newPoint": [
+        -9.561734381868622,
+        6.588581440834232,
+        -32.87271879821304
+      ],
+      "stoneContainmentHits": []
+    },
+    {
+      "gallery": "west-legacy",
+      "oldPoint": [
+        -2.8279112316302735,
+        3.605,
+        -6.77147447406465
+      ],
+      "newPoint": [
+        -4.771961798860486,
+        6.588581440834232,
+        -30.37911125028904
+      ],
+      "stoneContainmentHits": []
+    },
+    {
+      "gallery": "west-legacy",
+      "oldPoint": [
+        0.09652139128740966,
+        3.605,
+        -10.43751523134147
+      ],
+      "newPoint": [
+        2.4234955770485573,
+        6.588581440834232,
+        -32.50639245207599
+      ],
+      "stoneContainmentHits": []
+    },
+    {
+      "gallery": "east-legacy",
+      "oldPoint": [
+        6.8,
+        2.505,
+        -13
+      ],
+      "newPoint": [
+        15.73350107427673,
+        6.215855272511407,
+        -31
+      ],
+      "stoneContainmentHits": []
+    },
+    {
+      "gallery": "east-legacy",
+      "oldPoint": [
+        6.8,
+        2.505,
+        -9.832
+      ],
+      "newPoint": [
+        14.28850812143053,
+        6.215855272511407,
+        -26.639592183496504
+      ],
+      "stoneContainmentHits": []
+    },
+    {
+      "gallery": "rear-legacy",
+      "oldPoint": [
+        6.2,
+        1.505,
+        -15.448
+      ],
+      "newPoint": [
+        7.950000000000001,
+        6.586081440834231,
+        -46.192800000000005
+      ],
+      "stoneContainmentHits": []
+    }
+  ],
+  "visibility": [
+    {
+      "targetGallery": "west-legacy",
+      "pixel": [
+        650,
+        562
+      ],
+      "firstActualHit": {
+        "material": "pine",
+        "role": "branching-garden-trees",
+        "groups": [
+          [
+            0,
+            2.6662179879196186,
+            0,
+            0,
+            1
+          ]
+        ],
+        "point": [
+          0.3174839900724827,
+          6.930053693219681,
+          -5.524585972268496
+        ]
+      }
+    },
+    {
+      "targetGallery": "west-legacy",
+      "pixel": [
+        794,
+        608
+      ],
+      "firstActualHit": {
+        "material": "pine",
+        "role": "branching-garden-trees",
+        "groups": [
+          [
+            0,
+            2.6662179879196186,
+            0,
+            0,
+            1
+          ]
+        ],
+        "point": [
+          2.1197697982574497,
+          6.011279022536749,
+          -4.1388454331505935
+        ]
+      }
+    },
+    {
+      "targetGallery": "west-legacy",
+      "pixel": [
+        607,
+        537
+      ],
+      "firstActualHit": {
+        "material": "red",
+        "role": "left-grand-hall",
+        "groups": [
+          [
+            -1.86,
+            1.5,
+            -7.5,
+            -0.55,
+            1
+          ]
+        ],
+        "point": [
+          -0.28409151343924993,
+          7.403753245360516,
+          -5.999103570822188
+        ]
+      }
+    },
+    {
+      "targetGallery": "east-legacy",
+      "pixel": [
+        845,
+        596
+      ],
+      "firstActualHit": {
+        "material": "pine",
+        "role": "branching-garden-trees",
+        "groups": [
+          [
+            0,
+            2.6662179879196186,
+            0,
+            0,
+            1
+          ]
+        ],
+        "point": [
+          2.5927884878061076,
+          5.939929747568261,
+          -3.0335219761849195
+        ]
+      }
+    },
+    {
+      "targetGallery": "east-legacy",
+      "pixel": [
+        980,
+        613
+      ],
+      "firstActualHit": {
+        "material": "pine",
+        "role": "branching-garden-trees",
+        "groups": [
+          [
+            0,
+            2.6662179879196186,
+            0,
+            0,
+            1
+          ]
+        ],
+        "point": [
+          4.342497254665765,
+          5.847079378664139,
+          -3.621176903123435
+        ]
+      }
+    },
+    {
+      "targetGallery": "east-legacy",
+      "pixel": [
+        1114,
+        615
+      ],
+      "firstActualHit": {
+        "material": "red",
+        "role": "layered-walkways",
+        "groups": [
+          [
+            7.9,
+            3.7,
+            -10,
+            -0.15,
+            1
+          ]
+        ],
+        "point": [
+          7.329739289024295,
+          6.531927209119124,
+          -7.340961335517917
+        ]
+      }
+    },
+    {
+      "targetGallery": "east-legacy",
+      "pixel": [
+        1000,
+        558
+      ],
+      "firstActualHit": {
+        "material": "pine",
+        "role": "branching-garden-trees",
+        "groups": [
+          [
+            0,
+            2.6662179879196186,
+            0,
+            0,
+            1
+          ]
+        ],
+        "point": [
+          4.867681028982404,
+          6.747755463105114,
+          -4.503954433956517
+        ]
+      }
+    }
+  ],
+  "terrainRequirements": {
+    "status": "Required connected reconstruction, not yet added to runtime or asserted verified",
+    "keepPagodaBenchAtOrBelow": 3.65,
+    "foregroundZAtOrAbove": -2.8,
+    "upperCourts": [
+      {
+        "gallery": "west-legacy",
+        "y": 6.380581440834232,
+        "finishedFloor": 6.580581440834232
+      },
+      {
+        "gallery": "east-legacy",
+        "y": 6.008605272511407,
+        "finishedFloor": 6.208605272511408
+      },
+      {
+        "gallery": "rear-legacy",
+        "y": 6.380581440834232,
+        "finishedFloor": 6.580581440834232
+      }
+    ],
+    "rearVolumeExtentMinimum": {
+      "x": [
+        -14,
+        27
+      ],
+      "z": [
+        -55,
+        -24
+      ],
+      "bottom": -1.6
+    },
+    "coupling": "Closed upper terraced soil/rock banks must support complete gallery bases and remain outside pagoda occupied volume; ground/plant contacts must be resampled. Preserve the current main bridge/middle/right-gallery endpoints because those assemblies are fixed. New upper-court access needs real stairs/door bays; do not imply old overlapping solids constituted a walkway."
+  },
+  "limits": [
+    "The certificates cover all actual parts of the three moved galleries against five fixed component envelopes and each other, not all static junctions or all-site clearance.",
+    "Roof contours are sparse partly occluded manual measurements with15–25px uncertainty; rear gallery has no independent photo depth constraint.",
+    "Actual transformed geometry is evaluated in memory; the required higher terrain, new access/door bays and revised vegetation have not been implemented or rendered.",
+    "Existing near pine/lantern groups may still obscure target roofs.",
+    "No photographic or whole-site acceptance."
+  ],
+  "visualAccepted": false,
+  "physicalSiteAccepted": false
+}
