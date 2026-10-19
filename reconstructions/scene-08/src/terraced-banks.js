@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {CORRIDOR_LAYOUT as L} from './corridor-layout.js';
+import {CORRIDOR_SITE130,pointInPlan} from './corridor-architecture130.js';
 
 // Whole-site ground hypothesis for ref08. Measurements constrain visible
 // bank/rill contours; no photograph is sampled or loaded by this module.
@@ -21,12 +22,9 @@ export function rillWaterY(z){return spline(z,[[-24,2.30],[-6,2.30],[-5.72,2.20]
 // The original low galleries cannot be buried by the new site fill. Their
 // floors rise while roof/eave world datums remain fixed; matching dry courts
 // keep at least 1.8m below the lowest continuous room beams.
-export const LEGACY_GALLERY_TERRACES=[
- {name:'west-legacy-gallery',origin:[-3.25,.1,-10],yaw:.13,w:7.5,d:7.4,soil:3.40,raised:3.50,h:2.90,eave:6.50},
- {name:'east-legacy-gallery',origin:[6.8,0,-13],yaw:0,w:10.8,d:7.2,soil:2.30,raised:2.50,h:2.80,eave:5.30},
- {name:'rear-legacy-gallery',origin:[1.7,0,-18],yaw:0,w:10,d:5.8,soil:1.30,raised:1.50,h:2.90,eave:4.40},
-];
-function courtLimit(x,z,height){for(const C of LEGACY_GALLERY_TERRACES){const dx=x-C.origin[0],dz=z-C.origin[2],xx=Math.cos(C.yaw)*dx-Math.sin(C.yaw)*dz,zz=Math.sin(C.yaw)*dx+Math.cos(C.yaw)*dz,out=Math.max(Math.abs(xx)-C.w*.48,Math.abs(zz)-C.d*.465),weight=1-smooth(0,.70,out);height=T.MathUtils.lerp(height,Math.min(height,C.soil),weight);}return height;}
+export const LEGACY_GALLERY_TERRACES=[];
+function distanceToPlan(x,z,P){let d=Infinity;for(let i=0;i<P.length;i++){const a=P[i],b=P[(i+1)%P.length],dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));}return d;}
+function courtLimit(x,z,height){const P=CORRIDOR_SITE130.rightPlan,inside=pointInPlan(x,z,P),d=inside?0:distanceToPlan(x,z,P),w=1-smooth(0,.7,d);return T.MathUtils.lerp(height,Math.max(height,CORRIDOR_SITE130.rightSoil),w);}
 function bankAnalytic(x,z){
  if(z>=-2.8)return originalSoilHeight(x,z);
  const C=rearRill(z),water=rillWaterY(z),dist=Math.abs(x-C.centre),west=x<C.centre,plateau=Math.max(water+.30,spline(z,[[-24,3.65],[-12,3.65],[-9,west?3.72:3.52],[-7,west?3.32:3.10],[-5.3,west?2.90:2.65],[-3.8,west?2.12:1.82],[-2.8,oldGround(-2.8)]]));
@@ -58,10 +56,10 @@ export function createTerracedBanks(){
  const moss=new T.BufferGeometry();moss.setAttribute('position',new T.Float32BufferAttribute(mossP,3));moss.setAttribute('uv',new T.Float32BufferAttribute(mossUV,2));moss.computeVertexNormals();moss.name='terrain127-soil-moss-on-real-benches';
  const heightAt=(x,z)=>z>=-2.8||x<x0||x>x0+width||z<z0?originalSoilHeight(x,z):interpolateGrid(x,z,x0,z0,dx,dz,nx,nz,(i,j)=>heights[j*(nx+1)+i]);
  const roots=[],rocks=[],relocations=[];
- const buildings=[{name:'fitted-hall',origin:L.hall.position,yaw:L.hall.yaw,w:L.hall.w,d:L.hall.d},{name:'wing',origin:L.wing.position,yaw:L.wing.yaw,w:L.wing.w,d:L.wing.d},{name:'middle-gallery',origin:L.middleGallery.position,yaw:L.middleGallery.yaw,w:4,d:4.5},{name:'right-gallery',origin:L.rightGallery.position,yaw:L.rightGallery.yaw,w:7.5,d:7.2},...LEGACY_GALLERY_TERRACES,{name:'pagoda',origin:L.pagoda.position,yaw:L.pagoda.yaw,w:5.8*L.pagoda.scale,d:5.8*L.pagoda.scale}];
+ const buildings=[{name:'fitted-hall',origin:L.hall.position,yaw:L.hall.yaw,w:L.hall.w,d:L.hall.d},{name:'wing-roof-and-attached-porch',polygon:CORRIDOR_SITE130.leftPlan},{name:'right-open-court',polygon:CORRIDOR_SITE130.rightPlan},{name:'pagoda',origin:L.pagoda.position,yaw:L.pagoda.yaw,w:5.8*L.pagoda.scale,d:5.8*L.pagoda.scale}];
  function clearSitePoint(type,x,z,margin=.2,crownClearance=Infinity){
   if(z>=-2.8)return[x,z];
-  const obstruction=(xx,zz)=>buildings.some(C=>{const dx=xx-C.origin[0],dz=zz-C.origin[2],a=Math.cos(C.yaw)*dx-Math.sin(C.yaw)*dz,b=Math.sin(C.yaw)*dx+Math.cos(C.yaw)*dz;return Math.abs(a)<C.w*.46+margin&&Math.abs(b)<C.d*.445+margin;});
+  const obstruction=(xx,zz)=>buildings.some(C=>{if(C.polygon)return pointInPlan(xx,zz,C.polygon)||distanceToPlan(xx,zz,C.polygon)<margin;const dx=xx-C.origin[0],dz=zz-C.origin[2],a=Math.cos(C.yaw)*dx-Math.sin(C.yaw)*dz,b=Math.sin(C.yaw)*dx+Math.cos(C.yaw)*dz;return Math.abs(a)<C.w*.46+margin&&Math.abs(b)<C.d*.445+margin;});
   const suitable=(xx,zz)=>{if(zz>-2.85||obstruction(xx,zz))return false;const soil=heightAt(xx,zz),C=rearRill(zz);if(soil<1.05||zz>=-10&&Math.abs(xx-C.centre)<C.halfWidth+.12)return false;if(Number.isFinite(crownClearance))for(let i=0;i<12;i++){const a=i*Math.PI/6;if(heightAt(xx+Math.cos(a)*margin,zz+Math.sin(a)*margin)>soil+crownClearance)return false;}return true;};
   if(suitable(x,z))return[x,z];
   // Keep each already sampled assembly intact. A deterministic shortest local
@@ -83,5 +81,5 @@ export function createTerracedBanks(){
  const flowP=[],flowUV=[],flowI=[],flowRows=200;
  for(let j=0;j<=flowRows;j++){const z=-10+j*7.2/flowRows,C=rearRill(z);for(let i=0;i<=waterCols;i++){const x=C.centre+(-1+2*i/waterCols)*C.halfWidth;flowP.push(x,rillWaterY(z),z);flowUV.push((x+.8)/3.2,(8.7-z)/15);if(j<flowRows&&i<waterCols){const a=j*(waterCols+1)+i,b=a+1,c=a+waterCols+1,d=c+1;flowI.push(a,c,b,b,c,d);}}}
  const rearWaterGeometry=new T.BufferGeometry();rearWaterGeometry.setAttribute('position',new T.Float32BufferAttribute(flowP,3));rearWaterGeometry.setAttribute('uv',new T.Float32BufferAttribute(flowUV,2));rearWaterGeometry.setIndex(flowI);rearWaterGeometry.computeVertexNormals();rearWaterGeometry.name='terrain127-physical-stepped-rear-rill-water';
- return{body,moss,waterGeometry,rearWaterGeometry,heightAt,rootY,rockY,clearSitePoint,rill:rearRill,waterY:rillWaterY,info:()=>({revision:'scene08-closed-terraced-banks127-stepped-rill',extent:{x:[x0,x0+width],z:[z0,-2.8],bottom},grid:[nx,nz],foregroundPreservedZ:-2.8,waterY:1,rearWaterProfile:[-10,-6,-5.72,-4.8,-4.52,-3.7,-3.43,-3.19,-2.98,-2.8].map(z=>({z,y:rillWaterY(z)})),legacyGalleryTerraces:LEGACY_GALLERY_TERRACES.map(C=>({...C,finishedFloor:C.origin[1]+C.raised,lowestContinuousBeam:C.eave-.93,roomClearance:C.h-.93})),rootContacts:roots,groundedRocks:rocks,assemblyRelocations:relocations,materialPolicy:'Existing rock/moss/water PBR materials retained',limits:'Terrace levels, winding shore and stepped rear hydraulic profile are inferred from one view; no photograph RGB or projection; photographic fidelity unaccepted',visualAccepted:false})};
+ return{body,moss,waterGeometry,rearWaterGeometry,heightAt,rootY,rockY,clearSitePoint,rill:rearRill,waterY:rillWaterY,info:()=>({revision:'scene08-supported-open-courts130',extent:{x:[x0,x0+width],z:[z0,-2.8],bottom},grid:[nx,nz],foregroundPreservedZ:-2.8,waterY:1,rearWaterProfile:[-10,-6,-5.72,-4.8,-4.52,-3.7,-3.43,-3.19,-2.98,-2.8].map(z=>({z,y:rillWaterY(z)})),corridorCourts130:CORRIDOR_SITE130,legacyGalleryTerraces:LEGACY_GALLERY_TERRACES.map(C=>({...C,finishedFloor:C.origin[1]+C.raised,lowestContinuousBeam:C.eave-.93,roomClearance:C.h-.93})),rootContacts:roots,groundedRocks:rocks,assemblyRelocations:relocations,materialPolicy:'Existing rock/moss/water PBR materials retained',limits:'Terrace levels, winding shore and stepped rear hydraulic profile are inferred from one view; no photograph RGB or projection; photographic fidelity unaccepted',visualAccepted:false})};
 }

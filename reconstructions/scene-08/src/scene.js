@@ -8,7 +8,9 @@ import {loadHeroGatePlaque} from './hero-gate-plaque.js';
 import {loadHeroGardenRock} from './hero-garden-rock.js';
 import {CORRIDOR_LAYOUT as L,buildCorridorPortal,buildCorridorNearRail,buildCorridorBridge} from './corridor-layout.js';
 import {createWingStoneCourses,buildGroundedFoundations} from './grounded-foundations.js';
-import {createTerracedBanks,LEGACY_GALLERY_TERRACES} from './terraced-banks.js';
+import {createTerracedBanks} from './terraced-banks.js';
+import {buildAttachedPorch130,buildRightCourt130} from './corridor-architecture130.js';
+import {buildGardenPine130} from './pine130.js';
 export async function buildScene(){
 const scene=new T.Scene();scene.background=new T.Color('#a4c3df');scene.fog=new T.Fog('#b2c5c1',47,105);
 let seed=80247;const random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296),rr=(a,b)=>a+(b-a)*random();
@@ -19,7 +21,7 @@ float mineral=sin(vMineral.x*19.+sin(vMineral.z*13.)*2.)*sin(vMineral.y*23.+vMin
 material('joinerygilt','#8d682d',.55,.73);material('hardwarebrass','#bb8b38',.43,.86);material('hardwareRecess','#6e5027',.54,.82);material('gallerytile','#405363',.72,.025);
 const heroPlaque=await loadHeroGatePlaque();materials.push(...heroPlaque.materials);
 const heroRock=await loadHeroGardenRock();materials.push(heroRock.material);textures.push(...heroRock.textures);
-const terrain127=createTerracedBanks();
+const terrain127=createTerracedBanks(),architecture130={};
 // Procedural mineral/bark detail; the namespaced CC0 timber scan is installed below.
 function texture(kind){const n=128,d=new Uint8Array(n*n*4);for(let y=0;y<n;y++)for(let x=0;x<n;x++){const p=(y*n+x)*4,q=kind==='wood'?.94+.013*Math.sin(x*.49+Math.sin(y*.025)*3+Math.sin(x*.029)*6)+rr(0,.025):kind==='plaster'?.97+rr(0,.025):.8+rr(0,.2);d[p]=d[p+1]=d[p+2]=255*q;d[p+3]=255;}const t=new T.DataTexture(d,n,n);t.wrapS=t.wrapT=T.RepeatWrapping;t.colorSpace=T.SRGBColorSpace;t.needsUpdate=true;textures.push(t);return t;}
 const envData=new Uint8Array(128*64*4);for(let ey=0;ey<64;ey++)for(let ex=0;ex<128;ex++){const q=(ey*128+ex)*4,f=ey/63,up=f<.5,blend=up?f*2:(f-.5)*2,c=up?[.40+.40*blend,.57+.25*blend,.75+.12*blend]:[.36-.24*blend,.40-.24*blend,.25-.14*blend];for(let k=0;k<3;k++)envData[q+k]=255*c[k];envData[q+3]=255;}const env=new T.DataTexture(envData,128,64);env.mapping=T.EquirectangularReflectionMapping;env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;textures.push(env);scene.environment=env;scene.environmentIntensity=.38;
@@ -117,14 +119,14 @@ function recedingWingRoof(){
   const path=Array.from({length:36},(_,j)=>{const p=P(1,-hd+j*span/35);p[1]-=drop;return p;});emit(createContinuousTimber(path,drop===.18?.115:.045,.19,.008),drop===.18?'wood':'red');
  }
  const pts=Array.from({length:30},(_,i)=>P(i/29,-hd));line(pts,.10,'tileedge');emit(createContinuousTimber(pts.map(p=>[p[0],p[1]-.20,p[2]]),.14,.15,.012),'wood');
- for(let j=0;j<=8;j++){const z=-hd+j*span/8,e=P(.82,z),top=e[1]-.34;box(w*.36,(top+6.15)/2,z,.15,Math.max(.1,top-6.15),.18,'red');brackets(w*.36,top-.4,z,.65);}
- const end=new T.Shape();end.moveTo(-w/2,6.65);for(let i=0;i<=28;i++){const p=P(i/28,zMax);end.lineTo(p[0],p[1]-.24);}end.lineTo(w/2,6.65);end.closePath();
- const endG=new T.ExtrudeGeometry(end,{depth:.18,steps:1,bevelEnabled:true,bevelThickness:.02,bevelSize:.02,bevelSegments:1});emit(endG,'wood',0,0,zMax-.17);
- for(let i=0;i<=7;i++){const x=-w*.45+i*w*.9/7,p=P((x+w/2)/w,zMax);box(x,(p[1]+6.65)/2,zMax+.04,.105,p[1]-6.65-.24,.16,'red');brackets(x,p[1]-.67,zMax+.04,.45);}box(0,6.76,zMax+.03,w*.94,.19,.22,'red');
+ // The former solid triangular end wall incorrectly closed the view across
+ // the attached low porch. The actual roof now has open supported end framing.
+ const endZ=zMax;for(const x of[.2,1.25,2.35]){const p=P((x+w/2)/w,endZ);between([x,6.4,endZ],[x,p[1]-.25,endZ],.10,'red',false,.15);}between([.2,6.4,endZ],[2.35,6.4,endZ],.11,'red',false,.18);
+ return z=>P(.86,z)[1]-.25;
 }
 
-role='left-grand-hall';group(...L.hall.position,L.hall.yaw,()=>{box(0,-1.05,0,10.0,2.7,6.9,'stone');hall(L.hall.w,L.hall.d,L.hall.h,{raised:L.hall.raised,roofRise:L.hall.roofRise,roofEaveDrop:L.hall.roofEaveDrop,roofCurl:L.hall.roofCurl,roofHorn:.26,frontHeight:2.65,frontCenter:3.5});});group(...L.wing.position,L.wing.yaw,()=>{hall(L.wing.w,L.wing.d,L.wing.h,{raised:L.wing.raised,roofRise:2.4,buildRoof:false,baseMode:'piers'});recedingWingRoof();});
-role='layered-walkways';group(-3.25,.1,-10,.13,()=>hall(7.5,7.4,LEGACY_GALLERY_TERRACES[0].h,{raised:LEGACY_GALLERY_TERRACES[0].raised}));group(...L.middleGallery.position,L.middleGallery.yaw,()=>{for(const x of[-1.4,1.4])for(const z of[-1.45,1.45])box(x,-1.835,z,.36,3.19,.40,'stone');for(const z of[-1.45,1.45])box(0,-.12,z,3.6,.24,.44,'stone');hall(4.0,4.5,L.middleGallery.h,{walls:false,raised:.22});});group(6.8,.0,-13,0,()=>hall(10.8,7.2,LEGACY_GALLERY_TERRACES[1].h,{raised:LEGACY_GALLERY_TERRACES[1].raised}));group(...L.rightGallery.position,L.rightGallery.yaw,()=>{box(0,-1.425,0,6.7,2.85,6.3,'stone');hall(7.5,7.2,L.rightGallery.h,{walls:false});});group(1.7,.0,-18,0,()=>hall(10.0,5.8,LEGACY_GALLERY_TERRACES[2].h,{raised:LEGACY_GALLERY_TERRACES[2].raised}));
+role='left-grand-hall';group(...L.hall.position,L.hall.yaw,()=>{box(0,-1.05,0,10.0,2.7,6.9,'stone');hall(L.hall.w,L.hall.d,L.hall.h,{raised:L.hall.raised,roofRise:L.hall.roofRise,roofEaveDrop:L.hall.roofEaveDrop,roofCurl:L.hall.roofCurl,roofHorn:.26,frontHeight:2.65,frontCenter:3.5});});group(...L.wing.position,L.wing.yaw,()=>{const roofSide=recedingWingRoof();architecture130.left=buildAttachedPorch130({group,box,emit,between,lattice,ceramicTile,brackets,roof},terrain127,roofSide);});
+role='right-court130';architecture130.right=buildRightCourt130({group,box,emit,between,lattice,ceramicTile,brackets,roof},terrain127);
 // Source anchors: compact white/red storeys, closely carved cornices,
 // a true four-slope blue-tiled crown and narrow many-ring sorin.
 role='five-tier-pagoda';group(...L.pagoda.position,L.pagoda.yaw,()=>{
@@ -188,7 +190,7 @@ role='garden-ground';box(0,-.9,8.6,70,1,22.8,'moss');const water=new T.MeshPhysi
 const rocks=Array.from({length:9},(_,i)=>createWeatheredBoulderGeometry(T,{seed:803+i,sectors:20,rings:11})),moss=rocks.map(g=>createBoulderMossGeometry(T,g));
 let heroRockTerrain;const ground=z=>Math.max(0,Math.min(1.7,(4-z)*.07));{const pp=[],uv=[],ix=[],nx=100,nz=100;for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){const x=-28+i*56/nx,z=-42+j*60/nz,channel=(z>-7&&z<9)?1-T.MathUtils.smoothstep(Math.abs(x-.8),1.4,2.0):0,land=ground(z)-.08+.06*Math.sin(x*1.7+z*.9)*Math.sin(z*1.4-x*.6);pp.push(x,land*(1-channel)-.5*channel,z);uv.push(x*.45,z*.45);}for(let j=0;j<nz;j++)for(let i=0;i<nx;i++){const a=j*(nx+1)+i,b=a+1,c=a+nx+1,d=c+1;ix.push(a,c,b,b,c,d);}const terrain=new T.BufferGeometry();terrain.setAttribute('position',new T.Float32BufferAttribute(pp,3));terrain.setAttribute('uv',new T.Float32BufferAttribute(uv,2));terrain.setIndex(ix);terrain.computeVertexNormals();heroRockTerrain=terrain;const visible=terrain.clone(),retained=[];for(let k=0;k<ix.length;k+=3){const vertices=ix.slice(k,k+3),cx=vertices.reduce((a,j)=>a+pp[j*3],0)/3,cz=vertices.reduce((a,j)=>a+pp[j*3+2],0)/3;if(cz>=-2.8||cz<-24||Math.abs(cx)>20)retained.push(...vertices);}visible.setIndex(retained);emit(visible,'moss');geometries.add(terrain);emit(terrain127.body,'rock');emit(terrain127.moss,'moss');}function rock(x,y,z,sx,sy,sz,i){[x,z]=terrain127.clearSitePoint('rock',x,z,Math.max(sx,sz)*.65);y=terrain127.rockY(rocks[i%9],x,z,sx,sy,sz,i*.71,y+ground(z));emit(rocks[i%9],'rock',x,y,z,sx,sy,sz,[0,i*.71,0]);emit(moss[i%9],'moss',x,y,z,sx,sy,sz,[0,i*.71,0]);}
 role='weathered-garden-rocks';for(let i=0;i<115;i++){const z=rr(-21,7),side=i%2?-1:1,x=.8+side*rr(2,8.6);rock(x,rr(-.2,.35),z,rr(.35,1.25),rr(.45,1.4),rr(.4,1.35),i);}rock(-1.45,1.10,.4,.9,2.5,.8,5);heroRock.place(emit,heroRockTerrain);rock(-1.2,1.45,-2.2,.6,1.1,.65,6);rock(-2.4,1.6,-.5,.8,1.2,.8,4);rock(3.4,.05,3.5,1.4,1.1,1.1,7);rock(-3.1,1.05,.6,1.1,1.1,1.2,8);for(let i=0;i<14;i++){const z=-3+i*.68,side=i%2?1:-1;rock(.8+side*rr(1.8,2.15),.65,z,rr(.65,1.0),rr(.65,1.0),rr(.55,.9),i+5);}
-const priorFoundationRole=role;role='grounded-foundations126';const foundation126=buildGroundedFoundations({emit,landSurfaces:foundationLand},L);role=priorFoundationRole;
+const priorFoundationRole=role;role='grounded-foundations126';const foundation126=buildGroundedFoundations({emit,landSurfaces:foundationLand},{...L,wingFoundationMode:'annex130'});role=priorFoundationRole;
 // Weathered, carved granite: a curved four-hip kasa with a double curled rim,
 // a pierced lamp chamber, molded lotus collars and an uneven stone shaft.
 material('carvedstone','#a7a18f',.96);mats.carvedstone.map=stone;mats.carvedstone.bumpMap=stone;mats.carvedstone.bumpScale=.06;
@@ -244,7 +246,7 @@ function stoneLantern(x,z,y,scale){[x,z]=terrain127.clearSitePoint('stone-lanter
   const a=k*2.39996,xx=Math.cos(a)*.57,zz=Math.sin(a)*.53;emit(rocks[k%9],'moss',xx,H(xx,zz)+.02,zz,.055,.025,.07,[0,a,0]);
  }
 },scale);}
-role='stone-lanterns';stoneLantern(-3.1,.6,2.55,1.10);stoneLantern(1.35,-7,1.2,1.1);stoneLantern(5.3,-9.2,.15,.65);
+role='stone-lanterns';stoneLantern(-3.1,.6,2.55,1.10);stoneLantern(2.9,-12.5,3.65,.62);stoneLantern(5.3,-13.5,3.65,.50);
 // Each crown is a hierarchy of tapering branches with distributed individual
 // folded leaves. The silhouettes retain air, asymmetry and branch direction.
 function leaf(x,y,z,size,ma='leaf',yaw=0){if(ma==='pine'){emit(needleG,ma,x,y,z,size*3.0,size*3.0,size*3.0,[rr(-.5,.5),yaw,rr(-.8,.8)],rr(.72,1.25));return;}size*=z>4.5?.57:1.05;emit(leafG,ma,x,y,z,size*.78,size,size,[rr(-1.15,1.15),yaw,rr(-1.1,1.1)],rr(.67,1.24));}
@@ -252,26 +254,12 @@ const bloomG=new T.BufferGeometry(),bloomP=[];for(let k=0;k<5;k++){const a=k*Mat
 function leafyTwig(a,b,spread,ma='leaf',count=100){between(a,b,spread*.026,'bark',true);for(let j=0;j<count;j++){const t=random(),r=Math.sqrt(random())*spread,aa=rr(0,Math.PI*2),x=a[0]+(b[0]-a[0])*t+Math.cos(aa)*r,y=a[1]+(b[1]-a[1])*t+rr(-.35,.48)*spread,z=a[2]+(b[2]-a[2])*t+Math.sin(aa)*r;leaf(x,y,z,rr(.075,.17),ma,aa);if(ma==='maple'&&j%9===0)emit(bloomG,'flower',x,y+.03,z,rr(.8,1.5),1,rr(.8,1.5),[rr(-1,1),aa,rr(-1,1)],rr(.85,1.2));}}
 function shrub(x,y,z,r,h,ma='leaf',count=1000){[x,z]=terrain127.clearSitePoint('shrub',x,z,r*.85,h*.65);y=terrain127.rootY('shrub',x,z,y+ground(z),h,r);for(let j=0;j<5;j++){const a=j*2.39996,root=[x,y,z],elbow=[x+Math.cos(a)*r*.24,y+h*.31,z+Math.sin(a)*r*.24],fork=[x+Math.cos(a)*r*.58,y+h*rr(.54,.68),z+Math.sin(a)*r*.58];between(root,elbow,.045,'bark',true);between(elbow,fork,.034,'bark',true);for(let k=0;k<3;k++){const aa=a+(k-1)*.62,tip=[fork[0]+Math.cos(aa)*r*.33,y+h*rr(.76,.97),fork[2]+Math.sin(aa)*r*.33];between(fork,tip,.020,'bark',true);for(let m=0;m<2;m++){const ab=aa+(m?1:-1)*.6,end=[tip[0]+Math.cos(ab)*r*.22,tip[1]+rr(-.06,.12)*h,tip[2]+Math.sin(ab)*r*.22];leafyTwig([fork[0]+(tip[0]-fork[0])*.25,fork[1]+(tip[1]-fork[1])*.25,fork[2]+(tip[2]-fork[2])*.25],end,r*.27,ma,Math.ceil(count/20));}}}}
 function treeBody(x,z,h,spread,ma='leaf'){const trunk=[[x,0,z],[x-.15,h*.36,z+.1],[x+.10,h*.71,z-.13],[x-.24,h,z]];for(let i=0;i<3;i++)between(trunk[i],trunk[i+1],.23*(1-i*.22),'bark',true);for(let j=0;j<15;j++){const f=.38+j*.041,a=j*2.39996,rad=spread*(.7+.3*Math.sin(j*3)),start=[x+.08,h*f,z],tip=[x+Math.cos(a)*rad,h*f+rr(.35,1.25),z+Math.sin(a)*rad];between(start,tip,.095*(1-f*.7),'bark',true);for(let k=0;k<5;k++){const b=[tip[0]+rr(-.65,.65),tip[1]+rr(-.1,.6),tip[2]+rr(-.65,.65)];leafyTwig(tip,b,spread*.32,ma,210);}}}
-function pineBody(x,z,h,spread){
- let old=[x,0,z];for(let i=1;i<=8;i++){const q=[x+Math.sin(i*.69)*.55,h*i/8,z+Math.cos(i*.57)*.33];between(old,q,.31*(1-i/10),'bark',true);old=q;}
- // Horizontal, broken crown pads leave the bent trunk and rising branch forks
- // visible instead of filling the whole crown with a vertical olive curtain.
- for(let j=0;j<13;j++){
-  const a=j*2.39996,f=.33+j*.041,r=spread*(1-f*.58),start=[x+Math.sin(f*5)*.45,h*f,z],mid=[x+Math.cos(a)*r*.56,h*f-.20,z+Math.sin(a)*r*.56],end=[x+Math.cos(a)*r,h*f+.40,z+Math.sin(a)*r];between(start,mid,.11,'bark',true);between(mid,end,.065,'bark',true);
-  for(let k=0;k<4;k++){
-   const aa=a+(k-1.5)*.38,c=[end[0]+Math.cos(aa)*.55,end[1]+rr(.03,.25),end[2]+Math.sin(aa)*.55];between(end,c,.022,'bark',true);
-   for(let n=0;n<900;n++){
-    const rad=Math.sqrt(random()),az=rr(0,6.283),px=c[0]+Math.cos(az)*rad*.82,pz=c[2]+Math.sin(az)*rad*.61,py=c[1]+.42*Math.sqrt(1-rad*rad)+rr(-.12,.12);
-    leaf(px,py,pz,rr(.075,.14),'pine',az);
-   }
-  }
- }
-}
 // Raising roots and shortening the actual trunk keeps the authored crown top
 // while moving each connected tree to the new soil, rather than scaling leaves.
 function tree(x,z,h,spread,ma='leaf'){if(z>=-2.8)return treeBody(x,z,h,spread,ma);[x,z]=terrain127.clearSitePoint('tree',x,z,.65);const root=terrain127.rootY('tree',x,z,0,h,spread);group(0,root,0,0,()=>treeBody(x,z,Math.max(2.3,h-root),spread,ma));}
-function pine(x,z,h,spread){if(z>=-2.8)return pineBody(x,z,h,spread);[x,z]=terrain127.clearSitePoint('pine',x,z,.55);const root=terrain127.rootY('pine',x,z,0,h,spread);group(0,root,0,0,()=>pineBody(x,z,Math.max(2.3,h-root),spread));}
-role='branching-garden-trees';pine(3,-6,7.5,2.9);pine(-1.1,-15,6.3,2.1);tree(8,-9,10.6,3.1,'maple');tree(-10,-9,15,4.9,'leaf');tree(10,-22,15,4.6,'leaf');tree(-7,-28,13,4,'leaf');tree(13,-2,14,4.7,'leaf');for(let i=0;i<5;i++)tree(8+i*3.2,-30-i*1.7,17+i*.8,4.5,'leaf');
+role='branching-garden-trees';// Consume the two removed radial pines' original327652 RNG draws each,
+// keeping all other garden samples stable while the new connected tree owns its seed.
+for(let i=0;i<655304;i++)random();const gardenPine130=buildGardenPine130({emit,needleG},terrain127);tree(10,-17,10.6,3.1,'maple');tree(-10,-9,15,4.9,'leaf');tree(10,-22,15,4.6,'leaf');tree(-7,-28,13,4,'leaf');tree(13,-2,14,4.7,'leaf');for(let i=0;i<5;i++)tree(8+i*3.2,-30-i*1.7,17+i*.8,4.5,'leaf');
 role='hanging-veranda-foliage';// Overhanging canopy is high and lateral; the pagoda has a clean sky opening.
 leafyTwig([-5.5,10.55,2.0],[-1.7,10.0,2.5],1.2,'leaf',5000);leafyTwig([-2.9,10.6,2.3],[-.6,10.3,2.0],.88,'leaflight',2600);leafyTwig([7.6,9.7,2.1],[4.0,8.8,3.0],1.5,'leaf',6000);
 role='dense-layered-shrubs';for(let i=0;i<66;i++){const z=rr(-17,7.7),side=i%2?1:-1,x=.8+side*rr(2.15,7.5);shrub(x,.1,z,rr(.5,1.2),rr(.5,1.3),i%7===0?'maple':i%3===0?'leaflight':'leaf',550);}shrub(-2.65,.95,8.05,1.9,1.6,'leaf',4200);shrub(4.0,.0,2.3,1.75,1.2,'maple',2100);
@@ -284,5 +272,5 @@ const skyG=new T.SphereGeometry(120,32,20),skyM=new T.ShaderMaterial({side:T.Bac
 const scannedTimber=await installScannedTimber(mats);const timberMats=new Set(['red','redlight','wood','dark'].map(k=>mats[k]));const bounceMats=new Set([...['red','redlight','wood','dark','gold','oldgold','wall','joinerygilt','hardwarebrass','hardwareRecess'].map(k=>mats[k]),...heroPlaque.materials]);
 let instances=0,triangles=0;for(const {g,m,items} of buckets.values()){if(timberMats.has(m))addTimberExtent(g);const mesh=new T.InstancedMesh(g,m,items.length);for(let i=0;i<items.length;i++){mesh.setMatrixAt(i,items[i].matrix);mesh.setColorAt(i,new T.Color().setScalar(items[i].tint));}mesh.instanceMatrix.needsUpdate=true;mesh.castShadow=mesh.receiveShadow=true;if(g===leafG)mesh.castShadow=true;mesh.frustumCulled=true;if(bounceMats.has(m))mesh.layers.enable(1);scene.add(mesh);instances+=items.length;triangles+=(g.index?.count??g.attributes.position.count)/3*items.length;}
 scene.add(new T.HemisphereLight('#c5def5','#78633d',1.05));scene.add(new T.AmbientLight('#a5b9d6',.06));const porchBounce=new T.DirectionalLight('#ffdcac',.34);porchBounce.position.set(7,6,16);scene.add(porchBounce);const eaveBounce=new T.DirectionalLight('#ffc780',.85);eaveBounce.layers.set(1);eaveBounce.position.set(4,1.8,5);eaveBounce.target.position.set(-4,9,-10);scene.add(eaveBounce,eaveBounce.target);const sun=new T.DirectionalLight('#ffdda5',4.4);sun.position.set(15,20,8);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-27,right:27,top:33,bottom:-18,near:1,far:90});sun.shadow.bias=-.00014;sun.shadow.normalBias=.035;sun.target.position.set(0,4,-7);scene.add(sun,sun.target);const fill=new T.DirectionalLight('#b4cff1',.30);fill.position.set(-10,14,-18);scene.add(fill);
-return {scene,setTime(time){stream.material.uniforms.waterTime.value=Number.isFinite(time)?time:0;},stats:{instances,triangles,roles,seed:80247,rngFinalState:seed,foundation126,terrain127:terrain127.info(),layout122:{...L,nearRail:nearRailLayout,bridge:bridgeLayout,visualAccepted:false},heroRock108:heroRock.info,meshPass:{candidate:'one-cast-plaque83',heroPlaque:heroPlaque.info,leftHallClosedBracketPieces:galleryJoinery.parts.length,scope:'Exactly one left inner gate plaque; mesh70 gallery, all other hardware, site and camera retained'},description:'Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.'},dispose(){scannedTimber.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
+return {scene,setTime(time){stream.material.uniforms.waterTime.value=Number.isFinite(time)?time:0;},stats:{instances,triangles,roles,seed:80247,rngFinalState:seed,architecture130,pine130:gardenPine130,foundation126,terrain127:terrain127.info(),layout122:{...L,nearRail:nearRailLayout,bridge:bridgeLayout,visualAccepted:false},heroRock108:heroRock.info,meshPass:{candidate:'one-cast-plaque83',heroPlaque:heroPlaque.info,leftHallClosedBracketPieces:galleryJoinery.parts.length,scope:'Exactly one left inner gate plaque; mesh70 gallery, all other hardware, site and camera retained'},description:'Independent veranda frame, grand left hall, layered galleries, five-storey pagoda, curved bridge, narrow rill and individually leafed garden.'},dispose(){scannedTimber.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
 }
