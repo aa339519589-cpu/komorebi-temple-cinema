@@ -1,0 +1,9 @@
+{
+  "visualAccepted": false,
+  "opticalIncrementSelected": true,
+  "viewed": ["shot-0.png", "shot-3p5.png", "shot-7.png"],
+  "change": "Replace the 2.6px inverse-depth blur factor with an authored 36mm vertical-sensor, f/1.8 thin-lens circle-of-confusion calculation and a fixed 65-sample gather. Existing continuous reciprocal-distance rack focus retained.",
+  "findings": ["The close flower remains in focus while the distant hall has depth separation.", "Focus moves toward the architecture during the existing physical low-camera pullback.", "At the end, near bud/leaves have softer focus while the main hall remains clear."],
+  "limitations": ["Camera optical parameters are authored choices; no reference EXIF was available.", "The post gather has one screen-depth layer, so it cannot integrate hidden foreground colour or separate water's blended focus planes.", "Static deterministic sampling removes time-varying random noise but does not by itself establish complete flicker-free motion or photographic quality.", "Petal and architecture sculptural fidelity remain unaccepted."],
+  "sourceScope": "Lens only; no material, geometry, exposure, lighting, camera path or pose change."
+}
