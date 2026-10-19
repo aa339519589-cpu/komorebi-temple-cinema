@@ -3,6 +3,7 @@ import {createReference6ColumnCollar} from './reference6-column-collar.js';
 import {createReference6CofferRelief} from './reference6-coffer-relief.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import {bindFloorScan106} from './floor-scan106.js';
 import {buildRestorationAltar,buildRestorationHangingOrnaments} from './restoration-altar.js';
 import {emitRestoredBuddha} from './restoration-buddha.js';
 import {bindFloorVarnish,bindFloorReflection,createFloorReflectionState} from './floor-varnish.js';
@@ -35,7 +36,7 @@ function castGiltMicroSurface(){
  }
  const t=new T.DataTexture(data,n,n,T.RGBAFormat);t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(7,7);t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.generateMipmaps=true;t.anisotropy=8;t.needsUpdate=true;return t;
 }
-export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCubeSize=128}={}){
+export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCubeSize=128,floorSurface=null}={}){
  const scene=new T.Scene();scene.background=new T.Color('#ead4aa').multiplyScalar(3.0);const architecture=new T.Group();architecture.name='reference6-independent-room';scene.add(architecture);const wood=woodMap();
  const materials={
   column:new T.MeshPhysicalMaterial({name:'reference6-red-lacquer-column',color:'#963a25',map:wood,bumpMap:wood,bumpScale:.0012,roughness:.38,metalness:0,clearcoat:.22,clearcoatRoughness:.28}),
@@ -54,6 +55,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
   ceilingWood:new T.MeshStandardMaterial({name:'reference6-central-timber-ceiling',color:'#683722',map:wood,roughness:.72,bumpMap:wood,bumpScale:.001}),
   mat:new T.MeshStandardMaterial({name:'reference6-woven-straw',color:'#bda477',roughness:.91,bumpScale:.00045}),
  };
+ if(floorSurface){materials.floor.color.setRGB(...floorSurface.record.materialLinearGain);materials.floor.map=floorSurface.map;}
  const giltMicro=castGiltMicroSurface();for(const m of[materials.gold,materials.oldgold,materials.buddha]){m.roughnessMap=giltMicro;m.bumpMap=giltMicro;m.bumpScale=.00028;}
  materials.sculptureRecess=new T.MeshStandardMaterial({name:'scene06-recessed-gilt-anatomy',color:'#604018',metalness:.78,roughness:.43});
  materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-chased-lap-cloth-gilt';materials.clothGold.color.set('#96702e');materials.clothGold.metalness=.85;materials.clothGold.roughness=.39;
@@ -71,12 +73,12 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
   const x=-6.84+(i+.5)*.72,offset=(i%3)*.58;
   for(let k=-1;k<10;k++){
    const lo=Math.max(-5.9,-5.9+k*1.74+offset);let hi=Math.min(10.1,-5.9+(k+1)*1.74+offset);if(i>=7&&i<=11)hi=Math.min(hi,FOREGROUND_FLOOR_PATCH.z[0]);if(hi<=lo)continue;
-   const m=materials.floor.clone();m.color.multiplyScalar(.91+.15*((i*13+k*7+71)%19)/18);const grain=wood.clone();grain.repeat.set(.6,(hi-lo)/.8);grain.offset.set((i*17%31)/31,(k*11%23)/23);grain.needsUpdate=true;m.map=m.bumpMap=grain;bindFloorVarnish(m,floorReflectionState,i);
+   const m=materials.floor.clone();m.color.multiplyScalar(.91+.15*((i*13+k*7+71)%19)/18);const grain=(floorSurface?.map??wood).clone();grain.repeat.set(.6,(hi-lo)/.8);grain.offset.set((i*17%31)/31,(k*11%23)/23);grain.needsUpdate=true;m.map=m.bumpMap=grain;bindFloorScan106(m,grain,floorSurface);bindFloorVarnish(m,floorReflectionState,i);
    const board=box([x,-.025,(lo+hi)/2],[.7193,.05,hi-lo-.0008],m);board.name='scene06-jointed-polished-floorboard';
   }
  }
  for(let i=0;i<FOREGROUND_FLOOR_PATCH.x.length-1;i++)for(let k=0;k<FOREGROUND_FLOOR_PATCH.z.length-1;k++){
-  const m=materials.floor.clone(),grain=wood.clone();grain.repeat.set(1,1);grain.offset.set((i*17+k*7)%31/31,(k*11+i*3)%23/23);grain.needsUpdate=true;m.map=grain;m.color.multiplyScalar(.96+.06*((i*13+k*7+71)%19)/18);bindFloorVarnish(m,floorReflectionState,101+i*13+k*3);
+  const m=materials.floor.clone(),grain=(floorSurface?.map??wood).clone();grain.repeat.set(1,1);grain.offset.set((i*17+k*7)%31/31,(k*11+i*3)%23/23);grain.needsUpdate=true;m.map=grain;m.color.multiplyScalar(.96+.06*((i*13+k*7+71)%19)/18);bindFloorScan106(m,grain,floorSurface);bindFloorVarnish(m,floorReflectionState,101+i*13+k*3);
   const g=createForegroundFloorPanel(FOREGROUND_FLOOR_PATCH.x[i],FOREGROUND_FLOOR_PATCH.x[i+1],FOREGROUND_FLOOR_PATCH.z[k],FOREGROUND_FLOOR_PATCH.z[k+1]),panel=mesh(g,m);panel.name='scene06-observed-foreground-thick-wood-panel';
  }
  box([0,3.6,-5.8],[13.8,7.2,.26],materials.dark);// Inferred broad entrance behind the camera, not a black reflection trap.

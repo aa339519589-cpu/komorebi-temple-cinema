@@ -7,6 +7,7 @@ import {createReference6CameraShot} from './reference6-camera-shot.js';
 import {createShotFocusPass} from './shot-focus.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {buildReference6Scene,REFERENCE6_FOUNDATION} from './reference6-scene.js';
+import {loadFloorSurface106} from './floor-scan106.js';
 import {createRestorationScatteringPass} from './restoration-lighting.js';
 import {installRestorationRenderDiagnostics} from './restoration-render-diagnostics.js';
 
@@ -28,8 +29,9 @@ const composerAA=diagnostics.run('reference6-composer-aa-capability',()=>{
  return Object.freeze({requestedSamples:4,samples,colorFormat:'RGBA16F',depthFormat:'DEPTH_COMPONENT24',colorSamples:Object.freeze(colorSamples),depthSamples:Object.freeze(depthSamples),maxSamples,active:samples>0,mode:samples>0?'multisample-composer':'unsupported-format-no-aa',scope:'Geometry coverage only; no promise to remove normal-map/specular aliasing.'});
 });
 const camera=new T.PerspectiveCamera(REFERENCE6_FOUNDATION.camera.fov,width/height,.06,60);camera.position.fromArray(REFERENCE6_FOUNDATION.camera.position);camera.lookAt(new T.Vector3(...REFERENCE6_FOUNDATION.camera.target));camera.updateMatrixWorld(true);
+const floorSurface=await loadFloorSurface106();
 let room;
-try {room=diagnostics.run('reference6-room-build',()=>buildReference6Scene({reflectionSize:768,shadowSize:2048,roomCubeSize:128}));diagnostics.run('reference6-room-environment-capture',()=>room.initializeEnvironment(renderer));}catch(error){renderer.dispose();throw error;}
+try {room=diagnostics.run('reference6-room-build',()=>buildReference6Scene({reflectionSize:768,shadowSize:2048,roomCubeSize:128,floorSurface}));diagnostics.run('reference6-room-environment-capture',()=>room.initializeEnvironment(renderer));}catch(error){renderer.dispose();throw error;}
 const {scene,sun}=room;
 // Locate the actual central bowl/cartouche surface without changing any
 // geometry or material. Altar-local Y1.426 lies across the six-lobed body.
