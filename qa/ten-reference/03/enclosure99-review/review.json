@@ -1,0 +1,70 @@
+{
+  "status": "bounded-visible-enclosure-candidate",
+  "sourceHash": "e89f2b3511acd26ebe609ea37a8fb8d0d22121af9d10cb08b836c4e6c9db47cb",
+  "baseCommit": "37c320b699edd019ab28fbdbc2005398961f5804",
+  "viewed": [
+    "original03 full1254",
+    "exact-source native leaf97 full1254",
+    "original upper inspection crop",
+    "native97 upper inspection crop",
+    "actual enclosure99 full1254",
+    "actual enclosure99 native detail1254"
+  ],
+  "diagnosis": "Existing narrow pale strips were in front of the dark wall, not hidden by it. The visible lower strip lacked segmented pale infill and a finite front rail; this is distinct from the separate tower window occlusion.",
+  "changedRegion": {
+    "oldContinuousWallCutY": [
+      10.075,
+      11.23
+    ],
+    "retainedWallY": [
+      11.23,
+      14.325
+    ],
+    "actualNewBounds": [
+      [
+        -6.800000190734863,
+        9.949999999701976,
+        -1.1000000035762787
+      ],
+      [
+        6.800000190734863,
+        11.229999997615813,
+        -0.14000000067055227
+      ]
+    ],
+    "panels": 12,
+    "closedSolids": 64,
+    "openRailCells": 32,
+    "wallThickness": 0.18,
+    "railClearDepth": 0.51
+  },
+  "observedGain": "The formerly blank lower front strip now has pale segmented solid infill, actual timber frames and open front rail depth.",
+  "limits": [
+    "Upper dark wall and the existing large brackets remain unchanged.",
+    "Overall geometry, detail and appearance still differ substantially from the photograph.",
+    "Hidden frame seats/gallery depth are inferred from one photograph; no structural or photographic acceptance claimed."
+  ],
+  "scope": {
+    "architectureAndHelperOnly": true,
+    "towerSectionIdentical": true,
+    "protectedSourceDiffEmpty": true,
+    "newTextures": false,
+    "newMaterials": false,
+    "newCarving": false,
+    "cameraOrLightingChanged": false,
+    "seedChanged": false
+  },
+  "sourceFiles": {
+    "architectureSHA256": "0282f52b6aed083a0bed97105efa18f8a19b9f59846a58e1bee672593701192b",
+    "helperSHA256": "4d35a8be6d94b3b1db6b56deb79231d70dcd7552084f92c81543b7d556e25fb9"
+  },
+  "jobs": {
+    "nativeFull1254": 1,
+    "nativeDetail1254": 1,
+    "renderRounds": 1,
+    "suites": 0,
+    "movies": 0,
+    "push": false
+  },
+  "photographicAcceptance": false
+}

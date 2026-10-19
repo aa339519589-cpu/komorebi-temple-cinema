@@ -1,0 +1,50 @@
+{
+  "panels": [
+    {
+      "order": 1,
+      "role": "original photograph",
+      "file": "/Users/mima1234/temple-cinema-live-sync/references/hd/2-照片-3.jpg",
+      "sha256": "875eb1373b4a31ae7c189f25ed1a990305f5e4575fff164494411b4251bdf2a1"
+    },
+    {
+      "order": 2,
+      "role": "actual source-matched native97",
+      "file": "qa/ten-reference/03/iteration-leaf97/reference.png",
+      "sha256": "342260bc1785b45c09aadbb88795e2b3dfd8795769d7252fd7dda33ef14c1763"
+    },
+    {
+      "order": 3,
+      "role": "actual native enclosure99",
+      "file": "qa/ten-reference/03/iteration-enclosure99/reference.png",
+      "sha256": "66dd76c8499f63295f76a378dc7fc08c9e32759c23cd8d0217be18a8388e5245"
+    }
+  ],
+  "fullSize": [
+    1254,
+    1254
+  ],
+  "cpuCrop": {
+    "pixels": [
+      485,
+      245,
+      650,
+      280
+    ],
+    "scale": 1,
+    "nativeSubfrustum": false
+  },
+  "actualNewNativeDetail": {
+    "file": "../iteration-enclosure99/detail-native.png",
+    "crop": [
+      650,
+      310,
+      350,
+      1254
+    ],
+    "sha256": "7b1d19d0dbf80f66cbedc844f3a91f03eb4d09cf8c784acaa5e577c980a3f9bb",
+    "genuine3DSubfrustum": true
+  },
+  "photoAsSceneTexture": false,
+  "colorAdjustment": false,
+  "photographicAcceptance": false
+}
