@@ -1,0 +1,211 @@
+{
+  "status": "planning-only, no model change or new render yet",
+  "camera": {
+    "position": [
+      6,
+      2.7,
+      33
+    ],
+    "target": [
+      0,
+      5.5,
+      -10
+    ],
+    "fov": 52
+  },
+  "parameterOrder": [
+    "x",
+    "y",
+    "z",
+    "yaw",
+    "scaleX",
+    "scaleY",
+    "scaleZ",
+    "leftRidgeHalfMetres"
+  ],
+  "beforeParameters": [
+    7.7,
+    0.0,
+    -14.0,
+    -0.64,
+    1.0,
+    1.17,
+    1.0,
+    2.45
+  ],
+  "candidateParameters": [
+    6.555955973622939,
+    0.11090751993346941,
+    -17.851109358453016,
+    -0.6762179866783734,
+    0.9519407894418719,
+    1.2286542452610039,
+    1.0464607787045916,
+    6.161033197906838
+  ],
+  "landmarks": [
+    {
+      "name": "ridgeLeft",
+      "observed": [
+        711,
+        309
+      ],
+      "annotationSigmaPixels": 8,
+      "before": [
+        795.8387941194359,
+        277.0058019533904
+      ],
+      "after": [
+        709.238071612636,
+        303.37996352564153
+      ],
+      "beforeError": 90.67110728498744,
+      "afterError": 5.88975395201861
+    },
+    {
+      "name": "ridgeRight",
+      "observed": [
+        977,
+        246
+      ],
+      "annotationSigmaPixels": 20,
+      "before": [
+        969.0912223705841,
+        226.14316993151675
+      ],
+      "after": [
+        916.1106381118924,
+        238.523669036763
+      ],
+      "beforeError": 21.37387339627916,
+      "afterError": 61.3466373635327
+    },
+    {
+      "name": "upperFrontLeft",
+      "observed": [
+        497,
+        451
+      ],
+      "annotationSigmaPixels": 6,
+      "before": [
+        507.6052206259442,
+        451.6792096802077
+      ],
+      "after": [
+        510.49861494440626,
+        451.9786764354144
+      ],
+      "beforeError": 10.62694830676426,
+      "afterError": 13.534046437875974
+    },
+    {
+      "name": "upperFrontRight",
+      "observed": [
+        956,
+        334
+      ],
+      "annotationSigmaPixels": 14,
+      "before": [
+        1106.2026017987462,
+        321.3850857261386
+      ],
+      "after": [
+        998.1951247168945,
+        337.4113226531605
+      ],
+      "beforeError": 150.73140896724072,
+      "afterError": 42.332796648913316
+    },
+    {
+      "name": "upperRearRight",
+      "observed": [
+        1176,
+        397
+      ],
+      "annotationSigmaPixels": 8,
+      "before": [
+        1264.7985824141238,
+        399.2137348401929
+      ],
+      "after": [
+        1181.3062524481445,
+        405.9453050448508
+      ],
+      "beforeError": 88.82617216057784,
+      "afterError": 10.400711388596092
+    },
+    {
+      "name": "lowerFrontLeft",
+      "observed": [
+        505,
+        545
+      ],
+      "annotationSigmaPixels": 6,
+      "before": [
+        501.3623063354181,
+        543.6638739171099
+      ],
+      "after": [
+        503.66333797166743,
+        541.8570938912653
+      ],
+      "beforeError": 3.875312646318815,
+      "afterError": 3.4153366139090733
+    },
+    {
+      "name": "lowerFrontRight",
+      "observed": [
+        978,
+        467
+      ],
+      "annotationSigmaPixels": 8,
+      "before": [
+        1091.9762791425035,
+        460.4634906394465
+      ],
+      "after": [
+        983.9656023483069,
+        467.8835034702096
+      ],
+      "beforeError": 114.16355881712201,
+      "afterError": 6.030670755396715
+    },
+    {
+      "name": "porchFrontLeft",
+      "observed": [
+        566,
+        700
+      ],
+      "annotationSigmaPixels": 12,
+      "before": [
+        531.9366578783332,
+        686.0247806362237
+      ],
+      "after": [
+        530.6502017971937,
+        680.677989771804
+      ],
+      "beforeError": 36.81871851060798,
+      "afterError": 40.28583264917871
+    },
+    {
+      "name": "porchFrontRight",
+      "observed": [
+        1014,
+        656
+      ],
+      "annotationSigmaPixels": 14,
+      "before": [
+        1053.1214819475542,
+        675.7439853113042
+      ],
+      "after": [
+        955.5314072078208,
+        669.5712279680861
+      ],
+      "beforeError": 43.82140237082569,
+      "afterError": 60.0229503744978
+    }
+  ],
+  "warning": "Sparse manual silhouette constraints; stair and bridge topology require independent reconstruction; not a likeness score."
+}
