@@ -1,0 +1,132 @@
+{
+  "sourceCommit": "8f64a4bb7ad8961a3b22d18b3b1ffa2e34b22707",
+  "sourceHash": "ed71f24e5f71e785f56f0f7b9f35123ec504adcc3fcaa37ba09c2b4aa12de7ae",
+  "renderScript": {
+    "file": "render-reconstructed-cycles.py",
+    "sha256": "63069a30b0ebe45ee45218d9acc78e85dda5b1079e9e63a67644ce4e94b26aa5"
+  },
+  "sourceStatistics": {
+    "meshes": 1319,
+    "geometries": 1265,
+    "materials": 46,
+    "textures": 11,
+    "instances": 505609,
+    "triangles": 12669387
+  },
+  "lightingMode": "outdoor-day",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 2,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "procedural-golden-cloud-atmosphere",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "actual-pond-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792432777.614003,
+  "physicalSurfaceReplacement": {
+    "reference": 2,
+    "sourceGeometry": "Existing Three.js water plane and scene02-water PBR/bump data",
+    "worldYBeforeThreeToBlender": 0.004,
+    "surfaceRiseMetres": 0.012,
+    "finalWaterHeight": 0.016,
+    "material": "Cycles Principled water, IOR 1.333, source procedural ripple bump and physical scene reflection",
+    "geometryRebuilt": false,
+    "photographUsed": false
+  },
+  "worldCoordinateConversion": "All source meshes, lights and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "scene02SunFit": {
+    "referencePixelNormalized": [
+      0.102,
+      0.335
+    ],
+    "sourceCameraFovDegrees": 52,
+    "cameraRayBlenderZUp": [
+      -0.7472497224807739,
+      0.6342580914497375,
+      0.19832955300807953
+    ],
+    "directionalShadowLightAligned": true,
+    "scenePhotographTextureUsed": false
+  },
+  "outdoorSky": {
+    "type": "MULTIPLE_SCATTERING",
+    "source": "Blender atmospheric scattering with a code-generated directional 3D noise cloud field; no bitmap background",
+    "cloudNoiseScale": 4.2,
+    "cloudFactorRamp": [
+      0.45,
+      0.55,
+      0.64
+    ],
+    "cloudAltitudeGateZ": [
+      -0.04,
+      0.2
+    ],
+    "sunDisc": false,
+    "sunSizeDegrees": null,
+    "worldUp": "Whole scene converted to Z-up",
+    "sourceDirectionYUp": [
+      -0.7472497224807739,
+      0.19832955300807953,
+      -0.6342580914497375
+    ]
+  },
+  "scene02SkyDome": {
+    "source": "Code port of the existing scene02 ShaderMaterial sky: analytic horizon gradient, exact source sun vector, 10-step cloud scattering/self-shadow; no photograph or generated replacement frame",
+    "sunDiskInDome": false,
+    "map": [
+      512,
+      256
+    ],
+    "meshRadiusMetres": 220.0,
+    "UV": "Hand-authored equirectangular coordinates on a Y-up to Z-up converted sphere",
+    "radiance": "Linear float texture generated at render time and used as an emissive 3D environment shell",
+    "castsShadows": false
+  },
+  "explicitSunDisc": {
+    "source": "Original scene02 procedural sky shader sun vector, oriented through the manually observed 10.2%/33.5% reference sky point",
+    "position": [
+      -43.57997512817383,
+      25.740646362304688,
+      18.586366653442383
+    ],
+    "cameraDistanceMetres": 80.0,
+    "radiusMetres": 1.81545396674862,
+    "angularDiameterDegrees": 2.5999999999999996,
+    "halo": "No circular proxy halo; the Blender atmosphere supplies scattering.",
+    "photographUsed": false
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "importedTriangles": 12669387,
+  "geometryTriangleCountPreserved": true,
+  "materialTransfer": "Original portable PBR parameters and source procedural textures; custom GLSL not portable. Planar approximations replaced by physical reflection.",
+  "lightCalibration": {
+    "transfer": "Source positions/colors; area*pi and point*4pi power conversion",
+    "sunGain": 0.12,
+    "worldGain": 0.45,
+    "exposure": 0.3499999940395355,
+    "nativeWebglPixelEquivalence": false
+  },
+  "finished": 1792432840.9533162,
+  "resolution": [
+    960,
+    960
+  ],
+  "samples": 32,
+  "photographicAcceptance": false
+}
