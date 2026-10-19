@@ -1,0 +1,1 @@
+123c global cool-key change is not selected: actual reference and three camera poses rendered, but the paving and stone foundations receive an overly blue wash.123d retains the more neutral123b field illumination and authored blue-glazed ceramic pigment on the rebuilt roofs. Nearby hero fixture boost stays at1x to avoid extra highlight clipping. No photographic acceptance.
