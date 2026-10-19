@@ -42,19 +42,23 @@ export function buildGroundedFoundations({emit,landSurfaces},layout){
  function frame(origin,yaw){return new T.Matrix4().makeTranslation(...origin).multiply(new T.Matrix4().makeRotationY(yaw));}
  function groundedFoot({label,origin,yaw,footW,footD,headW,headD,topY,capThickness=.10,embed=.08,seed=1}){
   const m=frame(origin,yaw),outline=ring(footW,footD),samples=outline.map(([x,z])=>{const p=new T.Vector3(x,0,z).applyMatrix4(m);return{local:[x,z],world:[p.x,p.z],groundY:landY(p.x,p.z)};}),centreGround=landY(origin[0],origin[2]),shoulderY=topY-capThickness;
-  const lower=samples.map(({local:[x,z],groundY})=>[x,Math.min(groundY-embed,shoulderY-.025),z]);
+  // A later genuine soil terrace may cover this original bearing. Keep an
+  // embedded positive foundation below the unchanged cap; never invert it to
+  // follow soil that now stands above the head.
+  const minimumBodyDepth=.28,lower=samples.map(({local:[x,z],groundY})=>[x,Math.min(groundY-embed,shoulderY-minimumBodyDepth),z]);
   // Bottom is an actual terrain-following closed fan, with its centre sampled
   // separately rather than an invented flat .7m foundation datum.
   const upper=ring(headW,headD).map(([x,z])=>[x,shoulderY,z]);
   const g=solidRings([lower,upper],label+'-terrain-conforming-foot');
   // Replace the bottom fan centre with the real centre-bed height. The fan
   // centre follows the first8vertices in solidRings' fixed buffer layout.
-  const centreIndex=16,position=g.attributes.position;position.setY(centreIndex,Math.min(centreGround-embed,shoulderY-.025));g.computeVertexNormals();
+  const centreIndex=16,position=g.attributes.position;position.setY(centreIndex,Math.min(centreGround-embed,shoulderY-minimumBodyDepth));g.computeVertexNormals();
   emit(g,'stone',...origin,1,1,1,[0,yaw,0]);
   const cap=course({y0:shoulderY,y1:topY,w0:headW,d0:headD,seed,name:label+'-bearing-cap'});emit(cap,'stone',...origin,1,1,1,[0,yaw,0]);
-  const record={label,origin,yaw,foot:[footW,footD],head:[headW,headD],bearingTopY:topY,shoulderY,embedTargetMetres:embed,centreGroundY:centreGround,centreFootY:position.getY(centreIndex),samples:samples.map((s,i)=>({...s,footY:lower[i][1],penetration:s.groundY-lower[i][1]}))};supportSamples.push(record);return record;
+  const record={label,origin,yaw,foot:[footW,footD],head:[headW,headD],bearingTopY:topY,shoulderY,embedTargetMetres:embed,minimumBodyDepth,buriedByTerrace:centreGround>topY,centreGroundY:centreGround,centreFootY:position.getY(centreIndex),samples:samples.map((s,i)=>({...s,footY:lower[i][1],penetration:s.groundY-lower[i][1]}))};supportSamples.push(record);return record;
  }
  function column({label,origin,yaw,zOffset=0,bottomY,topY,footW,footD,headW,headD,seed=1}){
+  if(!(topY>bottomY))throw Error('Foundation column must retain positive height: '+label);
   const n=Math.ceil((topY-bottomY)/.28);for(let j=0;j<n;j++){
    const t0=j/n,t1=(j+1)/n,g=course({y0:T.MathUtils.lerp(bottomY,topY,t0),y1:T.MathUtils.lerp(bottomY,topY,t1),w0:T.MathUtils.lerp(footW,headW,t0),d0:T.MathUtils.lerp(footD,headD,t0),w1:T.MathUtils.lerp(footW,headW,t1),d1:T.MathUtils.lerp(footD,headD,t1),cz:zOffset,seed:seed+j,name:label+'-course-'+j});emit(g,'stone',...origin,1,1,1,[0,yaw,0]);
   }return{label,bottomY,topY,courses:n,foot:[footW,footD],head:[headW,headD]};
@@ -65,7 +69,7 @@ export function buildGroundedFoundations({emit,landSurfaces},layout){
  // bridge-board and stair-stringer bearings. Its middle is genuinely open.
  const landingCap=course({y0:capBottom,y1:capTop,w0:1.05,d0:B.width+.2,seed:126,name:'foundation126-low-landing-stone-cap'});emit(landingCap,'stone',...bridgeOrigin,1,1,1,[0,yaw,0]);
  for(const [i,z]of [-.55,.55].entries()){
-  const world=new T.Vector3(0,0,z).applyMatrix4(bridgeMatrix),footOrigin=[world.x,0,world.z],outline=ring(.76,.50),groundHeights=outline.map(([x,z])=>{const p=new T.Vector3(x,0,z).applyMatrix4(frame(footOrigin,yaw));return landY(p.x,p.z);}),footTop=Math.max(...groundHeights)+.14;
+  const world=new T.Vector3(0,0,z).applyMatrix4(bridgeMatrix),footOrigin=[world.x,0,world.z],outline=ring(.76,.50),groundHeights=outline.map(([x,z])=>{const p=new T.Vector3(x,0,z).applyMatrix4(frame(footOrigin,yaw));return landY(p.x,p.z);}),footTop=Math.min(Math.max(...groundHeights)+.14,capBottom-.32);
   const foot=groundedFoot({label:'foundation126-bridge-flank-'+i,origin:footOrigin,yaw,footW:.76,footD:.50,headW:.70,headD:.46,topY:footTop,capThickness:.10,embed:.08,seed:1260+i});
   const pier=column({label:'foundation126-bridge-pier-'+i,origin:footOrigin,yaw,bottomY:footTop,topY:capBottom,footW:.70,footD:.46,headW:.62,headD:.38,seed:1270+i*20});bridgePiers.push({foot,pier});
  }

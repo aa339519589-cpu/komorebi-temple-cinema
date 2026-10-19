@@ -1,0 +1,474 @@
+{
+  "task": "scene08 whole-site terrain and bearing reconstruction127",
+  "baseCommit": "75d7a096d2268cc1803001052315b8442f0c097e",
+  "branch": "work/terrain08-127-20261019",
+  "status": "rejected-unmerged",
+  "physicalSiteAccepted": false,
+  "visualAccepted": false,
+  "allTenPhotoQualityAccepted": false,
+  "newAssetsDownloaded": false,
+  "photoRGBSampledOrProjected": false,
+  "photographRole": "Comparison only; no image texture, depth projection or replacement frame",
+  "implementation": [
+    "src/terraced-banks.js: closed volume, dry courts, stepped real water mesh, coherent assembly soil contact",
+    "src/scene.js: new ground, gallery floor/wall coupling, rear assembly rooting and actual water material",
+    "src/grounded-foundations.js: positive embedded footings under rising grade"
+  ],
+  "candidates": [
+    {
+      "id": "terrain127-v1",
+      "sourceHash": "4ecea9366b4051ada5453496b1cf3c770f2f6b629bcd540860538b9e590b4430",
+      "sourceCommitAtRender": "75d7a096d2268cc1803001052315b8442f0c097e",
+      "status": "rejected",
+      "visualAccepted": false,
+      "actualFrames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "1c8fc275366d456bd515fba3fbff6d2b0750ee24668b552f27d4b69a3dcb8e7b",
+          "valid": true
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "5fbde4e849df92bd23f76822f1811ab0a6ad23b3798ce009d8c4e2d9fdddbeb8",
+          "valid": true
+        }
+      ],
+      "actualFiles": {
+        "report.json": "3219ef1530b8d29a6dd8145d71a75dd68817155dfbaabc7720adb325e531d389",
+        "reference.png": "e6954c904741730f758595bc2318803d449b90852bf1514f706802e6a367b2ae",
+        "detail-native.png": "62f17df98185f09744249651103d3e9369ad325d65321a7c138c108445c392f8"
+      }
+    },
+    {
+      "id": "terrain127-v2",
+      "sourceHash": "d7cdb6206c2be19d414793dc225f748eda88596806310ff0807863737117718c",
+      "sourceCommitAtRender": "75d7a096d2268cc1803001052315b8442f0c097e",
+      "status": "rejected",
+      "visualAccepted": false,
+      "actualFrames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "995d638b3f59cd0fe49c8bf5ddb689a810f0b70bfe6f3795cef4d155a077f8a3",
+          "valid": true
+        }
+      ],
+      "actualFiles": {
+        "report.json": "ce7ea403e068be0072245a0ee0cb406008793f6ea8c1f52520b012a859efd367",
+        "reference.png": "9de7c1e9539546128aef62e99f7df789b11c79814d66e122f46ac3c9ac492f67"
+      }
+    }
+  ],
+  "physicalAuditPassed": false,
+  "failedChecks": [
+    "legacyFloorsClearOfOtherBuildingFoundations"
+  ],
+  "knownFoundationIntersections": [
+    {
+      "gallery": "west-legacy-gallery",
+      "floorPoint": [
+        -6.174432622917683,
+        3.605,
+        -6.3339592427231795
+      ],
+      "otherStoneBoxInstance": 1,
+      "role": "left-grand-hall",
+      "source": [
+        "at emit (reconstructions/scene-08/src/scene.js:31:390)",
+        "at box (reconstructions/scene-08/src/scene.js:32:840)",
+        "at hall (reconstructions/scene-08/src/scene.js:85:651)",
+        "at reconstructions/scene-08/src/scene.js:126:101",
+        "at group (reconstructions/scene-08/src/scene.js:33:248)",
+        "at buildScene (reconstructions/scene-08/src/scene.js:126:24)"
+      ],
+      "groups": [
+        [
+          -6.7,
+          2.95,
+          -5.8,
+          0.08,
+          1
+        ]
+      ],
+      "sourceArgs": {
+        "position": [
+          0,
+          0.94,
+          0
+        ],
+        "scale": [
+          9.9,
+          1.88,
+          6.88
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "worldCentre": [
+        -6.699999809265137,
+        3.890000104904175,
+        -5.800000190734863
+      ],
+      "worldBounds": {
+        "min": [
+          -11.909074693918228,
+          2.9500001072883606,
+          -9.624575674533844
+        ],
+        "max": [
+          -1.4909249246120453,
+          4.830000102519989,
+          -1.9754247069358826
+        ]
+      },
+      "localPoint": [
+        0.05722802583675268,
+        -0.15159580086544655,
+        -0.07125737925987519
+      ]
+    },
+    {
+      "gallery": "west-legacy-gallery",
+      "floorPoint": [
+        -2.8279112316302735,
+        3.605,
+        -6.77147447406465
+      ],
+      "otherStoneBoxInstance": 1,
+      "role": "left-grand-hall",
+      "source": [
+        "at emit (reconstructions/scene-08/src/scene.js:31:390)",
+        "at box (reconstructions/scene-08/src/scene.js:32:840)",
+        "at hall (reconstructions/scene-08/src/scene.js:85:651)",
+        "at reconstructions/scene-08/src/scene.js:126:101",
+        "at group (reconstructions/scene-08/src/scene.js:33:248)",
+        "at buildScene (reconstructions/scene-08/src/scene.js:126:24)"
+      ],
+      "groups": [
+        [
+          -6.7,
+          2.95,
+          -5.8,
+          0.08,
+          1
+        ]
+      ],
+      "sourceArgs": {
+        "position": [
+          0,
+          0.94,
+          0
+        ],
+        "scale": [
+          9.9,
+          1.88,
+          6.88
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "worldCentre": [
+        -6.699999809265137,
+        3.890000104904175,
+        -5.800000190734863
+      ],
+      "worldBounds": {
+        "min": [
+          -11.909074693918228,
+          2.9500001072883606,
+          -9.624575674533844
+        ],
+        "max": [
+          -1.4909249246120453,
+          4.830000102519989,
+          -1.9754247069358826
+        ]
+      },
+      "localPoint": [
+        0.3977110765923245,
+        -0.15159580086544655,
+        -0.09577477757304631
+      ]
+    },
+    {
+      "gallery": "west-legacy-gallery",
+      "floorPoint": [
+        0.09652139128740966,
+        3.605,
+        -10.43751523134147
+      ],
+      "otherStoneBoxInstance": 9,
+      "role": "layered-walkways",
+      "source": [
+        "at emit (reconstructions/scene-08/src/scene.js:31:390)",
+        "at box (reconstructions/scene-08/src/scene.js:32:840)",
+        "at reconstructions/scene-08/src/scene.js:127:250",
+        "at group (reconstructions/scene-08/src/scene.js:33:248)",
+        "at buildScene (reconstructions/scene-08/src/scene.js:127:139)"
+      ],
+      "groups": [
+        [
+          1.47,
+          4.28,
+          -9,
+          -0.1,
+          1
+        ]
+      ],
+      "sourceArgs": {
+        "position": [
+          -1.4,
+          -1.835,
+          -1.45
+        ],
+        "scale": [
+          0.36,
+          3.19,
+          0.4
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "worldCentre": [
+        0.22175262868404388,
+        2.444999933242798,
+        -10.58252239227295
+      ],
+      "worldBounds": {
+        "min": [
+          0.02268519438803196,
+          0.8499999046325684,
+          -10.799493242055178
+        ],
+        "max": [
+          0.4208200629800558,
+          4.039999961853027,
+          -10.36555154249072
+        ]
+      },
+      "localPoint": [
+        -0.30591400599263885,
+        0.36363637804067783,
+        0.39196247283744157
+      ]
+    },
+    {
+      "gallery": "east-legacy-gallery",
+      "floorPoint": [
+        6.8,
+        2.505,
+        -13
+      ],
+      "otherStoneBoxInstance": 17,
+      "role": "layered-walkways",
+      "source": [
+        "at emit (reconstructions/scene-08/src/scene.js:31:390)",
+        "at box (reconstructions/scene-08/src/scene.js:32:840)",
+        "at reconstructions/scene-08/src/scene.js:127:576",
+        "at group (reconstructions/scene-08/src/scene.js:33:248)",
+        "at buildScene (reconstructions/scene-08/src/scene.js:127:519)"
+      ],
+      "groups": [
+        [
+          7.9,
+          3.7,
+          -10,
+          -0.15,
+          1
+        ]
+      ],
+      "sourceArgs": {
+        "position": [
+          0,
+          -1.425,
+          0
+        ],
+        "scale": [
+          6.7,
+          2.85,
+          6.3
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "worldCentre": [
+        7.900000095367432,
+        2.2750000953674316,
+        -10
+      ],
+      "worldBounds": {
+        "min": [
+          4.116886794567108,
+          0.8500001430511475,
+          -13.615246534347534
+        ],
+        "max": [
+          11.683113396167755,
+          3.700000047683716,
+          -6.384753465652466
+        ]
+      },
+      "localPoint": [
+        -0.22924815969578033,
+        0.08070172362416995,
+        -0.44475101092461633
+      ]
+    },
+    {
+      "gallery": "east-legacy-gallery",
+      "floorPoint": [
+        6.8,
+        2.505,
+        -9.832
+      ],
+      "otherStoneBoxInstance": 17,
+      "role": "layered-walkways",
+      "source": [
+        "at emit (reconstructions/scene-08/src/scene.js:31:390)",
+        "at box (reconstructions/scene-08/src/scene.js:32:840)",
+        "at reconstructions/scene-08/src/scene.js:127:576",
+        "at group (reconstructions/scene-08/src/scene.js:33:248)",
+        "at buildScene (reconstructions/scene-08/src/scene.js:127:519)"
+      ],
+      "groups": [
+        [
+          7.9,
+          3.7,
+          -10,
+          -0.15,
+          1
+        ]
+      ],
+      "sourceArgs": {
+        "position": [
+          0,
+          -1.425,
+          0
+        ],
+        "scale": [
+          6.7,
+          2.85,
+          6.3
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "worldCentre": [
+        7.900000095367432,
+        2.2750000953674316,
+        -10
+      ],
+      "worldBounds": {
+        "min": [
+          4.116886794567108,
+          0.8500001430511475,
+          -13.615246534347534
+        ],
+        "max": [
+          11.683113396167755,
+          3.700000047683716,
+          -6.384753465652466
+        ]
+      },
+      "localPoint": [
+        -0.15858845541771097,
+        0.08070172362416995,
+        0.05245960448756094
+      ]
+    },
+    {
+      "gallery": "rear-legacy-gallery",
+      "floorPoint": [
+        6.2,
+        1.505,
+        -15.448
+      ],
+      "otherStoneBoxInstance": 16,
+      "role": "layered-walkways",
+      "source": [
+        "at emit (reconstructions/scene-08/src/scene.js:31:390)",
+        "at box (reconstructions/scene-08/src/scene.js:32:840)",
+        "at hall (reconstructions/scene-08/src/scene.js:85:651)",
+        "at reconstructions/scene-08/src/scene.js:127:431",
+        "at group (reconstructions/scene-08/src/scene.js:33:248)",
+        "at buildScene (reconstructions/scene-08/src/scene.js:127:408)"
+      ],
+      "groups": [
+        [
+          6.8,
+          0,
+          -13,
+          0,
+          1
+        ]
+      ],
+      "sourceArgs": {
+        "position": [
+          0,
+          1.19,
+          0
+        ],
+        "scale": [
+          9.72,
+          2.38,
+          6.192
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "worldCentre": [
+        6.800000190734863,
+        1.190000057220459,
+        -13
+      ],
+      "worldBounds": {
+        "min": [
+          1.940000057220459,
+          0,
+          -16.09599995613098
+        ],
+        "max": [
+          11.660000324249268,
+          2.380000114440918,
+          -9.904000043869019
+        ]
+      },
+      "localPoint": [
+        -0.06172841298884757,
+        0.132352910770148,
+        -0.39534884281122906
+      ]
+    }
+  ],
+  "newSolidVolume": 3952.2166732333426,
+  "limits": [
+    "Single-photo inferred metric terrain and hydraulic profile",
+    "Known overlapping gallery/foundation cells remain unresolved and rejected",
+    "No exhaustive leaf/roof/wall collision or access-route reconstruction",
+    "Rear planting shape and exact garden contours still unmatched",
+    "Exactly2full wrapper jobs, first includes actual native crop; no additional render planned"
+  ]
+}
