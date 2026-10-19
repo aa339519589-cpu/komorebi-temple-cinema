@@ -1,6 +1,6 @@
 # Scene07 layout118 — unaccepted reconstruction work
 
-The prior scene used narrow rails with an arbitrary repeated line of gold caps, a bridge spanning almost the whole garden, and a foreground roof with the wrong orientation. This work replaces the near balustrade as a broad joined timber assembly, reconstructs the bridge plus descending flight, and rebuilds the main stair/landing route from shared elevations. Stone treads are four separately jointed granite slabs per row with20mm-scale rounded edges, metric CC0 material maps and coursed backing. The10 main risers are160mm,320mm tread;3 connecting risers are166.7mm.
+The prior scene used narrow rails with an arbitrary repeated line of gold caps, a bridge spanning almost the whole garden, and a foreground roof with the wrong orientation. This work replaces the near balustrade as a broad joined timber assembly, reconstructs the bridge plus descending flight, and rebuilds the main stair/landing route from shared elevations. Stone treads are four separately jointed granite slabs per row with12mm rounded edges, metric CC0 material maps and coursed backing. The10 main risers are160mm,320mm tread;3 connecting risers are166.7mm.
 
 Reference coordinates are manually observed silhouettes. Heights/depths are inferred and changed when independent placement produced overlapping components. The observation file is not a calibrated survey and its exact point reprojection is not a fidelity score.
 
