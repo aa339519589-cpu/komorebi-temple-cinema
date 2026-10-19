@@ -5,6 +5,7 @@ import {buildRestorationAltar} from './restoration-altar.js';
 import {createHallCurvedJoinery} from './sculpted-joinery.js';
 import {layout124 as L} from './layout124.js';
 import {buildForeground124,buildStair124,buildTowerGround124,emitHallCap124} from './layout-components124.js';
+import {buildForegroundLantern131} from './foreground-hardware131.js';
 export function architecture(B){
 const {m}=B;
 const hallJoinery=createHallCurvedJoinery();
@@ -94,7 +95,7 @@ for(const x of[-9.5,-5.8,3.5,7.4])hangingLantern(x,3.7,5.63,.72,true);
 });}
 function veranda(){
 buildForeground124(B,{carvedFitting,squareGold});
-// Six sided hanging lantern: hand-built warm glazing, lattice, bronze roof, chain and tassel.
-B.label('foreground-six-sided-hanging-lantern',()=>{B.with(-3.53,6.94,8.35,0,()=>{const r=.42,h=.84;for(let k=0;k<6;k++)B.with(0,0,0,k*TAU/6,()=>{B.box(0,0,r*.866,r,h,.025,'paperGlow');for(const x of[-r/2,r/2])B.box(x,0,r*.866+.025,.055,h+.1,.045,'bronze');for(const y of[-h/2,h/2])B.box(0,y,r*.866+.03,r+.08,.065,.05,'bronze');for(const y of[-.40,.40])for(let j=-2;j<=2;j++)B.box(j*.07,y,r*.866+.05,.025,.16,.03,'bronze');for(let p=0;p<8;p++)B.emit(petalWire,'bronze',0,0,r*.866+.055,1,1,1,[0,0,p*TAU/8]);B.sphere(0,0,r*.866+.06,.027,.027,.016,'gold');for(const y of[-.28,.28])B.emit(torus,'bronze',0,y,r*.866+.07,.07,.07,.07);});for(const yy of[-.50,.50])B.cyl(0,yy,0,.57,.085,'bronze');B.emit(B.coneG,'bronze',0,.61,0,.66,.20,.66);B.cyl(0,.77,0,.31,.07,'gold');B.sphere(0,.92,0,.25,.16,.25,'bronze');B.sphere(0,1.13,0,.13,.11,.13,'gold');B.cyl(0,1.82,0,.025,.95,'bronze');for(let k=0;k<6;k++)B.emit(torus,'bronze',0,1.42+k*.14,0,.065,.10,.065,[0,k%2*Math.PI/2,0]);B.sphere(0,-.62,0,.24,.12,.24,'gold');B.sphere(0,-.76,0,.08,.13,.08,'bronze');B.emit(torus,'bronze',0,-.94,0,.085,.12,.085);B.sphere(0,-1.10,0,.07,.11,.07,'gold');},.9);B.between([-3.53,9.1,8.35],[-3.53,10.3,8.35],.022,.022,'bronze',true);});}
+buildForegroundLantern131(B);}
+
 pagoda();hall();buildStair124(B);veranda();buildTowerGround124(B);return{roof,rosette,squareGold,carvedFitting,column,bracket,hangingLantern};
 }

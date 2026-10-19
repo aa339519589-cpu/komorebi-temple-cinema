@@ -1,0 +1,32 @@
+{
+  "revision": "hardware131",
+  "scope": "Scene01 foreground hexagonal hanging lantern and all caps of the existing near balustrade; layout124-d stair/landing and group positions retained.",
+  "geometry": {
+    "source": "src/foreground-hardware131.js",
+    "authorship": "Original analytic geometry authored for this reconstruction",
+    "parts": [
+      "Six flat pierced floral/fret screens, 33 true apertures per face, in assembled wooden stiles and rails",
+      "Closed sharp hexagonal roof and sill castings, stepped crown, corner ridges and hanging ears",
+      "Actual ceiling intersection, mounting plate, screws, interlinked chain, crown eye and terminal pendant",
+      "Shared closed fluted lotus/giboshi core, ten-repeat embossed vegetal band, retaining ledges and rivets"
+    ],
+    "referenceUse": "Visual contour, proportion and construction comparison only"
+  },
+  "metalMicroSurface": {
+    "source": "installHardwareMaterials131 in src/foreground-hardware131.js",
+    "method": "Deterministic procedural grayscale micro-pitting, scratches, roughness and fibrous inner glazing; no external raster or generative image"
+  },
+  "woodMicroSurface": {
+    "source": "Existing assets/polyhaven/lacquered-cherry-wood/provenance.json and src/scanned-timber.js",
+    "provider": "Poly Haven",
+    "asset": "lacquered_cherry_wood",
+    "license": "CC0-1.0",
+    "authors": ["Jenelle van Heerden — scanning", "Rico Cilliers — processing"],
+    "reuse": "Existing diffuse, normal and roughness maps with member-aligned physical UVs; local lantern finish only"
+  },
+  "canonicalReference": "references/hd/0-照片-1.jpg",
+  "referenceSha256": "988668375f41c19386115b7514ccead940e2f89a6bf5f6b8c71fa6c6df02835d",
+  "referencePhotoRGBUsedOnModel": false,
+  "AIReplacementFrameUsed": false,
+  "visualAccepted": false
+}

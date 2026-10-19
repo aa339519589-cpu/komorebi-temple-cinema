@@ -1,0 +1,312 @@
+{
+  "status": "Actual hardware solids inspected on CPU; visual acceptance requires native actual frames",
+  "visualAccepted": false,
+  "sourceHash": "40e38274c456504d17c45ab41cd4f8418f1da2abcffbf2a2137b44e5e1c6be02",
+  "materials": {
+    "revision": "scene01-hardware131-hexagonal-openwork-lantern-and-carved-giboshi",
+    "geometry": "Original analytic polygonal roof, pierced extruded floral screens, cast relief and fluted lotus/giboshi solids in foreground-hardware131.js",
+    "metalSurface": "Deterministic procedural micro-pitting, fine scratches and roughness; no reference-photo data",
+    "woodSurface": "Existing Poly Haven lacquered_cherry_wood CC0 scan via scanned-timber.js; member-aligned UV reused",
+    "referenceUsedAsTexture": false
+  },
+  "hardware": {
+    "finial": {
+      "heightInRadiusUnits": 2.63,
+      "maximumSeatRadiusUnits": 0.82,
+      "domeRadiusUnits": 0.62,
+      "petals": 8,
+      "carvedBandRepeats": 10,
+      "allCapsUseSharedAssembly": true,
+      "woodPostHeadY": 2.62
+    },
+    "lantern": {
+      "position": [
+        -3.53,
+        6.94,
+        8.35
+      ],
+      "scale": 0.9,
+      "yaw": 0.38,
+      "bodyRadius": 0.43,
+      "bodyBottom": -0.48,
+      "bodyTop": 0.4,
+      "roofRadius": 0.64,
+      "screenHolesPerFace": 33,
+      "screenOpenAreaRatio": 0.38532869524796104,
+      "actualCeilingUndersideY": 10.270000000000001,
+      "chainTopMountFaceY": 10.270000000000001,
+      "chainBottomEyeY": 8.146
+    }
+  },
+  "closedGeometry": [
+    {
+      "name": "hardware131-closed-fluted-lotus-giboshi-core",
+      "vertices": 3970,
+      "triangles": 7936,
+      "finite": true,
+      "signedVolumeMetresCubed": 2.666034103905491,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hardware131-closed-annular-cast-scroll-and-flower-relief",
+      "vertices": 21120,
+      "triangles": 42240,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.035930264060206996,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hardware131-closed-pierced-six-face-floral-and-fret-screen",
+      "vertices": 11088,
+      "triangles": 3696,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.0021871139833131224,
+      "boundaryEdges": 64,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hardware131-closed-six-hip-stepped-crown",
+      "vertices": 216,
+      "triangles": 72,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.13999517120205895,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hardware131-closed-crown-upper-lotus-knob",
+      "vertices": 898,
+      "triangles": 1792,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.054269865685560664,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hardware131-closed-hexagonal-lower-eave-pan",
+      "vertices": 216,
+      "triangles": 72,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.10657134514548272,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hardware131-closed-lower-lotus-pendant-socket",
+      "vertices": 338,
+      "triangles": 672,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.015203559119664553,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hardware131-closed-pendant-terminal-bud",
+      "vertices": 130,
+      "triangles": 256,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.00017230902013654672,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    }
+  ],
+  "projectedBounds": [
+    {
+      "part": "hardware131-closed-fluted-lotus-giboshi-core",
+      "instanceOrigin": [
+        -2.5949764622124345,
+        2.62,
+        12.59608547132947
+      ],
+      "projectedBoundsNative1254": [
+        -92.67134993944578,
+        738.1772605374756,
+        16.639929929587794,
+        893.1791267454079
+      ]
+    },
+    {
+      "part": "hardware131-closed-fluted-lotus-giboshi-core",
+      "instanceOrigin": [
+        -1.578233834186404,
+        2.62,
+        13.69891566150143
+      ],
+      "projectedBoundsNative1254": [
+        14.738979347034556,
+        738.2957957623864,
+        154.3219805986704,
+        948.8809389421922
+      ]
+    },
+    {
+      "part": "hardware131-closed-fluted-lotus-giboshi-core",
+      "instanceOrigin": [
+        -0.11444479342937874,
+        2.62,
+        15.286643668267336
+      ],
+      "projectedBoundsNative1254": [
+        497.3141141562751,
+        957.4294244286817,
+        602.5086211531749,
+        1147.88464738804
+      ]
+    },
+    {
+      "part": "hardware131-closed-fluted-lotus-giboshi-core",
+      "instanceOrigin": [
+        2.257954671964693,
+        2.62,
+        17.85991411200191
+      ],
+      "projectedBoundsNative1254": [
+        -2406.677979916101,
+        -29.80460134121613,
+        -1882.433054107555,
+        325.0713662842404
+      ]
+    },
+    {
+      "part": "hardware131-closed-pierced-six-face-floral-and-fret-screen",
+      "instanceOrigin": [
+        -3.404350011732835,
+        6.9058,
+        8.664586845932194
+      ],
+      "projectedBoundsNative1254": [
+        164.48240773166893,
+        210.8888290004034,
+        217.8627736334205,
+        311.12714930669586
+      ]
+    },
+    {
+      "part": "hardware131-closed-pierced-six-face-floral-and-fret-screen",
+      "instanceOrigin": [
+        -3.1947348055927156,
+        6.9058,
+        8.398477341141517
+      ],
+      "projectedBoundsNative1254": [
+        217.3343815757063,
+        220.44311209674325,
+        243.72249444779575,
+        328.8150861967067
+      ]
+    },
+    {
+      "part": "hardware131-closed-pierced-six-face-floral-and-fret-screen",
+      "instanceOrigin": [
+        -3.3203847938598803,
+        6.9058,
+        8.083890495209321
+      ],
+      "projectedBoundsNative1254": [
+        215.07229528726623,
+        241.9270634469692,
+        243.49755904255653,
+        339.87646327545355
+      ]
+    },
+    {
+      "part": "hardware131-closed-pierced-six-face-floral-and-fret-screen",
+      "instanceOrigin": [
+        -3.6556499882671645,
+        6.9058,
+        8.035413154067806
+      ],
+      "projectedBoundsNative1254": [
+        165.69984114389104,
+        246.89383173295553,
+        215.4575285422221,
+        340.0794529284244
+      ]
+    },
+    {
+      "part": "hardware131-closed-pierced-six-face-floral-and-fret-screen",
+      "instanceOrigin": [
+        -3.865265194407284,
+        6.9058,
+        8.301522658858483
+      ],
+      "projectedBoundsNative1254": [
+        136.63854927538821,
+        226.12133293675348,
+        166.47017778816874,
+        333.16598072882056
+      ]
+    },
+    {
+      "part": "hardware131-closed-pierced-six-face-floral-and-fret-screen",
+      "instanceOrigin": [
+        -3.7396152061401193,
+        6.9058,
+        8.616109504790678
+      ],
+      "projectedBoundsNative1254": [
+        136.46383935610393,
+        211.17919489816057,
+        165.38284145318772,
+        315.6318516496772
+      ]
+    },
+    {
+      "part": "hardware131-closed-six-hip-stepped-crown",
+      "instanceOrigin": [
+        -3.53,
+        6.94,
+        8.35
+      ],
+      "projectedBoundsNative1254": [
+        115.64822638100009,
+        183.18640308594217,
+        267.7318653058356,
+        253.27357588990833
+      ]
+    },
+    {
+      "part": "hardware131-closed-hexagonal-lower-eave-pan",
+      "instanceOrigin": [
+        -3.53,
+        6.94,
+        8.35
+      ],
+      "projectedBoundsNative1254": [
+        120.0955328590859,
+        306.5096065753954,
+        254.78022327468744,
+        358.5541656513511
+      ]
+    }
+  ],
+  "hardwareInstances": 406,
+  "screen": {
+    "apertures": 33,
+    "openAreaRatio": 0.38532869524796104,
+    "faces": 6,
+    "trueExtrudedApertures": true
+  },
+  "ceilingContact": {
+    "existingUndersideY": 10.270000000000001,
+    "mountTopY": 10.270000000000001,
+    "gapMetres": 0
+  },
+  "referenceCameraHeld": true,
+  "layoutAndStairHeld": true,
+  "limits": [
+    "Wood/metal fittings, cast relief and mechanically interlinked hardware intentionally share contact surfaces; this inspection does not assert global nonintersection.",
+    "Finite and closed geometry does not establish resemblance to the reference.",
+    "No photographic pixels or generated image are applied to the hardware."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "baselineCommit": "de9f6ec",
+  "scope": "Required preserved layout124-d platform, full stair/landing/footing, hall group and configuration; foreground hardware replacement only.",
+  "checks": [
+    {
+      "part": "layout124-configuration",
+      "sameSourceBytes": true,
+      "sha256": "a64942588fe954f36b02b7fa5369704d6528dfaf76a64f5b2bdb7e7d17f69efe"
+    },
+    {
+      "part": "stair-landing-plan-and-hall-cap",
+      "sameSourceBytes": true,
+      "sha256": "8a62faa95ee1e08aea9e20ed3ed85f87e9bc76147a80d4898a55b5f280204112"
+    },
+    {
+      "part": "whole-stair-flight-and-footing",
+      "sameSourceBytes": true,
+      "sha256": "b9917f252cd9bca756cd246e5feb0aa8ba387903d0ba677a9fdf1e466ddc6db9"
+    },
+    {
+      "part": "whole-hall-group",
+      "sameSourceBytes": true,
+      "sha256": "189f5358040fa07135cb009dcb1840f4230294863572bfcb859dd402074e6be9"
+    }
+  ],
+  "normalReferenceCamera": [
+    0,
+    3.2,
+    17
+  ],
+  "normalReferenceFov": 59,
+  "normalDollyPathRetained": true,
+  "visualAccepted": false
+}
