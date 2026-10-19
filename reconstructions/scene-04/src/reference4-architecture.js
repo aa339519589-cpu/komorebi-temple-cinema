@@ -51,7 +51,10 @@ export function buildReference4Architecture(T,options={}) {
  const upperEave=C.upperEaveY??H(11.60),upperCurl=C.upperRoofCurl??.62,upperRidgeHalfRatio=C.upperRidgeHalfRatio??.275,upperRidgeOffset=C.upperRidgeOffsetX??0,upperEaveOffset=C.upperEaveOffsetX??0;
  function upperRaw(x,z){const t=(z-C.ridgeZ)/4.5,span=C.upperRoofWidth*(upperRidgeHalfRatio+(.5-upperRidgeHalfRatio)*t),u=(x-upperRidgeOffset*(1-t)-upperEaveOffset*t)/span;return upperEave+(C.ridgeY-upperEave)*Math.pow(Math.max(0,1-t),1.48)+upperCurl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));}
  function joinTop(x,z){return z>=gBack&&Math.abs(x)<=gHalf?Math.max(upperRaw(x,z),rawCanopy(x,z)+.025):upperRaw(x,z);}
- function canopy(x,z){if(z<=upperFront)return joinTop(x,z)-.025;const f=smooth(Math.max(0,Math.min(1,(gFront-z)/(gFront-upperFront))));return rawCanopy(x,z)+(joinTop(x,upperFront)-.025-rawCanopy(x,upperFront))*f;}
+ // The entrance canopy is its own shallow roof. Only the upper hipped roof
+ // rises to meet its central crown. Pulling every canopy shoulder up to the
+ // high eave made the former giant slate curtain and hid the front frieze.
+ const canopy=(x,z)=>rawCanopy(x,z),mainEaveOpeningHalf=2.8;
  // A moulded bargeboard follows its own curved normal, with a recessed face,
  // rounded lip and underside bead. It replaces the single flat fascia slab.
  function mouldedBargeboard(){
@@ -73,10 +76,12 @@ export function buildReference4Architecture(T,options={}) {
    for(let i=0;i<=rows;i++){const u=-1+2*i/rows;if(side===0&&frontGap&&Math.abs(P(side,1,u)[0])<frontGap+.08)continue;
     const pieces=Math.max(6,Math.ceil(Math.hypot(side%2?hw-rh:hd,rise)*(1-inner)/.36));
     for(let j=0;j<pieces;j++){const t0=inner+(1-inner)*j/pieces,t1=inner+(1-inner)*(j+.96)/pieces;const p=P(side,t0,u),q=P(side,t1,u);tileBetween(p,q,.065,.94+.10*(.5+.5*Math.sin(i*11.3+j*4.7)));}
-    const end=P(side,1,u);if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,.074,i%2===0);const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}
+    const end=P(side,1,u);if(!(connected&&side===0&&Math.abs(end[0])<mainEaveOpeningHalf)){arch.tileEnd(V(end),side*Math.PI/2,.074,i%2===0);const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}
    }
    // Exposed eave fascia follows the real curled roof. Central joined edge is not a second fascia.
-   for(let i=0;i<36;i++){const u=-1+2*i/36,v=-1+2*(i+1)/36,a=P(side,1,u),b=P(side,1,v);if(side===0&&(frontGap&&Math.min(Math.abs(a[0]),Math.abs(b[0]))<frontGap||connected&&Math.max(Math.abs(a[0]),Math.abs(b[0]))<gHalf))continue;a[1]-=.24;b[1]-=.24;between(a,b,.13,.23,'cedar');}
+   for(let i=0;i<36;i++){const u=-1+2*i/36,v=-1+2*(i+1)/36,a=P(side,1,u),b=P(side,1,v);if(side===0&&(frontGap&&Math.min(Math.abs(a[0]),Math.abs(b[0]))<frontGap||connected&&Math.max(Math.abs(a[0]),Math.abs(b[0]))<mainEaveOpeningHalf))continue;a[1]-=.24;b[1]-=.24;between(a,b,connected&&side===0?.20:.13,connected&&side===0?.36:.23,'cedar');
+    if(connected&&side===0){a[1]-=.15;b[1]-=.15;a[2]+=.12;b[2]+=.12;between(a,b,.035,.055,'oldgold');}
+   }
    if(side<2)for(const sign of[-1,1]){const pts=lin(inner,1.035,16).map(t=>{const p=P(side,t,sign);p[1]+=.075;return p;});tube(pts,.095,'slate',32);}
   }
   if(inner===0){box(ridgeOffsetX,eave+rise+.10,centerZ,rh*2+.12,.30,.24,'slate');box(ridgeOffsetX,eave+rise+.285,centerZ,rh*2+.14,.07,.30,'tileEdge');for(const s of[-1,1]){tube([[ridgeOffsetX+s*rh,eave+rise+.1,centerZ],[ridgeOffsetX+s*(rh+.15),eave+rise+.22,centerZ],[ridgeOffsetX+s*(rh+.23),eave+rise+.51,centerZ]],.095,'slate',16);rosette(ridgeOffsetX+s*(rh-.16),eave+rise+.12,centerZ+.145,.10,'oldgold');}}
@@ -113,8 +118,8 @@ export function buildReference4Architecture(T,options={}) {
    for(const level of['upper','lower']){
     const points=lin(0,1,32).map(t=>p.railPoint(s,t,level));tube(points,level==='upper'?.095:.067,'red',64);
    }
-   for(let i=0;i<8;i++){
-    const t=i/8,z=p.z0+p.run*t,x=s*(p.halfWidth(z)+.23),base=p.steps[Math.min(p.count-1,Math.floor(t*p.count))].top+.095,top=p.railPoint(s,t)[1]+.17;
+   for(let i=0;i<6;i++){
+    const t=i/6,z=p.z0+p.run*t,x=s*(p.halfWidth(z)+.23),base=p.steps[Math.min(p.count-1,Math.floor(t*p.count))].top+.095,top=p.railPoint(s,t)[1]+.17;
     box(x,(base+top)/2,z,.20,top-base,.20,'red');box(x,top+.025,z,.24,.05,.24,'oldgold');emit(sphere,'black',x,top+.12,z,.105,.12,.105);
    }
   }
