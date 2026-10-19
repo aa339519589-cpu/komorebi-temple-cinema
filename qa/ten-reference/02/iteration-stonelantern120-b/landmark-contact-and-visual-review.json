@@ -1,0 +1,220 @@
+{
+  "status": "foreground structure/layout candidate; full photographic fidelity unaccepted",
+  "visualAccepted": false,
+  "reference": "references/hd/1-\u7167\u7247-2.jpg",
+  "nativeReferenceSize": [
+    1254,
+    1254
+  ],
+  "before": {
+    "actual": "qa/ten-reference/02/iteration-layout117-c/reference.png",
+    "commit": "0d9840537b7afc43c25cf56bc0429dd5ef50b8f8",
+    "sourceHash": "2f2e782ff042ec1c242732fed4f2dc2a1465e2fa48098ae6fb6099b94201d9bd"
+  },
+  "after": {
+    "actual": "qa/ten-reference/02/iteration-stonelantern120-b/reference.png",
+    "nativeCrop": "qa/ten-reference/02/iteration-stonelantern120-b/detail-native.png",
+    "sourceHash": "ed71f24e5f71e785f56f0f7b9f35123ec504adcc3fcaa37ba09c2b4aa12de7ae",
+    "report": "qa/ten-reference/02/iteration-stonelantern120-b/report.json"
+  },
+  "camera": {
+    "position": [
+      16.2,
+      2.72,
+      25.0
+    ],
+    "target": [
+      -1.0,
+      4.7,
+      -7.0
+    ],
+    "fov": 52,
+    "unchanged": true
+  },
+  "recovery": {
+    "method": "One common axis recovered from lower-foot contour and fixed supported contact height. Connected levels, square sections and curved roof width follow five reference contour anchors; silhouette/whole-frame fidelity is not inferred from these points.",
+    "contactWorldY": 0.15,
+    "recoveredAnchor": [
+      0.9988413397906495,
+      0.14999999999999947,
+      13.20506183755976
+    ],
+    "implementedAnchor": [
+      0.99884134,
+      0.15,
+      13.20506184
+    ],
+    "commonYaw": -0.15,
+    "heightMetres": 4.09,
+    "roofSquareWidthMetres": 1.36,
+    "fireBagSideMetres": 0.86,
+    "squareStemSidesMetres": [
+      0.5,
+      0.43
+    ],
+    "landmarks": [
+      {
+        "id": "L1",
+        "description": "stone finial tip",
+        "referencePixel": [
+          58,
+          586
+        ],
+        "beforeProjection": [
+          124.36184303521128,
+          634.9817291634519
+        ],
+        "afterProjection": [
+          58.26672119510545,
+          586.1443406661125
+        ],
+        "beforeErrorPixels": 82.48093114697342,
+        "afterErrorPixels": 0.3032728537345167,
+        "nativeReadUncertaintyPixels": 4
+      },
+      {
+        "id": "L2",
+        "description": "right curved roof corner",
+        "referencePixel": [
+          130,
+          634
+        ],
+        "beforeProjection": [
+          163.23774819738156,
+          679.4179513447344
+        ],
+        "afterProjection": [
+          130.46552623858054,
+          633.9371328199559
+        ],
+        "beforeErrorPixels": 56.28088671640849,
+        "afterErrorPixels": 0.46975202089362356,
+        "nativeReadUncertaintyPixels": 4
+      },
+      {
+        "id": "L3",
+        "description": "centre of fire-bag seat edge",
+        "referencePixel": [
+          55,
+          704
+        ],
+        "beforeProjection": [
+          122.49940930623848,
+          722.4103300548467
+        ],
+        "afterProjection": [
+          55.428218165039425,
+          703.6636011005093
+        ],
+        "beforeErrorPixels": 69.96506635042594,
+        "afterErrorPixels": 0.5445502882639189,
+        "nativeReadUncertaintyPixels": 4
+      },
+      {
+        "id": "L4",
+        "description": "centre of shaft foot edge",
+        "referencePixel": [
+          52,
+          824
+        ],
+        "beforeProjection": [
+          120.41883059182629,
+          820.0793548452198
+        ],
+        "afterProjection": [
+          52.525444011663694,
+          823.8438045737713
+        ],
+        "beforeErrorPixels": 68.53107206211448,
+        "afterErrorPixels": 0.5481682411158085,
+        "nativeReadUncertaintyPixels": 4
+      },
+      {
+        "id": "L5",
+        "description": "centre of lower masonry foot edge",
+        "referencePixel": [
+          51,
+          887
+        ],
+        "beforeProjection": [
+          119.96425803310609,
+          841.4184458390481
+        ],
+        "afterProjection": [
+          51.000000000000114,
+          887.0
+        ],
+        "beforeErrorPixels": 82.66648030359481,
+        "afterErrorPixels": 1.1368683772161603e-13,
+        "nativeReadUncertaintyPixels": 4
+      }
+    ],
+    "selectedProjectionRmsBeforePixels": 72.65811382859293,
+    "selectedProjectionRmsAfterPixels": 0.4265360059742289,
+    "interpretation": "Selected structural anchor projection only, not image/photographic similarity."
+  },
+  "depthAndContact": {
+    "oldLampOverlappedBridgeFootprint": true,
+    "newRoofToConservativeBridgeFootprintClearanceMetres": 5.292806441531309,
+    "bridgeLeftFinialVisibleInNativeActual": true,
+    "footingNativeBoundsApproximate": {
+      "reference": [
+        0,
+        860,
+        130,
+        965
+      ],
+      "actual": [
+        0,
+        881,
+        123,
+        943
+      ],
+      "uncertaintyPixels": 6
+    },
+    "masonryToRockGapMetres": 0,
+    "roofFlatBearingGapMetres": -8.583068833445395e-08,
+    "geometryInspection": "geometry-contact-inspection.json",
+    "naturalStoneMass": "Peripheral rock solids intersect the bearing rock as one continuous natural mass. They do not independently support a floating pedestal.",
+    "sideGeometryCheck": "Actual closed-mesh cross sections and all connected stage levels inspected on CPU; no side-camera GPU job used."
+  },
+  "heldGeometry": [
+    "reconstructions/scene-02/architecture.js",
+    "reconstructions/scene-02/layout117.js",
+    "reconstructions/scene-02/kernel.js",
+    "reconstructions/scene-02/veranda-rail117.js",
+    "reconstructions/scene-02/veranda-boards.js",
+    "reconstructions/scene-02/pagoda-ground.js"
+  ],
+  "materials": {
+    "scan": "Existing scene07 CC0 Poly Haven Granite Tile04 single-face crop, copied with provenance.",
+    "metricRepeatMetres": 0.3173828125,
+    "referencePixelsUsed": false
+  },
+  "renderBudget": {
+    "wrapperJobs": 2,
+    "native1254FullFrames": 2,
+    "nativeSubfrustumFrames": 2,
+    "runner": "tools/render-one-reconstruction.mjs",
+    "sharedMutexUsed": true,
+    "softwareTestSuitesRun": false
+  },
+  "retainedCandidateA": {
+    "actual": "qa/ten-reference/02/iteration-stonelantern120-a/reference.png",
+    "status": "superseded; rock footing did not extend far enough into foreground, and roof underside/stack contacts needed explicit correction"
+  },
+  "nativeVisualReview": {
+    "improved": [
+      "Entire lantern moved to the left foreground instead of occupying the bridge-end post.",
+      "Roof, fire-bag, square shaft and masonry foot have the intended broad vertical arrangement.",
+      "Bridge left cap is now visible.",
+      "Rock footing bears the masonry and extends into the foreground; pond foliage is clipped only from the new solid footprint."
+    ],
+    "remaining": [
+      "Stone light/colour response and window grille remain substantially simpler than the supplied photograph.",
+      "Fire-bag/platform widths and rock silhouette remain approximate; some contours differ around 8\u201312 native pixels.",
+      "The footing is still plainer and less planted than the reference; its front extent remains roughly 20\u201330px short in this native view.",
+      "Main-scene planting, lighting, crude remaining stair/shore geometry and general photo fidelity were not accepted by this target pass."
+    ]
+  }
+}

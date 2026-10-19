@@ -5,6 +5,7 @@ import {buildPagodaGrounding} from './pagoda-ground.js';
 import {buildArchitecture} from './architecture.js';
 import {buildGarden} from './garden.js';
 import {layout} from './layout117.js';
+import {loadForegroundStone120} from './foreground-stone-lantern120.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
@@ -14,6 +15,7 @@ const query=new URLSearchParams(location.search),width=Math.min(2048,Math.max(64
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setSize(width,height);renderer.setPixelRatio(1);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.94;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;document.body.append(renderer.domElement);
 const scene=new T.Scene();scene.name='reference02-layout117-recovered-veranda';scene.fog=new T.FogExp2(0xd3b181,.005);
 const {mats,textures}=materials();mats.slate.side=T.DoubleSide;
+const foregroundStone120=await loadForegroundStone120();Object.assign(mats,foregroundStone120.mats);textures.push(...foregroundStone120.textures);
 const architecture=buildArchitecture(mats),garden=buildGarden(mats),grounding=buildPagodaGrounding(mats);scene.add(architecture.group,garden.group,grounding.group,...architecture.lights,...garden.lights);
 const sunDirection=V([-.87,.23,-.75]).normalize();
 // A procedural atmosphere: directional high-frequency cloud structure, atmospheric gradient,
@@ -74,6 +76,6 @@ function renderView(position,target,time=0,fov=52){setView(position,target,fov);
 // rail/deck edge on its walkable side; the photographic endpoint is unchanged.
 const dolly=createDollyPath({points:[[15.7,2.1,23.6],[15.7,2.25,23.9],[15.9,2.6,24.6],reference.position],nearTarget:[15.2,2.4,22.7],farTarget:reference.target,fov:reference.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-function info(){return{reference:2,revision:'scene02-layout117-fixed-camera-architecture-and-joined-rail',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-layout117-with-grounded-foreground-stone-lantern120',ready:true,frames,source:'actual procedural three-dimensional geometry only',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
 function dispose(){disposed=true;scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);

@@ -1,0 +1,52 @@
+{
+  "provider": "Poly Haven",
+  "asset": "Granite Tile 04",
+  "author": "Amal Kumar",
+  "source": "https://polyhaven.com/a/granite_tile_04",
+  "license": "CC0-1.0",
+  "licenseURL": "https://polyhaven.com/license",
+  "sourceWidthMetres": 2,
+  "downloadedAt": "2026-10-18T15:47:37.013685+00:00",
+  "files": {
+    "granite_tile_04_diff_4k.jpg": {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/granite_tile_04/granite_tile_04_diff_4k.jpg",
+      "sha256": "bdbc606f7f13fd422303e3a02d6d721b5980d0e531e7fe02ff0af9586e944def",
+      "bytes": 14966095
+    },
+    "granite_tile_04_nor_gl_4k.jpg": {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/granite_tile_04/granite_tile_04_nor_gl_4k.jpg",
+      "sha256": "62a82d3da12523231a5d16cfea1f8c214f9bb47d22694e970230087a9f7027be",
+      "bytes": 11453711
+    },
+    "granite_tile_04_rough_4k.jpg": {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/granite_tile_04/granite_tile_04_rough_4k.jpg",
+      "sha256": "d0fa1ba236ef2cfccc9fde9b4b2f3235039a8426b4e334db6fcd26b0fad19953",
+      "bytes": 13852774
+    },
+    "granite-face-diff.png": {
+      "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "bytes": 781135
+    },
+    "granite-face-rough.png": {
+      "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "bytes": 322071
+    },
+    "granite-face-nor_gl.png": {
+      "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "bytes": 626510
+    }
+  },
+  "derivedCrop": {
+    "xy": [
+      2100,
+      920
+    ],
+    "sizePixels": [
+      650,
+      650
+    ],
+    "widthMetres": 0.3173828125,
+    "method": "Identical crop inside one actual granite tile, excluding all source grout. No reference photograph pixels.",
+    "wrapping": "Mirrored repeat at 0.3173828125 m; actual joints and worn edges are model geometry."
+  }
+}

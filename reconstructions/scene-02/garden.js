@@ -1,4 +1,5 @@
 import {T,V,mix,rand,Builder,gridGeometry} from './kernel.js';
+import {buildForegroundStoneLantern120,foregroundLanternFootprint120} from './foreground-stone-lantern120.js';
 export function buildGarden(mats){
  const b=new Builder(mats),lights=[];mats.rock=mats.stone.clone();mats.rock.color.setHex(0x555b50);mats.rock.roughness=.72;mats.rock.metalness=.06;
  const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=mats.pink.side=mats.pinkDark.side=T.DoubleSide;
@@ -61,11 +62,20 @@ export function buildGarden(mats){
   });
   b.put(new T.CylinderGeometry(.14,.22,.13,8),'stone',[0,top+.53,0]);b.ball(0,top+.71,0,.12,.17,.12,'stone');b.ball(0,top+.87,0,.045,.09,.045,'stone');
  },s);const l=new T.PointLight(0xffaa42,9*s,7*s,2);l.position.set(x,(h*.64+.33)*s,z);lights.push(l);}
- stoneLantern(-3.8,8,3.5,1.0);stoneLantern(10.4,5.9,3.0,.92);stoneLantern(-22,0,3.0,.8);
+ const foregroundStoneLantern=buildForegroundStoneLantern120({b,mats});lights.push(foregroundStoneLantern.light);stoneLantern(10.4,5.9,3.0,.92);stoneLantern(-22,0,3.0,.8);
  // Lotus leaves are shallow ribbed basins with a radial slit, cupped rim and raised midribs.
  const lotusGeo=(()=>{let rings=7,N=36,rows=[];for(let j=0;j<=rings;j++){let t=.012+.988*j/rings;rows.push(Array.from({length:N+1},(_,i)=>{let a=.13+(Math.PI*2-.26)*i/N,r=t*(1+.035*Math.sin(a*7));return[Math.cos(a)*r,.045*Math.sin(a*7)*t*t+.14*Math.pow(t,5)-.055*(1-t),Math.sin(a)*r];}));}return gridGeometry(rows);})();
  const lotusMaterials=[0x53701e,0x688025,0x3b5b1a,0x87923a].map(c=>new T.MeshStandardMaterial({color:c,roughness:.40,side:T.DoubleSide}));
- for(let i=0;i<190;i++){let x=-7+rand()*18,z=5+rand()*20;if(x>7&&z<15)continue;let s=.13+rand()*.25,y=.05+rand()*.1,yaw=rand()*6.28;b.put(lotusGeo,lotusMaterials[i%4],[x,y,z],[s,s,s],[0,yaw,0]);if(i%4===0){b.at([x,y+.012,z],yaw,()=>{for(let k=0;k<8;k++){let a=.22+k*.74;b.line([0,-.04,0],[Math.cos(a)*s*.9,.08*s,Math.sin(a)*s*.9],.004,'leaflight');}});}if(i%6===0){let fy=.22+rand()*.28;b.line([x,0,z],[x,fy,z],.012,'leaf');b.ball(x,fy,z,.042,.034,.042,'gold');for(let ring=0;ring<3;ring++){let N=ring===0?6:9;for(let k=0;k<N;k++)b.put(petalGeo,ring===2?'pinkDark':'petal',[x,fy,z],[.105+ring*.027,.22,.20+ring*.035],[.3+ring*.25,k*6.28/N+ring*.3,0]);}}}
+ let culledPondPlantsForSolidFooting=0;
+ for(let i=0;i<190;i++){
+  const x=-7+rand()*18,z=5+rand()*20;if(x>7&&z<15)continue;
+  const s=.13+rand()*.25,y=.05+rand()*.1,yaw=rand()*6.28,clear=!foregroundLanternFootprint120(x,z,s*.45);
+  // Consume the original private garden sequence even for a rejected plant,
+  // so the rest of the pond and distant landscape retain their positions.
+  if(clear)b.put(lotusGeo,lotusMaterials[i%4],[x,y,z],[s,s,s],[0,yaw,0]);else culledPondPlantsForSolidFooting++;
+  if(i%4===0&&clear)b.at([x,y+.012,z],yaw,()=>{for(let k=0;k<8;k++){const a=.22+k*.74;b.line([0,-.04,0],[Math.cos(a)*s*.9,.08*s,Math.sin(a)*s*.9],.004,'leaflight');}});
+  if(i%6===0){const fy=.22+rand()*.28;if(clear){b.line([x,0,z],[x,fy,z],.012,'leaf');b.ball(x,fy,z,.042,.034,.042,'gold');for(let ring=0;ring<3;ring++){const N=ring===0?6:9;for(let k=0;k<N;k++)b.put(petalGeo,ring===2?'pinkDark':'petal',[x,fy,z],[.105+ring*.027,.22,.20+ring*.035],[.3+ring*.25,k*6.28/N+ring*.3,0]);}}}
+ }
  // Tiny floating leaves and ripple highlights catch the low sunset without image overlays.
  const ripple=new T.TorusGeometry(1,.006,3,24);for(let i=0;i<90;i++){let x=-23+rand()*33,z=4+rand()*30,r=.18+rand()*.5;b.put(ripple,'water',[x,.025,z],[r,r,r],[Math.PI/2,0,0]);}
  // Terrain silhouettes: true finite ridges, then several layers of distant woodland.
@@ -77,5 +87,5 @@ export function buildGarden(mats){
   for(let j=0;j<820;j++){const x=-110+rand()*220,zt=z-14.4+(rand()-.5)*2,h=.18+rand()*.36;b.put(b.lowSphere,m,[x,ridgeTop(x,layer)+h*.18,zt],[.16+rand()*.18,h,.22],[0,rand()*6.28,0],.75+rand()*.30);}
  }
  for(let i=0;i<80;i++){let x=-60+rand()*100,z=-30-rand()*16,h=3+rand()*5;const g=new T.ConeGeometry(1,1,7);b.put(g,'leaf',[x,h*.5,z],[1+rand()*1.5,h,1.5],[0,rand()*6,0],.65+rand()*.6);}
- return {group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size}};
+ return {group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting}};
 }

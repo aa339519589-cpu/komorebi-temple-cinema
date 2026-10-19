@@ -1,0 +1,273 @@
+{
+  "sourceHash": "ed71f24e5f71e785f56f0f7b9f35123ec504adcc3fcaa37ba09c2b4aa12de7ae",
+  "status": "actual target geometry inspected on CPU; not photographic acceptance",
+  "visualAccepted": false,
+  "scope": "Only new scene02 left foreground lantern/footing. Unchanged architecture uses layout117.",
+  "criticalSolids": [
+    {
+      "name": "closed-natural-rock-with-flat-masonry-bearing",
+      "vertices": 802,
+      "triangles": 1600,
+      "finite": true,
+      "signedVolumeMetresCubed": 1.042043600932661,
+      "weldToleranceMetres": 0.00001,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "closed-chamfered-square-stone-shaft",
+      "vertices": 18,
+      "triangles": 32,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.23822220779328468,
+      "weldToleranceMetres": 0.00001,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "closed-chamfered-square-stone-shaft",
+      "vertices": 18,
+      "triangles": 32,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.0902298297876051,
+      "weldToleranceMetres": 0.00001,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "closed-four-hip-carved-stone-kasa",
+      "vertices": 4226,
+      "triangles": 8448,
+      "finite": true,
+      "signedVolumeMetresCubed": 0.2770999015194871,
+      "weldToleranceMetres": 0.00001,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0
+    }
+  ],
+  "stackContacts": [
+    {
+      "lower": "masonry foot",
+      "upper": "foot cap",
+      "lowerTopY": 0.6,
+      "upperBottomY": 0.6,
+      "gapMetres": 0
+    },
+    {
+      "lower": "foot cap",
+      "upper": "shaft foot",
+      "lowerTopY": 0.74,
+      "upperBottomY": 0.74,
+      "gapMetres": 0
+    },
+    {
+      "lower": "shaft foot",
+      "upper": "square shaft",
+      "lowerTopY": 0.85,
+      "upperBottomY": 0.85,
+      "gapMetres": 0
+    },
+    {
+      "lower": "square shaft",
+      "upper": "compression capital",
+      "lowerTopY": 1.95,
+      "upperBottomY": 1.95,
+      "gapMetres": 0
+    },
+    {
+      "lower": "compression capital",
+      "upper": "carved capital block",
+      "lowerTopY": 2.13,
+      "upperBottomY": 2.13,
+      "gapMetres": 0
+    },
+    {
+      "lower": "carved capital block",
+      "upper": "capital ledge",
+      "lowerTopY": 2.37,
+      "upperBottomY": 2.37,
+      "gapMetres": 0
+    },
+    {
+      "lower": "capital ledge",
+      "upper": "window floor",
+      "lowerTopY": 2.45,
+      "upperBottomY": 2.45,
+      "gapMetres": 0
+    },
+    {
+      "lower": "window floor",
+      "upper": "corner piers",
+      "lowerTopY": 2.53,
+      "upperBottomY": 2.53,
+      "gapMetres": 0
+    },
+    {
+      "lower": "corner piers",
+      "upper": "window top cap",
+      "lowerTopY": 3.25,
+      "upperBottomY": 3.25,
+      "gapMetres": 0
+    }
+  ],
+  "bearing": {
+    "flatRockTopWorldY": 0.15,
+    "masonryBottomWorldY": 0.15,
+    "gapMetres": 0,
+    "maximumFootCornerRadius": 0.5515432893255071,
+    "conservativeFlatBearingRadius": 0.6,
+    "allFootCornersSupported": true
+  },
+  "roofSupport": {
+    "actualLowestRoofVertexOverWindowCapY": 3.3399999141693115,
+    "windowTopCapY": 3.34,
+    "gapMetres": -8.583068833445395e-8,
+    "outerOverhangHalfWidth": 0.68,
+    "windowCapHalfWidth": 0.5
+  },
+  "bridgeClearance": {
+    "conservativeBridgeFootprint": [
+      [
+        -4.691569062989751,
+        5.107985653101327
+      ],
+      [
+        5.290266902309734,
+        1.7963638085630298
+      ],
+      [
+        6.319909263447369,
+        4.899894837853131
+      ],
+      [
+        -3.661926701852116,
+        8.211516682391428
+      ]
+    ],
+    "lanternRoofFootprint": [
+      [
+        0.4280949370855387,
+        12.431079576921444
+      ],
+      [
+        1.7728236030785562,
+        12.63431543708554
+      ],
+      [
+        1.5695877429144613,
+        13.979044103078557
+      ],
+      [
+        0.22485907692144377,
+        13.775808242914461
+      ]
+    ],
+    "oldLampFootprintOverlapsBridge": true,
+    "newLampFootprintOverlapsBridge": false,
+    "minimumHorizontalClearanceMetres": 5.292806441531309
+  },
+  "targetStats": {
+    "revision": "scene02-foreground-stonelantern120",
+    "pieces": 93,
+    "commonAnchor": [
+      0.99884134,
+      0.15,
+      13.20506184
+    ],
+    "commonYaw": -0.15,
+    "levels": {
+      "anchor": [
+        0.99884134,
+        0.15,
+        13.20506184
+      ],
+      "yaw": -0.15,
+      "height": 4.09,
+      "roofHalfWidth": 0.68,
+      "roofEdgeY": 3.38,
+      "roofCrownY": 3.76,
+      "windowSide": 0.86,
+      "windowBottom": 2.48,
+      "windowTop": 3.28,
+      "stemBottom": 0.85,
+      "stemTop": 1.95,
+      "stemBottomSide": 0.5,
+      "stemTopSide": 0.43,
+      "baseSide": 0.78,
+      "footingBearingY": 0,
+      "footingRocks": [
+        [
+          -0.79,
+          -0.14,
+          0.67,
+          0.36,
+          0.3,
+          0.43
+        ],
+        [
+          0.72,
+          -0.16,
+          0.56,
+          0.35,
+          0.29,
+          0.39
+        ],
+        [
+          -0.91,
+          -0.13,
+          -0.26,
+          0.34,
+          0.27,
+          0.43
+        ],
+        [
+          1.15,
+          -0.11,
+          0.65,
+          0.63,
+          0.38,
+          0.52
+        ],
+        [
+          2.25,
+          -0.15,
+          1.25,
+          1,
+          0.45,
+          0.7
+        ]
+      ]
+    },
+    "worldBounds": {
+      "min": [
+        -0.39479214750035263,
+        -0.46278307437896726,
+        11.922962644249747
+      ],
+      "max": [
+        4.202425630026992,
+        4.240000152587891,
+        15.674620261391532
+      ]
+    },
+    "bearingContactWorldY": 0.15,
+    "masonryBottomWorldY": 0.15,
+    "bearingPatchRadiusMetres": 0.6,
+    "maximumMasonryCornerRadiusMetres": 0.5515432893255071,
+    "closedRoof": true,
+    "closedSquareShaft": true,
+    "closedBearingRock": true,
+    "metricStoneRepeatMetres": 0.3173828125,
+    "referencePhotographUsedAsTexture": false,
+    "visualAccepted": false
+  },
+  "limits": [
+    "Natural footing stones intentionally overlap into one rock mass; architecture interfaces above it use the shared measured stage levels.",
+    "Four luminous inner panes are intentionally open surfaces; closure checks apply to load-bearing shaft, capital, roof and rock bearing.",
+    "This contact inspection does not establish full-scene fidelity."
+  ]
+}

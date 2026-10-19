@@ -7,7 +7,7 @@
     "reconstructions/camera-dolly.js"
   ],
   "use": "Existing CC0 lacquered-cherry scan supplies metric normal/roughness and normalized grain on independently modeled timber. Red/cedar keep their existing pigment. The veranda floor now also has independent warm red-brown pigment instead of multiplying the dark source brown; the lower rail is real segmented wood. No photo RGB.",
-  "revision": "mesh73b",
+  "revision": "layout117-with-foreground-stone-lantern120",
   "materialCalibration": {
     "sourceLinearMeanY": 0.01505120736,
     "method": "Decode via the sRGB texture, divide linear luminance by the measured full-map mean, apply exponent .55 and clamp .52..1.46 as painted grain. Material pigment supplies warm vermilion.",
@@ -36,12 +36,20 @@
     "scope": "Only foreground deck and lowest rail/foot sill. Reference pose, dolly, lighting, building positions, middle/top rails and all upper cast metalwork retained.",
     "referenceVisibility": "HD0-photo1 exposes only a narrow floor strip at the foreground rail; the present native view exposes a larger right-bottom deck. Board end locations and hidden joists cannot be measured from that photo and are explicitly structural hypotheses.",
     "diagnosis": "Prior geometry already had25closed strips and7mm gaps, but each strip was30m long with no end joints or supporting joist detail. Unit rounded-box scaling stretched the end rounding to~0.54m. A full5.9x30m Reflector6mm above the boards, alpha0.71, obscured real floor joints/height. Floor albedo remained the raw near-black scan.",
-    "construction": "25longitudinalZboard columns subdivided into1.2–3.6m staggered closed45mm boards with4mm end gaps,1.5–2.2mm true arrises,±1.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
+    "construction": "25longitudinalZboard columns subdivided into1.2\u20133.6m staggered closed45mm boards with4mm end gaps,1.5\u20132.2mm true arrises,\u00b11.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
     "lowerRail": "Only the lowest rail is segmented with small true bevels/end tenons and a closed wood sill under retained post shafts. Existing middle/top rails, posts and metalwork stay.",
     "material": "Floor pigment#925034 multiplied by normalized source linear luminance/0.01505120736^.55, clamped.52..1.46; scanned normal and roughness retained at metric scale. Actual per-board clearcoat with worn/wet roughness plus the already-captured real scene probe. The deck-spanning Reflector is removed; the pond Reflector remains.",
     "lightingChanged": false,
     "visualAccepted": false,
-    "roundTwoCorrection": "The first actual had clear true joints/grain/warm pigment but a dry response. Update the actual cup/wear geometry normals through the deformation inverse-transpose; only floor wet clearcoat roughness becomes about0.09–0.21 with actual probe factor0.65→1.0. Light positions/intensities/exposure and all upper rail/metal material settings stay unchanged; no deck reflector sheet returns.",
+    "roundTwoCorrection": "The first actual had clear true joints/grain/warm pigment but a dry response. Update the actual cup/wear geometry normals through the deformation inverse-transpose; only floor wet clearcoat roughness becomes about0.09\u20130.21 with actual probe factor0.65\u21921.0. Light positions/intensities/exposure and all upper rail/metal material settings stay unchanged; no deck reflector sheet returns.",
     "geometryAudit": "Actual emitted225boards plus42framing/lower-rail prototype geometries checked on the CPU:267unique solids, all finite, positive volume, closed after10micrometre spatial weld, zero nonmanifold edges. No browser or test suite was used for this geometry inspection."
+  },
+  "foregroundStoneLantern120": {
+    "scope": "Entire left foreground stone lantern and its supporting rock footing. Fixed reference camera, hall, tower, bridge and recovered veranda geometry held.",
+    "source": "assets/foreground-lantern120/provenance.json",
+    "materialUse": "Existing CC0 Poly Haven Granite Tile04 single-face crop reused from scene07; three copied maps, .3173828125m metric repeat. No reference-image pixels.",
+    "construction": "Common ground-contact anchor and vertical axis; closed chamfered square shaft, connected stepped pedestal/capital, recessed four-sided fire bag, closed four-hip stone roof, closed rock bearing with a flat masonry support.",
+    "pose": "Recovered from five native silhouette landmarks and checked against bridge separation and ground bearing.",
+    "visualAccepted": false
   }
 }
