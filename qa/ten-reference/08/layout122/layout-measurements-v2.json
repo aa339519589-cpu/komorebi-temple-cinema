@@ -1,0 +1,434 @@
+{
+  "scope": "Fifteen manually measured contour features under the original fixed camera, plus physical connection contracts. Not photographic acceptance or exhaustive collision detection.",
+  "baseCommit": "814c879ad6e9b1552f254005e90902ce219501c5",
+  "camera": {
+    "position": [
+      0,
+      2.65,
+      13
+    ],
+    "target": [
+      0,
+      6.65,
+      -9
+    ],
+    "fov": 49
+  },
+  "annotationUncertaintyPixels": [
+    10,
+    25
+  ],
+  "landmarks": [
+    {
+      "id": "portal-left-inner-at-row900",
+      "target": [
+        174,
+        900
+      ],
+      "before": [
+        110.77738507092607,
+        900.0000000000001
+      ],
+      "after": [
+        158.93776907866405,
+        900.0000000000002
+      ],
+      "beforeError": 63.22261492907393,
+      "afterError": 15.062230921335953
+    },
+    {
+      "id": "portal-right-inner-at-row900",
+      "target": [
+        1130,
+        900
+      ],
+      "before": [
+        1182.036345374869,
+        900.0000000000001
+      ],
+      "after": [
+        1158.653287916028,
+        900
+      ],
+      "beforeError": 52.036345374868915,
+      "afterError": 28.65328791602792
+    },
+    {
+      "id": "left-hall-front-column-foot",
+      "target": [
+        412,
+        685
+      ],
+      "before": [
+        430.3018819684606,
+        734.7252980865406
+      ],
+      "after": [
+        414.8394763507021,
+        680.0333082985879
+      ],
+      "beforeError": 52.986452545747824,
+      "afterError": 5.721070914004826
+    },
+    {
+      "id": "left-hall-front-column-head",
+      "target": [
+        410,
+        385
+      ],
+      "before": [
+        441.37046205956375,
+        302.8513977948364
+      ],
+      "after": [
+        423.43189784901546,
+        371.4230959744726
+      ],
+      "beforeError": 87.93462761672868,
+      "afterError": 19.098382202290562
+    },
+    {
+      "id": "left-hall-right-eave-corner",
+      "target": [
+        565,
+        215
+      ],
+      "before": [
+        568.8040634325812,
+        169.48397841907715
+      ],
+      "after": [
+        551.3896215352812,
+        239.53794518210108
+      ],
+      "beforeError": 45.67470984203552,
+      "afterError": 28.059813893051373
+    },
+    {
+      "id": "receding-wing-far-eave",
+      "target": [
+        809,
+        500
+      ],
+      "before": [
+        782.7719697195462,
+        500.1880323408891
+      ],
+      "after": [
+        802.0238444233656,
+        500.1880323408891
+      ],
+      "beforeError": 26.22870428659454,
+      "afterError": 6.978689188567365
+    },
+    {
+      "id": "near-handrail-at-x265",
+      "target": [
+        265,
+        1009
+      ],
+      "before": [
+        264.99999999999994,
+        956.9744158042632
+      ],
+      "after": [
+        265.00081961439884,
+        1008.9999674838041
+      ],
+      "beforeError": 52.02558419573677,
+      "afterError": 0.0008202591454995371
+    },
+    {
+      "id": "near-handrail-at-x1131",
+      "target": [
+        1131,
+        1110
+      ],
+      "before": [
+        1130.9999999999995,
+        1010.7285488132408
+      ],
+      "after": [
+        1131.0006308047075,
+        1110.0000694171313
+      ],
+      "beforeError": 99.27145118675924,
+      "afterError": 0.0006346127300296974
+    },
+    {
+      "id": "near-post-finial-tip",
+      "target": [
+        415,
+        808
+      ],
+      "before": [
+        369.21524400423806,
+        782.7683001523479
+      ],
+      "after": [
+        421.02450458532456,
+        798.7338986831412
+      ],
+      "beforeError": 52.27697924319522,
+      "afterError": 11.052388389524184
+    },
+    {
+      "id": "pagoda-crown-apex",
+      "target": [
+        789,
+        190
+      ],
+      "before": [
+        789.226013202757,
+        199.15447808018328
+      ],
+      "after": [
+        789.226013202757,
+        199.15447808018328
+      ],
+      "beforeError": 9.157267654075458,
+      "afterError": 9.157267654075458
+    },
+    {
+      "id": "pagoda-upper-front-floor",
+      "target": [
+        770,
+        323
+      ],
+      "before": [
+        764.8593689034656,
+        386.5365580125268
+      ],
+      "after": [
+        763.6590175032851,
+        322.7435082668294
+      ],
+      "beforeError": 63.744178496156366,
+      "afterError": 6.346167901405508
+    },
+    {
+      "id": "pagoda-second-front-floor",
+      "target": [
+        770,
+        434
+      ],
+      "before": [
+        766.1966511762818,
+        520.6518778941775
+      ],
+      "after": [
+        764.7110950669758,
+        441.02869585857763
+      ],
+      "beforeError": 86.73530656464136,
+      "afterError": 8.796310639293871
+    },
+    {
+      "id": "bridge-left-landing",
+      "target": [
+        780,
+        846
+      ],
+      "before": [
+        618.612758157285,
+        889.9372895146608
+      ],
+      "after": [
+        785.579397314839,
+        851.7008168006425
+      ],
+      "beforeError": 167.26125444792675,
+      "afterError": 7.9767779580053775
+    },
+    {
+      "id": "bridge-right-gallery-landing",
+      "target": [
+        1130,
+        762
+      ],
+      "before": [
+        1190.5104360117955,
+        889.6012329985942
+      ],
+      "after": [
+        1135.070792853042,
+        770.4543120535504
+      ],
+      "beforeError": 141.22176719294774,
+      "afterError": 9.85841429730304
+    },
+    {
+      "id": "stair-upper-gallery-landing",
+      "target": [
+        716,
+        750
+      ],
+      "before": [
+        681.9855282914723,
+        782.8408729312607
+      ],
+      "after": [
+        715.954012461749,
+        748.4864089817328
+      ],
+      "beforeError": 47.28115079497796,
+      "afterError": 1.514289478353986
+    }
+  ],
+  "beforeRms": 80.47320193333239,
+  "afterRms": 13.584761028503074,
+  "connections": {
+    "columnBeamBearingOverlapMetres": 0.004999999999999893,
+    "beamRafterGapMetres": 0,
+    "rafterBoardingGapMetres": 0,
+    "frontRailColumnCollisionCount": 0,
+    "bridgeStairSharedLandingError": 0,
+    "bridgeRightGalleryPlanError": 0.000007826587532345835,
+    "bridgeRightGalleryFloorError": 0,
+    "stairMiddleGalleryFloorError": 0,
+    "stairUpperLandingInsideFloor": true,
+    "bridgeRailPostEdgeInsetMetres": 0.015,
+    "stairRailPostEdgeInsetMetres": 0.015,
+    "upperEntryTreadRises": [
+      0.15333333333333332,
+      0.15333333333333332,
+      0.15333333333333332
+    ],
+    "pagodaCrownWorldY": 21.976,
+    "pagodaSpireTipWorldY": 26.067999999999998,
+    "pagodaFoundationGroundY": 1.7
+  },
+  "lightsSourceExact": true,
+  "materialSetupExact": true,
+  "cameraMainSHA256": "3ef5b82df464d6a01c91f1384cb58344817bf74aa72260e9364951be064b480f",
+  "layout": {
+    "revision": "scene08-connected-corridor-layout122",
+    "portal": {
+      "origin": [
+        0.02,
+        0,
+        8.1
+      ],
+      "yaw": -0.1,
+      "halfSpan": 2.17,
+      "columnWidth": 0.61,
+      "columnDepth": 0.64,
+      "floor": 0.94,
+      "columnTop": 6.425,
+      "beamCentre": 6.62,
+      "beamDepth": 0.4,
+      "rafterBottom": 6.82
+    },
+    "nearRail": {
+      "a": [
+        -2.06501,
+        4.88844
+      ],
+      "b": [
+        1.62798,
+        8.34852
+      ],
+      "floor": 0.94,
+      "handrailHeight": 0.97,
+      "postT": 0.27,
+      "postHeight": 1.75
+    },
+    "hall": {
+      "position": [
+        -6.7,
+        2.95,
+        -5.8
+      ],
+      "yaw": 0.08,
+      "w": 11,
+      "d": 8,
+      "h": 4.5,
+      "raised": 2,
+      "roofRise": 4.8,
+      "roofEaveDrop": 0.45,
+      "roofCurl": 1.1
+    },
+    "wing": {
+      "position": [
+        -1.86,
+        1.5,
+        -7.5
+      ],
+      "yaw": -0.55,
+      "w": 5.3,
+      "d": 10.3,
+      "h": 3.7,
+      "raised": 3
+    },
+    "pagoda": {
+      "position": [
+        4.7,
+        3.016,
+        -24
+      ],
+      "yaw": -0.4,
+      "scale": 1.2,
+      "tierPitch": 2.75,
+      "roomHeight": 1.9,
+      "topRoofRise": 2,
+      "spireLocalOffset": -2.68,
+      "foundationGround": 1.7
+    },
+    "middleGallery": {
+      "position": [
+        1.47,
+        4.28,
+        -9
+      ],
+      "yaw": -0.1,
+      "h": 2.02,
+      "floor": 4.5
+    },
+    "rightGallery": {
+      "position": [
+        7.9,
+        3.7,
+        -10
+      ],
+      "yaw": -0.15,
+      "h": 4.8,
+      "floor": 4.2
+    },
+    "bridge": {
+      "a": [
+        1.9,
+        2.95,
+        -3.7
+      ],
+      "b": [
+        7.50189,
+        4.2,
+        -7.36591
+      ],
+      "width": 1.5,
+      "arch": 0.32,
+      "segments": 28
+    },
+    "stair": {
+      "a": [
+        1.9,
+        2.95,
+        -3.7
+      ],
+      "b": [
+        1.3,
+        4.5,
+        -7.1
+      ],
+      "width": 1.11,
+      "steps": 10
+    }
+  },
+  "limits": [
+    "Sparse anchors and uncertain partly occluded contours",
+    "Side-return rail deliberately shares the same supported guard height; its upper photo contour remains unmatched",
+    "No exhaustive collision proof for inherited hidden roof/wall interiors",
+    "Metric terrace heights and depth are nonunique single-photo estimates"
+  ],
+  "passed": true
+}

@@ -1,0 +1,224 @@
+{
+  "scope": "Scene08 whole framing and architecture/layout candidate; unaccepted with unresolved major site/terrain masonry mismatch. All10 photographic fidelity remains unaccepted.",
+  "baseCommit": "814c879ad6e9b1552f254005e90902ce219501c5",
+  "reference": {
+    "path": "references/hd/7-照片-8.jpg",
+    "sha256": "798dd84173dff9d39fa4b3e229e95db4ca56b5b267d1f7f8c206c1248ee7f1d2",
+    "usage": "Manual contour measurements/comparison only; no runtime RGB, projection or photo depth"
+  },
+  "runtimeFiles": [
+    "reconstructions/scene-08/src/corridor-layout.js",
+    "reconstructions/scene-08/src/scene.js"
+  ],
+  "source": {
+    "hash": "d5df01d7ed321bf42ef67beaa61169baab1c687c3a525da850a96135d7327c6c",
+    "files": {
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-08/asset-dependencies.json": "8e33fed13610db990a810237284b32a475f0d9b69acad214906253401e27869a",
+      "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json": "e2bbe36fc8955a2177e7387ffb24d450417aec5271a680dceec64c5b81e83f26",
+      "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json": "e3c6bab6f20acbb0263ad4317537763f18d87f92c991ef0b94399fd672fc64a7",
+      "reconstructions/scene-08/assets/gate-plaque-v03/gate-plaque.glb": "14a436fa5020d80f9f3da20921367b510f9a9a7fa2764efe559c77a48461886f",
+      "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+      "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json": "15992a312377a3a0a607607db41d3c63f5544ee3bccca1ee55a7b14ec28ee49e",
+      "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json": "a302e66df3e6497b08e8674b1cb0273ec3cfe7b67ee3110e8ae664fcd7c289ca",
+      "reconstructions/scene-08/assets/gate-plaque-v04/gate-plaque.glb": "bd131590d4085efd8fec03a774af81d381b837f3c48411a06ae2695c3f7d0019",
+      "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json": "c9928fa7dd96025c03e9ff82591726cfb159c1d44f2665d850d25c3aa1a71589",
+      "reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb": "9ef2a3b967431e204980256aad6050d2a56cb6776d221e36fd116aed835da640",
+      "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/timber/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "reconstructions/scene-08/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-08/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-08/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/corridor-layout.js": "1b1e6a0a84fcdaa87c184a4ead807430f1cc16bfd9123cfd7e7e8d9dcee2e5b9",
+      "reconstructions/scene-08/src/gallery-joinery.js": "e59e936041c8501b1dcf262d9283bb0e1a050ffa88d7265bd0a3dd81a562707c",
+      "reconstructions/scene-08/src/gate-hardware.js": "97b11925d69e24e62c6efa272ac48aac8722ec8d82ee21f23a8b38dd57cbb04a",
+      "reconstructions/scene-08/src/hero-garden-rock.js": "bb6341ba1075839b1e2125561f96ad93e82f89b7cabf529e150401170a2e306b",
+      "reconstructions/scene-08/src/hero-gate-plaque.js": "32a01172231544449a2ecaa79815fa9f21494c26eee659ba1e89a821eea4b502",
+      "reconstructions/scene-08/src/main.js": "3ef5b82df464d6a01c91f1384cb58344817bf74aa72260e9364951be064b480f",
+      "reconstructions/scene-08/src/post.js": "a64cee534dc1c79edbd2c652dd4d7ee1808460a594d45d4741275975d75cbfe2",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scanned-timber.js": "0bfc1e600193feb654e128e2b87bdd8728a47b412381c05078233e1029f28e5b",
+      "reconstructions/scene-08/src/scene.js": "050510b59136cd214074e463bac18a361eb804d7567d65ff8ebd81e969ce6a38"
+    }
+  },
+  "sourceExactlyMatchesActualV3": true,
+  "cameraMainByteExactBase": true,
+  "materialAndLightSourceExact": true,
+  "retainedAssets": [
+    {
+      "file": "reconstructions/scene-08/src/hero-garden-rock.js",
+      "sha256": "bb6341ba1075839b1e2125561f96ad93e82f89b7cabf529e150401170a2e306b",
+      "byteExactBase": true
+    },
+    {
+      "file": "reconstructions/scene-08/src/hero-gate-plaque.js",
+      "sha256": "32a01172231544449a2ecaa79815fa9f21494c26eee659ba1e89a821eea4b502",
+      "byteExactBase": true
+    },
+    {
+      "file": "reconstructions/scene-08/assets/gate-plaque-v05/gate-plaque.glb",
+      "sha256": "9ef2a3b967431e204980256aad6050d2a56cb6776d221e36fd116aed835da640",
+      "byteExactBase": true
+    },
+    {
+      "file": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+      "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "byteExactBase": true
+    }
+  ],
+  "measurements": {
+    "file": "qa/ten-reference/08/layout122/layout-measurements.json",
+    "count": 15,
+    "beforeRmsPixels": 80.47320193333239,
+    "afterRmsPixels": 13.584761028503074,
+    "annotationUncertaintyPixels": [
+      10,
+      25
+    ],
+    "globalImageFidelityMeasure": false
+  },
+  "physicalConnections": {
+    "columnBeamBearingOverlapMetres": 0.004999999999999893,
+    "beamRafterGapMetres": 0,
+    "rafterBoardingGapMetres": 0,
+    "frontRailColumnCollisionCount": 0,
+    "bridgeStairSharedLandingError": 0,
+    "bridgeRightGalleryPlanError": 0.000007826587532345835,
+    "bridgeRightGalleryFloorError": 0,
+    "stairMiddleGalleryFloorError": 0,
+    "stairUpperLandingInsideFloor": true,
+    "bridgeRailPostEdgeInsetMetres": 0.015,
+    "stairRailPostEdgeInsetMetres": 0.015,
+    "upperEntryTreadRises": [
+      0.15333333333333332,
+      0.15333333333333332,
+      0.15333333333333332
+    ],
+    "pagodaCrownWorldY": 21.976,
+    "pagodaSpireTipWorldY": 26.067999999999998,
+    "pagodaFoundationGroundY": 1.7,
+    "wingPierTopWorldY": 3.86,
+    "wingBeamBottomWorldY": 3.86,
+    "wingBeamTopWorldY": 4.16,
+    "wingStonePlatformBottomWorldY": 4.159999999999999,
+    "wingFinishedTimberFloorWorldY": 4.5,
+    "middleFinishedTimberFloorWorldY": 4.5,
+    "rightFinishedTimberFloorWorldY": 4.2,
+    "bridgeFinishedSurfaceToGalleryThresholdMetres": 0.005,
+    "stairStringerToTreadBearingOverlapMetres": 0.007747459715256505
+  },
+  "jobs": [
+    {
+      "version": 1,
+      "report": "qa/ten-reference/08/iteration-layout122-v1/report.json",
+      "sourceHash": "8762c610ad8e26716f06936296c82f843ddca4def0e5850e361c5a66fc7b2d7e",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "glError": 0,
+          "linked": true,
+          "contextLost": false,
+          "rgbaSha256": "94e06ee5be89c6a6a32d0d68c74bf05a0e4b35b2923941ac9ce4378c8f8353ac"
+        }
+      ],
+      "rngFinalState": 2186526841,
+      "rngExactlyBaseline": true,
+      "heroRockTransformExactlyBaseline": true,
+      "heroPlaqueAsset": "gate-plaque-v05",
+      "heroPlaqueWorldPosition": [
+        -1.75409242669072,
+        3.3,
+        7.921997018118705
+      ],
+      "visualAccepted": false,
+      "visualStatus": "rejected-occluding-solid-foundations"
+    },
+    {
+      "version": 2,
+      "report": "qa/ten-reference/08/iteration-layout122-v2/report.json",
+      "sourceHash": "6c4dae7386704294d3b4b7d38e33bed33f71a94bddb9bfc98a160c61d2663172",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "glError": 0,
+          "linked": true,
+          "contextLost": false,
+          "rgbaSha256": "d15b61d37465dda031adf3304eb29f9c04928e62759ceac0e88c22aa07dc5240"
+        }
+      ],
+      "rngFinalState": 2186526841,
+      "rngExactlyBaseline": true,
+      "heroRockTransformExactlyBaseline": true,
+      "heroPlaqueAsset": "gate-plaque-v05",
+      "heroPlaqueWorldPosition": [
+        -1.8237427182601817,
+        3.3,
+        7.915008678953427
+      ],
+      "visualAccepted": false,
+      "visualStatus": "rejected-occluding-solid-foundations"
+    },
+    {
+      "version": 3,
+      "report": "qa/ten-reference/08/iteration-layout122-v3/report.json",
+      "sourceHash": "d5df01d7ed321bf42ef67beaa61169baab1c687c3a525da850a96135d7327c6c",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "glError": 0,
+          "linked": true,
+          "contextLost": false,
+          "rgbaSha256": "cbda8b1285118882f74ca29bce3b689b6fecbbb3ba4e0b5dc7978be337139c96"
+        }
+      ],
+      "rngFinalState": 2186526841,
+      "rngExactlyBaseline": true,
+      "heroRockTransformExactlyBaseline": true,
+      "heroPlaqueAsset": "gate-plaque-v05",
+      "heroPlaqueWorldPosition": [
+        -1.8237427182601817,
+        3.3,
+        7.915008678953427
+      ],
+      "visualAccepted": false,
+      "visualStatus": "unaccepted-bounded-layout-candidate-unresolved-site-masonry"
+    }
+  ],
+  "wrapperJobsUsed": 3,
+  "alternateBrowserJobsUsed": 0,
+  "independentViewJobsUsed": 0,
+  "nativeCropJobsUsed": 0,
+  "visualAccepted": false,
+  "review": {
+    "improvements": [
+      "Portal frame/near handrail major contour registration",
+      "Compact pagoda rooms/tier pitch with exact crown/spire world heights",
+      "Shorter primary-hall columns/lower eaves and retained real joinery",
+      "Bridge/stair/floor connections, supported piers/platforms and finished floors"
+    ],
+    "unresolved": [
+      "Broad gray gallery/landing foundations still intrude into the reference rock/foliage/water gap",
+      "Near side return and portal vertical perspective are not matched",
+      "Sparse contour fit leaves whole roof shape, site depth and occluded terrain unresolved",
+      "Inherited vegetation, stone-lantern form, material and lighting differences remain"
+    ],
+    "selection": "Review candidate only. No photographic completion or solved full-layout claim."
+  }
+}
