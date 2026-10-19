@@ -1,0 +1,45 @@
+{
+  "scope": "Labelled comparison resize only; source reference and actual native renders retained unchanged",
+  "actualSourceCommit": "3e3d53e0076f91401b52e5612a8975793ed97db5",
+  "actualSourceHash": "1895cf16671a5c8bbb03b0ab8f6cf759d0532c1ee3a5ed3198ff938af10d09b5",
+  "actualReport": "qa/ten-reference/10/iteration-layout125-d/report.json",
+  "sources": [
+    {
+      "file": "references/hd/9-\u7167\u7247-10.jpg",
+      "sha256": "04313fb3029a075a2dbf00bf32f811fb95b8d28c4f3e3b1f4af5f0e5f65bffa9",
+      "label": "SUPPLIED REFERENCE"
+    },
+    {
+      "file": "qa/ten-reference/10/layout125/baseline-current-r02.png",
+      "sha256": "0879aec2f012e83ac6bde1324a34a2f2452c8890a7c51e6d65bd1b941ba07290",
+      "label": "BASELINE ACTUAL R02 / comparison resize"
+    },
+    {
+      "file": "qa/ten-reference/10/iteration-layout125-d/shot--1250.png",
+      "sha256": "06b56486ffdb821db78833bb040d253729f15b720c115c5f6dcded1177d555de",
+      "label": "LAYOUT125-D ACTUAL 3D"
+    }
+  ],
+  "baselineProvenance": "baseline-provenance.json",
+  "output": "comparison-reference-baseline-actual.png",
+  "routeComparison": {
+    "file": "route-c-before-d-after.png",
+    "scope": "Two unchanged actual side-view pixel crops at the same pose, no resampling",
+    "cropXYXY": [
+      360,
+      345,
+      940,
+      785
+    ],
+    "sources": [
+      {
+        "file": "qa/ten-reference/10/iteration-layout125-c/shot--125.png",
+        "sha256": "0b13d68528d6bda7d26381b75477b32a95ed6f6f96f04b6d1678523fcfe13a13"
+      },
+      {
+        "file": "qa/ten-reference/10/iteration-layout125-d/shot--125.png",
+        "sha256": "75585f3d107ebf3be642094551dbbc65b09b1d81794fe60e230ef44796e6be4c"
+      }
+    ]
+  }
+}
