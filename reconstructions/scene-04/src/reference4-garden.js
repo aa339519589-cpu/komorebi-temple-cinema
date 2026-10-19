@@ -1,4 +1,4 @@
-import {tracedStoneMaterial04} from './traced-stone-material04.js';
+import {tracedStoneMaterial04,unobservedContinuationMaterial04} from './traced-stone-material04.js';
 import {createTracedPaving04,tracedSlabGeometry,observedCurbCuts04} from './traced-paving04.js';
 import {stoneMaterial,polygonSlab,applyMetricUV} from './scene04-surfaces.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
@@ -58,6 +58,24 @@ export function buildReference4Garden(T,options={}){
  const traced=createTracedPaving04();
  const pavingMaterials=[];
  for(const record of traced.records){const g=tracedSlabGeometry(record),mat=ownM(tracedStoneMaterial04(record));pavingMaterials.push(mat);for(const t of Object.values(mat.userData.maps))ownedT.add(t);mesh(g,mat,record.id,subgroups.path);records.stoneSlabs.push({...record,source:'observed reference joint centres; inferred scale and wear',referenceBitmapUsed:false});}
+ // Continue the constructed path behind the supplied view, so its top and
+ // support remain complete when inspected from above. These slabs are authored
+ // extrapolation, explicitly separate from the 31 observed visible stones.
+ const rearEdges=traced.edgeProfiles.map(profile=>traced.world([profile.at(-1)[1],profile.at(-1)[0]])),rearStart=rearEdges.reduce((v,p)=>v+p[1],0)/4,rearEnd=plan.pathEndZ,rearRows=Math.max(1,Math.ceil((rearEnd-rearStart)/.82)),rearCentre=(rearEdges[0][0]+rearEdges[3][0])/2,rearHalf=(rearEdges[3][0]-rearEdges[0][0])/2;
+ const rearX=(i,z)=>{const t=T.MathUtils.clamp((z-rearStart)/(rearEnd-rearStart),0,1);return T.MathUtils.lerp(rearEdges[i][0],(rearEdges[i][0]-rearCentre)/rearHalf*1.10,t);};
+ const rearOutline=[[rearX(0,rearStart),rearStart],[rearX(3,rearStart),rearStart],[rearX(3,rearEnd),rearEnd],[rearX(0,rearEnd),rearEnd]],rearMat=ownM(unobservedContinuationMaterial04());pavingMaterials.push(rearMat);for(const t of Object.values(rearMat.userData.maps))ownedT.add(t);
+ for(let k=0;k<rearRows;k++){
+  const z0=T.MathUtils.lerp(rearStart,rearEnd,k/rearRows),z1=T.MathUtils.lerp(rearStart,rearEnd,(k+1)/rearRows);
+  for(let column=0;column<3;column++){
+   const record={id:'authored-rear-continuation-'+column+'-'+k,column,row:12+k,outline:[[rearX(column,z0),z0],[rearX(column+1,z0),z0],[rearX(column+1,z1),z1],[rearX(column,z1),z1]],top:traced.groundY,thickness:.14,source:'Authored unseen continuation, not observed photograph detail'};
+   mesh(tracedSlabGeometry(record),rearMat,record.id,subgroups.path);records.stoneSlabs.push(record);
+  }
+  for(const side of[-1,1]){
+   const i=side<0?0:3,a=[rearX(i,z0),z0],b=[rearX(i,z1),z1],dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=side*dz/len,nz=-side*dx/len;
+   const record={id:'authored-rear-curb-'+side+'-'+k,column:side+3,row:30+k,outline:[[a[0]+nx*.018,a[1]+nz*.018],[b[0]+nx*.018,b[1]+nz*.018],[b[0]+nx*.22,b[1]+nz*.22],[a[0]+nx*.22,a[1]+nz*.22]],top:.105,thickness:.22};
+   mesh(tracedSlabGeometry(record),paving[(k+1)%4],record.id,subgroups.path);
+  }
+ }
  // Curb joints follow individually observed cuts rather than equal screen rows.
  for(const side of[-1,1]){const cuts=side<0?observedCurbCuts04.west:observedCurbCuts04.east;for(let k=0;k<cuts.length-1;k++){const a=traced.edgePoint(side,cuts[k]),b=traced.edgePoint(side,cuts[k+1]),dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=side*dz/len,nz=-side*dx/len,inner=.018,outer=.22,outline=[[a[0]+nx*inner,a[1]+nz*inner],[b[0]+nx*inner,b[1]+nz*inner],[b[0]+nx*outer,b[1]+nz*outer],[a[0]+nx*outer,a[1]+nz*outer]];mesh(tracedSlabGeometry({id:'observed-curb-'+side+'-'+k,outline,top:.105+.004*Math.sin(k*1.79),thickness:.22,column:side+3,row:k}),paving[(k+1)%4],'observed-curb-'+side+'-'+k,subgroups.path);}}
  // Compact damp earth closes the bottom of the joints; colonies occupy only
@@ -66,6 +84,7 @@ export function buildReference4Garden(T,options={}){
  group.traverse(o=>{if(o.isMesh&&(o.name==='flared-processional-causeway'||o.name.startsWith('dry-low-path-side-bank-')))o.material=jointEarth;});
  const bedLeft=traced.edgePoint(-1,740),bedLeftNear=traced.edgePoint(-1,1350),bedRight=traced.edgePoint(1,740),bedRightNear=traced.edgePoint(1,1350);
  const bedShape=new T.Shape();[bedLeft,bedRight,bedRightNear,bedLeftNear].forEach(([x,z],i)=>i?bedShape.lineTo(x,-z):bedShape.moveTo(x,-z));bedShape.closePath();const bed=new T.ExtrudeGeometry(bedShape,{depth:.828,bevelEnabled:false,steps:1});bed.rotateX(-Math.PI/2);bed.translate(0,-.8,0);mesh(bed,jointEarth,'observed-continuous-mineral-joint-bed',subgroups.path);
+ const rearBedShape=new T.Shape();rearOutline.forEach(([x,z],i)=>i?rearBedShape.lineTo(x,-z):rearBedShape.moveTo(x,-z));rearBedShape.closePath();const rearBed=new T.ExtrudeGeometry(rearBedShape,{depth:.828,bevelEnabled:false,steps:1});rearBed.rotateX(-Math.PI/2);rearBed.translate(0,-.8,0);mesh(rearBed,jointEarth,'authored-rear-paving-support-and-seam-bed',subgroups.path);
  const mossG=ownG(new T.IcosahedronGeometry(1,0)),mossMatrices=[[],[],[]],seen=new Set(),h=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
  for(const r of traced.records)for(let e=0;e<4;e++){const a=r.outline[e],b=r.outline[(e+1)%4],key=[a,b].map(p=>p.map(q=>q.toFixed(3)).join(':')).sort().join('|');if(seen.has(key))continue;seen.add(key);const len=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let k=0;k<len/.017;k++){const t=(k+.5)*.017/len,seed=r.column*97+r.row*31+e*13;if(h(k,seed)>.20+.16*Math.sin(t*14+seed)||Math.sin(t*21+seed)*Math.sin(t*8+seed*.31)<-.15)continue;const o=new T.Object3D();o.position.set(T.MathUtils.lerp(a[0],b[0],t)+.009*(h(k,seed+3)-.5),.026+.016*h(k,seed+7),T.MathUtils.lerp(a[1],b[1],t)+.009*(h(k,seed+11)-.5));const radius=.006+.009*h(k,seed+17);o.scale.set(radius,.003+.004*h(k,seed+21),radius*(.65+.8*h(k,seed+27)));o.rotation.y=h(k,seed+33)*TAU;o.updateMatrix();mossMatrices[Math.floor(h(k,seed+41)*3)].push(o.matrix.clone());}}
  for(let j=0;j<3;j++){const mm=mossMatrices[j],o=new T.InstancedMesh(mossG,mossMats[j],mm.length);o.name='observed-discontinuous-moss-colonies-'+j;mm.forEach((mat,i)=>o.setMatrixAt(i,mat));o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();subgroups.path.add(o);}

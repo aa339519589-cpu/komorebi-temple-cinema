@@ -60,11 +60,21 @@ export function tracedSlabGeometry(record){
  }
  const edgeDistance=(x,z)=>{let d=Infinity;for(let i=0;i<points.length;i++){const a=points[i],b=points[(i+1)%points.length],dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));}return d;};
  const extentX=Math.max(...points.map(p=>Math.abs(p[0]-cx))),extentZ=Math.max(...points.map(p=>Math.abs(p[1]-cz))),tiltX=.004*(hash(2,3,seed)-.5),tiltZ=.005*(hash(4,7,seed)-.5);
- const field=(x,z)=>{const e=edgeDistance(x,z),round=-.003*(1-T.MathUtils.smoothstep(e,.002,.030))*(.18+.82*noise(x*11,z*11,seed+79)),wear=.0017*(noise(x*14,z*14,seed)-.5)+.0009*(noise(x*38,z*38,seed+17)-.5)-.0024*T.MathUtils.smoothstep(noise(x*21,z*21,seed+33),.65,.82),basin=-.0018*Math.exp(-((x-cx)**2/(extentX*extentX*.44)+(z-cz)**2/(extentZ*extentZ*.58)));const mineral=isCurb?0:sampleAggregateRelief04(x,z,seed)*T.MathUtils.smoothstep(e,.002,.012);return mineral+round+wear*T.MathUtils.smoothstep(e,.005,.028)+basin+tiltX*(x-cx)/extentX+tiltZ*(z-cz)/extentZ;};
+ // Sparse independent eroded pores replace the square-lattice threshold
+ // which formed glyph-like connected relief in the actual overhead view.
+ const pores=[],poreGrid=new Map(),cell=.08,loX=cx-extentX,loZ=cz-extentZ,poreCount=isCurb?0:Math.min(130,Math.round(4*extentX*extentZ*32));
+ for(let k=0;k<poreCount*10&&pores.length<poreCount;k++){
+  const x=loX+2*extentX*hash(k,141,seed+301),z=loZ+2*extentZ*hash(k,149,seed+313),r=.0075+.0105*hash(k,157,seed+331);
+  if(pores.some(p=>Math.hypot(p.x-x,p.z-z)<p.r+r+.008))continue;
+  const angle=hash(k,163,seed+347)*Math.PI*2,p={x,z,r,rx:r,rz:r*(.72+.50*hash(k,169,seed+353)),cc:Math.cos(angle),ss:Math.sin(angle),depth:.00025+.0008*hash(k,173,seed+359)};
+  pores.push(p);const ix=Math.floor((x-loX)/cell),iz=Math.floor((z-loZ)/cell),key=ix*131071+iz,bucket=poreGrid.get(key)??[];bucket.push(p);poreGrid.set(key,bucket);
+ }
+ const poreField=(x,z)=>{let h=0;const ix=Math.floor((x-loX)/cell),iz=Math.floor((z-loZ)/cell);for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++)for(const p of poreGrid.get((ix+i)*131071+iz+j)??[]){const dx=x-p.x,dz=z-p.z,u=(p.cc*dx+p.ss*dz)/p.rx,v=(-p.ss*dx+p.cc*dz)/p.rz,q=u*u+v*v;if(q<1)h-=p.depth*(1-q)**2;}return h;};
+ const field=(x,z)=>{const e=edgeDistance(x,z),round=-.003*(1-T.MathUtils.smoothstep(e,.002,.030))*(.18+.82*noise(x*11,z*11,seed+79)),wear=.0009*(noise((x*.829+z*.559)*8.3,(z*.829-x*.559)*8.3,seed)-.5)+.00028*(noise((x*.829+z*.559)*33.1,(z*.829-x*.559)*33.1,seed+17)-.5)+poreField(x,z),basin=-.0018*Math.exp(-((x-cx)**2/(extentX*extentX*.44)+(z-cz)**2/(extentZ*extentZ*.58)));const mineral=isCurb?0:sampleAggregateRelief04(x,z,seed)*T.MathUtils.smoothstep(e,.002,.012);return mineral+round+wear*T.MathUtils.smoothstep(e,.005,.028)+basin+tiltX*(x-cx)/extentX+tiltZ*(z-cz)/extentZ;};
  for(const q of vertices)q.y+=field(q.x,q.z)*T.MathUtils.smoothstep(q.y,top-thickness+.01,top-.02);
  const smooth=new T.BufferGeometry();smooth.setAttribute('position',new T.Float32BufferAttribute(vertices.flatMap(q=>[q.x,q.y,q.z]),3));smooth.setIndex(faces.flatMap(f=>f.v));smooth.computeVertexNormals();
  const positions=[],uv=[],flags=[],bevelNormals=[];for(const f of faces)for(const i of f.v){const q=vertices[i];positions.push(q.x,q.y,q.z);const nx=smooth.attributes.normal.getX(i),ny=smooth.attributes.normal.getY(i),nz=smooth.attributes.normal.getZ(i),bend=f.top?0:1-Math.abs(ny);uv.push(q.x+(q.y-top)*nx*bend,q.z+(q.y-top)*nz*bend);flags.push(f.top);bevelNormals.push(smooth.attributes.normal.getX(i),smooth.attributes.normal.getY(i),smooth.attributes.normal.getZ(i));}smooth.dispose();
  raw.dispose();const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();
  const nn=g.attributes.normal;for(let i=0;i<flags.length;i++)if(positions[i*3+1]>top-.014)nn.setXYZ(i,bevelNormals[i*3],bevelNormals[i*3+1],bevelNormals[i*3+2]);for(let i=0;i<flags.length;i++)if(flags[i]){const x=positions[i*3],z=positions[i*3+2],e=.0005,dx=(field(x+e,z)-field(x-e,z))/(2*e),dz=(field(x,z+e)-field(x,z-e))/(2*e),q=new T.Vector3(-dx,1,-dz).normalize();nn.setXYZ(i,q.x,q.y,q.z);}
- g.userData.observedSlab=record.id;g.userData.referenceBitmapUsed=false;g.userData.surface={thickness,nominalSeam:.028,topSpacing:spacing,individualRoundCorners:true,actualClosedBevel:true};return g;
+ g.userData.observedSlab=record.id;g.userData.referenceBitmapUsed=false;g.userData.surface={thickness,nominalSeam:.028,topSpacing:spacing,individualRoundCorners:true,actualClosedBevel:true,generatedPoreCount:pores.length,poreShape:"Separate smooth shallow elliptical depressions; positions are authored hypotheses"};return g;
 }
