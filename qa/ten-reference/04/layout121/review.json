@@ -1,0 +1,49 @@
+{
+  "scope": "Scene04 whole-layout structural reconstruction candidate",
+  "status": "bounded-structural-improvement-awaiting-parent-review",
+  "visualAccepted": false,
+  "photographicMatch": false,
+  "baseCommit": "814c879ad6e9b1552f254005e90902ce219501c5",
+  "renderedSourceCommit": "6f8907e4d59494b73016ac5d34087274633336ad",
+  "reference": "references/hd/3-照片-4.jpg",
+  "baselineActual": "qa/ten-reference/04/iteration-shadow104-triplet/shot--11040.png",
+  "originalAndActualInspectedBeforeEdit": true,
+  "majorFindingsBeforeEdit": [
+    "The constant-width flight made the upper stair mouth too broad relative to its foot and portal, weakening depth.",
+    "Lower stair terminals and porch balustrades were visibly too low.",
+    "The canopy's lateral points were forced up to the upper main roof, making one huge slate sheet instead of a shallow canopy below a separately readable hip/eave.",
+    "The paired foreground lantern bodies and feet sat too high in the frame, with oblique light-box faces."
+  ],
+  "structuralChanges": [
+    "A single stair plan owns 18 closed tread cores, 72 separate stone caps, 36 stepped flank blocks, the landing notch, rail trajectories and terminal anchors. Clear flight flares from 4.4 m at the hall to 5.65 m at the foot, with 18 equal risers and 0.444 m runs.",
+    "The main landing and porch wings stop before the second lower tread, replacing the old platform cap overlap. Side terrain follows the same rise/run datum and closes down to the earth support.",
+    "Ground paver solids are clipped at stair-foot Z 8 instead of continuing inside the flight. Their visible textures/material assets are retained.",
+    "Taller terminal posts, curved double handrails, six intermediate post stations and taller porch balustrades restore the large approach frame.",
+    "A separate shallow entrance canopy meets the main roof at its central crown. Main hip eave is 0.8 m lower with a larger curl, a slightly wider/eccentric ridge and exposed two-tier bearing rows along both shoulders.",
+    "Hero stone lantern anchors change from X ±3.6, Z 14.5, H 3.5 to X ±3.28, Z 15.25, H 3.22. Bodies gain 1.08 width/depth factor and turn 0.32 rad inward. Base supports and plant/rock clearance follow their anchors."
+  ],
+  "camera": {
+    "referenceCameraChanged": false,
+    "reason": "Whole-image outer canopy, stair foot and path perspective already provided useful anchors. Physical proportions/topology were corrected while retaining the low reference camera.",
+    "dollyChanged": false,
+    "inspectionPose": {"position": [8,10,16], "target": [0,5.5,-1], "fov":64, "scope":"Explicit bounded QA side view via existing renderShot inspection routing; not the reference pose or a film-path change"}
+  },
+  "visualReview": {
+    "improvement": "The final actual front view shows a narrower upper flight, stronger terminal/porch framing and correctly lowered lantern body levels. Distinct hip/canopy silhouettes and shoulder bearing rows replace the former continuous slate curtain.",
+    "sideContactCheck": "Actual side view shows a contiguous flight from ground to landing, with the platform notch and stair flanks visible. No obvious flight/platform crossing is visible in this view.",
+    "notEstablished": "Selected landmark fit and valid framebuffer output do not establish photographic fidelity or acceptance of the complete scene.",
+    "remainingDifferences": ["Side roof/canopy junctions and dark recesses remain coarse.", "Wood, stone, foliage, window grids, sculpture and decorative shapes still read as CG and differ substantially from the supplied image.", "Hidden metric dimensions and roof asymmetry remain authored hypotheses."]
+  },
+  "landmarkAudit": {"file":"physical-layout-audit.json", "count":18, "readingUncertaintyPixels":5, "baselineMeanProjectionErrorPixels":16.404755300863076, "candidateMeanProjectionErrorPixels":5.33396956983915, "scope":"Manually selected whole-building/path anchors; diagnostic only, not a fidelity score"},
+  "renderBudget": {"wrapperJobsUsed":3,"allowedMaximum":3,"fullReferenceFrames":3,"nativeDetailFrames":2,"sideInspectionFrames":1,"errors":[],"allFramesValid":true},
+  "candidateHistory": [
+    {"sourceCommit":"7296cb321f80db3caa09c5083eb9e934e81b0f1b","actual":"../iteration-layout121-a/","finding":"Stair/lantern layout improves, but the giant forced slate roof connection persists; superseded."},
+    {"sourceCommit":"f4c5fbf2ba4b3f00df65aa6913e0887ad349e658","actual":"../iteration-layout121-b/","finding":"Distinct hip/canopy masses improve the silhouette; exposed shoulder frieze lacks its bearing row; superseded."},
+    {"sourceCommit":"6f8907e4d59494b73016ac5d34087274633336ad","actual":"../iteration-layout121-c/","finding":"Final bounded candidate with bearing rows and actual side check. Structural improvement, no whole-scene acceptance."}
+  ],
+  "unchangedInputs": ["Camera and 7-second dolly", "Lighting and tone mapping", "All scene04 material asset files", "Tower construction", "Earlier failed artifact114 branch, retained separately"],
+  "proceduralGardenNote": "Lantern clearance changes alter accepted procedural plants/rocks and later deterministic foliage samples; incidental garden sample differences are not claimed unchanged.",
+  "sourceEvidence": ["tools/audit-layout04-121.mjs", "tools/compare-layout04-121.py", "comparison-provenance.json", "render-identities.json"],
+  "pushPerformed": false,
+  "stopReason": "Three authorized wrapper jobs used; final evidence retained for parent review, no further variants."
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Labelled comparison crops/resizes only; source photographs and actual frames are retained unchanged",
+  "referenceUse": "Comparison input, not a rendered surface",
+  "sources": [
+    {
+      "file": "references/hd/3-\u7167\u7247-4.jpg",
+      "sha256": "0b0272948960514bfd6278847e6dc512bfce2b127c69415f0e5ce949a9c0ffcb",
+      "label": "SUPPLIED REFERENCE"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-shadow104-triplet/shot--11040.png",
+      "sha256": "31efc41bfc5a0dbe7b85bd1686e7f8985c1de767e975a2501c454edf2f375a0e",
+      "label": "BASELINE ACTUAL 3D"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-layout121-c/shot--11041.png",
+      "sha256": "858dbb06708b61d6224ddcc3ab37cc170ea20412ab587905e80f3432dc25a8d9",
+      "label": "LAYOUT121-C ACTUAL 3D"
+    }
+  ],
+  "outputs": [
+    "comparison-reference-baseline-layout121.png",
+    "roof-mass-comparison-c.png"
+  ],
+  "actualSourceCommit": "6f8907e4d59494b73016ac5d34087274633336ad"
+}

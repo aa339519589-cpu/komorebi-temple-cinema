@@ -1,0 +1,235 @@
+{
+  "scope": "All evidence from the shared-mutex render-one-reconstruction wrapper, no alternate browser jobs",
+  "wrapperJobs": 3,
+  "reports": [
+    {
+      "candidate": "a",
+      "report": "qa/ten-reference/04/iteration-layout121-a/report.json",
+      "sourceCommit": "7296cb321f80db3caa09c5083eb9e934e81b0f1b",
+      "sourceHash": "8bea3db737400ab0e1ebdf680549ee32b5e45a36cfdcd3c9f14046ea715ca07e",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-19T04:26:01.169Z",
+      "frames": [
+        {
+          "file": "qa/ten-reference/04/iteration-layout121-a/reference.png",
+          "name": "reference",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": null,
+          "rgbaSha256": "4f9b8ed3257145fc048e3b7da87a8b2a040d33170aa5a104cb34bbfdea5ed019",
+          "camera": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "fov": 64.1754241,
+            "reference": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "target": [
+                0,
+                2.3,
+                0
+              ],
+              "fov": 64.1754241,
+              "near": 0.08,
+              "far": 1200
+            }
+          }
+        },
+        {
+          "file": "qa/ten-reference/04/iteration-layout121-a/detail-native.png",
+          "name": "detail-native",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": [
+            380,
+            500,
+            450,
+            1254
+          ],
+          "rgbaSha256": "89adc89c46efc446058614bb762b0ab2cc532c527437d1d89db23690568725ff",
+          "camera": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "fov": 64.1754241,
+            "reference": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "target": [
+                0,
+                2.3,
+                0
+              ],
+              "fov": 64.1754241,
+              "near": 0.08,
+              "far": 1200
+            }
+          }
+        }
+      ]
+    },
+    {
+      "candidate": "b",
+      "report": "qa/ten-reference/04/iteration-layout121-b/report.json",
+      "sourceCommit": "f4c5fbf2ba4b3f00df65aa6913e0887ad349e658",
+      "sourceHash": "c01d9f0247fae774f4616775c53ac50b7f8d0515609112772c83affd1a6e33b8",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-19T04:30:00.822Z",
+      "frames": [
+        {
+          "file": "qa/ten-reference/04/iteration-layout121-b/reference.png",
+          "name": "reference",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": null,
+          "rgbaSha256": "85751229e091b0b16c1660df4fe925d13a870d3ca4719cc5a1df12ac274ad093",
+          "camera": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "fov": 64.1754241,
+            "reference": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "target": [
+                0,
+                2.3,
+                0
+              ],
+              "fov": 64.1754241,
+              "near": 0.08,
+              "far": 1200
+            }
+          }
+        },
+        {
+          "file": "qa/ten-reference/04/iteration-layout121-b/detail-native.png",
+          "name": "detail-native",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": [
+            270,
+            110,
+            730,
+            1254
+          ],
+          "rgbaSha256": "790a91f957245121b44f969f9764aeb8061300a864d55d6980b557c591349532",
+          "camera": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "fov": 64.1754241,
+            "reference": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "target": [
+                0,
+                2.3,
+                0
+              ],
+              "fov": 64.1754241,
+              "near": 0.08,
+              "far": 1200
+            }
+          }
+        }
+      ]
+    },
+    {
+      "candidate": "c",
+      "report": "qa/ten-reference/04/iteration-layout121-c/report.json",
+      "sourceCommit": "6f8907e4d59494b73016ac5d34087274633336ad",
+      "sourceHash": "4fcca38c71c057089c27c9e71fc1b18e38e0e19fefbf1ebb39d0055cce7117bf",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-19T04:36:17.150Z",
+      "frames": [
+        {
+          "file": "qa/ten-reference/04/iteration-layout121-c/shot--11041.png",
+          "name": "shot--11041",
+          "valid": true,
+          "localTime": -11041,
+          "detailCrop": null,
+          "rgbaSha256": "063d1dc04d7ee47acfef2f63d4ceee715dc7ddc12d7ef1a8335d595e77593349",
+          "camera": {
+            "position": [
+              0,
+              1.35,
+              23.34
+            ],
+            "fov": 64.1754241,
+            "reference": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "target": [
+                0,
+                2.3,
+                0
+              ],
+              "fov": 64.1754241,
+              "near": 0.08,
+              "far": 1200
+            }
+          }
+        },
+        {
+          "file": "qa/ten-reference/04/iteration-layout121-c/shot--121.png",
+          "name": "shot--121",
+          "valid": true,
+          "localTime": -121,
+          "detailCrop": null,
+          "rgbaSha256": "5f9fc12ba69e3cca2e7959f19ac5992902c99e3dba892a97fd207bba9c982021",
+          "camera": {
+            "position": [
+              8,
+              10,
+              16
+            ],
+            "fov": 64,
+            "reference": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "target": [
+                0,
+                2.3,
+                0
+              ],
+              "fov": 64.1754241,
+              "near": 0.08,
+              "far": 1200
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
