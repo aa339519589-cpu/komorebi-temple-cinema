@@ -1,0 +1,21 @@
+{
+  "scope": "Native 1:1 QA crops with labels only. No scaling, photo retouching, relighting or generated pixels.",
+  "nearCropXYXY": [
+    570,
+    940,
+    1030,
+    1254
+  ],
+  "foregroundCropXYXY": [
+    100,
+    835,
+    1110,
+    1254
+  ],
+  "inputs": {
+    "reference": "references/hd/9-\u7167\u7247-10.jpg",
+    "before": "qa/ten-reference/10/iteration-hall132-b/shot--1250.png",
+    "after": "qa/ten-reference/10/iteration-ripple134-a/reference.png"
+  },
+  "detailNative": "The separate detail-native.png is a genuine wrapper-rendered 330x330 reference-camera subfrustum rendered at 1254, not an upscaled before/after crop."
+}

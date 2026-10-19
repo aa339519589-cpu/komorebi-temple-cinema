@@ -1,0 +1,29 @@
+{
+  "status": "scope-and-source-audited-not-visually-accepted",
+  "base": "180e540997d635451baf5fe910a5b297d8b5e0ab",
+  "beforeActualSourceCommit": "52e9e01556fd1ac3f9d64882e42582b6f764fcdb",
+  "beforeActualSourceIdentity": "5221e4fcee7124c6dc33125aff83ab24655c84e63fad7edf786922d0f06b20b8",
+  "mainNormalizedToBeforeSha256": "f1d5b0d6861cca4433a66406e1ca6320437a8d62163008c57015f64a10d3dc7e",
+  "originalImpactLoopSha256": "ff23501d1991531520b97ad647ca9638a8d94218ecf616467211ef06a4ca6c57",
+  "globalImpactRandomCallsRetained": 220,
+  "unchangedScope": "All main source except removal of torus-ripple construction, ripple-only installation/update hook and receipt field. No existing scene source/asset file changes beyond main.js.",
+  "removedOverlay": {
+    "unlitToruses": 110,
+    "y": [
+      0.07,
+      0.0702
+    ],
+    "opacity": 0.38,
+    "secondaryRadiusRatio": 0.72
+  },
+  "actualNearStoneTopYRange": [
+    0.026162000373005867,
+    0.05327000096440315
+  ],
+  "actualNearPoreWaterLevelRange": [
+    0.04092492933921871,
+    0.049240343439966125
+  ],
+  "candidate": "Transient metric water-height gradients applied to water normals and actual scene reflections, gated by existing real basin depth/coverage/wetness. No new geometry or ripple colour term.",
+  "limits": "This proves source scope and RNG preservation. It does not prove a photographic match or fluid-simulation accuracy."
+}
