@@ -1,0 +1,13 @@
+# Scene09: one hanging bronze lantern, unaccepted local candidate
+
+Base: `db08d1e2a575b5e1f3e2a61fa1c332c0a58e37ba`. Only the original upper-right call `lantern(7.7,7.3,21.6,1.35,true)` is replaced. The other hanging lights, scene geometry, camera/dolly, exposure, postprocessing and independent physical lights retain their source. The comparison photograph remains comparison-only under its original copyright.
+
+The old 65 mm timber corner frame, isolated thick eight-petal mask and solid four-sided lower cone are replaced by fine closed bronze columns, inner jambs, a supported eight-petal pierced mask, upper/lower pierced aprons, a shallow closed cap, an open lower cradle and small turned drops. The final module has 35,460 triangles, 187 closed metal components and two merged metal meshes. Four original paper boxes use exactly the same transforms and material object. No photograph, AI bitmap or external asset was introduced. Surface provenance and parameters are in the scene-local `assets/hero-hanging-lantern/provenance.json`.
+
+Actual construction audit spatially welds each prototype at 1 micrometre, checks edge incidence/finite coordinates/positive volume, and captures all legacy and new world-space vertices. Maximum complete-envelope difference is 5.63e-8 m. The retained actual light is at [7.7,7.3,21.6], #ffd39b, intensity53.631072, distance8.316, decay2; no light is added or changed. The original paper transforms are byte-identical. The main-source inverse patch reproduces the base exactly, and 31 protected scene/dependency files remain byte-identical.
+
+Two shared-mutex native1254 rounds were rendered and actually viewed. Both include the native subfrustum `880,0,350,1254`, with no screenshot enlargement. 76a exposed an excessively thick continuous star mask, circular mechanical apron holes and white edge highlights. Its full/detail, report, geometry receipt and exact changed-source snapshot are retained. 76b uses separate narrow closed petal rings, a cast centre rosette, smaller quatrefoil holes and rougher private bronze/brass. Curve sampling was reduced to retain the visible forms without multiplying triangles.
+
+Final actual evidence: `iteration-mesh76b/reference.png`, `iteration-mesh76b/detail-native.png`, `iteration-mesh76b/report.json`. Source identity: `69027d10db5afd93f33e8f627ca6841d69bd38913cb34bafa26bebe2aa927fa8`.
+
+The thinner frame, supported bloom and open cradle are visible local improvements. The metal arrises/underside still have excessive white highlights under the unchanged source, the apron is regular, and the cap/suspension ornament is interpretive. Existing paper banding remains. The scene and this candidate remain unaccepted; no third round, movie, test suite or push was performed.
