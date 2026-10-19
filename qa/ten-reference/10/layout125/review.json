@@ -1,0 +1,56 @@
+{
+  "scope": "Scene10 rain-veranda whole-layout structural candidate",
+  "status": "bounded-structural-candidate-awaiting-parent-review",
+  "visualAccepted": false,
+  "wholeSceneAccepted": false,
+  "photographicMatch": false,
+  "baseCommit": "84751eefb2bb47a054c5cf3ffd52ec18b8f95c35",
+  "renderedSourceCommit": "3e3d53e0076f91401b52e5612a8975793ed97db5",
+  "renderedSourceHash": "1895cf16671a5c8bbb03b0ab8f6cf759d0532c1ee3a5ed3198ff938af10d09b5",
+  "reference": "references/hd/9-照片-10.jpg",
+  "baseline": {"sourceCommit":"4cb7c2b83d51d448c10a2b319ada51b662a0aaa0","actual":"qa/ten-reference/10/iteration-mesh-film-20261019-r02/frame-0209.png","provenance":"baseline-provenance.json","comparisonFile":"baseline-current-r02.png","scope":"Prior actual 1440 frame resized to 1254 for comparison only"},
+  "referenceAndActualViewedBeforeEdit": true,
+  "majorObservedProblems": [
+    "The foreground ceiling wedge sloped the wrong way and the near right post was so distant that its foot appeared inside the frame.",
+    "The bridge was too long, its crest too far right, and independent bridge/hall stair runs did not share a coherent landing.",
+    "Wet path/drain boundaries did not follow the foreground veranda and near railing.",
+    "The entrance bay, pagoda body/finial and supporting hill needed whole-assembly placement/proportion corrections."
+  ],
+  "structuralChanges": [
+    "The veranda roof/rafter assembly rotates 0.75 rad as one supported structure. Its cropped column, black shoe and chain-hung lamp share physical roof/support levels.",
+    "The right terminal moves from X 3.2, Z 8.0 to X 1.2, Z 11.8. Its shaft/finial proportions and complete returning rail now create a near foreground frame, with its foot below the image and a real supporting apron.",
+    "The path has new physical right-edge turning bounds and a column-foundation notch, closed worn curbs and an apron. Existing weathered-stone generation/PBR inputs remain. Drain mesh, actual clipping and wet-mask exclusion use the same 0.56275 rad angle.",
+    "The main hall moves as one assembly and its entrance/shrine/open bay shifts one local bay left. The pagoda and its supporting hill move together, with a revised whole-tier profile and finial height. The first tower floor meets the foundation top.",
+    "The bridge has 40 closed deck pieces, supporting girders/piers and an entrance abutment. Seven closed approach steps meet the side path datum. The former independent 25-step and 10-step hall runs are replaced by one 12-step flight with a turning landing and a full-width upper wedge landing.",
+    "The final correction moves the rising hall flight beyond the full bridge-deck footprint, expands the turning landing, opens the inner guard from t 0.82 and joins the remaining guard to the outside stair handrail. Minimum plan separation is 0.339935 m.",
+    "The selected near-bank scan assembly translates 1.45 m with the path margin. Existing CC0 scans also form a grounded bridge-bank island. Original mesh positions/normals/UVs/PBR are retained within each rigid uniformly scaled scan placement."
+  ],
+  "camera": {
+    "eyeHeightMetres":1.0,
+    "fieldOfViewDegrees":60,
+    "beforeTarget":[0,5.4,-14],
+    "afterTarget":[0,4.65,-14],
+    "reason":"The ground-plane horizon, foreground column/eave and terminal-foot visibility jointly support about 1.5 degrees less upward pitch. The eye remains low and the field of view is retained.",
+    "dolly":"Position control points retained; far viewing attitude follows the same revised reference target.",
+    "motionAcceptance":false,
+    "inspection":{"position":[-4,7.5,1],"target":[6.5,2.5,-6.5],"fov":63,"scope":"Same independent structural QA pose for C and D, through the shared wrapper; not the photographic camera or a film-path replacement"}
+  },
+  "actualReview": {
+    "front":"Foreground eave direction and column/lamp framing, near rail depth, bridge crest/span, hall entry and pagoda spacing visibly improve against the prior actual frame.",
+    "route":"Final actual D side view shows an open turning landing and a continuous unobstructed visible route into the hall stairs. The crossing rail/deck visible in actual C is absent.",
+    "reviewImages":["../iteration-layout125-d/shot--1250.png","../iteration-layout125-d/shot--125.png","route-c-before-d-after.png"],
+    "limits":["Whole photo quality remains unaccepted. Architecture, window/bracing patterns, stone/wetness, foliage, lighting and detail still differ substantially from the reference.","Some pier/bank masses and hidden construction are coarse.","Selected anchor fit and valid rendering do not establish photographic fidelity.","No full seven-second motion revalidation was performed in this bounded pass."]
+  },
+  "anchorAudit":{"file":"physical-layout-audit.json","count":18,"baselineMeanPixels":62.44654315082317,"firstCandidateMeanPixels":35.63964239764192,"finalMeanPixels":7.296618481383167,"scope":"Manually read whole-assembly anchors, including two projected edge crossings. Diagnostic only, not a fidelity score; several readings have 7–12 pixel uncertainty."},
+  "candidateHistory": [
+    {"source":"5e23f37537d5d237c8bc3ca8b551fdc05b4d3a76","actual":"../iteration-layout125-a/","status":"superseded","finding":"Broad framing improves, but drain yaw 0.77 overshoots the reference bottom crossing; near terminal proportions remain too wide."},
+    {"source":"93bf70dfc1f41a45d35a0105f570e30c387ce3f1","actual":"../iteration-layout125-b/","status":"superseded","finding":"Drain/ground boundaries improve. Contact audit still requires a full upper wedge and wider deck/tread bearings for rail feet."},
+    {"source":"ef245f3ae591b9dce23e69a7952b7cac61d3a284","actual":"../iteration-layout125-c/","status":"failed-route-intermediate-retained","finding":"Side view exposes the inner bridge rail/deck crossing the first hall treads. Not a walkable-route acceptance."},
+    {"source":"3e3d53e0076f91401b52e5612a8975793ed97db5","actual":"../iteration-layout125-d/","status":"final-bounded-structural-candidate","finding":"Exact-source front and same side pose verify the corrected open turn and stair/deck separation. No entire-photo-match claim."}
+  ],
+  "validation":{"cpu":"node tools/audit-layout10-125.mjs","actual":"Four shared-mutex render-one-reconstruction wrapper jobs, eight valid frames, no render errors","initialJobBudget":3,"extraJobAuthorized":true,"extraJobReason":"Parent explicitly authorized one targeted fourth front+same-side job after C exposed the real turn collision; no other tuning followed.","sourceGeometryAfterFinalRenderChanged":false},
+  "assetPolicy":{"referenceUse":"Comparison input only; no reference RGB/depth is read into rendered surfaces","materialAssetFilesChanged":false,"weatherTuningChanged":false,"drainShaderCoordinateChange":"Existing drain exclusion angle follows actual moved slot; no rain/coating calibration pass","scanTransfer":"Existing geometry and PBR retained, rigid placement and uniform scale only"},
+  "supportVolumeScope":"Buried foundations, abutments and bearing joins intentionally share support volumes; the visible stair/deck circulation footprints are separate.",
+  "pushPerformed":false,
+  "boundedPassStopped":true
+}

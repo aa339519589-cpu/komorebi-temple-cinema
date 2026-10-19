@@ -1,0 +1,119 @@
+{
+  "wrapperJobsUsed": 4,
+  "initialWrapperBudget": 3,
+  "extraVerificationAuthorized": true,
+  "extraVerificationReason": "Parent explicitly authorized one targeted fourth job after actual C side view exposed the bridge/stair turn collision. Exact-source3e3d53e front and the same side pose only; no other tuning.",
+  "scope": "All actual images from shared-mutex render-one-reconstruction wrapper",
+  "reports": [
+    {
+      "candidate": "a",
+      "report": "qa/ten-reference/10/iteration-layout125-a/report.json",
+      "sourceCommit": "5e23f37537d5d237c8bc3ca8b551fdc05b4d3a76",
+      "sourceHash": "58d48c4fe96edfb2500bdf7a874922fb647c9274d8a5cc4dcbd3700e459536d3",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-19T05:13:46.119Z",
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": null,
+          "rgbaSha256": "338e5c5425288caa03bee78f06f53f1ec60ffdcccd0df9a909d081ea04d47377"
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": [
+            450,
+            440,
+            620,
+            1254
+          ],
+          "rgbaSha256": "0b27910d8fbd8ba3d5b4e2c86985f9a273dbff9739a92b8c4a2fd39ed72dfc58"
+        }
+      ]
+    },
+    {
+      "candidate": "b",
+      "report": "qa/ten-reference/10/iteration-layout125-b/report.json",
+      "sourceCommit": "93bf70dfc1f41a45d35a0105f570e30c387ce3f1",
+      "sourceHash": "3217e638217d6e9b4b6768c3d37d210652c9ed27c7f2e727d58d52ff5b16fdd2",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-19T05:25:46.747Z",
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": null,
+          "rgbaSha256": "9a5bc0592d75a35de651c1d7f6d6700aae00a537f74ef17bab2cb1154906e30e"
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "localTime": null,
+          "detailCrop": [
+            110,
+            760,
+            490,
+            1254
+          ],
+          "rgbaSha256": "4fdb3a4c5a4302532c92864f5ae403b640c1591e33b90bcdef7b59c580202d3f"
+        }
+      ]
+    },
+    {
+      "candidate": "c",
+      "report": "qa/ten-reference/10/iteration-layout125-c/report.json",
+      "sourceCommit": "ef245f3ae591b9dce23e69a7952b7cac61d3a284",
+      "sourceHash": "983da4249d4c19a1f2e3425ac786f88b0ee05b97599021b0c53256d74777eeac",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-19T05:32:59.926Z",
+      "frames": [
+        {
+          "name": "shot--1250",
+          "valid": true,
+          "localTime": -1250,
+          "detailCrop": null,
+          "rgbaSha256": "f197f887bd396c967bde025a99c11bc5481d74aa6cf49407d198e4b664846ebd"
+        },
+        {
+          "name": "shot--125",
+          "valid": true,
+          "localTime": -125,
+          "detailCrop": null,
+          "rgbaSha256": "32479cb4e72e8be3fc97ab98b91fa8a574216872e24beeb7bcd85f9c7c18a4b3"
+        }
+      ]
+    },
+    {
+      "candidate": "d",
+      "report": "qa/ten-reference/10/iteration-layout125-d/report.json",
+      "sourceCommit": "3e3d53e0076f91401b52e5612a8975793ed97db5",
+      "sourceHash": "1895cf16671a5c8bbb03b0ab8f6cf759d0532c1ee3a5ed3198ff938af10d09b5",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-19T05:43:31.065Z",
+      "frames": [
+        {
+          "name": "shot--1250",
+          "valid": true,
+          "localTime": -1250,
+          "detailCrop": null,
+          "rgbaSha256": "c339b0a34c75c32ff09db84fe66702d91152a27fa0eb565c730431958cb0bad4"
+        },
+        {
+          "name": "shot--125",
+          "valid": true,
+          "localTime": -125,
+          "detailCrop": null,
+          "rgbaSha256": "db3b4aac12699642b2aeb46b015a142d18700ca69a9220c9d186b7c95c3b8ffe"
+        }
+      ]
+    }
+  ]
+}
