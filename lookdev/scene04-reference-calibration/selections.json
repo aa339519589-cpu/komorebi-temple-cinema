@@ -1,0 +1,43 @@
+{
+  "coordinateCanvas": [1254, 1254],
+  "origin": "top-left",
+  "reference": "/Users/mima1234/temple-cinema-live-sync/references/hd/3-照片-4.jpg",
+  "baseline": "lookdev/scene04-nishita-coupled/results/scene04-nishita-coupled.png",
+  "scope": "Manually chosen interior material regions; class statistics only. No reference pixels become scene textures or spatial gains.",
+  "regions": {
+    "sky": {
+      "color": [0, 1, 1],
+      "referenceRects": [[640, 24, 130, 65], [791, 44, 76, 53]],
+      "renderRects": [[620, 24, 150, 65], [790, 44, 76, 53]],
+      "note": "Clear blue sky, excluding the reference cloud and both tree crowns; render additionally requires background material index0."
+    },
+    "paving": {
+      "color": [1, 0, 1],
+      "referenceRects": [[535, 910, 140, 32], [565, 990, 108, 35], [544, 1118, 130, 40]],
+      "renderRects": [[535, 910, 140, 32], [565, 990, 108, 35], [544, 1118, 130, 40]],
+      "maxSourceWetCoverage": 0.12,
+      "note": "Dry central paving, away from the broad left wet regions and joints; original fine mineral/shadow variation is retained in robust quantiles."
+    },
+    "roof": {
+      "color": [0.2, 0.35, 1],
+      "referenceRects": [[499, 159, 65, 44], [704, 155, 66, 42]],
+      "renderRects": [[490, 159, 78, 48], [704, 155, 66, 46]],
+      "note": "The two main roof planes; avoid ridge fittings, gold ornaments and the front gable."
+    },
+    "painted_timber": {
+      "color": [0, 1, 0.1],
+      "referenceRects": [[507, 411, 15, 82], [755, 406, 16, 88]],
+      "renderRects": [[496, 411, 14, 88], [740, 407, 15, 91]],
+      "note": "Two red column shafts away from fittings and bases; render requires the existing reference4_red material."
+    },
+    "gilding": {
+      "color": [1, 0.75, 0],
+      "referenceRects": [[544, 331, 144, 31], [552, 411, 149, 143]],
+      "renderRects": [[540, 337, 157, 30], [553, 437, 145, 124]],
+      "referenceChromaFilter": {"minR": 0.25, "minGOverR": 0.53, "maxGOverR": 0.95, "maxBOverR": 0.65, "minRMinusB": 0.12},
+      "note": "Architectural/altar gold, excluding black gaps by the declared warm-gold chroma filter; source mask uses actual material indices, not pixel colour classification."
+    }
+  },
+  "robustStatistics": {"luminanceTrimQuantiles": [0.1, 0.9], "fitRGBQuantiles": [0.25, 0.5, 0.75], "quantileWeights": [0.2, 0.6, 0.2]},
+  "limits": "Selections compare material categories under inferred lighting, not measured material samples or pixel-aligned geometry."
+}

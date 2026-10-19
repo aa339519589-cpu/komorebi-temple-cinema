@@ -1,0 +1,10 @@
+{"event":"gpu-slot-acquired","label":"blender-render-fitted-full.py","pid":40256,"waitSeconds":0.001}
+00:00.423  blend            | Read blend: "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/results/scene04-nishita-coupled.blend"
+/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-reference-calibration/render-fitted-full.py:23: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  return {'objects':[(o.name,o.type,[v for row in o.matrix_world for v in row],len(o.data.vertices) if o.type=='MESH' else None,len(o.data.polygons) if o.type=='MESH' else None) for o in s.objects],'camera':{'matrix':[v for row in s.camera.matrix_world for v in row],'lens':s.camera.data.lens,'sensorHeight':s.camera.data.sensor_height},'world':graph(s.world.node_tree),'lights':[(o.name,o.data.type,o.data.energy,list(o.data.color),o.data.angle if o.data.type=='SUN' else None) for o in s.objects if o.type=='LIGHT'],'materials':[(m.name,graph(m.node_tree,classify(m.name))) for m in bpy.data.materials if m.use_nodes],'render':{'size':[s.render.resolution_x,s.render.resolution_y],'samples':s.cycles.samples,'seed':s.cycles.seed,'view':s.view_settings.view_transform,'look':s.view_settings.look,'gamma':s.view_settings.gamma}}
+00:39.643  render           | Saved: '/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-reference-calibration/results/scene04-reference-calibrated.png'
+Info: Saved as "scene04-reference-calibrated.blend"
+FITTED_FULL_COMPLETE {"exposure": 3.2272517681121826, "materialCount": 47, "protected": true}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

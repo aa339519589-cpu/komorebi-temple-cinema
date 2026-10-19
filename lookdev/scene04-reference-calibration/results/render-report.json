@@ -1,0 +1,936 @@
+{
+  "status": "actual-one-shot-calibration-review",
+  "sourceHash": "d1f02ccbe5cd1489e5211d8a831508aa592908cbe24733f3dee8bc74f37ce2a8",
+  "baseBlend": "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/results/scene04-nishita-coupled.blend",
+  "globalExposureEV": [
+    0,
+    3.2272517681121826
+  ],
+  "classGains": {
+    "paving": [
+      0.00010000000000000009,
+      0.00010000000000000009,
+      0.00010000000000000009
+    ],
+    "roof": [
+      0.00010000000000000009,
+      0.00010000000000000009,
+      0.00010000000000000009
+    ],
+    "painted_timber": [
+      0.006532642693929594,
+      0.00045282718288679777,
+      0.00045282718288679777
+    ],
+    "gilding": [
+      0.37018973984647696,
+      0.3052556369750723,
+      0.3755294053003366
+    ]
+  },
+  "materialChanges": [
+    {
+      "material": "carved-granite-recess",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        0.08228270709514618,
+        0.10461648553609848,
+        0.13013647496700287,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).002",
+        "Color"
+      ]
+    },
+    {
+      "material": "kiln-fired-ceramic",
+      "category": "roof",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        0.039546236395835876,
+        0.05612849071621895,
+        0.07036009430885315,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).001",
+        "Color"
+      ]
+    },
+    {
+      "material": "metre-scaled-pond-boulder-granite",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        0.13013647496700287,
+        0.14702726900577545,
+        0.12477181851863861,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).002",
+        "Color"
+      ]
+    },
+    {
+      "material": "metre-scaled-worn-wet-paver-0",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).002",
+        "Color"
+      ]
+    },
+    {
+      "material": "metre-scaled-worn-wet-paver-1",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).002",
+        "Color"
+      ]
+    },
+    {
+      "material": "metre-scaled-worn-wet-paver-2",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).002",
+        "Color"
+      ]
+    },
+    {
+      "material": "metre-scaled-worn-wet-paver-3",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.1799999475479126,
+        1.4700000286102295,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).002",
+        "Color"
+      ]
+    },
+    {
+      "material": "metric-quartz-granite-lantern",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        0.18447498977184296,
+        0.19806931912899017,
+        0.20863686501979828,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).002",
+        "Color"
+      ]
+    },
+    {
+      "material": "reference4_gold",
+      "category": "gilding",
+      "gainRGB": [
+        0.37018973984647696,
+        0.3052556369750723,
+        0.3755294053003366
+      ],
+      "previousBaseDefault": [
+        0.533276379108429,
+        0.35153260827064514,
+        0.07036009430885315,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "reference4_granite",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        0.17144110798835754,
+        0.18447498977184296,
+        0.19806931912899017,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).003",
+        "Color"
+      ]
+    },
+    {
+      "material": "reference4_oldgold",
+      "category": "gilding",
+      "gainRGB": [
+        0.37018973984647696,
+        0.3052556369750723,
+        0.3755294053003366
+      ],
+      "previousBaseDefault": [
+        0.28744083642959595,
+        0.14995978772640228,
+        0.026241222396492958,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "reference4_red",
+      "category": "painted_timber",
+      "gainRGB": [
+        0.006532642693929594,
+        0.00045282718288679777,
+        0.00045282718288679777
+      ],
+      "previousBaseDefault": [
+        0.19806931912899017,
+        0.03560131415724754,
+        0.016807375475764275,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).001",
+        "Color"
+      ]
+    },
+    {
+      "material": "reference4_stone",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        0.12213877588510513,
+        0.13563333451747894,
+        0.14995978772640228,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy).003",
+        "Color"
+      ]
+    },
+    {
+      "material": "reference4_tileEdge",
+      "category": "roof",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        0.16513219475746155,
+        0.18782077729701996,
+        0.18782077729701996,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "sanctuary-gilding",
+      "category": "gilding",
+      "gainRGB": [
+        0.37018973984647696,
+        0.3052556369750723,
+        0.3755294053003366
+      ],
+      "previousBaseDefault": [
+        0.6239603757858276,
+        0.38132601976394653,
+        0.06301001459360123,
+        1.0
+      ],
+      "originalBaseInput": "Original constant"
+    },
+    {
+      "material": "sanctuary-recessed-gilt",
+      "category": "gilding",
+      "gainRGB": [
+        0.37018973984647696,
+        0.3052556369750723,
+        0.3755294053003366
+      ],
+      "previousBaseDefault": [
+        0.28744083642959595,
+        0.16513219475746155,
+        0.04373503103852272,
+        1.0
+      ],
+      "originalBaseInput": "Original constant"
+    },
+    {
+      "material": "traced-granite-observed-centre-01",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-02",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-03",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-04",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-05",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-06",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-07",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-08",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-centre-09",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-01",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-02",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-03",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-04",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-05",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-06",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-07",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-08",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-09",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-10",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-east-11",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-01",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-02",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-03",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-04",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-05",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-06",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-07",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-08",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-09",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-10",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    },
+    {
+      "material": "traced-granite-observed-west-11",
+      "category": "paving",
+      "gainRGB": [
+        0.00010000000000000009,
+        0.00010000000000000009,
+        0.00010000000000000009
+      ],
+      "previousBaseDefault": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "originalBaseInput": [
+        "Mix (Legacy)",
+        "Color"
+      ]
+    }
+  ],
+  "protectedStateSHA256": "75aae5b03301840d1b465e183b3e133dadb821b349be0fd675ce03b6d1ffe03f",
+  "protectedStatePreserved": true,
+  "sourceTriangles": 23669477,
+  "onlyAppearanceChanges": "One global view exposure and four constant RGB multipliers on existing PBR baseColor inputs.",
+  "referenceImageOrSpatialGainImported": false,
+  "roughnessMetalnessIORNormalClearcoatLightWorldCameraGeometryChanged": false,
+  "size": [
+    1254,
+    1254
+  ],
+  "samples": 48,
+  "seed": 904101,
+  "fitLimit": "Boundary solution is a diagnostic artistic fit, not measured albedo. The actual path trace validates the one-pass GI/metal response approximation.",
+  "started": 1792371695.672931,
+  "photographicAcceptance": false,
+  "finished": 1792371730.7801201
+}

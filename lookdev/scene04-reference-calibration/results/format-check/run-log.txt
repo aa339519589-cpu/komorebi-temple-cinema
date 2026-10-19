@@ -1,0 +1,12 @@
+{"event":"gpu-slot-acquired","label":"blender-render-statistics-pass.py","pid":38554,"waitSeconds":0.001}
+00:00.465  blend            | Read blend: "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-nishita-coupled/results/scene04-nishita-coupled.blend"
+Traceback (most recent call last):
+  File "/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-reference-calibration/render-statistics-pass.py", line 30, in <module>
+    s.render.image_settings.file_format='OPEN_EXR_MULTILAYER';s.render.image_settings.color_depth='32';s.render.image_settings.exr_codec='ZIP';s.render.filepath=str(OUT/'calibration-pass512.exr')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: bpy_struct: item.attr = val: enum "OPEN_EXR_MULTILAYER" not found in ('AVIF', 'JPEG', 'OPEN_EXR', 'PNG', 'WEBP', 'BMP', 'CINEON', 'DPX', 'IRIS', 'JPEG2000', 'HDR', 'TARGA', 'TARGA_RAW', 'TIFF')
+
+Error: script failed, file: '/Users/mima1234/temple-scene04-physical-compare-20261019/lookdev/scene04-reference-calibration/render-statistics-pass.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit
