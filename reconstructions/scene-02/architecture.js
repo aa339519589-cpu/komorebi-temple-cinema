@@ -94,6 +94,38 @@ export function buildArchitecture(mats){
   b.box(0,gE+.90,gF+.01,gW*.74,.21,.22,'cedar');for(let x of[-gW*.16,0,gW*.16])b.box(x,gE+gR*.42,gF+.02,.18,gR*.39,.22,'cedar');
   for(let x=-gW*.30;x<gW*.31;x+=.55){b.put(scroll,'oldgold',[x,gE+.93,gF+.15],[.85,1.05,.8],[0,0,Math.round(x*2)%2?Math.PI:0]);rosette(x,gE+1.03,gF+.17,.07);}
   rosette(0,gE+gR*.63,gF+.14,.29);for(let sign of[-1,1])b.put(scroll,'oldgold',[sign*.45,gE+gR*.56,gF+.14],[1.4,1.5,.9],[0,0,sign<0?Math.PI:0]);
+  // Open, cast botanical carving follows the gable's timber load path.
+  // These are shallow solids and curls, with dark air between the branches.
+  const reliefZ=gF+.205;
+  for(const sign of[-1,1]){
+   const vine=[];
+   for(let j=0;j<=40;j++){
+    const t=j/40,x=sign*gW*.425*t,y=gE+gR*Math.pow(1-t*.88,1.28)-.38;
+    vine.push([x,y,reliefZ]);
+   }
+   b.tube(vine,.035,'gold',56);
+   for(let j=1;j<18;j++){
+    const t=j/19,x=sign*gW*.425*t,y=gE+gR*Math.pow(1-t*.88,1.28)-.38;
+    const a=sign*(.72+.10*Math.sin(j*2.1)),f=.50+.20*Math.sin(j*.8)**2;
+    b.put(scroll,j%3?'gold':'oldgold',[x-sign*.12,y-.13,reliefZ+.025],[f,f*.85,.60],[0,0,a]);
+    for(const side of[-1,1])b.put(reliefLeaf,j%3?'oldgold':'gold',[x+side*.12,y-.14-side*.045,reliefZ+.035],[1.6,1.9,.8],[0,side*.10,side*.78+sign*.32]);
+   }
+  }
+  for(const sign of[-1,1]){
+   b.tube([[0,gE+1.12,reliefZ],[sign*gW*.10,gE+1.48,reliefZ+.025],[sign*gW*.20,gE+1.16,reliefZ],[sign*gW*.31,gE+1.42,reliefZ]],.030,'oldgold',40);
+   for(let j=0;j<10;j++){
+    const x=sign*(.4+j*gW*.027),y=gE+1.23+.13*Math.sin(j*.9);
+    b.put(scroll,j%3?'oldgold':'gold',[x,y,reliefZ+.035],[.73,.70,.72],[0,0,j%2?.25:-.25]);
+    b.put(reliefLeaf,'gold',[x,y+.10,reliefZ+.05],[1.4,1.6,.8],[0,.15,sign*.72]);
+   }
+  }
+  rosette(0,gE+gR*.62,reliefZ+.04,.46);
+  b.put(torus,'oldgold',[0,gE+gR*.62,reliefZ+.015],[.53,.53,.55]);
+  for(let k=0;k<16;k++){
+   const a=k*Math.PI/8;
+   b.put(reliefLeaf,k%3?'gold':'oldgold',[Math.cos(a)*.63,gE+gR*.62+Math.sin(a)*.63,reliefZ+.05],[2.2,2.6,.8],[0,0,a-Math.PI/2]);
+  }
+
   });
   // Deep primary cantilever beams connect real column heads to the eave row.
   for(let x of axes){b.box(x,8.50,5.42,.43,.34,2.25,'cedar');b.box(x,8.13,4.72,.78,.25,.80,'darkwood');fitting(x,8.15,5.18,.62,.23);}
@@ -143,12 +175,45 @@ export function buildArchitecture(mats){
  // Enclosing low galleries anchor the far pond edge and continue behind the main hall.
  function gallery(pos,length,yaw=0){b.at(pos,yaw,()=>{b.box(0,.35,0,length,.7,4.3,'stone');for(let x=-length/2+.6;x<length/2;x+=2){column(x,1.2,.7,3.6,.14);bracket(x,4.4,1.2,.55);windowPanel(x,2.35,-1.1,1.7,2.5);}b.box(0,4.35,1.2,length+.5,.28,.3,'red');roof({w:length+1.5,d:5.5,eave:4.8,rise:1.6,curl:.4});b.at([0,.7,1.6],0,()=>rail(length));});}
  gallery([-14,.65,-6],15);gallery([16,3.3,-11],12);gallery([-22,1.1,0],10,Math.PI/2);
- // Curved bridge carries actual curved deck strips, balusters, gilded caps and stone piers.
- b.at(layout.bridge.position,layout.bridge.yaw,()=>{const arch=x=>1.2+layout.bridge.archRise*(1-(x/7.5)**2)+layout.bridge.slope*x/7.5;for(let i=0;i<60;i++){let x=-7.5+15*(i+.5)/60,dy=-2*layout.bridge.archRise*x/56.25+layout.bridge.slope/7.5;b.box(x,arch(x),0,.27,.22,2.9,'cedar',[0,0,Math.atan(dy)]);}
-  for(let z of[-1.5,1.5]){for(let i=0;i<50;i++){let x=-7.5+15*i/50,xx=-7.5+15*(i+1)/50;for(let h of[-.16,.25,.65])b.line([x,arch(x)+h,z],[xx,arch(xx)+h,z],h<0?.40:.12,'red',true,h<0?.35:.14);}
-   for(let i=0;i<=10;i++){let x=-7.5+i*1.5,y=arch(x);b.box(x,y+.36,z,.22,.80,.22,'red');b.cyl(x,y+.77,z,.16,.10,'gold');b.ball(x,y+.91,z,.13,.14,.13);if(i%2===0)fitting(x,y-.06,z+.16,.38,.38);}
-   for(let i=0;i<40;i++){let x=-7.3+i*.375;b.box(x,arch(x)+.34,z,.075,.37,.075,'red');}
-  }for(let x of[-5.3,0,5.3])for(let z of[-.9,.9]){let support=arch(x)-.3+layout.bridge.position[1];b.cyl(x,support/2-layout.bridge.position[1],z,.34,support,'stone');b.box(x,support-layout.bridge.position[1]+.06,z,.75,.18,.75,'lightstone');}
+ // One continuous cambered fascia rib on each side carries the plank deck.
+ // Its lower edge stays visible between the arch feet, instead of being broken
+ // up by repeated supports in the pond.
+ b.at(layout.bridge.position,layout.bridge.yaw,()=>{const arch=x=>1.2+layout.bridge.archRise*(1-(x/7.5)**2)+layout.bridge.slope*x/7.5,archSlope=x=>-2*layout.bridge.archRise*x/56.25+layout.bridge.slope/7.5;
+  for(let i=0;i<60;i++){let x=-7.5+15*(i+.5)/60,dy=archSlope(x);b.box(x,arch(x),0,.27,.22,2.9,'cedar',[0,0,Math.atan(dy)]);}
+  const ribZ=[-1.20,1.20],ribStart=-7.5,ribEnd=7.5,ribSteps=96,ribDepth=.34;
+  for(let z of ribZ){
+   const side=new T.Shape(),topY=x=>arch(x)-.075,bottomY=x=>arch(x)-.57;
+   side.moveTo(ribStart,topY(ribStart));
+   for(let i=1;i<=ribSteps;i++){const x=ribStart+(ribEnd-ribStart)*i/ribSteps;side.lineTo(x,topY(x));}
+   for(let i=ribSteps;i>=0;i--){const x=ribStart+(ribEnd-ribStart)*i/ribSteps;side.lineTo(x,bottomY(x));}
+   side.closePath();const web=new T.ExtrudeGeometry(side,{depth:ribDepth,bevelEnabled:false,curveSegments:1});web.translate(0,0,z-ribDepth/2);b.put(web,'red');
+   // Dark lower edging and diagonal braces meet the continuous rib at its face.
+   const outerZ=Math.sign(z)*1.39;
+   b.tube(Array.from({length:97},(_,i)=>{const x=ribStart+(ribEnd-ribStart)*i/96;return[x,bottomY(x)+.035,outerZ];}),.035,'cedar',192);
+   for(let i=0;i<10;i++){const xa=-6.9+1.38*i,xb=xa+1.38,ya=bottomY(xa)+.06,yb=bottomY(xb)+.06,yt=arch((xa+xb)/2)-.14;if(i%2===0)b.line([xa,ya,outerZ],[xb,yt,outerZ],.047,'darkwood',true,.07);else b.line([xa,yt,outerZ],[xb,yb,outerZ],.047,'darkwood',true,.07);}
+  }
+  // Keep all three guard rails clear of the deck surface and tie them together
+  // with posts that land just above the plank edge.
+  for(let z of[-1.5,1.5]){
+   for(const [h,r] of[[-.34,.085],[.25,.075],[.65,.09]])b.tube(Array.from({length:65},(_,i)=>{const x=-7.5+15*i/64;return[x,arch(x)+h,z];}),r,'red',128);
+   for(let i=0;i<=10;i++){const x=-7.5+i*1.5,y=arch(x);b.box(x,y+.36,z,.22,.70,.22,'red');b.cyl(x,y+.73,z,.16,.10,'gold');b.ball(x,y+.87,z,.13,.14,.13);if(i%2===0)fitting(x,y-.06,z+.16,.38,.38);}
+   for(let i=0;i<40;i++){const x=-7.3+i*.375;b.box(x,arch(x)+.34,z,.075,.37,.075,'red');}
+  }
+  const bridgeRock=new T.IcosahedronGeometry(1,2),bridgeRockPos=bridgeRock.attributes.position;
+  for(let i=0;i<bridgeRockPos.count;i++){const x=bridgeRockPos.getX(i),y=bridgeRockPos.getY(i),z=bridgeRockPos.getZ(i),q=1+.10*Math.sin(x*7.1+y*5.7-z*8.3);bridgeRockPos.setXYZ(i,x*q,y*q,z*q);}bridgeRock.computeVertexNormals();
+  // Broad masonry abutments support both ribs at the shore and sit inside
+  // irregular waterline stones so the bridge reads as one supported span.
+  for(const sign of[-1,1]){const x=sign*7.08,footTop=arch(x)-.47,footHeight=footTop+layout.bridge.position[1],footY=(footTop-layout.bridge.position[1])/2;
+   const base=-layout.bridge.position[1]-.05,courses=Math.max(3,Math.ceil((footTop-base)/.28)),courseH=(footTop-base)/courses;
+   for(let j=0;j<courses;j++)for(let k=0;k<5;k++){
+    const dz=(k-2)*.69+(j%2?.10:-.04),tone=.72+.18*(.5+.5*Math.sin(j*9+k*13));
+    b.box(x+.03*Math.sin(j*4+k),base+(j+.5)*courseH,dz,1.14+.10*Math.sin(k*3+j),courseH-.018,.71+.04*Math.sin(k+j),'stone',[0,.015*Math.sin(j*3+k),.006*Math.cos(j+k)],tone);
+   }
+   b.box(x,footTop-.025,0,1.24,.12,3.42,'lightstone');
+   b.box(x-sign*.43,.08-layout.bridge.position[1],0,.66,.26,3.46,'stone');
+   const rockOffsets=[[-.74,.13,-1.32,.72,.28,.54],[-.28,.17,.72,.64,.31,.61],[.56,.10,-.62,.82,.24,.70],[.82,.15,1.12,.73,.27,.58]];
+   for(let i=0;i<rockOffsets.length;i++){const [dx,worldY,dz,sx,sy,sz]=rockOffsets[i];b.put(bridgeRock,'stone',[x+sign*dx,worldY-layout.bridge.position[1],dz],[sx,sy,sz],[.08*i,.21*i*sign,-.12*i],.88+.04*i);}
+  }
  },layout.bridge.scale);
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};

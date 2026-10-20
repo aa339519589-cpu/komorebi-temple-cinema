@@ -14,6 +14,44 @@ export function buildHallEntry({b,mats,lights,column,bracket,fitting,rosette,scr
   for(let i=1;i<n;i++)b.box(x-w/2+w*i/n,y,z+.055,.035,h,.055,ma);
   for(let i=1;i<rows;i++)b.box(x,y-h/2+h*i/rows,z+.07,w,.035,.055,ma);
  }
+ // Broad scalloped bronze-gold cheeks extend the pin-sized plaques into
+ // one carved face motif on each side of the larger column-head brackets.
+ const joineryPlateShape=new T.Shape();joineryPlateShape.moveTo(-.80,.06);
+ joineryPlateShape.quadraticCurveTo(-.59,.06,-.48,.26);joineryPlateShape.quadraticCurveTo(-.29,.65,0,.80);
+ joineryPlateShape.quadraticCurveTo(.29,.65,.48,.26);joineryPlateShape.quadraticCurveTo(.59,.06,.80,.06);
+ joineryPlateShape.lineTo(.88,.06);joineryPlateShape.quadraticCurveTo(.95,.06,.95,.14);joineryPlateShape.quadraticCurveTo(.95,.22,.84,.22);
+ joineryPlateShape.lineTo(.68,.22);joineryPlateShape.quadraticCurveTo(.52,.22,.43,.38);joineryPlateShape.quadraticCurveTo(.23,.61,0,.66);
+ joineryPlateShape.quadraticCurveTo(-.23,.61,-.43,.38);joineryPlateShape.quadraticCurveTo(-.52,.22,-.68,.22);
+ joineryPlateShape.lineTo(-.84,.22);joineryPlateShape.quadraticCurveTo(-.95,.22,-.95,.14);joineryPlateShape.quadraticCurveTo(-.95,.06,-.88,.06);joineryPlateShape.closePath();
+ const joineryPlate=new T.ExtrudeGeometry(joineryPlateShape,{depth:.055,bevelEnabled:true,bevelSize:.012,bevelThickness:.008,bevelSegments:2,curveSegments:10});
+ function seatedBracket(x,y,z,s){
+  bracket(x,y,z,s);
+  // The stepped abacus overlaps the shaft head; four orthogonal timber
+  // courses then grow from it and finish directly under the intersecting
+  // purlin, ceiling tie and projecting eave beam.
+  b.at([x,y,z],0,()=>{
+   b.box(0,.04,0,.98,.16,.98,'darkwood');
+   b.box(0,.15,0,1.25,.15,1.25,'cedar');
+   const courses=[
+    {axis:'x',cy:.18,span:.68,h:.18},
+    {axis:'z',cy:.38,span:.82,h:.17},
+    {axis:'x',cy:.58,span:.96,h:.17},
+    {axis:'z',cy:.78,span:1.12,h:.18}
+   ];
+   for(let i=0;i<courses.length;i++){
+    const c=courses[i],ma=i%2?'red':'cedar';
+    b.box(0,c.cy,0,c.axis==='x'?2*c.span:.38,c.h,c.axis==='z'?2*c.span:.38,ma);
+   }
+   // A continuous saddle at the top of the stack lands on the deep eave beam.
+   b.box(0,.84,0,.48,.13,2.18,'darkwood');
+  },s);
+  for(const yaw of[0,Math.PI/2,Math.PI,-Math.PI/2])b.at([x,y,z],yaw,()=>{
+   b.put(joineryPlate,'oldgold',[0,.12,.205]);
+   b.tube([[0,.20,.266],[0,.34,.266],[0,.48,.266],[0,.63,.266],[0,.72,.266]],.014,'gold',20);
+   b.tube([[-.43,.24,.266],[-.30,.28,.266],[-.18,.38,.266],[-.17,.49,.266],[-.25,.55,.266],[-.32,.50,.266],[-.28,.43,.266]],.018,'gold',28);
+   b.tube([[.43,.24,.266],[.30,.28,.266],[.18,.38,.266],[.17,.49,.266],[.25,.55,.266],[.32,.50,.266],[.28,.43,.266]],.018,'gold',28);
+  },s);
+ }
  function doorLeaf(hingeX,z,width,height,yaw,sign){
   b.at([hingeX,floor+.13,z],yaw,()=>{
    const x=sign*width/2;
@@ -39,10 +77,10 @@ export function buildHallEntry({b,mats,lights,column,bracket,fitting,rosette,scr
  // Shorter shafts carry larger interlocking heads at the same roof level.
  for(let z of[4.7,-6.3])for(let x of axes){
   if(z===4.7&&x===0)continue;
-  column(x,z,floor,5.20,z===4.7?.31:.25);bracket(x,7.45,z,z===4.7?1.10:.95);
+  column(x,z,floor,5.20,z===4.7?.31:.25);seatedBracket(x,7.45,z,z===4.7?1.10:.95);
  }
- for(let x of[-5.2,-2.6,2.6,5.2]){column(x,1.2,floor+.03,4.92,.235);bracket(x,7.18,1.2,.88);}
- for(let x of[-7.8,7.8])for(let z of[-3.2,.8]){column(x,z,floor,5.1,.25);bracket(x,7.35,z,.95);}
+ for(let x of[-5.2,-2.6,2.6,5.2]){column(x,1.2,floor+.03,4.92,.235);seatedBracket(x,7.18,1.2,.88);}
+ for(let x of[-7.8,7.8])for(let z of[-3.2,.8]){column(x,z,floor,5.1,.25);seatedBracket(x,7.35,z,.95);}
  // Deep cross ties, ceiling boards, purlins and the lower carved lintel.
  b.box(0,8.03,-.65,16.7,.20,12.0,'darkwood');
  for(let z=-6.2;z<=5.1;z+=.74)b.box(0,7.87,z,16.5,.19,.19,'cedar');

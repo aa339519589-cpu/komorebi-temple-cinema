@@ -9,7 +9,7 @@ export const foregroundLantern120={
  anchor:[.99884134,.15,13.20506184],yaw:-.15,
  height:4.09,roofHalfWidth:.68,roofEdgeY:3.38,roofCrownY:3.76,
  windowSide:.86,windowBottom:2.48,windowTop:3.28,
- stemBottom:.85,stemTop:1.95,stemBottomSide:.50,stemTopSide:.43,
+ stemBottom:.85,stemTop:1.95,stemBottomSide:.40,stemTopSide:.36,
  baseSide:.78,footingBearingY:0,
  footingRocks:[[-.79,-.14,.67,.36,.30,.43],[.72,-.16,.56,.35,.29,.39],[-.91,-.13,-.26,.34,.27,.43],[1.15,-.11,.65,.63,.38,.52],[2.25,-.15,1.25,1.00,.45,.70]],
 };
@@ -33,6 +33,28 @@ function closedGeometry(positions,indices,name){
  if(volume<0)for(let i=0;i<indices.length;i+=3)[indices[i+1],indices[i+2]]=[indices[i+2],indices[i+1]];
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setIndex(indices);g.computeVertexNormals();g.name=name;g.userData.closedVolume=Math.abs(volume);return metricUV(g);
 }
+function squareStoneProfile(rows,name='closed-profiled-square-stone'){
+ const p=[],ix=[],outline=[[-1,-1+.12],[-1+.12,-1],[1-.12,-1],[1,-1+.12],[1,1-.12],[1-.12,1],[-1+.12,1],[-1,1-.12]];
+ for(const [side,y,cut=.12]of rows){
+  const h=side/2;
+  const cornerCut=Math.min(.28,Math.max(.04,cut));
+  const points=[[-1,-1+cornerCut],[-1+cornerCut,-1],[1-cornerCut,-1],[1,-1+cornerCut],[1,1-cornerCut],[1-cornerCut,1],[-1+cornerCut,1],[-1,1-cornerCut]];
+  for(const [x,z]of points)p.push(x*h,y,z*h);
+ }
+ const ringSize=8,ringCount=rows.length;
+ for(let r=0;r<ringCount-1;r++)for(let k=0;k<ringSize;k++){
+  const a=r*ringSize+k,b=r*ringSize+(k+1)%ringSize,c=a+ringSize,d=b+ringSize;
+  ix.push(a,b,c,b,d,c);
+ }
+ for(let end=0;end<2;end++){
+  const n=p.length/3,row=end?ringCount-1:0,cy=rows[row][1];p.push(0,cy,0);
+  for(let k=0;k<ringSize;k++){
+   const a=row*ringSize+k,b=row*ringSize+(k+1)%ringSize;
+   end?ix.push(n,a,b):ix.push(n,b,a);
+  }
+ }
+ return closedGeometry(p,ix,name);
+}
 function squareShaft(bottomSide,topSide,y0,y1){
  const p=[],ix=[],cut=.025;
  for(const [side,y]of[[bottomSide,y0],[topSide,y1]])for(const [x,z]of[[-1,-1+cut],[-1+cut,-1],[1-cut,-1],[1,-1+cut],[1,1-cut],[1-cut,1],[-1+cut,1],[-1,1-cut]])p.push(x*side/2,y,z*side/2);
@@ -41,24 +63,33 @@ function squareShaft(bottomSide,topSide,y0,y1){
  return closedGeometry(p,ix,'closed-chamfered-square-stone-shaft');
 }
 function closedKasa(){
- const cfg=foregroundLantern120,N=96,M=22,p=[0,cfg.roofCrownY,0],ix=[];
- for(let j=1;j<=M;j++)for(let k=0;k<N;k++){
-  const a=k/N*TAU,t=j/M,dx=Math.cos(a),dz=Math.sin(a),extent=cfg.roofHalfWidth/Math.max(Math.abs(dx),Math.abs(dz)),corner=Math.min(Math.abs(dx),Math.abs(dz))/Math.max(Math.abs(dx),Math.abs(dz));
-  p.push(dx*extent*t,cfg.roofEdgeY+.38*(1-t)**1.40+.06*t**6*(.30+.70*corner**6),dz*extent*t);
+ const cfg=foregroundLantern120,N=96,p=[0,cfg.roofCrownY,0],ix=[];
+ // The square hip turns through a softly clipped plan. Its broad planes rise
+ // gently to a low crown, while the outer rings form a carved, rolled fascia.
+ const upper=[[.13,3.735],[.28,3.695],[.44,3.635],[.60,3.565],[.75,3.495],[.88,3.445],[.96,3.418],[1.0,3.400],[1.025,3.378],[1.048,3.389],[1.064,3.365],[1.064,3.325]];
+ const lower=[[1.0,3.325],[.84,3.325],[.62,3.325],[.36,3.325],[.12,3.325]];
+ const rings=[];
+ function ring(radius,y,raiseCorners){
+  const ids=[];
+  if(radius===0){ids.push(p.length/3);p.push(0,y,0);return ids;}
+  for(let k=0;k<N;k++){
+   const a=k/N*TAU,dx=Math.cos(a),dz=Math.sin(a),norm=(Math.abs(dx)**12+Math.abs(dz)**12)**(1/12),sx=dx/norm,sz=dz/norm;
+   const corner=Math.min(Math.abs(sx),Math.abs(sz))/Math.max(Math.abs(sx),Math.abs(sz));
+   ids.push(p.length/3);p.push(sx*radius*cfg.roofHalfWidth,y+(raiseCorners?.045*corner**8:0),sz*radius*cfg.roofHalfWidth);
+  }
+  return ids;
  }
- for(let k=0;k<N;k++)ix.push(0,1+k,1+(k+1)%N);
- for(let j=0;j<M-1;j++)for(let k=0;k<N;k++){const a=1+j*N+k,b=1+j*N+(k+1)%N,c=a+N,d=b+N;ix.push(a,c,b,b,c,d);}
- // The underside has a real flat bearing over the entire 1m window cap.
- // Only the outer overhang curves downward; it cannot cut through the cap.
- const centre=p.length/3;p.push(0,3.34,0);const under=p.length/3;
- for(let j=1;j<=M;j++)for(let k=0;k<N;k++){
-  const q=1+(j-1)*N+k,t=j/M,curl=(p[q*3+1]-cfg.roofEdgeY-.38*(1-t)**1.40),s=T.MathUtils.smoothstep(t,.80,1);
-  p.push(p[q*3],3.34+s*(-.08+(t?curl/t**6:0)),p[q*3+2]);
+ const crown=[0];rings.push(crown);
+ for(const [r,y]of upper)rings.push(ring(r,y,r<=1.0));
+ for(const [r,y]of lower)rings.push(ring(r,y,false));
+ const baseCenter=ring(0,3.325,false);
+ const first=rings[1];for(let k=0;k<N;k++)ix.push(crown[0],first[k],first[(k+1)%N]);
+ for(let j=1;j<rings.length-1;j++){
+  const aRing=rings[j],bRing=rings[j+1];
+  for(let k=0;k<N;k++){const n=(k+1)%N,a=aRing[k],b=aRing[n],c=bRing[k],d=bRing[n];ix.push(a,c,b,b,c,d);}
  }
- for(let k=0;k<N;k++)ix.push(centre,under+(k+1)%N,under+k);
- for(let j=0;j<M-1;j++)for(let k=0;k<N;k++){const a=under+j*N+k,b=under+j*N+(k+1)%N,c=a+N,d=b+N;ix.push(a,b,c,b,d,c);}
- for(let k=0;k<N;k++){const n=(k+1)%N,a=1+(M-1)*N+k,b=1+(M-1)*N+n,c=under+(M-1)*N+k,d=under+(M-1)*N+n;ix.push(a,c,b,b,c,d);}
- return closedGeometry(p,ix,'closed-four-hip-carved-stone-kasa');
+ const last=rings[rings.length-1];for(let k=0;k<N;k++)ix.push(baseCenter[0],last[(k+1)%N],last[k]);
+ return closedGeometry(p,ix,'closed-four-hip-carved-stone-kasa-with-rolled-eaves');
 }
 function bearingRock(){
  const N=80,M=10,p=[0,0,0],ix=[];

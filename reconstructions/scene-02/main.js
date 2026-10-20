@@ -32,19 +32,32 @@ if(d.y>.035){float lo=2.2/d.y,hi=3.4/d.y,stepLength=(hi-lo)/10.;float trans=1.;v
 skyMaterial.fragmentShader=skyMaterial.fragmentShader.replace(';#include',';\n#include');
 const sky=new T.Mesh(new T.SphereGeometry(220,40,24),skyMaterial);sky.name='procedural-golden-cloud-atmosphere';scene.add(sky);
 const sun=new T.DirectionalLight(0xffddb0,8.5);sun.target.position.set(-2,4,0);sun.position.copy(sun.target.position).add(sunDirection.clone().multiplyScalar(90));sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-34,right:34,top:34,bottom:-34,near:1,far:125});sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00008;sun.shadow.normalBias=.008;sun.shadow.radius=2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
-scene.add(new T.HemisphereLight(0xc6d5e8,0x3c3023,.10));const frontFill=new T.DirectionalLight(0xd3deec,.08);frontFill.position.set(18,26,25);scene.add(frontFill);const pondBounce=new T.DirectionalLight(0xffd09a,.18);pondBounce.name='soft-pond-bounce-approximation';pondBounce.position.set(-20,3.5,20);pondBounce.target.position.set(-1,5,-7);scene.add(pondBounce,pondBounce.target);
+scene.add(new T.HemisphereLight(0xe5d7bd,0x55402b,.52));const frontFill=new T.DirectionalLight(0xffdfb2,1.85);frontFill.name='broad-warm-sky-and-courtyard-bounce';frontFill.position.set(-16,16,24);frontFill.target.position.set(1,6,-8);frontFill.castShadow=true;frontFill.shadow.mapSize.set(4096,4096);Object.assign(frontFill.shadow.camera,{left:-34,right:34,top:31,bottom:-27,near:1,far:100});frontFill.shadow.camera.updateProjectionMatrix();frontFill.shadow.bias=-.000035;frontFill.shadow.normalBias=.006;frontFill.shadow.autoUpdate=false;frontFill.shadow.needsUpdate=true;scene.add(frontFill,frontFill.target);const pondBounce=new T.DirectionalLight(0xffd09a,.45);pondBounce.name='soft-pond-bounce-approximation';pondBounce.position.set(-20,3.5,20);pondBounce.target.position.set(-1,5,-7);scene.add(pondBounce,pondBounce.target);
 const camera=new T.PerspectiveCamera(52,width/height,.12,300);
 const reference={position:layout.referenceCamera.position,target:layout.referenceCamera.target,fov:layout.referenceCamera.fov};
 const reflectors=[];
-function mirror(name,w,d,p,opacity=.8,ripple=.0015){
- const o=new Reflector(new T.PlaneGeometry(w,d),{textureWidth:Math.min(width,1024),textureHeight:Math.min(height,1024),clipBias:.004,color:0x9a9a9a,multisample:0});o.rotation.x=-Math.PI/2;o.position.fromArray(p);o.name=name;o.material.transparent=true;o.material.depthWrite=false;
+function mirror(name,w,d,p,opacity=.8,ripple=.0015,geometry=null){
+ const o=new Reflector(geometry||new T.PlaneGeometry(w,d),{textureWidth:Math.min(width,1024),textureHeight:Math.min(height,1024),clipBias:.004,color:0x9a9a9a,multisample:0});o.rotation.x=-Math.PI/2;o.position.fromArray(p);o.name=name;o.material.transparent=true;o.material.depthWrite=false;
  o.material.vertexShader=o.material.vertexShader.replace('varying vec4 vUv;','varying vec4 vUv;varying vec3 vMirrorWorld;').replace('void main() {','void main() {vMirrorWorld=(modelMatrix*vec4(position,1.)).xyz;');
  o.material.fragmentShader=o.material.fragmentShader.replace('varying vec4 vUv;','varying vec4 vUv;varying vec3 vMirrorWorld;').replace('vec4 base = texture2DProj( tDiffuse, vUv );',`vec4 rippleUV=vUv;rippleUV.xy+=vec2(sin(vMirrorWorld.x*12.7+vMirrorWorld.z*9.4)+sin(vMirrorWorld.z*32.9)*.25,cos(vMirrorWorld.z*10.3-vMirrorWorld.x*7.2)) * ${ripple.toFixed(7)} * vUv.w;vec4 base=texture2DProj(tDiffuse,rippleUV);`).replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );',`float fresnel=.44+.56*pow(1.-abs(normalize(cameraPosition-vMirrorWorld).y),3.);gl_FragColor=vec4(base.rgb*vec3(.93,.90,.78),${opacity.toFixed(3)}*fresnel);`);
+ if(name==='actual-pond-reflection'){
+  const wind=new T.Vector2(sunDirection.x,sunDirection.z).normalize(),across=new T.Vector2(-wind.y,wind.x);
+  const glints=`float along=dot(vMirrorWorld.xz,vec2(${wind.x.toFixed(6)},${wind.y.toFixed(6)}));float crossWave=dot(vMirrorWorld.xz,vec2(${across.x.toFixed(6)},${across.y.toFixed(6)}));float crest=smoothstep(.72,.97,sin(along*12.0+sin(crossWave*2.8)*.75));float broken=smoothstep(.78,.98,sin(along*6.2-sin(crossWave*5.0)*.45))*.38;float envelope=.28+.72*pow(max(0.,cos(crossWave*4.8+sin(along*.18))),3.);float dashes=.18+.82*smoothstep(-.18,.52,cos(crossWave*7.2+sin(along*.22)));float glint=max(crest,broken)*envelope*dashes*.30;`;
+  o.material.fragmentShader=o.material.fragmentShader.replace('float fresnel=',`${glints}float fresnel=`).replace('base.rgb*vec3(.93,.90,.78)','base.rgb*vec3(.95,.93,.87)+vec3(1.35,.76,.29)*glint');
+ }
  if(name.includes('cedar'))o.material.fragmentShader=o.material.fragmentShader.replace('vec4 base=texture2DProj(tDiffuse,rippleUV);','vec4 base=texture2DProj(tDiffuse,rippleUV)*2.;vec4 q=rippleUV;q.x+=.004*vUv.w;base+=texture2DProj(tDiffuse,q);q.x-=.008*vUv.w;base+=texture2DProj(tDiffuse,q);q=rippleUV;q.y+=.0015*vUv.w;base+=texture2DProj(tDiffuse,q);q.y-=.003*vUv.w;base+=texture2DProj(tDiffuse,q);base/=6.;');
  const original=o.onBeforeRender;o.onBeforeRender=function(...args){let vis=reflectors.map(r=>r.visible);reflectors.forEach(r=>{if(r!==o)r.visible=false;});try{return original.apply(this,args);}finally{reflectors.forEach((r,i)=>r.visible=vis[i]);}};reflectors.push(o);scene.add(o);return o;
 }
-const water=new T.Mesh(new T.PlaneGeometry(61.5,61),mats.water);water.rotation.x=-Math.PI/2;water.position.set(-16,.004,15);water.receiveShadow=true;scene.add(water);
-mirror('actual-pond-reflection',61.5,61,[-16,.016,15],.97,.0012);
+function pondGeometry(){
+ const shore=[[-30,1],[-28,-1.5],[-23,-2.8],[-18,-2.2],[-14,-.8],[-10,.6],[-7,2.1],[-4,3.5],[-1,4.0],[2,3.4],[5,1.7],[8,.6],[10,2.2],[10.8,5.1],[11.5,8.1],[12.4,11.0],[13.4,15.0],[14.8,20.5],[16.2,27.0],[17.8,35.0],[17.6,42.0],[7.0,44.0],[-6.0,44.3],[-21.0,42.8],[-29.4,37.1],[-33.0,29.1],[-34.2,20.4],[-33.6,10.4],[-30.4,5.8]];
+ const curve=new T.CatmullRomCurve3(shore.map(([x,z])=>new T.Vector3(x,0,z)),true,'centripetal');
+ const points=curve.getPoints(192),shape=new T.Shape(),toLocal=p=>[p.x+16,15-p.z];
+ shape.moveTo(...toLocal(points[0]));for(let i=1;i<points.length;i++)shape.lineTo(...toLocal(points[i]));shape.closePath();
+ return new T.ShapeGeometry(shape,16);
+}
+Object.assign(mats.water,{roughness:.25,metalness:.10});mats.water.color.setHex(0x394b3a);mats.water.bumpScale=.0035;
+const waterGeometry=pondGeometry(),water=new T.Mesh(waterGeometry,mats.water);water.rotation.x=-Math.PI/2;water.position.set(-16,.004,15);water.receiveShadow=true;scene.add(water);
+mirror('actual-pond-reflection',61.5,61,[-16,.016,15],.90,.0011,pondGeometry());
 // Wet wood is the actual closed board material. Its clearcoat and captured
 // scene probe replace the former single mirror6mm above the entire deck.
 // Bound capture radiance before convolution: a non-finite shading sample must not
@@ -54,7 +67,7 @@ scene.traverse(o=>{if(o.isMesh&&o.material){const leaf=o.material===mats.leaf||o
 const scannedTimber=await installScannedTimber(mats,scene);textures.push(...scannedTimber.textures);
 // A fixed radiance probe includes the actual gold lamps, red timber, pond and deep
 // shadowed architecture, so close polished metal has reflected structural detail.
-const environmentScene=new T.Scene(),environmentSky=sky.clone();environmentSky.material=skyMaterial.clone();environmentSky.material.uniforms.skyGain.value=1.0;environmentSky.material.fragmentShader=`varying vec3 vWorld;uniform float skyGain;void main(){vec3 d=normalize(vWorld-cameraPosition);vec3 radiance=mix(vec3(.018,.015,.010),vec3(.28,.38,.52),smoothstep(-.04,.16,d.y));radiance*=.68+.32*sqrt(max(d.y,0.));gl_FragColor=vec4(radiance*skyGain,1.);}`;environmentScene.add(environmentSky);
+const environmentScene=new T.Scene(),environmentSky=sky.clone();environmentSky.material=skyMaterial.clone();environmentSky.material.uniforms.skyGain.value=1.0;environmentSky.material.fragmentShader=`varying vec3 vWorld;uniform float skyGain;void main(){vec3 d=normalize(vWorld-cameraPosition);vec3 radiance=mix(vec3(.065,.046,.025),vec3(.53,.54,.57),smoothstep(-.04,.16,d.y));radiance*=.68+.32*sqrt(max(d.y,0.));gl_FragColor=vec4(radiance*skyGain,1.);}`;environmentScene.add(environmentSky);
 const pmrem=new T.PMREMGenerator(renderer),skyTarget=pmrem.fromScene(environmentScene,.02,.1,250,{size:128});scene.environment=skyTarget.texture;scene.environmentIntensity=.9;
 pmrem.dispose();environmentSky.material.dispose();
 const probeTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType}),probeCamera=new T.CubeCamera(.16,250,probeTarget);probeCamera.position.set(14,4.2,16.6);reflectors.forEach(o=>o.visible=false);scene.updateMatrixWorld(true);try{probeCamera.update(renderer,scene);}finally{reflectors.forEach(o=>o.visible=true);}

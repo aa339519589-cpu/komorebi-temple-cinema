@@ -47,8 +47,8 @@ export const layout = {
     "roofBack": -10.860123572071092,
     "gableWidth": 16.25347355821445,
     "gableFront": 9.466003440134164,
-    "gableEave": 9.607729235019622,
-    "gableRise": 4.914688898235285,
+    "gableEave": 9.987729235019623,
+    "gableRise": 5.384688898235284,
     "gableCenterX": 3.169077976445595
   },
   "bridge": {
