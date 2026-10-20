@@ -40,8 +40,28 @@ function beamGeometry(T,a,d,height,width,depth){
 
 export function buildVerandaRail(T,b){
  const posts=layout.rail.posts.toSorted((a,c)=>a[2]-c[2]),structural=[verandaEdge(8),verandaEdge(17),...posts,verandaEdge(26),verandaEdge(40)].toSorted((a,c)=>a[2]-c[2]);
- const capProfile=[[0,0],[.069,0],[.085,.010],[.085,.023],[.062,.036],[.060,.050],[.083,.064],[.087,.081],[.079,.096],[.058,.109],[.058,.128],[.081,.149],[.074,.166],[.044,.187],[.021,.197],[.014,.210],[0,.215]];
- const cap=revolveProfile(capProfile,64,'scene02-closed-onion-post-cap');
+ // A single swelling giboshi sits on a short chased drum. The old profile
+ // alternated three cone-like flares, reading as a miniature pagoda finial.
+ const capProfile=[[0,0],[.068,0],[.075,.006],[.075,.014],[.067,.020],[.064,.027],[.064,.047],[.070,.053],[.069,.059],[.039,.066],[.029,.075]];
+ for(let k=1;k<=36;k++){
+  const t=k/36,y=.075+.134*t,r=.026+.056*Math.pow(Math.sin(Math.PI*t),.82);
+  capProfile.push([r,y]);
+ }
+ capProfile.push([.021,.215],[.012,.222],[.005,.229],[0,.234]);
+ const cap=revolveProfile(capProfile,96,'scene02-closed-fluted-onion-giboshi');
+ const cp=cap.attributes.position;
+ for(let k=0;k<cp.count;k++){
+  const y=cp.getY(k),a=Math.atan2(cp.getZ(k),cp.getX(k));
+  if(y>.075&&y<.209){const q=1+.021*Math.cos(a*12)*Math.sin(Math.PI*(y-.075)/.134);cp.setXYZ(k,cp.getX(k)*q,y,cp.getZ(k)*q);}
+ }
+ cap.computeVertexNormals();
+ const bandScroll=[];
+ for(let k=0;k<=36;k++){
+  const t=k/36,a=-.21+.42*t,r=.0658+.0018*Math.sin(Math.PI*t),y=.036+.008*Math.sin(t*Math.PI*3);
+  bandScroll.push(new T.Vector3(Math.cos(a)*r,y,Math.sin(a)*r));
+ }
+ const chasedBand=new T.TubeGeometry(new T.CatmullRomCurve3(bandScroll),40,.0015,5,false);
+
  let timberBeams=0,insetPanels=0,intermediateStiles=0,postCount=0;
  // Broad red top, middle and bottom beams share the same edge and shoulders.
  for(const [h,w,d] of[[.880,.120,.075],[.480,.100,.105],[.105,.120,.105],[.025,.170,.050]]){b.put(beamGeometry(T,8,40,h,w,d),h===.025?'cedar':'red');timberBeams++;}
@@ -52,6 +72,11 @@ export function buildVerandaRail(T,b){
    b.box(0,.039,0,.129,.050,.129,'oldgold');b.box(0,.069,0,.133,.014,.133,'gold');
    b.box(0,.867,0,.137,.070,.137,'red');b.box(0,.897,0,.145,.017,.145,'oldgold');
    b.put(cap,'gold',[0,.905,0]);
+   for(let k=0;k<12;k++){
+    b.put(chasedBand,k%3?'gold':'oldgold',[0,.905,0],[1,1,1],[0,k*Math.PI/6,0]);
+    const a=k*Math.PI/6;
+    b.ball(Math.cos(a)*.0658,.941,Math.sin(a)*.0658,.0028,.0042,.0028,'oldgold');
+   }
   });postCount++;
  }
  for(const p of structural)post(p);

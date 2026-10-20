@@ -61,9 +61,9 @@ function rosette(x,y,z,r=.09){for(let i=0;i<8;i++){const a=i*TAU/8;emit(geo.ball
 function carvedPanel(x,y,z,w,h){box(x,y,z,w,h,.10,'wood');box(x,y,z+.06,w-.08,h-.08,.035,'dark');for(const yy of[-h/2+.05,h/2-.05])box(x,y+yy,z+.09,w-.12,.026,.025,'gold');for(const xx of[-w/2+.05,w/2-.05])box(x+xx,y,z+.09,.026,h-.12,.025,'gold');for(const side of[-1,1])for(let j=0;j<3;j++){const xx=x+side*w*(.16+j*.105);tube([[xx-side*w*.09,y-h*.23,z+.085],[xx-side*w*.05,y+h*.18,z+.1],[xx+side*w*.04,y+h*.11,z+.1],[xx+side*w*.07,y-h*.19,z+.085]],.015,'gold');}rosette(x,y,z+.12,Math.min(.14,h*.33));}
 function hangingLamp(x,y,z,anchor){rod([x,anchor,z],[x,y+.40,z],.012,'gold');const bottom=new T.LatheGeometry([new T.Vector2(.08,0),new T.Vector2(.24,.05),new T.Vector2(.26,.12),new T.Vector2(.20,.18)],6),top=new T.LatheGeometry([new T.Vector2(.19,0),new T.Vector2(.28,.10),new T.Vector2(.22,.19),new T.Vector2(.06,.25)],6);emit(bottom,'gold',x,y-.36,z);emit(top,'gold',x,y+.29,z);for(let k=0;k<6;k++){const a=k*TAU/6,xx=x+Math.cos(a)*.21,zz=z+Math.sin(a)*.21;rod([xx,y-.20,zz],[xx,y+.31,zz],.020,'gold');group(x,y,z,-a+Math.PI/2,1,()=>{box(0,.035,.175,.18,.45,.018,'windowGlow');for(const xx of[-.06,0,.06])box(xx,.035,.19,.009,.45,.014,'gold');for(const yy of[-.13,.02,.17])box(0,yy,.19,.18,.009,.014,'gold');});}sphere(x,y-.43,z,.055,.10,.055,'gold');const l=new T.PointLight(0xffb34e,17,8,2);l.position.copy(V([x,y,z]).applyMatrix4(transform));scene.add(l);}
 function hall(){group(4.6,5.0,-9,-.25,1,()=>{transform.multiply(new T.Matrix4().makeScale(1,.88,1));
-// The stair arrives over the pond on a pair of stone wings and a continuous
-// header. The former full-height plinth filled the view beneath the bridge.
-box(-5.5,-2.0,-.4,5,5.7,10.6,'stone');box(5.5,-2.0,-.4,5,5.7,10.6,'stone');box(0,.30,-.4,6,1.1,10.6,'stone');box(0,1.73,-.4,16.4,.15,10.9,'stone');for(let i=0;i<21;i++)for(let j=0;j<14;j++)emit(masonryForms[(i+j)%7],'stone',-7.7+i*.77,1.84,-5.35+j*.76,.75,.06,.74,[0,0,0],rr(.85,1.12));
+// Stone wings retain the terrace edges. The central flight has its own coursed
+// tread backing and shared landing, leaving the bridge's watercourse open below.
+box(-5.5,-2.0,-.4,5,5.7,7.8,'stone');box(5.5,-2.0,-.4,5,5.7,7.8,'stone');box(0,1.73,-.4,16.4,.15,10.9,'stone');for(let row=0;row<27;row++)for(let col=0;col<21;col++){const x=-7.6+col*.76+(row%2)*.38;if(Math.abs(x)<3.0||x>7.8)continue;emit(masonryForms[(row+col)%7],'stone',x,-4.4+row*.225,3.45,.73,.22,.55,[0,0,0],rr(.76,1.10));}
 // Entire stone stair, landing and its rail are built as one continuous route in layout118.
 // Deep interior wall, lacquered beams, actual side passage and thick front columns.
 box(0,4.3,-4.65,14.4,5,.25,'dark');for(const x of[-7.1,7.1])box(x,4.3,-.7,.2,5,8,'wood');
@@ -126,7 +126,16 @@ hall();tower();
 function gallery(x,z,w,rot=0){group(x,4,z,rot,1,()=>{box(0,-.65,0,w,3.3,3.2,'stone');for(let row=0;row<14;row++)for(let col=0;col<Math.ceil(w/.66);col++){const xx=-w/2+.33+col*.66+(row%2)*.17;if(xx>w/2-.2)continue;emit(masonryForms[(row+col)%7],'stone',xx,-2.13+row*.23,1.69,.64,.225,.32,[0,0,0],rr(.72,1.06));}for(let i=0;i<=Math.ceil(w/1.7);i++){const xx=-w/2+i*w/Math.ceil(w/1.7);column(xx,1.1,1,2.5,.12);bracket(xx,3.5,1.1,.45);lattice(xx,2.0,-.9,1.1,1.3);}rail(Array.from({length:Math.ceil(w)+1},(_,i)=>[-w/2+i*w/Math.ceil(w),1,1.35]),.6);roof(w+1.2,4.3,3.8,1,.25);});}
 gallery(-4,-9,12);gallery(-18,-3,6);gallery(17,-10,6,Math.PI/2);
 // The photograph's buildings stand above the sunken water garden on connected garden terraces.
-const hillP=[],hillI=[],hillNX=90,hillNZ=54;const hillHeight=(x,z)=>{const taper=Math.min(1,Math.max(0,(29-Math.abs(x))/7));const old=Math.max(-.2,5.0*Math.max(0,Math.min(1,(3-z)/12))*taper+.10*Math.sin(x*.6+z*.7));const d=Math.hypot((x+1)/16,(z-2)/22),t=Math.min(1,Math.max(0,(d-.65)/.35)),keep=t*t*(3-2*t);const carved=-.28+(old+.28)*keep;const axisX=2.4,dx=Math.abs(x-axisX),side=Math.min(1,Math.max(0,(4.6-dx)/1.4)),back=Math.min(1,Math.max(0,(z+5.6)/1.2)),front=Math.min(1,Math.max(0,(-.40-z)/.7));return Math.max(carved,4.82*side*back*front-.15);};for(let j=0;j<=hillNZ;j++)for(let i=0;i<=hillNX;i++){const x=-31+i*62/hillNX,z=-35+j*39/hillNZ;hillP.push(x,hillHeight(x,z),z);}for(let j=0;j<hillNZ;j++)for(let i=0;i<hillNX;i++){const n=j*(hillNX+1)+i;hillI.push(n,n+hillNX+1,n+1,n+1,n+hillNX+1,n+hillNX+2);}const hillGeo=new T.BufferGeometry();hillGeo.setAttribute('position',new T.Float32BufferAttribute(hillP,3));hillGeo.setIndex(hillI);hillGeo.setAttribute('uv',new T.Float32BufferAttribute(hillP.flatMap((v,i)=>i%3===0?[v*.4,hillP[i+2]*.4]:[]),2));hillGeo.computeVertexNormals();emit(hillGeo,'soil',0,0,0);
+const hillP=[],hillI=[],hillNX=90,hillNZ=54;
+const hillHeight=(x,z)=>{
+ const taper=Math.min(1,Math.max(0,(29-Math.abs(x))/7)),old=Math.max(-.2,5*Math.max(0,Math.min(1,(3-z)/12))*taper+.10*Math.sin(x*.6+z*.7));
+ const d=Math.hypot((x+1)/16,(z-2)/22),t=Math.min(1,Math.max(0,(d-.65)/.35)),keep=t*t*(3-2*t);
+ // Keep the selected pond floor below the bridge. The former broad raised
+ // bridge-shaped hill override made a 4.67 m dam through the open channel;
+ // layout118 supplies grounded bearing stacks only at the two bridge banks.
+ return -.28+(old+.28)*keep;
+};
+for(let j=0;j<=hillNZ;j++)for(let i=0;i<=hillNX;i++){const x=-31+i*62/hillNX,z=-35+j*39/hillNZ;hillP.push(x,hillHeight(x,z),z);}for(let j=0;j<hillNZ;j++)for(let i=0;i<hillNX;i++){const n=j*(hillNX+1)+i;hillI.push(n,n+hillNX+1,n+1,n+1,n+hillNX+1,n+hillNX+2);}const hillGeo=new T.BufferGeometry();hillGeo.setAttribute('position',new T.Float32BufferAttribute(hillP,3));hillGeo.setIndex(hillI);hillGeo.setAttribute('uv',new T.Float32BufferAttribute(hillP.flatMap((v,i)=>i%3===0?[v*.4,hillP[i+2]*.4]:[]),2));hillGeo.computeVertexNormals();emit(hillGeo,'soil',0,0,0);
 // Terrain is below the water and each island is actual protruding geology.
 transform=new T.Matrix4().makeTranslation(0,0,-3).multiply(new T.Matrix4().makeScale(1,1,.6));
 box(0,-.8,0,160,1,150,'soil');
