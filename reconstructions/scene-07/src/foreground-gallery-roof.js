@@ -1,10 +1,14 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
-export const FOREGROUND_ROOF_REVISION='scene07-measured-whole-gallery-roof-119';
+export const FOREGROUND_ROOF_REVISION='scene07-expanded-frame-roof-120';
 // Fixed-camera fit of the whole foreground slope and its two edge families.
 // World dimensions/depth are a metric hypothesis, not recovered photo depth.
-export const FOREGROUND_ROOF_LAYOUT=Object.freeze({position:Object.freeze([1.904158,8.938616,30.756336]),yaw:1.078179,ridgeHalf:4.0,eaveHalf:4.8,run:3.521553,rise:1.114107,curl:.388020,tilePitch:.48,courses:8});
+// The photograph's near veranda roof is a large framing plane, not a small
+// corner tile. Extend its distant ridge back while holding the near eave datum
+// in the same projected place; slightly wider shoulders carry the roof into
+// the lower-left foreground without covering the hall silhouette.
+export const FOREGROUND_ROOF_LAYOUT=Object.freeze({position:Object.freeze([0.04,8.938616,29.73]),yaw:1.078179,ridgeHalf:4.4,eaveHalf:5.4,run:5.60,rise:1.114107,curl:.388020,tilePitch:.48,courses:8});
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const q=Math.sin(x*127.1+y*311.7+83.7)*43758.5453;return q-Math.floor(q);};
 const lin=(a,b,n)=>Array.from({length:n+1},(_,i)=>a+(b-a)*i/n);

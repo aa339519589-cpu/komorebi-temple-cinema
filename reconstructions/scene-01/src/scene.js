@@ -14,8 +14,135 @@ export const CAMERA={position:[0,3.20,17],target:[0,6.20,-13],fov:59,near:.1,far
 // One fixed angular direction drives the sun, sky and leaf transmission.
 const sunCamera=new T.PerspectiveCamera(CAMERA.fov,1,CAMERA.near,CAMERA.far);sunCamera.position.fromArray(CAMERA.position);sunCamera.lookAt(...CAMERA.target);sunCamera.updateMatrixWorld(true);
 export const SUN_DIRECTION=new T.Vector3(185/1254*2-1,1-496/1254*2,.5).unproject(sunCamera).sub(sunCamera.position).normalize();
-const waterShader={name:'garden-ripple-planar-reflection',uniforms:{color:{value:new T.Color(0x324634)},tDiffuse:{value:null},textureMatrix:{value:null},time:{value:0}},vertexShader:`uniform mat4 textureMatrix;varying vec4 vUv;varying vec3 vWorld;void main(){vUv=textureMatrix*vec4(position,1.);vWorld=(modelMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:`uniform sampler2D tDiffuse;uniform vec3 color;uniform float time;varying vec4 vUv;varying vec3 vWorld;
-void main(){vec2 p=vWorld.xz;float n=sin(p.x*22.+p.y*17.+time*.8)*sin(p.y*11.-p.x*7.+time*.5);float w=sin(p.y*26.+p.x*3.+time*.9)*.65+sin(p.y*53.-p.x*5.-time*.8)*.20+n*.15;vec2 uv=vUv.xy/vUv.w;uv+=vec2(sin(p.y*36.+p.x*4.)*.0017,w*.0008);vec3 reflection=texture2D(tDiffuse,uv).rgb*.38;reflection+=(texture2D(tDiffuse,uv+vec2(.0012,.003)).rgb+texture2D(tDiffuse,uv-vec2(.0012,.003)).rgb)*.21;reflection+=(texture2D(tDiffuse,uv+vec2(.0022,.006)).rgb+texture2D(tDiffuse,uv-vec2(.0022,.006)).rgb)*.10;float lum=dot(reflection,vec3(.2126,.7152,.0722));reflection=mix(reflection,vec3(lum),.10)*vec3(.88,.94,1.03);vec3 base=vec3(.006,.012,.009);vec3 waterView=normalize(cameraPosition-vWorld);float fresnel=.025+.975*pow(1.-max(0.,waterView.y),5.);float reflectance=.18+.82*fresnel;vec3 outc=mix(base,reflection,reflectance);float sparkle=pow(max(0.,sin(p.y*83.+p.x*13.+time*.6)),26.)*pow(max(0.,sin(p.x*38.-p.y*17.)),18.);outc+=vec3(.46,.31,.10)*sparkle*.035;vec3 viewDirection=normalize(cameraPosition-vWorld);vec3 rippleNormal=normalize(vec3(.018*sin(p.y*36.+p.x*4.),1.,.026*cos(p.y*28.-p.x*3.)));float sunGlint=pow(max(0.,dot(viewDirection,reflect(-normalize(vec3(-.368316,.200457,-.907858)),rippleNormal))),170.);outc+=vec3(1.0,.58,.17)*sunGlint*.50;gl_FragColor=vec4(outc,1.);\n#include <tonemapping_fragment>\n#include <colorspace_fragment>}`};
+const waterShader={name:'garden-ripple-planar-reflection',uniforms:{color:{value:new T.Color(0x324634)},tDiffuse:{value:null},textureMatrix:{value:null},time:{value:0}},vertexShader:`uniform mat4 textureMatrix;
+varying vec4 vUv;
+varying vec3 vWorld;
+void main(){
+  vUv=textureMatrix*vec4(position,1.);
+  vWorld=(modelMatrix*vec4(position,1.)).xyz;
+  gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);
+}`,fragmentShader:`uniform sampler2D tDiffuse;
+uniform vec3 color;
+uniform float time;
+varying vec4 vUv;
+varying vec3 vWorld;
+
+float waterHash(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}
+float waterNoise(vec2 p){
+  vec2 i=floor(p),f=fract(p);
+  f=f*f*(3.-2.*f);
+  float a=waterHash(i),b=waterHash(i+vec2(1.,0.));
+  float c=waterHash(i+vec2(0.,1.)),d=waterHash(i+vec2(1.,1.));
+  return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);
+}
+void main(){
+  vec2 p=vWorld.xz;
+
+  // Layered slow swells, cross-ripples, and capillary waves share one
+  // continuous surface; analytic slopes keep reflection motion coherent.
+  vec2 slope=vec2(0.);
+  float phase=dot(p,vec2(.76,.65))*.48+time*.105;
+  slope+=.050*.48*cos(phase)*vec2(.76,.65);
+  phase=dot(p,vec2(.38,-.92))*.73-time*.072;
+  slope+=.031*.73*cos(phase)*vec2(.38,-.92);
+  phase=dot(p,vec2(.91,.41))*2.25+time*.125;
+  slope+=.010*2.25*cos(phase)*vec2(.91,.41);
+  phase=dot(p,vec2(.54,-.84))*3.65-time*.094;
+  slope+=.0065*3.65*cos(phase)*vec2(.54,-.84);
+  phase=dot(p,vec2(.82,.57))*14.0+time*.036;
+  slope+=.0018*14.0*cos(phase)*vec2(.82,.57);
+  phase=dot(p,vec2(.36,-.93))*20.0-time*.029;
+  slope+=.0010*20.0*cos(phase)*vec2(.36,-.93);
+
+  vec2 uv=vUv.xy/vUv.w;
+  vec2 warp=vec2(slope.x+.22*slope.y,slope.y-.18*slope.x);
+  uv+=warp*vec2(.0052,-.0050);
+  float roughnessField=.58*waterNoise(p*.78+vec2(2.7,8.1))
+                     +.29*waterNoise(p*1.85-vec2(4.2,1.6))
+                     +.13*waterNoise(p*4.1+vec2(6.4,2.3));
+  float roughness=.25+.24*roughnessField;
+  float blurScale=.58+roughness*1.38;
+  vec2 blurNear=vec2(.00030,.00048)*blurScale;
+  vec2 blurFar=vec2(.00082,.00128)*blurScale;
+  vec3 reflection=texture2D(tDiffuse,uv).rgb*.52;
+  reflection+=(texture2D(tDiffuse,uv+vec2(blurNear.x,0.)).rgb
+              +texture2D(tDiffuse,uv-vec2(blurNear.x,0.)).rgb
+              +texture2D(tDiffuse,uv+vec2(0.,blurNear.y)).rgb
+              +texture2D(tDiffuse,uv-vec2(0.,blurNear.y)).rgb)*.075;
+  reflection+=(texture2D(tDiffuse,uv+blurFar).rgb
+              +texture2D(tDiffuse,uv-blurFar).rgb
+              +texture2D(tDiffuse,uv+vec2(blurFar.x,-blurFar.y)).rgb
+              +texture2D(tDiffuse,uv+vec2(-blurFar.x,blurFar.y)).rgb)*.045;
+  float reflectedLum=dot(reflection,vec3(.2126,.7152,.0722));
+  reflection=mix(reflection,vec3(reflectedLum),.035)
+            *vec3(1.045,.995,.91)*(1.07+.08*roughnessField);
+
+  vec3 rippleNormal=normalize(vec3(-slope.x,1.,-slope.y));
+  vec3 viewDirection=normalize(cameraPosition-vWorld);
+  float nDotV=max(dot(rippleNormal,viewDirection),0.);
+  float fresnelTerm=pow(1.-nDotV,5.);
+  vec3 f0=vec3(.020,.022,.024);
+  vec3 fresnel=f0+(vec3(1.)-f0)*fresnelTerm;
+  // The small microfacet floor keeps broken wave reflections readable;
+  // the water body itself remains dark green.
+  float reflectance=clamp(.055+fresnel.r*1.20,.07,.97);
+  vec3 base=vec3(.006,.012,.008);
+  vec3 outc=mix(base,reflection*1.16,reflectance);
+
+  // Soft sunset paths support the specular flecks without drawing a stripe.
+  float sunsetPath=p.x+4.4+.12*(p.y-3.)+.24*sin(p.y*.17);
+  float sunsetTrail=exp(-pow(sunsetPath/4.7,2.))
+                  *smoothstep(-8.,-2.,p.y)*(1.-smoothstep(13.,19.,p.y));
+  float centerPath=p.x-(1.65+.095*(p.y-3.)+.18*sin(p.y*.22+1.));
+  float centerTrail=exp(-pow(centerPath/3.25,2.))
+                  *smoothstep(-7.,-1.,p.y)*(1.-smoothstep(14.,19.,p.y));
+  float waterBreakup=.48+.52*waterNoise(p*.92+vec2(11.3,4.7));
+  outc+=vec3(.042,.017,.0045)*sunsetTrail*waterBreakup;
+  outc+=vec3(.027,.010,.0025)*centerTrail*waterBreakup;
+
+  // Static world-space flecks break both reflection paths into fine fragments.
+  // Their placement is independent of time, so they cannot flicker or crawl.
+  vec2 grid=p/vec2(.34,.52);
+  vec2 cell=floor(grid),local=fract(grid);
+  float seed=waterHash(cell);
+  vec2 center=vec2(.15+.70*waterHash(cell+vec2(7.1,1.7)),
+                   .14+.72*waterHash(cell+vec2(2.9,8.3)));
+  vec2 q=local-center;
+  float angle=(waterHash(cell+vec2(5.6,3.2))-.5)*.52;
+  q=mat2(cos(angle),-sin(angle),sin(angle),cos(angle))*q;
+  float width=.12+.20*waterHash(cell+vec2(8.4,6.1));
+  float length=.055+.095*waterHash(cell+vec2(3.3,9.8));
+  float fragment=(1.-smoothstep(width*.48,width,abs(q.x)))
+                *(1.-smoothstep(length*.42,length,abs(q.y)));
+  float trailMask=max(.72*sunsetTrail,centerTrail);
+  float sparse=smoothstep(.31,.83,seed);
+  float brokenEdge=.58+.42*waterNoise(p*2.3+cell*1.7);
+  float amberFragments=fragment*sparse*trailMask*brokenEdge;
+  outc+=vec3(1.0,.43,.105)*amberFragments*(.13+.10*roughnessField);
+
+  // Energy-limited GGX sun glints stay tied to the moving ripple normal.
+  vec3 sunDirection=normalize(vec3(-.368316,.200457,-.907858));
+  vec3 halfVector=normalize(viewDirection+sunDirection);
+  float nDotL=max(dot(rippleNormal,sunDirection),0.);
+  float nDotH=max(dot(rippleNormal,halfVector),0.);
+  float vDotH=max(dot(viewDirection,halfVector),0.);
+  float alpha=roughness*roughness;
+  float alpha2=alpha*alpha;
+  float denom=nDotH*nDotH*(alpha2-1.)+1.;
+  float distribution=alpha2/max(3.14159265*denom*denom,.0001);
+  float k=(alpha+1.)*(alpha+1.)*.125;
+  float geometryV=nDotV/(nDotV*(1.-k)+k);
+  float geometryL=nDotL/(nDotL*(1.-k)+k);
+  float directFresnel=.020+.98*pow(1.-vDotH,5.);
+  float sunGlint=distribution*geometryV*geometryL*directFresnel
+                /max(4.*nDotV*nDotL,.06);
+  outc+=vec3(1.0,.58,.25)*min(sunGlint*.022,.12);
+
+  gl_FragColor=vec4(outc,1.);
+#include <tonemapping_fragment>
+#include <colorspace_fragment>
+}`};
+
 export async function buildScene({width=768,height=768}={}){const scene=new T.Scene();scene.name='Reference 01: sunset temple pond from low veranda';scene.fog=new T.FogExp2(0xa5a499,.0058);const mats=materialSet();
 // Continuous 3D weathering breaks the old flat-colored stone and painted wood.
 const weatherNoise=`float wh(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}float wn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(wh(i),wh(i+vec3(1,0,0)),f.x),mix(wh(i+vec3(0,1,0)),wh(i+vec3(1,1,0)),f.x),f.y),mix(mix(wh(i+vec3(0,0,1)),wh(i+vec3(1,0,1)),f.x),mix(wh(i+vec3(0,1,1)),wh(i+vec3(1,1,1)),f.x),f.y),f.z);}float wf(vec3 p){return .57*wn(p)+.28*wn(p*2.07+4.1)+.15*wn(p*4.17+7.2);}`;
@@ -55,8 +182,8 @@ fallMat.onBeforeCompile=shader=>{
  diffuseColor.a*=edge*(.08+.28*foam);`);
 };fallMat.customProgramCacheKey=()=> 'scene01-deterministic-flowing-clear-water-v1';const falls=new T.Mesh(fgeom,fallMat);falls.name='individual-falling-water-ribbons';scene.add(falls);
 const foam=new Builder(mats);for(let k=0;k<130;k++){const s=.013+rand()*.035;foam.sphere(L.waterfall.x+(rand()-.5)*1.4,.15+rand()*.06,.03+rand()*.45,s,s*.3,s*1.3,'stoneLight',0,.8+rand()*.3);}scene.add(foam.finish());
-const sun=new T.DirectionalLight(0xffd6a1,8.0);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);const hemi=new T.HemisphereLight(0xb2c6e2,0x493321,.20);scene.add(hemi);const fill=new T.DirectionalLight(0xffe6bf,3.15);fill.name='broad-front-left-production-key';fill.position.set(-22,10,12);fill.target.position.set(2,6,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;scene.add(fill,fill.target);
-const porchLight=new T.PointLight(0xffa83e,5,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffb446,28,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(5.25,3.46,6.2);scene.add(lanternLight);
+const sun=new T.DirectionalLight(0xffd6a1,8.0);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);const hemi=new T.HemisphereLight(0xb2c6e2,0x493321,.52);scene.add(hemi);const fill=new T.DirectionalLight(0xffe6bf,3.80);fill.name='broad-front-left-production-key';fill.position.set(-22,19,12);fill.target.position.set(2,6,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;scene.add(fill,fill.target);
+const porchLight=new T.PointLight(0xffa83e,5,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffb446,28,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(6.65,3.46,6.2);scene.add(lanternLight);
 for(const x of[-8,-4,1,5,8]){const local=new T.Vector3(x,3.7,5.9).applyAxisAngle(new T.Vector3(0,1,0),-.67).add(new T.Vector3(...L.hall.position)),lamp=new T.PointLight(0xffb24a,4.5,3.5,2);lamp.position.copy(local);scene.add(lamp);}
-let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.30;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-layout124-connected-foreground-bridge-hall-and-banks',camera:CAMERA,layout:B.layout124,architecture:B.stats,garden:G.stats,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
+let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.64;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-layout124-connected-foreground-bridge-hall-and-banks',camera:CAMERA,layout:B.layout124,architecture:B.stats,garden:G.stats,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
 }

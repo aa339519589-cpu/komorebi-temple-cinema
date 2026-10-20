@@ -29,7 +29,8 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
  function carvedBeam(width,height,y,z,material){
   const s=new T.Shape();s.moveTo(-width/2,-height*.35);s.bezierCurveTo(-width*.35,-height*.32,-width*.30,-height*.78,-width*.17,-height*.51);s.bezierCurveTo(0,-height*.34,width*.2,-height*.76,width*.38,-height*.28);s.lineTo(width/2,-height*.28);s.lineTo(width/2,height*.45);s.bezierCurveTo(width*.2,height*.40,-width*.1,height*.57,-width/2,height*.40);s.closePath();
   put(new T.ExtrudeGeometry(s,{depth:.34,bevelEnabled:true,bevelSize:.019,bevelThickness:.018,bevelSegments:2,curveSegments:12}),material,[0,y,z]);
-  for(const sign of[-1,1])curve([[-width/2,y+sign*height*.43,z+.36],[-width*.2,y+sign*height*.48,z+.375],[width*.1,y+sign*height*.46,z+.375],[width/2,y+sign*height*.39,z+.36]],.012,mats.oldgold);
+  // The independent scroll groups below carry the gilt detail. A continuous
+  // pair of gold rails flattened them into another horizontal band.
  }
  carvedBeam(6.25,.40,capitalTop+.14,.33,mats.cedar);
  carvedBeam(6.07,.35,capitalTop-.46,.48,mats.red);

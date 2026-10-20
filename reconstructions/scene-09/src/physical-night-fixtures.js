@@ -35,7 +35,9 @@ export async function installNightScans(M,materials,textures){
   }
   const stoneAlbedo=patch(sourceMaterial.map,true),stoneNormal=patch(sourceMaterial.normalMap),stoneRough=patch(sourceMaterial.roughnessMap);
   M.cutStone=new T.MeshStandardMaterial({name:'scene09-neutral-cut-stone-from-cc0-scan',color:0xb6bfbc,map:stoneAlbedo,normalMap:stoneNormal,normalScale:new T.Vector2(.58,.58),roughnessMap:stoneRough,roughness:.95,metalness:0});
-  M.cutStone.color.setRGB(1.70,1.85,1.85);M.cutStone.normalScale.set(.19,.19);
+  // Keep the scanned granite inside a believable reflectance range so the
+  // lamp chambers read as warm amber in night light instead of pale white.
+  M.cutStone.color.setRGB(.70,.76,.74);M.cutStone.normalScale.set(.19,.19);
   M.cutStoneDark=M.cutStone.clone();M.cutStoneDark.name='scene09-damp-recessed-stone';M.cutStoneDark.color.setHex(0x78847c);M.cutStoneDark.roughness=.85;
   M.stoneMoss=M.cutStone.clone();M.stoneMoss.name='scene09-stone-moss-growth';M.stoneMoss.color.setRGB(.55,.69,.26);M.stoneMoss.roughness=1;
   M.lanternWood=M.wood.clone();M.lanternWood.name='scene09-carved-aged-lantern-timber';M.lanternWood.color.setRGB(1.75,1.50,1.22);
@@ -61,10 +63,10 @@ export function metricTimberGeometry(geometry,matrix,cache){
 export function installNightPaper(M,materials,textures){
   const {n,base,emission,info}=createWashiTissue103();
   const tex=d=>{const t=new T.DataTexture(d,n,n);t.wrapS=t.wrapT=T.RepeatWrapping;t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.anisotropy=8;t.needsUpdate=true;textures.push(t);return t;},paper=tex(base),light=tex(emission);paper.colorSpace=T.SRGBColorSpace;
-  M.paper.name='scene09-independent-washi-tissue103';M.paper.color.setHex(0xbda06a);M.paper.emissive.setHex(0xffba5a);M.paper.emissiveIntensity=2.10;M.paper.map=paper;M.paper.emissiveMap=light;M.paper.bumpMap=paper;M.paper.bumpScale=.00004;M.paper.roughness=.84;M.paper.userData.tissue=info;
-  M.windowPaper=M.paper.clone();M.windowPaper.name='scene09-recessed-room-paper';M.windowPaper.color.setHex(0xa48c64);M.windowPaper.emissiveIntensity=.72;
-  M.pagodaPaper=M.windowPaper.clone();M.pagodaPaper.name='scene09-pagoda-paper';M.pagodaPaper.color.setHex(0x97805a);M.pagodaPaper.emissiveIntensity=.54;
-  M.stonePaper=M.paper.clone();M.stonePaper.name='scene09-stone-lantern-inset-paper';M.stonePaper.emissiveIntensity=1.50;
+  M.paper.name='scene09-independent-washi-tissue103';M.paper.color.setHex(0x8c5424);M.paper.emissive.setHex(0xff8429);M.paper.emissiveIntensity=1.12;M.paper.map=paper;M.paper.emissiveMap=light;M.paper.bumpMap=paper;M.paper.bumpScale=.00004;M.paper.roughness=.84;M.paper.userData.tissue=info;
+  M.windowPaper=M.paper.clone();M.windowPaper.name='scene09-recessed-room-paper';M.windowPaper.color.setHex(0x93602e);M.windowPaper.emissiveIntensity=.84;
+  M.pagodaPaper=M.windowPaper.clone();M.pagodaPaper.name='scene09-pagoda-paper';M.pagodaPaper.color.setHex(0x875326);M.pagodaPaper.emissiveIntensity=.68;
+  M.stonePaper=M.paper.clone();M.stonePaper.name='scene09-stone-lantern-inset-paper';M.stonePaper.emissiveIntensity=1.02;
   materials.push(M.windowPaper,M.pagodaPaper,M.stonePaper);
 }
 

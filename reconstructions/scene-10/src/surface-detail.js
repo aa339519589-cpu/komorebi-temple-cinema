@@ -31,7 +31,7 @@ export function installSurfaceDetail(material,kind){
  if(kind==='moss')code=`float tuft=sdFbm(vSurfacePosition*34.);diffuseColor.rgb*=.5+.95*tuft;diffuseColor.rgb+=vec3(.025,.035,.008)*smoothstep(.72,.91,sdFiltered(vSurfacePosition*165.));`;
  if(kind==='gold')code=`float age=sdFbm(vSurfacePosition*45.);diffuseColor.rgb*=.75+.25*age;`;
  shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\n'+code);
- if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',`#include <lights_physical_fragment>\n#ifdef USE_CLEARCOAT\nfloat surfaceWet=smoothstep(.40,.67,sdFbm(vSurfacePosition*2.7));surfaceWet*=mix(.40,1.,stoneWetSample.g);material.clearcoat*=.10+.90*surfaceWet;material.clearcoatRoughness=min(1.,max(.0525,mix(.075,.025,surfaceWet))+geometryRoughness);\n#endif\n`);
+ if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',`#include <lights_physical_fragment>\n#ifdef USE_CLEARCOAT\nfloat surfaceWet=smoothstep(.31,.59,sdFbm(vSurfacePosition*2.7));surfaceWet*=mix(.55,1.,stoneWetSample.g);surfaceWet=max(surfaceWet,smoothstep(.18,.82,stoneWetSample.a));material.clearcoat*=.18+.82*surfaceWet;material.clearcoatRoughness=min(1.,max(.045,mix(.12,.022,surfaceWet))+geometryRoughness);\n#endif\n`);
  if(kind==='wet'){
  shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
  float wetGrainHeight=.00035*sdFiltered(vSurfacePosition*230.)+.0012*sdFbm(vSurfacePosition*58.);
@@ -43,8 +43,8 @@ export function installSurfaceDetail(material,kind){
  #endif`);
  }
  if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
- roughnessFactor=clamp(roughnessFactor+(.65-stoneWetSample.g)*.18+(sdFbm(vSurfacePosition*4.)-.48)*.36,.13,.49);`);
+ float poolGloss=stoneWetSample.a;roughnessFactor=clamp(roughnessFactor*(1.-.62*poolGloss)+(.72-stoneWetSample.g)*.16+(sdFbm(vSurfacePosition*4.)-.48)*.11,.085,.56);`);
  };
- material.customProgramCacheKey=()=>`rain-bandlimited-surface51-${kind}`;
+ material.customProgramCacheKey=()=>`rain-puddle-clearcoat56-${kind}`;
  material.needsUpdate=true;
 }

@@ -531,13 +531,16 @@ function buildTerraces(b,layout) {
     // Black horizontal ledge cores with narrow gilt lips and chased mounts
     // generate the photograph's stacked shadow bands rather than flat plates.
     if(level>0&&level<4){
-      b.box(0,t.y+t.h/2+.037,front+.010,frontWidth+.16,.072,.12,'lacquer');
-      b.box(0,t.y+t.h/2+.071,front+.061,frontWidth+.18,.008,.018,'gold');
+      // Deepen the dark fascia while holding its top edge at the old bearing
+      // height, so the terrace silhouette reads clearly without moving a shelf.
+      const bandTop=t.y+t.h/2+.073,lipTop=t.y+t.h/2+.075;
+      b.box(0,bandTop-.0475,front+.010,frontWidth+.16,.095,.12,'lacquer');
+      b.box(0,lipTop-.008,front+.061,frontWidth+.18,.016,.018,'gold');
       b.box(0,t.y-t.h/2-.012,front-.008,frontWidth+.09,.027,.088,'lacquer');
       const mounts=Math.round(frontWidth/.42);
       for(let j=0;j<mounts;j++){
         const mx=-frontWidth*.47+j/(mounts-1)*frontWidth*.94;
-        ref6Rosette(b,mx,t.y+t.h/2+.036,front+.073,.026,0,'gold');
+        ref6Rosette(b,mx,t.y+t.h/2+.036,front+.073,.034,0,'gold');
       }
     }
     // Gilt corner caps visibly wrap the depth of the cabinet.
@@ -651,7 +654,9 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   const data=REF6_CAST_PANEL_FIELDS[field],key='r6v12-source-cast-panel:'+field+':'+mirror+':'+w+':'+h;
   const g=b.geometry(key,()=>{
     const sx=w*.91/(data.bounds[2]-data.bounds[0]),sy=h*.89/(data.bounds[3]-data.bounds[1]);
-    const g=ref6SweptPhotoCastingGeometry(data,sx,sy,0,mirror);g.scale(1,1,.55);g.translate(0,0,.023);g.computeVertexNormals();
+    // The deep cast profile helps the dark-grounded gold branches catch light
+    // as a coherent relief at the hall's distant establishing-shot scale.
+    const g=ref6SweptPhotoCastingGeometry(data,sx,sy,0,mirror);g.scale(1,1,.78);g.translate(0,0,.023);g.computeVertexNormals();
     g.userData.reference6PanelField={field,mirror,analogousField:!singleDirection,depthInferred:true};return g;
   });
   b.add(g,'gold',x,y,z+.006);

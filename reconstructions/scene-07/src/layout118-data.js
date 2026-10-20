@@ -1,12 +1,12 @@
-// Authored landmark fits; depths inferred at fixed physical heights. See tools/fit-layout07-118.mjs.
+// Authored landmark fit; bridge was reprojected for the shorter diagonal route in scene-07 iteration 121.
 export const layout118={
-  "revision": "layout118",
+  "revision": "layout121",
   "imageDimensions": [
     1254,
     1254
   ],
   "reference": "references/hd/6-照片-7.jpg",
-  "method": "Manually observed image landmarks. Actual3D camera ray intersects authored physical height; depths and unseen joinery are inferred, not recovered ground truth. No reference texture/depth projection.",
+  "method": "Manually observed fixed-camera layout landmarks. The bridge span was reprojected to a shorter 31% screen-width diagonal crossing with inferred endpoint elevations and depth; no reference texture or depth projection.",
   "camera": {
     "position": [
       10.7,
@@ -87,82 +87,66 @@ export const layout118={
     },
     "bridgeQuarter": {
       "pixel": [
-        475,
+        470,
         699
       ],
-      "height": 4.5,
+      "height": 4.35,
       "world": [
-        -4.968399410314047,
-        4.5,
-        -3.0707405803711936
+        -5.3963726810815515,
+        4.35,
+        -3.7360630159605677
       ],
       "reprojection": [
-        475.0000000000024,
-        699.0000000000002
+        470.0000000000028,
+        698.9999999999987
       ]
     },
     "bridgeCrown": {
       "pixel": [
-        561,
-        702
+        570,
+        683
       ],
-      "height": 5,
+      "height": 4.85,
       "world": [
-        -1.5921963343019456,
-        4.999999999999999,
-        -0.9621666493219578
+        -2.4798549617700036,
+        4.849999999999999,
+        -4.498181154181999
       ],
       "reprojection": [
-        560.999999999997,
-        701.9999999999997
+        569.9999999999992,
+        682.9999999999997
       ]
     },
     "bridgeThreeQuarter": {
       "pixel": [
-        653,
-        725
+        675,
+        693
       ],
-      "height": 4.5,
+      "height": 4.9,
       "world": [
-        1.0128748721397773,
-        4.5,
-        -1.0000206605856192
+        0.9901721459789012,
+        4.900000000000001,
+        -3.5727460226062178
       ],
       "reprojection": [
-        653.000000000001,
-        724.9999999999964
+        674.9999999999993,
+        692.9999999999968
       ]
     },
     "bridgeRight": {
       "pixel": [
-        755,
-        759
+        795,
+        725
       ],
-      "height": 4.5,
+      "height": 4.8,
       "world": [
-        4.398758939076542,
-        4.5,
-        2.1000647686707694
+        4.929876925876182,
+        4.800000000000002,
+        -0.6670246085918237
       ],
       "reprojection": [
-        755.0000000000025,
-        758.9999999999989
-      ]
-    },
-    "bridgeStairEnd": {
-      "pixel": [
-        1005,
-        817
-      ],
-      "height": 2.5,
-      "world": [
-        10.302310868394292,
-        2.5,
-        -1.541991001504634
-      ],
-      "reprojection": [
-        1005.0000000000022,
-        817.0000000000003
+        794.9999999999975,
+        724.999999999998
       ]
     }
   },

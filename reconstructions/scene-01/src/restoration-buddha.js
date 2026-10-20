@@ -352,9 +352,11 @@ function centralFigure(){
  for(const side of[-1,1])b.add(sweep([[side*.52,2.25,-.10],[side*.88,2.03,-.070],[side*1.148,1.64,-.010],[side*1.247,1.10,.09],[side*1.183,.72,.26]],.072,.054,{segments:96,radial:28,profile:t=>.8+.2*Math.sin(Math.PI*t)}),`outer-robe-roll-${side}`);
  for(const side of[-1,1])b.add(shoulderRobePanel(side),`continuous-side-robe-${side}`);
  const thighRows=[[-.15,0,0,.46,.47],[.03,.22,.25,.46,.53],[.35,.28,.33,.44,.53],[.70,.31,.37,.35,.53],[1.08,.26,.34,.28,.50],[1.32,.18,.25,.24,.47],[1.45,0,0,.24,.45]];
+ const kneeSilhouetteScale=1.08;
+ const widenedThighRows=thighRows.map(([x,...section])=>[x*kneeSilhouetteScale,...section]);
  for(const side of[-1,1]){
    const g=surface(88,160,(u,v)=>{
-     const xx=-.15+1.60*v,[ry,rz,cy,cz]=sampleProfile(thighRows,xx),a=u*TAU;
+     const xx=(-.15+1.60*v)*kneeSilhouetteScale,[ry,rz,cy,cz]=sampleProfile(widenedThighRows,xx),a=u*TAU;
      if(v===0||v===1)return[side*xx,cy,cz];
      const y=cy+Math.sin(a)*ry,front=Math.max(0,Math.cos(a));
      let fold=0;for(const [base,amp]of[[.39,.022],[.27,.016],[.15,.010]]){

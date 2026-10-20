@@ -110,7 +110,7 @@ export function buildStair124(B){
 
 export function bankHeight124(x,z,original){
  const s=L.stair,q=Math.max(Math.abs(x-s.bottom[0])/2.4,Math.abs(z-s.bottom[2])/2.25),landing=s.bearingY*(1-T.MathUtils.smoothstep(q,.55,1.6));
- let height=Math.max(original,landing,bridgeSupport124(x,z));
+ let height=Math.max(original,landing);
  // The falling water occupies a cut channel with a supporting bed. The soil
  // must not seal that passage simply because a landing was raised nearby.
  const cross=1-T.MathUtils.smoothstep(Math.abs(x-L.waterfall.x),.50,.75),mask=cross*T.MathUtils.smoothstep(z,-1.75,-1.35)*(1-T.MathUtils.smoothstep(z,.15,.45));

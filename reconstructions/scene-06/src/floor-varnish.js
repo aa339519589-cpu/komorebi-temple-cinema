@@ -44,13 +44,13 @@ export function bindFloorVarnish(material,state,phase=0){
   vec3 ray=reflect(-toEye,coatWorld);
   vec4 projected=scene06FloorCaptureMatrix*scene06FloorCaptureInverse*vec4(vScene06FloorWorld+ray*9.0,1.0);
   vec2 uv=projected.xy/projected.w;
-  float wear=scene06VarnishWear(vScene06FloorWorld.xz),lod=mix(.30,1.75,smoothstep(.15,.88,wear));
-  vec2 footprint=mix(vec2(.35,1.6),vec2(1.0,3.8),wear)/scene06FloorCaptureSize;
-  vec3 radiance=textureLod(scene06FloorCapture,uv,lod).rgb*.24;
+  float wear=scene06VarnishWear(vScene06FloorWorld.xz),lod=mix(.04,.92,smoothstep(.15,.88,wear));
+  vec2 footprint=mix(vec2(.12,.42),vec2(.32,1.10),wear)/scene06FloorCaptureSize;
+  vec3 radiance=textureLod(scene06FloorCapture,uv,lod).rgb*.38;
   for(int i=0;i<8;i++){
    float a=6.28318530718*(float(i)+.25)/8.0;vec2 d=vec2(cos(a),sin(a))*footprint;
-   radiance+=textureLod(scene06FloorCapture,uv+d*.55,lod).rgb*.065;
-   radiance+=textureLod(scene06FloorCapture,uv+d,lod).rgb*.03;
+   radiance+=textureLod(scene06FloorCapture,uv+d*.55,lod).rgb*.055;
+   radiance+=textureLod(scene06FloorCapture,uv+d,lod).rgb*.022;
   }
   vec3 brdf=EnvironmentBRDF(geometryClearcoatNormal,geometryViewDir,material.clearcoatF0,material.clearcoatF90,material.clearcoatRoughness);
   clearcoatSpecularIndirect=mix(clearcoatSpecularIndirect,radiance*brdf,.96);

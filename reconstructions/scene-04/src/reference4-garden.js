@@ -1,4 +1,4 @@
-import {tracedStoneMaterial04,unobservedContinuationMaterial04} from './traced-stone-material04.js';
+import {unobservedContinuationMaterial04} from './traced-stone-material04.js';
 import {createTracedPaving04,tracedSlabGeometry,observedCurbCuts04} from './traced-paving04.js';
 import {stoneMaterial,polygonSlab,applyMetricUV} from './scene04-surfaces.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
@@ -13,7 +13,7 @@ import {createRestorationLotusLeaf} from './restoration-lotus-leaf.js';
 import {createRestorationLotusPetal} from './restoration-lotus-petal.js';
 // Complete new reconstruction after the third actual exterior image. This is
 // newly authored source, not a claimed byte recovery of the lost v5/a22f file.
-export const REFERENCE4_GARDEN_PLAN=Object.freeze({revision:'reference4-garden-v6-new-complete-source',stairTopY:1.8,stairBottomZ:8,pathEndZ:27,pathWidth:6.4,soilY:-.08,waterY:-.14,lanternX:4.4,lanternZ:12.1,lanternHeight:4.4,pineX:4.9,pineZ:4.5,pineHeight:4.4,towerPosition:[-14.21,-.64,-12.0044],towerHalfWidth:3.8,towerGroundY:-.8});
+export const REFERENCE4_GARDEN_PLAN=Object.freeze({revision:'reference4-garden-v8-joint-moss-neutral-granite',stairTopY:1.8,stairBottomZ:8,pathEndZ:27,pathWidth:6.4,soilY:-.08,waterY:-.14,lanternX:4.4,lanternZ:12.1,lanternHeight:4.4,pineX:4.9,pineZ:4.5,pineHeight:4.4,towerPosition:[-14.21,-.64,-12.0044],towerHalfWidth:3.8,towerGroundY:-.8});
 const TAU=Math.PI*2;
 export function buildReference4Garden(T,options={}){
  const plan={...REFERENCE4_GARDEN_PLAN,...options};if(!T?.Mesh)throw Error('Actual THREE namespace required.');
@@ -27,9 +27,9 @@ export function buildReference4Garden(T,options={}){
  function texture(n,fn,srgb=false){const d=new Uint8Array(n*n*4);for(let y=0;y<n;y++)for(let x=0;x<n;x++){const q=fn(x,y,n),i=(y*n+x)*4;for(let k=0;k<4;k++)d[i+k]=T.MathUtils.clamp(q[k]??255,0,255);}const t=new T.DataTexture(d,n,n,T.RGBAFormat);t.wrapS=t.wrapT=T.RepeatWrapping;t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.anisotropy=8;if(srgb)t.colorSpace=T.SRGBColorSpace;t.needsUpdate=true;ownedT.add(t);return t;}
  const mineral=texture(256,(x,y)=>{const q=205+18*Math.sin(x*.12+y*.06)*Math.cos(y*.15)+rr(-20,20);return[q,q*.97,q*.91];},true),bark=texture(256,(x,y)=>{const q=180+35*Math.sin(x*.37+2*Math.sin(y*.035))+rr(-13,13);return[q,q*.87,q*.71];},true),mossMap=texture(128,()=>{const q=rr(170,255);return[q*.93,q,q*.80];},true),ripple=texture(256,(x,y)=>[128+24*Math.sin(x*.27+y*.14),128+24*Math.cos(y*.24-x*.11),252]);ripple.repeat.set(18,22);
  const material=(name,color,props={})=>ownM(new T.MeshStandardMaterial({name,color,roughness:.85,...props})),shoreMaps=stoneMaps(947);for(const t of Object.values(shoreMaps))ownedT.add(t);
- const m={stone:ownM(stoneMaterial('metre-scaled-pond-boulder-granite','#656b63',{seed:947,roughness:.89})),soil:material('reference4-earth','#50432f',{map:mineral,roughness:1}),bed:material('reference4-pond-bed','#465446',{map:mineral,roughness:1}),moss:material('reference4-discontinuous-rock-moss','#495630',{map:mossMap,vertexColors:true,roughness:.98}),bark:material('reference4-living-grey-brown-bark','#493c2d',{map:bark,bumpMap:bark,bumpScale:.012}),bridge:material('reference4-aged-red-bridge','#9b402c',{map:bark,roughness:.65}),leaf:material('reference4-lotus-green','#567638',{roughness:.67,side:T.DoubleSide}),leafDark:material('reference4-low-green-leaves','#40522a',{side:T.DoubleSide}),maple:material('reference4-maple-olive','#666f2d',{side:T.DoubleSide}),petal:material('reference4-lotus-pink','#d68da9',{side:T.DoubleSide,roughness:.62}),blossom:material('reference4-cherry-pink','#d48aa4',{side:T.DoubleSide}),gold:material('reference4-lotus-centre','#c6a438'),paper:material('reference4-garden-lantern-warm-paper','#ce9a43',{side:T.DoubleSide,emissive:'#e6a13c',emissiveIntensity:.32})};
+ const m={stone:ownM(stoneMaterial('metre-scaled-pond-boulder-granite','#656b63',{seed:947,roughness:.89})),soil:material('reference4-earth','#62533c',{map:mineral,roughness:1}),bed:material('reference4-pond-bed','#53614b',{map:mineral,roughness:1}),moss:material('reference4-discontinuous-rock-moss','#536538',{map:mossMap,vertexColors:true,roughness:.98}),bark:material('reference4-living-grey-brown-bark','#493c2d',{map:bark,bumpMap:bark,bumpScale:.012}),bridge:material('reference4-aged-red-bridge','#9b402c',{map:bark,roughness:.65}),leaf:material('reference4-lotus-green','#668542',{roughness:.67,side:T.DoubleSide}),leafDark:material('reference4-low-green-leaves','#5d7138',{side:T.DoubleSide}),maple:material('reference4-maple-olive','#727d36',{side:T.DoubleSide}),petal:material('reference4-lotus-pink','#d68da9',{side:T.DoubleSide,roughness:.62}),blossom:material('reference4-cherry-pink','#dc91a9',{side:T.DoubleSide}),gold:material('reference4-lotus-centre','#c6a438'),paper:material('reference4-garden-lantern-warm-paper','#ce9a43',{side:T.DoubleSide,emissive:'#e6a13c',emissiveIntensity:.32})};
  for(const t of Object.values(m.stone.userData.maps))ownedT.add(t);
- m.water=options.waterMaterial??ownM(new T.MeshPhysicalMaterial({name:'reference4-green-clear-pond-surface',color:'#708b76',roughness:.16,metalness:0,ior:1.333,transparent:true,opacity:.76,depthWrite:false,normalMap:ripple,normalScale:new T.Vector2(.12,.12),clearcoat:1,clearcoatRoughness:.11}));
+ m.water=options.waterMaterial??ownM(new T.MeshPhysicalMaterial({name:'reference4-green-clear-pond-surface',color:'#819678',roughness:.20,metalness:0,ior:1.333,transparent:true,opacity:.68,depthWrite:false,normalMap:ripple,normalScale:new T.Vector2(.09,.09),clearcoat:.85,clearcoatRoughness:.16}));
  function mesh(g,mat,name,parent,pos){if(!mat?.isMaterial)throw Error('Missing scene04 material: '+name);ownG(g);const o=new T.Mesh(g,mat);o.name=name;o.castShadow=mat!==m.water;o.receiveShadow=true;if(pos)o.position.fromArray(pos);parent.add(o);return o;}
  const box=(size,pos,mat,name,parent)=>mesh(new T.BoxGeometry(...size),mat,name,parent,pos);
  function line(a,b,r,mat,name,parent,r2=r*.7){const d=V(b).sub(V(a)),o=mesh(new T.CylinderGeometry(r2,r,d.length(),8,1,false),mat,name,parent,V(a).addScaledVector(d,.5).toArray());o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),d.normalize());return o;}
@@ -58,35 +58,26 @@ export function buildReference4Garden(T,options={}){
   mesh(gg,m.soil,'continuous-planted-stair-embankment-'+side,subgroups.ground);
   for(let j=0;j<30;j++){const x=side*rr(3.8,15.8),z=rr(-.8,7.7);rock(x,bankY(x,z)-.13,z,rr(.36,.83),rr(.28,.65),rr(.3,.7),'terrace-outcrop-'+side+'-'+j);}
  }
- const paving=['#817b72','#777972','#8b7d71','#72756d'].map((color,i)=>{const mm=ownM(stoneMaterial('metre-scaled-worn-wet-paver-'+i,color,{wet:false,seed:741+i*31}));mm.color.setRGB(1.0,1.18,1.47);for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
+ const paving=['#817b72','#777972','#8b7d71','#72756d'].map((color,i)=>{const mm=ownM(stoneMaterial('metre-scaled-worn-wet-paver-'+i,color,{wet:false,seed:741+i*31}));mm.color.multiplyScalar(1.08);mm.normalScale.set(1.05,1.05);mm.roughness=.97;mm.clearcoat=.30;mm.clearcoatRoughness=.86;
+  const compile=mm.onBeforeCompile,key=mm.customProgramCacheKey,broad='diffuseColor.rgb*=.78+.40*ssMacro;diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*1.40+vec3(.015,.017,.020),ssPale*.42);',mineral=`diffuseColor.rgb*=.89+.22*ssMacro;diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*1.24+vec3(.009,.011,.014),ssPale*.20);vec3 r4MicroSamples=vec3(ssNoise(ssPosition.zy*168.0),ssNoise(ssPosition.xz*168.0),ssNoise(ssPosition.xy*168.0));float r4Quartz=dot(r4MicroSamples,ssCW);float r4Mica=smoothstep(.72,.88,r4Quartz+.14*dot(vec3(ssNoise(ssPosition.zy*38.0),ssNoise(ssPosition.xz*38.0),ssNoise(ssPosition.xy*38.0)),ssCW));diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*1.42+vec3(.018,.020,.024),r4Mica*.64);diffuseColor.rgb*=1.0-.26*vR4Wetness;`;
+  mm.onBeforeCompile=shader=>{compile(shader);const worldVarying='varying vec3 ssWorldNormal;',normalAnchor='normal=normalize(mat3(viewMatrix)*normalize(ssAX*ssW.x+ssAY*ssW.y+ssAZ*ssW.z));',physicalChunk='#include <lights_physical_fragment>';if(!shader.vertexShader.includes(worldVarying)||!shader.fragmentShader.includes(worldVarying)||!shader.vertexShader.includes('#include <begin_vertex>')||!shader.fragmentShader.includes(broad)||!shader.fragmentShader.includes(normalAnchor)||!shader.fragmentShader.includes(physicalChunk))throw Error('Pinned granite fleck and wet-hollow shader boundaries changed');shader.vertexShader=shader.vertexShader.replace(worldVarying,`${worldVarying}\nattribute float r4Wetness;\nvarying float vR4Wetness;`).replace('#include <begin_vertex>','#include <begin_vertex>\nvR4Wetness=r4Wetness;');shader.fragmentShader=shader.fragmentShader.replace(worldVarying,`${worldVarying}\nvarying float vR4Wetness;`).replaceAll('r4Wetness','vR4Wetness').replace(broad,mineral).replace(normalAnchor,`${normalAnchor}\nroughnessFactor=clamp(mix(roughnessFactor,.34,vR4Wetness*.88),.24,1.0);`).replace(physicalChunk,`${T.ShaderChunk.lights_physical_fragment}\nmaterial.clearcoat=mix(material.clearcoat,.48,vR4Wetness*.72);\nmaterial.clearcoatRoughness=mix(material.clearcoatRoughness,.34,vR4Wetness*.84);`);};mm.customProgramCacheKey=()=>`${key()}-scene04-neutral-granite-microflecks168-wet-hollows`;
+  mm.userData.surfaceFinish='neutral triplanar granite scan with 4–9 mm authored pale mineral flecks and per-fleck roughness';for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
  // Keep the pre-existing garden's random placement sequence while replacing
  // its randomly laid paving with individually observed stone-joint geometry.
  for(let k=0;k<266;k++)random();
  const traced=createTracedPaving04();
- const pavingMaterials=[];
+ const pavingMaterials=[...paving];
  const pavingHash=(x,z,s)=>{const q=Math.sin(x*127.1+z*311.7+s*17.13)*43758.5453;return q-Math.floor(q);};
- function splitObservedFlagstones(record){
-  const p=record.outline,[a,b,c,d]=p;
-  const across=(Math.hypot(b[0]-a[0],b[1]-a[1])+Math.hypot(c[0]-d[0],c[1]-d[1]))*.5;
-  const along=(Math.hypot(d[0]-a[0],d[1]-a[1])+Math.hypot(c[0]-b[0],c[1]-b[1]))*.5;
-  const seed=record.column*193+record.row*79+43,nu=Math.max(1,Math.ceil(across/.76)),nv=Math.max(1,Math.ceil(along/.58));
-  const cuts=(count,axis,total)=>{const weights=Array.from({length:count},(_,i)=>.50+.96*pavingHash(i,axis,seed+axis*29)),sum=weights.reduce((x,y)=>x+y,0),out=[0];for(const w of weights)out.push(out.at(-1)+w/sum);out[out.length-1]=1;return out;};
-  const us=cuts(nu,1,across),vs=cuts(nv,2,along),nodes=[];
-  for(let j=0;j<=nv;j++){nodes[j]=[];for(let i=0;i<=nu;i++){
-   let u=us[i],v=vs[j];
-   if(i>0&&i<nu&&j>0&&j<nv){u=T.MathUtils.clamp(u+(.28*(pavingHash(i,j,seed+11)-.5))/nu,us[i-1]+.28/nu,us[i+1]-.28/nu);v=T.MathUtils.clamp(v+(.24*(pavingHash(i,j,seed+23)-.5))/nv,vs[j-1]+.24/nv,vs[j+1]-.24/nv);}
-   const w0=(1-u)*(1-v),w1=u*(1-v),w2=u*v,w3=(1-u)*v;
-   nodes[j][i]=[a[0]*w0+b[0]*w1+c[0]*w2+d[0]*w3,a[1]*w0+b[1]*w1+c[1]*w2+d[1]*w3];
-  }}
-  const tiles=[];for(let j=0;j<nv;j++)for(let i=0;i<nu;i++){
-   const outline=[nodes[j][i],nodes[j][i+1],nodes[j+1][i+1],nodes[j+1][i]],tileIndex=j*nu+i;
-   tiles.push({...record,id:`${record.id}-flagstone-${String(tileIndex+1).padStart(2,'0')}`,sourceRecordId:record.id,column:record.column,row:record.row,detailSeed:tileIndex,outline,thickness:.115+.045*pavingHash(tileIndex,record.column,seed+37),top:record.top+.006*(pavingHash(tileIndex,record.row,seed+47)-.5),jointGap:.007,edgeBevel:.011,detailSpacing:.050,boundarySpacing:.090,source:'observed outer joint subdivided into fitted irregular flagstones'});
-  }
-  return tiles;
+ function observedFlagstone(record){
+  const seed=record.column*193+record.row*79+43;
+  // These four-sided records already follow photographed joints. Retaining
+  // each as one fitted block keeps the observed large slabs instead of
+  // replacing them with a second, more regular invented grid.
+  return {...record,detailSeed:0,thickness:.14+.045*pavingHash(record.row,record.column,seed+37),top:record.top+.004*(pavingHash(record.row,record.column,seed+47)-.5),jointGap:.008+.004*pavingHash(record.row,record.column,seed+59),edgeBevel:.012,detailSpacing:.024,boundarySpacing:.028,source:'single weathered granite flagstone fitted to observed outer joints'};
  }
  for(const record of traced.records){
-  const mat=ownM(tracedStoneMaterial04(record));pavingMaterials.push(mat);for(const t of Object.values(mat.userData.maps))ownedT.add(t);
-  for(const tile of splitObservedFlagstones(record)){mesh(tracedSlabGeometry(tile),mat,tile.id,subgroups.path);records.stoneSlabs.push({...tile,sourceRecordId:record.id,referenceBitmapUsed:false});}
+  const materialIndex=Math.floor(pavingHash(record.row,record.column,607)*paving.length),mat=paving[materialIndex];
+  const tile=observedFlagstone(record);mesh(tracedSlabGeometry(tile),mat,tile.id,subgroups.path);records.stoneSlabs.push({...tile,sourceRecordId:record.id,referenceBitmapUsed:false,materialProvider:'Poly Haven Granite Tile 04, CC0-1.0',materialVariant:materialIndex});
  }
  // Continue the constructed path behind the supplied view, so its top and
  // support remain complete when inspected from above. These slabs are authored
@@ -108,22 +99,45 @@ export function buildReference4Garden(T,options={}){
  }
  // Curb joints follow individually observed cuts rather than equal screen rows.
  for(const side of[-1,1]){const cuts=side<0?observedCurbCuts04.west:observedCurbCuts04.east;for(let k=0;k<cuts.length-1;k++){const a=traced.edgePoint(side,cuts[k]),b=traced.edgePoint(side,cuts[k+1]),dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=side*dz/len,nz=-side*dx/len,inner=.018,outer=.22,outline=[[a[0]+nx*inner,a[1]+nz*inner],[b[0]+nx*inner,b[1]+nz*inner],[b[0]+nx*outer,b[1]+nz*outer],[a[0]+nx*outer,a[1]+nz*outer]];mesh(tracedSlabGeometry({id:'observed-curb-'+side+'-'+k,outline,top:.105+.004*Math.sin(k*1.79),thickness:.22,column:side+3,row:k}),paving[(k+1)%4],'observed-curb-'+side+'-'+k,subgroups.path);}}
+ // The photograph's foreground keeps stone paving outside the paired curbs.
+ // These shallow shoulder blocks are fitted between each observed curb and
+ // the image boundary; they are authored continuation, not extra traced joints.
+ const shoulderRows=[880,930,980,1030,1080,1130,1170];
+ for(const side of[-1,1])for(let row=0;row<shoulderRows.length-1;row++){
+  const y0=shoulderRows[row],y1=shoulderRows[row+1],frameX=side<0?0:1254;
+  const cross=y=>{const inner=traced.edgePoint(side,y),outer=traced.world([frameX,y]);return[inner,outer];};
+  const [nearInner,nearOuter]=cross(y0),[farInner,farOuter]=cross(y1),width0=(nearOuter[0]-nearInner[0])*side,width1=(farOuter[0]-farInner[0])*side;
+  const avgWidth=(width0+width1)*.5,depth=Math.abs(farInner[1]-nearInner[1]);
+  if(avgWidth<.12||depth<.10)continue;
+  const acrossCount=Math.max(1,Math.ceil(avgWidth/.52)),alongCount=Math.max(1,Math.ceil(depth/.58)),seed=941+row*47+(side+1)*131;
+  const point=(u,v)=>{
+   const front=[T.MathUtils.lerp(nearInner[0],nearOuter[0],u),nearInner[1]],back=[T.MathUtils.lerp(farInner[0],farOuter[0],u),farInner[1]];
+   return[T.MathUtils.lerp(front[0],back[0],v),T.MathUtils.lerp(front[1],back[1],v)];
+  };
+  const nodes=[];for(let j=0;j<=alongCount;j++){nodes[j]=[];for(let i=0;i<=acrossCount;i++){
+   let u=i/acrossCount,v=j/alongCount;if(i>0&&i<acrossCount&&j>0&&j<alongCount){u=T.MathUtils.clamp(u+(.20*(pavingHash(i,j,seed)-.5))/acrossCount,.20/acrossCount,1-.20/acrossCount);v=T.MathUtils.clamp(v+(.18*(pavingHash(j,i,seed+17)-.5))/alongCount,.20/alongCount,1-.20/alongCount);}nodes[j][i]=point(u,v);
+  }}
+  for(let j=0;j<alongCount;j++)for(let i=0;i<acrossCount;i++){
+   const outline=[nodes[j][i],nodes[j][i+1],nodes[j+1][i+1],nodes[j+1][i]],idx=j*acrossCount+i,id=`authored-foreground-shoulder-${side}-${row}-${idx}`;
+   const record={id,column:side<0?0:2,row:row+9,detailSeed:idx,outline,top:.048+.003*(pavingHash(idx,row,seed+29)-.5),thickness:.12+.055*pavingHash(idx,row,seed+31),jointGap:.010+.006*pavingHash(idx,row,seed+37),edgeBevel:.013,detailSpacing:.035,boundarySpacing:.040,source:'inferred foreground shoulder flagstone between measured curb and photo frame'};
+   mesh(tracedSlabGeometry(record),paving[(idx+row+(side>0?2:0))%paving.length],id,subgroups.path);records.stoneSlabs.push({...record,referenceBitmapUsed:false,measurementStatus:'authored shoulder continuation'});
+  }
+ }
  // Compact damp earth closes the bottom of the joints; colonies occupy only
  // selected lips and interruptions, rather than continuous green ribbons.
- const jointEarth=material('observed-paving-dark-mineral-earth','#2a2a20',{roughness:1}),mossMats=['#434f20','#59682c','#333e19'].map((c,i)=>material('observed-joint-moss-'+i,c,{roughness:.94}));
+ const jointEarth=material('observed-paving-dark-mineral-earth','#2a2a20',{roughness:1}),mossMats=['#263019','#354022','#1d2818'].map((c,i)=>material('observed-joint-moss-'+i,c,{roughness:.98}));
  group.traverse(o=>{if(o.isMesh&&(o.name==='flared-processional-causeway'||o.name.startsWith('dry-low-path-side-bank-')))o.material=jointEarth;});
  const bedLeft=traced.edgePoint(-1,740),bedLeftNear=traced.edgePoint(-1,1350),bedRight=traced.edgePoint(1,740),bedRightNear=traced.edgePoint(1,1350);
  const bedShape=new T.Shape();[bedLeft,bedRight,bedRightNear,bedLeftNear].forEach(([x,z],i)=>i?bedShape.lineTo(x,-z):bedShape.moveTo(x,-z));bedShape.closePath();const bed=new T.ExtrudeGeometry(bedShape,{depth:.828,bevelEnabled:false,steps:1});bed.rotateX(-Math.PI/2);bed.translate(0,-.8,0);mesh(bed,jointEarth,'observed-continuous-mineral-joint-bed',subgroups.path);
  const rearBedShape=new T.Shape();rearOutline.forEach(([x,z],i)=>i?rearBedShape.lineTo(x,-z):rearBedShape.moveTo(x,-z));rearBedShape.closePath();const rearBed=new T.ExtrudeGeometry(rearBedShape,{depth:.828,bevelEnabled:false,steps:1});rearBed.rotateX(-Math.PI/2);rearBed.translate(0,-.8,0);mesh(rearBed,jointEarth,'authored-rear-paving-support-and-seam-bed',subgroups.path);
  const mossG=ownG(new T.IcosahedronGeometry(1,0)),mossMatrices=[[],[],[]],seen=new Set(),h=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
- for(const r of traced.records)for(let e=0;e<4;e++){const a=r.outline[e],b=r.outline[(e+1)%4],key=[a,b].map(p=>p.map(q=>q.toFixed(3)).join(':')).sort().join('|');if(seen.has(key))continue;seen.add(key);const len=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let k=0;k<len/.017;k++){const t=(k+.5)*.017/len,seed=r.column*97+r.row*31+e*13;if(h(k,seed)>.20+.16*Math.sin(t*14+seed)||Math.sin(t*21+seed)*Math.sin(t*8+seed*.31)<-.15)continue;const o=new T.Object3D();o.position.set(T.MathUtils.lerp(a[0],b[0],t)+.009*(h(k,seed+3)-.5),.026+.016*h(k,seed+7),T.MathUtils.lerp(a[1],b[1],t)+.009*(h(k,seed+11)-.5));const radius=.006+.009*h(k,seed+17);o.scale.set(radius,.003+.004*h(k,seed+21),radius*(.65+.8*h(k,seed+27)));o.rotation.y=h(k,seed+33)*TAU;o.updateMatrix();mossMatrices[Math.floor(h(k,seed+41)*3)].push(o.matrix.clone());}}
+ for(const r of traced.records)for(let e=0;e<4;e++){const a=r.outline[e],b=r.outline[(e+1)%4],key=[a,b].map(p=>p.map(q=>q.toFixed(3)).join(':')).sort().join('|');if(seen.has(key))continue;seen.add(key);const len=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let k=0;k<len/.017;k++){const t=(k+.5)*.017/len,seed=r.column*97+r.row*31+e*13;if(h(k,seed)>.20+.16*Math.sin(t*14+seed)||Math.sin(t*21+seed)*Math.sin(t*8+seed*.31)<-.15)continue;const o=new T.Object3D();o.position.set(T.MathUtils.lerp(a[0],b[0],t)+.003*(h(k,seed+3)-.5),.043+.003*h(k,seed+7),T.MathUtils.lerp(a[1],b[1],t)+.003*(h(k,seed+11)-.5));const radius=.0035+.0035*h(k,seed+17);o.scale.set(radius,.003+.004*h(k,seed+21),radius*(.65+.8*h(k,seed+27)));o.rotation.y=h(k,seed+33)*TAU;o.updateMatrix();mossMatrices[Math.floor(h(k,seed+41)*3)].push(o.matrix.clone());}}
  for(let j=0;j<3;j++){const mm=mossMatrices[j],o=new T.InstancedMesh(mossG,mossMats[j],mm.length);o.name='observed-discontinuous-moss-colonies-'+j;mm.forEach((mat,i)=>o.setMatrixAt(i,mat));o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();subgroups.path.add(o);}
- const edgeLeaf=leafGeometry(false),edgePlants=[],edgePebbles=[],edgeStone=ownG(new T.IcosahedronGeometry(1,2));
+ const edgePebbles=[],edgeStone=ownG(new T.IcosahedronGeometry(1,2));
  for(const side of[-1,1])for(let k=0;k<138;k++){const y=752+k/137*578,a=traced.edgePoint(side,y),b=traced.edgePoint(side,y+.5),dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=side*dz/len,nz=-side*dx/len,off=.24+.22*h(k,side+9),x=a[0]+nx*off,z=a[1]+nz*off;
   if(h(k,side+41)<.60){const o=new T.Object3D();o.position.set(x,.018+.014*h(k,side+13),z);o.scale.set(.033+.064*h(k,side+23),.018+.035*h(k,side+27),.025+.065*h(k,side+31));o.rotation.set(h(k,1)*.8,h(k,2)*TAU,h(k,3)*.8);o.updateMatrix();edgePebbles.push(o.matrix.clone());}
-  if(h(k,side+37)<.76)for(let l=0;l<6;l++){const o=new T.Object3D();o.position.set(x,.006,z);o.rotation.set(-.36+.65*h(k*7+l,side+17),l/6*TAU+h(k,side+23),.2*Math.sin(k+l));o.scale.set(.13,.13,.11+.08*h(k*7+l,side+33));o.updateMatrix();edgePlants.push(o.matrix.clone());}
  }
- for(const [g,mat,mm,name]of[[edgeLeaf,m.leafDark,edgePlants,'observed-curb-connected-groundcover'],[edgeStone,m.stone,edgePebbles,'observed-curb-loose-mineral-fragments']]){const o=new T.InstancedMesh(g,mat,mm.length);o.name=name;mm.forEach((q,i)=>o.setMatrixAt(i,q));o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();subgroups.path.add(o);}
+ {const o=new T.InstancedMesh(edgeStone,m.stone,edgePebbles.length);o.name='observed-curb-loose-mineral-fragments';edgePebbles.forEach((q,i)=>o.setMatrixAt(i,q));o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();subgroups.path.add(o);}
  group.userData.pavingMaterials=pavingMaterials;
  function rock(x,y,z,sx,sy,sz,name){
   const scan=foregroundScan04(name,sx,sz),shapeSeed=1003+Math.round(Math.abs(x*31+z*47));
@@ -227,7 +241,7 @@ export function buildReference4Garden(T,options={}){
  for(const parent of[subgroups.shore,subgroups.plants])for(const o of parent.children)if(o.isMesh){if(o.isInstancedMesh){const matrix=new T.Matrix4();for(let i=0;i<o.count;i++){o.getMatrixAt(i,matrix);const x=matrix.elements[12],z=matrix.elements[14];if(z>=8){matrix.elements[12]=bankX(x,z);o.setMatrixAt(i,matrix);}}o.instanceMatrix.needsUpdate=true;o.computeBoundingBox();o.computeBoundingSphere();}else warpBankGeometry(o.geometry);}
  for(const r of records.plantRoots)if(r.position?.[2]>=8)r.position[0]=bankX(r.position[0],r.position[2]);
  group.updateMatrixWorld(true);pines.forEach(p=>p.syncNormalWorldMatrix());const bounds=new T.Box3().setFromObject(group),sockets={hall:{axisX:0,frontZ:0,platformY:plan.stairTopY,platformHalfWidth:7.6},stairs:{top:[0,plan.stairTopY,0],bottom:[0,0,plan.stairBottomZ],width:options.stairWidth??5.6},towerReserved:plan.towerExclusion,lanterns:lanternAsset.getEmitterMetadata(),pines:pines.map(p=>({root:p.group.position.toArray(),matrixWorld:p.group.matrixWorld.toArray()})),waterMeshes,bridge,cameraPolicy:'The complete enclosing scene owns the camera; no recovered-camera claim.'};
- records.assumptions.push('This is newly reconstructed complete source after a workspace reset, not recovered a22f bytes.','Visible path joints and curb cuts are individually observed numeric contours; hidden shape, metric depth, wear and lamp/tree dimensions remain authored hypotheses.','Rock body planes and limited clipped moss replace rounded white bodies with complete green caps.','The broad lobed pine masses are physical foliage aggregates around the original bough anchors; inner fans near the stair reserve are pruned smaller rather than moving the roots.','No light, camera, renderer, background photograph or whole-tree billboard is created.','The bridge remains a subordinate reference3 water element; it is not accepted from any old reference10 point fit.');
+ records.assumptions.push('This is newly reconstructed complete source after a workspace reset, not recovered a22f bytes.','Visible path joints and curb cuts are individually observed numeric contours; hidden shape, metric depth, wear and lamp/tree dimensions remain authored hypotheses.','Broad measured paving joints define single fitted blocks; additional foreground shoulder stones are authored continuation outside the visible curb measurements.','Rock body planes and limited clipped moss replace rounded white bodies with complete green caps.','The broad lobed pine masses are physical foliage aggregates around the original bough anchors; inner fans near the stair reserve are pruned smaller rather than moving the roots.','No light, camera, renderer, background photograph or whole-tree billboard is created.','The bridge remains a subordinate reference3 water element; it is not accepted from any old reference10 point fit.');
  let disposed=false;function dispose(){if(disposed)return;disposed=true;const errors=[];for(const fn of[...children.map(c=>()=>c.dispose()),...Array.from(ownedG,g=>()=>g.dispose()),...Array.from(ownedM,m=>()=>m.dispose()),...Array.from(ownedT,t=>()=>t.dispose()),()=>group.removeFromParent()])try{fn();}catch(e){errors.push(e);}if(errors.length)throw new AggregateError(errors,'Garden cleanup errors');}
  return{group,subgroups,sockets,bounds,materials:m,waterMeshes,lanterns:lanternAsset,pines,lotusLeaves,lotusFlowers,records,plan,dispose};
 }

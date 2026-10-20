@@ -161,6 +161,7 @@ export function createNearRainFlagstone(T,{points,topOffset=0,seed,id}){
  capGeometry.dispose();const g=writer.finish();g.computeBoundingBox();
  g.userData.rainStoneFootprint=cap.boundary.map(id=>{const p=outerAt.get(id);return[p.x,p.z];});
  g.userData.nearRainStone={id,seed,profile,triangles:g.attributes.position.count/3,pitCount:pits.length,footprintXZ:[g.boundingBox.min.x,g.boundingBox.min.z,g.boundingBox.max.x,g.boundingBox.max.z],topYRange:[Math.min(...position.filter((_,i)=>i%3===1)),Math.max(...position.filter((_,i)=>i%3===1))],capMaxInteriorEdgeMetres:.014,remainingLipMetres:[.0022,.0080],chipSetbackMetres:profile.chips.map(c=>c[2]),source:'Authored closed mesh; no reference image sampling'};
+ g.userData.heightAt=surface;g.userData.topYMax=g.userData.nearRainStone.topYRange[1];
  return g;
 }
 

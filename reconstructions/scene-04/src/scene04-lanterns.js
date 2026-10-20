@@ -9,7 +9,7 @@ function petalRelief(width=.16,length=.29,depth=.025){
 }
 export function buildRestorationStoneLanterns({materials:borrowed={},options={}}={}){
  const group=new T.Group();group.name='reference04-rebuilt-carved-granite-lanterns';
- const stone=stoneMaterial('metric-quartz-granite-lantern','#777b7e',{seed:611}),recess=stoneMaterial('carved-granite-recess','#515b65',{seed:612}),moss=new T.MeshStandardMaterial({color:'#465326',roughness:1,vertexColors:true,side:T.DoubleSide}),paper=new T.MeshStandardMaterial({color:'#c28e39',emissive:'#ffa527',emissiveIntensity:.5,roughness:.9,side:T.DoubleSide}),bronze=new T.MeshStandardMaterial({color:'#44351c',metalness:.45,roughness:.69});
+ const stone=stoneMaterial('metric-quartz-granite-lantern','#777b7e',{seed:611}),recess=stoneMaterial('carved-granite-recess','#515b65',{seed:612}),moss=new T.MeshStandardMaterial({color:'#526331',roughness:1,vertexColors:true,side:T.DoubleSide}),paper=new T.MeshStandardMaterial({color:'#aa773b',emissive:'#ff9c3c',emissiveIntensity:.28,roughness:.9,side:T.DoubleSide}),bronze=new T.MeshStandardMaterial({color:'#44351c',metalness:.45,roughness:.69});
  const geometries=[],materials=[stone,recess,moss,paper,bronze],lanterns=[],emitters=[];let triangles=0;
  function addMerged(parts,mat,parent,name){if(!parts.length)return null;const clean=parts.map(g=>{g=g.index?g.toNonIndexed():g;for(const k of Object.keys(g.attributes))if(!['position','normal','uv','color'].includes(k))g.deleteAttribute(k);if(!g.attributes.color)g.setAttribute('color',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*3).fill(1),3));return g;}),g=mergeGeometries(clean,false);clean.forEach(q=>q.dispose());geometries.push(g);const mesh=new T.Mesh(g,mat);mesh.name=name;mesh.castShadow=mat!==paper;mesh.receiveShadow=mat!==paper;parent.add(mesh);triangles+=g.attributes.position.count/3;return mesh;}
  for(const [id,anchor]of(options.anchors??[]).entries()){
@@ -40,16 +40,38 @@ export function buildRestorationStoneLanterns({materials:borrowed={},options={}}
   for(let f=0;f<4;f++){
    const yaw=f*Math.PI/2;
    const pane=new T.PlaneGeometry(.75,.62);pane.translate(0,2.82,.445);pane.rotateY(yaw);lightParts.push(pane);
-   for(let k=-3;k<=3;k++){const b=new T.BoxGeometry(.018,.63,.024);b.translate(k*.105,2.82,.50);b.rotateY(yaw);bars.push(b);}
-   for(let k=-2;k<=2;k++){const b=new T.BoxGeometry(.75,.016,.025);b.translate(0,2.82+k*.116,.505);b.rotateY(yaw);bars.push(b);}
+   for(let k=-2;k<=2;k++){const b=new T.BoxGeometry(.013,.63,.022);b.translate(k*.15,2.82,.50);b.rotateY(yaw);bars.push(b);}
+   for(let k=-1;k<=1;k++){const b=new T.BoxGeometry(.75,.014,.022);b.translate(0,2.82+k*.175,.505);b.rotateY(yaw);bars.push(b);}
   }
   // A real compression boss closes the roof-to-window support contact.
   put(new T.CylinderGeometry(.43,.67,.36,8),stoneParts,[0,3.37,0]);
-  // A thick octagonal/fluted stone cap, with a rolled lower lip rather than
-  // four thin architectural wings. Moss is clipped from these actual faces.
-  const profile=[[0,3.48],[.42,3.45],[.70,3.13],[1.04,3.10],[1.12,3.14],[1.13,3.30],[1.04,3.29],[.84,3.34],[.62,3.46],[.38,3.65],[.17,3.75],[0,3.78]],cap=new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),64),cp=cap.attributes.position;
-  for(let k=0;k<cp.count;k++){const x=cp.getX(k),z=cp.getZ(k),a=Math.atan2(z,x),r=1+.055*Math.cos(a*4)+.018*Math.sin(a*11);cp.setXYZ(k,x*r,cp.getY(k)+.008*Math.sin(x*17+z*19),z*r);}cap.computeVertexNormals();stoneParts.push(applyMetricUV(cap));
-  const mp=[],mc=[],cn=cap.attributes.normal,ci=cap.index.array;
+  // Four real sloping roof faces meet at a small crown. The squared eaves
+  // turn upward at the corners and carry a deep, continuous stone soffit.
+  const capTop=new T.BufferGeometry(),capBottom=new T.BufferGeometry(),grid=28,verts=[],capIndices=[];
+  for(let j=0;j<=grid;j++)for(let i=0;i<=grid;i++){
+   const x=-1+2*i/grid,z=-1+2*j/grid,edge=Math.max(Math.abs(x),Math.abs(z)),corner=Math.pow(Math.abs(x*z),4),y=3.18+.60*Math.pow(1-edge,.84)+.18*corner;
+   verts.push(x*1.13,y,z*1.13);
+  }
+  for(let j=0;j<grid;j++)for(let i=0;i<grid;i++){const a=j*(grid+1)+i,b=a+1,c=a+grid+1,d=c+1;capIndices.push(a,c,d,a,d,b);}
+  capTop.setAttribute('position',new T.Float32BufferAttribute(verts,3));capTop.setIndex(capIndices);capTop.computeVertexNormals();
+  const bottomVerts=verts.flatMap((v,i)=>[v-(i%3===1?.13:0)]),bottomIndices=[];
+  for(let i=0;i<capIndices.length;i+=3)bottomIndices.push(capIndices[i],capIndices[i+2],capIndices[i+1]);
+  capBottom.setAttribute('position',new T.Float32BufferAttribute(bottomVerts,3));capBottom.setIndex(bottomIndices);capBottom.computeVertexNormals();
+  const roofPositions=[],roofIndices=[];
+  for(const g of[capTop,capBottom]){const offset=roofPositions.length/3,p=g.attributes.position;for(let i=0;i<p.count;i++)roofPositions.push(p.getX(i),p.getY(i),p.getZ(i));for(const i of g.index.array)roofIndices.push(offset+i);}
+  const sideStride=grid+1,perimeter=[...Array.from({length:sideStride},(_,i)=>i),...Array.from({length:grid},(_,i)=>(i+1)*sideStride+grid),...Array.from({length:grid},(_,i)=>grid*sideStride+grid-1-i),...Array.from({length:grid-1},(_,i)=>(grid-1-i)*sideStride)];
+  for(let i=0;i<perimeter.length;i++){const a=perimeter[i],b=perimeter[(i+1)%perimeter.length],lo=sideStride*sideStride;roofIndices.push(a,b,lo+b,a,lo+b,lo+a);}
+  const roof=new T.BufferGeometry();roof.setAttribute('position',new T.Float32BufferAttribute(roofPositions,3));roof.setIndex(roofIndices);roof.computeVertexNormals();stoneParts.push(applyMetricUV(roof));
+  const cp=capTop.attributes.position,cn=capTop.attributes.normal,ci=capTop.index.array;
+  for(let e=0;e<4;e++){
+   const pts=Array.from({length:25},(_,i)=>{const t=-1+2*i/24,x=e<2?t:(e===2?1:-1),z=e<2?(e===0?1:-1):t,edge=Math.max(Math.abs(x),Math.abs(z)),y=3.18+.60*Math.pow(1-edge,.84)+.18*Math.pow(Math.abs(x*z),4);return new T.Vector3(x*1.13,y,z*1.13);});
+   const lip=new T.TubeGeometry(new T.CatmullRomCurve3(pts),48,.034,8,false);stoneParts.push(applyMetricUV(lip));
+  }
+  for(const sx of[-1,1])for(const sz of[-1,1]){
+   const pts=[[0,3.78,0],[sx*.36,3.62,sz*.36],[sx*.72,3.47,sz*.72],[sx*1.13,3.36,sz*1.13]].map(p=>new T.Vector3(...p));
+   stoneParts.push(applyMetricUV(new T.TubeGeometry(new T.CatmullRomCurve3(pts),30,.016,7,false)));
+  }
+  const mp=[],mc=[];
   const sample=k=>{const p=new T.Vector3().fromBufferAttribute(cp,k),n=new T.Vector3().fromBufferAttribute(cn,k),f=Math.sin(p.x*6.2+p.z*3.1)+Math.sin(p.z*9-p.x*2)+.5*Math.sin(p.x*23+p.z*31)+.25;return{p,n,f:Math.min(f,(n.y-.25)*3,(p.y-3.30)*4)};};
   for(let k=0;k<ci.length;k+=3){const tri=[0,1,2].map(j=>sample(ci[k+j])),poly=[];for(let e=0;e<3;e++){const a=tri[e],b=tri[(e+1)%3],aa=a.f>=0,bb=b.f>=0;if(aa)poly.push(a);if(aa!==bb){const t=a.f/(a.f-b.f);poly.push({p:a.p.clone().lerp(b.p,t),n:a.n.clone().lerp(b.n,t).normalize(),f:0});}}
    for(let j=1;j<poly.length-1;j++){
@@ -58,12 +80,12 @@ export function buildRestorationStoneLanterns({materials:borrowed={},options={}}
     for(const v of[[q.x-w,q.y,q.z],[q.x+w,q.y,q.z],[q.x+nn.x*h,q.y+nn.y*h,q.z+nn.z*h],[q.x,q.y,q.z-w],[q.x,q.y,q.z+w],[q.x+nn.x*h,q.y+nn.y*h,q.z+nn.z*h]]){mp.push(...v);mc.push(.62,.81,.40);}
    }
   }
-  const mg=new T.BufferGeometry();mg.setAttribute('position',new T.Float32BufferAttribute(mp,3));mg.setAttribute('color',new T.Float32BufferAttribute(mc,3));mg.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(mp.length/3*2),2));mg.computeVertexNormals();mossParts.push(mg);
+  const mg=new T.BufferGeometry();mg.setAttribute('position',new T.Float32BufferAttribute(mp,3));mg.setAttribute('color',new T.Float32BufferAttribute(mc,3));mg.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(mp.length/3*2),2));mg.computeVertexNormals();mossParts.push(mg);capTop.dispose();capBottom.dispose();
   // Pagoda-like rounded lotus finial is two compact stones, not a tall cone.
   for(const [cy,rx,ry]of[[3.84,.24,.105],[4.04,.26,.19],[4.26,.105,.13]]){const g=new T.SphereGeometry(1,20,12);g.scale(rx,ry,rx);put(g,stoneParts,[0,cy,0]);}
   const tip=new T.ConeGeometry(.055,.17,12);put(tip,stoneParts,[0,4.40-.085,0]);
   addMerged(stoneParts,stone,body,'carved-metric-granite-body');addMerged(darkParts,recess,body,'actual-carved-stone-grooves');const paperMesh=addMerged(lightParts,paper,body,'warm-recessed-paper');addMerged(bars,bronze,body,'fine-bronze-light-window-grid');addMerged(mossParts,moss,body,'surface-rooted-moss-fronds');
-  const glow=new T.PointLight('#ffb75b',6,2.3,2);glow.position.set(0,2.82,0);body.add(glow);emitters.push({index:id,object:body,paperMesh,material:paper,localPosition:new T.Vector3(0,2.82,0)});
+  const glow=new T.PointLight('#ffbd70',3.8,2.5,2);glow.position.set(0,2.82,0);body.add(glow);emitters.push({index:id,object:body,paperMesh,material:paper,localPosition:new T.Vector3(0,2.82,0)});
  }
  function getEmitterMetadata(){group.updateMatrixWorld(true);return emitters.map(e=>({...e,worldPosition:e.object.localToWorld(e.localPosition.clone()),worldCenter:e.object.localToWorld(e.localPosition.clone()),worldScale:e.object.getWorldScale(new T.Vector3()),windows:[]}));}
  return{group,lanterns,materials,stats:{triangles,lanterns:lanterns.length},bounds:new T.Box3().setFromObject(group),getEmitterMetadata,dispose(){for(const g of geometries)g.dispose();for(const m of materials){for(const v of Object.values(m.userData.maps??{}))v.dispose();m.dispose();}group.removeFromParent();}};

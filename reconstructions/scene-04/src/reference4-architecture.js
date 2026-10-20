@@ -8,7 +8,7 @@ import {createReference4StairPlan} from './reference4-stair-plan.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
-export const REFERENCE4_ARCHITECTURE_REVISION='reference4-mesh62-broad-karahafu-deep-colonnade';
+export const REFERENCE4_ARCHITECTURE_REVISION='reference4-mesh63-sculpted-bearing-relief';
 export function buildReference4Architecture(T,options={}) {
  const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:16.4,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,towerYaw:0,towerWidthFactor:1,towerDepthRatio:1,towerEaveBase:4.3,towerEavePitch:1.6,towerTopRoofRise:.66,towerTopRidgeHalfRatio:.275,towerGroundY:-.8,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
@@ -247,10 +247,14 @@ export function buildReference4Architecture(T,options={}) {
   // Crossbeam has a pierced gold scrolling relief with visible wood behind it.
   for(const y of[C.capitalTop+.26,C.capitalTop-.40]){
    box(0,y,.49,5.7,.35,.35,'darkwood');
-   for(let i=-8;i<=8;i++){
-    const x=i*.315;
-    tube([[x-.14,y-.04,.68],[x-.12,y+.075,.695],[x,y+.11,.70],[x+.12,y+.04,.695],[x+.10,y-.075,.695],[x-.01,y-.09,.70]],.012,'oldgold',16);
-    if(i%2===0)rosette(x,y,.718,.065,'gold');
+   for(const [j,x]of[-2.32,-1.18,0,1.18,2.32].entries()){
+    const scale=j===2?1.24:j%2?.92:.82;
+    for(const sign of[-1,1]){
+     const curl=[[x+sign*.045*scale,y-.065*scale,.69],[x+sign*.12*scale,y+.10*scale,.71],[x+sign*.28*scale,y+.12*scale,.73],[x+sign*.36*scale,y+.015*scale,.75],[x+sign*.30*scale,y-.060*scale,.77],[x+sign*.20*scale,y-.035*scale,.79],[x+sign*.18*scale,y+.025*scale,.80]];
+     tube(curl,.014,'oldgold',20);
+     tube([[x+sign*.035*scale,y-.10*scale,.70],[x+sign*.12*scale,y-.16*scale,.74],[x+sign*.22*scale,y-.13*scale,.77]],.010,'gold',12);
+    }
+    rosette(x,y,.735,.10*scale,j===2?'gold':'oldgold');
    }
   }
   const shrineY=C.capitalTop+.68;

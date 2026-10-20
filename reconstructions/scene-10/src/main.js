@@ -17,6 +17,7 @@ import {buildNearBankOutcrop} from './near-bank-outcrop.js';
 import {createDollyPath} from './dolly-path.js';
 import {createOptics} from './optics.js';
 import {createWaterFilmRipples135} from './water-film-ripples135.js';
+import {createPalmateMapleLeaf136,buildMatureMapleCanopy136} from './maple-canopy136.js';
 import {buildHall132,createHall132Palette,HALL132_REVISION} from './hall-front132.js';
 import {scene10Layout125 as L,bridgePoint125,bridgeToWorld125,hallToWorld125,createBridgeHallStairPlan125,rightPathEdge125,leftPathEdge125} from './layout125.js';
 const query=new URLSearchParams(location.search),W=Math.min(1800,+(query.get('w')||768)),H=Math.min(1800,+(query.get('h')||768));
@@ -35,7 +36,10 @@ m.buddha=m.gold.clone();m.buddha.roughness=.30;m.buddha.color.set('#bf9952');m.p
 for(let i=0;i<5;i++){m['window'+i]=m.paper.clone();m['window'+i].color.set(['#342b20','#4f412d','#6c5433','#956838','#c18b44'][i]);m['window'+i].emissiveIntensity=[.012,.05,.14,.32,.75][i];}
 m.lanternPaper=m.paper.clone();m.lanternPaper.color.set('#c8a86f');m.lanternPaper.emissive.set('#ffb346');m.lanternPaper.emissiveIntensity=2.2;m.stonePaper=m.lanternPaper.clone();m.stonePaper.emissiveIntensity=1.7;m.stonePaper.emissive.set('#ffaa28');
 m.pagodaPaper=m.paper.clone();m.pagodaPaper.color.set('#806344');m.pagodaPaper.emissive.set('#ffac48');m.pagodaPaper.emissiveIntensity=1.35;
-m.moss=new T.MeshStandardMaterial({color:'#29391e',roughness:.86});m.leaf=new T.MeshPhysicalMaterial({color:'#354a28',roughness:.38,clearcoat:.60,clearcoatRoughness:.12,side:T.DoubleSide});m.maple=new T.MeshStandardMaterial({color:'#8c1e10',roughness:.48,side:T.DoubleSide});m.pink=new T.MeshStandardMaterial({color:'#a89594',roughness:.8,side:T.DoubleSide});m.black.roughness=.25;m.carvedStone=new T.MeshStandardMaterial({color:'#7b7b6d',roughness:.76,bumpMap:m.granite.bumpMap,bumpScale:.012});installSurfaceDetail(m.carvedStone,'stone');m.leaf.emissive=new T.Color('#122108');m.leaf.emissiveIntensity=.10;m.maple.emissive=new T.Color('#280a02');m.maple.emissiveIntensity=.12;
+m.moss=new T.MeshStandardMaterial({color:'#29391e',roughness:.86});m.leaf=new T.MeshPhysicalMaterial({color:'#354a28',roughness:.38,clearcoat:.60,clearcoatRoughness:.12,side:T.DoubleSide});m.maple=new T.MeshStandardMaterial({color:'#a03224',roughness:.48,side:T.DoubleSide});m.pink=new T.MeshStandardMaterial({color:'#bc7c8b',roughness:.82,side:T.DoubleSide});m.pink.emissive=new T.Color('#2d1018');m.pink.emissiveIntensity=.06;m.black.roughness=.25;m.carvedStone=new T.MeshStandardMaterial({color:'#7b7b6d',roughness:.76,bumpMap:m.granite.bumpMap,bumpScale:.012});installSurfaceDetail(m.carvedStone,'stone');m.leaf.emissive=new T.Color('#122108');m.leaf.emissiveIntensity=.10;m.maple.emissive=new T.Color('#320b05');m.maple.emissiveIntensity=.12;
+m.mapleAutumn=['#79272b','#8f302b','#a34432','#b45239','#9a473d'].map((color,i)=>new T.MeshPhysicalMaterial({name:'autumn-maple136-'+i,color,roughness:.70,metalness:0,clearcoat:.24,clearcoatRoughness:.28,side:T.DoubleSide}));
+m.mapleVeins=new T.MeshStandardMaterial({name:'autumn-maple136-raised-veins',color:'#bd7655',roughness:.78,side:T.DoubleSide});const mapleLeaf136=createPalmateMapleLeaf136();
+m.mapleBark=new T.MeshStandardMaterial({name:'mature-maple136-rain-dark-bark',color:'#42291d',roughness:.84});installSurfaceDetail(m.mapleBark,'wood');
 
 m.nearLacquer=new T.MeshPhysicalMaterial({color:'#7b2419',map:m.red.map,bumpMap:m.red.bumpMap,bumpScale:.002,roughness:.24,clearcoat:.95,clearcoatRoughness:.055});installSurfaceDetail(m.nearLacquer,'wood');
 for(const key of['stone','granite','carvedStone']){m[key].map=graniteMaps[0];m[key].normalMap=graniteMaps[1];m[key].normalScale.set(.58,.58);m[key].roughnessMap=graniteMaps[2];m[key].roughness=.84;m[key].bumpMap=null;m[key].color.set('#b7b4ab');}
@@ -61,7 +65,7 @@ function lantern(x,y,z,s=1,hanging=false){group(x,y,z,.12,()=>{
  const cap=new T.LatheGeometry([[.32,0],[.34,.03],[.27,.08],[.19,.15],[.06,.21]].map(p=>new T.Vector2(...p)),6);emit(cap,'oldgold',0,.40,0);emit(cap.clone().rotateZ(Math.PI),'oldgold',0,-.40,0,1,.65,1);
  emit(sphere,'gold',0,.69,0,.055,.085,.055);
  if(hanging){for(let i=0;i<13;i++)emit(new T.TorusGeometry(.027,.007,5,12),'black',0,.78+i*.07,0,1,1,1,[i%2*Math.PI/2,0,0]);between([0,-.55,0],[0,-.85,0],.018,'oldgold');for(let i=0;i<24;i++){let a=i*Math.PI/12;between([Math.cos(a)*.035,-.88,Math.sin(a)*.035],[Math.cos(a)*.055,-1.14-R(0,.05),Math.sin(a)*.055],.005,'oldgold');}}
- },s);const light=new T.PointLight('#ffb34f',hanging?9:5,5.5,2);light.position.set(x,y,z).applyMatrix4(stack.at(-1));scene.add(light);}
+ },s);const light=new T.PointLight('#ffb34f',hanging?11:7,hanging?9.5:8,2);light.position.set(x,y,z).applyMatrix4(stack.at(-1));scene.add(light);}
 // Five diminishing storeys, broad upturned eaves, glowing small latticed bays.
 group(...L.pagoda.position,L.pagoda.yaw,()=>{box(0,.275,0,8.8,.55,8.8,'stone');for(let l=0;l<5;l++){const s=1-l*L.pagoda.tierDecrement,y=l*3.45+.55,w=6.2*s;group(0,y,0,0,()=>{arch.pagodaStoreyFrame({w,d:w,y:0,level:l,scale:s,roofWidth:w+3*s,roofDepth:w+3*s,roofRise:2.75*s,roofY:2.9,windowMaterial:'pagodaPaper',detail:true});rail(-w/2-.35,w/2+.35,.35,w/2+.5,.65);arch.pagodaRoof({y:2.9,w:w+3*s,d:w+3*s,rise:2.75*s,wallWidth:w,wallDepth:w,frameScale:s,detail:true});});}const top=.55+4*3.45+2.9+2.75*(1-4*L.pagoda.tierDecrement);between([0,top,0],[0,top+L.pagoda.finialHeight,0],.055,'oldgold');for(let i=0;i<20;i++){const yy=top+.4+i*(L.pagoda.finialHeight-1.2)/19;emit(new T.TorusGeometry(.35-i*.011,.036,6,20),'oldgold',0,yy,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'gold',0,top+L.pagoda.finialHeight-.18,0,.13,.24,.13);},L.pagoda.scale);
 // Hall-local physical roof underside, supported timber frame and gilded fittings.
@@ -154,65 +158,77 @@ solidFootprint125([[L.path.nearRight,L.path.turnEndZ],[4.6,L.path.turnEndZ],[4.6
 function noiseTexture(){const N=256,data=new Uint8Array(N*N*4);for(let y=0;y<N;y++)for(let x=0;x<N;x++){let q=R(.30,.70)+.12*Math.sin(x*.08+Math.sin(y*.07));let i=(y*N+x)*4;data[i]=data[i+1]=data[i+2]=Math.round(q*255);data[i+3]=255;}const t=new T.DataTexture(data,N,N);t.needsUpdate=true;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(3,3);t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;return t;}
 const wetBump=noiseTexture(),wetStone=new T.MeshPhysicalMaterial({color:'#171814',roughness:.39,metalness:0,bumpMap:wetBump,bumpScale:.014,clearcoat:.20,clearcoatRoughness:.075,specularIntensity:.55});const normalBytes=new Uint8Array(256*256*4),heightData=wetBump.image.data;for(let y=0;y<256;y++)for(let x=0;x<256;x++){const h=(dx,dy)=>heightData[(((y+dy+256)%256)*256+(x+dx+256)%256)*4]/255;let dx=(h(1,0)-h(-1,0))*.75,dy=(h(0,1)-h(0,-1))*.75,n=new T.Vector3(-dx,-dy,1).normalize(),i=(y*256+x)*4;normalBytes[i]=(n.x*.5+.5)*255;normalBytes[i+1]=(n.y*.5+.5)*255;normalBytes[i+2]=(n.z*.5+.5)*255;normalBytes[i+3]=255;}const wetNormal=new T.DataTexture(normalBytes,256,256);wetNormal.wrapS=wetNormal.wrapT=T.RepeatWrapping;wetNormal.repeat.set(1.40,1.40);wetNormal.generateMipmaps=true;wetNormal.minFilter=T.LinearMipmapLinearFilter;wetNormal.magFilter=T.LinearFilter;wetNormal.needsUpdate=true;
 wetStone.clearcoat=.55;wetStone.clearcoatNormalMap=wetNormal;wetStone.clearcoatNormalScale=new T.Vector2(.86,.86);const lacquerNormal=wetNormal.clone();lacquerNormal.repeat.set(6,5);lacquerNormal.needsUpdate=true;m.nearLacquer.clearcoatNormalMap=lacquerNormal;m.nearLacquer.clearcoatNormalScale=new T.Vector2(.20,.20);
-wetStone.map=graniteMaps[0];wetStone.normalMap=graniteMaps[1];wetStone.normalScale.set(.43,.43);wetStone.roughnessMap=graniteMaps[2];wetStone.bumpMap=wetBump;wetStone.bumpScale=.002;wetStone.color.set('#8f9a9d');wetStone.envMapIntensity=1.5;m.wet=wetStone;installSurfaceDetail(wetStone,'wet');
-m.wetNear=wetStone.clone();m.wetNear.name='twelve-real-stone-surfaces-with-existing-actual-scene-probe';m.wetNear.envMapIntensity=1.0;installSurfaceDetail(m.wetNear,'wet');
+wetStone.map=graniteMaps[0];wetStone.normalMap=graniteMaps[1];wetStone.normalScale.set(.36,.36);wetStone.roughnessMap=graniteMaps[2];wetStone.bumpMap=wetBump;wetStone.bumpScale=.0015;wetStone.color.set('#a3aaab');wetStone.roughness=.30;wetStone.clearcoat=.90;wetStone.envMapIntensity=1.85;m.wet=wetStone;installSurfaceDetail(wetStone,'wet');
+m.wetNear=wetStone.clone();m.wetNear.name='twelve-real-stone-surfaces-with-existing-actual-scene-probe';m.wetNear.envMapIntensity=1.85;installSurfaceDetail(m.wetNear,'wet');
 const nearSurfaceBuilder=createNearSurfaceReflectionMask(T);
-box(0,-.22,8,9,.06,22,'darkwood');const floorPolygons=[],nearStoneRecords=[],rows=26,cols=8,verts=[];for(let j=0;j<=rows;j++){verts[j]=[];for(let i=0;i<=cols;i++){const t=j/rows,left=leftPathEdge125(-2+j*.82),right=rightPathEdge125(-2+j*.82);verts[j][i]=[left+(right-left)*i/cols+(i&&i<cols?R(-.13,.13):0),-2+j*.82+(j&&j<rows?R(-.14,.14):0)];};}
+box(0,-.22,8,9,.06,22,'darkwood');
+const floorPolygons=[],nearStoneRecords=[],rows=26,courseDepth=21.32/rows,wetFilmY=.055,pavingRngStart=seed;
+const paveHash=(a,b)=>{const q=Math.sin((a*127.1+b*311.7+1037)*12.9898)*43758.5453;return q-Math.floor(q);};
+const courseZ=Array.from({length:rows+1},(_,j)=>-2+j*courseDepth+(j>0&&j<rows?(paveHash(j,239)-.5)*.07:0));
+function courseCuts(j){const base=j%2?[0,.08,.24,.40,.56,.72,.88,1]:[0,.14,.30,.46,.62,.78,1];return base.map((f,k)=>k===0||k===base.length-1?f:f+(paveHash(j,k)-.5)*.014);}
+// Preserve the later garden/rain RNG stream while replacing the old 8-column vertex grid.
+seed=pavingRngStart;for(let k=0;k<(rows+1)*7+(rows-1)*9;k++)rand();
 m.nearJointGrit=new T.MeshStandardMaterial({name:'near-rain-joint-soil-and-granite-grit',color:'#34372d',map:graniteMaps[0],normalMap:graniteMaps[1],normalScale:new T.Vector2(.26,.26),roughness:.96,roughnessMap:graniteMaps[2]});
-for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){
- const slabSeed=seed,original=[verts[j][i],verts[j][i+1],verts[j+1][i+1],verts[j+1][i]],hash=Math.sin((j*13+i*37+41)*12.9898)*43758.5453;
+for(let j=0;j<rows;j++){
+ const z0=courseZ[j],z1=courseZ[j+1],cuts=courseCuts(j),left0=leftPathEdge125(z0),right0=rightPathEdge125(z0),left1=leftPathEdge125(z1),right1=rightPathEdge125(z1);
+ for(let i=0;i<cuts.length-1;i++){
+ const slabSeed=seed,f0=cuts[i],f1=cuts[i+1],original=[[left0+(right0-left0)*f0,z0],[left0+(right0-left0)*f1,z0],[left1+(right1-left1)*f1,z1],[left1+(right1-left1)*f0,z1]],hash=Math.sin((j*13+i*37+41)*12.9898)*43758.5453;
  const wetness=.28+.72*(hash-Math.floor(hash)),topOffset=R(-.005,.005),tint=R(.74,1.13);
  for(const points of clipPavingAtDrain(original)){
-  const cx=points.reduce((a,p)=>a+p[0],0)/points.length,cz=points.reduce((a,p)=>a+p[1],0)/points.length,shape=new T.Shape();
+  const cx=points.reduce((a,p)=>a+p[0],0)/points.length,cz=points.reduce((a,p)=>a+p[1],0)/points.length;
   const chipped=[];
   points.forEach((p,k)=>{const next=points[(k+1)%points.length];for(let n=0;n<5;n++){
    const t=n/5;let x=p[0]*(1-t)+next[0]*t,z=p[1]*(1-t)+next[1]*t;
-   // Inset every piece so the actual dark inter-slab gaps stay legible.
-   x+=(cx-x)*.013+R(-.006,.006);z+=(cz-z)*.013+R(-.006,.006);chipped.push([x,z]);
-   k||n?shape.lineTo(x,-z):shape.moveTo(x,-z);
+   // A narrow independent inset leaves a 1–3 px real joint at the review size.
+   x+=(cx-x)*.006+R(-.003,.003);z+=(cz-z)*.006+R(-.003,.003);chipped.push([x,z]);
   }});
-  shape.closePath();
   const id=j+':'+i,near=!!nearRainStoneProfiles[id],g=near?createNearRainFlagstone(T,{points:chipped,topOffset,seed:j*97+i*37+1037,id}):createWornFlagstone(T,{points:chipped,topOffset,seed:j*97+i*37+1037});
-  floorPolygons.push({points:near?g.userData.rainStoneFootprint:chipped,wetness,topY:near?(g.userData.nearRainStone.topYRange[0]+g.userData.nearRainStone.topYRange[1])*.5:.044+topOffset,...(near?{edgeFadeMetres:[.002,.009]}:{})});
+  floorPolygons.push({points:near?g.userData.rainStoneFootprint:chipped,wetness,topY:near?(g.userData.nearRainStone.topYRange[0]+g.userData.nearRainStone.topYRange[1])*.5:.044+topOffset,heightAt:g.userData.heightAt,topYMax:g.userData.topYMax,...(near?{edgeFadeMetres:[.001,.007]}:{})});
   if(near){nearSurfaceBuilder.add(g,id);nearStoneRecords.push(g.userData.nearRainStone);for(const bedPoints of clipPavingAtDrain(original)){const bed=createNearJointBed(T,{points:bedPoints,seed:j*97+i*37+1037});emit(bed,'nearJointGrit');}}
   emit(g,near?'wetNear':'wet',0,0,0,1,1,1,0,tint);
  }
- // Keep the existing independent garden layout unchanged by clipping topology.
+ // Keep the next tile's material and edge variation deterministic.
  seed=slabSeed;for(let k=0;k<42;k++)rand();
+ }
 }
+// The rest of the scene keeps its exact pre-rebuild random sequence.
+seed=pavingRngStart;for(let k=0;k<(rows+1)*7+(rows-1)*9+rows*8*42;k++)rand();
 // Closed worn curb stones carry the curved path edge into the veranda apron.
 const pathCurbRecords125=[];
 for(let i=0;i<31;i++){
  const a=-2+i*.70,b=a+.688,x0=rightPathEdge125(a),x1=rightPathEdge125(b),points=[[x0+.012,a],[x0+.22,a],[x1+.22,b],[x1+.012,b]],g=createWornFlagstone(T,{points,topOffset:.035,seed:12591+i*31});
  emit(g,'granite');pathCurbRecords125.push({points,closed:true});
 }
-const floorWetMap=createPavingWetMask(T,floorPolygons);wetStone.userData.floorWetMap=floorWetMap;m.wetNear.userData.floorWetMap=floorWetMap;
+const floorWetMap=createPavingWetMask(T,floorPolygons,{filmY:wetFilmY});wetStone.userData.floorWetMap=floorWetMap;m.wetNear.userData.floorWetMap=floorWetMap;
 const nearSurface=nearSurfaceBuilder.finish();
 installNearSurfaceWaterResponse(T,m.wetNear,nearSurface);
 // Narrow iron drainage grille crosses the lower frame diagonally.
 group(...L.drain.position,L.drain.yaw,()=>{box(0,-.105,0,.19,.025,13,'black');for(const side of[-1,1])box(side*.077,0,0,.016,.027,13,'black');for(let i=0;i<215;i++)box(0,0,-6.4+i*.060,.165,.014,.019,'black');});
 // Rain-film reflection uses actual geometry and a bounded physical plane.
-const mirror=new Reflector(new T.PlaneGeometry(8.9,22),{clipBias:.002,textureWidth:768,textureHeight:768,color:0x808080,multisample:2});mirror.rotation.x=-Math.PI/2;mirror.position.set(-.1,.066,8.5);mirror.material.transparent=true;mirror.material.depthWrite=false;mirror.material.uniforms.floorWetMap={value:floorWetMap};
+const mirror=new Reflector(new T.PlaneGeometry(8.9,22),{clipBias:.002,textureWidth:768,textureHeight:768,color:0x808080,multisample:2});mirror.rotation.x=-Math.PI/2;mirror.position.set(-.1,wetFilmY,8.5);mirror.material.transparent=true;mirror.material.depthWrite=false;mirror.material.uniforms.floorWetMap={value:floorWetMap};
 mirror.material.vertexShader='varying vec3 vFilmPosition;\n'+mirror.material.vertexShader.replace('vUv = textureMatrix * vec4( position, 1.0 );','vUv = textureMatrix * vec4( position, 1.0 );vFilmPosition=(modelMatrix*vec4(position,1.0)).xyz;');
 mirror.material.fragmentShader='uniform sampler2D floorWetMap;varying vec3 vFilmPosition;\n'+detailNoise+mirror.material.fragmentShader;
 mirror.material.fragmentShader=mirror.material.fragmentShader.replace('vec4 base = texture2DProj( tDiffuse, vUv );',`vec3 sp=vFilmPosition;
 float film=sdFbm(sp*9.4);vec4 uv=vUv;
-// Tiny actual reflection fragments follow stable centimetre ripples.
+// Broken reflected patches stay inside the generated stone margins and their low spots.
 vec2 rip=vec2(sdNoise(sp*91.),sdNoise(sp*113.+2.3))-.5;
 uv.xy+=rip*vec2(.0022,.0048)*uv.w;
-vec4 base=texture2DProj(tDiffuse,uv)*.82;vec4 u2=uv;u2.y+=.0016*uv.w;base+=texture2DProj(tDiffuse,u2)*.18;`)
+vec4 base=texture2DProj(tDiffuse,uv)*1.02;vec4 u2=uv;u2.y+=.0012*uv.w;base+=texture2DProj(tDiffuse,u2)*.08;`)
 .replace('gl_FragColor = vec4( blendOverlay( base.rgb, color ), 1.0 );',`vec4 wet=texture2D(floorWetMap,vec2((sp.x+4.6)/9.2,(sp.z+2.)/21.4));
-float pave=wet.b,wetPatch=smoothstep(.43,.66,film);
+float pave=wet.b,seam=wet.r,pool=smoothstep(.08,.78,wet.a);
+float broken=smoothstep(.34,.74,film+(sdNoise(sp*47.)-.5)*.22);
 float grazing=pow(1.-clamp(abs(normalize(cameraPosition-sp).y),0.,1.),3.);
-float alpha=mix(.17,wet.r*(.19+.71*wet.g)*(.22+.78*wetPatch)*(.30+.70*grazing),pave);
+float sheen=mix(.07,.84,pool)*(.16+.84*broken);
+float alpha=pave*seam*wet.g*sheen*(.52+.48*grazing);
 vec2 dp=vec2(sp.x+1.9,sp.z-8.5);float drain=abs(cos(${L.drain.yaw.toFixed(6)})*dp.x-sin(${L.drain.yaw.toFixed(6)})*dp.y);float drainZ=abs(sin(${L.drain.yaw.toFixed(6)})*dp.x+cos(${L.drain.yaw.toFixed(6)})*dp.y);
 alpha*=mix(1.,smoothstep(.085,.113,drain),step(drainZ,6.5));
 gl_FragColor=vec4(base.rgb,alpha);`);scene.add(mirror);
 installNearSurfacePlaneExclusion(T,mirror,nearSurface);
 // Shallow garden water, irregular rock-and-moss margins.
-m.water=new T.MeshPhysicalMaterial({color:'#33413d',roughness:.18,metalness:.1,clearcoat:1});box(0,-.11,-5,45,.08,37,'water');
+m.water=new T.MeshPhysicalMaterial({color:'#46534f',roughness:.12,metalness:.04,clearcoat:1,clearcoatRoughness:.035,envMapIntensity:1.45});box(0,-.11,-5,45,.08,37,'water');
 const rocks=Array.from({length:8},(_,i)=>createWeatheredBoulderGeometry(T,{scale:[1,.85,1],seed:1703+i*71,sectors:48,rings:22})),rockMoss=rocks.map((g,i)=>createBoulderMossGeometry(T,g,{seed:1703+i*71,offset:.004}));
-function rock(x,z,s){const y=s*.32,variant=Math.floor(rand()*8),sy=R(.6,.95)*s,sz=R(.7,1.3)*s,rot=R(0,6),tint=R(.75,1.2);const scan=scannedStones.variants[variant%6];if(!circulationReserved125(x,z))emit(scan.geometry,scan.wet,x,y-.12,z,s,sy,sz,rot,tint);let microSeed=0;for(let k=0;k<48;k++)microSeed=(microSeed+rand()*(k+1)*.723)%1;}
+function bridgeWaterChannel125(x,z){return x>-.35&&x<8.15&&z>-6.7&&z<-2.15;}
+function rock(x,z,s){const y=s*.32,variant=Math.floor(rand()*8),sy=R(.6,.95)*s,sz=R(.7,1.3)*s,rot=R(0,6),tint=R(.75,1.2);const scan=scannedStones.variants[variant%6];if(!circulationReserved125(x,z)&&!bridgeWaterChannel125(x,z))emit(scan.geometry,scan.wet,x,y-.12,z,s,sy,sz,rot,tint);let microSeed=0;for(let k=0;k<48;k++)microSeed=(microSeed+rand()*(k+1)*.723)%1;}
 for(let k=0;k<85;k++){const z=R(-23,5),x=(rand()<.45?-1:1)*R(4.5,16);rock(x,z,R(.35,1.45));}for(let k=0;k<16;k++)rock(R(-4,-2),R(-8,-2),R(.2,.6));
 function circulationReserved125(x,z){
  const p=bridgeHallPlan,dx=x-p.start[0],dz=z-p.start[2],along=dx*p.unit[0]+dz*p.unit[1],side=-dx*p.unit[1]+dz*p.unit[0];
@@ -232,46 +248,48 @@ function stoneLantern(x,z,s=1,isNear=false){const baseY=isNear?L.heroStoneLanter
  emit(new T.TorusGeometry(.105,.023,6,18),'carvedStone',0,1.45,.19,1,1,1);for(let j=0;j<5;j++)box(-.10+j*.05,1.07,.18,.016,.38,.02,'carvedStone');});
  emit(stoneCap,'carvedStone');for(let i=0;i<17;i++){const a=R(0,6.28),r=R(.18,.75);emit(rocks[i%8],'moss',Math.cos(a)*r,2.87+.3*(1-r),Math.sin(a)*r,R(.10,.24),R(.025,.045),R(.12,.24),R(0,6));}
  emit(new T.LatheGeometry([[.22,0],[.24,.06],[.16,.12],[.15,.20],[.23,.30],[.21,.41],[.10,.50],[.08,.61],[0,.69]].map(p=>new T.Vector2(...p)),14),'carvedStone',0,3.29,0);
- },isNear?L.heroStoneLantern.scale:s);const l=new T.PointLight('#ffc981',7*s,5.2,2);l.position.set(x,2.35*(isNear?L.heroStoneLantern.scale[1]:s)+baseY,z);scene.add(l);}
+ },isNear?L.heroStoneLantern.scale:s);const l=new T.PointLight('#ffc981',8*s,7,2);l.position.set(x,2.35*(isNear?L.heroStoneLantern.scale[1]:s)+baseY,z);scene.add(l);}
 {const h=L.heroStoneLantern,scan=scannedStones.variants[3],bounds=new T.Box3().setFromBufferAttribute(scan.geometry.attributes.position),scale=.85;emit(scan.geometry,scan.wet,h.position[0],h.supportTop-bounds.max.y*scale,h.position[2],scale,scale,scale,.3);box(h.position[0],h.position[1]-.07,h.position[2],1.12,.14,1.12,'granite');stoneLantern(h.position[0],h.position[2],1.30,true);}for(const [x,z,s]of[[-6,-2.7,.72],[-7.5,-6,.8],[-9,-10,.7],[-2,-7,.64],[4,-10,.75],[10,-1,.65]])stoneLantern(x,z,s);
 // All foliage is three-dimensional leaf geometry attached to irregular woody branching.
 const leafPos=[],leafUv=[];const leafP=(u,t)=>{const width=Math.sin(Math.PI*t)*.22;return[u*width,Math.sin(Math.PI*t)*.06+Math.abs(u)*.035,(t-.5)*.65];};for(let j=0;j<4;j++)for(let i=0;i<2;i++){const a=leafP(-1+i,j/4),b=leafP(i,j/4),c=leafP(-1+i,(j+1)/4),d=leafP(i,(j+1)/4);for(const p of[a,c,b,b,c,d]){leafPos.push(...p);leafUv.push(p[0],p[2]);}}const leafGeo=new T.BufferGeometry();leafGeo.setAttribute('position',new T.Float32BufferAttribute(leafPos,3));leafGeo.setAttribute('uv',new T.Float32BufferAttribute(leafUv,2));leafGeo.computeVertexNormals();
 const mapleShape=new T.Shape();const mp=[[0,.9],[.12,.35],[.46,.65],[.35,.16],[.83,.2],[.38,-.08],[.50,-.40],[.13,-.22],[0,-.63],[-.13,-.22],[-.5,-.4],[-.38,-.08],[-.83,.2],[-.35,.16],[-.46,.65],[-.12,.35]];mp.forEach((p,i)=>i?mapleShape.lineTo(...p):mapleShape.moveTo(...p));mapleShape.closePath();const mapleGeo=new T.ShapeGeometry(mapleShape);mapleGeo.rotateX(Math.PI/2);
 const canopyGeos=Array.from({length:7},(_,seed)=>{let g=new T.IcosahedronGeometry(1,2),p=g.attributes.position;for(let i=0;i<p.count;i++){let x=p.getX(i),y=p.getY(i),z=p.getZ(i),n=1+.16*Math.sin(x*6+seed)*Math.sin(z*6-y*3)+.11*Math.sin(y*8+z*4+seed);p.setXYZ(i,x*n,y*n,z*n);}g.deleteAttribute('normal');g.deleteAttribute('uv');g=mergeVertices(g,1e-5);g.computeVertexNormals();return g;});
 for(const [key,color]of[['leafBody','#23321f'],['mapleBody','#661b0f'],['pinkBody','#706968']]){m[key]=new T.MeshStandardMaterial({color,roughness:.89});installSurfaceDetail(m[key],'moss');}
-function foliage(cx,cy,cz,r,ma='leaf',n=180){if(ma==='leaf')emit(canopyGeos[Math.floor(rand()*7)],ma+'Body',cx,cy-r*.08,cz,r*.83,r*.32,r*.77,[R(-.18,.18),R(0,6.28),R(-.18,.18)],R(.82,1.16));for(let k=0;k<n;k++){const a=R(0,6.283),rr=Math.sqrt(rand())*r,x=cx+Math.cos(a)*rr,z=cz+Math.sin(a)*rr,y=cy+R(-.33,.35)*r;let s=ma==='maple'?R(.075,.14):R(.20,.37);emit(ma==='maple'?mapleGeo:leafGeo,ma,x,y,z,s,R(.7,1.3)*s,s,[R(-.75,.75),R(0,6.3),R(-.55,.55)],R(.78,1.35));}}
-function shrub(x,z,s=1){const prior=suppressGeometry;suppressGeometry=prior||circulationReserved125(x,z);try{for(let i=0;i<9;i++){const dx=R(-.55,.55)*s,dz=R(-.55,.55)*s,yy=R(.28,.75)*s;between([x,0,z],[x+dx,yy,z+dz],.015*s,'darkwood');foliage(x+dx,yy,z+dz,.38*s,'leaf',80);}}finally{suppressGeometry=prior;}}
+function foliage(cx,cy,cz,r,ma='leaf',n=180){if(ma==='leaf')emit(canopyGeos[Math.floor(rand()*7)],ma+'Body',cx,cy-r*.08,cz,r*.83,r*.32,r*.77,[R(-.18,.18),R(0,6.28),R(-.18,.18)],R(.82,1.16));for(let k=0;k<n;k++){const a=R(0,6.283),rr=Math.sqrt(rand())*r,x=cx+Math.cos(a)*rr,z=cz+Math.sin(a)*rr,y=cy+R(-.33,.35)*r;let s=ma==='maple'?R(.09,.16):R(.20,.37);emit(ma==='maple'?mapleGeo:leafGeo,ma,x,y,z,s,R(.7,1.3)*s,s,[R(-.75,.75),R(0,6.3),R(-.55,.55)],R(.78,1.35));}}
+function shrub(x,z,s=1){const prior=suppressGeometry;suppressGeometry=prior||circulationReserved125(x,z)||bridgeWaterChannel125(x,z);try{for(let i=0;i<9;i++){const dx=R(-.55,.55)*s,dz=R(-.55,.55)*s,yy=R(.28,.75)*s;between([x,0,z],[x+dx,yy,z+dz],.015*s,'darkwood');foliage(x+dx,yy,z+dz,.38*s,'leaf',80);}}finally{suppressGeometry=prior;}}
 for(let k=0;k<130;k++){const z=R(-24,5),x=(rand()<.5?-1:1)*R(4.4,18);shrub(x,z,R(.55,1.6));}
 for(let i=0;i<44;i++){const z=R(-6,2),x=(rand()<.5?-1:1)*R(3.1,5.5);shrub(x,z,R(.60,1.20));}
 // Tapered bent woody stems branch close to the ground; foliage also grows on intermediate boughs.
 const taperCylinder=new T.CylinderGeometry(.47,1,1,9);
-function branch(a,b,r){a=V(a);b=V(b);const d=b.clone().sub(a),q=new T.Quaternion().setFromUnitVectors(V([0,1,0]),d.clone().normalize()),e=new T.Euler().setFromQuaternion(q);emit(taperCylinder,'darkwood',...(a.clone().add(b).multiplyScalar(.5)).toArray(),r,d.length(),r,[e.x,e.y,e.z]);}
-function tree(x,z,h,ma='leaf',spread=1){const base=[x,-.1,z];function fork(a,dir,len,r,depth){const b=[a[0]+dir[0]*len,a[1]+dir[1]*len,a[2]+dir[2]*len],mid=[(a[0]+b[0])*.5+R(-.15,.15)*len,(a[1]+b[1])*.5,(a[2]+b[2])*.5+R(-.15,.15)*len];branch(a,mid,r);branch(mid,b,r*.72);if(depth===0){foliage(...b,len*.48+spread*.46,ma,ma==='maple'?180:220);return;}if(depth<2)foliage(...b,len*.35+spread*.3,ma,80);for(let i=0;i<3;i++){const ang=R(0,Math.PI*2),d=[dir[0]*.40+Math.cos(ang)*R(.45,.8),R(.5,.85),dir[2]*.40+Math.sin(ang)*R(.45,.8)];fork(b,d,len*R(.59,.76),r*.49,depth-1);}}fork(base,[R(-.16,.16),1,R(-.16,.16)],h*.32,h*.016,3);}
+function branch(a,b,r,material='darkwood'){a=V(a);b=V(b);const d=b.clone().sub(a),q=new T.Quaternion().setFromUnitVectors(V([0,1,0]),d.clone().normalize()),e=new T.Euler().setFromQuaternion(q);emit(taperCylinder,material,...(a.clone().add(b).multiplyScalar(.5)).toArray(),r,d.length(),r,[e.x,e.y,e.z]);}
+function tree(x,z,h,ma='leaf',spread=1){const base=[x,-.1,z];function fork(a,dir,len,r,depth){const b=[a[0]+dir[0]*len,a[1]+dir[1]*len,a[2]+dir[2]*len],mid=[(a[0]+b[0])*.5+R(-.15,.15)*len,(a[1]+b[1])*.5,(a[2]+b[2])*.5+R(-.15,.15)*len];branch(a,mid,r);branch(mid,b,r*.72);if(depth===0){foliage(...b,len*.48+spread*.46,ma,ma==='maple'?(spread>2?300:180):220);return;}if(depth<2)foliage(...b,len*.35+spread*.3,ma,80);for(let i=0;i<3;i++){const ang=R(0,Math.PI*2),d=[dir[0]*.40+Math.cos(ang)*R(.45,.8),R(.5,.85),dir[2]*.40+Math.sin(ang)*R(.45,.8)];fork(b,d,len*R(.59,.76),r*.49,depth-1);}}fork(base,[R(-.16,.16),1,R(-.16,.16)],h*.32,h*.016,3);}
 function cedar(x,z,h){const tilt=R(-.05,.05);branch([x,0,z],[x+tilt*h*.96,h*.96,z+.04*h],h*.012);foliage(x+tilt*h*.96,h*.96,z+.04*h,h*.04,'leaf',160);for(let l=0;l<14;l++){const t=l/14,y=h*(.20+t*.76),radius=h*(1-t)*R(.14,.21);for(let i=0;i<5;i++){let a=R(0,6.283),end=[x+tilt*y+Math.cos(a)*radius,y+R(-.2,.4),z+Math.sin(a)*radius];branch([x+tilt*y,y,z],end,h*.005*(1-t));foliage(...end,radius*.40+.16,'leaf',100);}}}
 for(let i=0;i<47;i++){const x=R(-43,39),z=R(-62,-34),h=R(15,27);cedar(x,z,h);}
 for(const p of[[-15,-14,9],[-17,-23,12],[-5,-29,13],[18,-17,12],[19,-2,10],[-6,-8,7]])tree(...p,'leaf',1.3);
-for(const p of[[-12,-7,7],[-5,-13,6],[16,-1,10],[-18,-1,9]])tree(...p,'maple',1.2);tree(6.7,3,14,'maple',1.8);
+for(const p of[[-12,-7,7],[-5,-13,6],[16,-1,10],[-18,-1,9]])tree(...p,'maple',1.2);
+{const prior=suppressGeometry;suppressGeometry=true;tree(6.7,3,16,'maple',2.7);suppressGeometry=prior;}
+const mapleCanopy136=buildMatureMapleCanopy136({branch,emit,leafGeometry:mapleLeaf136.leaf,veinGeometry:mapleLeaf136.veins,palette:m.mapleAutumn,veinMaterial:m.mapleVeins,position:[6.4,-.1,-12],seed:136031});
 for(const p of[[-4,-14,5],[-1,-13,5],[-11,-15,6]])tree(...p,'pink',1.1);
+// Mature blossom crowns sit behind the bridge and break up the evergreen wall.
+{const blossomSeed=seed;for(const p of[[-12,-5.5,6.4,1.35],[1.2,-11,6.8,1.55],[8.4,-8,5.4,1.25]])tree(p[0],p[1],p[2],'pink',p[3]);seed=blossomSeed;}
 // Ferns and wet grasses fill the rocky water margins at a much smaller scale.
-for(let i=0;i<270;i++){const x=(rand()<.5?-1:1)*R(3.4,7.7),z=R(-11,3),h=R(.16,.44);for(let j=0;j<7;j++){let a=R(0,6.28),r=R(.08,.32);branch([x,.03,z],[x+Math.cos(a)*r,.03+h,z+Math.sin(a)*r],.005);for(let k=0;k<5;k++){let f=k/5;for(const side of[-1,1])emit(leafGeo,'leaf',x+Math.cos(a)*r*f+Math.cos(a+Math.PI/2)*side*.06,.03+h*f,z+Math.sin(a)*r*f+Math.sin(a+Math.PI/2)*side*.06,.15,.12,.16,[.1,a,side*.25],R(.8,1.2));}}}
+for(let i=0;i<270;i++){const x=(rand()<.5?-1:1)*R(3.4,7.7),z=R(-11,3),h=R(.16,.44),prior=suppressGeometry;suppressGeometry=prior||bridgeWaterChannel125(x,z);try{for(let j=0;j<7;j++){let a=R(0,6.28),r=R(.08,.32);branch([x,.03,z],[x+Math.cos(a)*r,.03+h,z+Math.sin(a)*r],.005);for(let k=0;k<5;k++){let f=k/5;for(const side of[-1,1])emit(leafGeo,'leaf',x+Math.cos(a)*r*f+Math.cos(a+Math.PI/2)*side*.06,.03+h*f,z+Math.sin(a)*r*f+Math.sin(a+Math.PI/2)*side*.06,.15,.12,.16,[.1,a,side*.25],R(.8,1.2));}}}finally{suppressGeometry=prior;}}
 for(let i=0;i<26;i++){const z=R(-3,5),edge=rightPathEdge125(z);rock(edge+R(.2,1.0),z,R(.36,.92));shrub(edge+R(.45,1.15),z,R(.52,.95));}
 for(let i=0;i<15;i++){const z=-3-i*.72;box(-2.5,L.groundY-.075,z,2.3,.15,.70,'granite',R(-.015,.015),R(.75,1.08));}
 function hillHeight(x,z){const d=Math.hypot(x+8,(z+20)*1.2),t=T.MathUtils.clamp((20-d)/13,0,1);const r=T.MathUtils.clamp((3-x)/6,0,1);return L.pagoda.position[1]*t*t*(3-2*t)*r*r*(3-2*r);}
 const terrainPos=[],terrainUv=[];function terrainP(i,j){const x=-31+i*.75,z=-42+j*.75,h=hillHeight(x,z);return[x,h+.08*Math.sin(x*2.1+z)*Math.min(h,1),z];}for(let j=0;j<64;j++)for(let i=0;i<64;i++){const a=terrainP(i,j),b=terrainP(i+1,j),c=terrainP(i,j+1),d=terrainP(i+1,j+1);for(const p of[a,c,b,b,c,d]){terrainPos.push(...p);terrainUv.push(p[0]*.2,p[2]*.2);}}const terrainGeo=new T.BufferGeometry();terrainGeo.setAttribute('position',new T.Float32BufferAttribute(terrainPos,3));terrainGeo.setAttribute('uv',new T.Float32BufferAttribute(terrainUv,2));terrainGeo.computeVertexNormals();emit(terrainGeo,'moss');
 for(let i=0;i<65;i++){const x=R(-16,-1),z=R(-17,-8),h=hillHeight(x,z);group(0,h,0,0,()=>{rock(x,z,R(.25,.60));shrub(x,z,R(.8,1.6));});}
 for(const [x,z,h,kind]of[[-4,-12,4.8,'pink'],[-1.6,-15,4.2,'pink'],[-10,-10,4.4,'maple']])group(0,hillHeight(x,z),0,0,()=>tree(x,z,h,kind,1.05));
-for(const [x,z,sx,sz,h]of[[2.3,-4.3,2.0,1.3,1.0],[5.1,-5.1,2.2,1.4,1.2],[7.2,-5.8,2.0,1.6,1.35]]){const scan=scannedStones.variants[3];emit(scan.geometry,scan.wet,x,h*.42,z,sx,h*1.2,sz,.2);const surface=new T.Mesh(scan.geometry,scan.wet);surface.position.set(x,h*.42,z);surface.scale.set(sx,h*1.2,sz);surface.rotation.y=.2;surface.updateMatrixWorld(true);const ray=new T.Raycaster();for(let i=0;i<12;i++){let xx=x+R(-.8,.8)*sx,zz=z+R(-.65,.65)*sz;ray.set(V([xx,15,zz]),V([0,-1,0]));const hit=ray.intersectObject(surface,false)[0],base=hit?hit.point.y-.035:h*.42;group(0,base,0,0,()=>shrub(xx,zz,R(.55,.90)));}}
 // Red maple leaves on wet stone: actual tiny lobed meshes lie against the paving.
 for(let i=0;i<65;i++){const x=R(-4.3,4.2),z=R(1,18),s=R(.06,.15);emit(mapleGeo,'maple',x,.062,z,s,s,s,[0,R(0,6.28),0],R(.7,1.4));}
-// Raised planted banks hide most of the bridge piers. Every plant roots into
-// a real irregular stone/soil surface; the path to the left stays open.
-for(const [x,z,sx,sz,top]of[[.9,-2.7,1.35,1.2,1.1],[2.8,-2.9,1.6,1.4,1.65],[4.8,-3.6,1.55,1.6,1.75],[6.6,-4.3,1.35,1.6,1.8]]){
+// Four separated, low rock-and-moss islands leave water visible through the arch.
+for(const [x,z,sx,sz,top]of[[.55,-3.05,1.18,.92,.82],[2.7,-5.45,1.42,1.04,1.02],[5.15,-3.05,1.22,.93,.88],[7.9,-5.35,1.35,1.06,1.02]]){
  const variant=Math.floor(rand()*8),y=top*.43,sy=top*.86;
  const scan=scannedStones.variants[variant%6];emit(scan.geometry,scan.wet,x,y,z,sx,sy,sz,.3,R(.68,.88));R(.80,1.20);
  const surface=new T.Mesh(scan.geometry,scan.wet);surface.position.set(x,y,z);surface.scale.set(sx,sy,sz);surface.rotation.y=.3;surface.updateMatrixWorld(true);const ray=new T.Raycaster();
  for(let k=0;k<14;k++){
   const xx=x+R(-.66,.66)*sx,zz=z+R(-.56,.56)*sz;ray.set(V([xx,12,zz]),V([0,-1,0]));const hit=ray.intersectObject(surface,false)[0];
-  if(hit)group(0,hit.point.y-.035,0,0,()=>shrub(xx,zz,R(.82,1.23)));
+  const prior=suppressGeometry;suppressGeometry=prior||k%5!==0;try{if(hit)group(0,hit.point.y-.035,0,0,()=>shrub(xx,zz,R(.66,.92)));}finally{suppressGeometry=prior;}
  }
 }
 // A single exposed, grounded near-right bank mass replaces the thin-slice
@@ -279,13 +297,27 @@ for(const [x,z,sx,sz,top]of[[.9,-2.7,1.35,1.2,1.1],[2.8,-2.9,1.6,1.4,1.65],[4.8,
 const nearBankOutcrop=buildNearBankOutcrop(scannedStones,emit,{offsetX:L.path.nearBankOffsetX});
 // Broad evergreen branches interrupt the right facade, as in the photograph.
 tree(10.4,-2.7,11.7,'leaf',1.45);
+// Three broken airborne mist bands recede from the bridge toward the ridge.
+function mistLayer(x,y,z,width,height,density,phase){
+ const material=new T.ShaderMaterial({transparent:true,depthWrite:false,side:T.DoubleSide,uniforms:{density:{value:density},phase:{value:phase}},vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:detailNoise+`varying vec2 vUv;uniform float density;uniform float phase;void main(){
+ float broad=sdFbm(vec3(vUv.x*9.,vUv.y*4.,phase));float detail=sdFbm(vec3(vUv.x*25.,vUv.y*10.,phase+7.));
+ float center=.37+.21*sin(vUv.x*5.4+phase)+.16*(broad-.5);float band=exp(-pow((vUv.y-center)/.22,2.));
+ float edge=smoothstep(0.,.09,vUv.x)*(1.-smoothstep(.88,1.,vUv.x))*smoothstep(0.,.17,vUv.y)*(1.-smoothstep(.79,1.,vUv.y));
+ float cloud=smoothstep(.28,.68,broad+.18*(detail-.5));float alpha=density*edge*band*cloud*(.68+.32*detail);
+ vec3 fog=mix(vec3(.56,.61,.64),vec3(.76,.79,.80),smoothstep(.28,.78,broad));gl_FragColor=vec4(fog,alpha);
+ #include <tonemapping_fragment>
+ #include <colorspace_fragment>
+}`});
+ const layer=new T.Mesh(new T.PlaneGeometry(width,height),material);layer.position.set(x,y,z);layer.renderOrder=1;scene.add(layer);
+}
+mistLayer(-4,1.55,-10.8,20,3.2,.20,1.4);mistLayer(1.2,3.6,-18,27,4.2,.15,6.3);mistLayer(-5.5,5.5,-29,36,6.4,.12,3.8);
 const skyDome=new T.Mesh(new T.SphereGeometry(170,32,16),new T.ShaderMaterial({side:T.BackSide,depthWrite:false,vertexShader:`varying vec3 vSky;void main(){vSky=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:detailNoise+`varying vec3 vSky;void main(){vec3 d=normalize(vSky);float cloud=.75*sdFbm(vec3(d.x*6.,d.y*18.,d.z*6.)+vec3(0.,3.,0.))+.25*sdFbm(d*31.);vec3 c=mix(vec3(.27,.32,.36),vec3(.72,.77,.80),smoothstep(.25,.75,cloud));c=mix(c,vec3(.64,.69,.71),pow(1.-max(d.y,0.),3.)*.6);gl_FragColor=vec4(c,1.);
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
 }` }));skyDome.renderOrder=-10;scene.add(skyDome);
 // Soft broad grey sky with stable directional penumbrae.
 const hemi=new T.HemisphereLight('#d1dae1','#171e17',.72);scene.add(hemi);const skyLight=new T.DirectionalLight('#d7e2eb',1.15);skyLight.position.set(-15,38,12);skyLight.castShadow=true;skyLight.shadow.mapSize.set(4096,4096);Object.assign(skyLight.shadow.camera,{left:-40,right:40,top:45,bottom:-25,near:1,far:120});skyLight.shadow.bias=-.00005;skyLight.shadow.normalBias=.006;skyLight.shadow.radius=4;scene.add(skyLight);
-const envScene=new T.Scene();envScene.background=new T.Color('#bac1c5');envScene.add(new T.HemisphereLight('#dbe1e5','#44473c',3));const envGround=new T.Mesh(new T.SphereGeometry(75,24,16),new T.MeshBasicMaterial({color:'#8e999c',side:T.BackSide}));envScene.add(envGround);const envTop=new T.Mesh(new T.PlaneGeometry(80,80),new T.MeshBasicMaterial({color:'#d8dfe4'}));envTop.rotation.x=Math.PI/2;envTop.position.y=35;envScene.add(envTop);const pmrem=new T.PMREMGenerator(renderer);const env=pmrem.fromScene(envScene,.08,.1,120);scene.environment=env.texture;scene.environmentIntensity=.58;pmrem.dispose();
+const envScene=new T.Scene();envScene.background=new T.Color('#bac1c5');envScene.add(new T.HemisphereLight('#dbe1e5','#44473c',3));const envGround=new T.Mesh(new T.SphereGeometry(75,24,16),new T.MeshBasicMaterial({color:'#8e999c',side:T.BackSide}));envScene.add(envGround);const envTop=new T.Mesh(new T.PlaneGeometry(80,80),new T.MeshBasicMaterial({color:'#d8dfe4'}));envTop.rotation.x=Math.PI/2;envTop.position.y=35;envScene.add(envTop);const pmrem=new T.PMREMGenerator(renderer);const env=pmrem.fromScene(envScene,.08,.1,120);scene.environment=env.texture;scene.environmentIntensity=.72;pmrem.dispose();
 // Three-dimensional adhered rain beads, with water IOR and real highlights.
 {let beadSeed=479151;const br=()=>{beadSeed=(Math.imul(beadSeed,1664525)+1013904223)>>>0;return beadSeed/4294967296;};
  for(let k=0;k<1600;k++){const a=-Math.PI*.10+br()*Math.PI*1.2,rad=.501,r=.0014+.0038*br();emit(sphere,'rainDrop',L.veranda.column[0]+Math.cos(a)*rad,L.veranda.shoeHeight+.01+br()*(L.veranda.ceilingY-L.veranda.shoeHeight-.25),L.veranda.column[2]+Math.sin(a)*rad,r,r*(1.0+br()*1.8),r*.65,[0,-a,0]);}
@@ -295,19 +327,19 @@ const unique=new Map();let objects=0;for(const b of buckets.values()){if(b.matri
 for(const [ma,gs]of unique){const geometry=mergeGeometries(gs,false);if(!geometry)throw Error('Failed merging '+ma.name);const mesh=new T.Mesh(geometry,ma);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);for(const g of gs)g.dispose();objects+=gs.length;}
 // Existing impact draws retain the exact later rain/scene RNG sequence.
 const impactCount=55,ringSeeds=[];for(let i=0;i<impactCount;i++)ringSeeds.push({x:R(-3.7,3.7),z:R(2,15),phase:rand(),radius:R(.035,.085)});
-const waterRipples135=createWaterFilmRipples135(T,{impacts:ringSeeds,floorWetMap,floorPolygons,scene});
+const waterRipples135=createWaterFilmRipples135(T,{impacts:ringSeeds,floorWetMap,floorPolygons,scene,filmY:wetFilmY});
 const rainPos=[],rainBase=[];for(let i=0;i<1800;i++){const x=R(-21,21),y=R(0,27),z=R(-30,12);if(x< -2.8&&z>0)continue;rainPos.push(x,y,z,x-.055,y-.35,z+.03);rainBase.push(y,y);}
 const rainGeo=new T.BufferGeometry();rainGeo.setAttribute('position',new T.Float32BufferAttribute(rainPos,3));rainGeo.setAttribute('rainBaseHeight',new T.Float32BufferAttribute(rainBase,1));
-const rainTime={value:0},rainMaterial=new T.LineBasicMaterial({color:'#c5d0d4',transparent:true,opacity:.12,depthWrite:false});
+const rainTime={value:0},rainMaterial=new T.LineBasicMaterial({color:'#c5d0d4',transparent:true,opacity:.17,depthWrite:false});
 rainMaterial.onBeforeCompile=shader=>{shader.uniforms.rainTime=rainTime;shader.vertexShader='attribute float rainBaseHeight;uniform float rainTime;varying float vRainFade;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>',`#include <begin_vertex>
 float fallingBase=mod(rainBaseHeight-rainTime*6.5+270.,27.);transformed.y+=fallingBase-rainBaseHeight;vRainFade=smoothstep(0.,.22,fallingBase)*(1.-smoothstep(26.5,27.,fallingBase));`);shader.fragmentShader='varying float vRainFade;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.a*=vRainFade;');};rainMaterial.customProgramCacheKey=()=> 'independently-phased-continuous-rain-v1';
 const rain=new T.LineSegments(rainGeo,rainMaterial);scene.add(rain);
 function update(time){waterRipples135.update(time);rainTime.value=time;}
 const nearEnvironmentTarget=new T.WebGLCubeRenderTarget(256,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),nearCubeCamera=new T.CubeCamera(.08,220,nearEnvironmentTarget);nearCubeCamera.position.set(0,2.3,7);let nearEnvironmentReady=false;
-function captureNearEnvironment(){if(nearEnvironmentReady)return;nearEnvironmentReady=true;if(!renderer.capabilities)return;const hidden=[];scene.traverse(o=>{if(o.isMesh&&(o.material===m.gold||o.material===m.oldgold||o.material===hall132Palette.gold||o.material===hall132Palette.oldgold)){hidden.push([o,o.visible]);o.visible=false;}});const wasMirror=mirror.visible;mirror.visible=false;nearCubeCamera.update(renderer,scene);mirror.visible=wasMirror;for(const [o,v]of hidden)o.visible=v;renderer.shadowMap.needsUpdate=true;for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.wetNear]){mat.envMap=nearEnvironmentTarget.texture;mat.needsUpdate=true;}}
+function captureNearEnvironment(){if(nearEnvironmentReady)return;nearEnvironmentReady=true;if(!renderer.capabilities)return;const hidden=[];scene.traverse(o=>{if(o.isMesh&&(o.material===m.gold||o.material===m.oldgold||o.material===hall132Palette.gold||o.material===hall132Palette.oldgold)){hidden.push([o,o.visible]);o.visible=false;}});const wasMirror=mirror.visible;mirror.visible=false;nearCubeCamera.update(renderer,scene);mirror.visible=wasMirror;for(const [o,v]of hidden)o.visible=v;renderer.shadowMap.needsUpdate=true;for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.wetNear,m.wet]){mat.envMap=nearEnvironmentTarget.texture;mat.needsUpdate=true;}}
 function renderView(position,target,time=0,fov=65){camera.position.fromArray(position);camera.userData.focusDistance=new T.Vector3(...position).distanceTo(new T.Vector3(...target));camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);update(time);scene.updateMatrixWorld(true);captureNearEnvironment();renderer.info.reset();optics.render(scene,camera);return {position,target,time,fov,width:W,height:H};}
 function renderReference(n=10){if(n!==10)throw Error('Only scene 10 exists');return renderView(fixed.position,fixed.target,0,fixed.fov);}
 const dolly=createDollyPath({points:[[-.7,.25,9],[-.75,.34,10.5],[-.2,.85,12.8],fixed.position],nearTarget:[-.8,.067,7.8],farTarget:fixed.target,fov:fixed.fov});
 // Negative values are bounded structural QA poses only; positive film timing is unchanged.
 function renderShot(localTime=0){if(localTime===-1250)return renderReference(10);if(localTime===-125)return renderView(L.inspection.position,L.inspection.target,0,L.inspection.fov);const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:HALL132_REVISION,layout:L,hall132,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeAbutment125,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentTarget.texture,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();optics.dispose();scannedStones.dispose();nearSurface.texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:HALL132_REVISION,layout:L,hall132,mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeAbutment125,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentTarget.texture,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();optics.dispose();scannedStones.dispose();nearSurface.texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();

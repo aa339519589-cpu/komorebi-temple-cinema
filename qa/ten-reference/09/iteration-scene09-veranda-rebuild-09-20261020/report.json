@@ -1,0 +1,1707 @@
+{
+  "reference": 9,
+  "entry": "reconstructions/scene-09/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-20T14:35:45.137Z",
+  "source": {
+    "hash": "9baaa2d69039f5c92537314e3ae9a7af641e1c9d327e68d6e2f0f08dc3c9b425",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-09/asset-dependencies.json": "684afed047fbdaf2b864592437d0e36b816d36f5d13f899f74d5a8926385befb",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png": "0d46b0bfe3ed488f9855f51ec917355642d20afc45b5cbd1f6afad202ac747b6",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-provenance.json": "ec0c27f2dc67fed7f5c10e6c3d82dfcedea8aa7403fbf67dc50beada58700897",
+      "reconstructions/scene-09/assets/hero-hanging-lantern/provenance.json": "ed1e24b793fe9ff1619e309708b1765bad481242ac6db9c5df62ee0036c92448",
+      "reconstructions/scene-09/assets/physical-night-fixtures-provenance.json": "346141cb35cad7de65e9d009e1d84994ac0457b84fb8339608f52c456d3ba688",
+      "reconstructions/scene-09/index.html": "f10bccc1d16c93aa46ee5c417fbee1460acd8713b1bcaa0f96f2274ebd1bae30",
+      "reconstructions/scene-09/src/arched-garden-bridge.js": "2b7927c4863e40d0f683b4f2b465b0dd0d041d3d2071d131c48d1e9b9c0a7f9b",
+      "reconstructions/scene-09/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-09/src/bridge-coating.js": "932ebddf0d0723f81bf2230edbb9c37cfb9f3321875f3807f854a2327d369d85",
+      "reconstructions/scene-09/src/carved-joinery.js": "9190d3a92771139b0de1a8b83303472e1588bce05a44941af3b03e0921be3044",
+      "reconstructions/scene-09/src/garden-ferns.js": "77ef4f483cebdd0780e60fb2c258669b939bcfda2b454996a0abebdf3daa04b7",
+      "reconstructions/scene-09/src/hall-circulation133.js": "415f101d0b3c89e15d93911c42141575557ae41dd7923dceb605e2aa7cd5448f",
+      "reconstructions/scene-09/src/hero-hanging-lantern.js": "1ab57d49406383053d9a5c00bbe17ad8dd808007e5976bbbaf929971cc586227",
+      "reconstructions/scene-09/src/highlight-scatter.js": "7cfd3bed7479213f870d7be3868baf58a293f6644ce156a81507f2bad41b4b62",
+      "reconstructions/scene-09/src/lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+      "reconstructions/scene-09/src/lotus-petal.js": "921e5dcb2a87f784688909107b6e04f541bbd80b0d34885dab673aa29ece455f",
+      "reconstructions/scene-09/src/main.js": "d4762e7c09cb744d50ca2cceb72bff5e04f4a10f9b6aa8faae75c5e57f40e89e",
+      "reconstructions/scene-09/src/night-main-roofs123.js": "46658600db2db594f1c0028afb5ce174bf25b3cf262088a6f30d76ae6846bca0",
+      "reconstructions/scene-09/src/pagoda-finial09.js": "8fa61956daacb902602934aaf548a003650e4bd5c615ab40b1756529d19f314d",
+      "reconstructions/scene-09/src/physical-night-fixtures.js": "001941cc8358bee9c9ea4c490422f141dbacab90ae2edeed23fd74d94a32c006",
+      "reconstructions/scene-09/src/pine-needles.js": "2b0c81a1ac2cc15d93da182a85e211061dcf7bfd492f1546a36f04dc611e514a",
+      "reconstructions/scene-09/src/process-bridge-roughness.py": "905116fb8b487cd1087968a72d51de9213b775e1a1d41ac3ba7f26df6c937141",
+      "reconstructions/scene-09/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-09/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-09/src/restoration-pruned-pines-v1.js": "f41adbbcf83bf56541d34e2861f803e4450dcc260f92a0fc5e76712cd9484e6b",
+      "reconstructions/scene-09/src/washi-tissue103.js": "738fbb6e1465af712de6ea1da93150b38daef1934c1ed5102de9a6e2ee3a7ddc",
+      "reconstructions/scene-09/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1"
+    }
+  },
+  "sourceCommit": "6c561fd90a014028e593d00c892a9d1c8d46f815",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-09/index.html",
+    "/reconstructions/scene-09/src/main.js",
+    "/reconstructions/scene-09/src/hall-circulation133.js",
+    "/reconstructions/scene-09/src/night-main-roofs123.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-09/src/highlight-scatter.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-09/src/pine-needles.js",
+    "/reconstructions/scene-09/src/lotus-leaf.js",
+    "/reconstructions/scene-09/src/lotus-petal.js",
+    "/reconstructions/scene-09/src/carved-joinery.js",
+    "/reconstructions/scene-09/src/restoration-altar.js",
+    "/reconstructions/scene-09/src/weathered-boulder.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-09/src/restoration-buddha.js",
+    "/reconstructions/scene-09/src/botany.js",
+    "/reconstructions/scene-09/src/restoration-pruned-pines-v1.js",
+    "/reconstructions/scene-09/src/garden-ferns.js",
+    "/reconstructions/scene-09/src/arched-garden-bridge.js",
+    "/reconstructions/scene-09/src/physical-night-fixtures.js",
+    "/reconstructions/scene-09/src/bridge-coating.js",
+    "/reconstructions/scene-09/src/hero-hanging-lantern.js",
+    "/reconstructions/scene-09/src/pagoda-finial09.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/reconstructions/scene-09/src/washi-tissue103.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 9,
+        "revision": "night-stair-following-terrain135a",
+        "circulation": {
+          "plan": {
+            "hall": {
+              "position": [
+                7.7,
+                0,
+                -14
+              ],
+              "yaw": -0.64,
+              "scale": [
+                1,
+                1.17,
+                1
+              ],
+              "floor": 3.09
+            },
+            "stair": {
+              "width": 6.5,
+              "upperZ": 6.4,
+              "lowerZ": 10.6,
+              "lowerY": 1.0683760683760684,
+              "count": 14
+            },
+            "bridge": {
+              "eastX": 5.16,
+              "nearZ": 3.19,
+              "farZ": 0.01,
+              "deckY": 1.25
+            },
+            "evidence": "Authored reconstruction; exact hidden masonry is not recoverable from one image."
+          },
+          "steps": [
+            {
+              "riser": 1,
+              "localTop": 1.2127777777777777,
+              "worldTop": 1.41895,
+              "frontZ": 10.6,
+              "backZ": 10.299999999999999
+            },
+            {
+              "riser": 2,
+              "localTop": 1.357179487179487,
+              "worldTop": 1.5878999999999999,
+              "frontZ": 10.299999999999999,
+              "backZ": 10
+            },
+            {
+              "riser": 3,
+              "localTop": 1.5015811965811965,
+              "worldTop": 1.7568499999999998,
+              "frontZ": 10,
+              "backZ": 9.7
+            },
+            {
+              "riser": 4,
+              "localTop": 1.645982905982906,
+              "worldTop": 1.9258,
+              "frontZ": 9.7,
+              "backZ": 9.4
+            },
+            {
+              "riser": 5,
+              "localTop": 1.7903846153846152,
+              "worldTop": 2.09475,
+              "frontZ": 9.4,
+              "backZ": 9.1
+            },
+            {
+              "riser": 6,
+              "localTop": 1.9347863247863248,
+              "worldTop": 2.2637,
+              "frontZ": 9.1,
+              "backZ": 8.8
+            },
+            {
+              "riser": 7,
+              "localTop": 2.079188034188034,
+              "worldTop": 2.4326499999999998,
+              "frontZ": 8.8,
+              "backZ": 8.5
+            },
+            {
+              "riser": 8,
+              "localTop": 2.2235897435897436,
+              "worldTop": 2.6016,
+              "frontZ": 8.5,
+              "backZ": 8.2
+            },
+            {
+              "riser": 9,
+              "localTop": 2.367991452991453,
+              "worldTop": 2.77055,
+              "frontZ": 8.2,
+              "backZ": 7.9
+            },
+            {
+              "riser": 10,
+              "localTop": 2.5123931623931623,
+              "worldTop": 2.9395,
+              "frontZ": 7.9,
+              "backZ": 7.6000000000000005
+            },
+            {
+              "riser": 11,
+              "localTop": 2.6567948717948715,
+              "worldTop": 3.1084499999999995,
+              "frontZ": 7.6000000000000005,
+              "backZ": 7.300000000000001
+            },
+            {
+              "riser": 12,
+              "localTop": 2.8011965811965815,
+              "worldTop": 3.2774,
+              "frontZ": 7.300000000000001,
+              "backZ": 7
+            },
+            {
+              "riser": 13,
+              "localTop": 2.9455982905982907,
+              "worldTop": 3.44635,
+              "frontZ": 7,
+              "backZ": 6.700000000000001
+            },
+            {
+              "riser": 14,
+              "localTop": 3.09,
+              "worldTop": 3.6152999999999995,
+              "frontZ": 6.700000000000001,
+              "backZ": 6.4
+            }
+          ],
+          "plants": [
+            [
+              -1.7899657242702067,
+              0.4842970680090672,
+              -8.48148982601349
+            ],
+            [
+              6.008858997167,
+              2.4938792109427994,
+              -8.45493884826796
+            ],
+            [
+              -2.1137496313291666,
+              0.6765950254130348,
+              -7.891593209666767
+            ],
+            [
+              6.541253300460935,
+              2.618126188668067,
+              -7.9965562688030225
+            ],
+            [
+              -2.9200953386699795,
+              0.4511298601630124,
+              -7.295355642755289
+            ],
+            [
+              7.086373060368903,
+              2.9955746040222158,
+              -7.163162132834058
+            ],
+            [
+              -2.6950686459202275,
+              0.8933204051017651,
+              -6.606961361341872
+            ],
+            [
+              7.6525258982305155,
+              1.3082256273590303,
+              -6.740964362097319
+            ],
+            [
+              -2.852207173632659,
+              0.9721855940581339,
+              -6.159517179943578
+            ],
+            [
+              -3.892868210604952,
+              0.601233311951409,
+              -5.360941496382346
+            ],
+            [
+              6.105269510226748,
+              2.215743150903099,
+              -5.5209643620973194
+            ],
+            [
+              -3.345928423943197,
+              0.8565618765469636,
+              -4.959957694715962
+            ],
+            [
+              6.085480592567986,
+              1.1936653044312013,
+              -4.815222132479462
+            ],
+            [
+              -2.1009978292681644,
+              0.9213122826025666,
+              -4.161629959888163
+            ],
+            [
+              5.421335364899379,
+              1.245392327566129,
+              -4.237960432360275
+            ],
+            [
+              -2.28267348695431,
+              0.5323077462511817,
+              -3.64165165391493
+            ],
+            [
+              4.790308629928742,
+              1.0665023109194771,
+              -3.6290163309078025
+            ],
+            [
+              -1.744748073964223,
+              0.4188564416876462,
+              -3.070305318297446
+            ],
+            [
+              5.329914348912513,
+              0.9571408689404116,
+              -2.9253364426846953
+            ],
+            [
+              6.710948203589888,
+              0.436110157684341,
+              -2.8929252762496667
+            ],
+            [
+              0.24975459075849002,
+              0.8590153677555469,
+              -2.2831621328340583
+            ],
+            [
+              6.656194731762535,
+              0.7065633220354776,
+              -2.5175232827530714
+            ],
+            [
+              0.11380602506809018,
+              0.5563330308725521,
+              -1.8851763702999775
+            ],
+            [
+              7.186390332947448,
+              0.9670206140000512,
+              -1.716491352042118
+            ],
+            [
+              1.4240294743043926,
+              0.7336400222755481,
+              -1.1890163309078021
+            ],
+            [
+              7.71910517111057,
+              0.8816183832027429,
+              -1.1741639799353234
+            ],
+            [
+              1.9752661630636605,
+              0.5575915607205485,
+              -0.48533644268469556
+            ],
+            [
+              2.985720018525136,
+              0.8078872235890148,
+              -0.45292527624966694
+            ],
+            [
+              7.927703045752534,
+              0.9657107025918104,
+              0.1338654531930717
+            ],
+            [
+              8.515569971380861,
+              0.5364029495731646,
+              0.5300750779639987
+            ],
+            [
+              7.91516142381173,
+              0.9725107958008387,
+              1.771078192518198
+            ],
+            [
+              8.519932952858847,
+              0.5494814643792879,
+              2.510975691057974
+            ],
+            [
+              4.937448188368288,
+              0.775704829345513,
+              3.807518120064772
+            ],
+            [
+              5.9234453441547625,
+              0.8471663827278663,
+              3.7621354706380967
+            ],
+            [
+              7.295653558534219,
+              0.8816771996108915,
+              3.697348405686557
+            ],
+            [
+              8.285255032966305,
+              0.6393538087950781,
+              3.6333894126452004
+            ],
+            [
+              5.4761947317625355,
+              0.4632898726466609,
+              4.262973804339019
+            ],
+            [
+              6.5649768595590485,
+              0.39990117653752205,
+              4.329555324736506
+            ]
+          ],
+          "lowerLandingWorld": [
+            3.314702925262539,
+            1.25,
+            -2.3665753294096987
+          ],
+          "landingConnection": "right edge of 2.7 m deep lower landing; both path sides cut to the same physical plane",
+          "turn": [
+            6.36,
+            -0.42
+          ],
+          "walkLength": 3.614275831542332,
+          "worldRiser": 0.16895,
+          "tread": 0.29999999999999993,
+          "bankStones": 76,
+          "sourcePhotoUsedAsTexture": false
+        },
+        "mainRoof123": [
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "main-hall-annular-skirt",
+            "width": 19.68,
+            "frontDepth": 8,
+            "backDepth": 6.5,
+            "ridgeLeft": 4.723199999999999,
+            "ridgeRight": 4.723199999999999,
+            "innerOpening": 0.58,
+            "eave": 7.25,
+            "peak": 10.25,
+            "tiles": {
+              "cover": 5896,
+              "pan": 5828
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "main-hall-hip-gable",
+            "width": 20.09,
+            "frontDepth": 9,
+            "backDepth": 6,
+            "ridgeLeft": 6.48,
+            "ridgeRight": 4.92,
+            "innerOpening": 0,
+            "eave": 9.8,
+            "peak": 15.8,
+            "tiles": {
+              "cover": 4703,
+              "pan": 4472
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-1",
+            "width": 9.35,
+            "frontDepth": 4.675,
+            "backDepth": 4.675,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.49018181818181816,
+            "eave": 3.63,
+            "peak": 4.83,
+            "tiles": {
+              "cover": 2444,
+              "pan": 2392
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-2",
+            "width": 8.69,
+            "frontDepth": 4.345,
+            "backDepth": 4.345,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.48336018411967785,
+            "eave": 6.73,
+            "peak": 7.930000000000001,
+            "tiles": {
+              "cover": 2112,
+              "pan": 2064
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-3",
+            "width": 8.03,
+            "frontDepth": 4.015,
+            "backDepth": 4.015,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.4754171855541719,
+            "eave": 9.83,
+            "peak": 11.03,
+            "tiles": {
+              "cover": 1804,
+              "pan": 1760
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-4",
+            "width": 7.370000000000001,
+            "frontDepth": 3.6850000000000005,
+            "backDepth": 3.6850000000000005,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.4660515603799185,
+            "eave": 12.93,
+            "peak": 14.129999999999999,
+            "tiles": {
+              "cover": 1480,
+              "pan": 1440
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-5",
+            "width": 6.710000000000001,
+            "frontDepth": 3.3550000000000004,
+            "backDepth": 3.3550000000000004,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0,
+            "eave": 16.03,
+            "peak": 17.23,
+            "tiles": {
+              "cover": 1360,
+              "pan": 1320
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          }
+        ],
+        "foregroundVeranda": {
+          "slabs": 33,
+          "footprint": [
+            [
+              0.586,
+              -4.441
+            ],
+            [
+              4.757,
+              -9.855
+            ],
+            [
+              1.443,
+              -3.046
+            ],
+            [
+              0.053,
+              -3.046
+            ]
+          ],
+          "wetReflection": true
+        },
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 343139,
+        "meshes": 2962,
+        "drawCalls": 30533,
+        "triangles": 214968721,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 3,
+          "pointLights": 67
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-two-bronze-pierced-hanging-lanterns-103b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "installations": [
+            {
+              "position": [
+                1,
+                7.2,
+                23.7
+              ],
+              "scale": 0.7215999999999999
+            },
+            {
+              "position": [
+                7.7,
+                7.3,
+                21.6
+              ],
+              "scale": 0.8448
+            }
+          ],
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "originalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 38,
+            "unscaledDistance": 7,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "pagodaFinial": {
+          "revision": "scene09-closed-cast-finial-105b",
+          "authoredGeometry": true,
+          "photoSampled": false,
+          "visualAccepted": false,
+          "mainWheelCount": 9,
+          "wheelCountConfidence": "Nine main rims visible; upper small fittings unresolved",
+          "wheels": [
+            {
+              "localY": 18.8,
+              "outerRadius": 0.442,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 19.1375,
+              "outerRadius": 0.43,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 19.475,
+              "outerRadius": 0.418,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 19.8125,
+              "outerRadius": 0.406,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 20.150000000000002,
+              "outerRadius": 0.394,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 20.4875,
+              "outerRadius": 0.382,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 20.825000000000003,
+              "outerRadius": 0.37,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 21.1625,
+              "outerRadius": 0.358,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 21.5,
+              "outerRadius": 0.346,
+              "profileHeight": 0.29
+            }
+          ],
+          "closedComponents": 28,
+          "triangles": 30016,
+          "localBounds": {
+            "min": [
+              -0.44200000166893005,
+              17.19499999985099,
+              -0.44200000166893005
+            ],
+            "max": [
+              0.44200000166893005,
+              23.550000171661377,
+              0.44200000166893005
+            ]
+          },
+          "metal": {
+            "linearBaseColor": [
+              1,
+              0.766,
+              0.336
+            ],
+            "metalness": 1,
+            "roughness": 0.36,
+            "emissiveIntensity": 0,
+            "source": "https://dev.epicgames.com/documentation/en-us/unreal-engine/physically-based-materials-in-unreal-engine"
+          },
+          "uplight": {
+            "inferred": true,
+            "sourceLocal": [
+              1.55,
+              17.03,
+              2.1
+            ],
+            "targetLocal": [
+              0,
+              20.23,
+              0
+            ],
+            "worldPosition": [
+              -11.399570782715877,
+              23.4142,
+              -14.845043791692653
+            ],
+            "worldTarget": [
+              -13.6,
+              27.062199999999997,
+              -17
+            ],
+            "intensity": 90,
+            "distance": 8.8,
+            "halfConeAngleRadians": 0.41,
+            "penumbra": 0.55,
+            "decay": 2,
+            "colorHex": 16765594
+          },
+          "uncertainty": "Roof landing and whole pagoda alignment retained; upper support rod count and concealed lamp are inferred"
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 56,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 9,
+        "revision": "night-stair-following-terrain135a",
+        "circulation": {
+          "plan": {
+            "hall": {
+              "position": [
+                7.7,
+                0,
+                -14
+              ],
+              "yaw": -0.64,
+              "scale": [
+                1,
+                1.17,
+                1
+              ],
+              "floor": 3.09
+            },
+            "stair": {
+              "width": 6.5,
+              "upperZ": 6.4,
+              "lowerZ": 10.6,
+              "lowerY": 1.0683760683760684,
+              "count": 14
+            },
+            "bridge": {
+              "eastX": 5.16,
+              "nearZ": 3.19,
+              "farZ": 0.01,
+              "deckY": 1.25
+            },
+            "evidence": "Authored reconstruction; exact hidden masonry is not recoverable from one image."
+          },
+          "steps": [
+            {
+              "riser": 1,
+              "localTop": 1.2127777777777777,
+              "worldTop": 1.41895,
+              "frontZ": 10.6,
+              "backZ": 10.299999999999999
+            },
+            {
+              "riser": 2,
+              "localTop": 1.357179487179487,
+              "worldTop": 1.5878999999999999,
+              "frontZ": 10.299999999999999,
+              "backZ": 10
+            },
+            {
+              "riser": 3,
+              "localTop": 1.5015811965811965,
+              "worldTop": 1.7568499999999998,
+              "frontZ": 10,
+              "backZ": 9.7
+            },
+            {
+              "riser": 4,
+              "localTop": 1.645982905982906,
+              "worldTop": 1.9258,
+              "frontZ": 9.7,
+              "backZ": 9.4
+            },
+            {
+              "riser": 5,
+              "localTop": 1.7903846153846152,
+              "worldTop": 2.09475,
+              "frontZ": 9.4,
+              "backZ": 9.1
+            },
+            {
+              "riser": 6,
+              "localTop": 1.9347863247863248,
+              "worldTop": 2.2637,
+              "frontZ": 9.1,
+              "backZ": 8.8
+            },
+            {
+              "riser": 7,
+              "localTop": 2.079188034188034,
+              "worldTop": 2.4326499999999998,
+              "frontZ": 8.8,
+              "backZ": 8.5
+            },
+            {
+              "riser": 8,
+              "localTop": 2.2235897435897436,
+              "worldTop": 2.6016,
+              "frontZ": 8.5,
+              "backZ": 8.2
+            },
+            {
+              "riser": 9,
+              "localTop": 2.367991452991453,
+              "worldTop": 2.77055,
+              "frontZ": 8.2,
+              "backZ": 7.9
+            },
+            {
+              "riser": 10,
+              "localTop": 2.5123931623931623,
+              "worldTop": 2.9395,
+              "frontZ": 7.9,
+              "backZ": 7.6000000000000005
+            },
+            {
+              "riser": 11,
+              "localTop": 2.6567948717948715,
+              "worldTop": 3.1084499999999995,
+              "frontZ": 7.6000000000000005,
+              "backZ": 7.300000000000001
+            },
+            {
+              "riser": 12,
+              "localTop": 2.8011965811965815,
+              "worldTop": 3.2774,
+              "frontZ": 7.300000000000001,
+              "backZ": 7
+            },
+            {
+              "riser": 13,
+              "localTop": 2.9455982905982907,
+              "worldTop": 3.44635,
+              "frontZ": 7,
+              "backZ": 6.700000000000001
+            },
+            {
+              "riser": 14,
+              "localTop": 3.09,
+              "worldTop": 3.6152999999999995,
+              "frontZ": 6.700000000000001,
+              "backZ": 6.4
+            }
+          ],
+          "plants": [
+            [
+              -1.7899657242702067,
+              0.4842970680090672,
+              -8.48148982601349
+            ],
+            [
+              6.008858997167,
+              2.4938792109427994,
+              -8.45493884826796
+            ],
+            [
+              -2.1137496313291666,
+              0.6765950254130348,
+              -7.891593209666767
+            ],
+            [
+              6.541253300460935,
+              2.618126188668067,
+              -7.9965562688030225
+            ],
+            [
+              -2.9200953386699795,
+              0.4511298601630124,
+              -7.295355642755289
+            ],
+            [
+              7.086373060368903,
+              2.9955746040222158,
+              -7.163162132834058
+            ],
+            [
+              -2.6950686459202275,
+              0.8933204051017651,
+              -6.606961361341872
+            ],
+            [
+              7.6525258982305155,
+              1.3082256273590303,
+              -6.740964362097319
+            ],
+            [
+              -2.852207173632659,
+              0.9721855940581339,
+              -6.159517179943578
+            ],
+            [
+              -3.892868210604952,
+              0.601233311951409,
+              -5.360941496382346
+            ],
+            [
+              6.105269510226748,
+              2.215743150903099,
+              -5.5209643620973194
+            ],
+            [
+              -3.345928423943197,
+              0.8565618765469636,
+              -4.959957694715962
+            ],
+            [
+              6.085480592567986,
+              1.1936653044312013,
+              -4.815222132479462
+            ],
+            [
+              -2.1009978292681644,
+              0.9213122826025666,
+              -4.161629959888163
+            ],
+            [
+              5.421335364899379,
+              1.245392327566129,
+              -4.237960432360275
+            ],
+            [
+              -2.28267348695431,
+              0.5323077462511817,
+              -3.64165165391493
+            ],
+            [
+              4.790308629928742,
+              1.0665023109194771,
+              -3.6290163309078025
+            ],
+            [
+              -1.744748073964223,
+              0.4188564416876462,
+              -3.070305318297446
+            ],
+            [
+              5.329914348912513,
+              0.9571408689404116,
+              -2.9253364426846953
+            ],
+            [
+              6.710948203589888,
+              0.436110157684341,
+              -2.8929252762496667
+            ],
+            [
+              0.24975459075849002,
+              0.8590153677555469,
+              -2.2831621328340583
+            ],
+            [
+              6.656194731762535,
+              0.7065633220354776,
+              -2.5175232827530714
+            ],
+            [
+              0.11380602506809018,
+              0.5563330308725521,
+              -1.8851763702999775
+            ],
+            [
+              7.186390332947448,
+              0.9670206140000512,
+              -1.716491352042118
+            ],
+            [
+              1.4240294743043926,
+              0.7336400222755481,
+              -1.1890163309078021
+            ],
+            [
+              7.71910517111057,
+              0.8816183832027429,
+              -1.1741639799353234
+            ],
+            [
+              1.9752661630636605,
+              0.5575915607205485,
+              -0.48533644268469556
+            ],
+            [
+              2.985720018525136,
+              0.8078872235890148,
+              -0.45292527624966694
+            ],
+            [
+              7.927703045752534,
+              0.9657107025918104,
+              0.1338654531930717
+            ],
+            [
+              8.515569971380861,
+              0.5364029495731646,
+              0.5300750779639987
+            ],
+            [
+              7.91516142381173,
+              0.9725107958008387,
+              1.771078192518198
+            ],
+            [
+              8.519932952858847,
+              0.5494814643792879,
+              2.510975691057974
+            ],
+            [
+              4.937448188368288,
+              0.775704829345513,
+              3.807518120064772
+            ],
+            [
+              5.9234453441547625,
+              0.8471663827278663,
+              3.7621354706380967
+            ],
+            [
+              7.295653558534219,
+              0.8816771996108915,
+              3.697348405686557
+            ],
+            [
+              8.285255032966305,
+              0.6393538087950781,
+              3.6333894126452004
+            ],
+            [
+              5.4761947317625355,
+              0.4632898726466609,
+              4.262973804339019
+            ],
+            [
+              6.5649768595590485,
+              0.39990117653752205,
+              4.329555324736506
+            ]
+          ],
+          "lowerLandingWorld": [
+            3.314702925262539,
+            1.25,
+            -2.3665753294096987
+          ],
+          "landingConnection": "right edge of 2.7 m deep lower landing; both path sides cut to the same physical plane",
+          "turn": [
+            6.36,
+            -0.42
+          ],
+          "walkLength": 3.614275831542332,
+          "worldRiser": 0.16895,
+          "tread": 0.29999999999999993,
+          "bankStones": 76,
+          "sourcePhotoUsedAsTexture": false
+        },
+        "mainRoof123": [
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "main-hall-annular-skirt",
+            "width": 19.68,
+            "frontDepth": 8,
+            "backDepth": 6.5,
+            "ridgeLeft": 4.723199999999999,
+            "ridgeRight": 4.723199999999999,
+            "innerOpening": 0.58,
+            "eave": 7.25,
+            "peak": 10.25,
+            "tiles": {
+              "cover": 5896,
+              "pan": 5828
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "main-hall-hip-gable",
+            "width": 20.09,
+            "frontDepth": 9,
+            "backDepth": 6,
+            "ridgeLeft": 6.48,
+            "ridgeRight": 4.92,
+            "innerOpening": 0,
+            "eave": 9.8,
+            "peak": 15.8,
+            "tiles": {
+              "cover": 4703,
+              "pan": 4472
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-1",
+            "width": 9.35,
+            "frontDepth": 4.675,
+            "backDepth": 4.675,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.49018181818181816,
+            "eave": 3.63,
+            "peak": 4.83,
+            "tiles": {
+              "cover": 2444,
+              "pan": 2392
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-2",
+            "width": 8.69,
+            "frontDepth": 4.345,
+            "backDepth": 4.345,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.48336018411967785,
+            "eave": 6.73,
+            "peak": 7.930000000000001,
+            "tiles": {
+              "cover": 2112,
+              "pan": 2064
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-3",
+            "width": 8.03,
+            "frontDepth": 4.015,
+            "backDepth": 4.015,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.4754171855541719,
+            "eave": 9.83,
+            "peak": 11.03,
+            "tiles": {
+              "cover": 1804,
+              "pan": 1760
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-4",
+            "width": 7.370000000000001,
+            "frontDepth": 3.6850000000000005,
+            "backDepth": 3.6850000000000005,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.4660515603799185,
+            "eave": 12.93,
+            "peak": 14.129999999999999,
+            "tiles": {
+              "cover": 1480,
+              "pan": 1440
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-pagoda-annular-pyramidal-roof-5",
+            "width": 6.710000000000001,
+            "frontDepth": 3.3550000000000004,
+            "backDepth": 3.3550000000000004,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0,
+            "eave": 16.03,
+            "peak": 17.23,
+            "tiles": {
+              "cover": 1360,
+              "pan": 1320
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          }
+        ],
+        "foregroundVeranda": {
+          "slabs": 33,
+          "footprint": [
+            [
+              0.586,
+              -4.441
+            ],
+            [
+              4.757,
+              -9.855
+            ],
+            [
+              1.443,
+              -3.046
+            ],
+            [
+              0.053,
+              -3.046
+            ]
+          ],
+          "wetReflection": true
+        },
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 343139,
+        "meshes": 2962,
+        "drawCalls": 30533,
+        "triangles": 214968721,
+        "camera": {
+          "position": [
+            6,
+            2.7,
+            33
+          ],
+          "fov": 52
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 3,
+          "pointLights": 67
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-two-bronze-pierced-hanging-lanterns-103b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "installations": [
+            {
+              "position": [
+                1,
+                7.2,
+                23.7
+              ],
+              "scale": 0.7215999999999999
+            },
+            {
+              "position": [
+                7.7,
+                7.3,
+                21.6
+              ],
+              "scale": 0.8448
+            }
+          ],
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "originalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 38,
+            "unscaledDistance": 7,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "pagodaFinial": {
+          "revision": "scene09-closed-cast-finial-105b",
+          "authoredGeometry": true,
+          "photoSampled": false,
+          "visualAccepted": false,
+          "mainWheelCount": 9,
+          "wheelCountConfidence": "Nine main rims visible; upper small fittings unresolved",
+          "wheels": [
+            {
+              "localY": 18.8,
+              "outerRadius": 0.442,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 19.1375,
+              "outerRadius": 0.43,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 19.475,
+              "outerRadius": 0.418,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 19.8125,
+              "outerRadius": 0.406,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 20.150000000000002,
+              "outerRadius": 0.394,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 20.4875,
+              "outerRadius": 0.382,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 20.825000000000003,
+              "outerRadius": 0.37,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 21.1625,
+              "outerRadius": 0.358,
+              "profileHeight": 0.29
+            },
+            {
+              "localY": 21.5,
+              "outerRadius": 0.346,
+              "profileHeight": 0.29
+            }
+          ],
+          "closedComponents": 28,
+          "triangles": 30016,
+          "localBounds": {
+            "min": [
+              -0.44200000166893005,
+              17.19499999985099,
+              -0.44200000166893005
+            ],
+            "max": [
+              0.44200000166893005,
+              23.550000171661377,
+              0.44200000166893005
+            ]
+          },
+          "metal": {
+            "linearBaseColor": [
+              1,
+              0.766,
+              0.336
+            ],
+            "metalness": 1,
+            "roughness": 0.36,
+            "emissiveIntensity": 0,
+            "source": "https://dev.epicgames.com/documentation/en-us/unreal-engine/physically-based-materials-in-unreal-engine"
+          },
+          "uplight": {
+            "inferred": true,
+            "sourceLocal": [
+              1.55,
+              17.03,
+              2.1
+            ],
+            "targetLocal": [
+              0,
+              20.23,
+              0
+            ],
+            "worldPosition": [
+              -11.399570782715877,
+              23.4142,
+              -14.845043791692653
+            ],
+            "worldTarget": [
+              -13.6,
+              27.062199999999997,
+              -17
+            ],
+            "intensity": 90,
+            "distance": 8.8,
+            "halfConeAngleRadians": 0.41,
+            "penumbra": 0.55,
+            "decay": 2,
+            "colorHex": 16765594
+          },
+          "uncertainty": "Roof landing and whole pagoda alignment retained; upper support rod count and concealed lamp are inferred"
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 56,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9959510745836608,
+      "opaqueFraction": 0.9718285855279056,
+      "rgbaSha256": "0bcb9e61fb02167cf7ee2a166edb778ad2fea8ca2fc3d91cb839e3ab0dbda097"
+    }
+  ],
+  "completedAt": "2026-10-20T14:35:58.520Z"
+}

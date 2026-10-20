@@ -5,13 +5,18 @@ export function createWornFlagstone(T,{points,topOffset=0,seed=1}={}){
  const noise=(x,z)=>{const i=Math.floor(x),j=Math.floor(z),a=x-i,b=z-j,u=a*a*(3-2*a),v=b*b*(3-2*b);return(1-v)*((1-u)*hash(i,j)+u*hash(i+1,j))+v*((1-u)*hash(i,j+1)+u*hash(i+1,j+1));};
  const cx=points.reduce((s,p)=>s+p[0],0)/points.length,cz=points.reduce((s,p)=>s+p[1],0)/points.length;
  const edgeDistance=(x,z)=>{let d=Infinity;for(let i=0;i<points.length;i++){const a=points[i],b=points[(i+1)%points.length],dx=b[0]-a[0],dz=b[1]-a[1],q=Math.max(0,Math.min(1,((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz)));d=Math.min(d,Math.hypot(x-a[0]-q*dx,z-a[1]-q*dz));}return d;};
- const crown=.004+.006*hash(7,9),tiltX=(hash(11,4)-.5)*.014,tiltZ=(hash(3,17)-.5)*.014;
+ // Rain catches on real stone crowns and eases into shallow, uneven hollows.
+ // The stronger but still centimetre-scale relief breaks up broad reflections
+ // without turning the paving into a rough boulder field.
+ const crown=.008+.013*hash(7,9),tiltX=(hash(11,4)-.5)*.018,tiltZ=(hash(3,17)-.5)*.018;
+ const halfX=Math.max(...points.map(p=>p[0]))-Math.min(...points.map(p=>p[0])),halfZ=Math.max(...points.map(p=>p[1]))-Math.min(...points.map(p=>p[1])),poolDepth=.004+.004*hash(19,31);
  const top=(x,z)=>{
-  const edge=edgeDistance(x,z),round=1-Math.exp(-edge/.075);
-  const hollow=.0055*(noise(x*7.1,z*7.1)-.5)+.003*(noise(x*15.7,z*15.7)-.5);
-  return .038+topOffset+crown*round+(x-cx)*tiltX+(z-cz)*tiltZ+hollow;
+  const edge=edgeDistance(x,z),round=1-Math.exp(-edge/.062);
+  const radius=Math.hypot((x-cx)/(halfX*.5),(z-cz)/(halfZ*.5)),bowlT=Math.max(0,Math.min(1,(1-radius)/.92)),bowl=poolDepth*bowlT*bowlT*(3-2*bowlT);
+  const hollow=.0065*(noise(x*7.1,z*7.1)-.5)+.004*(noise(x*15.7,z*15.7)-.5);
+  return .038+topOffset+crown*round-bowl+(x-cx)*tiltX+(z-cz)*tiltZ+hollow;
  };
- const inner=points.map(([x,z],i)=>{const dx=cx-x,dz=cz-z,l=Math.hypot(dx,dz),rim=.011+.013*hash(i,23);return[x+dx/l*rim,z+dz/l*rim];});
+ const inner=points.map(([x,z],i)=>{const dx=cx-x,dz=cz-z,l=Math.hypot(dx,dz),rim=.004+.006*hash(i,23);return[x+dx/l*rim,z+dz/l*rim];});
  const contour=inner.map(p=>new T.Vector2(...p)),vertices=inner.map(p=>[...p]);
  let faces=T.ShapeUtils.triangulateShape(contour,[]);
  const spacing=cz>7?.040:.065,limit=spacing*spacing;
@@ -53,6 +58,6 @@ export function createWornFlagstone(T,{points,topOffset=0,seed=1}={}){
  }
  const bottomFaces=T.ShapeUtils.triangulateShape(points.map(p=>new T.Vector2(...p)),[]);
  for(const f of bottomFaces)triangle(...f.map(i=>[points[i][0],-.09+topOffset,points[i][1]]),new T.Vector3(0,-1,0));
- cap.dispose();const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));geometry.setAttribute('normal',new T.Float32BufferAttribute(normals,3));geometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
- geometry.userData.surface='solid-worn-flagstone';geometry.userData.reliefMetres={crown:[.004,.010],hollows:.0085,bevel:[.011,.024],nearEdgeSpacing:.040};return geometry;
+ const topYs=vertices.map(([x,z])=>top(x,z));cap.dispose();const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));geometry.setAttribute('normal',new T.Float32BufferAttribute(normals,3));geometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
+ geometry.userData.surface='solid-worn-flagstone';geometry.userData.heightAt=top;geometry.userData.topYMax=Math.max(...topYs);geometry.userData.reliefMetres={crown:[.008,.021],basin:[.004,.008],hollows:.0105,bevel:[.004,.010],nearEdgeSpacing:.040};return geometry;
 }

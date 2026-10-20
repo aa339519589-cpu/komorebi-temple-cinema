@@ -1,20 +1,13 @@
 import * as T from 'three';
 
-// Position and viewing attitude have independent, smooth trajectories. Blending
-// a nearby and a distant look-at point changes the angle abruptly at the start.
+// A low camera retreats from the modeled lantern to the canonical courtyard.
+// Eye position, focus target and their first derivatives remain continuous.
 export function createDollyPath({points,nearTarget,farTarget,fov=59}){
- const path=new T.CubicBezierCurve3(...points.map(p=>new T.Vector3(...p))),up=new T.Vector3(0,1,0);
- const attitude=(p,t)=>new T.Quaternion().setFromRotationMatrix(new T.Matrix4().lookAt(p,t,up));
- const first=new T.Vector3(...points[0]),last=new T.Vector3(...points[3]);
- const near=new T.Vector3(...nearTarget),far=new T.Vector3(...farTarget),q0=attitude(first,near),q1=attitude(last,far);
- const d0=first.distanceTo(near),d1=last.distanceTo(far);
+ const path=new T.CubicBezierCurve3(...points.map(p=>new T.Vector3(...p)));
+ const near=new T.Vector3(...nearTarget),far=new T.Vector3(...farTarget);
  return time=>{
-  const t=T.MathUtils.clamp(time/7,0,1),s=t*t*t*(10+t*(-15+6*t));
-  const p=path.getPointAt(s),q=q0.clone().slerp(q1,s),direction=new T.Vector3(0,0,-1).applyQuaternion(q);
-  // Rack focus from the real near-veranda detail to the distant hall. Blending
-  // reciprocal distance held focus near the lens for most of the move, leaving
-  // the entire temple soft in the middle of the seven-second shot.
-  const focusDistance=T.MathUtils.lerp(d0,d1,s),target=p.clone().addScaledVector(direction,focusDistance);
-  return{position:p.toArray(),target:target.toArray(),focusDistance,fov};
+  const t=T.MathUtils.clamp(time/7,0,1),s=t*t*(3-2*t);
+  const position=path.getPoint(s),target=near.clone().lerp(far,s);
+  return{position:position.toArray(),target:target.toArray(),focusDistance:position.distanceTo(target),fov};
  };
 }

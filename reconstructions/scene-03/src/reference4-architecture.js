@@ -112,7 +112,8 @@ export function buildReference4Architecture(T,options={}) {
   box(0,C.stairTopY-.065,(-9.225+C.stairTopZ)/2,C.stairWidth,.13,C.stairTopZ+9.225,'granite');
   const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=C.stairTopY*(n-i-1)/n,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;if(top>0)box(0,top/2,(z0+z1)/2,C.stairWidth,top,z1-z0,'stairBed');}
   for(const stone of stairSet.slabs)emit(stone,'stairGranite');
-  for(const s of[-1,1]){const x=s*(C.stairWidth/2+.23);between([x,C.stairTopY+.9,C.stairTopZ],[x,.9,C.stairBottomZ],.13,.14,'red');between([x,C.stairTopY+.44,C.stairTopZ],[x,.44,C.stairBottomZ],.11,.11,'red');for(let i=0;i<=8;i++){const t=i/8,y=C.stairTopY*(1-t),z=C.stairTopZ+run*t;box(x,y+.51,z,.17,1.02,.17,'red');emit(sphere,'oldgold',x,y+1.03,z,.12,.15,.12);}}
+  // The porch rails stop at the stair landing; no unsupported red rail runs
+  // down the exposed flight in the low pond-side view.
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');
   for(const s of[-1,1])for(let i=0;i<9;i++)box(s*(3.2+i*.55),C.stairTopY+.49,.23,.11,.84,.11,'red');
  });
@@ -195,6 +196,8 @@ export function buildReference4Architecture(T,options={}) {
    emit(new T.ExtrudeGeometry(leaf,{depth:.11,bevelEnabled:true,bevelSize:.018,bevelThickness:.015,bevelSegments:3,curveSegments:18}),'bearingGilt',x,y,front+.20,1,x===0?1.25:.85,1);
    for(const sign of[-1,1])tube([[x+sign*.20,y+.025,front+.33],[x+sign*.31,y-.025,front+.35],[x+sign*.27,y-.13,front+.35],[x+sign*.13,y-.10,front+.35]],.018,'bearingGilt',24);
   }
+  // A shallow dimensional gilt frieze tracks the gable's lower timber crest.
+  for(let j=-6;j<=6;j++){const x=j*.40;relief(x,16.28,front+.34,.25,.21);}
   // Ref03 has a family-medallion crest rather than the Ref05 mask's eyes
   // and teeth. Reuse only its closed lobed ceramic backing.
   emit(solidJoinery.cornerMask[0].geometry,'slate',0,peak+.08,front+.07,1.10,1.10,.95);
@@ -208,18 +211,19 @@ export function buildReference4Architecture(T,options={}) {
  });
  let upperFrontInfill;
  role('upper-storey-dense-bracket-frieze',()=>{
-  // Preserve the upper wall; replace only its formerly unsegmented lower
-  // front strip with the observed pale infill and finite open front rail.
-  const retainedBottom=11.23,retainedTop=14.325;
-  box(0,(retainedBottom+retainedTop)/2,-1.02,13.6,retainedTop-retainedBottom,.22,'darkwood');
+  // Compress the redundant tall timber story below the great roof. The
+  // lower pale gallery remains on the subordinate roof; this upper band is
+  // one short, continuously framed timber gallery beneath the retained eave.
+  const retainedBottom=12.32,retainedTop=14.325,bandCenter=(retainedBottom+retainedTop)/2,bandHeight=retainedTop-retainedBottom;
+  box(0,bandCenter,-1.02,13.6,bandHeight,.22,'darkwood');
   upperFrontInfill=buildUpperGalleryInfill03({emit,role});
-  for(const sign of[-1,1])box(sign*6.76,12.50,-4.45,.22,3.65,7.1,'darkwood');box(0,12.50,-8.0,13.6,3.65,.22,'darkwood');
-  for(let j=-6;j<=6;j++){const x=j*1.06;box(x,12.35,-.85,.92,.25,.075,'roofFrieze');for(const y of[12.17,12.53])box(x,y,-.75,1.0,.08,.09,'oldgold');relief(x,12.35,-.71,.65,.36);}
+  for(const sign of[-1,1])box(sign*6.76,bandCenter,-4.45,.22,bandHeight,7.1,'darkwood');box(0,bandCenter,-8.0,13.6,bandHeight,.22,'darkwood');
+  for(let j=-10;j<=10;j++){const x=j*.62;box(x,13.32,-.83,.48,.56,.12,'darkwood');relief(x,13.32,-.75,.38,.48);}
 
-  for(const y of[11.35,12.85,14.05]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
-  box(0,12.53,-.95,13.0,.72,.13,'black');
-  for(let j=-5;j<=5;j++){const x=j*1.25,t=(-.55-C.ridgeZ)/4.5,u=x/(upperWidth*(.275+.225*t)),receiver=upper.P(0,t,u)[1]-.37;arch.brackets(x,14.30,-.55,.91,{baseY:14.17,receiverY:receiver});arch.brackets(x,11.6,-.48,.72,{baseY:11.47,receiverY:12.73});box(x,12.81,-.7,.18,2.72,.23,'red');relief(x+.49,12.35,-.82,.55,.45);}
-  for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.15,-.42,.12);}
+  for(const y of[11.35,12.40,14.05]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
+  for(let j=-9;j<=9;j++){const x=j*.72,t=(-.55-C.ridgeZ)/4.5,u=x/(upperWidth*(.275+.225*t)),receiver=upper.P(0,t,u)[1]-.37;arch.brackets(x,14.30,-.55,.50,{baseY:14.17,receiverY:receiver});box(x,13.34,-.7,.13,1.84,.17,'red');}
+  for(let j=-8;j<=8;j+=2)arch.brackets(j*.72,11.6,-.48,.30,{baseY:11.47,receiverY:12.25});
+  for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.32,-.42,.12);}
   // The mesh64 curved parts are retained. The upper assembly follows the
   // raised receiver beam; a row of bare upright gap-fillers is not exposed.
   for(let j=0;j<=64;j++){const u=-1+2*j/64;curvedRafter(lin(.40,1.012,12).map(t=>{const p=upper.P(0,t,u);p[1]-=.285;return p;}),.105,.16);const p=upper.P(0,1.012,u);arch.squareFitting(p[0],p[1]-.285,p[2]+.018,.095,.135,0,j%4===0);}

@@ -9,9 +9,11 @@ export async function installScannedTimber(mats){
  const canvas=document.createElement('canvas');canvas.width=rawRoughness.image.width;canvas.height=rawRoughness.image.height;
  const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(rawRoughness.image,0,0);
  const values=ctx.getImageData(0,0,canvas.width,canvas.height);
- // The scan is a very smooth furniture varnish. The exposed temple coating
- // has a broader, subdued highlight; remap roughness as material processing.
- for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.min(255,values.data[i]*1.20+38));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
+ // Warm-pixel probes on ref01 show chestnut timber at median RGB [106,50,21]
+ // on the bridge and [89,39,15] on the members; the current frame reads cooler
+ // at [106,57,37] and [135,81,54]. Keep the mapped grain and lower its
+ // midrange roughness so the grain catches a restrained, readable highlight.
+ for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.max(46,Math.min(244,values.data[i]*1.05+8)));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
  ctx.putImageData(values,0,0);const roughness=new T.CanvasTexture(canvas);rawRoughness.dispose();
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of [normal,roughness])tex.colorSpace=T.NoColorSpace;
@@ -20,14 +22,14 @@ export async function installScannedTimber(mats){
   tex.magFilter=T.LinearFilter;tex.generateMipmaps=true;tex.anisotropy=8;tex.needsUpdate=true;
  }
  const keys=['red','redLight','wood','endwood','darkwood'];
- // Linear albedo gains represent the lighter stained temple timber. The
- // supplied scan is a very dark table: measured linear maxima .0666/.0452/
- // .0222. These gains keep every sampled albedo channel below one.
- const colors={red:[6.2,2.8,2.0],redLight:[7.1,4.2,3.1],wood:[6.2,4.7,3.4],endwood:[7.6,6.2,4.7],darkwood:[1.9,1.5,1.3]};
+ // Linear gains shift the furniture scan toward the reference's red-brown
+ // chroma. The sampled albedo peaks are .0666/.0452/.0222; these gains keep
+ // all channels below .52 linear while cutting the excess green-blue cast.
+ const colors={red:[6.9,2.6,1.4],redLight:[7.7,3.7,1.9],wood:[6.8,3.9,2.2],endwood:[7.6,5.2,3.1],darkwood:[1.9,1.2,.8]};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.30,.30);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
+  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.38,.38);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
   mat.color.setRGB(...colors[key]);mat.metalness=0;
   if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.28:.13;mat.clearcoatRoughness=.28;mat.specularIntensity=.70;}
   mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-varnished-timber-red-lacquer-v02';

@@ -8,10 +8,11 @@ import {buildRestorationAltar,buildRestorationHangingOrnaments} from './restorat
 import {emitRestoredBuddha} from './restoration-buddha.js';
 import {bindFloorVarnish,bindFloorReflection,createFloorReflectionState} from './floor-varnish.js';
 import {FOREGROUND_FLOOR_PATCH,createForegroundFloorPanel} from './foreground-floor-panels.js';
+import {createReference6Chandelier} from './reference6-chandelier.js';
 
 // Independent room, not a material patch over the exterior-world reconstruction.
 // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
-export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-observed-floor-panels100b',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:62},sunDirection:[-.9020374565,.1053277270,-.4186101969],sunTarget:[0,4.4,-1.4],sunIntensity:42.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
+export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-dense-chain-canopy-07',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:64},sunDirection:[-.64,.48,-.60],sunTarget:[0,4.0,-.2],sunIntensity:22.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
 function woodMap(){
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=512;const c=canvas.getContext('2d'),im=c.createImageData(512,512);let seed=19473;const r=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
  for(let y=0;y<512;y++)for(let x=0;x<512;x++){const u=x+.85*Math.sin(y*.019)+.35*Math.sin(y*.061);const v=230+5*Math.sin(u*.38)+4*Math.sin(u*1.77)+(r()-.5)*4,j=(y*512+x)*4;im.data[j]=im.data[j+1]=im.data[j+2]=v;im.data[j+3]=255;}c.putImageData(im,0,0);const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;return map;
@@ -41,13 +42,13 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  const materials={
   column:new T.MeshPhysicalMaterial({name:'reference6-red-lacquer-column',color:woodTint??'#963a25',map:wood,bumpMap:wood,bumpScale:.0012,roughness:.38,metalness:0,clearcoat:.22,clearcoatRoughness:.28}),
   beam:new T.MeshStandardMaterial({name:'reference6-red-brown-ceiling-timber',color:woodTint??'#71341f',map:wood,bumpMap:wood,bumpScale:.0015,roughness:.39}),
-  dark:new T.MeshStandardMaterial({name:'reference6-deep-brown-recess',color:'#21110b',map:wood,roughness:.78}),
+  dark:new T.MeshStandardMaterial({name:'reference6-deep-brown-recess',color:'#160b07',map:wood,roughness:.82}),
   floor:new T.MeshPhysicalMaterial({name:'reference6-varnished-red-brown-floor-body',color:'#68301c',map:wood,bumpMap:wood,bumpScale:.00038,roughness:.23,clearcoat:.72,clearcoatRoughness:.17}),
-  rearPanel:new T.MeshStandardMaterial({name:'reference6-rough-shadowed-rear-wood',color:'#170b06',map:wood,bumpMap:wood,bumpScale:.0012,roughness:.80,metalness:0}),
-  black:new T.MeshPhysicalMaterial({name:'reference6-black-lacquer-recess',color:'#090806',roughness:.27,clearcoat:.65,clearcoatRoughness:.2}),
-  gold:new T.MeshStandardMaterial({name:'reference6-cast-gilt',color:'#c49233',metalness:.92,roughness:.36}),
-  oldgold:new T.MeshStandardMaterial({name:'reference6-carved-gilt-recess',color:'#ac7424',metalness:.90,roughness:.38}),
-  buddha:new T.MeshStandardMaterial({name:'reference6-statue-gilt',color:'#c69a43',metalness:.86,roughness:.31}),
+  rearPanel:new T.MeshStandardMaterial({name:'reference6-rough-shadowed-rear-wood',color:'#0d0604',map:wood,bumpMap:wood,bumpScale:.0012,roughness:.88,metalness:0}),
+  black:new T.MeshPhysicalMaterial({name:'reference6-black-lacquer-recess',color:'#0b0705',roughness:.30,clearcoat:.72,clearcoatRoughness:.25}),
+  gold:new T.MeshStandardMaterial({name:'reference6-cast-gilt',color:'#cea046',metalness:.80,roughness:.37}),
+  oldgold:new T.MeshStandardMaterial({name:'reference6-carved-gilt-recess',color:'#8e5e1e',metalness:.76,roughness:.46}),
+  buddha:new T.MeshStandardMaterial({name:'reference6-statue-gilt',color:'#d2a048',metalness:.78,roughness:.31}),
   hair:new T.MeshStandardMaterial({name:'reference6-dark-sculpture-hair',color:'#332719',roughness:.52,metalness:.30}),
   ivory:new T.MeshStandardMaterial({name:'reference6-painted-coffer-ivory',color:'#aa8f66',roughness:.82}),
   cofferPaint:new T.MeshStandardMaterial({name:'reference6-coffer-dark-floral-paint',color:'#4a2e17',roughness:.80,metalness:0}),
@@ -58,9 +59,9 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  if(floorSurface){materials.floor.color.setRGB(...floorSurface.record.materialLinearGain);materials.floor.map=floorSurface.map;}
  const giltMicro=castGiltMicroSurface();for(const m of[materials.gold,materials.oldgold,materials.buddha]){m.roughnessMap=giltMicro;m.bumpMap=giltMicro;m.bumpScale=.00028;}
  materials.sculptureRecess=new T.MeshStandardMaterial({name:'scene06-recessed-gilt-anatomy',color:'#604018',metalness:.78,roughness:.43});
- materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-chased-lap-cloth-gilt';materials.clothGold.color.set('#96702e');materials.clothGold.metalness=.85;materials.clothGold.roughness=.39;
- materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-cast-palm-gilt';materials.handGold.metalness=.92;materials.handGold.roughness=.29;
- materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-polished-gilt-face';materials.faceGold.bumpScale=.00014;materials.faceGold.roughness=.31;materials.faceGold.metalness=.88;materials.faceGold.color.set('#c69a43');
+ materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-chased-lap-cloth-gilt';materials.clothGold.color.set('#a4772e');materials.clothGold.metalness=.70;materials.clothGold.roughness=.42;
+ materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-cast-palm-gilt';materials.handGold.metalness=.82;materials.handGold.roughness=.29;
+ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-polished-gilt-face';materials.faceGold.bumpScale=.00014;materials.faceGold.roughness=.29;materials.faceGold.metalness=.74;materials.faceGold.color.set('#d2a048');
  materials.statueGold=materials.gold.clone();materials.statueGold.name='reference6-statue-ornament-private-gilt';
  const blockers=[],apertures=[],pillarRoots=[];
  const columnCollar=createReference6ColumnCollar();
@@ -176,18 +177,23 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  }
 
  const furniture=new T.Group();furniture.name='reference6-rebuilt-furnishings';furniture.position.fromArray(REFERENCE6_FOUNDATION.altarOrigin);scene.add(furniture);
- const layout={terraceWidths:[4.9,5.12,5.42,5.67,6.05],carvedFrontWidths:[4.20,4.43,4.75],centralCanopy:[0,6.92,2.80,1.12,.88,.27,true],hangingCeilingContacts:[7.20,6.82,7.01],floorLampX:2.90,floorLampScale:.90,sidePendantX:3.50,sidePendantY:6.55,sidePendantLength:2.95,floorVaseX:4.50,floorUrnX:3.92,upperVaseX:2.93,sideFigureX:2.20,innerRitualLotusX:1.48,innerRitualLotusZ:.40,outerRitualLotusX:2.68,outerRitualLotusZ:.40,throneCompensation:[1,1],mainSeatY:3.38,sideSeatY:3.20,mainThroneHeight:.70,sideThroneHeight:.50,headHaloCenters:[3.38+(2.10/3.26)*2.78,3.20+(1.45/3.26)*3.055],mandorlaApexY:[7.15,5.62],sidePendantWidth:.60};const altar=buildRestorationAltar({materials,layout}),hanging=buildRestorationHangingOrnaments({materials,layout});furniture.add(altar,hanging);
+ const mainFigureScale=2.60/3.26,sideFigureScale=1.62/3.26;
+ // The upper rail projected too wide against the source altar; narrow only
+ // this top shelf so its outer tips return toward the reference silhouette.
+ const upperAltarRailWidth=4.80,terraceWidths=[4.9,5.12,5.42,5.67,upperAltarRailWidth];
+ const layout={terraceWidths,carvedFrontWidths:[4.20,4.43,4.75],centralCanopy:[0,7.07,-1.80,1.12,.88,.18,true],hangingCeilingContacts:[7.20,6.82,7.01],mandorlaWidthScales:[1.16,1.02],floorLampX:2.90,floorLampScale:.90,sidePendantX:4.10,sidePendantY:6.50,sidePendantZ:-.35,sidePendantLength:2.85,sidePendantWidth:.56,sideHeaderCeilingContact:[6.815,-.30],floorVaseX:4.50,floorUrnX:3.92,upperVaseX:2.93,sideFigureX:2.20,innerRitualLotusX:1.48,innerRitualLotusZ:.40,outerRitualLotusX:2.68,outerRitualLotusZ:.40,throneCompensation:[1,1],mainSeatY:3.38,sideSeatY:3.20,mainThroneHeight:.70,sideThroneHeight:.50,headHaloCenters:[3.38+mainFigureScale*2.78,3.20+sideFigureScale*3.055],mandorlaApexY:[7.20,5.76]};const altar=buildRestorationAltar({materials,layout,hanging:false}),hanging=buildRestorationHangingOrnaments({materials,layout});furniture.add(altar,hanging);
+ const grandCanopy=createReference6Chandelier(materials);architecture.add(grandCanopy);
  // Near-black lacquer is geometry material, not a screen grade. Full independent
  // altar/sculpture reconstruction candidates are mounted at the unchanged local seats.
- for(const root of[altar,hanging])root.traverse(o=>{if(!o.isMesh)return;if(o.material.name==='restoration-black-brown-lacquer'){o.material.color.set('#030201');o.material.roughness=.32;}if(o.material.name==='restoration-lantern-warm-paper'){o.material.color.set('#fff0cd');o.material.emissive.set('#ffd68b');o.material.emissiveIntensity=1.3;o.castShadow=false;}});
+ for(const root of[altar,hanging])root.traverse(o=>{if(!o.isMesh)return;if(o.material.name==='restoration-black-brown-lacquer'){o.material.color.set('#0a0604');o.material.roughness=.28;o.material.clearcoat=.58;o.material.clearcoatRoughness=.24;}if(o.material.name==='restoration-lantern-warm-paper'){o.material.color.set('#fff0cd');o.material.emissive.set('#ffd68b');o.material.emissiveIntensity=1.3;o.castShadow=false;}});
  const sculptures=new T.Group();sculptures.name='reference6-rebuilt-triad';furniture.add(sculptures);
  const emit=(g,key,x,y,z,sx,sy,sz)=>{if(!g?.isBufferGeometry)throw Error('Sculpture must emit actual geometry.');const m=new T.Mesh(g,key==='cloth'?materials.clothGold:key==='hand'?materials.handGold:key==='face'?materials.faceGold:key==='crease'?materials.sculptureRecess:key==='oldgold'?materials.hair:key==='gold'?materials.statueGold:materials.buddha);m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.castShadow=m.receiveShadow=true;sculptures.add(m);};
- for(const [i,seat]of altar.userData.figureSeatAnchors.entries())emitRestoredBuddha(emit,{variant:['central','left','right'][i],x:seat[0],y:seat[1],z:seat[2],scale:(i===0?2.10:1.45)/3.26,widthScale:i===0?.98:.85,depthScale:1});
+ for(const [i,seat]of altar.userData.figureSeatAnchors.entries())emitRestoredBuddha(emit,{variant:['central','left','right'][i],x:seat[0],y:seat[1],z:seat[2],scale:i===0?mainFigureScale:sideFigureScale,widthScale:i===0?1.05:.94,depthScale:1.02});
  const sun=new T.DirectionalLight('#ffe0a7',REFERENCE6_FOUNDATION.sunIntensity);sun.name='reference6-physical-left-window-daylight';sun.target.position.set(...REFERENCE6_FOUNDATION.sunTarget);sun.position.copy(sun.target.position).addScaledVector(new T.Vector3(...REFERENCE6_FOUNDATION.sunDirection).normalize(),40);sun.castShadow=true;sun.shadow.mapSize.set(shadowSize,shadowSize);Object.assign(sun.shadow.camera,{left:-12,right:12,top:11,bottom:-11,near:1,far:90});sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00008;sun.shadow.normalBias=.009;sun.shadow.radius=3.0;scene.add(sun,sun.target);
  // Diffuse sky admitted at actual window rectangles. RectArea proxy is explicitly
  // unshadowed, low energy, not a frontal key. Direct sun provides the real shadows.
  RectAreaLightUniformsLib.init();const windowSky=[];
- for(const side of[-1,1])for(const z of[-2.6,3.2]){const l=new T.RectAreaLight('#dfeaff',side<0?.40:.16,5.2,4.6);l.name='reference6-side-window-diffuse-sky-proxy';l.position.set(side*6.60,3.35,z);l.lookAt(0,3.0,z+.1);scene.add(l);windowSky.push(l);}
+ for(const side of[-1,1])for(const z of[-2.6,3.2]){const l=new T.RectAreaLight('#dfeaff',side<0?1.10:.12,5.2,4.6);l.name='reference6-side-window-diffuse-sky-proxy';l.position.set(side*6.60,3.35,z);l.lookAt(0,3.0,z+.1);scene.add(l);windowSky.push(l);}
  // Broad entrance-sky and sunlit-floor reflection proxies establish the
  // photographed warm front field. These are explicitly unshadowed indirect
  // transport approximations, not a hidden frontal spot or a global grade.
@@ -195,16 +201,16 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  // the old RectArea proxy these real incident sources retain scene occlusion.
  const frontWindowSources=[];
  for(const y of[4.05,6.05])for(const x of[-3.65,-1.0,1.65]){
-  const light=new T.SpotLight('#ffe5bb',35,30,.36,.45,2);
+  const light=new T.SpotLight('#ffe5bb',28,30,.36,.45,2);
   light.name='reference6-shadowed-front-window-field';light.position.set(x,y,10.05);
   light.target.position.set(0,3.8,-2.3);light.castShadow=true;light.shadow.mapSize.set(1024,1024);
   light.shadow.camera.near=.10;light.shadow.camera.far=30;light.shadow.bias=-.00008;light.shadow.normalBias=.002;light.shadow.radius=5;
   scene.add(light,light.target);frontWindowSources.push(light);
  }
- const warmBounce=new T.HemisphereLight('#ffe2a7','#5d4023',.35);warmBounce.name='scene06-warm-diffuse-room-return';scene.add(warmBounce);
- for(const side of[-1,1]){const l=new T.RectAreaLight('#ffe2aa',9.0,.85,3.8);l.name='scene06-tall-entrance-window-field';l.position.set(side*3.5,4.4,3.5);l.lookAt(0,4.5,-2.3);scene.add(l);windowSky.push(l);}
- const portalKey=new T.RectAreaLight('#ffdb9c',3.4,4.8,2.8);portalKey.name='scene06-entrance-warm-head-field';portalKey.position.set(0,5.4,7.0);portalKey.lookAt(0,4.8,-2.3);scene.add(portalKey);windowSky.push(portalKey);
- const floorBounce=new T.RectAreaLight('#ffd69c',1.30,4.0,3.0);floorBounce.name='reference6-sunlit-floor-bounce-proxy';floorBounce.position.set(0,.18,3.2);floorBounce.lookAt(0,4.2,-2.3);scene.add(floorBounce);windowSky.push(floorBounce);
+ const warmBounce=new T.HemisphereLight('#ffe2a7','#5d4023',.20);warmBounce.name='scene06-warm-diffuse-room-return';scene.add(warmBounce);
+ for(const side of[-1,1]){const l=new T.RectAreaLight('#ffe2aa',side<0?1.9:.65,.85,3.8);l.name='scene06-tall-entrance-window-field';l.position.set(side*3.5,4.4,3.5);l.lookAt(0,4.5,-2.3);scene.add(l);windowSky.push(l);}
+ const portalKey=new T.RectAreaLight('#ffdb9c',1.1,4.8,2.8);portalKey.name='scene06-entrance-warm-head-field';portalKey.position.set(0,5.4,7.0);portalKey.lookAt(0,4.8,-2.3);scene.add(portalKey);windowSky.push(portalKey);
+ const floorBounce=new T.RectAreaLight('#ffd69c',.65,4.0,3.0);floorBounce.name='reference6-sunlit-floor-bounce-proxy';floorBounce.position.set(0,.18,3.2);floorBounce.lookAt(0,4.2,-2.3);scene.add(floorBounce);windowSky.push(floorBounce);
  const practicals=[];for(const side of[-1,1]){const l=new T.PointLight('#ffc577',1.4,2.2,2);l.name='reference6-floor-lantern-source';l.position.set(side*3.2-.025,1.35,-.12);l.castShadow=true;l.shadow.mapSize.set(256,256);l.shadow.bias=-.00015;l.shadow.normalBias=.008;scene.add(l);practicals.push(l);}
  const floor=new Reflector(new T.PlaneGeometry(13.4,15.8),{textureWidth:reflectionSize,textureHeight:reflectionSize,clipBias:.002,multisample:0,color:0xffffff});floor.rotation.x=-Math.PI/2;floor.position.set(0,0,2.1);bindFloorReflection(floor,reflectionSize,floorReflectionState);scene.add(floor);
  scene.updateMatrixWorld(true);let environment=null,statueEnvironment=null,environmentInitialized=false;

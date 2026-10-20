@@ -10,14 +10,19 @@ export function createHallCurvedJoinery(){
  function part(g,material='red',position=[0,0,0],rotation=0,cornerOnly=false){const q=keep(g.clone());q.rotateY(rotation);q.translate(...position);parts.push({geometry:q,material,cornerOnly,cornerAxis:cornerOnly});return q;}
  function curvedArm(length=1.30,notch='none'){
   const h=length/2,s=new T.Shape();s.moveTo(-h,.10);
-  if(notch==='top'){s.lineTo(-.12,.10);s.lineTo(-.12,0);s.lineTo(.12,0);s.lineTo(.12,.10);}
+  // The first crossed pair seats in a true half lap, with matching cut depth.
+  const lap=-.09;
+  if(notch==='top'){s.lineTo(-.16,.10);s.lineTo(-.16,lap);s.lineTo(.16,lap);s.lineTo(.16,.10);}
   s.lineTo(h,.10);s.quadraticCurveTo(h+.025,.005,h-.09,-.015);
   s.bezierCurveTo(h-.22,-.01,h-.19,-.11,h-.30,-.115);
-  s.bezierCurveTo(h-.42,-.12,.22,-.225,.12,-.225);
-  if(notch==='bottom'){s.lineTo(.12,0);s.lineTo(-.12,0);s.lineTo(-.12,-.225);}else s.lineTo(-.12,-.225);
-  s.bezierCurveTo(-.22,-.225,-h+.42,-.12,-h+.30,-.115);
+  s.bezierCurveTo(h-.42,-.12,.22,-.28,.12,-.28);
+  if(notch==='bottom'){s.lineTo(.16,lap);s.lineTo(-.16,lap);s.lineTo(-.16,-.28);}else s.lineTo(-.12,-.28);
+  s.bezierCurveTo(-.22,-.28,-h+.42,-.12,-h+.30,-.115);
   s.bezierCurveTo(-h+.19,-.11,-h+.22,-.01,-h+.09,-.015);
-  s.quadraticCurveTo(-h-.025,.005,-h,.10);s.closePath();return extrude(s,.22,.012);
+  s.quadraticCurveTo(-h-.025,.005,-h,.10);s.closePath();
+  // Broader cheeks keep the arms legible as solid timbers in the actual view.
+  // This depth remains inside the bracket's existing bearing envelope.
+  return extrude(s,.32,.012);
  }
  function beam(length,depth,bottom,top,notches=[]){
   const xs=[-length/2,...notches.flatMap(n=>[n.x-n.width/2,n.x+n.width/2]),length/2].sort((a,b)=>a-b),s=new T.Shape();
@@ -39,13 +44,16 @@ export function createHallCurvedJoinery(){
  }
  // Retained shaft/purlin contacts, with a rounded, flaring daito and genuinely
  // half-lapped first cross. Each later arm bears on a separate curved block.
- part(cushion(.31,.20),'red',[0,-.15,0]);
+ part(cushion(.35,.24),'red',[0,-.15,0]);
  part(curvedArm(1.30,'top'),'red',[0,.225,0]);part(curvedArm(1.30,'bottom'),'red',[0,.225,0],Math.PI/2);
- for(const side of[-1,1]){part(cushion(.145,.055),'red',[side*.40,.325,0]);part(cushion(.145,.055),'red',[0,.325,side*.40]);}
+ for(const side of[-1,1]){part(cushion(.20,.085),'red',[side*.40,.325,0]);part(cushion(.20,.085),'red',[0,.325,side*.40]);}
  for(const side of[-1,1]){part(curvedArm(1.50),'red',[side*.40,.60,0],Math.PI/2);part(curvedArm(1.50),'red',[0,.60,side*.40]);}
- for(const sx of[-1,1])for(const sz of[-1,1])part(cushion(.14,.10),'red',[sx*.40,.70,sz*.40]);
- for(const side of[-1,1])part(beam(1.54,.23,.80,.93,[{x:0,width:.24,side:'top',y:.865}]),'red',[0,0,side*.40]);
- part(beam(1.52,.24,.865,.970,[-1,1].map(sign=>({x:sign*.40,width:.23,side:'bottom',y:.93}))),'endwood',[0,0,0],Math.PI/2);
+ for(const sx of[-1,1])for(const sz of[-1,1])part(cushion(.20,.14),'red',[sx*.40,.70,sz*.40]);
+ // A deepened receiver beam bears over the four corner blocks. The perpendicular
+ // cap keys into the receivers at the shared lap plane instead of reading as trim.
+ const jointY=.9075;
+ for(const side of[-1,1])part(beam(1.54,.30,.80,.95,[{x:0,width:.30,side:'top',y:jointY}]),'red',[0,0,side*.40]);
+ part(beam(1.52,.30,.865,.970,[-1,1].map(sign=>({x:sign*.40,width:.30,side:'bottom',y:jointY}))),'endwood',[0,0,0],Math.PI/2);
 
  // Fit the retained hall bearing envelope rather than scaling the scene05
  // datum directly: that kit starts at -.15 and ends near .82. Exact solid

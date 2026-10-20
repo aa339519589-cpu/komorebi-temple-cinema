@@ -4,9 +4,9 @@ import {installSurfaceDetail} from './surface-detail.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
-export const HALL132_REVISION='scene10-hall132-b-exposed-bracket-relief';
+export const HALL132_REVISION='scene10-hall132-c-sculpted-eave-bracket-bays';
 export function createHall132Palette(original){
-  const specs={red:['#81341d',.48,'wood'],cedar:['#703b20',.64,'wood'],darkwood:['#351f15',.74,'wood'],endwood:['#a46a35',.65,'wood'],gold:['#d2a444',.30,'gold'],oldgold:['#ac7d30',.42,'gold']};
+  const specs={red:['#71301f',.60,'wood'],cedar:['#62391f',.72,'wood'],darkwood:['#27190f',.80,'wood'],endwood:['#936138',.74,'wood'],gold:['#b38d50',.42,'gold'],oldgold:['#86673b',.58,'gold']};
   const palette={};
   for(const [key,[color,roughness,kind]]of Object.entries(specs)){
     const mat=original[key].clone();mat.name='hall132-'+key;mat.color.set(color);mat.roughness=roughness;
@@ -14,7 +14,7 @@ export function createHall132Palette(original){
     installSurfaceDetail(mat,kind);palette[key]=mat;
   }
   // Recessed timber-backed lattice bays keep independent warm interior light.
-  for(let i=0;i<5;i++){const key='window'+i,mat=original[key].clone();mat.name='hall132-'+key;mat.color.set(['#372016','#573019','#78512a','#a37432','#c1954b'][i]);palette[key]=mat;}
+  for(let i=0;i<5;i++){const key='window'+i,mat=original[key].clone();mat.name='hall132-'+key;mat.color.set(['#372016','#573019','#78512a','#a37432','#c1954b'][i]);mat.emissiveIntensity=[.16,.32,.58,.90,1.20][i];palette[key]=mat;}
   return palette;
 }
 
@@ -51,11 +51,29 @@ function leafGeometry(){
   for(let i=0;i<=n;i++){const t=i/n,rad=Math.sin(Math.PI*t),ring=[];for(let j=0;j<m;j++){const a=j*Math.PI*2/m;ring.push([t-.5,Math.cos(a)*rad*.21,Math.sin(a)*rad*.095+.045*Math.sin(Math.PI*t)]);}rings.push(ring);}
   for(let i=0;i<n;i++)for(let j=0;j<m;j++)b.quad(rings[i][j],rings[i+1][j],rings[i+1][(j+1)%m],rings[i][(j+1)%m]);return b.finish();
 }
+function bilateralCloudBracketGeometry(){
+  const shape=new T.Shape();shape.moveTo(-.17,0);shape.lineTo(.17,0);
+  shape.bezierCurveTo(.31,.015,.32,.16,.46,.29);
+  shape.bezierCurveTo(.61,.44,.78,.42,.84,.27);
+  shape.bezierCurveTo(.90,.13,.86,.10,1.08,.10);
+  shape.lineTo(1.10,.29);shape.lineTo(.91,.29);
+  shape.bezierCurveTo(.70,.29,.71,.49,.57,.57);
+  shape.bezierCurveTo(.42,.65,.27,.49,.21,.33);
+  shape.lineTo(-.21,.33);
+  shape.bezierCurveTo(-.27,.49,-.42,.65,-.57,.57);
+  shape.bezierCurveTo(-.71,.49,-.70,.29,-.91,.29);
+  shape.lineTo(-1.10,.29);shape.lineTo(-1.08,.10);
+  shape.bezierCurveTo(-.86,.10,-.90,.13,-.84,.27);
+  shape.bezierCurveTo(-.78,.42,-.61,.44,-.46,.29);
+  shape.bezierCurveTo(-.32,.16,-.31,.015,-.17,0);shape.closePath();
+  const g=new T.ExtrudeGeometry(shape,{depth:.22,steps:1,bevelEnabled:true,bevelThickness:.014,bevelSize:.014,bevelSegments:2,curveSegments:10});
+  g.translate(0,0,-.11);g.name='closed-front-facing-bilateral-cloud-dougong';return g;
+}
 
 export function buildHall132(api,L){
   const {emit,box,group,between,tube,arch,lantern,R,scene,stack,emitRestoredBuddha}=api;
-  const records={revision:HALL132_REVISION,scope:'Hall front and roof underside only; layout125 camera, bridge, stairs, floor and rigid scans retained.',roofs:[],bearingRows:[],columns:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
-  const leaf=leafGeometry(),rosette=new T.TorusGeometry(.13,.022,7,20),boss=new T.SphereGeometry(1,12,8);
+  const records={revision:HALL132_REVISION,scope:'Hall front and roof underside only; layout125 camera, bridge, stairs, floor and rigid scans retained.',roofs:[],bearingRows:[],columns:[],eaveSupports:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
+  const leaf=leafGeometry(),rosette=new T.TorusGeometry(.13,.022,7,20),boss=new T.SphereGeometry(1,12,8),eaveArm=bilateralCloudBracketGeometry();
   const foliate=(x,y,z,s=1)=>{
     emit(rosette,'oldgold',x,y,z,s,s,s);emit(boss,'gold',x,y,z+.022,.040*s,.040*s,.028*s);records.ornament.rosettes++;
     for(let k=0;k<8;k++){const a=k*Math.PI/4;emit(leaf,'gold',x+Math.cos(a)*.080*s,y+Math.sin(a)*.080*s,z+.027*s,.125*s,.17*s,.25*s,[0,0,a]);records.ornament.volumetricLeaves++;}
@@ -113,6 +131,12 @@ export function buildHall132(api,L){
       const x=-8.2+i*2.05,columnTop=rowBase(surf,x,first)-.07;
       if(!(level===0&&(i===2||i===3))){arch.footColumn(x,4.3,base,columnTop-base-.3,.22);box(x,base+.15,4.3,.51,.26,.51,'black');records.columns.push({level,x,bottom:base+.3,shaftTop:columnTop,bearingBeamCenter:columnTop});
         for(const sign of[-1,1]){box(x+sign*.238,columnTop-.13,4.3,.018,.22,.47,'oldgold');box(x,columnTop-.13,4.3+sign*.238,.47,.22,.018,'oldgold');}foliate(x,columnTop-.13,4.55,.35);
+        const supportScale=level===0?1:.84;
+        emit(eaveArm,'cedar',x,columnTop-.60*supportScale,4.43,1,.82*supportScale,supportScale);
+        box(x,columnTop-.19*supportScale,4.48,.40*supportScale,.09*supportScale,.22,'darkwood');
+        emit(eaveArm,'red',x,columnTop-.39*supportScale,4.53,.80*supportScale,.59*supportScale,.80*supportScale);
+        for(const sign of[-1,1])emit(boss,'oldgold',x+sign*.82*supportScale,columnTop-.33*supportScale,4.65,.030,.024,.022);
+        records.eaveSupports.push({level,columnX:x,frontZ:4.43,projectionWidth:2.20*supportScale,primaryScale:[1,.82*supportScale,supportScale],secondaryScale:[.80*supportScale,.59*supportScale,.80*supportScale],bearing:'stacked-on-post-cap-darkwood-shoe',giltPins:2});
       }
       for(const z of[-4,0]){arch.footColumn(x,z,base,4,.20);arch.brackets(x,top,z,.7,{detail:true});}
       if(i===8)continue;
