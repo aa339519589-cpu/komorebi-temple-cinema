@@ -4,7 +4,7 @@ import {installSurfaceDetail} from './surface-detail.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
-export const HALL132_REVISION='scene10-hall132-c-sculpted-eave-bracket-bays';
+export const HALL132_REVISION='scene10-hall132-d-shoreline-underpass';
 export function createHall132Palette(original){
   const specs={red:['#71301f',.60,'wood'],cedar:['#62391f',.72,'wood'],darkwood:['#27190f',.80,'wood'],endwood:['#936138',.74,'wood'],gold:['#b38d50',.42,'gold'],oldgold:['#86673b',.58,'gold']};
   const palette={};
@@ -13,6 +13,7 @@ export function createHall132Palette(original){
     if(kind==='gold')mat.metalness=key==='gold'?.86:.78;
     installSurfaceDetail(mat,kind);palette[key]=mat;
   }
+  const recessedStone=original.stone.clone();recessedStone.name='hall132-shadowed-shoreline-foundation';recessedStone.color.set('#59605d');recessedStone.roughness=.91;installSurfaceDetail(recessedStone,'stone');palette.recessedStone=recessedStone;
   // Recessed timber-backed lattice bays keep independent warm interior light.
   for(let i=0;i<5;i++){const key='window'+i,mat=original[key].clone();mat.name='hall132-'+key;mat.color.set(['#372016','#573019','#78512a','#a37432','#c1954b'][i]);mat.emissiveIntensity=[.16,.32,.58,.90,1.20][i];palette[key]=mat;}
   return palette;
@@ -72,7 +73,7 @@ function bilateralCloudBracketGeometry(){
 
 export function buildHall132(api,L){
   const {emit,box,group,between,tube,arch,lantern,R,scene,stack,emitRestoredBuddha}=api;
-  const records={revision:HALL132_REVISION,scope:'Hall front and roof underside only; layout125 camera, bridge, stairs, floor and rigid scans retained.',roofs:[],bearingRows:[],columns:[],eaveSupports:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
+  const records={revision:HALL132_REVISION,scope:'Hall front and roof underside; full foundation footprint retained as side wings, sill and bearing lintel around a single shoreline underpass.',roofs:[],bearingRows:[],columns:[],eaveSupports:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
   const leaf=leafGeometry(),rosette=new T.TorusGeometry(.13,.022,7,20),boss=new T.SphereGeometry(1,12,8),eaveArm=bilateralCloudBracketGeometry();
   const foliate=(x,y,z,s=1)=>{
     emit(rosette,'oldgold',x,y,z,s,s,s);emit(boss,'gold',x,y,z+.022,.040*s,.040*s,.028*s);records.ornament.rosettes++;
@@ -185,10 +186,20 @@ export function buildHall132(api,L){
   }
   function railUpper(base){for(let i=0;i<=17;i++){const x=-9+18*i/17;box(x,base+.73,5.05,.11,.86,.11,'red');emit(boss,'oldgold',x,base+1.21,5.05,.10,.09,.10);}for(const h of[.25,.65,.88])box(0,base+.3+h*.86,5.05,18,.075,.075,'red');}
   group(...L.hall.position,L.hall.yaw,()=>{
-    // Existing foundation, floor and masonry datum remain byte-for-byte in
-    // dimensions; retain exactly 323 RNG calls before the later garden.
-    box(0,-1.245,0,20,5.09,12,'stone');
-    for(let j=0;j<17;j++)for(let k=0;k<19;k++){const x=-9.6+k*1.06+(j%2)*.45;box(x,-3.64+j*.30,6.025,1.01,.28,.18,'granite',0,R(.72,1.20));}
+    // Keep the foundation's 20×12 m plan and full-depth side wings. At the
+    // entrance/shoreline, the broad face steps back into one shallow recessed
+    // support bay; its back wall remains intact beneath the bearing lintel.
+    const foundation={minX:-10,maxX:10,minY:-3.79,maxY:1.30,minZ:-6,maxZ:6};
+    const opening={minX:L.hall.entranceX-6.0,maxX:L.hall.entranceX+2.55,minY:-2.65,maxY:.65,minZ:4.70,maxZ:6};
+    box((foundation.minX+opening.minX)/2,(foundation.minY+foundation.maxY)/2,0,opening.minX-foundation.minX,foundation.maxY-foundation.minY,12,'stone');
+    box((opening.maxX+foundation.maxX)/2,(foundation.minY+foundation.maxY)/2,0,foundation.maxX-opening.maxX,foundation.maxY-foundation.minY,12,'stone');
+    box((opening.minX+opening.maxX)/2,(foundation.minY+foundation.maxY)/2,(foundation.minZ+opening.minZ)/2,opening.maxX-opening.minX,foundation.maxY-foundation.minY,opening.minZ-foundation.minZ,'recessedStone');
+    box((opening.minX+opening.maxX)/2,(foundation.minY+opening.minY)/2,(opening.minZ+opening.maxZ)/2,opening.maxX-opening.minX,opening.minY-foundation.minY,opening.maxZ-opening.minZ,'stone');
+    box((opening.minX+opening.maxX)/2,(opening.maxY+foundation.maxY)/2,(opening.minZ+opening.maxZ)/2,opening.maxX-opening.minX,foundation.maxY-opening.maxY,opening.maxZ-opening.minZ,'stone');
+    records.foundationOpening={foundationFootprint:[20,12],opening:{centerX:(opening.minX+opening.maxX)/2,width:opening.maxX-opening.minX,bottom:opening.minY,top:opening.maxY,recessDepth:opening.maxZ-opening.minZ,backWallLocalZ:opening.minZ,through:false},bearing:'full-depth side wings and back wall, 0.65 m front lintel above a continuous sill under the hall floor',position:'Asymmetric recessed shoreline bay covers the bridge-side face while retaining the original hall foundation footprint and stair terrace'};
+    // Preserve the exact 323 random draws while removing only stone courses
+    // that physically intersect the new open passage.
+    for(let j=0;j<17;j++)for(let k=0;k<19;k++){const x=-9.6+k*1.06+(j%2)*.45,y=-3.64+j*.30,tint=R(.72,1.20),inside=x+.505>opening.minX&&x-.505<opening.maxX&&y+.14>opening.minY&&y-.14<opening.maxY;if(!inside)box(x,y,6.025,1.01,.28,.18,'granite',0,tint);}
     box(0,4.1,-2,18.1,5.4,5.8,'darkwood');frame(0);frame(1);
     group(L.hall.entranceX,0,0,0,()=>{
       box(0,3.8,1,3.5,4.5,.18,'darkwood');box(0,1.58,0,3.3,.22,3.1,'darkwood');

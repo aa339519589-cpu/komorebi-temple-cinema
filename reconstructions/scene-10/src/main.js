@@ -75,6 +75,7 @@ const hall132=buildHall132({emit,box,group,between,tube,arch,lantern,R,scene,sta
 Object.assign(m,hall132Saved);
 // One closed bridge, turning landing and connected hall stair flight.
 const bridgeHallPlan=createBridgeHallStairPlan125();
+const bridgeEndSupports125=[];
 function solidFootprint125(outline,bottom,top,material='granite'){
  const shape=new T.Shape();outline.forEach(([x,z],i)=>i?shape.lineTo(x,-z):shape.moveTo(x,-z));shape.closePath();
  const geometry=new T.ExtrudeGeometry(shape,{depth:top-bottom,bevelEnabled:false,steps:1});geometry.rotateX(-Math.PI/2);geometry.translate(0,bottom,0);emit(geometry,material);return geometry;
@@ -93,10 +94,8 @@ group(...L.bridge.position,L.bridge.yaw,()=>{
   for(const t of stations){const p=P(t,side);box(p[0],p[1]+.52,side,.14,1.04,.14,'red');emit(sphere,'oldgold',p[0],p[1]+1.10,side,.075,.08,.075);}
   for(const h of[.25,.6,1.0])tube(Array.from({length:41},(_,i)=>P(end*i/40,side,h)),.065,'red');
  }
- for(const t of[.12,.5,.88]){
-  const p=P(t,0),bottom=-b.position[1]-.18,top=p[1]-b.deckThickness,count=Math.ceil((top-bottom)/.30);
-  for(let j=0;j<count;j++){const h=Math.min(.30,top-bottom-j*.30);box(p[0],bottom+j*.30+h*.5,0,.76,h,1.65,'granite',0,.92+.08*Math.sin(j*2.1+t*11));}
- }
+ // The open arch carries no intermediate wall. End bearing stays on the
+ // left abutment and the paired right landing piers below.
  const left=P(0),ground=L.groundY-b.position[1],rise=left[1]-ground;
  solidFootprint125([[-b.span/2,-1.2],[-b.span/2+.24,-1.2],[-b.span/2+.24,1.2],[-b.span/2,1.2]],-b.position[1]-.18,left[1]-b.deckThickness,'granite');
  for(let i=0;i<b.approachCount;i++){
@@ -105,8 +104,17 @@ group(...L.bridge.position,L.bridge.yaw,()=>{
  }
 });
 const turn=bridgeHallPlan.turningLanding,[tx,ty,tz]=turn.center,r=turn.halfWidth;
-solidFootprint125([[tx-r,tz-r],[tx+r,tz-r],[tx+r,tz+r],[tx-r,tz+r]],turn.bottom,turn.top,'granite');
-for(const step of bridgeHallPlan.steps)solidFootprint125(step.outline,step.bottom,step.top,'granite');
+solidFootprint125([[tx-r,tz-r],[tx+r,tz-r],[tx+r,tz+r],[tx-r,tz+r]],turn.top-.32,turn.top,'granite');
+const bridgeAxis=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],bridgeLateral=[Math.sin(L.bridge.yaw),Math.cos(L.bridge.yaw)];
+for(const side of[-1,1]){
+ const centerSide=side*1.22,point=(along,lateral)=>[tx+bridgeAxis[0]*along+bridgeLateral[0]*lateral,tz+bridgeAxis[1]*along+bridgeLateral[1]*lateral];
+ const outline=[point(-.66,centerSide-.32),point(.66,centerSide-.32),point(.66,centerSide+.32),point(-.66,centerSide+.32)];
+ solidFootprint125(outline,turn.bottom,turn.top-.32,'granite');bridgeEndSupports125.push({center:[tx+bridgeLateral[0]*centerSide,tz+bridgeLateral[1]*centerSide],bottom:turn.bottom,top:turn.top-.32,footprint:[1.32,.64],kind:'paired-end-bearing-pier'});
+}
+for(const step of bridgeHallPlan.steps){
+ // Closed granite masses retain the reference's backed riser construction.
+ solidFootprint125(step.outline,step.bottom,step.top,'granite');
+}
 solidFootprint125(bridgeHallPlan.upperLanding.outline,bridgeHallPlan.upperLanding.bottom,bridgeHallPlan.upperLanding.top,'granite');
 const [ux,uz]=bridgeHallPlan.unit;
 for(const side of[-1,1]){
@@ -295,6 +303,18 @@ for(const [x,z,sx,sz,top]of[[.55,-3.05,1.18,.92,.82],[2.7,-5.45,1.42,1.04,1.02],
 // A single exposed, grounded near-right bank mass replaces the thin-slice
 // reading of this margin; it does not consume the garden's shared RNG.
 const nearBankOutcrop=buildNearBankOutcrop(scannedStones,emit,{offsetX:L.path.nearBankOffsetX});
+// Broken foundation-edge stones follow the real hall frontage and creek line.
+// Each scan sits at the waterline; plants only root where rays hit that rock.
+const hallShoreline125=[];
+{const shorelineSeed=seed;seed=125904;const placements=[[-8.4,6.55,0,.78,.72,.78],[-6.7,6.65,3,.82,.68,.72],[-4.6,6.45,2,1.25,1.45,1.12],[-3.1,6.70,5,1.20,1.45,1.15],[-.7,6.65,1,.82,.72,.78],[1.6,6.75,4,.75,.65,.70]];
+ for(const [lx,lz,variant,sx,sy,sz]of placements){
+  const [x,,z]=hallToWorld125([lx,0,lz]),scan=scannedStones.variants[variant],yaw=R(-.52,.54),rotation=new T.Matrix4().makeRotationY(yaw).scale(V([sx,sy,sz])),bounds=new T.Box3().setFromBufferAttribute(scan.geometry.attributes.position).applyMatrix4(rotation),y=-.13-bounds.min.y,tint=R(.78,1.05);
+  emit(scan.geometry,scan.wet,x,y,z,sx,sy,sz,yaw,tint);
+  const surface=new T.Mesh(scan.geometry,scan.wet);surface.position.set(x,y,z);surface.scale.set(sx,sy,sz);surface.rotation.y=yaw;surface.updateMatrixWorld(true);
+  const ray=new T.Raycaster();let rooted=0;
+  for(let k=0;k<9;k++){const xx=x+R(-.36,.36)*sx,zz=z+R(-.34,.34)*sz;ray.set(V([xx,3,zz]),V([0,-1,0]));const hit=ray.intersectObject(surface,false)[0];if(!hit)continue;group(0,hit.point.y-.028,0,0,()=>shrub(xx,zz,.34));rooted++;}
+  hallShoreline125.push({local:[lx,0,lz],world:[x,y,z],variant,scale:[sx,sy,sz],yaw,bottom:bounds.min.y+y,top:bounds.max.y+y,rootedShrubs:rooted,source:'Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone'});
+ }seed=shorelineSeed;}
 // Broad evergreen branches interrupt the right facade, as in the photograph.
 tree(10.4,-2.7,11.7,'leaf',1.45);
 // Three broken airborne mist bands recede from the bridge toward the ridge.
@@ -342,4 +362,4 @@ function renderReference(n=10){if(n!==10)throw Error('Only scene 10 exists');ret
 const dolly=createDollyPath({points:[[-.7,.25,9],[-.75,.34,10.5],[-.2,.85,12.8],fixed.position],nearTarget:[-.8,.067,7.8],farTarget:fixed.target,fov:fixed.fov});
 // Negative values are bounded structural QA poses only; positive film timing is unchanged.
 function renderShot(localTime=0){if(localTime===-1250)return renderReference(10);if(localTime===-125)return renderView(L.inspection.position,L.inspection.target,0,L.inspection.fov);const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:HALL132_REVISION,layout:L,hall132,mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeAbutment125,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentTarget.texture,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();optics.dispose();scannedStones.dispose();nearSurface.texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:HALL132_REVISION,layout:L,hall132,mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeEndSupports125,bridgeAbutment125,hallShoreline125,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentTarget.texture,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','open-arch-end-bearing-piers','separated-stair-treads-with-supported-cheeks','rooted-hall-shoreline-scans','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();optics.dispose();scannedStones.dispose();nearSurface.texture.dispose();mirror.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();

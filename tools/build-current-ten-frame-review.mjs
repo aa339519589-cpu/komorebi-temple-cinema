@@ -1,6 +1,8 @@
 import {readFile,readdir,mkdir,writeFile,access} from 'node:fs/promises';
 import {resolve,relative} from 'node:path';
 import {execFileSync} from 'node:child_process';
+import {homedir} from 'node:os';
+import {existsSync} from 'node:fs';
 import {reconstructionSourceIdentity} from './reconstruction-source-identity.mjs';
 
 // Only genuine reference-camera framebuffers whose source content still matches
@@ -31,7 +33,9 @@ for(const scene of config.scenes){
 await mkdir(out,{recursive:true});
 const manifest={status:'ongoing-reconstruction-review',createdAt:new Date().toISOString(),sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),photoOnLeft:true,nativeOnRight:true,visualAccepted:false,frames};
 await writeFile(resolve(out,'frames.json'),JSON.stringify(manifest,null,2)+'\n');
-execFileSync('python3',['-c',`
+const bundledPython=resolve(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3');
+const python=process.env.PYTHON_BIN||(existsSync(bundledPython)?bundledPython:'python3');
+execFileSync(python,['-c',`
 import json,sys
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont,ImageOps

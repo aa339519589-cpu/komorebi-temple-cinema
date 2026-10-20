@@ -151,7 +151,7 @@ function makeBuilder(variant){
   return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
     finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
-      g.userData={reconstruction:'reference6-recovered-proportion-r1',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
+      g.userData={reconstruction:'reference6-recovered-proportion-anatomy-r2',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
     }return out;}};
 }
 
@@ -163,26 +163,26 @@ function face(center,attendant=false,variant='central'){
   const rows=[[-.415,0,0,-.020],[-.397,.112,.140,-.005],[-.365,.157,.191,.002],[-.290,.246,.238,.003],[-.170,.310,.245,.002],[-.045,.337,.247,-.004],[.095,.344,.244,-.012],[.225,.333,.235,-.020],[.340,.285,.201,-.026],[.425,.185,.142,-.028],[.455,0,0,-.025]].map(p=>[cy+p[0]*sy,p[1]*wx,p[2],p[3]]);
   const relief=(x,y)=>{
     const xx=x/wx,yy=(y-cy)/sy,G=(cx,cy,sx,sy)=>gaussian(xx-cx,sx)*gaussian(yy-cy,sy);
-    let f=.027*G(-.205,-.16,.135,.14)+.027*G(.205,-.16,.135,.14);
-    const noseWidth=.065+.027*smooth(-yy,-.02,.13);
-    f+=.040*gaussian(xx,noseWidth)*gaussian(yy-.015,.150)+.030*G(0,-.105,.070,.045);
-    f+=.010*G(-.063,-.121,.031,.025)+.010*G(.063,-.121,.031,.025);
-    f-=.006*G(-.055,-.146,.018,.012)+.006*G(.055,-.146,.018,.012);
-    f+=.010*G(0,-.148,.020,.021)-.009*G(0,-.184,.024,.028);
+    let f=.031*G(-.205,-.16,.135,.14)+.031*G(.205,-.16,.135,.14);
+    const noseWidth=.072+.030*smooth(-yy,-.02,.13);
+    f+=.050*gaussian(xx,noseWidth)*gaussian(yy-.015,.148)+.034*G(0,-.105,.070,.045);
+    f+=.013*G(-.063,-.121,.031,.025)+.013*G(.063,-.121,.031,.025);
+    f-=.008*G(-.055,-.146,.018,.012)+.008*G(.055,-.146,.018,.012);
+    f+=.013*G(0,-.148,.020,.021)-.011*G(0,-.184,.024,.028);
     for(const side of[-1,1]){
       const ex=xx*side,q=(ex-.164)/.116,inside=Math.max(0,1-q*q),mask=inside**1.2;
       const base=attendant?.077:.117,eye=base-.014*inside,brow=base+.028+.079*Math.sqrt(inside);
-      f-=.021*G(side*.164,base+.031,.119,.075);
-      f+=mask*(.010*gaussian(yy-brow,.025)+.015*gaussian(yy-eye-.028,.023)-.014*gaussian(yy-eye,.012)+.003*gaussian(yy-eye+.018,.021));
+      f-=.024*G(side*.164,base+.031,.113,.069);
+      f+=mask*(.014*gaussian(yy-brow,.025)+.019*gaussian(yy-eye-.028,.023)-.017*gaussian(yy-eye,.012)+.004*gaussian(yy-eye+.018,.021));
     }
     const mouth=-.237+.016*(xx/.12)**2,ml=gaussian(xx,.115);
     if(attendant){
       f-=.040*gaussian(xx,.061)*gaussian(yy-mouth,.029);
       f+=.018*ml*gaussian(yy-mouth-.032,.015)+.021*gaussian(xx,.093)*gaussian(yy-mouth+.034,.018);
     }else{
-      f+=.008*(gaussian(xx-.032,.036)+gaussian(xx+.032,.036))*gaussian(yy-mouth-.019,.021);
-      f+=.010*gaussian(xx,.095)*gaussian(yy-mouth+.020,.025)-.012*ml*gaussian(yy-mouth,.010);
-      f-=.004*gaussian(xx,.107)*gaussian(yy-mouth+.061,.021);
+      f+=.010*(gaussian(xx-.032,.036)+gaussian(xx+.032,.036))*gaussian(yy-mouth-.019,.021);
+      f+=.014*gaussian(xx,.095)*gaussian(yy-mouth+.020,.025)-.014*ml*gaussian(yy-mouth,.010);
+      f+=.004*ml*gaussian(yy-mouth+.032,.014)-.005*gaussian(xx,.107)*gaussian(yy-mouth+.061,.021);
     }
     f+=.007*G(0,-.332,.17,.083);return f;
   };
@@ -194,32 +194,37 @@ function face(center,attendant=false,variant='central'){
 function faceAnatomy(b,g,cy,small=false){
  const sy=small?.91:1.02,wx=small?.79:.96,at=g.userData.frontAt;
  for(const side of[-1,1]){
-  const lid=[],slit=[],brow=[];
+  const lid=[],lowerLid=[],slit=[],brow=[],upperFold=[];
   for(let k=0;k<=32;k++){
    const t=k/32,q=t*2-1,x=side*(.164+q*.112)*wx,inside=Math.max(0,1-q*q),base=small?.077:.117;
    const y=cy+(base-.014*inside)*sy;
-   const ly=y+.010*inside,ey=y-.004*inside;
-   lid.push([x,ly,at(x,ly)+.006]);slit.push([x,ey,at(x,ey)+.006]);
+   const ly=y+.010*inside,low=y-.012*inside,ey=y-.004*inside;
+   lid.push([x,ly,at(x,ly)+.006]);lowerLid.push([x,low,at(x,low)+.004]);slit.push([x,ey,at(x,ey)+.006]);
+   const fy=cy+(base+.052+.045*Math.sqrt(inside))*sy;upperFold.push([x,fy,at(x,fy)+.003]);
    const by=cy+(base+.030+.072*Math.sqrt(inside))*sy;brow.push([x,by,at(x,by)+.004]);
   }
-  b.add(cord(lid,.0075),'sculpted-upper-eyelid-'+side);b.add(cord(slit,.0060),'recessed-eye-aperture-'+side,'crease');b.add(cord(brow,.005),'arched-brow-ridge-'+side);
-  const nx=side*.055*wx,ny=cy-.146*sy;b.add(ellipsoid(nx,ny,at(nx,ny)+.001,.006,.0035,.002),'nostril-recess-'+side,'crease');
+  b.add(sweep(lid,.010,.0065,{segments:48,radial:12}),'sculpted-upper-eyelid-'+side);
+  b.add(cord(lowerLid,.0052),'sculpted-lower-eyelid-'+side);
+  b.add(cord(slit,.0055),'recessed-eye-aperture-'+side,'crease');
+  b.add(cord(upperFold,.0038),'quiet-upper-lid-fold-'+side,'crease');
+  b.add(sweep(brow,.008,.0055,{segments:44,radial:10}),'soft-arched-brow-ridge-'+side);
+  const nx=side*.055*wx,ny=cy-.146*sy;b.add(ellipsoid(nx,ny,at(nx,ny)+.001,.009,.0045,.003),'nostril-recess-'+side,'crease');
   // Helix and open concha are distinct volumes inside each long auricle.
   const ear=[];for(let k=0;k<=28;k++){const t=k/28,a=-.65+t*4.35;ear.push([side*(.381+.021*Math.cos(a))*(small?.85:1),cy+(.04+.175*Math.sin(a))*(small?.85:1),.059+.006*Math.cos(a)]);}
   b.add(cord(ear,.0065),'auricle-inner-helix-'+side);
  }
- const mouth=[];for(let k=0;k<=28;k++){const x=(-.105+k/28*.210)*wx,y=cy+(-.237+.014*(x/(.12*wx))**2)*sy;mouth.push([x,y,at(x,y)+.002]);}
- b.add(cord(mouth,.0035),'quiet-closed-lip-line','crease');
+ const mouth=[];for(let k=0;k<=32;k++){const x=(-.105+k/32*.210)*wx,y=cy+(-.237+.014*(x/(.12*wx))**2)*sy;mouth.push([x,y,at(x,y)+.003]);}
+ b.add(cord(mouth,.0048),'quiet-closed-lip-line','crease');
  const uy=cy+.255*sy;b.add(ellipsoid(0,uy,at(0,uy)+.007,.014,.016,.008),'forehead-urna');
 }
 function ears(b,cy,small=false){
  const scale=small?.85:1,rows=[
-  [-.36,0,0,.370,.045],[-.335,.037,.035,.382,.052],[-.24,.044,.049,.398,.044],
-  [-.10,.050,.059,.400,.023],[.05,.065,.065,.385,.005],[.18,.062,.057,.366,-.007],[.27,0,0,.337,-.016]
+  [-.44,0,0,.357,.047],[-.415,.045,.050,.375,.056],[-.35,.070,.077,.389,.050],
+  [-.24,.060,.071,.400,.028],[-.10,.050,.059,.400,.012],[.05,.065,.065,.385,.005],[.18,.062,.057,.366,-.007],[.27,0,0,.337,-.016]
  ];
  for(const side of[-1,1]){
   const g=surface(64,104,(u,v)=>{
-   const dy=-.36+.63*v,[rx,rz,cx,cz]=sampleProfile(rows,dy),a=u*TAU;
+   const dy=-.44+.71*v,[rx,rz,cx,cz]=sampleProfile(rows,dy),a=u*TAU;
    if(v===0||v===1)return[side*cx*scale,cy+dy*scale,cz*scale];
    const local=Math.sin(a)*rx,front=Math.max(0,Math.cos(a));
    const concha=-.038*gaussian(local+.010,.024)*gaussian(dy-.035,.145);
@@ -231,10 +236,10 @@ function ears(b,cy,small=false){
  }
 }
 function neck(b,cy,small=false){
- const w=small?.171:.221,depth=small?.167:.190;
+ const w=small?.171:.232,depth=small?.167:.197;
  const rows=[[cy-.185,0,0,0],[cy-.155,w*.79,depth*.83,0],[cy-.105,w,depth,0],[cy+.035,w*.97,depth*.96,0],[cy+.115,w*.88,depth*.83,-.006],[cy+.185,0,0,-.010]];
  const relief=(x,y)=>{
-  let f=0;for(const offset of[-.09,-.032,.026])f-=.0045*gaussian(y-cy-offset,.012);
+  let f=0;for(const offset of[-.095,-.040,.018])f-=.0060*gaussian(y-cy-offset,.014);
   return f*(1-smooth(Math.abs(x)/w,.72,.96));
  };
  b.add(loft(rows,{nu:88,nv:90,relief}),'neck');
@@ -243,19 +248,27 @@ function neck(b,cy,small=false){
 function raisedHand(b,cx,cy,cz,{size=1,mirror=1}={}){
  const point=p=>{const x=mirror*p[0]*size,z=p[2]*size,a=mirror*.25;return[cx+x*Math.cos(a)+z*Math.sin(a),cy+p[1]*size,cz-x*Math.sin(a)+z*Math.cos(a)];};
  const palmRows=[[-.18,0,0,0],[-.145,.058,.025,0],[-.060,.101,.032,0],[.055,.113,.029,0],[.125,.100,.026,0],[.153,.053,.018,0],[.165,0,0,0]];
- const palm=loft(palmRows,{nu:80,nv:88,relief:(x,y)=>-.008*gaussian(x,.060)*gaussian(y,.075)+.013*gaussian(x-.058,.035)*gaussian(y+.066,.055)-.003*gaussian(y+.020+.14*x,.006)});
+ const palm=loft(palmRows,{nu:80,nv:88,relief:(x,y)=>-.011*gaussian(x,.060)*gaussian(y,.075)+.016*gaussian(x-.058,.035)*gaussian(y+.066,.055)-.004*gaussian(y+.020+.14*x,.006)});
  palm.scale(size*mirror,size,size);palm.rotateY(mirror*.25);palm.translate(cx,cy,cz);if(mirror<0){const ix=palm.index;for(let i=0;i<ix.count;i+=3){const t=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,t);}}recomputeSculptureNormals(palm);b.add(palm,'anatomical-raised-palm','hand');
  const fingers=[
-  [[-.075,.085,.002],[-.106,.205,.012],[-.122,.286,.018],[-.119,.315,.012]],
-  [[-.033,.137,.000],[-.043,.266,.009],[-.045,.350,.009],[-.039,.372,.000]],
-  [[.018,.139,.000],[.027,.270,.007],[.035,.354,.006],[.043,.368,-.003]],
-  [[.065,.110,.001],[.101,.216,.012],[.116,.285,.017],[.111,.307,.008]],
-  [[.065,-.091,.006],[.145,-.025,.034],[.153,.045,.062],[.130,.075,.068]]
+  [[-.096,.080,.002],[-.139,.205,.012],[-.158,.286,.018],[-.151,.318,.012]],
+  [[-.031,.136,.000],[-.058,.265,.009],[-.063,.349,.009],[-.057,.376,.000]],
+  [[.032,.139,.000],[.067,.270,.007],[.081,.354,.006],[.087,.379,-.003]],
+  [[.094,.109,.001],[.131,.216,.012],[.151,.287,.017],[.145,.310,.008]],
+  [[.071,-.090,.006],[.145,-.025,.034],[.157,.045,.062],[.134,.078,.068]]
  ];
  fingers.forEach((p,i)=>{
   p=p.map(q=>[q[0]*1.05,q[1]*.88,q[2]+Math.max(0,q[1]-.20)*.22]);
-  b.add(finger(p.map(point),(i===4?.028:.028)*size),'anatomical-raised-finger-'+i,'hand');
-  if(i<4){const q=point(p[2]),crease=[[q[0]-.013*size,q[1]-.005*size,q[2]+.018*size],[q[0],q[1]-.008*size,q[2]+.020*size],[q[0]+.013*size,q[1]-.005*size,q[2]+.018*size]];b.add(cord(crease,.0024*size),'finger-joint-'+i,'crease');}
+  const baseRadius=i===4?.018:.0145,fingerPath=p.map(point);
+  b.add(finger(fingerPath,baseRadius*size),'anatomical-raised-finger-'+i,'hand');
+  for(const joint of[1,2]){
+    const center=p[joint],crease=[];
+    for(let k=0;k<=8;k++){
+      const u=k/8*2-1;
+      crease.push(point([center[0]+u*baseRadius*.78,center[1]+.002*Math.cos(u*Math.PI/2),center[2]+baseRadius*.78]));
+    }
+    b.add(cord(crease,.0019*size),`finger-flexion-crease-${i}-${joint}`,'crease');
+  }
  });
  return point;
 }
@@ -270,13 +283,21 @@ function leaf(x,y,z,w,h,depth,tilt=0){
     p.setXYZ(i,p.getX(i)*w*(.72+.28*Math.sin(Math.PI*t)),h*t,p.getZ(i)*depth);}
   recomputeSculptureNormals(g);g.rotateZ(tilt).translate(x,y,z);return g;
 }
+function sculptedHairCurl(x,y,z,rx,ry,rz,phase=0){
+ const g=new T.SphereGeometry(1,18,14),p=g.attributes.position;
+ for(let i=0;i<p.count;i++){
+  const px=p.getX(i),py=p.getY(i),pz=p.getZ(i),a=Math.atan2(pz,px),ridge=1+.090*Math.cos(6*a+py*2.2+phase)+.035*Math.cos(12*a-py*3.1+phase*.7);
+  p.setXYZ(i,px*ridge,py,pz*ridge);
+ }
+ recomputeSculptureNormals(g);g.scale(rx,ry,rz).translate(x,y,z);return g;
+}
 function crown(b,cy,{central=false,variant='central'}={}){
   if(central){
     const rows=[[3.17,0,0,-.028],[3.20,.29,.223,-.028],[3.31,.385,.286,-.03],[3.40,.353,.268,-.03],[3.49,.267,.213,-.03],[3.55,.145,.132,-.03],[3.59,0,0,-.03]].map(p=>[p[0],p[1]*1.08,p[2],p[3]]);
     b.add(loft(rows,{nu:80,nv:72}),'rounded-curl-cap','oldgold');
     for(let row=0;row<7;row++){
       const y=3.25+row*.043,[rx,rz,cz]=sampleProfile(rows,y),n=Math.max(10,Math.round(TAU*rx/.068));
-      for(let k=0;k<n;k++){const a=k/n*TAU+(row%2)*Math.PI/n;b.add(ellipsoid(Math.sin(a)*rx,y,cz+Math.cos(a)*rz,.026,.031,.024,0,12,10),`hair-curl-${row}-${k}`,'oldgold');}
+      for(let k=0;k<n;k++){const a=k/n*TAU+(row%2)*Math.PI/n;b.add(sculptedHairCurl(Math.sin(a)*rx,y,cz+Math.cos(a)*rz,.026,.031,.024,(row*17+k)*.31),`hair-curl-${row}-${k}`,'oldgold');}
     }
     const ps=[];for(let k=0;k<=60;k++){const a=-1.55+k/60*3.10;ps.push([Math.sin(a)*.347,3.176,-.025+Math.cos(a)*.247]);}b.add(cord(ps,.013),'low-diadem-band','gold');
     for(let i=0;i<15;i++){const a=(i-7)*.196,h=.075+.082*gaussian(i-7,1.7),x=Math.sin(a)*.345,z=-.025+Math.cos(a)*.250;b.add(leaf(x,3.176,z,.018,h,.012,-a*.15),`diadem-leaf-${i}`,'gold');}
@@ -323,9 +344,9 @@ const MAIN_DRAPE_TRACES=[
  [[-.39,.68],[-.22,.61],[.02,.67],[.19,.91],[.31,1.15]]
 ];
 function mainRelief(x,y){
- let f=.024*gaussian(x+.08,.36)*gaussian(y-1.30,.56)+.020*smooth(x,-.38,.30)*smooth(y,.62,1.10)*(1-smooth(y,1.95,2.25));
+ let f=.029*gaussian(x+.08,.36)*gaussian(y-1.30,.56)+.024*smooth(x,-.38,.30)*smooth(y,.62,1.10)*(1-smooth(y,1.95,2.25));
  for(let i=0;i<MAIN_DRAPE_TRACES.length;i++){const tr=MAIN_DRAPE_TRACES[i],lo=tr[0][0],hi=tr.at(-1)[0],fade=smooth(x,lo-.015,lo+.035)*(1-smooth(x,hi-.025,hi+.015));if(!fade)continue;
-  const at=sampleProfile(tr,clamp(x,lo,hi))[0],amp=[.008,.011,.010,.012,.010,.009,.008,.009,.007,.007,.006,.006][i];
+  const at=sampleProfile(tr,clamp(x,lo,hi))[0],amp=[.012,.015,.014,.017,.014,.013,.012,.013,.011][i];
   f+=fade*(amp*gaussian(y-at,.028)-amp*.30*gaussian(y-at+.030,.017));
  }
  const [bandCenter,bandWidth]=sampleProfile(MAIN_BAND,clamp(y,.63,2.25)),edge=bandCenter-bandWidth*.5;f+=.009*gaussian(x-edge,.070)*smooth(y,.50,.70)*(1-smooth(y,2.20,2.30));
@@ -496,7 +517,7 @@ function attendantFigure(variant){
 }
 
 export const RESTORED_BUDDHA_METRICS=Object.freeze({
- reference:6,reconstruction:'independent-reference6-recovered-proportion-r1',frontAxis:'+Z',seatContact:0,
+ reference:6,reconstruction:'independent-reference6-recovered-proportion-anatomy-r2',frontAxis:'+Z',seatContact:0,
  decorativeMinY:-.157,headCenter:2.78,crownTop:3.59,raisedHandTop:1.85313,kneeWidth:2.90,bodyDepth:1.50,
  variants:{central:{seatContact:0,decorativeMinY:-.157,crownTop:3.59,headCenter:2.78,kneeWidth:2.90},left:{seatContact:0,crownTop:3.75,headCenter:3.055},right:{seatContact:0,crownTop:3.75,headCenter:3.055}},
  referenceFit:{central:{x:0,y:3,z:0,scale:2.1/3.26},attendantScale:1.45/3.26,scaleConvention:'retain external unit conversion; do not normalize by crownTop'},

@@ -23,6 +23,7 @@ export function buildGarden(mats){
   if(rand()<.14)leafCluster(x+(rand()-.5)*sx*.18,y+sy*.80,z+(rand()-.5)*sz*.18,sx*.20,sy*.12,sz*.19,18);
  }
  const twigGeo=new T.CylinderGeometry(1,1,1,6);function branch(a,c,r){const len=V(a).distanceTo(V(c));if(r>.045&&len>1){let last=a;for(let j=1;j<=4;j++){let t=j/4,p=[mix(a[0],c[0],t)+Math.sin(t*Math.PI)*len*.05*Math.sin(c[2]*3),mix(a[1],c[1],t),mix(a[2],c[2],t)+Math.sin(t*Math.PI)*len*.055*Math.cos(c[0]*2)];b.line(last,p,r*(1-.35*t),'trunk');last=p;}}else b.line(a,c,r,'trunk',false,r,r<.05?twigGeo:null);}
+ let canopyLeafScale=1;
  function leafCluster(x,y,z,rx,ry,rz,n=100){
   // Sparse terminal shoots make each plant read as an irregular rounded mass,
   // with individual leaves turned through depth instead of repeating flat fans.
@@ -33,7 +34,7 @@ export function buildGarden(mats){
    branch([x,y-ry*.16,z],elbow,.010+rx*.0018);branch(elbow,tip,.006+rx*.0008);
    const sideAxis=a+Math.PI*.5;
    for(let k=0;k<perShoot;k++){
-    const t=.18+.78*(k+.5)/perShoot,side=(k%2?1:-1)*( .7+rand()*.7),s=.075+rand()*.09;
+    const t=.18+.78*(k+.5)/perShoot,side=(k%2?1:-1)*( .7+rand()*.7),s=(.075+rand()*.09)*canopyLeafScale;
     const p=[mix(elbow[0],tip[0],t)+Math.cos(sideAxis)*side*s*.55,mix(elbow[1],tip[1],t)+(rand()-.5)*ry*.16,mix(elbow[2],tip[2],t)+Math.sin(sideAxis)*side*s*.55];
     b.put(leafGeo,rand()<.18?'leaflight':'leaf',p,[s*(.78+rand()*.48),s*.72,s*(1.10+rand()*.72)],[-.85+rand()*1.55,a+side*.55+(rand()-.5)*.8,rand()*6.28],.72+rand()*.52);
    }
@@ -155,7 +156,11 @@ export function buildGarden(mats){
  const grass=gridGeometry(Array.from({length:7},(_,j)=>{let t=j/6;return[[-.5*Math.sin(Math.PI*t),t,.35*t*t],[.5*Math.sin(Math.PI*t),t,.35*t*t]];}));
  for(let j=0;j<90;j++){let z=rand()*17,x=9.6+rand()*.9;for(let k=0;k<18;k++){let a=rand()*6.28,r=rand()*.24;b.put(grass,k%4?'leaf':'leaflight',[x+Math.cos(a)*r,.24,z+Math.sin(a)*r],[.02+rand()*.025,.16+rand()*.25,.2+rand()*.15],[-.48+rand()*.96,a+(rand()-.5)*.36,(rand()-.5)*1.10]);}}
  // Left framing canopy enters the sky with individual leaves and crooked visible branches.
- b.at([-3,3,0],0,()=>{branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,180);}leafCluster(-16,21,-4,2.0,1.4,1.5,220);leafCluster(-21,22,-5,2.0,1.5,1.5,220);leafCluster(-11.5,20.5,-4,1.5,1.2,1.4,220);});tree(-28,-8,10,3.2,false);
+ canopyLeafScale=2.2;
+ b.at([7.56,2.846,13.75],0,()=>{branch([-34,-6.324444444,-7],[-32,1,-5],.65);branch([-32,1,-5],[-30,7,-4],.49);branch([-30,7,-4],[-28,11,-3],.33);branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,580);}leafCluster(-16,21,-4,2.0,1.4,1.5,680);leafCluster(-21,22,-5,2.0,1.5,1.5,680);leafCluster(-11.5,20.5,-4,1.5,1.2,1.4,680);},.45);canopyLeafScale=1;tree(-28,-8,10,3.2,false);
+ b.put(b.lowSphere,'moss',[-7.74,-.13,10.6],[2.1,.52,2.4]);
+ for(let k=0;k<12;k++){const a=k*Math.PI/6;rock(-7.74+Math.cos(a)*1.65,.02,10.6+Math.sin(a)*1.85,.38+rand()*.20);}
+
  // Broken azalea-and-fern pockets climb the stair shoulders without making a pink shelf.
  for(let s of[-1,1])for(let i=0;i<10;i++){
   let z=1+rand()*6,x=4+s*(3.8+rand()*3.5),y=.20+rand()*.38,r=.34+rand()*.42;
