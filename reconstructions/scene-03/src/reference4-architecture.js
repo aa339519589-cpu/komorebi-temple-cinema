@@ -74,7 +74,7 @@ export function buildReference4Architecture(T,options={}) {
  function canopy(x,z){if(z<=upperFront)return joinTop(x,z)-.025;const f=smooth(Math.max(0,Math.min(1,(gFront-z)/(gFront-upperFront))));return rawCanopy(x,z)+(joinTop(x,upperFront)-.025-rawCanopy(x,upperFront))*f;}
  function roof({name,w,d,eave,rise,curl=.45,centerZ=0,inner=.0,frontGap=0,connected=false}){return role(name,()=>{
   const physical=name==='main-upper-roof',tileParts=[],hw=w/2,hd=d/2,rh=w*.275;const P=(side,t,u)=>{const span=rh+(hw-rh)*t;let x,z;if(side===0||side===2){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}
-   let y=eave+rise*Math.pow(Math.max(0,1-t),1.48)+curl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));z+=centerZ;if(connected&&side===0)y=joinTop(x,z);return[x,y,z];};
+   const roofT=Math.min(1,t),overhang=Math.max(0,t-1),edge=Math.abs(u);let y=eave+rise*Math.pow(Math.max(0,1-roofT),1.48)+curl*Math.pow(roofT,8)*(.22+.78*Math.pow(edge,6))+overhang*(.16+.40*Math.pow(edge,4));z+=centerZ;if(connected&&side===0)y=joinTop(x,z);return[x,y,z];};
   for(let side=0;side<4;side++){
    const ranges=side===0&&frontGap?[[-1,-.001],[.001,1]]:[[-1,1]];
    for(const range of ranges){const ts=lin(inner,1,22),us=lin(range[0],range[1],48);let grid=ts.map(t=>us.map(u=>{if(side===0&&frontGap){const span=rh+(hw-rh)*t;u=Math.sign(u)*(frontGap/span+(1-frontGap/span)*Math.abs(u));}return P(side,t,u);}));
@@ -85,17 +85,20 @@ export function buildReference4Architecture(T,options={}) {
    for(let i=0;i<=rows;i++){const u=-1+2*i/rows;if(side===0&&frontGap&&Math.abs(P(side,1,u)[0])<frontGap+.08)continue;
     const pieces=Math.max(6,Math.ceil(Math.hypot(side%2?hw-rh:hd,rise)*(1-inner)/.36));
     for(let j=0;j<pieces;j++){const t0=physical?Math.max(.008,inner+(1-inner)*j/pieces):inner+(1-inner)*j/pieces,t1=inner+(1-inner)*(j+(physical?1.025:.96))/pieces;if(physical){tileParts.push(createClosedRoofTile(lin(t0,t1,4).map(t=>P(side,t,u)),.145,{cover:true,variant:i*1.31+j*.79+side*17}));if(i<rows)tileParts.push(createClosedRoofTile(lin(t0,t1,4).map(t=>P(side,t,u+1/rows)),.18,{cover:false,variant:i*1.71+j*.59+side*13}));}else{const p=P(side,t0,u),q=P(side,t1,u);tileBetween(p,q,.065,.94+.10*(.5+.5*Math.sin(i*11.3+j*4.7)));}}
-    if(physical){tileParts.push(createClosedRoofTile(lin(.965,1.04,4).map(t=>P(side,t,u)),.155,{cover:true,variant:i*1.77+side*19}));if(i<rows)tileParts.push(createClosedRoofTile(lin(.965,1.04,4).map(t=>P(side,t,u+1/rows)),.18,{cover:false,variant:i*1.51+side*23}));}
-    const end=P(side,physical?1.04:1,u);if(physical)end[1]+=.025;if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,physical?.092:.074,i%2===0);if(name.startsWith('main-')||name.startsWith('lower-')){if(side!==0)curvedRafter(lin(.66,1.012,9).map(t=>{const p=P(side,t,u);p[1]-=.285;return p;}));}else{const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}}
+    if(physical){const eaveCourses=[[.965,1.025],[1.02,1.06],[1.055,1.095],[1.09,1.13]];for(let k=0;k<eaveCourses.length;k++){const[aT,bT]=eaveCourses[k];tileParts.push(createClosedRoofTile(lin(aT,bT,4).map(t=>P(side,t,u)),.155,{cover:true,variant:i*1.77+side*19+k*3.1}));if(i<rows)tileParts.push(createClosedRoofTile(lin(aT,bT,4).map(t=>P(side,t,u+1/rows)),.18,{cover:false,variant:i*1.51+side*23+k*5.3}));}}
+    const end=P(side,physical?1.13:1,u);if(physical)end[1]+=.025;if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,physical?.092:.074,i%2===0);if(name.startsWith('main-')||name.startsWith('lower-')){if(side!==0||physical)curvedRafter(lin(.66,physical?1.12:1.012,9).map(t=>{const p=P(side,t,u);p[1]-=.285;return p;}),physical?.09:.105,physical?.14:.16);}else{const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}}
    }
    // The main eave has one deep closed fascia, so short rafters end behind
    // its moulded lower lip rather than appearing as isolated needle teeth.
    if(physical){
-    const curve=lin(-1,1,80).map(u=>{const p=P(side,1,u);p[1]-=.22;return p;});emit(createCurvedEaveRafter(curve,.31,.29),'darkwood');
-    const lip=lin(-1,1,80).map(u=>{const p=P(side,1.012,u);p[1]-=.34;return p;});emit(createCurvedEaveRafter(lip,.33,.095),'red');
-    tube(lin(-1,1,80).map(u=>{const p=P(side,1.015,u);p[1]-=.19;return p;}),.017,'bearingGilt',96);
+    const curve=lin(-1,1,80).map(u=>{const p=P(side,1.08,u);p[1]-=.27;return p;});emit(createCurvedEaveRafter(curve,.43,.36),'darkwood');
+    const lip=lin(-1,1,80).map(u=>{const p=P(side,1.12,u);p[1]-=.39;return p;});emit(createCurvedEaveRafter(lip,.45,.13),'red');
+    tube(lin(-1,1,80).map(u=>{const p=P(side,1.125,u);p[1]-=.24;return p;}),.022,'bearingGilt',96);
    }else for(let i=0;i<36;i++){const u=-1+2*i/36,v=-1+2*(i+1)/36,a=P(side,1,u),b=P(side,1,v);if(side===0&&(frontGap&&Math.min(Math.abs(a[0]),Math.abs(b[0]))<frontGap||connected&&Math.max(Math.abs(a[0]),Math.abs(b[0]))<gHalf))continue;a[1]-=.24;b[1]-=.24;between(a,b,.13,.23,'cedar');}
-   if(side<2)for(const sign of[-1,1]){const pts=lin(inner,1.035,16).map(t=>{const p=P(side,t,sign);p[1]+=.075;return p;});tube(pts,.095,'slate',32);}
+   if(side<2)for(const sign of[-1,1]){const pts=lin(inner,physical?1.13:1.035,16).map(t=>{const p=P(side,t,sign);p[1]+=.075;return p;});tube(pts,.095,'slate',32);}
+  }
+  if(physical)for(const t of[.58,.77,.94])for(let side=0;side<4;side++){
+   const points=lin(-1,1,72).map(u=>{const p=P(side,t,u);p[1]-=.18;return p;});curvedRafter(points,t===.58?.18:.15,t===.58?.14:.12);
   }
   if(tileParts.length){emit(mergeGeometries(tileParts,false),'roofCeramic');for(const g of tileParts)g.dispose();}
   if(inner===0){box(0,eave+rise+.10,centerZ,rh*2+.12,.30,.24,'slate');box(0,eave+rise+.285,centerZ,rh*2+.14,.07,.30,'tileEdge');for(const s of[-1,1]){tube([[s*rh,eave+rise+.1,centerZ],[s*(rh+.15),eave+rise+.22,centerZ],[s*(rh+.23),eave+rise+.51,centerZ]],.095,'slate',16);rosette(s*(rh-.16),eave+rise+.12,centerZ+.145,.10,'oldgold');}}
@@ -153,8 +156,8 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const span of[[2.86,4.73,C.capitalTop-.9],[4.73,6.88,C.capitalTop-1.3]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.32,.44,'red');relief(x,span[2]+.12,.272,w*.84,.24);}
  });
 
- const upperEave=15.4,upperWidth=13.6;
- const upper=roof({name:'main-upper-roof',w:upperWidth,d:9,eave:upperEave,rise:C.ridgeY-upperEave,curl:.34,centerZ:C.ridgeZ,connected:false});
+ const upperEave=15.4,upperWidth=15.2;
+ const upper=roof({name:'main-upper-roof',w:upperWidth,d:10.4,eave:upperEave,rise:C.ridgeY-upperEave,curl:.72,centerZ:C.ridgeZ,connected:false});
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:9.4,rise:3.1,curl:.56,centerZ:-4.5,inner:.45,frontGap:0});
  role('lower-eave-complete-parallel-rafters',()=>{
   const P=(u,t)=>[u*(4.95+4.05*t),9.4+3.1*Math.pow(Math.max(0,1-t),1.48)+.56*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6))-.34,5.1*t-4.5];
@@ -164,9 +167,9 @@ export function buildReference4Architecture(T,options={}) {
  role('front-gable-thick-ceramics-and-recessed-carving',()=>grouped(.60,0,0,0,()=>{
   // Photo landmarks are lifted onto the retained front plane, not matched by
   // a new focal length: crown ~[781,76], left shoulder ~[638,219].
-  const hw=3.45,front=-.60,back=-5.0,base=15.94,foot=16.20,peak=18.62;
+  const hw=3.45,front=.25,back=-5.0,base=15.94,foot=16.20,peak=18.62;
   const curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.48)+.060*Math.pow(Math.abs(x)/hw,8);
-  const mainHeight=(x,z)=>{const t=(z-C.ridgeZ)/4.5,span=upperWidth*(.275+.225*t),u=(x+.60)/span;return upperEave+(C.ridgeY-upperEave)*Math.pow(Math.max(0,1-t),1.48)+.34*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));};
+  const mainHeight=(x,z)=>{const t=(z-C.ridgeZ)/5.2,span=upperWidth*(.275+.225*t),u=(x+.60)/span;return upperEave+(C.ridgeY-upperEave)*Math.pow(Math.max(0,1-t),1.48)+.72*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));};
   const weather=(x,z)=>Math.max(curve(x)+.20*(front-z)/(front-back),mainHeight(x,z)+.018);
   emit(shell(gridAt(lin(-hw,hw,72),lin(back,front,24),weather),-.135,0,'closed-dormer-curved-ceramic-bedding'),'slate');
   const tiles=[],lanes=42,courses=14;
@@ -205,7 +208,7 @@ export function buildReference4Architecture(T,options={}) {
  }));
 
  role('main-roof-gilded-lotus-finial',()=>{
-  const x=3.8,z=-4.6,y=19.9,t=(z-C.ridgeZ)/4.5,u=x/(upperWidth*(.275+.225*t)),roofY=upper.P(0,t,u)[1]+.08,seatY=y-.23;emit(new T.CylinderGeometry(.18,.25,seatY-roofY,24),'slate',x,(roofY+seatY)/2,z);emit(cyl,'oldgold',x,y+1.9,z,.055,3.8,.055);emit(cyl,'oldgold',x,y-.08,z,.25,.30,.25);emit(sphere,'gold',x,y+.10,z,.22,.18,.22);
+  const x=3.8,z=-4.6,y=19.9,t=(z-C.ridgeZ)/5.2,u=x/(upperWidth*(.275+.225*t)),roofY=upper.P(0,t,u)[1]+.08,seatY=y-.23;emit(new T.CylinderGeometry(.18,.25,seatY-roofY,24),'slate',x,(roofY+seatY)/2,z);emit(cyl,'oldgold',x,y+1.9,z,.055,3.8,.055);emit(cyl,'oldgold',x,y-.08,z,.25,.30,.25);emit(sphere,'gold',x,y+.10,z,.22,.18,.22);
   for(let j=0;j<8;j++){let h=y+.22+j*.42,r=.37*(1-j*.073);emit(cyl,'oldgold',x,h+.03,z,r*.48,.18,r*.48);for(let k=0;k<6;k++){let a=k*Math.PI*2/6;emit(sphere,'gold',x+Math.cos(a)*r*.62,h+.12,z+Math.sin(a)*r*.62,.075,.18,.105,[0,a,Math.sin(a)*.3]);}emit(new T.TorusGeometry(r,.025,7,24),'gold',x,h,z,1,1,1,[Math.PI/2,0,0]);for(let k=0;k<7;k++){let a=k*Math.PI*2/7;between([x+Math.cos(a)*r*.7,h,z+Math.sin(a)*r*.7],[x+Math.cos(a)*r*1.2,h+.20,z+Math.sin(a)*r*1.2],.024,.024,'gold',true);}}
   emit(sphere,'gold',x,y+3.85,z,.105,.22,.105);
  });
@@ -218,12 +221,31 @@ export function buildReference4Architecture(T,options={}) {
   box(0,bandCenter,-1.02,13.6,bandHeight,.22,'darkwood');
   upperFrontInfill=buildUpperGalleryInfill03({emit,role});
   for(const sign of[-1,1])box(sign*6.76,bandCenter,-4.45,.22,bandHeight,7.1,'darkwood');box(0,bandCenter,-8.0,13.6,bandHeight,.22,'darkwood');
-  for(let j=-10;j<=10;j++){const x=j*.62;box(x,13.32,-.83,.48,.56,.12,'darkwood');relief(x,13.32,-.75,.38,.48);}
+  const galleryAxes=[...C.columnAxes,0].sort((a,b)=>a-b);
+  for(let i=0;i<galleryAxes.length-1;i++){
+   const left=galleryAxes[i],right=galleryAxes[i+1],x=(left+right)/2,w=right-left-.32;
+   box(x,13.32,-.83,w,.58,.13,'gableRecess');
+   // Fine timber lattice breaks the broad upper infill into dark framed bays.
+   for(let gx=left+.30;gx<right-.15;gx+=.235)box(gx,13.32,-.675,.046,.49,.065,'darkwood');
+   for(const gy of[13.09,13.32,13.55])box(x,gy,-.675,w-.08,.045,.065,'darkwood');
+   relief(x,13.32,-.585,Math.min(.76,w*.39),.31);
+  }
 
   for(const y of[11.35,12.40,14.05]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
-  for(let j=-9;j<=9;j++){const x=j*.72,t=(-.55-C.ridgeZ)/4.5,u=x/(upperWidth*(.275+.225*t)),receiver=upper.P(0,t,u)[1]-.37;arch.brackets(x,14.30,-.55,.50,{baseY:14.17,receiverY:receiver});box(x,13.34,-.7,.13,1.84,.17,'red');}
-  for(let j=-8;j<=8;j+=2)arch.brackets(j*.72,11.6,-.48,.30,{baseY:11.47,receiverY:12.25});
-  for(let j=-6;j<=6;j++){let x=j*1.05;rosette(x,13.32,-.42,.12);}
+  // A narrow intermediate girt receives the fine nested bracket clusters.
+  // It sits below the deep roof soffit and passes behind the seven major
+  // column-aligned bearings, tying the smaller supports into one course.
+  box(0,14.56,-.70,13.4,.16,.45,'darkwood');
+  box(0,14.59,-.455,13.12,.035,.045,'oldgold');
+  for(const x of galleryAxes){const t=(-.55-C.ridgeZ)/5.2,u=x/(upperWidth*(.275+.225*t)),receiver=upper.P(0,t,u)[1]-.37,scale=Math.abs(x)>6?.52:Math.abs(x)>4?.47:.43;arch.brackets(x,14.30,-.55,scale,{baseY:14.17,receiverY:receiver});box(x,13.34,-.7,.20,1.84,.24,'red');}
+  for(let i=0;i<galleryAxes.length-1;i++){
+   const left=galleryAxes[i],right=galleryAxes[i+1];
+   for(let j=1;j<=2;j++){
+    const x=left+(right-left)*j/3,scale=.22+((i+j)%2)*.014;
+    arch.brackets(x,14.35,-.55,scale,{baseY:14.17,receiverY:14.48});
+   }
+  }
+  for(const x of galleryAxes)arch.brackets(x,11.6,-.48,.26,{baseY:11.47,receiverY:12.25});
   // The mesh64 curved parts are retained. The upper assembly follows the
   // raised receiver beam; a row of bare upright gap-fillers is not exposed.
   for(let j=0;j<=64;j++){const u=-1+2*j/64;curvedRafter(lin(.40,1.012,12).map(t=>{const p=upper.P(0,t,u);p[1]-=.285;return p;}),.105,.16);const p=upper.P(0,1.012,u);arch.squareFitting(p[0],p[1]-.285,p[2]+.018,.095,.135,0,j%4===0);}

@@ -1,0 +1,573 @@
+{
+  "reference": 1,
+  "entry": "reconstructions/scene-01/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-20T17:56:04.678Z",
+  "source": {
+    "hash": "4da704893228818477e32a7044a5f203760f8b7c86188d69f1ec2944279cac2e",
+    "files": {
+      "assets/generated-golden-sky-v01/provenance.json": "992e712cfb9aaf9125956c5ed6d07a8fe9e6d45618a4b23db1e489148b1cdedb",
+      "assets/generated-golden-sky-v01/sky-equirectangular.png": "482ea8c208dc06a1f8b3001b7cc6904507e3766d0364880e25a8980278922f3c",
+      "assets/polyhaven/kloppenheim-06-puresky/provenance.json": "a85657e8f5f5104be09731fb58c392e9bbe062431c9c3de555e446264afb7153",
+      "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr": "5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063",
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/qwantani-sunset-puresky/provenance.json": "45e7d0d3a2746dcb4a5798c8dceca1322fe5dfc8389572f2814b6264936597ef",
+      "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "assets/temple-joinery-v01/build-report.json": "e0191358e027c9f77315115f48f2e905913b8f81a3976e885b72c955345c390b",
+      "assets/temple-joinery-v01/temple-joinery-v01.glb": "b984ebc15df7251c376c95f71cc0c9fe3e4706e3a1abaa1bd3a7bfd492e597bd",
+      "reconstructions/scene-01/asset-dependencies.json": "a7c51673d7db1c0ec60f30eecdfca13a55290cb2529de23dea2c5ad4655801c3",
+      "reconstructions/scene-01/hardware131-provenance.json": "0746e34e48e025e96e3519b7adc0710761a4987ef9f7781aebb31828173c263b",
+      "reconstructions/scene-01/index.html": "625cf9b6f9a2e43417fc682fb4a077138e2abdea0d28fee4a0cc0fec3fc466d1",
+      "reconstructions/scene-01/manifest.json": "2265d4d3867eb2b88142be96a5bd0adda53a9049a1f340a19cc793392caf7a0e",
+      "reconstructions/scene-01/src/architecture.js": "7a06ad804c7569a374e1d004be9edd2fcb71eb631dacb13704902a3d371d5cc2",
+      "reconstructions/scene-01/src/blender-joinery.js": "a4907118e8f5d8da2b5a8834caf13ba58955aade4d0c11a45ecdbcd23b8abd87",
+      "reconstructions/scene-01/src/contact-inspection124.js": "93e55d0c9d59a5dfa182ba2bb0d1c3f2db366b8a444976f0ad119d819b2f8c44",
+      "reconstructions/scene-01/src/distant-landscape.js": "497150055180e9dab11472ef6a06f94e31f45d88dd849fd70bc5807f615f48ff",
+      "reconstructions/scene-01/src/dolly-path.js": "690c495a354bcb67c49dca2ff9a07c544ba026f92fb2cd539415109c7941f4b3",
+      "reconstructions/scene-01/src/foreground-hardware131.js": "b45504f622bc6a8e8b2c319bc691ea50fd3d391d33f9c3e9d54480fc721fa382",
+      "reconstructions/scene-01/src/garden.js": "788ed43097bd3eefc86c36888120dcf5dbe828eaaf38b2bea27b329115033636",
+      "reconstructions/scene-01/src/kernel.js": "bfe508b99c5c1635065c9f8e7f326bc21c7cf0577cda67e71734e0f672aa5855",
+      "reconstructions/scene-01/src/layout-components124.js": "835bb8b4cadb61d6fb2fa5569ca8700785063ac03586f8e49e153acca690ea84",
+      "reconstructions/scene-01/src/layout124.js": "7e5422395341ecf400c85441755a5266467ce4e50068343da6618e1773a08488",
+      "reconstructions/scene-01/src/main.js": "42fe83c0a8ce76345b1309a5e794ebe9bfd91532076ce1248cbdbaa8b52d636f",
+      "reconstructions/scene-01/src/measured-sky.js": "52d55c1bd6f969f4a409e30303ae43603ea140b4142b6918c5523ab749a69f8f",
+      "reconstructions/scene-01/src/optics.js": "6216f859c404a85bc6b2739384580330322beffb3b12a5381526e25470743313",
+      "reconstructions/scene-01/src/restoration-altar.js": "793879f21d559bd4b12a0a014d9c2d659d001e23623c09eee4512d5496d293c5",
+      "reconstructions/scene-01/src/restoration-buddha.js": "7a0b9989e374bec55e65d830ff468437f5482c66bd4b7d0aa6f1f52940959adb",
+      "reconstructions/scene-01/src/scanned-garden-stones.js": "bbd2e69d72a377f352fb419ac3d265b8985f005a3441c64673123a3993a8b6b0",
+      "reconstructions/scene-01/src/scanned-timber.js": "b371e166a971ba8c63e5d8c7409715a219ef4d213441de85b0bfa8f1e364b231",
+      "reconstructions/scene-01/src/scene.js": "8a19f7847515a21ec7b271fd637d17ce6dd15903fcfee53241ae97d9710399e3",
+      "reconstructions/scene-01/src/sculpted-joinery.js": "649bcc119b5de80d35d55c7b93bb7a0a6da00357cc99d8a0b1b28dd401273565",
+      "vendor/examples/jsm/libs/fflate.module.js": "209a4412eb48ce609edb4391992a792ffcc3983d30ee7e2b0b89a8c470f3cd8a",
+      "vendor/examples/jsm/loaders/EXRLoader.js": "1355b32a2ee1226bffd0f96558f3d21e300832813ab70d51ec971025ebc34d5d"
+    }
+  },
+  "sourceCommit": "e07e8b600496db0452e4c4f69e5ee4a4286ddd56",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-01/index.html",
+    "/reconstructions/scene-01/src/main.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-01/src/scene.js",
+    "/reconstructions/scene-01/src/optics.js",
+    "/reconstructions/scene-01/src/dolly-path.js",
+    "/reconstructions/scene-01/src/contact-inspection124.js",
+    "/reconstructions/scene-01/src/scanned-timber.js",
+    "/reconstructions/scene-01/src/blender-joinery.js",
+    "/reconstructions/scene-01/src/scanned-garden-stones.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-01/src/kernel.js",
+    "/reconstructions/scene-01/src/architecture.js",
+    "/reconstructions/scene-01/src/garden.js",
+    "/reconstructions/scene-01/src/measured-sky.js",
+    "/reconstructions/scene-01/src/distant-landscape.js",
+    "/reconstructions/scene-01/src/layout124.js",
+    "/reconstructions/scene-01/src/foreground-hardware131.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-01/src/restoration-buddha.js",
+    "/reconstructions/scene-01/src/restoration-altar.js",
+    "/reconstructions/scene-01/src/sculpted-joinery.js",
+    "/reconstructions/scene-01/src/layout-components124.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/assets/temple-joinery-v01/temple-joinery-v01.glb",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/assets/generated-golden-sky-v01/sky-equirectangular.png"
+  ],
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 1,
+        "frame": 1,
+        "width": 1254,
+        "height": 1254,
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "fov": 59
+        },
+        "triangles": 293458088,
+        "calls": 16360
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene01-independent-generated-sky-radiance-v01",
+        "camera": {
+          "position": [
+            0,
+            3.2,
+            17
+          ],
+          "target": [
+            0,
+            6.2,
+            -13
+          ],
+          "fov": 59,
+          "near": 0.1,
+          "far": 260,
+          "deckY": 1.8,
+          "eyeAboveDeck": 1.4
+        },
+        "sunDirection": [
+          -0.3682471896995991,
+          0.20047123637403436,
+          -0.907857527734949
+        ],
+        "lighting": {
+          "sunIntensity": 6.2,
+          "sunColor": "#ffc982",
+          "hemisphere": 0.36,
+          "coolFill": 1.45,
+          "environmentIntensity": 0.52
+        },
+        "layout": {
+          "stair": {
+            "hallPavingReference": [
+              5.484119229666349,
+              3.675,
+              -7.5844273284042405
+            ],
+            "flightTop": [
+              4.925231841333445,
+              3.675,
+              -6.878987829111476
+            ],
+            "bottom": [
+              4.504840117639069,
+              2.1,
+              -4.643252888634258
+            ],
+            "width": 3.5,
+            "steps": 9,
+            "run": 2.27491536665024,
+            "riser": 0.17499999999999996,
+            "tread": 0.2527683740722489,
+            "connectedHallFloorY": 3.675,
+            "landingY": 2.1,
+            "bearingY": 1.95,
+            "continuousFootingBottomY": 0.050000000000000266,
+            "transitionLanding": {
+              "capLocal": [
+                [
+                  -3,
+                  5.64
+                ],
+                [
+                  1.5,
+                  5.64
+                ],
+                [
+                  1.0378551733004486,
+                  6.0598011490632295
+                ],
+                [
+                  -2.5378551733004486,
+                  7.940198850936769
+                ]
+              ],
+              "supportLocal": [
+                [
+                  1.2137748307501997,
+                  5.9
+                ],
+                [
+                  1.0378551733004486,
+                  6.0598011490632295
+                ],
+                [
+                  -2.5378551733004486,
+                  7.940198850936769
+                ],
+                [
+                  -2.947762057661689,
+                  5.9
+                ]
+              ],
+              "fullFrontEdgeLocal": [
+                [
+                  -2.5378551733004486,
+                  7.940198850936769
+                ],
+                [
+                  1.0378551733004486,
+                  6.0598011490632295
+                ]
+              ],
+              "foundationCapWasCut": true
+            }
+          },
+          "hardware131": {
+            "finial": {
+              "heightInRadiusUnits": 2.63,
+              "maximumSeatRadiusUnits": 0.82,
+              "domeRadiusUnits": 0.62,
+              "petals": 8,
+              "carvedBandRepeats": 10,
+              "allCapsUseSharedAssembly": true,
+              "seatDiameterMatchesWoodPostWidth": 1.02,
+              "woodPostHeadY": 2.62
+            },
+            "lantern": {
+              "position": [
+                -3.53,
+                6.94,
+                8.35
+              ],
+              "scale": 0.9,
+              "yaw": 0.38,
+              "bodyRadius": 0.43,
+              "bodyBottom": -0.48,
+              "bodyTop": 0.4,
+              "roofRadius": 0.64,
+              "screenHolesPerFace": 33,
+              "screenOpenAreaRatio": 0.46112260664482874,
+              "actualCeilingUndersideY": 10.270000000000001,
+              "chainTopMountFaceY": 10.270000000000001,
+              "chainBottomEyeY": 8.146
+            }
+          },
+          "foreground": {
+            "postHeadY": 2.62,
+            "deckY": 1.8,
+            "columnTop": 9.595,
+            "ceilingBearingBottom": 9.595,
+            "columnDeckHole": true,
+            "structuralRails": 4,
+            "postCentres": [
+              [
+                -1.578233834186404,
+                2.62,
+                13.69891566150143
+              ],
+              [
+                -0.11444479342937874,
+                2.62,
+                15.286643668267336
+              ]
+            ],
+            "mainVisibleSpan": 2.1595273972119946
+          },
+          "bridge": {
+            "position": [
+              -3.2436143342616863,
+              0.8154070995563524,
+              -0.8749234412477128
+            ],
+            "centralBent": true,
+            "waterY": 0.13,
+            "seatDepthBelowDeck": 0.64,
+            "woodAndStoneLegs": true
+          }
+        },
+        "architecture": {
+          "meshes": 2180,
+          "instances": 346888,
+          "triangles": 35026735,
+          "roles": {
+            "pagoda-plinth": 2,
+            "pagoda-1-timber-gallery": 1441,
+            "pagoda-1-curved-ceramic-roof": 2766,
+            "pagoda-2-timber-gallery": 1441,
+            "pagoda-2-curved-ceramic-roof": 2702,
+            "pagoda-3-timber-gallery": 1441,
+            "pagoda-3-curved-ceramic-roof": 2702,
+            "pagoda-4-timber-gallery": 1441,
+            "pagoda-4-curved-ceramic-roof": 2638,
+            "pagoda-5-timber-gallery": 1441,
+            "pagoda-5-curved-ceramic-roof": 2574,
+            "pagoda-finial": 37,
+            "great-hall-stone-platform": 185,
+            "great-hall-massive-columns": 6374,
+            "great-hall-carved-camera-bays": 200,
+            "great-hall-layered-carved-eave-friezes": 1253,
+            "great-hall-depth-enclosure": 151,
+            "great-hall-gilded-open-portal": 3342,
+            "great-hall-upper-storey": 1929,
+            "great-hall-upper-inner-purlin-bearings": 590,
+            "great-hall-lower-monumental-roof": 11606,
+            "great-hall-main-monumental-roof": 17298,
+            "great-hall-platform-edge-balustrades": 30,
+            "scene": 148,
+            "layout124-connected-hall-flight-and-landing": 57,
+            "foreground124-connected-deck": 94,
+            "foreground124-measured-column-and-bearing": 13,
+            "foreground124-continuous-ceiling-load-path": 265,
+            "foreground124-joined-panel-balustrade": 217,
+            "hardware131-carved-bronze-balustrade-caps": 76,
+            "hardware131-hexagonal-wood-metal-openwork-lantern": 296,
+            "hardware131-connected-ceiling-chain-and-fasteners": 34,
+            "layout124-pagoda-supported-ground": 1,
+            "garden-landforms": 7,
+            "layout124-connected-arched-red-bridge": 838,
+            "foreground-weathered-sculpted-stone-lantern": 939,
+            "stone-lantern-founded-shore-island": 118,
+            "continuous-soil-bank-from-stair-to-pond": 1,
+            "layout124-supported-shore-rock-masses": 23,
+            "layout124-front-bank-rock-buttresses": 3,
+            "planted-stair-bank-ferns-and-low-rocks": 12557,
+            "garden-shore-boulders-moss-and-crevices": 2097,
+            "foreground-east-island-boulder-and-ferns": 2330,
+            "west-bridge-root-rocks-and-flowering-groundcover": 54337,
+            "deep-layered-rock-bank-and-understory": 40970,
+            "layout124-raised-stair-landing-flagstones": 2655,
+            "layout124-waterfall-stone-channel-beds": 3,
+            "distant-haze-woodland": 760,
+            "sculptural-layered-pines": 5640,
+            "hall-terrace-rooted-pine-and-rock-garden": 58566,
+            "flowering-garden-shrubs": 84521,
+            "lotus-leaves-and-layered-pink-blossoms": 235,
+            "photograph-calibrated-lotus-beds": 217,
+            "maple-rooted-east-shore-extension": 157,
+            "upper-right-maple-framing-boughs": 5906,
+            "foreground-vine-over-balustrade": 416,
+            "foreground-vine-blossoms": 720,
+            "foreground-reference-boulder-and-crevice-ferns": 2017,
+            "bridge-abutment-rock-and-herb-understory": 6069,
+            "connected-garden-bark-branch-sweeps": 1
+          }
+        },
+        "garden": {
+          "branches": 282
+        },
+        "proceduralOnly": false,
+        "measuredSky": {
+          "provider": "OpenAI built-in imagegen",
+          "asset": "generated-golden-sky-v01",
+          "generated": true,
+          "referencePhotographUsed": false,
+          "scope": "Sky-only spherical environment and reflected radiance. All architecture, sculpture and plants remain independently modeled meshes.",
+          "radianceConversion": "sRGB decode multiplied by authored gain 3.0; not a measured HDRI",
+          "sourceGlowElevationDegrees": 3.6,
+          "targetSunDirection": [
+            -0.3682471896995991,
+            0.20047123637403436,
+            -0.907857527734949
+          ]
+        },
+        "scannedTimber": {
+          "provider": "Poly Haven",
+          "asset": "lacquered_cherry_wood",
+          "license": "CC0-1.0",
+          "physicalTileMetres": 1,
+          "grain": "Member-aligned metric UV; filtered normal and roughness maps"
+        },
+        "hardware131": {
+          "revision": "scene01-hardware131-hexagonal-openwork-lantern-and-carved-giboshi",
+          "geometry": "Original analytic polygonal roof, pierced extruded floral screens, cast relief and fluted lotus/giboshi solids in foreground-hardware131.js",
+          "metalSurface": "Deterministic procedural micro-pitting, fine scratches and roughness; no reference-photo data",
+          "woodSurface": "Existing Poly Haven lacquered_cherry_wood CC0 scan via scanned-timber.js; member-aligned UV reused",
+          "referenceUsedAsTexture": false
+        },
+        "scannedStones": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "joinery": {
+          "source": "Blender source-built solid kit v01 with fitted receiver lap keys",
+          "bracketPieces": 18,
+          "receiverLapKeys": 8,
+          "fittingTriangles": 3680,
+          "guideRole": "Image-assisted non-metric relief depth; no source-photo albedo"
+        },
+        "planarReflection": true,
+        "frames": 1,
+        "renderer": {
+          "calls": 16360,
+          "triangles": 293458088
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9991955566747811,
+      "opaqueFraction": 1,
+      "rgbaSha256": "687fea83b0b87ae0429933d43a6981d0876d2b219eda67f4fccf0584817e3873"
+    }
+  ],
+  "completedAt": "2026-10-20T17:56:11.681Z"
+}

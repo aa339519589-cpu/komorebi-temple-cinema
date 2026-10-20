@@ -84,6 +84,20 @@ function solidFootprint125(outline,bottom,top,material='granite'){
 const legacyBridgeRandomCalls=19+[.12,.5,.88].reduce((n,t)=>n+Math.ceil((1.4+.25+1.35*Math.sin(Math.PI*(t-.55*t*(1-t)))+.65*t-.13)/.30),0);
 group(...L.bridge.position,L.bridge.yaw,()=>{
  const b=L.bridge,n=40,P=bridgePoint125;
+ const archProfile=new T.Shape(),ribStations=72;
+ for(let i=0;i<=ribStations;i++){const p=P(i/ribStations);i?archProfile.lineTo(p[0],p[1]-.14):archProfile.moveTo(p[0],p[1]-.14);}
+ for(let i=ribStations;i>=0;i--){const p=P(i/ribStations);archProfile.lineTo(p[0],p[1]-.53);}archProfile.closePath();
+ const carryingArch=new T.ExtrudeGeometry(archProfile,{depth:.17,steps:1,bevelEnabled:true,bevelSize:.012,bevelThickness:.008,bevelSegments:2,curveSegments:1});
+ for(const sign of[-1,1]){
+  emit(carryingArch,'red',0,0,sign*1.10-.085);
+  for(const [drop,r,ma]of[[-.50,.025,'darkwood'],[-.33,.012,'darkwood'],[-.17,.018,'cedar']])tube(Array.from({length:49},(_,i)=>P(i/48,sign*1.205,drop)),r,ma);
+ }
+ const crestRing=new T.TorusGeometry(.115,.012,7,32);
+ for(const t of[.22,.50,.78]){
+  const p=P(t,1.218,-.33);emit(crestRing,'oldgold',...p);
+  for(let k=0;k<8;k++){const a=k*Math.PI/4;emit(sphere,'oldgold',p[0]+Math.cos(a)*.068,p[1]+Math.sin(a)*.068,p[2]+.008,.040,.017,.012,[0,0,a]);}
+  emit(sphere,'gold',p[0],p[1],p[2]+.012,.025,.025,.012);
+ }
  for(let i=0;i<n;i++){
   const t0=i/n,t1=(i+1)/n,x0=-b.span/2+b.span*t0,x1=-b.span/2+b.span*t1,w=b.width/2+.20;
   const g=solidFootprint125([[x0,-w],[x1,-w],[x1,w],[x0,w]],-b.deckThickness,0,'darkwood'),position=g.attributes.position;
@@ -132,13 +146,13 @@ for(const [bridgeHeight,stairHeight]of[[1,.96],[.6,.48]]){
 // Keep the established later garden RNG independent of this structural rewrite.
 for(let k=0;k<legacyBridgeRandomCalls;k++)rand();
 // Existing rigid CC0 scans form a grounded island at the near bridge pier.
-const bridgeAbutment125=[];let footingTop=-.20;
+const bridgeAbutment125=[],nearBridgeFoot125=bridgeToWorld125(bridgePoint125(0));let footingTop=-.20;
 for(const [i,variant,scale]of[[0,0,.72],[1,4,.80]]){
  const scan=scannedStones.variants[variant],yaw=i?.22:-.18,rotation=new T.Matrix4().makeRotationY(yaw).scale(V([scale,scale,scale])),bounds=new T.Box3(),position=scan.geometry.attributes.position;
  for(let j=0;j<position.count;j++)bounds.expandByPoint(V([position.getX(j),position.getY(j),position.getZ(j)]).applyMatrix4(rotation));
- const bottom=i?footingTop-.12:-.20,y=bottom-bounds.min.y;bounds.translate(V([-.65,y,-3.30]));
- if(bounds.max.z>=-2.02||bounds.min.x<=-1.68||bounds.max.y>=1.64)throw Error('Bridge bank stone leaves its bounded support envelope');
- emit(scan.geometry,scan.wet,-.65,y,-3.30,scale,scale,scale,yaw);footingTop=bounds.max.y;bridgeAbutment125.push({variant,scale,yaw,position:[-.65,y,-3.30],bounds:[bounds.min.toArray(),bounds.max.toArray()],source:'Existing CC0 scan, positions/normals/UVs retained'});
+ const bottom=i?footingTop-.12:-.20,y=bottom-bounds.min.y;bounds.translate(V([nearBridgeFoot125[0],y,nearBridgeFoot125[2]]));
+ if(bounds.max.z>=nearBridgeFoot125[2]+1.1||bounds.min.x<=nearBridgeFoot125[0]-1.1||bounds.max.y>=nearBridgeFoot125[1]+.24)throw Error('Bridge bank stone leaves its bounded support envelope');
+ emit(scan.geometry,scan.wet,nearBridgeFoot125[0],y,nearBridgeFoot125[2],scale,scale,scale,yaw);footingTop=bounds.max.y;bridgeAbutment125.push({variant,scale,yaw,position:[nearBridgeFoot125[0],y,nearBridgeFoot125[2]],bounds:[bounds.min.toArray(),bounds.max.toArray()],source:'Existing CC0 scan, positions/normals/UVs retained'});
 }
 // Sheltered foreground is one supported column and a rotated veranda roof.
 group(...L.veranda.column,0,()=>{

@@ -3,14 +3,14 @@ import * as T from 'three';
 // The backed granite flight rises from a planted shore, not from a bare
 // two-metre riser standing in the pond. This is a closed physical landform.
 export function createStairEmbankment137(plan){
- const [cx,,cz]=plan.bridgeEnd,[ux,uz]=plan.unit,distance=plan.run+1.55;
+ const [cx,,cz]=plan.bridgeEnd,[ux,uz]=plan.unit,landingRun=Math.hypot(plan.start[0]-cx,plan.start[2]-cz),distance=plan.run+landingRun;
  // Continue below the hall paving as buried fill. Ending at the last tread
  // left the recessed foundation exposed directly behind the bridge arch.
  const ground=-.13,front=-1.85,back=distance+5.0,width=3.55;
  const smooth=(x,a,b)=>T.MathUtils.smoothstep(x,a,b);
  const noise=(u,v)=>Math.sin(u*2.31+v*.71)*Math.cos(v*3.73-u*.43)*.035+Math.sin(u*5.27-v*4.17)*.018;
  const ridge=u=>{
-  const approach=smooth(u,front,0),rise=T.MathUtils.clamp((u-1.55)/plan.run,0,1);
+  const approach=smooth(u,front,0),rise=T.MathUtils.clamp((u-landingRun)/plan.run,0,1);
   return ground+(plan.bridgeEnd[1]+plan.rise*rise-.16-ground)*approach;
  };
  const at=(u,v)=>{

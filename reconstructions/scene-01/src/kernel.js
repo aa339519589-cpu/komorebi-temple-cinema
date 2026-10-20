@@ -29,7 +29,7 @@ const leafData=new Uint8Array(256*256*4);for(let y=0;y<256;y++)for(let x=0;x<256
 m.glow=new T.MeshStandardMaterial({color:0xffbd4e,emissive:0xffa226,emissiveIntensity:3.0,roughness:.4});m.paperGlow=new T.MeshStandardMaterial({color:0xf3d495,emissive:0xffa32b,emissiveIntensity:.85,roughness:.8});for(const k of['wood','red','redLight','darkwood','endwood'])m[k].bumpScale=.005;for(const k of['stone','stoneLight','rock','rockWet','moss','earth','slate','tileEdge'])m[k].bumpScale=k==='slate'?.0016:k==='tileEdge'?.008:.035; m.bark.bumpScale=.085;for(const k of ['leaf','leafLight','leafDark','pink','pinkLight','lotus','lotusInside'])m[k].side=T.DoubleSide;return m;}
 // The scanned cherry albedo replaces the starter wood colors at scene build.
 // Per-material instance tints carry the palette calibration through that scan.
-const timberPalette={red:[.84,.72,.66],redLight:[.89,.78,.71],wood:[.86,.79,.71],endwood:[.85,.80,.72],darkwood:[.61,.51,.44]};
+const timberPalette={red:[.78,.58,.43],redLight:[.84,.64,.47],wood:[.84,.70,.52],endwood:[.84,.72,.52],darkwood:[.57,.43,.31]};
 export class Builder{
 constructor(materials){this.m=materials;this.metricTimberGeometries=new Map();this.group=new T.Group();this.stack=[new T.Matrix4()];this.buckets=new Map();this.roles={};this.role='scene';this.boxG=new T.BoxGeometry(1,1,1);this.cylG=new T.CylinderGeometry(1,1,1,16);this.sphereG=new T.SphereGeometry(1,12,8);this.coneG=new T.ConeGeometry(1,1,12);this.resources=new Set([this.boxG,this.cylG,this.sphereG,this.coneG]);}
 put(g,mat,matrix,tint=1){if(!matrix.elements.every(Number.isFinite))throw Error('Nonfinite '+this.role);const ma=typeof mat==='string'?this.m[mat]:mat;

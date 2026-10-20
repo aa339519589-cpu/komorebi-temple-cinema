@@ -31,7 +31,7 @@ export async function installScannedTimber(mats){
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
   mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.38,.38);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
   mat.color.setRGB(...colors[key]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.28:.13;mat.clearcoatRoughness=.28;mat.specularIntensity=.70;}
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.18:.10;mat.clearcoatRoughness=.20;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.55,.55);mat.specularIntensity=.70;}
   mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-varnished-timber-red-lacquer-v02';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=.7;mat.needsUpdate=true;
  }

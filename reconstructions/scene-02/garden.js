@@ -1,5 +1,6 @@
 import {T,V,mix,rand,Builder,gridGeometry} from './kernel.js';
 import {buildForegroundStoneLantern120,foregroundLanternFootprint120} from './foreground-stone-lantern120.js';
+import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 export function buildGarden(mats){
  const b=new Builder(mats),lights=[];mats.rock=mats.stone.clone();mats.rock.color.setHex(0x77786f);mats.rock.roughness=.92;mats.rock.metalness=0;mats.rock.flatShading=true;mats.pondBed=mats.moss.clone();mats.pondBed.name='scene02-muted-pond-bed';mats.pondBed.color.setHex(0x3b4236);mats.pondBed.roughness=.98;
  const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=mats.pink.side=mats.pinkDark.side=T.DoubleSide;
@@ -243,11 +244,58 @@ export function buildGarden(mats){
  // Terrain silhouettes: true finite ridges, then several layers of distant woodland.
  const mountainMat=new T.MeshStandardMaterial({color:0x45533a,roughness:1,map:mats.stone.map,bumpMap:mats.stone.bumpMap,bumpScale:.16});
  const ridgeTop=(x,layer)=>10+layer*2+12*Math.exp(-(((x+66)/34)**2))+1.4*Math.sin(x*.15+layer)+.65*Math.sin(x*.57);
+ const mountainSurface=(x,z,layer,zbase)=>{const t=Math.max(0,Math.min(1,(zbase-z)/28.8)),shape=Math.pow(Math.sin(Math.PI*t),.8);return -1+shape*(ridgeTop(x,layer)+1)+shape*.65*Math.sin(x*.43+t*24*.81);};
+ let mountainCanopyTrees=0,forestSeed=0x4217a29d;
+ const forestRand=()=>{forestSeed=(Math.imul(forestSeed,1664525)+1013904223)>>>0;return forestSeed/4294967296;};
+ const branchUnit=new T.CylinderGeometry(1,1,1,5,1),canopyUnit=new T.SphereGeometry(1,8,6);
+ function movedPart(base,position,scale,rotation=[0,0,0]){const g=base.clone(),q=new T.Quaternion().setFromEuler(new T.Euler(...rotation));g.applyMatrix4(new T.Matrix4().compose(V(position),q,V(scale)));return g;}
+ function joinedParts(parts){
+  const prepared=parts.map(g=>{if(g.index){const flat=g.toNonIndexed();g.dispose();return flat;}return g;});
+  const merged=mergeGeometries(prepared,false);for(const g of prepared)g.dispose();
+  if(!merged)throw Error('Unable to merge mountain tree geometry.');merged.computeVertexNormals();return merged;
+ }
+ function addBranch(parts,a,c,r){
+  const start=V(a),end=V(c),axis=end.clone().sub(start),q=new T.Quaternion().setFromUnitVectors(V([0,1,0]),axis.clone().normalize());
+  const g=branchUnit.clone();g.applyMatrix4(new T.Matrix4().compose(start.add(end).multiplyScalar(.5),q,V([r,axis.length(),r])));parts.push(g);
+ }
+ const forestVariants=Array.from({length:16},(_,variant)=>{
+  const branches=[],dark=[],lit=[],tiers=3+variant%4,phase=forestRand()*Math.PI*2;
+  addBranch(branches,[0,0,0],[.008,.94,.015],.018+variant*.0008);
+  for(let tier=0;tier<tiers;tier++){
+   const t=tier/Math.max(1,tiers-1),cy=.23+.61*t+(forestRand()-.5)*.10,arms=3+(variant+tier*2)%4,spread=.48*(1-.14*t)*(.72+forestRand()*.56);
+   for(let arm=0;arm<arms;arm++){
+    const a=phase+arm*Math.PI*2/arms+tier*.43+(forestRand()-.5)*.62,reach=spread*(.77+forestRand()*.52),start=[0,cy-.075,0],middle=[Math.cos(a)*reach*.55,cy-.01+forestRand()*.09,Math.sin(a)*reach*.55],tip=[Math.cos(a)*reach,cy+.012+forestRand()*.11,Math.sin(a)*reach];
+    addBranch(branches,start,middle,.006+forestRand()*.003);addBranch(branches,middle,tip,.004+forestRand()*.002);
+    const crown=[tip[0]+Math.cos(a)*.045,tip[1]+.025,tip[2]+Math.sin(a)*.045],size=.13+forestRand()*.10,scale=[size*(.92+forestRand()*.82),size*(.48+forestRand()*.72),size*(.88+forestRand()*.76)];
+    (forestRand()<.27?lit:dark).push(movedPart(canopyUnit,crown,scale,[forestRand()*.25,a,forestRand()*.35]));
+    if(forestRand()<.72){const inner=[middle[0]*.72,middle[1]+.035,middle[2]*.72],small=.082+forestRand()*.048;(forestRand()<.28?lit:dark).push(movedPart(canopyUnit,inner,[small,small*.88,small],[forestRand()*.35,a+.5,forestRand()*.4]));}
+   }
+  }
+  for(let j=0;j<3;j++){const a=phase+j*Math.PI*2/3,cy=.79+j*.055,rad=.11+forestRand()*.035,p=[Math.cos(a)*.065,cy,Math.sin(a)*.065];(j===1?lit:dark).push(movedPart(canopyUnit,p,[rad*.9,rad*1.18,rad],[.2,a,forestRand()*.4]));}
+  return{branches:joinedParts(branches),dark:joinedParts(dark),lit:joinedParts(lit)};
+ });branchUnit.dispose();canopyUnit.dispose();
+ const middlePine=mats.leaf.clone(),middlePineLight=mats.leaflight.clone(),farPine=mats.leaf.clone(),farPineLight=mats.leaflight.clone();
+ middlePine.name='scene02-mid-distance-pine';middlePine.color.setHex(0x35443b);middlePine.roughness=.96;
+ middlePineLight.name='scene02-mid-distance-pine-tips';middlePineLight.color.setHex(0x4a5948);middlePineLight.roughness=.96;
+ farPine.name='scene02-atmospheric-pine';farPine.color.setHex(0x4c5856);farPine.roughness=.98;
+ farPineLight.name='scene02-atmospheric-pine-tips';farPineLight.color.setHex(0x626d67);farPineLight.roughness=.98;
+ Object.assign(mats,{mountainMidPine:middlePine,mountainMidPineLight:middlePineLight,mountainFarPine:farPine,mountainFarPineLight:farPineLight});
+ const forestMaterials=[[mats.leaf,mats.leaflight],[middlePine,middlePineLight],[farPine,farPineLight]];
+ const mountainRows=[9,8,7],mountainColumns=64,mountainDensity=[.90,.85,.78];
  for(let layer=0;layer<3;layer++){
   const z=-34-layer*30,rows=Array.from({length:25},(_,j)=>Array.from({length:111},(_,i)=>{const x=-110+i*2,t=j/24,crest=ridgeTop(x,layer),shape=Math.pow(Math.sin(Math.PI*t),.8);return[x,-1+shape*(crest+1)+shape*.65*Math.sin(x*.43+j*.81),z-j*1.2];}));
   const g=gridGeometry(rows),m=mountainMat.clone();m.color.lerp(new T.Color(0xb39a76),layer*.24);m.side=T.DoubleSide;b.put(g,m);
-  for(let j=0;j<820;j++){const x=-110+rand()*220,zt=z-14.4+(rand()-.5)*2,h=.18+rand()*.36;b.put(b.lowSphere,m,[x,ridgeTop(x,layer)+h*.18,zt],[.16+rand()*.18,h,.22],[0,rand()*6.28,0],.75+rand()*.30);}
+  const rowN=mountainRows[layer],density=mountainDensity[layer],baseHeight=[3.8,2.8,1.9][layer],heightRange=[3.2,2.4,1.65][layer];
+  for(let row=0;row<rowN;row++)for(let col=0;col<mountainColumns;col++){
+   const x=-108+col*(216/(mountainColumns-1))+(forestRand()-.5)*2.8,t=.10+row*(.80/Math.max(1,rowN-1))+(forestRand()-.5)*.11,zt=z-t*28.8+(forestRand()-.5)*1.55;
+   const patch=.5+.5*Math.sin(x*.085+layer*1.7)*Math.cos(zt*.13-layer*.8);if(forestRand()>density-.15+patch*.27)continue;
+   const sunX=16.2+(-.87/-.75)*(zt-25);if(zt>-78&&zt<-28&&Math.abs(x-sunX)<11.5)continue;
+   const y=mountainSurface(x,zt,layer,z),rawHeight=baseHeight+forestRand()*heightRange,cap=Math.max(1.5,ridgeTop(x,layer)+[4.0,3.2,2.3][layer]-y),h=Math.min(rawHeight,cap),spread=.78+forestRand()*.42,variant=Math.floor(forestRand()*forestVariants.length),tree=forestVariants[variant],yaw=forestRand()*Math.PI*2,tint=.84+forestRand()*.32;
+   b.put(tree.branches,'trunk',[x,y,zt],[h*spread,h,h*spread*.92],[0,yaw,0],.72+forestRand()*.38);
+   b.put(tree.dark,forestMaterials[layer][0],[x,y,zt],[h*spread,h,h*spread*.92],[0,yaw,0],tint);
+   b.put(tree.lit,forestMaterials[layer][1],[x,y,zt],[h*spread,h,h*spread*.92],[0,yaw,0],.72+forestRand()*.46);
+   mountainCanopyTrees++;
+  }
  }
- for(let i=0;i<80;i++){let x=-60+rand()*100,z=-30-rand()*16,h=3+rand()*5;const g=new T.ConeGeometry(1,1,7);b.put(g,'leaf',[x,h*.5,z],[1+rand()*1.5,h,1.5],[0,rand()*6,0],.65+rand()*.6);}
- return {group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
+ return {group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
 }
