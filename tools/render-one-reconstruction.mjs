@@ -14,6 +14,9 @@ const worktree=resolve(process.env.WORKTREE||process.cwd()),size=Number(process.
 const iteration=process.env.ITERATION||'01',port=Number(process.env.PORT||4500);
 const motionFps=Number(process.env.MOTION_FPS||0),motionDuration=7;
 const detailCrop=process.env.DETAIL_CROP?process.env.DETAIL_CROP.split(',').map(Number):null;
+const pickValues=process.env.PICK_PIXELS?process.env.PICK_PIXELS.split(',').map(Number):[];
+if(pickValues.length%2||pickValues.some(v=>!Number.isFinite(v)||v<0||v>1))throw Error('PICK_PIXELS requires normalized u,v pairs.');
+const pickPixels=Array.from({length:pickValues.length/2},(_,i)=>pickValues.slice(i*2,i*2+2));
 const viewPose=process.env.VIEW_POSITION||process.env.VIEW_TARGET?{position:process.env.VIEW_POSITION?.split(',').map(Number),target:process.env.VIEW_TARGET?.split(',').map(Number),fov:process.env.VIEW_FOV?Number(process.env.VIEW_FOV):null}:null;
 if(viewPose&&(![viewPose.position,viewPose.target].every(a=>a?.length===3&&a.every(Number.isFinite))||(viewPose.fov!==null&&(!Number.isFinite(viewPose.fov)||viewPose.fov<10||viewPose.fov>120))||motionFps||process.env.SHOT_TIMES||detailCrop))throw Error('VIEW_POSITION/VIEW_TARGET require finite3-vectors and an independent still view.');
 if(detailCrop&&(detailCrop.length!==4||!detailCrop.every(Number.isInteger)||Math.min(...detailCrop)<0||detailCrop[2]<1||detailCrop[3]<1||detailCrop[0]+detailCrop[2]>detailCrop[3]||detailCrop[1]+detailCrop[2]>detailCrop[3]||motionFps||process.env.SHOT_TIMES))throw Error('DETAIL_CROP requires x,y,size,fullSize and a still reference view.');
@@ -63,7 +66,7 @@ try{
  for(const localTime of frames){
   if(encoderError)throw encoderError;
   const crop=detailCrop&&report.frames.length===1?detailCrop:null;
-  const result=await Promise.race([page.evaluate(({reference,localTime,crop,viewPose})=>{
+  const result=await Promise.race([page.evaluate(async({reference,localTime,crop,viewPose,pickPixels})=>{
    const t=window.temple,r=t.renderer,gl=r.getContext();
    if(crop)t.camera.setViewOffset(crop[3],crop[3],crop[0],crop[1],crop[2],crop[2]);else t.camera.clearViewOffset();
    const pose=viewPose?t.renderView(viewPose.position,viewPose.target,0,viewPose.fov??t.camera.fov):localTime===null?t.renderReference(reference):t.renderShot(localTime);gl.finish();
@@ -71,8 +74,22 @@ try{
    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.readPixels(0,0,width,height,gl.RGBA,gl.UNSIGNED_BYTE,bytes);
    const glError=gl.getError(),programs=r.info.programs.map(p=>({linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)}));let binary='';
    for(let i=0;i<bytes.length;i+=16384)binary+=String.fromCharCode(...bytes.subarray(i,i+16384));
-   return{pose,width,height,glError,programs,contextLost:gl.isContextLost(),rgbaBase64:btoa(binary),info:t.info()};
-  },{reference,localTime,crop,viewPose}),fatal]);
+   const picked=[];
+   if(pickPixels.length){
+    const {Raycaster,Vector2,Box3,Matrix4}=await import('three');
+    for(const [u,v]of pickPixels){
+     const ray=new Raycaster();ray.setFromCamera(new Vector2(u*2-1,1-v*2),t.camera);
+     const hits=ray.intersectObject(t.scene,true).filter(h=>h.object.isMesh).slice(0,6);
+     picked.push({pixel:[u,v],hits:hits.map(h=>{
+      const o=h.object,matrix=o.matrixWorld.clone();
+      if(h.instanceId!==undefined){const instance=new Matrix4();o.getMatrixAt(h.instanceId,instance);matrix.multiply(instance);}
+      const bounds=new Box3().setFromBufferAttribute(o.geometry.attributes.position).applyMatrix4(matrix);
+      return{distance:h.distance,point:h.point.toArray(),name:o.name,instanceId:h.instanceId,geometry:o.geometry.type,parameters:o.geometry.parameters,material:(Array.isArray(o.material)?o.material:[o.material]).map(m=>({name:m.name,type:m.type,opacity:m.opacity})),bounds:[bounds.min.toArray(),bounds.max.toArray()]};
+     })});
+    }
+   }
+   return{pose,width,height,glError,programs,contextLost:gl.isContextLost(),rgbaBase64:btoa(binary),info:t.info(),...(picked.length?{picked}:{} )};
+  },{reference,localTime,crop,viewPose,pickPixels}),fatal]);
   const bytes=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;
   let nonblack=0,opaque=0;for(let i=0;i<bytes.length;i+=4){if(Math.max(bytes[i],bytes[i+1],bytes[i+2])>3)nonblack++;if(bytes[i+3]===255)opaque++;}
   const valid=result.glError===0&&!result.contextLost&&result.programs.every(p=>p.linked)&&nonblack>size*size*.05&&report.errors.length===0;
