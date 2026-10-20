@@ -1,0 +1,6109 @@
+{
+  "reference": 10,
+  "entry": "reconstructions/scene-10/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-20T18:39:07.570Z",
+  "source": {
+    "hash": "8733f504261d377c90e0b93af0fd16c36888a963525e16f6de827805e8d52739",
+    "files": {
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-04/assets/granite-tile-04/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-10/asset-dependencies.json": "b0a7cf9c1d7b3da409f1c2b89dd5333ea9d79f442b3c1aff893900311e7a8d01",
+      "reconstructions/scene-10/hall132-provenance.json": "877a9427f3244757126e4696eaa225312a42702906a8ba04199f52edd7ba3a35",
+      "reconstructions/scene-10/index.html": "72276586699e97b2d8e826ae4e05105cd61b2b233c9079077f455793963f45a1",
+      "reconstructions/scene-10/ripple134-provenance.json": "a77b12ece7aec73a36920d9d6a41465e6fdff0783e418282d7f01bcd3aee8984",
+      "reconstructions/scene-10/src/architecture.js": "46b9ba71d8cbfe055779e32fa614087ca83f64300b7983274c4beab0a1813659",
+      "reconstructions/scene-10/src/buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-10/src/dolly-path.js": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c",
+      "reconstructions/scene-10/src/hall-front132.js": "33c4d0f6631465ee643c7ab37fcec50be2dab7459d77b1f6985db2ae508727a8",
+      "reconstructions/scene-10/src/layout125.js": "415c61bc48d1639a3bc8735f7465f6b2f6ce1b4299f743df37ec30dd0bcc5d06",
+      "reconstructions/scene-10/src/main.js": "78cc55f853a244e17e0607e9f5996a47657918b2fd04aeebf78ab059ff4b4aac",
+      "reconstructions/scene-10/src/maple-canopy136.js": "dc3e85cd32eb65572221ae375560199338d3db630a95d84e646d69d3c009b7b2",
+      "reconstructions/scene-10/src/materials.js": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5",
+      "reconstructions/scene-10/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-10/src/near-bank-outcrop.js": "4a5167de2665496d83f39e4c2dd34442855c10c35d3257308b42257e59edaf6e",
+      "reconstructions/scene-10/src/near-rain-stones.js": "3775ad1bb72718cdc65aaabc259af54617c29c2e2d13ca92a477f2229f93658b",
+      "reconstructions/scene-10/src/near-surface-reflection.js": "f340fd45f0edf62257bcc786f0dc5a593f26924450b37634f4f7e3cb541a254b",
+      "reconstructions/scene-10/src/optics.js": "6216f859c404a85bc6b2739384580330322beffb3b12a5381526e25470743313",
+      "reconstructions/scene-10/src/paving-mask.js": "5b29826ff27a1659bf54425c0e804678d557ae30169ea8798171038a0901cbe3",
+      "reconstructions/scene-10/src/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-10/src/stair-embankment137.js": "e528b0a33b5a724a6ab6a68dd7f50661d6f5746b1ccae5537b0ae6d13e2dff73",
+      "reconstructions/scene-10/src/stone-lantern.js": "b244a21135e50e49c24f950a0086e5d2f7dcb064d8c7c168dbb56f86505574a7",
+      "reconstructions/scene-10/src/surface-detail.js": "446bb5b6547912dedd9144bcf552fc19ce37a0bfb87a861914a7a31714ab9075",
+      "reconstructions/scene-10/src/water-film-ripples134.js": "669c1ee65901de17aa654a057d9634f9373cbb9e474fba050c22db5437b7c21a",
+      "reconstructions/scene-10/src/water-film-ripples135.js": "726039946aa1ee9812c995228ceb41b81f2e0e2943efbfdf648213fee9a2d818",
+      "reconstructions/scene-10/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-10/src/worn-flagstone.js": "3819161a975500eae49f80a86909a651be94e35e72c80748a118071992c18f4b"
+    }
+  },
+  "sourceCommit": "31411bdbe1fdb84a80bc560e2073fecce3d2c58e",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-10/index.html",
+    "/reconstructions/scene-10/src/main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-10/src/paving-mask.js",
+    "/reconstructions/scene-10/src/worn-flagstone.js",
+    "/reconstructions/scene-10/src/near-rain-stones.js",
+    "/reconstructions/scene-10/src/near-surface-reflection.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-10/src/architecture.js",
+    "/reconstructions/scene-10/src/materials.js",
+    "/reconstructions/scene-10/src/natural-forms.js",
+    "/reconstructions/scene-10/src/weathered-boulder.js",
+    "/reconstructions/scene-10/src/buddha.js",
+    "/reconstructions/scene-10/src/surface-detail.js",
+    "/reconstructions/scene-10/src/scanned-garden-stones.js",
+    "/reconstructions/scene-10/src/near-bank-outcrop.js",
+    "/reconstructions/scene-10/src/dolly-path.js",
+    "/reconstructions/scene-10/src/optics.js",
+    "/reconstructions/scene-10/src/water-film-ripples135.js",
+    "/reconstructions/scene-10/src/maple-canopy136.js",
+    "/reconstructions/scene-10/src/hall-front132.js",
+    "/reconstructions/scene-10/src/stair-embankment137.js",
+    "/reconstructions/scene-10/src/stone-lantern.js",
+    "/reconstructions/scene-10/src/layout125.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png",
+    "/reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png"
+  ],
+  "detailCrop": {
+    "pixels": [
+      160,
+      410,
+      520,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-hall132-d-shoreline-underpass",
+        "layout": {
+          "revision": "scene10-whole-layout125",
+          "camera": {
+            "position": [
+              0,
+              1,
+              14
+            ],
+            "target": [
+              0,
+              4.65,
+              -14
+            ],
+            "fov": 60
+          },
+          "pagoda": {
+            "position": [
+              -6.9,
+              6.79,
+              -20
+            ],
+            "yaw": -0.1,
+            "scale": [
+              0.88,
+              0.7,
+              0.88
+            ],
+            "tierDecrement": 0.055,
+            "finialHeight": 8
+          },
+          "hall": {
+            "position": [
+              14,
+              2.6,
+              -14
+            ],
+            "yaw": -0.58,
+            "scale": [
+              1.12,
+              0.95,
+              1.12
+            ],
+            "floorLocalY": 1.3,
+            "entranceX": -2.85,
+            "upperLandingLocal": [
+              -2.85,
+              1.3,
+              6.75
+            ]
+          },
+          "bridge": {
+            "position": [
+              2.35,
+              1.22,
+              -5.4
+            ],
+            "yaw": 0.12,
+            "span": 10.3,
+            "width": 2,
+            "archRise": 1.08,
+            "phaseSkew": 0.2,
+            "endRise": 0.53,
+            "deckOffset": 0.25,
+            "deckThickness": 0.18,
+            "approachCount": 7,
+            "approachRun": 0.25,
+            "railHeight": 1,
+            "hallApproachLandingRun": 1,
+            "turningHalfWidth": 1.75,
+            "exitRailCutT": 0.82
+          },
+          "veranda": {
+            "column": [
+              -3.35,
+              0,
+              7.9
+            ],
+            "radius": 0.42,
+            "shoeHeight": 0.8,
+            "ceilingY": 7.1,
+            "ceilingYaw": 0.75,
+            "ceilingCenter": [
+              0.07,
+              -1.4
+            ],
+            "hangingLamp": [
+              -2.83,
+              5.85,
+              6.35
+            ],
+            "lampScale": 0.76
+          },
+          "foregroundRail": {
+            "position": [
+              1.2,
+              0,
+              11.8
+            ],
+            "baseY": 0.1,
+            "postHeight": 0.87,
+            "postWidth": 0.39,
+            "capWidth": 0.48,
+            "finialBase": 0.925,
+            "finialHeightScale": 0.68,
+            "finialWidthScale": 0.58,
+            "returnEnd": [
+              0.72,
+              0,
+              14.2
+            ],
+            "levels": [
+              0.27,
+              0.52,
+              0.78
+            ]
+          },
+          "heroStoneLantern": {
+            "position": [
+              -2.8,
+              0.77,
+              -3
+            ],
+            "scale": [
+              1.066,
+              0.98,
+              1.066
+            ],
+            "supportTop": 0.7
+          },
+          "drain": {
+            "position": [
+              -1.9,
+              -0.004,
+              8.5
+            ],
+            "yaw": 0.56275,
+            "halfWidth": 0.095,
+            "length": 13
+          },
+          "path": {
+            "farRight": 3.9,
+            "turnStartZ": 5,
+            "nearRight": 1,
+            "turnEndZ": 11.4,
+            "nearBankOffsetX": 1.45
+          },
+          "inspection": {
+            "position": [
+              -4,
+              7.5,
+              1
+            ],
+            "target": [
+              6.5,
+              2.5,
+              -6.5
+            ],
+            "fov": 63
+          },
+          "groundY": 0.067
+        },
+        "hall132": {
+          "revision": "scene10-hall132-d-shoreline-underpass",
+          "scope": "Hall front and roof underside; full foundation footprint retained as side wings, sill and bearing lintel around a single shoreline underpass.",
+          "roofs": [
+            {
+              "label": "lower",
+              "w": 23,
+              "d": 13.6,
+              "e": 6.05,
+              "rise": 3.45,
+              "curl": 1.1,
+              "closedTimberDepth": 0.152,
+              "deckTopOffset": -0.028,
+              "deckBottomOffset": -0.18,
+              "rafterTiers": 2,
+              "rafters": 728,
+              "outerProfile": "Unchanged layout125 analytical roof profile"
+            },
+            {
+              "label": "upper",
+              "w": 21.5,
+              "d": 12.9,
+              "e": 10.45,
+              "rise": 7.7,
+              "curl": 0.4,
+              "closedTimberDepth": 0.152,
+              "deckTopOffset": -0.028,
+              "deckBottomOffset": -0.18,
+              "rafterTiers": 2,
+              "rafters": 680,
+              "outerProfile": "Unchanged layout125 analytical roof profile"
+            }
+          ],
+          "bearingRows": [
+            {
+              "level": 0,
+              "index": 0,
+              "z": 4.5,
+              "sets": 18,
+              "scale": 0.72,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.14
+            },
+            {
+              "level": 0,
+              "index": 1,
+              "z": 5.28,
+              "sets": 28,
+              "scale": 0.48,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 0,
+              "index": 2,
+              "z": 6.02,
+              "sets": 29,
+              "scale": 0.42,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 0,
+              "index": 3,
+              "z": 6.52,
+              "sets": 33,
+              "scale": 0.34,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 1,
+              "index": 0,
+              "z": 4.5,
+              "sets": 18,
+              "scale": 0.72,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.14
+            },
+            {
+              "level": 1,
+              "index": 1,
+              "z": 5.28,
+              "sets": 28,
+              "scale": 0.48,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 1,
+              "index": 2,
+              "z": 6.02,
+              "sets": 29,
+              "scale": 0.42,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 1,
+              "index": 3,
+              "z": 6.52,
+              "sets": 33,
+              "scale": 0.34,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            }
+          ],
+          "columns": [
+            {
+              "level": 0,
+              "x": -8.2,
+              "bottom": 1.6,
+              "shaftTop": 5.481627904822048,
+              "bearingBeamCenter": 5.481627904822048
+            },
+            {
+              "level": 0,
+              "x": -6.1499999999999995,
+              "bottom": 1.6,
+              "shaftTop": 5.475186600124468,
+              "bearingBeamCenter": 5.475186600124468
+            },
+            {
+              "level": 0,
+              "x": 0,
+              "bottom": 1.6,
+              "shaftTop": 5.474470001563709,
+              "bearingBeamCenter": 5.474470001563709
+            },
+            {
+              "level": 0,
+              "x": 2.0500000000000007,
+              "bottom": 1.6,
+              "shaftTop": 5.474470110784646,
+              "bearingBeamCenter": 5.474470110784646
+            },
+            {
+              "level": 0,
+              "x": 4.1,
+              "bottom": 1.6,
+              "shaftTop": 5.474497962123312,
+              "bearingBeamCenter": 5.474497962123312
+            },
+            {
+              "level": 0,
+              "x": 6.149999999999999,
+              "bottom": 1.6,
+              "shaftTop": 5.475186600124468,
+              "bearingBeamCenter": 5.475186600124468
+            },
+            {
+              "level": 0,
+              "x": 8.2,
+              "bottom": 1.6,
+              "shaftTop": 5.481627904822048,
+              "bearingBeamCenter": 5.481627904822048
+            },
+            {
+              "level": 1,
+              "x": -8.2,
+              "bottom": 6,
+              "shaftTop": 10.508960730062356,
+              "bearingBeamCenter": 10.508960730062356
+            },
+            {
+              "level": 1,
+              "x": -6.1499999999999995,
+              "bottom": 6,
+              "shaftTop": 10.503769476111454,
+              "bearingBeamCenter": 10.503769476111454
+            },
+            {
+              "level": 1,
+              "x": -4.1,
+              "bottom": 6,
+              "shaftTop": 10.503214480669989,
+              "bearingBeamCenter": 10.503214480669989
+            },
+            {
+              "level": 1,
+              "x": -2.05,
+              "bottom": 6,
+              "shaftTop": 10.5031920343833,
+              "bearingBeamCenter": 10.5031920343833
+            },
+            {
+              "level": 1,
+              "x": 0,
+              "bottom": 6,
+              "shaftTop": 10.503191946358648,
+              "bearingBeamCenter": 10.503191946358648
+            },
+            {
+              "level": 1,
+              "x": 2.0500000000000007,
+              "bottom": 6,
+              "shaftTop": 10.5031920343833,
+              "bearingBeamCenter": 10.5031920343833
+            },
+            {
+              "level": 1,
+              "x": 4.1,
+              "bottom": 6,
+              "shaftTop": 10.503214480669989,
+              "bearingBeamCenter": 10.503214480669989
+            },
+            {
+              "level": 1,
+              "x": 6.149999999999999,
+              "bottom": 6,
+              "shaftTop": 10.503769476111454,
+              "bearingBeamCenter": 10.503769476111454
+            },
+            {
+              "level": 1,
+              "x": 8.2,
+              "bottom": 6,
+              "shaftTop": 10.508960730062356,
+              "bearingBeamCenter": 10.508960730062356
+            }
+          ],
+          "eaveSupports": [
+            {
+              "level": 0,
+              "columnX": -8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": -6.1499999999999995,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 0,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 2.0500000000000007,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 4.1,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 6.149999999999999,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -6.1499999999999995,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -4.1,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -2.05,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 0,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 2.0500000000000007,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 4.1,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 6.149999999999999,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            }
+          ],
+          "ornament": {
+            "giltWraps": 1624,
+            "volumetricLeaves": 748,
+            "rosettes": 41
+          },
+          "photographSampled": false,
+          "foundationOpening": {
+            "foundationFootprint": [
+              20,
+              12
+            ],
+            "opening": {
+              "centerX": -4.575,
+              "width": 8.549999999999999,
+              "bottom": -2.65,
+              "top": 0.65,
+              "recessDepth": 1.2999999999999998,
+              "backWallLocalZ": 4.7,
+              "through": false
+            },
+            "bearing": "full-depth side wings and back wall, 0.65 m front lintel above a continuous sill under the hall floor",
+            "position": "Asymmetric recessed shoreline bay covers the bridge-side face while retaining the original hall foundation footprint and stair terrace"
+          }
+        },
+        "mapleCanopy136": {
+          "revision": "scene10-palmate-autumn-maple136",
+          "position": [
+            6.4,
+            -0.1,
+            -12
+          ],
+          "primaryBranches": 7,
+          "terminalBranches": 189,
+          "leafInstances": 3213,
+          "leafForm": "cupped seven-lobe lamina, raised central and lateral veins, exposed petiole",
+          "palette": [
+            "autumn-maple136-0",
+            "autumn-maple136-1",
+            "autumn-maple136-2",
+            "autumn-maple136-3",
+            "autumn-maple136-4"
+          ]
+        },
+        "waterRipples135": {
+          "revision": "scene10-grounded-pbr-rainwaves135",
+          "seeds": 55,
+          "additionalDistributedPositions": 48,
+          "groundedImpacts": 75,
+          "generatedVertices": 96075,
+          "generatedTriangles": 180000,
+          "waterSurfaceY": 0.055,
+          "ringWidthMetres": 0.014,
+          "peakWaveMetres": 0.0043,
+          "staticRNGDraws": 0,
+          "ringMaterial": "physical wet-film reflectance; no emissive/diffuse white outline",
+          "contact": "Impact centers and every ripple vertex are gated by real paving coverage, narrow seams, wetness and the geometry-derived low-spot pool mask; crest relief peaks near 4.3 mm.",
+          "surface": "Thin shallow film at the low-spot waterline over actual authored flagstone geometry; no replacement ground sheet."
+        },
+        "bridgeHallPlan": {
+          "bridgeEnd": [
+            7.462964474647412,
+            2,
+            -6.016517867537935
+          ],
+          "hallLanding": [
+            7.186950259324159,
+            3.835,
+            -9.425634772880848
+          ],
+          "start": [
+            7.382264986655798,
+            2,
+            -7.01325634509255
+          ],
+          "width": 2.9,
+          "count": 12,
+          "run": 2.4202721998921883,
+          "rise": 1.835,
+          "unit": [
+            -0.08069948799161475,
+            -0.9967384775546148
+          ],
+          "steps": [
+            {
+              "index": 0,
+              "top": 2.1529166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.936994194201606,
+                  -6.896242087504709
+                ],
+                [
+                  5.92071796692397,
+                  -7.097273623153734
+                ],
+                [
+                  8.811259551832354,
+                  -7.331302138329416
+                ],
+                [
+                  8.82753577910999,
+                  -7.130270602680391
+                ]
+              ]
+            },
+            {
+              "index": 1,
+              "top": 2.305833333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.92071796692397,
+                  -7.097273623153734
+                ],
+                [
+                  5.904441739646334,
+                  -7.2983051588027585
+                ],
+                [
+                  8.794983324554716,
+                  -7.532333673978441
+                ],
+                [
+                  8.811259551832354,
+                  -7.331302138329416
+                ]
+              ]
+            },
+            {
+              "index": 2,
+              "top": 2.45875,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.904441739646334,
+                  -7.2983051588027585
+                ],
+                [
+                  5.888165512368698,
+                  -7.499336694451784
+                ],
+                [
+                  8.77870709727708,
+                  -7.733365209627466
+                ],
+                [
+                  8.794983324554716,
+                  -7.532333673978441
+                ]
+              ]
+            },
+            {
+              "index": 3,
+              "top": 2.611666666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.888165512368698,
+                  -7.499336694451784
+                ],
+                [
+                  5.87188928509106,
+                  -7.700368230100809
+                ],
+                [
+                  8.762430869999443,
+                  -7.934396745276491
+                ],
+                [
+                  8.77870709727708,
+                  -7.733365209627466
+                ]
+              ]
+            },
+            {
+              "index": 4,
+              "top": 2.7645833333333334,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.87188928509106,
+                  -7.700368230100809
+                ],
+                [
+                  5.855613057813423,
+                  -7.901399765749834
+                ],
+                [
+                  8.746154642721807,
+                  -8.135428280925517
+                ],
+                [
+                  8.762430869999443,
+                  -7.934396745276491
+                ]
+              ]
+            },
+            {
+              "index": 5,
+              "top": 2.9175,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.855613057813423,
+                  -7.901399765749834
+                ],
+                [
+                  5.839336830535787,
+                  -8.102431301398857
+                ],
+                [
+                  8.72987841544417,
+                  -8.336459816574541
+                ],
+                [
+                  8.746154642721807,
+                  -8.135428280925517
+                ]
+              ]
+            },
+            {
+              "index": 6,
+              "top": 3.0704166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.839336830535787,
+                  -8.102431301398857
+                ],
+                [
+                  5.823060603258151,
+                  -8.303462837047883
+                ],
+                [
+                  8.713602188166533,
+                  -8.537491352223567
+                ],
+                [
+                  8.72987841544417,
+                  -8.336459816574541
+                ]
+              ]
+            },
+            {
+              "index": 7,
+              "top": 3.2233333333333336,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.823060603258151,
+                  -8.303462837047883
+                ],
+                [
+                  5.806784375980515,
+                  -8.504494372696907
+                ],
+                [
+                  8.697325960888897,
+                  -8.738522887872591
+                ],
+                [
+                  8.713602188166533,
+                  -8.537491352223567
+                ]
+              ]
+            },
+            {
+              "index": 8,
+              "top": 3.3762499999999998,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.806784375980515,
+                  -8.504494372696907
+                ],
+                [
+                  5.790508148702878,
+                  -8.705525908345932
+                ],
+                [
+                  8.68104973361126,
+                  -8.939554423521615
+                ],
+                [
+                  8.697325960888897,
+                  -8.738522887872591
+                ]
+              ]
+            },
+            {
+              "index": 9,
+              "top": 3.529166666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.790508148702878,
+                  -8.705525908345932
+                ],
+                [
+                  5.77423192142524,
+                  -8.906557443994958
+                ],
+                [
+                  8.664773506333624,
+                  -9.140585959170641
+                ],
+                [
+                  8.68104973361126,
+                  -8.939554423521615
+                ]
+              ]
+            },
+            {
+              "index": 10,
+              "top": 3.682083333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.77423192142524,
+                  -8.906557443994958
+                ],
+                [
+                  5.757955694147604,
+                  -9.107588979643982
+                ],
+                [
+                  8.648497279055988,
+                  -9.341617494819666
+                ],
+                [
+                  8.664773506333624,
+                  -9.140585959170641
+                ]
+              ]
+            },
+            {
+              "index": 11,
+              "top": 3.835,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.757955694147604,
+                  -9.107588979643982
+                ],
+                [
+                  5.741679466869968,
+                  -9.308620515293006
+                ],
+                [
+                  8.632221051778352,
+                  -9.54264903046869
+                ],
+                [
+                  8.648497279055988,
+                  -9.341617494819666
+                ]
+              ]
+            }
+          ],
+          "upperLanding": {
+            "outline": [
+              [
+                5.741679466869968,
+                -9.308620515293006
+              ],
+              [
+                8.632221051778352,
+                -9.54264903046869
+              ],
+              [
+                9.435356476136425,
+                -9.894059242993109
+              ],
+              [
+                6.718525789211897,
+                -11.674040989693111
+              ]
+            ],
+            "top": 3.835,
+            "bottom": 3.5949999999999998,
+            "scope": "Full slanted stair edge meets one closed wedge reaching into the hall floor"
+          },
+          "turningLanding": {
+            "center": [
+              7.462964474647412,
+              2,
+              -6.016517867537935
+            ],
+            "halfWidth": 1.75,
+            "top": 2,
+            "bottom": -0.18
+          }
+        },
+        "bridgeEndSupports125": [
+          {
+            "center": [
+              7.316915581754931,
+              -7.227744403279652
+            ],
+            "bottom": -0.18,
+            "top": 1.68,
+            "footprint": [
+              1.32,
+              0.64
+            ],
+            "kind": "paired-end-bearing-pier"
+          },
+          {
+            "center": [
+              7.609013367539894,
+              -4.8052913317962185
+            ],
+            "bottom": -0.18,
+            "top": 1.68,
+            "footprint": [
+              1.32,
+              0.64
+            ],
+            "kind": "paired-end-bearing-pier"
+          }
+        ],
+        "bridgeAbutment125": [
+          {
+            "variant": 0,
+            "scale": 0.72,
+            "yaw": -0.18,
+            "position": [
+              -2.762964474647412,
+              0.11475340843200682,
+              -4.7834821324620656
+            ],
+            "bounds": [
+              [
+                -3.253617250922882,
+                -0.2,
+                -5.51317068303396
+              ],
+              [
+                -2.38801102951831,
+                0.42950681686401365,
+                -4.0062610015679185
+              ]
+            ],
+            "source": "Existing CC0 scan, positions/normals/UVs retained"
+          },
+          {
+            "variant": 4,
+            "scale": 0.8,
+            "yaw": 0.22,
+            "position": [
+              -2.762964474647412,
+              0.6311035823822022,
+              -4.7834821324620656
+            ],
+            "bounds": [
+              [
+                -3.34008454223051,
+                0.3095068168640137,
+                -5.5674983194143985
+              ],
+              [
+                -2.417920455652559,
+                0.9527003479003907,
+                -3.9927759423929783
+              ]
+            ],
+            "source": "Existing CC0 scan, positions/normals/UVs retained"
+          }
+        ],
+        "hallShoreline125": [
+          {
+            "local": [
+              -8.4,
+              0,
+              6.55
+            ],
+            "world": [
+              2.1102557892927356,
+              0.18475340843200683,
+              -13.019519197560136
+            ],
+            "variant": 0,
+            "scale": [
+              0.78,
+              0.72,
+              0.78
+            ],
+            "yaw": -0.4877031165594235,
+            "bottom": -0.13,
+            "top": 0.49950681686401366,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -6.7,
+              0,
+              6.65
+            ],
+            "world": [
+              3.6415019938105617,
+              0.43516306877136235,
+              -11.882397805117904
+            ],
+            "variant": 3,
+            "scale": [
+              0.82,
+              0.68,
+              0.72
+            ],
+            "yaw": -0.02843737964052706,
+            "bottom": -0.13,
+            "top": 1.0003261375427246,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -4.6,
+              0,
+              6.45
+            ],
+            "world": [
+              5.731619508252463,
+              0.6262222629785538,
+              -10.780813139364422
+            ],
+            "variant": 2,
+            "scale": [
+              1.25,
+              1.45,
+              1.12
+            ],
+            "yaw": 0.3450614067306742,
+            "bottom": -0.13,
+            "top": 1.3824445259571077,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -3.1,
+              0,
+              6.7
+            ],
+            "world": [
+              6.983430057808252,
+              0.5335782912373542,
+              -9.625923383577822
+            ],
+            "variant": 5,
+            "scale": [
+              1.2,
+              1.45,
+              1.15
+            ],
+            "yaw": 0.4346080800099299,
+            "bottom": -0.13,
+            "top": 1.1971565824747086,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -0.7,
+              0,
+              6.65
+            ],
+            "world": [
+              9.262531001240617,
+              0.14840424060821533,
+              -8.199676949876515
+            ],
+            "variant": 1,
+            "scale": [
+              0.82,
+              0.72,
+              0.78
+            ],
+            "yaw": -0.2175439084554091,
+            "bottom": -0.13,
+            "top": 0.42680848121643067,
+            "rootedShrubs": 8,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              1.6,
+              0,
+              6.75
+            ],
+            "world": [
+              11.355880106501452,
+              0.13129737198352814,
+              -6.694283471910148
+            ],
+            "variant": 4,
+            "scale": [
+              0.75,
+              0.65,
+              0.7
+            ],
+            "yaw": -0.10028975256253031,
+            "bottom": -0.13,
+            "top": 0.3925947439670563,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          }
+        ],
+        "stairEmbankment137": {
+          "kind": "closed-soil-and-stone-battered-shore",
+          "ridgeClearanceUnderTreads": 0.16,
+          "topHalfWidth": 1.43,
+          "toeHalfWidth": 3.35,
+          "frontAlong": -1.85,
+          "backAlong": 8.420272199892189,
+          "waterline": -0.13,
+          "source": "Modeled bank supporting existing backed stair and turning landing; no photographic surface or depth field",
+          "bankBoulders": 90,
+          "rootedPlantGroups": 20
+        },
+        "pathCurbRecords125": [
+          {
+            "points": [
+              [
+                3.912,
+                -2
+              ],
+              [
+                4.12,
+                -2
+              ],
+              [
+                4.12,
+                -1.312
+              ],
+              [
+                3.912,
+                -1.312
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                -1.3
+              ],
+              [
+                4.12,
+                -1.3
+              ],
+              [
+                4.12,
+                -0.6120000000000001
+              ],
+              [
+                3.912,
+                -0.6120000000000001
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                -0.6000000000000001
+              ],
+              [
+                4.12,
+                -0.6000000000000001
+              ],
+              [
+                4.12,
+                0.08799999999999986
+              ],
+              [
+                3.912,
+                0.08799999999999986
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                0.09999999999999964
+              ],
+              [
+                4.12,
+                0.09999999999999964
+              ],
+              [
+                4.12,
+                0.7879999999999996
+              ],
+              [
+                3.912,
+                0.7879999999999996
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                0.7999999999999998
+              ],
+              [
+                4.12,
+                0.7999999999999998
+              ],
+              [
+                4.12,
+                1.4879999999999998
+              ],
+              [
+                3.912,
+                1.4879999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                1.5
+              ],
+              [
+                4.12,
+                1.5
+              ],
+              [
+                4.12,
+                2.1879999999999997
+              ],
+              [
+                3.912,
+                2.1879999999999997
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                2.1999999999999993
+              ],
+              [
+                4.12,
+                2.1999999999999993
+              ],
+              [
+                4.12,
+                2.887999999999999
+              ],
+              [
+                3.912,
+                2.887999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                2.8999999999999995
+              ],
+              [
+                4.12,
+                2.8999999999999995
+              ],
+              [
+                4.12,
+                3.587999999999999
+              ],
+              [
+                3.912,
+                3.587999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                3.5999999999999996
+              ],
+              [
+                4.12,
+                3.5999999999999996
+              ],
+              [
+                4.12,
+                4.287999999999999
+              ],
+              [
+                3.912,
+                4.287999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                4.3
+              ],
+              [
+                4.12,
+                4.3
+              ],
+              [
+                4.12,
+                4.9879999999999995
+              ],
+              [
+                3.912,
+                4.9879999999999995
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                5
+              ],
+              [
+                4.12,
+                5
+              ],
+              [
+                3.80825,
+                5.688
+              ],
+              [
+                3.60025,
+                5.688
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.5948125,
+                5.699999999999999
+              ],
+              [
+                3.8028125000000004,
+                5.699999999999999
+              ],
+              [
+                3.4910625000000004,
+                6.387999999999999
+              ],
+              [
+                3.2830625,
+                6.387999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.2776250000000005,
+                6.399999999999999
+              ],
+              [
+                3.4856250000000006,
+                6.399999999999999
+              ],
+              [
+                3.173875000000001,
+                7.087999999999998
+              ],
+              [
+                2.965875000000001,
+                7.087999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.9604375000000003,
+                7.1
+              ],
+              [
+                3.1684375000000005,
+                7.1
+              ],
+              [
+                2.8566875000000005,
+                7.787999999999999
+              ],
+              [
+                2.6486875000000003,
+                7.787999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.6432500000000005,
+                7.799999999999999
+              ],
+              [
+                2.8512500000000007,
+                7.799999999999999
+              ],
+              [
+                2.5395000000000003,
+                8.488
+              ],
+              [
+                2.3315,
+                8.488
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.3260625,
+                8.5
+              ],
+              [
+                2.5340625,
+                8.5
+              ],
+              [
+                2.2223125,
+                9.188
+              ],
+              [
+                2.0143125,
+                9.188
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.008875,
+                9.2
+              ],
+              [
+                2.2168750000000004,
+                9.2
+              ],
+              [
+                1.9051250000000002,
+                9.888
+              ],
+              [
+                1.6971250000000002,
+                9.888
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.6916875000000005,
+                9.899999999999999
+              ],
+              [
+                1.8996875000000004,
+                9.899999999999999
+              ],
+              [
+                1.5879375000000004,
+                10.588
+              ],
+              [
+                1.3799375000000005,
+                10.588
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.3745000000000003,
+                10.6
+              ],
+              [
+                1.5825000000000002,
+                10.6
+              ],
+              [
+                1.2707499999999998,
+                11.288
+              ],
+              [
+                1.0627499999999999,
+                11.288
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.0573125000000005,
+                11.299999999999999
+              ],
+              [
+                1.2653125000000005,
+                11.299999999999999
+              ],
+              [
+                1.22,
+                11.988
+              ],
+              [
+                1.012,
+                11.988
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                12
+              ],
+              [
+                1.22,
+                12
+              ],
+              [
+                1.22,
+                12.688
+              ],
+              [
+                1.012,
+                12.688
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                12.7
+              ],
+              [
+                1.22,
+                12.7
+              ],
+              [
+                1.22,
+                13.388
+              ],
+              [
+                1.012,
+                13.388
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                13.399999999999999
+              ],
+              [
+                1.22,
+                13.399999999999999
+              ],
+              [
+                1.22,
+                14.088
+              ],
+              [
+                1.012,
+                14.088
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                14.099999999999998
+              ],
+              [
+                1.22,
+                14.099999999999998
+              ],
+              [
+                1.22,
+                14.787999999999998
+              ],
+              [
+                1.012,
+                14.787999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                14.799999999999997
+              ],
+              [
+                1.22,
+                14.799999999999997
+              ],
+              [
+                1.22,
+                15.487999999999998
+              ],
+              [
+                1.012,
+                15.487999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                15.5
+              ],
+              [
+                1.22,
+                15.5
+              ],
+              [
+                1.22,
+                16.188
+              ],
+              [
+                1.012,
+                16.188
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                16.2
+              ],
+              [
+                1.22,
+                16.2
+              ],
+              [
+                1.22,
+                16.887999999999998
+              ],
+              [
+                1.012,
+                16.887999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                16.9
+              ],
+              [
+                1.22,
+                16.9
+              ],
+              [
+                1.22,
+                17.587999999999997
+              ],
+              [
+                1.012,
+                17.587999999999997
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                17.599999999999998
+              ],
+              [
+                1.22,
+                17.599999999999998
+              ],
+              [
+                1.22,
+                18.287999999999997
+              ],
+              [
+                1.012,
+                18.287999999999997
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                18.299999999999997
+              ],
+              [
+                1.22,
+                18.299999999999997
+              ],
+              [
+                1.22,
+                18.987999999999996
+              ],
+              [
+                1.012,
+                18.987999999999996
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                19
+              ],
+              [
+                1.22,
+                19
+              ],
+              [
+                1.22,
+                19.688
+              ],
+              [
+                1.012,
+                19.688
+              ]
+            ],
+            "closed": true
+          }
+        ],
+        "nearStoneRecords": [
+          {
+            "id": "9:3",
+            "seed": 2021,
+            "profile": {
+              "chips": [
+                [
+                  0.09,
+                  0.041,
+                  0.014,
+                  0.01
+                ],
+                [
+                  0.64,
+                  0.024,
+                  0.009,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.18,
+                0.21,
+                0.18,
+                0.12,
+                0.0048
+              ],
+              "pits": 51
+            },
+            "triangles": 124088,
+            "pitCount": 54,
+            "footprintXZ": [
+              -1.1692149639129639,
+              5.407441139221191,
+              0.26653000712394714,
+              6.195635795593262
+            ],
+            "topYRange": [
+              0.03618020252097977,
+              0.04515777288814475
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.009
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:4",
+            "seed": 2058,
+            "profile": {
+              "chips": [
+                [
+                  0.31,
+                  0.032,
+                  0.018,
+                  0.011
+                ],
+                [
+                  0.82,
+                  0.019,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                0.11,
+                -0.15,
+                0.14,
+                0.22,
+                0.0052
+              ],
+              "pits": 43
+            },
+            "triangles": 171734,
+            "pitCount": 46,
+            "footprintXZ": [
+              0.06257200241088867,
+              5.40705680847168,
+              1.5243220329284668,
+              6.194737911224365
+            ],
+            "topYRange": [
+              0.036952783930091784,
+              0.049587682240197495
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.018,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:5",
+            "seed": 2095,
+            "profile": {
+              "chips": [
+                [
+                  0.16,
+                  0.027,
+                  0.01,
+                  0.007
+                ],
+                [
+                  0.53,
+                  0.043,
+                  0.022,
+                  0.013
+                ],
+                [
+                  0.93,
+                  0.019,
+                  0.008,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.12,
+                -0.24,
+                0.2,
+                0.12,
+                0.0036
+              ],
+              "pits": 56
+            },
+            "triangles": 141158,
+            "pitCount": 59,
+            "footprintXZ": [
+              1.2691479921340942,
+              5.40888786315918,
+              2.7436490058898926,
+              6.195352077484131
+            ],
+            "topYRange": [
+              0.03637005469485411,
+              0.05067397967740004
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.01,
+              0.022,
+              0.008
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:3",
+            "seed": 2118,
+            "profile": {
+              "chips": [
+                [
+                  0.24,
+                  0.021,
+                  0.009,
+                  0.005
+                ],
+                [
+                  0.72,
+                  0.037,
+                  0.017,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.22,
+                0.04,
+                0.17,
+                0.15,
+                0.0043
+              ],
+              "pits": 47
+            },
+            "triangles": 168974,
+            "pitCount": 50,
+            "footprintXZ": [
+              -0.7106990218162537,
+              6.196402072906494,
+              0.8902720212936401,
+              7.014736175537109
+            ],
+            "topYRange": [
+              0.04207952205281121,
+              0.051948826221987085
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.017
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:4",
+            "seed": 2155,
+            "profile": {
+              "chips": [
+                [
+                  0.04,
+                  0.029,
+                  0.013,
+                  0.008
+                ],
+                [
+                  0.47,
+                  0.045,
+                  0.023,
+                  0.014
+                ]
+              ],
+              "basin": [
+                -0.2,
+                -0.12,
+                0.21,
+                0.18,
+                0.006
+              ],
+              "pits": 61
+            },
+            "triangles": 122672,
+            "pitCount": 64,
+            "footprintXZ": [
+              0.5262020230293274,
+              6.195929050445557,
+              1.7327250242233276,
+              7.01511812210083
+            ],
+            "topYRange": [
+              0.0331356289931703,
+              0.04343635111473419
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.013,
+              0.023
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:5",
+            "seed": 2192,
+            "profile": {
+              "chips": [
+                [
+                  0.39,
+                  0.028,
+                  0.011,
+                  0.006
+                ],
+                [
+                  0.89,
+                  0.04,
+                  0.019,
+                  0.012
+                ]
+              ],
+              "basin": [
+                0.13,
+                0.19,
+                0.18,
+                0.12,
+                0.0041
+              ],
+              "pits": 44
+            },
+            "triangles": 212546,
+            "pitCount": 47,
+            "footprintXZ": [
+              1.6680500507354736,
+              6.1962151527404785,
+              3.3519060611724854,
+              7.013775825500488
+            ],
+            "topYRange": [
+              0.042255292892842536,
+              0.053213946107730045
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.019
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:3",
+            "seed": 2215,
+            "profile": {
+              "chips": [
+                [
+                  0.13,
+                  0.033,
+                  0.015,
+                  0.009
+                ],
+                [
+                  0.57,
+                  0.02,
+                  0.008,
+                  0.006
+                ],
+                [
+                  0.78,
+                  0.026,
+                  0.011,
+                  0.007
+                ]
+              ],
+              "basin": [
+                -0.09,
+                0.17,
+                0.15,
+                0.21,
+                0.0053
+              ],
+              "pits": 53
+            },
+            "triangles": 85758,
+            "pitCount": 56,
+            "footprintXZ": [
+              -0.442564994096756,
+              7.015151023864746,
+              0.5461099743843079,
+              7.830652236938477
+            ],
+            "topYRange": [
+              0.04032089325608637,
+              0.05087607613442222
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.015,
+              0.008,
+              0.011
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:4",
+            "seed": 2252,
+            "profile": {
+              "chips": [
+                [
+                  0.28,
+                  0.046,
+                  0.024,
+                  0.014
+                ],
+                [
+                  0.68,
+                  0.022,
+                  0.01,
+                  0.007
+                ]
+              ],
+              "basin": [
+                0.17,
+                -0.09,
+                0.22,
+                0.16,
+                0.0065
+              ],
+              "pits": 57
+            },
+            "triangles": 113994,
+            "pitCount": 60,
+            "footprintXZ": [
+              0.34727799892425537,
+              7.01487398147583,
+              1.4340319633483887,
+              7.830715179443359
+            ],
+            "topYRange": [
+              0.03728601377373718,
+              0.050087329666744784
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.024,
+              0.01
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:5",
+            "seed": 2289,
+            "profile": {
+              "chips": [
+                [
+                  0.07,
+                  0.023,
+                  0.009,
+                  0.006
+                ],
+                [
+                  0.48,
+                  0.036,
+                  0.016,
+                  0.01
+                ]
+              ],
+              "basin": [
+                -0.21,
+                -0.08,
+                0.16,
+                0.2,
+                0.0044
+              ],
+              "pits": 48
+            },
+            "triangles": 112274,
+            "pitCount": 51,
+            "footprintXZ": [
+              1.1728119850158691,
+              7.014647960662842,
+              2.33734393119812,
+              7.829009056091309
+            ],
+            "topYRange": [
+              0.033873243962427496,
+              0.04309075391349058
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.016
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:3",
+            "seed": 2312,
+            "profile": {
+              "chips": [
+                [
+                  0.36,
+                  0.039,
+                  0.021,
+                  0.013
+                ],
+                [
+                  0.75,
+                  0.029,
+                  0.012,
+                  0.008
+                ]
+              ],
+              "basin": [
+                0.06,
+                0.19,
+                0.21,
+                0.15,
+                0.0058
+              ],
+              "pits": 64
+            },
+            "triangles": 91014,
+            "pitCount": 67,
+            "footprintXZ": [
+              -0.3596859872341156,
+              7.830595016479492,
+              0.6673250198364258,
+              8.643329620361328
+            ],
+            "topYRange": [
+              0.036713261930563866,
+              0.047895165745651336
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.021,
+              0.012
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:4",
+            "seed": 2349,
+            "profile": {
+              "chips": [
+                [
+                  0.18,
+                  0.03,
+                  0.014,
+                  0.009
+                ],
+                [
+                  0.62,
+                  0.047,
+                  0.025,
+                  0.015
+                ],
+                [
+                  0.91,
+                  0.018,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                -0.17,
+                -0.13,
+                0.18,
+                0.22,
+                0.0062
+              ],
+              "pits": 59
+            },
+            "triangles": 76454,
+            "pitCount": 62,
+            "footprintXZ": [
+              0.4470509886741638,
+              7.8330278396606445,
+              1.4770450592041016,
+              8.642576217651367
+            ],
+            "topYRange": [
+              0.03250527855463501,
+              0.0449802224378516
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.025,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:5",
+            "seed": 2386,
+            "profile": {
+              "chips": [
+                [
+                  0.43,
+                  0.025,
+                  0.011,
+                  0.008
+                ],
+                [
+                  0.85,
+                  0.035,
+                  0.018,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.18,
+                0.11,
+                0.17,
+                0.14,
+                0.0046
+              ],
+              "pits": 46
+            },
+            "triangles": 130288,
+            "pitCount": 48,
+            "footprintXZ": [
+              1.19930899143219,
+              7.831390857696533,
+              2.614694118499756,
+              8.642080307006836
+            ],
+            "topYRange": [
+              0.035423703413592286,
+              0.05025880388736785
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.018
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          }
+        ],
+        "nearBankOutcrop": {
+          "scope": "Three interlocking physical scan pieces forming one exposed local bank outcrop; rigid whole-bank offset follows the revised path boundary",
+          "assemblyOffsetX": 1.45,
+          "source": {
+            "asset": "rock_moss_set_01",
+            "author": "Kless Gyzen",
+            "license": "CC0-1.0",
+            "pieces": 6,
+            "source": "https://polyhaven.com/a/rock_moss_set_01"
+          },
+          "records": [
+            {
+              "part": "upright-main-stone",
+              "variant": 3,
+              "x": 5.07,
+              "z": 3.98,
+              "scale": 0.67,
+              "rotation": [
+                0.1,
+                -0.65,
+                -0.1
+              ],
+              "bottom": -0.27,
+              "y": 0.2960360365360608,
+              "bounds": [
+                [
+                  4.376636144434639,
+                  -0.27,
+                  3.1349280986653447
+                ],
+                [
+                  5.818427496690981,
+                  0.8947350387503364,
+                  4.466199090841204
+                ]
+              ],
+              "vertices": 5691,
+              "triangles": 10589,
+              "material": "scanned-weathered-moss-stone-3-wet"
+            },
+            {
+              "part": "low-waterline-shoulder",
+              "variant": 0,
+              "x": 4.47,
+              "z": 4.4,
+              "scale": 0.5,
+              "rotation": [
+                -0.04,
+                0.32,
+                0.035
+              ],
+              "bottom": -0.18,
+              "y": 0.04096884458614691,
+              "bounds": [
+                [
+                  4.106846258490545,
+                  -0.18,
+                  3.9199379119518185
+                ],
+                [
+                  4.926685790941495,
+                  0.2686400211570937,
+                  4.818075684846545
+                ]
+              ],
+              "vertices": 6078,
+              "triangles": 11000,
+              "material": "scanned-weathered-moss-stone-0-wet"
+            },
+            {
+              "part": "submerged-toe-stone",
+              "variant": 4,
+              "x": 5.48,
+              "z": 4.54,
+              "scale": 0.38,
+              "rotation": [
+                0.06,
+                -0.8,
+                0.02
+              ],
+              "bottom": -0.16,
+              "y": -0.008491798561900188,
+              "bounds": [
+                [
+                  5.154412764842459,
+                  -0.16,
+                  4.190966952258707
+                ],
+                [
+                  5.860141459743572,
+                  0.1468630203054993,
+                  4.817389229860148
+                ]
+              ],
+              "vertices": 8538,
+              "triangles": 16548,
+              "material": "scanned-weathered-moss-stone-4-wet"
+            }
+          ],
+          "substrate": "Stone bodies extend below the existing water/soil level; the low shoulder and toe interrupt the waterline rather than hovering above it",
+          "geometryTransfer": "Original scanned positions, normals and UVs unmodified; rigid pose and one scale factor per stone only",
+          "acceptance": "Local modeling candidate, not a photographic match"
+        },
+        "nearSurfaceReflection": {
+          "stoneIds": [
+            "9:3",
+            "9:4",
+            "9:5",
+            "10:3",
+            "10:4",
+            "10:5",
+            "11:3",
+            "11:4",
+            "11:5",
+            "12:3",
+            "12:4",
+            "12:5"
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "boundsXZ": [
+            -1.1942149639129638,
+            5.382056808471679,
+            3.3769060611724853,
+            8.668329620361327
+          ],
+          "texelMetres": [
+            0.004463985376060009,
+            0.004279001057147979
+          ],
+          "heightQuantizationMetres": 0.00031372549019607844,
+          "actualTopYRange": [
+            0.02528499998152256,
+            0.053213998675346375
+          ],
+          "poreWaterLevelRange": [
+            0.03953635111473419,
+            0.050548946107730044
+          ],
+          "topTrianglesRead": 774307,
+          "coveredTexels": 520795,
+          "newTriangles": 0,
+          "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+          "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+          "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+          "planeY": 0.055,
+          "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+          "probeReady": true,
+          "probePosition": [
+            0,
+            2.3,
+            7
+          ],
+          "probeIntensity": 1.85,
+          "probeAssigned": true,
+          "roughness": 0.3,
+          "clearcoat": 0.9
+        },
+        "scannedStone": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "objects": 796545,
+        "drawCalls": 1555,
+        "triangles": 164610663,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            4.65,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "open-arch-end-bearing-piers",
+          "solid-backed-granite-stair-with-grounded-rock-embankment",
+          "rooted-hall-shoreline-scans",
+          "dense-supported-eave-bracket-bays",
+          "palmate-autumn-maple-canopy",
+          "layered-rain-mist",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "bddbd0402877f1006c74beed4d80d6624e945586a3ffae337a29608fa0ed4b80"
+    },
+    {
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 10,
+        "revision": "scene10-hall132-d-shoreline-underpass",
+        "layout": {
+          "revision": "scene10-whole-layout125",
+          "camera": {
+            "position": [
+              0,
+              1,
+              14
+            ],
+            "target": [
+              0,
+              4.65,
+              -14
+            ],
+            "fov": 60
+          },
+          "pagoda": {
+            "position": [
+              -6.9,
+              6.79,
+              -20
+            ],
+            "yaw": -0.1,
+            "scale": [
+              0.88,
+              0.7,
+              0.88
+            ],
+            "tierDecrement": 0.055,
+            "finialHeight": 8
+          },
+          "hall": {
+            "position": [
+              14,
+              2.6,
+              -14
+            ],
+            "yaw": -0.58,
+            "scale": [
+              1.12,
+              0.95,
+              1.12
+            ],
+            "floorLocalY": 1.3,
+            "entranceX": -2.85,
+            "upperLandingLocal": [
+              -2.85,
+              1.3,
+              6.75
+            ]
+          },
+          "bridge": {
+            "position": [
+              2.35,
+              1.22,
+              -5.4
+            ],
+            "yaw": 0.12,
+            "span": 10.3,
+            "width": 2,
+            "archRise": 1.08,
+            "phaseSkew": 0.2,
+            "endRise": 0.53,
+            "deckOffset": 0.25,
+            "deckThickness": 0.18,
+            "approachCount": 7,
+            "approachRun": 0.25,
+            "railHeight": 1,
+            "hallApproachLandingRun": 1,
+            "turningHalfWidth": 1.75,
+            "exitRailCutT": 0.82
+          },
+          "veranda": {
+            "column": [
+              -3.35,
+              0,
+              7.9
+            ],
+            "radius": 0.42,
+            "shoeHeight": 0.8,
+            "ceilingY": 7.1,
+            "ceilingYaw": 0.75,
+            "ceilingCenter": [
+              0.07,
+              -1.4
+            ],
+            "hangingLamp": [
+              -2.83,
+              5.85,
+              6.35
+            ],
+            "lampScale": 0.76
+          },
+          "foregroundRail": {
+            "position": [
+              1.2,
+              0,
+              11.8
+            ],
+            "baseY": 0.1,
+            "postHeight": 0.87,
+            "postWidth": 0.39,
+            "capWidth": 0.48,
+            "finialBase": 0.925,
+            "finialHeightScale": 0.68,
+            "finialWidthScale": 0.58,
+            "returnEnd": [
+              0.72,
+              0,
+              14.2
+            ],
+            "levels": [
+              0.27,
+              0.52,
+              0.78
+            ]
+          },
+          "heroStoneLantern": {
+            "position": [
+              -2.8,
+              0.77,
+              -3
+            ],
+            "scale": [
+              1.066,
+              0.98,
+              1.066
+            ],
+            "supportTop": 0.7
+          },
+          "drain": {
+            "position": [
+              -1.9,
+              -0.004,
+              8.5
+            ],
+            "yaw": 0.56275,
+            "halfWidth": 0.095,
+            "length": 13
+          },
+          "path": {
+            "farRight": 3.9,
+            "turnStartZ": 5,
+            "nearRight": 1,
+            "turnEndZ": 11.4,
+            "nearBankOffsetX": 1.45
+          },
+          "inspection": {
+            "position": [
+              -4,
+              7.5,
+              1
+            ],
+            "target": [
+              6.5,
+              2.5,
+              -6.5
+            ],
+            "fov": 63
+          },
+          "groundY": 0.067
+        },
+        "hall132": {
+          "revision": "scene10-hall132-d-shoreline-underpass",
+          "scope": "Hall front and roof underside; full foundation footprint retained as side wings, sill and bearing lintel around a single shoreline underpass.",
+          "roofs": [
+            {
+              "label": "lower",
+              "w": 23,
+              "d": 13.6,
+              "e": 6.05,
+              "rise": 3.45,
+              "curl": 1.1,
+              "closedTimberDepth": 0.152,
+              "deckTopOffset": -0.028,
+              "deckBottomOffset": -0.18,
+              "rafterTiers": 2,
+              "rafters": 728,
+              "outerProfile": "Unchanged layout125 analytical roof profile"
+            },
+            {
+              "label": "upper",
+              "w": 21.5,
+              "d": 12.9,
+              "e": 10.45,
+              "rise": 7.7,
+              "curl": 0.4,
+              "closedTimberDepth": 0.152,
+              "deckTopOffset": -0.028,
+              "deckBottomOffset": -0.18,
+              "rafterTiers": 2,
+              "rafters": 680,
+              "outerProfile": "Unchanged layout125 analytical roof profile"
+            }
+          ],
+          "bearingRows": [
+            {
+              "level": 0,
+              "index": 0,
+              "z": 4.5,
+              "sets": 18,
+              "scale": 0.72,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.14
+            },
+            {
+              "level": 0,
+              "index": 1,
+              "z": 5.28,
+              "sets": 28,
+              "scale": 0.48,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 0,
+              "index": 2,
+              "z": 6.02,
+              "sets": 29,
+              "scale": 0.42,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 0,
+              "index": 3,
+              "z": 6.52,
+              "sets": 33,
+              "scale": 0.34,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 1,
+              "index": 0,
+              "z": 4.5,
+              "sets": 18,
+              "scale": 0.72,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.14
+            },
+            {
+              "level": 1,
+              "index": 1,
+              "z": 5.28,
+              "sets": 28,
+              "scale": 0.48,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 1,
+              "index": 2,
+              "z": 6.02,
+              "sets": 29,
+              "scale": 0.42,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            },
+            {
+              "level": 1,
+              "index": 3,
+              "z": 6.52,
+              "sets": 33,
+              "scale": 0.34,
+              "capitalPrototype": {
+                "bottom": -0.15,
+                "top": 0.82
+              },
+              "receiverOffset": -0.42,
+              "girtDepth": 0.105
+            }
+          ],
+          "columns": [
+            {
+              "level": 0,
+              "x": -8.2,
+              "bottom": 1.6,
+              "shaftTop": 5.481627904822048,
+              "bearingBeamCenter": 5.481627904822048
+            },
+            {
+              "level": 0,
+              "x": -6.1499999999999995,
+              "bottom": 1.6,
+              "shaftTop": 5.475186600124468,
+              "bearingBeamCenter": 5.475186600124468
+            },
+            {
+              "level": 0,
+              "x": 0,
+              "bottom": 1.6,
+              "shaftTop": 5.474470001563709,
+              "bearingBeamCenter": 5.474470001563709
+            },
+            {
+              "level": 0,
+              "x": 2.0500000000000007,
+              "bottom": 1.6,
+              "shaftTop": 5.474470110784646,
+              "bearingBeamCenter": 5.474470110784646
+            },
+            {
+              "level": 0,
+              "x": 4.1,
+              "bottom": 1.6,
+              "shaftTop": 5.474497962123312,
+              "bearingBeamCenter": 5.474497962123312
+            },
+            {
+              "level": 0,
+              "x": 6.149999999999999,
+              "bottom": 1.6,
+              "shaftTop": 5.475186600124468,
+              "bearingBeamCenter": 5.475186600124468
+            },
+            {
+              "level": 0,
+              "x": 8.2,
+              "bottom": 1.6,
+              "shaftTop": 5.481627904822048,
+              "bearingBeamCenter": 5.481627904822048
+            },
+            {
+              "level": 1,
+              "x": -8.2,
+              "bottom": 6,
+              "shaftTop": 10.508960730062356,
+              "bearingBeamCenter": 10.508960730062356
+            },
+            {
+              "level": 1,
+              "x": -6.1499999999999995,
+              "bottom": 6,
+              "shaftTop": 10.503769476111454,
+              "bearingBeamCenter": 10.503769476111454
+            },
+            {
+              "level": 1,
+              "x": -4.1,
+              "bottom": 6,
+              "shaftTop": 10.503214480669989,
+              "bearingBeamCenter": 10.503214480669989
+            },
+            {
+              "level": 1,
+              "x": -2.05,
+              "bottom": 6,
+              "shaftTop": 10.5031920343833,
+              "bearingBeamCenter": 10.5031920343833
+            },
+            {
+              "level": 1,
+              "x": 0,
+              "bottom": 6,
+              "shaftTop": 10.503191946358648,
+              "bearingBeamCenter": 10.503191946358648
+            },
+            {
+              "level": 1,
+              "x": 2.0500000000000007,
+              "bottom": 6,
+              "shaftTop": 10.5031920343833,
+              "bearingBeamCenter": 10.5031920343833
+            },
+            {
+              "level": 1,
+              "x": 4.1,
+              "bottom": 6,
+              "shaftTop": 10.503214480669989,
+              "bearingBeamCenter": 10.503214480669989
+            },
+            {
+              "level": 1,
+              "x": 6.149999999999999,
+              "bottom": 6,
+              "shaftTop": 10.503769476111454,
+              "bearingBeamCenter": 10.503769476111454
+            },
+            {
+              "level": 1,
+              "x": 8.2,
+              "bottom": 6,
+              "shaftTop": 10.508960730062356,
+              "bearingBeamCenter": 10.508960730062356
+            }
+          ],
+          "eaveSupports": [
+            {
+              "level": 0,
+              "columnX": -8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": -6.1499999999999995,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 0,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 2.0500000000000007,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 4.1,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 6.149999999999999,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 0,
+              "columnX": 8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 2.2,
+              "primaryScale": [
+                1,
+                0.82,
+                1
+              ],
+              "secondaryScale": [
+                0.8,
+                0.59,
+                0.8
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -6.1499999999999995,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -4.1,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": -2.05,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 0,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 2.0500000000000007,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 4.1,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 6.149999999999999,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            },
+            {
+              "level": 1,
+              "columnX": 8.2,
+              "frontZ": 4.43,
+              "projectionWidth": 1.848,
+              "primaryScale": [
+                1,
+                0.6888,
+                0.84
+              ],
+              "secondaryScale": [
+                0.672,
+                0.49559999999999993,
+                0.672
+              ],
+              "bearing": "stacked-on-post-cap-darkwood-shoe",
+              "giltPins": 2
+            }
+          ],
+          "ornament": {
+            "giltWraps": 1624,
+            "volumetricLeaves": 748,
+            "rosettes": 41
+          },
+          "photographSampled": false,
+          "foundationOpening": {
+            "foundationFootprint": [
+              20,
+              12
+            ],
+            "opening": {
+              "centerX": -4.575,
+              "width": 8.549999999999999,
+              "bottom": -2.65,
+              "top": 0.65,
+              "recessDepth": 1.2999999999999998,
+              "backWallLocalZ": 4.7,
+              "through": false
+            },
+            "bearing": "full-depth side wings and back wall, 0.65 m front lintel above a continuous sill under the hall floor",
+            "position": "Asymmetric recessed shoreline bay covers the bridge-side face while retaining the original hall foundation footprint and stair terrace"
+          }
+        },
+        "mapleCanopy136": {
+          "revision": "scene10-palmate-autumn-maple136",
+          "position": [
+            6.4,
+            -0.1,
+            -12
+          ],
+          "primaryBranches": 7,
+          "terminalBranches": 189,
+          "leafInstances": 3213,
+          "leafForm": "cupped seven-lobe lamina, raised central and lateral veins, exposed petiole",
+          "palette": [
+            "autumn-maple136-0",
+            "autumn-maple136-1",
+            "autumn-maple136-2",
+            "autumn-maple136-3",
+            "autumn-maple136-4"
+          ]
+        },
+        "waterRipples135": {
+          "revision": "scene10-grounded-pbr-rainwaves135",
+          "seeds": 55,
+          "additionalDistributedPositions": 48,
+          "groundedImpacts": 75,
+          "generatedVertices": 96075,
+          "generatedTriangles": 180000,
+          "waterSurfaceY": 0.055,
+          "ringWidthMetres": 0.014,
+          "peakWaveMetres": 0.0043,
+          "staticRNGDraws": 0,
+          "ringMaterial": "physical wet-film reflectance; no emissive/diffuse white outline",
+          "contact": "Impact centers and every ripple vertex are gated by real paving coverage, narrow seams, wetness and the geometry-derived low-spot pool mask; crest relief peaks near 4.3 mm.",
+          "surface": "Thin shallow film at the low-spot waterline over actual authored flagstone geometry; no replacement ground sheet."
+        },
+        "bridgeHallPlan": {
+          "bridgeEnd": [
+            7.462964474647412,
+            2,
+            -6.016517867537935
+          ],
+          "hallLanding": [
+            7.186950259324159,
+            3.835,
+            -9.425634772880848
+          ],
+          "start": [
+            7.382264986655798,
+            2,
+            -7.01325634509255
+          ],
+          "width": 2.9,
+          "count": 12,
+          "run": 2.4202721998921883,
+          "rise": 1.835,
+          "unit": [
+            -0.08069948799161475,
+            -0.9967384775546148
+          ],
+          "steps": [
+            {
+              "index": 0,
+              "top": 2.1529166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.936994194201606,
+                  -6.896242087504709
+                ],
+                [
+                  5.92071796692397,
+                  -7.097273623153734
+                ],
+                [
+                  8.811259551832354,
+                  -7.331302138329416
+                ],
+                [
+                  8.82753577910999,
+                  -7.130270602680391
+                ]
+              ]
+            },
+            {
+              "index": 1,
+              "top": 2.305833333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.92071796692397,
+                  -7.097273623153734
+                ],
+                [
+                  5.904441739646334,
+                  -7.2983051588027585
+                ],
+                [
+                  8.794983324554716,
+                  -7.532333673978441
+                ],
+                [
+                  8.811259551832354,
+                  -7.331302138329416
+                ]
+              ]
+            },
+            {
+              "index": 2,
+              "top": 2.45875,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.904441739646334,
+                  -7.2983051588027585
+                ],
+                [
+                  5.888165512368698,
+                  -7.499336694451784
+                ],
+                [
+                  8.77870709727708,
+                  -7.733365209627466
+                ],
+                [
+                  8.794983324554716,
+                  -7.532333673978441
+                ]
+              ]
+            },
+            {
+              "index": 3,
+              "top": 2.611666666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.888165512368698,
+                  -7.499336694451784
+                ],
+                [
+                  5.87188928509106,
+                  -7.700368230100809
+                ],
+                [
+                  8.762430869999443,
+                  -7.934396745276491
+                ],
+                [
+                  8.77870709727708,
+                  -7.733365209627466
+                ]
+              ]
+            },
+            {
+              "index": 4,
+              "top": 2.7645833333333334,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.87188928509106,
+                  -7.700368230100809
+                ],
+                [
+                  5.855613057813423,
+                  -7.901399765749834
+                ],
+                [
+                  8.746154642721807,
+                  -8.135428280925517
+                ],
+                [
+                  8.762430869999443,
+                  -7.934396745276491
+                ]
+              ]
+            },
+            {
+              "index": 5,
+              "top": 2.9175,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.855613057813423,
+                  -7.901399765749834
+                ],
+                [
+                  5.839336830535787,
+                  -8.102431301398857
+                ],
+                [
+                  8.72987841544417,
+                  -8.336459816574541
+                ],
+                [
+                  8.746154642721807,
+                  -8.135428280925517
+                ]
+              ]
+            },
+            {
+              "index": 6,
+              "top": 3.0704166666666666,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.839336830535787,
+                  -8.102431301398857
+                ],
+                [
+                  5.823060603258151,
+                  -8.303462837047883
+                ],
+                [
+                  8.713602188166533,
+                  -8.537491352223567
+                ],
+                [
+                  8.72987841544417,
+                  -8.336459816574541
+                ]
+              ]
+            },
+            {
+              "index": 7,
+              "top": 3.2233333333333336,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.823060603258151,
+                  -8.303462837047883
+                ],
+                [
+                  5.806784375980515,
+                  -8.504494372696907
+                ],
+                [
+                  8.697325960888897,
+                  -8.738522887872591
+                ],
+                [
+                  8.713602188166533,
+                  -8.537491352223567
+                ]
+              ]
+            },
+            {
+              "index": 8,
+              "top": 3.3762499999999998,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.806784375980515,
+                  -8.504494372696907
+                ],
+                [
+                  5.790508148702878,
+                  -8.705525908345932
+                ],
+                [
+                  8.68104973361126,
+                  -8.939554423521615
+                ],
+                [
+                  8.697325960888897,
+                  -8.738522887872591
+                ]
+              ]
+            },
+            {
+              "index": 9,
+              "top": 3.529166666666667,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.790508148702878,
+                  -8.705525908345932
+                ],
+                [
+                  5.77423192142524,
+                  -8.906557443994958
+                ],
+                [
+                  8.664773506333624,
+                  -9.140585959170641
+                ],
+                [
+                  8.68104973361126,
+                  -8.939554423521615
+                ]
+              ]
+            },
+            {
+              "index": 10,
+              "top": 3.682083333333333,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.77423192142524,
+                  -8.906557443994958
+                ],
+                [
+                  5.757955694147604,
+                  -9.107588979643982
+                ],
+                [
+                  8.648497279055988,
+                  -9.341617494819666
+                ],
+                [
+                  8.664773506333624,
+                  -9.140585959170641
+                ]
+              ]
+            },
+            {
+              "index": 11,
+              "top": 3.835,
+              "bottom": -0.18,
+              "outline": [
+                [
+                  5.757955694147604,
+                  -9.107588979643982
+                ],
+                [
+                  5.741679466869968,
+                  -9.308620515293006
+                ],
+                [
+                  8.632221051778352,
+                  -9.54264903046869
+                ],
+                [
+                  8.648497279055988,
+                  -9.341617494819666
+                ]
+              ]
+            }
+          ],
+          "upperLanding": {
+            "outline": [
+              [
+                5.741679466869968,
+                -9.308620515293006
+              ],
+              [
+                8.632221051778352,
+                -9.54264903046869
+              ],
+              [
+                9.435356476136425,
+                -9.894059242993109
+              ],
+              [
+                6.718525789211897,
+                -11.674040989693111
+              ]
+            ],
+            "top": 3.835,
+            "bottom": 3.5949999999999998,
+            "scope": "Full slanted stair edge meets one closed wedge reaching into the hall floor"
+          },
+          "turningLanding": {
+            "center": [
+              7.462964474647412,
+              2,
+              -6.016517867537935
+            ],
+            "halfWidth": 1.75,
+            "top": 2,
+            "bottom": -0.18
+          }
+        },
+        "bridgeEndSupports125": [
+          {
+            "center": [
+              7.316915581754931,
+              -7.227744403279652
+            ],
+            "bottom": -0.18,
+            "top": 1.68,
+            "footprint": [
+              1.32,
+              0.64
+            ],
+            "kind": "paired-end-bearing-pier"
+          },
+          {
+            "center": [
+              7.609013367539894,
+              -4.8052913317962185
+            ],
+            "bottom": -0.18,
+            "top": 1.68,
+            "footprint": [
+              1.32,
+              0.64
+            ],
+            "kind": "paired-end-bearing-pier"
+          }
+        ],
+        "bridgeAbutment125": [
+          {
+            "variant": 0,
+            "scale": 0.72,
+            "yaw": -0.18,
+            "position": [
+              -2.762964474647412,
+              0.11475340843200682,
+              -4.7834821324620656
+            ],
+            "bounds": [
+              [
+                -3.253617250922882,
+                -0.2,
+                -5.51317068303396
+              ],
+              [
+                -2.38801102951831,
+                0.42950681686401365,
+                -4.0062610015679185
+              ]
+            ],
+            "source": "Existing CC0 scan, positions/normals/UVs retained"
+          },
+          {
+            "variant": 4,
+            "scale": 0.8,
+            "yaw": 0.22,
+            "position": [
+              -2.762964474647412,
+              0.6311035823822022,
+              -4.7834821324620656
+            ],
+            "bounds": [
+              [
+                -3.34008454223051,
+                0.3095068168640137,
+                -5.5674983194143985
+              ],
+              [
+                -2.417920455652559,
+                0.9527003479003907,
+                -3.9927759423929783
+              ]
+            ],
+            "source": "Existing CC0 scan, positions/normals/UVs retained"
+          }
+        ],
+        "hallShoreline125": [
+          {
+            "local": [
+              -8.4,
+              0,
+              6.55
+            ],
+            "world": [
+              2.1102557892927356,
+              0.18475340843200683,
+              -13.019519197560136
+            ],
+            "variant": 0,
+            "scale": [
+              0.78,
+              0.72,
+              0.78
+            ],
+            "yaw": -0.4877031165594235,
+            "bottom": -0.13,
+            "top": 0.49950681686401366,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -6.7,
+              0,
+              6.65
+            ],
+            "world": [
+              3.6415019938105617,
+              0.43516306877136235,
+              -11.882397805117904
+            ],
+            "variant": 3,
+            "scale": [
+              0.82,
+              0.68,
+              0.72
+            ],
+            "yaw": -0.02843737964052706,
+            "bottom": -0.13,
+            "top": 1.0003261375427246,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -4.6,
+              0,
+              6.45
+            ],
+            "world": [
+              5.731619508252463,
+              0.6262222629785538,
+              -10.780813139364422
+            ],
+            "variant": 2,
+            "scale": [
+              1.25,
+              1.45,
+              1.12
+            ],
+            "yaw": 0.3450614067306742,
+            "bottom": -0.13,
+            "top": 1.3824445259571077,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -3.1,
+              0,
+              6.7
+            ],
+            "world": [
+              6.983430057808252,
+              0.5335782912373542,
+              -9.625923383577822
+            ],
+            "variant": 5,
+            "scale": [
+              1.2,
+              1.45,
+              1.15
+            ],
+            "yaw": 0.4346080800099299,
+            "bottom": -0.13,
+            "top": 1.1971565824747086,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              -0.7,
+              0,
+              6.65
+            ],
+            "world": [
+              9.262531001240617,
+              0.14840424060821533,
+              -8.199676949876515
+            ],
+            "variant": 1,
+            "scale": [
+              0.82,
+              0.72,
+              0.78
+            ],
+            "yaw": -0.2175439084554091,
+            "bottom": -0.13,
+            "top": 0.42680848121643067,
+            "rootedShrubs": 8,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          },
+          {
+            "local": [
+              1.6,
+              0,
+              6.75
+            ],
+            "world": [
+              11.355880106501452,
+              0.13129737198352814,
+              -6.694283471910148
+            ],
+            "variant": 4,
+            "scale": [
+              0.75,
+              0.65,
+              0.7
+            ],
+            "yaw": -0.10028975256253031,
+            "bottom": -0.13,
+            "top": 0.3925947439670563,
+            "rootedShrubs": 9,
+            "source": "Scanned CC0 shoreline stone; rooted ground cover ray-hit on this stone"
+          }
+        ],
+        "stairEmbankment137": {
+          "kind": "closed-soil-and-stone-battered-shore",
+          "ridgeClearanceUnderTreads": 0.16,
+          "topHalfWidth": 1.43,
+          "toeHalfWidth": 3.35,
+          "frontAlong": -1.85,
+          "backAlong": 8.420272199892189,
+          "waterline": -0.13,
+          "source": "Modeled bank supporting existing backed stair and turning landing; no photographic surface or depth field",
+          "bankBoulders": 90,
+          "rootedPlantGroups": 20
+        },
+        "pathCurbRecords125": [
+          {
+            "points": [
+              [
+                3.912,
+                -2
+              ],
+              [
+                4.12,
+                -2
+              ],
+              [
+                4.12,
+                -1.312
+              ],
+              [
+                3.912,
+                -1.312
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                -1.3
+              ],
+              [
+                4.12,
+                -1.3
+              ],
+              [
+                4.12,
+                -0.6120000000000001
+              ],
+              [
+                3.912,
+                -0.6120000000000001
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                -0.6000000000000001
+              ],
+              [
+                4.12,
+                -0.6000000000000001
+              ],
+              [
+                4.12,
+                0.08799999999999986
+              ],
+              [
+                3.912,
+                0.08799999999999986
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                0.09999999999999964
+              ],
+              [
+                4.12,
+                0.09999999999999964
+              ],
+              [
+                4.12,
+                0.7879999999999996
+              ],
+              [
+                3.912,
+                0.7879999999999996
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                0.7999999999999998
+              ],
+              [
+                4.12,
+                0.7999999999999998
+              ],
+              [
+                4.12,
+                1.4879999999999998
+              ],
+              [
+                3.912,
+                1.4879999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                1.5
+              ],
+              [
+                4.12,
+                1.5
+              ],
+              [
+                4.12,
+                2.1879999999999997
+              ],
+              [
+                3.912,
+                2.1879999999999997
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                2.1999999999999993
+              ],
+              [
+                4.12,
+                2.1999999999999993
+              ],
+              [
+                4.12,
+                2.887999999999999
+              ],
+              [
+                3.912,
+                2.887999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                2.8999999999999995
+              ],
+              [
+                4.12,
+                2.8999999999999995
+              ],
+              [
+                4.12,
+                3.587999999999999
+              ],
+              [
+                3.912,
+                3.587999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                3.5999999999999996
+              ],
+              [
+                4.12,
+                3.5999999999999996
+              ],
+              [
+                4.12,
+                4.287999999999999
+              ],
+              [
+                3.912,
+                4.287999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                4.3
+              ],
+              [
+                4.12,
+                4.3
+              ],
+              [
+                4.12,
+                4.9879999999999995
+              ],
+              [
+                3.912,
+                4.9879999999999995
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.912,
+                5
+              ],
+              [
+                4.12,
+                5
+              ],
+              [
+                3.80825,
+                5.688
+              ],
+              [
+                3.60025,
+                5.688
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.5948125,
+                5.699999999999999
+              ],
+              [
+                3.8028125000000004,
+                5.699999999999999
+              ],
+              [
+                3.4910625000000004,
+                6.387999999999999
+              ],
+              [
+                3.2830625,
+                6.387999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                3.2776250000000005,
+                6.399999999999999
+              ],
+              [
+                3.4856250000000006,
+                6.399999999999999
+              ],
+              [
+                3.173875000000001,
+                7.087999999999998
+              ],
+              [
+                2.965875000000001,
+                7.087999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.9604375000000003,
+                7.1
+              ],
+              [
+                3.1684375000000005,
+                7.1
+              ],
+              [
+                2.8566875000000005,
+                7.787999999999999
+              ],
+              [
+                2.6486875000000003,
+                7.787999999999999
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.6432500000000005,
+                7.799999999999999
+              ],
+              [
+                2.8512500000000007,
+                7.799999999999999
+              ],
+              [
+                2.5395000000000003,
+                8.488
+              ],
+              [
+                2.3315,
+                8.488
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.3260625,
+                8.5
+              ],
+              [
+                2.5340625,
+                8.5
+              ],
+              [
+                2.2223125,
+                9.188
+              ],
+              [
+                2.0143125,
+                9.188
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                2.008875,
+                9.2
+              ],
+              [
+                2.2168750000000004,
+                9.2
+              ],
+              [
+                1.9051250000000002,
+                9.888
+              ],
+              [
+                1.6971250000000002,
+                9.888
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.6916875000000005,
+                9.899999999999999
+              ],
+              [
+                1.8996875000000004,
+                9.899999999999999
+              ],
+              [
+                1.5879375000000004,
+                10.588
+              ],
+              [
+                1.3799375000000005,
+                10.588
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.3745000000000003,
+                10.6
+              ],
+              [
+                1.5825000000000002,
+                10.6
+              ],
+              [
+                1.2707499999999998,
+                11.288
+              ],
+              [
+                1.0627499999999999,
+                11.288
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.0573125000000005,
+                11.299999999999999
+              ],
+              [
+                1.2653125000000005,
+                11.299999999999999
+              ],
+              [
+                1.22,
+                11.988
+              ],
+              [
+                1.012,
+                11.988
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                12
+              ],
+              [
+                1.22,
+                12
+              ],
+              [
+                1.22,
+                12.688
+              ],
+              [
+                1.012,
+                12.688
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                12.7
+              ],
+              [
+                1.22,
+                12.7
+              ],
+              [
+                1.22,
+                13.388
+              ],
+              [
+                1.012,
+                13.388
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                13.399999999999999
+              ],
+              [
+                1.22,
+                13.399999999999999
+              ],
+              [
+                1.22,
+                14.088
+              ],
+              [
+                1.012,
+                14.088
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                14.099999999999998
+              ],
+              [
+                1.22,
+                14.099999999999998
+              ],
+              [
+                1.22,
+                14.787999999999998
+              ],
+              [
+                1.012,
+                14.787999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                14.799999999999997
+              ],
+              [
+                1.22,
+                14.799999999999997
+              ],
+              [
+                1.22,
+                15.487999999999998
+              ],
+              [
+                1.012,
+                15.487999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                15.5
+              ],
+              [
+                1.22,
+                15.5
+              ],
+              [
+                1.22,
+                16.188
+              ],
+              [
+                1.012,
+                16.188
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                16.2
+              ],
+              [
+                1.22,
+                16.2
+              ],
+              [
+                1.22,
+                16.887999999999998
+              ],
+              [
+                1.012,
+                16.887999999999998
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                16.9
+              ],
+              [
+                1.22,
+                16.9
+              ],
+              [
+                1.22,
+                17.587999999999997
+              ],
+              [
+                1.012,
+                17.587999999999997
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                17.599999999999998
+              ],
+              [
+                1.22,
+                17.599999999999998
+              ],
+              [
+                1.22,
+                18.287999999999997
+              ],
+              [
+                1.012,
+                18.287999999999997
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                18.299999999999997
+              ],
+              [
+                1.22,
+                18.299999999999997
+              ],
+              [
+                1.22,
+                18.987999999999996
+              ],
+              [
+                1.012,
+                18.987999999999996
+              ]
+            ],
+            "closed": true
+          },
+          {
+            "points": [
+              [
+                1.012,
+                19
+              ],
+              [
+                1.22,
+                19
+              ],
+              [
+                1.22,
+                19.688
+              ],
+              [
+                1.012,
+                19.688
+              ]
+            ],
+            "closed": true
+          }
+        ],
+        "nearStoneRecords": [
+          {
+            "id": "9:3",
+            "seed": 2021,
+            "profile": {
+              "chips": [
+                [
+                  0.09,
+                  0.041,
+                  0.014,
+                  0.01
+                ],
+                [
+                  0.64,
+                  0.024,
+                  0.009,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.18,
+                0.21,
+                0.18,
+                0.12,
+                0.0048
+              ],
+              "pits": 51
+            },
+            "triangles": 124088,
+            "pitCount": 54,
+            "footprintXZ": [
+              -1.1692149639129639,
+              5.407441139221191,
+              0.26653000712394714,
+              6.195635795593262
+            ],
+            "topYRange": [
+              0.03618020252097977,
+              0.04515777288814475
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.009
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:4",
+            "seed": 2058,
+            "profile": {
+              "chips": [
+                [
+                  0.31,
+                  0.032,
+                  0.018,
+                  0.011
+                ],
+                [
+                  0.82,
+                  0.019,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                0.11,
+                -0.15,
+                0.14,
+                0.22,
+                0.0052
+              ],
+              "pits": 43
+            },
+            "triangles": 171734,
+            "pitCount": 46,
+            "footprintXZ": [
+              0.06257200241088867,
+              5.40705680847168,
+              1.5243220329284668,
+              6.194737911224365
+            ],
+            "topYRange": [
+              0.036952783930091784,
+              0.049587682240197495
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.018,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "9:5",
+            "seed": 2095,
+            "profile": {
+              "chips": [
+                [
+                  0.16,
+                  0.027,
+                  0.01,
+                  0.007
+                ],
+                [
+                  0.53,
+                  0.043,
+                  0.022,
+                  0.013
+                ],
+                [
+                  0.93,
+                  0.019,
+                  0.008,
+                  0.006
+                ]
+              ],
+              "basin": [
+                -0.12,
+                -0.24,
+                0.2,
+                0.12,
+                0.0036
+              ],
+              "pits": 56
+            },
+            "triangles": 141158,
+            "pitCount": 59,
+            "footprintXZ": [
+              1.2691479921340942,
+              5.40888786315918,
+              2.7436490058898926,
+              6.195352077484131
+            ],
+            "topYRange": [
+              0.03637005469485411,
+              0.05067397967740004
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.01,
+              0.022,
+              0.008
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:3",
+            "seed": 2118,
+            "profile": {
+              "chips": [
+                [
+                  0.24,
+                  0.021,
+                  0.009,
+                  0.005
+                ],
+                [
+                  0.72,
+                  0.037,
+                  0.017,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.22,
+                0.04,
+                0.17,
+                0.15,
+                0.0043
+              ],
+              "pits": 47
+            },
+            "triangles": 168974,
+            "pitCount": 50,
+            "footprintXZ": [
+              -0.7106990218162537,
+              6.196402072906494,
+              0.8902720212936401,
+              7.014736175537109
+            ],
+            "topYRange": [
+              0.04207952205281121,
+              0.051948826221987085
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.017
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:4",
+            "seed": 2155,
+            "profile": {
+              "chips": [
+                [
+                  0.04,
+                  0.029,
+                  0.013,
+                  0.008
+                ],
+                [
+                  0.47,
+                  0.045,
+                  0.023,
+                  0.014
+                ]
+              ],
+              "basin": [
+                -0.2,
+                -0.12,
+                0.21,
+                0.18,
+                0.006
+              ],
+              "pits": 61
+            },
+            "triangles": 122672,
+            "pitCount": 64,
+            "footprintXZ": [
+              0.5262020230293274,
+              6.195929050445557,
+              1.7327250242233276,
+              7.01511812210083
+            ],
+            "topYRange": [
+              0.0331356289931703,
+              0.04343635111473419
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.013,
+              0.023
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "10:5",
+            "seed": 2192,
+            "profile": {
+              "chips": [
+                [
+                  0.39,
+                  0.028,
+                  0.011,
+                  0.006
+                ],
+                [
+                  0.89,
+                  0.04,
+                  0.019,
+                  0.012
+                ]
+              ],
+              "basin": [
+                0.13,
+                0.19,
+                0.18,
+                0.12,
+                0.0041
+              ],
+              "pits": 44
+            },
+            "triangles": 212546,
+            "pitCount": 47,
+            "footprintXZ": [
+              1.6680500507354736,
+              6.1962151527404785,
+              3.3519060611724854,
+              7.013775825500488
+            ],
+            "topYRange": [
+              0.042255292892842536,
+              0.053213946107730045
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.019
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:3",
+            "seed": 2215,
+            "profile": {
+              "chips": [
+                [
+                  0.13,
+                  0.033,
+                  0.015,
+                  0.009
+                ],
+                [
+                  0.57,
+                  0.02,
+                  0.008,
+                  0.006
+                ],
+                [
+                  0.78,
+                  0.026,
+                  0.011,
+                  0.007
+                ]
+              ],
+              "basin": [
+                -0.09,
+                0.17,
+                0.15,
+                0.21,
+                0.0053
+              ],
+              "pits": 53
+            },
+            "triangles": 85758,
+            "pitCount": 56,
+            "footprintXZ": [
+              -0.442564994096756,
+              7.015151023864746,
+              0.5461099743843079,
+              7.830652236938477
+            ],
+            "topYRange": [
+              0.04032089325608637,
+              0.05087607613442222
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.015,
+              0.008,
+              0.011
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:4",
+            "seed": 2252,
+            "profile": {
+              "chips": [
+                [
+                  0.28,
+                  0.046,
+                  0.024,
+                  0.014
+                ],
+                [
+                  0.68,
+                  0.022,
+                  0.01,
+                  0.007
+                ]
+              ],
+              "basin": [
+                0.17,
+                -0.09,
+                0.22,
+                0.16,
+                0.0065
+              ],
+              "pits": 57
+            },
+            "triangles": 113994,
+            "pitCount": 60,
+            "footprintXZ": [
+              0.34727799892425537,
+              7.01487398147583,
+              1.4340319633483887,
+              7.830715179443359
+            ],
+            "topYRange": [
+              0.03728601377373718,
+              0.050087329666744784
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.024,
+              0.01
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "11:5",
+            "seed": 2289,
+            "profile": {
+              "chips": [
+                [
+                  0.07,
+                  0.023,
+                  0.009,
+                  0.006
+                ],
+                [
+                  0.48,
+                  0.036,
+                  0.016,
+                  0.01
+                ]
+              ],
+              "basin": [
+                -0.21,
+                -0.08,
+                0.16,
+                0.2,
+                0.0044
+              ],
+              "pits": 48
+            },
+            "triangles": 112274,
+            "pitCount": 51,
+            "footprintXZ": [
+              1.1728119850158691,
+              7.014647960662842,
+              2.33734393119812,
+              7.829009056091309
+            ],
+            "topYRange": [
+              0.033873243962427496,
+              0.04309075391349058
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.009,
+              0.016
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:3",
+            "seed": 2312,
+            "profile": {
+              "chips": [
+                [
+                  0.36,
+                  0.039,
+                  0.021,
+                  0.013
+                ],
+                [
+                  0.75,
+                  0.029,
+                  0.012,
+                  0.008
+                ]
+              ],
+              "basin": [
+                0.06,
+                0.19,
+                0.21,
+                0.15,
+                0.0058
+              ],
+              "pits": 64
+            },
+            "triangles": 91014,
+            "pitCount": 67,
+            "footprintXZ": [
+              -0.3596859872341156,
+              7.830595016479492,
+              0.6673250198364258,
+              8.643329620361328
+            ],
+            "topYRange": [
+              0.036713261930563866,
+              0.047895165745651336
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.021,
+              0.012
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:4",
+            "seed": 2349,
+            "profile": {
+              "chips": [
+                [
+                  0.18,
+                  0.03,
+                  0.014,
+                  0.009
+                ],
+                [
+                  0.62,
+                  0.047,
+                  0.025,
+                  0.015
+                ],
+                [
+                  0.91,
+                  0.018,
+                  0.007,
+                  0.005
+                ]
+              ],
+              "basin": [
+                -0.17,
+                -0.13,
+                0.18,
+                0.22,
+                0.0062
+              ],
+              "pits": 59
+            },
+            "triangles": 76454,
+            "pitCount": 62,
+            "footprintXZ": [
+              0.4470509886741638,
+              7.8330278396606445,
+              1.4770450592041016,
+              8.642576217651367
+            ],
+            "topYRange": [
+              0.03250527855463501,
+              0.0449802224378516
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.014,
+              0.025,
+              0.007
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          },
+          {
+            "id": "12:5",
+            "seed": 2386,
+            "profile": {
+              "chips": [
+                [
+                  0.43,
+                  0.025,
+                  0.011,
+                  0.008
+                ],
+                [
+                  0.85,
+                  0.035,
+                  0.018,
+                  0.011
+                ]
+              ],
+              "basin": [
+                0.18,
+                0.11,
+                0.17,
+                0.14,
+                0.0046
+              ],
+              "pits": 46
+            },
+            "triangles": 130288,
+            "pitCount": 48,
+            "footprintXZ": [
+              1.19930899143219,
+              7.831390857696533,
+              2.614694118499756,
+              8.642080307006836
+            ],
+            "topYRange": [
+              0.035423703413592286,
+              0.05025880388736785
+            ],
+            "capMaxInteriorEdgeMetres": 0.014,
+            "remainingLipMetres": [
+              0.0022,
+              0.008
+            ],
+            "chipSetbackMetres": [
+              0.011,
+              0.018
+            ],
+            "source": "Authored closed mesh; no reference image sampling"
+          }
+        ],
+        "nearBankOutcrop": {
+          "scope": "Three interlocking physical scan pieces forming one exposed local bank outcrop; rigid whole-bank offset follows the revised path boundary",
+          "assemblyOffsetX": 1.45,
+          "source": {
+            "asset": "rock_moss_set_01",
+            "author": "Kless Gyzen",
+            "license": "CC0-1.0",
+            "pieces": 6,
+            "source": "https://polyhaven.com/a/rock_moss_set_01"
+          },
+          "records": [
+            {
+              "part": "upright-main-stone",
+              "variant": 3,
+              "x": 5.07,
+              "z": 3.98,
+              "scale": 0.67,
+              "rotation": [
+                0.1,
+                -0.65,
+                -0.1
+              ],
+              "bottom": -0.27,
+              "y": 0.2960360365360608,
+              "bounds": [
+                [
+                  4.376636144434639,
+                  -0.27,
+                  3.1349280986653447
+                ],
+                [
+                  5.818427496690981,
+                  0.8947350387503364,
+                  4.466199090841204
+                ]
+              ],
+              "vertices": 5691,
+              "triangles": 10589,
+              "material": "scanned-weathered-moss-stone-3-wet"
+            },
+            {
+              "part": "low-waterline-shoulder",
+              "variant": 0,
+              "x": 4.47,
+              "z": 4.4,
+              "scale": 0.5,
+              "rotation": [
+                -0.04,
+                0.32,
+                0.035
+              ],
+              "bottom": -0.18,
+              "y": 0.04096884458614691,
+              "bounds": [
+                [
+                  4.106846258490545,
+                  -0.18,
+                  3.9199379119518185
+                ],
+                [
+                  4.926685790941495,
+                  0.2686400211570937,
+                  4.818075684846545
+                ]
+              ],
+              "vertices": 6078,
+              "triangles": 11000,
+              "material": "scanned-weathered-moss-stone-0-wet"
+            },
+            {
+              "part": "submerged-toe-stone",
+              "variant": 4,
+              "x": 5.48,
+              "z": 4.54,
+              "scale": 0.38,
+              "rotation": [
+                0.06,
+                -0.8,
+                0.02
+              ],
+              "bottom": -0.16,
+              "y": -0.008491798561900188,
+              "bounds": [
+                [
+                  5.154412764842459,
+                  -0.16,
+                  4.190966952258707
+                ],
+                [
+                  5.860141459743572,
+                  0.1468630203054993,
+                  4.817389229860148
+                ]
+              ],
+              "vertices": 8538,
+              "triangles": 16548,
+              "material": "scanned-weathered-moss-stone-4-wet"
+            }
+          ],
+          "substrate": "Stone bodies extend below the existing water/soil level; the low shoulder and toe interrupt the waterline rather than hovering above it",
+          "geometryTransfer": "Original scanned positions, normals and UVs unmodified; rigid pose and one scale factor per stone only",
+          "acceptance": "Local modeling candidate, not a photographic match"
+        },
+        "nearSurfaceReflection": {
+          "stoneIds": [
+            "9:3",
+            "9:4",
+            "9:5",
+            "10:3",
+            "10:4",
+            "10:5",
+            "11:3",
+            "11:4",
+            "11:5",
+            "12:3",
+            "12:4",
+            "12:5"
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "boundsXZ": [
+            -1.1942149639129638,
+            5.382056808471679,
+            3.3769060611724853,
+            8.668329620361327
+          ],
+          "texelMetres": [
+            0.004463985376060009,
+            0.004279001057147979
+          ],
+          "heightQuantizationMetres": 0.00031372549019607844,
+          "actualTopYRange": [
+            0.02528499998152256,
+            0.053213998675346375
+          ],
+          "poreWaterLevelRange": [
+            0.03953635111473419,
+            0.050548946107730044
+          ],
+          "topTrianglesRead": 774307,
+          "coveredTexels": 520795,
+          "newTriangles": 0,
+          "source": "Runtime rasterization of actual authored cap/arris vertices. No reference RGB/depth.",
+          "planeExclusion": "Camera-ray intersection with the actual lower stone height/coverage; 16 height intervals and five bisections; mipmapped edge feather.",
+          "wetCoat": "Actual points below the stone-specific shallow spill level receive a water-IOR coat and smoother optical micro-normal. No new water mesh or whole-stone plane.",
+          "planeY": 0.055,
+          "material": "twelve-real-stone-surfaces-with-existing-actual-scene-probe",
+          "probeReady": true,
+          "probePosition": [
+            0,
+            2.3,
+            7
+          ],
+          "probeIntensity": 1.85,
+          "probeAssigned": true,
+          "roughness": 0.3,
+          "clearcoat": 0.9
+        },
+        "scannedStone": {
+          "asset": "rock_moss_set_01",
+          "author": "Kless Gyzen",
+          "license": "CC0-1.0",
+          "pieces": 6,
+          "source": "https://polyhaven.com/a/rock_moss_set_01"
+        },
+        "objects": 796545,
+        "drawCalls": 876,
+        "triangles": 109389718,
+        "camera": {
+          "position": [
+            0,
+            1,
+            14
+          ],
+          "target": [
+            0,
+            4.65,
+            -14
+          ],
+          "fov": 60
+        },
+        "features": [
+          "five-storey-pagoda",
+          "double-roof-hall",
+          "arched-red-bridge",
+          "open-arch-end-bearing-piers",
+          "solid-backed-granite-stair-with-grounded-rock-embankment",
+          "rooted-hall-shoreline-scans",
+          "dense-supported-eave-bracket-bays",
+          "palmate-autumn-maple-canopy",
+          "layered-rain-mist",
+          "wet-irregular-solid-slabs",
+          "actual-planar-reflections",
+          "near-column-and-lantern",
+          "gold-finial-near-railing",
+          "geometric-foliage-and-rain"
+        ]
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        160,
+        410,
+        520,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "d121079c55133ba15e623ea2679efe9cce6077cbff059f76ea10d7c1f0db9bb5"
+    }
+  ],
+  "completedAt": "2026-10-20T18:39:24.156Z"
+}

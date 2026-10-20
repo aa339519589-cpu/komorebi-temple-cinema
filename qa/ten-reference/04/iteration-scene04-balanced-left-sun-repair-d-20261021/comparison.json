@@ -1,0 +1,59 @@
+{
+  "reference": {
+    "path": "references/hd/3-照片-4.jpg",
+    "sha256": "0b0272948960514bfd6278847e6dc512bfce2b127c69415f0e5ce949a9c0ffcb",
+    "nativeSize": [1254, 1254]
+  },
+  "render": {
+    "path": "qa/ten-reference/04/iteration-scene04-balanced-left-sun-repair-d-20261021/reference.png",
+    "sha256": "e1ff68519ece105752a47697c5f6bb42dc44ea6f26a4ee6f6fcfd18801e33443",
+    "nativeSize": [960, 960]
+  },
+  "floorDetailRender": {
+    "path": "qa/ten-reference/04/iteration-scene04-balanced-left-sun-repair-d-20261021/detail-native.png",
+    "sha256": "3cb1b218bac4d88c4667b7f52ce935bc4057771c46c7b64126a775a395da2ddc",
+    "nativeSize": [960, 960],
+    "cameraCrop": [240, 480, 480, 960],
+    "comparisonOnly": false
+  },
+  "comparison": {
+    "path": "qa/ten-reference/04/iteration-scene04-balanced-left-sun-repair-d-20261021/reference-left-render-right.png",
+    "sha256": "8001dd09ee4fd970edd9701e05bce91e6602771d88ea2942defd95bf5bb75fac",
+    "nativeSize": [1960, 1080]
+  },
+  "comparisonOnly": true,
+  "renderRetouched": false,
+  "composition": "Original reference left; unretouched native Three.js still right.",
+  "lightingCandidates": [
+    {
+      "id": "A-back-left-low",
+      "sunDirectionNormalized": [-0.6585, 0.3082, -0.6865],
+      "skyIntensity": 0.44,
+      "visualNote": "Floor glints and frontward foliage shadows appeared; facade and stairs fell too dark."
+    },
+    {
+      "id": "B-back-left-high-cool-fill",
+      "sunDirectionNormalized": [-0.4742, 0.5690, -0.6718],
+      "skyIntensity": 0.68,
+      "visualNote": "More overhead fill brightened floor and sky, but the front facade remained too dark."
+    },
+    {
+      "id": "C-front-left-high",
+      "sunDirectionNormalized": [-0.7295, 0.5472, 0.4104],
+      "sunIntensity": 7.2,
+      "skyIntensity": 0.5,
+      "visualNote": "Facade carving returned; the floor became pale and evenly lit."
+    },
+    {
+      "id": "D-balanced-front-left",
+      "sunDirectionNormalized": [-0.7295, 0.5472, 0.4104],
+      "sunIntensity": 6.4,
+      "skyIntensity": 0.42,
+      "visualNote": "Selected compromise: front relief remains readable and the floor has more contrast than C."
+    }
+  ],
+  "shadowCanopyGeometryDirectionNormalized": [-0.6585, 0.3082, 0.6865],
+  "cameraChanged": false,
+  "visualAcceptance": false,
+  "composer": "compose-comparison.swift (AppKit)"
+}

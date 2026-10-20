@@ -20,6 +20,7 @@ import {createWaterFilmRipples135} from './water-film-ripples135.js';
 import {createPalmateMapleLeaf136,buildMatureMapleCanopy136} from './maple-canopy136.js';
 import {buildHall132,createHall132Palette,HALL132_REVISION} from './hall-front132.js';
 import {createStairEmbankment137} from './stair-embankment137.js';
+import {buildStoneLantern} from './stone-lantern.js';
 import {scene10Layout125 as L,bridgePoint125,bridgeToWorld125,hallToWorld125,createBridgeHallStairPlan125,rightPathEdge125,leftPathEdge125} from './layout125.js';
 const query=new URLSearchParams(location.search),W=Math.min(1800,+(query.get('w')||768)),H=Math.min(1800,+(query.get('h')||768));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.info.autoReset=false;document.body.appendChild(renderer.domElement);
@@ -259,19 +260,8 @@ function circulationReserved125(x,z){
  const q=p.turningLanding;if(Math.abs(x-q.center[0])<q.halfWidth+.1&&Math.abs(z-q.center[2])<q.halfWidth+.1)return true;
  return z>=-2&&z<=19.4&&x>leftPathEdge125(z)+.10&&x<rightPathEdge125(z)-.10;
 }
-// Ornamental stone lanterns have distinct carved shafts, open glowing chambers, hip caps.
-function stoneCanopy(){const pp=[],uv=[],N=24;function P(x,z){const t=Math.max(Math.abs(x),Math.abs(z));return [x*.83,2.80+.48*Math.pow(1-t,1.6)+.16*Math.pow(Math.abs(x*z),4)+.012*Math.sin(x*17+z*13),z*.83];}function tri(a,b,c){for(const p of[a,b,c]){pp.push(...p);uv.push(p[0],p[2]);}}for(let j=0;j<N;j++)for(let i=0;i<N;i++){const a=P(-1+2*i/N,-1+2*j/N),b=P(-1+2*(i+1)/N,-1+2*j/N),c=P(-1+2*i/N,-1+2*(j+1)/N),d=P(-1+2*(i+1)/N,-1+2*(j+1)/N);tri(a,c,b);tri(b,c,d);}for(let side=0;side<4;side++)for(let j=0;j<N;j++){let u=-1+j*2/N,v=-1+(j+1)*2/N,a=side===0?P(u,-1):side===1?P(1,u):side===2?P(-u,1):P(-1,-u),b=side===0?P(v,-1):side===1?P(1,v):side===2?P(-v,1):P(-1,-v),c=[a[0],a[1]-.13,a[2]],d=[b[0],b[1]-.13,b[2]];tri(a,b,c);tri(b,d,c);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pp,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();return g;}
-const stoneCap=stoneCanopy(),pedestal=new T.LatheGeometry([[.48,0],[.52,.07],[.47,.16],[.31,.25],[.29,.37],[.22,.45],[.18,.59],[.17,1.31],[.24,1.44],[.34,1.51],[.40,1.62],[.38,1.72]].map(p=>new T.Vector2(...p)),12);
-function stoneLantern(x,z,s=1,isNear=false){const baseY=isNear?L.heroStoneLantern.position[1]:0;group(x,baseY,z,R(-.12,.12),()=>{
- box(0,.12,0,1.08,.24,1.08,'carvedStone');emit(pedestal,'carvedStone',0,.25,0);box(0,1.97,0,.88,.18,.88,'carvedStone');
- // A recessed warm core, four solid corner piers and genuine open apertures.
- emit(new T.CylinderGeometry(.145,.16,.50,12),'stonePaper',0,2.38,0);
- for(const a of[-1,1])for(const b of[-1,1]){box(a*.32,2.38,b*.32,.14,.76,.14,'carvedStone');box(a*.32,2.03,b*.32,.19,.10,.19,'carvedStone');box(a*.32,2.71,b*.32,.19,.10,.19,'carvedStone');}
- for(let f=0;f<4;f++)group(0,0,0,f*Math.PI/2,()=>{box(0,2.08,.35,.58,.13,.13,'carvedStone');box(0,2.72,.35,.70,.14,.13,'carvedStone');for(let j=0;j<5;j++)box(-.24+j*.12,2.38,.35,.015,.55,.024,'darkwood');for(let j=0;j<4;j++)box(0,2.16+j*.145,.36,.52,.014,.022,'darkwood');
- emit(new T.TorusGeometry(.105,.023,6,18),'carvedStone',0,1.45,.19,1,1,1);for(let j=0;j<5;j++)box(-.10+j*.05,1.07,.18,.016,.38,.02,'carvedStone');});
- emit(stoneCap,'carvedStone');for(let i=0;i<17;i++){const a=R(0,6.28),r=R(.18,.75);emit(rocks[i%8],'moss',Math.cos(a)*r,2.87+.3*(1-r),Math.sin(a)*r,R(.10,.24),R(.025,.045),R(.12,.24),R(0,6));}
- emit(new T.LatheGeometry([[.22,0],[.24,.06],[.16,.12],[.15,.20],[.23,.30],[.21,.41],[.10,.50],[.08,.61],[0,.69]].map(p=>new T.Vector2(...p)),14),'carvedStone',0,3.29,0);
- },isNear?L.heroStoneLantern.scale:s);const l=new T.PointLight('#ffc981',8*s,7,2);l.position.set(x,2.35*(isNear?L.heroStoneLantern.scale[1]:s)+baseY,z);scene.add(l);}
+// Hero and garden stone lanterns share a physical, weathered granite assembly.
+function stoneLantern(x,z,s=1,isNear=false){buildStoneLantern({T,emit,box,group,R,scene,materials:m,layout:L,x,z,s,isNear});}
 {const h=L.heroStoneLantern,scan=scannedStones.variants[3],bounds=new T.Box3().setFromBufferAttribute(scan.geometry.attributes.position),scale=.85;emit(scan.geometry,scan.wet,h.position[0],h.supportTop-bounds.max.y*scale,h.position[2],scale,scale,scale,.3);box(h.position[0],h.position[1]-.07,h.position[2],1.12,.14,1.12,'granite');stoneLantern(h.position[0],h.position[2],1.30,true);}for(const [x,z,s]of[[-6,-2.7,.72],[-7.5,-6,.8],[-9,-10,.7],[-2,-7,.64],[4,-10,.75],[10,-1,.65]])stoneLantern(x,z,s);
 // All foliage is three-dimensional leaf geometry attached to irregular woody branching.
 const leafPos=[],leafUv=[];const leafP=(u,t)=>{const width=Math.sin(Math.PI*t)*.22;return[u*width,Math.sin(Math.PI*t)*.06+Math.abs(u)*.035,(t-.5)*.65];};for(let j=0;j<4;j++)for(let i=0;i<2;i++){const a=leafP(-1+i,j/4),b=leafP(i,j/4),c=leafP(-1+i,(j+1)/4),d=leafP(i,(j+1)/4);for(const p of[a,c,b,b,c,d]){leafPos.push(...p);leafUv.push(p[0],p[2]);}}const leafGeo=new T.BufferGeometry();leafGeo.setAttribute('position',new T.Float32BufferAttribute(leafPos,3));leafGeo.setAttribute('uv',new T.Float32BufferAttribute(leafUv,2));leafGeo.computeVertexNormals();
