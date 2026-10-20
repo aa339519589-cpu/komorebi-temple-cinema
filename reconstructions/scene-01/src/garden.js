@@ -128,12 +128,23 @@ B.label('hall-terrace-rooted-pine-and-rock-garden',()=>{
 B.label('flowering-garden-shrubs',()=>{for(const [x,y,z,r,h,f]of[[-9.0,.45,.5,1.35,1.5,true],[-7.5,.6,-2.5,1.15,1.45,true],[-4.6,.7,-1.8,1.05,1.35,true],[6.2,.7,-2.4,1.10,1.45,true],[8.25,.4,.5,1.20,1.45,true],[9.15,.3,6.6,1.25,1.3,true],[-8,.45,7,1.25,1.25,false],[-6.6,.6,-6,1.35,1.55,false],[-9.5,.4,10,1.2,1.5,false],[-5.4,.4,12,.85,1.05,false]])shrub(x,y,z,r,h,f);for(let k=0;k<45;k++){const x=rr(-10,10),z=rr(-1,13);if(x>-8&&x<8&&z>1&&z<10)continue;fern(x,.12,z,rr(.35,.8));}});
 B.label('lotus-leaves-and-layered-pink-blossoms',()=>{const beds=[[-6.8,4.7,12,.75,1.20,.040,.075,.18],[-5.2,8.6,8,.90,.85,.038,.070,.14],[-2.7,8.7,12,.78,1.10,.038,.075,.17],[6.7,4.8,16,.70,1.25,.040,.080,.20],[7.6,8.8,12,.72,1.20,.038,.072,.17]];for(const [cx,cz,count,rx,rz,smin,smax,flowerRate]of beds){for(let k=0;k<count;k++){const a=rr(0,TAU),q=Math.sqrt(random()),x=cx+Math.cos(a)*rx*q,z=cz+Math.sin(a)*rz*q;lotus(x,z,rr(smin,smax),random()<flowerRate);}}});
 B.label('photograph-calibrated-lotus-beds',()=>{const cam=new T.PerspectiveCamera(59,1,.1,260);cam.position.set(0,3.2,17);cam.lookAt(0,6.2,-13);cam.updateMatrixWorld(true);for(let k=0;k<42;k++){let u,v;if(k<8){u=rr(.22,.38);v=rr(.82,.91);}else if(k<16){u=rr(.40,.49);v=rr(.81,.90);}else if(k<34){u=rr(.82,.93);v=rr(.80,.90);}else{u=rr(.88,.96);v=rr(.89,.93);}const d=new T.Vector3(u*2-1,1-v*2,.5).unproject(cam).sub(cam.position).normalize(),pos=cam.position.clone().addScaledVector(d,(.18-cam.position.y)/d.y),depth=17-pos.z,size=rr(8,15)*depth/(768*2.25);lotus(pos.x,pos.z,size,k%6===0);}});
+B.label('maple-rooted-east-shore-extension',()=>{
+ B.sphere(17.1,.0,5.55,2.4,.55,3.0,'earth');
+ for(let k=0;k<12;k++){
+  const a=k*TAU/12;
+  rock(17.1+Math.cos(a)*1.9,.18,5.55+Math.sin(a)*2.30,.46,.55,.49,k%2===0,true);
+ }
+});
 B.label('upper-right-maple-framing-boughs',()=>{B.with(12,2.9,4.0,-.2,()=>{
  const mapleRandom=rng(781205),mapleRange=(a,b)=>a+(b-a)*mapleRandom();
  const mapleCrown=(x,y,z,rx,ry,rz,count,scale,tone)=>{for(let k=0;k<Math.ceil(count*.4);k++){const a=mapleRange(0,TAU),q=Math.cbrt(mapleRandom()),v=mapleRange(-1,1),r=Math.sqrt(1-v*v),xx=x+rx*Math.cos(a)*r*q,zz=z+rz*Math.sin(a)*r*q,yy=y+ry*v*q,s=scale*mapleRange(.78,1.18);B.emit(maple,tone,xx,yy,zz,s,s,s,[mapleRange(-.65,.65),mapleRange(0,TAU),mapleRange(-.42,.42)],mapleRange(.68,1.18));}};
  // One continuous, tapering scaffold enters from beyond the right edge and
  // sweeps left above the hall roof; each fan below grows directly from it.
  const stem=[[3.2,5.7,.4],[1.8,6.7,.35],[0,7.7,.15],[-2,8.5,-.1],[-4.2,9.1,-.35],[-6.7,9.4,-.65],[-9.1,9.3,-.95],[-10.8,8.9,-1.15]];
+ // The pullback opening sees beyond the old photographic crop. Continue the
+ // bough down into a rooted trunk instead of exposing a sawn-off tube in air.
+ branch([[6.0,-2.83,2.8],[5.85,-.6,2.50],[5.30,2.4,1.85],[4.45,4.5,1.10],stem[0]],.62,.63,40,15);
+
  branch(stem,.39,.075,64,15);
  const fans=[
   {at:stem[1],bend:[.65,7.85,.15],tip:[-.55,9.05,-1.35],tone:'mapleLight'},

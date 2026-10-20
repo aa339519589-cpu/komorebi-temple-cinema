@@ -1296,16 +1296,21 @@ export function createRestorationArchitecture(ctx) {
   // original-photo section dimensions are measured.
   function brackets(x,y,z,s=1,options={}) {
     if(ctx.joineryKit&&options.interlocked&&!options.throughBeam){
-      stats.bracketSets++;const hs=s*(options.horizontalScale??1);
+      stats.bracketSets++;const hs=s*(options.corner?1.02:(options.horizontalScale??1));
       group(x,y,z,0,()=>{
-        for(const part of ctx.joineryKit.bracket){if(part.cornerOnly&&!options.corner)continue;draw(part.geometry,part.material,[0,0,0],[hs,s,hs],part.cornerAxis?[0,(options.cornerYaw??0)-PI/2,0]:null);}
-        for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
-          const firstY=ctx.joineryKit.sculpted?.1748:(axis===0?.165:.184),secondY=ctx.joineryKit.sculpted?.4996:(axis===0?.4965:.4775);
-          for(const sign of [-1,1]){
-            squareFitting(sign*(ctx.joineryKit.sculpted?.655:.6208)*hs,firstY*s,0,.22*hs,(ctx.joineryKit.sculpted?.20:.23)*s,sign*PI/2,options.detail??s>=1);
-            for(const branch of [-1,1])squareFitting(sign*(ctx.joineryKit.sculpted?.755:.6808)*hs,secondY*s,branch*(ctx.joineryKit.sculpted?.40:.415)*hs,.22*hs,(ctx.joineryKit.sculpted?.19:.22)*s,sign*PI/2,options.detail??s>=1);
-          }
-        });
+        if(options.corner&&ctx.joineryKit.cornerFan){
+          for(const part of ctx.joineryKit.cornerFan)
+            draw(part.geometry,part.material,part.position,[hs,s,hs],[0,part.rotation,0]);
+        }else{
+          for(const part of ctx.joineryKit.bracket){if(part.cornerOnly&&!options.corner)continue;draw(part.geometry,part.material,[0,0,0],[hs,s,hs],part.cornerAxis?[0,(options.cornerYaw??0)-PI/2,0]:null);}
+          for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
+            const firstY=ctx.joineryKit.sculpted?.1748:(axis===0?.165:.184),secondY=ctx.joineryKit.sculpted?.4996:(axis===0?.4965:.4775);
+            for(const sign of [-1,1]){
+              squareFitting(sign*(ctx.joineryKit.sculpted?.655:.6208)*hs,firstY*s,0,.24*hs,(ctx.joineryKit.sculpted?.22:.24)*s,sign*PI/2,options.detail??s>=1);
+              for(const branch of [-1,1])squareFitting(sign*(ctx.joineryKit.sculpted?.755:.6808)*hs,secondY*s,branch*(ctx.joineryKit.sculpted?.40:.415)*hs,.24*hs,(ctx.joineryKit.sculpted?.20:.23)*s,sign*PI/2,options.detail??s>=1);
+            }
+          });
+        }
       });
       return;
     }
@@ -1584,14 +1589,14 @@ export function createRestorationArchitecture(ctx) {
       stats.roofFaces++;
       const angle=face===0?0:face===1?PI:face===2?PI/2:-PI/2;
       const count=Math.max(4,Math.round((face<2?w:d)/.29));
-      const denseCount=Math.max(8,Math.round((face<2?w:d)/.245));
+      const denseCount=Math.max(8,Math.round((face<2?w:d)/.125));
       for(let i=1;i<denseCount;i++) {
         const u=-1+2*i/denseCount;
         // Rafters retain their transverse coordinate. The hip cuts their inner ends;
         // they do not point radially at the roof apex.
         const sample=(t,extra=0)=>evalP(face,t,Math.max(-1,Math.min(1,u/t)),extra);
         const makeRafter=(main)=>{
-          const lo=Math.max(main?.705:.875,Math.abs(u)+.022),hi=main?.993:1.024;
+          const lo=Math.max(separateTiers?(main?.30:.63):(main?.705:.875),Math.abs(u)+.022),hi=main?.993:1.024;
           if(lo>=hi)return null;
           const frames=[];
           for(let j=0;j<=12;j++){
@@ -1599,10 +1604,10 @@ export function createRestorationArchitecture(ctx) {
             const tangent=sample(t+.0001).sub(sample(t-.0001)).normalize();
             const side=new T.Vector3(tangent.z,0,-tangent.x).normalize();
             const up=new T.Vector3().crossVectors(tangent,side).normalize();
-            const centre=sample(t);centre.y-=main?.36:.205;
+            const centre=sample(t);centre.y-=main?.34:.195;
             frames.push({centre,tangent,side,up});
           }
-          return rafterSectionSweep(frames,main?.135:.095,main?.16:.10,{capStart:true,capEnd:true,bevel:.004});
+          return rafterSectionSweep(frames,main?.080:.048,main?.170:.078,{capStart:true,capEnd:true,bevel:.0025});
         };
         for(const main of [true,false]){const geo=makeRafter(main);if(geo){wood(geo,main?'cedar':'endwood');stats.rafters++;}}
         const tip=sample(1.024);tip.y-=.205;
@@ -1617,10 +1622,10 @@ export function createRestorationArchitecture(ctx) {
       }
       // Continuous thick ring purlins take the short rafters, leaving small real
       // rectangular voids between wood members rather than a broad fan cavity.
-      for(const t of [.755,.895]){
+      for(const t of [.55,.755,.895]){
         const points=[];
-        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=.52;points.push(p.toArray());}
-        wood(eaveSweep(points,.25,.31),'red');
+        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=t===.55?.37:.48;points.push(p.toArray());}
+        wood(eaveSweep(points,t===.55?.145:.19,t===.55?.17:.23),'cedar');
       }
       // Broad, square-section fascia follows the reference's sweep. Thin gold
       // framing is restricted to the lower molding and exposed primary ends.
@@ -1630,9 +1635,9 @@ export function createRestorationArchitecture(ctx) {
         lower.push(p.toArray()); upper.push([p.x,p.y+.10,p.z]);
         molding.push([p.x,p.y-.098,p.z]);
       }
-      wood(eaveSweep(lower,.115,.18),'red');
-      wood(eaveSweep(upper,.105,.075),'darkwood');
-      wood(eaveSweep(molding,.122,.018),'oldgold',.80);
+      wood(eaveSweep(lower,.092,.145),'red');
+      wood(eaveSweep(upper,.087,.060),'darkwood');
+      wood(eaveSweep(molding,.102,.015),'oldgold',.80);
       // The round terminal row belongs to the ceramic tile spacing, not the
       // rafter spacing. Alternate flat rain channels remain visible between it.
       const tiles=Math.max(5,Math.round((face<2?w:d)/.35));
@@ -1647,7 +1652,7 @@ export function createRestorationArchitecture(ctx) {
       for(let j=0;j<=22;j++) {
         const p=evalP(face,.28+.75*j/22,side);p.y-=.365;pts.push(p.toArray());
       }
-      let hip=eaveSweep(pts,.30,.34);
+      let hip=eaveSweep(pts,.18,.22);
       if(hipSeat) {
         const curve=new T.CatmullRomCurve3(pts.map(p=>v(p)));
         const frames=Array.from({length:25},(_,j)=>{
@@ -1655,14 +1660,14 @@ export function createRestorationArchitecture(ctx) {
           const side=new T.Vector3(tangent.z,0,-tangent.x).normalize();
           return {centre,tangent,side,up:new T.Vector3().crossVectors(tangent,side).normalize()};
         });
-        hip=rafterSectionSweep(frames,.30,.34,{capStart:true,capEnd:true,bevel:.0075});
+        hip=rafterSectionSweep(frames,.18,.22,{capStart:true,capEnd:true,bevel:.006});
         const direction=v([pts.at(-1)[0],0,pts.at(-1)[2]]).normalize();
         const centre=v([Math.sign(direction.x)*hipSeat.width/2,0,Math.sign(direction.z)*hipSeat.depth/2]).dot(direction);
         const half=hipSeat.purlinWidth/Math.SQRT2+.11;
         hip=opening?.tierCollar?tierHipBirdsmouth(hip,direction,centre-half,centre+half,hipSeat.top):hipBirdsmouth(hip,direction,centre-half,centre+half,hipSeat.top);
         hip.userData.architectureMember='seated-hip';
       }
-      wood(hip,'red');
+      wood(hip,'cedar');
       const end=v(pts[pts.length-1]),tangent=end.clone().sub(v(pts[pts.length-2])).normalize();
       const q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),tangent);
       if(hipSeat) {
@@ -1671,9 +1676,9 @@ export function createRestorationArchitecture(ctx) {
         q.setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
       }
       const tip=end.clone().addScaledVector(tangent,.014);
-      draw('box','oldgold',tip.toArray(),[.292,.332,.012],q);
+      draw('box','oldgold',tip.toArray(),[.186,.226,.012],q);
       const flowerPoint=tip.clone().addScaledVector(tangent,.012);
-      flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.116,'gold',q);
+      flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.078,'gold',q);
     }
   }
 
@@ -2482,7 +2487,7 @@ export function createRestorationArchitecture(ctx) {
     // Ref05: the stepped capital is a broad load-bearing mass. Keep the
     // receiving purlin datum fixed while allowing the capital to deepen
     // downwards, rather than leaving a thin decorative strip on a tall post.
-    const shaftRadius=.235*scale,bracketScale=1.04*scale;
+    const shaftRadius=.235*scale,bracketScale=1.12*scale;
     // The purlin bears against the underside of the main rafters, not through
     // the ceramic shell. Respect the existing hipRoof equation and soffit.
     // This frame is coupled only to the square pyramid pagodaRoof hook,
@@ -2497,7 +2502,7 @@ export function createRestorationArchitecture(ctx) {
     const posts=[],windows=[];
     const post=(x,z,corner)=>{
       footColumn(x,z,y+.2,shaftHeight,shaftRadius*(corner?1:.96));
-      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.15,corner,cornerYaw:Math.atan2(x,z)});
+      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.23,corner,cornerYaw:Math.atan2(x,z)});
       posts.push({x,z,corner,shaftBottom,shaftTop,radius:shaftRadius*(corner?1:.96)});
     };
     // Twelve distinct posts: four true corner pillars and two between each

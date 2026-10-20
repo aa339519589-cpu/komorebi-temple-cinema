@@ -18,7 +18,7 @@ export function createSculptedJoinery(){
   if(notch==='bottom'){s.lineTo(.12,0);s.lineTo(-.12,0);s.lineTo(-.12,-.225);}else s.lineTo(-.12,-.225);
   s.bezierCurveTo(-.22,-.225,-h+.42,-.12,-h+.30,-.115);
   s.bezierCurveTo(-h+.19,-.11,-h+.22,-.01,-h+.09,-.015);
-  s.quadraticCurveTo(-h-.025,.005,-h,.10);s.closePath();return extrude(s,.22,.012);
+  s.quadraticCurveTo(-h-.025,.005,-h,.10);s.closePath();return extrude(s,.29,.012);
  }
  function beam(length,depth,bottom,top,notches=[]){
   const xs=[-length/2,...notches.flatMap(n=>[n.x-n.width/2,n.x+n.width/2]),length/2].sort((a,b)=>a-b),s=new T.Shape();
@@ -48,6 +48,13 @@ export function createSculptedJoinery(){
   g.userData.bearingBlock={kind:'closed-planar-tapered-clipped-square-dou',radius,height,baseHalfWidth:foot,arrisMetres:bevel,capSideNormalsSeparated:true,profile};
   return keep(g);
  }
+ function carvedCorbel(){
+  const s=new T.Shape();s.moveTo(-.19,0);s.lineTo(.19,0);s.lineTo(.19,.06);
+  s.bezierCurveTo(.19,.12,.09,.14,.09,.20);s.bezierCurveTo(.09,.26,.19,.28,.19,.34);
+  s.lineTo(-.19,.34);s.bezierCurveTo(-.19,.28,-.09,.26,-.09,.20);
+  s.bezierCurveTo(-.09,.14,-.19,.12,-.19,.06);s.closePath();
+  const g=extrude(s,.22,.006);g.userData.architectureJoint='scene05-curved-seated-corner-corbel';return g;
+ }
  // Retained shaft/purlin contacts, with a rounded, flaring daito and genuinely
  // half-lapped first cross. Each later arm bears on a separate curved block.
  // .31*.64*1.04*1.15=.237 m: the foot seats on the retained .235m shaft.
@@ -56,8 +63,8 @@ export function createSculptedJoinery(){
  for(const side of[-1,1]){part(cushion(.145,.055),'kit_cedar',[side*.40,.325,0]);part(cushion(.145,.055),'kit_cedar',[0,.325,side*.40]);}
  for(const side of[-1,1]){part(curvedArm(1.50),'kit_cedar',[side*.40,.60,0],Math.PI/2);part(curvedArm(1.50),'kit_cedar',[0,.60,side*.40]);}
  for(const sx of[-1,1])for(const sz of[-1,1])part(cushion(.14,.10),'kit_cedar',[sx*.40,.70,sz*.40]);
- for(const side of[-1,1])part(beam(1.54,.23,.80,.93,[{x:0,width:.24,side:'top',y:.865}]),'kit_cedar',[0,0,side*.40]);
- part(beam(1.52,.24,.865,.970,[-1,1].map(sign=>({x:sign*.40,width:.23,side:'bottom',y:.93}))),'kit_endwood',[0,0,0],Math.PI/2);
+ for(const side of[-1,1])part(beam(1.54,.29,.80,.93,[{x:0,width:.24,side:'top',y:.865}]),'kit_cedar',[0,0,side*.40]);
+ part(beam(1.52,.30,.865,.970,[-1,1].map(sign=>({x:sign*.40,width:.23,side:'bottom',y:.93}))),'kit_endwood',[0,0,0],Math.PI/2);
  // Actual raked ang at true corner posts only, between cross-arm and hip.
  const diagonal=curvedArm(2.02);const a=diagonal.attributes.position;
  for(let i=0;i<a.count;i++)a.setY(i,a.getY(i)+a.getX(i)*.22+.45);diagonal.computeVertexNormals();part(diagonal,'kit_cedar',[0,0,0],0,true);
@@ -66,6 +73,38 @@ export function createSculptedJoinery(){
  // datum. Compress only the new vertical profiles to those retained seats.
  const heightScale=.970/1.120;
  for(const part of parts){const p=part.geometry.attributes.position;for(let i=0;i<p.count;i++)p.setY(i,(p.getY(i)+.15)*heightScale-.15);part.geometry.computeVertexNormals();}
+
+ // The actual corner posts need a deeper primary head than the repeated
+ // intermediate-column bracket. Three crossed, half-lapped levels rise from
+ // the post cap; each change in arm length sits on four tapered receivers.
+ // Local top datums stop beneath the retained roof purlin after bracketScale.
+ const cornerFan=[],fanPart=(geometry,material,position,rotation=0,role='arm')=>{
+  geometry.userData.architectureJoint='scene05-corner-fan-'+role;
+  cornerFan.push({geometry,material,position,rotation,role});
+ };
+ const cross=(length,y,first='top')=>{
+  const x=curvedArm(length,first),z=curvedArm(length,first==='top'?'bottom':'top');
+  for(const arm of[x,z]){arm.scale(1,.78,.72);arm.computeVertexNormals();}
+  fanPart(x,'kit_cedar',[0,y,0],0,'half-lapped-arm');
+  fanPart(z,'kit_cedar',[0,y,0],Math.PI/2,'half-lapped-arm');
+ };
+ fanPart(cushion(.34,.18),'kit_cedar',[0,-.15,0],0,'post-head-daito');
+ cross(2.35,.06,'top');
+ const corbel=carvedCorbel();
+ for(const side of[-1,1]){
+  fanPart(corbel,'kit_cedar',[side*.80,.10,0],0,'first-curved-corbel');
+  fanPart(corbel,'kit_cedar',[0,.10,side*.80],Math.PI/2,'first-curved-corbel');
+ }
+ cross(1.95,.46,'bottom');
+ for(const side of[-1,1]){
+  fanPart(corbel,'kit_cedar',[side*.65,.43,0],0,'second-curved-corbel');
+  fanPart(corbel,'kit_cedar',[0,.43,side*.65],Math.PI/2,'second-curved-corbel');
+ }
+ cross(1.58,.82,'top');
+ for(const side of[-1,1]){
+  fanPart(cushion(.17,.13),'kit_endwood',[side*.50,.81,0],0,'roof-seat-receiver');
+  fanPart(cushion(.17,.13),'kit_endwood',[0,.81,side*.50],0,'roof-seat-receiver');
+ }
  // Deep, open foliate metalwork. Full-depth apertures reveal the timber end;
  // this is not the prior flat image-guided flower boss scaled onto every end.
  const relief=[];const frame=new T.Shape();frame.moveTo(-.44,-.5);frame.lineTo(.44,-.5);frame.quadraticCurveTo(.5,-.5,.5,-.44);frame.lineTo(.5,.44);frame.quadraticCurveTo(.5,.5,.44,.5);frame.lineTo(-.44,.5);frame.quadraticCurveTo(-.5,.5,-.5,.44);frame.lineTo(-.5,-.44);frame.quadraticCurveTo(-.5,-.5,-.44,-.5);
@@ -96,5 +135,5 @@ export function createSculptedJoinery(){
  const bridge=new T.Shape();bridge.moveTo(-.017,.29);bridge.lineTo(.017,.29);bridge.quadraticCurveTo(.027,.195,.058,.142);bridge.lineTo(.029,.113);bridge.lineTo(-.029,.113);bridge.lineTo(-.058,.142);bridge.quadraticCurveTo(-.027,.195,-.017,.29);const ng=extrude(bridge,.067,.008);ng.translate(0,0,.175);mask.push({geometry:ng,material:'slate'});
  const crest=new T.Shape();crest.moveTo(-.055,.365);crest.quadraticCurveTo(-.078,.47,0,.565);crest.quadraticCurveTo(.078,.47,.055,.365);crest.closePath();const cg=extrude(crest,.075,.008);cg.translate(0,0,.015);mask.push({geometry:cg,material:'slate'});
  for(const xx of[-.07,-.026,.026,.07]){const tooth=keep(new T.ConeGeometry(.009,.030,6));tooth.rotateZ(Math.PI);tooth.translate(xx,.056,.145);mask.push({geometry:tooth,material:'slate'});}
- return {bracket:parts,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 closed curved half-lapped timber, planar tapered square bearing blocks with2mm arrises, raked corner ang, pierced gilt and ceramic masks',bearingCorrection:'Only the formerly bulging support blocks changed; flat bearing planes and hard planar cheek normals retain the existing seat/top/nominal-width datums. Unresolved actual corner wear remains interpreted.',guideRole:'Authored 3D curves and solid profiles; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
+ return {bracket:parts,cornerFan,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 crossed half-lap brackets with three progressively shorter corner arm courses, seated curved corbels, raked corner ang, pierced gilt and ceramic masks',cornerFan:{levels:3,arms:6,curvedCorbels:8,receivers:4,footprintM:[2.35,1.95,1.58],construction:'closed bevelled profiles; alternating top/bottom centre laps; each course seats through four curved corbels and a tapered roof receiver'},bearingCorrection:'Only the formerly bulging support blocks changed; flat bearing planes and hard planar cheek normals retain the existing seat/top/nominal-width datums. Unresolved actual corner wear remains interpreted.',guideRole:'Authored 3D curves and solids; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
 }
