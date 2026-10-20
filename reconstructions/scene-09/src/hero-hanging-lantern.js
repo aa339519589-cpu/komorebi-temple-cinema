@@ -86,13 +86,13 @@ export function createHeroHangingLantern(M,materials,textures){
   for(const a of[0,Math.PI/2])put(bar(.32,.014,.014),0,0,-.783,0,1,1,1,[0,a,0]);
   const meshes=accum.map(list=>{const g=mergeGeometries(list,false);for(const q of list)q.dispose();return g;});
   const triangles=meshes.reduce((n,g)=>n+g.attributes.position.count/3,0),bounds=new T.Box3();for(const g of meshes){g.computeBoundingBox();bounds.union(g.boundingBox);}
-  const info={revision:HERO_LANTERN_REVISION,anchor:[7.7,7.3,21.6],assemblyScale:1.35*.88,installations:[],localBounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},triangles,closedMetalComponents:placements.length,metalMeshes:2,originalPaperSheets:4,originalLight:{color:0xffd39b,unscaledIntensity:38,unscaledDistance:7,decay:2},photoSampled:false,visualAccepted:false};
+  const info={revision:HERO_LANTERN_REVISION,anchor:[7.7,7.3,21.6],assemblyScale:1.35*.88,installations:[],localBounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},triangles,closedMetalComponents:placements.length,metalMeshes:2,originalPaperSheets:4,physicalLight:{color:0xffd39b,unscaledIntensity:85,unscaledDistance:0,decay:2},photoSampled:false,visualAccepted:false};
   function install(api,x=7.7,y=7.3,z=21.6,s=1.35){info.installations.push({position:[x,y,z],scale:s*.88});api.group(x,y,z,0,()=>{
     api.emit(meshes[0],patina);api.emit(meshes[1],edge);
-    // Exact original paper transforms, material object, emissive attenuation and
-    // local physical source. Other lamps and the external suspension stay intact.
+    // Existing paper transforms and material, with an 85 cd inverse-square
+    // physical source that reaches the modeled wet paving. Other lamps and the external suspension stay intact.
     for(let face=0;face<4;face++)api.group(0,0,0,face*Math.PI/2,()=>api.box(0,0,.311,.612,.77,.009,M.paper));
-    api.light(0,0,0,38,7.0);
+    api.light(0,0,0,85,0);
   },s*.88);}
   return{install,info,meshes,prototypes:[...prototypes],placements};
 }

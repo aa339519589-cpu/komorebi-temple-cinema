@@ -16,10 +16,11 @@ draw = ImageDraw.Draw(board)
 records = []
 for row, shot in enumerate(report["shots"]):
     fps = report["fps"]
-    times = [0.5 / fps, 3.5, 7 - 0.5 / fps]
-    for col, time in enumerate(times):
+    indices = [0, round(3.5 * fps), shot["frames"] - 1]
+    for col, index in enumerate(indices):
+        time = index / fps
         frame = out / ("scene-%02d-%s.png" % (shot["reference"], ["start", "middle", "end"][col]))
-        subprocess.run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-ss", str(time), "-i", shot["file"], "-frames:v", "1", "-update", "1", str(frame)], check=True)
+        subprocess.run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", shot["file"], "-vf", "select=eq(n\\,%d)" % index, "-frames:v", "1", "-update", "1", str(frame)], check=True)
         im = Image.open(frame).convert("RGB")
         im.thumbnail((size, size), Image.Resampling.LANCZOS)
         x, y = gap + col * (size + gap), gap + row * (size + title)
