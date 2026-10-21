@@ -1,27 +1,25 @@
 import {T,V,mix,rand,Builder,gridGeometry} from './kernel.js';
 import {buildForegroundStoneLantern120,foregroundLanternFootprint120} from './foreground-stone-lantern120.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
-export function buildGarden(mats){
+import {loadScannedGardenStones} from './scanned-garden-stones.js';
+export async function buildGarden(mats){
+ const scanned=await loadScannedGardenStones();let scannedRockPlacements=0;
+ for(const [i,stone]of scanned.variants.entries()){mats['scannedGardenDry'+i]=stone.dry;mats['scannedGardenWet'+i]=stone.wet;}
  const b=new Builder(mats),lights=[];mats.rock=mats.stone.clone();mats.rock.color.setHex(0x77786f);mats.rock.roughness=.92;mats.rock.metalness=0;mats.rock.flatShading=true;mats.pondBed=mats.moss.clone();mats.pondBed.name='scene02-muted-pond-bed';mats.pondBed.color.setHex(0x3b4236);mats.pondBed.roughness=.98;
  const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=mats.pink.side=mats.pinkDark.side=T.DoubleSide;
  const petalGeo=(()=>{let rows=Array.from({length:9},(_,j)=>Array.from({length:7},(_,i)=>{let t=j/8,s=-1+2*i/6;return[s*Math.sin(Math.PI*t)*.38,.65*t*t+.13*Math.sin(Math.PI*t)*(1-s*s),t];}));return gridGeometry(rows);})();
- const rockGeos=Array.from({length:7},(_,k)=>{
-  const source=new T.IcosahedronGeometry(1,2),p=source.attributes.position;
-  const planes=Array.from({length:7},(_,j)=>{const a=j*2.399+k*.71,n=new T.Vector3(Math.cos(a)*(.72+.16*Math.sin(j*2.1)),.28*Math.sin(j*1.7+k),Math.sin(a)*(.72+.14*Math.cos(j*2.5))).normalize();return{n,d:.76+.16*((j*3+k*5)%7)/6};});
-  for(let i=0;i<p.count;i++){
-   const u=new T.Vector3(p.getX(i),p.getY(i),p.getZ(i)).normalize();let cut=1;
-   for(const plane of planes){const q=u.dot(plane.n);if(q>plane.d)cut=Math.min(cut,plane.d/q);}
-   const noise=1+.092*Math.sin(u.x*11+u.y*7+u.z*13+k)+.052*Math.cos(u.x*17-u.z*9+k*2.3),radial=cut*noise;
-   const yScale=u.y<-.35?.78:u.y>.72?.88:1;
-   p.setXYZ(i,u.x*radial,u.y*radial*yScale,u.z*radial);
-  }
-  source.computeVertexNormals();if(source.index){const g=source.toNonIndexed();source.dispose();g.computeVertexNormals();return g;}return source;
- });
  function rock(x,y,z,r=1){
-  const sx=r*(.76+rand()*.53),sy=r*(.46+rand()*.30),sz=r*(.72+rand()*.55),rotation=[(rand()-.5)*.92,rand()*6.28,(rand()-.5)*.78],geometry=rockGeos[Math.floor(rand()*rockGeos.length)];
-  b.put(geometry,'rock',[x,y+sy*.48,z],[sx,sy,sz],rotation,.78+rand()*.34);
-  if(rand()<.42){const a=rand()*6.28,ox=Math.cos(a)*sx*.11,oz=Math.sin(a)*sz*.11;b.put(b.lowSphere,'moss',[x+ox,y+sy*.87,z+oz],[sx*(.28+rand()*.16),sy*.075,sz*(.24+rand()*.17)],[0,rand()*6.28,0],.76+rand()*.34);}
-  if(rand()<.14)leafCluster(x+(rand()-.5)*sx*.18,y+sy*.80,z+(rand()-.5)*sz*.18,sx*.20,sy*.12,sz*.19,18);
+  // Retain the prior random-draw sequence and footprint, but place an actual
+  // eroded scan on its lowest transformed point, partially embedded in soil.
+  const sx=r*(.76+rand()*.53),sy=r*(.46+rand()*.30),sz=r*(.72+rand()*.55),rotation=[(rand()-.5)*.92,rand()*6.28,(rand()-.5)*.78],variant=Math.floor(rand()*7)%scanned.variants.length,stone=scanned.variants[variant],scale=[sx,sy/.62,sz],tint=.78+rand()*.34;
+  const matrix=new T.Matrix4().compose(new T.Vector3(),new T.Quaternion().setFromEuler(new T.Euler(...rotation)),V(scale)),p=stone.geometry.attributes.position,v=new T.Vector3();let bottom=Infinity,top=-Infinity;
+  for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i).applyMatrix4(matrix);bottom=Math.min(bottom,v.y);top=Math.max(top,v.y);}
+  const base=y-bottom-r*.065,material=y<.12?stone.wet:stone.dry;
+  b.put(stone.geometry,material,[x,base,z],scale,rotation,tint);scannedRockPlacements++;
+  // The scan already contains attached moss; consume the old cap's draws
+  // without restoring an opaque floating polygon moss lid.
+  if(rand()<.42){rand();rand();rand();rand();rand();}
+  if(rand()<.14)leafCluster(x+(rand()-.5)*sx*.18,base+top-.025,z+(rand()-.5)*sz*.18,sx*.20,sy*.12,sz*.19,18);
  }
  const twigGeo=new T.CylinderGeometry(1,1,1,6);function branch(a,c,r){const len=V(a).distanceTo(V(c));if(r>.045&&len>1){let last=a;for(let j=1;j<=4;j++){let t=j/4,p=[mix(a[0],c[0],t)+Math.sin(t*Math.PI)*len*.05*Math.sin(c[2]*3),mix(a[1],c[1],t),mix(a[2],c[2],t)+Math.sin(t*Math.PI)*len*.055*Math.cos(c[0]*2)];b.line(last,p,r*(1-.35*t),'trunk');last=p;}}else b.line(a,c,r,'trunk',false,r,r<.05?twigGeo:null);}
  let canopyLeafScale=1;
@@ -247,12 +245,15 @@ export function buildGarden(mats){
  const mountainSurface=(x,z,layer,zbase)=>{const t=Math.max(0,Math.min(1,(zbase-z)/28.8)),shape=Math.pow(Math.sin(Math.PI*t),.8);return -1+shape*(ridgeTop(x,layer)+1)+shape*.65*Math.sin(x*.43+t*24*.81);};
  let mountainCanopyTrees=0,forestSeed=0x4217a29d;
  const forestRand=()=>{forestSeed=(Math.imul(forestSeed,1664525)+1013904223)>>>0;return forestSeed/4294967296;};
- const branchUnit=new T.CylinderGeometry(1,1,1,5,1),canopyUnit=new T.SphereGeometry(1,8,6);
+ const branchUnit=new T.CylinderGeometry(1,1,1,5,1),canopyUnit=new T.SphereGeometry(1,10,8);
+ const canopyPosition=canopyUnit.attributes.position;
+ for(let i=0;i<canopyPosition.count;i++){const x=canopyPosition.getX(i),y=canopyPosition.getY(i),z=canopyPosition.getZ(i),r=1+.10*Math.sin(x*5.3+z*3.7)*Math.cos(y*4.6-z*2.8)+.035*Math.sin(x*11.2+y*8.7+z*5.4);canopyPosition.setXYZ(i,x*r,y*r,z*r);}
+ canopyUnit.computeVertexNormals();
  function movedPart(base,position,scale,rotation=[0,0,0]){const g=base.clone(),q=new T.Quaternion().setFromEuler(new T.Euler(...rotation));g.applyMatrix4(new T.Matrix4().compose(V(position),q,V(scale)));return g;}
  function joinedParts(parts){
   const prepared=parts.map(g=>{if(g.index){const flat=g.toNonIndexed();g.dispose();return flat;}return g;});
   const merged=mergeGeometries(prepared,false);for(const g of prepared)g.dispose();
-  if(!merged)throw Error('Unable to merge mountain tree geometry.');merged.computeVertexNormals();return merged;
+  if(!merged)throw Error('Unable to merge mountain tree geometry.');return merged;
  }
  function addBranch(parts,a,c,r){
   const start=V(a),end=V(c),axis=end.clone().sub(start),q=new T.Quaternion().setFromUnitVectors(V([0,1,0]),axis.clone().normalize());
@@ -274,13 +275,15 @@ export function buildGarden(mats){
   for(let j=0;j<3;j++){const a=phase+j*Math.PI*2/3,cy=.79+j*.055,rad=.11+forestRand()*.035,p=[Math.cos(a)*.065,cy,Math.sin(a)*.065];(j===1?lit:dark).push(movedPart(canopyUnit,p,[rad*.9,rad*1.18,rad],[.2,a,forestRand()*.4]));}
   return{branches:joinedParts(branches),dark:joinedParts(dark),lit:joinedParts(lit)};
  });branchUnit.dispose();canopyUnit.dispose();
- const middlePine=mats.leaf.clone(),middlePineLight=mats.leaflight.clone(),farPine=mats.leaf.clone(),farPineLight=mats.leaflight.clone();
+ const nearPine=mats.leaf.clone(),nearPineLight=mats.leaflight.clone(),middlePine=mats.leaf.clone(),middlePineLight=mats.leaflight.clone(),farPine=mats.leaf.clone(),farPineLight=mats.leaflight.clone();
+ nearPine.name='scene02-opaque-near-woodland';nearPine.color.setHex(0x233b2c);nearPine.roughness=.94;nearPine.side=T.FrontSide;
+ nearPineLight.name='scene02-near-woodland-sunlit-sprays';nearPineLight.color.setHex(0x43573a);nearPineLight.roughness=.94;nearPineLight.side=T.FrontSide;
  middlePine.name='scene02-mid-distance-pine';middlePine.color.setHex(0x35443b);middlePine.roughness=.96;
  middlePineLight.name='scene02-mid-distance-pine-tips';middlePineLight.color.setHex(0x4a5948);middlePineLight.roughness=.96;
  farPine.name='scene02-atmospheric-pine';farPine.color.setHex(0x4c5856);farPine.roughness=.98;
  farPineLight.name='scene02-atmospheric-pine-tips';farPineLight.color.setHex(0x626d67);farPineLight.roughness=.98;
- Object.assign(mats,{mountainMidPine:middlePine,mountainMidPineLight:middlePineLight,mountainFarPine:farPine,mountainFarPineLight:farPineLight});
- const forestMaterials=[[mats.leaf,mats.leaflight],[middlePine,middlePineLight],[farPine,farPineLight]];
+ Object.assign(mats,{mountainNearPine:nearPine,mountainNearPineLight:nearPineLight,mountainMidPine:middlePine,mountainMidPineLight:middlePineLight,mountainFarPine:farPine,mountainFarPineLight:farPineLight});
+ const forestMaterials=[[nearPine,nearPineLight],[middlePine,middlePineLight],[farPine,farPineLight]];
  const mountainRows=[9,8,7],mountainColumns=64,mountainDensity=[.90,.85,.78];
  for(let layer=0;layer<3;layer++){
   const z=-34-layer*30,rows=Array.from({length:25},(_,j)=>Array.from({length:111},(_,i)=>{const x=-110+i*2,t=j/24,crest=ridgeTop(x,layer),shape=Math.pow(Math.sin(Math.PI*t),.8);return[x,-1+shape*(crest+1)+shape*.65*Math.sin(x*.43+j*.81),z-j*1.2];}));
@@ -297,5 +300,5 @@ export function buildGarden(mats){
    mountainCanopyTrees++;
   }
  }
- return {group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
+ return {group:b.finish(),lights,dispose(){scanned.dispose();},stats:{scannedGardenStones:{...scanned.info,placements:scannedRockPlacements,groundContact:"Actual transformed scan minima with a 6.5 percent radius soil embed; no image projection"},instances:b.count,buckets:b.buckets.size,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
 }
