@@ -12,7 +12,14 @@ export const nearRainStoneProfiles=Object.freeze({
  '11:5':{chips:[[.07,.023,.009,.006],[.48,.036,.016,.010]],basin:[-.21,-.08,.16,.20,.0044],pits:48},
  '12:3':{chips:[[.36,.039,.021,.013],[.75,.029,.012,.008]],basin:[.06,.19,.21,.15,.0058],pits:64},
  '12:4':{chips:[[.18,.030,.014,.009],[.62,.047,.025,.015],[.91,.018,.007,.005]],basin:[-.17,-.13,.18,.22,.0062],pits:59},
- '12:5':{chips:[[.43,.025,.011,.008],[.85,.035,.018,.011]],basin:[.18,.11,.17,.14,.0046],pits:46}
+ '12:5':{chips:[[.43,.025,.011,.008],[.85,.035,.018,.011]],basin:[.18,.11,.17,.14,.0046],pits:46},
+ // Closest foreground courses use the same closed metric construction, with
+ // independent deterministic wear. These faces were formerly beyond the
+ // twelve detailed blocks and still exposed deep, unfilled black seams.
+ ...Object.fromEntries(Array.from({length:48},(_,k)=>{
+  const row=14+Math.floor(k/4),column=k%4,h=n=>{const q=Math.sin((row*97+column*37+n*23+142)*12.9898)*43758.5453;return q-Math.floor(q);};
+  return[row+':'+column,{chips:Array.from({length:6},(_,n)=>[(n+.18+.60*h(n))/6,.024+.040*h(n+7),.009+.019*h(n+13),.005+.011*h(n+19)]),basin:[(h(30)-.5)*.35,(h(31)-.5)*.32,.18+.14*h(32),.13+.13*h(33),.004+.004*h(34)],pits:90+Math.floor(45*h(35))}];
+ }))
 });
 const fract=x=>x-Math.floor(x);
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));

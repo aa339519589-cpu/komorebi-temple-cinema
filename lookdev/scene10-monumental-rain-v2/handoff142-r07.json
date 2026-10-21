@@ -1,0 +1,296 @@
+{
+  "status": "held-modeling-checkpoint-unaccepted",
+  "visualAccepted": false,
+  "reference": 10,
+  "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d",
+  "sourceIdentityFile": "lookdev/scene10-monumental-rain-v2/held-r07-source-identity.json",
+  "referenceFile": "references/hd/9-\u7167\u7247-10.jpg",
+  "referenceSha256": "04313fb3029a075a2dbf00bf32f811fb95b8d28c4f3e3b1f4af5f0e5f65bffa9",
+  "actualEditedReconstructionFiles": [
+    "reconstructions/scene-10/README.md",
+    "reconstructions/scene-10/asset-dependencies.json",
+    "reconstructions/scene-10/src/architecture.js",
+    "reconstructions/scene-10/src/hall-front132.js",
+    "reconstructions/scene-10/src/layout125.js",
+    "reconstructions/scene-10/src/licensed-groundcover142.js",
+    "reconstructions/scene-10/src/licensed-pine141.js",
+    "reconstructions/scene-10/src/main.js",
+    "reconstructions/scene-10/src/maple-canopy136.js",
+    "reconstructions/scene-10/src/near-rain-stones.js",
+    "reconstructions/scene-10/src/near-surface-reflection.js",
+    "reconstructions/scene-10/src/optics.js",
+    "reconstructions/scene-10/src/paving-mask.js",
+    "reconstructions/scene-10/src/rain-frame-maple142.js",
+    "reconstructions/scene-10/src/solid-receiver142.js",
+    "reconstructions/scene-10/src/stone-lantern.js",
+    "reconstructions/scene-10/src/surface-detail.js",
+    "reconstructions/scene-10/src/water-film-ripples135.js"
+  ],
+  "scope": [
+    "reconstructions/scene-10",
+    "qa/ten-reference/10",
+    "lookdev/scene10-monumental-rain-v2"
+  ],
+  "noCommitByLane": true,
+  "noSharedToolEdits": true,
+  "validation": {
+    "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d",
+    "nativeFrames": 7,
+    "actual1254Frames": 4,
+    "actual960Frames": 3,
+    "allValid": true,
+    "runtimeReferencePhotoRequests": 0,
+    "errors": [],
+    "photographicAcceptance": false,
+    "scope": "Native loading/shaders/pixels/dimensions and source identity; three still keys do not establish motion cadence or photographic fidelity."
+  },
+  "nativeFrames": [
+    {
+      "name": "reference",
+      "file": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-ground-20261022/reference.png",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "glError": 0,
+      "pngSha256": "6e92ee5fd8863a44db93da97271286e60fe600724a02f9eb13cdef3069d61ea6",
+      "rawRgbaSha256": "8e18c76f9c8b50dd2ecc8d22b15b1be443fabf7f7e551ee57af1385fecb37588",
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": null,
+      "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d"
+    },
+    {
+      "name": "detail-native",
+      "file": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-ground-20261022/detail-native.png",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "glError": 0,
+      "pngSha256": "2eac03d984096d7eff7dfc6ed6e7e6aeaa0847e8a91218122490360114ecf47f",
+      "rawRgbaSha256": "ec0fa5be7ef88636e149dde5de992fc4f1789ae4dab210db00bd79beadb45e75",
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": [
+        430,
+        820,
+        430,
+        1254
+      ],
+      "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d"
+    },
+    {
+      "name": "reference",
+      "file": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-hall-20261022/reference.png",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "glError": 0,
+      "pngSha256": "6e92ee5fd8863a44db93da97271286e60fe600724a02f9eb13cdef3069d61ea6",
+      "rawRgbaSha256": "8e18c76f9c8b50dd2ecc8d22b15b1be443fabf7f7e551ee57af1385fecb37588",
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": null,
+      "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d"
+    },
+    {
+      "name": "detail-native",
+      "file": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-hall-20261022/detail-native.png",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "glError": 0,
+      "pngSha256": "8e5d9b5f0a17ab42bf92eb3354070fcc9de9df32335a3b969484fd8b3a36c0a7",
+      "rawRgbaSha256": "1e2eb5c55e3d76dafa5ff06894986c1d0b2af894baf096b60e2804ecb8cfee98",
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": [
+        588,
+        132,
+        660,
+        1254
+      ],
+      "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d"
+    },
+    {
+      "name": "shot-0",
+      "file": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-keys-20261022/shot-0.png",
+      "width": 960,
+      "height": 960,
+      "valid": true,
+      "glError": 0,
+      "pngSha256": "78f04ea27cfe2ff06f8d7f8c0aa07fd506c11105fb334c15b94f52d626932a38",
+      "rawRgbaSha256": "185d20bfedbe5da208fb92f8cf9b17269d2cb0c142e83ed222b55e58b9c8b97d",
+      "pose": {
+        "position": [
+          0.25,
+          0.24,
+          8.1
+        ],
+        "target": [
+          -1.1102230246251565e-16,
+          4.000000000000001,
+          -14.000000000000005
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 960,
+        "height": 960
+      },
+      "detailCrop": null,
+      "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d"
+    },
+    {
+      "name": "shot-3p5",
+      "file": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-keys-20261022/shot-3p5.png",
+      "width": 960,
+      "height": 960,
+      "valid": true,
+      "glError": 0,
+      "pngSha256": "66957df9f7369f270e857ef9ae671065223ad0ddd3b16b54480255d20d78c7cc",
+      "rawRgbaSha256": "b141ab143361baba88aedcf86eaaecde567e3e3d0747dc489ae02ecb7d5cdd9d",
+      "pose": {
+        "position": [
+          0.08349266480330661,
+          0.5139635274443349,
+          11.063643748241532
+        ],
+        "target": [
+          -0.05609656131201354,
+          4.225981967552982,
+          -13.652608111469728
+        ],
+        "time": 3.5,
+        "fov": 60,
+        "width": 960,
+        "height": 960
+      },
+      "detailCrop": null,
+      "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d"
+    },
+    {
+      "name": "shot-7",
+      "file": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-keys-20261022/shot-7.png",
+      "width": 960,
+      "height": 960,
+      "valid": true,
+      "glError": 0,
+      "pngSha256": "495415b0c96a5b15bd643cf3fe8b2eaea12d18d9bd3980b7d5d74f5f1c906135",
+      "rawRgbaSha256": "8eae07871444b43003fbbd27c69b0570cd8946fcb32c8fcdc131b14c3f828bdd",
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -13.999999999999996
+        ],
+        "time": 7,
+        "fov": 60,
+        "width": 960,
+        "height": 960
+      },
+      "detailCrop": null,
+      "sourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d"
+    }
+  ],
+  "fullImage": "qa/ten-reference/10/iteration-scene10-monumental-rain142-r07-ground-20261022/reference.png",
+  "unscaledPhotoR11R07Comparison": "lookdev/scene10-monumental-rain-v2/reference-r11-r07-native-unscaled.png",
+  "keyStillStrip": "lookdev/scene10-monumental-rain-v2/native-camera-keys-r07.png",
+  "receiverAudit": "lookdev/scene10-monumental-rain-v2/receiver142-closed-geometry-audit.json",
+  "review": "lookdev/scene10-monumental-rain-v2/REVIEW.md",
+  "constructionChanges": [
+    "Annular lower hall roof around a supported occupied upper storey, real upper floor/balcony/rail, sealed cut boarding and timbers.",
+    "Source-sized whole pagoda, shorter recessed windows, four-sided balcony bands and solid finial discs.",
+    "Projecting hall capitals, enclosed recessed door/shrine/cabinet and corresponding figure/lotus/pedestal contact.",
+    "56 detailed foreground stone parts with independent pits/chips, real grit joint beds, narrower fitted iron drain and actual-height cupped fallen leaves.",
+    "Closed single-volume column receiver with blind circular socket at the real black shoe datum.",
+    "Terrain-borne forest stems, six supported lateral crowns, rooted understory and upper-right near maple; winding rain walk benched into the hill.",
+    "Whole CC0 botanical variants and connected curved leaf components retaining original PBR atlas UVs, topology and normals.",
+    "Complete512px actual-scene probe, physical lantern flux, finite existing paper-bay radiance and water-IOR impact relief.",
+    "Low opening camera looks toward the temple and pulls to the unchanged photographic end camera."
+  ],
+  "remainingDominantMismatches": [
+    "Hall joinery and carved bearing mass remain orderly and simplified compared with HD10.",
+    "Distant pine silhouettes are sparse/needle-like and the hill retains excessive exposed ground.",
+    "Stone lantern forms, paving joint rhythm and rain-highlight scale still differ; weathering is not photo-equivalent.",
+    "Native warm bounce, reflected light contrast and the recessed entrance still fall short of the photograph."
+  ],
+  "assetSources": [
+    {
+      "asset": "Pine Sapling Small",
+      "source": "https://polyhaven.com/a/pine_sapling_small",
+      "license": "CC0-1.0",
+      "provenance": "reconstructions/scene-10/assets/pine-sapling-cc0-141/provenance.json"
+    },
+    {
+      "asset": "Periwinkle Plant",
+      "author": "Amal Kumar",
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json"
+    }
+  ],
+  "noPhotoOrAiReplacementWorld": true,
+  "fullMotionOrCyclesRenderedThisLane": false,
+  "rendererReportedTriangleDraws": 2806100127,
+  "triangleCountScope": "Triangle draws across rendering passes, not unique geometry. Heavy scene; production motion throughput not validated."
+}

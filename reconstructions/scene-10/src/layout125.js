@@ -1,15 +1,15 @@
 // Whole physical assemblies inferred from the supplied rain-veranda image.
 // No reference RGB, depth image or independently fitted vertex heights.
 export const scene10Layout125=Object.freeze({
- revision:'scene10-whole-layout125',
+ revision:'scene10-monumental-rain142-r07',
  camera:{position:[0,1,14],target:[0,4.65,-14],fov:60},
- pagoda:{position:[-6.90,6.79,-20],yaw:-.10,scale:[1.00,.70,1.00],tierDecrement:.055,finialHeight:8.0},
+ pagoda:{position:[-7.00,6.50,-20],yaw:-.10,scale:[.86,.70,.86],tierDecrement:.055,finialHeight:8.0},
  hall:{position:[14,2.6,-14],yaw:-.58,scale:[1.12,.95,1.12],floorLocalY:1.3,entranceX:-2.85,upperLandingLocal:[-2.85,1.3,6.75]},
  bridge:{position:[2.35,1.22,-5.4],yaw:.12,span:10.3,width:2.0,archRise:1.08,phaseSkew:.20,endRise:.53,deckOffset:.25,deckThickness:.18,approachCount:7,approachRun:.25,railHeight:1.0,hallApproachLandingRun:1.0,turningHalfWidth:1.75,exitRailCutT:.82},
  veranda:{column:[-3.35,0,7.9],radius:.42,shoeHeight:.80,ceilingY:7.1,ceilingYaw:.75,ceilingCenter:[.07,-1.4],hangingLamp:[-2.83,5.85,6.35],lampScale:.76},
  foregroundRail:{position:[1.20,0,11.8],baseY:.10,postHeight:.87,postWidth:.39,capWidth:.48,finialBase:.925,finialHeightScale:.68,finialWidthScale:.58,returnEnd:[.72,0,14.2],levels:[.27,.52,.78]},
  heroStoneLantern:{position:[-2.80,.77,-3.0],scale:[1.066,.98,1.066],supportTop:.70},
- drain:{position:[-1.9,-.004,8.5],yaw:.56275,halfWidth:.095,length:13},
+ drain:{position:[-2.072854,-.004,8.5],yaw:.586734,halfWidth:.067,length:13},
  path:{farRight:3.9,turnStartZ:5.0,nearRight:1.0,turnEndZ:11.4,nearBankOffsetX:1.45},
  inspection:{position:[-4,7.5,1],target:[6.5,2.5,-6.5],fov:63},
  groundY:.067

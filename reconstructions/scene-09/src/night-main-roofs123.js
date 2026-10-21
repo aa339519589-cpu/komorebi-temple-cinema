@@ -3,7 +3,7 @@ import * as T from 'three';
 // Authored construction geometry. The photograph is never sampled here.
 // Dimensions are in the unscaled building coordinates; roof and frame share
 // the same analytical surface so that the visible bearing members meet it.
-export const PHYSICAL_ROOF_REVISION='scene09-closed-main-roofs-123';
+export const PHYSICAL_ROOF_REVISION='scene09-deep-chamfered-eaves145';
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const a=Math.sin(x*127.1+y*311.7+97.3)*43758.5453;return a-Math.floor(a);};
 
@@ -24,12 +24,12 @@ export function createRoofMaterials(){
 }
 
 function meshBuilder(){
-  const positions=[],uv=[],indices=[];
-  const vertex=(p,u=0,v=0)=>{const i=positions.length/3;positions.push(...p);uv.push(u,v);return i;};
+  const positions=[],uv=[],indices=[],colors=[];
+  const vertex=(p,u=0,v=0)=>{const i=positions.length/3;positions.push(...p);uv.push(u,v);colors.push(1,1,1);return i;};
   const tri=(a,b,c)=>{const ab=new T.Vector3(...b).sub(new T.Vector3(...a)),ac=new T.Vector3(...c).sub(new T.Vector3(...a));if(ab.cross(ac).lengthSq()<1e-17)return;const i=positions.length/3;for(const p of[a,b,c])vertex(p,p[0]*.7,p[2]*.7);indices.push(i,i+1,i+2);};
   const quad=(a,b,c,d)=>{tri(a,b,c);tri(a,c,d);};
-  const finish=()=>{const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(indices);g.computeVertexNormals();return g;};
-  return{vertex,positions,uv,indices,tri,quad,finish};
+  const finish=()=>{const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.setIndex(indices);g.computeVertexNormals();return g;};
+  return{vertex,positions,uv,indices,colors,tri,quad,finish};
 }
 
 // Closed rectangular/round timber sweeps retain real caps at the eaves. All
@@ -39,9 +39,10 @@ function timber(points,width,height){
     const c=new T.Vector3(...p),a=new T.Vector3(...points[Math.max(0,i-1)]),z=new T.Vector3(...points[Math.min(points.length-1,i+1)]),t=z.sub(a).normalize(),side=new T.Vector3(t.z,0,-t.x).normalize(),up=new T.Vector3().crossVectors(t,side).normalize();
     return{c,side,up};
   });
-  const ring=f=>[[-1,-1],[1,-1],[1,1],[-1,1]].map(([x,y])=>f.c.clone().addScaledVector(f.side,x*width/2).addScaledVector(f.up,y*height/2).toArray());
-  for(let i=0;i<frames.length-1;i++){const a=ring(frames[i]),c=ring(frames[i+1]);for(let j=0;j<4;j++){const k=(j+1)%4;b.quad(a[k],c[k],c[j],a[j]);}}
-  const a=ring(frames[0]),c=ring(frames.at(-1));b.quad(a[3],a[2],a[1],a[0]);b.quad(c[0],c[1],c[2],c[3]);return b.finish();
+  const c=Math.min(.010,width*.14,height*.14),w=width/2,h=height/2,profile=[[-w+c,-h],[w-c,-h],[w,-h+c],[w,h-c],[w-c,h],[-w+c,h],[-w,h-c],[-w,-h+c]];
+  const ring=f=>profile.map(([x,y])=>f.c.clone().addScaledVector(f.side,x).addScaledVector(f.up,y).toArray());
+  for(let i=0;i<frames.length-1;i++){const a=ring(frames[i]),c=ring(frames[i+1]);for(let j=0;j<8;j++){const k=(j+1)%8;b.quad(a[k],c[k],c[j],a[j]);}}
+  const a=ring(frames[0]),z=ring(frames.at(-1));for(let i=0;i<8;i++){const j=(i+1)%8;b.tri(frames[0].c.toArray(),a[j],a[i]);b.tri(frames.at(-1).c.toArray(),z[i],z[j]);}return b.finish();
 }
 
 function panelPrism(profile,depth,axis='x'){
@@ -93,7 +94,7 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
         // Low-amplitude, deterministic irregularity is in the fired clay,
         // not in the building outline or in a photograph-derived surface.
         const relief=.0025*Math.sin(q*4.1+variant*1.7+j*.8);
-        const p=f.c.addScaledVector(f.up,.026+crown+relief-layer*thickness);out.vertex(p.toArray(),(k/nv)*.27,j/along*.48+variant*.137);
+        const p=f.c.addScaledVector(f.up,.026+crown+relief-layer*thickness);const id=out.vertex(p.toArray(),(k/nv)*.27,j/along*.48+variant*.137),tone=.82+.23*hash(variant*17,Math.floor(ta*101))+.025*Math.sin(k*1.7+j);out.colors[id*3]=tone*.97;out.colors[id*3+1]=tone;out.colors[id*3+2]=tone*1.025;
       }
       const row=nv+1,layerN=(along+1)*row,id=(l,j,k)=>first+l*layerN+j*row+k;
       const triangle=(a,b,c,up)=>{const p=out.positions,dy=(p[b*3+2]-p[a*3+2])*(p[c*3]-p[a*3])-(p[b*3]-p[a*3])*(p[c*3+2]-p[a*3+2]);if((dy>0)!==up)[b,c]=[c,b];out.indices.push(a,b,c);};
@@ -122,18 +123,19 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
 
     // Heavy curved fascia + compression moulding: the eave is a closed
     // layered assembly, with the rafter tips seated behind its lower lip.
-    draw(timber(curve(face,1,-.18),.22,.25),'red');
-    draw(timber(curve(face,1.008,-.31),.23,.105),'dark');
+    draw(timber(curve(face,1,-.18),.28,.31),'wood');
+    draw(timber(curve(face,.985,-.43),.30,.20),'wood');
+    draw(timber(curve(face,1.008,-.36),.25,.12),'dark');
     draw(timber(curve(face,1.012,-.22),.032,.034),'gold');if(api.ornament){const n=Math.ceil((face%2?hd+bd:w)/.40);for(let i=0;i<=n;i++){const p=at(face,1,-1+2*i/n,-.18);api.ornament(p,face,.070);}}
     for(const t of[.58,.78,.92]){
-      if(t<t0)continue;draw(timber(curve(face,t,-.45,32),.20,.20),'wood');
+      if(t<t0)continue;draw(timber(curve(face,t,-.46,32),.27,.24),'wood');
     }
     const rafters=Math.ceil((face%2?hd+bd:w)/.22);
     for(let i=0;i<=rafters;i++){
       const u=-1+2*i/rafters,start=Math.max(t0,.50),main=Array.from({length:15},(_,j)=>at(face,start+(1.014-start)*j/14,u,-.275));
-      draw(timber(main,.11,.13),'red');
-      const flying=Array.from({length:9},(_,j)=>at(face,.79+.245*j/8,u,-.158));draw(timber(flying,.075,.090),'red');
-      const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.078,.092),'gold');
+      draw(timber(main,.145,.18),'wood');
+      const flying=Array.from({length:9},(_,j)=>at(face,.79+.223*j/8,u,-.245));draw(timber(flying,.105,.125),'wood');
+      const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.108,.128),i%4===0?'gold':'wood');
     }
     // Hip rolls have real segmented ridge caps rather than one smooth pipe.
     for(const side of[-1,1]){
@@ -189,9 +191,9 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
     }
   }
   for(const {m,geometries}of roofBuckets.values()){
-    const vertices=geometries.reduce((n,g)=>n+g.attributes.position.count,0),indexCount=geometries.reduce((n,g)=>n+(g.index?.count??g.attributes.position.count),0),p=new Float32Array(vertices*3),n=new Float32Array(vertices*3),uv=new Float32Array(vertices*2),ix=new Uint32Array(indexCount);let v=0,k=0;
-    for(const g of geometries){p.set(g.attributes.position.array,v*3);n.set(g.attributes.normal.array,v*3);uv.set(g.attributes.uv.array,v*2);for(let j=0,N=g.index?.count??g.attributes.position.count;j<N;j++)ix[k++]=v+(g.index?g.index.getX(j):j);v+=g.attributes.position.count;g.dispose();}
-    const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(p,3));g.setAttribute('normal',new T.BufferAttribute(n,3));g.setAttribute('uv',new T.BufferAttribute(uv,2));g.setIndex(new T.BufferAttribute(ix,1));g.userData.architectureMember=label;emit(g,m,0,0,0);
+    const vertices=geometries.reduce((n,g)=>n+g.attributes.position.count,0),indexCount=geometries.reduce((n,g)=>n+(g.index?.count??g.attributes.position.count),0),p=new Float32Array(vertices*3),n=new Float32Array(vertices*3),uv=new Float32Array(vertices*2),colors=new Float32Array(vertices*3).fill(1),ix=new Uint32Array(indexCount);let v=0,k=0;
+    for(const g of geometries){p.set(g.attributes.position.array,v*3);n.set(g.attributes.normal.array,v*3);uv.set(g.attributes.uv.array,v*2);if(g.attributes.color)colors.set(g.attributes.color.array,v*3);for(let j=0,N=g.index?.count??g.attributes.position.count;j<N;j++)ix[k++]=v+(g.index?g.index.getX(j):j);v+=g.attributes.position.count;g.dispose();}
+    const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(p,3));g.setAttribute('normal',new T.BufferAttribute(n,3));g.setAttribute('uv',new T.BufferAttribute(uv,2));g.setAttribute('color',new T.BufferAttribute(colors,3));g.setIndex(new T.BufferAttribute(ix,1));g.userData.architectureMember=label;emit(g,m,0,0,0);
   }
   return{revision:PHYSICAL_ROOF_REVISION,label,width:w,frontDepth:hd,backDepth:bd,ridgeLeft:rl,ridgeRight:rr,innerOpening:inner,eave:e,peak:e+rise,tiles:countTiles,construction:'Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments.'};
 }

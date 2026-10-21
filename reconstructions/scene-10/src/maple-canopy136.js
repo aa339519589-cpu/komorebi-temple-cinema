@@ -4,21 +4,23 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 export const MAPLE_CANOPY136_REVISION='scene10-palmate-autumn-maple136';
 
 export function createPalmateMapleLeaf136(){
-  const shape=new T.Shape();
-  shape.moveTo(0,-.53);
-  shape.bezierCurveTo(-.15,-.35,-.51,-.50,-.55,-.34);
-  shape.bezierCurveTo(-.60,-.18,-.31,-.12,-.39,.06);
-  shape.bezierCurveTo(-.58,.02,-.89,.20,-.81,.37);
-  shape.bezierCurveTo(-.73,.53,-.43,.48,-.29,.49);
-  shape.bezierCurveTo(-.39,.66,-.42,.91,-.23,.94);
-  shape.bezierCurveTo(-.08,.97,-.06,.76,0,1.02);
-  shape.bezierCurveTo(.06,.76,.08,.97,.23,.94);
-  shape.bezierCurveTo(.42,.91,.39,.66,.29,.49);
-  shape.bezierCurveTo(.43,.48,.73,.53,.81,.37);
-  shape.bezierCurveTo(.89,.20,.58,.02,.39,.06);
-  shape.bezierCurveTo(.31,-.12,.60,-.18,.55,-.34);
-  shape.bezierCurveTo(.51,-.50,.15,-.35,0,-.53);
-  shape.closePath();
+  const shape=new T.Shape(),angles=[-143,-96,-48,0,48,96,143],radii=[.58,.82,1.0,1.14,1.0,.82,.58],outline=[[0,-.45]];
+  const polar=(a,r)=>[Math.sin(a*Math.PI/180)*r,Math.cos(a*Math.PI/180)*r];
+  for(let k=0;k<angles.length;k++){
+    const angle=angles[k],tip=polar(angle,radii[k]),left=polar(angle-19,k===0?.22:.25),right=polar(angle+19,k===angles.length-1?.22:.25);
+    outline.push(left);
+    for(const f of[.22,.43,.65,.82]){
+      const x=left[0]+(tip[0]-left[0])*f,y=left[1]+(tip[1]-left[1])*f,dx=tip[0]-left[0],dy=tip[1]-left[1],len=Math.hypot(dx,dy),tooth=(f===.43||f===.82)?.026:-.007;
+      outline.push([x-dy/len*tooth,y+dx/len*tooth]);
+    }
+    outline.push(tip);
+    for(const f of[.18,.35,.57,.78]){
+      const x=tip[0]+(right[0]-tip[0])*f,y=tip[1]+(right[1]-tip[1])*f,dx=right[0]-tip[0],dy=right[1]-tip[1],len=Math.hypot(dx,dy),tooth=(f===.18||f===.57)?.025:-.007;
+      outline.push([x-dy/len*tooth,y+dx/len*tooth]);
+    }
+    outline.push(right);
+  }
+  outline.forEach((p,i)=>i?shape.lineTo(...p):shape.moveTo(...p));shape.closePath();
   const leaf=new T.ShapeGeometry(shape,12),p=leaf.attributes.position;
   for(let i=0;i<p.count;i++){
     const x=p.getX(i),y=p.getY(i),radius=Math.min(1,Math.hypot(x/.90,(y-.12)/.92));

@@ -1,0 +1,34 @@
+{
+  "source": "Poly Haven Granite Tile04 single original face crop",
+  "license": "CC0-1.0",
+  "originalFile": "granite-face-diff.png",
+  "originalSha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+  "originalLinearMeanRGB": [
+    0.1849108015156288,
+    0.1483112150172198,
+    0.1079856696956797
+  ],
+  "formula": "linearRGB = clamp(pow(originalLinearRGB / perChannelMean,0.84) * authoredTargetRGB,0.005,0.90). Bake to sRGB PNG. Original mineral pattern retained, neutral weathered limestone/granite pigment authored for temple stone. Original source immutable.",
+  "outputs": [
+    {
+      "file": "carved-gray-albedo148.png",
+      "sha256": "22bdc7dbcfb4d73becf72aaabbde3e0ee5e3a7af207c6f0dc22d6f877af08afb",
+      "linearTargetMeanRGB": [
+        0.37,
+        0.35,
+        0.3
+      ]
+    },
+    {
+      "file": "stair-gray-albedo148.png",
+      "sha256": "30f1f0ad2461ca3bac3ac43bb97665d2e50e7c5ca699cc0af327026e00f2e06c",
+      "linearTargetMeanRGB": [
+        0.255,
+        0.25,
+        0.225
+      ]
+    }
+  ],
+  "referencePhotographSampled": false,
+  "sourceScript": "lookdev/scene08-monumental-court-v2/bake-granite148.py"
+}

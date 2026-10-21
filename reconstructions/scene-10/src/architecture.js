@@ -705,6 +705,12 @@ export function clipRestorationRoofOpening(geometry,opening) {
   result.userData={...geometry.userData,entranceOpening:{minX,maxX,minZ,maxZ}};return result;
 }
 
+// Public closed-solid companion for a real annular hall roof. The same
+// retained cutting implementation already seals timber cuts elsewhere.
+export function clipRestorationSolidRoofOpening(geometry,opening){
+  return roofTimberOutsideOpening(geometry,opening);
+}
+
 // Solid pieces are cut with a real end grain cap. The disjoint output pieces
 // share boundaries, never volumes; no invisible dark overlay masks the void.
 // Localized real bearing pockets, used only by the conditional gallery roof.
@@ -2483,7 +2489,7 @@ export function createRestorationArchitecture(ctx) {
         box(0,y+2.57,0,span+.18*scale,.21*scale,.25*scale,'red');
         box(0,y+.49,0,span+.12*scale,.14*scale,.24*scale,'darkwood');
         const bay=span/3,clear=bay-shaftRadius*2-.10*scale;
-        const windowBottom=y+.71,windowTop=Math.min(y+2.41,shaftTop-.14*scale);
+        const windowBottom=y+1.00,windowTop=Math.min(y+2.08,shaftTop-.14*scale);
         const windowHeight=windowTop-windowBottom,windowY=(windowTop+windowBottom)/2;
         for(let k=0;k<3;k++) {
           const xx=(k-1)*bay,bayMaterial=windowMaterial==='pagodaPaper'?'pagodaWindow'+[2,4,3,1,2][(level+face+k)%5]:windowMaterial==='paper'?(k===1?'window3':'window1'):windowMaterial;
@@ -2491,6 +2497,8 @@ export function createRestorationArchitecture(ctx) {
           // plaster cube shining through between unrelated skinny posts.
           box(xx,y+.59,-.032,clear,.24,.11,'red');
           box(xx,y+.59,.030,Math.max(.08,clear-.10*scale),.15,.018,'darkwood');
+          box(xx,y+.84,-.075,clear,.30,.16,'darkwood');
+          box(xx,y+2.30,-.075,clear,.35,.16,'darkwood');
           box(xx,windowY,-.125,clear,windowHeight,.05,bayMaterial);
           for(const yy of [windowBottom,windowTop])box(xx,yy,.022,clear+.06*scale,.075*scale,.095*scale,'red');
           for(const side of [-1,1])box(xx+side*clear/2,windowY,.022,.065*scale,windowHeight,.095*scale,'red');

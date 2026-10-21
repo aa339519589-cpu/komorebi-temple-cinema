@@ -18,7 +18,18 @@
     "reconstructions/scene-09/assets/granite-tile-04/granite-face-rough.png",
     "reconstructions/scene-09/assets/granite-tile-04/provenance.json",
     "reconstructions/scene-09/assets/open-sanctuary143/provenance.json",
-    "reconstructions/scene-09/assets/site-shot144/provenance.json"
+    "reconstructions/scene-09/assets/site-shot144/provenance.json",
+    "reconstructions/scene-09/assets/monumental-night145/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "reconstructions/scene-09/assets/night-sky145/sky-2k.exr",
+    "reconstructions/scene-09/assets/night-sky145/provenance.json"
   ],
   "heroHangingLantern": {
     "source": "reconstructions/scene-09/src/hero-hanging-lantern.js",
@@ -32,7 +43,8 @@
           7.2,
           23.7
         ],
-        "scale": 1.15
+        "scale": 0.82,
+        "assemblyScale": 0.7216
       },
       {
         "anchor": [
@@ -40,7 +52,8 @@
           7.3,
           21.6
         ],
-        "scale": 1.35
+        "scale": 0.96,
+        "assemblyScale": 0.8448
       }
     ]
   },
@@ -53,5 +66,10 @@
     "provenance": "reconstructions/scene-09/assets/site-shot144/provenance.json",
     "geometry": "Closed inferred outer bank, rooted original geometric trees/shrubs and existing declared CC0 rocks; extended actual water surface",
     "camera": "New low finial-to-court dolly ends at the unchanged reference camera at7seconds"
+  },
+  "monumentalNight145": {
+    "provenance": "reconstructions/scene-09/assets/monumental-night145/provenance.json",
+    "geometry": "Deep solid dou-hijiki carpentry and roof members; recessed mineral infill; original botanical crown volumes",
+    "camera": "Exact R17 site-shot144 maintained"
   }
 }

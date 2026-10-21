@@ -1,0 +1,68 @@
+{
+  "revision": "scene08-monumental-continuous-court148-v2-r05-20261021",
+  "sourceHash": "4823d9265316fcf5cd30aaa72f7ea5609edc0914beb1c768c226e1eb0790b9aa",
+  "sourceCommitAtCapture": "342af4d8af87f7aa3ba6a0af81a8e820f1bdb6c2",
+  "canonicalScene": "reconstructions/scene-08/src/scene.js",
+  "provenance": "reconstructions/scene-08/assets/courtyard148-provenance.json",
+  "cameraChanged": false,
+  "native": {
+    "report": "qa/ten-reference/08/iteration-scene08-monumental-continuous-court-v2-r05-20261021/report.json",
+    "full": "qa/ten-reference/08/iteration-scene08-monumental-continuous-court-v2-r05-20261021/reference.png",
+    "trueDetail": "qa/ten-reference/08/iteration-scene08-monumental-continuous-court-v2-r05-20261021/detail-native.png",
+    "referenceComparison": "qa/ten-reference/08/iteration-scene08-monumental-continuous-court-v2-r05-20261021/comparison-reference-left-native-right.png",
+    "trueDetailCrop": [
+      180,
+      110,
+      640,
+      1254
+    ]
+  },
+  "physical": {
+    "report": "qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/report.json",
+    "full": {
+      "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/scene08-current-source-physical148.png",
+      "sha256": "35353d3e8f1e48bffe3e4525cd38cbd33bb69374b0c4782c94951482784fd248",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 64
+    },
+    "trueDetail": {
+      "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/scene08-true-detail-physical148.png",
+      "sha256": "a62dfcbd130b1107c1e4b0e363c4ca640bbf34fb1f2ec0969d980098f42f4bef",
+      "cropInSourcePixels": [
+        180,
+        110,
+        640,
+        1254
+      ],
+      "nativeResolution": [
+        1254,
+        1254
+      ],
+      "samples": 48,
+      "sourceCameraMatrixUnchanged": true,
+      "maximumRaySlopeError": 3.419741495536144e-08,
+      "originalApertureAndCoCPreserved": true,
+      "upsampledScreenshot": false
+    },
+    "referenceComparison": "qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/comparison-reference-left-physical-right.png",
+    "blend": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/scene08-current-source-physical148.blend",
+    "nativePixelEquivalence": false
+  },
+  "sourceExport": "lookdev/scene08-monumental-court-v2/export-r05/export-report.json",
+  "archive": "lookdev/scene08-monumental-court-v2/r05-canonical-source-and-provenance.tar.gz",
+  "historicalEvidencePreserved": true,
+  "referenceSceneRGBUsed": false,
+  "generatedReplacementImagesUsed": false,
+  "visualAccepted": false,
+  "longMotionRecaptured": false,
+  "committedByThisLane": false,
+  "remaining": [
+    "Still CG in material regularity and ornamental specificity.",
+    "Inferred asymmetric roof and gallery plan does not establish a surveyed layout.",
+    "Foliage/stone morphology and foreground species remain approximate.",
+    "Physical and native lighting have separate explicitly recorded calibration."
+  ]
+}

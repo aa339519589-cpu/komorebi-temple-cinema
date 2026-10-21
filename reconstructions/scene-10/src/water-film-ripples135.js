@@ -1,7 +1,7 @@
 // Small, advancing water-surface reliefs sit on the actual wet flagstones.
 // Their centers, contact height and opacity come from the authored paving and
 // its existing wetness atlas; no circle is drawn on dry ground.
-export const WATER_RIPPLE135_REVISION='scene10-subtle-water-ior133-rainwaves138';
+export const WATER_RIPPLE135_REVISION='scene10-physical-captured-scene-rainwaves142';
 
 export function createWaterFilmRipples135(T,{impacts,floorWetMap,floorPolygons,scene,filmY=.055}){
   const width=floorWetMap.image.width,height=floorWetMap.image.height,mask=floorWetMap.image.data;
@@ -58,7 +58,7 @@ export function createWaterFilmRipples135(T,{impacts,floorWetMap,floorPolygons,s
     vertexInfo.push({start:e*stride,event:p});
   }
   const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.BufferAttribute(positions,3));geometry.setAttribute('rippleCoverage',new T.BufferAttribute(opacity,1));geometry.setIndex(indices);geometry.computeVertexNormals();geometry.name='time-varying-water-relief-grounded-in-real-paving';
-  const material=new T.MeshPhysicalMaterial({name:'submillimetre-rain-water-on-wet-stone',color:0x162325,roughness:.16,metalness:0,ior:1.333,clearcoat:0,transparent:true,opacity:.48,depthWrite:false,side:T.DoubleSide});
+  const material=new T.MeshPhysicalMaterial({name:'submillimetre-rain-water-on-wet-stone',color:0x29383a,roughness:.10,metalness:0,ior:1.333,clearcoat:0,transparent:true,opacity:.62,depthWrite:false,side:T.DoubleSide});
   material.onBeforeCompile=shader=>{
     shader.vertexShader='attribute float rippleCoverage;varying float vRippleCoverage;\n'+shader.vertexShader;
     shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvRippleCoverage=rippleCoverage;');
@@ -70,7 +70,7 @@ export function createWaterFilmRipples135(T,{impacts,floorWetMap,floorPolygons,s
   const ringWidth=.014;
   function update(time){
     for(const {start,event:p}of vertexInfo){
-      const period=.62+1.15*(.15+.70*p.shape),age=(time/period+p.phase)%1,fade=age<.76?1:Math.max(0,1-(age-.76)/.24),front=p.maxRadius*Math.pow(Math.max(.001,age),.66),amplitude=(.00035+.0012*p.shape)*fade;
+      const period=.62+1.15*(.15+.70*p.shape),age=(time/period+p.phase)%1,fade=age<.76?1:Math.max(0,1-(age-.76)/.24),front=p.maxRadius*Math.pow(Math.max(.001,age),.66),amplitude=(.00070+.0020*p.shape)*fade;
       for(let r=0;r<=radial;r++)for(let a=0;a<=angular;a++){
         const index=start+r*(angular+1)+a,oldX=positions[index*3],oldZ=positions[index*3+2],dx=oldX-p.x,dz=oldZ-p.z,d=Math.hypot(dx,dz),angle=Math.atan2(dz,dx);
         const warpedFront=front*(1+.045*Math.sin(angle*3+p.phase*13)+.025*Math.sin(angle*7+p.seed*2.3));
@@ -83,7 +83,7 @@ export function createWaterFilmRipples135(T,{impacts,floorWetMap,floorPolygons,s
     geometry.attributes.position.needsUpdate=true;geometry.attributes.rippleCoverage.needsUpdate=true;geometry.computeVertexNormals();
   }
   return{
-    update,dispose(){scene.remove(mesh);geometry.dispose();material.dispose();},
+    update,setEnvironment(texture){material.envMap=texture;material.envMapIntensity=1.4;material.needsUpdate=true;},dispose(){scene.remove(mesh);geometry.dispose();material.dispose();},
     info:{revision:WATER_RIPPLE135_REVISION,seeds:impacts.length,additionalDistributedPositions:candidates.length-impacts.length,groundedImpacts:placements.length,generatedVertices:positions.length/3,generatedTriangles:indices.length/3,waterSurfaceY:filmY,ringWidthMetres:ringWidth,peakWaveMetres:.0009,staticRNGDraws:0,ringMaterial:'Dark water absorption color with IOR 1.333 specular reflection; no emissive pale ring',contact:'Impact centers and every ripple vertex are gated by real paving coverage, narrow seams, wetness and the geometry-derived low-spot pool mask; crest relief stays below about 0.9 mm.',surface:'Thin shallow film at the low-spot waterline over actual authored flagstone geometry; no replacement ground sheet.'}
   };
 }

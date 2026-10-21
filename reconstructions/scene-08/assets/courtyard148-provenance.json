@@ -1,0 +1,146 @@
+{
+  "revision": "scene08-monumental-continuous-court148-v2-r05-20261021",
+  "status": "Actual reconstructed geometry checkpoint; photographic acceptance false.",
+  "reference": {
+    "file": "references/hd/7-\u7167\u7247-8.jpg",
+    "sha256": "798dd84173dff9d39fa4b3e229e95db4ca56b5b267d1f7f8c206c1248ee7f1d2",
+    "use": "Comparison and human-observed approximate landmarks only. No reference or replacement-scene image sampled by scene materials."
+  },
+  "sourceFiles": [
+    "src/scene.js",
+    "src/courtyard-botany148.js",
+    "src/courtyard-radiance148.js",
+    "src/gallery-joinery.js",
+    "src/gate-hardware.js",
+    "src/courtyard-relief147.js",
+    "src/courtyard-stones147.js"
+  ],
+  "baseline": {
+    "sourceHash": "775b3faa6ce3ee8b5f92ce05ae1a99e090d7a6a2d164794d5c8f8194d57c6328",
+    "archive": "lookdev/scene08-monumental-court-v2/baseline-r17-source.tar.gz"
+  },
+  "authoredGeometry": {
+    "grandHall": "Front bearing corner remains fixed. Body6.4m deep with robust0.245m shafts and six occupied return bays. One continuous closed freeform four-hip roof owns the descending right eave. All four panels meet a shared ridge and identical corner curves; authored spatial curve points are converted from ordinary world XYZ into local roof coordinates. Every cover/pan tile, closed underside, fascia and actual rafter follows that same geometry. Original right-back corner ornaments are relocated to new actual corner; near eave retains framing. This asymmetric inferred temple roof is not a surveyed orthogonal plan.",
+    "upperGallery": "Actual separately graded occupied bearing gallery remains in the main return, with its recessed post line and inset door bays. The duplicate gabled canopy used in R02-R04 is removed; the connected continuous main roof now shelters it.",
+    "lowerGallery": "Actual foreground lower gallery centered[0.0115,-9.342],yaw0.738,run5.097m,roofwidth3.10m,eave6.40m with1m grade drop. Rooted masonry post bearings, inset lattice/door bays, independent deck and continuously carried tiled roof give real occlusion of rear columns.",
+    "rightHall": "Five complete inset door bays, sheltered coffered veranda, robust front posts and carved lintel beds replace the earlier tall empty grille. Independent lower return wing is present.",
+    "roof": "All roofs use actual hollow half-round ceramic cover tiles, closed concave pan tiles and closed underside skins. Upper pagoda eaves are raised and broadened while roof rise is reduced to retain crown silhouette. Sorin extends as narrow actual metal work.",
+    "stoneAndCirculation": "Central solid eight-riser granite flight joins lower gallery approach to near bridge. Existing far landing is repaired to new bridge datum. Stone lantern has subdivided weathering relief, an eroded stupa collar and spherical stone finial; local carved and stair albedos use original independent scanned mineral grain.",
+    "foreground": "Main railing span reset from the measured apparent frame to a world-space two-depth rail. It runs into right gate jamb. Off-camera sunward crown geometry casts real dappled entry shadows.",
+    "garden": "Actual multi-stem woody shrubs split into lateral limbs and clumped scanned blades of measured0.07-0.19m authored physical length, with lower side branches. All source blade attributes and topology retained. Red leaf surface pigment is independently authored from source scan; reference foliage colors are not sampled. Rooted understorey and original scanned stones remain.",
+    "continuousRoof148": {
+      "nearLocal": [
+        4.65,
+        10.15,
+        4.25
+      ],
+      "worldIntermediateBasePoints": [
+        [
+          0.0680408735,
+          9.2007,
+          -4.6033681302
+        ],
+        [
+          1.2912162936,
+          8.6008,
+          -6.4505251546
+        ],
+        [
+          2.9838880948,
+          7.65,
+          -8.4965345272
+        ]
+      ],
+      "curlHeight": 0.45,
+      "construction": "Actual closed four-hip BufferGeometry surfaces, uniform world-space Catmull-Rom edge; front-left eave rises0.50m, front-right bearing unchanged. Source camera and projection unchanged. No ray-projected mesh, depth card, or view-dependent geometry."
+    }
+  },
+  "materialSources": [
+    {
+      "asset": "Poly Haven Lacquered Cherry Wood",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+      "use": "Original scan unchanged; a portable1024px canvas PBR albedo per paint pigment is baked from measured original linear luma0.01505120736. Normal and remapped roughness retained. Native shader no longer substitutes the paint-map formula, so PBR export retains actual pigment."
+    },
+    {
+      "asset": "Poly Haven Periwinkle Plant/Shrub02",
+      "license": "CC0-1.0",
+      "source": [
+        "https://polyhaven.com/a/periwinkle_plant",
+        "https://polyhaven.com/a/shrub_02"
+      ],
+      "use": "Original immutable meshes/PBR retained. Whole periwinkle understorey plus derived connected green blades on authored actual branches. Existing147 provenance documents attribute-preserving component extraction. R148 normalizes each complete blade to an explicit physical length; no temple or reference image used. R05 derives a physically bounded green albedo atlas: original linear RGB times2.0, capped0.78, baked to sRGB canvas. All original green-blade vertexRGBA/UV/normal attributes retained. Red pigment is separate and unchanged. This corrects overly dark multiplied scan/vertex response and does not sample the reference."
+    },
+    {
+      "asset": "Poly Haven Granite Tile04",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "use": "Original grain, normal and roughness. Local neutral carved/stair pigment variants and measured channel means/formula/source hashes recorded in granite/gray-albedo148-provenance.json."
+    },
+    {
+      "asset": "Poly Haven Kloofendal48d Partly Cloudy Pure Sky",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+      "provenance": "sky-kloofendal48/provenance.json",
+      "use": "Original unchanged2K measured EXR, full3D solar alignment to actual source sun. Native PMREM0.48 and camera radiance gain0.70. Sky is independent measured environment radiance, never a temple replacement image."
+    },
+    {
+      "asset": "Poly Haven Rock Moss Set01",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/rock_moss_set_01",
+      "use": "Original unchanged independent scanned stones; prior uniform fits retained."
+    }
+  ],
+  "camera": {
+    "position": [
+      0,
+      1.78,
+      13
+    ],
+    "target": [
+      0,
+      6.1,
+      -9
+    ],
+    "fov": 49,
+    "changed": false
+  },
+  "lighting": {
+    "sunPosition": [
+      -30,
+      22,
+      18
+    ],
+    "sunTarget": [
+      0,
+      4,
+      -7
+    ],
+    "sunIntensity": 6.5,
+    "sunColor": "#ffd092",
+    "hemisphere": 0.46,
+    "eaveBounce": 0.28,
+    "exposure": 1.1,
+    "toneMapping": "Native Three ACESFilmic with existing actual depth camera pass"
+  },
+  "rejectedEvidence": {
+    "r01": "Garden occupancy improved but upper descending architectural layer absent; full/detail retained.",
+    "r02": "Upper gallery added but columns exposed because lower wing sat behind wrong depth plane. Cloud arrangement too gray. Full/detail retained.",
+    "r03": "Lower wing rebuilt in foreground and bearings recessed. Central stone flight and stone pigment still unresolved, motivatingR04. Full/detail retained.",
+    "earlier": "All R17 and prior reference comparison folders remain unchanged.",
+    "r04": "Native full/detail and independent Cycles64/48sample full/detail retained. Physical transport confirmed deficient sky fill and full reference comparison exposed the duplicate upper gabled peak. R05 rebuilds continuous main eave; prior native/physical images are not accepted."
+  },
+  "physicalRender": {
+    "script": "lookdev/scene08-monumental-court-v2/render-physical148.py",
+    "scope": "Verified export of the current source geometry/instances/PBR, full-frame and genuine subfrustum. Exact affine matrices retained and shears baked without simplification. Physical transmission replaces native GLSL leaf approximation. R04 showed weak transport fill; later calibrated physical gain is explicitly recorded per physical report and is not a native pixel equivalence claim."
+  },
+  "limitations": [
+    "Single-view hidden depths and gallery joins are inferred rather than surveyed.",
+    "Photographic likeness remains incomplete: roof/body silhouette and some ornament differ; procedural/scanned foliage is an authored garden approximation.",
+    "Native direct light/proxy bounce and planar reflection differ from full transport; Cycles is a separate physical diagnostic with different camera color curve.",
+    "No long motion is recaptured while visual modeling remains unresolved. Existing historical motion receipts describe earlier sources."
+  ],
+  "generatedReplacementImagesUsed": false,
+  "referenceSceneRGBUsed": false,
+  "visualAccepted": false
+}

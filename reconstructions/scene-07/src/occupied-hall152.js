@@ -1,7 +1,7 @@
 // Inferred architectural reconstruction from HD07, in the established hall's
 // local metre coordinates. No source image is sampled or projected onto it.
 export const OCCUPIED_HALL_REVISION152='scene07-solid-upper-room-and-outer-gallery152-r01';
-export function buildOccupiedUpperHall152({box,group,column,bracket,carvedPanel,lattice,rail}){
+export function buildOccupiedUpperHall152({box,group,column,bracket,carvedPanel,lattice,rail,eaveFrame}){
   const floor=8.50,ceiling=10.55,front=2.35,back=-4.38,half=6.56;
   // Joined perimeter and transverse joists carry a physical boarded floor.
   for(const z of[-4.60,2.35,3.78])box(0,floor-.22,z,14.45,.30,.30,'wood');
@@ -42,7 +42,8 @@ export function buildOccupiedUpperHall152({box,group,column,bracket,carvedPanel,
   box(0,ceiling-.045,-.45,13.25,.14,8.0,'dark');
   for(let i=0;i<=7;i++)box(-6.56+i*13.12/7,10.40,-.45,.19,.27,8.0,'wood');
   for(const z of[-4.55,3.4])for(let i=-3;i<=3;i++){
-    column(i*2.22,z,8.58,1.85,.24);bracket(i*2.22,10.43,z,.90);
+    if(eaveFrame)eaveFrame(i*2.22,z,8.58,10.43,.24);
+    else{column(i*2.22,z,8.58,1.85,.24);bracket(i*2.22,10.43,z,.90);}
   }
   for(const z of[-4.55,3.4])for(const y of[10.02,10.40,10.68])box(0,y,z,14.8,.20,.42,'red');
   for(let i=-3;i<3;i++)carvedPanel((i+.5)*2.22,10.35,3.64,1.80,.29);

@@ -1,0 +1,166 @@
+{
+  "scope": "Color diagnostic only; no similarity threshold or visual acceptance inferred. The PNGs are actual native full-frame outputs.",
+  "regions": {
+    "floor": {
+      "reference": {
+        "meanSrgb255": [
+          107.94,
+          95.19,
+          91.54
+        ],
+        "lumaMean": 97.64,
+        "lumaMedian": 85.37,
+        "brightFractionOver200": 0.0463
+      },
+      "rejectedR11": {
+        "meanSrgb255": [
+          96.8,
+          73.32,
+          52.81
+        ],
+        "lumaMean": 76.83,
+        "lumaMedian": 61.62,
+        "brightFractionOver200": 0.0398
+      },
+      "currentR06": {
+        "meanSrgb255": [
+          76.5,
+          73.31,
+          67.79
+        ],
+        "lumaMean": 73.59,
+        "lumaMedian": 72.5,
+        "brightFractionOver200": 0.0085
+      }
+    },
+    "sky": {
+      "reference": {
+        "meanSrgb255": [
+          196.58,
+          208.26,
+          222.36
+        ],
+        "lumaMean": 206.79,
+        "lumaMedian": 204.53,
+        "brightFractionOver200": 0.651
+      },
+      "rejectedR11": {
+        "meanSrgb255": [
+          199.29,
+          203.71,
+          206.49
+        ],
+        "lumaMean": 202.97,
+        "lumaMedian": 206.29,
+        "brightFractionOver200": 0.6994
+      },
+      "currentR06": {
+        "meanSrgb255": [
+          204.57,
+          209.11,
+          213.96
+        ],
+        "lumaMean": 208.5,
+        "lumaMedian": 211.44,
+        "brightFractionOver200": 0.7814
+      }
+    },
+    "tower": {
+      "reference": {
+        "meanSrgb255": [
+          113.16,
+          103.36,
+          104.79
+        ],
+        "lumaMean": 105.55,
+        "lumaMedian": 86.41,
+        "brightFractionOver200": 0.0565
+      },
+      "rejectedR11": {
+        "meanSrgb255": [
+          97.59,
+          79.29,
+          71.46
+        ],
+        "lumaMean": 82.61,
+        "lumaMedian": 67.7,
+        "brightFractionOver200": 0.05
+      },
+      "currentR06": {
+        "meanSrgb255": [
+          105.08,
+          93.16,
+          89.41
+        ],
+        "lumaMean": 95.42,
+        "lumaMedian": 72.63,
+        "brightFractionOver200": 0.1186
+      }
+    },
+    "hall": {
+      "reference": {
+        "meanSrgb255": [
+          91.89,
+          63.78,
+          47.98
+        ],
+        "lumaMean": 68.61,
+        "lumaMedian": 58.18,
+        "brightFractionOver200": 0.0172
+      },
+      "rejectedR11": {
+        "meanSrgb255": [
+          87.31,
+          62.25,
+          50.56
+        ],
+        "lumaMean": 66.73,
+        "lumaMedian": 59.93,
+        "brightFractionOver200": 0.0093
+      },
+      "currentR06": {
+        "meanSrgb255": [
+          60.88,
+          53.16,
+          49.19
+        ],
+        "lumaMean": 54.51,
+        "lumaMedian": 49.88,
+        "brightFractionOver200": 0.0043
+      }
+    },
+    "garden": {
+      "reference": {
+        "meanSrgb255": [
+          92.98,
+          75.3,
+          62.63
+        ],
+        "lumaMean": 78.14,
+        "lumaMedian": 70.33,
+        "brightFractionOver200": 0.019
+      },
+      "rejectedR11": {
+        "meanSrgb255": [
+          68.63,
+          61.89,
+          51.4
+        ],
+        "lumaMean": 62.57,
+        "lumaMedian": 55.57,
+        "brightFractionOver200": 0.0202
+      },
+      "currentR06": {
+        "meanSrgb255": [
+          58.88,
+          54.27,
+          48.46
+        ],
+        "lumaMean": 54.83,
+        "lumaMedian": 47.3,
+        "brightFractionOver200": 0.014
+      }
+    }
+  },
+  "visualAccepted": false
+}

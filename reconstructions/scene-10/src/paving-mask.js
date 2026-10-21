@@ -26,13 +26,13 @@ export function createWetStoneGrain(T){
  const texture=new T.DataTexture(data,n,n);texture.colorSpace=T.SRGBColorSpace;texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.repeat.set(.60,.60);texture.generateMipmaps=true;texture.minFilter=T.LinearMipmapLinearFilter;texture.magFilter=T.LinearFilter;texture.needsUpdate=true;return texture;
 }
 
-// Clip the paving itself around a 19 cm drainage slot. The grille must remain
+// Clip the paving itself around a layout-sized real drainage slot. The grille must remain
 // below the adjoining slab edges, with actual empty space above it.
 export function clipPavingAtDrain(points){
  const c=Math.cos(L.drain.yaw),s=Math.sin(L.drain.yaw),distance=p=>c*(p[0]-L.drain.position[0])-s*(p[1]-L.drain.position[2]);
  function halfPlane(sign){
   const out=[];for(let i=0;i<points.length;i++){
-   const a=points[i],b=points[(i+1)%points.length],da=sign*distance(a)-.095,db=sign*distance(b)-.095;
+   const a=points[i],b=points[(i+1)%points.length],da=sign*distance(a)-L.drain.halfWidth,db=sign*distance(b)-L.drain.halfWidth;
    if(da>=0)out.push(a);
    if((da>=0)!==(db>=0)){const t=da/(da-db);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
   }return out;

@@ -25,16 +25,17 @@ export function installSurfaceDetail(material,kind){
  if(kind==='wet')code+=`\nvec4 stoneWetSample=texture2D(floorWetMap,vec2((vSurfacePosition.x+4.6)/9.2,(vSurfacePosition.z+2.)/21.4));diffuseColor.rgb*=mix(.72,1.18,stoneWetSample.g)*mix(.28,1.,stoneWetSample.r);`;
  if(kind==='wood')code=`
  vec3 sp=vSurfacePosition;float warp=sdFbm(vec3(sp.x*4.,sp.y*.3,sp.z*4.));
- float grain=.5+.5*sin(sp.x*620.+sp.z*450.+warp*17.);
+ float grainFrequency=sp.x*620.+sp.z*450.+warp*17.;float grainFootprint=max(abs(dFdx(grainFrequency)),abs(dFdy(grainFrequency)));
+ float grain=mix(.5+.5*sin(grainFrequency),.5,smoothstep(.6,2.0,grainFootprint));
  float wear=sdFbm(sp*7.5);diffuseColor.rgb*=.76+.20*wear+.10*grain;
  diffuseColor.rgb+=vec3(.016,.009,.003)*smoothstep(.86,.97,sdFiltered(sp*180.));`;
  if(kind==='moss')code=`float tuft=sdFbm(vSurfacePosition*34.);diffuseColor.rgb*=.5+.95*tuft;diffuseColor.rgb+=vec3(.025,.035,.008)*smoothstep(.72,.91,sdFiltered(vSurfacePosition*165.));`;
  if(kind==='gold')code=`float age=sdFbm(vSurfacePosition*45.);diffuseColor.rgb*=.75+.25*age;`;
  shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\n'+code);
- if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',`#include <lights_physical_fragment>\n#ifdef USE_CLEARCOAT\nfloat surfaceWet=smoothstep(.31,.59,sdFbm(vSurfacePosition*2.7));surfaceWet*=mix(.55,1.,stoneWetSample.g);surfaceWet=max(surfaceWet,smoothstep(.18,.82,stoneWetSample.a));material.clearcoat*=.18+.82*surfaceWet;material.clearcoatF0=vec3(.02037);material.clearcoatRoughness=min(1.,max(.045,mix(.12,.045,surfaceWet))+geometryRoughness);\n#endif\n`);
+ if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',`#include <lights_physical_fragment>\n#ifdef USE_CLEARCOAT\nfloat surfaceWet=smoothstep(.31,.59,sdFbm(vSurfacePosition*2.7));surfaceWet*=mix(.55,1.,stoneWetSample.g);surfaceWet=max(surfaceWet,smoothstep(.18,.82,stoneWetSample.a));material.clearcoat*=.12+.88*surfaceWet;material.clearcoatF0=vec3(.02037);material.clearcoatRoughness=min(1.,max(.045,mix(.14,.035,surfaceWet))+geometryRoughness);\n#endif\n`);
  if(kind==='wet'){
  shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
- float wetGrainHeight=.00018*sdFiltered(vSurfacePosition*230.)+.00045*sdFbm(vSurfacePosition*58.);
+ float wetGrainHeight=.00072*sdFiltered(vSurfacePosition*245.)+.00110*sdFbm(vSurfacePosition*58.);
  vec2 wetGrainSlope=vec2(dFdx(wetGrainHeight),dFdy(wetGrainHeight));
  normal=perturbNormalArb(-vViewPosition,normal,wetGrainSlope,faceDirection);`);
  shader.fragmentShader=shader.fragmentShader.replace('#include <clearcoat_normal_fragment_maps>',`#include <clearcoat_normal_fragment_maps>
@@ -43,8 +44,8 @@ export function installSurfaceDetail(material,kind){
  #endif`);
  }
  if(kind==='wet')shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
- float poolGloss=stoneWetSample.a;roughnessFactor=clamp(roughnessFactor*(1.-.62*poolGloss)+(.72-stoneWetSample.g)*.16+(sdFbm(vSurfacePosition*4.)-.48)*.11,.085,.56);`);
+ float poolGloss=stoneWetSample.a;roughnessFactor=clamp(roughnessFactor*(1.-.62*poolGloss)+(.72-stoneWetSample.g)*.16+(sdFbm(vSurfacePosition*4.)-.48)*.11,.14,.65);`);
  };
- material.customProgramCacheKey=()=>`rain-puddle-clearcoat56-${kind}`;
+ material.customProgramCacheKey=()=>`rain-puddle-clearcoat142-${kind}`;
  material.needsUpdate=true;
 }

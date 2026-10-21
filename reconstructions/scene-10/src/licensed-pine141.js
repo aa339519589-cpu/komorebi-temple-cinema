@@ -18,7 +18,7 @@ export async function loadLicensedPine141(){
   for(const part of parts){
    part.geometry.translate(-rootX,-bounds.min.y,-rootZ);part.geometry.scale(1/height,1/height,1/height);part.geometry.computeBoundingBox();
    const material=part.sourceMaterial.clone();material.name='licensed-pine141-'+part.sourceMaterial.name;
-   material.metalness=0;material.roughness=.82;material.color.multiplyScalar(.78);if(material.normalScale)material.normalScale.multiplyScalar(.65);
+   material.metalness=0;material.roughness=.82;if(material.name.includes('twig'))material.color.setRGB(.42,.64,.48);else material.color.multiplyScalar(.70);if(material.normalScale)material.normalScale.multiplyScalar(.65);
    for(const key of['map','normalMap','roughnessMap','metalnessMap','aoMap'])if(material[key])textures.add(material[key]);
    part.material=material;delete part.sourceMaterial;triangles+=(part.geometry.index?.count||part.geometry.attributes.position.count)/3;
   }

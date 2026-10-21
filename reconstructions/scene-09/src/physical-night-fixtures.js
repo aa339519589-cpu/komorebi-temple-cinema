@@ -117,7 +117,7 @@ export function createPhysicalFixtures(M,scans){
     panel:piercedLanternPanel(),
     shaft:new T.LatheGeometry([[0,0],[.99,0],[1.012,.08],[1.016,.22],[1.006,.58],[.976,.88],[.95,1],[0,1]].map(p=>new T.Vector2(...p)),64),
     sleeve:new T.LatheGeometry([[1,0],[1.04,.03],[1.04,.94],[1,1],[.96,1],[.96,0],[1,0]].map(p=>new T.Vector2(...p)),64),
-    finialBrass:new T.LatheGeometry([[0,0],[.09,0],[.11,.04],[.105,.09],[.08,.14],[.15,.21],[.17,.30],[.145,.40],[.07,.46],[.025,.52],[0,.54]].map(p=>new T.Vector2(...p)),48)
+    finialBrass:new T.LatheGeometry([[0,0],[.09,0],[.11,.035],[.11,.09],[.075,.13],[.075,.18],[.123,.205],[.157,.25],[.17,.30],[.165,.35],[.14,.395],[.09,.43],[.055,.45],[.038,.48],[.025,.52],[0,.54]].map(p=>new T.Vector2(...p)),48)
   };
   parts.roofMoss=mossPatch(parts.roof);parts.capitalMoss=mossPatch(parts.capital);parts.footMoss=mossPatch(parts.foot);
   function stoneLantern(api,x,z,s=1){const{group,emit,box,light}=api;group(x,0,z,0,()=>{

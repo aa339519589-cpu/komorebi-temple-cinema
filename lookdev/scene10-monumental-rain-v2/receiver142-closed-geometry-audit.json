@@ -1,0 +1,31 @@
+{
+  "sourceScript": "reconstructions/scene-10/src/solid-receiver142.js",
+  "sourceScriptSha256": "f192a6c51ed3eacd638ed05860d7c567149b2e19a35333cf864ecd384bd54555",
+  "triangles": 302,
+  "edges": 453,
+  "nonmanifoldEdges": 0,
+  "positiveSignedVolume": 0.6730841725190597,
+  "finite": true,
+  "bounds": [
+    [
+      -0.7751184701919556,
+      -0.17000000178813934,
+      -0.7207357883453369
+    ],
+    [
+      0.787339448928833,
+      0.23962312936782837,
+      0.7204227447509766
+    ]
+  ],
+  "construction": {
+    "construction": "Single closed granite volume with an actual blind circular receiver; column shoe bottoms at y=0 on the socket floor.",
+    "socketRadius": 0.4358,
+    "socketBottomY": 0,
+    "outerBottomY": -0.17,
+    "outerTopY": 0.23,
+    "photographSampled": false
+  },
+  "scope": "Exact authored blind-socket receiver geometry only; no claim that all historical scene geometry is manifold or that the photograph is matched.",
+  "visualAccepted": false
+}

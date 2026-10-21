@@ -8,6 +8,13 @@ export const PHYSICAL_ROOF_REVISION='scene07-collared-occupied-hall152';
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const a=Math.sin(x*127.1+y*311.7+97.3)*43758.5453;return a-Math.floor(a);};
 
+export function physicalRoofHeight153({w,d,e,rise,curl=.5,gabled=false,pagoda=false},x,z){
+ const hw=w/2,hd=d/2,ridge=pagoda?w*.055:w*(gabled?.30:.24),cut=gabled?.43:0;
+ let t=Math.abs(z)/hd,span=ridge+(hw-ridge)*(gabled?Math.max(0,(t-cut)/(1-cut)):t),u=x/span;
+ if(Math.abs(x)>span){t=cut+(1-cut)*(Math.abs(x)-ridge)/(hw-ridge);u=z/(hd*t);}
+ return e+rise*Math.pow(Math.max(0,1-t),gabled?1.72:1.49)+curl*Math.pow(t,10)*(.17+.83*Math.pow(Math.abs(u),8))+(gabled?.11:.035)*Math.pow(1-t,8)*Math.pow(Math.abs(u),8);
+}
+
 export function createRoofMaterials(){
   const n=128,albedo=new Uint8Array(n*n*4),rough=new Uint8Array(n*n*4),height=new Uint8Array(n*n*4);
   for(let y=0;y<n;y++)for(let x=0;x<n;x++){

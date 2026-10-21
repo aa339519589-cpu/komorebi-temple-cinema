@@ -1,0 +1,422 @@
+{
+  "genericImporterProvenance": {
+    "source": "lookdev/scene02-monumental-v2/render-physical161-r03.py",
+    "sha256": "b5ee093d5002faf7d1364479f0e6541ba78a1c31142c19172a413e935519f284"
+  },
+  "sourceCommit": "342af4d8af87f7aa3ba6a0af81a8e820f1bdb6c2",
+  "sourceHash": "4823d9265316fcf5cd30aaa72f7ea5609edc0914beb1c768c226e1eb0790b9aa",
+  "exportSceneSha256": "63b11bbd1b889002c1b65817186f30b184bd6863093ea7b1540cecba352c6e71",
+  "renderScript": {
+    "file": "render-physical148-r05.py",
+    "sha256": "0456d24cf5bfa14e6ec98f4b18eb52c02baa225210a8889422d875cb15dd2d94"
+  },
+  "sourceStatistics": {
+    "meshes": 1897,
+    "geometries": 1778,
+    "materials": 56,
+    "textures": 29,
+    "instances": 1325854,
+    "triangles": 76641158
+  },
+  "lightingMode": "scene08-current-source-affine-PBR-and-measured-radiance",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 8,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "scene08-reflective-meander",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "scene08-measured-atmosphere148",
+      "type": "Mesh",
+      "material": "scene08-measured-sun-aligned-sky148",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "physical-current-source-review",
+  "started": 1792597658.0582662,
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "affinePreservation": {
+    "parentMatrices": "Retained as full exported source object matrices.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 1305960,
+    "bakedShearedInstances": 19893,
+    "bakedShearedTriangles": 6326372,
+    "bakedShearedVertices": 3287049,
+    "maxLinkedTRSMatrixResidual": 3.814697265625e-06,
+    "maxBakedShearResidual": 0.08679245412349701,
+    "flattenedForShearedTransformsAndNativeMetricTimberUV": true,
+    "geometryDecimated": false
+  },
+  "evaluatedGNMatrixAudit": {
+    "groups": [
+      {
+        "parent": "source-object-1 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-2 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-3 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-4 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-5 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-6 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 2.2351741790771484e-08
+      },
+      {
+        "parent": "source-object-7 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-8 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 7.450580596923828e-09
+      },
+      {
+        "parent": "source-object-9 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-10 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-11 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 3.725290298461914e-09
+      },
+      {
+        "parent": "source-object-12 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-13 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-14 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-15 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-16 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-17 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-18 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-19 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-20 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-21 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-22 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-23 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-24 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-25 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-26 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-27 linked instances",
+        "sampledInstances": 2,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-28 linked instances",
+        "sampledInstances": 2,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-29 linked instances",
+        "sampledInstances": 2,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-30 linked instances",
+        "sampledInstances": 2,
+        "maxAbsoluteMatrixResidual": 0.0
+      },
+      {
+        "parent": "source-object-31 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-32 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-33 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-34 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-35 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-36 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-37 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-38 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-39 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      },
+      {
+        "parent": "source-object-40 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.7881393432617188e-07
+      }
+    ],
+    "maxAbsoluteMatrixResidual": 1.7881393432617188e-07,
+    "tolerance": 0.0001
+  },
+  "skyTransfer": {
+    "nativeInfo": {
+      "provider": "Poly Haven",
+      "asset": "Kloofendal48d Partly Cloudy Pure Sky",
+      "license": "CC0-1.0",
+      "source": "reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr",
+      "sourceSunDirection": [
+        0.5540867079450141,
+        0.7419630593074867,
+        0.37746355943551896
+      ],
+      "targetSunDirection": [
+        -0.6976744186046512,
+        0.41860465116279066,
+        0.5813953488372093
+      ],
+      "rotation": [
+        2.51142389270108,
+        -1.1857003300603268,
+        2.207481917204969,
+        "XYZ"
+      ],
+      "peakLinearLuminance": 72870.25335625,
+      "meanLinearLuminance": 0.6762980197300532,
+      "environmentIntensity": 0.48,
+      "cameraRadianceGain": 0.7,
+      "worldLocked": true,
+      "photoProjection": false
+    },
+    "exrSha256": "e56997073870b6c1afec424cbc7f9fc307dd96ac70b975defacac091926a03e6",
+    "worldDirectionMapping": "Same XYZ Euler matrix Rx@Ry@Rz, native inverse lookup represented by forward rotated explicit UV dome, then common Y-up to Z-up conversion.",
+    "cameraGain": 1.0,
+    "otherRayGain": 1.2,
+    "referencePhotoUsed": false
+  },
+  "physicalLights": [
+    {
+      "name": "Scene08 source warm sun",
+      "type": "SUN",
+      "energy": 3.0,
+      "sourceLinearRGB": [
+        1.0,
+        0.6307571530342102,
+        0.28744083642959595
+      ]
+    }
+  ],
+  "omittedNativeLightProxies": [
+    {
+      "type": "HemisphereLight",
+      "intensity": 0.46
+    },
+    {
+      "type": "AmbientLight",
+      "intensity": 0.04
+    },
+    {
+      "type": "DirectionalLight",
+      "intensity": 0.34
+    },
+    {
+      "type": "DirectionalLight",
+      "intensity": 0.28
+    },
+    {
+      "type": "DirectionalLight",
+      "intensity": 0.24
+    }
+  ],
+  "physicalFoliageAdaptation": "27% energy-conserving diffuse transmission with actual light occlusion;20% pine. Source GLSL thin-leaf approximation is not pixel-equivalent.",
+  "camera": {
+    "sourcePositionYUp": [
+      0,
+      1.78,
+      13
+    ],
+    "sourceFovDegrees": 49,
+    "sourceMatrix": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.9812608697037888,
+      0.1926839525963803,
+      0,
+      0,
+      -0.1926839525963803,
+      0.9812608697037888,
+      0,
+      0,
+      1.78,
+      13,
+      1
+    ],
+    "unchangedMatrix": true,
+    "sensorHeightMM": 36,
+    "physicalFocalLengthMM": 39.49739456176758,
+    "focusDistanceM": 22.420133590698242,
+    "apertureFStop": 2.799999952316284
+  },
+  "materialTransfer": {
+    "sourceOriginalAssets": "All original compressed declared source assets remain immutable; verified exporter retains file hashes and decoded pixel buffers. Every exported binary and texture hash checked before import.",
+    "geometry": "Original indexed positions/indices/normals and complete matrices retained without decimation; shear subsets baked exactly.",
+    "RGB": "Original source vertex RGB only when enabled, multiplied separately by exact source per-instance RGB. Linked instances use INSTANCER; direct/shear meshes use GEOMETRY.",
+    "paint": "Portable pigmented PBR albedo baked by the actual Scene08 native source; no Blender pigment override.",
+    "water": "Exact source-authored meander backing immediately beneath the WebGL-only Reflector. Same source PBR values; real surface transport replaces planar reflection capture.",
+    "limits": [
+      "Native AO/PMREM/fog and custom GLSL do not match physical ray transport.",
+      "ACESFilmic native and AgX are different camera curves.",
+      "No photographic acceptance or native pixel equivalence is claimed."
+    ]
+  },
+  "importedTriangles": 76641158,
+  "sourceTriangles": 76641158,
+  "excludedCollapsedTriangles": 0,
+  "renderableTriangleCountPreserved": true,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 64,
+  "exposureEV": 0.25,
+  "nativeWebglPixelEquivalence": false,
+  "blend": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/scene08-current-source-physical148.blend",
+  "full": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/scene08-current-source-physical148.png",
+    "sha256": "35353d3e8f1e48bffe3e4525cd38cbd33bb69374b0c4782c94951482784fd248",
+    "resolution": [
+      1254,
+      1254
+    ],
+    "samples": 64
+  },
+  "trueDetail": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/scene08-true-detail-physical148.png",
+    "sha256": "a62dfcbd130b1107c1e4b0e363c4ca640bbf34fb1f2ec0969d980098f42f4bef",
+    "cropInSourcePixels": [
+      180,
+      110,
+      640,
+      1254
+    ],
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 48,
+    "sourceCameraMatrixUnchanged": true,
+    "maximumRaySlopeError": 3.419741495536144e-08,
+    "originalApertureAndCoCPreserved": true,
+    "upsampledScreenshot": false
+  },
+  "render": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/08/iteration-scene08-monumental-court-v2-physical-r05-20261021/scene08-current-source-physical148.png",
+  "renderSha256": "35353d3e8f1e48bffe3e4525cd38cbd33bb69374b0c4782c94951482784fd248",
+  "blendSha256": "df8c7abd5a506d8f75c54d7268e6aa58c974ce97eaa7e864f37f03511c8a9702",
+  "elapsedSeconds": 124.54335379600525
+}

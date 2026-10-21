@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 const TAU=Math.PI*2;
 const random=seed=>()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296);
 function finish(p,uv=[]){const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));if(uv.length)g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();return g;}
@@ -47,7 +48,10 @@ export function distantCrown(seed=3){
    rho=.88+r()*.15,c=[Math.cos(theta)*rho*outline,t*2,Math.sin(theta)*rho*outline];
   leaf(p,c,[Math.cos(theta),r()*.7-.1,Math.sin(theta)],.12+r()*.12,.04+r()*.04);
  }
- return finish(p);
+ // Weld the displaced core before computing its normals: the old unindexed
+ // vertices gave each broad triangle a separate flat grey lighting facet.
+ // The irregular silhouette and raised individual leaves remain geometric.
+ const raw=finish(p);raw.deleteAttribute('normal');const g=mergeVertices(raw,.00001);raw.dispose();g.computeVertexNormals();return g;
 }
 // Solid ceramic half-shells have a real thickness and closed end lips.
 export function halfBarrel(segments=12,span=Math.PI){const p=[],uv=[],normals=[];const P=(a,z,r)=>[Math.cos(a)*r,Math.sin(a)*r,z];function tri(a,b,c,mode){for(const q of[a,b,c]){p.push(...q);uv.push(q[0],q[2]);if(typeof mode==='number'){const r=Math.hypot(q[0],q[1]);normals.push(q[0]/r*mode,q[1]/r*mode,0);}else normals.push(...mode);}}const quad=(a,b,c,d,mode)=>{tri(a,b,c,mode);tri(c,b,d,mode);};for(let i=0;i<segments;i++){const a=i*span/segments,b=(i+1)*span/segments;quad(P(a,-.5,1),P(b,-.5,1),P(a,.5,1),P(b,.5,1),1);quad(P(a,.5,.80),P(b,.5,.80),P(a,-.5,.80),P(b,-.5,.80),-1);quad(P(a,-.5,.80),P(b,-.5,.80),P(a,-.5,1),P(b,-.5,1),[0,0,-1]);quad(P(a,.5,1),P(b,.5,1),P(a,.5,.80),P(b,.5,.80),[0,0,1]);}if(span<Math.PI*1.99)for(const a of[0,Math.PI])quad(P(a,-.5,.8),P(a,-.5,1),P(a,.5,.8),P(a,.5,1),[0,-1,0]);const g=finish(p,uv);g.setAttribute('normal',new T.Float32BufferAttribute(normals,3));return g;}

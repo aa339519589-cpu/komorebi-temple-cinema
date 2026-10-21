@@ -226,16 +226,16 @@ export function buildStoneLantern({ T, emit, box, group, R, scene, materials: m,
       for (const yy of [2.25, 2.51]) box(0, yy, 0.354, 0.43, 0.014, 0.014, 'darkwood');
     });
     // Roof shell: square hip planes, a real thick underside, and curled eave tips.
-    emit(t.roofTop, 'carvedStone');
-    emit(t.roofSides, t.joint, 0, 0, 0, 1, 1, 1, 0, 0.86);
-    emit(t.roofBottom, t.joint, 0, 0, 0, 1, 1, 1, 0, 0.90);
-    emit(t.roofMoss, 'moss');
+    emit(t.roofTop, 'carvedStone',0,0,0,.83,1,.83);
+    emit(t.roofSides, t.joint, 0, 0, 0, .83, 1, .83, 0, 0.86);
+    emit(t.roofBottom, t.joint, 0, 0, 0, .83, 1, .83, 0, 0.90);
+    emit(t.roofMoss, 'moss',0,0,0,.83,1,.83);
     emit(t.finial, t.blackstone);
 
     // Preserve the prior fixture's random stream so downstream garden placement is stable.
     for (let i = 0; i < 102; i++) R(0, 1);
   }, scale);
-  const light = new T.PointLight('#ffc981', 24 * (isNear ? L.heroStoneLantern.scale[1] ** 2 : s ** 2), 0, 2);
+  const light = new T.PointLight('#ffc981', 18 * (isNear ? L.heroStoneLantern.scale[1] ** 2 : s ** 2), 0, 2);
   light.name = 'scene10-inverse-square-existing-stone-fixture';
   if (isNear) {light.castShadow = true;light.shadow.mapSize.set(512,512);light.shadow.camera.near=.10;light.shadow.camera.far=50;light.shadow.bias=-.00003;light.shadow.normalBias=.010;}
   light.position.set(x, 2.35 * (isNear ? L.heroStoneLantern.scale[1] : s) + baseY, z);

@@ -58,13 +58,13 @@ float poreWater=smoothstep(.0004,.0026,poreWaterDepth)*smoothstep(.08,.92,realSt
 #ifdef USE_CLEARCOAT
 material.clearcoat=mix(material.clearcoat,.92,poreWater);
 material.clearcoatF0=vec3(.02037);
-material.clearcoatRoughness=mix(material.clearcoatRoughness,.065+geometryRoughness,poreWater);
+material.clearcoatRoughness=mix(material.clearcoatRoughness,.035+geometryRoughness,poreWater);
 vec3 poreWaterNormal=normalize(mat3(viewMatrix)*vec3(0.0,1.0,0.0));
 clearcoatNormal=normalize(mix(clearcoatNormal,poreWaterNormal,.78*poreWater));
 #endif
 #include <lights_fragment_begin>`);
  };
- material.customProgramCacheKey=()=> 'scene10-real-stone-pore-water-response80';material.needsUpdate=true;
+ material.customProgramCacheKey=()=> 'scene10-real-stone-pore-water-response142';material.needsUpdate=true;
 }
 
 export function installNearSurfacePlaneExclusion(T,mirror,surface){

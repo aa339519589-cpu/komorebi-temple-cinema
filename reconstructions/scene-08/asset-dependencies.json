@@ -24,7 +24,9 @@
     "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
     "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
     "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
-    "reconstructions/camera-dolly.js"
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-08/assets/sky-kloofendal38/sky-2k.exr",
+    "reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr"
   ],
   "runtimeImages": [],
   "runtimeModels": [
@@ -38,16 +40,23 @@
     "reconstructions/scene-08/assets/timber/roughness-2k.jpg",
     "reconstructions/scene-08/assets/granite/granite-face-diff.png",
     "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png",
-    "reconstructions/scene-08/assets/granite/granite-face-rough.png"
+    "reconstructions/scene-08/assets/granite/granite-face-rough.png",
+    "reconstructions/scene-08/assets/granite/carved-gray-albedo148.png",
+    "reconstructions/scene-08/assets/granite/stair-gray-albedo148.png"
   ],
-  "construction": "Authored physical Scene08 courtyard with coupled hall/body/cornice geometry, closed gilt relief and original CC0 rooted shrub/groundcover variants. Reference photograph stays comparison-only. Native subfrustum retains complete reflection projection.",
+  "construction": "Actual authored layered Scene08 courtyard: deep occupied hall returns, distinct upper and foreground lower galleries, separate right veranda bays, closed ceramic pan/cover roofs, stone flight, rooted mature broadleaf crowns and scan-derived portable physical albedos. Reference photograph is comparison-only.",
   "radiance": {
-    "asset": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+    "asset": "reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr",
     "provider": "Poly Haven",
     "license": "CC0-1.0",
-    "scope": "Measured linear sky radiance, solar centroid aligned in full azimuth/elevation to actual Scene08 directional light; separate calibrated PMREM environment. No recolored flat gradient."
+    "scope": "Independent measured partly cloudy daylight sky, solar-aligned in3D to the actual warm directional key. Portable material scan albedos and real scene geometry remain independent of reference photograph."
   },
-  "checkpoint147": {
+  "checkpoint148": {
+    "revision": "scene08-monumental-continuous-court148-v2-r05-20261021",
+    "visualAccepted": false,
+    "provenance": "assets/courtyard148-provenance.json"
+  },
+  "historicalCheckpoint147": {
     "revision": "scene08-solmax-calibrated-bearing-court147-r17-20261021",
     "provenance": "assets/courtyard147-provenance.json",
     "referenceSceneRGBUsed": false,
