@@ -1,0 +1,568 @@
+{
+  "scope": "CPU geometry inspection only; not native render, shading validation or photographic fidelity.",
+  "layout": {
+    "position": [
+      0.04,
+      8.938616,
+      29.73
+    ],
+    "yaw": 1.078179,
+    "ridgeHalf": 4.4,
+    "eaveHalf": 5.4,
+    "run": 5.6,
+    "rise": 1.114107,
+    "curl": 0.38802,
+    "tilePitch": 0.48,
+    "courses": 8
+  },
+  "baselineLayoutAndProfileIdentical": true,
+  "audit": {
+    "revision": "scene07-neutral-glazed-clay-and-cast-relief149-r01",
+    "footprint": [
+      10.8,
+      11.2
+    ],
+    "visiblePitchFace": {
+      "ridgeWidth": 8.8,
+      "eaveWidth": 10.8,
+      "run": 5.6,
+      "rise": 1.114107,
+      "curl": 0.38802
+    },
+    "oldLocalProfilePreserved": false,
+    "fittedLayoutPreservedIn149": true,
+    "profileChangedIn149": false,
+    "worldTransform": {
+      "position": [
+        0.04,
+        8.938616,
+        29.73
+      ],
+      "yaw": 1.078179
+    },
+    "tileLanes": 24,
+    "courses": 8,
+    "tilePitchMetres": 0.48,
+    "coverWidthMetres": 0.32,
+    "panWidthMetres": 0.4,
+    "nominalCourseLengthMetres": 0.7,
+    "ceramicWallMetres": [
+      0.022,
+      0.028
+    ],
+    "arrisBevelMetres": 0.004,
+    "embossDepthMetres": 0.023,
+    "castEnd": {
+      "method": "Closed connected six-scroll ground with rounded ribs, central boss and24cast beads; bronze retainer and narrow gilt bead",
+      "variants": 3,
+      "photoTexture": false
+    },
+    "surface": {
+      "provenance": "assets/near-gallery149/provenance.json",
+      "provider": "Poly Haven",
+      "sourceAsset": "grey_roof_01",
+      "sourceAuthor": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "repeatMetres": 0.25,
+      "neutralCharcoalPigment": "#5b5752",
+      "dielectricIor": 1.52,
+      "partlyGlazed": true,
+      "metricCrossArcUv": true,
+      "glazeWearAtRealLapEdges": true,
+      "photoTexture": false
+    },
+    "counts": {
+      "covers": 164,
+      "pans": 164,
+      "raisedTerminals": 19,
+      "metalEnds": 32
+    },
+    "metricScaleInferred": true,
+    "fitRmsPixels": 9.801790877076128,
+    "photoTextureOrProjection": false,
+    "visualAccepted": false
+  },
+  "geometryCount": 19,
+  "placements": 164,
+  "geometries": [
+    {
+      "name": "gallery-closed-curved-bedding",
+      "material": "foreground-dark-fired-clay-bedding149",
+      "vertices": 4290,
+      "triangles": 8576,
+      "nonfinite": 0,
+      "volume": 13.171199919445302,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -5.400000095367432,
+          0.020879950374364853,
+          0
+        ],
+        [
+          5.400000095367432,
+          1.3141069412231445,
+          5.599999904632568
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "gallery-rounded-solid-ceramic-end-seal",
+      "material": "foreground-rounded-charcoal-ceramic-end149",
+      "vertices": 514,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.006366310864130948,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.20000000298023224,
+          -0.20000000298023224,
+          -0.03500000014901161
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.023000000044703484
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-recessed-cast-bronze-medallion-seat",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 322,
+      "triangles": 640,
+      "nonfinite": 0,
+      "volume": 0.0017080410473007653,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.15299999713897705,
+          -0.15299999713897705,
+          0.017999999225139618
+        ],
+        [
+          0.15299999713897705,
+          0.15299999713897705,
+          0.04500000178813934
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-aged-bronze-retaining-roll",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 512,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.00035689431914875177,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.164000004529953,
+          -0.164000004529953,
+          0.03700000047683716
+        ],
+        [
+          0.164000004529953,
+          0.164000004529953,
+          0.06400000303983688
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-narrow-rounded-worn-gilt-bead",
+      "material": "foreground-thin-worn-gilt-bead149",
+      "vertices": 384,
+      "triangles": 768,
+      "nonfinite": 0,
+      "volume": 0.00009331855600149025,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.1469999998807907,
+          -0.1469999998807907,
+          0.04500000178813934
+        ],
+        [
+          0.1469999998807907,
+          0.1469999998807907,
+          0.05999999865889549
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-closed-rounded-six-scroll-cast-relief",
+      "material": "foreground-cast-scroll-relief-with-worn-gilt149",
+      "vertices": 14018,
+      "triangles": 28032,
+      "nonfinite": 0,
+      "volume": 0.001052503529067551,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.1340000033378601,
+          0.026000000536441803
+        ],
+        [
+          0.1340000033378601,
+          0.1340000033378601,
+          0.06215449422597885
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "reliefDepthMetres": 0.023,
+        "connectedCastGround": true,
+        "scrollLobes": 6,
+        "castBeads": 24,
+        "variant": 0,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-rounded-solid-ceramic-end-seal",
+      "material": "foreground-rounded-charcoal-ceramic-end149",
+      "vertices": 514,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.006366310864130948,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.20000000298023224,
+          -0.20000000298023224,
+          -0.03500000014901161
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.023000000044703484
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-recessed-cast-bronze-medallion-seat",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 322,
+      "triangles": 640,
+      "nonfinite": 0,
+      "volume": 0.0017080410473007653,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.15299999713897705,
+          -0.15299999713897705,
+          0.017999999225139618
+        ],
+        [
+          0.15299999713897705,
+          0.15299999713897705,
+          0.04500000178813934
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-aged-bronze-retaining-roll",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 512,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.00035689431914875177,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.164000004529953,
+          -0.164000004529953,
+          0.03700000047683716
+        ],
+        [
+          0.164000004529953,
+          0.164000004529953,
+          0.06400000303983688
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-narrow-rounded-worn-gilt-bead",
+      "material": "foreground-thin-worn-gilt-bead149",
+      "vertices": 384,
+      "triangles": 768,
+      "nonfinite": 0,
+      "volume": 0.00009331855600149025,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.1469999998807907,
+          -0.1469999998807907,
+          0.04500000178813934
+        ],
+        [
+          0.1469999998807907,
+          0.1469999998807907,
+          0.05999999865889549
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-closed-rounded-six-scroll-cast-relief",
+      "material": "foreground-cast-scroll-relief-with-worn-gilt149",
+      "vertices": 14018,
+      "triangles": 28032,
+      "nonfinite": 0,
+      "volume": 0.0010524970580165676,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.1340000033378601,
+          0.026000000536441803
+        ],
+        [
+          0.1340000033378601,
+          0.1340000033378601,
+          0.062159933149814606
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "reliefDepthMetres": 0.023,
+        "connectedCastGround": true,
+        "scrollLobes": 6,
+        "castBeads": 24,
+        "variant": 1,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-rounded-solid-ceramic-end-seal",
+      "material": "foreground-rounded-charcoal-ceramic-end149",
+      "vertices": 514,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.006366310864130948,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.20000000298023224,
+          -0.20000000298023224,
+          -0.03500000014901161
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.023000000044703484
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-recessed-cast-bronze-medallion-seat",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 322,
+      "triangles": 640,
+      "nonfinite": 0,
+      "volume": 0.0017080410473007653,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.15299999713897705,
+          -0.15299999713897705,
+          0.017999999225139618
+        ],
+        [
+          0.15299999713897705,
+          0.15299999713897705,
+          0.04500000178813934
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-aged-bronze-retaining-roll",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 512,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.00035689431914875177,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.164000004529953,
+          -0.164000004529953,
+          0.03700000047683716
+        ],
+        [
+          0.164000004529953,
+          0.164000004529953,
+          0.06400000303983688
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-narrow-rounded-worn-gilt-bead",
+      "material": "foreground-thin-worn-gilt-bead149",
+      "vertices": 384,
+      "triangles": 768,
+      "nonfinite": 0,
+      "volume": 0.00009331855600149025,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.1469999998807907,
+          -0.1469999998807907,
+          0.04500000178813934
+        ],
+        [
+          0.1469999998807907,
+          0.1469999998807907,
+          0.05999999865889549
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-closed-rounded-six-scroll-cast-relief",
+      "material": "foreground-cast-scroll-relief-with-worn-gilt149",
+      "vertices": 14018,
+      "triangles": 28032,
+      "nonfinite": 0,
+      "volume": 0.0010523976043393393,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.1340000033378601,
+          0.026000000536441803
+        ],
+        [
+          0.1340000033378601,
+          0.1340000033378601,
+          0.06206345930695534
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "reliefDepthMetres": 0.023,
+        "connectedCastGround": true,
+        "scrollLobes": 6,
+        "castBeads": 24,
+        "variant": 2,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "material": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+      "vertices": 104632,
+      "triangles": 208608,
+      "nonfinite": 0,
+      "volume": 0.9581086790949638,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -5.079999923706055,
+          0.2754492461681366,
+          0.0646413192152977
+        ],
+        [
+          5.320000171661377,
+          1.502181053161621,
+          5.582266330718994
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "material": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+      "vertices": 61336,
+      "triangles": 122016,
+      "nonfinite": 0,
+      "volume": 1.0657539216924534,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -5.360000133514404,
+          0.24839535355567932,
+          0.056324318051338196
+        ],
+        [
+          5.119999885559082,
+          1.3407363891601562,
+          5.584733963012695
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "material": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+      "vertices": 34452,
+      "triangles": 68688,
+      "nonfinite": 0,
+      "volume": 0.2500095440647079,
+      "nonManifoldEdges": 0,
+      "bounds": [
+        [
+          -5.544979095458984,
+          0.401828795671463,
+          -0.1550000011920929
+        ],
+        [
+          5.544915199279785,
+          1.5308634042739868,
+          5.526581764221191
+        ]
+      ],
+      "userData": {}
+    }
+  ],
+  "visualAccepted": false
+}

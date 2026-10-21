@@ -1,0 +1,286 @@
+{
+  "revision": "scene07-aged-shelf-pines148-r02",
+  "visualAccepted": false,
+  "treeCount": 8,
+  "boughs": 44,
+  "shelfFans": 429,
+  "terminalShoots": 7401,
+  "needleTriangles": 4218570,
+  "woodTriangles": 705784,
+  "materialKeys": [
+    "heroPineBark148",
+    "heroPineTwig148",
+    "heroPineCut148",
+    "heroPineNeedle148",
+    "heroPineNeedleTip148"
+  ],
+  "assets": [
+    {
+      "name": "Pine Bark",
+      "author": "Dimitrios Savva",
+      "license": "CC0 1.0",
+      "source": "https://polyhaven.com/a/pine_bark",
+      "provenance": "reconstructions/scene-07/assets/hero-pines148/pine-bark/provenance.json",
+      "originalBytes": 2522778
+    }
+  ],
+  "trees": [
+    {
+      "id": "right-hero",
+      "originGarden": [
+        12.6,
+        1.2969504744982538,
+        18
+      ],
+      "originWorld": [
+        12.6,
+        1.2969504744982538,
+        7.799999999999999
+      ],
+      "nominalHeight": 10,
+      "spread": 1,
+      "yaw": -0.08,
+      "primaryBoughs": 9,
+      "shelfFans": 86,
+      "terminalShoots": 1748,
+      "connectedWoodMembers": 849,
+      "localWoodBounds": {
+        "min": [
+          -3.6689364910125732,
+          -0.13851769268512726,
+          -1.6828523874282837
+        ],
+        "max": [
+          4.591151237487793,
+          8.901395797729492,
+          1.312391757965088
+        ]
+      }
+    },
+    {
+      "id": "foreground-wide",
+      "originGarden": [
+        -4.8,
+        0,
+        20
+      ],
+      "originWorld": [
+        -4.8,
+        0,
+        9
+      ],
+      "nominalHeight": 4.9,
+      "spread": 1.4,
+      "yaw": 0.08,
+      "primaryBoughs": 7,
+      "shelfFans": 68,
+      "terminalShoots": 1151,
+      "connectedWoodMembers": 656,
+      "localWoodBounds": {
+        "min": [
+          -3.1172876358032227,
+          -0.10205212235450745,
+          -1.4131505489349365
+        ],
+        "max": [
+          3.420321464538574,
+          4.279224395751953,
+          1.126092791557312
+        ]
+      }
+    },
+    {
+      "id": "left-middle",
+      "originGarden": [
+        -10,
+        0.4342466194670626,
+        11
+      ],
+      "originWorld": [
+        -10,
+        0.4342466194670626,
+        3.5999999999999996
+      ],
+      "nominalHeight": 5.7,
+      "spread": 0.9,
+      "yaw": -0.19,
+      "primaryBoughs": 5,
+      "shelfFans": 49,
+      "terminalShoots": 750,
+      "connectedWoodMembers": 445,
+      "localWoodBounds": {
+        "min": [
+          -2.7889952659606934,
+          -0.09839395433664322,
+          -0.683910071849823
+        ],
+        "max": [
+          2.1241931915283203,
+          5.012839317321777,
+          0.7192089557647705
+        ]
+      }
+    },
+    {
+      "id": "right-stair",
+      "originGarden": [
+        11.5,
+        5.275555566208685,
+        3.1
+      ],
+      "originWorld": [
+        11.5,
+        5.275555566208685,
+        -1.1400000000000001
+      ],
+      "nominalHeight": 5.3,
+      "spread": 0.8,
+      "yaw": 0.12,
+      "primaryBoughs": 5,
+      "shelfFans": 49,
+      "terminalShoots": 753,
+      "connectedWoodMembers": 442,
+      "localWoodBounds": {
+        "min": [
+          -2.066263437271118,
+          -0.07421422004699707,
+          -0.46416759490966797
+        ],
+        "max": [
+          1.9537335634231567,
+          4.622081279754639,
+          0.6945589780807495
+        ]
+      }
+    },
+    {
+      "id": "left-stair",
+      "originGarden": [
+        -5,
+        0,
+        1.4
+      ],
+      "originWorld": [
+        -5,
+        0,
+        -2.16
+      ],
+      "nominalHeight": 4.2,
+      "spread": 0.8,
+      "yaw": -0.26,
+      "primaryBoughs": 4,
+      "shelfFans": 32,
+      "terminalShoots": 493,
+      "connectedWoodMembers": 294,
+      "localWoodBounds": {
+        "min": [
+          -1.66508948802948,
+          -0.07428324222564697,
+          -0.56623774766922
+        ],
+        "max": [
+          1.2997841835021973,
+          3.634329319000244,
+          0.7013161778450012
+        ]
+      }
+    },
+    {
+      "id": "back-right",
+      "originGarden": [
+        18,
+        4.8640494794190845,
+        -4
+      ],
+      "originWorld": [
+        18,
+        4.8640494794190845,
+        -5.4
+      ],
+      "nominalHeight": 8.5,
+      "spread": 1,
+      "yaw": 0.31,
+      "primaryBoughs": 6,
+      "shelfFans": 62,
+      "terminalShoots": 1210,
+      "connectedWoodMembers": 621,
+      "localWoodBounds": {
+        "min": [
+          -3.1844351291656494,
+          -0.08640088140964508,
+          -1.3007997274398804
+        ],
+        "max": [
+          3.6044762134552,
+          7.620833873748779,
+          1.7870808839797974
+        ]
+      }
+    },
+    {
+      "id": "far-left",
+      "originGarden": [
+        -19,
+        2.782272209541145,
+        1
+      ],
+      "originWorld": [
+        -19,
+        2.782272209541145,
+        -2.4
+      ],
+      "nominalHeight": 6.5,
+      "spread": 0.8,
+      "yaw": -0.11,
+      "primaryBoughs": 5,
+      "shelfFans": 56,
+      "terminalShoots": 863,
+      "connectedWoodMembers": 513,
+      "localWoodBounds": {
+        "min": [
+          -1.9107246398925781,
+          -0.0977589413523674,
+          -0.8730064034461975
+        ],
+        "max": [
+          2.8455679416656494,
+          5.723452091217041,
+          0.956687331199646
+        ]
+      }
+    },
+    {
+      "id": "left-island-small",
+      "originGarden": [
+        -8.8,
+        3.3558967608660937,
+        2.5
+      ],
+      "originWorld": [
+        -8.8,
+        3.3558967608660937,
+        -1.5
+      ],
+      "nominalHeight": 3.2,
+      "spread": 0.85,
+      "yaw": 0.25,
+      "primaryBoughs": 3,
+      "shelfFans": 27,
+      "terminalShoots": 433,
+      "connectedWoodMembers": 261,
+      "localWoodBounds": {
+        "min": [
+          -1.023004412651062,
+          -0.07488613575696945,
+          -0.4632891118526459
+        ],
+        "max": [
+          1.3251241445541382,
+          2.7914345264434814,
+          0.5711167454719543
+        ]
+      }
+    }
+  ],
+  "construction": "root flare > aged curved trunk/fork > load-bearing curved bough > shallow asymmetric fan > alternating branchlet > closed fine needle-sheaf interiors with longer paired edge needles; real opaque geometry throughout"
+}

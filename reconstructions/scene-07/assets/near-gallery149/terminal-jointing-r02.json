@@ -1,0 +1,45 @@
+{
+  "revision": "scene07-joined-ceramic-terminal-and-headlaps149-r02",
+  "sourceModule": "reconstructions/scene-07/src/foreground-gallery-roof.js",
+  "sourceModuleSHA256": "dec4ee535a4c1cb78f6a70de145b2629b0c18ce0df4e923d6b9027b8ba957df3",
+  "preservedR01": {
+    "module": "qa/ten-reference/07/near-gallery149/jointing-r02/foreground-gallery-roof-held-r01.js",
+    "sha256": "29da7c8804ea61d83ad11c88841a042f265329e77b6d67a90e18476746433666",
+    "actualNativeEvidence": "qa/ten-reference/07/iteration-scene07-ceramic149-pines148-r03-sun146-r01-20261021",
+    "wholeSceneSourceHash": "74fd399b19e233a075d3461241ae70d708f8c431e0aa49356805e18c7e498c9c",
+    "materialCodeByteIdentical": true,
+    "priorNamespaceAssetsByteIdentical": true
+  },
+  "observedFailure": "Actual native close showed open space behind retained medallion seals and unsealed eave mouths. A closed shell topology alone did not establish assembly contacts. The seal rear radius0.17 missed the lifted cover upper rim; the first/last nominal lane anchors had no cover segment (start>=1).",
+  "construction": {
+    "terminalSockets": "32 closed25mm ceramic hollow lofts: front annuli enter existing seal shoulders at localz=-0.019, fromouterradius0.194 inside the seal radius~0.196. Back sections follow each actual tile curve/lip and enter the cover shell. The two lane-end orphan seals connect to retained hip shoulder courses, preserving cap matrices.",
+    "terminalClayBeds": "43 closed conformed earthen packing volumes: top penetrates the actual cover inner skin by3mm, bottom enters existing deck or underlying main-cover crown. Every ordinary eave opening is closed behind the retained4mm inset edge; raised terminals receive a connected bed.",
+    "headlaps": "316 closed narrow seats sampled between actual upstream inner/downstream outer surfaces through the existing overlap, penetrating each contact skin3mm. No floating independent bands or camera-facing covers.",
+    "hollowClosedTileShellsRetained": true,
+    "materialChanges": false,
+    "newExternalAssets": []
+  },
+  "preservation": {
+    "fittedLayoutAndRoofSurfaceFormulaIdentical": true,
+    "medallionAnchorsAndRotationsIdenticalToR01": true,
+    "medallionCount": 32,
+    "geometryCounts": {
+      "covers": 164,
+      "pans": 164,
+      "raisedTerminals": 19,
+      "metalEnds": 32,
+      "terminalSockets": 32,
+      "terminalBedding": 43,
+      "headlapSeats": 316
+    },
+    "mainHallCameraSkyLightPinesGardenEdited": false
+  },
+  "verification": {
+    "syntax": "node --check passed",
+    "cpuGeometry": "Every emitted mesh finite, closed, consistently directed and positive volume.",
+    "receipt": "qa/ten-reference/07/near-gallery149/jointing-r02/closed-geometry-audit.json",
+    "limits": "These CPU checks do not establish contact appearance, shader validity or photographic fidelity. Coordinated root native full and true near-roof crop pending."
+  },
+  "referencePhotoUsedAsTextureOrProjection": false,
+  "visualAccepted": false
+}

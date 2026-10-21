@@ -1,0 +1,24 @@
+{
+  "revision": "scene07-aligned-physical-sun146-r01",
+  "previousDirection": [
+    -0.8328681569952676,
+    0.2327131615133836,
+    -0.5021705064236173
+  ],
+  "newDirection": [
+    -0.5818283592293452,
+    0.03511033202246049,
+    -0.8125533982340857
+  ],
+  "reason": "Unify the previously inconsistent low visible sky sun, direct illumination and measured HDR solar centroid. Preserve generated cloud cap world heading.",
+  "shadowMap": {
+    "type": "fixed orthographic PCF",
+    "size": 4096,
+    "autoUpdate": false,
+    "initialNeedsUpdate": true,
+    "near": 1,
+    "far": 225
+  },
+  "referenceAsScenePlate": false,
+  "visualAccepted": false
+}

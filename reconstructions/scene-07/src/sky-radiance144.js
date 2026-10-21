@@ -39,28 +39,34 @@ export async function installMeasuredSky({renderer,scene,sun}){
  const pmrem=new T.PMREMGenerator(renderer),target=pmrem.fromEquirectangular(texture);
  pmrem.dispose();scene.environment=target.texture;scene.environmentIntensity=.38;scene.environmentRotation.copy(environmentRotation);
 
- // This independent asset covers one70x35-degree spherical cap, rather than
- // stretching1774pixels around360degrees. Its requested sun lies8degrees past
- // the left edge at13.5degrees altitude, consistent with the actual sun. The
- // center is43degrees clockwise from that sun; it is never camera-attached.
- const capCenter=Math.atan2(wanted.z,wanted.x)+T.MathUtils.degToRad(43);
+ // Preserve the generated cloud cap's measured world azimuth while aligning
+ // the actual sunlight and visible solar disk to the low source-photo sun.
+ // The clouds are world-locked, independent of either camera or new sun heading.
+ const formerSun=new T.Vector3(-68,19,-41).normalize();
+ const capCenter=Math.atan2(formerSun.z,formerSun.x)+T.MathUtils.degToRad(43);
+ const sunRelativeCapDegrees=T.MathUtils.radToDeg(capCenter-Math.atan2(wanted.z,wanted.x));
  const capWidth=T.MathUtils.degToRad(70),capMin=T.MathUtils.degToRad(-5),capHeight=T.MathUtils.degToRad(35);
  const inverseEnvironment=new T.Matrix3().setFromMatrix4(new T.Matrix4().makeRotationFromEuler(environmentRotation).invert());
  const gain=1.1;
  const material=new T.ShaderMaterial({
-  name:'scene07-worldlocked-golden-cloud-radiance145',side:T.BackSide,depthWrite:false,depthTest:false,
-  uniforms:{radiance:{value:clouds},measured:{value:texture},worldToEnvironment:{value:inverseEnvironment},gain:{value:gain},cap:{value:new T.Vector4(capCenter,capWidth,capMin,capHeight)}},
+  name:'scene07-worldlocked-golden-cloud-radiance146',side:T.BackSide,depthWrite:false,depthTest:false,
+  uniforms:{solarDirection:{value:wanted},radiance:{value:clouds},measured:{value:texture},worldToEnvironment:{value:inverseEnvironment},gain:{value:gain},cap:{value:new T.Vector4(capCenter,capWidth,capMin,capHeight)}},
   vertexShader:`varying vec3 ray;
    void main(){vec4 w=modelMatrix*vec4(position,1.);ray=w.xyz-cameraPosition;
     vec4 clip=projectionMatrix*viewMatrix*w;gl_Position=clip.xyww;}`,
-  fragmentShader:`varying vec3 ray;uniform sampler2D radiance;uniform sampler2D measured;uniform mat3 worldToEnvironment;uniform float gain;uniform vec4 cap;
+  fragmentShader:`varying vec3 ray;uniform sampler2D radiance;uniform sampler2D measured;uniform mat3 worldToEnvironment;uniform float gain;uniform vec4 cap;uniform vec3 solarDirection;
    void main(){vec3 world=normalize(ray),d=normalize(worldToEnvironment*world);
     vec2 baseUV=vec2(atan(d.z,d.x)/6.28318530718+.5,asin(clamp(d.y,-1.,1.))/3.14159265359+.5);
     vec3 base=texture2D(measured,baseUV).rgb*.08;
     float longitude=mod(atan(world.z,world.x)-cap.x+3.14159265359,6.28318530718)-3.14159265359;
     vec2 uv=vec2(longitude/cap.y+.5,(asin(clamp(world.y,-1.,1.))-cap.z)/cap.w);
     vec2 edge=min(uv,1.-uv);float blend=smoothstep(0.,.08,edge.x)*smoothstep(0.,.08,edge.y);
-    gl_FragColor=vec4(mix(base,texture2D(radiance,clamp(uv,0.,1.)).rgb*gain,blend),1.);}`
+    vec3 sky=mix(base,texture2D(radiance,clamp(uv,0.,1.)).rgb*gain,blend);
+    float solarCos=clamp(dot(world,solarDirection),-1.,1.);
+    float angularDistance=acos(solarCos);
+    sky+=vec3(1.0,.46,.12)*exp(-angularDistance*angularDistance/.0032)*.48;
+    sky+=vec3(35.,22.,8.)*smoothstep(.999987,.999990,solarCos);
+    gl_FragColor=vec4(sky,1.);}`
  });
  const mesh=new T.Mesh(new T.SphereGeometry(250,64,32),material);
  mesh.name='scene07-sky145-cloud-sphere';mesh.renderOrder=-1000;mesh.frustumCulled=false;
@@ -69,11 +75,11 @@ export async function installMeasuredSky({renderer,scene,sun}){
  mesh.onBeforeRender=(_renderer,_scene,camera)=>{mesh.position.copy(camera.position);mesh.updateMatrixWorld();};
  scene.add(mesh);
  return {info:{
-  revision:'scene07-golden-cloud-sky145-r04',
+  revision:'scene07-aligned-physical-sun146-r01',
   environment:{asset:'Qwantani Sunset Pure Sky',provider:'Poly Haven',license:'CC0-1.0',sourceSunCentroid:source.toArray(),rotation:environmentRotation.toArray(),intensity:.38},
-  cameraSky:{asset:SKY_ASSET,provider:'OpenAI built-in imagegen',provenance:'reconstructions/scene-07/assets/sky145/provenance.json',projection:'world-fixed spherical cap with measured HDR outside and8percent boundary blend',azimuthCenterRadians:capCenter,horizontalSpanDegrees:70,elevationRangeDegrees:[-5,30],centerAzimuthRelativeToActualSunDegrees:43,solarAzimuthOutsideLeftEdgeDegrees:8,linearRadianceGain:gain,measuredHDR:false,worldLocked:true,cameraTranslationParallax:false},
+  cameraSky:{asset:SKY_ASSET,provider:'OpenAI built-in imagegen',provenance:'reconstructions/scene-07/assets/sky145/provenance.json',projection:'world-fixed spherical cap with measured HDR outside and8percent boundary blend',azimuthCenterRadians:capCenter,horizontalSpanDegrees:70,elevationRangeDegrees:[-5,30],centerAzimuthRelativeToActualSunDegrees:sunRelativeCapDegrees,analyticSolarDiskAlignedToActualSun:true,solarAngularRadiusDegrees:.27,linearRadianceGain:gain,measuredHDR:false,worldLocked:true,cameraTranslationParallax:false},
   targetSunDirection:wanted.toArray(),
-  scope:'Measured CC0 HDR lighting retained. Independent generated atmosphere/cloud-only spherical cap decoded to linear and world-oriented relative to the existing physical sun. No reference photo projection, architecture, garden, or scene replacement plate.',
+  scope:'Measured CC0 HDR lighting retained. Independent generated atmosphere/cloud-only spherical cap decoded to linear and world-oriented. Low solar disk and the actual shadow-casting directional light share the same direction; measured HDR environment is re-aligned to that direction. No reference photo projection, architecture, garden, or scene replacement plate.',
   visualAccepted:false
  },dispose(){scene.remove(mesh);mesh.geometry.dispose();material.dispose();target.dispose();texture.dispose();clouds.dispose();}};
 }

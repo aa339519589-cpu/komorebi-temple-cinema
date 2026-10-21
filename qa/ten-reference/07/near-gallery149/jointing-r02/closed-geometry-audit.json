@@ -1,0 +1,1159 @@
+{
+  "scope": "CPU geometry inspection only; not native render, shading validation or photographic fidelity.",
+  "layout": {
+    "position": [
+      0.04,
+      8.938616,
+      29.73
+    ],
+    "yaw": 1.078179,
+    "ridgeHalf": 4.4,
+    "eaveHalf": 5.4,
+    "run": 5.6,
+    "rise": 1.114107,
+    "curl": 0.38802,
+    "tilePitch": 0.48,
+    "courses": 8
+  },
+  "baselineLayoutAndProfileIdentical": true,
+  "r01MedallionAnchorsAndMatricesIdentical": true,
+  "medallionCount": 32,
+  "audit": {
+    "revision": "scene07-joined-ceramic-terminal-and-headlaps149-r02",
+    "footprint": [
+      10.8,
+      11.2
+    ],
+    "visiblePitchFace": {
+      "ridgeWidth": 8.8,
+      "eaveWidth": 10.8,
+      "run": 5.6,
+      "rise": 1.114107,
+      "curl": 0.38802
+    },
+    "oldLocalProfilePreserved": false,
+    "fittedLayoutPreservedIn149": true,
+    "profileChangedIn149": false,
+    "worldTransform": {
+      "position": [
+        0.04,
+        8.938616,
+        29.73
+      ],
+      "yaw": 1.078179
+    },
+    "tileLanes": 24,
+    "courses": 8,
+    "tilePitchMetres": 0.48,
+    "coverWidthMetres": 0.32,
+    "panWidthMetres": 0.4,
+    "nominalCourseLengthMetres": 0.7,
+    "ceramicWallMetres": [
+      0.022,
+      0.028
+    ],
+    "arrisBevelMetres": 0.004,
+    "embossDepthMetres": 0.023,
+    "castEnd": {
+      "method": "Closed connected six-scroll ground with rounded ribs, central boss and24cast beads; bronze retainer and narrow gilt bead",
+      "variants": 3,
+      "photoTexture": false
+    },
+    "terminalConstruction": {
+      "provenance": "assets/near-gallery149/terminal-jointing-r02.json",
+      "capAnchorsAndMatricesPreserved": true,
+      "hollowClosedSockets": true,
+      "allEaveThroatsClosedByConformedClay": true,
+      "nestedHeadlapsOnActualTileSurfaces": true,
+      "terminalContacts": [
+        {
+          "anchor": [
+            -5.4,
+            0.6221627125254849,
+            5.5367371343424265
+          ],
+          "rotation": [
+            -0.40870080202976744,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -4.92,
+            0.5121747554034966,
+            5.562844150850417
+          ],
+          "rotation": [
+            -0.2986137137219369,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -4.44,
+            0.914744724737576,
+            2.3691465491209023
+          ],
+          "rotation": [
+            -0.4746585921053864,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -3.9600000000000044,
+            0.3859207370351225,
+            5.594785145870285
+          ],
+          "rotation": [
+            -0.1663152808762987,
+            7.820739803580761e-13,
+            1.3128356000719054e-13
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -3.480000000000416,
+            1.1988869045018955,
+            1.2693992366196067
+          ],
+          "rotation": [
+            -0.42047538293463105,
+            -1.1864145557823101e-11,
+            -5.30496791147083e-12
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -3.479999999999542,
+            0.914403631355701,
+            2.369445957813983
+          ],
+          "rotation": [
+            -0.4736233609702812,
+            1.1966979949802231e-11,
+            6.133467549266652e-12
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -3.000000000000006,
+            0.3364538885659432,
+            5.607521349473885
+          ],
+          "rotation": [
+            -0.1137965949722151,
+            -7.878873360983225e-13,
+            -9.00479288888698e-14
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -2.5200000000000005,
+            1.198885323525063,
+            1.2694011868416333
+          ],
+          "rotation": [
+            -0.42046682613648234,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -2.5200000000000005,
+            0.914288851435752,
+            2.3695466373183605
+          ],
+          "rotation": [
+            -0.4732752379226902,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -2.0400000000000005,
+            0.32227383696532264,
+            5.611169428455702
+          ],
+          "rotation": [
+            -0.09874404711997611,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -1.5599999999997936,
+            1.1988849661956245,
+            1.2694016276251914
+          ],
+          "rotation": [
+            -0.42046489217167704,
+            5.932032586853667e-12,
+            2.6523913105742017e-12
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -1.5600000000000005,
+            0.9142629064455916,
+            2.3695693899248127
+          ],
+          "rotation": [
+            -0.4731965643956238,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -1.08,
+            0.31995646923017057,
+            5.611765119837349
+          ],
+          "rotation": [
+            -0.09628522893199802,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -0.6000000000001162,
+            1.198884930762191,
+            1.2694016713340042
+          ],
+          "rotation": [
+            -0.4204647003951129,
+            -2.9660159260446887e-12,
+            -1.3261948084870613e-12
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -0.6000000000000005,
+            0.9142603336451731,
+            2.369571646054099
+          ],
+          "rotation": [
+            -0.47318876317385966,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            -0.12000000000000098,
+            0.3198558808466907,
+            5.6117909728725115
+          ],
+          "rotation": [
+            -0.09617850956141179,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            0.3600000000000573,
+            1.1988849304847382,
+            1.2694016716761953
+          ],
+          "rotation": [
+            -0.42046469889139654,
+            1.4830079615910303e-12,
+            6.630974009276859e-13
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            0.35999999999994214,
+            0.9142603135053434,
+            2.3695716637149387
+          ],
+          "rotation": [
+            -0.4731887021049726,
+            -1.4955792388831701e-12,
+            -7.65712491146608e-13
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            0.84,
+            0.3198845101840772,
+            5.611783614646926
+          ],
+          "rotation": [
+            -0.09620888381556696,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            1.3200000000000462,
+            1.1988849459612743,
+            1.2694016525851102
+          ],
+          "rotation": [
+            -0.4204647826539202,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            1.3200000000002285,
+            0.9142614372513379,
+            2.3695706782866615
+          ],
+          "rotation": [
+            -0.473192109507716,
+            5.982326151012179e-12,
+            3.0628804000215396e-12
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            1.7999999999999987,
+            0.3211492635944582,
+            5.611458526186844
+          ],
+          "rotation": [
+            -0.09755078245839782,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            2.2799999999999994,
+            1.1988851687675859,
+            1.2694013777430626
+          ],
+          "rotation": [
+            -0.42046598855646367,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            2.2799999999999994,
+            0.9142776148871922,
+            2.3695564915047123
+          ],
+          "rotation": [
+            -0.47324116435923663,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            2.760000000000007,
+            0.3308038383765214,
+            5.608975475365843
+          ],
+          "rotation": [
+            -0.1077976761047004,
+            7.884133462588156e-13,
+            8.531986475764585e-14
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            3.24,
+            1.1988863114344581,
+            1.269399968203155
+          ],
+          "rotation": [
+            -0.4204721730410433,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            3.2400000000004585,
+            0.91436057647572,
+            2.3694837278356258
+          ],
+          "rotation": [
+            -0.4734927631447969,
+            1.1966275055142097e-11,
+            6.1311331068987216e-12
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            3.719999999999999,
+            0.3683020919252121,
+            5.599319315729938
+          ],
+          "rotation": [
+            -0.14761899998530698,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            4.199999999999999,
+            1.1988899852708994,
+            1.2693954362716195
+          ],
+          "rotation": [
+            -0.4204920574004013,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            4.199999999999999,
+            0.9146272430299358,
+            2.369249710310833
+          ],
+          "rotation": [
+            -0.4743019110372583,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            4.68,
+            0.47043863701091504,
+            5.573242201375929
+          ],
+          "rotation": [
+            -0.25536138236423933,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        },
+        {
+          "anchor": [
+            5.639999999999998,
+            0.6928133282685548,
+            5.521260787329027
+          ],
+          "rotation": [
+            -0.47544996458497457,
+            0,
+            0
+          ],
+          "socketIntoSealLocalZ": -0.019,
+          "sealRadiusAtSocketMetres": 0.196,
+          "socketFrontOuterRadiusMetres": 0.194,
+          "backFollowsActualTileCurve": true
+        }
+      ]
+    },
+    "surface": {
+      "provenance": "assets/near-gallery149/provenance.json",
+      "provider": "Poly Haven",
+      "sourceAsset": "grey_roof_01",
+      "sourceAuthor": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "repeatMetres": 0.25,
+      "neutralCharcoalPigment": "#5b5752",
+      "dielectricIor": 1.52,
+      "partlyGlazed": true,
+      "metricCrossArcUv": true,
+      "glazeWearAtRealLapEdges": true,
+      "photoTexture": false
+    },
+    "counts": {
+      "covers": 164,
+      "pans": 164,
+      "raisedTerminals": 19,
+      "metalEnds": 32,
+      "terminalSockets": 32,
+      "terminalBedding": 43,
+      "headlapSeats": 316
+    },
+    "metricScaleInferred": true,
+    "fitRmsPixels": 9.801790877076128,
+    "photoTextureOrProjection": false,
+    "visualAccepted": false
+  },
+  "geometryCount": 21,
+  "placements": 166,
+  "geometries": [
+    {
+      "name": "gallery-closed-curved-bedding",
+      "material": "foreground-dark-fired-clay-bedding149",
+      "vertices": 4290,
+      "triangles": 8576,
+      "nonfinite": 0,
+      "volume": 13.171199919445302,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -5.400000095367432,
+          0.020879950374364853,
+          0
+        ],
+        [
+          5.400000095367432,
+          1.3141069412231445,
+          5.599999904632568
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "gallery-rounded-solid-ceramic-end-seal",
+      "material": "foreground-rounded-charcoal-ceramic-end149",
+      "vertices": 514,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.006366310864130948,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.20000000298023224,
+          -0.20000000298023224,
+          -0.03500000014901161
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.023000000044703484
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-recessed-cast-bronze-medallion-seat",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 322,
+      "triangles": 640,
+      "nonfinite": 0,
+      "volume": 0.0017080410473007653,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.15299999713897705,
+          -0.15299999713897705,
+          0.017999999225139618
+        ],
+        [
+          0.15299999713897705,
+          0.15299999713897705,
+          0.04500000178813934
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-aged-bronze-retaining-roll",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 512,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.00035689431914875177,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.164000004529953,
+          -0.164000004529953,
+          0.03700000047683716
+        ],
+        [
+          0.164000004529953,
+          0.164000004529953,
+          0.06400000303983688
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-narrow-rounded-worn-gilt-bead",
+      "material": "foreground-thin-worn-gilt-bead149",
+      "vertices": 384,
+      "triangles": 768,
+      "nonfinite": 0,
+      "volume": 0.00009331855600149025,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.1469999998807907,
+          -0.1469999998807907,
+          0.04500000178813934
+        ],
+        [
+          0.1469999998807907,
+          0.1469999998807907,
+          0.05999999865889549
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-closed-rounded-six-scroll-cast-relief",
+      "material": "foreground-cast-scroll-relief-with-worn-gilt149",
+      "vertices": 14018,
+      "triangles": 28032,
+      "nonfinite": 0,
+      "volume": 0.001052503529067551,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.1340000033378601,
+          0.026000000536441803
+        ],
+        [
+          0.1340000033378601,
+          0.1340000033378601,
+          0.06215449422597885
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "reliefDepthMetres": 0.023,
+        "connectedCastGround": true,
+        "scrollLobes": 6,
+        "castBeads": 24,
+        "variant": 0,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-rounded-solid-ceramic-end-seal",
+      "material": "foreground-rounded-charcoal-ceramic-end149",
+      "vertices": 514,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.006366310864130948,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.20000000298023224,
+          -0.20000000298023224,
+          -0.03500000014901161
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.023000000044703484
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-recessed-cast-bronze-medallion-seat",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 322,
+      "triangles": 640,
+      "nonfinite": 0,
+      "volume": 0.0017080410473007653,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.15299999713897705,
+          -0.15299999713897705,
+          0.017999999225139618
+        ],
+        [
+          0.15299999713897705,
+          0.15299999713897705,
+          0.04500000178813934
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-aged-bronze-retaining-roll",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 512,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.00035689431914875177,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.164000004529953,
+          -0.164000004529953,
+          0.03700000047683716
+        ],
+        [
+          0.164000004529953,
+          0.164000004529953,
+          0.06400000303983688
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-narrow-rounded-worn-gilt-bead",
+      "material": "foreground-thin-worn-gilt-bead149",
+      "vertices": 384,
+      "triangles": 768,
+      "nonfinite": 0,
+      "volume": 0.00009331855600149025,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.1469999998807907,
+          -0.1469999998807907,
+          0.04500000178813934
+        ],
+        [
+          0.1469999998807907,
+          0.1469999998807907,
+          0.05999999865889549
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-closed-rounded-six-scroll-cast-relief",
+      "material": "foreground-cast-scroll-relief-with-worn-gilt149",
+      "vertices": 14018,
+      "triangles": 28032,
+      "nonfinite": 0,
+      "volume": 0.0010524970580165676,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.1340000033378601,
+          0.026000000536441803
+        ],
+        [
+          0.1340000033378601,
+          0.1340000033378601,
+          0.062159933149814606
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "reliefDepthMetres": 0.023,
+        "connectedCastGround": true,
+        "scrollLobes": 6,
+        "castBeads": 24,
+        "variant": 1,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-rounded-solid-ceramic-end-seal",
+      "material": "foreground-rounded-charcoal-ceramic-end149",
+      "vertices": 514,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.006366310864130948,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.20000000298023224,
+          -0.20000000298023224,
+          -0.03500000014901161
+        ],
+        [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.023000000044703484
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-recessed-cast-bronze-medallion-seat",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 322,
+      "triangles": 640,
+      "nonfinite": 0,
+      "volume": 0.0017080410473007653,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.15299999713897705,
+          -0.15299999713897705,
+          0.017999999225139618
+        ],
+        [
+          0.15299999713897705,
+          0.15299999713897705,
+          0.04500000178813934
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-aged-bronze-retaining-roll",
+      "material": "foreground-oxidised-cast-bronze-seat149",
+      "vertices": 512,
+      "triangles": 1024,
+      "nonfinite": 0,
+      "volume": 0.00035689431914875177,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.164000004529953,
+          -0.164000004529953,
+          0.03700000047683716
+        ],
+        [
+          0.164000004529953,
+          0.164000004529953,
+          0.06400000303983688
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-narrow-rounded-worn-gilt-bead",
+      "material": "foreground-thin-worn-gilt-bead149",
+      "vertices": 384,
+      "triangles": 768,
+      "nonfinite": 0,
+      "volume": 0.00009331855600149025,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.1469999998807907,
+          -0.1469999998807907,
+          0.04500000178813934
+        ],
+        [
+          0.1469999998807907,
+          0.1469999998807907,
+          0.05999999865889549
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "gallery-closed-rounded-six-scroll-cast-relief",
+      "material": "foreground-cast-scroll-relief-with-worn-gilt149",
+      "vertices": 14018,
+      "triangles": 28032,
+      "nonfinite": 0,
+      "volume": 0.0010523976043393393,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.1340000033378601,
+          0.026000000536441803
+        ],
+        [
+          0.1340000033378601,
+          0.1340000033378601,
+          0.06206345930695534
+        ]
+      ],
+      "userData": {
+        "closedCastMetal": true,
+        "reliefDepthMetres": 0.023,
+        "connectedCastGround": true,
+        "scrollLobes": 6,
+        "castBeads": 24,
+        "variant": 2,
+        "photoTexture": false
+      }
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "material": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+      "vertices": 104632,
+      "triangles": 208608,
+      "nonfinite": 0,
+      "volume": 0.9581086790949638,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -5.079999923706055,
+          0.2754492461681366,
+          0.0646413192152977
+        ],
+        [
+          5.320000171661377,
+          1.502181053161621,
+          5.582266330718994
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "material": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+      "vertices": 61336,
+      "triangles": 122016,
+      "nonfinite": 0,
+      "volume": 1.0657539216924534,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -5.360000133514404,
+          0.24839535355567932,
+          0.056324318051338196
+        ],
+        [
+          5.119999885559082,
+          1.3407363891601562,
+          5.584733963012695
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "foreground-lapped-ceramic-assembly",
+      "material": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+      "vertices": 34452,
+      "triangles": 68688,
+      "nonfinite": 0,
+      "volume": 0.2500095440647079,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -5.544979095458984,
+          0.401828795671463,
+          -0.1550000011920929
+        ],
+        [
+          5.544915199279785,
+          1.5308634042739868,
+          5.526581764221191
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "foreground-joined-ceramic-terminal-sockets",
+      "material": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+      "vertices": 53248,
+      "triangles": 106496,
+      "nonfinite": 0,
+      "volume": 0.24284916409473742,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -5.593999862670898,
+          0.12492789328098297,
+          0.9307844638824463
+        ],
+        [
+          5.834000110626221,
+          1.3682342767715454,
+          5.611508846282959
+        ]
+      ],
+      "userData": {}
+    },
+    {
+      "name": "foreground-conformed-clay-terminal-and-headlap-bedding",
+      "material": "foreground-dark-fired-clay-bedding149",
+      "vertices": 74644,
+      "triangles": 147852,
+      "nonfinite": 0,
+      "volume": 0.6545597653184124,
+      "nonManifoldEdges": 0,
+      "inconsistentDirectedEdges": 0,
+      "bounds": [
+        [
+          -5.5484442710876465,
+          0.22959846258163452,
+          -0.15217465162277222
+        ],
+        [
+          5.5484442710876465,
+          1.463746428489685,
+          5.583494186401367
+        ]
+      ],
+      "userData": {}
+    }
+  ],
+  "visualAccepted": false
+}

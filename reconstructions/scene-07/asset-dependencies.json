@@ -42,7 +42,7 @@
   "islandLantern": {
     "scope": "Only the nearest water-island stone lantern, replacing the single original lantern(4.8,14.2,5.8,.2) call. Other4lanterns, islands/garden RNG, existing camera/light/roof/rail geometry stay.",
     "anchor": "Local4.8,.2,14.2 scaled5.8/3.7, under the exact retained garden transform T(0,0,-3)*S(1,1,.6), world anchor4.8,.2,5.52.",
-    "envelope": "Old local full lamp bounds x/z±1.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
+    "envelope": "Old local full lamp bounds x/z\u00b11.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
     "geometry": "Thick closed curved/fluted kasa with a small actual rolled/upturned lip, original-height rounded-neck finial, short recessed firebag,7vertical+5horizontal fine bars per face, smaller closed warm core, closed carved-stone panels/petals, substantial shaft/base and11surface-rooted closed moss pads plus132small closed moss fibres.",
     "light": "The original mats.glow material/emissive intensity is borrowed unchanged; luminous centrelocalY2.84 retained. No point/area lights added or moved.",
     "inspectedConstruction": "scene04/src/scene04-lanterns.js reviewed for closed cap/cavity/relief/moss construction only. Scene04 proportions, scale and lights are not copied.",
@@ -99,10 +99,53 @@
     "source": "src/sky-radiance144.js",
     "asset": "assets/sky145/sky-cloud-cap-generated-r04.png",
     "provenance": "assets/sky145/provenance.json",
-    "scope": "Independent atmosphere/cloud-only70x35degree spherical cap, fixed in world azimuth43degrees from actual sun; boundary blends to measured HDR sky. Existing CC0 Qwantani EXR environment lighting unchanged.",
+    "scope": "Independent atmosphere/cloud-only70x35degree cap retains original world azimuth. Superseding sky146 aligns actual direct sun, visible disk and CC0 environment solar centroid.",
     "referencePhotoUsedAsSceneAsset": false,
     "measuredHDRCameraSky": false,
     "visualAccepted": false,
     "revision": "scene07-golden-cloud-sky145-r04"
+  },
+  "sky146": {
+    "revision": "scene07-aligned-physical-sun146-r01",
+    "previousDirection": [
+      -0.8328681569952676,
+      0.2327131615133836,
+      -0.5021705064236173
+    ],
+    "newDirection": [
+      -0.5818283592293452,
+      0.03511033202246049,
+      -0.8125533982340857
+    ],
+    "reason": "Unify the previously inconsistent low visible sky sun, direct illumination and measured HDR solar centroid. Preserve generated cloud cap world heading.",
+    "shadowMap": {
+      "type": "fixed orthographic PCF",
+      "size": 4096,
+      "autoUpdate": false,
+      "initialNeedsUpdate": true,
+      "near": 1,
+      "far": 225
+    },
+    "referenceAsScenePlate": false,
+    "visualAccepted": false
+  },
+  "heroPines148": {
+    "source": "src/hero-pines148.js",
+    "revision": "scene07-aged-shelf-pines148-r01",
+    "scope": "Eight retained rooted garden origins, aged trunks/connected forks/long exposed boughs and separate shallow feathered needle shelves. Original downstream cherry/grass random placement retained through explicit legacy random-stream advancement.",
+    "newExternalAssets": [],
+    "referencePhotoAsTexture": false,
+    "visualAccepted": false
+  },
+  "forest146": {
+    "source": "src/natural-details.js",
+    "scope": "Closed irregular far-forest canopy interiors beneath retained actual cupped exterior leaf geometry. Reduces sparse see-through subpixel crowns. No image assets."
+  },
+  "forest150": {
+    "source": "src/forest150.js",
+    "provenance": "assets/forest150/provenance.json",
+    "originalSourceImageUsedAsTexture": false,
+    "scope": "Actual CC0 scanned conifers rooted on modeled ridge, original material attributes and topology retained; warm golden-hour atmospheric haze.",
+    "visualAccepted": false
   }
 }

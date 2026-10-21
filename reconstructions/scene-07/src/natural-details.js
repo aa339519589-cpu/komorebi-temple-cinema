@@ -27,7 +27,28 @@ export function leafySprig(seed=1){const p=[],r=random(seed);for(let k=0;k<13;k+
 // Arched, broad blades add an upright waterside layer between low moss and
 // the tree canopy. Each instance remains one actual curved low-poly clump.
 export function watersideReeds(seed=7){const p=[],r=random(seed);for(let k=0;k<24;k++){const a=k*2.39996+r()*.18,radius=.06+r()*.30,c=[Math.cos(a)*radius,.015+r()*.07,Math.sin(a)*radius],tilt=.25+r()*.55,d=[Math.cos(a)*tilt,.72+r()*.48,Math.sin(a)*tilt];leaf(p,c,d,.48+r()*.52,.052+r()*.044);if(k%3===0){const side=a+1.1,cc=[c[0]*.65,c[1]+.06,c[2]*.65];leaf(p,cc,[Math.cos(side)*.45,.46+r()*.28,Math.sin(side)*.45],.30+r()*.26,.036+r()*.024);}}return finish(p);}
-export function distantCrown(seed=3){const p=[],r=random(seed);for(let k=0;k<390;k++){const a=r()*TAU,t=r(),rho=Math.sqrt(r()),outline=Math.sin(t*Math.PI)*(.8+.13*Math.sin(a*5+seed));const c=[Math.cos(a)*rho*outline,t*2,Math.sin(a)*rho*outline];leaf(p,c,[Math.cos(a),r()*.7-.1,Math.sin(a)],.12+r()*.12,.04+r()*.04);}return finish(p);}
+// At forest distance the subpixel twig interiors must occlude one another.
+// A closed, irregular broadleaf canopy interior sits under individual cupped
+// leaves. It prevents the sparse former volume from reading as see-through
+// stippling; the actual silhouette and light-facing facets remain geometric.
+export function distantCrown(seed=3){
+ const p=[],r=random(seed),core=new T.SphereGeometry(1,28,16).toNonIndexed();
+ const a=core.attributes.position;
+ for(let i=0;i<a.count;i++){
+  const x=a.getX(i),y=a.getY(i),z=a.getZ(i),t=(y+1)*.5,theta=Math.atan2(z,x),
+   radius=.91*Math.sin(t*Math.PI)*(.88+.09*Math.sin(theta*5+seed)+.055*Math.sin(theta*11+t*17+seed*.7)+.035*Math.cos(theta*19-t*29)),
+   radial=Math.hypot(x,z);
+  p.push(radial>1e-6?x/radial*radius:0,t*2,radial>1e-6?z/radial*radius:0);
+ }
+ core.dispose();
+ for(let k=0;k<390;k++){
+  const theta=r()*TAU,t=.045+r()*.91,
+   outline=Math.sin(t*Math.PI)*(.88+.09*Math.sin(theta*5+seed)+.055*Math.sin(theta*11+t*17+seed*.7)+.035*Math.cos(theta*19-t*29)),
+   rho=.88+r()*.15,c=[Math.cos(theta)*rho*outline,t*2,Math.sin(theta)*rho*outline];
+  leaf(p,c,[Math.cos(theta),r()*.7-.1,Math.sin(theta)],.12+r()*.12,.04+r()*.04);
+ }
+ return finish(p);
+}
 // Solid ceramic half-shells have a real thickness and closed end lips.
 export function halfBarrel(segments=12,span=Math.PI){const p=[],uv=[],normals=[];const P=(a,z,r)=>[Math.cos(a)*r,Math.sin(a)*r,z];function tri(a,b,c,mode){for(const q of[a,b,c]){p.push(...q);uv.push(q[0],q[2]);if(typeof mode==='number'){const r=Math.hypot(q[0],q[1]);normals.push(q[0]/r*mode,q[1]/r*mode,0);}else normals.push(...mode);}}const quad=(a,b,c,d,mode)=>{tri(a,b,c,mode);tri(c,b,d,mode);};for(let i=0;i<segments;i++){const a=i*span/segments,b=(i+1)*span/segments;quad(P(a,-.5,1),P(b,-.5,1),P(a,.5,1),P(b,.5,1),1);quad(P(a,.5,.80),P(b,.5,.80),P(a,-.5,.80),P(b,-.5,.80),-1);quad(P(a,-.5,.80),P(b,-.5,.80),P(a,-.5,1),P(b,-.5,1),[0,0,-1]);quad(P(a,.5,1),P(b,.5,1),P(a,.5,.80),P(b,.5,.80),[0,0,1]);}if(span<Math.PI*1.99)for(const a of[0,Math.PI])quad(P(a,-.5,.8),P(a,-.5,1),P(a,.5,.8),P(a,.5,1),[0,-1,0]);const g=finish(p,uv);g.setAttribute('normal',new T.Float32BufferAttribute(normals,3));return g;}
 export function stoneLanternRoof(){const p=[],uv=[],n=48,rings=12;const point=(j,k)=>{const t=j/rings,a=k/n*TAU,r=.12+(1-t)*.94,y=.39*Math.pow(t,.8)+.11*Math.pow(1-t,8),square=(.90+.10*Math.cos(a*4));return[Math.cos(a)*r*square,y,Math.sin(a)*r*square];};for(let j=0;j<rings;j++)for(let k=0;k<n;k++){const a=point(j,k),b=point(j,k+1),c=point(j+1,k),d=point(j+1,k+1);for(const q of[a,c,b,b,c,d]){p.push(...q);uv.push(q[0],q[2]);}}return finish(p,uv);}

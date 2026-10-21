@@ -1,0 +1,106 @@
+{
+  "revision": "scene07-neutral-glazed-clay-and-cast-relief149-r01",
+  "scope": "Only foreground-gallery-roof.js and this namespace. The entire fitted roof transform, surface formula, edge families, lane/course layout, cap anchors/bases, tile walls/laps and support datums are retained. Shell sampling is denser for rounded highlights. Main hall, camera, sky, lights, pines and garden are unchanged by this lane.",
+  "sourceModule": "reconstructions/scene-07/src/foreground-gallery-roof.js",
+  "reference": "references/hd/6-照片-7.jpg, visual comparison only; never read by surface generator.",
+  "referencePhotoAsSceneAsset": false,
+  "independentSource": {
+    "asset": "Grey Roof 01",
+    "author": "Rob Tuytel",
+    "publisher": "Poly Haven",
+    "primaryAssetUrl": "https://polyhaven.com/a/grey_roof_01",
+    "primaryLicenseUrl": "https://polyhaven.com/license",
+    "license": "CC0-1.0",
+    "licenseVerifiedDate": "2026-10-21",
+    "primaryPageVerified": "Asset page identifies Rob Tuytel and CC0; publisher license explicitly covers textures and redistribution.",
+    "originalInfoBytes": "polyhaven-api-info-original.json",
+    "originalFilesBytes": "polyhaven-api-files-original.json",
+    "files": {
+      "grey_roof_01_diff_4k.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/grey_roof_01/grey_roof_01_diff_4k.jpg",
+        "bytes": 4371088,
+        "providerMD5": "c06911e08bb6ae027accb340ddf8050d",
+        "md5Verified": true,
+        "sha256": "599a76538d75cd814a8ade220100fdd5fb4fb57b0c66f16e567583dec0aed2b4"
+      },
+      "grey_roof_01_nor_gl_4k.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/grey_roof_01/grey_roof_01_nor_gl_4k.jpg",
+        "bytes": 5893637,
+        "providerMD5": "aadca8c47c3edc7e3b06b5e8c92411de",
+        "md5Verified": true,
+        "sha256": "83ec9317cb31828b49b49b5ef380ba3428dbba371b5306f179f5cb678bca4651"
+      },
+      "grey_roof_01_rough_4k.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/grey_roof_01/grey_roof_01_rough_4k.jpg",
+        "bytes": 4252186,
+        "providerMD5": "2073829b513175df10489a9708a93117",
+        "md5Verified": true,
+        "sha256": "113a6930087e288d52111fa70b4f0816287054f5ffcbbf3c256a6e5b4b7811fc"
+      },
+      "grey_roof_01_bump_4k.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/grey_roof_01/grey_roof_01_bump_4k.jpg",
+        "bytes": 5994916,
+        "providerMD5": "2edc1e72de28adcc8ff289721b3b770c",
+        "md5Verified": true,
+        "sha256": "133bca16afc0769433e58733b626be87fb0e64a5be3146c47499894f59326c97"
+      }
+    }
+  },
+  "derivation": {
+    "script": "build-surface-fields.py",
+    "record": "surface-derivation.json",
+    "method": "Joint-free flat ceramic interiors selected from independent scan; overlap-add matching diffuse/normal/roughness samples, remove broad source molding normals; add declared authored low-frequency kiln/glaze variation. No source tile seams, roof image plate, target RGB, camera mapping or depth projection.",
+    "runtimeRepeatMetres": 0.25,
+    "physicalCaveat": "Target glaze coverage, pigment, IOR and sample frequency are source-led modeling hypotheses, not a measured target BRDF.",
+    "metalMaps": "Project-authored deterministic casting pores and roughness. No external bronze image."
+  },
+  "runtimeFiles": [
+    "ceramic-neutral-diff.png",
+    "ceramic-micro-normal-gl.png",
+    "ceramic-glaze-rough.png",
+    "ceramic-glaze-weight.png",
+    "cast-metal-rough.png",
+    "cast-metal-height.png"
+  ],
+  "geometry": {
+    "method": "A closed relief disk with six connected rounded scroll/petal sectors, central cast boss and24small beads; relief merges into its bronze ground. A separate closed recessed bronze seat, rolled bronze retaining rim and narrow rounded gilt bead fit the retained thick ceramic seal. Three small wear variants share the same old cap anchor/basis.",
+    "maximumReliefDepthMetres": 0.023,
+    "castingIsExactLogoRecovery": false,
+    "priorSimpleFivePetalCutoutRemoved": true,
+    "closedClayShellsRetained": true
+  },
+  "material": {
+    "ceramicPigment": "#5b5752",
+    "metalness": 0,
+    "dielectricIor": 1.52,
+    "mappedBaseRoughnessScale": 0.49,
+    "mappedClearcoatScale": 0.72,
+    "mappedClearcoatRoughnessScale": 0.34,
+    "lapEdgeRoughnessAndGlazeWear": true,
+    "uv": "Across true rounded cross arc, along actual tile curve; deterministic per-tile metric offsets; OpenGL normal convention.",
+    "casts": "Rounded crests retain spatially broken gilt with darker bronze ground and cast pore/roughness fields."
+  },
+  "checks": {
+    "syntax": "node --check passed",
+    "geometryStudy": "qa/ten-reference/07/near-gallery149/closed-geometry-audit.json",
+    "claims": "Closed topology and positive volume are CPU geometry checks only. Shader loading and image appearance must be checked by the official native capture."
+  },
+  "visualAccepted": false,
+  "nativeCaptureAtHandoff": "Pending coordinated root full/native-subfrustum capture.",
+  "assetHashes": {
+    "build-surface-fields.py": "6c76d1898afb2994f218d427e7db0e3ecccebfc37788dddea659b042e093436f",
+    "cast-metal-height.png": "7131afb3dd0aac794d054bba40d45477587bbb88a404acf4d67fcfc700701970",
+    "cast-metal-rough.png": "e39423ed8cc1effbc828cab7f31c08e016f4d3c00c11003343beee6f8b1f1ce0",
+    "ceramic-glaze-rough.png": "f1f9aeb2f3dd71a19b5180d07e842519698d491b2f9c6873bc1820b772b4bae5",
+    "ceramic-glaze-weight.png": "2dd95b58ced9e1e7c2f1c51b5a155f64dae3984d3afba528ba82e7c20ee7781d",
+    "ceramic-micro-normal-gl.png": "dc249cf154fe88e71e22b4112221c3a1b5056c248c72c9430a8d607c6758fc68",
+    "ceramic-neutral-diff.png": "1876e9c1af64972f39fbf981c4e13a99ff8d2c1551914d7b893d00b14d2e4ff1",
+    "grey_roof_01_bump_4k.jpg": "133bca16afc0769433e58733b626be87fb0e64a5be3146c47499894f59326c97",
+    "grey_roof_01_diff_4k.jpg": "599a76538d75cd814a8ade220100fdd5fb4fb57b0c66f16e567583dec0aed2b4",
+    "grey_roof_01_nor_gl_4k.jpg": "83ec9317cb31828b49b49b5ef380ba3428dbba371b5306f179f5cb678bca4651",
+    "grey_roof_01_rough_4k.jpg": "113a6930087e288d52111fa70b4f0816287054f5ffcbbf3c256a6e5b4b7811fc",
+    "polyhaven-api-files-original.json": "f9f63a96d6ebf39fb1c2b0a47b99e3b600dfa14bc5210a5e377b4a7ddaae8194",
+    "polyhaven-api-info-original.json": "ac9e84cff162be67c658264b5969d19af347721d3378bf1ad2bebf6639b0e954",
+    "surface-derivation.json": "a0feba7d726b0e868a6d215ea1f4df2e8da2bfa0cdfe8b2ea3e305a99bb55968"
+  }
+}
