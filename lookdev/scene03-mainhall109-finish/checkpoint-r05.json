@@ -1,0 +1,183 @@
+{
+  "status": "actual-geometry-and-native-review-checkpoint",
+  "reviewedAt": "2026-10-21T18:35:23.444873+00:00",
+  "visualAccepted": false,
+  "photographicAccepted": false,
+  "sourceHash": "c2e9eed2836667f77c52c31434758a31a68b3d61cf9dde53ff447ac5ff657853",
+  "fullAndHallReport": "qa/ten-reference/03/iteration-scene03-mainhall109-r05-20261022/report.json",
+  "tightSameCameraReport": "qa/ten-reference/03/iteration-scene03-mainhall109-r05-scanclose-20261022/report.json",
+  "sameSourceAcrossR05FullAndTight": true,
+  "sameFullRgbaAcrossIndependentJobs": true,
+  "originalPreservedSnapshotMatchesR01": true,
+  "snapshotMismatches": [],
+  "finalSourceSnapshot": "lookdev/scene03-mainhall109-finish/checkpoint-r05-source",
+  "unchangedHeldModules": {
+    "architecture-layout106.js": true,
+    "hall-layout.js": true,
+    "scene03-arched-bridge.js": true,
+    "granite-entry-steps.js": true,
+    "scene03-living-banks.js": true,
+    "scene03-garden-assets.js": true,
+    "scene03-root-surfaces108.js": true,
+    "scene03-overhang108.js": true,
+    "scene03-atmosphere109.js": true,
+    "scene03-daylight108.js": true
+  },
+  "sameActualCamera": true,
+  "changedSceneFiles": [
+    "reconstructions/scene-03/asset-dependencies.json",
+    "reconstructions/scene-03/assets/floral-scan109/ATTRIBUTION.md",
+    "reconstructions/scene-03/assets/floral-scan109/attribute-preservation-validation.json",
+    "reconstructions/scene-03/assets/floral-scan109/component-provenance.json",
+    "reconstructions/scene-03/assets/floral-scan109/component.bin",
+    "reconstructions/scene-03/assets/floral-scan109/component.gltf",
+    "reconstructions/scene-03/assets/floral-scan109/installation-provenance.json",
+    "reconstructions/scene-03/assets/floral-scan109/source-face-trace.bin",
+    "reconstructions/scene-03/src/main.js",
+    "reconstructions/scene-03/src/ranma-relief.js",
+    "reconstructions/scene-03/src/reference4-architecture.js",
+    "reconstructions/scene-03/src/scene03-floral-scan109.js",
+    "reconstructions/scene-03/src/scene03-hall-carpentry.js",
+    "reconstructions/scene-03/src/scene03-sculpted-timber109.js"
+  ],
+  "scanExactCopyProof": {
+    "component.gltf": {
+      "sha256": "ac61b7f1ace82721271c6d99e5cbda62dacb1f20b7376c61ec1104029763c06b",
+      "byteIdenticalToLibrary": true
+    },
+    "component.bin": {
+      "sha256": "4b6f16a2aa6efd0bbde92b26547d569c334c5f6516d621284b25c8b02bdb59b5",
+      "byteIdenticalToLibrary": true
+    },
+    "source-face-trace.bin": {
+      "sha256": "e47280e8bbaeaedeb438863854e122f0dc53cd32b0a1f805aaeb38e9b2b84a57",
+      "byteIdenticalToLibrary": true
+    }
+  },
+  "iterations": [
+    {
+      "iteration": "r01",
+      "sourceHash": "e69d389144b6b94e8a19e520e7c48505d133ce33a8de1ada88d9c93f2e1faaa5",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "2a061e8d43a5f8c1a3d4988256038fc564f37016fbd18659ec10eb8f05c16776"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "820fb12dddb2d80508efa6ac406b20461540860ec686cd17d4e3487c658a1aa4"
+        }
+      ]
+    },
+    {
+      "iteration": "r02",
+      "sourceHash": "1d3b772ad32d15f84629813310568463da8c888c1f67be8c4786eb0af321c143",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "c8fbfad2054d2ee0c99b13a1c90a793e28cfb820441fc766a9b9d62ebf619855"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "09e18bb1f13b7c0d2d99aecc96f3ec8bbc6e814732e4aa88c07aadcc9c2ca06f"
+        }
+      ]
+    },
+    {
+      "iteration": "r03",
+      "sourceHash": "d77f50d569c4de718a9af9de02e6f93f40b9dee6a52c368c375ba4f0d0adb16f",
+      "status": "failed",
+      "errors": [
+        "Error: Floral scan wrapper dimensions changed"
+      ],
+      "frames": []
+    },
+    {
+      "iteration": "r04",
+      "sourceHash": "25000ee912219aa50a044a4f215eb63b7538a04ea83dfac3b6a14e22fae09878",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "136bc43e7040ed93f0064ea0aa43eeeffa3a85b733f4e18b0a96b3981bccd555"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "209051122fcde0b29bc12f62a07c44137a227a2f7adae66eb77d32649243ff16"
+        }
+      ]
+    },
+    {
+      "iteration": "r05",
+      "sourceHash": "c2e9eed2836667f77c52c31434758a31a68b3d61cf9dde53ff447ac5ff657853",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "824cbd0cf841405257dde5b37046f77ac4c3c60f900ed71444deeadb35d3f174"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "e17ccb3aba4fa2cd3ab88d342eae2e5bf0a27e0ae09a4abaed8c617f5e568734"
+        }
+      ]
+    }
+  ],
+  "geometryReviewed": [
+    "Six closed lofted variable-depth arms with canted cheeks, waisted throats, raised tips and incised channels replace flat constant-depth extrusions.",
+    "Closed rounded/scalloped volumetric cloud noses replace rectangular timber end tiles.",
+    "Thin lobed leaf blades, rolled branches and an actual open centre replace the broad bare frog-strut triangle.",
+    "Curved closed apron leaves are mounted in front of a real swept support and update their geometry bounds after warp, fixing true-close culling.",
+    "Half-metre solid lower cornice follows the held roof bearing datum, with deep side wall returns closing the former white slots.",
+    "Two exact-triangle real peony scan cassettes are uniformly scaled into solid wood header carriers; the new declared relief-depth finish attributes leave source positions,normals and indices untouched."
+  ],
+  "actualNativeFindings": [
+    "R05 full and both true subfrustum close renders were viewed. The apron is present in the close; the old lower cornice sky slots are closed.",
+    "The real floral scan is correctly front-facing and attached to the central lower structural header; R04 constant gold field was rejected and R05 raised-gilt/oiled-wood treatment gives a legible dark background.",
+    "The same held camera and body/stair/bridge/bank contact modules remain."
+  ],
+  "remainingMajorLimits": [
+    "Overall illumination and shadow hierarchy remain flatter than the supplied reference photograph.",
+    "Repeated bracket rhythm, gable interpretation, coarse timber surface character and simplified curtain/lamp/portal objects still differ visibly from the photograph.",
+    "The selected flower scan supplies ornamental vocabulary, not an identified exact Japanese temple artifact or measured source-photo geometry.",
+    "R05 is a reviewable109 geometry checkpoint, not an accepted photographic match."
+  ],
+  "noGitMutation": true,
+  "noFilmRendered": true,
+  "artifactPngSha256": {
+    "qa/ten-reference/03/iteration-scene03-mainhall109-r05-20261022/reference.png": "6ce25885034c7d1789f7cefd157ed1733a65f1bbda5bb613977dcfd05888ee55",
+    "qa/ten-reference/03/iteration-scene03-mainhall109-r05-20261022/detail-native.png": "e0cf5e6a51a5506faaef79c4a047ca29c8c85901fafcde98ebe44cdba0cd271a",
+    "qa/ten-reference/03/iteration-scene03-mainhall109-r05-scanclose-20261022/detail-native.png": "97b56a0f26f93d014b8db330cee528f13d07afcd1c09b220ecfc5f625fd8a7a6"
+  },
+  "review": "qa/ten-reference/03/iteration-scene03-mainhall109-r05-20261022/REVIEW.md"
+}

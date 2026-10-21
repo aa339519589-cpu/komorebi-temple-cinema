@@ -8,10 +8,10 @@ export function createRestorationLotusLeaf(seed=1){
   // than an independent sinusoidal frill around a flat circular plate.
   const phase=a*19+.075*Math.sin(r*4),primary=Math.pow(Math.max(0,Math.cos(phase)),24),
    edge=1+.022*Math.sin(a*3+seed*.71)+.017*Math.sin(a*7+seed)+.009*Math.cos(phase),
-   rr=r*edge,fold=(.024*Math.sin(a*5+seed*.72)+.011*Math.sin(a*9-seed))*(.13*r+.87*r**2),
-   pleat=.0095*Math.sin(phase)*Math.pow(r,.9)*(1-.30*r),
-   curl=(.057+.025*Math.sin(a*3+seed)+.013*Math.sin(a*7+seed*.4))*r**8,
-   edgeRoll=.015*Math.sin(a*4+seed*.73)*r**18,
+   rr=r*edge,fold=(.018*Math.sin(a*5+seed*.72)+.008*Math.sin(a*9-seed))*(.13*r+.87*r**2),
+   pleat=.0063*Math.sin(phase)*Math.pow(r,.9)*(1-.30*r),
+   curl=(.039+.022*Math.sin(a*3+seed)+.014*Math.sin(a*7+seed*.4))*r**8,
+   edgeRoll=.010*Math.sin(a*4+seed*.73)*r**18,
    ridge=.0020*primary*Math.sin(Math.PI*r*.97),
    asym=.025*Math.sin(a+seed*.66)*r*r;
   return [Math.cos(a)*rr*.5,-.034+.106*r*r+fold+pleat+curl+edgeRoll+ridge+asym,Math.sin(a)*rr*(.455+.018*Math.sin(seed))];

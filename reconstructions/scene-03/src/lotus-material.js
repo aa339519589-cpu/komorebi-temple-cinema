@@ -1,12 +1,13 @@
 import * as T from 'three';
+import {attachLeafSun108} from './scene03-daylight108.js';
 
 export function createLotusPetalMaterials(){
  const width=128,height=512,bytes=new Uint8Array(width*height*4);
- const base=[253,230,220],middle=[249,197,218],tip=[231,150,183];
+ const base=[255,246,230],middle=[254,224,231],tip=[236,140,179];
  const smooth=x=>x*x*(3-2*x);
  for(let y=0;y<height;y++)for(let x=0;x<width;x++){
-  const t=y/(height-1),u=x/(width-1),a=t<.56?base:middle,b=t<.56?middle:tip;
-  const blend=smooth(t<.56?t/.56:(t-.56)/.44);
+  const t=y/(height-1),u=x/(width-1),a=t<.73?base:middle,b=t<.73?middle:tip;
+  const blend=smooth(t<.73?t/.73:(t-.73)/.27);
   const vessel=Math.exp(-Math.pow(Math.sin((u*11+.08*Math.sin(t*5))*Math.PI),2)*160)*Math.sin(t*Math.PI)*2.8;
   const fine=.45*Math.sin(x*12.81+y*1.17),at=(y*width+x)*4;
   for(let c=0;c<3;c++)bytes[at+c]=Math.round(a[c]+(b[c]-a[c])*blend-vessel+fine);
@@ -19,11 +20,11 @@ export function createLotusPetalMaterials(){
  texture.anisotropy=4;texture.needsUpdate=true;
  const materials=['#ffffff','#fff7fb','#fffafd'].map((color,i)=>new T.MeshPhysicalMaterial({
   name:'curved lotus petal '+i,color,map:texture,bumpMap:texture,bumpScale:.00012,
-  roughness:.56,metalness:0,sheen:.15,sheenRoughness:.72,
+  roughness:.62,metalness:0,sheen:.10,sheenRoughness:.72,
   sheenColor:new T.Color('#ffe5ed'),specularIntensity:.25,clearcoat:0,clearcoatRoughness:.68,side:T.FrontSide
  }));
- for(const material of materials){material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
-  vec3 petalSun=normalize((viewMatrix*vec4(-.4472,.7826,.4472,0.)).xyz);
+ for(const material of materials){material.onBeforeCompile=shader=>{attachLeafSun108(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
+  vec3 petalSun=normalize((viewMatrix*vec4(scene03SunDirection108,0.)).xyz);
   float transmittedPetalLight=pow(max(0.,dot(-normal,petalSun)),1.4)*.22;
   reflectedLight.indirectDiffuse+=diffuseColor.rgb*transmittedPetalLight;`);};material.customProgramCacheKey=()=> 'reference03-closed-lotus-petal-light-mesh64';}
  return{materials,texture};
@@ -43,8 +44,8 @@ export async function createLotusLeafMaterial(){
  material.userData.atlasStudy={asset:'lotus-leaf96',inputImageSize:record.imageSize,meanLinearAlbedo:record.targetMeanLinearRGB,generatedMaterialGuide:true,referenceRGBProjected:false,photographicAcceptance:false};
  // Thin peltate tissue transmits a small fraction of the actual sun direction.
  // The closed lower face and the geometric veins still cast and receive shade.
- material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
-  vec3 leafSun=normalize((viewMatrix*vec4(-20.,21.,16.,0.)).xyz);
+ material.onBeforeCompile=shader=>{attachLeafSun108(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
+  vec3 leafSun=normalize((viewMatrix*vec4(scene03SunDirection108,0.)).xyz);
   float leafTransmission=pow(max(0.,dot(-normal,leafSun)),1.3)*.18;
   reflectedLight.indirectDiffuse+=diffuseColor.rgb*leafTransmission;`);};
  material.customProgramCacheKey=()=> 'scene03-closed-leaf-thin-tissue103';

@@ -1,0 +1,304 @@
+{
+  "status": "camera-background-port-rendered",
+  "sourceHash": "f3638c92c8f80d8cee8e40f346d179b4ce24e0211a44b1619ec8c2076ac03281",
+  "baselineReport": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/report.json",
+  "reusedBlend": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-exact-source-physical155.blend",
+  "reusedBlendSha256": "e6e62b74df2225f3a8524cfdf0debb82a7674e2451f56c40365371c0df5687c4",
+  "exportReused": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-physical155/export/export-report.json",
+  "runnerSha256": "709590db3d5e6c25f10c2a8240da54641f472dbff3e4ed1206bda70c90a6de00",
+  "started": 1792606611.913384,
+  "scope": "Only the World camera-ray background branch is replaced with the exact source146 sky-cap sampling/blend/gain/solar halo and disk. Geometry, PBR, sourceUV, normals, RGB, affine matrices, physical lights, GI/reflection sky and camera/exposure are reused unchanged.",
+  "objectMaterialLightCameraStateSignatureBefore": "51d7e34ffec7932a4415a163a31fee639ddc94231855a1b906e7459fed0c7a38",
+  "objectMaterialLightCameraStateSignatureAfter": "51d7e34ffec7932a4415a163a31fee639ddc94231855a1b906e7459fed0c7a38",
+  "signatureScope": "Object/data identifiers, transforms, material node/link identifiers, lights, camera, render color/sampling state; source vertex buffers are the verified unchanged saved blend, not rescanned.",
+  "cameraSky": {
+    "asset": "reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png",
+    "sha256": "8eb2bd1db56e787cb8d0aff096f10068db2db86e435895cdcb7b1a41555617c3",
+    "provenance": "reconstructions/scene-07/assets/sky145/provenance.json",
+    "sourceShader": "reconstructions/scene-07/src/sky-radiance144.js",
+    "sourceShaderSha256": "87effa98dcf2435eb0f50d10963d63205142f37548e6043404611a2b88d0669a",
+    "capCenterRadians": -1.848521751106241,
+    "capWidthDegrees": 70,
+    "elevationRangeDegrees": [
+      -5,
+      30
+    ],
+    "linearGain": 1.1,
+    "boundarySmoothstepFraction": 0.08,
+    "outsideCapMeasuredGain": 0.08,
+    "sunDirection": [
+      -0.5818283592293453,
+      0.035110332022460486,
+      -0.8125533982340857
+    ],
+    "analyticHalo": {
+      "RGB": [
+        1.0,
+        0.46,
+        0.12
+      ],
+      "angleSquaredDenominator": 0.0032,
+      "gain": 0.48
+    },
+    "analyticDisk": {
+      "RGB": [
+        35.0,
+        22.0,
+        8.0
+      ],
+      "cosineSmoothstep": [
+        0.999987,
+        0.99999
+      ]
+    },
+    "worldFixed": true,
+    "translationParallax": false,
+    "cameraFacingPlane": false,
+    "architecturePhotoOrPlate": false
+  },
+  "GIAndReflections": {
+    "worldSource": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "worldSha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "sourceEnvironmentRotationXYZ": [
+      3.097784707246068,
+      0.32182821777101317,
+      3.098210260400911,
+      "XYZ"
+    ],
+    "sourceSunDirection": [
+      -0.5818283592293453,
+      0.035110332022460486,
+      -0.8125533982340857
+    ],
+    "cameraRadianceGain": 0.65,
+    "otherRayRadianceGain": 0.8,
+    "directSunEnergy": 4.1,
+    "sourceSunIntensity": 6.6,
+    "sourceSunColorLinear": [
+      1,
+      0.5209955731953768,
+      0.1844749944900301
+    ],
+    "solarDiskDegrees": 0.53,
+    "cameraGeneratedCloudCapUsed": false,
+    "scope": "Same original independently licensed source HDRI; explicit world-direction port. Original source generated camera-only cloud cap omitted for this independent physical review. No architecture or garden plate.",
+    "sourceProxyLightsOmitted": [
+      {
+        "type": "HemisphereLight",
+        "intensity": 0.45
+      },
+      {
+        "type": "DirectionalLight",
+        "intensity": 0.65
+      }
+    ],
+    "practicals": [
+      {
+        "name": "Source07 practical",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "Source07 practical.001",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "Source07 practical.002",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "Source07 practical.003",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp",
+        "type": "POINT",
+        "energy": 22.61946678161621,
+        "sourceIntensity": 1.8,
+        "sourceLinearRGB": [
+          1.0,
+          0.637596845626831,
+          0.30054378509521484
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp.001",
+        "type": "POINT",
+        "energy": 22.61946678161621,
+        "sourceIntensity": 1.8,
+        "sourceLinearRGB": [
+          1.0,
+          0.637596845626831,
+          0.30054378509521484
+        ]
+      },
+      {
+        "name": "Source07 practical.004",
+        "type": "POINT",
+        "energy": 226.19467163085938,
+        "sourceIntensity": 18,
+        "sourceLinearRGB": [
+          1.0,
+          0.44520118832588196,
+          0.07818742096424103
+        ]
+      },
+      {
+        "name": "Source07 practical.005",
+        "type": "POINT",
+        "energy": 226.19467163085938,
+        "sourceIntensity": 18,
+        "sourceLinearRGB": [
+          1.0,
+          0.44520118832588196,
+          0.07818742096424103
+        ]
+      },
+      {
+        "name": "Actual low source07 sun",
+        "type": "SUN",
+        "energy": 4.099999904632568,
+        "sourceIntensity": 6.6,
+        "sourceLinearRGB": [
+          1.0,
+          0.520995557308197,
+          0.18447498977184296
+        ]
+      }
+    ]
+  },
+  "camera": {
+    "sourcePositionYUp": [
+      10.7,
+      12.8,
+      36
+    ],
+    "sourceFov": 47,
+    "sourceMatrix": [
+      0.962568369925642,
+      3.469446951953614e-18,
+      -0.27103898837379914,
+      0,
+      -0.03939766639281422,
+      0.9893791346525467,
+      -0.1399169460679384,
+      0,
+      0.26816031977437105,
+      0.1453579303449862,
+      0.9523450608809442,
+      0,
+      10.7,
+      12.8,
+      36,
+      1
+    ],
+    "sourcePoseUnchanged": true,
+    "sensorHeightMM": 36,
+    "focalLengthMM": 41.39716720581055,
+    "focusDistanceM": 39.90150451660156,
+    "fStop": 2.8,
+    "exposureEV": 0.45
+  },
+  "nativePixelEquivalence": false,
+  "visualAccepted": false,
+  "newBlendSaved": false,
+  "newExportCreated": false,
+  "hallDetailReused": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-physical155-true-hall-detail.png",
+    "sha256": "8039be3cd67b8597446435fa73b58945def09e352a7010c72972ec8f1db620da",
+    "sourceCropPixels": [
+      540,
+      430,
+      240,
+      1254
+    ],
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 96,
+    "sourceCameraMatrixUnchanged": true,
+    "maximumRaySlopeError": 4.643124107417407e-09,
+    "originalApertureAndCoCPreserved": true,
+    "upscaledScreenshot": false
+  },
+  "hallDetailReason": "Same original hall subfrustum is fully occupied by source building/forest geometry and contains no visible camera-sky background; no duplicate close render is needed.",
+  "warnings": [
+    "AgX remains the unchanged physical color curve; source146 shader radiance port is not ACES/WebGL pixel equivalence.",
+    "This ports only the already-declared original authored sky-only asset to camera environment rays. Physical GI/reflections continue to use the same original measured Qwantani field.",
+    "Model proportions, ornament and garden remain unaccepted source approximations.",
+    "Camera-branch changes can redistribute render importance sampling/noise. Existing geometry pixels are not asserted bit-identical, while model/material/light/camera state and non-camera radiance function remain unchanged. Reused hall detail is explicitly the original physical155 capture."
+  ],
+  "full": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-r02-20261022/scene07-physical155-r02-camera-sky-full.png",
+    "sha256": "077e0bdb7aa05b4cd4b2411ae462c6ec300a9fc8dd4380792e7148f7d362bbc0",
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 96
+  },
+  "elapsedSeconds": 139.35320901870728,
+  "regionDiagnostics": {
+    "hallCropFromFull": {
+      "rectangleXYXY": [
+        540,
+        430,
+        780,
+        670
+      ],
+      "meanAbsolute8bitRGBDelta": 1.1922916666666667,
+      "maxAbsolute8bitRGBDelta": 53,
+      "interpretation": "Diagnostic of this camera-background-only adaptation, not a photo-fidelity metric."
+    },
+    "lowerForeground": {
+      "rectangleXYXY": [
+        0,
+        930,
+        1254,
+        1254
+      ],
+      "meanAbsolute8bitRGBDelta": 0.42120112758514316,
+      "maxAbsolute8bitRGBDelta": 81,
+      "interpretation": "Diagnostic of this camera-background-only adaptation, not a photo-fidelity metric."
+    }
+  },
+  "visualReview": {
+    "viewedActualFull": true,
+    "whiteSkyFailureCorrected": true,
+    "findings": [
+      "World-fixed blue/gold clouds and the aligned solar disk replace the previous near-white camera background.",
+      "Source geometry, PBR, UVs, normals, RGB, affine matrices, lights, camera/DOF/exposure and measured GI/reflection branch are unchanged.",
+      "AgX and unchanged physical atmosphere still produce a more muted sky palette than native ACES; no exposure/HDR asset swap or grading loop was applied.",
+      "Buildings, foliage and stones remain visibly authored approximations; this is not photographic acceptance."
+    ],
+    "visualAccepted": false
+  }
+}

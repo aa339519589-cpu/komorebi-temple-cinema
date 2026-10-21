@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {createKeyedScanBearing107} from './scene03-fractured-stone107.js';
 
 // These immutable, independently photographed CC0 assets are garden
 // understory and stones only. Lotus, cherry and pine remain authored species.
@@ -26,10 +27,11 @@ export async function loadScene03GardenAssets({emit,mats,textures}){
    if(!material){
     material=node.material.clone();material.name=`scene03-CC0-${role}-${materials.size}`;
     material.transparent=false;material.opacity=1;material.alphaTest=role==='rock'?0:.35;material.depthWrite=true;
-    material.side=role==='rock'?T.FrontSide:T.DoubleSide;material.roughness=role==='rock'?.94:.82;
-    if(material.normalScale)material.normalScale.setScalar(role==='rock'?.65:.65);
-    if(role==='shrub')material.color.set('#b7c49a');
-    if(role==='groundcover')material.color.set('#b5c19f');
+    material.side=role==='rock'?T.FrontSide:T.DoubleSide;material.roughness=role==='rock'?.84:.86;
+    if(material.normalScale)material.normalScale.setScalar(role==='rock'?.82:.65);
+    if(role==='rock')material.color.setRGB(.28,.40,.68);
+    if(role==='shrub')material.color.set('#9caf87');
+    if(role==='groundcover')material.color.set('#899c71');
     for(const value of Object.values(material))if(value?.isTexture){value.anisotropy=8;textures.add(value);}
     materials.set(node.material,material);mats[material.name]=material;
    }
@@ -38,8 +40,17 @@ export async function loadScene03GardenAssets({emit,mats,textures}){
    items.push({geometry,material,height:role==='rock'?size.y/Math.max(size.x,size.z):size.y});
   });
   catalog[role]=items;
+  if(role==='rock'){
+   // Preserve the original mineral/lichen UVs on real scan topology. Only
+   // the closed variants receive level foot/head fields for keyed bearing.
+   catalog.bearingRock=items.filter((_,i)=>i!==3).map((item,i)=>{
+    const g=createKeyedScanBearing107(item.geometry,i);
+    return{geometry:g,material:item.material,height:1};
+   });
+   catalog.rockSolid=items.filter((_,i)=>i!==3).map((item,i)=>({geometry:createKeyedScanBearing107(item.geometry,i,{level:false}),material:item.material,height:1}));
+  }
  }
- const counts={shrub:0,groundcover:0,rock:0};
+ const counts={shrub:0,groundcover:0,rock:0,bearingRock:0,rockSolid:0};
  return{
   plant(role,index,position,scale=[1,1,1],rotation=[0,0,0],tint=1){
    const variants=catalog[role];if(!variants)throw Error('Unknown scene03 garden role '+role);

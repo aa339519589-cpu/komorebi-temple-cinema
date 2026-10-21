@@ -1,0 +1,255 @@
+{
+  "status": "reviewable-reference-guided-3d-asset-candidate",
+  "visualAccepted": false,
+  "scope": "Owned lookdev/scene07-stone-toro156 only. No scene02/07/shared-source/Git mutation or live integration.",
+  "revision": "r05",
+  "assetContract": "asset156.json",
+  "adapter": "island-stone-lantern156.js",
+  "GLB": "r05/toro156.glb",
+  "GLBBytes": 15551500,
+  "GLBSha256": "076f56d4580f08d63f4407db3fda24a41c5a5411b050fbd7f2a7513c3893b2d2",
+  "editableBlend": "r05/toro156-editable.blend",
+  "proceduralBuilder": "build-toro156.py",
+  "builderSha256": "c0c55cf973f2353079d2eaf86c465d26c87f9364d1c8dfb258f926d41ed6d627",
+  "standaloneRenders": [
+    {
+      "name": "front",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-stone-toro156/r05/front.png",
+      "sha256": "ada1fef4e80f938acbf7ed5273e159ea66c011a453d3aed84ef95d678a6c9119",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 64,
+      "positionBlenderZUp": [
+        0,
+        -8.5,
+        3.15
+      ],
+      "targetBlenderZUp": [
+        0,
+        0,
+        2.02
+      ],
+      "lensMm": 67
+    },
+    {
+      "name": "three-quarter",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-stone-toro156/r05/three-quarter.png",
+      "sha256": "8455683db176cc85f0642f0801879d4693fc6f282f13bdc3168db131e5d71575",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 64,
+      "positionBlenderZUp": [
+        5,
+        -7,
+        4.1
+      ],
+      "targetBlenderZUp": [
+        0,
+        0,
+        2.02
+      ],
+      "lensMm": 65
+    },
+    {
+      "name": "head-close",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-stone-toro156/r05/head-close.png",
+      "sha256": "cf09e1ac5436a3a966399add7f2ca9691cf795551114ff989df37542ae7266d8",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 64,
+      "positionBlenderZUp": [
+        3.2,
+        -4.4,
+        3.65
+      ],
+      "targetBlenderZUp": [
+        0,
+        0,
+        2.99
+      ],
+      "lensMm": 92
+    }
+  ],
+  "comparison": {
+    "file": "reference-left-r05-right.png",
+    "left": "Supplied HD07 crop at source pixels106x212+695+693, enlarged to627x1254 for comparison.",
+    "right": "Centre627x1254 pixel crop from the actual1254px R05 three-quarter perspective render.",
+    "sourcePhotoUsedAsSceneSurface": false
+  },
+  "targetControlledShape": [
+    "Closed square pedestal profile with four shallow actual Boolean recesses and attached stone lotus carving; central solid core checked by rays.",
+    "Broad closed six-sided curved stone roof with thick downturned lip, raised hips, real chipped edge/fissure geometry and spherical finial.",
+    "Six deep framed window openings with actual connected dark cast lattice, recessed thin luminous panes and stone piers.",
+    "Heavy hexagonal platform with real carved floral frieze and surface-fitted lotus receiver/crown relief.",
+    "Individually authored irregular plinth courses and 3D mineral/lichen age variation, using unchanged existing CC0 metric granite maps."
+  ],
+  "capturedSourceRole": {
+    "title": "Japanese Toro",
+    "author": "3dlunatic",
+    "authorProfile": "https://sketchfab.com/3dlunatic",
+    "originalModel": "https://sketchfab.com/3d-models/japanese-toro-3b03ece9c7b64a188e1139673cec4a38",
+    "metadataSource": "https://api.sketchfab.com/v3/models/3b03ece9c7b64a188e1139673cec4a38",
+    "license": "CC-BY-4.0",
+    "licenseURL": "http://creativecommons.org/licenses/by/4.0/",
+    "licenseRequirements": "Author must be credited. Commercial use is allowed.",
+    "sourceDescription": "Japanese Toro is a stone lantern. I took the photos on my trip to Japan, and created this with Ajisoft PhotoScan. It needs a little cleaning up and retopology.",
+    "datasetMirror": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-047/3b03ece9c7b64a188e1139673cec4a38.glb",
+    "sourceFile": "source-objaverse.glb",
+    "sourceBytes": 12659612,
+    "sourceSha256": "e3d499aac1d5781c8a68bbf86e306a172d3794273c8f89b5fc83b513dade8d91",
+    "originalBytesPreserved": true,
+    "creatorReportedTriangles": 319327,
+    "creatorReportedVertices": 160236,
+    "glbMeshCount": 3,
+    "glbMaterials": [
+      {
+        "doubleSided": true,
+        "name": "material0",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.8,
+            0.8,
+            0.8,
+            1.0
+          ],
+          "metallicFactor": 0.0,
+          "roughnessFactor": 0.9577051495
+        }
+      }
+    ],
+    "attribution": "Japanese Toro by 3dlunatic, licensed CC BY 4.0, via Sketchfab and the public Objaverse dataset. Hybrid cleanup, cropping, retopology and authored stonework are documented in the derived asset report.",
+    "visualAccepted": false
+  },
+  "capturedSamples": {
+    "hitFraction": 1.0,
+    "localResidualRangeMetres": [
+      -0.012,
+      0.012
+    ],
+    "donorMacroFormExcluded": true,
+    "referenceShaftProfile": [
+      [
+        0.47,
+        0.44
+      ],
+      [
+        0.57,
+        0.44
+      ],
+      [
+        0.7,
+        0.345
+      ],
+      [
+        0.78,
+        0.325
+      ],
+      [
+        1.34,
+        0.325
+      ],
+      [
+        1.49,
+        0.365
+      ],
+      [
+        1.6,
+        0.38
+      ],
+      [
+        1.68,
+        0.38
+      ]
+    ]
+  },
+  "geometryValidation": {
+    "report": "asset-contract-check.json",
+    "triangles": 484852,
+    "nativeMaterialBatches": 4,
+    "normalisedLocalBounds": [
+      [
+        -1.059999942779541,
+        0,
+        -0.9235069155693054
+      ],
+      [
+        1.0594481229782104,
+        4.050000190734863,
+        0.9213159084320068
+      ]
+    ],
+    "footError": 0,
+    "heightError": 1.9073486345888568e-07,
+    "roofHalfWidthError": 5.7220459037665705e-08,
+    "anchorTransformError": 0,
+    "actualShaftCoreClearancesMetres": [
+      0.28801867365837097,
+      0.28304323554039,
+      0.2891027629375458,
+      0.28867727518081665
+    ],
+    "notAFidelityScore": true,
+    "originalGlowMaterialIdentityPreserved": true
+  },
+  "nativeIntegration": {
+    "API": "Same exported loadIslandLanternStone / buildIslandStoneLantern functions and existing anchor/parentMatrix/uniformScale/maps/glowMaterial arguments. Await the new loader to prepare the GLB. All current caller options are retained.",
+    "drawCalls": "Four geometry/material batches per lantern.",
+    "dependencies": [
+      "asset156.json",
+      "island-stone-lantern156.js",
+      "r05/toro156.glb",
+      "Existing original scene07 granite crop maps"
+    ],
+    "placement": "Native adapter performs a declared3D normalisation: actual minimum Y at0, height4.05, maximum roof plan half-width1.06. Parent controls live scene integration.",
+    "lighting": "Existing glowMaterial is reused when supplied. Native adapter adds no light; practical centre metadata is returned for the parent. Standalone Cycles uses an actual internal point light.",
+    "nativePBR": "Original map/normal/roughness plus metric UVs and exported vertex age RGB; shader/material calibration is declared in asset156.json.",
+    "minimalImportFromCurrentScene07SrcMain": "import {loadIslandLanternStone,buildIslandStoneLantern} from '../../../lookdev/scene07-stone-toro156/island-stone-lantern156.js';",
+    "sourceDependencyEntries": [
+      "lookdev/scene07-stone-toro156/island-stone-lantern156.js",
+      "lookdev/scene07-stone-toro156/asset156.json",
+      "lookdev/scene07-stone-toro156/r05/toro156.glb"
+    ]
+  },
+  "retainedFailedCandidates": [
+    "r01/rejected-review.json",
+    "r02/rejected-review.json",
+    "r03/rejected-review.json",
+    "shaft-diagnostic.json"
+  ],
+  "remaining": [
+    "Exact HD carved motifs and weathering pattern are not a verified match.",
+    "R05 age is procedural/geometry-derived rather than scanned surface colour, and may still need tuning in live scene07 lighting.",
+    "Standalone camera/light is independent of the source07 camera/light; no native scene07 acceptance or integration is claimed."
+  ],
+  "attribution": "ATTRIBUTION.txt",
+  "adapterSha256": "e447872d1d8459b15940c01fb3a260ed66994bbb1abcd1b9ba8a3e7f47d21865",
+  "deliverableFiles": [
+    "asset156.json",
+    "island-stone-lantern156.js",
+    "build-toro156.py",
+    "r05/toro156.glb",
+    "r05/toro156-editable.blend",
+    "r05/front.png",
+    "r05/three-quarter.png",
+    "r05/head-close.png",
+    "r05/report.json",
+    "asset-contract-check.json",
+    "ATTRIBUTION.txt",
+    "reference-left-r05-right.png",
+    "sources/ccby-3dlunatic-toro/source-objaverse.glb",
+    "sources/ccby-3dlunatic-toro/creator-primary-metadata.json",
+    "sources/ccby-3dlunatic-toro/provenance.json",
+    "write-asset-contract156.py"
+  ],
+  "rebuildCommands": [
+    "node tools/run-blender-queued.mjs lookdev/scene07-stone-toro156/build-toro156.py",
+    "python3 lookdev/scene07-stone-toro156/write-asset-contract156.py r05",
+    "node --no-warnings --experimental-loader ./lookdev/scene07-stone-toro156/node-three-loader156.mjs lookdev/scene07-stone-toro156/check-asset156.mjs"
+  ]
+}

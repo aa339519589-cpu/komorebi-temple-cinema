@@ -1,0 +1,26 @@
+{
+  "asset": "kloofendal_48d_partly_cloudy_puresky",
+  "provider": "Poly Haven",
+  "authors": [
+    "Greg Zaal: Original",
+    "Jarod Guest: Sky Edits"
+  ],
+  "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "retrieved": "2026-10-21",
+  "role": "Independent sky-only equirectangular environment and outdoor light/reflections; no temple or supplied photo pixels",
+  "referencePhotographUsed": false,
+  "file": "sky-2k.hdr",
+  "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+  "nativeDirectSun": "Retained shadow-key azimuth, elevation derived from the48d HDR solar peak; same direction drives maple and lotus tissue transmission. HDR solar disc is capped in IBL to avoid counting it twice.",
+  "library": {
+    "name": "Three.js HDRLoader",
+    "revision": "r186",
+    "source": "https://github.com/mrdoob/three.js/blob/r186/examples/jsm/loaders/HDRLoader.js",
+    "license": "MIT",
+    "localSource": "src/vendor/HDRLoader.js",
+    "localLicense": "src/vendor/THREE-LICENSE.txt"
+  },
+  "rejectedCandidate": "38d sky retained in lookdev/scene03-monumental-garden-v2; its dense cirrus sheet did not reproduce the observed clear blue openings and isolated white cumulus."
+}

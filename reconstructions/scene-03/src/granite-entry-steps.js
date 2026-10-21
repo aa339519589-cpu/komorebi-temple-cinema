@@ -9,7 +9,7 @@ export async function installEntryGranite(T,material){
  const maps=await Promise.all(names.map(name=>loader.loadAsync(new URL(`../assets/granite-tile-04/granite-face-${name}.png`,import.meta.url).href)));
  for(const [i,map]of maps.entries()){map.name='CC0-PolyHaven-granite-tile04-stair-'+names[i];map.wrapS=map.wrapT=T.MirroredRepeatWrapping;map.anisotropy=8;if(i===0)map.colorSpace=T.SRGBColorSpace;}
  material.map=maps[0];material.normalMap=maps[1];material.normalScale.set(.28,.28);material.roughnessMap=maps[2];material.bumpMap=null;
- material.color.set('#858c91');material.roughness=.90;material.metalness=0;material.vertexColors=true;
+ material.color.set('#b4bdc1');material.roughness=.90;material.metalness=0;material.vertexColors=true;
  material.onBeforeCompile=shader=>{
   shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
    float graniteY=dot(diffuseColor.rgb,vec3(.2126,.7152,.0722));

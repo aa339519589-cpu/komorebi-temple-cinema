@@ -1,0 +1,236 @@
+{
+  "status": "actual-glb-and-api-contract-checked",
+  "scope": "Bounded CPU inspection of actual GLTF buffers and the API adapter; not a native render or photographic-fidelity test.",
+  "visualAccepted": false,
+  "glbSha256": "076f56d4580f08d63f4407db3fda24a41c5a5411b050fbd7f2a7513c3893b2d2",
+  "adapterSha256": "e447872d1d8459b15940c01fb3a260ed66994bbb1abcd1b9ba8a3e7f47d21865",
+  "roles": [
+    {
+      "role": "toro156-bronze",
+      "vertices": 15936,
+      "triangles": 13584,
+      "finitePosition": true,
+      "finiteNormal": true,
+      "finiteMetricUV": true,
+      "colorComponents": 3,
+      "colorRange": [
+        1,
+        1
+      ]
+    },
+    {
+      "role": "toro156-stone",
+      "vertices": 194850,
+      "triangles": 322772,
+      "finitePosition": true,
+      "finiteNormal": true,
+      "finiteMetricUV": true,
+      "colorComponents": 3,
+      "colorRange": [
+        0,
+        1
+      ]
+    },
+    {
+      "role": "toro156-cap",
+      "vertices": 81639,
+      "triangles": 148424,
+      "finitePosition": true,
+      "finiteNormal": true,
+      "finiteMetricUV": true,
+      "colorComponents": 3,
+      "colorRange": [
+        0.2994735538959503,
+        0.9534447193145752
+      ]
+    },
+    {
+      "role": "toro156-paper",
+      "vertices": 144,
+      "triangles": 72,
+      "finitePosition": true,
+      "finiteNormal": true,
+      "finiteMetricUV": true,
+      "colorComponents": 3,
+      "colorRange": [
+        1,
+        1
+      ]
+    }
+  ],
+  "localBounds": [
+    [
+      -1.059999942779541,
+      0,
+      -0.9235069155693054
+    ],
+    [
+      1.0594481229782104,
+      4.050000190734863,
+      0.9213159084320068
+    ]
+  ],
+  "footError": 0,
+  "heightError": 1.9073486345888568e-7,
+  "maxRoofError": 5.7220459037665705e-8,
+  "worldAnchorError": 0,
+  "originalGlowMaterialIdentityPreserved": true,
+  "unitInfo": {
+    "revision": "scene07-captured-and-sculpted-toro156",
+    "anchorLocal": [
+      0,
+      0,
+      0
+    ],
+    "uniformLocalScale": 1,
+    "worldAnchor": [
+      0,
+      0,
+      0
+    ],
+    "localBounds": {
+      "min": [
+        -1.059999942779541,
+        0,
+        -0.9235069155693054
+      ],
+      "max": [
+        1.0594481229782104,
+        4.050000190734863,
+        0.9213159084320068
+      ]
+    },
+    "worldBounds": {
+      "min": [
+        -1.059999942779541,
+        0,
+        -0.9235069155693054
+      ],
+      "max": [
+        1.0594481229782104,
+        4.050000190734863,
+        0.9213159084320068
+      ]
+    },
+    "fireBagCentreY": 2.8404478263027255,
+    "fireBagClearHeight": 0.5298037611632292,
+    "practicalCentreWorld": [
+      0,
+      2.8404478263027255,
+      0
+    ],
+    "roofMaximumHalfWidth": 1.06,
+    "sixSidedChamber": true,
+    "trueRecessedPanes": true,
+    "closedThickCurvedRoof": true,
+    "closedCurvedRoof": true,
+    "verticalBarsPerFace": 3,
+    "horizontalBarsPerFace": 3,
+    "mossPatches": 0,
+    "mossFibreSolids": 0,
+    "geometryMaterialBatches": 4,
+    "triangles": 484852,
+    "lightsAdded": 0,
+    "originalGlowMaterialRetained": false,
+    "source": {
+      "title": "Japanese Toro",
+      "author": "3dlunatic",
+      "authorProfile": "https://sketchfab.com/3dlunatic",
+      "license": "CC-BY-4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "originalModel": "https://sketchfab.com/3d-models/japanese-toro-3b03ece9c7b64a188e1139673cec4a38",
+      "originalGLBSha256": "e3d499aac1d5781c8a68bbf86e306a172d3794273c8f89b5fc83b513dade8d91",
+      "originalGLBBytesPreserved": true,
+      "contribution": "Local 3D weathering residuals sampled from the licensed shaft surface only. Donor whole silhouette, macro shaft envelope, roof, fire chamber and captured ground are excluded. Missing-scan regions interpolate nearby captured samples; residuals are clamped to ±12 mm and applied to a new target-controlled square profile.",
+      "attribution": "Japanese Toro by 3dlunatic, CC BY 4.0, via Sketchfab and public Objaverse; modified in the temple-cinema Tōrō156 study. New roof/frame/lattice/stonework and further edits are documented in r05/report.json."
+    },
+    "sourceGLBSha256": "076f56d4580f08d63f4407db3fda24a41c5a5411b050fbd7f2a7513c3893b2d2",
+    "sourceMapPixelsUnchanged": true,
+    "textureMetres": 0.3173828125,
+    "normalization": {
+      "xzScale": 0.9933899104153996,
+      "yScale": 0.9996297380438287,
+      "sourceFootY": -0.0014999256236478686
+    },
+    "visualAccepted": false
+  },
+  "placedInfo": {
+    "revision": "scene07-captured-and-sculpted-toro156",
+    "anchorLocal": [
+      4.876137218447144,
+      1.8749026581769392,
+      5.52
+    ],
+    "uniformLocalScale": 1.1287694126373844,
+    "worldAnchor": [
+      5.222490820764063,
+      2.0623929239946333,
+      5.692915999697968
+    ],
+    "localBounds": {
+      "min": [
+        -1.059999942779541,
+        0,
+        -0.9235069155693054
+      ],
+      "max": [
+        1.0594481229782104,
+        4.050000190734863,
+        0.9213159084320068
+      ]
+    },
+    "worldBounds": {
+      "min": [
+        3.52297794713344,
+        2.0623929239946333,
+        4.539631025866689
+      ],
+      "max": [
+        6.921645240948504,
+        7.091060894119428,
+        6.844093437913261
+      ]
+    },
+    "fireBagCentreY": 2.8404478263027255,
+    "fireBagClearHeight": 0.5298037611632292,
+    "practicalCentreWorld": [
+      5.222490820764063,
+      5.589224610969783,
+      5.692915999697968
+    ],
+    "roofMaximumHalfWidth": 1.06,
+    "sixSidedChamber": true,
+    "trueRecessedPanes": true,
+    "closedThickCurvedRoof": true,
+    "closedCurvedRoof": true,
+    "verticalBarsPerFace": 3,
+    "horizontalBarsPerFace": 3,
+    "mossPatches": 0,
+    "mossFibreSolids": 0,
+    "geometryMaterialBatches": 4,
+    "triangles": 484852,
+    "lightsAdded": 0,
+    "originalGlowMaterialRetained": true,
+    "source": {
+      "title": "Japanese Toro",
+      "author": "3dlunatic",
+      "authorProfile": "https://sketchfab.com/3dlunatic",
+      "license": "CC-BY-4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "originalModel": "https://sketchfab.com/3d-models/japanese-toro-3b03ece9c7b64a188e1139673cec4a38",
+      "originalGLBSha256": "e3d499aac1d5781c8a68bbf86e306a172d3794273c8f89b5fc83b513dade8d91",
+      "originalGLBBytesPreserved": true,
+      "contribution": "Local 3D weathering residuals sampled from the licensed shaft surface only. Donor whole silhouette, macro shaft envelope, roof, fire chamber and captured ground are excluded. Missing-scan regions interpolate nearby captured samples; residuals are clamped to ±12 mm and applied to a new target-controlled square profile.",
+      "attribution": "Japanese Toro by 3dlunatic, CC BY 4.0, via Sketchfab and public Objaverse; modified in the temple-cinema Tōrō156 study. New roof/frame/lattice/stonework and further edits are documented in r05/report.json."
+    },
+    "sourceGLBSha256": "076f56d4580f08d63f4407db3fda24a41c5a5411b050fbd7f2a7513c3893b2d2",
+    "sourceMapPixelsUnchanged": true,
+    "textureMetres": 0.3173828125,
+    "normalization": {
+      "xzScale": 0.9933899104153996,
+      "yScale": 0.9996297380438287,
+      "sourceFootY": -0.0014999256236478686
+    },
+    "visualAccepted": false
+  }
+}

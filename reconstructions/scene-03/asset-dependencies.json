@@ -1,6 +1,6 @@
 {
   "scene": "03",
-  "revision": "scene03-coupled-architecture106-garden105",
+  "revision": "scene03-deep-sculpted-mainhall109-garden108",
   "referencePhotographs": {
     "usedByRuntime": false,
     "comparisonInput": "references/hd/2-照片-3.jpg",
@@ -89,7 +89,14 @@
     "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
     "reconstructions/scene-03/tools/solve-architecture106.py",
     "reconstructions/scene-03/tools/solve-architecture106-bridge.py",
-    "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json"
+    "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json",
+    "reconstructions/scene-03/src/scene03-fractured-stone107.js",
+    "reconstructions/scene-03/tools/local-three-loader107.mjs",
+    "reconstructions/scene-03/tools/audit-stone107.mjs",
+    "reconstructions/scene-03/src/scene03-lotus-stem107.js",
+    "reconstructions/scene-03/assets/daylight108/sky-2k.hdr",
+    "reconstructions/scene-03/src/vendor/THREE-LICENSE.txt",
+    "reconstructions/scene-03/assets/floral-scan109/ATTRIBUTION.md"
   ],
   "carvedRanma": {
     "scope": "Central portal crossbeams only: hall-local y=8.70 and 9.30m; x=-2.01,-0.67,0.67,2.01m; front datum z=0.330m.",
@@ -295,6 +302,79 @@
       "geometry": "0.919248m deck rise, closed girder depth0.297931m at ends to0.478053m at crown, constant retained1.10m railing camber with actual varying baluster lengths, ranked closed lathed bulb caps, and closed solid arch ribs meeting the real cross-joist undersides. Existing deck-end level/position and stone supports remain; route is derived from the actual endpoints.",
       "scoreLimit": "Extended point/contour/radius RMS12.64px vs15.33px before this local body pass. This is a different41-feature dataset from the first29-feature whole-layout fit and is not photographic fidelity.",
       "photographicAccepted": false
+    }
+  },
+  "fracturedGarden107": {
+    "sourceModules": [
+      "src/scene03-fractured-stone107.js",
+      "src/scene03-living-banks.js",
+      "src/scene03-garden-assets.js"
+    ],
+    "geometry": "R01 broad cut-polygon bearing rejected after actual native close view. Current bridge bearings use four narrow closed keys under each original cap, plus three overlapping courses of full original UV-preserving scanned rock solids with level head/foot fields; the open rock04 provider variant is excluded from structural courses. Smaller original full-topology stones replace most visible slope/toe masses. Authored joint-plane rocks remain on the distant tower site and small held toro pocket only.",
+    "surface": "Preserved original moss-rock 4K diffuse/normal/roughness with a cool neutral material gain offsetting the original warm mineral pigment. No shared originals are mutated. Narrow authored keys and fixed bearing caps use independent local CC0 granite_tile_04 surface maps with standard PBR roughness, normal, lichen vertex pigment and damp mineral gains. Soil has fine procedural grain and actual micro-relief. No reference-scene RGB/projection. R03 actual native close still read too warm/dry. Current standard material pigment gain is cooler (#6e8ecb) to offset the preserved original warm mineral albedo; no source photograph recolouring/projection or shared asset edits.",
+    "rooting": "The existing closed bank solids and coupled106 stair-to-bridge route stay fixed. Armouring uses fewer smaller irregularly spaced stones; layered shrubs/azalea/groundcover remain rooted on those same soil surfaces. Smaller azalea leaves, muted groundcover, intermittent flowering patches replace the former uniformly white large-leaf surface. A shorter third layer of original periwinkle meshes uses3.5cm insertion in actual rough soil. Understory species remain stand-ins. New curved lotus stems are single capped closed tubes from the real pond bed to the neck; standard vertex pigment below the waterline remains an appearance approximation.",
+    "lotus": "Broader, lower and thinner-looking closed petal ranks; reduced regular rim frill in the actual leaf mesh; irregularly clustered leaf heights/leans replace the former six-wide near-bank rows. All stem roots remain at the real pond bed. R05 true native close exposed excessive overlapping spoon-like petals. Current repair uses narrower individual26-petal spiral whorls, unequal curl/lean/height, lower receptacle/stamens and pale ivory basal tissue grading to pink tips. Geometric thick rolled side ridge reduced; actual closed thin solids remain. The petal thin-tissue light approximation now uses the actual retained sun direction, not an unrelated fixed vector.",
+    "verification": "tools/audit-stone107.mjs imports the actual source geometry via the local vendor resolver and audits signed volume and quantized edge incidence. Native fidelity remains separately judged.",
+    "retainedArchitecture": "architecture-layout106.js, camera, hall/tower/roof transform hierarchy, bridge span/camber/deck route, stair footprint and cap planes are unchanged.",
+    "uncertainty": "Source stone contours, species and wetting are manually interpreted, not recovered survey geometry or a geological/species identification.",
+    "photographicAccepted": false,
+    "visualAccepted": false,
+    "nativeIteration": "R01 f4c84971d2be96c19f74d06e2174469b2fbed643ca8110bd274b0fc127ff0ba5 retained and rejected for broad flat polygon bearing and bare soil transitions. Current changes repair those observed native defects. R02 b90d4b6ed2ab650c401c47814cdc3d1421446113048dfca285c87e472044f7fd was cancelled while still queued, before GPU acquisition, to combine the bank-mass repair; zero R02frames claimed.",
+    "bankMassingCorrection": "R01/source comparison shows the real planted rock bank rising into the bridge foot, rather than an isolated tall pier. R03 rebuilt a real6thclosed shoulder but left too much smooth green soil exposed; its actual full/native close is retained and rejected. Current rock shoulder uses four large closed original full-UV scan solids over a lower closed root-soil body. Narrow closed keys and three keyed scan courses still bear the fixed106cap. Toe fragments, groundcover and iris soil bodies connect to this actual mass; the arch span and stair-to-bridge route remain open and fixed.",
+    "actualAboveCorrection": "R04 native above view reveals inherited flat sidebank shelves with vertical outer/end faces despite their prior narrow-apron repair. Current bankY physically descends across each4.6m shoulder to the surrounding ground at-0.15m; the closed bridge apron derives its start profile from the same lateral bank field. All armouring/roots use the revised analytical surface. No plants are used to hide unchanged floating/square ground. Original stair flight, landing route and coupled106anchors stay fixed. R05 lateral grading exposed tall upper foundation faces, showing missing coupled terrain beyond the narrow banks. Current source adds two actual closed outer hillside bodies: high near the upper plinth, descending across real slopes and at both longitudinal ends to surrounding ground. New rooted mineral/understory strata use the exact same surface; tower-local terrain height is bounded by the held tower site so the new hill does not bury its foundation. The hidden hill extent is inferred support geometry, not a surveyed reconstruction. All106architecture and route dimensions stay exact."
+  },
+  "rootedGarden108": {
+    "status": "native-render-review-required",
+    "comparisonInput": "references/hd/2-照片-3.jpg",
+    "retainedArchitectureCamera": "architecture-layout106.js unchanged",
+    "independentFloor": {
+      "asset": "forest_leaves_02",
+      "provider": "Poly Haven / Rob Tuytel",
+      "license": "CC0-1.0",
+      "provenance": "assets/forest-floor108/provenance.json",
+      "maps": "Unaltered provider2k diffuse/normal/roughness/displacement; no reference RGB",
+      "physicalTileMetres": 3,
+      "sampledReliefMetres": 0.052
+    },
+    "geometry": [
+      "Closed hillside receives the same sampled52mm relief field as the planting roots",
+      "Broad scan outcrops buried into the existing continuous upper/outer banks; no support geometry deleted",
+      "Low broader six-stone shoulder surrounds the retained closed bridge bearing cap and keyed abutment",
+      "Authored14–41mm moss stems and side fronds occupy soil/rock root contacts",
+      "Rooted curved maple tree with closed serrated folded palmate leaves replaces parallel bars and flat stars",
+      "Near lotus leaf lowered and flattened to reopen pond depth; remaining seeded pond placements preserved",
+      "Three bridge stone courses taper inside the actual cap; closed keys and spread footings remain continuous to pond bed",
+      "Lantern caps receive spatially coherent vertex-pigment moss patches and millimetre-scale true moss stems on their actual roof surfaces",
+      "Flooded base boxes retain closed3m metric dark-mineral soil rather than magnified terrestrial litter, verified by the real above-view review",
+      "Supported granite route retains all existing positions/contacts with a calibrated non-vertex-colour mineral material"
+    ],
+    "photographicAccepted": false,
+    "daylight": {
+      "asset": "kloofendal_48d_partly_cloudy_puresky",
+      "provenance": "assets/daylight108/provenance.json",
+      "source": "Independent CC0 sky only, not the temple photograph",
+      "purpose": "Isolated white cumulus and blue sky openings replace the low-resolution analytic gradient. One measured solar direction drives environment orientation, shadow key and leaf transmission."
+    }
+  },
+  "mainHall109": {
+    "status": "native-r05-full-and-hall-review-required",
+    "base": "Frozen108R06 at4701698d2542b678da85e9bd5ad872d11d039afc317ed5c0030e8ff903b5cca9",
+    "geometry": "109R03: six lofted, waisted and canted arm prototypes, lapped bearing seats, closed scalloped volute noses; thin curled pierced gable branches, exposed curved closed leaf relief with rebuilt post-warp bounds; half-metre closed lower cornice and full side returns; two selective uniformly scaled real floral-scan cassettes in the central structural header",
+    "sameFootprintAndCamera": true,
+    "sky": "Same licensed IBL and solar direction; a world-fixed3D cumulus field and pale atmospheric radiance replace the purple/empty background. No new HDR or scene photograph.",
+    "referenceImageProjection": false,
+    "photographicAccepted": false,
+    "visualAccepted": false,
+    "floralScan": {
+      "asset": "assets/floral-scan109/component.gltf",
+      "source": "Diana Liu / Thunk3D wood carving, Sketchfab93766a4c12eb4c278d23294582034e8c",
+      "license": "CC BY4.0",
+      "attribution": "assets/floral-scan109/ATTRIBUTION.md",
+      "provenance": "assets/floral-scan109/component-provenance.json",
+      "installation": "assets/floral-scan109/installation-provenance.json",
+      "method": "Exact selected original triangles and normals; rigid PCA and unverified uniform0.001 unit wrapper retained. Two uniform1.90 scene instances, face rotated180degrees, open crop edges embedded in separately authored solid timber carriers. No remeshing, anisotropic scaling, UV invention or photograph projection. Declared relief-depth raised-gilt/oiled-wood PBR finish is an artistic material hypothesis. Motif is a stand-in rather than an identified source-temple artifact.",
+      "prototypeTriangles": 1633989,
+      "instances": 2
     }
   }
 }

@@ -1,0 +1,34 @@
+{
+  "revision": "157-r01-floral-field",
+  "components": [
+    {
+      "name": "Actual scanned peony and leaf frieze field",
+      "source": "sources/ccby-diana-liu-floral-panel/source-objaverse.glb",
+      "inspection": "inspection-r02/floral-panel-source-inspection.json",
+      "output": "derived/floral-frieze157-r01",
+      "boundsZUp": [
+        [
+          -0.284,
+          -0.012,
+          -0.104
+        ],
+        [
+          0.274,
+          0.013,
+          0.105
+        ]
+      ],
+      "originZUp": [
+        0,
+        0,
+        0
+      ],
+      "minimumTriangles": 100000,
+      "unitStatement": {
+        "original": "Scanner-native coordinates and all original world/node transforms are preserved in the original GLB and source trace. Creator does not supply verified physical dimensions.",
+        "proposal": "The reversible wrapper uses a uniform0.001 native-unit conversion, consistent with millimetres, followed only by a rigid PCA viewing/alignment frame. It is an explicitly unverified metric proposal, not recovered surveyed scale.",
+        "noAnisotropicRescaling": true
+      }
+    }
+  ]
+}
