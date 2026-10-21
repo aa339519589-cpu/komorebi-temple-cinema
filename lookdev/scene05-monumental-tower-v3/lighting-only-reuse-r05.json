@@ -1,0 +1,148 @@
+{
+  "status": "verified-identical-geometry-lighting-only-reuse",
+  "reason": "Disk constrained: reuse the already verified R04 binary mesh package instead of another multi-gigabyte identical export.",
+  "geometrySourceHash": "546e8e4a53c7efadd7b3e1022f05446a12f6745d8221f48c48e1bb9606dca3db",
+  "lightingSourceHash": "2c380b18cf60238e76592a6f8b40e012553c9890c53d95e7cd73e0faf6324392",
+  "nativeLightingReceipt": "qa/ten-reference/05/iteration-scene05-monumental-tower-v3-r05-native-20261022/report.json",
+  "comparisons": {
+    "src/architecture.js": {
+      "current": "96a467ec3ab494adc381c8f9dc3185d143071d472db6f923b441883c54511c0a",
+      "frozenR04": "96a467ec3ab494adc381c8f9dc3185d143071d472db6f923b441883c54511c0a",
+      "matches": true
+    },
+    "src/sculpted-joinery.js": {
+      "current": "96492bde80e36ce60b287cb7843102e85cd9d0464ce2a76bcb2b59a56a3d47cf",
+      "frozenR04": "96492bde80e36ce60b287cb7843102e85cd9d0464ce2a76bcb2b59a56a3d47cf",
+      "matches": true
+    },
+    "src/rafter-end-copper.js": {
+      "current": "23479a6b98916fa47ac7d8009e6749c4bd7c3bd1af1d7eac3474e6db3d732cab",
+      "frozenR04": "23479a6b98916fa47ac7d8009e6749c4bd7c3bd1af1d7eac3474e6db3d732cab",
+      "matches": true
+    },
+    "src/handlaid-ceramics.js": {
+      "current": "fa3f0ef521b38e196ab1a754ef7efc70fe76c1cea27937864f2e916af99de1e2",
+      "frozenR04": "fa3f0ef521b38e196ab1a754ef7efc70fe76c1cea27937864f2e916af99de1e2",
+      "matches": true
+    },
+    "src/foliage.js": {
+      "current": "d1403ed263b71046ee1f79a0ee750e8be85e9fbe1f4a44ff6ebfa91a2c12f762",
+      "frozenR04": "d1403ed263b71046ee1f79a0ee750e8be85e9fbe1f4a44ff6ebfa91a2c12f762",
+      "matches": true
+    },
+    "src/natural-forms.js": {
+      "current": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "frozenR04": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "matches": true
+    },
+    "src/scanned-timber.js": {
+      "current": "01bdbc0ee9ac7e92f439c73a805c638fc86a2b84d73c6803f48002f99cc98c97",
+      "frozenR04": "01bdbc0ee9ac7e92f439c73a805c638fc86a2b84d73c6803f48002f99cc98c97",
+      "matches": true
+    },
+    "src/materials.js": {
+      "current": "53e5cf330ee6c5b3adf7a0bd99bcd9bbefe585a3cedac1e7c6c0b6a2721b1a0a",
+      "frozenR04": "53e5cf330ee6c5b3adf7a0bd99bcd9bbefe585a3cedac1e7c6c0b6a2721b1a0a",
+      "matches": true
+    },
+    "src/blender-joinery.js": {
+      "current": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "frozenR04": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "matches": true
+    },
+    "src/tier-layout.js": {
+      "current": "48b61d98a8b3c29da19c3bae00676bf559a5708c593d354925eb82210030412c",
+      "frozenR04": "48b61d98a8b3c29da19c3bae00676bf559a5708c593d354925eb82210030412c",
+      "matches": true
+    },
+    "src/main.js": {
+      "current": "6f7524e4f6f4449565fd2d413260fb62d31783c01119f0dc0d792fa71a3e64ec",
+      "frozenR04": "6f7524e4f6f4449565fd2d413260fb62d31783c01119f0dc0d792fa71a3e64ec",
+      "matches": true
+    },
+    "index.html": {
+      "current": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "frozenR04": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "matches": true
+    },
+    "sceneConstruction": {
+      "current": "664d16cfc7bf7ba0ea0260057380c8a7cebea8db758590c0fd56b24601000e28",
+      "frozenR04": "664d16cfc7bf7ba0ea0260057380c8a7cebea8db758590c0fd56b24601000e28",
+      "matches": true
+    },
+    "geometryMerge": {
+      "current": "ea4066f6bb1a7ccef833a28ac38b984638f3b45ac4ddffff6fb46dff6e507b57",
+      "frozenR04": "ea4066f6bb1a7ccef833a28ac38b984638f3b45ac4ddffff6fb46dff6e507b57",
+      "matches": true
+    }
+  },
+  "allConstructionMatches": true,
+  "sameNativeCounts": true,
+  "sameReferenceCamera": true,
+  "sameTierWorlds": true,
+  "nativeSunPosition": [
+    -18,
+    36,
+    30
+  ],
+  "nativeSky": {
+    "provider": "Poly Haven",
+    "asset": "kloofendal_48d_partly_cloudy_puresky",
+    "license": "CC0-1.0",
+    "path": "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+    "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+    "authors": [
+      "Greg Zaal",
+      "Jarod Guest"
+    ],
+    "sourceSunPixel": [
+      1218,
+      784
+    ],
+    "maximumLuma": 72870.25335625,
+    "meanLuma": 0.6762980197300532,
+    "sourceDirectionYUp": [
+      0.5545620062863689,
+      0.741980411720831,
+      0.37673073913104493
+    ],
+    "targetDirectionYUp": [
+      -0.40730653998127836,
+      0.6109598099719176,
+      0.6788442333021306
+    ],
+    "rotationXYZ": [
+      1.1181197707635133,
+      -1.4594669702652538,
+      0.9673187755123099,
+      "XYZ"
+    ],
+    "nativeEnvironmentIntensity": 0.42,
+    "solarSeparation": {
+      "coneDegrees": 2.3,
+      "fillRadianceCeiling": 3,
+      "pixels": 803
+    },
+    "scope": "Original measured CC0 sky is the background. Native IBL solar disk is separated into the shadow-casting directional key; courtyard-bounce proxy and sky occlusion remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh."
+  },
+  "nativeSkyRotationMatrixYUp": [
+    0.06305000286040811,
+    -0.14707065729628793,
+    0.9871144406307407,
+    0,
+    -0.09147568912357859,
+    0.9840672256947158,
+    0.15245948187263214,
+    0,
+    -0.993809285244744,
+    -0.09990954446869861,
+    0.04859205166885011,
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "explicitLimits": "The verified R04 physical mesh/PBR package is reused; only the actual R05 sun direction and measured sky are applied. This is an independent physical-lighting diagnostic, not native WebGL pixel equivalence. Custom source GLSL ageing/leaf scattering/AO are not automatically portable.",
+  "visualAccepted": false
+}

@@ -1,0 +1,20 @@
+{
+  "asset": "kloofendal_48d_partly_cloudy_puresky",
+  "provider": "Poly Haven",
+  "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "authors": {
+    "Greg Zaal": "Original",
+    "Jarod Guest": "Sky edits"
+  },
+  "download": {
+    "size": 20062163,
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/2k/kloofendal_48d_partly_cloudy_puresky_2k.exr",
+    "md5": "299976fb6e389e5349fabe80cf746b48"
+  },
+  "bytes": 20062163,
+  "sha256": "e56997073870b6c1afec424cbc7f9fc307dd96ac70b975defacac091926a03e6",
+  "role": "Measured sky radiance only: source for 3D sky/reflection/illumination. No building, photograph projection or scene plate.",
+  "nativeTransfer": "Solar disk is separately removed from the native diffuse environment, with the shadow-casting source directional light retained; original sky stays intact for camera background. Cycles uses full measured source radiance."
+}

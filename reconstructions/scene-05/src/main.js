@@ -9,11 +9,17 @@ import {DOLLY} from './tier-layout.js';
 const q=new URLSearchParams(location.search),dim=k=>Math.max(64,Math.min(2048,Number(q.get(k))||768));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
 renderer.setPixelRatio(1);renderer.setSize(dim('w'),dim('h'));renderer.outputColorSpace=T.SRGBColorSpace;
-renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
+renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.35;
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;
 document.querySelector('#stage').append(renderer.domElement);
 const world=await buildScene(),scene=world.scene;
 const camera=new T.PerspectiveCamera(POSE.fov,dim('w')/dim('h'),.08,200);
+// The supplied square is a crop; its optical centre need not be the centre of
+// that crop. One fixed, physical asymmetric frustum is shared by every pose
+// and by native detail subfrusta. Geometry is never warped to the photograph.
+const baseProjection=camera.updateProjectionMatrix.bind(camera);
+camera.updateProjectionMatrix=()=>{baseProjection();const p=POSE.principal||[.5,.5],view=camera.view?.enabled?camera.view:null,e=camera.projectionMatrix.elements;
+ e[8]-=(p[0]-.5)*2*(view?view.fullWidth/view.width:1);e[9]+=(p[1]-.5)*2*(view?view.fullHeight/view.height:1);camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();};
 const composerTarget=new T.WebGLRenderTarget(dim('w'),dim('h'),{type:T.HalfFloatType,samples:4});
 const composer=new EffectComposer(renderer,composerTarget);composer.addPass(new RenderPass(scene,camera));
 const contactAO=new GTAOPass(scene,camera,dim('w'),dim('h'));contactAO.updateGtaoMaterial({radius:.38,distanceExponent:2,thickness:.32,distanceFallOff:1,samples:32});contactAO.blendIntensity=.45;contactAO.updatePdMaterial({radius:5,samples:24,lumaPhi:6,depthPhi:2,normalPhi:3});

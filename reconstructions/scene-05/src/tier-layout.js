@@ -1,10 +1,18 @@
-// One common low camera and one canonical tier. The positive uniform tier
-// transforms act on roofs, frames, bearings, galleries and fixtures together.
-// Parameters come from the bounded manual-landmark fit retained in scene05 QA;
-// they remain a reconstruction hypothesis, not a recovered survey or lens.
-export const TIER_SPEC=Object.freeze({width:8.8,pitch:5.70,ratio:.83656108,roofAddition:4.38973926,roofHeight:3.85697332,roofRise:3.50,bearingVerticalScale:1.65313409,bearingHorizontalScale:1.12,baseY:.35,tailCutHeight:1.92});
-export const POSE=Object.freeze({position:[14.82335137,.8,14.62564576],target:[-4.93362536,15,-.40723472],fov:27.82285810});
-export function tierPlacement(level){const scale=TIER_SPEC.ratio**level,baseY=TIER_SPEC.baseY+TIER_SPEC.pitch*(1-scale)/(1-TIER_SPEC.ratio);return{level,scale,baseY};}
+// Whole, concentric square storeys. The source's lower near corner is a
+// shallow waist pent roof ON the main story, not a previous full eave. A
+// single geometric progression fitted to that mistaken anchor displaced the
+// complete upper corner axis. Each complete real storey now has its own
+// positive scale/base; roof, frame, fixtures and galleries move together.
+export const TIER_SPEC=Object.freeze({width:8.8,roofAddition:5.87173815,roofHeight:4.08731086,roofRise:3.83660786,bearingVerticalScale:1.62954148,bearingHorizontalScale:1.18,baseY:.35,tailCutHeight:2.50,tailReach:.75,lanternHeight:2.73535574});
+export const STORIES=Object.freeze([
+ {scale:1,baseY:-.90,roofHeight:4.65,roofRise:3.25,bearingVerticalScale:.75,tailCutHeight:.65,lanternHeight:1.0,lowerOccupiedFrame:true},
+ {scale:.90258765,baseY:4.36459084},
+ {scale:.64193827,baseY:11.44746026},
+ {scale:.53004841,baseY:16.49041769},
+ {scale:.43994018,baseY:20.65511826}
+].map(Object.freeze));
+export const POSE=Object.freeze({position:[12.38431455,.8,14.60021708],target:[-17.09887615,15,-5.55294464],fov:38.94129879,principal:[.30303030,.77495212]});
+export function tierPlacement(level){const t=STORIES[level];if(!t)throw new RangeError('Unknown pagoda storey');return{level,...TIER_SPEC,...t};}
 export function tierWorldPoint(level,p){const t=tierPlacement(level);return[p[0]*t.scale,t.baseY+p[1]*t.scale,p[2]*t.scale];}
 const nearLanternRadius=(TIER_SPEC.width+TIER_SPEC.roofAddition)/2*1.025;
-export const DOLLY=Object.freeze({points:[[10.2,.72,11.4],[11.2,.76,12.2],[13.8,.80,13.8],POSE.position],nearTarget:tierWorldPoint(1,[nearLanternRadius,2.60,nearLanternRadius]),farTarget:POSE.target,fov:POSE.fov});
+export const DOLLY=Object.freeze({points:[[11.1,.72,13.7],[11.6,.75,14.0],[12.0,.79,14.4],POSE.position],nearTarget:[-16.4,14.65,-5.5],farTarget:POSE.target,fov:POSE.fov});

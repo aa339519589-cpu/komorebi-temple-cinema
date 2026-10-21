@@ -9,6 +9,7 @@ import {createSculptedJoinery} from './sculpted-joinery.js';
 import {createRafterEndCopper} from './rafter-end-copper.js';
 import {createClayTile05} from './handlaid-ceramics.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
+import {installMeasuredSky} from './measured-sky.js';
 import {POSE,TIER_SPEC,tierPlacement,tierWorldPoint} from './tier-layout.js';
 export {POSE};
 export async function buildScene(){
@@ -21,13 +22,13 @@ export async function buildScene(){
  mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#f2e5bb');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.12;
  // Private cap surfaces keep the glazed ceramic recess distinct from the roof.
  mats.tileEndCeramic=mats.slate.clone();mats.tileEndCeramic.name='scene05-dark-inset-tile-cap';mats.tileEndCeramic.color.set('#3e4b53');mats.tileEndCeramic.roughness=.62;
- mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#969991');mats.tileEndRelief.roughness=.73;
- mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#1b242a');mats.cornerCeramic.roughness=.57;mats.cornerCeramic.bumpScale=.0025;
+ mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#b49b64');mats.tileEndRelief.roughness=.66;mats.tileEndRelief.metalness=.28;
+ mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#35424a');mats.cornerCeramic.roughness=.70;mats.cornerCeramic.bumpScale=.0025;
 
  const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createRafterEndCopper(),endCopperSmall=createRafterEndCopper({detail:'small'});
- const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();}};Object.assign(mats,joineryKit.materials);
- mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-thin-cast-copper-end-cup',color:'#aa7d34',metalness:.88,roughness:.43,envMapIntensity:.82});
- mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-shallow-cast-floral-copper',color:'#c49b4b',metalness:.88,roughness:.38,envMapIntensity:1.02});
+ const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,waistBearing:sculptedJoinery.waistBearing,waistFittings:sculptedJoinery.waistFittings,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();}};Object.assign(mats,joineryKit.materials);
+ mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-thin-cast-copper-end-cup',color:'#d0aa5d',metalness:.88,roughness:.34,envMapIntensity:1.45});
+ mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-shallow-cast-floral-copper',color:'#e4c583',metalness:.88,roughness:.30,envMapIntensity:1.60});
  mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-lower-patinated-copper-grooves',color:'#4a381c',metalness:.62,roughness:.78,envMapIntensity:.40});
  // Solid code-built geometry and the user-authorized image-assisted relief.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
@@ -41,14 +42,14 @@ export async function buildScene(){
  }
  function group(x,y,z,angle,fn){stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationY(angle)));try{fn();}finally{stack.pop();}}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){
-   if(['red','cedar','endwood','darkwood','architecture_red','architecture_cedar','architecture_endwood','windowBars'].includes(ma)&&Math.min(w,h,d)>.045){
+   if(['red','cedar','endwood','darkwood','architecture_red','architecture_cedar','architecture_endwood','windowBars','postwood'].includes(ma)&&Math.min(w,h,d)>.045){
      const key=[w,h,d].map(n=>n.toFixed(5)).join(':');
      if(!geometryCache.has(key))geometryCache.set(key,new RoundedBoxGeometry(w,h,d,1,Math.min(.014,Math.min(w,h,d)*.10)));
      instance(geometryCache.get(key),ma,x,y,z,1,1,1,[0,rot,0],tint);
    }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
  }
  mats.handformedClay=new T.MeshPhysicalMaterial({name:'scene05-handformed-grey-fired-clay',color:'#47545e',roughness:.59,metalness:.015,clearcoat:.12,clearcoatRoughness:.46,vertexColors:true});
- const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit,handlaidCeramics:true,tierCollarMaterial:'red'});
+ const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit,handlaidCeramics:true,tierCollarMaterial:'red',pagodaPostMaterial:'postwood',cornerCeramicScale:.82});
  mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#293b48');mats.architecture_slate.roughness=.48;mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#526053');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
  for(const [name,m]of Object.entries(mats)){
@@ -73,6 +74,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  }
  mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#654322',metalness:.82,roughness:.46,envMapIntensity:.88});
  const scannedTimber=await installScannedTimber(mats);
+ mats.postwood=mats.architecture_red.clone();mats.postwood.name='scene05-square-weathered-structural-pier';mats.postwood.color.set('#985538');mats.postwood.roughness=1;mats.postwood.clearcoat=.035;mats.postwood.onBeforeCompile=mats.architecture_red.onBeforeCompile;mats.postwood.customProgramCacheKey=mats.architecture_red.customProgramCacheKey;mats.postwood.userData.metricTimberGrain=true;
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
  mats.carvingGround=new T.MeshStandardMaterial({name:'scene05-dark-carved-ground',color:'#2b2116',roughness:.9});
  const leafShape=new T.Shape();leafShape.moveTo(-.5,0);leafShape.bezierCurveTo(-.15,.23,.29,.28,.5,0);leafShape.bezierCurveTo(.15,-.19,-.2,-.13,-.5,0);
@@ -80,19 +82,24 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  const levels=[],landmarkWorlds={};
  for(let level=0;level<5;level++){
    const placement=tierPlacement(level);stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(0,placement.baseY,0)).multiply(new T.Matrix4().makeScale(placement.scale,placement.scale,placement.scale)));
-   const scale=1,w=TIER_SPEC.width,y=0,deckWidth=level?TIER_SPEC.width/TIER_SPEC.ratio:w+.5,roofWidth=w+TIER_SPEC.roofAddition;
+   const scale=1,w=TIER_SPEC.width,y=0,deckWidth=level?w*tierPlacement(level-1).scale/placement.scale:w+.5,roofWidth=w+TIER_SPEC.roofAddition,roofY=placement.roofHeight,roofRise=placement.roofRise,lanternY=placement.lanternHeight;
    box(0,.15,0,deckWidth,.30,deckWidth,'darkwood');
-   const frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth,roofDepth:roofWidth,roofRise:TIER_SPEC.roofRise,roofY:TIER_SPEC.roofHeight,bracketVerticalScale:TIER_SPEC.bearingVerticalScale,bracketHorizontalScale:TIER_SPEC.bearingHorizontalScale,windowMaterial:'paper',detail:true});
-   const upperFloor=level<4?{width:w,depth:w,bottomY:TIER_SPEC.pitch,topY:TIER_SPEC.pitch+.30*TIER_SPEC.ratio}:null;
-   arch.pagodaRoof({y:TIER_SPEC.roofHeight,w:roofWidth,d:roofWidth,rise:TIER_SPEC.roofRise,wallWidth:w,wallDepth:w,frameScale:1,detail:true,soffitMaterial:'darkwood',referenceMode:'scene05-calibrated',upperFloor});
-   levels.push({level,y:placement.baseY,scale:placement.scale,width:w*placement.scale,shaftTop:placement.baseY+frame.shaftTop*placement.scale,roofY:placement.baseY+TIER_SPEC.roofHeight*placement.scale,roofWidth:roofWidth*placement.scale,upperFloor:upperFloor?{width:w*placement.scale,bottomY:placement.baseY+TIER_SPEC.pitch*placement.scale}:null});
-   const R=roofWidth/2;landmarkWorlds[level]={hipNear:tierWorldPoint(level,[R+.094,TIER_SPEC.roofHeight+.799,R+.094]),hipLeft:tierWorldPoint(level,[-R-.094,TIER_SPEC.roofHeight+.799,R+.094]),postHead:tierWorldPoint(level,[w/2,frame.shaftTop,w/2]),lanternNear:tierWorldPoint(level,[R*1.025,2.60,R*1.025]),lanternLeft:tierWorldPoint(level,[-R*1.025,2.60,R*1.025]),tailCut:tierWorldPoint(level,[w/2+TIER_SPEC.roofAddition/2*(1.72/1.75),TIER_SPEC.tailCutHeight,w/2+TIER_SPEC.roofAddition/2*(1.72/1.75)])};
+   const next=level<4?tierPlacement(level+1):null,storyPitch=next?(next.baseY-placement.baseY)/placement.scale:null;
+   // Below the photographed waist is another occupied timber room. Carry
+   // the visible gallery directly on its real purlin; a ghost full roof and
+   // a tall solid collar were the wrong construction here (R01/R02 retained).
+   const lowerFrame=placement.lowerOccupiedFrame,
+     frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth,roofDepth:roofWidth,roofRise,roofY,bracketVerticalScale:placement.bearingVerticalScale,bracketHorizontalScale:TIER_SPEC.bearingHorizontalScale,windowMaterial:'paper',detail:true,...(lowerFrame?{floorBearingY:storyPitch,windowHeadY:storyPitch-.13-.3868*placement.bearingVerticalScale-.14}:{})});
+   const upperFloor=next?{width:w,depth:w,bottomY:storyPitch,topY:storyPitch+.30*next.scale/placement.scale}:null;
+   if(!lowerFrame)arch.pagodaRoof({y:roofY,w:roofWidth,d:roofWidth,rise:roofRise,wallWidth:w,wallDepth:w,frameScale:1,detail:true,soffitMaterial:'darkwood',referenceMode:'scene05-calibrated',upperFloor});
+   levels.push({level,y:placement.baseY,scale:placement.scale,width:w*placement.scale,shaftTop:placement.baseY+frame.shaftTop*placement.scale,roofY:placement.baseY+roofY*placement.scale,roofWidth:roofWidth*placement.scale,upperFloor:upperFloor?{width:w*placement.scale,bottomY:next.baseY}:null});
+   const R=roofWidth/2;landmarkWorlds[level]={hipNear:tierWorldPoint(level,[R+.125,roofY+.8374,R+.125]),hipLeft:tierWorldPoint(level,[-R-.125,roofY+.8374,R+.125]),postHead:tierWorldPoint(level,[w/2,frame.shaftTop,w/2]),waistNear:tierWorldPoint(level,[deckWidth/2+.04,.58,deckWidth/2+.04]),lanternNear:tierWorldPoint(level,[R*1.025,lanternY,R*1.025]),lanternLeft:tierWorldPoint(level,[-R*1.025,lanternY,R*1.025]),tailSeat:tierWorldPoint(level,tailPath(w,y,scale,1,1,placement).getPoint(0).toArray()),tailCut:tierWorldPoint(level,[w/2+TIER_SPEC.roofAddition/2*TIER_SPEC.tailReach,placement.tailCutHeight,w/2+TIER_SPEC.roofAddition/2*TIER_SPEC.tailReach])};
    balcony(w,y+(level===0?.58:0),scale,deckWidth);
-   cornerTails(w,y,scale);
+   if(!lowerFrame)cornerTails(w,y,scale,placement);
    pentRoof(w,y+.32,scale,deckWidth);carvedWindowInserts(w,y,scale);
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
    const r=roofWidth/2;
-   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+2.60,sz*r*1.025,.62*scale,[tailPath(w,y,scale,sx,sz).getPoint(.20).toArray(),tailPath(w,y,scale,sx,sz).getPoint(.28).toArray()]);
+   if(!lowerFrame)for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+lanternY,sz*r*1.025,.62*scale,[tailPath(w,y,scale,sx,sz,placement).getPoint(.20).toArray(),tailPath(w,y,scale,sx,sz,placement).getPoint(.28).toArray()]);
    // Flanking upper ties and chased metal straps on the visible actual member ends.
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      for(let k=-1;k<=1;k++){
@@ -122,14 +129,18 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      }
    }));
  }
- function tailPath(w,y,s,sx,sz){
-   const start=new T.Vector3(sx*(w/2+TIER_SPEC.roofAddition/2*(1.10/1.75)*s),y+TIER_SPEC.roofHeight+.40,sz*(w/2+TIER_SPEC.roofAddition/2*(1.10/1.75)*s));
-   const end=new T.Vector3(sx*(w/2+TIER_SPEC.roofAddition/2*(1.72/1.75)*s),y+TIER_SPEC.tailCutHeight,sz*(w/2+TIER_SPEC.roofAddition/2*(1.72/1.75)*s));
+ function tailPath(w,y,s,sx,sz,placement=TIER_SPEC){
+   const radius=w/2+TIER_SPEC.roofAddition/2*(1.10/1.75)*s,t=radius/((w+TIER_SPEC.roofAddition)/2),
+     // Seat the real brace in the actual diagonal hip timber. The former
+     // fixed +.40 start lay inside the ceramic shell, above that bearing.
+     hipCentre=placement.roofHeight+placement.roofRise*Math.pow(Math.max(0,1-t),1.43)+.48*Math.pow(t,9)*1.25-.365;
+   const start=new T.Vector3(sx*radius,y+hipCentre,sz*radius);
+   const end=new T.Vector3(sx*(w/2+TIER_SPEC.roofAddition/2*TIER_SPEC.tailReach*s),y+placement.tailCutHeight,sz*(w/2+TIER_SPEC.roofAddition/2*TIER_SPEC.tailReach*s));
    const mid=start.clone().lerp(end,.55).add(new T.Vector3(sx*.015,.025,sz*.015));return new T.CatmullRomCurve3([start,mid,end]);
  }
- function cornerTails(w,y,s){
+ function cornerTails(w,y,s,placement){
    for(const sx of [-1,1])for(const sz of [-1,1]){
-     const path=tailPath(w,y,s,sx,sz),end=path.getPoint(1);
+     const path=tailPath(w,y,s,sx,sz,placement),end=path.getPoint(1);
      // Rectangular curved timber with real depth, connected to the crossing capital.
      const rim=new T.Shape();rim.moveTo(-.125*s,-.17*s);rim.lineTo(.125*s,-.17*s);rim.lineTo(.125*s,.17*s);rim.lineTo(-.125*s,.17*s);rim.closePath();
      const geometry=new T.ExtrudeGeometry(rim,{steps:20,bevelEnabled:false,extrudePath:path});instance(geometry,'red');
@@ -159,7 +170,22 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      if(pieces.length){instance(mergeGeometries(pieces,false),'handformedClay');pieces.forEach(g=>g.dispose());}
      box(0,y+.08*s,outer,outer*2,.13*s,.15*s,'red');
      for(let j=1;j<cols;j++){const x=-inner+2*inner*j/cols;box(x,y+.10*s,(inner+outer)/2,.075*s,.105*s,outer-inner,'cedar');}
+     // Narrow carved ceramic fascia under the round cap row. Its scrolls
+     // project in real relief and stay attached to the small waist roof.
+     box(0,y+.205*s,outer+.023,outer*2-.12,.105*s,.055*s,'cornerCeramic');
+     const cloud=new T.Shape();cloud.moveTo(-.095,-.025);cloud.bezierCurveTo(-.11,.025,-.05,.061,-.018,.020);cloud.bezierCurveTo(.015,-.035,.062,-.023,.069,.011);cloud.bezierCurveTo(.060,.036,.022,.035,.022,.012);cloud.lineTo(.006,.002);cloud.bezierCurveTo(.022,.067,.095,.059,.101,.005);cloud.bezierCurveTo(.11,-.052,.025,-.062,-.014,-.021);cloud.bezierCurveTo(-.040,.014,-.081,.018,-.081,-.023);cloud.closePath();
+     const cloudG=new T.ExtrudeGeometry(cloud,{depth:.012,steps:1,curveSegments:7,bevelEnabled:true,bevelThickness:.002,bevelSize:.002,bevelSegments:1});
+     for(let j=0;j<Math.floor(2*outer/.22);j++)instance(cloudG,'tileEdge',-outer+.12+j*.22,y+.205*s,outer+.054,1,.66,1,[0,0,0],.61+(j%3)*.035);
    });
+   for(const sx of[-1,1])for(const sz of[-1,1]){
+     const angle=Math.atan2(sx,sz),corner=new T.Vector3(sx*outer,y+.19*s,sz*outer);
+     group(...corner.toArray(),angle,()=>{for(const part of joineryKit.cornerMask)instance(part.geometry,part.material==='oldgold'?'oldgold':'cornerCeramic',0,.005,.012,.72,.72,.72);});
+     const path=new T.CatmullRomCurve3([new T.Vector3(sx*inner,y+.37*s,sz*inner),new T.Vector3(sx*(inner+outer)/2,y+.24*s,sz*(inner+outer)/2),corner.clone().add(new T.Vector3(0,.025,0))]);
+     instance(new T.TubeGeometry(path,16,.065*s,10,false),'cornerCeramic');
+     const start=new T.Vector3(sx*(inner-.10),y+.20*s,sz*(inner-.10)),end=new T.Vector3(sx*(outer+.11),y-.12*s,sz*(outer+.11)),direction=end.clone().sub(start),normal=direction.clone().normalize(),mid=start.clone().add(end).multiplyScalar(.5),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
+     instance('box','red',...mid.toArray(),.19*s,.215*s,direction.length(),q);
+     for(const part of endCopper.parts)instance(part.geometry,part.material,...end.clone().addScaledVector(normal,.003).toArray(),.195*s,.220*s,.195*s,q);
+   }
  }
  function balcony(w,y,s,deckWidth=w+.72){
    const d=deckWidth+.10,base=y+.29,top=base+.82;
@@ -254,35 +280,32 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      for(let k=0;k<6;k++){const a=k*Math.PI/3;wire([[Math.sin(a)*.025,-.95,Math.cos(a)*.025],[Math.sin(a)*.060,-.88,Math.cos(a)*.060],[Math.sin(a)*.025,-.83,Math.cos(a)*.025]],.0045,bronze);}
    });
  }
- // Sky: directional pale wisps are an analytic shader, with no image texture.
- const skyMaterial=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,uniforms:{},vertexShader:'varying vec3 vDir;void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`varying vec3 vDir;float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,91.3)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 d=normalize(vDir);vec3 c=mix(vec3(.70,.83,.96),vec3(.39,.64,.94),pow(max(0.,d.y),.4));vec3 p=d*17.;float n=noise(p)+.5*noise(p*2.1)+.24*noise(p*4.4)+.12*noise(p*8.8)+.065*noise(p*17.6);float cloud=smoothstep(1.08,1.37,n)*smoothstep(0.,.2,d.y);c=mix(c,vec3(1.),cloud*.85);vec3 desired=mix(c/12.92,pow((c+.055)/1.055,vec3(2.4)),step(vec3(.04045),c));const mat3 inverseOutput=mat3(.64303825,.05926869,.00596190,.31118675,.93143649,.06392902,.04577546,.00929492,.93011838);const mat3 inverseInput=mat3(1.76474097,-.14702785,-.03633683,-.67577768,1.16025151,-.16243644,-.08896329,-.01322366,1.19877327);vec3 v=inverseOutput*desired;vec3 A=1.-.983729*v;vec3 B=.0245786-.432951*v;vec3 C=-.000090537-.238081*v;vec3 fitted=(-B+sqrt(B*B-4.*A*C))/(2.*A);vec3 radiance=max(vec3(0.),inverseInput*fitted)*(.6/.95);gl_FragColor=vec4(radiance,1.);}`});
- const sky=new T.Mesh(new T.SphereGeometry(120,32,16),skyMaterial);scene.add(sky);
- const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.50);scene.add(hemi);
- const sun=new T.DirectionalLight('#ffdfaa',5.3);sun.position.set(-18,20,30);sun.target.position.set(0,9,0);sun.castShadow=true;
+ const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.30);scene.add(hemi);
+ const sun=new T.DirectionalLight('#ffdfaa',5.3);sun.position.set(-18,36,30);sun.target.position.set(0,9,0);sun.castShadow=true;
  sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000025;sun.shadow.normalBias=.006;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
  // Bounded first-bounce courtyard proxy. Its own actual shadows preserve
  // the separate eave layers; it is not a screen exposure or flat ambient lift.
- const groundBounce=new T.DirectionalLight('#ffc77c',.80);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
+ const groundBounce=new T.DirectionalLight('#ffc77c',1.0);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
  groundBounce.shadow.mapSize.set(2048,2048);Object.assign(groundBounce.shadow.camera,{left:-18,right:18,top:25,bottom:-12,near:1,far:85});groundBounce.shadow.bias=-.000025;groundBounce.shadow.normalBias=.004;groundBounce.shadow.autoUpdate=false;groundBounce.shadow.needsUpdate=true;scene.add(groundBounce,groundBounce.target);
- // Procedural environment radiance provides directional metal reflections.
- const faces=[],sunDirection=new T.Vector3(-18,11,30).normalize();
- for(let face=0;face<6;face++){
-   const canvas=document.createElement('canvas');canvas.width=canvas.height=128;const ctx=canvas.getContext('2d'),pixels=ctx.createImageData(128,128);
-   for(let y=0;y<128;y++)for(let x=0;x<128;x++){
-     const u=(x+.5)/64-1,v=(y+.5)/64-1;
-     const directions=[[1,-v,-u],[-1,-v,u],[u,1,v],[u,-1,-v],[u,-v,1],[-u,-v,-1]],d=new T.Vector3(...directions[face]).normalize();
-     const t=T.MathUtils.smoothstep(d.y,-.12,.4),sun=Math.pow(Math.max(0,d.dot(sunDirection)),550)*.65;
-     const foliage=.035*Math.sin(d.x*47+d.z*23)*Math.sin(d.z*37-d.y*17),i=(y*128+x)*4;
-     const ground=[.55+foliage,.48+foliage,.34],sky=[.55+.2*d.y,.73+.1*d.y,.94];
-     for(let k=0;k<3;k++)pixels.data[i+k]=Math.round(255*Math.min(1,ground[k]*(1-t)+sky[k]*t+sun));pixels.data[i+3]=255;
-   }
-   ctx.putImageData(pixels,0,0);faces.push(canvas);
- }
- const env=new T.CubeTexture(faces);env.colorSpace=T.SRGBColorSpace;env.needsUpdate=true;scene.environment=env;scene.environmentIntensity=.56;
+ const measuredSky=await installMeasuredSky(scene,sun.position.clone().sub(sun.target.position));
  const canopy=buildMapleCanopy(scene);
  // Flatten static geometry by material: dense joinery remains real 3D but submission cost stays bounded.
  let triangles=0,parts=0;
  for(const [material,records]of bucket){
+   if([mats.fittingCopper,mats.fittingEdge,mats.fittingPatina].includes(material)){
+     // These are the SAME closed end-cup templates at many real timber cut
+     // planes. Preserve every vertex/normal/UV and actual placement while
+     // sharing the template instead of baking ~10.5M duplicate triangles.
+     // Timber stays in the metric-UV merge path below.
+     const batches=new Map();for(const record of records){if(!batches.has(record.geo))batches.set(record.geo,[]);batches.get(record.geo).push(record);}
+     for(const [template,placements]of batches){
+       const geometry=template.clone(),mesh=new T.InstancedMesh(geometry,material,placements.length);mesh.name='scene05-shared-solid-'+material.name;
+       for(const [i,r]of placements.entries()){mesh.setMatrixAt(i,r.matrix);mesh.setColorAt(i,new T.Color().setRGB(r.tint,r.tint,r.tint));}
+       mesh.instanceMatrix.needsUpdate=true;mesh.instanceColor.needsUpdate=true;mesh.computeBoundingSphere();mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);
+       triangles+=(geometry.index?.count??geometry.attributes.position.count)/3*placements.length;parts+=placements.length;
+     }
+     continue;
+   }
    const pieces=records.map(({geo,matrix,tint})=>{
      const g=geo.index?geo.toNonIndexed():geo.clone();
      if(material.userData.metricTimberGrain)assignMetricTimberUV(g,matrix);
@@ -295,5 +318,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-calibrated-uniform-tiers-solmax11',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,geometry:'Three expanding bearing courses with paired complementary laps and four direct receiver seats per level; true cut-face cast copper; closed pan/cover roof courses; raked supported hip tails, forged lantern mounts and rooted closed maple laminae',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:.80,courtyardBounceCastsShadows:true,hemisphere:.50,environmentIntensity:scene.environmentIntensity,limits:'Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-monumental-coupled-storeys-v3-r08',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,geometry:'Individually coupled concentric storeys; square structural piers; double-ogee downturned half-lapped timber courses and measured receivers; decorated closed waist ceramics with actual corner sculpture and timber end bearings; cropped-sensor physical low frustum shared by all poses',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:1.0,courtyardBounceCastsShadows:true,hemisphere:.30,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native directional key and shadow-casting courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();}};
 }

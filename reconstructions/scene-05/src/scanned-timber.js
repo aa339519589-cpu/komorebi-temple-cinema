@@ -37,11 +37,11 @@ export async function installScannedTimber(mats){
  // supplied scan is a very dark table: measured linear maxima .0666/.0452/
  // .0222. These gains keep every sampled albedo channel below one.
  const colors={red:[6.0,3.8,3.0],cedar:[6.8,4.6,3.5],endwood:[7.6,5.8,4.2],darkwood:[2.2,1.9,1.65]};
- const pigments={red:'#b15d3d',cedar:'#b47e52'};
+ const pigments={red:'#af482b',cedar:'#ab542d',endwood:'#bd8043',darkwood:'#7c3e24'};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  const painted=kind==='red'||kind==='cedar';mat.map=painted?pigmentMap:albedo;mat.normalMap=normal;mat.normalScale.set(painted?.18:.30,painted?.18:.30);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
+  const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.24:.18,kind==='endwood'?.24:.18);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=.94;
   if(painted)mat.color.set(pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
   if(mat.isMeshPhysicalMaterial){mat.clearcoat=painted?.12:.08;mat.clearcoatRoughness=.32;mat.specularIntensity=painted?.58:.55;}
   mat.onBeforeCompile=shader=>{
@@ -51,10 +51,12 @@ export async function installScannedTimber(mats){
      float fibre=woodUv.y*1350.+sin(woodUv.x*3.7+sin(woodUv.y*9.))*2.4;
      float filterFibre=1.-smoothstep(.6,2.4,fwidth(fibre));
      float longitudinal=(sin(fibre)*.032+sin(fibre*2.71)*.016)*filterFibre;
-     float age=.035*sin(woodUv.x*1.9+woodUv.y*21.)+.025*sin(woodUv.x*5.2+woodUv.y*7.);
+     float age=.045*sin(woodUv.x*1.9+woodUv.y*21.)+.032*sin(woodUv.x*5.2+woodUv.y*7.);
+     float worn=smoothstep(.48,.88,sin(woodUv.x*3.1+sin(woodUv.y*16.)*.42)*sin(woodUv.x*.81+woodUv.y*3.2));
      diffuseColor.rgb*=.97+longitudinal+age;
+     diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.16,.115,.080)*(.72+.28*texture2D(map,woodUv).r),worn*.24);
     #endif`);
-  };mat.customProgramCacheKey=()=> 'scene05-scanned-member-fibre-aged-vermilion-solmax03';
+  };mat.customProgramCacheKey=()=> 'scene05-monumental-weathered-vermilion-v3';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=painted?.70:.7;mat.needsUpdate=true;
  }
  return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps',pigments,pigmentCoverage:'CC0 scan luminance normalized to .42–1 under opaque vermilion with member-aligned filtered longitudinal tissue; source photo unused',sourceMeanLinearLuma:meanLuma},

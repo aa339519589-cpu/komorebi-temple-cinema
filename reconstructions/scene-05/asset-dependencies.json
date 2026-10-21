@@ -5,15 +5,18 @@
     "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
     "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
     "assets/polyhaven/lacquered-cherry-wood/provenance.json",
-    "reconstructions/camera-dolly.js"
+    "reconstructions/camera-dolly.js",
+    "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "assets/polyhaven/qwantani-sunset-puresky/provenance.json",
+    "reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr"
   ],
   "sourceBuilder": "tools/build-temple-joinery-kit.py",
   "provenance": "lookdev/gilded-kiku-v01/README.md",
   "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
-  "revision": "scene05-solmax11-calibrated-uniform-tier-dolly",
+  "revision": "scene05-monumental-coupled-storeys-v3-r08",
   "bearingBlockCorrection": {
     "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
-    "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5照片6 has flatter bearing planes and sharper tapered sides.",
+    "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5\u7167\u72476 has flatter bearing planes and sharper tapered sides.",
     "construction": "Closed clipped-square tapered blocks with short foot/upper bands and actual~2mm arrises. Render cap, cheek and bottom vertices split for hard planar normals. Existing nominal radii/heights, bottom seatY/top bearingY and all assembly transforms retained.",
     "referencePhotoUse": "Visible silhouette comparison only. No reference RGB, image projection or inferred whole-photo depth. Fine corner wear/metric bevel details remain interpreted.",
     "visualAccepted": false,
@@ -93,9 +96,9 @@
       "tools/solve-perspective.py",
       "tools/solve-canonical-tiers.py"
     ],
-    "comparisonInput": "references/hd/5-照片-6.jpg",
+    "comparisonInput": "references/hd/5-\u7167\u7247-6.jpg",
     "measurements": "qa/ten-reference/05/perspective-fit-solmax-20261021",
-    "method": "Explicit manually observed hip/eave endpoints, corner/inner post heads, hip-tail cut faces and near/far lantern centres; bounded common-camera and coherent common-tier fits. Measurements include10–18px uncertainty and ambiguous cropped/ornamented features.",
+    "method": "Explicit manually observed hip/eave endpoints, corner/inner post heads, hip-tail cut faces and near/far lantern centres; bounded common-camera and coherent common-tier fits. Measurements include10\u201318px uncertainty and ambiguous cropped/ornamented features.",
     "heightMetres": 0.8,
     "pose": {
       "position": [
@@ -147,5 +150,17 @@
     "light": "Retain the same shadow-casting key/analytical environment, increase the existing shadow-casting warm courtyard bounce to.80.",
     "dataCorrection": "Preserve actual ceramic vertex pigments and intended per-member tint during geometry merge; they were previously stripped/ignored. Closed structures and real cast shadows remain the occlusion source.",
     "visualAccepted": false
+  },
+  "monumentalTowerV3": {
+    "scope": "Whole concentric measured storeys, corrected main-story waist correspondence, shared physical sensor-crop frustum, square structural piers, real downturned ogee half-lapped bearings and measured receivers, compact waist bearings, closed decorated waist ceramics and cropped lower occupied frame.",
+    "cameraHypothesis": "One low perspective camera with an asymmetric sensor crop. The source optical centre and metre scale are inferred; no image-space geometry warp.",
+    "sky": "Poly Haven CC0 kloofendal_48d_partly_cloudy_puresky source EXR/provenance under assets/kloofendal-48d-sky. Shadowed direct solar key is separated from unshadowed native IBL; no source photograph or scene plate.",
+    "proof": "qa/ten-reference/05/iteration-scene05-monumental-tower-v3-r08-native-20261022",
+    "previousR01R02R03": "Failed/intermediate candidates retained with receipts; no photo acceptance.",
+    "visualAccepted": false,
+    "tailBeam": "The actual shorter inner raked beam ends at .75 of the wall-to-roof overhang and canonical2.50m cut height; both source near cut-plane observations improve under one common physical member change. Forged lantern braces still mount to actual spline samples.",
+    "nativeLightingCalibration": "A measured sky without its unshadowed solar disk plus shadow-casting directional sun at37.66degrees, shadow-casting warm courtyard proxy1.0, native exposure1.35, camera-sky gain1.35. These are reconstructed look values, not recovered measurements.",
+    "copperSubmission": "Closed end-fitting templates, all normals/UVs and placement matrices are shared through actual InstancedMesh batches; no loss of sculptural geometry. Native R05/R06 equivalence evidence is retained. R07 adds twelve outer petals and an interleaved inner whorl plus pierced square-pillar collars.",
+    "tailSeat": "The brace begins at the analytical diagonal hip centre from the same roof sampler and .365m hip offset; its earlier fixed+.40 start penetrated the ceramic shell. Native actual reference/detail and three physical poses are retained."
   }
 }

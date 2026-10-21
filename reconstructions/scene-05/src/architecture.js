@@ -1299,7 +1299,9 @@ export function createRestorationArchitecture(ctx) {
     if(ctx.joineryKit&&options.interlocked&&!options.throughBeam){
       stats.bracketSets++;const hs=options.horizontalBearingScale??s*(options.corner?1.02:(options.horizontalScale??1));
       group(x,y,z,0,()=>{
-        if(options.corner&&ctx.joineryKit.cornerFan){
+        if(options.waist&&ctx.joineryKit.waistBearing){
+          for(const part of ctx.joineryKit.waistBearing)draw(part.geometry,part.material,part.position.map((v,i)=>v*(i===1?s:hs)),[hs,s,hs],[0,part.rotation,0]);
+        }else if(options.corner&&ctx.joineryKit.cornerFan){
           for(const part of ctx.joineryKit.cornerFan)
             draw(part.geometry,part.material,part.position.map((v,i)=>v*(i===1?s:hs)),[hs,s,hs],[0,part.rotation,0]);
         }else{
@@ -1312,7 +1314,7 @@ export function createRestorationArchitecture(ctx) {
             }
           });
         }
-        const fittings=options.corner?ctx.joineryKit.cornerFanFittings:ctx.joineryKit.bracketFittings;
+        const fittings=options.waist?ctx.joineryKit.waistFittings:options.corner?ctx.joineryKit.cornerFanFittings:ctx.joineryKit.bracketFittings;
         if(fittings)for(const f of fittings)squareFitting(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.width*hs,f.height*s,f.yaw,true);
       });
       return;
@@ -2486,7 +2488,8 @@ export function createRestorationArchitecture(ctx) {
 
   function pagodaStoreyFrame({w,d=w,y=0,level=0,scale=1-level*.115,
     roofWidth=w+3.3*scale,roofDepth=d+3.3*scale,roofRise=2.18*scale,
-    roofY=y+3.55,bracketVerticalScale=1.12,bracketHorizontalScale=1.12,windowMaterial='darkwood',detail=level<2}={}) {
+    roofY=y+3.55,bracketVerticalScale=1.12,bracketHorizontalScale=1.12,windowMaterial='darkwood',detail=level<2,
+    floorBearingY=null,windowHeadY=y+2.41}={}) {
     // Ref05: the stepped capital is a broad load-bearing mass. Keep the
     // receiving purlin datum fixed while allowing the capital to deepen
     // downwards, rather than leaving a thin decorative strip on a tall post.
@@ -2496,16 +2499,31 @@ export function createRestorationArchitecture(ctx) {
     // This frame is coupled only to the square pyramid pagodaRoof hook,
     // not the old long-ridge hipRoof used for the main hall.
     const sample=pagodaRoofSampler(roofWidth,roofDepth,roofRise);
-    const purlinTop=roofY+pagodaRafterBearing(sample,roofWidth,d,scale);
+    const purlinTop=floorBearingY??roofY+pagodaRafterBearing(sample,roofWidth,d,scale);
+    if(floorBearingY!==null&&!Number.isFinite(floorBearingY))throw new RangeError('The occupied lower floor requires a finite supported bearing height.');
     const purlinHeight=.13*scale;
-    const shaftTop=purlinTop-purlinHeight-.970*bracketScale;
+    const shaftTop=purlinTop-purlinHeight-(floorBearingY!==null?.3868:.970)*bracketScale;
     const shaftBottom=y+.5,shaftHeight=shaftTop-shaftBottom;
     const bracketY=shaftTop+.150*bracketScale;
     const axesX=[-w/2,-w/6,w/6,w/2],axesZ=[-d/2,-d/6,d/6,d/2];
     const posts=[],windows=[];
     const post=(x,z,corner)=>{
-      footColumn(x,z,y+.2,shaftHeight,shaftRadius*(corner?1:.96));
-      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalBearingScale:bracketHorizontalScale*scale*(corner?1.02:1.04),corner,cornerYaw:Math.atan2(x,z)});
+      // The source tower has square, lightly eased, weathered pillars. Its
+      // section must not switch to a round hall column when the fitted room
+      // height passes the legacy three-metre heuristic.
+      const radius=shaftRadius*(corner?1:.96),postMat=ctx.pagodaPostMaterial||'red';
+      box(x,(shaftBottom+shaftTop)/2,z,radius*2,shaftHeight,radius*2,postMat);
+      for(const side of[-1,1]){
+        box(x+side*radius*.985,shaftTop-.12*scale,z,.012*scale,.24*scale,radius*1.86,'endwood');
+        box(x,shaftTop-.12*scale,z+side*radius*.985,radius*1.86,.24*scale,.012*scale,'endwood');
+      }
+      if(corner&&ctx.joineryKit?.relief)for(let face=0;face<4;face++)group(x,shaftTop-.23*scale,z,face*PI/2,()=>{
+        // Pierced foliate cheek collars are fastened to the true square
+        // pillar, below its daito; the open cuts reveal the worn wood.
+        draw(ctx.joineryKit.relief,'oldgold',[0,0,radius+.007*scale],[.17*scale,.39*scale,.13*scale]);
+        for(const side of[-1,1])draw('sphere','oldgold',[0,side*.165*scale,radius+.024*scale],[.009*scale,.009*scale,.005*scale]);
+      });
+      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalBearingScale:bracketHorizontalScale*scale*(corner?1.02:1.04),corner,waist:floorBearingY!==null,cornerYaw:Math.atan2(x,z)});
       posts.push({x,z,corner,shaftBottom,shaftTop,radius:shaftRadius*(corner?1:.96)});
     };
     // Twelve distinct posts: four true corner pillars and two between each
@@ -2530,14 +2548,22 @@ export function createRestorationArchitecture(ctx) {
         }
         const purlin=purlinGeometries.get(purlinKey);
         draw(purlin,'red',[0,purlinTop-purlinHeight/2,0],[1,1,1]);
-        box(0,y+2.57,0,span+.18*scale,.21*scale,.25*scale,'red');
+        const windowHeaderY=windowHeadY+.16*scale;
+        box(0,windowHeaderY,0,span+.18*scale,.21*scale,.25*scale,'red');
         // Closed recessed transom boarding ties the real posts behind the
         // stepped bearing courses. The room is not an open black slot.
-        const transomBottom=Math.min(y+2.41,shaftTop-.14*scale)+.055*scale,transomTop=purlinTop-.07*scale,transomHeight=transomTop-transomBottom;
-        if(transomHeight>0)for(let course=0;course<3;course++)box(0,transomBottom+(course+.5)*transomHeight/3,-.16*scale,span-.20*scale,transomHeight/3+.002*scale,.14*scale,course%2?'cedar':'red');
+        const transomBottom=Math.min(windowHeadY,shaftTop-.14*scale)+.055*scale,transomTop=purlinTop-.07*scale,transomHeight=transomTop-transomBottom;
+        if(transomHeight>0){
+          // Recessed overlapping head boarding is behind the bearing field.
+          // Individual grain directions and narrow real seams keep this from
+          // reading as a broad flat gray plug between the capitals.
+          const boards=Math.max(3,Math.ceil(transomHeight/(.24*scale))),h=transomHeight/boards;
+          for(let course=0;course<boards;course++)box(0,transomBottom+(course+.5)*h,-.23*scale,span-.20*scale,h-.006*scale,.105*scale,course%3?'red':'cedar',0,.88+.035*(course%4));
+          for(const xx of[-span/3,0,span/3])box(xx,(transomTop+transomBottom)/2,-.165*scale,.065*scale,transomHeight,.06*scale,'red');
+        }
         box(0,y+.49,0,span+.12*scale,.14*scale,.24*scale,'darkwood');
         const bay=span/3,clear=bay-shaftRadius*2-.10*scale;
-        const windowBottom=y+.71,windowTop=Math.min(y+2.41,shaftTop-.14*scale);
+        const windowBottom=y+.71,windowTop=Math.min(windowHeadY,shaftTop-.14*scale);
         const windowHeight=windowTop-windowBottom,windowY=(windowTop+windowBottom)/2;
         for(let k=0;k<3;k++) {
           const xx=(k-1)*bay;
@@ -2558,7 +2584,7 @@ export function createRestorationArchitecture(ctx) {
             clear,.028*scale,.035*scale,'endwood');
           // Only a small nailed joint strap occurs at each actual window end.
           if(detail)for(const side of [-1,1])squareFitting(xx+side*(clear*.5-.045*scale),
-            y+2.57,.131*scale,.07*scale,.12*scale,0,false);
+            windowHeaderY,.131*scale,.07*scale,.12*scale,0,false);
           const local=v([xx,windowY,-.092]);
           const matrix=stack?.[stack.length-1];
           const worldCenter=matrix?local.clone().applyMatrix4(matrix):local.clone();
@@ -2724,7 +2750,7 @@ export function createRestorationArchitecture(ctx) {
           corner.clone().addScaledVector(outward,.19).add(v([0,.30,0]))];
         group(corner.x,corner.y,corner.z,Math.atan2(outward.x,outward.z),()=>{
           if(ctx.joineryKit?.cornerMask){
-            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material==='oldgold'?'oldgold':'cornerCeramic',[0,.005,.012],[.62,.62,.62]);
+            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material==='oldgold'?'oldgold':'cornerCeramic',[0,.005,.012],[ctx.cornerCeramicScale??.62,ctx.cornerCeramicScale??.62,ctx.cornerCeramicScale??.62]);
           }else{
             const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
             draw(crest,'slate',[0,.005,0],[.78,.78,.82]);draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);

@@ -9,8 +9,8 @@ export function buildMapleCanopy(scene){
  vec3 leafSun=normalize((viewMatrix*vec4(-18.,11.,30.,0.)).xyz);
  reflectedLight.indirectDiffuse+=diffuseColor.rgb*pow(max(0.,dot(-normal,leafSun)),1.4)*.24;`);};m.customProgramCacheKey=()=> 'scene05-closed-maple-tissue-01';return m;});
  function leafGeometry(variant){
-  const N=84,R=2,p=[],uv=[],colors=[],ix=[],stride=1+N*R,lobes=[[-2,.30],[-1.35,.43],[-.65,.52],[0,.60],[.65,.52],[1.35,.43],[2,.30]];
-  function radial(a){let r=.145;for(const[axis,length]of lobes){const d=Math.atan2(Math.sin(a-axis),Math.cos(a-axis));if(Math.abs(d)<.32)r+=length*Math.pow(Math.cos(d/.32*Math.PI/2),1.7);}return r*(1+.020*Math.sin(a*67+variant));}
+  const N=56,R=2,p=[],uv=[],colors=[],ix=[],stride=1+N*R,lobes=[[-2,.29],[-1.35,.40],[-.65,.49],[0,.56],[.65,.49],[1.35,.40],[2,.29]];
+  function radial(a){let r=.165;for(const[axis,length]of lobes){const d=Math.atan2(Math.sin(a-axis),Math.cos(a-axis));if(Math.abs(d)<.34)r+=length*Math.pow(Math.cos(d/.34*Math.PI/2),1.45);}return r*(1+.025*Math.sin(a*25+variant));}
   for(let side=0;side<2;side++){
    p.push(0,0,side?-.0002:.0002);uv.push(.5,.5);colors.push(...(side?[.78,.85,.71]:[.94,1,.86]));
    for(let j=1;j<=R;j++)for(let i=0;i<N;i++){const r=j/R,a=i/N*Math.PI*2,rr=r*radial(a),x=Math.sin(a)*rr,y=Math.cos(a)*rr,z=.018*r*r*Math.sin(a*2+variant*.7)+.018*r*Math.sin(a*3-variant*.2)+.008*Math.pow(Math.max(0,Math.cos(a*7)),10)*Math.sin(r*Math.PI)+(side?-.0002:.0002);p.push(x,y,z);uv.push(.5+x*.7,.5+y*.7);const v=.91+.07*Math.sin(a*3+variant)*r;colors.push(...(side?[v*.78,v*.87,v*.69]:[v*.96,v,v*.83]));}
@@ -33,8 +33,8 @@ export function buildMapleCanopy(scene){
  function spray(anchor,direction,scale=1){
   for(let spoke=0;spoke<3;spoke++){
    const axis=direction.clone().multiplyScalar(.35).add(new T.Vector3(range(-.7,.7),range(-.1,.4),range(-.55,.55))).normalize(),length=range(.23,.48)*scale,end=anchor.clone().addScaledVector(axis,length);twig(anchor,end,.0032*scale);
-   for(let node=1;node<=3;node++)for(const sign of[-1,1]){
-    const joint=anchor.clone().lerp(end,node/3),side=new T.Vector3(axis.z,range(-.2,.25),-axis.x).normalize().multiplyScalar(sign),stemEnd=joint.clone().addScaledVector(side,range(.04,.09)*scale).addScaledVector(axis,.035*scale);twig(joint,stemEnd,.0012*scale);
+   for(let node=1;node<=2;node++)for(const sign of[-1,1]){
+    const joint=anchor.clone().lerp(end,node/2),side=new T.Vector3(axis.z,range(-.2,.25),-axis.x).normalize().multiplyScalar(sign),stemEnd=joint.clone().addScaledVector(side,range(.04,.09)*scale).addScaledVector(axis,.035*scale);twig(joint,stemEnd,.0012*scale);
     const s=range(.22,.36)*scale,q=new T.Quaternion().setFromEuler(new T.Euler(range(-1.4,-.25),range(0,Math.PI*2),range(-Math.PI,Math.PI))),base=new T.Vector3(0,-.145*s,0).applyQuaternion(q),centre=stemEnd.clone().sub(base),variant=Math.floor(rand()*3),material=Math.floor(rand()*leafMats.length);batches[material][variant].push(new T.Matrix4().compose(centre,q,new T.Vector3(s,s,s)));
    }
   }
