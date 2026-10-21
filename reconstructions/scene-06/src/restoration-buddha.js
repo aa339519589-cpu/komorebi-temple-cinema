@@ -157,7 +157,7 @@ function makeBuilder(variant){
   return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
     finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
-      g.userData={reconstruction:'reference6-source-led-hierarchical-drapery-r10',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
+      g.userData={reconstruction:'reference6-source-led-soft-tissue-tension-drapery-r11',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
     }return out;}};
 }
 
@@ -241,7 +241,7 @@ function ears(b,cy,small=false,material='buddha'){
  }
 }
 function neck(b,cy,small=false){
- const w=small?.171:.232,depth=small?.167:.197;
+ const w=small?.137:.232,depth=small?.143:.197;
  const rows=[[cy-.185,0,0,0],[cy-.155,w*.79,depth*.83,0],[cy-.105,w,depth,0],[cy+.035,w*.97,depth*.96,0],[cy+.115,w*.88,depth*.83,-.006],[cy+.185,0,0,-.010]];
  const relief=(x,y)=>{
   let f=0;for(const offset of[-.095,-.040,.018])f-=.0060*gaussian(y-cy-offset,.014);
@@ -440,14 +440,14 @@ function crown(b,cy,{central=false,variant='central'}={}){
   }
 }
 
-// Photo-led seated cast, revision r7. The shoulder is a structural section,
-// the neck is a narrow vertical bearing, and the chin has its own flat plane.
-// These measured profile rows replace the old continuous ovoid silhouette.
+// Source-led R11 body. The narrow throat flares into the clavicular bearing
+// through several curved sections; the offline head supplies the actual jaw.
 const MAIN_BODY=[
  [0,0,0,.10],[.035,.38,.29,.10],[.22,.51,.36,.08],[.48,.55,.39,.025],[.76,.56,.39,.005],
  [1.02,.58,.390,-.005],[1.30,.61,.380,-.025],[1.59,.65,.365,-.040],[1.88,.70,.335,-.055],
- [2.08,.71,.300,-.060],[2.20,.55,.255,-.055],[2.30,.205,.168,-.015],
- [2.38,.198,.157,-.005],[2.46,.204,.165,.002],[2.50,.205,.170,.005],[2.54,0,0,.005]
+ [2.08,.71,.300,-.060],[2.17,.575,.253,-.060],[2.235,.350,.205,-.040],
+ [2.285,.180,.150,-.020],[2.35,.153,.142,-.015],[2.43,.151,.149,-.010],
+ [2.50,.158,.165,-.005],[2.54,0,0,-.005]
 ];
 const CENTRAL_SKIN_ROWS=[
  ...MAIN_BODY.slice(0,-1),
@@ -464,33 +464,39 @@ const MAIN_BAND=[
 // The varied amplitudes/widths are intentional: equal semicircles looked like
 // cast tubing laid over a smooth breast rather than folded bronze drapery.
 const MAIN_DRAPE_TRACES=[
- [[-.37,2.18],[-.24,2.025],[-.02,1.955],[.20,2.015],[.47,2.19]],
- [[-.43,2.03],[-.31,1.80],[-.08,1.715],[.17,1.82],[.49,2.12]],
- [[-.47,1.85],[-.34,1.54],[-.12,1.43],[.12,1.58],[.46,2.04]],
- [[-.51,1.58],[-.39,1.265],[-.17,1.19],[.07,1.38],[.42,1.92]],
- [[-.50,1.29],[-.38,1.035],[-.18,.975],[.04,1.155],[.36,1.72]],
- [[-.45,1.04],[-.31,.82],[-.12,.795],[.08,.965],[.29,1.44]]
+ [[-.40,2.18],[-.28,1.995],[-.065,1.915],[.18,1.985],[.49,2.205]],
+ [[-.46,1.995],[-.32,1.700],[-.13,1.590],[.13,1.725],[.49,2.110]],
+ [[-.49,1.690],[-.35,1.315],[-.17,1.200],[.09,1.400],[.44,1.985]],
+ [[-.46,1.265],[-.32,.940],[-.105,.870],[.12,1.085],[.35,1.690]]
 ];
+// Unequal rounded fold shoulders and broad sloping cloth planes. Their
+// asymmetric cross-section avoids a circular rope laid across the torso.
+function drapeSection(distance,width,amplitude,turn=1){
+ const q=distance/width,slope=q<0?.88:1.68;
+ const roll=amplitude*Math.exp(-Math.pow(q/slope,2));
+ const valley=-amplitude*.56*gaussian(distance+turn*width*.87,width*.235);
+ return roll+valley;
+}
 function mainRelief(x,y){
- // R10: a small hierarchy of weight-bearing folds, pulled toward the right
- // shoulder, with shorter tributary wrinkles. These deform the actual torso;
- // there are no repeated cords or raised gold-line substitutes for cloth.
- let f=.038*gaussian(x+.06,.41)*gaussian(y-1.37,.68);
- const widths=[.092,.076,.104,.080,.088,.064],amplitudes=[.042,.048,.066,.052,.058,.036];
+ // Broad fabric planes descend from unequal shoulder/lap tension points.
+ let f=.032*gaussian(x+.11,.43)*gaussian(y-1.36,.72);
+ const widths=[.108,.151,.126,.107],amplitudes=[.040,.070,.060,.043];
  for(let i=0;i<MAIN_DRAPE_TRACES.length;i++){
   const tr=MAIN_DRAPE_TRACES[i],lo=tr[0][0],hi=tr.at(-1)[0];if(x<lo||x>hi)continue;
   const fade=smooth(x,lo,lo+.075)*(1-smooth(x,hi-.05,hi));
-  const at=sampleProfile(tr,x)[0]+.008*Math.sin(x*6.1+i*1.21),pull=.65+.35*smooth(x,lo,hi);
-  const amp=amplitudes[i]*pull,w=widths[i]*(1-.20*smooth(x,.08,hi));
-  f+=fade*(amp*gaussian(y-at,w)-amp*.70*gaussian(y-at+.078,w*.31));
-  // Fine wrinkles meet a primary fold at a shared tension point and stop
-  // before crossing the whole breast, rather than repeating the same U.
-  if(i===1||i===3||i===4){
-   const end=[.18,.07,.20][i===1?0:i===3?1:2],gate=fade*(1-smooth(x,end-.13,end));
-   const fork=at-.095-.12*smooth(x,lo,end);
-   f+=gate*(.014*gaussian(y-fork,.024)-.008*gaussian(y-fork+.030,.013));
-  }
+  const at=sampleProfile(tr,x)[0],pull=.55+.45*smooth(x,lo,hi);
+  const amp=amplitudes[i]*pull,w=widths[i]*(1-.40*smooth(x,.01,hi));
+  f+=fade*drapeSection(y-at,w,amp);
  }
+ const tributaries=[
+  [[-.445,1.96],[-.35,1.78],[-.27,1.69],.016,.035],
+  [[-.47,1.64],[-.35,1.42],[-.19,1.32],.020,.041],
+  [[-.43,1.18],[-.32,1.03],[-.18,.995],.014,.031],
+  [[.04,1.90],[.22,2.015],[.43,2.16],.017,.032],
+  [[.12,1.56],[.27,1.76],[.43,1.98],.023,.039],
+  [[.05,1.22],[.20,1.48],[.36,1.76],.016,.030]
+ ];
+ for(const tr of tributaries){const lo=tr[0][0],hi=tr[2][0];if(x<lo||x>hi)continue;const at=sampleProfile(tr.slice(0,3),x)[0],fade=Math.sin(Math.PI*(x-lo)/(hi-lo))**.68;f+=fade*drapeSection(y-at,tr[4],tr[3]);}
  // A broad turned shoulder plane and compressed right-side gathering carry
  // the longer folds into the stole and sleeve. Their scale differs from the
  // fine wrinkles; this is the physical drapery mass seen at the source view.
@@ -558,10 +564,10 @@ function shoulderRobePanel(side){
 }
 function sideRobeFold(q,v,side){
  const gate=Math.sin(Math.PI*q)*Math.sin(Math.PI*v),pull=.23+.47*(1-v);
- const ridges=[.18+.16*v,.49+.045*Math.sin(v*3.0),.83-.12*v],amps=[.045,.027,.037];let f=0;
+ const ridges=side<0?[.15+.26*v,.62-.04*v,.88-.10*v]:[.21+.11*v,.53+.16*v,.87-.22*v],amps=side<0?[.060,.032,.019]:[.040,.065,.024];let f=0;
  for(let k=0;k<ridges.length;k++){
-  const center=ridges[k]+(side<0?.027*Math.sin(v*4.1+k):-.018*Math.sin(v*3.7+k)),w=[.105,.067,.088][k]*(.82+.18*v);
-  f+=amps[k]*gaussian(q-center,w)-amps[k]*.63*gaussian(q-center-.095,w*.40);
+  const center=ridges[k]+(side<0?.027*Math.sin(v*4.1+k):-.018*Math.sin(v*3.7+k)),w=[.148,.098,.066][k]*(.65+.35*v);
+  f+=drapeSection(q-center,w,amps[k],side);
  }
  f+=.010*gaussian(q-(.63-pull*.26),.032)*gaussian(v-.43,.21);
  return gate*f;
@@ -576,8 +582,8 @@ function mainGarmentFront(x,y){
 function broadShoulderBand(){
  return closedPanel(72,220,(u,v)=>{
   const y=.81+1.44*v,[cx,width]=sampleProfile(MAIN_BAND,y),x=cx+(u-.5)*width;
-  const a=.26+.075*Math.sin(v*3.1),bb=.72-.055*Math.sin(v*4.3+.3),weight=.42+.58*Math.sin(Math.PI*v)**.55;
-  const folds=weight*(.027*gaussian(u-a,.135)-.016*gaussian(u-a-.14,.042)+.018*gaussian(u-bb,.094)-.010*gaussian(u-bb+.12,.037));
+  const a=.31+.13*Math.sin(v*3.1),bb=.78-.11*v,weight=.42+.58*Math.sin(Math.PI*v)**.55;
+  const folds=weight*(drapeSection(u-a,.20,.031)+drapeSection(u-bb,.087,.014)*gaussian(v-.37,.28));
   const wrinkle=.008*gaussian(u-(.47+.08*v),.038)*gaussian(v-.28,.23),edge=.005*(gaussian(u-.018,.022)+gaussian(u-.984,.020));
   return[x,y,mainGarmentFront(x,y)+.011+edge+folds+wrinkle];
  },.032);
@@ -647,15 +653,17 @@ function centralFigure(){
   const leg=surface(112,200,(u,v)=>{
    const xx=-.18+1.61*v,[ry,rz,cy,cz]=sampleProfile(thighRows,xx),a=u*TAU;
    if(v===0||v===1)return[side*xx,cy,cz];
-   const yy=cy+Math.sin(a)*ry+(side<0?.012:-.008)*Math.sin(Math.PI*v),front=Math.max(0,Math.cos(a));
-   let pleats=0;
-   for(const [i,base]of[.35,.205,.075].entries()){
-    const at=base+.18*((xx-.78)/.78)**2+.012*Math.sin(xx*5.4+i*1.1)+(side>0?.014:0);
-    const gate=Math.sin(Math.PI*v)**.68*(1-smooth(xx,1.10,1.36)),width=[.080,.054,.041][i],amp=[.036,.029,.018][i]*(side<0?1:.82);
-    pleats+=gate*(amp*gaussian(yy-at,width)-amp*.66*gaussian(yy-at+.044,width*.46));
-   }
-   pleats+=.013*gaussian(yy-(.23+.13*(xx-.5)**2),.018)*gaussian(xx-.57,.40);
-   return[side*xx,yy,cz+Math.cos(a)*rz+pleats*front**2];
+   const settle=Math.sin(Math.PI*v),yy=cy+Math.sin(a)*ry+(side<0?.036:-.024)*settle,front=Math.max(0,Math.cos(a));
+   const angleCenter=side<0?.12+.45*v:-.08+.68*v;
+   const wrap=q=>Math.atan2(Math.sin(q),Math.cos(q));
+   // A primary turned sheet wraps in both Y and Z around the knee. Shorter
+   // wrinkles gather at the medial ankle instead of striping the full leg.
+   let pleats=drapeSection(wrap(a-angleCenter),side<0?.48:.63,side<0?.055:.043)*settle;
+   pleats+=drapeSection(wrap(a-(angleCenter+.68)),.20,.022)*gaussian(v-.31,.26);
+   pleats+=drapeSection(wrap(a-(angleCenter-.57)),.15,.015)*gaussian(v-.66,.22);
+   const tuck=.015*gaussian(yy-(.26+.17*(xx-.48)**2),.028)*gaussian(xx-.43,.31)*front;
+   const wrapped=pleats*front**.55;
+   return[side*xx,yy+Math.sin(a)*wrapped*.74,cz+(side<0?.023:-.016)*settle+Math.cos(a)*(rz+wrapped)+tuck];
   },true);
   if(side>0){for(let i=0;i<leg.index.count;i+=3){const q=leg.index.getX(i+1);leg.index.setX(i+1,leg.index.getX(i+2));leg.index.setX(i+2,q);}recomputeSculptureNormals(leg);}
   b.add(leg,'sculpted-crossed-thigh-drapery-'+side);
@@ -675,16 +683,15 @@ function centralFigure(){
  // The apron spreads over the crossed ankles and returns under the seat. Its
  // rolled, irregular hem and converging fold tree replace the rectangular slab.
  const cloth=closedPanel(112,200,(u,v)=>{
-   const width=.70-.43*v**.68,cx=-.025+.095*v;
-   const y=-.095+.87*v+.024*(1-v)**4*Math.sin(Math.PI*u)-.017*(1-v)**3*Math.sin(3*Math.PI*u);
-   const x=cx+(u-.5)*width,z0=.930-.335*smooth(v,.48,1)+.026*Math.sin(Math.PI*u);
-   let fold=0;const ends=[-.32,-.20,-.045,.13,.29],amps=[.025,.030,.045,.028,.022];
-   for(let k=0;k<ends.length;k++){
-     const center=.07+(ends[k]-.07)*(1-v)**.69+.018*Math.sin(6.3*v+k*1.43)*(1-v);
-     const amp=amps[k]*(.48+.52*(1-v));
-     fold+=amp*gaussian(x-center,.028+.020*(1-v))-amp*.61*gaussian(x-center+.041,.017+.006*(1-v));
-   }
-   fold+=.013*gaussian(v-.05,.035)*Math.sin(Math.PI*u);
+   const width=.66-.39*v**.72,cx=-.048+.118*v+.018*Math.sin(Math.PI*v);
+   const y=-.083+.858*v+.030*(1-v)**3*Math.sin(Math.PI*u+.5)-.022*(1-v)**3*Math.sin(2.4*Math.PI*u);
+   const x=cx+(u-.5)*width,z0=.930-.335*smooth(v,.48,1)+.025*Math.sin(Math.PI*u);
+   const c1=.078+(-.20-.078)*(1-v)**.73,c2=.056+(.14-.056)*(1-v)**.58;
+   let fold=drapeSection(x-c1,.080-.031*v,.046*(1-.25*v));
+   fold+=drapeSection(x-c2,.052-.018*v,.030*(1-.43*v),-1);
+   fold+=drapeSection(x-(-.24+.29*v),.025,.013)*gaussian(v-.28,.25);
+   fold+=drapeSection(x-(.26-.20*v),.021,.010)*gaussian(v-.19,.18);
+   fold+=.016*gaussian(v-.045,.036)*Math.sin(Math.PI*u);
    return[x,y,z0+fold*Math.sin(Math.PI*u)];
  },.018);b.add(cloth,'fan-folded-lap-apron','cloth');
  raisedHand(b,-.50,1.475,.825,{size:1.18,fused:true});
@@ -712,21 +719,21 @@ function centralFigure(){
 const SIDE_BODY=[
  [0,0,0,.10],[.03,.24,.22,.10],[.31,.35,.29,.08],[.65,.42,.32,.045],[.97,.45,.34,.015],
  [1.28,.44,.33,0],[1.60,.465,.325,-.015],[1.92,.515,.315,-.025],[2.19,.555,.29,-.035],
- [2.39,.46,.25,-.040],[2.52,.245,.190,-.030],[2.62,.185,.160,-.025],[2.72,.177,.150,-.025],[2.78,0,0,-.020]
+ [2.39,.46,.25,-.040],[2.49,.28,.192,-.035],[2.56,.155,.142,-.025],
+ [2.64,.132,.132,-.025],[2.72,.137,.145,-.025],[2.78,0,0,-.020]
 ];
 function sideRelief(x,y){
  let f=.028*gaussian(x+.03,.32)*gaussian(y-1.78,.51);
  const paths=[
-  [[-.39,2.31],[-.24,2.13],[.01,2.03],[.24,2.13],[.43,2.33]],
-  [[-.42,2.12],[-.29,1.88],[-.04,1.77],[.20,1.91],[.41,2.23]],
-  [[-.40,1.89],[-.25,1.60],[-.04,1.53],[.17,1.69],[.36,2.09]],
-  [[-.35,1.62],[-.22,1.34],[.00,1.30],[.19,1.51],[.29,1.87]]
+  [[-.40,2.31],[-.24,2.09],[-.04,2.01],[.19,2.09],[.43,2.34]],
+  [[-.42,2.12],[-.30,1.83],[-.12,1.70],[.16,1.83],[.41,2.24]],
+  [[-.38,1.73],[-.25,1.42],[-.07,1.34],[.15,1.53],[.33,2.04]]
  ];
  for(let i=0;i<paths.length;i++){
   const tr=paths[i],lo=tr[0][0],hi=tr.at(-1)[0];if(x<lo||x>hi)continue;
-  const at=sampleProfile(tr,x)[0],fade=smooth(x,lo,lo+.06)*(1-smooth(x,hi-.035,hi)),amp=[.025,.040,.031,.027][i],w=[.074,.085,.061,.054][i];
-  f+=fade*(amp*gaussian(y-at,w)-amp*.62*gaussian(y-at+.060,w*.35));
-  if(i===1||i===3)f+=fade*.010*gaussian(y-at+.105,.023)*gaussian(x+.14,.16);
+  const at=sampleProfile(tr,x)[0],fade=smooth(x,lo,lo+.06)*(1-smooth(x,hi-.035,hi)),amp=[.030,.050,.037][i],w=[.100,.131,.099][i];
+  f+=fade*drapeSection(y-at,w,amp);
+  if(i===1)f+=fade*drapeSection(y-at+.13,.031,.015)*gaussian(x+.18,.13);
  }
  f+=.026*gaussian(x+.21-.09*(y-1),.055)*smooth(y,.4,.8)*(1-smooth(y,2.15,2.4));
  return f;
@@ -738,7 +745,12 @@ function attendantFigure(variant){
  neck(b,2.66,true);const fg=face(3.055,true,variant);b.add(fg,'attendant-oval-face','face');faceAnatomy(b,fg,3.055,true,true);ears(b,3.055,true);crown(b,3.055,{variant});
  const ps0=[[-.35,2.40,-.02],[-.58,2.22,.00],[-.67,1.91,.055],[-.68,1.55,.16],[-.56,1.36,.30],[-.36,1.53,.47],[-.29,1.67,.53]];
  const ps1=[[.35,2.40,-.02],[.59,2.21,.00],[.69,1.88,.05],[.75,1.51,.17],[.75,1.32,.33],[.77,1.45,.48]];
- for(const[which,ps]of[ps0,ps1].entries())add(sweep(ps,.193,.172,{segments:96,radial:40,profile:t=>.78+.32*Math.sin(Math.PI*t),relief:(t,a)=>.013*Math.cos(a*5+t*5)*Math.sin(Math.PI*t)**2}),`thick-sleeve-${which}`);
+ for(const[which,ps]of[ps0,ps1].entries())add(sweep(ps,.186,.160,{segments:112,radial:48,profile:t=>.80+.30*Math.sin(Math.PI*t)-.10*smooth(t,.72,1),relief:(t,a)=>{
+  const wrap=q=>Math.atan2(Math.sin(q),Math.cos(q)),c=which===0?.28+.76*t:.85-.60*t;
+  let f=drapeSection(wrap(a-c),.56,.038)*Math.sin(Math.PI*t)**.75;
+  f+=drapeSection(wrap(a-c-1.05),.25,.022)*gaussian(t-.64,.25);
+  f+=drapeSection(wrap(a-c+1.48),.19,.014)*gaussian(t-.40,.23);return f;
+ }}),`tension-folded-sleeve-${which}`);
  // Hand geometry remains independent on each attendant, with a slight
  // difference of wrist height and head attitude, rather than duplicating main.
  raisedHand({add:(g,t,m)=>add(g,t,m)},-.285,1.74+(variant==='right'?.025:0),.55,{size:.86,fused:true});
@@ -754,16 +766,21 @@ function attendantFigure(variant){
   const g=surface(80,144,(u,v)=>{
    const y=1.54*v,[rx,rz,cz,cx]=sampleProfile(kneeRows,y),a=u*TAU;
    if(v===0||v===1)return[legSide*cx,y,cz];
-   const x=legSide*(cx+Math.sin(a)*rx),front=Math.max(0,Math.cos(a));
-   let fold=.036*gaussian(y-.98,.29)*gaussian(Math.sin(a)-.10,.62);for(let j=0;j<4;j++){const at=-.62+j*.39+.29*(y-.72),w=.105+.025*(1-v),amp=[.025,.034,.027,.019][j],gate=smooth(y,.10,.26)*(1-smooth(y,1.28,1.51));fold+=gate*(amp*gaussian(Math.sin(a)-at,w)-amp*.52*gaussian(Math.sin(a)-at-.14,w*.55));}fold+=.017*gaussian(y-(.54+.39*(Math.sin(a)+.10)**2),.048);
-   return[x,y,cz+Math.cos(a)*rz+fold*front**3];
+   const turn=(legSide<0?.047:-.031)*Math.sin(Math.PI*v),x=legSide*(cx+Math.sin(a)*rx)+turn,front=Math.max(0,Math.cos(a));
+   const gate=smooth(y,.10,.26)*(1-smooth(y,1.28,1.51)),foldCenter=legSide<0?-.31+.66*v:.18+.35*v;
+   let fold=gate*drapeSection(Math.sin(a)-foldCenter,legSide<0?.30:.40,.049);
+   fold+=gate*drapeSection(Math.sin(a)-foldCenter-.50,.13,.019)*gaussian(y-.88,.39);
+   fold+=.021*gaussian(y-(.51+.43*(Math.sin(a)+.16)**2),.063)*gaussian(y-.67,.44);
+   return[x,y,cz+Math.cos(a)*rz+(legSide<0?.020:-.012)*Math.sin(Math.PI*v)+fold*front**2];
   },true);if(legSide<0){for(let i=0;i<g.index.count;i+=3){const q=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,q);}recomputeSculptureNormals(g);}add(g,`angled-bent-leg-${legSide}`);
   const footx=legSide*.30;add(ellipsoid(footx,.077,.49,.155,.073,.150,legSide*.14),`resting-foot-${legSide}`);
   for(let i=0;i<5;i++)add(finger([[footx+legSide*.055,.075,.425+i*.027],[footx+legSide*(.158-i*.008),.069,.43+i*.026]],.016-i*.001),`attendant-toe-${legSide}-${i}`);
  }
  add(closedPanel(48,100,(u,v)=>{
-  const y=.32+1.24*v,cx=-.12+.26*v,width=.28+.30*Math.sin(Math.PI*v*.82),x=cx+(u-.5)*width;
-  let z=.63-.35*v+.055*Math.sin(Math.PI*v);for(let k=0;k<4;k++){const crease=.12+k*.25+.047*Math.sin(v*4.3+k*1.31),w=.048+.016*(1-v);z+=(.022+k*.002)*gaussian(u-crease,w)-.012*gaussian(u-crease-.071,w*.56);}z+=.012*Math.sin(u*3*Math.PI+v*2)*Math.sin(Math.PI*u);
+  const y=.32+1.24*v+.018*(1-v)**3*Math.sin(u*5),cx=-.15+.29*v+.032*Math.sin(Math.PI*v),width=.28+.30*Math.sin(Math.PI*v*.82),x=cx+(u-.5)*width;
+  let z=.63-.35*v+.055*Math.sin(Math.PI*v);
+  z+=drapeSection(u-(.27+.12*v),.22,.044)+drapeSection(u-(.78-.10*v),.105,.025);
+  z+=drapeSection(u-(.11+.27*v),.050,.013)*gaussian(v-.30,.24);
   return[x,y,z];
  },.037),'diagonal-lap-sash');
  const front=(x,y)=>frontOf(SIDE_BODY,x,y)+sideRelief(x,y);

@@ -1,0 +1,91 @@
+{
+  "status": "frozen-for-provisional-native-integration-unaccepted",
+  "revision": "R11",
+  "visualAccepted": false,
+  "assetPathsRelativeTo": "lookdev/scene06-statue-foundation-v2",
+  "integrationAccepted": false,
+  "isolatedBuilderChangedCanonical": false,
+  "canonicalOwner": "/root/scene06_monumental_altar_v3",
+  "integrationDecision": "Scene06 owner reviewed both actual views and selected R11 for provisional native full/altar comparison, with visualAccepted:false.",
+  "pendingOwnRenderJobs": 0,
+  "currentPackage": "r11-joined-cloth-sculpture",
+  "currentIntegrationManifest": "r11-joined-cloth-sculpture/integration-manifest.json",
+  "bodyOnlySC07": "r11-joined-cloth-sculpture/sc07/manifest.json",
+  "bodyGLB": "r11-joined-cloth-sculpture/japanese-buddha-body.glb",
+  "bodyAndLotusGLB": "r11-joined-cloth-sculpture/japanese-buddha-with-lotus.glb",
+  "faceCoreGLB": "r11-joined-cloth-sculpture/actual-face-ears-neck-core.glb",
+  "editableProject": "r11-joined-cloth-sculpture/editable-coherent-statue.blend",
+  "actualViews": [
+    "r11-joined-cloth-sculpture/front.png",
+    "r11-joined-cloth-sculpture/three-quarter.png"
+  ],
+  "coordinateSystem": "+Y-up,+Z-front",
+  "seatAnchor": [
+    0,
+    0,
+    0
+  ],
+  "aboveSeatHeight": 3.260000228881836,
+  "bodyBounds": [
+    [
+      -1.558590054512024,
+      -0.10311733186244965,
+      -0.48827338218688965
+    ],
+    [
+      1.5585893392562866,
+      3.260000228881836,
+      0.7673966884613037
+    ]
+  ],
+  "substantiveChanges": [
+    "R09 cracked patch boundary and R10 detached rear cards are absent in both actual R11 views.",
+    "Knee fan/hem relief now changes the existing closed leg/core vertices; no separate cloth sheet or return card is created.",
+    "R10 lower/outward connected hands and compact raised collar retained; actual scan face surface and placement unchanged.",
+    "Welded source-head/neck/body skin is closed and has one connected component."
+  ],
+  "remainingDifferences": [
+    "Knee relief is still rippled/foil-like, while the reference has broad, weighted carved cloth folds.",
+    "Torso folds remain regular and idealized; sleeve and crossed-foot shapes need more reference-specific carving.",
+    "Optional lotus petals are thinner and pointed relative to early revisions, but their sections remain blocky and the repeated layering is too regular.",
+    "The actual licensed head is a different sculpture from the reference; its facial proportions and quiet expression are not an exact match.",
+    "Studio gold highlights exaggerate repeated volumes. Native lighting/material assessment belongs to the full scene comparison."
+  ],
+  "sourceAttribution": "Buddha Head by beachmouse, licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), via Sketchfab (https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab) and the public Objaverse dataset. Modified for temple-cinema statue foundation R11.",
+  "sourceProvenanceLimit": "Creator records a Japanese tea garden in California. Maker, date, period and place of manufacture are undocumented; this is not the CMA Heian sculpture or the supplied target statue.",
+  "validation": {
+    "file": "r11-joined-cloth-sculpture/geometry-validation.json",
+    "skinTopology": {
+      "vertices": 936239,
+      "triangles": 1872502,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    "weldedSkinConnectivity": {
+      "components": 1,
+      "weldedVertices": 936239,
+      "largestComponents": [
+        936239
+      ],
+      "weldToleranceDecimalPlaces": 6
+    },
+    "sourceFaceVertexDelta": 0,
+    "derivedImageMaps": 0,
+    "scope": "Binary integrity, finite indexed actual geometry, no image maps, source-preserving join metadata, and skin connectivity. Visual acceptance is independent."
+  },
+  "revisionHistory": {
+    "R01-R06": "Preserved originals and previous handoff in handoff-history/r06; neck flange and other visual failures rejected.",
+    "R08": "Source-preserving welded head-neck-body bridge; actual paired raised gesture; still cylindrical legs. Provisionally integrated.",
+    "R09": "Bent weighted leg foundations; failed serrated knee patch seam. Preserved with review-findings.json.",
+    "R10": "Lower/outward hands and compact collar; failed detached rear return cards. Preserved with review-findings.json.",
+    "R11": "No separate knee sheath; direct relief in closed limbs. Reviewed for provisional integration, still unaccepted."
+  },
+  "reproducers": [
+    "/usr/bin/python3 lookdev/scene06-statue-foundation-v2/fetch-japanese-head.py",
+    "node tools/run-blender-queued.mjs lookdev/scene06-statue-foundation-v2/build-statue-r11-joined-cloth.py",
+    "/usr/bin/python3 lookdev/scene06-statue-foundation-v2/verify_r11_outputs.py",
+    "/usr/bin/python3 lookdev/scene06-statue-foundation-v2/finalize_r11_handoff.py"
+  ],
+  "queuePolicy": "All Blender/native work uses the official shared FIFO/mutex. R11 two-view Blender job is complete; no further own GPU job is planned unless actual native comparison reveals a blocking geometry fault.",
+  "nextGate": "Parent and scene owner review actual full-sculpture scan candidates before choosing a donor. Preserve frozen R11 and completed native views; no further isolated GPU job unless a blocking geometry fault is found."
+}

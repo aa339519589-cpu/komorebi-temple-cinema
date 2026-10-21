@@ -1,0 +1,59 @@
+{
+  "revision": "R11",
+  "status": "frozen-for-provisional-native-integration-unaccepted",
+  "visualAccepted": false,
+  "actualViews": [
+    "front.png",
+    "three-quarter.png"
+  ],
+  "positiveChanges": [
+    "R09 cracked patch boundary and R10 detached rear cards are absent in both actual R11 views.",
+    "Knee fan/hem relief now changes the existing closed leg/core vertices; no separate cloth sheet or return card is created.",
+    "R10 lower/outward connected hands and compact raised collar retained; actual scan face surface and placement unchanged.",
+    "Welded source-head/neck/body skin is closed and has one connected component."
+  ],
+  "remainingVisualDifferences": [
+    "Knee relief is still rippled/foil-like, while the reference has broad, weighted carved cloth folds.",
+    "Torso folds remain regular and idealized; sleeve and crossed-foot shapes need more reference-specific carving.",
+    "Optional lotus petals are thinner and pointed relative to early revisions, but their sections remain blocky and the repeated layering is too regular.",
+    "The actual licensed head is a different sculpture from the reference; its facial proportions and quiet expression are not an exact match.",
+    "Studio gold highlights exaggerate repeated volumes. Native lighting/material assessment belongs to the full scene comparison."
+  ],
+  "generatedReportWordingCorrection": {
+    "file": "report.json",
+    "reason": "The frozen builder inherited two R09/R10 descriptions while its R11 geometry helper replaced that construction.",
+    "staleText": [
+      "Weighted closed knee-robe shells sampled from actual authored limb geometry, with deep irregular carved folds and rolled hems.",
+      "Knee sheath relief fades to zero at real limb boundaries; broad fan folds replace the serrated raised upper patch edge."
+    ],
+    "actualR11Construction": "No knee shell/sheath mesh is generated. Fan folds and hem returns directly displace existing closed leg/core vertices; ray tests only locate the local limb contour. The geometry helper and actual views are authoritative."
+  },
+  "integrationDecision": "Scene06 owner reviewed both actual views and selected R11 for provisional native full/altar comparison, with visualAccepted:false.",
+  "nativeIntegrationEvidence": [
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/report.json",
+      "sourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+      "completedAt": "2026-10-21T17:00:24.526Z",
+      "actualViews": [
+        "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/reference.png",
+        "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/detail-native.png"
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-three-quarter-native/report.json",
+      "sourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+      "completedAt": "2026-10-21T17:05:23.335Z",
+      "actualViews": [
+        "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-three-quarter-native/inspection-view.png"
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "nativeViewFinding": "R11 actual altar and low three-quarter retain no detached card/cracked knee edge. Knees still read as long polished bars, lap cloth lacks broad fan drape, torso folds repeat, and source facial type/under-jaw prominence differs from the target.",
+  "nextGate": "Parent and scene owner review actual full-sculpture scan candidates before choosing a donor. Preserve frozen R11 and completed native views; no further isolated GPU job unless a blocking geometry fault is found.",
+  "priorFailuresPreserved": {
+    "R09": "../r09-draped-sculpture/review-findings.json",
+    "R10": "../r10-reference-pose-sculpture/review-findings.json"
+  }
+}

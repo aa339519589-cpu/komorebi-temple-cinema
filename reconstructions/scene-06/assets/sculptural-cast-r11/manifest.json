@@ -1,0 +1,214 @@
+{
+  "revision": "scene06-sculptural-cast-r11",
+  "format": "SC07:20-byte header, float32 position/normal/uv, uint32 triangle indices",
+  "variants": {
+    "central": [
+      {
+        "material": "central",
+        "file": "central-central-3281b91d45a39a9a.bin",
+        "vertices": 549231,
+        "triangles": 1098510,
+        "sha256": "3281b91d45a39a9a8528b7fd7f0a973544fb4bd18ea3c5643b212d1aa45df721",
+        "bounds": [
+          [
+            -1.4276297092437744,
+            -0.11730432510375977,
+            -0.4065726101398468
+          ],
+          [
+            1.4276584386825562,
+            3.140000104904175,
+            1.0056538581848145
+          ]
+        ],
+        "topology": {
+          "vertices": 549231,
+          "triangles": 1098510,
+          "connectedComponents": 1,
+          "largestComponents": [
+            549231
+          ],
+          "largestComponentFraction": 1.0,
+          "removedVoxelSpeckVertices": 3
+        }
+      },
+      {
+        "material": "oldgold",
+        "file": "../sculptural-cast-r10/central-oldgold-34a404be88622dd5.bin",
+        "vertices": 35592,
+        "triangles": 70352,
+        "sha256": "34a404be88622dd53e9b345a4e0dfd3f03f6d6e57f040a779260b61fd7202047",
+        "bounds": [
+          [
+            -0.44200536608695984,
+            3.115002393722534,
+            -0.3412671387195587
+          ],
+          [
+            0.44005975127220154,
+            3.4099724292755127,
+            0.28239890933036804
+          ]
+        ]
+      },
+      {
+        "material": "gold",
+        "file": "central-gold-7ae34f3b265ecef8.bin",
+        "vertices": 85250,
+        "triangles": 169528,
+        "sha256": "7ae34f3b265ecef8d20b6f6a5458c6c3fc8f2eb722ad24866c3c219bef0b26ca",
+        "bounds": [
+          [
+            -0.37293383479118347,
+            0.9634624123573303,
+            -0.019863680005073547
+          ],
+          [
+            0.7316270470619202,
+            3.4250006675720215,
+            0.47684311866760254
+          ]
+        ]
+      }
+    ],
+    "left": [
+      {
+        "material": "buddha",
+        "file": "left-buddha-81698a31efab0d52.bin",
+        "vertices": 409137,
+        "triangles": 818310,
+        "sha256": "81698a31efab0d524f246b869986880f971f365a7e50bd976ee796abf2da502a",
+        "bounds": [
+          [
+            -0.8686803579330444,
+            0.00044276731205172837,
+            -0.3416156768798828
+          ],
+          [
+            0.9381166100502014,
+            3.234800338745117,
+            0.7929390668869019
+          ]
+        ],
+        "topology": {
+          "vertices": 409137,
+          "triangles": 818310,
+          "connectedComponents": 1,
+          "largestComponents": [
+            409137
+          ],
+          "largestComponentFraction": 1.0,
+          "removedVoxelSpeckVertices": 36
+        }
+      },
+      {
+        "material": "oldgold",
+        "file": "../sculptural-cast-r10/left-oldgold-c8d8709002a66038.bin",
+        "vertices": 2290,
+        "triangles": 4576,
+        "sha256": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5",
+        "bounds": [
+          [
+            -0.28165343403816223,
+            3.159602165222168,
+            -0.26076802611351013
+          ],
+          [
+            0.28165343403816223,
+            3.4696011543273926,
+            0.2111533135175705
+          ]
+        ]
+      },
+      {
+        "material": "gold",
+        "file": "left-gold-293e079a1dab2086.bin",
+        "vertices": 9116,
+        "triangles": 18172,
+        "sha256": "293e079a1dab20863dd83297bce7660cf2b0df686f988fdf1aa2666fc59d6f58",
+        "bounds": [
+          [
+            -0.28979068994522095,
+            1.9449998140335083,
+            -0.2550000250339508
+          ],
+          [
+            0.2897867262363434,
+            3.6096012592315674,
+            0.40052688121795654
+          ]
+        ]
+      }
+    ],
+    "right": [
+      {
+        "material": "buddha",
+        "file": "right-buddha-27a5cabaf3a64e53.bin",
+        "vertices": 408219,
+        "triangles": 816470,
+        "sha256": "27a5cabaf3a64e530028ab24c02e785e7c7778a55fa28d1188f3add8b205655d",
+        "bounds": [
+          [
+            -0.9381166100502014,
+            0.00044276731205172837,
+            -0.34161579608917236
+          ],
+          [
+            0.8686803579330444,
+            3.234799861907959,
+            0.7929390668869019
+          ]
+        ],
+        "topology": {
+          "vertices": 408219,
+          "triangles": 816470,
+          "connectedComponents": 1,
+          "largestComponents": [
+            408219
+          ],
+          "largestComponentFraction": 1.0,
+          "removedVoxelSpeckVertices": 40
+        }
+      },
+      {
+        "material": "oldgold",
+        "file": "../sculptural-cast-r10/right-oldgold-c8d8709002a66038.bin",
+        "vertices": 2290,
+        "triangles": 4576,
+        "sha256": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5",
+        "bounds": [
+          [
+            -0.28165343403816223,
+            3.159602165222168,
+            -0.26076802611351013
+          ],
+          [
+            0.28165343403816223,
+            3.4696011543273926,
+            0.2111533135175705
+          ]
+        ]
+      },
+      {
+        "material": "gold",
+        "file": "right-gold-293e079a1dab2086.bin",
+        "vertices": 9116,
+        "triangles": 18172,
+        "sha256": "293e079a1dab20863dd83297bce7660cf2b0df686f988fdf1aa2666fc59d6f58",
+        "bounds": [
+          [
+            -0.28979068994522095,
+            1.9449998140335083,
+            -0.2550000250339508
+          ],
+          [
+            0.2897867262363434,
+            3.6096012592315674,
+            0.40052688121795654
+          ]
+        ]
+      }
+    ]
+  },
+  "visualAccepted": false
+}

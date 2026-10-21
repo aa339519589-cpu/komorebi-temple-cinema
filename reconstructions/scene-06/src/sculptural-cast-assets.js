@@ -4,16 +4,24 @@ import {installRestoredBuddhaAssets} from './restoration-buddha.js';
 // Actual indexed, lit 3D surfaces. The binary contains positions, normals,
 // neutral object UVs, and triangle indices; it contains no captured pixels.
 export async function loadSculpturalCastAssets(){
- // R10 retains the verified upright +Y anatomy axes and the original pose anchors.
- // Its actual native visual review remains unaccepted.
- // Live, reference, free camera, and film paths consume the same real mesh.
- const revision='r10';
+ // The central paired-pose body and rigidly fitted side heads consume actual
+ // licensed face geometry. Independent R11 side bodies/crowns remain. All
+ // live/reference/free-camera/film views use the same indexed3D surfaces.
+ const revision='r11';
  const base=new URL(`../assets/sculptural-cast-${revision}/`,import.meta.url),response=await fetch(new URL('manifest.json',base));
  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');
+ const foundationBase=new URL('../assets/foundation-r11/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
+ if(!foundationResponse.ok)throw Error('Paired-pose foundation manifest failed');
+ const foundation=await foundationResponse.json();if(foundation.revision!=='scene06-foundation-r11')throw Error('Wrong paired-pose foundation revision');
+ const sideBase=new URL('../assets/attendant-bearing-v4/',import.meta.url),sideResponse=await fetch(new URL('manifest.json',sideBase));
+ if(!sideResponse.ok)throw Error('Closed attendant head manifest failed');
+ const sideManifest=await sideResponse.json();if(sideManifest.revision!=='scene06-attendant-bearing-v4')throw Error('Wrong attendant head revision');
  const variants={};
- for(const variant of['central','left','right'])variants[variant]=await Promise.all(manifest.variants[variant].map(async p=>{
-  const response=await fetch(new URL(p.file,base));if(!response.ok)throw Error('Physical cast mesh failed: '+p.file);
+ for(const variant of['central','left','right']){
+  const current=variant==='central'?foundation:sideManifest,currentBase=variant==='central'?foundationBase:sideBase;
+  variants[variant]=await Promise.all(current.variants[variant].map(async p=>{
+  const response=await fetch(new URL(p.file,currentBase));if(!response.ok)throw Error('Physical cast mesh failed: '+p.file);
   const buffer=await response.arrayBuffer(),head=new DataView(buffer);
   if(head.getUint32(0,true)!==0x37304353)throw Error('Wrong physical cast format');
   const n=head.getUint32(4,true),ni=head.getUint32(8,true);if(n!==p.vertices||ni!==p.triangles*3||buffer.byteLength!==20+n*32+ni*4)throw Error('Physical cast mesh length mismatch');
@@ -22,8 +30,9 @@ export async function loadSculpturalCastAssets(){
   g.setAttribute('normal',new T.BufferAttribute(new Float32Array(buffer,offset,n*3),3));offset+=n*12;
   g.setAttribute('uv',new T.BufferAttribute(new Float32Array(buffer,offset,n*2),2));offset+=n*8;
   g.setIndex(new T.BufferAttribute(new Uint32Array(buffer,offset,ni),1));g.computeBoundingBox();g.computeBoundingSphere();
-  g.name=`scene06-${revision}-physical-cast-${variant}-${p.material}`;g.userData={variant,reconstruction:manifest.revision,generatedAsset:p.file,topology:p.topology??null,visualAccepted:false};
+  g.name=`${current.revision}-physical-cast-${variant}-${p.material}`;g.userData={variant,reconstruction:current.revision,generatedAsset:p.file,topology:p.topology??null,nativeMaterial:current.materials?.[p.material]??null,visualAccepted:false};
   return{geometry:g,material:p.material};
- }));
- installRestoredBuddhaAssets(variants);return manifest;
+  }));
+ }
+ installRestoredBuddhaAssets(variants);return{revision:'scene06-foundation-r11-central-with-v4-attendant-bearings',foundation:foundation.revision,attendantFaces:sideManifest.revision,legacyAttendantBodies:manifest.revision,visualAccepted:false};
 }

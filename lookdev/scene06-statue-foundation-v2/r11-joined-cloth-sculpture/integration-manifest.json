@@ -1,0 +1,180 @@
+{
+  "status": "frozen-for-provisional-native-integration-unaccepted",
+  "revision": "scene06-foundation-r11",
+  "visualAccepted": false,
+  "packageDirectory": "lookdev/scene06-statue-foundation-v2/r11-joined-cloth-sculpture",
+  "generatedGeometryManifest": "sc07/manifest.json",
+  "coordinateSystem": "+Y-up,+Z-front",
+  "seatAnchor": [
+    0,
+    0,
+    0
+  ],
+  "aboveSeatHeight": 3.260000228881836,
+  "bodyBounds": [
+    [
+      -1.558590054512024,
+      -0.10311733186244965,
+      -0.48827338218688965
+    ],
+    [
+      1.5585893392562866,
+      3.260000228881836,
+      0.7673966884613037
+    ]
+  ],
+  "assemblyBounds": [
+    [
+      -1.558590054512024,
+      -0.7000000476837158,
+      -1.508460521697998
+    ],
+    [
+      1.5585893392562866,
+      3.260000228881836,
+      1.5089706182479858
+    ]
+  ],
+  "negativeYMinimum": "The body apron hangs .103117 units below the seat; the optional lotus extends .700000 units below it.",
+  "bodyOnly": [
+    {
+      "material": "cloth",
+      "file": "central-body-cloth-4fdf4eecb89f07c9.bin",
+      "vertices": 767457,
+      "triangles": 1533168,
+      "bytes": 42956660,
+      "sha256": "4fdf4eecb89f07c9230ad8d4482b7479c0f8096b82415030fde262824cf4befa"
+    },
+    {
+      "material": "face",
+      "file": "central-body-face-c99cbce10e4b5d48.bin",
+      "vertices": 101580,
+      "triangles": 201612,
+      "bytes": 5669924,
+      "sha256": "c99cbce10e4b5d48b81882bb66e4d5ece3bfdb6afa799c700f23e089dab366e1"
+    },
+    {
+      "material": "hand",
+      "file": "central-body-hand-dfd83a0d548811f6.bin",
+      "vertices": 58465,
+      "triangles": 115638,
+      "bytes": 3258556,
+      "sha256": "dfd83a0d548811f69268aac4e479d964e8fb7b9a29f57eeeda28c065b344f3d0"
+    },
+    {
+      "material": "hair",
+      "file": "central-body-hair-7152b767f3cf7a34.bin",
+      "vertices": 83397,
+      "triangles": 161476,
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "material": "gold",
+      "file": "central-body-gold-168902d117a0595d.bin",
+      "vertices": 55200,
+      "triangles": 109792,
+      "bytes": 3083924,
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f"
+    }
+  ],
+  "lotusOnlyOptional": [
+    {
+      "material": "oldgold",
+      "file": "central-lotus-oldgold-71ea1626698e0f89.bin",
+      "vertices": 37330,
+      "triangles": 74596,
+      "bytes": 2089732,
+      "sha256": "71ea1626698e0f89a630d3e2f02de5a7b4afc86fc902b77279b06984ab15a4cf"
+    },
+    {
+      "material": "gold",
+      "file": "central-lotus-gold-e4cd12be3858b058.bin",
+      "vertices": 27076,
+      "triangles": 54096,
+      "bytes": 1515604,
+      "sha256": "e4cd12be3858b0586cc45e0c16558188c723820a2f687ae1152d9e83781b96d8"
+    },
+    {
+      "material": "cloth",
+      "file": "central-lotus-cloth-cb6e59f6b40b75ca.bin",
+      "vertices": 25142,
+      "triangles": 50232,
+      "bytes": 1407348,
+      "sha256": "cb6e59f6b40b75ca1a223877c54f51e9ce6f5b46ca7dca358e52bb0989187b50"
+    }
+  ],
+  "faceCore": {
+    "parts": [
+      {
+        "material": "face",
+        "file": "central-head-core-face-fca24a5be84f09e3.bin",
+        "vertices": 101580,
+        "triangles": 201612,
+        "bytes": 5669924,
+        "sha256": "fca24a5be84f09e3bd2279602567065f3f71e38e3f8a9fca5e7aa5cc23639840"
+      }
+    ],
+    "bounds": {
+      "blenderZUp": [
+        [
+          -0.4221254885196686,
+          -0.4460238218307495,
+          2.25
+        ],
+        [
+          0.42065519094467163,
+          0.48827338218688965,
+          2.9850006103515625
+        ]
+      ],
+      "threeYUp": [
+        [
+          -0.4221254885196686,
+          2.25,
+          -0.48827338218688965
+        ],
+        [
+          0.42065519094467163,
+          2.9850006103515625,
+          0.4460238218307495
+        ]
+      ]
+    },
+    "neckAnchor": [
+      0,
+      2.25,
+      0
+    ],
+    "scalpCutY": 2.985,
+    "includesHairOrCrown": false
+  },
+  "faceCoreReuseLimit": "This core includes the R11 shorter authored throat down to neckAnchorY2.25 and no hair/crown. It is not an automatic replacement for the R08 core (neckAnchorY2.07) already fitted to attendants by the scene owner.",
+  "materialContract": "material-contract.json",
+  "provenance": "provenance.json",
+  "visualReview": "review-findings.json",
+  "binaryValidation": "geometry-validation.json",
+  "nativeIntegrationEvidence": [
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/report.json",
+      "sourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+      "completedAt": "2026-10-21T17:00:24.526Z",
+      "actualViews": [
+        "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/reference.png",
+        "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/detail-native.png"
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-three-quarter-native/report.json",
+      "sourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+      "completedAt": "2026-10-21T17:05:23.335Z",
+      "actualViews": [
+        "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-three-quarter-native/inspection-view.png"
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "editedByThisLane": "Only lookdev/scene06-statue-foundation-v2; canonical integration is owned by scene06_monumental_altar_v3.",
+  "pendingOwnRenderJobs": 0
+}

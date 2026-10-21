@@ -1,0 +1,193 @@
+{
+  "revision": "R11",
+  "visualAccepted": false,
+  "assetPathsRelativeTo": "lookdev/scene06-statue-foundation-v2",
+  "assets": [
+    {
+      "file": "sources/ccby-beachmouse-japanese-head/source-objaverse.glb",
+      "role": "unchanged CC BY source",
+      "bytes": 2327248,
+      "sha256": "f5d0a1ea3f6bd79e4bfce4904b089ba48e693acb3bfa6e3851cc15f08fe52302"
+    },
+    {
+      "file": "sources/ccby-beachmouse-japanese-head/provenance.json",
+      "role": "source delivery/license metadata",
+      "bytes": 1507,
+      "sha256": "3c43a752084c9a9871452202a70e91f47fb729c84b12e364e8c9cbbe51bb5597"
+    },
+    {
+      "file": "sources/ccby-beachmouse-japanese-head/creator-primary-metadata.json",
+      "role": "primary creator metadata",
+      "bytes": 5345,
+      "sha256": "99aa767448bd253ba0f21f281e4bda5c49b2cb5634994e69beac915241de4fd0"
+    },
+    {
+      "file": "sources/image-provenance.json",
+      "role": "official CC0 comparison-image receipts",
+      "bytes": 2296,
+      "sha256": "53bbb5d5fffb2917204a4591fc42dcdf1cb88a07536e3b465f14a0e39f93ea4c"
+    },
+    {
+      "file": "build-statue-r11-joined-cloth.py",
+      "role": "frozen R11 builder",
+      "bytes": 29107,
+      "sha256": "260afd7ed2c7a057751acf4e2853787d367b2d5d6d114b5b50e3c9653d35361e"
+    },
+    {
+      "file": "statue_r11_geometry.py",
+      "role": "frozen R11 authored geometry helper",
+      "bytes": 21544,
+      "sha256": "73058e9123afa44887c1ce7f9c32e2a7c8f21989285bb8ca41a2e70897f4bb8a"
+    },
+    {
+      "file": "verify_r11_outputs.py",
+      "role": "independent CPU geometry/export verification",
+      "bytes": 5745,
+      "sha256": "905700f41d87554a2e0e16d7fec3f0ff3dcff5feb7ddbb126233945eaa2ba742"
+    },
+    {
+      "file": "finalize_r11_handoff.py",
+      "role": "CPU-only documentation/handoff reproducer",
+      "bytes": 17376,
+      "sha256": "7eb29c5110b82b91aed425ab913f578684bfc74fb2f83ba2abdb1b3716bf6130"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/front.png",
+      "role": "actual Cycles front view",
+      "bytes": 1813825,
+      "sha256": "e0c00845a6f00864508c96ff2fcb64b1e38063d4a98c8a0b7d7b56d1436381e2"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/three-quarter.png",
+      "role": "actual Cycles three-quarter view",
+      "bytes": 1796080,
+      "sha256": "35686a5ddc95879b4ca89533c771a8ce9302fa9f9c32e3d22fbc99e0aef203ed"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/editable-coherent-statue.blend",
+      "role": "editable source and actual studio scene",
+      "bytes": 37501392,
+      "sha256": "eaec9965500c262af15237712561fec77788c29254a2ede48abe54e7787f09a9"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/japanese-buddha-body.glb",
+      "role": "body-only generated mesh",
+      "bytes": 49047956,
+      "sha256": "16ed266c0be3689267c319bde0a750aa9c725f88a81d236791b21777303cd29f"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/japanese-buddha-with-lotus.glb",
+      "role": "generated mesh with optional lotus",
+      "bytes": 51349772,
+      "sha256": "b45914f5611877fa19cdf5fcaea9b264936a1b1afaff6f951d9eb61948b77aa2"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/actual-face-ears-neck-core.glb",
+      "role": "separately identifiable face/ears/neck core",
+      "bytes": 4858776,
+      "sha256": "599be0a4037cade912bed5f3cb0057f9e82d4c556fdd45ff91a3c6f891f806b4"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/report.json",
+      "role": "frozen builder receipt; see review sidecar wording correction",
+      "bytes": 7416,
+      "sha256": "d143f2edaf7b0718e425c9334179b7e73c9653970ce66d91590334aa7b675f15"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/boundary-loops.json",
+      "role": "actual join boundary receipt",
+      "bytes": 381,
+      "sha256": "fdffb7e664010e8d0fa1a96c8c0ad46f527aee411bde6d23e9d154fe83fe5473"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/geometry-validation.json",
+      "role": "independent export/skin-connectivity verification",
+      "bytes": 6399,
+      "sha256": "e485bf09166f8cfe2541e79c6b66dee8d1aa507273b0a03436f70872f70227b5"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/manifest.json",
+      "role": "generated material-batched geometry manifest",
+      "bytes": 7525,
+      "sha256": "1d5a5d3680e78d11057e033fd331c65b9e25167aedbb0bebd6cc9552fae98ca6"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/material-contract.json",
+      "role": "scope-specific material mapping",
+      "bytes": 2654,
+      "sha256": "cd46d7451f9b89ae938874243b462cde6733f87626dbb5351d8a410a7e496639"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/provenance.json",
+      "role": "source and modification attribution",
+      "bytes": 5016,
+      "sha256": "750ddc7e926d2df466c839ae456ca8c5fd8a0e126fa2ce27463d0e8283c3fbd2"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/review-findings.json",
+      "role": "honest visual review and prior-failure links",
+      "bytes": 3939,
+      "sha256": "6c6d61d00f45a342499eb2718f1cfdcbbe052638adc934d44e061dbf4262988c"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/integration-manifest.json",
+      "role": "current integration contract",
+      "bytes": 5572,
+      "sha256": "32d27442d41bd7b371ec5d7137a0b2ceac98e3cf9df39be2d94c296ca5b4dfb3"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-body-cloth-4fdf4eecb89f07c9.bin",
+      "role": "bodyOnly cloth SC07 geometry",
+      "bytes": 42956660,
+      "sha256": "4fdf4eecb89f07c9230ad8d4482b7479c0f8096b82415030fde262824cf4befa"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-body-face-c99cbce10e4b5d48.bin",
+      "role": "bodyOnly face SC07 geometry",
+      "bytes": 5669924,
+      "sha256": "c99cbce10e4b5d48b81882bb66e4d5ece3bfdb6afa799c700f23e089dab366e1"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-body-hand-dfd83a0d548811f6.bin",
+      "role": "bodyOnly hand SC07 geometry",
+      "bytes": 3258556,
+      "sha256": "dfd83a0d548811f69268aac4e479d964e8fb7b9a29f57eeeda28c065b344f3d0"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-body-hair-7152b767f3cf7a34.bin",
+      "role": "bodyOnly hair SC07 geometry",
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-body-gold-168902d117a0595d.bin",
+      "role": "bodyOnly gold SC07 geometry",
+      "bytes": 3083924,
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-lotus-oldgold-71ea1626698e0f89.bin",
+      "role": "lotusOnly oldgold SC07 geometry",
+      "bytes": 2089732,
+      "sha256": "71ea1626698e0f89a630d3e2f02de5a7b4afc86fc902b77279b06984ab15a4cf"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-lotus-gold-e4cd12be3858b058.bin",
+      "role": "lotusOnly gold SC07 geometry",
+      "bytes": 1515604,
+      "sha256": "e4cd12be3858b0586cc45e0c16558188c723820a2f687ae1152d9e83781b96d8"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-lotus-cloth-cb6e59f6b40b75ca.bin",
+      "role": "lotusOnly cloth SC07 geometry",
+      "bytes": 1407348,
+      "sha256": "cb6e59f6b40b75ca1a223877c54f51e9ce6f5b46ca7dca358e52bb0989187b50"
+    },
+    {
+      "file": "r11-joined-cloth-sculpture/sc07/central-head-core-face-fca24a5be84f09e3.bin",
+      "role": "separate face-core SC07 geometry",
+      "bytes": 5669924,
+      "sha256": "fca24a5be84f09e3bd2279602567065f3f71e38e3f8a9fca5e7aa5cc23639840"
+    }
+  ]
+}

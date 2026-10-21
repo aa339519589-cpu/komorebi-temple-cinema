@@ -1,0 +1,77 @@
+{
+  "revision": "scene06-foundation-r11",
+  "visualAccepted": false,
+  "assetPathsRelativeTo": "lookdev/scene06-statue-foundation-v2",
+  "actualGeometrySource": {
+    "title": "Buddha Head",
+    "author": "beachmouse",
+    "authorProfile": "https://sketchfab.com/beachmouse",
+    "originalModel": "https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab",
+    "metadataSource": "https://api.sketchfab.com/v3/models/5feec372c644454fb9514db5b1834eab",
+    "sourceDescription": "Head of a Buddha statue in a Japanese tea garden in California.",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "licenseLabelVerified": "CC Attribution",
+    "datasetMirror": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-090/5feec372c644454fb9514db5b1834eab.glb",
+    "deliveryMirror": "https://hf-mirror.com/datasets/allenai/objaverse/resolve/main/glbs/000-090/5feec372c644454fb9514db5b1834eab.glb",
+    "sourceFile": "source-objaverse.glb",
+    "sourceBytes": 2327248,
+    "sourceSha256": "f5d0a1ea3f6bd79e4bfce4904b089ba48e693acb3bfa6e3851cc15f08fe52302",
+    "sourceVertexCount": 48702,
+    "creatorReportedTriangles": 16234,
+    "changes": "Source GLB bytes preserved unchanged here. Any derived candidate rigidly normalizes and crops the actual mesh; removes all source scan textures; assigns new physical gold. This is a different historical or modern sculpture than supplied reference.",
+    "attribution": "Buddha Head by beachmouse, licensed CC BY 4.0, via Sketchfab and the public Objaverse dataset; modified in temple-cinema statue foundation studies.",
+    "visualAccepted": false,
+    "creatorReportedVertices": 8119
+  },
+  "preservedSource": {
+    "file": "sources/ccby-beachmouse-japanese-head/source-objaverse.glb",
+    "role": "unchanged licensed source GLB",
+    "bytes": 2327248,
+    "sha256": "f5d0a1ea3f6bd79e4bfce4904b089ba48e693acb3bfa6e3851cc15f08fe52302"
+  },
+  "sourcePrimaryMetadata": {
+    "file": "sources/ccby-beachmouse-japanese-head/creator-primary-metadata.json",
+    "role": "primary creator metadata/license receipt",
+    "bytes": 5345,
+    "sha256": "99aa767448bd253ba0f21f281e4bda5c49b2cb5634994e69beac915241de4fd0"
+  },
+  "sourceProvenanceLimit": "Creator records a Japanese tea garden in California. Maker, date, period and place of manufacture are undocumented; this is not the CMA Heian sculpture or the supplied target statue.",
+  "requiredAttribution": "Buddha Head by beachmouse, licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), via Sketchfab (https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab) and the public Objaverse dataset. Modified for temple-cinema statue foundation R11.",
+  "modifications": [
+    "Source bytes preserved unchanged; derived copies weld coincident UV seams and remove all scan textures.",
+    "Rigid centering/normalization, uniform scale, neck and scalp crop, two Catmull-Clark subdivision levels, uniform physical regilding.",
+    "Source face/jaw/ears/lobes above the crop retain their shape and placement; source-neck opening is joined by quad/zipper bridge to authored compact collar/body.",
+    "New torso, robe, continuous arms, paired inward thumb-index-loop hands, crossed legs/feet, dense fine hair curls, ornament and optional lotus are authored geometry.",
+    "R11 knee/hem relief is sculpted directly into the existing closed limb/core surface."
+  ],
+  "sourceFaceCageWarped": false,
+  "renderedSourceVertexMaxDeltaAfterRetopology": 0.0,
+  "originalCageRetainedInBlend": true,
+  "referenceOnly": {
+    "target": "references/hd/4-照片-5.jpg",
+    "CMA": "Cleveland Museum of Art, 1973.85.a Seated Buddha (sculpture), CC0 collection images; seven original files and hashes in sources/image-provenance.json.",
+    "CMA3DDownload": "Official Sketchfab original download required authentication (HTTP401). No official CMA 3D source was acquired.",
+    "imageReceipt": {
+      "file": "sources/image-provenance.json",
+      "role": "museum reference image URL/SHA receipt",
+      "bytes": 2296,
+      "sha256": "53bbb5d5fffb2917204a4591fc42dcdf1cb88a07536e3b465f14a0e39f93ea4c"
+    },
+    "use": "Visual form comparison only. No photographs are projected, textured, used as geometry/displacement, or passed off as a rendered scene."
+  },
+  "derivedImageMaps": 0,
+  "builder": {
+    "file": "build-statue-r11-joined-cloth.py",
+    "role": "frozen R11 build/reproducer",
+    "bytes": 29107,
+    "sha256": "260afd7ed2c7a057751acf4e2853787d367b2d5d6d114b5b50e3c9653d35361e"
+  },
+  "geometryHelper": {
+    "file": "statue_r11_geometry.py",
+    "role": "frozen R11 authored geometry",
+    "bytes": 21544,
+    "sha256": "73058e9123afa44887c1ce7f9c32e2a7c8f21989285bb8ca41a2e70897f4bb8a"
+  },
+  "licensePropagation": "Keep this provenance and the beachmouse CC BY attribution alongside any redistributed derived central statue or reused face core. New authored additions do not remove the source attribution requirement."
+}

@@ -1,0 +1,58 @@
+{
+  "purpose": "Find an appropriate Japanese sculptural foundation without extracting authenticated or protected payloads.",
+  "selectedReference": {
+    "title": "1973.85.a Seated Buddha (sculpture)",
+    "author": "Cleveland Museum of Art",
+    "collectionRecord": "https://www.clevelandart.org/art/1973.85.a",
+    "publicMetadata": "https://api.sketchfab.com/v3/models/c9e0d5000ca345ea9dacf35f25db57b2",
+    "license": "CC0-1.0",
+    "geometryStatus": "Original source download endpoint requires authentication (HTTP 401). Original mesh was not downloaded or used.",
+    "photographStatus": "Seven public official multi-view references downloaded unchanged, with SHA256 and URLs in sources/image-provenance.json.",
+    "sourceUse": "Form reference for new editable geometry only. No photographic texture, projection or image displacement."
+  },
+  "alternatives": [
+    {
+      "title": "1973.85 Seated Buddha (whole assembly)",
+      "author": "Cleveland Museum of Art",
+      "metadata": "https://api.sketchfab.com/v3/models/d86bda08fa92458397596d2a42b30f46",
+      "license": "CC0-1.0",
+      "status": "Published May 2025; not present in the early Objaverse dump. Downloaded only public collection metadata."
+    },
+    {
+      "title": "Seated Amida, Sainsbury Centre",
+      "author": "Scan the World",
+      "record": "https://zenodo.org/records/21353739",
+      "primaryRightsMetadata": "https://zenodo.org/records/21353739/files/edm.xml?download=1",
+      "license": "CC-BY-NC-SA-4.0",
+      "status": "Excluded from production source candidate: source lane requested CC0 or CC BY. No mesh imported."
+    },
+    {
+      "title": "Seated Amida Buddha, MIA 2015.79.256a-c",
+      "author": "danderson4",
+      "metadata": "https://api.sketchfab.com/v3/models/21b0e1bf1f884b549ff5c18e3ea88fe2",
+      "license": null,
+      "status": "Not downloadable; license metadata empty. No mesh downloaded or used."
+    },
+    {
+      "title": "Japanese Buddha from Koyasan",
+      "author": "Diego (@drkolo)",
+      "metadata": "https://api.sketchfab.com/v3/models/5c78e184a6b147c2af56c69b32358435",
+      "license": "CC-BY-4.0",
+      "status": "A souvenir piggy bank rather than an appropriate monumental sculpture; excluded."
+    }
+  ],
+  "selected3DSource": {
+    "title": "Buddha Head",
+    "author": "beachmouse",
+    "primaryMetadata": "https://api.sketchfab.com/v3/models/5feec372c644454fb9514db5b1834eab",
+    "originalModel": "https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab",
+    "license": "CC-BY-4.0",
+    "publicDataset": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-090/5feec372c644454fb9514db5b1834eab.glb",
+    "preservedBytes": 2327248,
+    "sha256": "f5d0a1ea3f6bd79e4bfce4904b089ba48e693acb3bfa6e3851cc15f08fe52302",
+    "geometry": "8119 welded source vertices, 16234 triangles; full original public GLB retained unchanged.",
+    "provenanceLimit": "Creator identifies a Japanese tea garden in California. Carver, date, historical period and manufacturing origin are undocumented.",
+    "use": "Actual head/face/ear geometry in r04 and later studies. Photographic scan material removed. Changes and CC BY attribution are declared in each derived output."
+  },
+  "newModelStatus": "R01–R03 are new artist-authored geometry. R04 and later retarget the actual CC BY source head/face/ears; body, hands, robe, jewelry, lotus and optional replacement fine hair are new authored geometry. All candidates remain unaccepted."
+}

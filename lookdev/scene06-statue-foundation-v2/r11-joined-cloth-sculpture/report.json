@@ -1,0 +1,246 @@
+{
+  "revision": "R11 draped sculpture",
+  "status": "substantive-drapery-two-view-review",
+  "visualAccepted": false,
+  "live06Changed": false,
+  "source": {
+    "file": "sources/ccby-beachmouse-japanese-head/source-objaverse.glb",
+    "sha256": "f5d0a1ea3f6bd79e4bfce4904b089ba48e693acb3bfa6e3851cc15f08fe52302",
+    "license": "CC-BY-4.0",
+    "author": "beachmouse",
+    "source": "https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab",
+    "provenanceLimit": "Creator records Japanese tea garden in California; maker/date/manufacturing origin undocumented."
+  },
+  "sourceFaceCageWarped": false,
+  "renderedSourceVertexMaxDeltaAfterRetopology": 0.0,
+  "topology": {
+    "vertices": 936239,
+    "triangles": 1872502,
+    "boundaryEdges": 0,
+    "nonManifoldEdges": 0
+  },
+  "voxelCleanup": {
+    "componentsBefore": 1,
+    "removedDustComponentVertexCounts": [],
+    "removedVertices": 0,
+    "thresholdVertices": 64,
+    "majorComponentsAfter": 1
+  },
+  "neckBridge": {
+    "sourceNormalizedCut": 0.5,
+    "sourceWorldNeckCut": 2.5140000000000002,
+    "garmentWorldCut": 2.495,
+    "sourceBoundaryVertices": 724,
+    "garmentBoundaryVertices": 456,
+    "bridgeRings": 35,
+    "bridgeVerticesPerRing": 256,
+    "sourceNeckCapUsed": false,
+    "jawAndLobes": "Retained actual source surface above the neck cut. No vertex deformation; exact attachment by zipper faces.",
+    "clothCollarRaisedFromR08": 0.18,
+    "upperBodyNeckVerticesMatchedToSourceContour": 15670,
+    "actualFacePositionUnchanged": true
+  },
+  "changes": [
+    "R08 source-preserving head/neck bridge retained; no scan face adjustment.",
+    "Upper sleeve caps buried within the chest instead of exposed diagonal shoulder planes.",
+    "Each crossed leg follows one continuous bent hip/knee/shin path; no separate capped thigh/calf elbow.",
+    "Weighted closed knee-robe shells sampled from actual authored limb geometry, with deep irregular carved folds and rolled hems.",
+    "Central lower garment support fills the unsupported skirt region without one inflated oval leg disc.",
+    "Palm tops and finger roots overlap through soft knuckle webs instead of a straight exposed cap bar.",
+    "Longer thinner pointed petal shells with shallow sections, inward higher inner tips and mild twist.",
+    "Native low-camera feedback: both connected wrists lowered .50, spread .12 outward each, with continuous shoulder/elbow/forearm skins.",
+    "Collar and shoulder returns raised .18; upper body neck matches the actual scan perimeter without shifting or warping the face.",
+    "Knee sheath relief fades to zero at real limb boundaries; broad fan folds replace the serrated raised upper patch edge.",
+    "Curved insteps, thinner soles and rounded toe fans replace constant-section crossed foot bars.",
+    "Petals have narrow stem roots, flatter lanceolate blades and branching carved vein grooves."
+  ],
+  "seatAnchor": [
+    0,
+    0,
+    0
+  ],
+  "bodyBounds": {
+    "blenderZUp": [
+      [
+        -1.558590054512024,
+        -0.7673966884613037,
+        -0.10311733186244965
+      ],
+      [
+        1.5585893392562866,
+        0.48827338218688965,
+        3.260000228881836
+      ]
+    ],
+    "threeYUp": [
+      [
+        -1.558590054512024,
+        -0.10311733186244965,
+        -0.48827338218688965
+      ],
+      [
+        1.5585893392562866,
+        3.260000228881836,
+        0.7673966884613037
+      ]
+    ]
+  },
+  "assemblyBounds": {
+    "blenderZUp": [
+      [
+        -1.558590054512024,
+        -1.5089706182479858,
+        -0.7000000476837158
+      ],
+      [
+        1.5585893392562866,
+        1.508460521697998,
+        3.260000228881836
+      ]
+    ],
+    "threeYUp": [
+      [
+        -1.558590054512024,
+        -0.7000000476837158,
+        -1.508460521697998
+      ],
+      [
+        1.5585893392562866,
+        3.260000228881836,
+        1.5089706182479858
+      ]
+    ]
+  },
+  "bodySC07": [
+    {
+      "material": "cloth",
+      "file": "central-body-cloth-4fdf4eecb89f07c9.bin",
+      "vertices": 767457,
+      "triangles": 1533168,
+      "bytes": 42956660,
+      "sha256": "4fdf4eecb89f07c9230ad8d4482b7479c0f8096b82415030fde262824cf4befa"
+    },
+    {
+      "material": "face",
+      "file": "central-body-face-c99cbce10e4b5d48.bin",
+      "vertices": 101580,
+      "triangles": 201612,
+      "bytes": 5669924,
+      "sha256": "c99cbce10e4b5d48b81882bb66e4d5ece3bfdb6afa799c700f23e089dab366e1"
+    },
+    {
+      "material": "hand",
+      "file": "central-body-hand-dfd83a0d548811f6.bin",
+      "vertices": 58465,
+      "triangles": 115638,
+      "bytes": 3258556,
+      "sha256": "dfd83a0d548811f69268aac4e479d964e8fb7b9a29f57eeeda28c065b344f3d0"
+    },
+    {
+      "material": "hair",
+      "file": "central-body-hair-7152b767f3cf7a34.bin",
+      "vertices": 83397,
+      "triangles": 161476,
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "material": "gold",
+      "file": "central-body-gold-168902d117a0595d.bin",
+      "vertices": 55200,
+      "triangles": 109792,
+      "bytes": 3083924,
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f"
+    }
+  ],
+  "lotusSC07": [
+    {
+      "material": "oldgold",
+      "file": "central-lotus-oldgold-71ea1626698e0f89.bin",
+      "vertices": 37330,
+      "triangles": 74596,
+      "bytes": 2089732,
+      "sha256": "71ea1626698e0f89a630d3e2f02de5a7b4afc86fc902b77279b06984ab15a4cf"
+    },
+    {
+      "material": "gold",
+      "file": "central-lotus-gold-e4cd12be3858b058.bin",
+      "vertices": 27076,
+      "triangles": 54096,
+      "bytes": 1515604,
+      "sha256": "e4cd12be3858b0586cc45e0c16558188c723820a2f687ae1152d9e83781b96d8"
+    },
+    {
+      "material": "cloth",
+      "file": "central-lotus-cloth-cb6e59f6b40b75ca.bin",
+      "vertices": 25142,
+      "triangles": 50232,
+      "bytes": 1407348,
+      "sha256": "cb6e59f6b40b75ca1a223877c54f51e9ce6f5b46ca7dca358e52bb0989187b50"
+    }
+  ],
+  "views": [
+    {
+      "name": "front",
+      "file": "front.png",
+      "camera": [
+        0,
+        -9.0,
+        2.35
+      ],
+      "resolution": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "name": "three-quarter",
+      "file": "three-quarter.png",
+      "camera": [
+        4.3,
+        -8.0,
+        2.52
+      ],
+      "resolution": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "builderSha256": "260afd7ed2c7a057751acf4e2853787d367b2d5d6d114b5b50e3c9653d35361e",
+  "geometryHelperSha256": "73058e9123afa44887c1ce7f9c32e2a7c8f21989285bb8ca41a2e70897f4bb8a",
+  "limits": [
+    "Isolated sculpture review; integration/camera/native temple lighting remain with scene owner.",
+    "Actual head is a different sculpture than the supplied reference; no exactness claim.",
+    "Facial geometry was preserved, not matched by raster deformation.",
+    "Two actual Cycles frames do not establish native WebGL equivalence or photographic acceptance."
+  ],
+  "referencePose": {
+    "wristAnchorsThreeYUp": {
+      "left": [
+        -0.655,
+        1.0299999999999998,
+        0.465
+      ],
+      "right": [
+        0.71,
+        0.9600000000000001,
+        0.44
+      ]
+    },
+    "wristDeltaFromR08": {
+      "left": [
+        -0.12,
+        -0.5,
+        0
+      ],
+      "right": [
+        0.12,
+        -0.5,
+        0
+      ]
+    },
+    "continuousCoveredArms": true,
+    "aboveSeatHeightUnchanged": true
+  }
+}

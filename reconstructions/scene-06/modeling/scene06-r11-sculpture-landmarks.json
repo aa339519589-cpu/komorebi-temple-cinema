@@ -1,0 +1,59 @@
+{
+  "revision": "scene06-r11-source-led-soft-tissue-and-tension-drapery",
+  "reference": "references/hd/4-\u7167\u7247-5.jpg",
+  "referenceSha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+  "referenceUse": "Manual approximate proportion/pose landmarks and visual sculptural interpretation only. No raster/depth projection, source RGB material, image-plane statue or whole-frame generator.",
+  "referenceFramePixels": [
+    1254,
+    1254
+  ],
+  "centralManualImageGuidesPixels": {
+    "eyeCenters": [
+      [
+        612,
+        373
+      ],
+      [
+        637,
+        373
+      ]
+    ],
+    "noseTip": [
+      625,
+      386
+    ],
+    "lipCleft": [
+      625,
+      394
+    ],
+    "chin": [
+      625,
+      401
+    ],
+    "neckBearing": [
+      625,
+      414
+    ]
+  },
+  "guidePrecision": "Approximate at original image resolution; no claim of subpixel or photogrammetric measurement. Used as a narrow guide to preserve existing overall head/camera anchors and change only local real anatomy.",
+  "modelCoordinateSystem": "Existing model-local +Y up, +Z front; all R9 overall world placement and seat contacts retained.",
+  "actualMeshSculptures": {
+    "orbit": "R11-02 over-compressed the measured orbital anatomy. R11-03 restores fuller genuine orbital planes and uses a gentle 0.85 height retarget with descending corner line, not a new raised lid cord.",
+    "mouth": "Remove inherited puckered labial and nasolabial relief. Model shallow closed upper/lower lip solids on the actual curved skin, with one recessed cleft and slightly lifted natural corners; voxel-union into one independently lit cast surface. Native -01 rejected its outlined thin lip; -02 softens the actual lip-to-skin transition, broadens labial height and reduces the single cleft to .0013 model units, relying on a small physical upper-lip overhang.",
+    "lowerFace": "Lateral lower-cheek/jaw vertex fullness; soften nasolabial corners",
+    "submentalReturn": "Remove lifted angular jaw-corner ridge; sculpt a continuous rounded chin returning into a narrow throat, with a smooth flared clavicular bearing and shallow neck folds.",
+    "cloth": "Four dominant unequal asymmetric drape folds with broad turned planes and short tension tributaries; differently wrapped crossed knees, uneven fan apron, gathered attendant sash and sleeve folds.",
+    "hands": "Preserve gesture/wrist pose while curving distal upright digits into natural knuckle-to-tip arcs",
+    "headPlacement": "The first native shared-pixel-window inspection found the face/crown about ten pixels high over the aligned bearing. Translate the real central head/crown down .180 model units; applying that same anatomical translation before attendant retargeting yields .1404 model-unit attendant crown/face drops. Original low camera and body/seat/furniture anchors stay fixed.",
+    "faceVolumes": "C2 natural cubic profiles define the actual rounded cheeks/chin, curved submental return and narrow throat; broad lower-face scan planes are replaced while measured nasal/orbital/conchal geometry remains real mesh. R11-02 also replaces lateral and posterior jaw sections around the full circumference; pinna protection is localized to actual outer-ear geometry so it cannot preserve the scan cheek ridges.",
+    "mandorla": "R10-04 replaces serrated maple-like outlines with fine keeled flame/palmette tongues, subordinate curled tongues and real open voids. Each is a closed carved 3D section on the retained mandorla scaffold, not a gold line or image mask.",
+    "ear": "R11-03 removes the broken protected-ear boundary from the reshaped head circumference. New real closed full-thickness pinnae include rounded lobules, inset conchae, helix and branching antihelix in one continuous cartilage skin, then physically fuse into the head; no rod overlays. Native -03 exposed that the conchae were buried behind the cheek. -04 moves the actual pinna surfaces forward .115 model units, turns them inward .30 radians about their medial hinges, and shortens the complete rounded lobe height to .88 while preserving closed anatomy and physical roots."
+  },
+  "anatomicalInput": "Existing genuine CC0 Fralin/UVA head geometry; different historical artifact, genuinely deformed as editable 3D source anatomy.",
+  "visualAccepted": false,
+  "preservedCheckpoint": {
+    "commit": "4b504cf",
+    "nativeSourceSha256": "23f22b8ebb29b3fd1720fd6c190e3b63115aa9e632c1c0160f96eaf3a408d004",
+    "status": "unaccepted R10-04 comparison evidence; retained in Git, no duplicated full pack archive"
+  }
+}

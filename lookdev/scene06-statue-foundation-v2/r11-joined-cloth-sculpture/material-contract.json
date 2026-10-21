@@ -1,0 +1,101 @@
+{
+  "revision": "scene06-foundation-r11",
+  "visualAccepted": false,
+  "colorSpace": "baseColorLinear is linear RGB; hex values below are sRGB.",
+  "materials": {
+    "cloth": {
+      "baseColorLinear": [
+        0.5583403706550598,
+        0.35153260827064514,
+        0.07227185368537903,
+        1.0
+      ],
+      "metalness": 0.9200000166893005,
+      "roughness": 0.4399999976158142
+    },
+    "face": {
+      "baseColorLinear": [
+        0.6239603757858276,
+        0.3967552185058594,
+        0.08437620848417282,
+        1.0
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.3400000035762787
+    },
+    "hand": {
+      "baseColorLinear": [
+        0.5972017645835876,
+        0.38132601976394653,
+        0.0802198201417923,
+        1.0
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.3499999940395355
+    },
+    "hair": {
+      "baseColorLinear": [
+        0.015208514407277107,
+        0.011612244881689548,
+        0.007499032188206911,
+        1.0
+      ],
+      "metalness": 0.23000000417232513,
+      "roughness": 0.49000000953674316
+    },
+    "gold": {
+      "baseColorLinear": [
+        0.6653872728347778,
+        0.43965718150138855,
+        0.10702310502529144,
+        1.0
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.41999998688697815
+    },
+    "oldgold": {
+      "baseColorLinear": [
+        0.43965718150138855,
+        0.2622506618499756,
+        0.04817182570695877,
+        1.0
+      ],
+      "metalness": 0.9300000071525574,
+      "roughness": 0.4300000071525574
+    },
+    "burnished_detail": {
+      "baseColorLinear": [
+        0.68668532371521,
+        0.4793201684951782,
+        0.1384316086769104,
+        1.0
+      ],
+      "metalness": 0.949999988079071,
+      "roughness": 0.3100000023841858
+    }
+  },
+  "sRGBHex": {
+    "cloth": "#c5a04c",
+    "face": "#cfa952",
+    "hand": "#cba650",
+    "hair": "#211c15",
+    "gold": "#d5b15c",
+    "oldgold": "#b18c3e",
+    "burnished_detail": "#d8b868"
+  },
+  "bodyBatchMapping": {
+    "cloth": "cloth",
+    "face": "face",
+    "hand": "hand",
+    "hair": "hair",
+    "gold": "burnished_detail"
+  },
+  "lotusBatchMapping": {
+    "cloth": "cloth",
+    "gold": "gold",
+    "oldgold": "oldgold"
+  },
+  "scopeMappingNote": "The body SC07 gold tag represents burnished_detail (.95 metalness/.31 roughness); the lotus gold tag represents gold (.94/.42). Resolve material by batch scope. The original generated manifest retains both material records.",
+  "sourceTexturesUsed": false,
+  "rendererLimit": "Cycles scalar values are a starting material contract; they do not establish native WebGL pixel equivalence."
+}

@@ -1,0 +1,129 @@
+{
+  "status": "native-source-and-mesh-integrity-verified",
+  "visualAccepted": false,
+  "sourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+  "iteration": "scene06-monumental-altar-v3-r10-r11-joined-triad-native",
+  "officialDriver": {
+    "path": "tools/render-one-reconstruction.mjs",
+    "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+  },
+  "fullFrame": "reference.png",
+  "trueSubfrustum": "detail-native.png",
+  "nativeDimensions": [
+    1254,
+    1254
+  ],
+  "referencePhotographRequestedByRuntime": false,
+  "sculptureParts": [
+    {
+      "package": "foundation-r11",
+      "variant": "central",
+      "material": "cloth",
+      "file": "central-body-cloth-4fdf4eecb89f07c9.bin",
+      "sha256": "4fdf4eecb89f07c9230ad8d4482b7479c0f8096b82415030fde262824cf4befa",
+      "bytes": 42956660
+    },
+    {
+      "package": "foundation-r11",
+      "variant": "central",
+      "material": "face",
+      "file": "central-body-face-c99cbce10e4b5d48.bin",
+      "sha256": "c99cbce10e4b5d48b81882bb66e4d5ece3bfdb6afa799c700f23e089dab366e1",
+      "bytes": 5669924
+    },
+    {
+      "package": "foundation-r11",
+      "variant": "central",
+      "material": "hand",
+      "file": "central-body-hand-dfd83a0d548811f6.bin",
+      "sha256": "dfd83a0d548811f69268aac4e479d964e8fb7b9a29f57eeeda28c065b344f3d0",
+      "bytes": 3258556
+    },
+    {
+      "package": "foundation-r11",
+      "variant": "central",
+      "material": "hair",
+      "file": "central-body-hair-7152b767f3cf7a34.bin",
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb",
+      "bytes": 4606436
+    },
+    {
+      "package": "foundation-r11",
+      "variant": "central",
+      "material": "gold",
+      "file": "central-body-gold-168902d117a0595d.bin",
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f",
+      "bytes": 3083924
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "left",
+      "material": "buddha",
+      "file": "left-buddha-bc977f603fa29131.bin",
+      "sha256": "bc977f603fa29131dae628e018fb0415bb3ab4dcef21ea45f5a034e696094c94",
+      "bytes": 20000068
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "left",
+      "material": "face",
+      "file": "../attendant-faces-v3/left-face-6f87029c1daa3b09.bin",
+      "sha256": "6f87029c1daa3b09e53f9cd344584a43793c5031b7584f17f905cfdcbd1f3ad9",
+      "bytes": 5685764
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "left",
+      "material": "oldgold",
+      "file": "../sculptural-cast-r10/left-oldgold-c8d8709002a66038.bin",
+      "sha256": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5",
+      "bytes": 128212
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "left",
+      "material": "gold",
+      "file": "../sculptural-cast-r11/left-gold-293e079a1dab2086.bin",
+      "sha256": "293e079a1dab20863dd83297bce7660cf2b0df686f988fdf1aa2666fc59d6f58",
+      "bytes": 509796
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "right",
+      "material": "buddha",
+      "file": "right-buddha-50241a098469ee60.bin",
+      "sha256": "50241a098469ee60ecd10b038c8adddedb5683043742a5629938bde4262f19af",
+      "bytes": 19953036
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "right",
+      "material": "face",
+      "file": "../attendant-faces-v3/right-face-9e3ad1107e3b7a04.bin",
+      "sha256": "9e3ad1107e3b7a04fadd30d6df82d6267030dff4dc2ec48ede732b6949024dcd",
+      "bytes": 5685764
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "right",
+      "material": "oldgold",
+      "file": "../sculptural-cast-r10/right-oldgold-c8d8709002a66038.bin",
+      "sha256": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5",
+      "bytes": 128212
+    },
+    {
+      "package": "attendant-bearing-v4",
+      "variant": "right",
+      "material": "gold",
+      "file": "../sculptural-cast-r11/right-gold-293e079a1dab2086.bin",
+      "sha256": "293e079a1dab20863dd83297bce7660cf2b0df686f988fdf1aa2666fc59d6f58",
+      "bytes": 509796
+    }
+  ],
+  "limits": [
+    "Finite buffers, shader linking and actual native frames do not establish photographic fidelity.",
+    "Main material batches are subdivisions of a multi-material closed skin and are not individually required to be closed; the foundation source contains its own full-skin topology audit.",
+    "Original source scan/author/license provenance must accompany the generated SC07 files.",
+    "Full-fidelity acceptance remains with visual review against the supplied photograph."
+  ]
+}

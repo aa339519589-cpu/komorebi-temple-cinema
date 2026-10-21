@@ -1,0 +1,253 @@
+{
+  "status": "actual-export-contract-checked",
+  "visualAccepted": false,
+  "coordinateSystem": "+Y-up,+Z-front",
+  "seatAnchor": [
+    0,
+    0,
+    0
+  ],
+  "aboveSeatHeight": 3.260000228881836,
+  "bodyBounds": [
+    [
+      -1.558590054512024,
+      -0.10311733186244965,
+      -0.48827338218688965
+    ],
+    [
+      1.5585893392562866,
+      3.260000228881836,
+      0.7673966884613037
+    ]
+  ],
+  "glb": [
+    {
+      "file": "japanese-buddha-body.glb",
+      "bytes": 49047956,
+      "sha256": "16ed266c0be3689267c319bde0a750aa9c725f88a81d236791b21777303cd29f",
+      "vertices": 1066099,
+      "triangles": 2121686,
+      "imageMaps": 0,
+      "finitePositionsNormalsAndIndices": true
+    },
+    {
+      "file": "japanese-buddha-with-lotus.glb",
+      "bytes": 51349772,
+      "sha256": "b45914f5611877fa19cdf5fcaea9b264936a1b1afaff6f951d9eb61948b77aa2",
+      "vertices": 1155647,
+      "triangles": 2300610,
+      "imageMaps": 0,
+      "finitePositionsNormalsAndIndices": true
+    },
+    {
+      "file": "actual-face-ears-neck-core.glb",
+      "bytes": 4858776,
+      "sha256": "599be0a4037cade912bed5f3cb0057f9e82d4c556fdd45ff91a3c6f891f806b4",
+      "vertices": 101580,
+      "triangles": 201612,
+      "imageMaps": 0,
+      "finitePositionsNormalsAndIndices": true
+    }
+  ],
+  "sc07": [
+    {
+      "scope": "body",
+      "material": "cloth",
+      "file": "central-body-cloth-4fdf4eecb89f07c9.bin",
+      "sha256": "4fdf4eecb89f07c9230ad8d4482b7479c0f8096b82415030fde262824cf4befa",
+      "vertices": 767457,
+      "triangles": 1533168,
+      "boundsYUp": [
+        [
+          -1.558590054512024,
+          -0.10311733186244965,
+          -0.4295448660850525
+        ],
+        [
+          1.5585893392562866,
+          2.25,
+          0.6913940906524658
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "body",
+      "material": "face",
+      "file": "central-body-face-c99cbce10e4b5d48.bin",
+      "sha256": "c99cbce10e4b5d48b81882bb66e4d5ece3bfdb6afa799c700f23e089dab366e1",
+      "vertices": 101580,
+      "triangles": 201612,
+      "boundsYUp": [
+        [
+          -0.4221254885196686,
+          2.25,
+          -0.48827338218688965
+        ],
+        [
+          0.42065519094467163,
+          2.9850006103515625,
+          0.4460238218307495
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "body",
+      "material": "hand",
+      "file": "central-body-hand-dfd83a0d548811f6.bin",
+      "sha256": "dfd83a0d548811f69268aac4e479d964e8fb7b9a29f57eeeda28c065b344f3d0",
+      "vertices": 58465,
+      "triangles": 115638,
+      "boundsYUp": [
+        [
+          -0.8227555751800537,
+          0.45352208614349365,
+          0.2717442512512207
+        ],
+        [
+          0.8877543807029724,
+          1.5755757093429565,
+          0.7673966884613037
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "body",
+      "material": "hair",
+      "file": "central-body-hair-7152b767f3cf7a34.bin",
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb",
+      "vertices": 83397,
+      "triangles": 161476,
+      "boundsYUp": [
+        [
+          -0.42394694685935974,
+          2.9826836585998535,
+          -0.45716357231140137
+        ],
+        [
+          0.4284890592098236,
+          3.260000228881836,
+          0.3891015648841858
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "body",
+      "material": "gold",
+      "file": "central-body-gold-168902d117a0595d.bin",
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f",
+      "vertices": 55200,
+      "triangles": 109792,
+      "boundsYUp": [
+        [
+          -0.2997516095638275,
+          0.7049999833106995,
+          0.16795268654823303
+        ],
+        [
+          0.3384815454483032,
+          2.048856258392334,
+          0.3607286512851715
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "lotus",
+      "material": "oldgold",
+      "file": "central-lotus-oldgold-71ea1626698e0f89.bin",
+      "sha256": "71ea1626698e0f89a630d3e2f02de5a7b4afc86fc902b77279b06984ab15a4cf",
+      "vertices": 37330,
+      "triangles": 74596,
+      "boundsYUp": [
+        [
+          -1.4803645610809326,
+          -0.7000000476837158,
+          -1.508460521697998
+        ],
+        [
+          1.4849638938903809,
+          0.3466123342514038,
+          1.4883238077163696
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "lotus",
+      "material": "gold",
+      "file": "central-lotus-gold-e4cd12be3858b058.bin",
+      "sha256": "e4cd12be3858b0586cc45e0c16558188c723820a2f687ae1152d9e83781b96d8",
+      "vertices": 27076,
+      "triangles": 54096,
+      "boundsYUp": [
+        [
+          -1.5088531970977783,
+          -0.7000000476837158,
+          -1.4836475849151611
+        ],
+        [
+          1.4917889833450317,
+          0.34941238164901733,
+          1.5089706182479858
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "lotus",
+      "material": "cloth",
+      "file": "central-lotus-cloth-cb6e59f6b40b75ca.bin",
+      "sha256": "cb6e59f6b40b75ca1a223877c54f51e9ce6f5b46ca7dca358e52bb0989187b50",
+      "vertices": 25142,
+      "triangles": 50232,
+      "boundsYUp": [
+        [
+          -1.473060965538025,
+          -0.7000000476837158,
+          -1.4896870851516724
+        ],
+        [
+          1.5086431503295898,
+          0.3416670560836792,
+          1.3483672142028809
+        ]
+      ],
+      "valid": true
+    },
+    {
+      "scope": "faceCore",
+      "material": "face",
+      "file": "central-head-core-face-fca24a5be84f09e3.bin",
+      "sha256": "fca24a5be84f09e3bd2279602567065f3f71e38e3f8a9fca5e7aa5cc23639840",
+      "vertices": 101580,
+      "triangles": 201612,
+      "boundsYUp": [
+        [
+          -0.4221254885196686,
+          2.25,
+          -0.48827338218688965
+        ],
+        [
+          0.42065519094467163,
+          2.9850006103515625,
+          0.4460238218307495
+        ]
+      ],
+      "valid": true
+    }
+  ],
+  "weldedSkinConnectivity": {
+    "components": 1,
+    "weldedVertices": 936239,
+    "largestComponents": [
+      936239
+    ],
+    "weldToleranceDecimalPlaces": 6
+  },
+  "sourceFaceSurfacePreserved": true,
+  "scope": "Binary integrity, finite indexed actual geometry, no image maps, source-preserving join metadata, and skin connectivity. Visual acceptance is independent."
+}

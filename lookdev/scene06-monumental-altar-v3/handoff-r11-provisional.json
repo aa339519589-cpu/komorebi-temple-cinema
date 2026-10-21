@@ -1,0 +1,75 @@
+{
+  "status": "R11-provisional-held-unaccepted-awaiting-real-full-scan-choice",
+  "visualAccepted": false,
+  "live06Changed": true,
+  "committedByThisLane": false,
+  "ownGpuJobsPending": 0,
+  "sourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+  "activeRevision": "scene-06-monumental-altar-v3-r10-r11-joined-triad",
+  "nativeFull": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/reference.png",
+  "trueAltarSubfrustum": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/detail-native.png",
+  "nativeLowThreeQuarter": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-three-quarter-native/inspection-view.png",
+  "sourceMeshAudit": "qa/ten-reference/06/iteration-scene06-monumental-altar-v3-r10-r11-joined-triad-native/source-mesh-audit.json",
+  "snapshot": "lookdev/scene06-monumental-altar-v3/preserved-r10-r11-provisional-source",
+  "mainCamera": {
+    "position": [
+      0,
+      0.58,
+      8.4
+    ],
+    "target": [
+      0,
+      2.4,
+      -2.3
+    ],
+    "fov": 64
+  },
+  "inspectionCamera": {
+    "position": [
+      2.8,
+      0.72,
+      4.2
+    ],
+    "target": [
+      0,
+      4,
+      -2.3
+    ],
+    "fov": 56,
+    "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+  },
+  "activeSources": [
+    "reconstructions/scene-06/src/reference6-scene.js",
+    "reconstructions/scene-06/src/reference6-chandelier.js",
+    "reconstructions/scene-06/src/monumental-altar-v3.js",
+    "reconstructions/scene-06/src/restoration-altar.js",
+    "reconstructions/scene-06/src/sculptural-cast-assets.js",
+    "reconstructions/scene-06/modeling/build-attendant-faces-v3.py",
+    "reconstructions/scene-06/modeling/build-attendant-bearing-v4.py"
+  ],
+  "activeCentral": "assets/foundation-r11 body-only SC07",
+  "activeSides": "assets/attendant-bearing-v4 authored body bearings + immutable V3 actual head/ear/neck cores + legacy independent side crown/pose",
+  "substantiveChanges": [
+    "Nested three-depth openwork mandorlas, rooted relief palmettes/cloud lace, solid chased wheels and outward radial bands.",
+    "Sculpted cabinet dragon heads/claws/scales/whiskers plus spatial closed cloud relief.",
+    "Actual near-ceiling annular chain strands, raised banners and reframed real columns/beams.",
+    "Rooted asymmetric foliage and closed white cupped flower petals.",
+    "True foreground depth: matZ5.20, side matsZ5.60; low table/cushion advance1.85 and scale aboutfloor contacts; ritual censer on separate floor-bearing stand.",
+    "Central paired raised inward hand loops with connected lowered/outward arms, compact collar and in-volume closed knee carving; real CC BY face preserved.",
+    "Side body/head cuts closed, real face cores rigidly fitted; authored shoulders/collar rise smoothly under unchanged scan jaw.",
+    "OrdinaryPBR sculpture materials, deep lacquer, actual window-sun direction and warm incident fields."
+  ],
+  "nativeReviewFindings": [
+    "No detached rear knee card or new cracked patch seam in R11 full/trueclose/low3/4.",
+    "Knees still read as two long polished bars, with rippled rather than broad carved cloth.",
+    "Repeated torso pleats, lower apron and body proportions still differ from reference.",
+    "The actual CC BY head is a different statue; facial type and under-jaw prominence differ.",
+    "Attendant bodies/crowns and halo/cabinet carving are still stylized approximations.",
+    "Room/window/floor light transport is approximate; this is not an accepted photographic match."
+  ],
+  "materialContractNote": "Frozen canonical R11 body gold uses the source SC07 materials.gold dictionary. Foundation later clarified its jewelry gold ideally maps toburnished_detail(.95metal,.31rough); this small mapping difference was documented, not silently changed after the frozen native.",
+  "licensing": "Buddha Head by beachmouse, CC BY4.0, original/source metadata and LICENSE.md underassets/ccby-beachmouse-japanese-head. Creator records garden inCalifornia; maker/date/manufacturing origin undocumented. Runtime source scan image maps absent.",
+  "nextRoute": "Parent requests actual full-sculpture donor evaluation. NMS Japanese CC BY measured pointcloud reconstruction in source lane is preferred for review; no automatic NC source swap. Current R11 canonical held for honest comparison.",
+  "sourcePreservationLimit": "R11 incoming, R05, R08 and latest active code/manifests have snapshots. R02\u2013R04/R07 outputs and hashes remain without complete separate code trees.",
+  "testsScope": "Official FIFO1254 native frames + matching source identity/SC07 bytes/index/finite checks. None establishes photographic fidelity."
+}

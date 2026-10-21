@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {buildBotanicalMandorla} from './mandorla-botanical-cast-r10.js';
+import {buildMonumentalMandorla,buildMonumentalAltarAccents,buildMonumentalFlowers,sculptedDragonRelief} from './monumental-altar-v3.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
@@ -25,6 +25,7 @@ export const RESTORATION_ALTAR_LAYOUT = Object.freeze({
   sidePendantWidth: .60, sideHeaderDrop: .23, sideHeaderCeilingContact: [6.815,2.35],
   hangingCeilingContacts: [6.815,6.820,7.010],
   ritualChimneyTopY: 2.060,
+  foregroundTableAdvance:0,foregroundTableScale:[1,1,1],foregroundCushionScale:[1,1,1],
 });
 
 /** Reference 6 sanctuary furnishing. Local origin = hall [6, 3.48, -14.5].
@@ -38,7 +39,7 @@ export function buildRestorationAltar(options = {}) {
   layout.outerRitualLotusSupportY ??= 2.85-layout.sideThroneHeight;
   const root = b.root;
   root.name = 'restoration-reference6-altar';
-  if (options.terraces !== false) buildTerraces(b,layout);
+  if (options.terraces !== false) {buildTerraces(b,layout);buildMonumentalAltarAccents(b,layout);}
   if (options.mandorlas !== false) {
     buildMandorla(b, 0, 1.40, -.79, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],layout.mainSeatY-layout.mainThroneHeight,true);
     for (const side of [-1, 1]) buildMandorla(b, side * layout.sideFigureX, 1.80, -.87, .52,layout.headHaloCenters[1],layout.mandorlaApexY[1],layout.mandorlaWidthScales[1],2.175);
@@ -51,7 +52,7 @@ export function buildRestorationAltar(options = {}) {
       buildLotusThrone(b,side*layout.sideFigureX,layout.sideSeatY,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
     }
   }
-  if (options.ritualObjects !== false) buildRitualObjects(b,layout);
+  if (options.ritualObjects !== false) {buildRitualObjects(b,layout);buildMonumentalFlowers(b,layout);}
   if (options.offeringTable !== false) buildOfferingTable(b,layout);
   if (options.hanging !== false) {
     buildCanopy(b,...layout.centralCanopy);
@@ -82,9 +83,9 @@ export function buildRestorationAltar(options = {}) {
   root.userData.floorSupportAnchors = [
     ...(options.terraces===false?[]:[{kind:'cabinet-foot',center:[0,layout.floorContactY,0]}]),
     ...(options.offeringTable===false?[]:[...[-1,1].flatMap(side=>[
-      ...[-.34,.34].map(dz=>({kind:'table-outer-foot',center:[side*1.73*.84,layout.floorContactY,3.15+dz]})),
-      {kind:'table-inner-foot',center:[side*1.075*.84,layout.floorContactY,3.49]},
-    ]),{kind:'cushion-wood-base',center:[0,layout.floorContactY,3.90]}]),
+      ...[-.34,.34].map(dz=>({kind:'table-outer-foot',center:[side*1.73*.84*layout.foregroundTableScale[0],layout.floorContactY,3.15+layout.foregroundTableAdvance+dz*layout.foregroundTableScale[2]]})),
+      {kind:'table-inner-foot',center:[side*1.075*.84*layout.foregroundTableScale[0],layout.floorContactY,3.15+layout.foregroundTableAdvance+.34*layout.foregroundTableScale[2]]},
+    ]),{kind:'cushion-wood-base',center:[0,layout.floorContactY,3.90+layout.foregroundTableAdvance]}]),
   ];
   root.userData.materialNames = Object.fromEntries(Object.entries(b.materials).map(([key,m])=>[key,m.name]));
   return root;
@@ -129,10 +130,12 @@ class FurnishingBuilder {
       trim: new T.MeshStandardMaterial({name:'scene06-aged-gilt-structural-bead',color:'#856026',metalness:.78,roughness:.52}),
       oldgold: supplied.oldgold || new T.MeshStandardMaterial({name:'restoration-carved-gilt-shadow',color:0x86602b,metalness:.77,roughness:.43}),
       lacquer: new T.MeshPhysicalMaterial({name:'restoration-black-brown-lacquer',color:0x030201,metalness:0,roughness:.32,reflectivity:.24,clearcoat:.20,clearcoatRoughness:.30}),
+      haloLacquer: new T.MeshPhysicalMaterial({name:'scene06-deep-blue-black-solid-nimbus',color:'#090d12',metalness:.15,roughness:.39,clearcoat:.32,clearcoatRoughness:.27}),
       red: new T.MeshStandardMaterial({name:'restoration-vermillion-lacquer',color:0x521c13,metalness:.14,roughness:.30}),
       ivory: new T.MeshStandardMaterial({name:'restoration-candle-wax',color:0xe7d7b0,roughness:.68}),
       foliage: new T.MeshStandardMaterial({name:'restoration-offering-foliage',color:0x293524,metalness:0,roughness:.72}),
       flowerStem: new T.MeshStandardMaterial({name:'restoration-offering-flower-stems',color:0x4c5130,metalness:0,roughness:.70}),
+      pollen: new T.MeshStandardMaterial({name:'scene06-living-flower-warm-pollen',color:'#b09846',metalness:0,roughness:.72}),
       paper: new T.MeshStandardMaterial({name:'restoration-lantern-warm-paper',color:0xe1b264,roughness:.62,emissive:0xffb54e,emissiveIntensity:.65,side:T.DoubleSide}),
       flame: supplied.flame || new T.MeshStandardMaterial({name:'restoration-flame',color:0xffd47e,emissive:0xffa831,emissiveIntensity:2}),
       textile: new T.MeshStandardMaterial({name:'restoration-black-brocade',color:0x0d0b0a,roughness:.91}),
@@ -666,13 +669,20 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   else if(y<1.1&&ratio>3){field='lowerOuter';mirror=x<0?-1:1;}
   else if(ratio<2.1)field='middleSmall';
   else field=y<1.2?'lowerInner':'upperPair';
-  const data=REF6_CAST_PANEL_FIELDS[field],key='r6v12-source-cast-panel:'+field+':'+mirror+':'+w+':'+h;
-  const g=b.geometry(key,()=>{
-    const sx=w*.91/(data.bounds[2]-data.bounds[0]),sy=h*.89/(data.bounds[3]-data.bounds[1]);
-    const g=ref6SweptPhotoCastingGeometry(data,sx,sy,0,mirror);g.scale(1,1,1.55);g.translate(0,0,.038);g.computeVertexNormals();
-    g.userData.reference6PanelField={field,mirror,analogousField:!singleDirection,depthInferred:true};return g;
-  });
-  b.add(g,'gold',x,y,z+.012);
+  // The small cloud/scale field is a closed, variable-section carving on a
+  // real cabinet surface. Existing manual centreline interpretation supplies
+  // the subordinate connectivity; deeper authored creature anatomy projects
+  // in front of it. Neither layer contains image/depth/RGB material data.
+  const data=REF6_CAST_PANEL_FIELDS[field],underKey='v3-cabinet-cloud-underfield:'+field+':'+mirror+':'+w+':'+h;
+  b.add(b.geometry(underKey,()=>{
+    const g=ref6SweptPhotoCastingGeometry(data,w*.92/(data.bounds[2]-data.bounds[0]),h*.91/(data.bounds[3]-data.bounds[1]),0,mirror);
+    g.scale(1,1,1.70);g.translate(0,0,.022);return g;
+  }),'oldgold',x,y,z+.010);
+  // Rounded creature anatomy, scales, rooted claws, whiskers and rolled cloud
+  // leaves supply the proud front relief and genuine object-space parallax.
+  const key='v3-closed-dragon-relief:'+w+':'+h+':'+variant+':'+singleDirection;
+  b.add(b.geometry(key,()=>sculptedDragonRelief(w*.83,h*.84,variant,singleDirection||mirror)),'gold',x,y,z+.038);
+
   if(w>.85)for(const side of[-1,1])ref6Scroll(b,x+side*(w*.5-.10),y,z+.034,.11,.075,side*.18,'oldgold',side);
 }
 
@@ -946,32 +956,8 @@ function ref6TracedCarvingGeometry() {}
 function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedHeadWheel=false) {
   const rootY=Number.isFinite(supportY)?supportY:y+1.40*s,unit=s/.75;
   b.withTransform(x,rootY,z,1,()=>{
-    const cy=headCenterY-rootY;
-    buildBotanicalMandorla(b,{height:apexY-rootY,halfWidth:chasedHeadWheel?1.43*unit*widthScale/1.16:.69*(unit/(.52/.75))*widthScale/1.02,headCenter:cy,isMain:chasedHeadWheel});
-    // A physical bearing block and trunk sit behind the statue, with broad
-    // primary scrolls carrying the finer lobed foliage rather than a forest
-    // of isolated traced rods. The old image-derived skeleton is unused.
-    b.box(0,.13,-.06,.14*unit,.26,.14*unit,'oldgold');
-    if(chasedHeadWheel){
-      const wheel=b.geometry('r6v2-chased-head-wheel',()=>{
-        const sh=new T.Shape();sh.absarc(0,0,.63,0,Math.PI*2,false);const hole=new T.Path();hole.absarc(0,0,.47,0,Math.PI*2,true);sh.holes.push(hole);for(let k=0;k<48;k++){const a=k*Math.PI/24,h=new T.Path();h.absellipse(Math.sin(a)*.55,Math.cos(a)*.55,.013,.035,0,Math.PI*2,true,-a);sh.holes.push(h);}
-        return new T.ExtrudeGeometry(sh,{depth:.024,bevelEnabled:true,bevelSize:.004,bevelThickness:.005,bevelSegments:2,curveSegments:48});
-      });b.add(wheel,'oldgold',0,cy,.085,unit,unit,1);
-      for(const r of[.47,.63])b.torus(0,cy,.116,r*unit,.009,'gold');
-      for(let k=0;k<64;k++){
-        const a=k*Math.PI/32,inner=.48*unit,outer=.61*unit;
-        b.curve('r6v2-wheel-chasing:'+k,[[Math.sin(a)*inner,cy+Math.cos(a)*inner,.110],[Math.sin(a+.015)*outer,cy+Math.cos(a+.015)*outer,.112]],.0038,'gold',5);
-      }
-      // The short open radial band is subordinate to branching foliage.
-      for(let k=-11;k<=11;k++){
-        const a=k*Math.PI/23,r0=.64*unit,r1=(.91+.06*Math.cos(a))*unit;
-        b.carvedCurve('r6v2-wheel-ray:'+k,[[-Math.sin(a)*r0,cy+Math.cos(a)*r0,.025],[-Math.sin(a)*r1,cy+Math.cos(a)*r1,.010]],.019*unit,.011,'gold',8);
-      }
-      for(const r of[.94]){
-        const ps=[];for(let k=0;k<=40;k++){const a=-Math.PI*.48+k/40*Math.PI*.96;ps.push([Math.sin(a)*r*unit,cy+Math.cos(a)*r*unit,.008]);}
-        b.carvedCurve('r6v2-upper-wheel-rail',ps,.017*unit,.010,'gold',42);
-      }
-    }
+    buildMonumentalMandorla(b,{height:apexY-rootY,halfWidth:chasedHeadWheel?1.43*unit*widthScale/1.16:.69*(unit/(.52/.75))*widthScale/1.02,headCenter:headCenterY-rootY,isMain:chasedHeadWheel});
+    b.box(0,.13,-.10,.19*unit,.26,.22*unit,'oldgold');
   });
 }
 
@@ -993,20 +979,27 @@ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],dep
     // Its belly projects out beyond the tips, which turn back toward the seat.
     // A narrow fan of straight upward triangles reads as a thorn crown.
     b.lathe('r9-rooted-convex-lotus-bearing-core',[[0,0],[.61,0],[.67,.06],[.74,.25],[.82,.50],[.76,.72],[.61,.91],[.50,.98],[.39,1.015],[.18,1.022],[0,1.022]],0,0,0,radius,height,'oldgold',48);
-    const petals=[0,1,2].map(kind=>b.geometry('r10-rooted-recurved-lotus-petal-'+kind,()=>{
+    const petals=[0,1,2].map(kind=>b.geometry('r11-rolled-cupped-lotus-petal-'+kind,()=>{
       const p=[],uv=[],ix=[],rows=56,cols=32,stride=(rows+1)*(cols+1);
       for(let surface=0;surface<2;surface++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
-        const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t),cap=Math.max(0,wave)**.52;
-        const taper=1-.26*smooth01R10((t-.68)/.32),width=(kind===1?.425:kind===2?.465:.45)*Math.pow(Math.max(0,wave),.61)*(1.01-.12*t)*taper;
-        const meridian=(1.44+.045*kind)*t-(1.07+.035*kind)*t*t*t;
-        const belly=(kind===1?.090:.105)*wave*Math.pow(Math.max(0,1-u*u),.76);
-        const midrib=.011*Math.exp(-Math.pow(u/.14,2))*wave,margin=.008*Math.exp(-Math.pow((Math.abs(u)-.88)/.10,2))*wave;
-        const valleys=-.006*wave*wave*(Math.exp(-Math.pow((u-.33-.25*t)/.075,2))+Math.exp(-Math.pow((u+.33+.25*t)/.075,2)));
-        const x=u*width*(1+.035*(kind-1)*Math.sin(Math.PI*t)*u)+(kind-1)*.024*t*t*Math.sin(Math.PI*t);
-        p.push(x,t,meridian+cap*(surface===0?.016+belly+midrib+margin+valleys:-.016-belly*.56));uv.push(i/cols,t);
+        const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t),cap=Math.max(0,wave)**.62;
+        // Three actual petal archetypes: low broad cup, slender turning lobe,
+        // and a high folded inner sheet. The margins return around a hollow
+        // cross-section instead of forming identical inflated golden eggs.
+        const shape=kind===0?Math.pow(t,.57)*Math.pow(1-t,.86)*2.63:kind===1?Math.pow(t,.78)*Math.pow(1-t,.94)*3.05:Math.pow(t,.74)*Math.pow(1-t,.65)*2.62;
+        const width=[.455,.415,.435][kind]*shape;
+        const meridian=(1.48+.04*kind)*t-(1.16+.025*kind)*t*t*t;
+        const bowl=(kind===2?.065:.082)*Math.sin(Math.PI*t*.92)*Math.pow(Math.max(0,1-u*u),.60);
+        const midrib=.014*Math.exp(-Math.pow(u/.20,2))*wave;
+        const rolled=.026*Math.pow(Math.abs(u),5)*wave*(.52+.48*t);
+        const margins=-.013*wave*(Math.exp(-Math.pow((u-.79)/.11,2))+Math.exp(-Math.pow((u+.79)/.11,2)));
+        const x=u*width*(1+.045*(kind-1)*wave*u)+(kind-1)*.032*t*t*wave;
+        const y=t+.032*Math.sin(Math.PI*t)*Math.pow(Math.abs(u),2)-.018*(kind-1)*u*wave;
+        const thickness=.013+.012*Math.sin(Math.PI*t)*Math.pow(1-u*u,2);
+        p.push(x,y,meridian+cap*(surface===0?thickness+bowl+midrib+rolled+margins:-thickness-bowl*.34+rolled*.65));uv.push(i/cols,t);
         if(j<rows&&i<cols){const a=surface*stride+j*(cols+1)+i;surface===0?ix.push(a,a+1,a+cols+1,a+1,a+cols+2,a+cols+1):ix.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}
       }
-      closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='r10-cast-lotus-bellies-deep-margins-and-returning-tips';return g;
+      closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='r11-three-cupped-lotus-sheet-archetypes-rolled-margins';return g;
     }));
     for(let row=0;row<2;row++){
       const n=row?13:15,rr=radius*(row?.55:.60),base=height*(row?.25:0),hh=height*(row?.78:.86);
@@ -1601,7 +1594,10 @@ function rebuildKneelingCornerInlayExterior(original) {
 function buildOfferingTable(b,layout) {
   const floorY=layout.floorContactY;
   b.withTransform(0,0,.62,[.84,1,1],()=>{
-  const z=2.53;
+  const z=2.53,advance=layout.foregroundTableAdvance;
+  // The low foreground table is a distinct physical object in front of the
+  // central ritual vessel. Scale about its floor contact; never sink its feet.
+  b.withTransform(0,floorY,z+advance,layout.foregroundTableScale,()=>b.withTransform(0,-floorY,-z,1,()=>{
   // Narrow gilded altar table with open negative space under the apron.
   b.box(0,.65,z,4.02,.080,.96,'lacquer');
   b.box(0,.698,z,4.13,.009,1.02,'oldgold');
@@ -1623,6 +1619,8 @@ function buildOfferingTable(b,layout) {
       const x=side*xx;
       b.add(apronPlate,'gold',x,.596,z+.491,width,height,.65);
       b.box(x,.615,z+.522,width*.77,.055,.010,'oldgold');
+      ref6Rosette(b,x,.600,z+.533,width*.17,0,'gold');
+      for(const sign of[-1,1])ref6Scroll(b,x+sign*width*.25,.596,z+.531,width*.29,height*.29,sign*.30,'oldgold',sign);
       for(const sign of [-1,1])b.carvedCurve('table-cap-curl:'+xx+':'+side+':'+sign,
         [[x+sign*width*.04,.555,z+.508],[x+sign*width*.27,.563,z+.512],[x+sign*width*.31,.596,z+.512],[x+sign*width*.20,.611,z+.512],[x+sign*width*.13,.592,z+.516]],.019,.010,'gold',16);
       b.ball(x,.562,z+.525,.018,.021,.009,'gold');
@@ -1681,6 +1679,13 @@ function buildOfferingTable(b,layout) {
     }
     b.ball(x,.231,zz+.104,.032,.048,.015,'gold');
     b.ball(x,.443,zz+.086,.025,.031,.013,'gold');
+  }
+  }));
+  // A separate floor-bearing stand remains behind the foreground table and
+  // carries the central ritual vessel. It cannot hover when the table advances.
+  if(advance){
+    b.box(0,(floorY+.71)/2,z,.38,.71-floorY,.42,'lacquer');
+    for(const y of[floorY+.025,.675])b.box(0,y,z,.45,.035,.47,'oldgold');
   }
   // Small central censer and its narrow pedestal; not an oversized sphere.
   // The solid stem must end in a bearing cap, not an open hollow ring below
@@ -1818,6 +1823,7 @@ function buildOfferingTable(b,layout) {
   b.add(glass,'ritualGlass',0,0,z,1,1,radialZ);
   b.cylinder(0,(1.647+1.704)/2,z,.006,1.704-1.647,'lacquer');
   b.ball(0,1.735,z,.010,.038,.010,'flame');
+  b.withTransform(0,floorY,3.28+advance,layout.foregroundCushionScale,()=>b.withTransform(0,-floorY,-3.28,1,()=>{
   // Low brocade kneeling cushion and carved base in front, as in the photograph.
   // The original cushion sits inside a visibly wider black timber frame.
   // Keep its cloth/contact plane fixed; only the surrounding base changes.
@@ -1977,6 +1983,7 @@ function buildOfferingTable(b,layout) {
     b.add(cornerBorder,'oldgold',side*1.16,.018,3.8105);
     b.add(cornerInlay,'gold',side*1.16,.012,3.8085);
   }
+  }));
   });
 }
 
