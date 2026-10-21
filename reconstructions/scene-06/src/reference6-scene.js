@@ -57,11 +57,12 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
   mat:new T.MeshStandardMaterial({name:'reference6-woven-straw',color:'#bda477',roughness:.91,bumpScale:.00045}),
  };
  if(floorSurface){materials.floor.color.setRGB(...floorSurface.record.materialLinearGain);materials.floor.map=floorSurface.map;}
- const giltMicro=castGiltMicroSurface();for(const m of[materials.gold,materials.oldgold,materials.buddha]){m.roughnessMap=giltMicro;m.bumpMap=giltMicro;m.bumpScale=.00028;}
+const giltMicro=castGiltMicroSurface();for(const m of[materials.gold,materials.oldgold,materials.buddha]){m.roughnessMap=giltMicro;m.bumpMap=giltMicro;m.bumpScale=.00028;}
  materials.sculptureRecess=new T.MeshStandardMaterial({name:'scene06-recessed-gilt-anatomy',color:'#604018',metalness:.78,roughness:.43});
- materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-chased-lap-cloth-gilt';materials.clothGold.color.set('#a4772e');materials.clothGold.metalness=.70;materials.clothGold.roughness=.42;
- materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-cast-palm-gilt';materials.handGold.metalness=.82;materials.handGold.roughness=.29;
- materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-polished-gilt-face';materials.faceGold.bumpScale=.00014;materials.faceGold.roughness=.29;materials.faceGold.metalness=.74;materials.faceGold.color.set('#d2a048');
+materials.centralGold=materials.buddha.clone();materials.centralGold.name='scene06-central-connected-cast-gilt';materials.centralGold.color.set('#c69f53');materials.centralGold.metalness=.69;materials.centralGold.roughness=.43;materials.centralGold.bumpScale=.00046;
+materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-cast-robe-gilt';materials.clothGold.color.set('#aa843e');materials.clothGold.metalness=.63;materials.clothGold.roughness=.51;
+materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-cast-palm-gilt';materials.handGold.metalness=.70;materials.handGold.roughness=.39;
+materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-soft-polished-gilt-face';materials.faceGold.bumpScale=.00022;materials.faceGold.roughness=.36;materials.faceGold.metalness=.65;materials.faceGold.color.set('#c99f53');
  materials.statueGold=materials.gold.clone();materials.statueGold.name='reference6-statue-ornament-private-gilt';
  const blockers=[],apertures=[],pillarRoots=[];
  const columnCollar=createReference6ColumnCollar();
@@ -187,7 +188,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  // altar/sculpture reconstruction candidates are mounted at the unchanged local seats.
  for(const root of[altar,hanging])root.traverse(o=>{if(!o.isMesh)return;if(o.material.name==='restoration-black-brown-lacquer'){o.material.color.set('#0a0604');o.material.roughness=.28;o.material.clearcoat=.58;o.material.clearcoatRoughness=.24;}if(o.material.name==='restoration-lantern-warm-paper'){o.material.color.set('#fff0cd');o.material.emissive.set('#ffd68b');o.material.emissiveIntensity=1.3;o.castShadow=false;}});
  const sculptures=new T.Group();sculptures.name='reference6-rebuilt-triad';furniture.add(sculptures);
- const emit=(g,key,x,y,z,sx,sy,sz)=>{if(!g?.isBufferGeometry)throw Error('Sculpture must emit actual geometry.');const m=new T.Mesh(g,key==='cloth'?materials.clothGold:key==='hand'?materials.handGold:key==='face'?materials.faceGold:key==='crease'?materials.sculptureRecess:key==='oldgold'?materials.hair:key==='gold'?materials.statueGold:materials.buddha);m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.castShadow=m.receiveShadow=true;sculptures.add(m);};
+ const emit=(g,key,x,y,z,sx,sy,sz)=>{if(!g?.isBufferGeometry)throw Error('Sculpture must emit actual geometry.');const centralSkin=key==='central'||(g.userData?.variant==='central'&&key==='buddha');const m=new T.Mesh(g,key==='cloth'?materials.clothGold:key==='hand'?materials.handGold:key==='face'?materials.faceGold:key==='crease'?materials.sculptureRecess:key==='oldgold'?materials.hair:key==='gold'?materials.statueGold:centralSkin?materials.centralGold:materials.buddha);m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.castShadow=m.receiveShadow=true;sculptures.add(m);};
  for(const [i,seat]of altar.userData.figureSeatAnchors.entries())emitRestoredBuddha(emit,{variant:['central','left','right'][i],x:seat[0],y:seat[1],z:seat[2],scale:i===0?mainFigureScale:sideFigureScale,widthScale:i===0?1.05:.94,depthScale:1.02});
  const sun=new T.DirectionalLight('#ffe0a7',REFERENCE6_FOUNDATION.sunIntensity);sun.name='reference6-physical-left-window-daylight';sun.target.position.set(...REFERENCE6_FOUNDATION.sunTarget);sun.position.copy(sun.target.position).addScaledVector(new T.Vector3(...REFERENCE6_FOUNDATION.sunDirection).normalize(),40);sun.castShadow=true;sun.shadow.mapSize.set(shadowSize,shadowSize);Object.assign(sun.shadow.camera,{left:-12,right:12,top:11,bottom:-11,near:1,far:90});sun.shadow.camera.updateProjectionMatrix();sun.shadow.bias=-.00008;sun.shadow.normalBias=.009;sun.shadow.radius=3.0;scene.add(sun,sun.target);
  // Diffuse sky admitted at actual window rectangles. RectArea proxy is explicitly
@@ -225,8 +226,8 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
    // capture from the first and accidentally count its indirect energy twice.
    scene.environment=null;environment=capture([.4,1.45,2.4]);statueEnvironment=capture([0,4.40,.5]);
    scene.environment=environment.texture;scene.environmentIntensity=1.0;
-   materials.buddha.envMap=materials.clothGold.envMap=materials.handGold.envMap=materials.faceGold.envMap=statueEnvironment.texture;materials.statueGold.envMap=statueEnvironment.texture;
-   materials.buddha.envMapIntensity=materials.clothGold.envMapIntensity=materials.handGold.envMapIntensity=materials.faceGold.envMapIntensity=materials.statueGold.envMapIntensity=1.0;
+   materials.buddha.envMap=materials.centralGold.envMap=materials.clothGold.envMap=materials.handGold.envMap=materials.faceGold.envMap=statueEnvironment.texture;materials.statueGold.envMap=statueEnvironment.texture;
+   materials.buddha.envMapIntensity=materials.centralGold.envMapIntensity=materials.clothGold.envMapIntensity=materials.handGold.envMapIntensity=materials.faceGold.envMapIntensity=materials.statueGold.envMapIntensity=1.0;
    environmentInitialized=true;
   }catch(error){scene.environment=oldEnvironment;renderer.shadowMap.autoUpdate=oldShadowAuto;renderer.shadowMap.needsUpdate=oldShadowNeeds;for(const target of made)target.dispose();throw error;}
   finally{floor.visible=prior;pmrem.dispose();}
