@@ -1,0 +1,198 @@
+{
+  "revision": "scene01-coupled-closed-irimoya148-r04",
+  "heldSourceHash": "d70aa7853852cb536cbe6d46ecb082f65405f2f254fff0c97c5054a9d4014770",
+  "baselineSourceHash": "5d8fc84e187380a0fbea5d36ad9e1159f2202f727f3275580bde66f636537c2f",
+  "sourceManifest": "source-manifest.json",
+  "sourceArchive": "scene01-148-r04-source.tar.gz",
+  "baselineNamespaceArchive": "qa/ten-reference/01/iteration-scene01-solmax-coupled-irimoya148-r01-20261021/baseline-scene01-5d8fc84e-source.tar.gz",
+  "runtimeProvenance": "reconstructions/scene-01/layout148-provenance.json",
+  "measurements": "qa/ten-reference/01/contour148/landmarks148.json",
+  "changedExistingSourceFiles": [
+    "reconstructions/scene-01/asset-dependencies.json",
+    "reconstructions/scene-01/manifest.json",
+    "reconstructions/scene-01/src/architecture.js",
+    "reconstructions/scene-01/src/hall-carpentry132.js",
+    "reconstructions/scene-01/src/layout-components124.js",
+    "reconstructions/scene-01/src/layout124.js",
+    "reconstructions/scene-01/src/scene.js"
+  ],
+  "newSourceFiles": [
+    "reconstructions/scene-01/layout148-provenance.json",
+    "reconstructions/scene-01/src/hall-envelope148.js"
+  ],
+  "sameSourceOfficialJobs": 4,
+  "sameSourceNative1254Frames": 8,
+  "captureTool": "tools/render-one-reconstruction.mjs, shared GPU mutex, Metal backend",
+  "unchangedLayoutGroups": {
+    "camera": true,
+    "pagoda": true,
+    "bridge": true,
+    "foreground": true,
+    "stair": true,
+    "waterfall": true
+  },
+  "unchangedOriginalSourceFiles": {
+    "reconstructions/scene-01/src/garden.js": true,
+    "reconstructions/scene-01/src/main.js": true,
+    "reconstructions/scene-01/src/dolly-path.js": true,
+    "reconstructions/scene-01/src/scanned-timber.js": true,
+    "reconstructions/scene-01/src/scanned-garden-stones.js": true,
+    "reconstructions/scene-01/src/foreground-hardware131.js": true,
+    "reconstructions/scene-01/src/measured-sky.js": true
+  },
+  "unchangedLightConstructionBlock": true,
+  "unchangedBankHeightConstruction": true,
+  "unchangedBridgeSupportConstruction": true,
+  "allOriginalSharedAssetAndVendorBytesUnchanged": true,
+  "captures": [
+    {
+      "directory": "qa/ten-reference/01/iteration-scene01-solmax-closed-bearing-irimoya148-r04-20261021",
+      "report": "qa/ten-reference/01/iteration-scene01-solmax-closed-bearing-irimoya148-r04-20261021/report.json",
+      "sourceHash": "d70aa7853852cb536cbe6d46ecb082f65405f2f254fff0c97c5054a9d4014770",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "reference",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": null,
+          "rgbaSha256": "87d57656b9ea9e0b3fd99fb92546dd10b945470894352c7aff46a3eeaa93df75",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "detail-native",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": [
+            480,
+            280,
+            590,
+            1254
+          ],
+          "localTime": null,
+          "rgbaSha256": "ecd391cbfd95027f64777204e976b40085ffb9c46aeca852c3a8e145bb5dcd57",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/01/iteration-scene01-solmax-closed-courtyard148-r04-20261021",
+      "report": "qa/ten-reference/01/iteration-scene01-solmax-closed-courtyard148-r04-20261021/report.json",
+      "sourceHash": "d70aa7853852cb536cbe6d46ecb082f65405f2f254fff0c97c5054a9d4014770",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "reference",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": null,
+          "rgbaSha256": "87d57656b9ea9e0b3fd99fb92546dd10b945470894352c7aff46a3eeaa93df75",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "detail-native",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": [
+            600,
+            560,
+            600,
+            1254
+          ],
+          "localTime": null,
+          "rgbaSha256": "170bc2f89a5ccd63a3c69e9d30f49bfca0e8965b448aa51b9361a0786d955529",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/01/iteration-scene01-solmax-closed-gable-oblique148-r04-20261021",
+      "report": "qa/ten-reference/01/iteration-scene01-solmax-closed-gable-oblique148-r04-20261021/report.json",
+      "sourceHash": "d70aa7853852cb536cbe6d46ecb082f65405f2f254fff0c97c5054a9d4014770",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": null,
+          "rgbaSha256": "63b27e3e4fbb4ab9bf97f47a87131bd63d4c027fff734d5b5ad64fdf6f6fe393",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/01/iteration-scene01-solmax-low-path148-r04-20261021",
+      "report": "qa/ten-reference/01/iteration-scene01-solmax-low-path148-r04-20261021/report.json",
+      "sourceHash": "d70aa7853852cb536cbe6d46ecb082f65405f2f254fff0c97c5054a9d4014770",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "shot-0",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": 0,
+          "rgbaSha256": "24dae61eccdb6407dd03c3c942ce96b991783ac74a82f5d223882c38db94d645",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "shot-3p5",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": 3.5,
+          "rgbaSha256": "48b5b6c5b4f402bb6c590bd293ea479be55f9e4f15748e51779c0e32a5bfe121",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "shot-7",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": 7,
+          "rgbaSha256": "e1c4663dfa7d2cc837a2b4926db30811e300e32e52fa01bf6ac2eb7c2a0fe491",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    }
+  ],
+  "visualAccepted": false,
+  "newImageAssets": false,
+  "noReferenceScenePixels": true,
+  "continuousMotionEncodedByLane": false,
+  "remainingGaps": [
+    "Carving density, corner/roof profiles, facade depth and some main hall/pagoda relationships remain approximate.",
+    "Hidden gable/end-wall depths and timber spans are inferred, not a survey or engineering recovery.",
+    "The existing rooted banks, stream, foliage, bridge and material/light response still have photographic gaps; their scope was preserved.",
+    "The plaque vertical placement remains about13px from the approximate selected source centre. Selected landmark errors are not a photographic-fidelity score.",
+    "Three unchanged-path snapshots are not a continuous film receipt; root integration handles motion."
+  ]
+}

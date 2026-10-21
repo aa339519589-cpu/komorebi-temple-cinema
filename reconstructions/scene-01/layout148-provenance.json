@@ -1,0 +1,92 @@
+{
+  "revision": "scene01-coupled-closed-irimoya148-r04",
+  "scope": "Substantive actual 3D architecture/layout checkpoint; photographic acceptance remains false.",
+  "reference": {
+    "path": "references/hd/0-\u7167\u7247-1.jpg",
+    "use": "HD contour/structural landmark comparison only; no reference pixels enter geometry radiance or materials.",
+    "hiddenDepthsInferred": true
+  },
+  "baselineSourceHash": "5d8fc84e187380a0fbea5d36ad9e1159f2202f727f3275580bde66f636537c2f",
+  "camera": {
+    "position": [
+      0,
+      3.2,
+      17
+    ],
+    "target": [
+      0,
+      6.2,
+      -13
+    ],
+    "fov": 59,
+    "changed": false,
+    "reason": "Shared low camera already places foreground rail and pagoda finial close to reference; the larger observed error is the hall body/roof relationship."
+  },
+  "architecture": {
+    "source": [
+      "src/architecture.js",
+      "src/hall-carpentry132.js",
+      "src/layout-components124.js",
+      "src/layout124.js",
+      "src/hall-envelope148.js"
+    ],
+    "hallPoseUnchanged": true,
+    "hallEaveContoursUnchanged": true,
+    "leftBody": "The leftmost lower post/window bay is removed from the occupied wall field. Main end wall/stone platform/paving/cap cells retract coherently. Lower first retained post is the original x=-7.952162871635822 at the existing floor/beam datum.",
+    "upperFrame": "Physical eight-axis grid fitted from common-camera source post contours, including a wider central bay for the plaque. Infill, frieze, pilasters, capitals and continuous receivers use the same axes.",
+    "irimoya": "Main roof now has an actual gable above a lower half hip. Front/back roof profiles and outer eave points stay fixed. End-hip tile/solid panels stop at t=.44; upper end closes with a bevelled solid gable, curved bargeboard/ridge edge, real struts and infill.",
+    "bearings": "Inset timber frame is connected to the wider left overhang by paired continuous cantilever members, diagonal seats and transverse end receiver. Existing root/stream/bridge bearings are retained.",
+    "mainRoof": {
+      "width": 25.5,
+      "depth": 13.6,
+      "eave": 10.05,
+      "rise": 6.2,
+      "curl": 0.59,
+      "gableStart": 0.44,
+      "ridgeRatio": 0.53
+    },
+    "platform": {
+      "centerX": 1.45,
+      "width": 21.1,
+      "retainedFloorTopWorld": 3.675,
+      "leftEdge": -9.1
+    },
+    "paving": "First cell is inset to remain within the retracted cap; existing stair/transition cut retains its supported polygon connection.",
+    "roofReceivers": "Segmented closed receiver timbers and actual vertical bearing posts follow the148 halfhip underside at each x/z node, with closed seats touching the roof bottom; the former uniform fullhip-height girder is removed.",
+    "upperEnclosure": "Actual closed timber upper floor and both side end frames now meet front/back wall fields; infill, lattice, friezes and beams close the otherwise open upper storey.",
+    "lowerRoofCollar": "The lower roof starts at analytic intersections of its physical panel rays with the upper wall rectangle[-7.975,11.275,-4.8,4.2], replacing the unmatched constant inner parameter. Outer eaves stay fixed; top/lower skins and perimeter thickness remain closed.",
+    "gableRelief": "Upper gable trusses and vertical slats project outside the closed gable skin instead of being buried inside it."
+  },
+  "preserved": {
+    "pagodaPoseAndRoofGeometry": true,
+    "bridgeAndTimberBearings": true,
+    "rootedBankAndGardenGeometrySource": true,
+    "streamAndWaterfallPath": true,
+    "lowDolly": true,
+    "foregroundLanternHardware": true,
+    "lightingAndSkyAssets": true,
+    "sharedAssetBytes": true,
+    "otherSceneNamespaces": true
+  },
+  "referenceContourChecks": {
+    "pagoda": "Seven current physical contour/finial points were measured at the same camera. Existing layout124 is already within roughly5\u201310pixels at selected corner contours; no independent projected point deformation is applied.",
+    "hall": "Source left body is recessed behind broad projecting eaves. The initial visible lower capital projected576,585; removing its excess bay retains the next supported post at643,577. Upper axes are fit as one physical grid with the central wider opening.",
+    "limitations": "Observed points are approximate; selected projection agreement is not photographic fidelity or a survey."
+  },
+  "reflection": "Only the independent Reflector projection temporarily clears viewOffset for native detail; original main camera matrices are restored in finally.",
+  "newDownloads": false,
+  "newGeneratedImages": false,
+  "priorDeclaredSkyAssetRetained": true,
+  "referenceScenePlateUsed": false,
+  "visualAccepted": false,
+  "remainingGaps": [
+    "Roof/corner profiles, carving, facade depth and some hall/pagoda relationships remain approximate.",
+    "Existing bank, stream, foliage, lighting and material photographic gaps are deliberately preserved for this architecture phase.",
+    "Single-view hidden depths and structural spans are inferred, not measured engineering dimensions."
+  ],
+  "priorCandidates": {
+    "r01": "Initial coherent body/roof fit; plaque was occluded by its new post grid. Preserved native full/detail and source archive.",
+    "r02": "Wider coherent central upper bay and inset paving fixed; original uniform receiver height was then coupled to actual halfhip profile forR03. Preserved native full/detail and source archive.",
+    "r03": "Full/courtyard/oblique/poses preserved; oblique revealed missing upper end closures and old lower-roof inner opening mismatch. Repaired inR04."
+  }
+}

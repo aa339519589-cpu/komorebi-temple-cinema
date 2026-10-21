@@ -1,3 +1,13 @@
+# Scene 01 — coupled architecture phase 148
+
+This held draft keeps the existing low reference camera, pagoda pose, bridge bearings, planted banks, stream, timber/stone assets, lighting and dolly. The main hall's occupied left facade and stone platform now retract coherently behind the existing broad eaves, opening its relationship to the pagoda. The physical upper post grid includes a wider central bay for the plaque. Approximate common-camera observations and current pagoda contours are recorded in qa/ten-reference/01/contour148/.
+
+The main roof has an actual irimoya half hip and closed upper gables, projecting trusses, infill and bargeboards. The upper storey now has a closed floor and both end frames. The lower roof collar is cut at analytic intersections with those wall planes. Receivers, seats and standing bearing posts follow the new roof underside; paired cantilevers connect the inset end frame to the held outer eaves. These are actual 3D dimensions and connected parts, with inferred hidden depths.
+
+The 148 phase adds no media assets and samples no reference-scene pixels. Existing source asset provenance remains authoritative. Exact source, geometry scope and limitations are in layout148-provenance.json. Native 1254 full/roof detail, courtyard detail, oblique and three unchanged-path poses are under qa/ten-reference/01/iteration-scene01-solmax-*-148-* and the similarly named148 directories. All are produced through tools/render-one-reconstruction.mjs and its shared GPU mutex. A genuine detail keeps the main subfrustum while the independent planar reflection captures a complete physical projection.
+
+visualAccepted remains **false**. Carving, roof profiles, facade depth, some hall/pagoda relationships and photographic light/material response remain approximate. Existing vegetation, bank and stream gaps are preserved in this architecture scope. The baseline 5d8fc84e source and prior physical render stay retained; R01–R03 native candidates and source archives are also retained. This is a reconstruction checkpoint, not a completed photographic match or film.
+
 # 参考 01：夕照寺院池庭
 
 独立 Three.js 三维场景；参考图为 `references/hd/0-照片-1.jpg`。入口为 `/reconstructions/scene-01/index.html?render&defer&w=1254&h=1254`，由仓库静态 HTTP 服务和本地 `vendor` 提供。

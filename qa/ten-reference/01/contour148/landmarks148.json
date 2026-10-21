@@ -1,0 +1,488 @@
+{
+  "reference": "references/hd/0-照片-1.jpg",
+  "pixelSystem": "1254 square, top-left origin",
+  "camera": {
+    "position": [
+      0,
+      3.2,
+      17
+    ],
+    "target": [
+      0,
+      6.2,
+      -13
+    ],
+    "fov": 59,
+    "deckY": 1.8
+  },
+  "method": "Common fixed low camera. Actual frame/roof/post geometry is fit; no reference image texture, camera-space surface or independent projected landmark deformation is used.",
+  "limitations": "These hand-observed selected points have stated uncertainty and are not a survey, complete contour fit or photographic-fidelity score. New upper-axis x positions are solved as a coherent physical frame; hidden depth remains inferred.",
+  "hallPoints": [
+    {
+      "name": "first clear lower capital in occupied facade",
+      "referenceApprox": [
+        649,
+        575
+      ],
+      "uncertaintyPixels": 8,
+      "beforeLocal": [
+        -10.36673804934024,
+        5.19,
+        5.15
+      ],
+      "afterLocal": [
+        -7.952162871635822,
+        5.19,
+        5.15
+      ],
+      "before": {
+        "world": [
+          -1.4637517208225361,
+          7.540000000000001,
+          -14.300917480632636
+        ],
+        "pixel": [
+          575.6292122868192,
+          584.7486530665324
+        ]
+      },
+      "after": {
+        "world": [
+          0.4288446173602889,
+          7.540000000000001,
+          -12.801500130631881
+        ],
+        "pixel": [
+          642.7967951588876,
+          577.1575550683624
+        ]
+      },
+      "beforeErrorPixels": 74.01559785791271,
+      "afterErrorPixels": 6.567708441596434
+    },
+    {
+      "name": "first upper pilaster midpoint",
+      "referenceApprox": [
+        677,
+        464
+      ],
+      "uncertaintyPixels": 8,
+      "beforeLocal": [
+        -10.2,
+        8.14,
+        5.18
+      ],
+      "afterLocal": [
+        -6.770258796240704,
+        8.14,
+        5.18
+      ],
+      "before": {
+        "world": [
+          -1.3516884048340412,
+          10.49,
+          -14.173860838510112
+        ],
+        "pixel": [
+          579.8118296292629,
+          482.0547239566323
+        ]
+      },
+      "after": {
+        "world": [
+          1.336617059036758,
+          10.49,
+          -12.044039611813687
+        ],
+        "pixel": [
+          676.9999999999999,
+          463.7583620769076
+        ]
+      },
+      "beforeErrorPixels": 98.85096619235249,
+      "afterErrorPixels": 0.24163792309241217
+    },
+    {
+      "name": "upper outer eave left corner retained",
+      "referenceApprox": [
+        488,
+        400
+      ],
+      "uncertaintyPixels": 8,
+      "beforeLocal": [
+        -12.75,
+        10.64,
+        6.45
+      ],
+      "afterLocal": [
+        -12.75,
+        10.64,
+        6.45
+      ],
+      "before": {
+        "world": [
+          -4.139085856366638,
+          12.99,
+          -14.761921589784661
+        ],
+        "pixel": [
+          486.2009530424395,
+          403.135017268567
+        ]
+      },
+      "after": {
+        "world": [
+          -4.139085856366638,
+          12.99,
+          -14.761921589784661
+        ],
+        "pixel": [
+          486.2009530424395,
+          403.135017268567
+        ]
+      },
+      "beforeErrorPixels": 3.6145405281613834,
+      "afterErrorPixels": 3.6145405281613834
+    },
+    {
+      "name": "portal-side lower post floor datum retained",
+      "referenceApprox": [
+        848,
+        718
+      ],
+      "uncertaintyPixels": 8,
+      "beforeLocal": [
+        -1.894491687074025,
+        1.35,
+        5.15
+      ],
+      "afterLocal": [
+        -1.894491687074025,
+        1.35,
+        5.15
+      ],
+      "before": {
+        "world": [
+          5.176978536601934,
+          3.7,
+          -9.039771210943847
+        ],
+        "pixel": [
+          848,
+          716.3709213659009
+        ]
+      },
+      "after": {
+        "world": [
+          5.176978536601934,
+          3.7,
+          -9.039771210943847
+        ],
+        "pixel": [
+          848,
+          716.3709213659009
+        ]
+      },
+      "beforeErrorPixels": 1.6290786340990735,
+      "afterErrorPixels": 1.6290786340990735
+    },
+    {
+      "name": "upper plaque physical centre in wider central structural bay",
+      "referenceApprox": [
+        930,
+        425
+      ],
+      "uncertaintyPixels": 10,
+      "beforeLocal": [
+        -0.8,
+        8.43,
+        4.54
+      ],
+      "afterLocal": [
+        0.06272051680546703,
+        8.43,
+        4.54
+      ],
+      "before": {
+        "world": [
+          6.413666286149338,
+          10.78,
+          -8.838238426530193
+        ],
+        "pixel": [
+          895.5791663139447,
+          418.81807599979356
+        ]
+      },
+      "after": {
+        "world": [
+          7.089885318821387,
+          10.78,
+          -8.30250107486506
+        ],
+        "pixel": [
+          930,
+          412.26017253280895
+        ]
+      },
+      "beforeErrorPixels": 34.971559530387076,
+      "afterErrorPixels": 12.739827467191049
+    }
+  ],
+  "pagoda": [
+    {
+      "name": "finial tip",
+      "local": [
+        0,
+        21.950609431263224,
+        0
+      ],
+      "referenceApprox": [
+        413,
+        78
+      ],
+      "projected": {
+        "world": [
+          -6.927063214192983,
+          24.460118143348147,
+          -16.94359258091933
+        ],
+        "pixel": [
+          413.1082904055901,
+          78.08438866642743
+        ]
+      },
+      "errorPixels": 0.13728896155286682,
+      "unchangedByPhase148": true
+    },
+    {
+      "name": "tier5 near eave corner",
+      "local": [
+        3.220826583483946,
+        15.619569199969133,
+        3.220826583483946
+      ],
+      "referenceApprox": [
+        377,
+        220
+      ],
+      "projected": {
+        "world": [
+          -6.981483103021394,
+          17.907491503958763,
+          -12.844510834635116
+        ],
+        "pixel": [
+          378.6993539612143,
+          212.13219478537724
+        ]
+      },
+      "errorPixels": 8.049233676614179,
+      "unchangedByPhase148": true
+    },
+    {
+      "name": "tier5 outer left eave corner",
+      "local": [
+        -3.220826583483946,
+        15.619569199969133,
+        3.220826583483946
+      ],
+      "referenceApprox": [
+        276,
+        268
+      ],
+      "projected": {
+        "world": [
+          -11.026144960477195,
+          17.907491503958763,
+          -16.998012469747742
+        ],
+        "pixel": [
+          280.7706724453146,
+          273.6920814530605
+        ]
+      },
+      "errorPixels": 7.426917721959698,
+      "unchangedByPhase148": true
+    },
+    {
+      "name": "tier5 outer right eave corner",
+      "local": [
+        3.220826583483946,
+        15.619569199969133,
+        -3.220826583483946
+      ],
+      "referenceApprox": [
+        537,
+        269
+      ],
+      "projected": {
+        "world": [
+          -2.8279814679087707,
+          17.907491503958763,
+          -16.889172692090916
+        ],
+        "pixel": [
+          537.9259000605125,
+          272.26346450818096
+        ]
+      },
+      "errorPixels": 3.392269375832917,
+      "unchangedByPhase148": true
+    },
+    {
+      "name": "tier1 near eave corner",
+      "local": [
+        3.4361498298722224,
+        6.04,
+        3.4361498298722224
+      ],
+      "referenceApprox": [
+        367,
+        555
+      ],
+      "projected": {
+        "world": [
+          -6.9851212582672275,
+          7.992637381990711,
+          -12.570473234055545
+        ],
+        "pixel": [
+          368.10750874783594,
+          559.304388594715
+        ]
+      },
+      "errorPixels": 4.444585110091311,
+      "unchangedByPhase148": true
+    },
+    {
+      "name": "tier1 outer left eave corner",
+      "local": [
+        -3.4361498298722224,
+        6.04,
+        3.4361498298722224
+      ],
+      "referenceApprox": [
+        267,
+        577
+      ],
+      "projected": {
+        "world": [
+          -11.300182561056769,
+          7.992637381990711,
+          -17.001650624993573
+        ],
+        "pixel": [
+          261.99999884659445,
+          582.2458524001537
+        ]
+      },
+      "errorPixels": 7.246997925917676,
+      "unchangedByPhase148": true
+    },
+    {
+      "name": "tier1 outer right eave corner",
+      "local": [
+        3.4361498298722224,
+        6.04,
+        -3.4361498298722224
+      ],
+      "referenceApprox": [
+        548,
+        592
+      ],
+      "projected": {
+        "world": [
+          -2.553943867329198,
+          7.992637381990711,
+          -16.885534536845086
+        ],
+        "pixel": [
+          544.2279466945175,
+          581.7201726336575
+        ]
+      },
+      "errorPixels": 10.950033644752201,
+      "unchangedByPhase148": true
+    }
+  ],
+  "unchangedLayout": {
+    "bridge": {
+      "position": [
+        -3.48,
+        0.8154070995563524,
+        -0.8749234412477128
+      ],
+      "scale": [
+        1.13,
+        1,
+        0.9640178975813055
+      ],
+      "yaw": 0.0022982230380711767,
+      "archRise": 0.5812719180670933,
+      "slope": -0.14123056188443456,
+      "deckBaseline": 2.35,
+      "halfSpan": 3.36
+    },
+    "stair": {
+      "top": [
+        5.484119229666349,
+        3.675,
+        -7.5844273284042405
+      ],
+      "bottom": [
+        4.504840117639069,
+        2.1,
+        -4.643252888634258
+      ],
+      "width": 3.5,
+      "steps": 9,
+      "landingY": 2.1,
+      "bearingY": 1.95,
+      "topLanding": {
+        "forwardOffset": 0.9,
+        "backWidth": 4.5,
+        "pavingBackZ": 5.64,
+        "wallFrontZ": 5.9
+      }
+    },
+    "waterfall": {
+      "x": 2.05,
+      "lips": [
+        1.43,
+        0.92
+      ],
+      "basinY": 0.15,
+      "z": [
+        -2,
+        -1.3
+      ]
+    },
+    "foreground": {
+      "postL": [
+        -1.578233834186404,
+        2.62,
+        13.69891566150143
+      ],
+      "postN": [
+        -0.11444479342937874,
+        2.62,
+        15.286643668267336
+      ],
+      "postRadii": [
+        0.22,
+        0.095
+      ],
+      "postHeadY": 2.62,
+      "deckY": 1.8,
+      "columnPosition": [
+        -2.134557399683188,
+        0,
+        13.227789169779816
+      ],
+      "columnRadius": 0.28319999999999995,
+      "columnTop": 9.595,
+      "ceilingY": 10.3
+    }
+  }
+}

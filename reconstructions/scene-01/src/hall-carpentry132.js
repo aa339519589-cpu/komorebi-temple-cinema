@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {V,TAU} from './kernel.js';
 import {layout124 as L} from './layout124.js';
+import {mainHallUnderside148} from './hall-envelope148.js';
 
 // Recovered visible construction of HD01. All relief, infill and bearing
 // members below are closed solids. The photo is only a measurement input.
@@ -43,20 +44,20 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
   const pieces=Math.max(2,Math.round(width/.34));for(let i=0;i<pieces;i++){const x=left+(i+.5)*width/pieces;B.emit(vine,'hallGilt132',x,y,z+.208,width/pieces*.92,1,1);if(B.joineryKit)B.emit(B.joineryKit.relief,'hallGilt132',x,y,z+.217,.205,.15,.12);if(rich){for(const sign of[-1,1])B.emit(scroll,'gold',x,y-.06,z+.21, .70,.70,1,[0,0,sign<0?Math.PI:0]);}}
  }
  function bayArch(left,right,y,z){const width=right-left-.30,cx=(left+right)/2,s=new T.Shape();s.moveTo(-width/2,.13);s.lineTo(width/2,.13);s.lineTo(width/2,.005);s.bezierCurveTo(width*.35,-.02,width*.31,-.21,width*.22,-.20);s.bezierCurveTo(width*.13,-.18,width*.12,-.085,0,-.085);s.bezierCurveTo(-width*.12,-.085,-width*.13,-.18,-width*.22,-.20);s.bezierCurveTo(-width*.31,-.21,-width*.35,-.02,-width/2,.005);s.closePath();B.emit(solid(s,.18),'wood',cx,y,z);B.emit(vine,'goldDark',cx,y-.015,z+.103,width*.81,1,1);}
- const lower=L.hall.frontAxes,upper=Array.from({length:9},(_,i)=>-10.2+i*2.6);
+ const lower=L.hall.frontAxes,upper=[-6.770258796240704,-4.361749389177344,-1.9692422182982536,2.0017996375181815,4.722704860993423,6.939714594097563,9.15,11.15];
  B.label('hall132-lower-posts-and-seated-capitals',()=>{
-  for(const z of[5.15,-.1,-5.1])for(const x of(z===5.15?lower:Array.from({length:7},(_,i)=>-10.5+i*3.5))){column(x,z,1.35,3.95,.31);bracket(x,5.19,z,{scale:1.01,depth:z===5.15?1.28:1,corner:Math.abs(x)>9});}
-  for(const [y,h,d,z]of[[5.49,.19,.36,5.15],[6.37,.18,.28,5.66]])B.box(0,y,z,23.0,h,d,'wood');
+  for(const z of[5.15,-.1,-5.1])for(const x of(z===5.15?lower:Array.from({length:7},(_,i)=>-7.95+i*3.18))){column(x,z,1.35,3.95,.31);bracket(x,5.19,z,{scale:1.01,depth:z===5.15?1.28:1,corner:Math.abs(x)>9});}
+  for(const [y,h,d,z]of[[5.49,.19,.36,5.15],[6.37,.18,.28,5.66]])B.box(1.45,y,z,19.75,h,d,'wood');
   for(let i=0;i<lower.length-1;i++){const major=lower[i+1]-lower[i]>4;frieze(lower[i]+.15,lower[i+1]-.15,major?5.57:5.01,major?5.47:5.32);if(!major)bayArch(lower[i],lower[i+1],5.61,5.22);}
   // A single continuous bearing course is carried by the capitals, with fine
   // shadowed mortises between the ends rather than a floating gold strip.
-  for(let k=0;k<77;k++){const x=-11.4+k*.30;B.box(x,6.32,6.35,.15,.17,.63,'darkwood');B.box(x,6.32,6.68,.12,.12,.055,'hallSap132');}
+  for(let k=0;k<67;k++){const x=-8.55+k*.30;B.box(x,6.32,6.35,.15,.17,.63,'darkwood');B.box(x,6.32,6.68,.12,.12,.055,'hallSap132');}
  });
  B.label('hall132-upper-timber-frame-and-cream-infill',()=>{
   // A concealed sill transfers every upper post into the lower capitals.
-  B.box(0,6.82,5.18,22.4,.22,.40,'wood');for(const x of lower)B.box(x,6.56,5.15,.30,.31,.36,'wood');
+  B.box(1.45,6.82,5.18,19.75,.22,.40,'wood');for(const x of lower)B.box(x,6.56,5.15,.30,.31,.36,'wood');
   for(const z of[4.2,-4.8]){
-   B.box(0,8.09,z-.12,21.3,3.17,.20,'darkwood');
+   B.box(1.65,8.09,z-.12,19.25,3.17,.20,'darkwood');
    for(let i=0;i<upper.length-1;i++){
     const a=upper[i],b=upper[i+1],cx=(a+b)/2;
     for(const [y,h]of[[7.57,.43],[8.49,.48],[9.05,.27]])B.box(cx,y,z+.005,b-a-.22,h,.105,'hallInfill132');
@@ -65,25 +66,56 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
     frieze(a+.09,b-.09,7.88,z+.09,false);
     bayArch(a,b,8.89,z+.10);
    }
-   for(const y of[6.80,7.30,8.16,8.80,9.34])B.box(0,y,z+.11,21.65,.14,.24,'wood');
+   for(const y of[6.80,7.30,8.16,8.80,9.34])B.box(1.65,y,z+.11,19.40,.14,.24,'wood');
    for(let i=0;i<upper.length;i++){
     const x=upper[i],front=z>0?z+.85:z;B.box(x,8.14,z+.11,.18,2.96,.29,'wood');B.box(x,8.14,z+.52,.15,2.96,.14,'wood');
-    B.cyl(x,8.0,front+.13,.145,2.38,'red');bracket(x,9.19,front+.13,{scale:.91,depth:z>0?1.10:1.35,corner:i===0||i===8});giltFace(x,7.46,front+.31,.30,.32);B.cyl(x,7.02,front+.13,.152,.15,'goldDark');B.cyl(x,8.78,front+.13,.151,.14,'goldDark');
+    B.cyl(x,8.0,front+.13,.145,2.38,'red');bracket(x,9.19,front+.13,{scale:.91,depth:z>0?1.10:1.35,corner:i===0||i===upper.length-1});giltFace(x,7.46,front+.31,.30,.32);B.cyl(x,7.02,front+.13,.152,.15,'goldDark');B.cyl(x,8.78,front+.13,.151,.14,'goldDark');
    }
-   frieze(-10.8,10.8,9.35,z+.20);
-   B.box(0,10.27,z+(z>0?1.0:.60),22.5,.21,.33,'wood');B.box(0,9.22,z+(z>0?.98:.13),21.65,.18,.32,'wood');
-   for(let i=0;i<75;i++){const x=-11.1+i*.30;B.box(x,10.25,z+1.22,.14,.14,.66,'wood');B.box(x,10.25,z+1.57,.105,.105,.035,'hallSap132');}
+   frieze(-8.10,11.40,9.35,z+.20);
+   B.box(1.50,10.27,z+(z>0?1.0:.60),20.0,.21,.33,'wood');B.box(1.65,9.22,z+(z>0?.98:.13),19.40,.18,.32,'wood');
+   for(let i=0;i<67;i++){const x=-8.35+i*.30;B.box(x,10.25,z+1.22,.14,.14,.66,'wood');B.box(x,10.25,z+1.57,.105,.105,.035,'hallSap132');}
   }
   // The front plaque has a real frame and modeled brush-like strokes.
-  B.box(-.8,8.43,4.46,1.06,1.22,.13,'goldDark');B.box(-.8,8.43,4.54,.88,1.06,.035,'black');
-  for(const dy of[-.55,.55])B.box(-.8,8.43+dy,4.56,.98,.035,.025,'gold');
-  for(const dx of[-.48,.48])B.box(-.8+dx,8.43,4.56,.035,1.10,.025,'gold');
-  for(let row=0;row<3;row++){const y=8.77-row*.33;for(const sign of[-1,1])B.between([-.8+sign*.14,y+.07,4.58],[-.8+sign*.11,y-.07,4.58],.025,.025,'gold');B.box(-.8,y,4.58,.29,.024,.026,'gold');B.between([-.84,y+.11,4.58],[-.78,y-.11,4.58],.023,.023,'gold');}
+  B.box(.06272051680546703,8.43,4.46,1.06,1.22,.13,'goldDark');B.box(.06272051680546703,8.43,4.54,.88,1.06,.035,'black');
+  for(const dy of[-.55,.55])B.box(.06272051680546703,8.43+dy,4.56,.98,.035,.025,'gold');
+  for(const dx of[-.48,.48])B.box(.06272051680546703+dx,8.43,4.56,.035,1.10,.025,'gold');
+  for(let row=0;row<3;row++){const y=8.77-row*.33;for(const sign of[-1,1])B.between([.06272051680546703+sign*.14,y+.07,4.58],[.06272051680546703+sign*.11,y-.07,4.58],.025,.025,'gold');B.box(.06272051680546703,y,4.58,.29,.024,.026,'gold');B.between([.02272051680546703,y+.11,4.58],[.08272051680546703,y-.11,4.58],.023,.023,'gold');}
  });
- B.label('hall132-rear-purlin-bearings',()=>{
-  for(const z of[4.2,-4.8]){const t=Math.abs(z+.35)/6.8,under=L.hall.upperEave+L.hall.mainRoofRise*Math.pow(1-t,1.46)-.21;
-   B.box(0,under-.13,z,21.8,.26,.30,'wood');for(let k=0;k<7;k++){const x=-10.5+k*3.5,base=10.35,h=under-.27-base;if(h>.08)B.box(x,base+h/2,z,.25,h,.30,'wood');}
+ B.label('hall148-closed-upper-floor-and-end-frames',()=>{
+  B.box(1.65,6.70,-.30,19.45,.20,9.24,'wood');
+  for(const x of[-7.975,11.275]){
+   const sign=Math.sign(x);B.box(x,8.07,-.30,.20,2.54,9.0,'darkwood');
+   B.with(x+sign*.13,0,-.30,sign*Math.PI/2,()=>{
+    for(let bay=0;bay<4;bay++){
+     const a=-4.50+bay*2.25,b=a+2.25,cx=(a+b)/2;
+     for(const [yy,hh]of[[7.57,.43],[8.49,.48],[9.05,.27]])B.box(cx,yy,0,b-a-.22,hh,.105,'hallInfill132');
+     B.box(cx,7.08,.045,b-a-.23,.38,.09,'darkwood');for(let j=0;j<14;j++)B.box(a+.20+j*(b-a-.40)/13,7.08,.105,.025,.35,.035,'wood');
+     frieze(a+.09,b-.09,7.88,.09,false);bayArch(a,b,8.89,.10);
+    }
+    for(const yy of[6.80,7.30,8.16,8.80,9.34])B.box(0,yy,.11,9.18,.14,.24,'wood');
+    for(let j=0;j<=4;j++)B.box(-4.5+j*2.25,8.14,.12,.18,2.96,.24,'wood');
+   });
   }
  });
- return {revision:'hall132-source-measured-bearing-and-infill',resources:own.size};
+ B.label('hall148-roof-coupled-purlin-bearings',()=>{
+  for(const z of[4.2,-4.8]){
+   const samples=Array.from({length:43},(_,k)=>-8.25+k*19.4/42);
+   for(let j=0;j<samples.length-1;j++){
+    const a=samples[j],b=samples[j+1];B.between([a,mainHallUnderside148(a,z)-.15,z],[b,mainHallUnderside148(b,z)-.15,z],.24,.30,'wood');
+   }
+   for(const x of samples){const under=mainHallUnderside148(x,z);B.box(x,under-.04,z,.34,.08,.35,'wood');}
+   for(let k=0;k<7;k++){const x=-7.95+k*3.18,base=10.35,top=mainHallUnderside148(x,z)-.27,h=top-base;if(h>.08)B.box(x,base+h/2,z,.25,h,.30,'wood');}
+  }
+ });
+ B.label('hall148-connected-left-return-bearings',()=>{
+  // The measured inset end frame carries the long roof overhang through
+  // paired continuous cantilevers and diagonal timber seats, not a wall slab.
+  for(const z of[5.18,-4.67]){
+   const start=[-7.35,9.70,z],mid=[-9.30,10.02,z*.94],end=[-11.80,10.25,z*1.08];
+   B.between(start,mid,.28,.34,'wood');B.between(mid,end,.25,.31,'wood');
+   B.between([-7.35,9.20,z],mid,.17,.23,'wood');B.box(-9.30,10.12,z*.94,.48,.20,.49,'wood');
+  }
+  B.between([-11.80,10.25,-5.04],[-11.80,10.25,5.59],.22,.30,'wood');
+ });
+ return {revision:'hall148-coupled-inset-frame-and-return-bearings',resources:own.size};
 }
