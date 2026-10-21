@@ -41,5 +41,12 @@ export async function createLotusLeafMaterial(){
  const albedo=await new T.TextureLoader().loadAsync(new URL('neutral-leaf-diffuse-v01.png',root).href);albedo.name='generated-neutral-peltate-leaf-tissue96';albedo.colorSpace=T.SRGBColorSpace;albedo.flipY=false;albedo.generateMipmaps=true;albedo.minFilter=T.LinearMipmapLinearFilter;albedo.magFilter=T.LinearFilter;albedo.anisotropy=8;
  const bump=tex(h,false),color=new T.Color().setRGB(...record.materialLinearColorGain),material=new T.MeshPhysicalMaterial({name:'closed-lotus-leaf-waxy-cuticle-fine-tissue96',color,map:albedo,bumpMap:bump,bumpScale:.00045,vertexColors:true,roughness:.48,metalness:0,clearcoat:.08,clearcoatRoughness:.58,sheen:.13,sheenRoughness:.8,sheenColor:new T.Color('#adc482'),side:T.FrontSide});
  material.userData.atlasStudy={asset:'lotus-leaf96',inputImageSize:record.imageSize,meanLinearAlbedo:record.targetMeanLinearRGB,generatedMaterialGuide:true,referenceRGBProjected:false,photographicAcceptance:false};
+ // Thin peltate tissue transmits a small fraction of the actual sun direction.
+ // The closed lower face and the geometric veins still cast and receive shade.
+ material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
+  vec3 leafSun=normalize((viewMatrix*vec4(-20.,21.,16.,0.)).xyz);
+  float leafTransmission=pow(max(0.,dot(-normal,leafSun)),1.3)*.18;
+  reflectedLight.indirectDiffuse+=diffuseColor.rgb*leafTransmission;`);};
+ material.customProgramCacheKey=()=> 'scene03-closed-leaf-thin-tissue103';
  return{material,textures:[albedo,bump]};
 }

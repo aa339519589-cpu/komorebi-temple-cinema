@@ -1,6 +1,6 @@
 {
   "scene": "03",
-  "revision": "mesh72b",
+  "revision": "scene03-carpentry104-grounded-garden104",
   "referencePhotographs": {
     "usedByRuntime": false,
     "comparisonInput": "references/hd/2-照片-3.jpg",
@@ -36,7 +36,11 @@
     "Closed 1–2.4 mm cupped lotus petals with curved ovate outline, rolled rims and fine geometric pleats",
     "Closed 1.6–2.8 mm peltate lotus leaves with a depressed centre, uneven rim and 19 physical radial veins",
     "Smooth closed ovoid five-lobed lotus bud",
-    "Two entrance beam faces receive eight instances of a shared closed 32,108-triangle carved-gilt/deep-wood prototype. The retained structural beams, columns, roofs and camera are unchanged."
+    "Two entrance beam faces receive eight instances of a shared closed 32,108-triangle carved-gilt/deep-wood prototype. The retained structural beams, columns, roofs and camera are unchanged.",
+    "Closed recessed upper gallery with seven principal three-step bearing stations, six intermediate stations, two flying rafter courses and connected curved girts",
+    "Six lower hall capitals reconstructed as three-step closed timber rather than vertically stretching a two-step prototype",
+    "Closed curved plank bridge girders and arch ribs, individual deck boards, supported stone landing caps and connected interlocking granite abutments",
+    "Closed soil bank bodies with perimeter and bottom faces, physically overlapping fractured stone and stemmed planting around the recessed hall masonry"
   ],
   "proceduralBotanicalMaps": "Locally generated petal/leaf pigments and fine venation; no photograph inputs",
   "visualAccepted": false,
@@ -49,11 +53,10 @@
     }
   ],
   "roofCorrections": [
-    "Retained physical camera and column/platform placement. Upper hipped roof width 13.6 m and eave 15.4 m; ridge stays at 19.6 m.",
-    "Recessed front gable crown 18.62 m at z=-0.60 m and x=0.60 m. Its smaller closed dark diaphragm is below the curved ceramic roof and thick bargeboard.",
-    "New short closed 18 mm clay pan/cover courses plus short eave tails; closed continuous wood/metal fascia.",
-    "The previous curved upper bearings are retained as solids and follow the raised receiver beam to the roof underside.",
-    "Reduced the two white upper-storey strips to narrow grey recessed fields."
+    "Retain the low physical reference camera. Main hall placement is x7.1163m, y1.25m, z-1.2975m, yaw-0.5942rad; the independent pagoda site counter-offset preserves its world location.",
+    "Upper hipped roof width13.6m, local eave14.6m and local ridge19.6m. Lower roof width17.4m, local eave10.5m and rise3.1m. Both carry closed short pan/cover ceramics and closed moulded fascia.",
+    "Front gable center local x0.10m, crown19.12m, frontz0.25m: closed dark wood diaphragm, a smaller recessed ochre upper field, connected truss, cambered tie and supported carving.",
+    "Upper hall body closes the former exposed open frame. Pale narrow frieze fields, carved pilasters, exterior balustrade and interlocking stepped bearings replace the four repeated free bracket ranks."
   ],
   "files": [
     "reconstructions/camera-dolly.js",
@@ -102,11 +105,19 @@
     "roundTwoCorrection": "Observed the unchanged fore-hanging lantern covering half the face in mesh71a. Move only the icon and its supported lotus plinth0.53m left within the inner shrine (x+.35→-.18); retain exterior lights. Offering table becomes0.67m tall on matching shortened legs, x0, to expose more of the knees. Inner wood now uses explicit roughness0.55–0.83 without multiplying the dark scanned roughness channel; normal detail retained."
   },
   "entryStairStone": {
-    "scope": "Only the original20-level central entry stair flight. Height4m, run7.8m, width5.5m, low camera and all architecture/shrine/frieze/dolly remain unchanged.",
-    "geometry": "105closed stone pieces at the retained20step elevations:95full-riser blocks,5lower70mm first-riser stones,5replacement130mm caps within the old central5.5m x0.425m platform-cap region. Keep original overall rise/run/width and cap topY4/bottomY3.87/frontZ0.425. Four-to-six mm staggered joints;24sparse3–9mm-deep front-edge chips,15isolated1–2.2mm pits and a broad1.2–2.6mm wear basin. No uniform noise mesh or black crack image.",
+    "scope": "Twenty levels remain at the same5.5m width and7.8m run. The raised physical podium increases world rise from4.0m to5.25m, with a0.2625m rise at each level. Stair stones, support core, landing and shaft footings stay connected to ground.",
+    "geometry": "105closed authored stone pieces at twenty proportional levels, using retained millimetre joints, sparse chips/pits and wear basins. Scene-local landing remains at4.0m, plus hall group elevation1.25m; staircase lower slabs are translated down1.25m inside that group so their world bottom remains grounded.",
     "runtimePBR": "assets/granite-tile-04/granite-face-{diff,nor_gl,rough}.png; metric repeat0.3173828125m; each stone uses a deterministic UV offset/quarter turn. Independent neutral-gray pigment, preserving actual mineral variation and normal/roughness.",
     "visualAccepted": false,
-    "roundTwoCorrection": "Pillow-shaped shading corrected through actual hard wall/end/bottom normals after indexed closed-topology validation. Only the physical millimetre arris/top field remains smooth. Material/roughness/exposure unchanged from72a. Partition only the old cap to preserve rear/side placement and material, replacing its central front pale strip with five closed same-granite caps at the original bounds."
+    "roundTwoCorrection": "Pillow-shaped shading corrected through actual hard wall/end/bottom normals after indexed closed-topology validation. Only the physical millimetre arris/top field remains smooth. Material/roughness/exposure unchanged from72a. Partition only the old cap to preserve rear/side placement and material, replacing its central front pale strip with five closed same-granite caps at the original bounds.",
+    "currentPhysicalDimensions": {
+      "worldTopY": 5.25,
+      "worldBottomY": 0,
+      "rise": 0.2625,
+      "run": 0.39,
+      "count": 20,
+      "width": 5.5
+    }
   },
   "copiedSurfaceAssets": [
     {
@@ -136,5 +147,47 @@
         "provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b"
       }
     }
+  ],
+  "hallCarpentry104": {
+    "source": "src/scene03-hall-carpentry.js",
+    "construction": "Closed cambered solid hijiki, rounded-square flaring bearing cushions, three projecting physical levels, connected common girts and two eave rafter depths. Thin applied metal follows actual timber ends and some curved shoulders.",
+    "majorUpperStations": 7,
+    "intermediateUpperStations": 6,
+    "lowerCapitalStations": 6,
+    "upperGallery": "Closed deep timber wall/returns with a narrow pale frieze and carved pilasters; no open rectangular floor scaffold.",
+    "timberSurface": "Existing local Poly Haven CC0 surface-only maps, independently lit, with revised warm cedar pigment gains; no image plane or scene colour projection.",
+    "visualAccepted": false
+  },
+  "bridgeAndGarden104": {
+    "source": "src/scene03-arched-bridge.js and src/main.js",
+    "bridge": {
+      "position": [
+        -3.1,
+        0.55,
+        7.05
+      ],
+      "yaw": -0.28,
+      "span": 7.2,
+      "localDeckEndY": 1.13,
+      "localDeckCrownY": 2.23,
+      "closedGirderDepth": 0.42,
+      "supportedStoneAbutments": true
+    },
+    "garden": "Closed sloped bank soil from podium height to pond edge; connected fractured stone volumes, moss and stemmed azalea/iris planting. Main foundation and shaft footings remain real connected masonry behind the bank.",
+    "lotus": "One authored near bloom plus varied smaller taller blooms at the right bank, closed sculpted leaves/petals and planted stems. The central pond corridor is open for genuine Fresnel reflection and world-space wave normals.",
+    "foregroundToros": "Genuine stone housing, grid, paper core, curved cap and supported square shaft; large foreground and smaller stair-side positions corrected from wholeframe comparison.",
+    "visualAccepted": false
+  },
+  "tower104": {
+    "sitePositionUnchanged": true,
+    "finial": "Closed stem, seventeen thick gilt rings and intervening metal necks at local height27m; replacement for the visibly short wire-like finial.",
+    "upperBody": "Reduced pale wall height and added connected three-step timber bearings under the existing curved roof tiers; all walls/apertures remain real solids/openings.",
+    "visualAccepted": false
+  },
+  "remainingVisualLimits104": [
+    "Structural and compositional improvement is not photographic fidelity. Main hall joinery, metalwork and gable carving remain visibly simplified and regular compared with the reference.",
+    "Garden species, weathering, pond reflections and foreground optical response remain interpretations. Native ambient lighting is not a physical multi-bounce path trace.",
+    "The reused seated icon is still an interpretation of an obscured sanctuary; it should not be cited as exact historic iconography.",
+    "No finished film or photographic acceptance is claimed by native loading, linked shaders or nonempty pixels."
   ]
 }

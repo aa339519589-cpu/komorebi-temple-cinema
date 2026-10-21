@@ -7,7 +7,7 @@ export async function installScannedTimber(mats){
  const [albedo,normal,rough]=await Promise.all(['diffuse-2k.jpg','normal-gl-2k.png','roughness-2k.jpg'].map(x=>loader.loadAsync(directory+x)));
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of[albedo,normal,rough]){tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.anisotropy=8;}
- const gains={red:[6.5,3.8,3.2],cedar:[6.2,4.6,3.9],endwood:[7.0,5.5,4.6],darkwood:[1.4,1.2,1.0],bridge:[8.5,3.2,2.7],bridgeDark:[2.7,1.6,1.1],ceiling:[1.8,1.3,1.0]};
+ const gains={red:[4.6,2.55,1.85],cedar:[4.25,2.80,1.95],endwood:[4.9,3.5,2.35],darkwood:[1.5,1.05,.73],bridge:[8.5,3.2,2.7],bridgeDark:[2.7,1.6,1.1],ceiling:[1.8,1.3,1.0]};
  for(const [key,color] of Object.entries(gains)){
   const m=mats[key];if(!m)continue;m.map=albedo;m.normalMap=normal;m.normalScale.set(.18,.18);m.bumpMap=null;m.roughnessMap=rough;m.roughness=.9;m.metalness=0;m.color.setRGB(...color);
   m.onBeforeCompile=shader=>{
