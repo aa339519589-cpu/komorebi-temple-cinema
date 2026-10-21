@@ -4,6 +4,13 @@
   ],
   "runtimeImages": [],
   "runtimeModels": [],
-  "runtimeTextures": [],
-  "construction": "Scene 08 uses JavaScript-defined Three.js geometry and procedural DataTextures only."
+  "runtimeTextures": [
+    "reconstructions/scene-08/assets/timber/diffuse-2k.jpg",
+    "reconstructions/scene-08/assets/timber/normal-gl-2k.png",
+    "reconstructions/scene-08/assets/timber/roughness-2k.jpg",
+    "reconstructions/scene-08/assets/granite/granite-face-diff.png",
+    "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png",
+    "reconstructions/scene-08/assets/granite/granite-face-rough.png"
+  ],
+  "construction": "Authored Three.js solid architecture, ceramic rolls, cast metal details, terrain, rocks and instanced foliage. Six declared CC0 PBR scans supply timber/granite surface detail. No reference photograph or replacement scene image is sampled."
 }

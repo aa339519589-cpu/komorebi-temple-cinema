@@ -1,0 +1,87 @@
+{
+  "scene": 8,
+  "candidate": "SOL Max r10, review hold",
+  "sourceHash": "26cba87fc7d91a57a2fb66dddec94f117865873b626d6e36afe6a3f617ed94cc",
+  "nativeReports": [
+    "qa/ten-reference/08/iteration-scene08-solmax-supported-courtyard-r10-20261021/report.json",
+    "qa/ten-reference/08/iteration-scene08-solmax-native-garden-r10-20261021/report.json"
+  ],
+  "camera": {
+    "position": [
+      0,
+      1.78,
+      13
+    ],
+    "target": [
+      0,
+      6.1,
+      -9
+    ],
+    "time": 0,
+    "fov": 49
+  },
+  "nativeSize": 1254,
+  "roofSubfrustum": {
+    "pixels": [
+      180,
+      110,
+      520,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "gardenSubfrustum": {
+    "pixels": [
+      430,
+      620,
+      520,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "counts": {
+    "instances": 682828,
+    "triangles": 23001537
+  },
+  "scope": "Actual authored Three.js model/material/light reconstruction; not a photo/depth projection or finished ten-scene film.",
+  "visualAccepted": false,
+  "outputs": {
+    "qa/ten-reference/08/iteration-scene08-solmax-supported-courtyard-r10-20261021/reference.png": {
+      "sha256": "31dac7fb82f97058d7b663dc700fc44393fda0092958373440e9e8e33f966781",
+      "bytes": 3590264
+    },
+    "qa/ten-reference/08/iteration-scene08-solmax-supported-courtyard-r10-20261021/detail-native.png": {
+      "sha256": "e551f92bfc8efc2a9d56da8f34fa2bf473d913a199e585edca9d5569f7d5b508",
+      "bytes": 3140975
+    },
+    "qa/ten-reference/08/iteration-scene08-solmax-supported-courtyard-r10-20261021/report.json": {
+      "sha256": "70a043c98f7b6724664704cd21d3d67158aca51d98b5ae7cdd73881f720f76f5",
+      "bytes": 12708
+    },
+    "qa/ten-reference/08/iteration-scene08-solmax-native-garden-r10-20261021/reference.png": {
+      "sha256": "31dac7fb82f97058d7b663dc700fc44393fda0092958373440e9e8e33f966781",
+      "bytes": 3590264
+    },
+    "qa/ten-reference/08/iteration-scene08-solmax-native-garden-r10-20261021/detail-native.png": {
+      "sha256": "6c4cdd013433ed02ef6fc2595ad1a0e0ee9abef7483cc13d56e0e65236567f18",
+      "bytes": 3402425
+    },
+    "qa/ten-reference/08/iteration-scene08-solmax-native-garden-r10-20261021/report.json": {
+      "sha256": "21ff5c5a0111eae6c716eab0e67bd7e68b08c11c70087381594d20ae13cd6054",
+      "bytes": 12709
+    }
+  },
+  "preservedEarlierNativeIterations": [
+    "scene08-solmax-hall-massing-r01-20261021",
+    "scene08-solmax-cornice-support-r02-20261021",
+    "scene08-solmax-courtyard-layers-r03-20261021",
+    "scene08-solmax-garden-terraces-r04-20261021",
+    "scene08-solmax-spatial-timber-pbr-r05-20261021",
+    "scene08-solmax-weathered-timber-r06-20261021",
+    "scene08-solmax-carved-courtyard-r07-20261021",
+    "scene08-solmax-layered-courtyard-r08-20261021",
+    "scene08-solmax-layered-courtyard-r09-20261021",
+    "scene08-solmax-native-garden-r09-20261021",
+    "scene08-solmax-shot-stills-r09-20261021"
+  ]
+}

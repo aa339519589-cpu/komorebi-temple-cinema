@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-21",
+  "type": "Surface-material PBR reuse on authored real 3D geometry",
+  "sources": [
+    {
+      "asset": "Lacquered Cherry Wood",
+      "provider": "Poly Haven",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+      "localProvenance": "timber/provenance.json",
+      "copiedFrom": "reconstructions/scene-03/assets/timber"
+    },
+    {
+      "asset": "Granite Tile 04, one grout-free face crop",
+      "provider": "Poly Haven",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "localProvenance": "granite/provenance.json",
+      "copiedFrom": "reconstructions/scene-07/assets/island-lantern-granite"
+    }
+  ],
+  "processing": [
+    "No photograph, AI scene replacement, depth plate or projective texture is used.",
+    "Timber normal map supplies fine grain; a remapped 0.68\u20130.98 scanned roughness variation keeps paint weathered instead of mirror-like. Timber diffuse is sampled only on unpainted dark boards.",
+    "Carpentry UVs run in object-length metres and column circumference/height; actual instance scale can vary the final grain size.",
+    "Granite maps repeat as independent surface textures on closed authored rocks and lantern carvings; their scale is an artistic material fit, not a recovered geological measurement."
+  ],
+  "files": {
+    "timber/diffuse-2k.jpg": {
+      "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "bytes": 2694321
+    },
+    "timber/normal-gl-2k.png": {
+      "sha256": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "bytes": 20562079
+    },
+    "timber/roughness-2k.jpg": {
+      "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "bytes": 2589669
+    },
+    "granite/granite-face-diff.png": {
+      "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "bytes": 781135
+    },
+    "granite/granite-face-nor_gl.png": {
+      "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "bytes": 626510
+    },
+    "granite/granite-face-rough.png": {
+      "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "bytes": 322071
+    }
+  },
+  "visualAccepted": false
+}
