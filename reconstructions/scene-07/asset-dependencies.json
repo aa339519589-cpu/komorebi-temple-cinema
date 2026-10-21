@@ -29,7 +29,9 @@
     "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
     "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
     "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
-    "reconstructions/camera-dolly.js"
+    "reconstructions/camera-dolly.js",
+    "vendor/examples/jsm/lights/RectAreaLightTexturesLib.js",
+    "vendor/examples/jsm/lights/RectAreaLightUniformsLib.js"
   ],
   "foregroundRoof": {
     "source": "src/foreground-gallery-roof.js",
@@ -202,9 +204,35 @@
     "source": "src/scanned-frieze157.js",
     "provenance": "assets/floral157/component-provenance.json",
     "attribution": "assets/floral157/ATTRIBUTION.md",
-    "scope": "Selective prominent portal-beam cassettes with actual scanned wood-peony geometry; uniform scaling, rigid facing and authored gilt; no original UV/albedo.",
+    "scope": "Actual scanned peony wood-relief geometry mounted selectively on the portal header and near veranda lower cassettes, with uniform world scale and declared authored gilt over dark timber. Distinct caller host-scale compensation; original topology retained, exact photographed motif unaccepted.",
     "visualAccepted": false,
-    "revision": "source-scanned-portal157-r02",
+    "revision": "source-scanned-portal-and-veranda157-r03",
     "finish": "Actual relief-depth attributes select coherent raised gilt over dark timber; precise world-vertex bounds; host Y compensation preserves uniform world scaling."
+  },
+  "heroPines158": {
+    "source": "src/hero-pines158.js",
+    "provenance": "lookdev/scene07-pine158/handoff158-r05.json",
+    "scope": "Eight rooted connected aged pines; closed retained-fascicle interior packets and finer outer paired needles, branch-fan canopy overlap. Original roots/yaws/seeds and legacy RNG replay retained; close radial tuft repetition remains unaccepted.",
+    "visualAccepted": false,
+    "revision": "scene07-aged-cloud-pines158-r05",
+    "sourceSha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff"
+  },
+  "veranda166": {
+    "source": "src/reference-layout118.js",
+    "revision": "scene07-recessed-scanned-floral-cassettes166-r01",
+    "scope": "Recessed complete natural-aspect 3D peony cassettes, real retaining fasteners, warmer lacquer pigment and hand-polished rail crest. Existing post/rail geometry anchors unchanged.",
+    "visualAccepted": false
+  },
+  "courtyardBounce167": {
+    "source": "src/courtyard-bounce167.js",
+    "scope": "Finite world-fixed low courtyard radiance source approximates warm indirect underside light; reduced existing point practicals. No change to direct sun/HDR pixels/exposure. Not a calibrated global illumination solution.",
+    "visualAccepted": false
+  },
+  "ceramicEnds168": {
+    "source": "src/foreground-gallery-roof.js",
+    "revision": "scene07-formed-closed-ceramic-eave-ends168-r02",
+    "scope": "Close formerly black open alternate cover-tile eaves with full rounded ceramic end seals, shallow real ceramic relief and actual connecting sockets. Existing gold-medallion anchors, materials and variants retained; new unadorned seals are authored inferred construction.",
+    "visualAccepted": false,
+    "r02": "New fully rounded plain ceramic face sits at the existing adorned face depth, closing intersections exposed in the R01 actual close. Existing gold anchors unchanged."
   }
 }

@@ -5,8 +5,9 @@ import {createWeatheredBoulderGeometry} from './boulder.js';
 const V=p=>new T.Vector3(...p),TAU=Math.PI*2;
 
 export function buildReferenceLayout118(api){
- const {emit,box,rod,group,mats,graniteMaps,scannedStones}=api,land=layout118.landmarks;
- const timber=mats.red.clone();timber.name='layout118-red-lacquered-solid-timber';timber.color.setRGB(6.2,2.65,3.2);timber.onBeforeCompile=mats.red.onBeforeCompile;timber.customProgramCacheKey=()=>mats.red.customProgramCacheKey()+':red-lacquer118';timber.userData.scannedTimber=true;
+ const {emit,box,rod,group,mats,graniteMaps,scannedStones,scannedFrieze}=api,land=layout118.landmarks;
+ const timber=mats.red.clone();timber.name='layout166-aged-vermilion-solid-timber';timber.color.setRGB(6.2,2.65,1.35);timber.onBeforeCompile=mats.red.onBeforeCompile;timber.customProgramCacheKey=()=>mats.red.customProgramCacheKey()+':red-lacquer166';timber.userData.scannedTimber=true;
+ const handrail=timber.clone();handrail.name='layout166-hand-polished-vermilion-crest';handrail.clearcoat=.32;handrail.clearcoatRoughness=.31;handrail.roughness=.65;handrail.onBeforeCompile=timber.onBeforeCompile;handrail.customProgramCacheKey=timber.customProgramCacheKey;
  const gilt=new T.MeshPhysicalMaterial({name:'layout118-cast-gilt-copper',color:0xc9a15b,metalness:.96,roughness:.23,clearcoat:.08,clearcoatRoughness:.2});
  const patina=new T.MeshStandardMaterial({name:'layout118-aged-bronze',color:0x514a31,metalness:.85,roughness:.48});
  const b=(p,d,m=timber,yaw=0)=>{const g=new RoundedBoxGeometry(...d,2,Math.min(.012,...d.map(x=>x*.1)));if(m.userData.metricGranite){const a=g.attributes.position,n=g.attributes.normal,uv=new Float32Array(a.count*2);for(let i=0;i<a.count;i++){const ax=[Math.abs(n.getX(i)),Math.abs(n.getY(i)),Math.abs(n.getZ(i))],k=ax.indexOf(Math.max(...ax));uv[i*2]=((k===0?a.getZ(i):a.getX(i))+p[0])/.317;uv[i*2+1]=((k===1?a.getZ(i):a.getY(i))+p[2])/.317;}g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));}emit(g,m,...p,1,1,1,[0,yaw,0]);};
@@ -26,7 +27,7 @@ export function buildReferenceLayout118(api){
  const petal=new T.ExtrudeGeometry(panelLeaf,{depth:.028,steps:1,bevelEnabled:true,bevelSize:.006,bevelThickness:.006,bevelSegments:2,curveSegments:10});
  for(const end of[right,left]){
   const length=corner.distanceTo(end),yaw=-Math.atan2(end.z-corner.z,end.x-corner.x),point=t=>corner.clone().lerp(end,t);
-  for(const [h,w,d]of[[0,.25,.34],[-.61,.19,.23],[-1.35,.27,.29],[-2.08,.23,.29]])along(corner.toArray(),end.toArray(),h,w,d);
+  for(const [h,w,d]of[[0,.25,.34],[-.61,.19,.23],[-1.35,.27,.29],[-2.08,.23,.29]])along(corner.toArray(),end.toArray(),h,w,d,h===0?handrail:timber);
   const count=Math.ceil(length/1.64);
   for(let j=1;j<count;j++){
    const p=point(j/count);
@@ -41,13 +42,12 @@ export function buildReferenceLayout118(api){
     b([0,-1.72,0],[w,.61,.09],mats.dark);
     for(const yy of[-1.43,-2.01])b([0,yy,.061],[w,.035,.04],gilt);
     for(const xx of[-w/2,w/2])b([xx,-1.72,.061],[.035,.58,.04],gilt);
-    // Layered cast rosettes and curled foliage, physically recessed between
-    // structural rails. The formerly high ornamental stripe is removed.
-    for(let k=0;k<8;k++)emit(petal,gilt,0,-1.72,.07,.70,.70,1,[0,0,k*TAU/8]);
-    for(const side of[-1,1])for(let k=0;k<2;k++){
-     const x=side*(.25+k*.22),points=Array.from({length:40},(_,i)=>{const a=i/39*TAU*1.4,r=.16*(1-i/46);return new T.Vector3(x+side*Math.cos(a)*r,-1.72+Math.sin(a)*r,.09);});
-     emit(new T.TubeGeometry(new T.CatmullRomCurve3(points),48,.013,8,false),gilt,0,0,0);
-     emit(petal,gilt,x,-1.85,.08,.60,.60,1,[0,0,side*.9]);
+    // A complete measured 3D floral field sits within each recessed cassette,
+    // with rigid natural-aspect fitting. It replaces disconnected wire curls.
+    // This is a declared reused peony scan, not an exact source-photo motif.
+    scannedFrieze.panel(0,-1.72,.077,w-.105,.51,{hostY:1,copies:1,label:'veranda-lower-cassette166'});
+    for(const xx of[-w/2+.06,w/2-.06])for(const yy of[-1.48,-1.96]){
+     emit(new T.SphereGeometry(.012,10,6),patina,xx,yy,.087,1,1,.48);
     }
    });
   }
@@ -145,5 +145,6 @@ export function buildReferenceLayout118(api){
  const connectionAudit={stairRisers:flightCount,riseMetres:(flightTop-flightBottom)/flightCount,treadMetres:tread,slabsPerTread:4,mainLandingY:flightBottom,bridgeJoinY:deckPoint(1).y,connectorRisers:6,rightApproachRisers:14,landingSupports:'Embedded retaining courses and terrain-supported bank stairs; no mid-water piers',unmeasuredDepths:true};
  const auditCamera=new T.PerspectiveCamera(layout118.camera.fov,1,.1,350);auditCamera.position.fromArray(layout118.camera.position);auditCamera.lookAt(V(layout118.camera.target));auditCamera.updateMatrixWorld(true);const projected=knots.map(p=>p.clone().project(auditCamera));
  const audit={revision:'layout130-connected-garden',connections:connectionAudit,reference:layout118.reference,observedLandmarks:layout118.landmarks,nearRail:{corner:corner.toArray(),heightSectionMetres:.25,depthSectionMetres:.34,postSectionMetres:.56,intermediateGoldFinials:0,lowerPanelBelowHandrailMetres:1.72},bridge:{widthMetres:bridgeWidth,screenSpanFraction:(projected.at(-1).x-projected[0].x)/2,observedReferenceSpanFraction:(land.bridgeRight.pixel[0]-land.bridgeLeft.pixel[0])/layout118.imageDimensions[0],knots:knots.map(p=>p.toArray()),lengthMetres:curve.getLength(),separateDescendingStairFlight:true,midWaterPiers:0,abutments:'Weathered rock shoulders embedded in the two planted banks'},scope:'Actual closed arched bridge in front of the main stair/landing, with jointed granite deck, compact hall stair, front-edge side connection and descending right approach; hidden depths and heights remain inferred.',visualAccepted:false};
- return{audit,dispose(){timber.dispose();stairTimber.dispose();gilt.dispose();patina.dispose();stone.dispose();for(const g of abutmentRocks)g.dispose();}};
+ audit.nearRail.revision='scene07-recessed-scanned-floral-cassettes166-r01';audit.nearRail.scannedCarving='Declared CC BY peony field, mounted as a uniform 3D reused ornament; exact photographic motif unaccepted';
+ return{audit,dispose(){timber.dispose();handrail.dispose();stairTimber.dispose();gilt.dispose();patina.dispose();stone.dispose();for(const g of abutmentRocks)g.dispose();}};
 }

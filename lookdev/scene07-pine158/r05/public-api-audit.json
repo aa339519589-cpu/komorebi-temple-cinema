@@ -1,0 +1,379 @@
+{
+  "revision": "scene07-aged-cloud-pines158-r05",
+  "sourceSha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff",
+  "scope": "Actual eight-tree public API build; empty Texture objects replace image loading only. GPU shader/material validation belongs to the native integration render.",
+  "emissions": 58093,
+  "uniqueGeometries": 48,
+  "nonFinite": 0,
+  "badIndex": 0,
+  "groups": [
+    {
+      "x": 12.6,
+      "y": 0,
+      "z": 18,
+      "yaw": -0.08,
+      "scale": 1
+    },
+    {
+      "x": -4.8,
+      "y": 0,
+      "z": 20,
+      "yaw": 0.08,
+      "scale": 1
+    },
+    {
+      "x": -10,
+      "y": 0,
+      "z": 11,
+      "yaw": -0.19,
+      "scale": 1
+    },
+    {
+      "x": 11.5,
+      "y": 0,
+      "z": 3.1,
+      "yaw": 0.12,
+      "scale": 1
+    },
+    {
+      "x": -5,
+      "y": 0,
+      "z": 1.4,
+      "yaw": -0.26,
+      "scale": 1
+    },
+    {
+      "x": 18,
+      "y": 0,
+      "z": -4,
+      "yaw": 0.31,
+      "scale": 1
+    },
+    {
+      "x": -19,
+      "y": 0,
+      "z": 1,
+      "yaw": -0.11,
+      "scale": 1
+    },
+    {
+      "x": -8.8,
+      "y": 0,
+      "z": 2.5,
+      "yaw": 0.25,
+      "scale": 1
+    }
+  ],
+  "usedMaterialKeys": [
+    "heroPineBark148",
+    "heroPineCut148",
+    "heroPineInterior158",
+    "heroPineTwig148",
+    "heroPineNeedle148",
+    "heroPineNeedleTip148"
+  ],
+  "stats": {
+    "revision": "scene07-aged-cloud-pines158-r05",
+    "visualAccepted": false,
+    "treeCount": 8,
+    "boughs": 45,
+    "shelfFans": 219,
+    "terminalShoots": 20228,
+    "needleTriangles": 5825664,
+    "interiorTriangles": 9388680,
+    "woodTriangles": 2151422,
+    "materialKeys": [
+      "heroPineBark148",
+      "heroPineTwig148",
+      "heroPineCut148",
+      "heroPineNeedle148",
+      "heroPineNeedleTip148",
+      "heroPineInterior158"
+    ],
+    "trees": [
+      {
+        "id": "right-hero",
+        "originGarden": [
+          12.6,
+          0,
+          18
+        ],
+        "originWorld": [
+          12.6,
+          0,
+          7.799999999999999
+        ],
+        "nominalHeight": 10,
+        "spread": 1,
+        "yaw": -0.08,
+        "modeledHeightParameter": 10,
+        "modeledSpreadParameter": 1,
+        "primaryBoughs": 10,
+        "foliageCushions": 48,
+        "terminalShoots": 4714,
+        "connectedWoodMembers": 4787,
+        "localWoodBounds": {
+          "min": [
+            -3.094506025314331,
+            -0.11245713382959366,
+            -1.471131443977356
+          ],
+          "max": [
+            3.5238661766052246,
+            9.963706970214844,
+            1.3507765531539917
+          ]
+        }
+      },
+      {
+        "id": "foreground-wide",
+        "originGarden": [
+          -4.8,
+          0,
+          20
+        ],
+        "originWorld": [
+          -4.8,
+          0,
+          9
+        ],
+        "nominalHeight": 4.9,
+        "spread": 1.4,
+        "yaw": 0.08,
+        "modeledHeightParameter": 7.2,
+        "modeledSpreadParameter": 1.25,
+        "primaryBoughs": 7,
+        "foliageCushions": 36,
+        "terminalShoots": 3886,
+        "connectedWoodMembers": 3944,
+        "localWoodBounds": {
+          "min": [
+            -0.6411662697792053,
+            -0.3937816321849823,
+            -1.057900309562683
+          ],
+          "max": [
+            6.2751288414001465,
+            6.557643890380859,
+            2.4888041019439697
+          ]
+        }
+      },
+      {
+        "id": "left-middle",
+        "originGarden": [
+          -10,
+          0,
+          11
+        ],
+        "originWorld": [
+          -10,
+          0,
+          3.5999999999999996
+        ],
+        "nominalHeight": 5.7,
+        "spread": 0.9,
+        "yaw": -0.19,
+        "modeledHeightParameter": 5.7,
+        "modeledSpreadParameter": 0.9,
+        "primaryBoughs": 5,
+        "foliageCushions": 23,
+        "terminalShoots": 1845,
+        "connectedWoodMembers": 1886,
+        "localWoodBounds": {
+          "min": [
+            -2.7393391132354736,
+            -0.10380609333515167,
+            -0.8167335391044617
+          ],
+          "max": [
+            1.9115867614746094,
+            5.465148448944092,
+            1.0624620914459229
+          ]
+        }
+      },
+      {
+        "id": "right-stair",
+        "originGarden": [
+          11.5,
+          0,
+          3.1
+        ],
+        "originWorld": [
+          11.5,
+          0,
+          -1.1400000000000001
+        ],
+        "nominalHeight": 5.3,
+        "spread": 0.8,
+        "yaw": 0.12,
+        "modeledHeightParameter": 5.3,
+        "modeledSpreadParameter": 0.8,
+        "primaryBoughs": 5,
+        "foliageCushions": 23,
+        "terminalShoots": 1814,
+        "connectedWoodMembers": 1855,
+        "localWoodBounds": {
+          "min": [
+            -1.995894432067871,
+            -0.08171803504228592,
+            -0.599997341632843
+          ],
+          "max": [
+            1.8584375381469727,
+            4.995789527893066,
+            0.7016170024871826
+          ]
+        }
+      },
+      {
+        "id": "left-stair",
+        "originGarden": [
+          -5,
+          0,
+          1.4
+        ],
+        "originWorld": [
+          -5,
+          0,
+          -2.16
+        ],
+        "nominalHeight": 4.2,
+        "spread": 0.8,
+        "yaw": -0.26,
+        "modeledHeightParameter": 4.2,
+        "modeledSpreadParameter": 0.8,
+        "primaryBoughs": 4,
+        "foliageCushions": 16,
+        "terminalShoots": 1256,
+        "connectedWoodMembers": 1287,
+        "localWoodBounds": {
+          "min": [
+            -1.5595635175704956,
+            -0.08130783587694168,
+            -0.6231818199157715
+          ],
+          "max": [
+            1.174216389656067,
+            3.809053421020508,
+            0.8759295344352722
+          ]
+        }
+      },
+      {
+        "id": "back-right",
+        "originGarden": [
+          18,
+          0,
+          -4
+        ],
+        "originWorld": [
+          18,
+          0,
+          -5.4
+        ],
+        "nominalHeight": 8.5,
+        "spread": 1,
+        "yaw": 0.31,
+        "modeledHeightParameter": 8.5,
+        "modeledSpreadParameter": 1,
+        "primaryBoughs": 6,
+        "foliageCushions": 32,
+        "terminalShoots": 3447,
+        "connectedWoodMembers": 3500,
+        "localWoodBounds": {
+          "min": [
+            -3.2278106212615967,
+            -0.08903808891773224,
+            -1.5039784908294678
+          ],
+          "max": [
+            3.3753714561462402,
+            7.944849014282227,
+            1.6985574960708618
+          ]
+        }
+      },
+      {
+        "id": "far-left",
+        "originGarden": [
+          -19,
+          0,
+          1
+        ],
+        "originWorld": [
+          -19,
+          0,
+          -2.4
+        ],
+        "nominalHeight": 6.5,
+        "spread": 0.8,
+        "yaw": -0.11,
+        "modeledHeightParameter": 6.5,
+        "modeledSpreadParameter": 0.8,
+        "primaryBoughs": 5,
+        "foliageCushions": 28,
+        "terminalShoots": 2232,
+        "connectedWoodMembers": 2280,
+        "localWoodBounds": {
+          "min": [
+            -1.8439288139343262,
+            -0.10827841609716415,
+            -0.9308413863182068
+          ],
+          "max": [
+            2.813115358352661,
+            6.015016555786133,
+            0.8270195126533508
+          ]
+        }
+      },
+      {
+        "id": "left-island-small",
+        "originGarden": [
+          -8.8,
+          0,
+          2.5
+        ],
+        "originWorld": [
+          -8.8,
+          0,
+          -1.5
+        ],
+        "nominalHeight": 3.2,
+        "spread": 0.85,
+        "yaw": 0.25,
+        "modeledHeightParameter": 3.2,
+        "modeledSpreadParameter": 0.85,
+        "primaryBoughs": 3,
+        "foliageCushions": 13,
+        "terminalShoots": 1034,
+        "connectedWoodMembers": 1061,
+        "localWoodBounds": {
+          "min": [
+            -1.050727367401123,
+            -0.08076261729001999,
+            -0.5919970273971558
+          ],
+          "max": [
+            1.2308217287063599,
+            3.0802552700042725,
+            0.5120052695274353
+          ]
+        }
+      }
+    ],
+    "assets": [
+      {
+        "name": "Pine Bark",
+        "author": "Dimitrios Savva",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/pine_bark",
+        "provenance": "reconstructions/scene-07/assets/hero-pines148/pine-bark/provenance.json"
+      }
+    ],
+    "construction": "continuous aged trunk/fork > sweeping tapered bough > overlapping unequal bent-spine cushions > staggered laterals > bent short shoots > dark closed ribbed retained fascicle packets plus sparse bright closed paired needles; no crown hulls, cards or billboard surfaces"
+  },
+  "visualAccepted": false
+}

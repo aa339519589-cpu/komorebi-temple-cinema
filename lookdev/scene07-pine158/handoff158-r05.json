@@ -1,0 +1,624 @@
+{
+  "revision": "scene07-aged-cloud-pines158-r05",
+  "status": "standalone-rendered-native-integration-held-until-root-floral166-capture-terminal",
+  "visualAccepted": false,
+  "sourceSha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff",
+  "dropIn": "hero-pines158.js",
+  "canonicalWritesByThisLane": false,
+  "publicApiUnchanged": true,
+  "addedMaterialKey": "heroPineInterior158",
+  "oldOriginRecordsIdentical": true,
+  "oldRngReplayIdentical": true,
+  "geometry": {
+    "revision": "scene07-aged-cloud-pines158-r05",
+    "visualAccepted": false,
+    "treeCount": 8,
+    "boughs": 45,
+    "shelfFans": 219,
+    "terminalShoots": 20228,
+    "needleTriangles": 5825664,
+    "interiorTriangles": 9388680,
+    "woodTriangles": 2151422,
+    "materialKeys": [
+      "heroPineBark148",
+      "heroPineTwig148",
+      "heroPineCut148",
+      "heroPineNeedle148",
+      "heroPineNeedleTip148",
+      "heroPineInterior158"
+    ],
+    "trees": [
+      {
+        "id": "right-hero",
+        "originGarden": [
+          12.6,
+          0,
+          18
+        ],
+        "originWorld": [
+          12.6,
+          0,
+          7.799999999999999
+        ],
+        "nominalHeight": 10,
+        "spread": 1,
+        "yaw": -0.08,
+        "modeledHeightParameter": 10,
+        "modeledSpreadParameter": 1,
+        "primaryBoughs": 10,
+        "foliageCushions": 48,
+        "terminalShoots": 4714,
+        "connectedWoodMembers": 4787,
+        "localWoodBounds": {
+          "min": [
+            -3.094506025314331,
+            -0.11245713382959366,
+            -1.471131443977356
+          ],
+          "max": [
+            3.5238661766052246,
+            9.963706970214844,
+            1.3507765531539917
+          ]
+        }
+      },
+      {
+        "id": "foreground-wide",
+        "originGarden": [
+          -4.8,
+          0,
+          20
+        ],
+        "originWorld": [
+          -4.8,
+          0,
+          9
+        ],
+        "nominalHeight": 4.9,
+        "spread": 1.4,
+        "yaw": 0.08,
+        "modeledHeightParameter": 7.2,
+        "modeledSpreadParameter": 1.25,
+        "primaryBoughs": 7,
+        "foliageCushions": 36,
+        "terminalShoots": 3886,
+        "connectedWoodMembers": 3944,
+        "localWoodBounds": {
+          "min": [
+            -0.6411662697792053,
+            -0.3937816321849823,
+            -1.057900309562683
+          ],
+          "max": [
+            6.2751288414001465,
+            6.557643890380859,
+            2.4888041019439697
+          ]
+        }
+      },
+      {
+        "id": "left-middle",
+        "originGarden": [
+          -10,
+          0,
+          11
+        ],
+        "originWorld": [
+          -10,
+          0,
+          3.5999999999999996
+        ],
+        "nominalHeight": 5.7,
+        "spread": 0.9,
+        "yaw": -0.19,
+        "modeledHeightParameter": 5.7,
+        "modeledSpreadParameter": 0.9,
+        "primaryBoughs": 5,
+        "foliageCushions": 23,
+        "terminalShoots": 1845,
+        "connectedWoodMembers": 1886,
+        "localWoodBounds": {
+          "min": [
+            -2.7393391132354736,
+            -0.10380609333515167,
+            -0.8167335391044617
+          ],
+          "max": [
+            1.9115867614746094,
+            5.465148448944092,
+            1.0624620914459229
+          ]
+        }
+      },
+      {
+        "id": "right-stair",
+        "originGarden": [
+          11.5,
+          0,
+          3.1
+        ],
+        "originWorld": [
+          11.5,
+          0,
+          -1.1400000000000001
+        ],
+        "nominalHeight": 5.3,
+        "spread": 0.8,
+        "yaw": 0.12,
+        "modeledHeightParameter": 5.3,
+        "modeledSpreadParameter": 0.8,
+        "primaryBoughs": 5,
+        "foliageCushions": 23,
+        "terminalShoots": 1814,
+        "connectedWoodMembers": 1855,
+        "localWoodBounds": {
+          "min": [
+            -1.995894432067871,
+            -0.08171803504228592,
+            -0.599997341632843
+          ],
+          "max": [
+            1.8584375381469727,
+            4.995789527893066,
+            0.7016170024871826
+          ]
+        }
+      },
+      {
+        "id": "left-stair",
+        "originGarden": [
+          -5,
+          0,
+          1.4
+        ],
+        "originWorld": [
+          -5,
+          0,
+          -2.16
+        ],
+        "nominalHeight": 4.2,
+        "spread": 0.8,
+        "yaw": -0.26,
+        "modeledHeightParameter": 4.2,
+        "modeledSpreadParameter": 0.8,
+        "primaryBoughs": 4,
+        "foliageCushions": 16,
+        "terminalShoots": 1256,
+        "connectedWoodMembers": 1287,
+        "localWoodBounds": {
+          "min": [
+            -1.5595635175704956,
+            -0.08130783587694168,
+            -0.6231818199157715
+          ],
+          "max": [
+            1.174216389656067,
+            3.809053421020508,
+            0.8759295344352722
+          ]
+        }
+      },
+      {
+        "id": "back-right",
+        "originGarden": [
+          18,
+          0,
+          -4
+        ],
+        "originWorld": [
+          18,
+          0,
+          -5.4
+        ],
+        "nominalHeight": 8.5,
+        "spread": 1,
+        "yaw": 0.31,
+        "modeledHeightParameter": 8.5,
+        "modeledSpreadParameter": 1,
+        "primaryBoughs": 6,
+        "foliageCushions": 32,
+        "terminalShoots": 3447,
+        "connectedWoodMembers": 3500,
+        "localWoodBounds": {
+          "min": [
+            -3.2278106212615967,
+            -0.08903808891773224,
+            -1.5039784908294678
+          ],
+          "max": [
+            3.3753714561462402,
+            7.944849014282227,
+            1.6985574960708618
+          ]
+        }
+      },
+      {
+        "id": "far-left",
+        "originGarden": [
+          -19,
+          0,
+          1
+        ],
+        "originWorld": [
+          -19,
+          0,
+          -2.4
+        ],
+        "nominalHeight": 6.5,
+        "spread": 0.8,
+        "yaw": -0.11,
+        "modeledHeightParameter": 6.5,
+        "modeledSpreadParameter": 0.8,
+        "primaryBoughs": 5,
+        "foliageCushions": 28,
+        "terminalShoots": 2232,
+        "connectedWoodMembers": 2280,
+        "localWoodBounds": {
+          "min": [
+            -1.8439288139343262,
+            -0.10827841609716415,
+            -0.9308413863182068
+          ],
+          "max": [
+            2.813115358352661,
+            6.015016555786133,
+            0.8270195126533508
+          ]
+        }
+      },
+      {
+        "id": "left-island-small",
+        "originGarden": [
+          -8.8,
+          0,
+          2.5
+        ],
+        "originWorld": [
+          -8.8,
+          0,
+          -1.5
+        ],
+        "nominalHeight": 3.2,
+        "spread": 0.85,
+        "yaw": 0.25,
+        "modeledHeightParameter": 3.2,
+        "modeledSpreadParameter": 0.85,
+        "primaryBoughs": 3,
+        "foliageCushions": 13,
+        "terminalShoots": 1034,
+        "connectedWoodMembers": 1061,
+        "localWoodBounds": {
+          "min": [
+            -1.050727367401123,
+            -0.08076261729001999,
+            -0.5919970273971558
+          ],
+          "max": [
+            1.2308217287063599,
+            3.0802552700042725,
+            0.5120052695274353
+          ]
+        }
+      }
+    ],
+    "assets": [
+      {
+        "name": "Pine Bark",
+        "author": "Dimitrios Savva",
+        "license": "CC0-1.0",
+        "source": "https://polyhaven.com/a/pine_bark",
+        "provenance": "reconstructions/scene-07/assets/hero-pines148/pine-bark/provenance.json"
+      }
+    ],
+    "construction": "continuous aged trunk/fork > sweeping tapered bough > overlapping unequal bent-spine cushions > staggered laterals > bent short shoots > dark closed ribbed retained fascicle packets plus sparse bright closed paired needles; no crown hulls, cards or billboard surfaces"
+  },
+  "topology": {
+    "allClosed": true,
+    "nonFinite": 0,
+    "invalidIndices": 0
+  },
+  "constructionChange": "Closed retained-fascicle packets supply dark optical mass on the existing connected shoots. Fine exterior needles decrease from80 to48 per shoot; two broad boughs bridge the right crown and the foreground crown is wider/higher. No crown envelope, alpha card, leaf sphere, hedge ball or camera-facing geometry.",
+  "geometricReview": {
+    "improved": [
+      "Actual front and three-quarter views show substantially opaque layered crown pads, with most r04 inner twig lace concealed.",
+      "Two bridging right boughs carry foliage across the former broad V gap while retaining supported layered branches.",
+      "The foreground crown is wider and taller, with the same hidden root/base curve."
+    ],
+    "remaining": [
+      "Close view still reveals repeated radial tuft patterns and some broad retained-rib grain; exact Japanese pine needle character remains unaccepted.",
+      "The whole foreground standalone model includes its long concealed lower curve. Native roof occlusion must be checked after root integration.",
+      "Standalone Cycles PBR and studio lighting do not prove native WebGL warm rim lighting or source-photo fidelity."
+    ]
+  },
+  "nativePriorFeedback": "r04/native-context-review.json",
+  "nativePriorCapture": "qa/ten-reference/07/iteration-scene07-connected-cloud-pines158-r01-20261022",
+  "evidence": [
+    {
+      "name": "right-front",
+      "file": "right-front.png",
+      "tree": "right-hero",
+      "positionBlenderZUp": [
+        0.2,
+        -23,
+        5.9
+      ],
+      "targetBlenderZUp": [
+        0.2,
+        0,
+        4.8
+      ],
+      "orthographicMetres": 11.8,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "cda5ff6e8fd367732954aa7b31c1eadad1bb9be0993e8cfe9ef2087571cdff93"
+    },
+    {
+      "name": "right-three-quarter",
+      "file": "right-three-quarter.png",
+      "tree": "right-hero",
+      "positionBlenderZUp": [
+        12,
+        -18,
+        9
+      ],
+      "targetBlenderZUp": [
+        0.2,
+        0,
+        4.8
+      ],
+      "orthographicMetres": 11.9,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "5c1b86691fd138bc5e05b714262dcc109a8b3f6e07da8150516bd8394f4f7ff0"
+    },
+    {
+      "name": "right-branch-close",
+      "file": "right-branch-close.png",
+      "tree": "right-hero",
+      "positionBlenderZUp": [
+        4,
+        -10,
+        8.2
+      ],
+      "targetBlenderZUp": [
+        -0.3,
+        0,
+        7
+      ],
+      "orthographicMetres": 6.3,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "1dd32bf30c41269f6aaa4f54ff4d26399aa1f147b5cc3c8b4cca0e46c601e221"
+    },
+    {
+      "name": "foreground-front",
+      "file": "foreground-front.png",
+      "tree": "foreground-wide",
+      "positionBlenderZUp": [
+        2.6,
+        -18,
+        6.3
+      ],
+      "targetBlenderZUp": [
+        2.6,
+        0,
+        3.15
+      ],
+      "orthographicMetres": 8.7,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "e65c9b98d315a1314da4b55307d5d783eb9b65ac14d05371a79c785285ecfb1d"
+    },
+    {
+      "name": "foreground-three-quarter",
+      "file": "foreground-three-quarter.png",
+      "tree": "foreground-wide",
+      "positionBlenderZUp": [
+        12,
+        -16,
+        8
+      ],
+      "targetBlenderZUp": [
+        2.6,
+        0,
+        3.15
+      ],
+      "orthographicMetres": 8.9,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "6904f740eb49f587a7bf18093a4f54cb25701d60d1c0efa110ffbbab79db2f41"
+    }
+  ],
+  "renderer": "Blender Cycles, actual exact JS geometry",
+  "device": "GPU",
+  "projection": {
+    "revision": "scene07-aged-cloud-pines158-r05",
+    "sourceSha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff",
+    "terrainSha256": "52421d3f2b2242f7c3f9513a38a1453201ffcb6074779247410e8439417ca225",
+    "referenceCamera": {
+      "position": [
+        10.7,
+        12.8,
+        36
+      ],
+      "target": [
+        0,
+        7,
+        -2
+      ],
+      "verticalFovDegrees": 47,
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "trees": [
+      {
+        "id": "right-hero",
+        "rootWorld": [
+          12.6,
+          1.2969504744982538,
+          7.799999999999999
+        ],
+        "rootPixel": [
+          1114.4923456479726,
+          1013.5112632071715
+        ],
+        "woodScreenBounds": {
+          "min": [
+            965.5429529650557,
+            498.99123419008896
+          ],
+          "max": [
+            1346.2131195741747,
+            1030.5927633409408
+          ]
+        },
+        "scope": "Perspective projection of the exact wood buffers, not a render or image similarity score. Needle tips extend beyond wood bounds."
+      },
+      {
+        "id": "foreground-wide",
+        "rootWorld": [
+          -4.8,
+          0,
+          9
+        ],
+        "rootPixel": [
+          281.53479292565663,
+          1003.0897315382641
+        ],
+        "woodScreenBounds": {
+          "min": [
+            248.77472260484322,
+            719.4090477195657
+          ],
+          "max": [
+            550.1328805104215,
+            1022.5950392578399
+          ]
+        },
+        "scope": "Perspective projection of the exact wood buffers, not a render or image similarity score. Needle tips extend beyond wood bounds."
+      }
+    ],
+    "visualAccepted": false,
+    "scope": "Frozen geometry placement check against the current physical reference camera. No module code reads a camera or projected position at runtime."
+  },
+  "externalAssets": [
+    {
+      "source": "https://polyhaven.com/a/pine_bark",
+      "author": "Dimitrios Savva",
+      "license": "CC0-1.0",
+      "bytesUnchanged": true,
+      "provenance": "reconstructions/scene-07/assets/hero-pines148/pine-bark/provenance.json"
+    }
+  ],
+  "files": {
+    "hero-pines158.js": {
+      "bytes": 31810,
+      "sha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff"
+    },
+    "export-pine158.mjs": {
+      "bytes": 6237,
+      "sha256": "6faa3e630bfe79de63454ef0383626c49910b49a08868b395552a4b8f541c585"
+    },
+    "render-pine158.py": {
+      "bytes": 10559,
+      "sha256": "09731505adae6872498a5e8db51c0574a99765c4d36c3ce327794e8924dc32c7"
+    },
+    "project-reference158.mjs": {
+      "bytes": 2858,
+      "sha256": "c742050ae322674f5e7f26e83eb8e65c1b4f6e56ad816e8c8d42b9fb2067d669"
+    },
+    "INTEGRATION.md": {
+      "bytes": 4269,
+      "sha256": "fa93aca397eba60a610e76608f4834974c350c30830205de3ea912252f1b370b"
+    },
+    "ATTRIBUTION.txt": {
+      "bytes": 1636,
+      "sha256": "0768184766b7014bf742b3a9e9d9760ed276651042f8544a540df6cb101ec7e3"
+    },
+    "review.html": {
+      "bytes": 3548,
+      "sha256": "db8f9068d11d6ceadc826ccdf29f7bcc43bd68d4794c1c29d4beb24b417ca8a3"
+    },
+    "r05/pine158-model.bin": {
+      "bytes": 18768244,
+      "sha256": "9a4ba7352fbf87dece92d795ecb709e0ea5e220f76a9e38f35c7222894acf4bb"
+    },
+    "r05/model.json": {
+      "bytes": 1690851,
+      "sha256": "fb73140f962714311ddaf144727b04c38e513b47591fb342f98f2c298e29ac29"
+    },
+    "r05/geometry-audit.json": {
+      "bytes": 7236,
+      "sha256": "f9a0d93515aff0b81e71f7dc4de6416cca3d9b09775b91abb7f4a36ec0db316a"
+    },
+    "r05/public-api-audit.json": {
+      "bytes": 8714,
+      "sha256": "4d7b785acd01b2ddf5575c932d1fbd71a1f60af057095c722dd8a4a3267516fb"
+    },
+    "r05/foliage-topology-audit.json": {
+      "bytes": 5505,
+      "sha256": "6a2b2302a8030044d2f1db3cd5c5ca91c97c995146a4f4004672a1d12c94f905"
+    },
+    "r05/reference-projection.json": {
+      "bytes": 1759,
+      "sha256": "10d9c50331f3ac7ea05164af3d70edca15991257189cd92cea67c1a073241f4f"
+    },
+    "r05/render-report.json": {
+      "bytes": 3037,
+      "sha256": "44b267e3a51b11ec6b0fc663511ae52087e36b7c57b6e6dab7790ad76cf113ba"
+    },
+    "r05/render-views.json": {
+      "bytes": 250,
+      "sha256": "2ffe9bbcc7c9f2579a41c65b59cc2daa34971b83c81eeb3de9a1b23c1c0401cd"
+    },
+    "r05/right-front.png": {
+      "bytes": 1552506,
+      "sha256": "cda5ff6e8fd367732954aa7b31c1eadad1bb9be0993e8cfe9ef2087571cdff93"
+    },
+    "r05/right-three-quarter.png": {
+      "bytes": 1537437,
+      "sha256": "5c1b86691fd138bc5e05b714262dcc109a8b3f6e07da8150516bd8394f4f7ff0"
+    },
+    "r05/right-branch-close.png": {
+      "bytes": 2163545,
+      "sha256": "1dd32bf30c41269f6aaa4f54ff4d26399aa1f147b5cc3c8b4cca0e46c601e221"
+    },
+    "r05/foreground-front.png": {
+      "bytes": 1586308,
+      "sha256": "e65c9b98d315a1314da4b55307d5d783eb9b65ac14d05371a79c785285ecfb1d"
+    },
+    "r05/foreground-three-quarter.png": {
+      "bytes": 1543064,
+      "sha256": "6904f740eb49f587a7bf18093a4f54cb25701d60d1c0efa110ffbbab79db2f41"
+    },
+    "r05/right-source-front-three-quarter.png": {
+      "bytes": 1255614,
+      "sha256": "44ee84fcd5fa2ed6bf23ceb0a7ac7d782915ea80af824f2133238138c8ba5502"
+    },
+    "r05/foreground-source-front-three-quarter.png": {
+      "bytes": 1020104,
+      "sha256": "65ec40cbc0d2618ce33c38c9a3410b9f14f6ce797518ef299a37a749b3018cd1"
+    },
+    "r05/right-r04-r05-mass-comparison.png": {
+      "bytes": 718582,
+      "sha256": "3383e7e504ee966cd9d1a36507cd7591bbed2e73954d3a2a774ee27edf160227"
+    }
+  }
+}

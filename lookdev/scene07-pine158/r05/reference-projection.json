@@ -1,0 +1,72 @@
+{
+  "revision": "scene07-aged-cloud-pines158-r05",
+  "sourceSha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff",
+  "terrainSha256": "52421d3f2b2242f7c3f9513a38a1453201ffcb6074779247410e8439417ca225",
+  "referenceCamera": {
+    "position": [
+      10.7,
+      12.8,
+      36
+    ],
+    "target": [
+      0,
+      7,
+      -2
+    ],
+    "verticalFovDegrees": 47,
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "trees": [
+    {
+      "id": "right-hero",
+      "rootWorld": [
+        12.6,
+        1.2969504744982538,
+        7.799999999999999
+      ],
+      "rootPixel": [
+        1114.4923456479726,
+        1013.5112632071715
+      ],
+      "woodScreenBounds": {
+        "min": [
+          965.5429529650557,
+          498.99123419008896
+        ],
+        "max": [
+          1346.2131195741747,
+          1030.5927633409408
+        ]
+      },
+      "scope": "Perspective projection of the exact wood buffers, not a render or image similarity score. Needle tips extend beyond wood bounds."
+    },
+    {
+      "id": "foreground-wide",
+      "rootWorld": [
+        -4.8,
+        0,
+        9
+      ],
+      "rootPixel": [
+        281.53479292565663,
+        1003.0897315382641
+      ],
+      "woodScreenBounds": {
+        "min": [
+          248.77472260484322,
+          719.4090477195657
+        ],
+        "max": [
+          550.1328805104215,
+          1022.5950392578399
+        ]
+      },
+      "scope": "Perspective projection of the exact wood buffers, not a render or image similarity score. Needle tips extend beyond wood bounds."
+    }
+  ],
+  "visualAccepted": false,
+  "scope": "Frozen geometry placement check against the current physical reference camera. No module code reads a camera or projected position at runtime."
+}

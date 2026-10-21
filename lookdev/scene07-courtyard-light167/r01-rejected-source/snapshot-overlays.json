@@ -1,0 +1,39 @@
+{
+  "basePublicCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+  "sourceHash": "7b29109d53ec24591e24a3dcc685b98dd44cac97a56b436428e54d4cd8ca5dcb",
+  "overlayFiles": [
+    {
+      "preserved": "lookdev/scene07-courtyard-light167/r01-rejected-source/main.js",
+      "restoreTo": "reconstructions/scene-07/src/main.js",
+      "sha256": "24a90f20b4002e7a8d77c73ef23426712763f6d2d1339db91383de5f93433c5b"
+    },
+    {
+      "preserved": "lookdev/scene07-courtyard-light167/r01-rejected-source/hero-pines158.js",
+      "restoreTo": "reconstructions/scene-07/src/hero-pines158.js",
+      "sha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff"
+    },
+    {
+      "preserved": "lookdev/scene07-courtyard-light167/r01-rejected-source/scanned-frieze157.js",
+      "restoreTo": "reconstructions/scene-07/src/scanned-frieze157.js",
+      "sha256": "f8a08829f7bf16917731700d16f9e5183cf41f039481bc39fe861dcc7b258a12"
+    },
+    {
+      "preserved": "lookdev/scene07-courtyard-light167/r01-rejected-source/reference-layout118.js",
+      "restoreTo": "reconstructions/scene-07/src/reference-layout118.js",
+      "sha256": "17e8036998d5ac1c278312c77a7389505becf80f49ec3080aa16711b197dee9d"
+    },
+    {
+      "preserved": "lookdev/scene07-courtyard-light167/r01-rejected-source/courtyard-bounce167.js",
+      "restoreTo": "reconstructions/scene-07/src/courtyard-bounce167.js",
+      "sha256": "5ea9a5407bc3c60befbcd0894abba92a73d5a87267fb42183f0db26df782d58c"
+    },
+    {
+      "preserved": "lookdev/scene07-courtyard-light167/r01-rejected-source/asset-dependencies.json",
+      "restoreTo": "reconstructions/scene-07/asset-dependencies.json",
+      "sha256": "571a80c28602c2e1ad4212ba6789b8dde17779ce33073cda82dbedb59e205a90"
+    }
+  ],
+  "status": "rejected-for-overbroad-warm-fill",
+  "reason": "R01 18x10m low radiance source washed out the lower courtyard and stone separation. R02 localizes source near hall and reduces radiance; originalR01 pixels/source preserved.",
+  "visualAccepted": false
+}

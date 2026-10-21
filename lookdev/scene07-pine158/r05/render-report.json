@@ -1,0 +1,130 @@
+{
+  "revision": "scene07-aged-cloud-pines158-r05",
+  "sourceSha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff",
+  "visualAccepted": false,
+  "renderer": "Blender Cycles, actual exact JS geometry",
+  "device": "GPU",
+  "elapsedSeconds": 68.45915699005127,
+  "evidence": [
+    {
+      "name": "right-front",
+      "file": "right-front.png",
+      "tree": "right-hero",
+      "positionBlenderZUp": [
+        0.2,
+        -23,
+        5.9
+      ],
+      "targetBlenderZUp": [
+        0.2,
+        0,
+        4.8
+      ],
+      "orthographicMetres": 11.8,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "cda5ff6e8fd367732954aa7b31c1eadad1bb9be0993e8cfe9ef2087571cdff93"
+    },
+    {
+      "name": "right-three-quarter",
+      "file": "right-three-quarter.png",
+      "tree": "right-hero",
+      "positionBlenderZUp": [
+        12,
+        -18,
+        9
+      ],
+      "targetBlenderZUp": [
+        0.2,
+        0,
+        4.8
+      ],
+      "orthographicMetres": 11.9,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "5c1b86691fd138bc5e05b714262dcc109a8b3f6e07da8150516bd8394f4f7ff0"
+    },
+    {
+      "name": "right-branch-close",
+      "file": "right-branch-close.png",
+      "tree": "right-hero",
+      "positionBlenderZUp": [
+        4,
+        -10,
+        8.2
+      ],
+      "targetBlenderZUp": [
+        -0.3,
+        0,
+        7.0
+      ],
+      "orthographicMetres": 6.3,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "1dd32bf30c41269f6aaa4f54ff4d26399aa1f147b5cc3c8b4cca0e46c601e221"
+    },
+    {
+      "name": "foreground-front",
+      "file": "foreground-front.png",
+      "tree": "foreground-wide",
+      "positionBlenderZUp": [
+        2.6,
+        -18,
+        6.3
+      ],
+      "targetBlenderZUp": [
+        2.6,
+        0,
+        3.15
+      ],
+      "orthographicMetres": 8.7,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "e65c9b98d315a1314da4b55307d5d783eb9b65ac14d05371a79c785285ecfb1d"
+    },
+    {
+      "name": "foreground-three-quarter",
+      "file": "foreground-three-quarter.png",
+      "tree": "foreground-wide",
+      "positionBlenderZUp": [
+        12,
+        -16,
+        8
+      ],
+      "targetBlenderZUp": [
+        2.6,
+        0,
+        3.15
+      ],
+      "orthographicMetres": 8.9,
+      "resolution": [
+        1100,
+        1100
+      ],
+      "samples": 32,
+      "sha256": "6904f740eb49f587a7bf18093a4f54cb25701d60d1c0efa110ffbbab79db2f41"
+    }
+  ],
+  "constraints": {
+    "noPhotoGeometry": true,
+    "noCrownHull": true,
+    "noAlphaCards": true,
+    "rootOriginsPreserved": true
+  },
+  "limits": [
+    "Standalone Cycles PBR and studio lighting are independent from the native WebGL lighting/backscatter. Native source07 integration is not performed by this prototype.",
+    "Reference photography is comparison-only. No acceptance or exact photo match is claimed."
+  ]
+}

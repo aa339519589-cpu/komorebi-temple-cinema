@@ -29,12 +29,13 @@ export async function loadScannedFrieze157({emit,mats}){
    .replace('#include <metalnessmap_fragment>','#include <metalnessmap_fragment>\nmetalnessFactor*=realLeafGilt;');
  };
  gilt.customProgramCacheKey=()=> 'real-scanned-carving157-depth-gilt-over-wood-r02';
- let cassettes=0;
- return{panel(x,y,z,w,h){
-  // Two natural-aspect source fields fit this one prominent doorway beam.
+ let cassettes=0;const mounts=[];
+ return{panel(x,y,z,w,h,{hostY=.88,copies=2,label='main-portal'}={}){
+  // Fit complete natural-aspect carvings to the actual host opening. The
+  // portal has a compressed parent frame; the veranda has a uniform frame.
   // The source unit conversion is inferred, not a surveyed artifact size.
-  const hostY=.88,scale=Math.min(h*hostY/size.y,(w-.035)/(size.x*2)),span=size.x*scale;
-  for(const side of[-1,1])for(const geometry of parts)emit(geometry,gilt,x+side*(span+.012)/2,y,z,scale,scale/hostY,scale);
-  cassettes+=2;
- },info:()=>({revision:'scene07-source-scanned-portal-frieze157-r02',source:'Wood carving by Diana Liu / Thunk3D scanner',license:'CC-BY-4.0',originalNormalsAndTrianglesRetained:true,originalHasUV:false,originalHasAlbedo:false,worldUniformScale:true,compensatedHostYScale:.88,actualVertexBounds:size.toArray(),authorVerifiedMetricDimensions:false,cassettes,authoredGiltFinish:'Source-relief-depth field selects gilt over dark carved timber; original geometry unchanged',visualAccepted:false}),dispose(){gilt.dispose();}};
+  const scale=Math.min(h*hostY/size.y,(w-.035-(copies-1)*.012)/(size.x*copies)),span=size.x*scale;
+  for(let k=0;k<copies;k++)for(const geometry of parts)emit(geometry,gilt,x+(k-(copies-1)/2)*(span+.012),y,z,scale,scale/hostY,scale);
+  cassettes+=copies;mounts.push({label,hostY,copies,scale,opening:[w,h],worldUniformScale:true});
+ },info:()=>({revision:'scene07-source-scanned-portal-and-veranda-frieze157-r03',source:'Wood carving by Diana Liu / Thunk3D scanner',license:'CC-BY-4.0',originalNormalsAndTrianglesRetained:true,originalHasUV:false,originalHasAlbedo:false,worldUniformScale:true,mounts,actualVertexBounds:size.toArray(),authorVerifiedMetricDimensions:false,cassettes,authoredGiltFinish:'Source-relief-depth field selects gilt over dark carved timber; original geometry unchanged',visualAccepted:false}),dispose(){gilt.dispose();}};
 }
