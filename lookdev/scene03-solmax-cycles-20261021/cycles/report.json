@@ -1,0 +1,96 @@
+{
+  "sourceCommit": "3d419e8f395616fc812b36609521135e60f6eef5",
+  "sourceHash": "2115956f5eb49510e45b190eb6f52ebbe0c761100f3e93f00d96863e61482d59",
+  "renderScript": {
+    "file": "render-physical-daylight.py",
+    "sha256": "7ab780172da51c4b91d8fe9e6700d92893992abf416e7ad76e994a231af67d11"
+  },
+  "sourceStatistics": {
+    "meshes": 2791,
+    "geometries": 2689,
+    "materials": 62,
+    "textures": 17,
+    "instances": 210070,
+    "triangles": 23865776
+  },
+  "lightingMode": "scene03-source104-daylight-transport",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 3,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "view-dependent-pond-water",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792562984.59785,
+  "affinePreservation": {
+    "parentMatrices": "Retained as full source object matrices; all 2,185 source parent matrices are orthogonal/no shear.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 207662,
+    "bakedShearedInstances": 8,
+    "bakedShearedTriangles": 392,
+    "bakedShearedVertices": 298,
+    "maxLinkedTRSMatrixResidual": 9.5367431640625e-07,
+    "maxBakedShearResidual": 1.1136268796008153e-07,
+    "flattenedOnlyForShearedTransforms": true,
+    "geometryDecimated": false
+  },
+  "worldCoordinateConversion": "All source mesh objects, source lights, linked-instance parents and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "sourceGeometryRebuilt": false,
+  "importedTriangles": 23865776,
+  "sourceTriangleCount": 23865776,
+  "geometryTriangleCountPreserved": true,
+  "sky": {
+    "type": "MULTIPLE_SCATTERING",
+    "availableModels": [
+      "SINGLE_SCATTERING",
+      "MULTIPLE_SCATTERING",
+      "PREETHAM",
+      "HOSEK_WILKIE"
+    ],
+    "sourceSunDirectionYUp": [
+      -0.6038466691970825,
+      0.634039044380188,
+      0.48307734727859497
+    ],
+    "worldStrength": 0.11999999731779099,
+    "sunDiskEnabled": false,
+    "scope": "Physically generated atmospheric sky, not the source custom cloud shader. The exported analytic sun supplies direct light."
+  },
+  "physicalWaterBody": {
+    "sourceReflectorSize": [
+      60,
+      56
+    ],
+    "surfaceY": -0.055,
+    "bottomY": -0.3,
+    "IOR": 1.333,
+    "transmission": 0.9,
+    "roughness": 0.045,
+    "photographUsed": false
+  },
+  "physicalFoliageAdaptation": "Energy-conserving thin-leaf diffuse transmission; not native emissive shader parity.",
+  "visualAccepted": false,
+  "renderSeconds": 27.50319790840149,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 64,
+  "renderSha256": "1b9656711d65e8228188d7ad174db3fdd659694ff0afb9af2335958d87164a00",
+  "photographicAcceptance": false
+}

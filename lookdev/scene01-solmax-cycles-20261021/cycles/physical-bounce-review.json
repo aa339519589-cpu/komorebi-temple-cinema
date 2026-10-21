@@ -1,0 +1,80 @@
+{
+  "sourceCommit": "80950d25dc9fdee3c1244f6257c198a5be3798c7",
+  "sourceHash": "5d8fc84e187380a0fbea5d36ad9e1159f2202f727f3275580bde66f636537c2f",
+  "actualSourceTriangles": 52563635,
+  "geometryRebuilt": false,
+  "cameraMatrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -0.09950349479913712,
+      -0.9950371980667114,
+      -17.0
+    ],
+    [
+      0.0,
+      0.9950371980667114,
+      -0.09950349479913712,
+      3.2000012397766113
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "cameraUnchanged": true,
+  "newAreaLight": {
+    "positionBlenderZUp": [
+      -8.0,
+      -8.0,
+      16.0
+    ],
+    "targetBlenderZUp": [
+      6,
+      0,
+      11
+    ],
+    "dimensionsMetres": [
+      16,
+      10
+    ],
+    "linearColor": [
+      1.0,
+      0.7799999713897705,
+      0.5600000023841858
+    ],
+    "scope": "Explicit authored physical photographic bounce source; not part of the native source light budget."
+  },
+  "waterAdaptation": {
+    "IOR": 1.333,
+    "roughness": 0.055,
+    "reflection": "Actual scene/path-traced radiance, no painted highlight"
+  },
+  "samples": 48,
+  "resolution": [
+    768,
+    768
+  ],
+  "renders": [
+    {
+      "file": "scene01-source132-physical-bounce-2500w.png",
+      "bounceWatts": 2500,
+      "renderSeconds": 15.991896152496338,
+      "sha256": "3cce8340878ad71f56990d1e394deb71276010e43c28349d2a1d63524956cf6c"
+    },
+    {
+      "file": "scene01-source132-physical-bounce-5000w.png",
+      "bounceWatts": 5000,
+      "renderSeconds": 14.748212099075317,
+      "sha256": "155cdf88fb2404302c8df17d1a853f3f7b9a13363fe823dc9ba94c7fd2e6c51e"
+    }
+  ],
+  "visualAccepted": false
+}
