@@ -46,7 +46,7 @@ for(const u of [-1,1]){const pts=Array.from({length:17},(_,i)=>P(side,i/16,u).ma
 box(0,eave+rise+.07,0,rh*2+.3,.19,.25,'tileedge');if(ridgeRatio>.1)for(const sx of[-1,1])line([[sx*rh,eave+rise,0],[sx*(rh+.13),eave+rise+.34,0],[sx*(rh+.18),eave+rise+.55,0]],.095,'tileedge');}
 // A curved tiled gable is an actual bonnet in front of the hip roof. Its
 // stepped timber infill, bargeboards and ceramic rolls share the curved crown.
-function curvedGable(cx,z,eave,width=4.0,rise=1.5,depth=2.2){
+function curvedGable(cx,z,eave,width=4.0,rise=1.5,depth=2.2,closeFace=true,ornate=true){
  const profile=u=>eave+rise*Math.exp(-3.4*u*u)+.24*Math.pow(Math.abs(u),10);
  const P=(u,t)=>[cx+u*width/2,profile(u)-.33*rise*Math.exp(-3.4*u*u)*t+.58*t,z-depth*t];
  const pp=[],uv=[];for(let j=0;j<16;j++)for(let i=0;i<64;i++){
@@ -54,8 +54,7 @@ function curvedGable(cx,z,eave,width=4.0,rise=1.5,depth=2.2){
   for(const v of[a,c,b,b,c,d]){pp.push(...v);uv.push(v[0],v[2]);}
  }
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pp,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();emit(g,'tile');
- const panel=new T.Shape();panel.moveTo(cx-width/2,eave-.04);for(let i=0;i<=64;i++){const u=-1+2*i/64;panel.lineTo(cx+u*width/2,profile(u)-.16);}panel.lineTo(cx+width/2,eave-.04);panel.closePath();
- const pg=new T.ExtrudeGeometry(panel,{depth:.13,steps:1,bevelEnabled:true,bevelThickness:.025,bevelSize:.02,bevelSegments:2});emit(pg,'wood',0,0,z-.10);
+ if(closeFace){const panel=new T.Shape();panel.moveTo(cx-width/2,eave-.04);for(let i=0;i<=64;i++){const u=-1+2*i/64;panel.lineTo(cx+u*width/2,profile(u)-.16);}panel.lineTo(cx+width/2,eave-.04);panel.closePath();const pg=new T.ExtrudeGeometry(panel,{depth:.13,steps:1,bevelEnabled:true,bevelThickness:.025,bevelSize:.02,bevelSegments:2});emit(pg,'wood',0,0,z-.10);}
  for(const drop of[.05,.20,.31])line(Array.from({length:65},(_,i)=>{const u=-1+2*i/64;return[cx+u*width/2,profile(u)-drop,z+.035];}),drop===.05?.075:drop===.20?.075:.023,drop===.31?'oldgold':drop===.05?'tileedge':'red');
  for(let i=0;i<=24;i++){
   const u=-1+2*i/24;for(let j=0;j<8;j++){const a=P(u,j/8),b=P(u,Math.min(1,(j+1.05)/8));a[1]+=.012;b[1]+=.012;ceramicTile(a,b,.055,.95+.045*Math.sin(i*2.11+j*1.31));}
@@ -70,13 +69,54 @@ function curvedGable(cx,z,eave,width=4.0,rise=1.5,depth=2.2){
    if(top>eave+.06)box(xx,(eave+top)/2,z+.05,.035,top-eave,.035,'redlight');
   }
  }
- rosette(cx,eave+.57,z+.12,.19);for(const sign of[-1,1])line([[cx+sign*.2,eave+.55,z+.13],[cx+sign*.46,eave+.43,z+.13],[cx+sign*.68,eave+.55,z+.13],[cx+sign*.92,eave+.28,z+.13]],.035,'oldgold');
+ if(ornate){rosette(cx,eave+.57,z+.12,.19);for(const sign of[-1,1])line([[cx+sign*.2,eave+.55,z+.13],[cx+sign*.46,eave+.43,z+.13],[cx+sign*.68,eave+.55,z+.13],[cx+sign*.92,eave+.28,z+.13]],.035,'oldgold');}
 }
 function lattice(x,y,z,w,h){box(x,y,z,w,h,.09,'dark');for(let i=0;i<=Math.ceil(w/.14);i++)box(x-w/2+i*w/Math.ceil(w/.14),y,z+.065,.028,h,.03,'dark');for(let i=0;i<=Math.ceil(h/.19);i++)box(x,y-h/2+i*h/Math.ceil(h/.19),z+.08,w,.028,.03,'wood');for(const sx of[-1,1])box(x+sx*w/2,y,z+.10,.09,h+.12,.13,'red');}
 function hall(w,d,h,{raised=.5,walls=true,lanterns=true,roofRise=Math.min(w,d)*.26,buildRoof=true,roofEaveDrop=0,roofCurl=.65,roofHorn=.52,frontHeight=h*.63,frontCenter=raised+h*.42,frontOpening=false}={}){if(role==='left-grand-hall'){box(0,raised-.12,0,w*.9,.24,d*.62,'hallFoundation');}else box(0,raised/2,0,w*.9,raised,d*.86,'stone');box(0,raised+.06,0,w*.88,.12,role==='left-grand-hall'?d*.62:d*.89,role==='left-grand-hall'?'dark':'stone');const front=d*.37;
 for(const z of[-front,front]){if(role==='left-grand-hall'&&raised>2)for(let x=-w*.36;x<=w*.37;x+=w*.18)column(x,z,0,raised-.25,.13);for(let x=-w*.36;x<=w*.37;x+=w*.18){if(frontOpening&&z>0&&Math.abs(x)<w*.28)continue;column(x,z,raised,h-.85,.18);brackets(x,h+raised-.7,z,.78);}box(0,h+raised-.12,z,w*.88,.29,.33,'red');box(0,h+raised-.52,z,w*.86,.20,.26,'red');for(let i=0;i<Math.ceil(w/.27);i++)box(-w*.44+i*.27,h+raised-.42,z+.19,.09,.1,.05,'gold');}
 for(const x of[-w*.36,w*.36])for(const z of[-d*.18,0,d*.18]){if(role==='left-grand-hall'&&raised>2)column(x,z,0,raised-.25,.13);column(x,z,raised,h-.85,.18);brackets(x,h+raised-.7,z,.78);}
-if(walls){for(const sign of[-1,1]){const xx=sign*w*.36,leftHall=role==='left-grand-hall',sideWallH=leftHall?h*.58:h*.79,sideWallY=leftHall?raised+h*.37:raised+h*.42;box(xx,sideWallY,0,.14,sideWallH,d*.73,'wall');const sideWindowH=role==='left-grand-hall'?2.6:Math.min(4.4,h*.59);for(const zz of[-d*.27,-d*.09,d*.09,d*.27])group(xx+sign*.09,0,zz,sign*Math.PI/2,()=>lattice(0,raised+sideWindowH/2+.25,.0,d*.14,sideWindowH));for(const yy of[raised+.22,raised+h*.65,raised+h*.80])box(xx+sign*.11,yy,0,.22,.21,d*.76,'red');for(let j=0;j<=8;j++){const zz=-d*.36+j*d*.09;box(xx+sign*.11,raised+h*.48,zz,.22,h*.92,.20,'red');if(h>7)brackets(xx+sign*.15,h+raised-.75,zz,.76);}}box(0,role==='left-grand-hall'?raised+h*.39:raised+h*.48,-front,w*.75,role==='left-grand-hall'?h*.60:h*.87,.16,'wall');box(-w*.36,raised+h*.48,0,.12,h*.87,d*.72,'wall');for(const x of[-w*.27,-w*.09,w*.09,w*.27]){lattice(x,frontCenter,front-.22,w*.14,frontHeight);box(x,raised+h*.84,front-.1,w*.14,h*.13,.12,'wall');}for(const y of[raised+.2,raised+h*.74])box(0,y,front-.12,w*.76,.18,.19,'red');}
+if(walls){if(role==='left-grand-hall'){
+ // Each long return is framed as eight narrow timber bays. Small plaster
+ // spandrels stop at the sill and lintel; the dark lattice panels sit in the
+ // openings instead of floating over one continuous cream wall slab.
+ const sideStart=-d*.36,sideSpan=d*.72,sidePitch=sideSpan/8;
+ for(const sign of[-1,1]){
+  const xx=sign*w*.36;
+  for(let i=0;i<8;i++){
+   const zz=sideStart+(i+.5)*sidePitch,bayW=sidePitch*.74;
+   group(xx-sign*.17,0,zz,sign*Math.PI/2,()=>{
+    box(0,raised+.53,0,bayW,.24,.12,'wall');
+    lattice(0,raised+2.10,0,bayW*.64,1.95);
+    box(0,raised+3.47,0,bayW,.30,.12,'wall');
+   });
+   group(xx+sign*.15,h+raised-.72,zz,sign*Math.PI/2,()=>brackets(0,0,0,.39));
+  }
+  for(const yy of[raised+.22,raised+1.08,raised+3.15,raised+h*.65,raised+h*.80])box(xx+sign*.11,yy,0,.22,.16,d*.76,'red');
+  for(let j=0;j<=8;j++){
+   const zz=sideStart+j*sidePitch;
+   box(xx+sign*.11,raised+h*.48,zz,.22,h*.92,.20,'red');
+  }
+ }
+ // A shadowed, timber-gridded inner return gives the front lattice real depth
+ // and removes the broad pale wall that showed through every open bay.
+ box(0,raised+2.20,-front,w*.72,4.40,.14,'wood');
+ for(const x of[-w*.36,-w*.18,0,w*.18,w*.36])box(x,raised+2.20,-front+.12,.14,4.20,.18,'red');
+ for(const yy of[raised+.34,raised+1.12,raised+3.47,raised+4.16])box(0,yy,-front+.13,w*.72,.14,.18,'red');
+ // Four measured facade bays keep the existing post rhythm but shrink the
+ // bright infill to low spandrels around recessed, dark timber screens.
+ const facadeXs=[-w*.27,-w*.09,w*.09,w*.27],facadeBay=w*.18;
+ for(const x of facadeXs){
+  box(x,raised+.52,front-.32,facadeBay*.78,.24,.12,'wall');
+  lattice(x,raised+2.55,front-.28,facadeBay*.64,2.30);
+  box(x,raised+3.85,front-.32,facadeBay*.78,.28,.12,'wall');
+ }
+ for(const yy of[raised+1.29,raised+3.70,raised+4.65])box(0,yy,front-.03,w*.76,.13,.18,'red');
+}else{
+ for(const sign of[-1,1]){const xx=sign*w*.36,sideWallH=h*.79,sideWallY=raised+h*.42;box(xx,sideWallY,0,.14,sideWallH,d*.73,'wall');const sideWindowH=Math.min(4.4,h*.59);for(const zz of[-d*.27,-d*.09,d*.09,d*.27])group(xx+sign*.09,0,zz,sign*Math.PI/2,()=>lattice(0,raised+sideWindowH/2+.25,.0,d*.14,sideWindowH));for(const yy of[raised+.22,raised+h*.65,raised+h*.80])box(xx+sign*.11,yy,0,.22,.21,d*.76,'red');for(let j=0;j<=8;j++){const zz=-d*.36+j*d*.09;box(xx+sign*.11,raised+h*.48,zz,.22,h*.92,.20,'red');if(h>7)brackets(xx+sign*.15,h+raised-.75,zz,.76);}}
+ box(0,raised+h*.48,-front,w*.75,h*.87,.16,'wall');box(-w*.36,raised+h*.48,0,.12,h*.87,d*.72,'wall');
+ for(const x of[-w*.27,-w*.09,w*.09,w*.27]){lattice(x,frontCenter,front-.22,w*.14,frontHeight);box(x,raised+h*.84,front-.1,w*.14,h*.13,.12,'wall');}
+ for(const y of[raised+.2,raised+h*.74])box(0,y,front-.12,w*.76,.18,.19,'red');
+}}
 // A second, close-spaced bracket line supports the projecting canopy rather
 // than leaving a bare rectangular girder across each elevation.
 for(const sign of[-1,1]){
@@ -113,20 +153,36 @@ function recedingWingRoof(){
  for(const z of[zMin,zMax])emit(createContinuousTimber(Array.from({length:17},(_,i)=>{const p=P(i/16,z);p[1]-=.17;return p;}),.13,.18,.012),'wood');
  for(const t of[0,1])emit(createContinuousTimber(along(t,.29),.045,.10,.008),t===1?'red':'wood');
  line(Array.from({length:49},(_,j)=>{const p=P(1,zMin+span*j/48);p[1]+=.07;return p;}),.085,'tileedge');
- // A real timber-and-plaster end bay closes the sky gap below the far roof edge.
- const wallZ=zMin+.04,bottom=.50,bounds=[-w/2+.08,0,w/2-.08],topAt=x=>P((x+w/2)/w,zMin)[1]-.16;
+ // Keep the far porch return open: only short infill bands sit behind its
+ // post line, while dark framed lattice doors occupy the sheltered bays.
+ const wallZ=zMin-.08,bottom=.50,bounds=[-w/2+.08,0,w/2-.08],topAt=x=>P((x+w/2)/w,zMin)[1]-.16;
  for(let b=0;b<2;b++){
-  const x0=bounds[b],x1=bounds[b+1],xc=(x0+x1)/2,windowW=.96,windowBottom=2.48,windowTop=4.15,profile=new T.Shape();
-  profile.moveTo(x0,bottom);profile.lineTo(x1,bottom);profile.lineTo(x1,topAt(x1));for(let i=12;i>=0;i--){const x=x0+(x1-x0)*i/12;profile.lineTo(x,topAt(x));}profile.closePath();
-  const hole=new T.Path();hole.moveTo(xc-windowW/2,windowBottom);hole.lineTo(xc-windowW/2,windowTop);hole.lineTo(xc+windowW/2,windowTop);hole.lineTo(xc+windowW/2,windowBottom);hole.closePath();profile.holes.push(hole);
-  const panel=new T.ExtrudeGeometry(profile,{depth:.10,steps:1,bevelEnabled:false});emit(panel,'wall',0,0,wallZ);
-  lattice(xc,(windowBottom+windowTop)/2,wallZ+.105,windowW,windowTop-windowBottom);
+  const x0=bounds[b],x1=bounds[b+1],xc=(x0+x1)/2,bayW=x1-x0,windowW=.88,windowBottom=1.35,windowTop=Math.min(3.85,topAt(xc)-.62);
+  box(xc,.83,wallZ+.05,bayW-.10,.26,.12,'wall');
+  box(xc,topAt(xc)-.30,wallZ+.05,bayW-.10,.24,.12,'wall');
+  lattice(xc,(windowBottom+windowTop)/2,wallZ+.12,windowW,windowTop-windowBottom);
+  for(const y of[windowBottom,windowTop])box(xc,y,wallZ+.16,windowW+.16,.12,.18,'red');
   for(const x of(b===0?[x0,x1]:[x1])){const top=topAt(x);box(x,(bottom+top)/2,wallZ+.10,.16,top-bottom,.19,'red');}
  }
- box(0,.66,wallZ+.10,w*.96,.16,.20,'red');box(0,4.30,wallZ+.10,w*.96,.15,.20,'red');
+ box(0,.66,wallZ+.10,w*.96,.16,.20,'red');
 }
 
-role='left-grand-hall';group(-5.4,0,-7.5,.90,()=>{hall(9.0,8.0,6.45,{raised:2.0,roofRise:5.0,roofEaveDrop:.45,roofCurl:1.10,roofHorn:.26,frontHeight:2.4,frontCenter:4.0});const front=8.0*.37,girtY=6.62,girt=Array.from({length:25},(_,i)=>[-3.4+i*6.8/24,girtY,front]);emit(createContinuousTimber(girt,.16,.22,.01),'red');for(const x of[-3.24,-1.62,0,1.62,3.24])box(x,girtY,front,.20,.24,.25,'red');},1.04);
+role='left-grand-hall';group(-5.4,0,-7.5,.90,()=>{
+ hall(9.0,8.0,6.45,{raised:2.0,roofRise:1.8,roofEaveDrop:.45,roofCurl:1.10,roofHorn:.26,frontHeight:2.4,frontCenter:4.0});
+ const front=8.0*.37,girtY=6.62,girt=Array.from({length:25},(_,i)=>[-3.4+i*6.8/24,girtY,front]);
+ emit(createContinuousTimber(girt,.16,.22,.01),'red');for(const x of[-3.24,-1.62,0,1.62,3.24])box(x,girtY,front,.20,.24,.25,'red');
+ // The curved front canopy sits just beyond the main post line and folds
+ // back to meet the hipped roof at the existing front edge. Its open gable
+ // face, ceramic rolls and continuous depth rafters keep the soffit readable.
+ const canopyWidth=6.5,canopyRise=.80,canopyEave=7.15,canopyDepth=1.25,canopyZ=front+canopyDepth;
+ curvedGable(0,canopyZ,canopyEave,canopyWidth,canopyRise,canopyDepth,false,false);
+ for(let i=0;i<=8;i++){
+  const x=-canopyWidth/2+.18+i*(canopyWidth-.36)/8,u=x/(canopyWidth/2),bell=Math.exp(-3.4*u*u),profile=canopyEave+canopyRise*bell+.24*Math.pow(Math.abs(u),10);
+  const rafter=Array.from({length:17},(_,j)=>{const t=j/16;return[x,profile-.33*canopyRise*bell*t+.58*t-.21,canopyZ-canopyDepth*t];});
+  emit(createContinuousTimber(rafter,.065,.11,.01),'wood');
+ }
+ for(const x of[-3.24,-1.62,0,1.62,3.24])brackets(x,7.42,front,.44);
+},1.04);
 const wingYaw=-.67,wingScale=.90,wingAnchorA=-3.0,wingAnchorZ=8.0*.37,wingW=4.6,wingMainX=-5.4,wingMainZ=-7.5,wingMainYaw=.90,wingMainScale=1.04,wingHighWorldY=6.85,wingLowWorldY=5.4,wingGroupY=1.52,wingHighY=(wingHighWorldY-wingGroupY)/wingScale,wingLowY=(wingLowWorldY-wingGroupY)/wingScale,wingZMin=-1.5,wingZMax=4.5,wingPostZ=[-1.25,0,1.25,2.5,3.75];
 const wingAnchorWorldX=wingMainX+wingMainScale*(Math.cos(wingMainYaw)*wingAnchorA+Math.sin(wingMainYaw)*wingAnchorZ),wingAnchorWorldZ=wingMainZ+wingMainScale*(-Math.sin(wingMainYaw)*wingAnchorA+Math.cos(wingMainYaw)*wingAnchorZ),wingNearX=wingScale*(Math.cos(wingYaw)*(-wingW/2)+Math.sin(wingYaw)*wingZMax),wingNearZ=wingScale*(-Math.sin(wingYaw)*(-wingW/2)+Math.cos(wingYaw)*wingZMax),wingX=wingAnchorWorldX-wingNearX,wingZ=wingAnchorWorldZ-wingNearZ,wingFrame={x:wingX,y:wingGroupY,z:wingZ,yaw:wingYaw,scale:wingScale,w:wingW,zMin:wingZMin,zMax:wingZMax,lowY:wingLowY,highY:wingHighY,postZ:wingPostZ};
 group(wingX,wingGroupY,wingZ,wingYaw,()=>{const deckDepth=wingZMax-wingZMin,deckCenter=(wingZMax+wingZMin)/2;box(0,.43,deckCenter,wingW*.92,.14,deckDepth,'dark');for(let i=0;i<=16;i++){const x=-wingW*.42+i*wingW*.84/16;box(x,.515,deckCenter,.052,.045,deckDepth-.06,'wood');}for(const x of[-wingW*.44,wingW*.44])emit(createContinuousTimber(Array.from({length:17},(_,i)=>[x,.36,wingZMin+i*deckDepth/16]),.105,.15,.01),'wood');for(const z of wingPostZ){column(wingW*.5,z,.5,wingLowY-.7,.14);brackets(wingW*.5,wingLowY-.28,z,.46);}recedingWingRoof();},wingScale);

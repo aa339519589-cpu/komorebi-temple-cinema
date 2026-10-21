@@ -7,7 +7,6 @@ import {createClosedRoofTile} from './scene03-roof-solids.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createGraniteEntrySteps} from './granite-entry-steps.js';
 import {emitTowerEnclosureFace} from './tower-enclosure03.js';
-import {buildUpperGalleryInfill03} from './upper-gallery-infill03.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
@@ -40,7 +39,8 @@ export function buildReference4Architecture(T,options={}) {
   const base=options.baseY??y-.15*s,receiver=options.receiverY??y+.82*s,sx=.88*s,sz=.92*s,sy=(receiver-base)/(bearingBounds.max.y-bearingBounds.min.y),offset=base-bearingBounds.min.y*sy;
   if(!(sy>0))throw Error('Curved bracket requires a positive physical bearing gap');
   grouped(x,0,z,0,()=>{
-   for(const part of solidJoinery.bracket)if(!part.cornerOnly)emit(part.geometry,part.material==='kit_endwood'?'endwood':'cedar',0,offset,0,sx,sy,sz);
+   const bracketWood=options.material??'cedar';
+   for(const part of solidJoinery.bracket)if(!part.cornerOnly)emit(part.geometry,part.material==='kit_endwood'?'endwood':bracketWood,0,offset,0,sx,sy,sz);
    for(const axis of[0,Math.PI/2])grouped(0,0,0,axis,()=>{for(const side of[-1,1])for(const row of[0,1]){
     const xx=side*(row?.755:.655)*sx,yy=offset+(((row?.645:.27)+.15)*(.970/1.120)-.15)*sy;
     for(const branch of(row?[-.40,.40]:[0]))grouped(xx,yy,branch*sz,side*Math.PI/2,()=>emit(solidJoinery.relief,'bearingGilt',0,0,.012,.205*s,.15*s,.105*s));
@@ -156,7 +156,7 @@ export function buildReference4Architecture(T,options={}) {
   for(const s of[-1,1])for(const span of[[2.86,4.73,C.capitalTop-.9],[4.73,6.88,C.capitalTop-1.3]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.32,.44,'red');relief(x,span[2]+.12,.272,w*.84,.24);}
  });
 
- const upperEave=15.4,upperWidth=15.2;
+ const upperEave=14.2,upperWidth=15.2;
  const upper=roof({name:'main-upper-roof',w:upperWidth,d:10.4,eave:upperEave,rise:C.ridgeY-upperEave,curl:.72,centerZ:C.ridgeZ,connected:false});
  roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:9.4,rise:3.1,curl:.56,centerZ:-4.5,inner:.45,frontGap:0});
  role('lower-eave-complete-parallel-rafters',()=>{
@@ -167,7 +167,7 @@ export function buildReference4Architecture(T,options={}) {
  role('front-gable-thick-ceramics-and-recessed-carving',()=>grouped(.60,0,0,0,()=>{
   // Photo landmarks are lifted onto the retained front plane, not matched by
   // a new focal length: crown ~[781,76], left shoulder ~[638,219].
-  const hw=3.45,front=.25,back=-5.0,base=15.94,foot=16.20,peak=18.62;
+  const hw=3.45,front=.25,back=-5.0,base=14.74,foot=15.00,peak=18.62;
   const curve=x=>base+(peak-base)*Math.pow(Math.max(0,1-Math.abs(x)/hw),1.48)+.060*Math.pow(Math.abs(x)/hw,8);
   const mainHeight=(x,z)=>{const t=(z-C.ridgeZ)/5.2,span=upperWidth*(.275+.225*t),u=(x+.60)/span;return upperEave+(C.ridgeY-upperEave)*Math.pow(Math.max(0,1-t),1.48)+.72*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6));};
   const weather=(x,z)=>Math.max(curve(x)+.20*(front-z)/(front-back),mainHeight(x,z)+.018);
@@ -212,40 +212,56 @@ export function buildReference4Architecture(T,options={}) {
   for(let j=0;j<8;j++){let h=y+.22+j*.42,r=.37*(1-j*.073);emit(cyl,'oldgold',x,h+.03,z,r*.48,.18,r*.48);for(let k=0;k<6;k++){let a=k*Math.PI*2/6;emit(sphere,'gold',x+Math.cos(a)*r*.62,h+.12,z+Math.sin(a)*r*.62,.075,.18,.105,[0,a,Math.sin(a)*.3]);}emit(new T.TorusGeometry(r,.025,7,24),'gold',x,h,z,1,1,1,[Math.PI/2,0,0]);for(let k=0;k<7;k++){let a=k*Math.PI*2/7;between([x+Math.cos(a)*r*.7,h,z+Math.sin(a)*r*.7],[x+Math.cos(a)*r*1.2,h+.20,z+Math.sin(a)*r*1.2],.024,.024,'gold',true);}}
   emit(sphere,'gold',x,y+3.85,z,.105,.22,.105);
  });
- let upperFrontInfill;
  role('upper-storey-dense-bracket-frieze',()=>{
-  // Compress the redundant tall timber story below the great roof. The
-  // lower pale gallery remains on the subordinate roof; this upper band is
-  // one short, continuously framed timber gallery beneath the retained eave.
-  const retainedBottom=12.32,retainedTop=14.325,bandCenter=(retainedBottom+retainedTop)/2,bandHeight=retainedTop-retainedBottom;
-  box(0,bandCenter,-1.02,13.6,bandHeight,.22,'darkwood');
-  upperFrontInfill=buildUpperGalleryInfill03({emit,role});
-  for(const sign of[-1,1])box(sign*6.76,bandCenter,-4.45,.22,bandHeight,7.1,'darkwood');box(0,bandCenter,-8.0,13.6,bandHeight,.22,'darkwood');
-  const galleryAxes=[...C.columnAxes,0].sort((a,b)=>a-b);
-  for(let i=0;i<galleryAxes.length-1;i++){
-   const left=galleryAxes[i],right=galleryAxes[i+1],x=(left+right)/2,w=right-left-.32;
-   box(x,13.32,-.83,w,.58,.13,'gableRecess');
-   // Fine timber lattice breaks the broad upper infill into dark framed bays.
-   for(let gx=left+.30;gx<right-.15;gx+=.235)box(gx,13.32,-.675,.046,.49,.065,'darkwood');
-   for(const gy of[13.09,13.32,13.55])box(x,gy,-.675,w-.08,.045,.065,'darkwood');
-   relief(x,13.32,-.585,Math.min(.76,w*.39),.31);
+  // The reference reads as one compact dark gallery under the great roof,
+  // not two full gridded floors. Retain a shallow body, then carry the load
+  // through several closely spaced bearing courses into the actual roof.
+  const bandBottom=10.85,bandTop=11.65,bandCenter=(bandBottom+bandTop)/2,bandHeight=bandTop-bandBottom;
+  const galleryAxes=[...C.columnAxes].sort((a,b)=>a-b);
+  const upperSeatAt=(x,z)=>{const t=(z-C.ridgeZ)/5.2,u=x/(upperWidth*(.275+.225*t));return upper.P(0,t,u)[1]-.185;};
+  const courseAt=(y,x,z)=>y+upperSeatAt(x,z)-upperSeatAt(0,z);
+  const curvedGirt=(y,z,w,h,ma='darkwood')=>{
+   const points=lin(-6.7,6.7,64).map(x=>[x,courseAt(y,x,z),z]);
+   emit(createCurvedEaveRafter(points,w,h),ma);
+  };
+  box(0,bandCenter,-1.60,13.6,bandHeight,.22,'gableRecess');
+  for(const sign of[-1,1])box(sign*6.76,bandCenter,-4.45,.22,bandHeight,7.1,'darkwood');
+  box(0,bandCenter,-8.0,13.6,bandHeight,.22,'darkwood');
+  for(const y of[bandBottom,bandTop])curvedGirt(y,-.70,.32,.22,'cedar');
+  // Stout primary posts continue the actual column axes to the compact
+  // shadow band; the recessed rear face is kept free of window-like trim.
+  for(const x of C.columnAxes){
+   const u=x/(4.95+4.05*(4.5/5.1));
+   const seat=9.4+3.1*Math.pow(1-4.5/5.1,1.48)+.56*Math.pow(4.5/5.1,8)*(.22+.78*Math.pow(Math.abs(u),6))-.37;
+   box(x,seat+.09,-.275,.34,.18,.65,'cedar');
+   box(x,(seat+bandTop)/2,-.55,.32,bandTop-seat,.34,'red');
   }
 
-  for(const y of[11.35,12.40,14.05]){box(0,y,-.70,13.4,.24,.45,'cedar');box(0,y+.04,-.425,13.1,.065,.045,'oldgold');}
-  // A narrow intermediate girt receives the fine nested bracket clusters.
-  // It sits below the deep roof soffit and passes behind the seven major
-  // column-aligned bearings, tying the smaller supports into one course.
-  box(0,14.56,-.70,13.4,.16,.45,'darkwood');
-  box(0,14.59,-.455,13.12,.035,.045,'oldgold');
-  for(const x of galleryAxes){const t=(-.55-C.ridgeZ)/5.2,u=x/(upperWidth*(.275+.225*t)),receiver=upper.P(0,t,u)[1]-.37,scale=Math.abs(x)>6?.52:Math.abs(x)>4?.47:.43;arch.brackets(x,14.30,-.55,scale,{baseY:14.17,receiverY:receiver});box(x,13.34,-.7,.20,1.84,.24,'red');}
-  for(let i=0;i<galleryAxes.length-1;i++){
-   const left=galleryAxes[i],right=galleryAxes[i+1];
-   for(let j=1;j<=2;j++){
-    const x=left+(right-left)*j/3,scale=.22+((i+j)%2)*.014;
-    arch.brackets(x,14.35,-.55,scale,{baseY:14.17,receiverY:14.48});
+  // The four stepped ranks overlap into a thick warm timber volume. Each
+  // course bears on a real curved girt; the final rank meets the underside
+  // of the flying eave at upper.P rather than ending in open space.
+  const ranks=[
+   {z:-.70,base:11.76,receiver:12.24,major:.92,minor:.66},
+   {z:-.15,base:12.46,receiver:12.94,major:.90,minor:.64},
+   {z:.30,base:13.16,receiver:13.64,major:.86,minor:.60},
+   {z:.60,base:13.86,receiver:null,major:.82,minor:.56}
+  ];
+  for(const[y,index]of[[12.35,0],[13.05,1],[13.75,2]])curvedGirt(y,ranks[index].z,.30,.22,'red');
+  for(let r=0;r<ranks.length;r++){
+   const rank=ranks[r],receiverAt=x=>rank.receiver===null?upperSeatAt(x,rank.z):courseAt(rank.receiver,x,rank.z),baseAt=x=>courseAt(rank.base,x,rank.z);
+   for(const x of galleryAxes){
+    const receiver=receiverAt(x),scale=rank.major;
+    arch.brackets(x,(baseAt(x)+receiver)/2,rank.z,scale,{baseY:baseAt(x),receiverY:receiver,material:'cedar'});
+   }
+   for(let i=0;i<galleryAxes.length-1;i++){
+    const left=galleryAxes[i],right=galleryAxes[i+1],n=right-left>4?3:2;
+    for(let j=1;j<=n;j++){
+     const fraction=j/(n+1)+(r%2?.035*(i%2?1:-1):0),x=left+(right-left)*fraction;
+     const scale=rank.minor+((i+j+r)%2)*.035,receiver=receiverAt(x);
+     arch.brackets(x,(baseAt(x)+receiver)/2,rank.z,scale,{baseY:baseAt(x),receiverY:receiver,material:'cedar'});
+    }
    }
   }
-  for(const x of galleryAxes)arch.brackets(x,11.6,-.48,.26,{baseY:11.47,receiverY:12.25});
   // The mesh64 curved parts are retained. The upper assembly follows the
   // raised receiver beam; a row of bare upright gap-fillers is not exposed.
   for(let j=0;j<=64;j++){const u=-1+2*j/64;curvedRafter(lin(.40,1.012,12).map(t=>{const p=upper.P(0,t,u);p[1]-=.285;return p;}),.105,.16);const p=upper.P(0,1.012,u);arch.squareFitting(p[0],p[1]-.285,p[2]+.018,.095,.135,0,j%4===0);}
