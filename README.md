@@ -15,9 +15,9 @@ PORT=4318 node tools/server.mjs
 - [十景影片制作预览](http://127.0.0.1:4318/film.html)：60 秒叠化剪辑、70 秒完整源镜头、十景原图与实际渲染对照。
 - [左侧参考图／右侧实时 3D](http://127.0.0.1:4318/compare-ten.html)：十个独立场景入口。
 
-播放器当前指向 `native-rebuild-review-20261021-d` 制作检查点，960×960、24 fps。每个源镜头 7 秒、168 帧；九处叠化重叠得到 60 秒、1,440 帧的剪辑。十景均已加入这一轮重建；之后的建筑比例、佛像塑形、园林层次和物理光照仍继续修改。
+播放器当前指向 `native-rebuild-review-20261021-e` 制作检查点，960×960、24 fps。每个源镜头 7 秒、168 帧；九处叠化重叠得到 60 秒、1,440 帧的剪辑。十景均已加入这一轮重建；之后的建筑比例、佛像塑形、园林层次和物理光照仍继续修改。
 
-本片逐镜头核验公开 Git 源码：十景均对应同一个完整源码快照 `e553694`，包含各景声明的原始素材文件。各镜头完整文件集、源码与视频哈希在 [影片记录](qa/ten-reference/film-review-native-20261021-d/film-build.json)；[起／中／末实际视频帧](qa/ten-reference/film-review-native-20261021-d/all-shots-start-middle-end.jpg) 和 [十景原图／实际渲染](qa/ten-reference/film-review-native-20261021-d/all-ten-reference-left-native-right.jpg) 可直接查看。它是未通过照片匹配的制作版，此后模型继续修改。
+本片逐镜头核验公开 Git 源码：十景均对应同一个完整源码快照 `69211a6`，包含各景声明的原始素材文件。各镜头完整文件集、源码与视频哈希在 [影片记录](qa/ten-reference/film-review-native-20261021-e/film-build.json)；[起／中／末实际视频帧](qa/ten-reference/film-review-native-20261021-e/all-shots-start-middle-end.jpg) 和 [十景原图／实际渲染](qa/ten-reference/film-review-native-20261021-e/all-ten-reference-left-native-right.jpg) 可直接查看。它是未通过照片匹配的制作版，此后模型继续修改。
 
 ## 源码与当前工作
 
