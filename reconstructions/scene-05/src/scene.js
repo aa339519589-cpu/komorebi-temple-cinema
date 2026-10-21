@@ -8,7 +8,7 @@ import {loadBlenderJoinery} from './blender-joinery.js';
 import {createSculptedJoinery} from './sculpted-joinery.js';
 import {createRafterEndCopper} from './rafter-end-copper.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
-export const POSE={position:[12.5,0.8,13.7],target:[-1.5,16,0],fov:33.5};
+export const POSE={position:[10.8,0.8,13.7],target:[-1.7,15,0],fov:35.5};
 export async function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
@@ -264,5 +264,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-golden-side-key-physical-leaf-materials-v07',levels,triangles,parts,geometry:'Scaled crossed half-lap corner-arm courses on curved seated corbels, dark recessed soffit backing, narrow dense rafters, and reduced hip ribs',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:.60,courtyardBounceCastsShadows:true,hemisphere:.50,environmentIntensity:scene.environmentIntensity,limits:'Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-low-angle-asymmetric-corner-fit-v08',levels,triangles,parts,geometry:'Scaled crossed half-lap corner-arm courses on curved seated corbels, dark recessed soffit backing, narrow dense rafters, and reduced hip ribs',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:.60,courtyardBounceCastsShadows:true,hemisphere:.50,environmentIntensity:scene.environmentIntensity,limits:'Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
 }
