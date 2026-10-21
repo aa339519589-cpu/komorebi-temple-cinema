@@ -152,7 +152,7 @@ function makeBuilder(variant){
   return {add(g,tag,material='buddha'){g.name=`reference6-rebuilt-${variant}:${tag}`;g.userData={...g.userData,sculpturePart:tag};bins[material].push(g);names.push({tag,material});return g;},
     finish(){const out=[];for(const[material,gs]of Object.entries(bins)){if(!gs.length)continue;
       const g=mergeGeometries(gs,false);g.name=`reference6-rebuilt-${variant}-${material}`;g.computeBoundingBox();g.computeBoundingSphere();
-      g.userData={reconstruction:'reference6-recovered-proportion-anatomy-r4-full-face-fused-mudra',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
+      g.userData={reconstruction:'reference6-recovered-proportion-anatomy-r6-relaxed-mudra',variant,parts:gs.map(p=>p.name)};out.push({geometry:g,material});gs.forEach(g=>g.dispose());
     }return out;}};
 }
 
@@ -254,20 +254,29 @@ function lineDistance2D(x,y,a,b){
  const dx=b[0]-a[0],dy=b[1]-a[1],den=dx*dx+dy*dy,t=clamp(((x-a[0])*dx+(y-a[1])*dy)/den,0,1);
  return Math.hypot(x-a[0]-t*dx,y-a[1]-t*dy);
 }
+// The central hand is sampled as one smooth-union field. Fine 3.5mm cells
+// resolve the rounded digits; coarse spatial bins avoid testing every capsule
+// at every voxel while keeping this generated, editable scene-native mesh.
 function sculptedMudraSurface(paths,radii){
- const boxMin=[-.24,-.23,-.12],step=.008,n=[60,81,33],dims=n.map(v=>v+1),total=dims[0]*dims[1]*dims[2];
- const lattice=new Float32Array(total*3),field=new Float32Array(total),segments=[];
+ const boxMin=[-.24,-.23,-.12],step=.0035,n=[137,186,77],dims=n.map(v=>v+1),total=dims[0]*dims[1]*dims[2],cell=.04;
+ const lattice=new Float32Array(total*3),field=new Float32Array(total),segments=[],bins=new Map();
  const index=(i,j,k)=>(k*dims[1]+j)*dims[0]+i;
  for(let k=0;k<dims[2];k++)for(let j=0;j<dims[1];j++)for(let i=0;i<dims[0];i++){
   const id=index(i,j,k),q=id*3;lattice[q]=boxMin[0]+i*step;lattice[q+1]=boxMin[1]+j*step;lattice[q+2]=boxMin[2]+k*step;
  }
+ const minCell=boxMin.map(v=>Math.floor(v/cell)),maxCell=boxMin.map((v,d)=>Math.floor((v+n[d]*step)/cell)),binDims=maxCell.map((v,d)=>v-minCell[d]+1),binArrays=[0,1,2].map(d=>Int16Array.from({length:dims[d]},(_,i)=>Math.floor((boxMin[d]+i*step)/cell)-minCell[d]));
+ const binIndex=(x,y,z)=>(z*binDims[1]+y)*binDims[0]+x;
  for(let d=0;d<paths.length;d++){
-  const c=curve(paths[d].map(p=>[...p])),samples=40,base=radii[d];
+  const c=curve(paths[d].map(p=>[...p])),samples=32,base=radii[d];
   const radiusAt=t=>base*(1-.17*t+.095*gaussian(t-.31,.080)-.090*gaussian(t-.445,.053)+.067*gaussian(t-.665,.076)-.064*gaussian(t-.795,.050));
   let prior=c.getPoint(0),priorRadius=radiusAt(0);
   for(let q=1;q<=samples;q++){
    const t=q/samples,next=c.getPoint(t),nextRadius=radiusAt(t);
-   segments.push([prior.x,prior.y,prior.z,next.x-prior.x,next.y-prior.y,next.z-prior.z,priorRadius,nextRadius-priorRadius]);
+   const segment=[prior.x,prior.y,prior.z,next.x-prior.x,next.y-prior.y,next.z-prior.z,priorRadius,nextRadius-priorRadius,d],segmentId=segments.length;segments.push(segment);
+   const pad=Math.max(priorRadius,nextRadius)+.020,lo=[0,1,2].map(a=>Math.floor((Math.min(prior.getComponent(a),next.getComponent(a))-pad)/cell)),hi=[0,1,2].map(a=>Math.floor((Math.max(prior.getComponent(a),next.getComponent(a))+pad)/cell));
+   for(let bz=Math.max(lo[2],minCell[2]);bz<=Math.min(hi[2],maxCell[2]);bz++)for(let by=Math.max(lo[1],minCell[1]);by<=Math.min(hi[1],maxCell[1]);by++)for(let bx=Math.max(lo[0],minCell[0]);bx<=Math.min(hi[0],maxCell[0]);bx++){
+    const key=binIndex(bx-minCell[0],by-minCell[1],bz-minCell[2]);let bucket=bins.get(key);if(!bucket){bucket=[];bins.set(key,bucket);}bucket.push(segmentId);
+   }
    prior=next;priorRadius=nextRadius;
   }
  }
@@ -275,15 +284,13 @@ function sculptedMudraSurface(paths,radii){
   const q=id*3,x=lattice[q],y=lattice[q+1],z=lattice[q+2];
   let d=ellipsoidDistance(x,y,z,.107,.173,.041);
   d=smoothUnion(d,ellipsoidDistance(x-.056,y+.045,z-.006,.058,.086,.036),.018);
-  const palmFront=smooth(z,.006,.026),crease1=lineDistance2D(x,y,[-.078,.015],[.062,-.038]),crease2=lineDistance2D(x,y,[-.047,-.079],[.064,-.106]);
-  d+=palmFront*(.0065*gaussian(crease1,.0055)+.0045*gaussian(crease2,.0048));
-  for(let path=0;path<5;path++){
-   let digit=Infinity;const begin=path*40,end=begin+40;
-   for(let si=begin;si<end;si++){const s=segments[si];
-   const den=s[3]*s[3]+s[4]*s[4]+s[5]*s[5],t=clamp(((x-s[0])*s[3]+(y-s[1])*s[4]+(z-s[2])*s[5])/den,0,1),px=s[0]+s[3]*t,py=s[1]+s[4]*t,pz=s[2]+s[5]*t,r=s[6]+s[7]*t;
-   digit=Math.min(digit,Math.hypot(x-px,y-py,z-pz)-r);
+  if(z>0&&Math.abs(x)<.14&&y>-.13&&y<.07){const palmFront=smooth(z,.006,.026),crease1=lineDistance2D(x,y,[-.078,.015],[.062,-.038]),crease2=lineDistance2D(x,y,[-.047,-.079],[.064,-.106]);d+=palmFront*(.0038*gaussian(crease1,.0055)+.0027*gaussian(crease2,.0048));}
+  const cx=binArrays[0][id%dims[0]],cy=binArrays[1][Math.floor(id/dims[0])%dims[1]],cz=binArrays[2][Math.floor(id/(dims[0]*dims[1]))],candidates=bins.get(binIndex(cx,cy,cz));
+  if(candidates){const digits=[Infinity,Infinity,Infinity,Infinity,Infinity];
+   for(const si of candidates){const s=segments[si],den=s[3]*s[3]+s[4]*s[4]+s[5]*s[5],t=clamp(((x-s[0])*s[3]+(y-s[1])*s[4]+(z-s[2])*s[5])/den,0,1),px=s[0]+s[3]*t,py=s[1]+s[4]*t,pz=s[2]+s[5]*t,r=s[6]+s[7]*t,path=s[8];
+    digits[path]=Math.min(digits[path],Math.hypot(x-px,y-py,z-pz)-r);
    }
-   d=smoothUnion(d,digit,.016);
+   for(const digit of digits)if(Number.isFinite(digit))d=smoothUnion(d,digit,.016);
   }
   field[id]=d;
  }
@@ -291,7 +298,7 @@ function sculptedMudraSurface(paths,radii){
  const cornerOffsets=[[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,0,1],[1,0,1],[1,1,1],[0,1,1]],tetrahedra=[[0,5,1,6],[0,1,2,6],[0,2,3,6],[0,3,7,6],[0,7,4,6],[0,4,5,6]];
  const pointOf=id=>[lattice[id*3],lattice[id*3+1],lattice[id*3+2]];
  function edgeVertex(a,b){
-  const key=a<b?`${a}:${b}`:`${b}:${a}`;if(edgeVertices.has(key))return edgeVertices.get(key);
+  const key=a<b?a*total+b:b*total+a;if(edgeVertices.has(key))return edgeVertices.get(key);
   const va=field[a],vb=field[b],t=clamp(va/(va-vb),0,1),pa=pointOf(a),pb=pointOf(b),p=[pa[0]+(pb[0]-pa[0])*t,pa[1]+(pb[1]-pa[1])*t,pa[2]+(pb[2]-pa[2])*t],id=positions.length/3;
   positions.push(...p);uvs.push(p[0],p[1]);edgeVertices.set(key,id);return id;
  }
@@ -302,6 +309,7 @@ function sculptedMudraSurface(paths,radii){
  }
  for(let k=0;k<n[2];k++)for(let j=0;j<n[1];j++)for(let i=0;i<n[0];i++){
   const cube=cornerOffsets.map(o=>index(i+o[0],j+o[1],k+o[2]));
+  let hasInside=false,hasOutside=false;for(const id of cube){if(field[id]<0)hasInside=true;else hasOutside=true;}if(!hasInside||!hasOutside)continue;
   for(const tet of tetrahedra){
    const ids=tet.map(c=>cube[c]),inside=ids.filter(id=>field[id]<0),outside=ids.filter(id=>field[id]>=0);if(!inside.length||!outside.length)continue;
    if(inside.length===1){const a=edgeVertex(inside[0],outside[0]),b=edgeVertex(inside[0],outside[1]),c=edgeVertex(inside[0],outside[2]);triangle(a,b,c,inside,outside);}
@@ -316,19 +324,18 @@ function sculptedMudraSurface(paths,radii){
 }
 function raisedHand(b,cx,cy,cz,{size=1,mirror=1,fused=false}={}){
  const point=p=>{const x=mirror*p[0]*size,z=p[2]*size,a=mirror*.25;return[cx+x*Math.cos(a)+z*Math.sin(a),cy+p[1]*size,cz-x*Math.sin(a)+z*Math.cos(a)];};
- const palmRows=[[-.18,0,0,0],[-.145,.058,.025,0],[-.060,.101,.032,0],[.055,.113,.029,0],[.125,.100,.026,0],[.153,.053,.018,0],[.165,0,0,0]];
- const palm=loft(palmRows,{nu:96,nv:112,relief:(x,y)=>{
-  let f=-.013*gaussian(x,.060)*gaussian(y,.075)+.020*gaussian(x-.058,.035)*gaussian(y+.066,.055)+.011*gaussian(x+.045,.030)*gaussian(y-.018,.043);
-  for(const knuckle of[-.075,-.027,.028,.076])f+=.011*gaussian(x-knuckle,.020)*gaussian(y-.113,.028)-.0045*gaussian(x-knuckle,.019)*gaussian(y-.075,.012);
-  return f-.006*gaussian(y+.020+.14*x,.006);
- }});
- palm.scale(size*mirror,size,size);palm.rotateY(mirror*.25);palm.translate(cx,cy,cz);if(mirror<0){const ix=palm.index;for(let i=0;i<ix.count;i+=3){const t=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,t);}}recomputeSculptureNormals(palm);b.add(palm,'anatomical-raised-palm','hand');
- const fingers=[
-  [[-.096,.080,.002],[-.128,.174,.012],[-.164,.250,.024],[-.132,.298,.018]],
-  [[-.031,.136,.000],[-.047,.242,.008],[-.069,.325,.008],[-.032,.370,-.002]],
-  [[.032,.139,.000],[.058,.246,.008],[.088,.327,.004],[.047,.365,-.010]],
-  [[.094,.109,.001],[.128,.188,.014],[.157,.258,.026],[.120,.293,.018]],
-  [[.071,-.090,.006],[.145,-.030,.034],[.169,.045,.063],[.082,.112,.050]]
+ const fingers=fused?[
+  [[-.096,.080,.002],[-.128,.174,.012],[-.164,.250,.024],[-.146,.302,.018]],
+  [[-.031,.136,.000],[-.047,.242,.008],[-.069,.325,.008],[-.050,.370,-.002]],
+  [[.032,.139,.000],[.058,.246,.008],[.088,.327,.004],[.064,.365,-.010]],
+  [[.094,.109,.001],[.128,.188,.014],[.157,.258,.026],[.138,.293,.018]],
+  [[.071,-.090,.006],[.127,-.030,.034],[.140,.045,.063],[.105,.105,.050]]
+ ]:[
+  [[-.096,.080,.002],[-.139,.205,.012],[-.158,.286,.018],[-.151,.318,.012]],
+  [[-.031,.136,.000],[-.058,.265,.009],[-.063,.349,.009],[-.057,.376,.000]],
+  [[.032,.139,.000],[.067,.270,.007],[.081,.354,.006],[.087,.379,-.003]],
+  [[.094,.109,.001],[.131,.216,.012],[.151,.287,.017],[.145,.310,.008]],
+  [[.071,-.090,.006],[.145,-.025,.034],[.157,.045,.062],[.134,.078,.068]]
  ];
  if(fused){
   const paths=fingers.map(p=>p.map(q=>[q[0]*1.05,q[1]*.88,q[2]+Math.max(0,q[1]-.20)*.22])),radii=[.0185,.0185,.0185,.0185,.023],hand=sculptedMudraSurface(paths,radii);
@@ -336,6 +343,13 @@ function raisedHand(b,cx,cy,cz,{size=1,mirror=1,fused=false}={}){
   if(mirror<0){const ix=hand.index;for(let i=0;i<ix.count;i+=3){const t=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,t);}}
   recomputeSculptureNormals(hand);b.add(hand,'fused-palm-thenar-and-curved-digits','hand');return point;
  }
+ const palmRows=[[-.18,0,0,0],[-.145,.058,.025,0],[-.060,.101,.032,0],[.055,.113,.029,0],[.125,.100,.026,0],[.153,.053,.018,0],[.165,0,0,0]];
+ const palm=loft(palmRows,{nu:96,nv:112,relief:(x,y)=>{
+  let f=-.013*gaussian(x,.060)*gaussian(y,.075)+.020*gaussian(x-.058,.035)*gaussian(y+.066,.055)+.011*gaussian(x+.045,.030)*gaussian(y-.018,.043);
+  for(const knuckle of[-.075,-.027,.028,.076])f+=.011*gaussian(x-knuckle,.020)*gaussian(y-.113,.028)-.0045*gaussian(x-knuckle,.019)*gaussian(y-.075,.012);
+  return f-.006*gaussian(y+.020+.14*x,.006);
+ }});
+ palm.scale(size*mirror,size,size);palm.rotateY(mirror*.25);palm.translate(cx,cy,cz);if(mirror<0){const ix=palm.index;for(let i=0;i<ix.count;i+=3){const t=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,t);}}recomputeSculptureNormals(palm);b.add(palm,'anatomical-raised-palm','hand');
  fingers.forEach((p,i)=>{
   p=p.map(q=>[q[0]*1.05,q[1]*.88,q[2]+Math.max(0,q[1]-.20)*.22]);
   const baseRadius=i===4?.023:.0185,fingerPath=p.map(point);
@@ -631,7 +645,7 @@ function attendantFigure(variant){
 }
 
 export const RESTORED_BUDDHA_METRICS=Object.freeze({
- reference:6,reconstruction:'independent-reference6-recovered-proportion-anatomy-r4-full-face-fused-mudra',frontAxis:'+Z',seatContact:0,
+ reference:6,reconstruction:'independent-reference6-recovered-proportion-anatomy-r6-relaxed-mudra',frontAxis:'+Z',seatContact:0,
  decorativeMinY:-.157,headCenter:2.78,crownTop:3.59,raisedHandTop:1.85313,kneeWidth:2.90,bodyDepth:1.50,
  variants:{central:{seatContact:0,decorativeMinY:-.157,crownTop:3.59,headCenter:2.78,kneeWidth:2.90},left:{seatContact:0,crownTop:3.75,headCenter:3.055},right:{seatContact:0,crownTop:3.75,headCenter:3.055}},
  referenceFit:{central:{x:0,y:3,z:0,scale:2.1/3.26},attendantScale:1.45/3.26,scaleConvention:'retain external unit conversion; do not normalize by crownTop'},
