@@ -1,0 +1,23 @@
+{
+  "status": "unacquired-cpu-authoring-wrapper-terminated-by-root-instruction",
+  "pid": 76874,
+  "command": "node tools/run-blender-queued.mjs reconstructions/scene-06/modeling/sculpture165/build.py",
+  "childPids": [],
+  "gpuAcquired": false,
+  "activeGpuOwnerUntouched": {
+    "pid": 76551,
+    "nonce": "3a8e0ee1-b29e-4b25-b886-d105e22f7eac",
+    "label": "reference-09-native-rebuild-review-20261022-f",
+    "startedAt": "2026-10-21T19:44:09.317Z"
+  },
+  "ticket": {
+    "pid": 76874,
+    "nonce": "75963804-bf2a-4762-8f72-b17193815794",
+    "label": "blender-build.py",
+    "startedAt": "2026-10-21T19:45:59.471Z",
+    "queuedAt": 1792611959471
+  },
+  "completedAt": "2026-10-21T20:08:14.025759+00:00",
+  "reason": "Primary agent inspected exact hashes and supplied the narrow reviewed CPU mesh authoring runner in AGENTS.md. All image/video rendering remains GPU FIFO.",
+  "nextCommand": "node tools/run-reviewed-cpu-authoring.mjs scene06-sculpture165-r01"
+}
