@@ -1,0 +1,67 @@
+{
+  "status": "material-parity-moderate-bounce-physical-cycles-rendered",
+  "sourceCommit": "31411bdbe1fdb84a80bc560e2073fecce3d2c58e",
+  "sourceHash": "4da704893228818477e32a7044a5f203760f8b7c86188d69f1ec2944279cac2e",
+  "geometryReimported": false,
+  "sourceGeometryTriangles": 37494663,
+  "cameraMatrix": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0995034948,
+    -0.9950371981,
+    -17.0,
+    0.0,
+    0.9950371981,
+    -0.0995034948,
+    3.2000012398,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "cameraUnchanged": true,
+  "cyclesSamples": 64,
+  "resolution": [
+    960,
+    960
+  ],
+  "device": "GPU",
+  "denoising": true,
+  "exposureEV": 0.0430000014603138,
+  "materialParity": "Linked GN instanceColor uses INSTANCER attribute mode; baked-shear/direct geometry uses GEOMETRY-domain variant; sourceColor multiply removed for materials without vertexColors.",
+  "physicalKey": {
+    "type": "AREA",
+    "positionBlenderZUp": [
+      -8.0,
+      -8.0,
+      16.0
+    ],
+    "targetBlenderZUp": [
+      6.0,
+      0.0,
+      11.0
+    ],
+    "rectangleMetres": [
+      16.0,
+      10.0
+    ],
+    "powerWatts": 2500.0,
+    "colorLinear": [
+      1.0,
+      0.7799999713897705,
+      0.5600000023841858
+    ],
+    "castsSceneShadows": true,
+    "specularFactor": 0.550000011920929,
+    "purpose": "Moderate broad front-left bounce to open veranda/hall and retain warm/cool separation without flattening."
+  },
+  "render": "scene01-cycles-material-parity-moderate-bounce-final-960px.png",
+  "blend": "scene01-cycles-material-parity-moderate-bounce-final-960px.blend",
+  "photographicAcceptance": false,
+  "renderSeconds": 23.540014028549194,
+  "renderSha256": "ea176bac890764a3e18f17a27771e8e2e8ec2720ce537d4332a0a12824fe1336",
+  "blendSha256": "b3ee0b3bca8b6e8c97ac599054795cd689370534b867c7886a2b12d5a05b0bc1"
+}

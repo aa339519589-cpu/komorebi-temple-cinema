@@ -1,0 +1,150 @@
+{
+  "sourceCommit": "31411bdbe1fdb84a80bc560e2073fecce3d2c58e",
+  "sourceHash": "4da704893228818477e32a7044a5f203760f8b7c86188d69f1ec2944279cac2e",
+  "renderScript": {
+    "file": "render-scene01-cycles-linked.py",
+    "sha256": "4084add323c7698f166b760cc9e3c864c81ccb1dc3f2ad7511bc5cc07a863d68"
+  },
+  "sourceStatistics": {
+    "meshes": 2185,
+    "geometries": 2111,
+    "materials": 67,
+    "textures": 25,
+    "instances": 395520,
+    "triangles": 37494663
+  },
+  "lightingMode": "scene01-golden-hour-linked",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 1,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "independently-authored-sky-only-environment",
+      "type": "Mesh",
+      "material": "authored-golden-cloud-radiance",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "real-reflected-garden-pond-ripple-surface",
+      "type": "Reflector",
+      "material": "garden-ripple-planar-reflection",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792525547.3428411,
+  "affinePreservation": {
+    "parentMatrices": "Retained as full source object matrices; all 2,185 source parent matrices are orthogonal/no shear.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 382955,
+    "bakedShearedInstances": 12563,
+    "bakedShearedTriangles": 1016964,
+    "bakedShearedVertices": 652330,
+    "maxLinkedTRSMatrixResidual": 1.9073486328125e-06,
+    "maxBakedShearResidual": 0.7762951254844666,
+    "flattenedOnlyForShearedTransforms": true,
+    "geometryDecimated": false
+  },
+  "worldCoordinateConversion": "All source mesh objects, source lights, linked-instance parents and camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "skyRadianceProxy": {
+    "file": "assets/generated-golden-sky-v01/sky-equirectangular.png",
+    "sha256": "482ea8c208dc06a1f8b3001b7cc6904507e3766d0364880e25a8980278922f3c",
+    "provenanceFile": "assets/generated-golden-sky-v01/provenance.json",
+    "source": "Sky-only generated image; no reference-photo pixels and no architecture/garden content. sRGB decoded by Blender and used as 3D environment radiance.",
+    "linearGain": 3.0,
+    "cyclesWorldGain": 1.56,
+    "orientation": "Port of measured-sky.js yaw/pitch mapping with Blender Image Texture V-axis orientation accounted for; source glow longitude -90 degrees and latitude 3.6 degrees are aligned to exported analytic DirectionalLight direction.",
+    "analyticSunDirectionYUp": [
+      -0.3682471811771393,
+      0.20047122240066528,
+      -0.9078575372695923
+    ],
+    "cameraRadianceGain": 0.96,
+    "environmentRadianceGain": 1.56,
+    "hemisphereLightApproximation": {
+      "sourceSkyColorLinear": [
+        0.423268,
+        0.584078,
+        0.846873
+      ],
+      "sourceGroundColorLinear": [
+        0.039546,
+        0.020289,
+        0.008023
+      ],
+      "sourceIntensity": 0.36,
+      "method": "Shadowed environment radiance added only to non-camera rays"
+    },
+    "analyticSunDisk": "Cycles world camera-ray disk aligned to source SUN_DIRECTION; full-bright angular core about 1.0 degree with a 1.2 degree soft support. The source-aligned directional sun supplies direct/indirect physical illumination; disk excluded from non-camera environment rays."
+  },
+  "physicalWaterReplacement": {
+    "nativeReflectorPlane": [
+      34,
+      31
+    ],
+    "nativeWorldPositionYUp": [
+      0,
+      0.13,
+      5.2
+    ],
+    "cyclesPlaneVerticesYUp": [
+      [
+        -17,
+        0.13,
+        -10.3
+      ],
+      [
+        -17,
+        0.13,
+        20.7
+      ],
+      [
+        17,
+        0.13,
+        20.7
+      ],
+      [
+        17,
+        0.13,
+        -10.3
+      ]
+    ],
+    "material": "Cycles Principled water with actual 1.333 IOR reflection, roughness 0.16, dark-green shallow-water body and subtle procedural micro-normal. Uses full scene geometry and generated sky as reflected radiance.",
+    "nativeCustomShader": "The Three.js planar ripple/reflection screen-space shader is renderer-specific and was not transplanted; this is a physical 3D surface approximation, not pixel equivalence.",
+    "photographUsed": false
+  },
+  "cyclesDevice": "GPU",
+  "denoisingEnabled": true,
+  "denoisingReason": "Verified built-in OpenImageDenoise",
+  "materialAttributeParity": {
+    "linkedInstances": "ShaderNodeAttribute Instancer mode plus explicit point Store Named Attribute",
+    "bakedShearAndDirect": "Separate Geometry-domain material variants; direct source mesh instanceColor fallback is white, baked shear retains source RGB",
+    "vertexColorMultiply": "Kept only when the source vertexColors flag is true; instanceColors-only records do not also multiply sourceColor."
+  },
+  "importedTriangles": 37494663,
+  "sourceTriangleCount": 37494663,
+  "geometryTriangleCountPreserved": true,
+  "excludedCollapsedInstanceCount": 0,
+  "materialTransfer": "Exported source PBR parameters/textures; original custom GLSL material hooks are not automatically portable. Original sky shader is represented by the authored sky-only radiance image plus source-aligned analytic Sun. Native planar water shader is replaced by a physical Cycles surface reflection.",
+  "lightCalibration": {
+    "transfer": "Scene01 source positions/colors; area*pi and point*4pi power conversion; direct SUN coupled to generated sky.",
+    "sunGain": 1.0,
+    "worldGain": "Source camera radiance gain 3x0.32=0.96 and source environment/IBL gain 3x0.52=1.56, selected by Cycles Light Path; source HemisphereLight .36 is added as a sky/ground environment contribution to non-camera rays.",
+    "exposure": 0.0430000014603138,
+    "nativeWebglPixelEquivalence": false,
+    "sunSourceIntensity": 6.2,
+    "coolShadowSideSourceIntensity": 1.45,
+    "nativeToneMap": "Three ACESFilmic receives linear exposure multiplier 1.03; matching Cycles EV starting point is log2(1.03)=0.043 stops. AgX and ACESFilmic are different curves and are not pixel-equivalent."
+  },
+  "finished": 1792525566.529404,
+  "resolution": [
+    480,
+    480
+  ],
+  "samples": 24,
+  "photographicAcceptance": false
+}
