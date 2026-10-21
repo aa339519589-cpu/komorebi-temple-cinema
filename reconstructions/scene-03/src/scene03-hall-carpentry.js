@@ -1,4 +1,5 @@
 import {createCurvedEaveRafter} from './scene03-curved-rafter.js';
+import {createCarvedReceivers106} from './scene03-carved-receivers106.js';
 
 // Scene03's visible upper hall, authored from the reference silhouette. The
 // gallery is a shallow, closed timber body. Three projecting bearing levels
@@ -10,6 +11,7 @@ export function buildHallCarpentry03(T,api){
  const axes=[-5.70,-3.80,-1.90,0,1.90,3.80,5.70],wallZ=-.98;
  const owned=new Set();let bearingSets=0;
  const keep=g=>{owned.add(g);return g;};
+ const carvedReceivers=createCarvedReceivers106(T,{emit,keep});
  const curved=(points,w,h,ma='cedar')=>emit(keep(createCurvedEaveRafter(points,w,h)),ma);
  function extrude(shape,depth,bevel=.012){const g=new T.ExtrudeGeometry(shape,{depth,steps:1,curveSegments:12,bevelEnabled:true,bevelThickness:bevel,bevelSize:bevel,bevelSegments:2});g.translate(0,0,-depth/2);return keep(g);}
  // Broad cambered hijiki with deep hooked shoulders. Their upper bearing
@@ -41,7 +43,7 @@ export function buildHallCarpentry03(T,api){
   const b=.013*scale;
   box(x,y,z-.008,w,h,.035,'endwood');
   for(const sign of[-1,1]){box(x+sign*(w-b)/2,y,z+.016,b,h,.018,'bearingGilt');box(x,y+sign*(h-b)/2,z+.016,w-2*b,b,.018,'bearingGilt');}
-  if(detail)rosette(x,y,z+.032,Math.min(w,h)*.27,'oldgold');
+  if(detail)carvedReceivers.face(x,y,z,w*.76,h*.76,.23);
  }
  function cluster(x,base,z,top,scale=1,major=true,depthScale=scale){
   const sy=(top-base)/1.65;
@@ -96,7 +98,7 @@ export function buildHallCarpentry03(T,api){
    for(const sign of[-1,1]){const h=new T.Path();h.moveTo(sign*.045,.055);h.bezierCurveTo(sign*.04,.25,sign*.20,.34,sign*.27,.27);h.bezierCurveTo(sign*.13,.31,sign*.22,.12,sign*.39,.10);h.quadraticCurveTo(sign*.23,.055,sign*.045,.055);crown.holes.push(h);}
    emit(extrude(crown,.095,.009),'oldgold',x,12.27,wallZ+.16);
    for(const sign of[-1,1])tube([[x+sign*.08,12.34,wallZ+.235],[x+sign*.16,12.47,wallZ+.25],[x+sign*.29,12.51,wallZ+.24],[x+sign*.35,12.45,wallZ+.235]],.018,'bearingGilt',20);
-   rosette(x,11.73,wallZ+.098,.10,'oldgold');
+   carvedReceivers.face(x,11.73,wallZ+.070,.25,.32,.28);
   }
   for(const x of axes){
    box(x,11.93,wallZ+.08,.29,2.04,.39,'red');
@@ -130,5 +132,5 @@ export function buildHallCarpentry03(T,api){
   }
   for(const t of[.62,.80,.97])curved(lin(-1,1,80).map(u=>{const p=upper.P(0,t,u);p[1]-=.34;return p;}),.27,.20,'cedar');
  });
- return {axes,get bearingSets(){return bearingSets;},bearingCluster:cluster,wallClosed:true,construction:'Three stepped, connected timber bearing levels on a closed recessed gallery',dispose(){for(const g of owned)g.dispose();}};
+ return {axes,get bearingSets(){return bearingSets;},get carvedReceiverFaces(){return carvedReceivers.count;},bearingCluster:cluster,wallClosed:true,construction:'Three stepped connected bearing levels, closed recessed gallery, fitted pierced/cupped cast foliate receiver faces',dispose(){for(const g of owned)g.dispose();}};
 }

@@ -1,6 +1,6 @@
 {
   "scene": "03",
-  "revision": "scene03-carpentry104-living-garden105",
+  "revision": "scene03-coupled-architecture106-garden105",
   "referencePhotographs": {
     "usedByRuntime": false,
     "comparisonInput": "references/hd/2-照片-3.jpg",
@@ -86,7 +86,10 @@
     "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
     "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
     "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
-    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "reconstructions/scene-03/tools/solve-architecture106.py",
+    "reconstructions/scene-03/tools/solve-architecture106-bridge.py",
+    "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json"
   ],
   "carvedRanma": {
     "scope": "Central portal crossbeams only: hall-local y=8.70 and 9.30m; x=-2.01,-0.67,0.67,2.01m; front datum z=0.330m.",
@@ -130,19 +133,19 @@
     "roundTwoCorrection": "Observed the unchanged fore-hanging lantern covering half the face in mesh71a. Move only the icon and its supported lotus plinth0.53m left within the inner shrine (x+.35→-.18); retain exterior lights. Offering table becomes0.67m tall on matching shortened legs, x0, to expose more of the knees. Inner wood now uses explicit roughness0.55–0.83 without multiplying the dark scanned roughness channel; normal detail retained."
   },
   "entryStairStone": {
-    "scope": "Twenty closed granite tread levels now connect the retained5.25m hall landing to a raised2.15m rock terrace. The actual flight is4.0m wide, shifted0.55m to hall-local left and turned0.20rad relative to the hall. A continuous closed stone/soil apron and a supported1.04m-wide stone path link its foot to the retained bridge landing.",
-    "geometry": "105 closed authored granite tread/cap pieces at20 proportional levels across a3.10m rise. Actual world bottom2.15m, top5.25m, local bottom0.90m, flight width4.0m and run7.8m; physical millimetre joints/chips/arris normals retained. The rotated/offset flight has closed stone cores to ground, an overlapping supported upper landing wedge, closed rock/soil side shoulders and a supported bridge approach.",
+    "scope": "Current106: twenty closed granite tread levels connect the fitted hall landing at world5.95624m to the retained2.15m rock terrace. The4.0m flight remains0.55m to local left and turned0.20rad, with a derived closed approach to the fitted deeper bridge landing.",
+    "geometry": "105closed authored tread/cap pieces at20 proportional levels. Actual rise follows the fitted hall elevation, while world stair bottom2.15m, width4.0m and physical run7.8m remain fixed. Closed cores, upper bearing wedge and derived soil/stone bridge approach remain grounded.",
     "runtimePBR": "assets/granite-tile-04/granite-face-{diff,nor_gl,rough}.png; metric repeat0.3173828125m; each stone uses a deterministic UV offset/quarter turn. Independent neutral-gray pigment, preserving actual mineral variation and normal/roughness.",
     "visualAccepted": false,
     "roundTwoCorrection": "Pillow-shaped shading corrected through actual hard wall/end/bottom normals after indexed closed-topology validation. Only the physical millimetre arris/top field remains smooth. Material/roughness/exposure unchanged from72a. Partition only the old cap to preserve rear/side placement and material, replacing its central front pale strip with five closed same-granite caps at the original bounds.",
     "currentPhysicalDimensions": {
-      "worldTopY": 5.25,
+      "worldTopY": 5.956238087180958,
       "worldBottomY": 2.15,
-      "height": 3.1,
-      "rise": 0.155,
+      "height": 3.8062380871809585,
+      "rise": 0.19031190435904793,
       "run": 0.39,
       "count": 20,
-      "width": 4.0,
+      "width": 4,
       "centerX": -0.55,
       "relativeYaw": 0.2
     }
@@ -270,5 +273,28 @@
     "surface": "Retained independent Poly Haven granite_tile_04 diffuse/normal/roughness, local metric UVs, neutral cool mineral pigment, high roughness and subdued normal strength. Uniform material gains export as standard PBR; no photographed scene RGB or custom image projection.",
     "placement": "Near toro base0.85m, scale1.83; stair-side base2.25m, scale0.82 on a connected boulder pocket.",
     "visualAccepted": false
+  },
+  "architecture106": {
+    "source": "src/architecture-layout106.js",
+    "builder": "tools/solve-architecture106.py",
+    "reference": "references/hd/2-照片-3.jpg comparison only",
+    "method": "Own03bounded least-squares fit of manually observed image landmarks to analytical weather/corner/shaft/bridge anchors. Field names and metric dimensions are inferred and uncertain. No05code import, photo RGB projection or recovered depth.",
+    "camera": "Low0.661m physical view; source-fit camera-only candidate was retained and rejected as insufficient. Actual hall/tower/bridge geometry changes carry the coupled candidate.",
+    "rmsLimit": "Manual-landmark RMS measures only those declared point correspondences; it is not a photographic-match score.",
+    "support": "Raised tower rests on a newly closed real soil/rock hill under the original stone base. Stair top follows the raised hall; a derived closed bank/path reaches the changed real bridge landing, with longer bearing caps supporting the deeper bridge deck.",
+    "photographicAccepted": false,
+    "carvedReceivers": "src/scene03-carved-receivers106.js: actual closed beveled pierced foliate plates, cupped slotted leaves and cast bosses fit actual timber end faces and gable ties. Motif identity is an interpretation. No bitmap/reference RGB/height guide used in these new parts.",
+    "towerRoomCorrection": "Second-through-fifth storeys now use closed infill around real open lattice apertures; lower retained storey uses closed articulated timber shutter fields. New cast receivers follow all common bearing transforms.",
+    "columnNecks": "Actual closed7mm hollow bronze sleeve sectors follow the shaft radius. Capital-relative shorter pierced foliate front castings replace tall rectangular placeholder shields; cast bolts join them to the sleeves. All new prototype solids have positive signed volume and zero quantized nonmanifold edges.",
+    "uncertainAnchorSemantics": "The fitted column-head identifier is an inferred upper-shaft datum0.30m below nominal capitalTop; the shaft itself reaches capitalTop. Visible ceramic endpoints are weather-profile samples with10–18px uncertainty because adjacent tail/cap geometry overlaps. Field names are not survey observations.",
+    "sourceFieldUncertainty": "Manually named upper-shaft, weather-corner, bridge-ball and curtain features are inferred correspondences with9–23px uncertainty. New derived stair socket coordinates follow the exact turned/offset physical flight; historical pre106layout paragraphs remain provenance only.",
+    "bridgeBodyRefinement": {
+      "builder": "tools/solve-architecture106-bridge.py",
+      "observationData": "qa/ten-reference/03/architecture106-bridge-fit/coupled-landmark-candidates.json",
+      "method": "After the coupled whole layout, hold its actual hall/tower/camera/bridge-end anchors fixed and refine measured deck/girder contours and bulb-cap image radii. Field names/terminal-post identification remain uncertain. The alternative globally moved body-fit candidate was rejected because its uncertain far terminal became a large outlier.",
+      "geometry": "0.919248m deck rise, closed girder depth0.297931m at ends to0.478053m at crown, constant retained1.10m railing camber with actual varying baluster lengths, ranked closed lathed bulb caps, and closed solid arch ribs meeting the real cross-joist undersides. Existing deck-end level/position and stone supports remain; route is derived from the actual endpoints.",
+      "scoreLimit": "Extended point/contour/radius RMS12.64px vs15.33px before this local body pass. This is a different41-feature dataset from the first29-feature whole-layout fit and is not photographic fidelity.",
+      "photographicAccepted": false
+    }
   }
 }

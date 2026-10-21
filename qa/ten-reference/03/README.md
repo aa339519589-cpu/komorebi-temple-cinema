@@ -1,3 +1,17 @@
+# Current Scene03 checkpoint — architecture106/r04
+
+Photographic acceptance remains false. The current coupled geometry, capture identities, contact views, motion and unresolved source-field ambiguities are recorded in [architecture106-r04-review.md](architecture106-r04-review.md) and [architecture106-r04-review.json](architecture106-r04-review.json). The current low camera and geometry parameters are source03local; no active scene05code is imported. All source photographs remain comparison-only.
+
+The receipts below are preserved historical stages.
+
+# Reference03 current reconstruction status —2026-10-21
+
+Current candidate: living-garden105/r05. Photographic acceptance remains false. Current source, actual capture identities, modeling changes, licensed dependencies and remaining limitations are recorded in [living-garden105-r05-review.md](living-garden105-r05-review.md) and [living-garden105-r05-review.json](living-garden105-r05-review.json).
+
+The physical reference camera is `[-2.4,0.72,18.2] → [1.6,7.1,-3]`, vertical FOV58°. Independent CC0 original-topology shrub/periwinkle/rock assets and independently sourced timber/granite maps are now used; early all-code/no-external-assets receipts below describe superseded revisions. Runtime still does not use source-photo RGB, inferred depth or replacement scene frames.
+
+## Historical early receipts — superseded
+
 # Reference 03 reconstruction
 
 - Reference inspected at full resolution: `references/hd/2-照片-3.jpg`.

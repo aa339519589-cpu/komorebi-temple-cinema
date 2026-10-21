@@ -1,0 +1,782 @@
+{
+  "scope": "Manual oblique image correspondences and analytical actual-world candidate anchors, not recovered survey/depth or photographic fidelity",
+  "reference": "references/hd/2-\u7167\u7247-3.jpg",
+  "readableOverlay": "source-left-native-r02-anchor-overlay.png",
+  "observations": [
+    {
+      "name": "main upper left ceramic corner",
+      "fieldInterpretation": "hall_eave",
+      "argument": [
+        "upper",
+        -1
+      ],
+      "observed": [
+        480,
+        262
+      ],
+      "uncertaintyPixels": 14,
+      "world": [
+        -1.4941196313745735,
+        17.382058750649048,
+        -6.363324369041191
+      ],
+      "projected": [
+        482.9196760453727,
+        262.1494059886559
+      ],
+      "error": [
+        2.9196760453726824,
+        0.14940598865587162
+      ],
+      "distance": 2.923496256089497
+    },
+    {
+      "name": "main lower left ceramic corner",
+      "fieldInterpretation": "hall_eave",
+      "argument": [
+        "lower",
+        -1
+      ],
+      "observed": [
+        405,
+        441
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -3.120258063221412,
+        12.774498134045787,
+        -7.063695914174139
+      ],
+      "projected": [
+        405.66149187230457,
+        439.7685065651524
+      ],
+      "error": [
+        0.6614918723045662,
+        -1.2314934348476072
+      ],
+      "distance": 1.3979082864042829
+    },
+    {
+      "name": "front dormer crown weather line",
+      "fieldInterpretation": "gable",
+      "argument": null,
+      "observed": [
+        781,
+        76
+      ],
+      "uncertaintyPixels": 10,
+      "world": [
+        5.046612142835,
+        20.503101403555,
+        -2.397025469301901
+      ],
+      "projected": [
+        782.0751506404566,
+        74.92291150175924
+      ],
+      "error": [
+        1.0751506404566271,
+        -1.0770884982407551
+      ],
+      "distance": 1.5218635065986768
+    },
+    {
+      "name": "left inner shaft head",
+      "fieldInterpretation": "column",
+      "argument": [
+        -2.86,
+        "head"
+      ],
+      "observed": [
+        684,
+        499
+      ],
+      "uncertaintyPixels": 16,
+      "world": [
+        2.978832022380434,
+        10.551620032023967,
+        -4.204052474646617
+      ],
+      "projected": [
+        683.4722538686591,
+        497.34544666989916
+      ],
+      "error": [
+        -0.5277461313409049,
+        -1.654553330100839
+      ],
+      "distance": 1.736681519822523
+    },
+    {
+      "name": "left inner bearing foot",
+      "fieldInterpretation": "column",
+      "argument": [
+        -2.86,
+        "foot"
+      ],
+      "observed": [
+        686,
+        690
+      ],
+      "uncertaintyPixels": 20,
+      "world": [
+        2.978832022380434,
+        5.956238087180958,
+        -4.204052474646617
+      ],
+      "projected": [
+        686.5997995458183,
+        703.0366355872777
+      ],
+      "error": [
+        0.5997995458183141,
+        13.036635587277715
+      ],
+      "distance": 13.050426312218296
+    },
+    {
+      "name": "right inner shaft head",
+      "fieldInterpretation": "column",
+      "argument": [
+        2.86,
+        "head"
+      ],
+      "observed": [
+        948,
+        448
+      ],
+      "uncertaintyPixels": 16,
+      "world": [
+        7.530764892109343,
+        10.551620032023967,
+        -0.9057594657678099
+      ],
+      "projected": [
+        945.0867848129506,
+        448.6501248476284
+      ],
+      "error": [
+        -2.9132151870494454,
+        0.6501248476283763
+      ],
+      "distance": 2.9848760516241466
+    },
+    {
+      "name": "right inner bearing foot",
+      "fieldInterpretation": "column",
+      "argument": [
+        2.86,
+        "foot"
+      ],
+      "observed": [
+        958,
+        668
+      ],
+      "uncertaintyPixels": 20,
+      "world": [
+        7.530764892109343,
+        5.956238087180958,
+        -0.9057594657678099
+      ],
+      "projected": [
+        964.6286183871379,
+        673.8328569308934
+      ],
+      "error": [
+        6.6286183871378626,
+        5.832856930893399
+      ],
+      "distance": 8.82954142062731
+    },
+    {
+      "name": "portal threshold centre",
+      "fieldInterpretation": "threshold",
+      "argument": null,
+      "observed": [
+        832,
+        690
+      ],
+      "uncertaintyPixels": 18,
+      "world": [
+        5.618583991109714,
+        5.956238087180958,
+        -3.0569618290025113
+      ],
+      "projected": [
+        827.3673330082805,
+        695.693957652379
+      ],
+      "error": [
+        -4.632666991719475,
+        5.6939576523790265
+      ],
+      "distance": 7.340487531714283
+    },
+    {
+      "name": "portal carved lintel centre",
+      "fieldInterpretation": "portal",
+      "argument": null,
+      "observed": [
+        835,
+        515
+      ],
+      "uncertaintyPixels": 21,
+      "world": [
+        5.618583991109714,
+        9.935411166398946,
+        -3.0569618290025113
+      ],
+      "projected": [
+        817.9581396934458,
+        511.9690695850417
+      ],
+      "error": [
+        -17.041860306554213,
+        -3.030930414958277
+      ],
+      "distance": 17.309290623489662
+    },
+    {
+      "name": "white curtain upper midpoint",
+      "fieldInterpretation": "curtain",
+      "argument": 1,
+      "observed": [
+        780,
+        545
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        4.421813336658035,
+        8.818715832062344,
+        -2.108796121507738
+      ],
+      "projected": [
+        778.9840512152829,
+        542.157090079119
+      ],
+      "error": [
+        -1.015948784717125,
+        -2.8429099208809703
+      ],
+      "distance": 3.0189880343273385
+    },
+    {
+      "name": "white curtain lower midpoint",
+      "fieldInterpretation": "curtain",
+      "argument": -1,
+      "observed": [
+        780,
+        638
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        4.421813336658035,
+        6.851226289634381,
+        -2.108796121507738
+      ],
+      "projected": [
+        782.8265189411798,
+        637.188672660868
+      ],
+      "error": [
+        2.8265189411797564,
+        -0.811327339132049
+      ],
+      "distance": 2.9406566232851845
+    },
+    {
+      "name": "tower tier1 far left corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        0,
+        "left"
+      ],
+      "observed": [
+        105,
+        601
+      ],
+      "uncertaintyPixels": 20,
+      "world": [
+        -10.580297435468852,
+        9.682197330902,
+        -11.663221075421802
+      ],
+      "projected": [
+        105.2674116753397,
+        604.4564763026596
+      ],
+      "error": [
+        0.26741167533970156,
+        3.456476302659553
+      ],
+      "distance": 3.4668050759964912
+    },
+    {
+      "name": "tower tier1 near hip corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        0,
+        "front"
+      ],
+      "observed": [
+        282,
+        548
+      ],
+      "uncertaintyPixels": 22,
+      "world": [
+        -5.664279827170127,
+        9.682197330902,
+        -6.998421783898193
+      ],
+      "projected": [
+        283.8150406528413,
+        554.2576101985945
+      ],
+      "error": [
+        1.815040652841276,
+        6.257610198594534
+      ],
+      "distance": 6.515524381737882
+    },
+    {
+      "name": "tower tier2 far left corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        1,
+        "left"
+      ],
+      "observed": [
+        124,
+        506
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -10.443428622614247,
+        12.317630213696724,
+        -11.66680990851859
+      ],
+      "projected": [
+        123.77106053660249,
+        509.7654780348794
+      ],
+      "error": [
+        -0.22893946339750926,
+        3.7654780348793793
+      ],
+      "distance": 3.772431325956751
+    },
+    {
+      "name": "tower tier2 near hip corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        1,
+        "front"
+      ],
+      "observed": [
+        292,
+        451
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -5.667868660266915,
+        12.317630213696724,
+        -7.135290596752798
+      ],
+      "projected": [
+        293.90558305439276,
+        450.3927800441034
+      ],
+      "error": [
+        1.905583054392764,
+        -0.6072199558965963
+      ],
+      "distance": 1.999990712985418
+    },
+    {
+      "name": "tower tier3 far left corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        2,
+        "left"
+      ],
+      "observed": [
+        138,
+        416
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -10.31416363269601,
+        14.953063096491448,
+        -11.67019936199889
+      ],
+      "projected": [
+        141.0482166943124,
+        419.8005349564473
+      ],
+      "error": [
+        3.0482166943124014,
+        3.8005349564472795
+      ],
+      "distance": 4.871928875780367
+    },
+    {
+      "name": "tower tier3 near hip corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        2,
+        "front"
+      ],
+      "observed": [
+        300,
+        359
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -5.671258113747214,
+        14.953063096491448,
+        -7.264555586671035
+      ],
+      "projected": [
+        303.3346904257263,
+        352.97615706138987
+      ],
+      "error": [
+        3.3346904257263077,
+        -6.02384293861013
+      ],
+      "distance": 6.885262811576173
+    },
+    {
+      "name": "tower tier4 far left corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        3,
+        "left"
+      ],
+      "observed": [
+        155,
+        329
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -10.184898642777773,
+        17.588495979286172,
+        -11.673588815479189
+      ],
+      "projected": [
+        157.48105236347496,
+        334.2321050540684
+      ],
+      "error": [
+        2.4810523634749586,
+        5.232105054068427
+      ],
+      "distance": 5.790556460920924
+    },
+    {
+      "name": "tower tier4 near hip corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        3,
+        "front"
+      ],
+      "observed": [
+        309,
+        270
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -5.674647567227513,
+        17.588495979286172,
+        -7.393820576589272
+      ],
+      "projected": [
+        312.1869077935701,
+        261.5196609241224
+      ],
+      "error": [
+        3.1869077935700716,
+        -8.480339075877623
+      ],
+      "distance": 9.059389169617045
+    },
+    {
+      "name": "tower tier5 far left corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        4,
+        "left"
+      ],
+      "observed": [
+        174,
+        246
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -10.048029829923166,
+        20.223928862080896,
+        -11.677177648575976
+      ],
+      "projected": [
+        173.41220501993112,
+        252.7779448605549
+      ],
+      "error": [
+        -0.5877949800688782,
+        6.777944860554896
+      ],
+      "distance": 6.803384413019502
+    },
+    {
+      "name": "tower tier5 near hip corner",
+      "fieldInterpretation": "tower",
+      "argument": [
+        4,
+        "front"
+      ],
+      "observed": [
+        319,
+        178
+      ],
+      "uncertaintyPixels": 13,
+      "world": [
+        -5.6782364003243,
+        20.223928862080896,
+        -7.530689389443878
+      ],
+      "projected": [
+        320.52786189645155,
+        175.68473134780368
+      ],
+      "error": [
+        1.5278618964515545,
+        -2.3152686521963233
+      ],
+      "distance": 2.7739558227324963
+    },
+    {
+      "name": "tower gilt finial tip",
+      "fieldInterpretation": "tower_finial",
+      "argument": null,
+      "observed": [
+        357,
+        54
+      ],
+      "uncertaintyPixels": 9,
+      "world": [
+        -5.789888985557685,
+        28.029165481301085,
+        -11.78883023380936
+      ],
+      "projected": [
+        346.27670657239645,
+        52.44893186521216
+      ],
+      "error": [
+        -10.72329342760355,
+        -1.5510681347878403
+      ],
+      "distance": 10.83488967609914
+    },
+    {
+      "name": "bridge near principal ball 4",
+      "fieldInterpretation": "bridge",
+      "argument": [
+        4,
+        1
+      ],
+      "observed": [
+        164,
+        585
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        -4.630784936337525,
+        3.726877457890906,
+        8.123781000188584
+      ],
+      "projected": [
+        167.62512997040474,
+        610.1278763688554
+      ],
+      "error": [
+        3.6251299704047426,
+        25.127876368855368
+      ],
+      "distance": 25.388023517217853
+    },
+    {
+      "name": "bridge near principal ball 8",
+      "fieldInterpretation": "bridge",
+      "argument": [
+        8,
+        1
+      ],
+      "observed": [
+        425,
+        602
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        -2.440132970735918,
+        3.726877457890906,
+        8.961444571699293
+      ],
+      "projected": [
+        418.3639324561352,
+        594.6895850464507
+      ],
+      "error": [
+        -6.636067543864783,
+        -7.310414953549298
+      ],
+      "distance": 9.873173716683645
+    },
+    {
+      "name": "bridge near principal ball 12",
+      "fieldInterpretation": "bridge",
+      "argument": [
+        12,
+        1
+      ],
+      "observed": [
+        678,
+        707
+      ],
+      "uncertaintyPixels": 14,
+      "world": [
+        -0.24948100513431015,
+        2.749099680113128,
+        9.799108143209999
+      ],
+      "projected": [
+        693.555483383053,
+        694.7776861493252
+      ],
+      "error": [
+        15.555483383053001,
+        -12.222313850674823
+      ],
+      "distance": 19.782770765108605
+    },
+    {
+      "name": "bridge far principal ball 12",
+      "fieldInterpretation": "bridge",
+      "argument": [
+        12,
+        -1
+      ],
+      "observed": [
+        764,
+        757
+      ],
+      "uncertaintyPixels": 20,
+      "world": [
+        0.6676677788533327,
+        2.749099680113128,
+        7.4005870009234975
+      ],
+      "projected": [
+        727.4405836549546,
+        752.652709365613
+      ],
+      "error": [
+        -36.559416345045406,
+        -4.347290634387036
+      ],
+      "distance": 36.81697786823631
+    },
+    {
+      "name": "near granite toro finial",
+      "fieldInterpretation": "fixed",
+      "argument": [
+        6.25,
+        6.523,
+        8
+      ],
+      "observed": [
+        1212,
+        424
+      ],
+      "uncertaintyPixels": 17,
+      "world": [
+        6.25,
+        6.523,
+        8.0
+      ],
+      "projected": [
+        1212.3724993863493,
+        428.14202589513604
+      ],
+      "error": [
+        0.37249938634931823,
+        4.142025895136044
+      ],
+      "distance": 4.158741914186088
+    },
+    {
+      "name": "near lotus pollen centre",
+      "fieldInterpretation": "fixed",
+      "argument": [
+        -2.3,
+        0.6925,
+        14.731
+      ],
+      "observed": [
+        422,
+        970
+      ],
+      "uncertaintyPixels": 16,
+      "world": [
+        -2.3,
+        0.6925,
+        14.731
+      ],
+      "projected": [
+        423.05455023884866,
+        959.543261758855
+      ],
+      "error": [
+        1.0545502388486625,
+        -10.45673824114499
+      ],
+      "distance": 10.509778820226417
+    },
+    {
+      "name": "closed foreground bud tip",
+      "fieldInterpretation": "fixed",
+      "argument": [
+        -2.763,
+        0.637,
+        16.45
+      ],
+      "observed": [
+        130,
+        975
+      ],
+      "uncertaintyPixels": 23,
+      "world": [
+        -2.763,
+        0.637,
+        16.45
+      ],
+      "projected": [
+        128.89073970088126,
+        986.5756169481405
+      ],
+      "error": [
+        -1.1092602991187448,
+        11.575616948140464
+      ],
+      "distance": 11.628644209076041
+    }
+  ],
+  "baselineRmsPixels": 48.91776268992983,
+  "cameraOnlyRmsPixels": 42.33355472907771,
+  "coupledRmsPixels": 11.48755175059185,
+  "sourceFieldUncertainty": "Names such as upper-shaft/head and weather corner are inferred. Shaft head marker is0.30m below nominal capitalTop, not the shaft endpoint. Adjacent ceramic tails/caps complicate exact edges.",
+  "baselineApproximation": "Legacy tower eaves9.4/14.6m are approximated by mean2.55m pitch9.45/14.55m in the CPU baseline; this is at most roughly2px and within the stated uncertainty. Actual current106runtime uses the fitted common pitch.",
+  "scaleUncertainty": "FOV, camera/site dimensions and the unseen geometry are bounded reconstruction hypotheses with priors, not uniquely recovered metric dimensions.",
+  "photographicAccepted": false
+}

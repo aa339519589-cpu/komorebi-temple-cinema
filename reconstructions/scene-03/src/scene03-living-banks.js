@@ -2,7 +2,7 @@ import * as T from 'three';
 
 // Measured-looking garden volumes are still reconstruction hypotheses.
 // Every planting position below is evaluated on an authored soil/rock body.
-export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,bark,leaf,hallPlacement,stairPlacement,gardenAssets,rocks}){
+export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,bark,leaf,hallPlacement,stairPlacement,gardenAssets,rocks,bridgeModel}){
  let seed=10533872;const rnd=()=>{seed=(Math.imul(seed,1664525)+1013904223)|0;return(seed>>>0)/4294967296;},range=(a,b)=>a+(b-a)*rnd();
  const azaleaPink=[mat('azalea shell pink105','#e8a0b7',.72),mat('azalea ivory blush105','#f4d9d1',.77),mat('azalea deep rose105','#bd6d92',.78)];
  for(const m of azaleaPink)m.side=T.DoubleSide;
@@ -10,8 +10,15 @@ export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,
  const leafGeometry=(()=>{const p=[],uv=[],indices=[],n=9;for(let j=0;j<=n;j++){const t=j/n,w=.032*Math.sin(Math.PI*t)**.73;for(const side of[-1,0,1]){p.push(side*w,.014*Math.sin(Math.PI*t)*(1-.85*Math.abs(side)),t*.12);uv.push((side+1)/2,t);}}for(let j=0;j<n;j++)for(let k=0;k<2;k++){const a=j*3+k;indices.push(a,a+3,a+1,a+1,a+3,a+4);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(indices);g.computeVertexNormals();return g;})();
  const flowerGeometry=(()=>{const p=[],uv=[],ids=[],n=40,rings=7;for(let j=0;j<=rings;j++)for(let i=0;i<n;i++){const r=j/rings,a=i/n*Math.PI*2,rr=r*.041*(.67+.33*Math.cos(a*5));p.push(Math.cos(a)*rr,.020*(1-r)**2+.006*Math.sin(a*5)*r*r,Math.sin(a)*rr);uv.push(.5+Math.cos(a)*r*.5,.5+Math.sin(a)*r*.5);}for(let j=0;j<rings;j++)for(let i=0;i<n;i++){const a=j*n+i,b=j*n+(i+1)%n,c=a+n,d=b+n;ids.push(a,c,b,b,c,d);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);g.computeVertexNormals();return g;})();
  const soilBodies=[];let plantedShrubs=0,azaleaSprigs=0,irises=0;
- const bankOffset=z=>.55*T.MathUtils.smoothstep((z-.22)/7,.20,.94),
-  bankY=(x,z)=>stairPlacement.bottomWorldY+(4+hallPlacement.y-.11-stairPlacement.bottomWorldY)*Math.pow(Math.max(0,1-(z-.22)/7.5),1.03)+.06*Math.sin(x*2.7+z*2.1)-.52*Math.exp(-(((x-2.38)/.62)**2+((z-6.12)/.67)**2));
+ const flightMatrix=new T.Matrix4().makeTranslation(hallPlacement.x,0,hallPlacement.z-4).multiply(new T.Matrix4().makeRotationY(hallPlacement.yaw)).multiply(new T.Matrix4().makeTranslation(0,0,4)).multiply(new T.Matrix4().makeRotationY(stairPlacement.relativeYaw)).multiply(new T.Matrix4().makeTranslation(stairPlacement.centerX,0,0)),inverseFlight=flightMatrix.clone().invert(),
+  pocket=new T.Vector3(4.216,2.25,4.369).applyMatrix4(inverseFlight),
+  baseBankY=(x,z)=>stairPlacement.bottomWorldY+(4+hallPlacement.y-.11-stairPlacement.bottomWorldY)*Math.pow(Math.max(0,1-(z-.22)/7.5),1.03)+.06*Math.sin(x*2.7+z*2.1),
+  pocketDepth=Math.max(0,baseBankY(pocket.x,pocket.z)-2.25),
+  bankOffset=z=>.55*T.MathUtils.smoothstep((z-.22)/7,.20,.94),
+  bankY=(x,z)=>baseBankY(x,z)-pocketDepth*Math.exp(-(((x-pocket.x)/.62)**2+((z-pocket.z)/.67)**2)),
+  bridgeEndWorld=new T.Vector3(bridgeModel.span/2,1.13,0).applyMatrix4(new T.Matrix4().makeTranslation(...bridgeModel.position).multiply(new T.Matrix4().makeRotationY(bridgeModel.yaw))),
+  bridgeEndLocal=bridgeEndWorld.clone().applyMatrix4(inverseFlight),routeEndZ=bridgeEndLocal.z,routeEndX=bridgeEndLocal.x,routeEndY=bridgeEndWorld.y,routeLength=routeEndZ-stairPlacement.run;
+ if(!(routeLength>1&&routeLength<7))throw Error('Stair-to-bridge route requires a coherent positive physical span');
  function closedSurface(P,nX,nZ,baseY,tag){
   const p=[],uv=[],tri=(a,b,c)=>{for(const v of[a,b,c]){p.push(...v);uv.push(v[0]*1.8,v[2]*1.8);}};
   for(let j=0;j<nZ;j++)for(let i=0;i<nX;i++){const a=P(i,j),b=P(i+1,j),c=P(i,j+1),d=P(i+1,j+1);tri(a,c,b);tri(b,c,d);}
@@ -48,29 +55,29 @@ export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,
    }
    // Irregular mixed patches replace the former identical hemispheres.
    for(let b=0;b<49;b++){
-    const z=range(.45,7.28),x=side*(inner(z)+range(.28,4.05)),y=bankY(x,z)-.14,s=range(.62,1.02),v=b%4;if((x-2.38)**2+(z-6.12)**2<.68**2)continue;
+    const z=range(.45,7.28),x=side*(inner(z)+range(.28,4.05)),y=bankY(x,z)-.14,s=range(.62,1.02),v=b%4;if((x-pocket.x)**2+(z-pocket.z)**2<.68**2)continue;
     gardenAssets.plant('shrub',v,[x,y,z],[s*range(.82,1.22),s*range(.8,1.07),s],[range(-.07,.07),range(0,6.28),range(-.06,.06)],range(.88,1.16));plantedShrubs++;
     for(let k=0;k<4;k++){const xx=x+range(-.44,.44),zz=z+range(-.38,.38);if(Math.abs(xx)<inner(zz)+.10)continue;gardenAssets.plant('groundcover',b+k,[xx,bankY(xx,zz)-.14,zz],[range(1.2,2.2),range(1.1,1.9),range(1.2,2.2)],[range(-.05,.05),range(0,6.28),range(-.05,.05)],range(.94,1.16));}
     sprig(x,y,z,range(.53,.86),range(.58,1.02),b);
    }
    for(let i=0;i<10;i++){const z=.6+i*.65,x=side*(inner(z)+.28),y=bankY(x,z)-.08;gardenAssets.plant('groundcover',i,[x,y-.06,z],[2,1.7,2],[0,range(0,6.28),0],1.08);if(i%3===1)iris(x,y,z,range(.46,.72));}
   }
-  const pathCentre=z=>.066*(z-7.8),pathY=z=>2.15-.47*T.MathUtils.clamp((z-7.8)/3.2,0,1),
-   apronY=(x,z)=>{const t=T.MathUtils.clamp((z-7.65)/3.9,0,1),base=2.15*(1-t)**1.2*(.80+.20*Math.cos(x*.65)),ridge=pathY(z)*(1-T.MathUtils.smoothstep(Math.abs(x-pathCentre(z)),.55,1.05))*(1-T.MathUtils.smoothstep(z,11.0,11.55));return Math.max(base,ridge)+.025*Math.sin(x*5+z*4);};
-  closedSurface((i,j)=>{const z=7.65+3.9*j/26,x=(-1+2*i/32)*(7.4-3.3*j/26)*(1+.014*Math.sin(z*2.7));return[x,apronY(x,z)-.06,z];},32,26,-.50,'scene03-closed-stair-to-bridge-rock-apron105');
+  const apronLength=routeEndZ+.55-7.65,pathCentre=z=>routeEndX*T.MathUtils.clamp((z-7.8)/routeLength,0,1),pathY=z=>stairPlacement.bottomWorldY+(routeEndY-stairPlacement.bottomWorldY)*T.MathUtils.clamp((z-7.8)/routeLength,0,1),
+   apronY=(x,z)=>{const t=T.MathUtils.clamp((z-7.65)/apronLength,0,1),base=2.15*(1-t)**1.2*(.80+.20*Math.cos(x*.65)),ridge=pathY(z)*(1-T.MathUtils.smoothstep(Math.abs(x-pathCentre(z)),.55,1.05))*(1-T.MathUtils.smoothstep(z,routeEndZ,routeEndZ+.55));return Math.max(base,ridge)+.025*Math.sin(x*5+z*4);};
+  closedSurface((i,j)=>{const z=7.65+apronLength*j/26,x=(-1+2*i/32)*(7.4-3.3*j/26)*(1+.014*Math.sin(z*2.7));return[x,apronY(x,z)-.06,z];},32,26,-.50,'scene03-closed-stair-to-bridge-rock-apron105');
   for(let j=0;j<9;j++)for(let k=0;k<11;k++){
-   const z=7.78+j*.40+range(-.07,.07),x=-4.35+k*.84+range(-.15,.15),y=apronY(x,z),r=range(.43,.76);if(Math.abs(x-pathCentre(z))<.71)continue;
+   const z=7.78+j*(apronLength-.30)/8+range(-.07,.07),x=-4.35+k*.84+range(-.15,.15),y=apronY(x,z),r=range(.43,.76);if(Math.abs(x-pathCentre(z))<.71)continue;
    emit(rocks[(j+k)%rocks.length],bankStone,[x,y-.10,z],[r,r*range(.65,.95),r*range(.85,1.25)],[range(-.1,.1),range(0,6.28),range(-.1,.1)],range(.89,1.17));
    if((j+k)%3===0)gardenAssets.plant('groundcover',j+k,[x,y-.09,z],[1.6,1.5,1.6],[0,range(0,6.28),0],1.08);
    if((j+k)%5===0)sprig(x,y,z,.43,.54,j+k);
   }
   // A walkable supported stone approach joins the raised stair foot to
   // the fixed bridge landing. Adjacent planting sits below this ridge.
-  for(let j=0;j<12;j++){const z=7.82+j*.268,y=pathY(z);box([pathCentre(z),y+.014,z],[1.04,.15,.29],bankStone,[0,.066+range(-.025,.025),0]);}
+  const pathCount=Math.ceil(routeLength/.268);for(let j=0;j<pathCount;j++){const z=7.82+j*routeLength/pathCount,y=pathY(z);box([pathCentre(z),y+.014,z],[1.04,.15,routeLength/pathCount+.025],bankStone,[0,Math.atan2(routeEndX,routeLength)+range(-.025,.025),0]);}
   // Close the former square cutoff at the outer bank ends with a real
   // tapered earth shoulder, stone masses and roots evaluated on its top.
   for(const sign of[-1,1])for(let j=0;j<23;j++){
-   const z=range(7.8,10.4),t=(z-7.65)/3.9,outer=7.4-3.3*t,x=sign*range(Math.min(4.4,outer-.7),outer-.24),y=apronY(x,z),r=range(.42,.74);
+   const z=range(7.8,routeEndZ-.5),t=(z-7.65)/apronLength,outer=7.4-3.3*t,x=sign*range(Math.min(4.4,outer-.7),outer-.24),y=apronY(x,z),r=range(.42,.74);
    emit(rocks[j%rocks.length],bankStone,[x,y-.15,z],[r,r*.80,r*range(.85,1.15)],[0,range(0,6.28),0],range(.91,1.13));
    sprig(x,y-.08,z,range(.45,.72),range(.48,.77),j);
    gardenAssets.plant('groundcover',j,[x,y-.10,z],[1.9,1.6,1.9],[0,range(0,6.28),0],1.04);
@@ -98,5 +105,5 @@ export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,
  // leaves around a shaft whose bottom had no bearing surface.
  gardenAssets.plant('rock',2,[6.25,.32,8.0],[2.0,.73,1.8],[0,.2,0],1.03);
  emit(rocks[3],bankStone,[4.216,1.77,4.369],[.72,.72,.72],[0,.35,0],1.06);
- return{info(){return{revision:'living-garden105',closedSoilBodies:soilBodies,rootedShrubs:plantedShrubs,rootedAzaleaSprigs:azaleaSprigs,rootedIrisFans:irises,scannedAssets:gardenAssets.info(),stairOpeningPreserved:true,photographicAccepted:false};}};
+ return{info(){return{revision:'living-garden105-route106',closedSoilBodies:soilBodies,route:{bridgeWorld:bridgeEndWorld.toArray(),bridgeInStairFrame:bridgeEndLocal.toArray(),length:routeLength},rootedShrubs:plantedShrubs,rootedAzaleaSprigs:azaleaSprigs,rootedIrisFans:irises,scannedAssets:gardenAssets.info(),stairOpeningPreserved:true,photographicAccepted:false};}};
 }

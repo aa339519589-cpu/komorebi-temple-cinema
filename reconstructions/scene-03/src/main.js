@@ -18,6 +18,8 @@ import {buildArchedBridge03} from './scene03-arched-bridge.js';
 import {loadScene03GardenAssets} from './scene03-garden-assets.js';
 import {createCarvedToro03} from './scene03-carved-toro.js';
 import {buildLivingBanks03} from './scene03-living-banks.js';
+import {ARCHITECTURE106 as fit106} from './architecture-layout106.js';
+import {buildTowerGround106} from './scene03-tower-ground106.js';
 
 const q=new URLSearchParams(location.search),W=Math.min(2400,+(q.get('w')||960)),H=Math.min(2400,+(q.get('h')||960));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
@@ -48,7 +50,7 @@ const skyDome=new T.Mesh(new T.SphereGeometry(150,64,32),new T.ShaderMaterial({s
 const grain=tex('wood'),speck=tex('stone');for(let m of[wood,woodDark,bark]){m.map=grain;m.bumpMap=grain;m.bumpScale=.025}for(const m of[stone,bankStone]){m.map=speck;m.bumpMap=speck;m.bumpScale=m===bankStone?.026:.028;}
 scene.add(new T.HemisphereLight('#d4e7ff','#66563b',1.30));const sun=new T.DirectionalLight('#ffd19a',5.5);sun.position.set(-20,21,16);sun.castShadow=true;sun.shadow.mapSize.set(3072,3072);Object.assign(sun.shadow.camera,{left:-29,right:29,top:32,bottom:-17,near:1,far:90});sun.shadow.normalBias=.045;sun.shadow.bias=-.00014;scene.add(sun);scene.add(sun.target);const pondBounce=new T.DirectionalLight('#e8d9bb',.80);pondBounce.position.set(-5,7,21);pondBounce.target.position.set(3,9,-3);scene.add(pondBounce,pondBounce.target);
 // The double-roofed sanctuary is deliberately offset right and very close to the pond.
-const architecture=buildReference4Architecture(T,{stairTopY:4.0,stairBottomZ:stairPlacement.run,stairWidth:stairPlacement.width,stairBottomWorldY:stairPlacement.bottomWorldY,stairYawRelative:stairPlacement.relativeYaw,stairCenterX:stairPlacement.centerX,lowerRoofWidth:17.4,capitalTop:9.1,ridgeY:19.6,hallElevation:hallPlacement.y,hallYaw:hallPlacement.yaw,towerPosition:[-5.4-hallPlacement.x,-.4-hallPlacement.y,-11.3-hallPlacement.z],towerHeight:27.0,towerSceneScale:1.06});architecture.group.position.set(hallPlacement.x,hallPlacement.y,hallPlacement.z);scene.add(architecture.group);
+const architecture=buildReference4Architecture(T,{stairTopY:4.0,stairBottomZ:stairPlacement.run,stairWidth:stairPlacement.width,stairBottomWorldY:stairPlacement.bottomWorldY,stairYawRelative:stairPlacement.relativeYaw,stairCenterX:stairPlacement.centerX,bodyWidthScale:fit106.facade.bodyWidthScale,portalHeight:fit106.facade.portalHeight,lowerRoofWidth:fit106.roof.lowerWidth,lowerEave:fit106.roof.lowerEave,upperRoofWidth:fit106.roof.upperWidth,upperEave:fit106.roof.upperEave,gablePeak:fit106.roof.gablePeak,gableCenter:fit106.roof.gableCenter,capitalTop:fit106.facade.capitalTop,ridgeY:fit106.roof.ridgeY,hallElevation:hallPlacement.y,hallYaw:hallPlacement.yaw,towerPosition:fit106.tower.position.map((v,i)=>v-[hallPlacement.x,hallPlacement.y,hallPlacement.z][i]),towerHeight:fit106.tower.finialHeight,towerSceneScale:fit106.tower.scale,towerYaw:fit106.tower.yaw,towerPitch:fit106.tower.pitch,towerWidthScale:fit106.tower.widthScale});architecture.group.position.set(hallPlacement.x,hallPlacement.y,hallPlacement.z);scene.add(architecture.group);
 architecture.materials.red.color.set('#84472f');architecture.materials.cedar.color.set('#75472f');architecture.materials.endwood.color.set('#785336');architecture.materials.darkwood.color.set('#302118');architecture.materials.slate.color.set('#2e414f');architecture.materials.slate.roughness=.72;architecture.materials.slate.bumpScale=.0015;architecture.materials.tileEdge.color.set('#687b86');architecture.materials.gold.color.set('#c6a157');architecture.materials.oldgold.color.set('#987442');
 architecture.materials.plaster.color.set('#b2a285');architecture.materials.stairBed.color.set('#85877e');architecture.materials.stairBed.map=speck;architecture.materials.stairBed.bumpMap=speck;architecture.materials.stairBed.bumpScale=.05;architecture.materials.stairBed.roughness=.94;
 for(const key of['red','cedar','endwood','darkwood'])architecture.materials[key].bumpScale=.006;
@@ -67,22 +69,23 @@ at([9.4,0,8.0],.10,()=>{
 box([0,-.65,-10],[70,1,38],bankEarth);for(let side of[-1,1]){box([side*15,-.48,7],[16,.7,32],bankEarth);}
 const rocks=Array.from({length:7},(_,i)=>granite(i+17));
 const gardenAssets=await loadScene03GardenAssets({emit,mats,textures});
+const towerGround106=buildTowerGround106({emit,bankEarth,bankStone,rocks,gardenAssets,spec:fit106.tower});
 const openPondChannel=(x,z)=>((x-1.4)/5.1)**2+((z-7.3)/4.4)**2<1.12;
 for(let i=0;i<118;i++){let z=range(2,17),x=(rand()<.5?-1:1)*range(z<7?5.2:7,13),s=range(.22,.85),py=range(-.15,.4),sy=s*range(.7,1.1),sz=s*range(.8,1.6),yaw=range(0,6.28),tint=range(.65,1.15),keep=!openPondChannel(x,z);if(keep)emit(rocks[i%7],bankStone,[x,py,z],[s,sy,sz],[0,yaw,0],tint);if(keep&&i%3===0)emit(rocks[i%7],moss,[x,s*.5,z],[s*.82,s*.26,s*.74]);}
 // Broad red arch runs diagonally across the midground, with individual plank joints.
-const bridgeModel=buildArchedBridge03(T,{at,emit,box,ell,between,sweep,wood,woodDark,gold,black,seal:bridgeSeal});
+const bridgeModel=buildArchedBridge03(T,{at,emit,box,ell,between,sweep,wood,woodDark,gold,black,seal:bridgeSeal},fit106.bridge);
 // Closed landing caps bear on two connected granite abutments down to the
 // pond bed. The arch remains open between them; neither deck end floats.
-at(bridgeModel.position,-.28,()=>{
+at(bridgeModel.position,bridgeModel.yaw,()=>{
  for(const sign of[-1,1]){
-  const x=sign*3.58;
+  const x=sign*(bridgeModel.span/2-.02),depthRatio=bridgeModel.deckDepth/1.94;
   emit(rocks[sign>0?4:1],bankStone,[x,-.25,0],[1.08,.77,1.48],[0,sign*.16,0],.94);
   for(let row=0;row<3;row++)for(let k=0;k<3;k++){
-   const z=-.72+k*.72,xx=x+.13*Math.sin(row*2.1+k*1.7);
+   const z=(-.72+k*.72)*depthRatio,xx=x+.13*Math.sin(row*2.1+k*1.7);
    emit(rocks[(row*3+k+(sign>0?2:4))%7],bankStone,[xx,-.25+row*.48,z],[.56+.045*Math.cos(k+row),.65,.58],[.07*Math.sin(k),sign*.22+row*.43,.05*Math.cos(row+k)],.90+.065*((k+row)%3));
   }
-  box([x,1.055,0],[.88,.15,2.15],stone);
-  for(const z of[-1.12,1.12]){emit(rocks[sign>0?5:1],bankStone,[x+sign*.30,-.05,z],[.72,.70,.60],[0,z*.5,0],1.02);for(let m=0;m<7;m++){const a=m*2.39996;ell([x+sign*.25+Math.cos(a)*.32,.40+.014*Math.sin(m),z+Math.sin(a)*.27],[.075,.013,.06],moss,.85+.03*m);}}
+  box([x,1.055,0],[.88,.15,2.15*depthRatio],stone);
+  for(const z of[-1.12*depthRatio,1.12*depthRatio]){emit(rocks[sign>0?5:1],bankStone,[x+sign*.30,-.05,z],[.72,.70,.60],[0,z*.5,0],1.02);for(let m=0;m<7;m++){const a=m*2.39996;ell([x+sign*.25+Math.cos(a)*.32,.40+.014*Math.sin(m),z+Math.sin(a)*.27],[.075,.013,.06],moss,.85+.03*m);}}
  }
 });
 function bridgeSeal(p,r){const [x,y,z]=p;sweep([[x,y+r,z],[x+r*.72,y,z],[x,y-r,z],[x-r*.72,y,z],[x,y+r,z]],.009,gold);for(const sign of[-1,1]){const pts=[];for(let i=0;i<22;i++){let t=i/21,a=t*Math.PI*2*1.15,rr=r*.70*(1-t*.65);pts.push([x+sign*r*.82+sign*Math.cos(a)*rr,y+Math.sin(a)*rr,z]);}sweep(pts,.008,gold);}ell([x,y,z],[r*.15,r*.15,.018],gold);}
@@ -95,7 +98,7 @@ gardenAssets.plant('rock',3,[-8.2,-.23,6.2],[1.25,.62,1.25],[0,.5,0],1.03);
 // Gold hanging fixtures, door curtains and chrysanthemum crests animate the hall facade.
 const curtain=mat('ivory woven noren','#e4dbc1');
 root=hallFixtureMatrix(T);
-for(let x of[1.6,5,8.4]){box([x,6.95,-2.15],[1.35,2.10,.045],x===5?curtain:architecture.materials.black);rosette([x,6.95,-2.1],.31);}
+for(let x of[1.6,5,8.4]){const centre=x===5,y=centre?fit106.facade.curtainY:6.60,xx=x+(centre?fit106.facade.curtainX:0),h=centre?fit106.facade.curtainHeight:1.80;box([xx,y,-2.15],[centre?1.16:1.22,h,.045],centre?curtain:architecture.materials.black);rosette([xx,y,-2.1],centre?.25:.28);}
 for(let x of[-.8,2.0,8.0,10.8]){between([x,8.4,-.9],[x,7.7,-.9],.022,gold);emit(new T.CylinderGeometry(.23,.18,.65,8),gold,[x,7.38,-.9]);box([x,7.38,-.655],[.25,.45,.015],warm);for(let k=0;k<6;k++)box([x-.14+k*.056,7.38,-.64],[.015,.46,.025],gold);ell([x,6.95,-.9],[.08,.18,.08],gold);}
 // A substantial openwork gilt hanging lantern occupies the sanctuary, with
 // actual radial ribs and rings revealing a warm paper core behind the metal.
@@ -112,9 +115,9 @@ const mapleShape=new T.Shape();for(let k=0;k<50;k++){let a=k/50*Math.PI*2,r=.20*
 for(let j=0;j<5;j++){let end=[-6.5+j*.9,10.7+j*.74,5.6-j*.4];between([-11,9.8,6.3],end,.05-j*.006,bark);for(let k=0;k<84;k++){let p=[end[0]+range(-1.28,1.28),end[1]+range(-.45,.45),end[2]+range(-1.28,1.28)];if(p[0]>-4.35&&p[0]<-3.50&&p[2]>3.7&&p[2]<6.2)continue;emit(mapleLeaf,leaf,p,[range(.65,1.1),1,range(.65,1.1)],[range(-.5,.4),range(0,6.28),range(-.3,.3)],range(.7,1.25));}}
 // The garden is rebuilt as closed supported slopes, with true rooted shrub,
 // groundcover and azalea branches. The photographed species remain authored.
-const livingGarden=buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,bark,leaf,hallPlacement,stairPlacement,gardenAssets,rocks});
+const livingGarden=buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,bark,leaf,hallPlacement,stairPlacement,gardenAssets,rocks,bridgeModel});
 // Small rooted plants inhabit the existing bridge abutment joints.
-at(bridgeModel.position,-.28,()=>{for(const sign of[-1,1])for(let j=0;j<8;j++){const x=sign*3.58+range(-.42,.42),z=(j%2?1:-1)*range(.8,1.13),y=.66+range(-.08,.08);gardenAssets.plant('groundcover',j,[x,y,z],[1.6,1.35,1.6],[0,range(0,6.28),0],1.08);}});
+at(bridgeModel.position,bridgeModel.yaw,()=>{for(const sign of[-1,1])for(let j=0;j<8;j++){const x=sign*(bridgeModel.span/2-.02)+range(-.42,.42),z=(j%2?1:-1)*range(.8,1.13),y=.66+range(-.08,.08);gardenAssets.plant('groundcover',j,[x,y,z],[1.6,1.35,1.6],[0,range(0,6.28),0],1.08);}});
 // Lotus surfaces use sculpted, radial pleats and separate curved veins.
 const leafMaterialSet=await createLotusLeafMaterial(),lotusLeaf=leafMaterialSet.material;mats.lotusLeaf=lotusLeaf;for(const t of leafMaterialSet.textures)textures.add(t);const lotusUnder=mat('lotus stems','#738346',.65);
 const lotusDeep=lotusLeaf.clone();lotusDeep.name='lotus-shaded-blue-green-tissue105';lotusDeep.color.multiply(new T.Color().setRGB(.72,.88,1.13)).multiplyScalar(.58);mats.lotusDeep105=lotusDeep;
@@ -170,6 +173,6 @@ function renderView(position,target,time=0,fov=58,focus=18){lens.uniforms.focusD
 function renderReference(n=3){if(n!==3)throw Error('Reference 03 only');return renderView(ref.position,ref.target,0,ref.fov)}
 const dolly=createDollyPath({points:[[-2.65,.68,16.55],[-2.65,.64,17.2],[-1.1,.45,18.4],ref.position],nearTarget:[-2.35,.52,15.5],farTarget:ref.target,fov:ref.fov});
 function renderShot(localTime=0){const p=dolly(localTime),nearFocus=Math.hypot(.30,.16,1.05),rack=T.MathUtils.smoothstep(p.phase,.04,.38),focus=1/((1-rack)/nearFocus+rack/18);return renderView(p.position,p.target,localTime,p.fov,focus);}
-function info(){return{reference:3,revision:'scene-03-hall-carpentry104-living-garden105',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},bridge:bridgeModel,stairPlacement:{...stairPlacement},livingGarden:livingGarden.info(),toros:toros.info(),optics:lens.userData.optics,water:{fresnelF0:((1.333-1)/(2.333))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,sanctuary:sanctuary.info,entryGranite:entryGranite.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored closed hall/gallery/carpentry, bridge girders, folded lotus solids and carved granite toro; rooted CC0 garden understory on closed banks, retained shrine and 105 granite stair/cap stones; no reference scene image textures'}}
+function info(){return{reference:3,revision:'scene-03-coupled-architecture106-living-garden105',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},bridge:bridgeModel,towerGround106,fit106,stairPlacement:{...stairPlacement},livingGarden:livingGarden.info(),toros:toros.info(),optics:lens.userData.optics,water:{fresnelF0:((1.333-1)/(2.333))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,sanctuary:sanctuary.info,entryGranite:entryGranite.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored closed hall/gallery/carpentry, bridge girders, folded lotus solids and carved granite toro; rooted CC0 garden understory on closed banks, retained shrine and 105 granite stair/cap stones; no reference scene image textures'}}
 function dispose(){entryGranite.dispose();sanctuary.dispose();ranma.dispose();scannedTimber.dispose();colourTarget.dispose();lens.dispose();water.dispose();water.geometry.dispose();waterBase.geometry.dispose();skyDome.geometry.dispose();skyDome.material.dispose();postScene.children.forEach(o=>o.geometry?.dispose());architecture.dispose();for(let g of geos)g.dispose();for(let t of textures)t.dispose();for(let m of Object.values(mats))m.dispose();pinks.forEach(m=>m.dispose());renderer.dispose()}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading').remove();if(!q.has('defer'))renderReference();

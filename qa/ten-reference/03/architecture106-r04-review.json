@@ -1,0 +1,192 @@
+{
+  "revision": "scene03-coupled-architecture106-r04",
+  "sourceHash": "9bedf0be0c48f4c69e511c39d4b7dc828b11defdba7199815704813134442b87",
+  "photographicAccepted": false,
+  "visualAccepted": false,
+  "sameSourceForAllFinalCaptures": true,
+  "scope": "Substantive coupled hall/tower/bridge geometry, camera, receiver/cuff/gable casting and connected site reconstruction after committedR105. No other scene/shared code edits and no commits by this lane.",
+  "captureManifest": {
+    "fullAndNativeDetail": {
+      "directory": "iteration-scene03-coupled-architecture106-r04-20261021",
+      "report": "iteration-scene03-coupled-architecture106-r04-20261021/report.json",
+      "status": "rendered-review",
+      "size": 1254,
+      "sourceHash": "9bedf0be0c48f4c69e511c39d4b7dc828b11defdba7199815704813134442b87",
+      "sourceCommit": "9fe3a42209ad76661b3810aca8d6349b7d3ce366"
+    },
+    "aboveContacts": {
+      "directory": "iteration-scene03-coupled-architecture106-above-r04-20261021",
+      "report": "iteration-scene03-coupled-architecture106-above-r04-20261021/report.json",
+      "status": "rendered-review",
+      "size": 1100,
+      "sourceHash": "9bedf0be0c48f4c69e511c39d4b7dc828b11defdba7199815704813134442b87",
+      "sourceCommit": "9fe3a42209ad76661b3810aca8d6349b7d3ce366"
+    },
+    "bridgeUnderside": {
+      "directory": "iteration-scene03-coupled-architecture106-bridge-contact-r04-20261021",
+      "report": "iteration-scene03-coupled-architecture106-bridge-contact-r04-20261021/report.json",
+      "status": "rendered-review",
+      "size": 1100,
+      "sourceHash": "9bedf0be0c48f4c69e511c39d4b7dc828b11defdba7199815704813134442b87",
+      "sourceCommit": "9fe3a42209ad76661b3810aca8d6349b7d3ce366"
+    },
+    "poses": {
+      "directory": "iteration-scene03-coupled-architecture106-poses-r04-20261021",
+      "report": "iteration-scene03-coupled-architecture106-poses-r04-20261021/report.json",
+      "status": "rendered-review",
+      "size": 960,
+      "sourceHash": "9bedf0be0c48f4c69e511c39d4b7dc828b11defdba7199815704813134442b87",
+      "sourceCommit": "801e2083c1edfd3abcd407b1ab1261e1bce1da5a"
+    },
+    "motion": {
+      "directory": "iteration-scene03-coupled-architecture106-motion-r04-20261021",
+      "report": "iteration-scene03-coupled-architecture106-motion-r04-20261021/report.json",
+      "status": "motion-review-rendered",
+      "size": 960,
+      "sourceHash": "9bedf0be0c48f4c69e511c39d4b7dc828b11defdba7199815704813134442b87",
+      "sourceCommit": "385c38ba2b5afab48726a1a0617be0ff18df0142"
+    }
+  },
+  "motion": {
+    "path": "iteration-scene03-coupled-architecture106-motion-r04-20261021/motion-review.mp4",
+    "width": 960,
+    "height": 960,
+    "fps": 24,
+    "frames": 168,
+    "durationSeconds": 7,
+    "decodeErrors": 0
+  },
+  "camera": {
+    "position": [
+      -2.331330310834279,
+      0.661353447176167,
+      18.426557513709813
+    ],
+    "target": [
+      1.3888848519642685,
+      6.9601463310820595,
+      -2.321579929158169
+    ],
+    "fov": 57.26005001579948
+  },
+  "hall": {
+    "x": 7.601801901534083,
+    "y": 1.956238087180958,
+    "z": -1.7939760269510718,
+    "yaw": -0.6270405458176589,
+    "pivotZ": -4
+  },
+  "stairs": {
+    "centerX": -0.55,
+    "relativeYaw": 0.2,
+    "worldTopY": 5.956238087180958,
+    "worldBottomY": 2.15
+  },
+  "towerSite": {
+    "closedBody": true,
+    "sitePosition": [
+      -5.789888985557685,
+      1.9552213309019997,
+      -11.78883023380936
+    ],
+    "plateauY": 1.8552213309019996,
+    "soilBottomY": -0.55,
+    "foundationBottomY": 1.6372213309019996,
+    "rootedUnderstory": 31,
+    "photographicAccepted": false
+  },
+  "bridge": {
+    "span": 7.036030602610563,
+    "deckDepth": 2.5678912675511314,
+    "deckRise": 0.9192483154225188,
+    "railingRise": 1.1,
+    "girderDepth": {
+      "ends": 0.29793104132973053,
+      "crown": 0.47805324559015466
+    },
+    "capScale": {
+      "base": 1.232456464387884,
+      "taper": 0.4646167964169182
+    },
+    "yaw": -0.3652258826653928,
+    "position": [
+      -3.0768845615429004,
+      0.3690996801131284,
+      7.343352214800687
+    ],
+    "closedArchGirders": true,
+    "closedJoistBearingArchRibs": true,
+    "referenceTexture": false
+  },
+  "route": {
+    "bridgeWorld": [
+      0.2090933868595113,
+      1.4990996801131282,
+      8.599847572066748
+    ],
+    "bridgeInStairFrame": [
+      0.5774860439911618,
+      1.4990996801131282,
+      12.242830994650376
+    ],
+    "length": 4.442830994650376
+  },
+  "carvedReceiverDetails": {
+    "bearingSets": 99,
+    "carvedReceiverFaces": 328,
+    "gableReceiverFaces": 16,
+    "wallClosed": true,
+    "construction": "Three stepped connected bearing levels, closed recessed gallery, fitted pierced/cupped cast foliate receiver faces"
+  },
+  "modeling": [
+    "One low common physical camera and actual hall/roof/column/tower/bridge dimensions jointly changed from own03manual world-anchor fit. New upper/lower eave widths/elevations, gable peak, hall site/columns, entrance lintel/cloth, tower pitch/site/finial and deeper bridge deck are consumed by actual geometry.",
+    "Raised tower foundation bears on a newly closed soil/rock hill. Stair top follows the fitted hall elevation; closed bank/apron and stone route are derived from the current real bridge endpoint.",
+    "328bearing/gallery receiver faces plus gable/column-neck motifs use new closed pierced/cupped leaf castings. Hollow7mm bronze sleeve sectors and cast fasteners replace tall generic neck shields; source motif identities remain interpretations.",
+    "Tower second-through-fifth rooms use closed infill around real lattice apertures. Lowest room remains a closed articulated timber field where the photograph does not expose a survey.",
+    "Bridge body has lower deck camber, variable-depth closed girders, separate retained railing camber with connected varying balusters, ranked one-piece lathed bulb caps and closed solid arch ribs bearing on actual transverse-joist undersides. End bearing levels remain fixed."
+  ],
+  "fitPolicy": {
+    "firstDataset": {
+      "features": 29,
+      "baselineManualPointRmsPixels": 48.91776268992983,
+      "cameraOnlyRmsPixels": 42.33355472907771,
+      "coupledRmsPixels": 11.48755175059185
+    },
+    "extendedBridgeDataset": {
+      "features": 41,
+      "beforeLocalBodyPassRmsPixels": 15.332639618408614,
+      "fixedCoupledLayoutBodyRmsPixels": 12.635304624974907,
+      "globalReoptimizationRejectedRmsPixels": 17.91583177229955
+    },
+    "uncertainty": "Oblique feature names/locations, metric dimensions and FOV are inferred. Manual point uncertainties9–23px, cap-size uncertainty3.5px. Column-head identifier means a datum0.30m below nominal capitalTop. RMS is only these correspondences and never a photographic-match score. Different datasets must not be compared as one score.",
+    "ambiguousTerminal": "The far visible terminal may belong to a different approach/rail station; global reoptimization worsened that correspondence. It is preserved as an explicit unresolved outlier rather than moving all architecture to hide it."
+  },
+  "constructionChecks": {
+    "receivers": "architecture106-fit/closed-receiver-prototypes.json",
+    "bridge": "architecture106-bridge-fit/actual-closed-bridge-solids.json",
+    "allNewAuditedSolidsPositiveVolume": true,
+    "quantizedNonmanifoldEdges": 0,
+    "fidelityImplied": false,
+    "gitDiffCheck": "clean"
+  },
+  "retainedCandidates": {
+    "r01": "Actual first coupled-layout full/detail before new receiver geometry.",
+    "r02": "Actual new receiver/tower-room detail; column-neck shields and bridge body remained wrong.",
+    "r03": "Cancelled while queued before GPU capture to reconcile manifest and actual turned stair socket datums; cancellation receipt preserved.",
+    "r03b": "Actual curved neck sleeve/receiver detail, then rejected as final checkpoint after rendered contour/cap-size comparison showed remaining bridge-body mismatch.",
+    "bridgeGlobalCandidate": "Global secondary optimization retained in the bridge-fit output but rejected for the ambiguous far-terminal regression."
+  },
+  "remainingVisualLimits": [
+    "Photographic fidelity is still unachieved. The upper gallery/crowns/bearing rhythm, gable relief and metal/weathering are visibly regular and simplified.",
+    "Foreground canopy branches still look formal and occlude parts of the tower finial; source garden species/density and lotus tissue remain interpreted.",
+    "The far bridge terminal/station correspondence and unseen lowest tower-room dimensions remain uncertain.",
+    "Native screen-depth optics and Fresnel water are approximations, and the retained timber metric-UV shader is not a guarantee of physical-renderer material equivalence.",
+    "The shrine icon remains the previously declared interpreted stand-in.",
+    "No reference RGB, inferred-depth film, image plane or AI replacement scene frame enters runtime."
+  ],
+  "reviewedImages": [
+    "reference-left-render-right.png",
+    "architecture-source-crop-left-native-detail-right.png"
+  ],
+  "reference": "references/hd/2-照片-3.jpg comparison-only"
+}
