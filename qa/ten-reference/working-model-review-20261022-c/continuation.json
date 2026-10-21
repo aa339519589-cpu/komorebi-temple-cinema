@@ -1,0 +1,41 @@
+{
+  "status": "active-reconstruction-unaccepted",
+  "createdAt": "2026-10-21T18:55:58.644441+00:00",
+  "publicSourceCommit": "a5373b6b1e17407efe5129729fe6de8bf895a9fd",
+  "canonicalLatestFrames": "frames.json",
+  "currentMovie": "output/native-rebuild-review-20261021-e/temple-ten-scenes-60s.mp4",
+  "movieSourceCommit": "69211a686aaa2618c778041b53c1443f58f09ace",
+  "newModelMovieRendered": false,
+  "rootScene07": {
+    "candidate": "qa/ten-reference/07/iteration-scene07-precise-scanned-frieze157-toro156-r02-20261022",
+    "changes": [
+      "occupied upper room/lower-roof collar152",
+      "crossed fitted carpentry153",
+      "real relief154 and smooth forest155",
+      "source-controlled carved toros156",
+      "selective actual CC BY scanned portal frieze157"
+    ],
+    "physicalHistoricalSource": "f3638c92c8f80d8cee8e40f346d179b4ce24e0211a44b1619ec8c2076ac03281",
+    "physicalHistoricalPort": "qa/ten-reference/07/iteration-scene07-physical155-r02-20261022",
+    "visualAccepted": false
+  },
+  "pendingUsageQuestion": "Whether final video needs commercial-use rights; no reply received. Keep NC-SA full-statue candidate isolated and do not change canonical06 on elapsed time.",
+  "isolatedStatueCandidate": "lookdev/scene06-statue-foundation-v2/noncommercial-sainsbury-r09-carved-vitarka-pose",
+  "statueLicense": "CC-BY-NC-SA-4.0",
+  "statueLimits": "Paired genuine source arms/cloth; visible right seam/shallower chest folds/damaged hair; unaccepted. Canonical06 remains commercial-compatible R11 a13508d8...",
+  "rejectedNMSWholeSurface": "lookdev/buddha-fullscan-source-v1/handoff.json",
+  "activeOwners": {
+    "/root/scene07_pine_canopies158": "lookdev/scene07-pine158 only; no canonical07 edits",
+    "/root/scene09_monumental_night_v2": "canonical09 next hero lantern/mineral-ground phase; retain R17 camera/perimeter/contacts"
+  },
+  "nextPriority": [
+    "Review integrated toro156/scanned157 geometry, continue reference fidelity across all10",
+    "Review pine158 prototype and source09 next actual full/detail",
+    "Consider APFS cloned immutable source snapshot at public commit for next genuine full-film revision without blocking live modeling; do not label old movie as new models",
+    "Keep full-statue NC variant separate pending commercial-use answer, improve visible seam if used for continued private study"
+  ],
+  "gpuPolicy": "All native/Blender/export through official FIFO tools; no ad-hoc parallel Chromium/Blender.",
+  "diskPolicy": "Recent low-disk events; obsolete regenerated export bins/auto-backups pruned with receipts; selected packed models/PNGs/source kept. Check free space before large export; PNG-only physical drafts preferred.",
+  "protectedUserFile": "qa/depth-field-film-v02/assets.json",
+  "goalStatus": "active; do not mark complete/paused/blocked; no photographic acceptance"
+}
