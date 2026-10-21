@@ -1,9 +1,10 @@
 import * as T from 'three';
+import {clipRestorationRoofOpening} from './architecture-kernel.js';
 
 // Authored construction geometry. The photograph is never sampled here.
 // Dimensions are in the unscaled building coordinates; roof and frame share
 // the same analytical surface so that the visible bearing members meet it.
-export const PHYSICAL_ROOF_REVISION='scene07-fired-tile-bearing-eaves-69';
+export const PHYSICAL_ROOF_REVISION='scene07-collared-occupied-hall152';
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const a=Math.sin(x*127.1+y*311.7+97.3)*43758.5453;return a-Math.floor(a);};
 
@@ -49,7 +50,7 @@ function panelPrism(profile,depth,axis='x'){
   if(axis==='x'){const p=g.attributes.position;for(let i=0;i<p.count;i++){const u=p.getX(i),v=p.getY(i),w=p.getZ(i);p.setXYZ(i,w,v,-u);}g.computeVertexNormals();}return g;
 }
 
-export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=false,supports=[],label='roof'}={}){
+export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=false,supports=[],label='roof',innerCollar=null}={}){
   const {emit,box,rod,bracket,materials}=api,hw=w/2,hd=d/2;
   const ridge=pagoda?w*.055:w*(gabled?.30:.24),cut=gabled?.43:0,exponent=gabled?1.72:1.49;
   const span=t=>ridge+(hw-ridge)*(gabled?Math.max(0,(t-cut)/(1-cut)):t);
@@ -151,6 +152,9 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
     }
   }
 
+  // An annular lower roof meets an occupied upper storey. It has no hidden
+  // ridge/ornaments crossing the floor or extending through the upper room.
+  if(!innerCollar){
   // Ridge bedding, stacked ridge tiles and individual metal cramps.
   box(0,e+rise+.10,0,ridge*2+.20,.21,.35,'dark');
   const ridgeN=Math.max(3,Math.ceil(ridge*2/.28));
@@ -188,20 +192,41 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
     const points=[[side*ridge,e+rise+.25,.105],[side*(ridge+.24),e+rise+.41,.105],[side*(ridge+.33),e+rise+.69,.105],[side*(ridge+.15),e+rise+1.03,.105]];
     for(let j=0;j<points.length-1;j++)rod(points[j],points[j+1],.027,'gold');
   }
+  }
   // Seat the roof to its actual old column/bracket grid with continuous
   // receiver beams and short bearing blocks, not decorative floating bands.
   for(const s of supports){
     const points=s.xs.map(x=>{const q=heightAt(x,s.z);return[x,q.p[1]-.42,s.z];});draw(timber(points,.25,.22),'wood');
     for(const x of s.xs){const q=heightAt(x,s.z),top=q.p[1]-.42,bottom=s.head;
-      if(top>bottom-.03)box(x,(bottom+top)/2,s.z,.28,Math.max(.08,top-bottom),.30,'red');
+      const inside=innerCollar&&x>innerCollar.minX&&x<innerCollar.maxX&&s.z>innerCollar.minZ&&s.z<innerCollar.maxZ;
+      if(!inside&&top>bottom-.03)box(x,(bottom+top)/2,s.z,.28,Math.max(.08,top-bottom),.30,'red');
       // Transverse receiver contacts the closed main-rafter assembly.
-      box(x,top+.07,s.z,.44,.14,.37,'wood');
+      if(!inside)box(x,top+.07,s.z,.44,.14,.37,'wood');
     }
   }
   for(const {m,geometries}of roofBuckets.values()){
     const vertices=geometries.reduce((n,g)=>n+g.attributes.position.count,0),indexCount=geometries.reduce((n,g)=>n+(g.index?.count??g.attributes.position.count),0),p=new Float32Array(vertices*3),n=new Float32Array(vertices*3),uv=new Float32Array(vertices*2),ix=new Uint32Array(indexCount);let v=0,k=0;
     for(const g of geometries){p.set(g.attributes.position.array,v*3);n.set(g.attributes.normal.array,v*3);uv.set(g.attributes.uv.array,v*2);for(let j=0,N=g.index?.count??g.attributes.position.count;j<N;j++)ix[k++]=v+(g.index?g.index.getX(j):j);v+=g.attributes.position.count;g.dispose();}
-    const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(p,3));g.setAttribute('normal',new T.BufferAttribute(n,3));g.setAttribute('uv',new T.BufferAttribute(uv,2));g.setIndex(new T.BufferAttribute(ix,1));g.userData.architectureMember=label;emit(g,m,0,0,0);
+    let g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(p,3));g.setAttribute('normal',new T.BufferAttribute(n,3));g.setAttribute('uv',new T.BufferAttribute(uv,2));g.setIndex(new T.BufferAttribute(ix,1));g.userData.architectureMember=label;
+    if(innerCollar){const original=g;g=clipRestorationRoofOpening(original,innerCollar);original.dispose();}
+    if(g.attributes.position.count)emit(g,m,0,0,0);else g.dispose();
   }
-  return{revision:PHYSICAL_ROOF_REVISION,label,width:w,depth:d,eave:e,peak:e+rise,tiles:countTiles,construction:'Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments.'};
+  if(innerCollar){
+    // The ends of the cut bedding/tiles/rafters are housed in a real closed
+    // timber curb, following the analytical roof height around all four faces.
+    // This makes the upper floor a separate occupied volume, not a box pushed
+    // through an intact roof. The curb also closes the former bright attic gap.
+    const {minX,maxX,minZ,maxZ,topY}=innerCollar,b=meshBuilder(),thickness=.18;
+    const edge=(a,c,n)=>{const steps=Math.max(8,Math.ceil(Math.hypot(c[0]-a[0],c[1]-a[1])/.22));
+      for(let j=0;j<steps;j++){
+        const pa=a.map((v,k)=>v+(c[k]-v)*j/steps),pc=a.map((v,k)=>v+(c[k]-v)*(j+1)/steps);
+        const ya=heightAt(pa[0],pa[1]).p[1]-.22,yc=heightAt(pc[0],pc[1]).p[1]-.22;
+        const corners=(p,y)=>[[p[0]-n[0]*thickness*.5,y,p[1]-n[1]*thickness*.5],[p[0]+n[0]*thickness*.5,y,p[1]+n[1]*thickness*.5],[p[0]+n[0]*thickness*.5,topY,p[1]+n[1]*thickness*.5],[p[0]-n[0]*thickness*.5,topY,p[1]-n[1]*thickness*.5]];
+        const aa=corners(pa,ya),cc=corners(pc,yc);for(let k=0;k<4;k++)b.quad(aa[k],cc[k],cc[(k+1)%4],aa[(k+1)%4]);b.quad(aa[3],aa[2],aa[1],aa[0]);b.quad(cc[0],cc[1],cc[2],cc[3]);
+      }
+    };
+    edge([minX,minZ],[maxX,minZ],[0,1]);edge([maxX,minZ],[maxX,maxZ],[1,0]);edge([maxX,maxZ],[minX,maxZ],[0,1]);edge([minX,maxZ],[minX,minZ],[1,0]);
+    const curb=b.finish();curb.userData.architectureMember=label+'-closed-collar';emit(curb,'wood',0,0,0);
+  }
+  return{revision:PHYSICAL_ROOF_REVISION,label,width:w,depth:d,eave:e,peak:e+rise,tiles:countTiles,innerCollar,construction:'Closed curved bedding; individual pan/cover courses; fascia, purlins and capped rafters; seated receivers. Lower hall roof is cut at its upper-room footprint and housed in a closed fitted timber curb.'};
 }
