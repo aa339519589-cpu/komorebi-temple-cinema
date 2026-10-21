@@ -1,0 +1,138 @@
+{
+  "revision": "scene04-R05-cycles-physical-r03",
+  "status": "held-editable-physical-prototype-unaccepted",
+  "visualAccepted": false,
+  "runtimeSourceCommit": "d18484812cf3a4fe14d21f0435d771afb9d5ddc0",
+  "runtimeSourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668",
+  "officialExport": "export/export-report.json",
+  "nativeFrame": "../../qa/ten-reference/04/iteration-scene04-sol-model131-r05/reference.png",
+  "referencePhotograph": "../../references/hd/3-\u7167\u7247-4.jpg",
+  "referencePhotographUse": "Comparison-only; no reference pixels/depth/scene plate are sampled by any material, lighting or geometry.",
+  "scope": "Offline lookdev only. All Scene04 runtime scripts/assets remain frozen; no commits or other scopes edited.",
+  "candidateIterations": [
+    {
+      "folder": "cycles-r01",
+      "change": "Actual source geometry linked-instance import; source-aligned physical sky/sun, real reflection and GI; first inspected frame was too dull and smooth on granite.",
+      "samples": 48
+    },
+    {
+      "folder": "cycles-r02",
+      "change": "Added existing code-authored granite residual/PBR at0.3m repeat,5.77mm grain; paver base albedo gain1.6 and source-aligned direct sun gain1.65 improve resolved grain and daylight contrast.",
+      "samples": 96
+    },
+    {
+      "folder": "cycles-r03",
+      "change": "Physical IOR1.333 wet coating broader/smoother over underlying rough granite, lower-frequency coating normals; actual full and freshly path-traced subfrustum detail inspected.",
+      "samples": 96
+    }
+  ],
+  "preferredCandidate": "cycles-r03",
+  "geometry": {
+    "exportedTriangles": 28729038,
+    "allExportedTrianglesRetained": true,
+    "linkedInstances": 170263,
+    "exactAffineBakedInstances": 7,
+    "geometryDecimated": false,
+    "newGeometryAdded": false,
+    "sourceCameraPreserved": true,
+    "coordinateChange": "One rigid+90degX rotation, applied jointly to geometry, instance parents, camera and lights.",
+    "attributeDomains": {
+      "linkedInstances": "ShaderNodeAttribute Instancer with explicit POINT Store Named Attribute; exact source instance color once",
+      "directAndBakedShear": "Separate Geometry domain material variants; white direct fallback, source RGB for exact affine bake",
+      "vertexColorMultiply": "Only when source vertexColors flag is true; sourceColor POINT attribute preserved"
+    },
+    "exclusions": [
+      {
+        "name": "reference4-both-ponds-actual-planar-reflection",
+        "type": "Reflector",
+        "material": "ReflectorShader",
+        "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+      },
+      {
+        "name": "reference4-atmosphere-with-real-density-clouds",
+        "type": "Mesh",
+        "material": "SkyShader",
+        "reason": "Non-PBR shader has no automatic portable equivalent"
+      }
+    ]
+  },
+  "materialAndLighting": {
+    "runtimePBR": "Original source PBR/UV/color/instance inputs are starting values; listed offline aggregate, water, wet-coat, transmission and daylight changes are intentional physical adaptations. They do not claim untouched numerical material parameters.",
+    "materialPort": "Original metric three-axis stone projection/reoriented normals and source vertex/instance color domains; actual active timber/ceramic maps retained.",
+    "graniteFineRelief": "Existing public code-authored periodic mineral volumes/residual normals from tools/build-granite-aggregate04.py. Imported source mesh already carries the resolved lower-frequency height. Added map supplies finer residual slope and mineral reflectance.",
+    "sky": "Blender5.2.1 MULTIPLE_SCATTERING sky; original source sun direction. Sky strength.10, sun source energy6.4 times1.65. Sun disk disabled to avoid duplicate direct lighting. Same physical world supplies camera/GI/reflection radiance.",
+    "wetFilm": "Water coating on actual upward-facing pavers with IOR1.333; low-frequency normal, roughness.10, coat roughness.03. Shader-local 3D noise is an authored material hypothesis. Official exporter omitted native r4Wetness/r4Dampness, so no parity is claimed for that native mask.",
+    "pond": "Only actual exported two pond planes are reused; no unconditional Scene01 plane or backdrop geometry.",
+    "foliage": "Energy-conserving thin-leaf diffuse transmission; full physical BSDF enclosed by actual source alpha mask, source per-point/instance colors preserved.",
+    "transport": {
+      "maxBounces": 10,
+      "diffuseBounces": 5,
+      "glossyBounces": 5,
+      "transmissionBounces": 8,
+      "transparentBounces": 24,
+      "denoised": true
+    },
+    "colorManagement": {
+      "name": "AgX",
+      "exposureStops": 0.056583527475595474,
+      "nativePixelEquivalence": false
+    }
+  },
+  "artifacts": {
+    "full": {
+      "file": "cycles-r03/scene04-sourceR05-physical-r03.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "c9212fad55c36dedb4069d3100d7fe2c788b2eaf3f6b2d75d734637fba17e035"
+    },
+    "detail": {
+      "file": "cycles-r03/detail-native-cycles.png",
+      "size": [
+        1253,
+        1254
+      ],
+      "sha256": "d8de34c2a2a90ebd024225477a9839627efa0885b7c8bcc08e0b34ed9c5ef5b4",
+      "freshSubfrustumPathTrace": true,
+      "upscaled": false,
+      "sourceCrop": [
+        160,
+        220,
+        920,
+        1254
+      ],
+      "virtualFullResolution": 1709,
+      "pixelRounding": "Blender border rounding yields1253x1254; retained at original native pixels."
+    },
+    "packedEditableBlend": {
+      "file": "cycles-r03/scene04-sourceR05-physical.blend",
+      "bytes": 839161691,
+      "sha256": "98ec9eeac55963a60b73eac03026499280bc6bd90b7898ae33a8db0124706642",
+      "packing": "bpy.ops.file.pack_all before saving;39 image assets packed by Blender. The saved project is at the full1254 reference camera before detail-border changes."
+    },
+    "comparison": "comparison-photo-native-cycles-r03.png",
+    "comparisonOrder": [
+      "supplied photograph",
+      "actual WebGL R05",
+      "actual Cycles R03"
+    ],
+    "sourceScripts": [
+      {
+        "file": "render-physical-daylight.py",
+        "sha256": "ae6680c05ce0a7fb2aa4f00fe5105432c36c8de22eea52dbd828d692385d434e"
+      },
+      {
+        "file": "material-nodes04.py",
+        "sha256": "b284fb1eac665f3713862abfb237937bf5832c560d6f14854ea12cfc306abb9c"
+      }
+    ]
+  },
+  "remainingGaps": [
+    "Physical prototype has stronger depth/contact and more legible fine grain, but the photograph still has brighter crystalline glints and stronger local warm light variation.",
+    "Original simplified geometry limits fidelity: regular pine/lotus silhouettes, clean toro/carving detail, sparse banking near curb, generic gallery/shrine detail and Buddha proportions remain.",
+    "Physical sky changes native cloud appearance; AgX and the native ACES curve differ. This is not a WebGL replacement or pixel-equivalent match.",
+    "Wet-film extent, albedo normalization and fine aggregate distributions are authored material hypotheses."
+  ],
+  "photographicAcceptance": false
+}

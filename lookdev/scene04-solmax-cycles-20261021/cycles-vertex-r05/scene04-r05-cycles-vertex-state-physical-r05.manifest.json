@@ -1,0 +1,924 @@
+{
+  "format": "scene04-physical-vertex-state-prototype-v01",
+  "status": "held-immutable-physical-study-unaccepted",
+  "runtimeReference": 4,
+  "runtimeScene04SourceCommit": "d18484812cf3a4fe14d21f0435d771afb9d5ddc0",
+  "runtimeSourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668",
+  "officialExportCommit": "a10b118a2b09e65e9bfad6b64c6016299c59bf41",
+  "officialExport": {
+    "folder": "../export-vertex-state",
+    "reportSha256": "e9ea73148ba73f8d2a3e60cbbde4bb8d9760d69160ea9a51d3fac3bf9c2008e8",
+    "sceneJsonSha256": "ea6db9600b9eb2a0a590ccbe7679cf15fd4ae6ddf10d5935ed948855f0710f58",
+    "status": "exported-existing-geometry",
+    "servedSourceAllMatch": true
+  },
+  "model": {
+    "file": "scene04-r05-cycles-vertex-state-physical-r05.blend",
+    "sha256": "75fefc9195f1965c1ecf7096936c9b221cf54f6e174eea812337868bff0ae6c8",
+    "bytes": 842141923,
+    "sourceFieldGeometryVerified": true
+  },
+  "sourceInputs": {
+    "nativeVertexState": "Original actual runtime r4Wetness and r4Dampness POINT FLOAT fields, not a replacement spatial wetness mask",
+    "originalWetGeometryAttributes": {
+      "67d14fe0-3135-4094-9663-f2dfa018ff1b": {
+        "pointCount": 3082008,
+        "attributes": {
+          "position": {
+            "sha256": "8ff1d38a0d0c661cfb1d43ce657555d87b9a09b7b460087b037cd1a8e01ad759",
+            "sourceFile": "geometry-1003-position.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              3082008,
+              3
+            ]
+          },
+          "uv": {
+            "sha256": "455f23aa5fb0b213bd8fbad223f0aad7a8c194028c30d062a6f2719a080de2bb",
+            "sourceFile": "geometry-1003-uv.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 2,
+            "shape": [
+              3082008,
+              2
+            ]
+          },
+          "r4Wetness": {
+            "sha256": "e1e135f74151e7d94a8bcbaa82215da34c6e0032b89b595bb9db3795964d3e35",
+            "sourceFile": "geometry-1003-r4Wetness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              3082008,
+              1
+            ]
+          },
+          "r4Dampness": {
+            "sha256": "eb55da317ac8ff35983ca16ba2c2b7c27b1d592ab095702064bacc699ccd9831",
+            "sourceFile": "geometry-1003-r4Dampness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              3082008,
+              1
+            ]
+          },
+          "normal": {
+            "sha256": "33cfdadff4963e73709509be6a7b63350074d46eadb608888a68e4accb64b054",
+            "sourceFile": "geometry-1003-normal.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              3082008,
+              3
+            ]
+          },
+          "color": {
+            "sha256": "a1e339738f879758567d0f5dc8959f34b3779a13e7b3e45dac3e925e38692158",
+            "sourceFile": "geometry-1003-color.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              3082008,
+              3
+            ]
+          }
+        },
+        "indexSemanticInt64Sha256": "fded18c2aa055d7a87f5a2a211f60b300952bbee39a19f638b9eceee9bfbaa28"
+      },
+      "a8c6887d-a7e2-46b7-a6c4-8899ee2daed9": {
+        "pointCount": 2175612,
+        "attributes": {
+          "position": {
+            "sha256": "a1c40b4bf04fddc310680ee213a9e50efc528eb5e8c8d9bc7715d2f073649eb9",
+            "sourceFile": "geometry-1004-position.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2175612,
+              3
+            ]
+          },
+          "uv": {
+            "sha256": "c99097e16cdac9cbc80e05fcc33bf87dd27c17e5c9b90c8ddc3beb88e334e55d",
+            "sourceFile": "geometry-1004-uv.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 2,
+            "shape": [
+              2175612,
+              2
+            ]
+          },
+          "r4Wetness": {
+            "sha256": "a2ff6055eb7029e21f135bce76094bdbe2bc64a69c85aa7ce1fcedff1c76350a",
+            "sourceFile": "geometry-1004-r4Wetness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              2175612,
+              1
+            ]
+          },
+          "r4Dampness": {
+            "sha256": "5d61d63ba191e535722513c65aacdd77cd39be3ca52a8d3694a215c0a36c5224",
+            "sourceFile": "geometry-1004-r4Dampness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              2175612,
+              1
+            ]
+          },
+          "normal": {
+            "sha256": "76a498540f06e470d13727fc88b1e30ed3a4c7358a29bea82ee0ec6d357127fb",
+            "sourceFile": "geometry-1004-normal.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2175612,
+              3
+            ]
+          },
+          "color": {
+            "sha256": "639f54487ce54e6fa45da4adf7bfdd62d78143db1876682dc489c7a0f0f0e934",
+            "sourceFile": "geometry-1004-color.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2175612,
+              3
+            ]
+          }
+        },
+        "indexSemanticInt64Sha256": "874cbf64ca22f51579d431c28c24fb0a79f216b95c7fd767377214f3fe6a6de0"
+      },
+      "c4841dcc-7f6e-431d-8a8d-bc54754b60f3": {
+        "pointCount": 2028306,
+        "attributes": {
+          "position": {
+            "sha256": "b41b69dd4ed3a93e71e3ab2b4bbf4237b9845a4587a929d90ae55e788eb44e52",
+            "sourceFile": "geometry-1005-position.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2028306,
+              3
+            ]
+          },
+          "uv": {
+            "sha256": "e644621e2fa43ef2a1b8f1131ca920190646e56fd9010a42e52fae157621e6a6",
+            "sourceFile": "geometry-1005-uv.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 2,
+            "shape": [
+              2028306,
+              2
+            ]
+          },
+          "r4Wetness": {
+            "sha256": "89f1fa2928848dec84fa2e928e8608682013c9a5728ad94b7d0965376709fbf7",
+            "sourceFile": "geometry-1005-r4Wetness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              2028306,
+              1
+            ]
+          },
+          "r4Dampness": {
+            "sha256": "aef90192ff0120d53439ff04e3de17e35b5ecc28f9d6c94996952513603ebeda",
+            "sourceFile": "geometry-1005-r4Dampness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              2028306,
+              1
+            ]
+          },
+          "normal": {
+            "sha256": "e31d326bf7fc9484d5f613b7bd335d534e2a7ae8d1fb52bd1f4bedb050820c6b",
+            "sourceFile": "geometry-1005-normal.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2028306,
+              3
+            ]
+          },
+          "color": {
+            "sha256": "d47a55cd2ba3bc7529979228df23f987b864c458f802888c4c67477b9505067d",
+            "sourceFile": "geometry-1005-color.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2028306,
+              3
+            ]
+          }
+        },
+        "indexSemanticInt64Sha256": "b95da22e4817a0c2253ab0315f2aa4d7e5872c5bf3a37629dd63b7072efbc94a"
+      },
+      "4b896123-19fe-4e3e-b477-f8877073ed01": {
+        "pointCount": 2593446,
+        "attributes": {
+          "position": {
+            "sha256": "f2ed156023281c765817ec634cfd0c38f2d74e0a027697c698f987f56a4ed4a9",
+            "sourceFile": "geometry-1006-position.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2593446,
+              3
+            ]
+          },
+          "uv": {
+            "sha256": "20eaaa31f84b13fc094eb5994a7feefb3218b0abdfaab8ac4b576bb44d733c4a",
+            "sourceFile": "geometry-1006-uv.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 2,
+            "shape": [
+              2593446,
+              2
+            ]
+          },
+          "r4Wetness": {
+            "sha256": "302e7dd6ed33ef2193268048ef377d344948ef7812de284aa99a459179e8e2ef",
+            "sourceFile": "geometry-1006-r4Wetness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              2593446,
+              1
+            ]
+          },
+          "r4Dampness": {
+            "sha256": "2c6d7647b21823c14dc791a566aa610c05261d265df9e174f08a72f018570148",
+            "sourceFile": "geometry-1006-r4Dampness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              2593446,
+              1
+            ]
+          },
+          "normal": {
+            "sha256": "35e3905986f3efc5dadeebdc0fd172fde0ca5a16d3d8792f94c4fd476a1c2e53",
+            "sourceFile": "geometry-1006-normal.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2593446,
+              3
+            ]
+          },
+          "color": {
+            "sha256": "aaaed148ce79b53a08dd9f01efa830fb86d4f3b93ab9366f9607636be3d9d009",
+            "sourceFile": "geometry-1006-color.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              2593446,
+              3
+            ]
+          }
+        },
+        "indexSemanticInt64Sha256": "6a2b857154275087738eb13212cdd57d8e0c35ade1bf2fec7c9007b2b28e80fc"
+      },
+      "5af59f2b-9387-4033-ac06-4d0e4fd4e915": {
+        "pointCount": 14752902,
+        "attributes": {
+          "position": {
+            "sha256": "e03cf8e47762b3e6114017e043c670d90b0f72fe8fb98c2200f0fd4adbb2ac34",
+            "sourceFile": "geometry-1007-position.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              14752902,
+              3
+            ]
+          },
+          "uv": {
+            "sha256": "11ad412e2b5277fa1dbbb2a6cf224c99a9736a37169eb2672c386540be43972f",
+            "sourceFile": "geometry-1007-uv.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 2,
+            "shape": [
+              14752902,
+              2
+            ]
+          },
+          "r4Wetness": {
+            "sha256": "9f26e505d8315604e62e91d30495058f3f47cf4dcf48f157f151f6e5a634af97",
+            "sourceFile": "geometry-1007-r4Wetness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              14752902,
+              1
+            ]
+          },
+          "r4Dampness": {
+            "sha256": "fb45c795f458113e31499806ef590d31905779d5cd081724e7673d13c0b533b2",
+            "sourceFile": "geometry-1007-r4Dampness.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 1,
+            "shape": [
+              14752902,
+              1
+            ]
+          },
+          "normal": {
+            "sha256": "7049169d30b84b13c93e4d09931a925602bb491f134b7462dca90ac6db646848",
+            "sourceFile": "geometry-1007-normal.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              14752902,
+              3
+            ]
+          },
+          "color": {
+            "sha256": "6ab8ca182d1f0ba5507204e4ab43a9641d61cf1e5c8281344ad6c9d822c790eb",
+            "sourceFile": "geometry-1007-color.bin",
+            "sourceType": "Float32Array",
+            "sourceNormalized": false,
+            "itemSize": 3,
+            "shape": [
+              14752902,
+              3
+            ]
+          }
+        },
+        "indexSemanticInt64Sha256": "69f1f396d2c6f0f68705d14e44057a506576f1552856e467d62cb74cf75b0af1"
+      }
+    },
+    "fullAttributeTransferManifest": {
+      "file": "vertex-state-transfer.json",
+      "sha256": "2c1a5596a182574351bbc7ff2b467156484286ed0733eaf4948cbe3730c6e4c5",
+      "summary": {
+        "sourceGeometryFields": {
+          "r4Wetness": 5,
+          "r4Dampness": 5,
+          "uv1": 6,
+          "color_1": 6
+        },
+        "verifiedUVLayers": 1786,
+        "verifiedCustomAttributes": 362,
+        "wetFieldPointCounts": {
+          "r4Wetness": 24632274,
+          "r4Dampness": 24632274
+        },
+        "dryDefaultsCreated": 0,
+        "allReadBackHashesMatch": true,
+        "instanceColor": "Not touched here; source instancer POINT colors feed INSTANCER shader attribute. Direct/exact-affine copies use the separate GEOMETRY material variant.",
+        "missingWetFieldResponse": "Zero. If a wet material is attached to geometry without the fields, explicit POINT FLOAT zero attributes are created. Other materials remain dry/default and do not read wet state."
+      }
+    },
+    "packedModelVerification": {
+      "meshes": [
+        {
+          "mesh": "reference4-path-merged-metre-scaled-worn-wet-paver-1 source",
+          "sourceGeometry": "67d14fe0-3135-4094-9663-f2dfa018ff1b",
+          "pointCount": 3082008,
+          "positionSha256": "8ff1d38a0d0c661cfb1d43ce657555d87b9a09b7b460087b037cd1a8e01ad759",
+          "uvLoopSha256": "455f23aa5fb0b213bd8fbad223f0aad7a8c194028c30d062a6f2719a080de2bb",
+          "fields": {
+            "r4Wetness": {
+              "sha256": "e1e135f74151e7d94a8bcbaa82215da34c6e0032b89b595bb9db3795964d3e35",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "mean": 0.017197979037469578
+            },
+            "r4Dampness": {
+              "sha256": "eb55da317ac8ff35983ca16ba2c2b7c27b1d592ab095702064bacc699ccd9831",
+              "minimum": 0.0,
+              "maximum": 0.9881264567375183,
+              "mean": 0.22904994939350445
+            }
+          },
+          "exactMatch": true
+        },
+        {
+          "mesh": "reference4-path-merged-metre-scaled-worn-wet-paver-2 source",
+          "sourceGeometry": "a8c6887d-a7e2-46b7-a6c4-8899ee2daed9",
+          "pointCount": 2175612,
+          "positionSha256": "a1c40b4bf04fddc310680ee213a9e50efc528eb5e8c8d9bc7715d2f073649eb9",
+          "uvLoopSha256": "c99097e16cdac9cbc80e05fcc33bf87dd27c17e5c9b90c8ddc3beb88e334e55d",
+          "fields": {
+            "r4Wetness": {
+              "sha256": "a2ff6055eb7029e21f135bce76094bdbe2bc64a69c85aa7ce1fcedff1c76350a",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "mean": 0.01954927478578312
+            },
+            "r4Dampness": {
+              "sha256": "5d61d63ba191e535722513c65aacdd77cd39be3ca52a8d3694a215c0a36c5224",
+              "minimum": 0.0,
+              "maximum": 0.9877896904945374,
+              "mean": 0.439251769614521
+            }
+          },
+          "exactMatch": true
+        },
+        {
+          "mesh": "reference4-path-merged-metre-scaled-worn-wet-paver-3 source",
+          "sourceGeometry": "c4841dcc-7f6e-431d-8a8d-bc54754b60f3",
+          "pointCount": 2028306,
+          "positionSha256": "b41b69dd4ed3a93e71e3ab2b4bbf4237b9845a4587a929d90ae55e788eb44e52",
+          "uvLoopSha256": "e644621e2fa43ef2a1b8f1131ca920190646e56fd9010a42e52fae157621e6a6",
+          "fields": {
+            "r4Wetness": {
+              "sha256": "89f1fa2928848dec84fa2e928e8608682013c9a5728ad94b7d0965376709fbf7",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "mean": 0.028651554344313664
+            },
+            "r4Dampness": {
+              "sha256": "aef90192ff0120d53439ff04e3de17e35b5ecc28f9d6c94996952513603ebeda",
+              "minimum": 0.0,
+              "maximum": 0.9307261109352112,
+              "mean": 0.22763054845054786
+            }
+          },
+          "exactMatch": true
+        },
+        {
+          "mesh": "reference4-path-merged-metre-scaled-worn-wet-paver-0 source",
+          "sourceGeometry": "4b896123-19fe-4e3e-b477-f8877073ed01",
+          "pointCount": 2593446,
+          "positionSha256": "f2ed156023281c765817ec634cfd0c38f2d74e0a027697c698f987f56a4ed4a9",
+          "uvLoopSha256": "20eaaa31f84b13fc094eb5994a7feefb3218b0abdfaab8ac4b576bb44d733c4a",
+          "fields": {
+            "r4Wetness": {
+              "sha256": "302e7dd6ed33ef2193268048ef377d344948ef7812de284aa99a459179e8e2ef",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "mean": 0.022305967678821887
+            },
+            "r4Dampness": {
+              "sha256": "2c6d7647b21823c14dc791a566aa610c05261d265df9e174f08a72f018570148",
+              "minimum": 0.0,
+              "maximum": 0.9388827085494995,
+              "mean": 0.3983748039397331
+            }
+          },
+          "exactMatch": true
+        },
+        {
+          "mesh": "reference4-path-merged-authored-unobserved-rear-dry-granite source",
+          "sourceGeometry": "5af59f2b-9387-4033-ac06-4d0e4fd4e915",
+          "pointCount": 14752902,
+          "positionSha256": "e03cf8e47762b3e6114017e043c670d90b0f72fe8fb98c2200f0fd4adbb2ac34",
+          "uvLoopSha256": "11ad412e2b5277fa1dbbb2a6cf224c99a9736a37169eb2672c386540be43972f",
+          "fields": {
+            "r4Wetness": {
+              "sha256": "9f26e505d8315604e62e91d30495058f3f47cf4dcf48f157f151f6e5a634af97",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "mean": 0.022481849938208887
+            },
+            "r4Dampness": {
+              "sha256": "fb45c795f458113e31499806ef590d31905779d5cd081724e7673d13c0b533b2",
+              "minimum": 0.0,
+              "maximum": 0.9884795546531677,
+              "mean": 0.515621232977533
+            }
+          },
+          "exactMatch": true
+        }
+      ],
+      "allMatch": true,
+      "instanceColor": "Unchanged; independent INSTANCER path retained.",
+      "otherVertexAttributes": "Unchanged packed R04 project; original attribute hashes/read-back manifest retained."
+    }
+  },
+  "geometry": {
+    "allExportedTrianglesRetained": true,
+    "exportedTriangles": 28729038,
+    "affinePreservation": {
+      "parentMatrices": "Retained as full source object matrices. Source parent shear residual is checked separately below.",
+      "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+      "linkedInstances": 170263,
+      "bakedShearedInstances": 7,
+      "bakedShearedTriangles": 352,
+      "bakedShearedVertices": 315,
+      "maxLinkedTRSMatrixResidual": 1.6540288925170898e-06,
+      "maxBakedShearResidual": 1.0566525787680803e-07,
+      "flattenedOnlyForShearedTransforms": true,
+      "geometryDecimated": false,
+      "maxSourceParentShearResidual": 6.661338147750936e-16
+    },
+    "newGeometryAdded": false,
+    "sourceFieldsEdited": false,
+    "sourceUVsEdited": false,
+    "sourceCamera": {
+      "sourceMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0.999172674716062,
+        0.040668982047140464,
+        0,
+        0,
+        -0.040668982047140464,
+        0.999172674716062,
+        0,
+        0,
+        1.35,
+        23.34,
+        1
+      ],
+      "sourceVerticalFov": 64.1754241,
+      "sourcePositionYUp": [
+        0,
+        1.35,
+        23.34
+      ],
+      "blenderLens": 19.138755798339844,
+      "verticalSensorMm": 24,
+      "dofAdded": false
+    },
+    "excludedByOfficialExporter": [
+      {
+        "name": "reference4-both-ponds-actual-planar-reflection",
+        "type": "Reflector",
+        "material": "ReflectorShader",
+        "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+      },
+      {
+        "name": "reference4-atmosphere-with-real-density-clouds",
+        "type": "Mesh",
+        "material": "SkyShader",
+        "reason": "Non-PBR shader has no automatic portable equivalent"
+      }
+    ]
+  },
+  "physicalAdaptation": {
+    "materials": [
+      "metre-scaled-worn-wet-paver-0",
+      "metre-scaled-worn-wet-paver-1",
+      "metre-scaled-worn-wet-paver-2",
+      "metre-scaled-worn-wet-paver-3"
+    ],
+    "wetnessSource": "Unchanged original r4Wetness POINT FLOAT geometric hollow state",
+    "dampnessSource": "Unchanged original r4Dampness POINT FLOAT per-stone moisture propensity",
+    "baseColorFactor": "clamp(1 -0.25*damp -0.12*pool,0.55,1)",
+    "baseRoughness": "mix(mix(dryGraniteRoughness,0.22,damp),0.10,pool)",
+    "coatWeight": "clamp(max(0.15*damp,0.96*pool),0,1)",
+    "coatRoughness": "mix(0.30,0.025,pool)",
+    "coatIOR": 1.333,
+    "spatialCoverageNoiseAdded": false,
+    "sourceFieldsEdited": false,
+    "geometryUVInstancesCameraLightsEdited": false,
+    "physicalInterpretation": "Damp stone darkens and broadens its mineral sheen; actual wet hollows form the smoother continuous water interface. Existing lower-frequency coating normals retained. This is a physical BSDF adaptation, not exact native GLSL pixel parity."
+  },
+  "lighting": {
+    "physicalSky": "MULTIPLE_SCATTERING",
+    "availableSkyModels": [
+      "SINGLE_SCATTERING",
+      "MULTIPLE_SCATTERING",
+      "PREETHAM",
+      "HOSEK_WILKIE"
+    ],
+    "skyWorldGain": 0.10000000149011612,
+    "sunDirectionYUp": [
+      -0.7295371890068054,
+      0.5471528768539429,
+      0.41036465764045715
+    ],
+    "sunDirectionZUp": [
+      -0.7295371890068054,
+      -0.41036462783813477,
+      0.5471529364585876
+    ],
+    "sunDiskEnabled": false,
+    "sourceHemisphereLight": "Replaced by shadowed physical sky GI; not added a second time as a nonphysical fill.",
+    "sourceLights": [
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "reference4-left-golden-hour-sun",
+        "type": "SUN",
+        "sourceIntensity": 6.4,
+        "cyclesEnergy": 10.5600004196167,
+        "sourceLinearColor": [
+          1,
+          0.7454042095350284,
+          0.450785782828426
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp",
+        "type": "POINT",
+        "sourceIntensity": 1.8,
+        "cyclesEnergy": 22.61946678161621,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.3005437944049895
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp",
+        "type": "POINT",
+        "sourceIntensity": 1.8,
+        "cyclesEnergy": 22.61946678161621,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.3005437944049895
+        ]
+      },
+      {
+        "name": "reference4-eave-lantern-light",
+        "type": "POINT",
+        "sourceIntensity": 8,
+        "cyclesEnergy": 100.53096771240234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      },
+      {
+        "name": "reference4-eave-lantern-light",
+        "type": "POINT",
+        "sourceIntensity": 8,
+        "cyclesEnergy": 100.53096771240234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      },
+      {
+        "name": "scene04-visible-portal-oil-lantern",
+        "type": "POINT",
+        "sourceIntensity": 4.2,
+        "cyclesEnergy": 52.77875518798828,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.2541520943200296
+        ]
+      },
+      {
+        "name": "scene04-visible-portal-oil-lantern",
+        "type": "POINT",
+        "sourceIntensity": 4.2,
+        "cyclesEnergy": 52.77875518798828,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.2541520943200296
+        ]
+      },
+      {
+        "name": "reference4-small-sanctuary-practical",
+        "type": "POINT",
+        "sourceIntensity": 3.5,
+        "cyclesEnergy": 43.982295989990234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      },
+      {
+        "name": "reference4-small-sanctuary-practical",
+        "type": "POINT",
+        "sourceIntensity": 3.5,
+        "cyclesEnergy": 43.982295989990234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      }
+    ],
+    "calibrationScope": "Source linear direct irradiance starting point retained; point power uses intensity*4pi. This is a documented radiometric proxy, not an absolute photometric measurement. No new studio lights, photographic shadows or environment geometry."
+  },
+  "transport": {
+    "maxBounces": 10,
+    "diffuseBounces": 5,
+    "glossyBounces": 5,
+    "transmissionBounces": 8,
+    "transparentBounces": 24,
+    "denoised": true
+  },
+  "sourceMineralMaterial": {
+    "enabled": true,
+    "maps": [
+      {
+        "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-04/assets/granite-aggregate04/granite-aggregate-diff.png",
+        "sha256": "abb806989330807d7b53944968a65e35d51540ddfc4ef9cd6116b4cf9bc26aca"
+      },
+      {
+        "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-04/assets/granite-aggregate04/granite-aggregate-nor_gl.png",
+        "sha256": "7c6ccc4cf31f9c98c44c673eeb126aa49d1203de49d179234d8e688b7a3a20a7"
+      },
+      {
+        "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-04/assets/granite-aggregate04/granite-aggregate-rough.png",
+        "sha256": "a285aae1ea2995f6567e5dd5b5f909383e3d721dd4dd71aee1fa430b1c36e70d"
+      }
+    ],
+    "authorship": "Existing public tools/build-granite-aggregate04.py, periodic Voronoi mineral volumes and finite-difference residual normal, no reference RGB",
+    "repeatMetres": 0.3,
+    "grainPitchMetres": 0.005769230769,
+    "normalStrength": 0.58,
+    "paverAlbedoGain": 1.6,
+    "scope": "Residual sub-grid slope/reflectance on existing mesh relief; no added stone geometry or reference imagery"
+  },
+  "nativePixelEquivalence": false,
+  "images": [
+    {
+      "file": "scene04-sourceR05-vertex-state-physical-r05.png",
+      "sha256": "488a0ec9a8d3bfb964e8850c15a68b12a582b3c3a33efa1af9b71882e57f148b",
+      "size": [
+        1254,
+        1254
+      ],
+      "samples": 96,
+      "seconds": 53.40047812461853,
+      "actualNativeImageSize": [
+        1254,
+        1254
+      ],
+      "pathTraced": true,
+      "upscaled": false
+    },
+    {
+      "file": "paving-detail-native-cycles.png",
+      "sha256": "633a0a0f1bb8214ae6933280142a5ebb10c106d35851d47d19a5896f9beceeb2",
+      "requestedSourceCropPixels": [
+        300,
+        760,
+        480,
+        1254
+      ],
+      "virtualFullResolution": 4096,
+      "nominalNativeSize": 1568,
+      "seconds": 92.76218914985657,
+      "freshPathTrace": true,
+      "upscaled": false,
+      "actualNativeImageSize": [
+        1568,
+        1568
+      ],
+      "pathTraced": true
+    },
+    {
+      "file": "roof-detail-native-cycles.png",
+      "sha256": "211de0a136fa880e3a8bedcffe10903150e3d8bd260b5dc2a9f7c5c026842bc4",
+      "requestedSourceCropPixels": [
+        285,
+        105,
+        680,
+        1254
+      ],
+      "virtualFullResolution": 4096,
+      "nominalNativeSize": 2221,
+      "seconds": 146.172749042511,
+      "freshPathTrace": true,
+      "upscaled": false,
+      "actualNativeImageSize": [
+        2221,
+        2221
+      ],
+      "pathTraced": true
+    }
+  ],
+  "visualComparisons": [
+    {
+      "file": "../comparison-point-state-r04-r05-paving.png",
+      "sha256": "f6a026f6d60bf0bfe226378c01cfa780444c26be9ad057eefc0d6150d4b5cfdf",
+      "order": [
+        "R04 literal source-curve material response",
+        "R05 separated damp substrate/pooled water response"
+      ],
+      "scope": "Unchanged original POINT fields and same actual camera, geometry and incident light; display-only juxtaposition."
+    },
+    {
+      "file": "../comparison-photo-native-vertex-state-r05.png",
+      "sha256": "5c124632eb96bfec88c86e70aedf8b30fdac4d9a57cb866c16d63f17124ea863",
+      "order": [
+        "supplied reference photograph",
+        "actual native WebGL R05",
+        "actual Cycles vertex-state R05"
+      ],
+      "runtimeUse": false
+    }
+  ],
+  "reproductionScripts": [
+    {
+      "file": "render-vertex-state04.py",
+      "sha256": "9070ae561c2ff61a79ade8d0d2fc096694e1375ebdce3c6caf22f88fb513c20f"
+    },
+    {
+      "file": "material-nodes04-vertex-state.py",
+      "sha256": "20fd80df06c7a9a4d9e81c8559f6d1b7273b112467992209e382f724ea5367f0"
+    },
+    {
+      "file": "vertex-attributes04.py",
+      "sha256": "974899ef35d56930f0fe0e85e1799e12b37e14fe423402d5eb674b4f465a669b"
+    },
+    {
+      "file": "render-vertex-coating04.py",
+      "sha256": "947fce1296c342435ba3fbd9d49e9c1628c9551dd1635e276dbffafaef316995"
+    }
+  ],
+  "readme": {
+    "file": "README.txt",
+    "sha256": "3c29d9c8edf69058eecab047d2512a75f523ec208bc59f4ac907ff9c1e71c8a6"
+  },
+  "preservedCandidates": [
+    "../cycles-r03",
+    "../cycles-vertex-r04"
+  ],
+  "publication": {
+    "intendedPrerelease": "mesh-rendering-2026-10-21-d",
+    "publisher": "Root integration lane; this lane did not upload or alter a release"
+  },
+  "limitations": [
+    "Geometry and shader data checks establish source transfer, not photographic fidelity.",
+    "Dampness is the original native propensity interpreted as static moist substrate. Wetness is the original geometric hollow mask interpreted as pooled water. Physical BSDF response differs from native GLSL and AgX differs from native ACES.",
+    "The native custom sky/planar reflector are not portable; physical sky and actual exported pond surfaces supply ray-traced radiance/reflection.",
+    "Hall/porch/upper-roof mass, plant silhouettes, carving/shrine/Buddha detail and photographic local light/glints still differ substantially from the reference."
+  ],
+  "visualAccepted": false,
+  "photographicAcceptance": false
+}

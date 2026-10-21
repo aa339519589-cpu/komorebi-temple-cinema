@@ -1,0 +1,415 @@
+{
+  "sourceCommit": "d18484812cf3a4fe14d21f0435d771afb9d5ddc0",
+  "sourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668",
+  "renderScript": {
+    "file": "render-physical-daylight.py",
+    "sha256": "ae6680c05ce0a7fb2aa4f00fe5105432c36c8de22eea52dbd828d692385d434e"
+  },
+  "sourceStatistics": {
+    "meshes": 1785,
+    "geometries": 1749,
+    "materials": 70,
+    "textures": 47,
+    "instances": 171892,
+    "triangles": 28729038
+  },
+  "lightingMode": "scene04-sourceR05-physical-daylight",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 4,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "reference4-both-ponds-actual-planar-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "reference4-atmosphere-with-real-density-clouds",
+      "type": "Mesh",
+      "material": "SkyShader",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792569633.6730502,
+  "materialTransfer": {
+    "sourceTexturesRetained": true,
+    "sourcePBRBaseParametersRetained": true,
+    "metricStoneProjection": [
+      {
+        "name": "reference4_stone",
+        "metricRepeatMetres": 0.25,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": false
+      },
+      {
+        "name": "reference4_granite",
+        "metricRepeatMetres": 0.25,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": false
+      },
+      {
+        "name": "reference4-neutral-weathered-stair-granite",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": true
+      },
+      {
+        "name": "metre-scaled-pond-boulder-granite",
+        "metricRepeatMetres": 0.25,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": false
+      },
+      {
+        "name": "metre-scaled-worn-wet-paver-1",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": false
+      },
+      {
+        "name": "metre-scaled-worn-wet-paver-2",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": false
+      },
+      {
+        "name": "metre-scaled-worn-wet-paver-3",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": false
+      },
+      {
+        "name": "metre-scaled-worn-wet-paver-0",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": false
+      },
+      {
+        "name": "metric-quartz-granite-lantern",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": true
+      },
+      {
+        "name": "weather-aged-damp-toro-cap",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": true
+      },
+      {
+        "name": "carved-granite-recess",
+        "metricRepeatMetres": 0.3173828125,
+        "mapping": "Explicit source-world Y-up three-axis weighted PBR projection; normal vectors reoriented to Blender world space",
+        "neutralizedMineralLuminance": true
+      }
+    ],
+    "uniqueDecodedImages": 36,
+    "aggregateResidual": {
+      "enabled": true,
+      "maps": [
+        {
+          "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-04/assets/granite-aggregate04/granite-aggregate-diff.png",
+          "sha256": "abb806989330807d7b53944968a65e35d51540ddfc4ef9cd6116b4cf9bc26aca"
+        },
+        {
+          "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-04/assets/granite-aggregate04/granite-aggregate-nor_gl.png",
+          "sha256": "7c6ccc4cf31f9c98c44c673eeb126aa49d1203de49d179234d8e688b7a3a20a7"
+        },
+        {
+          "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-04/assets/granite-aggregate04/granite-aggregate-rough.png",
+          "sha256": "a285aae1ea2995f6567e5dd5b5f909383e3d721dd4dd71aee1fa430b1c36e70d"
+        }
+      ],
+      "authorship": "Existing public tools/build-granite-aggregate04.py, periodic Voronoi mineral volumes and finite-difference residual normal, no reference RGB",
+      "repeatMetres": 0.3,
+      "grainPitchMetres": 0.005769230769,
+      "normalStrength": 0.58,
+      "paverAlbedoGain": 1.6,
+      "scope": "Residual sub-grid slope/reflectance on existing mesh relief; no added stone geometry or reference imagery"
+    },
+    "wetFilm": "Authored world-space physical thin water film, IOR1.333, roughness .16, coat roughness .075, thresholded 3D coherent noise; original r4Wetness/r4Dampness attributes absent from official export. No painted shadow, source photograph or frame map.",
+    "foliage": "Energy-conserving thin diffuse transmission, 16% needles, 24% broad leaves/petals; complete alpha mask surrounds all lobes. Paper45%.",
+    "skyAndReflector": "Renderer-specific source sky and planar reflector excluded by official exporter; physical world and existing pond BSDF supply actual radiance/scene reflection.",
+    "nativePixelEquivalence": false
+  },
+  "materialScript": {
+    "file": "material-nodes04.py",
+    "sha256": "b01b287a4ca45abe242b5b0c5de08c28a03c96a8222b3fbd34bfa6964ead9d93"
+  },
+  "importerProvenance": {
+    "source": "lookdev/scene01-solmax-cycles-20261021/render-current-source.py",
+    "scope": "Actual linked instance/full-affine importer and source vertex/instance attribute domains; no Scene01 sunset profile, scene02 sky helper, extra water plane or scene06 lighting fit is included."
+  },
+  "affinePreservation": {
+    "parentMatrices": "Retained as full source object matrices. Source parent shear residual is checked separately below.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 170263,
+    "bakedShearedInstances": 7,
+    "bakedShearedTriangles": 352,
+    "bakedShearedVertices": 315,
+    "maxLinkedTRSMatrixResidual": 1.6540288925170898e-06,
+    "maxBakedShearResidual": 1.0566525787680803e-07,
+    "flattenedOnlyForShearedTransforms": true,
+    "geometryDecimated": false,
+    "maxSourceParentShearResidual": 6.661338147750936e-16
+  },
+  "worldCoordinateConversion": "One rigid +90degree X rotation of all source objects, instance parents, lights and the exact reference camera. Y-up becomes Z-up; no geometry/camera fit.",
+  "referenceCamera": {
+    "sourceMatrix": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.999172674716062,
+      0.040668982047140464,
+      0,
+      0,
+      -0.040668982047140464,
+      0.999172674716062,
+      0,
+      0,
+      1.35,
+      23.34,
+      1
+    ],
+    "sourceVerticalFov": 64.1754241,
+    "sourcePositionYUp": [
+      0,
+      1.35,
+      23.34
+    ],
+    "blenderLens": 19.138755798339844,
+    "verticalSensorMm": 24,
+    "dofAdded": false
+  },
+  "lightCalibration": {
+    "physicalSky": "MULTIPLE_SCATTERING",
+    "availableSkyModels": [
+      "SINGLE_SCATTERING",
+      "MULTIPLE_SCATTERING",
+      "PREETHAM",
+      "HOSEK_WILKIE"
+    ],
+    "skyWorldGain": 0.10000000149011612,
+    "sunDirectionYUp": [
+      -0.7295371890068054,
+      0.5471528768539429,
+      0.41036465764045715
+    ],
+    "sunDirectionZUp": [
+      -0.7295371890068054,
+      -0.41036462783813477,
+      0.5471529364585876
+    ],
+    "sunDiskEnabled": false,
+    "sourceHemisphereLight": "Replaced by shadowed physical sky GI; not added a second time as a nonphysical fill.",
+    "sourceLights": [
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "",
+        "type": "POINT",
+        "sourceIntensity": 3.8,
+        "cyclesEnergy": 47.7522087097168,
+        "sourceLinearColor": [
+          1,
+          0.508881320845802,
+          0.16202937562896222
+        ]
+      },
+      {
+        "name": "reference4-left-golden-hour-sun",
+        "type": "SUN",
+        "sourceIntensity": 6.4,
+        "cyclesEnergy": 10.5600004196167,
+        "sourceLinearColor": [
+          1,
+          0.7454042095350284,
+          0.450785782828426
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp",
+        "type": "POINT",
+        "sourceIntensity": 1.8,
+        "cyclesEnergy": 22.61946678161621,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.3005437944049895
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp",
+        "type": "POINT",
+        "sourceIntensity": 1.8,
+        "cyclesEnergy": 22.61946678161621,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.3005437944049895
+        ]
+      },
+      {
+        "name": "reference4-eave-lantern-light",
+        "type": "POINT",
+        "sourceIntensity": 8,
+        "cyclesEnergy": 100.53096771240234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      },
+      {
+        "name": "reference4-eave-lantern-light",
+        "type": "POINT",
+        "sourceIntensity": 8,
+        "cyclesEnergy": 100.53096771240234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      },
+      {
+        "name": "scene04-visible-portal-oil-lantern",
+        "type": "POINT",
+        "sourceIntensity": 4.2,
+        "cyclesEnergy": 52.77875518798828,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.2541520943200296
+        ]
+      },
+      {
+        "name": "scene04-visible-portal-oil-lantern",
+        "type": "POINT",
+        "sourceIntensity": 4.2,
+        "cyclesEnergy": 52.77875518798828,
+        "sourceLinearColor": [
+          1,
+          0.6375968739867731,
+          0.2541520943200296
+        ]
+      },
+      {
+        "name": "reference4-small-sanctuary-practical",
+        "type": "POINT",
+        "sourceIntensity": 3.5,
+        "cyclesEnergy": 43.982295989990234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      },
+      {
+        "name": "reference4-small-sanctuary-practical",
+        "type": "POINT",
+        "sourceIntensity": 3.5,
+        "cyclesEnergy": 43.982295989990234,
+        "sourceLinearColor": [
+          1,
+          0.623960391667596,
+          0.23839757380151394
+        ]
+      }
+    ],
+    "calibrationScope": "Source linear direct irradiance starting point retained; point power uses intensity*4pi. This is a documented radiometric proxy, not an absolute photometric measurement. No new studio lights, photographic shadows or environment geometry."
+  },
+  "importedTriangles": 28729038,
+  "sourceTriangleCount": 28729038,
+  "geometryTriangleCountPreserved": true,
+  "excludedCollapsedInstanceCount": 0,
+  "materialAttributeParity": {
+    "linkedInstances": "ShaderNodeAttribute Instancer with explicit POINT Store Named Attribute; exact source instance color once",
+    "directAndBakedShear": "Separate Geometry domain material variants; white direct fallback, source RGB for exact affine bake",
+    "vertexColorMultiply": "Only when source vertexColors flag is true; sourceColor POINT attribute preserved"
+  },
+  "physicalWater": {
+    "geometry": "Two actual exported pond surfaces only; no added water plane or backdrop",
+    "IOR": 1.333,
+    "roughness": 0.075,
+    "transmission": 0.92,
+    "reflections": "Cycles actual scene/world radiance"
+  },
+  "transport": {
+    "maxBounces": 10,
+    "diffuseBounces": 5,
+    "glossyBounces": 5,
+    "transmissionBounces": 8,
+    "transparentBounces": 24,
+    "denoised": true
+  },
+  "viewTransform": {
+    "name": "AgX",
+    "exposureStops": 0.056583527475595474,
+    "nativePixelEquivalence": false
+  },
+  "visualAccepted": false,
+  "fullFrame": {
+    "file": "scene04-sourceR05-physical-r02.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "4c69aa91751cf295431bbe2138e338e6e595f7a97e163cebb5d096a31318e043",
+    "seconds": 48.289530754089355,
+    "samples": 96
+  },
+  "detailFrame": {
+    "file": "detail-native-cycles.png",
+    "sourceCropPixels": [
+      160,
+      220,
+      920,
+      1254
+    ],
+    "virtualFullResolution": 1709,
+    "sha256": "bed969e501e6786d2784cca32cb357d889fd8b1a014d955a6a772c35d7ea62d6",
+    "seconds": 52.848594188690186,
+    "freshPathTrace": true,
+    "upscaled": false
+  },
+  "finished": 1792569764.205747,
+  "photographicAcceptance": false
+}
