@@ -34,10 +34,10 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
  }
  carvedBeam(6.25,.40,capitalTop+.14,.33,mats.cedar);
  carvedBeam(6.07,.35,capitalTop-.46,.48,mats.red);
- carvedBeam(5.05,.24,capitalTop-1.05,-.05,mats.cedar);
+ carvedBeam(5.05,.24,capitalTop-.75,-.05,mats.cedar);
  for(const [j,x]of[-1.92,0,1.92].entries())scroll(x,capitalTop+.14,.73,1.15,.32,j*.91);
  for(const [j,x]of[-2.22,-1.12,0,1.12,2.22].entries())scroll(x,capitalTop-.47,.88,.84,.26,j*.72);
- for(const [j,x]of[-1.95,-1.3,-.65,0,.65,1.3,1.95].entries())scroll(x,capitalTop-1.06,.34,.55,.16,j*.89);
+ for(const [j,x]of[-1.95,-1.3,-.65,0,.65,1.3,1.95].entries())scroll(x,capitalTop-.76,.34,.55,.16,j*.89);
  for(const sign of[-1,1])for(const [j,x]of[3.77,5.83].entries()){
   scroll(sign*x,capitalTop-1.12,-.385,j?.88:.95,.26,j*.63);
  }

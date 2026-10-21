@@ -12,7 +12,7 @@ import {createReference6Chandelier} from './reference6-chandelier.js';
 
 // Independent room, not a material patch over the exterior-world reconstruction.
 // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
-export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-sculptural-cast-r8',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:64},sunDirection:[-.64,.48,-.60],sunTarget:[0,4.0,-.2],sunIntensity:22.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
+export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene-06-sculptural-cast-r9',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:64},sunDirection:[-.64,.48,-.60],sunTarget:[0,4.0,-.2],sunIntensity:22.0,sourceLimit:'Independent room, complete altar7365af and sculpture5338dd reconstruction candidates. No photo acceptance.'});
 function woodMap(){
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=512;const c=canvas.getContext('2d'),im=c.createImageData(512,512);let seed=19473;const r=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
  for(let y=0;y<512;y++)for(let x=0;x<512;x++){const u=x+.85*Math.sin(y*.019)+.35*Math.sin(y*.061);const v=230+5*Math.sin(u*.38)+4*Math.sin(u*1.77)+(r()-.5)*4,j=(y*512+x)*4;im.data[j]=im.data[j+1]=im.data[j+2]=v;im.data[j+3]=255;}c.putImageData(im,0,0);const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;return map;
@@ -59,10 +59,10 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
  if(floorSurface){materials.floor.color.setRGB(...floorSurface.record.materialLinearGain);materials.floor.map=floorSurface.map;}
 const giltMicro=castGiltMicroSurface();for(const m of[materials.gold,materials.oldgold,materials.buddha]){m.roughnessMap=giltMicro;m.bumpMap=giltMicro;m.bumpScale=.00028;}
  materials.sculptureRecess=new T.MeshStandardMaterial({name:'scene06-inset-dark-bronze-eye-and-lip-apertures',color:'#2f1e0d',metalness:.55,roughness:.48});
-materials.centralGold=materials.buddha.clone();materials.centralGold.name='scene06-r8-connected-cast-gilt';materials.centralGold.color.set('#d8ae5c');materials.centralGold.metalness=.83;materials.centralGold.roughness=.345;materials.centralGold.bumpScale=.00019;
-materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-r8-cast-folded-robe-gilt';materials.clothGold.color.set('#cca151');materials.clothGold.metalness=.84;materials.clothGold.roughness=.36;materials.clothGold.bumpScale=.00024;
-materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-r8-cast-palm-gilt';materials.handGold.color.set('#d8b05f');materials.handGold.metalness=.85;materials.handGold.roughness=.31;
-materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r8-polished-gilt-facial-planes';materials.faceGold.bumpScale=.00015;materials.faceGold.roughness=.275;materials.faceGold.metalness=.92;materials.faceGold.color.set('#d0a04a');
+materials.centralGold=materials.buddha.clone();materials.centralGold.name='scene06-r9-connected-cast-gilt';materials.centralGold.color.set('#d8ae5c');materials.centralGold.metalness=.83;materials.centralGold.roughness=.345;materials.centralGold.bumpScale=.00019;
+materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-r9-cast-folded-robe-gilt';materials.clothGold.color.set('#cca151');materials.clothGold.metalness=.84;materials.clothGold.roughness=.36;materials.clothGold.bumpScale=.00024;
+materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-r9-cast-palm-gilt';materials.handGold.color.set('#d8b05f');materials.handGold.metalness=.85;materials.handGold.roughness=.31;
+materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-polished-gilt-facial-planes';materials.faceGold.bumpScale=.00015;materials.faceGold.roughness=.275;materials.faceGold.metalness=.92;materials.faceGold.color.set('#d0a04a');
  materials.statueGold=materials.gold.clone();materials.statueGold.name='reference6-statue-ornament-private-gilt';
  const blockers=[],apertures=[],pillarRoots=[];
  const columnCollar=createReference6ColumnCollar();

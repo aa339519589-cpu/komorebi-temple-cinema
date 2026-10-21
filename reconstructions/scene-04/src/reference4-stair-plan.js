@@ -1,7 +1,7 @@
 // One physical datum and one flared plan own treads, landings and balustrades.
 // All hidden dimensions remain an authored single-view reconstruction.
 export function createReference4StairPlan(C){
- const count=C.stairCount??18,baseY=C.stairBaseY??.048,topY=C.stairTopY,z0=C.stairTopZ,z1=C.stairBottomZ,topWidth=C.stairTopWidth??4.4,bottomWidth=C.stairWidth,run=z1-z0,cap=.10;
+ const count=C.stairCount??18,baseY=C.stairBaseY??.048,topY=C.stairTopY,z0=C.stairTopZ,z1=C.stairBottomZ,topWidth=C.stairTopWidth??4.4,bottomWidth=C.stairWidth,run=z1-z0,cap=(topY-baseY)/count-.010;
  if(!(Number.isInteger(count)&&count>=3&&run>0&&topY>baseY&&topWidth>0&&bottomWidth>=topWidth))throw Error('Invalid unified flared stair plan');
  const clamp=t=>Math.max(0,Math.min(1,t)),halfWidth=z=>{const t=clamp((z-z0)/run);return .5*(topWidth+(bottomWidth-topWidth)*t);},walkY=z=>topY+(baseY-topY)*clamp((z-z0)/run),steps=[];
  for(let i=0;i<count;i++){

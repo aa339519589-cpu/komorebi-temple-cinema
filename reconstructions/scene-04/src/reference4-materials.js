@@ -1,5 +1,5 @@
 import {stoneMaterial} from './scene04-surfaces.js';
-import {scannedStoneMaps,scannedStoneRepeatMetres} from './scene04-scanned-stone.js';
+import {scannedStoneMaps,scannedStoneRepeatMetres,createNeutralScannedGranite04} from './scene04-scanned-stone.js';
 import * as T from 'three';
 let generatedMaps=null;
 let generatedMapsPromise=null;
@@ -31,9 +31,9 @@ export function getReference4GeneratedMaps(){if(!generatedMaps)throw Error('Gene
 export function createReference4MaterialSet(T, options={}) {
   if(!generatedMaps)throw Error('Generated PBR material detail must load before scene04 construction');
   const palette={
-    cedar:[0x81442b,.84,0],red:[0x91452e,.82,0],endwood:[0x875a39,.84,0],darkwood:[0x302018,.88,0],
+    cedar:[0x79503a,.66,0],red:[0x793d2c,.62,0],endwood:[0x875a39,.70,0],darkwood:[0x302018,.78,0],
     gold:[0xd0a34e,.34,.70],oldgold:[0xa77c3d,.57,.54],black:[0x272b29,.65,.08],
-    slate:[0x38434b,.76,0],tileEdge:[0x717878,.81,0],stone:[0x62676c,.95,0],
+    slate:[0x5e6d76,.76,0],tileEdge:[0x717878,.81,0],stone:[0x62676c,.95,0],
     granite:[0x73777b,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
   };
   const materials=[],textures=[],mats={};
@@ -58,13 +58,7 @@ export function createReference4MaterialSet(T, options={}) {
   // The entrance tread caps are warmer limestone-granite than the garden
   // paving. Give the real staircase blocks their own muted ochre-gray response.
   if(!scannedStoneMaps)throw Error('The licensed granite scan must load before stair material construction');
-  const baseGranite=mats.granite,stairGranite=baseGranite.clone(),stairMapScale=1/scannedStoneRepeatMetres,baseCompile=baseGranite.onBeforeCompile;
-  stairGranite.name='reference4-warm-weathered-scanned-stair-granite';stairGranite.color.set('#8b7d69');stairGranite.roughness=.94;
-  stairGranite.map=scannedStoneMaps.map;stairGranite.normalMap=scannedStoneMaps.normalMap;stairGranite.normalScale.set(.78,.78);stairGranite.roughnessMap=scannedStoneMaps.roughnessMap;stairGranite.bumpMap=null;
-  stairGranite.onBeforeCompile=shader=>{baseCompile(shader);const old='ssPosition*4.0',scale=`ssPosition*${stairMapScale.toFixed(8)}`;if(!shader.fragmentShader.includes(old))throw Error('Pinned triplanar stair-granite mapping changed');shader.fragmentShader=shader.fragmentShader.replaceAll(old,scale);};
-  stairGranite.customProgramCacheKey=()=>`${baseGranite.customProgramCacheKey()}-cc0-stair-${stairMapScale.toFixed(5)}`;
-  stairGranite.userData.maps={map:stairGranite.map,normalMap:stairGranite.normalMap,roughnessMap:stairGranite.roughnessMap};stairGranite.userData.physicalTextureRepeatMetres=scannedStoneRepeatMetres;stairGranite.userData.materialProvider='Poly Haven Granite Tile 04, CC0-1.0';
-  materials.push(stairGranite);mats.stairGranite=stairGranite;
+  const stairGranite=createNeutralScannedGranite04('reference4-neutral-weathered-stair-granite','#69655d',.72);stairGranite.vertexColors=true;materials.push(stairGranite);mats.stairGranite=stairGranite;
   const tiles=mats.slate.clone();tiles.name='reference4_variegated_tiles';tiles.vertexColors=true;
   tiles.onBeforeCompile=mats.slate.onBeforeCompile;tiles.customProgramCacheKey=mats.slate.customProgramCacheKey;
   materials.push(tiles);mats.tiles=tiles;

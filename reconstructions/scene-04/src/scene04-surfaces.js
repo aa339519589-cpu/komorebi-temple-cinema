@@ -10,7 +10,7 @@ export function metricStoneMaps(seed=1,size=512){
  // grains, smaller mica, and 15–35 mm eroded pockets. Separate these scales:
  // the former smooth, low-amplitude noise read as a flat ochre fabric.
  const crystal=(x,z)=>{
-  const cells=23,u=x/size*cells,v=z/size*cells,a=Math.floor(u),b=Math.floor(v),wrap=k=>(k%cells+cells)%cells;
+  const cells=47,u=x/size*cells,v=z/size*cells,a=Math.floor(u),b=Math.floor(v),wrap=k=>(k%cells+cells)%cells;
   let nearest=10,second=10,mineral=0;
   for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){
    const ix=a+i,iz=b+j,wx=wrap(ix),wz=wrap(iz);if(hash(wx,wz,seed+95)<.13)continue;const sx=ix+.06+.88*hash(wx,wz,seed+41),sz=iz+.06+.88*hash(wx,wz,seed+67),d=(u-sx)**2+(v-sz)**2;

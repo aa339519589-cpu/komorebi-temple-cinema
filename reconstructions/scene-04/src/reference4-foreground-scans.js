@@ -1,4 +1,4 @@
-import {loadScannedGardenStones} from '../../scene-01/src/scanned-garden-stones.js';
+import {loadScannedGardenStones} from './scene04-scanned-garden-stones.js';
 let kit=null;
 export async function loadReference4ForegroundScans(){kit=await loadScannedGardenStones();return kit.info;}
 // Only four dominant near boulders. The rest of the garden and its seeded

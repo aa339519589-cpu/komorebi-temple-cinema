@@ -8,6 +8,8 @@ import {buildReference4DistantForest} from './reference4-distant-forest.js';
 import {buildReference4Atmosphere} from './reference4-atmosphere.js';
 import {reference4Config as C} from './reference4-config.js';
 import {createPavingCanopy04} from './paving-canopy04.js';
+import {buildScene04Understory131} from './scene04-understory131.js';
+import {createReference4StairPlan} from './reference4-stair-plan.js';
 
 function describe(value,seen=new WeakSet()){
  if(value==null||typeof value==='string'||typeof value==='boolean'||typeof value==='number')return value;
@@ -71,6 +73,7 @@ function createWaterReflection(scene,garden){
 export function buildReference4Scene(){
  const scene=new T.Scene();scene.name='reference4-complete-exterior-v4';scene.fog=new T.FogExp2('#9eafb5',.0015);
  const architecture=buildReference4Architecture(T,C.architecture),garden=buildReference4Garden(T,{...C.garden,stairDimensions:C.architecture});scene.add(architecture.group,garden.group);
+ const understory=buildScene04Understory131(garden,createReference4StairPlan(C.architecture));scene.add(understory.group);
  const waterReflection=createWaterReflection(scene,garden);
  const sunDirection=new T.Vector3(...C.lighting.sunDirection).normalize();
  // Reposition the real supported boughs for the current physical sun so
@@ -83,6 +86,7 @@ export function buildReference4Scene(){
  const hemi=new T.HemisphereLight(C.lighting.skyColor??'#dae5ee',C.lighting.groundColor??'#7b644b',C.lighting.skyIntensity);hemi.name='reference4-cool-sky-fill';scene.add(hemi);
  const sanctuary=buildReference4Sanctuary(T,{floorY:C.architecture.stairTopY});scene.add(sanctuary.group);
  const suspensions=addSuspendedLamps(scene,architecture,sanctuary.materials);
+ for(const p of architecture.portalDepth.lights){const light=new T.PointLight('#ffd18a',4.2,4,2);light.position.fromArray(p);light.name='scene04-visible-portal-oil-lantern';scene.add(light);}
  for(const x of [-1.3,1.3]){const light=new T.PointLight('#ffcf86',3.5,6,2);light.name='reference4-small-sanctuary-practical';light.position.set(x,C.architecture.stairTopY+3.45,-4.1);scene.add(light);}
  const distantForest=buildReference4DistantForest(T);scene.add(distantForest.group);
  let environmentTarget=null,pavingEnvironmentTarget=null;
@@ -98,7 +102,7 @@ export function buildReference4Scene(){
    try{scene.updateMatrixWorld(true);probe.update(renderer,scene);pavingEnvironmentTarget=pmrem.fromCubemap(cube.texture);for(const material of garden.group.userData.pavingMaterials??[]){material.envMap=pavingEnvironmentTarget.texture;material.needsUpdate=true;}}finally{garden.subgroups.path.visible=pathVisible;waterReflection.visible=reflectionVisible;probe.removeFromParent();cube.dispose();}
   }finally{pmrem.dispose();envSky.material.dispose();}
  }
- function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe(architecture.sockets),garden:describe(garden.sockets),suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},lighting:{sunDirection:sunDirection.toArray(),shadowCanopyDirection:shadowCanopyDirection.toArray(),sunIntensity:C.lighting.sunIntensity,skyIntensity:C.lighting.skyIntensity},environmentInitialized:!!environmentTarget,pavingReflection:{actualSceneCapture:!!pavingEnvironmentTarget,position:[0,.28,18.2],resolution:256,scope:'Local reflection approximation; not ray-traced per-pixel reflections.'},lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
+ function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe({...architecture.sockets,portalDepth:architecture.portalDepth}),garden:describe(garden.sockets),understory:understory.info,suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},lighting:{sunDirection:sunDirection.toArray(),shadowCanopyDirection:shadowCanopyDirection.toArray(),sunIntensity:C.lighting.sunIntensity,skyIntensity:C.lighting.skyIntensity},environmentInitialized:!!environmentTarget,pavingReflection:{actualSceneCapture:!!pavingEnvironmentTarget,position:[0,.28,18.2],resolution:256,scope:'Local reflection approximation; not ray-traced per-pixel reflections.'},lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
  scene.updateMatrixWorld(true);
- return{scene,architecture,garden,sky,sun,focal:sanctuary.group,sanctuary,distantForest,waterReflection,initializeEnvironment,info};
+ return{scene,architecture,garden,sky,sun,focal:sanctuary.group,sanctuary,distantForest,understory,waterReflection,initializeEnvironment,info};
 }

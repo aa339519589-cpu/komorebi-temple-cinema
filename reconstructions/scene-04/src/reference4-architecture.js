@@ -1,5 +1,6 @@
 import {buildDeepEntranceCarving} from './scene04-carving.js';
-import {polygonSlab} from './scene04-surfaces.js';
+import {buildPortalDepth131} from './scene04-portal-depth131.js';
+import {createGraniteStairBlock131} from './scene04-stair-block131.js';
 import {createRestorationArchitecture} from './reference4-detail-kernel.js';
 import {createReference4MaterialSet} from './reference4-materials.js';
 import {createWeatheredFlagstone} from './reference4-garden-stone.js';
@@ -8,7 +9,7 @@ import {createReference4StairPlan} from './reference4-stair-plan.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
-export const REFERENCE4_ARCHITECTURE_REVISION='reference4-mesh63-sculpted-bearing-relief';
+export const REFERENCE4_ARCHITECTURE_REVISION='reference4-model131-sculpted-stone-portal-roof';
 export function buildReference4Architecture(T,options={}) {
  const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:16.4,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,towerYaw:0,towerWidthFactor:1,towerDepthRatio:1,towerEaveBase:4.3,towerEavePitch:1.6,towerTopRoofRise:.66,towerTopRidgeHalfRatio:.275,towerGroundY:-.8,...options};
  if(!(C.stairTopY>0&&C.stairBottomZ>C.stairTopZ&&C.ridgeY>C.capitalTop+3))throw Error('Invalid complete exterior dimensions');
@@ -38,8 +39,23 @@ export function buildReference4Architecture(T,options={}) {
  function tube(points,r,ma='oldgold',n=32){const g=new T.TubeGeometry(new T.CatmullRomCurve3(points.map(V)),n,r,6,false);emit(g,ma);}
  function rosette(x,y,z,r,ma='gold'){for(let i=0;i<8;i++){const a=i*Math.PI/4;emit(sphere,ma,x+Math.cos(a)*r*.49,y+Math.sin(a)*r*.49,z,r*.32,r*.18,r*.08,[0,0,a]);}emit(sphere,ma,x,y,z+.005,r*.23,r*.23,r*.08);}
  function relief(x,y,z,w,h){for(const s of[-1,1])for(let j=0;j<3;j++){const xx=x+s*w*(.15+j*.115);tube([[xx-s*w*.09,y-h*.14,z],[xx-s*w*.04,y+h*.25,z+.012],[xx+s*w*.02,y+h*.13,z+.02],[xx+s*w*.05,y-h*.12,z]],.012,'oldgold',12);}rosette(x,y,z+.018,Math.min(.14,h*.42));}
- const barrel=(()=>{const pp=[],uv=[],N=8;const pt=(a,z,r)=>[Math.cos(a)*r,Math.sin(a)*r,z];const tri=(a,b,c)=>{for(const p of[a,b,c]){pp.push(...p);uv.push(p[0],p[2]);}},quad=(a,b,c,d)=>{tri(a,b,c);tri(b,d,c);};for(let i=0;i<N;i++){const a=i*Math.PI/N,b=(i+1)*Math.PI/N;quad(pt(a,-.5,1),pt(b,-.5,1),pt(a,.5,1),pt(b,.5,1));quad(pt(a,-.5,.76),pt(a,.5,.76),pt(b,-.5,.76),pt(b,.5,.76));quad(pt(a,-.5,.76),pt(b,-.5,.76),pt(a,-.5,1),pt(b,-.5,1));quad(pt(a,.5,.76),pt(a,.5,1),pt(b,.5,.76),pt(b,.5,1));}quad(pt(0,-.5,.76),pt(0,-.5,1),pt(0,.5,.76),pt(0,.5,1));quad(pt(Math.PI,-.5,1),pt(Math.PI,-.5,.76),pt(Math.PI,.5,1),pt(Math.PI,.5,.76));return meshFromTriangles(pp,uv,'closed-half-barrel-ceramic');})();
- function tileBetween(a,b,r=.067,tint=1){a=V(a);b=V(b);const z=b.clone().sub(a),len=z.length();if(len<.03)return;z.normalize();let x=V([0,1,0]).cross(z).normalize();if(x.length()<.1)x.set(1,0,0);const y=z.clone().cross(x).normalize();const m=new T.Matrix4().makeBasis(x,y,z);m.scale(V([r,r,len]));m.setPosition(a.clone().add(b).multiplyScalar(.5));m.premultiply(stack.at(-1));put(barrel,mats.slate,m,tint);}
+ function ceramicSection(pan=false){
+  const pp=[],uv=[],nn=[],N=pan?14:20,point=(u,z,inside=false)=>pan?[u,(.25*u*u+.02)-(inside?.24:0),z]:[Math.cos(u)*(inside?.76:1),Math.sin(u)*(inside?.76:1),z];
+  const tri=(a,b,c,normal)=>{const first=typeof normal==='function'?normal(a):normal;if(V(b).sub(V(a)).cross(V(c).sub(V(a))).dot(V(first))<0)[b,c]=[c,b];for(const q of[a,b,c]){pp.push(...q);uv.push(q[0],q[2]);const n=typeof normal==='function'?normal(q):normal;nn.push(...n);}},quad=(a,b,c,d,n)=>{tri(a,b,c,n);tri(b,d,c,n);};
+  for(let i=0;i<N;i++){
+   const u=pan?-1+2*i/N:i*Math.PI/N,v=pan?-1+2*(i+1)/N:(i+1)*Math.PI/N,
+    outer=q=>pan?V([-.5*q[0],1,0]).normalize().toArray():[q[0]/Math.hypot(q[0],q[1]),q[1]/Math.hypot(q[0],q[1]),0],
+    inner=q=>outer(q).map(x=>-x);
+   if(pan){quad(point(u,-.5),point(u,.5),point(v,-.5),point(v,.5),outer);quad(point(u,-.5,true),point(v,-.5,true),point(u,.5,true),point(v,.5,true),inner);}
+   else{quad(point(u,-.5),point(v,-.5),point(u,.5),point(v,.5),outer);quad(point(u,-.5,true),point(u,.5,true),point(v,-.5,true),point(v,.5,true),inner);}
+   quad(point(u,-.5,true),point(u,-.5),point(v,-.5,true),point(v,-.5),[0,0,-1]);
+   quad(point(u,.5),point(u,.5,true),point(v,.5),point(v,.5,true),[0,0,1]);
+  }
+  for(const u of pan?[-1,1]:[0,Math.PI])quad(point(u,-.5,true),point(u,.5,true),point(u,-.5),point(u,.5),pan?[Math.sign(u),0,0]:[0,-1,0]);
+  const g=meshFromTriangles(pp,uv,pan?'closed-concave-pan-ceramic':'closed-smooth-cover-ceramic');g.setAttribute('normal',new T.Float32BufferAttribute(nn,3));return g;
+ }
+ const barrel=ceramicSection(false),panTile=ceramicSection(true);
+ function tileBetween(a,b,r=.067,tint=1,pan=false){a=V(a);b=V(b);const z=b.clone().sub(a),len=z.length();if(len<.03)return;z.normalize();let x=V([0,1,0]).cross(z).normalize();if(x.length()<.1)x.set(1,0,0);const y=z.clone().cross(x).normalize();const m=new T.Matrix4().makeBasis(x,y,z);m.scale(V([r,r,len]));m.setPosition(a.clone().add(b).multiplyScalar(.5));m.premultiply(stack.at(-1));put(pan?panTile:barrel,mats.slate,m,tint);}
 
  // Common curved canopy/main-roof weather profile. Front remains the source-led arch.
  const gHalf=6.4,gFront=1.55,upperFront=C.ridgeZ+4.5,gBack=Math.min(-2.4,upperFront-.3),xs=Array.from(new Set([...lin(-gHalf,gHalf,80),...lin(-C.upperRoofWidth/2,C.upperRoofWidth/2,64).filter(x=>Math.abs(x)<=gHalf)].map(x=>x.toFixed(9)))).map(Number).sort((a,b)=>a-b);
@@ -75,7 +91,7 @@ export function buildReference4Architecture(T,options={}) {
    const rows=Math.max(12,Math.round((side%2?d:w)/.205));
    for(let i=0;i<=rows;i++){const u=-1+2*i/rows;if(side===0&&frontGap&&Math.abs(P(side,1,u)[0])<frontGap+.08)continue;
     const pieces=Math.max(6,Math.ceil(Math.hypot(side%2?hw-rh:hd,rise)*(1-inner)/.36));
-    for(let j=0;j<pieces;j++){const t0=inner+(1-inner)*j/pieces,t1=inner+(1-inner)*(j+.96)/pieces;const p=P(side,t0,u),q=P(side,t1,u);tileBetween(p,q,.065,.94+.10*(.5+.5*Math.sin(i*11.3+j*4.7)));}
+    for(let j=0;j<pieces;j++){const t0=inner+(1-inner)*j/pieces,t1=inner+(1-inner)*(j+.96)/pieces;const p=P(side,t0,u),q=P(side,t1,u);tileBetween(p,q,.065,.94+.10*(.5+.5*Math.sin(i*11.3+j*4.7)));if(i<rows){const um=u+1/rows;tileBetween(P(side,t0,um),P(side,t1,um),.060,.92+.07*Math.sin(i*3.1+j),true);}}
     const end=P(side,1,u);if(!(connected&&side===0&&Math.abs(end[0])<mainEaveOpeningHalf)){arch.tileEnd(V(end),side*Math.PI/2,.074,i%2===0);const a=P(side,.75,u),b=P(side,1.035,u);a[1]-=.24;b[1]-=.24;between(a,b,.105,.16,'red');}
    }
    // Exposed eave fascia follows the real curled roof. Central joined edge is not a second fascia.
@@ -104,7 +120,8 @@ export function buildReference4Architecture(T,options={}) {
    solidFootprint(outline,C.stairTopY-l.cap,C.stairTopY,'granite','closed-porch-wing-cap');
   }
   for(const step of p.steps){
-   solidFootprint(step.outline,step.bottom,step.coreTop,'stone','closed-flared-tread-core-'+step.index);
+   const stoneThickness=step.cap;
+   solidFootprint(step.outline,step.bottom,step.top-stoneThickness,'stairGranite','closed-flared-tread-core-'+step.index);
    // Vary the stone courses from tread to tread: a uniform four-panel grid
    // made the entire stair read as one mechanically repeated stack. Each
    // closed granite cap is now a slightly different, staggered cut block.
@@ -115,9 +132,9 @@ export function buildReference4Architecture(T,options={}) {
    }
    cuts.push(1);
    for(let k=0;k<pieces;k++){
-    const a=cuts[k],b=cuts[k+1],g=polygonSlab([[a*h0,step.back],[b*h0,step.back],[b*h1,step.front],[a*h1,step.front]],step.top,step.cap,1307+step.index*31+k*107,{processional:true,jointRatio:.008});
+    const a=cuts[k],b=cuts[k+1],g=createGraniteStairBlock131({leftBack:a*h0,rightBack:b*h0,leftFront:a*h1,rightFront:b*h1,back:step.back,front:step.front,top:step.top,thickness:stoneThickness,seed:1307+step.index*31+k*107});
     g.userData.architectureMember='closed-staggered-flared-tread-cap-'+step.index+'-'+k;
-    const tint=.91+.12*(.5+.5*Math.sin((step.index+1)*19.17+(k+1)*43.73));emit(g,'stairGranite',0,0,0,1,1,1,0,tint);
+    const tint=.88+.17*(.5+.5*Math.sin((step.index+1)*19.17+(k+1)*43.73));g.setAttribute('color',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*3).fill(tint),3));emit(g,'stairGranite');
    }
    for(const s of[-1,1]){
     const a=p.halfWidth(step.back),b=p.halfWidth(step.front),outline=[[s*(a+.025),step.back],[s*(a+.31),step.back],[s*(b+.31),step.front],[s*(b+.025),step.front]];
@@ -157,7 +174,7 @@ export function buildReference4Architecture(T,options={}) {
   box(0,H(9.7),-1.04,13.1,2.22,.18,'darkwood');for(let i=0;i<33;i++){const x=-6.4+i*.4;if(Math.abs(x)>3.15)box(x,H(9.7),-.925,.37,2.18,.055,'cedar',0,.94+.08*Math.sin(i));}
  });
  role('central-real-portal',()=>{
-  const clearW=4.2,clearH=4.08,z=-.62,y0=C.stairTopY;
+  const clearW=4.2,clearH=4.38,z=-.62,y0=C.stairTopY;
   for(const s of[-1,1]){box(s*(clearW/2+.21),y0+clearH/2,z,.42,clearH,.50,'cedar');box(s*(clearW/2+.21),y0+clearH/2,z+.264,.33,clearH,.028,'oldgold');for(let j=0;j<10;j++)relief(s*(clearW/2+.21),y0+.23+j*.405,z+.285,.29,.28);box(s*(clearW/2+.035),y0+clearH/2,z-.08,.07,clearH,.42,'gold');}
   box(0,y0+clearH+.23,z,5.04,.46,.50,'cedar');box(0,y0+clearH+.23,z+.265,4.85,.34,.026,'oldgold');for(let j=-5;j<=5;j++)relief(j*.405,y0+clearH+.23,z+.285,.35,.24);box(0,y0+.035,z,4.2,.07,.60,'darkwood');
   for(const y of[C.capitalTop-.40,C.capitalTop+.20]){box(0,y,.06,6.15,.36,.52,'red');for(const x of[-2.4,-1.6,-.8,0,.8,1.6,2.4])relief(x,y,.333,.68,.25);}
@@ -188,7 +205,7 @@ export function buildReference4Architecture(T,options={}) {
   emit(mouldedBargeboard(),'cedar');
   for(const drop of[-.11,-.39])tube(xs.map(x=>[x,canopy(x,gFront)+drop,gFront+(drop>-.2?.110:.045)]),.012,'oldgold',120);
   for(let i=0;i<rr.length;i++){const x=rr[i],y=canopy(x,gFront)-.47;box(x,y,gFront+.085,.095,.115,.22,'cedar');if(i%4===0)arch.squareFitting(x,y,gFront+.204,.085,.10,0,true);}
-  for(let i=0;i<=48;i++){const x=-gHalf+2*gHalf*i/48;const ts=lin(upperFront,gFront+.06,8);for(let j=0;j<ts.length-1;j++)tileBetween([x,canopy(x,ts[j])+.038,ts[j]],[x,canopy(x,ts[j+1])+.038,ts[j+1]],.088,.94+.07*Math.sin(i*5+j));arch.tileEnd(V([x,canopy(x,gFront+.06)+.038,gFront+.095]),0,.108,i%2===0);if(i%4===0)rosette(x,canopy(x,gFront+.06)+.038,gFront+.127,.037,'oldgold');}
+  for(let i=0;i<=48;i++){const x=-gHalf+2*gHalf*i/48;const ts=lin(upperFront,gFront+.06,8);for(let j=0;j<ts.length-1;j++){tileBetween([x,canopy(x,ts[j])+.038,ts[j]],[x,canopy(x,ts[j+1])+.038,ts[j+1]],.088,.94+.07*Math.sin(i*5+j));if(i<48){const xx=x+gHalf/48;tileBetween([xx,canopy(xx,ts[j])+.038,ts[j]],[xx,canopy(xx,ts[j+1])+.038,ts[j+1]],.079,.96,true);}}arch.tileEnd(V([x,canopy(x,gFront+.06)+.038,gFront+.095]),0,.108,i%2===0);if(i%4===0)rosette(x,canopy(x,gFront+.06)+.038,gFront+.127,.037,'oldgold');}
   // Discrete curved ribs and inset timber panels retain the arch depth.
   for(const x of[-2.9,0,2.9]){const y=canopy(x,.57)-.65;box(x,(y+C.capitalTop+.36)/2,.57,.18,Math.max(.05,y-C.capitalTop-.36),.20,'red');}
   relief(0,canopy(0,gFront+.08)-.25,gFront+.10,1.05,.29);
@@ -304,6 +321,7 @@ export function buildReference4Architecture(T,options={}) {
  },C.towerSceneScale);
 
  group.add(buildDeepEntranceCarving(mats,{capitalTop:C.capitalTop,canopyAt:x=>canopy(x,gFront+.08),front:gFront+.115}));
+ const portalDepth=role('deep-coffered-portal',()=>buildPortalDepth131({emit,box,tube,rosette,mats,materials,floorY:C.stairTopY}));
  // Flush grouped geometry into real shadow-casting ordinary meshes/instances.
  let instances=0,triangles=0;for(const {g,m,items}of buckets.values()){
   const object=items.length===1?new T.Mesh(g,m):new T.InstancedMesh(g,m,items.length);
@@ -311,7 +329,7 @@ export function buildReference4Architecture(T,options={}) {
   object.castShadow=object.receiveShadow=true;object.userData.reference4Roles=[...new Set(items.map(a=>a.role))];object.userData.reference4InstanceRoles=items.map(a=>a.role);object.name=object.userData.reference4Roles.join('+');group.add(object);instances+=items.length;triangles+=(g.index?.count??g.attributes.position.count)/3*items.length;
  }
  group.updateMatrixWorld(true);const b=new T.Box3().setFromObject(group),tip=[C.towerPosition[0],C.towerPosition[1]+C.towerHeight*C.towerSceneScale,C.towerPosition[2]];
- const sockets={entrance:{center:[0,C.stairTopY+2.04,-.62],clearWidth:4.2,clearHeight:4.08,frontZ:-.355},sanctuary:{center:[0,C.stairTopY,-4.65],floor:C.stairTopY,floorY:C.stairTopY,frontOpeningWidth:4.2,width:4.2,depth:5.0,frontZ:-.65},stair:{top:[0,C.stairTopY,C.stairTopZ],bottom:[0,stairPlan.baseY,C.stairBottomZ],width:C.stairWidth,topWidth:stairPlan.topWidth,treads:stairPlan.steps,landing:stairPlan.landing,terminals:stairPlan.terminals,scope:stairPlan.assumptions},mainRidge:[upperRidgeOffset,C.ridgeY,C.ridgeZ],canopy:{front:gFront,back:gBack,halfWidth:gHalf,crest:[0,canopy(0,gFront),gFront],bargeboardMember:'entrance-saddled-bargeboard'},tower:{position:[...C.towerPosition],top:tip,height:C.towerHeight*C.towerSceneScale,levels:towerLevels,scale:C.towerSceneScale},lanternSupports:[-5.55,5.55].map(x=>({x,probeZ:1.5,bodyCenter:[x,5.8,1.7]}))};
+ const sockets={entrance:{center:[0,C.stairTopY+2.19,-.62],clearWidth:4.2,clearHeight:4.38,frontZ:-.355},sanctuary:{center:[0,C.stairTopY,-4.65],floor:C.stairTopY,floorY:C.stairTopY,frontOpeningWidth:4.2,width:4.2,depth:5.0,frontZ:-.65},stair:{top:[0,C.stairTopY,C.stairTopZ],bottom:[0,stairPlan.baseY,C.stairBottomZ],width:C.stairWidth,topWidth:stairPlan.topWidth,treads:stairPlan.steps,landing:stairPlan.landing,terminals:stairPlan.terminals,scope:stairPlan.assumptions},mainRidge:[upperRidgeOffset,C.ridgeY,C.ridgeZ],canopy:{front:gFront,back:gBack,halfWidth:gHalf,crest:[0,canopy(0,gFront),gFront],bargeboardMember:'entrance-saddled-bargeboard'},tower:{position:[...C.towerPosition],top:tip,height:C.towerHeight*C.towerSceneScale,levels:towerLevels,scale:C.towerSceneScale},lanternSupports:[-5.55,5.55].map(x=>({x,probeZ:1.5,bodyCenter:[x,5.8,1.7]}))};
  const bounds={min:b.min.toArray(),max:b.max.toArray()};
- return {group,sockets,bounds,materials:mats,stats:{meshes:group.children.length,instances,triangles,roles},config:C,limits:['New complete v4 source after workspace reset; not byte-identical v3 recovery.','Original-photo dimensions and unseen joints remain reconstruction hypotheses.','No GPU or image acceptance from CPU construction.','Separate closed roof-layer panels share contacts; not a global Boolean-union or structural engineering certification.'],dispose(){for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
+ return {group,sockets,bounds,materials:mats,portalDepth,stats:{meshes:group.children.length,instances,triangles,roles},config:C,limits:['New complete v4 source after workspace reset; not byte-identical v3 recovery.','Original-photo dimensions and unseen joints remain reconstruction hypotheses.','No GPU or image acceptance from CPU construction.','Separate closed roof-layer panels share contacts; not a global Boolean-union or structural engineering certification.'],dispose(){for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
 }

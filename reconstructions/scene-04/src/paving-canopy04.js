@@ -23,25 +23,25 @@ export function createPavingCanopy04(sunDirection){
   for(let k=0;k<n*3;k++){
    const angle=rnd()*Math.PI*2,radius=Math.sqrt(rnd())*(.26+.18*rnd()),y=height+(rnd()-.5)*.30;
    const shadowX=x+Math.cos(angle)*radius,shadowZ=z+Math.sin(angle)*radius,position=lift(shadowX,shadowZ,y),o=new T.Object3D();
-   o.position.copy(position);o.rotation.set((rnd()-.5)*.8,rnd()*Math.PI*2,(rnd()-.5)*.8);const size=.55+rnd()*.55;o.scale.set(size,1,size);o.updateMatrix();leaves.setMatrixAt(at++,o.matrix);twig(centre,position,.0025);
+   o.position.copy(position);o.rotation.set((rnd()-.5)*.8,rnd()*Math.PI*2,(rnd()-.5)*.8);const size=.40+rnd()*.48;o.scale.set(size,1,size);o.updateMatrix();leaves.setMatrixAt(at++,o.matrix);twig(centre,position,.0025);
   }
  }
  // The inferred canopy is a supported tree, also inspectable from above.
  // Its trunk stands in the existing rear earth, outside the reference camera.
  const trunk=[new T.Vector3(-11.4,-.08,27.4),new T.Vector3(-11.25,2.0,27.1),new T.Vector3(-10.8,4.1,26.6),new T.Vector3(-10.3,5.6,26.0),new T.Vector3(-9.8,6.8,25.5)];
  for(let k=1;k<trunk.length;k++){
-  const a=trunk[k-1],b=trunk[k],d=b.clone().sub(a),r0=.42-.070*(k-1),r1=.42-.070*k;
+  const a=trunk[k-1],b=trunk[k],d=b.clone().sub(a),r0=.19-.030*(k-1),r1=.19-.030*k;
   const o=new T.Mesh(new T.CylinderGeometry(r1,r0,d.length(),14),wood);o.position.copy(a).addScaledVector(d,.5);o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),d.normalize());o.castShadow=o.receiveShadow=true;group.add(o);
  }
- for(let k=0;k<7;k++){const angle=k*Math.PI*2/7;twig(trunk[0].clone().add(new T.Vector3(0,.20,0)),trunk[0].clone().add(new T.Vector3(Math.cos(angle)*1.15,.015,Math.sin(angle)*1.15)),.12);}
+ for(let k=0;k<7;k++){const angle=k*Math.PI*2/7;twig(trunk[0].clone().add(new T.Vector3(0,.20,0)),trunk[0].clone().add(new T.Vector3(Math.cos(angle)*1.15,.015,Math.sin(angle)*1.15)),.06);}
  const boughEnds=[];
  for(const index of[0,4,8,11]){
   const a=trunk[3],b=targets[index],mid=a.clone().lerp(b,.48);mid.y-=.35;
   const curve=new T.CatmullRomCurve3([a,mid,b]);
-  for(let j=0;j<7;j++)twig(curve.getPoint(j/7),curve.getPoint((j+1)/7),.16*(1-j/8));
+  for(let j=0;j<7;j++)twig(curve.getPoint(j/7),curve.getPoint((j+1)/7),.072*(1-j/8));
   boughEnds.push(b);
  }
- for(const center of targets){let nearest=boughEnds[0];for(const p of boughEnds)if(p.distanceToSquared(center)<nearest.distanceToSquared(center))nearest=p;if(nearest.distanceToSquared(center)>.001)twig(nearest,center,.045);}
+ for(const center of targets){let nearest=boughEnds[0];for(const p of boughEnds)if(p.distanceToSquared(center)<nearest.distanceToSquared(center))nearest=p;if(nearest.distanceToSquared(center)>.001)twig(nearest,center,.022);}
  leaves.instanceMatrix.needsUpdate=true;leaves.computeBoundingBox();leaves.computeBoundingSphere();group.add(leaves);
  group.userData.reconstruction={source:'Coarse manually observed shadow-region centres; authored supported tree and hidden bough geometry',regions,physicalSunDirection:direction.toArray(),leafCount:count,heightMetres:height,trunkRoot:trunk[0].toArray(),shadowBitmap:false,referenceRGBLoaded:false,hiddenTreeMeasured:false,shadowEligibleInBeautyAndDirectionalDepthPass:true,photographicAcceptance:false};
  return group;

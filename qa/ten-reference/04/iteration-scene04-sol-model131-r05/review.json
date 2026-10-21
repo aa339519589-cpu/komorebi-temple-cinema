@@ -1,0 +1,132 @@
+{
+  "scene": "04",
+  "revision": "scene04-sol-architectural-stone131-r05",
+  "status": "held-working-checkpoint-unaccepted",
+  "sourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668",
+  "visualAccepted": false,
+  "comparison": "comparison-left-reference-right-native.png",
+  "preferredOblique": "../iteration-scene04-sol-model131-r05-oblique-low/inspection-view.png",
+  "captures": [
+    {
+      "report": "qa/ten-reference/04/iteration-scene04-sol-model131-r05/report.json",
+      "sourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "valid": true,
+          "rgbaSha256": "459da6c0119c3d54b3f619acae0615246de22bb5fb07c9354ba67063f653755f",
+          "glError": 0,
+          "contextLost": false,
+          "unlinkedPrograms": 0
+        },
+        {
+          "name": "detail-native",
+          "valid": true,
+          "rgbaSha256": "138ac7f4f55930c323ec112eb65e87cebc77529bfc9f10474ff63c97fb44da44",
+          "glError": 0,
+          "contextLost": false,
+          "unlinkedPrograms": 0
+        }
+      ],
+      "inspectionView": null
+    },
+    {
+      "report": "qa/ten-reference/04/iteration-scene04-sol-model131-r05-oblique/report.json",
+      "sourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "valid": true,
+          "rgbaSha256": "e526845c1671236681f9140e4dbecfc51b83e80c2efc8409b2d0329c5caa4631",
+          "glError": 0,
+          "contextLost": false,
+          "unlinkedPrograms": 0
+        }
+      ],
+      "inspectionView": {
+        "position": [
+          9,
+          11,
+          22
+        ],
+        "target": [
+          0,
+          4.5,
+          5
+        ],
+        "fov": 65,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      }
+    },
+    {
+      "report": "qa/ten-reference/04/iteration-scene04-sol-model131-r05-oblique-low/report.json",
+      "sourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "valid": true,
+          "rgbaSha256": "53815852ae3a0b89be93717e6a7d9d2d2f12f30c46743f3704b41ca5f57585a7",
+          "glError": 0,
+          "contextLost": false,
+          "unlinkedPrograms": 0
+        }
+      ],
+      "inspectionView": {
+        "position": [
+          -6,
+          5.5,
+          22
+        ],
+        "target": [
+          0,
+          2.5,
+          10
+        ],
+        "fov": 70,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      }
+    }
+  ],
+  "implemented": [
+    "Closed individually bevelled full-riser granite blocks replace deeply corrugated slab extrusions; native R05 detail confirms barcode-like striping is removed.",
+    "Closed concave pan tiles and analytically smooth cover tiles, deeper actual entrance reveals/coffers/carving/lamp suspension.",
+    "Source-led narrower sculpted toro proportions; real incised octagonal shafts, deeper carved foliage, separately weathered closed caps/finials and clipped moss.",
+    "Two closed irregular low bank volumes replace straight boxes; 213 licensed original shrub/periwinkle mesh instances root on actual dry terrain with 12mm burial and exclusion from actual rocks/stairs/curbs/toro feet.",
+    "Metric granite scan shading and actual paving microrelief; active paver mineral pigment correction.",
+    "Exact c6841ad scanned-stone loader vendored into Scene04 with unchanged global CC0 rock assets, no other-scene runtime source import."
+  ],
+  "geometryCheck": {
+    "scope": "One representative actual generated closed stair block, CPU edge/volume check; does not establish visual acceptance",
+    "vertices": 2450,
+    "triangles": 4896,
+    "boundaryOrNonmanifoldEdges": 0,
+    "signedVolume": 0.12183290582557006
+  },
+  "preserved": {
+    "referenceCamera": true,
+    "nativeSevenSecondFilmPath": true,
+    "sunDirectionAndIntensity": true,
+    "globalAssetBytes": true
+  },
+  "remainingGaps": [
+    "Reference sunlight has warmer, stronger local light contrast and more crystalline floor glints; the native image remains flatter.",
+    "Toro and stair mineral wear still appears cleaner and more regular than the source; carved surface detail is simplified.",
+    "Pine pads and broad lotus/low-bank foliage still have regular silhouettes; added original botanical meshes do not establish a photo match.",
+    "Main hall and gallery side/rear construction remain inferred and visibly simplified in oblique views; original sky/forest boundary is also exposed outside the reference framing.",
+    "Interior Buddha/shrine proportions and gilt ornament complexity remain simplified versus the photograph."
+  ],
+  "evidenceLimits": [
+    "The first high oblique is retained but occluded by real framing maples; the lower oblique is preferred for support/geometry review.",
+    "No new motion film was captured in this lane; the native dolly code and reference camera are unchanged.",
+    "No reference RGB, source-image depth surface, photograph plate or generated replacement frame is used by the runtime.",
+    "Shader linking, finite pixels and closed geometry diagnostics do not prove photographic fidelity."
+  ],
+  "sourceArchive": "source-scripts-and-provenance.tar.gz",
+  "sourceIdentityReceipt": "retained-source.json"
+}

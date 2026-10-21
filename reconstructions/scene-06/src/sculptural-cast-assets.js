@@ -6,7 +6,7 @@ import {installRestoredBuddhaAssets} from './restoration-buddha.js';
 export async function loadSculpturalCastAssets(){
  // Promoted only after the actual upright full/native subfrustum inspection.
  // Live, reference, free camera, and film paths consume the same real mesh.
- const revision='r8';
+ const revision='r9';
  const base=new URL(`../assets/sculptural-cast-${revision}/`,import.meta.url),response=await fetch(new URL('manifest.json',base));
  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');

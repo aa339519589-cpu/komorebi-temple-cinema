@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {buildBotanicalMandorla} from './mandorla-botanical-cast-r9.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
@@ -945,17 +946,12 @@ function ref6TracedCarvingGeometry() {}
 function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedHeadWheel=false) {
   const rootY=Number.isFinite(supportY)?supportY:y+1.40*s,unit=s/.75;
   b.withTransform(x,rootY,z,1,()=>{
-    const data=REF6_TRACED_SCREEN_FIELDS[chasedHeadWheel?'main':'side'],mirror=chasedHeadWheel||x<0?1:-1;
-    const scaleX=.0121*(chasedHeadWheel?unit*widthScale/1.10:(unit/(.52/.75))*widthScale/.97);
-    const scaleY=(apexY-headCenterY)/(data.axis[1]-data.apex),cy=headCenterY-rootY;
-    const key='r6v12-rounded-casting:'+Number(chasedHeadWheel)+':'+mirror+':'+scaleX+':'+scaleY+':'+cy;
-    const g=b.geometry(key,()=>ref6SweptPhotoCastingGeometry(data,scaleX,scaleY,cy,mirror));
-    b.add(g,'gold');
-    ref6InferredMandorlaBearingBranches(b,data,scaleX,scaleY,cy,mirror,chasedHeadWheel);
-    // The invisible rear stock and body-occluded root connection are inferred.
+    const cy=headCenterY-rootY;
+    buildBotanicalMandorla(b,{height:apexY-rootY,halfWidth:chasedHeadWheel?1.43*unit*widthScale/1.16:.69*(unit/(.52/.75))*widthScale/1.02,headCenter:cy,isMain:chasedHeadWheel});
+    // A physical bearing block and trunk sit behind the statue, with broad
+    // primary scrolls carrying the finer lobed foliage rather than a forest
+    // of isolated traced rods. The old image-derived skeleton is unused.
     b.box(0,.13,-.06,.14*unit,.26,.14*unit,'oldgold');
-    const rootPixelY=chasedHeadWheel?532:555,branchRootY=cy-(rootPixelY-data.axis[1])*scaleY;
-    b.castCurve('recovered-mandorla-root:'+x,[[0,.20,-.06],[0,(.20+branchRootY)/2,-.044],[0,branchRootY,-.038]],chasedHeadWheel?.029:.021,'oldgold',16);
     if(chasedHeadWheel){
       const wheel=b.geometry('r6v2-chased-head-wheel',()=>{
         const sh=new T.Shape();sh.absarc(0,0,.63,0,Math.PI*2,false);const hole=new T.Path();hole.absarc(0,0,.47,0,Math.PI*2,true);sh.holes.push(hole);for(let k=0;k<48;k++){const a=k*Math.PI/24,h=new T.Path();h.absellipse(Math.sin(a)*.55,Math.cos(a)*.55,.013,.035,0,Math.PI*2,true,-a);sh.holes.push(h);}
@@ -995,23 +991,24 @@ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],dep
     // The photographed cast lotus has broad overlapping, convex lobes.
     // Its belly projects out beyond the tips, which turn back toward the seat.
     // A narrow fan of straight upward triangles reads as a thorn crown.
-    b.lathe('r6r14-hidden-lotus-core',[[0,0],[.58,0],[.58,.045],[.46,.11],[.46,.94],[.54,1],[0,1]],0,0,0,radius,height,'oldgold',48);
-    const petal=b.geometry('r7-bellied-returning-tip-lotus-petal',()=>{
+    b.lathe('r9-rooted-convex-lotus-bearing-core',[[0,0],[.61,0],[.67,.06],[.74,.25],[.82,.50],[.76,.72],[.61,.91],[.50,.98],[.39,1.015],[.18,1.022],[0,1.022]],0,0,0,radius,height,'oldgold',48);
+    const petal=b.geometry('r9-solid-rooted-bellied-lotus-petal',()=>{
       const p=[],uv=[],ix=[],rows=52,cols=32,stride=(rows+1)*(cols+1);
       for(let surface=0;surface<2;surface++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
-        const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t);
+        const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t),cap=Math.max(0,wave)**.45;
         const width=.50*Math.pow(Math.max(0,wave),.57)*(1.02-.16*t);
         const meridian=1.52*t-.97*t*t*t;
         const belly=.085*wave*Math.pow(Math.max(0,1-u*u),.8),midrib=.007*Math.exp(-Math.pow(u/.15,2))*wave;
-        const channel=-.0015*Math.exp(-Math.pow((Math.abs(u)-.77)/.10,2))*wave*wave;
+        const channel=-.0025*Math.exp(-Math.pow((Math.abs(u)-.77)/.10,2))*wave*wave;
+        const veins=.004*wave*(Math.exp(-Math.pow((u-.22-.28*t)/.055,2))+Math.exp(-Math.pow((u+.22+.28*t)/.055,2)));
         const edge=.0025*Math.exp(-Math.pow((Math.abs(u)-.94)/.07,2))*wave;
-        p.push(u*width,t,meridian+(surface===0?.016+belly+midrib+channel+edge:-.016-belly*.53));uv.push(i/cols,t);
+        p.push(u*width,t,meridian+cap*(surface===0?.013+belly+midrib+channel+edge+veins:-.013-belly*.60));uv.push(i/cols,t);
         if(j<rows&&i<cols){const a=surface*stride+j*(cols+1)+i;surface===0?ix.push(a,a+1,a+cols+1,a+1,a+cols+2,a+cols+1):ix.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}
       }
-      closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='r7-inflated-cast-lobe-curving-back-over-seat';return g;
+      closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='r9-lotus-lobes-rooted-inside-continuous-convex-bearing';return g;
     });
     for(let row=0;row<2;row++){
-      const n=row?13:15,rr=radius*(row?.55:.60),base=height*(row?.25:0),hh=height*(row?.78:.75);
+      const n=row?13:15,rr=radius*(row?.55:.60),base=height*(row?.25:0),hh=height*(row?.78:.86);
       for(let k=0;k<n;k++){
         const a=(k+row*.53)/n*Math.PI*2,lean=.048*Math.sin(a*3+.7);
         b.withTransform(Math.sin(a)*rr,base,Math.cos(a)*rr,1,()=>{
@@ -1021,7 +1018,7 @@ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],dep
     }
     b.lathe('r6r14-upper-petal-root-rebate',[[.45,0],[.525,0],[.525,.018],[.45,.018],[.45,0]],0,height*.25-.007,0,radius,1,'oldgold',48);
     b.torus(0,height*.025,0,radius*.56,.013,'gold',Math.PI/2);
-    b.lathe('r6r14-concealed-lotus-seat',[[0,0],[.58,0],[.59,.015],[0,.015]],0,height-.015,0,radius,1,'oldgold',48);
+    b.lathe('r9-concealed-lotus-seat',[[0,0],[.40,0],[.41,.015],[0,.015]],0,height-.015,0,radius,1,'oldgold',48);
   });
 }
 

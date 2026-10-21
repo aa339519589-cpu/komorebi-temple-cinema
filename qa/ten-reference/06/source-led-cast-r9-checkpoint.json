@@ -1,0 +1,111 @@
+{
+  "checkpoint": "scene06-r9-source-led-anatomy-and-botanical-cast",
+  "visualAccepted": false,
+  "sourceHash": "061e581d9b6fdf04e08a8133ad6f45b28bc9c6531c6a41aefd3b142ca2deefe0",
+  "sameSourceAcrossNativeViews": true,
+  "status": "Source edits stopped for root review. No worker commits or children.",
+  "nativeEvidence": [
+    {
+      "directory": "qa/ten-reference/06/iteration-scene06-r9-source-led-cast-head-06",
+      "status": "rendered-review",
+      "errors": [],
+      "sourceHash": "061e581d9b6fdf04e08a8133ad6f45b28bc9c6531c6a41aefd3b142ca2deefe0"
+    },
+    {
+      "directory": "qa/ten-reference/06/iteration-scene06-r9-attendant-hand-cloth-close-07",
+      "status": "rendered-review",
+      "errors": [],
+      "sourceHash": "061e581d9b6fdf04e08a8133ad6f45b28bc9c6531c6a41aefd3b142ca2deefe0"
+    },
+    {
+      "directory": "qa/ten-reference/06/iteration-scene06-r9-low-oblique-volume-proof-08",
+      "status": "rendered-review",
+      "errors": [],
+      "sourceHash": "061e581d9b6fdf04e08a8133ad6f45b28bc9c6531c6a41aefd3b142ca2deefe0"
+    }
+  ],
+  "actualImages": {
+    "full": "qa/ten-reference/06/iteration-scene06-r9-source-led-cast-head-06/reference.png",
+    "mainHeadHand": "qa/ten-reference/06/iteration-scene06-r9-source-led-cast-head-06/detail-native.png",
+    "attendantHeadHandCloth": "qa/ten-reference/06/iteration-scene06-r9-attendant-hand-cloth-close-07/detail-native.png",
+    "lowObliqueWholeModel": "qa/ten-reference/06/iteration-scene06-r9-low-oblique-volume-proof-08/inspection-view.png"
+  },
+  "assetManifest": "reconstructions/scene-06/assets/sculptural-cast-r9/manifest.json",
+  "assetProvenance": "reconstructions/scene-06/assets/sculptural-cast-r9/provenance.json",
+  "modelSources": [
+    "reconstructions/scene-06/modeling/build-sculptural-cast-r9.mjs",
+    "reconstructions/scene-06/modeling/fuse-sculptural-cast-r9.py",
+    "reconstructions/scene-06/src/restoration-buddha.js",
+    "reconstructions/scene-06/src/mandorla-botanical-cast-r9.js",
+    "reconstructions/scene-06/src/restoration-altar.js"
+  ],
+  "physicalAudit": "qa/ten-reference/06/physical-cast-r9-audit.json",
+  "physicalMeshChecksPassed": true,
+  "coreTopology": {
+    "central": {
+      "vertices": 560128,
+      "triangles": 1120288,
+      "connectedComponents": 1,
+      "largestComponents": [
+        560128
+      ],
+      "largestComponentFraction": 1,
+      "removedVoxelSpeckVertices": 12
+    },
+    "left": {
+      "vertices": 423675,
+      "triangles": 847374,
+      "connectedComponents": 1,
+      "largestComponents": [
+        423675
+      ],
+      "largestComponentFraction": 1,
+      "removedVoxelSpeckVertices": 38
+    },
+    "right": {
+      "vertices": 423375,
+      "triangles": 846774,
+      "connectedComponents": 1,
+      "largestComponents": [
+        423375
+      ],
+      "largestComponentFraction": 1,
+      "removedVoxelSpeckVertices": 38
+    }
+  },
+  "sourceBodySha256": "ecfe70a6cf8f32dfdb8914379702f6f532229a4aef8095161378e732d4fe5318",
+  "fuserSha256": "467b87a0c17a86ad2675e5121948d53958910bd52defadffeb9c834e76958636",
+  "largestPackFiles": [
+    {
+      "file": "reconstructions/scene-06/assets/sculptural-cast-r9/central-central-6c26b5d923d1412b.bin",
+      "bytes": 31367572
+    },
+    {
+      "file": "reconstructions/scene-06/assets/sculptural-cast-r9/left-buddha-0072eaba512c0284.bin",
+      "bytes": 23726108
+    },
+    {
+      "file": "reconstructions/scene-06/assets/sculptural-cast-r9/right-buddha-1e88312505db8df7.bin",
+      "bytes": 23709308
+    },
+    {
+      "file": "reconstructions/scene-06/assets/sculptural-cast-r9/central-gold-43ace3ebb1ccffb6.bin",
+      "bytes": 6968876
+    },
+    {
+      "file": "reconstructions/scene-06/assets/sculptural-cast-r9/central-oldgold-2d3113006333a3b9.bin",
+      "bytes": 1983188
+    }
+  ],
+  "packBytes": 89038475,
+  "primaryAnatomicalSource": "reconstructions/scene-06/assets/cc0-fralin-buddha-head/provenance.json",
+  "sourceRgbUsed": false,
+  "fullHistoricalFigureSubstituted": false,
+  "referenceCameraAndFurnitureAnchorsUnchanged": true,
+  "remainingVisualGaps": [
+    "Exact reference facial identity and serene expression are not achieved.",
+    "Attendant gesture/cloth and lotus/carved botanical signature still differ.",
+    "Gilt response, mandorla pattern and full-room photographic fidelity remain unaccepted."
+  ],
+  "ownership": "Only Scene06 model/source, declared assets and QA changed. No shared files or other scene owners touched. Root owns commits, film integration and capture freeze."
+}

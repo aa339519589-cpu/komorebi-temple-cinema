@@ -1,0 +1,52 @@
+{
+  "revision": "scene04-sol-model131-r05",
+  "referenceUse": "The supplied photograph is comparison-only. Existing numeric paving contours and source-camera anchors remain. No photograph RGB, depth surface, scene plate or generated replacement frame is rendered.",
+  "newExternalAssets": [
+    {
+      "name": "shrub_02",
+      "provider": "Poly Haven",
+      "author": "Rico Cilliers",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/shrub_02",
+      "provenance": "assets/polyhaven/shrub-02/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+        "assets/polyhaven/shrub-02/shrub_02.bin",
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    },
+    {
+      "name": "periwinkle_plant",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    }
+  ],
+  "existingAssets": "Existing scene-local generated mineral/wood/clay material guides and declared CC0 granite/moss-rock scans are retained. Global scan files are unchanged.",
+  "geometry": {
+    "toro": "Narrower source-led hero proportions, closed tapered octagonal shafts with incised vine relief, smaller carved base/frieze courses, deeper roof bearing bosses, independently weathered rounded roofs, bulky worn finials, clipped surface-rooted moss and finer actual window grids.",
+    "portal": "Three nested open frames, closed side reveals, gilt carved lining, fifteen real coffer panels, thirteen chain drops and two supported visible oil lamps.",
+    "ceramic": "Separate closed concave pan and convex cover tiles. Smooth analytical ceramic normals and consistent front-face winding replace faceted half-pipe normals.",
+    "paving": "Retains independently observed slab outlines/solids. Authored 5.77mm-pitch mineral field is restored to 85 percent of its declared metric relief, approximately -0.64 to +1.01mm, rather than 15 percent.",
+    "understory": "Actual original licensed multi-leaf/stem mesh geometry and original PBR surface maps. Each plant retains uniform scale and all original mesh triangles. No whole-plant billboard, scene photograph, scene plate, depth substitute or reference RGB is rendered. Root positions are raycast against actual dry ground after garden warping. Water, stair/curb reserve, toro foot reserve and actual stone intersections are rejected. Roots are buried 12mm in support.",
+    "stair": "Independent closed full-riser granite blocks with staggered joints, a 7.5mm worn bevel and real shallow mineral relief. The stair plan declares the same full-riser block thickness. Hidden support cores continue below; the old deeply chipped outline extrusion that corrugated entire riser faces is removed.",
+    "banks": "Two closed irregular causeway bank solids replace long straight boxes. Their undulating outer margins and slightly sloped soil tops remain above the pond water and connect to the dry causeway/lantern islands. Plants are grounded only after the final bank deformation."
+  },
+  "materialAndLight": "Active scanned granite paving receives a brighter neutral mineral pigment and less exaggerated normal slope. Toro and stair surfaces retain CC0 metric scan mineral variation with world-coherent damp weathering. Cap and finial are separately aged, with physically clipped moss. Deep carved relief and subtly eroded closed caps are actual geometry. Sun, camera and dolly are unchanged.",
+  "dependencyIsolation": "Exact baseline c6841ad stone loader is vendored into the Scene04 source namespace; no Scene01 source code is imported at runtime. Its provenance is separately recorded.",
+  "limits": "All new forms, hidden depths and material settings remain authored reconstruction hypotheses. Native render diagnostics do not establish photographic fidelity or structural certification.",
+  "visualAccepted": false
+}
