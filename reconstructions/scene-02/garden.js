@@ -2,10 +2,12 @@ import {T,V,mix,rand,Builder,gridGeometry} from './kernel.js';
 import {buildForegroundStoneLantern120,foregroundLanternFootprint120} from './foreground-stone-lantern120.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {loadScannedGardenStones} from './scanned-garden-stones.js';
+import {buildRootedCanopy142} from './rooted-canopy142.js';
+import {createGardenPines145} from './garden-pines145.js';
 export async function buildGarden(mats){
  const scanned=await loadScannedGardenStones();let scannedRockPlacements=0;
  for(const [i,stone]of scanned.variants.entries()){mats['scannedGardenDry'+i]=stone.dry;mats['scannedGardenWet'+i]=stone.wet;}
- const b=new Builder(mats),lights=[];mats.rock=mats.stone.clone();mats.rock.color.setHex(0x77786f);mats.rock.roughness=.92;mats.rock.metalness=0;mats.rock.flatShading=true;mats.pondBed=mats.moss.clone();mats.pondBed.name='scene02-muted-pond-bed';mats.pondBed.color.setHex(0x3b4236);mats.pondBed.roughness=.98;
+ const b=new Builder(mats),lights=[],gardenPines=createGardenPines145(b,mats);mats.rock=mats.stone.clone();mats.rock.color.setHex(0x77786f);mats.rock.roughness=.92;mats.rock.metalness=0;mats.rock.flatShading=true;mats.pondBed=mats.moss.clone();mats.pondBed.name='scene02-muted-pond-bed';mats.pondBed.color.setHex(0x3b4236);mats.pondBed.roughness=.98;
  const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=mats.pink.side=mats.pinkDark.side=T.DoubleSide;
  const petalGeo=(()=>{let rows=Array.from({length:9},(_,j)=>Array.from({length:7},(_,i)=>{let t=j/8,s=-1+2*i/6;return[s*Math.sin(Math.PI*t)*.38,.65*t*t+.13*Math.sin(Math.PI*t)*(1-s*s),t];}));return gridGeometry(rows);})();
  function rock(x,y,z,r=1){
@@ -75,11 +77,12 @@ export async function buildGarden(mats){
    }
   }
  }
- function tree(x,z,h=5,r=3,pine=false){const base=.1,lean=(rand()-.5)*1.1,top=[x+lean,h,z+.2];branch([x,base,z],[x+.2,h*.52,z],.16+h*.015);branch([x+.2,h*.52,z],top,.09+h*.006);
+ function tree(x,z,h=5,r=3,pine=false){b.put(b.lowSphere,'moss',[x,-.09,z],[Math.max(.40,r*.26),.18,Math.max(.40,r*.26)]);if(pine)return gardenPines.add(x,z,h,r*.84);const base=.1,lean=(rand()-.5)*1.1,top=[x+lean,h,z+.2];branch([x,base,z],[x+.2,h*.52,z],.16+h*.015);branch([x+.2,h*.52,z],top,.09+h*.006);
   for(let j=0;j<8;j++){let a=j*2.4+(rand()-.5)*.4,y=h*(.45+j*.055),reach=r*(.7+rand()*.4),end=[x+Math.cos(a)*reach,y+.35+rand()*.35,z+Math.sin(a)*reach],start=[x+lean*.5,y-.5,z];branch(start,end,.055+j*.002);let last=end;for(let k=0;k<3;k++){let aa=a+(k-1)*.6,p=[end[0]+Math.cos(aa)*r*.35,end[1]+.35,end[2]+Math.sin(aa)*r*.35];branch(end,p,.02);last=p;leafCluster(p[0],p[1],p[2],r*.34,pine?.58:r*.30,r*.34,125);} }
   leafCluster(top[0],top[1],top[2],r*.52,pine?.58:r*.43,r*.52,190);
  }
  function prunedPine(x,z,h=2.5,r=1.25){
+  b.put(b.lowSphere,'moss',[x,-.095,z],[Math.max(.32,r*.27),.16,Math.max(.32,r*.27)]);
   const lean=(rand()-.5)*.22;branch([x,.02,z],[x+lean*.45,h*.55,z],.085);branch([x+lean*.45,h*.55,z],[x+lean,h*.94,z+.04],.037);
   for(let tier=0;tier<4;tier++){
    const cy=h*(.25+tier*.17),arms=tier===0?5:4,reach=r*(1-tier*.13)*(.84+rand()*.26);
@@ -101,17 +104,18 @@ export async function buildGarden(mats){
   }
  }
  function cherry(x,z,h=5,r=3){
+  b.put(b.lowSphere,'moss',[x,-.09,z],[Math.max(.42,r*.23),.18,Math.max(.42,r*.23)]);
   const trunkTop=[x+.22,h*.61,z+.08];branch([x,.05,z],trunkTop,.16);
-  const limbs=7;
+  const limbs=9;
   for(let j=0;j<limbs;j++){
    const a=j*6.283/limbs+(rand()-.5)*.46,baseY=h*(.25+rand()*.44),reach=r*(.48+rand()*.58),root=[x+.22,h*(.34+rand()*.25),z],elbow=[x+Math.cos(a)*reach*.48,baseY+h*(.02+rand()*.20),z+Math.sin(a)*reach*.48],tip=[x+Math.cos(a)*reach,baseY+h*(-.07+rand()*.28),z+Math.sin(a)*reach];
    branch(root,elbow,.050+rand()*.020);branch(elbow,tip,.026+rand()*.012);
    // Small flowering twigs make rounded, separated blossom clumps around the
    // branch tips. Open air remains visible between bough groups.
-   for(let k=0;k<2;k++){
+   for(let k=0;k<3;k++){
     const aa=a+(k===0?-.40:.40)+(rand()-.5)*.22,len=r*(.18+rand()*.17),cy=baseY+h*(-.05+rand()*.20),sub=[tip[0]+Math.cos(aa)*len,cy,tip[2]+Math.sin(aa)*len];
     branch(tip,sub,.012+rand()*.006);
-    if(rand()>.13)blossomCluster(sub[0],sub[1],sub[2],.40+rand()*.18,.42+rand()*.20,.40+rand()*.18,16+Math.floor(rand()*10));
+    if(rand()>.13)blossomCluster(sub[0],sub[1],sub[2],.46+rand()*.20,.44+rand()*.22,.46+rand()*.20,28+Math.floor(rand()*14));
    }
    if(j%2===0){const mid=[mix(elbow[0],tip[0],.58),mix(elbow[1],tip[1],.58)+(rand()-.5)*h*.12,mix(elbow[2],tip[2],.58)];branch(elbow,mid,.016);blossomCluster(mid[0],mid[1],mid[2],.30,.34,.31,12+Math.floor(rand()*6));}
   }
@@ -134,8 +138,16 @@ export async function buildGarden(mats){
  }
  // A muted shallow basin sits beneath the bounded irregular pond surface.
  // Its olive-gray bed avoids a black rectangle showing through gaps between highlights.
- b.box(-8,-.52,11,49,.8,58,'pondBed');b.box(6,-.08,1.0,14,.26,7,'stone');
+ b.box(-8,-.52,11,49,.8,58,'pondBed');b.box(6,-.23,1.0,14,.26,7,'pondBed');
  plantedTerrace(-1,-1.5,21.0,18);plantedTerrace(1,-1.4,17.0,16);
+ // Broken stones and rooted low growth mark the newly continuous far waterline.
+ // The pond now passes beneath the bridge instead of ending at a dry flat slab.
+ for(let i=0;i<19;i++){
+  const x=-9.4+i*.86,z=-.87+.19*Math.sin(i*1.7),r=.28+.14*(.5+.5*Math.sin(i*2.3));
+  if(i%5!==2)rock(x,-.02,z,r);
+  if(i%3===0){shorelineShrub(x-.12,z-.18,.42);smallFlowerCluster(x+.18,z-.22,.30,3);}
+ }
+
  const islands=[[-5.8,0,9.3,.78],[8.3,0,5.5,1.25],[4.6,0,13.5,.55],[-9,0,1.8,1.1]];
  for(let [x,y,z,r]of islands){b.put(b.lowSphere,'moss',[x,-.05,z],[r*1.45,.35,r]);for(let i=0;i<7;i++){let a=rand()*6.28,rr=r*(.6+rand()*.55);rock(x+Math.cos(a)*rr,.05,z+Math.sin(a)*rr,.20+rand()*.38);}for(let i=0;i<3;i++)shrub(x+(rand()-.5)*r*1.2,.2,z+(rand()-.5)*r*1.1,r*.30+rand()*.25,i%2===0);}
  // Garden height is deliberately varied: dense low flowers, articulated rocks, pruned pines and blossom canopies.
@@ -154,9 +166,9 @@ export async function buildGarden(mats){
  for(let side of[-1,1])for(let j=0;j<18;j++){let z=-1+rand()*6,x=4+side*(3.8+rand()*3.0),y=2.8*(1-(z+1)/6);rock(x,y*.68,z,.38+rand()*.4);shrub(x,y,z,.4+rand()*.35,j%3===0);}
  const grass=gridGeometry(Array.from({length:7},(_,j)=>{let t=j/6;return[[-.5*Math.sin(Math.PI*t),t,.35*t*t],[.5*Math.sin(Math.PI*t),t,.35*t*t]];}));
  for(let j=0;j<90;j++){let z=rand()*17,x=9.6+rand()*.9;for(let k=0;k<18;k++){let a=rand()*6.28,r=rand()*.24;b.put(grass,k%4?'leaf':'leaflight',[x+Math.cos(a)*r,.24,z+Math.sin(a)*r],[.02+rand()*.025,.16+rand()*.25,.2+rand()*.15],[-.48+rand()*.96,a+(rand()-.5)*.36,(rand()-.5)*1.10]);}}
- // Left framing canopy enters the sky with individual leaves and crooked visible branches.
- canopyLeafScale=2.2;
- b.at([7.56,2.846,13.75],0,()=>{branch([-34,-6.324444444,-7],[-32,1,-5],.65);branch([-32,1,-5],[-30,7,-4],.49);branch([-30,7,-4],[-28,11,-3],.33);branch([-28,11,-3],[-18,16,-3],.23);branch([-18,16,-3],[-9,18,-3],.12);for(let j=0;j<9;j++){const end=[-23+j*1.65,17.7+Math.sin(j*1.8)*1.5,-4+Math.cos(j*2)*1.5];branch([-21+j,16+j*.18,-3],end,.045);leafCluster(end[0],end[1],end[2],1.3,.8,1.3,580);}leafCluster(-16,21,-4,2.0,1.4,1.5,680);leafCluster(-21,22,-5,2.0,1.5,1.5,680);leafCluster(-11.5,20.5,-4,1.5,1.2,1.4,680);},.45);canopyLeafScale=1;tree(-28,-8,10,3.2,false);
+ // Connected mature framing tree is rooted in the same bank rather than
+ // a long unbranched rod terminating in detached spherical leaf clumps.
+ const rootedCanopy=buildRootedCanopy142(b,mats);tree(-28,-8,10,3.2,false);
  b.put(b.lowSphere,'moss',[-7.74,-.13,10.6],[2.1,.52,2.4]);
  for(let k=0;k<12;k++){const a=k*Math.PI/6;rock(-7.74+Math.cos(a)*1.65,.02,10.6+Math.sin(a)*1.85,.38+rand()*.20);}
 
@@ -300,5 +312,6 @@ export async function buildGarden(mats){
    mountainCanopyTrees++;
   }
  }
- return {group:b.finish(),lights,dispose(){scanned.dispose();},stats:{scannedGardenStones:{...scanned.info,placements:scannedRockPlacements,groundContact:"Actual transformed scan minima with a 6.5 percent radius soil embed; no image projection"},instances:b.count,buckets:b.buckets.size,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
+ const matureGardenPines=gardenPines.finish();
+ return {group:b.finish(),lights,dispose(){scanned.dispose();},stats:{scannedGardenStones:{...scanned.info,placements:scannedRockPlacements,groundContact:"Actual transformed scan minima with a 6.5 percent radius soil embed; no image projection"},instances:b.count,buckets:b.buckets.size,rootedCanopy,matureGardenPines,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
 }

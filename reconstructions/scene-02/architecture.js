@@ -4,19 +4,24 @@ import {buildTurnedSorin} from './sorin-solids.js';
 import {buildVerandaBoards} from './veranda-boards.js';
 import {buildVerandaRail} from './veranda-rail117.js';
 import {layout} from './layout117.js';
+import {createHallCarpentry141} from './hall-carpentry141.js';
+import {buildVerandaCarvings143} from './veranda-carvings143.js';
+import {installHallTerraceMaterials144,buildHallStair144} from './hall-terrace144.js';
 export function buildArchitecture(mats){
+ installHallTerraceMaterials144(mats);
  // The exposed tower finial must use the outdoor sky environment rather
  // than the close veranda probe later assigned to the shared gold material.
  mats.sorinGold=mats.gold.clone();mats.sorinGold.name='scene02-exposed-sorin-gold';mats.sorinGold.color.set('#cfab60');mats.sorinGold.roughness=.34;mats.sorinGold.metalness=.94;mats.sorinGold.envMap=null;
  mats.sorinBronze=mats.oldgold.clone();mats.sorinBronze.name='scene02-exposed-sorin-bronze';mats.sorinBronze.color.set('#a47d3d');mats.sorinBronze.roughness=.42;mats.sorinBronze.envMap=null;
  const b=new Builder(mats),lights=[];let sorinStats=null;const torus=new T.TorusGeometry(1,.075,6,20);
+ const hallCarpentry=createHallCarpentry141({b,mats});
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
  const leafShape=new T.Shape();leafShape.moveTo(0,-.06);leafShape.bezierCurveTo(-.04,-.035,-.055,.025,0,.075);leafShape.bezierCurveTo(.045,.025,.035,-.025,0,-.06);const reliefLeaf=new T.ExtrudeGeometry(leafShape,{depth:.016,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,steps:1,curveSegments:4});
  let columnXComp=1,columnZComp=1;const closeCylinder=new T.CylinderGeometry(1,1,1,48);
- function column(x,z,base,h,r=.24){
+ function column(x,z,base,h,r=.24,shaftMaterial='red'){
   const cy=(yy,rr,hh,ma)=>b.put(r>.4?closeCylinder:b.cylinderGeo,ma,[x,yy,z],[rr*columnXComp,hh,rr*columnZComp]);
-  cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,'red');
+  cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,shaftMaterial);
   for(let y of[base+.4,base+h-.05]){cy(y,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}
   if(r>.4){cy(base+.72,r*1.015,.72,'oldgold');for(let yy of[base+.36,base+1.08])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*.63,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.put(reliefLeaf,k%2?'oldgold':'gold',[x+Math.cos(aa)*r*1.04,base+.46+k*.15,z+Math.sin(aa)*r*1.04],[.65,.65,.65],[0,Math.PI/2-aa,(k%2?1:-1)*.6]);}}}
  }
@@ -73,17 +78,17 @@ export function buildArchitecture(mats){
  const hallBase=layout.hall.position[1],hallY=layout.hall.scale[1],hallX=layout.hall.scale[0],hallZ=layout.hall.scale[2],hallFloor=hallBase+2.2*hallY;
  columnXComp=1/hallX;columnZComp=1/hallZ;b.at(layout.hall.position,layout.hall.yaw,()=>{
   const foundationBottom=-hallBase/hallY,foundationTop=1.9;
-  b.box(0,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'stone');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'stone',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,yy,-7.1+j*1.1,.13,.475,1.075,'stone',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'lightstone');
+  b.box(0,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'terraceBody');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'terraceBody',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,yy,-7.1+j*1.1,.13,.475,1.075,'terraceBody',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'terraceTread');
   for(let side of[-1,1])b.at([side*6.2,2.2,6.15],0,()=>rail(5.1));
   const axes=[-7.8,-5.2,-2.6,0,2.6,5.2,7.8];
-  buildHallEntry({b,mats,lights,column,bracket,fitting,rosette,scroll});
+  buildHallEntry({b,mats,lights,column,carpentry:hallCarpentry,fitting,rosette,scroll});
   // Lower hipped skirt carries dense parallel tile courses and exposed bracket tiers.
   b.at([0,0,(layout.hall.roofFront+layout.hall.roofBack)/2],Math.PI/2,()=>roof({w:layout.hall.roofFront-layout.hall.roofBack,d:layout.hall.roofWidth,eave:9.0,rise:6.2,curl:.7,ridgeOffset:layout.hall.gableCenterX}));
   // A small front gable is seated into one continuous steep hip roof.
   // Its lower edges sink into the tile plane rather than creating a second full eave.
   const {gableWidth:gW,gableEave:gE,gableRise:gR,gableFront:gF,gableCenterX:gX}=layout.hall;
   b.at([gX,0,0],0,()=>{
-  gableRoof(gW,4.0,gE,gR,gF-2);
+  gableRoof(gW,6.2,gE,gR,gF-3.1);
   const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-gW*.47,gE+.30,gF-.02,gW*.47,gE+.30,gF-.02,0,gE+gR-.18,gF-.02],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
   for(let sign of[-1,1]){
    const points=Array.from({length:49},(_,i)=>{const t=i/48;return[sign*gW/2*t,gE+gR*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.13,gF+.10];});
@@ -127,17 +132,13 @@ export function buildArchitecture(mats){
   }
 
   });
-  // Deep primary cantilever beams connect real column heads to the eave row.
-  for(let x of axes){b.box(x,8.50,5.42,.43,.34,2.25,'cedar');b.box(x,8.13,4.72,.78,.25,.80,'darkwood');fitting(x,8.15,5.18,.62,.23);}
-  // Closely spaced multi-tier bracket clusters cast real shadows under the deep eave.
-  for(let x=-9.2;x<=9.21;x+=.66){bracket(x,7.95,6.0,.90);b.box(x,9.26,6.45,.17,.17,1.58,'cedar');fitting(x,8.64,6.48,.16,.22);}
-  for(let z=-6.2;z<6.3;z+=.72)for(let x of[-8.55,8.55]){bracket(x,7.95,z,.87);b.box(x,9.22,z,1.3,.16,.16,'cedar');}
+  hallCarpentry.frontEave(axes);
  },layout.hall.scale);columnXComp=columnZComp=1;
  // The photographed forecourt stair reaches the raised bridge approach.
  // Its plan is recovered independently of the hall column grid.
  const hallMatrix=new T.Matrix4().compose(V(layout.hall.position),new T.Quaternion().setFromAxisAngle(V([0,1,0]),layout.hall.yaw),V(layout.hall.scale));
  const stairTop=V([0,2.2,6.15]).applyMatrix4(hallMatrix),stairBottom=V([5.55722966,1.7,1.34483218]),stairDirection=stairTop.clone().sub(stairBottom),stairRun=Math.hypot(stairDirection.x,stairDirection.z),stairYaw=Math.atan2(stairDirection.x,stairDirection.z),stairWidth=2.85;
- for(let i=0;i<20;i++){const t=(i+.5)/20,p=stairBottom.clone().lerp(stairTop,t),top=T.MathUtils.lerp(stairBottom.y,stairTop.y,(i+1)/20);b.at([p.x,0,p.z],stairYaw,()=>{b.box(0,(top+1.35)/2,0,stairWidth,top-1.35,stairRun/20+.014,'stone');b.box(0,top-.025,0,stairWidth+.06,.05,stairRun/20,'lightstone');for(let side of[-1,1]){b.box(side*(stairWidth/2+.16),(top+1.64)/2,0,.25,top-1.10,stairRun/20+.015,'stone');b.box(side*(stairWidth/2+.16),top+.33,0,.31,.09,stairRun/20+.015,'lightstone');}});}
+ const hallStair=buildHallStair144({b,top:stairTop,bottom:stairBottom,width:stairWidth});
  // A shallow stone approach bears on a graded planted bank, not a tall
  // exposed retaining block across the pond.
  b.box(5.9,1.48,.55,5.4,.36,2.1,'stone');b.box(5.9,1.68,.55,5.5,.08,2.2,'lightstone');
@@ -219,25 +220,16 @@ export function buildArchitecture(mats){
  const deck={x:15.5,y:1.35,z:25};
  const verandaBoards=buildVerandaBoards(T,b);
  const canopy=layout.canopy,edgeX=z=>canopy.entryWorld[0]+(z-canopy.entryWorld[2])*(canopy.farWorld[0]-canopy.entryWorld[0])/(canopy.farWorld[2]-canopy.entryWorld[2]);
- for(let z of[2,10,18,26,34,40]){column(canopy.columnX,z,1.36,7.6,.48);bracket(canopy.columnX,8.7,z,1.35);}
+ const verandaCarvings=buildVerandaCarvings143({b,mats,canopy});
+ for(let z of[2,10,18,26,34,40]){column(canopy.columnX,z,1.36,7.6,.48,'verandaRed');bracket(canopy.columnX,8.7,z,1.35);}
  for(let z of[2,10,18,26,34,40]){const outside=edgeX(z),span=20.5-outside;b.box(outside+span/2,9.0,z,span,.45,.52,'cedar');for(let x=outside+.6;x<20;x+=.9)fitting(x,9.0,z+.28,.34,.34);}
  // Closed deck strips and real rafter ends follow the measured outer envelope.
  // The former short horizontal fascia is replaced by one continuing canopy.
  for(let z=-2;z<41;z+=.46){const outside=edgeX(z),span=20.5-outside;b.box(outside+span/2,9.62,z,span,.28,.465,'darkwood');b.box(outside+span/2,9.30,z,span,.44,.22,'cedar');b.box(outside+.07,9.30,z,.14,.44,.26,'darkwood');}
  b.line([20.35,9.08,-2],[20.35,9.08,41],.38,'red',true,.45);
  const foregroundRail=buildVerandaRail(T,b);
- // Six sided bronze lantern with emitting pierced panes, lattice curls and cast roof.
- const lampGlow=new T.MeshBasicMaterial({color:0xffc478,toneMapped:false});
- function lantern(x,y,z,s=1,ceiling=9.3){b.at([x,y,z],0,()=>{
-  for(let sign of[-1,1]){b.put(new T.CylinderGeometry(.43,.43,.07,6),'oldgold',[0,sign*.60,0]);b.put(new T.CylinderGeometry(sign>0?.20:.46,sign>0?.46:.20,.23,6),'black',[0,sign*.76,0]);for(let j=0;j<6;j++){let a=j*Math.PI/3;b.ball(Math.sin(a)*.43,sign*.63,Math.cos(a)*.43,.045,.045,.045,'gold');}}
-  for(let side=0;side<6;side++)b.at([0,0,0],side*Math.PI/3,()=>{
-   b.box(0,0,.366,.378,1.08,.035,lampGlow);for(let xx of[-.205,.205]){b.box(xx,0,.40,.045,1.22,.055,'black');b.box(xx-.008,0,.43,.012,1.19,.018,'oldgold');}for(let yy of[-.55,.55]){b.box(0,yy,.40,.43,.055,.06,'black');for(let k=-3;k<=3;k++)b.ball(k*.052,yy,.438,.017,.022,.012,'gold');}
-   b.put(torus,'oldgold',[0,0,.43],[.135,.20,.25]);rosette(0,0,.443,.074);
-   for(let row=0;row<4;row++)for(let ss of[-1,1]){let yy=-.42+row*.24;b.tube([[0,yy,.428],[ss*.14,yy-.07,.432],[ss*.175,yy+.06,.432],[ss*.065,yy+.12,.432],[ss*.025,yy+.045,.432]],.012,'oldgold',16);b.put(b.sphere,'gold',[ss*.14,yy+.02,.444],[.018,.030,.012],[0,0,ss*.5]);}
-  });
-  b.ball(0,.98,0,.13,.14,.13,'black');b.ball(0,-1.00,0,.11,.16,.11,'oldgold');b.ball(0,-1.21,0,.045,.11,.045,'gold');
- },s);
-  const top=y+1.11*s;b.line([x,top,z],[x,ceiling,z],.016,'oldgold');for(let yy=top+.06;yy<ceiling;yy+=.13)b.put(torus,'oldgold',[x,yy,z],[.035,.048,.035],[0,yy*8,0]);const light=new T.PointLight(0xffb75f,22*s,8*s,2);light.position.set(x,y,z);lights.push(light);}
- for(const lamp of layout.hangingLamps)lantern(...lamp.position,lamp.scale,9.3);lantern(18,7.8,7,.5,9.3);
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,verandaBoards,foregroundRail,layoutFit:{method:'fixed-camera native contour recovery',source:'tools/fit-layout02-117.py',visualAccepted:false}},deck};
+ // Faceted bronze lamps have actual perforated cast panels and warm paper
+ // recessed behind them. Each link joins the fixture to the beam overhead.
+ for(const lamp of layout.hangingLamps)lights.push(verandaCarvings.lantern(...lamp.position,lamp.scale,9.3));lights.push(verandaCarvings.lantern(18,7.8,7,.5,9.3));
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,hallCarpentry:hallCarpentry.stats,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'fixed-camera native contour recovery',source:'tools/fit-layout02-117.py',visualAccepted:false}},deck};
 }

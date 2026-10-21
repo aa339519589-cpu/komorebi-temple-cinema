@@ -1,0 +1,1649 @@
+{
+  "status": "physical-progress-checkpoint-photographic-reconstruction-in-progress",
+  "visualAccepted": false,
+  "source": {
+    "hash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-02/altar-figure.js": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13",
+      "reconstructions/scene-02/architecture.js": "ebe119e0ffe5cae79c9031b98f68f7966bb6b0cf329efe966d0b1112ef620430",
+      "reconstructions/scene-02/asset-dependencies.json": "005934af2f708c091f6221794cfa851e27104c11ada60310fb5864d3686766f8",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-02/assets/foreground-lantern120/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-02/foreground-stone-lantern120.js": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899",
+      "reconstructions/scene-02/garden-pines145.js": "a8ed8be2868ebb3af906e532824b1856bd4b75025f5b1fdc71ad248d48da75b0",
+      "reconstructions/scene-02/garden.js": "41bca36497f6b686ed1328bbe4efc52a8df91f7c8fa55dfb261bc38b60ef5a7e",
+      "reconstructions/scene-02/hall-carpentry141.js": "f64d72213905a9793583a3511b208a091dd1ddbf018bcea4a0aea7fc39095293",
+      "reconstructions/scene-02/hall-entry.js": "3e820f5f5dd6137ed2cc85277d41b79fce64c0fef7cb516e2bbacea45729aacf",
+      "reconstructions/scene-02/hall-terrace144.js": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "b0c4d54605a926b8d976a48b6e83ca18e96682662441142fc379ed8e399d90bb",
+      "reconstructions/scene-02/layout117.js": "f233f7007b9f738df3abef72b9940e2ed883159d9c42058ec80ea2748d10296f",
+      "reconstructions/scene-02/main.js": "79d5ffc395163e323b81b7bef486b7a5036259bb261a04a4cfe0d5fcfa7d784e",
+      "reconstructions/scene-02/pagoda-ground.js": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6",
+      "reconstructions/scene-02/rooted-canopy142.js": "c7827d3df7312a31692944abd34619f4bb5ba53deed2749bc29a520587aca707",
+      "reconstructions/scene-02/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-02/scanned-timber.js": "a7008a22cf5f9b131d7938cd2dc69122198f03652e58ab6088744fbe913a4060",
+      "reconstructions/scene-02/sorin-solids.js": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c",
+      "reconstructions/scene-02/veranda-boards.js": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2",
+      "reconstructions/scene-02/veranda-carvings143.js": "3c3b9c43fa8fae92dbdba6f719dd54839e665fab6cbf006aaa43d674e850fa2f",
+      "reconstructions/scene-02/veranda-rail117.js": "d20b2c9234bb2c73b5389c1c9293c5e72bdbf7035be208405a60ef19aea2b4a7"
+    }
+  },
+  "changedFiles": [
+    {
+      "path": "reconstructions/scene-02/architecture.js",
+      "sha256": "ebe119e0ffe5cae79c9031b98f68f7966bb6b0cf329efe966d0b1112ef620430"
+    },
+    {
+      "path": "reconstructions/scene-02/garden.js",
+      "sha256": "41bca36497f6b686ed1328bbe4efc52a8df91f7c8fa55dfb261bc38b60ef5a7e"
+    },
+    {
+      "path": "reconstructions/scene-02/hall-entry.js",
+      "sha256": "3e820f5f5dd6137ed2cc85277d41b79fce64c0fef7cb516e2bbacea45729aacf"
+    },
+    {
+      "path": "reconstructions/scene-02/kernel.js",
+      "sha256": "b0c4d54605a926b8d976a48b6e83ca18e96682662441142fc379ed8e399d90bb"
+    },
+    {
+      "path": "reconstructions/scene-02/main.js",
+      "sha256": "79d5ffc395163e323b81b7bef486b7a5036259bb261a04a4cfe0d5fcfa7d784e"
+    },
+    {
+      "path": "reconstructions/scene-02/pagoda-ground.js",
+      "sha256": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6"
+    },
+    {
+      "path": "reconstructions/scene-02/scanned-timber.js",
+      "sha256": "a7008a22cf5f9b131d7938cd2dc69122198f03652e58ab6088744fbe913a4060"
+    },
+    {
+      "path": "reconstructions/scene-02/garden-pines145.js",
+      "sha256": "a8ed8be2868ebb3af906e532824b1856bd4b75025f5b1fdc71ad248d48da75b0"
+    },
+    {
+      "path": "reconstructions/scene-02/hall-carpentry141.js",
+      "sha256": "f64d72213905a9793583a3511b208a091dd1ddbf018bcea4a0aea7fc39095293"
+    },
+    {
+      "path": "reconstructions/scene-02/hall-terrace144.js",
+      "sha256": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6"
+    },
+    {
+      "path": "reconstructions/scene-02/rooted-canopy142.js",
+      "sha256": "c7827d3df7312a31692944abd34619f4bb5ba53deed2749bc29a520587aca707"
+    },
+    {
+      "path": "reconstructions/scene-02/veranda-carvings143.js",
+      "sha256": "3c3b9c43fa8fae92dbdba6f719dd54839e665fab6cbf006aaa43d674e850fa2f"
+    }
+  ],
+  "captures": [
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/report.json",
+      "status": "rendered-review",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 1254,
+      "frames": [
+        {
+          "name": "reference",
+          "localTime": null,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b38d4a802441b53ea1eb4567a077e2464187853ee8226777e3e13f6e9e458030"
+        },
+        {
+          "name": "detail-native",
+          "localTime": null,
+          "detailCrop": [
+            490,
+            305,
+            490,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "15506119ba4d155319c8b43ca232b3714ef8f008572a661e942b2df1d74ec7a6"
+        }
+      ],
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/detail-native.png",
+          "bytes": 2850860,
+          "sha256": "81b40356dac19f59bb886b44f80bd56836338e36fc66f35a0024fbd7c2880547"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/reference.png",
+          "bytes": 3136516,
+          "sha256": "701413dbdd93180dc7e3acbc585f7f347a48c331e816606a0abebae9162b630f"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/report.json",
+          "bytes": 55557,
+          "sha256": "e3f005ed5885f8c31e34379110a6d2c3e5d4481928df52b6a4647fd08626841a"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-checkpoint-veranda-10-20261021/report.json",
+      "status": "rendered-review",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 1254,
+      "frames": [
+        {
+          "name": "reference",
+          "localTime": null,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b38d4a802441b53ea1eb4567a077e2464187853ee8226777e3e13f6e9e458030"
+        },
+        {
+          "name": "detail-native",
+          "localTime": null,
+          "detailCrop": [
+            775,
+            0,
+            450,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "9d23e7b92157adc74ee7df60d54217ac050977d8834ccc205824464201c29263"
+        }
+      ],
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-veranda-10-20261021/detail-native.png",
+          "bytes": 2263446,
+          "sha256": "0e82330eee5b6faba3b7dc8bf47985e7d0c415d30d9a61a3ba27d5138ebe4fa4"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-veranda-10-20261021/reference.png",
+          "bytes": 3136516,
+          "sha256": "701413dbdd93180dc7e3acbc585f7f347a48c331e816606a0abebae9162b630f"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-veranda-10-20261021/report.json",
+          "bytes": 55552,
+          "sha256": "4d77c450255acb7a39e70f6eaccab0bc30d147d8847cd8e4cc66c484f8e5e09f"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-checkpoint-canopy-10-20261021/report.json",
+      "status": "rendered-review",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 1254,
+      "frames": [
+        {
+          "name": "reference",
+          "localTime": null,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b38d4a802441b53ea1eb4567a077e2464187853ee8226777e3e13f6e9e458030"
+        },
+        {
+          "name": "detail-native",
+          "localTime": null,
+          "detailCrop": [
+            0,
+            0,
+            420,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "becb40476e3f87a7fc3d9753681476a18d1006f037edfc4b2fcbc90d363a1ea3"
+        }
+      ],
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-canopy-10-20261021/detail-native.png",
+          "bytes": 1699333,
+          "sha256": "324973fe5bd55fbeceee6d3fc1fb1b9e92d7d1f2afdda9c155c6bef146db26e0"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-canopy-10-20261021/reference.png",
+          "bytes": 3136516,
+          "sha256": "701413dbdd93180dc7e3acbc585f7f347a48c331e816606a0abebae9162b630f"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-canopy-10-20261021/report.json",
+          "bytes": 55532,
+          "sha256": "29d7849af8b01453bb7c496be62e3c10ef504142c4896b2ad7cf0bd0c652a9b7"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-checkpoint-above-10-20261021/report.json",
+      "status": "rendered-review",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 960,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "localTime": null,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "fc7829d909d206bbbefc6f0d1e898d3a629e038a8d099852eb47d7d62772038b"
+        }
+      ],
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-above-10-20261021/inspection-view.png",
+          "bytes": 1745373,
+          "sha256": "b7aa524deed1ea2938e908df671048c36529d337f0833fc47d106d42b05d74bd"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-above-10-20261021/report.json",
+          "bytes": 31879,
+          "sha256": "733597cba60f9f67527e0e752b2e29d57194e756e3a337424db20bdd9ce01f62"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-checkpoint-root-contact-10-20261021/report.json",
+      "status": "rendered-review",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 960,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "localTime": null,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "200e5cf4a1650cea76dc664140d831b0e2701068bed1910ee06f86771da10f7e"
+        }
+      ],
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-root-contact-10-20261021/inspection-view.png",
+          "bytes": 1782236,
+          "sha256": "4ec6a1b9c90d9bb9f25aae0e24eb8557d8f5692e1c3f326f93462e0265d45250"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-root-contact-10-20261021/report.json",
+          "bytes": 31905,
+          "sha256": "f1ab7b2e4f13e8a1a071fad263ff6d031b205e07729f4fe15bb3a34f76f09353"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-checkpoint-hall-bearing-10-20261021/report.json",
+      "status": "rendered-review",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 960,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "localTime": null,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "3d975c6a8a1d75350584c87bb65f1968f9b8d0ed17989c23ca607e8784567856"
+        }
+      ],
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-hall-bearing-10-20261021/inspection-view.png",
+          "bytes": 1644771,
+          "sha256": "c5f8a16c52e03561b8b3ee3ef8fb4e0c0d8e0c8b63e5b55bba066bf640507d10"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-hall-bearing-10-20261021/report.json",
+          "bytes": 31900,
+          "sha256": "64feff51f7c12a77981c17302c1bc0035e1391d9cdaf40c20f92afcbba03a9f8"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-checkpoint-poses-10-20261021/report.json",
+      "status": "rendered-review",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 1254,
+      "frames": [
+        {
+          "name": "shot-0",
+          "localTime": 0,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "1d0de7a4676409aaa23381586c2f3970e9c68f7ac5fc30ce7d89b2baacab9b91"
+        },
+        {
+          "name": "shot-3p5",
+          "localTime": 3.5,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "bfb2331c64b113a097e160e502b4d4d5c6f96f144f7d144538ee10e0ac072257"
+        },
+        {
+          "name": "shot-7",
+          "localTime": 7,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b38d4a802441b53ea1eb4567a077e2464187853ee8226777e3e13f6e9e458030"
+        }
+      ],
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-poses-10-20261021/report.json",
+          "bytes": 78935,
+          "sha256": "8d32ff897bf49070ef0c3679d9593c56de8a93885aa3e7ffb20ecd1287cfc283"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-poses-10-20261021/shot-0.png",
+          "bytes": 2696927,
+          "sha256": "26a38f410c1432897728846f96968ccdd61d49b6779104dcf23a7dcc2b9f7778"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-poses-10-20261021/shot-3p5.png",
+          "bytes": 2939843,
+          "sha256": "0648bbb4cca5a169039cd9883737c06f276537579f321a69d3d054d1184c13e7"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-poses-10-20261021/shot-7.png",
+          "bytes": 3136516,
+          "sha256": "701413dbdd93180dc7e3acbc585f7f347a48c331e816606a0abebae9162b630f"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021/report.json",
+      "status": "motion-review-rendered",
+      "sourceHash": "ecafd529352a2a95f53af500f4dc545892dca2ae42c31d41c2cb5df50e9accdc",
+      "size": 960,
+      "frames": [
+        {
+          "name": "frame-0000",
+          "localTime": 0.020833333333333332,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "39dbfe5034947adcdb1eecffa3ccf620e82305e7dcae09d774db18185462ab33"
+        },
+        {
+          "name": "frame-0001",
+          "localTime": 0.0625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "ac1f9330bc0b58cec3e8e5d7f2834ff612bcc201e1b2f199f70765b0bf47c3b9"
+        },
+        {
+          "name": "frame-0002",
+          "localTime": 0.10416666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "275fc95f9fe042fc063b620a5be2325c17bd78b422aa13ac1914f0e668607359"
+        },
+        {
+          "name": "frame-0003",
+          "localTime": 0.14583333333333334,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "08b7d4a3e048153f78d7acbc7f2da5917a2bddddd1c10f1ce603e72b06463a6e"
+        },
+        {
+          "name": "frame-0004",
+          "localTime": 0.1875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "4ba2881a10481d7bccc6a51154d22a26a4fc75f79cdd392c3dcd8aac8d5d6a27"
+        },
+        {
+          "name": "frame-0005",
+          "localTime": 0.22916666666666666,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b243a964cf521b684e9d9d88ffd2823bceab56020acb530a896496ad75f2547a"
+        },
+        {
+          "name": "frame-0006",
+          "localTime": 0.2708333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "2470a2499244ee216a6504317b70a9002bbb6c3715665de3924d96e16484eaa9"
+        },
+        {
+          "name": "frame-0007",
+          "localTime": 0.3125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "1de30b29ed0d2ee432b9f3a653b23d030043aee624da3e747e8ebe15d2e0ea43"
+        },
+        {
+          "name": "frame-0008",
+          "localTime": 0.3541666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "f1a339f19f46b6066783b84d129d17cda30f0874110e37798ed5125a157a14b2"
+        },
+        {
+          "name": "frame-0009",
+          "localTime": 0.3958333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "656b8f4d3e54d41c9770ff0777835830ed8770954abbc9bc0b6d3fd7d171f9ca"
+        },
+        {
+          "name": "frame-0010",
+          "localTime": 0.4375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "88f2fd18f14516a197f3f4e07b82425817931a696c41ef327196b7e5cf6733c1"
+        },
+        {
+          "name": "frame-0011",
+          "localTime": 0.4791666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "5d01f8dd535f5b3dd95977c9398ad00d92fc3ed14d68084da8a514c684a27746"
+        },
+        {
+          "name": "frame-0012",
+          "localTime": 0.5208333333333334,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "e7b1cd9542c4269fb27b3c4205ea3033af061ab71d72730e7430a89e3f81419c"
+        },
+        {
+          "name": "frame-0013",
+          "localTime": 0.5625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "66ea19ad3d0005eeaf03d43132e1f04760a2b780a1afb60264778bdc09aed35a"
+        },
+        {
+          "name": "frame-0014",
+          "localTime": 0.6041666666666666,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "5f552d5ff1a5e593d8a453b0dc787df1059320af579c97fe976376e709542881"
+        },
+        {
+          "name": "frame-0015",
+          "localTime": 0.6458333333333334,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9228d668f30b8464084d3cf1c3b7b922ee80f693df4cc24abf67f90ea728e4b4"
+        },
+        {
+          "name": "frame-0016",
+          "localTime": 0.6875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a4d8acfcaa9c8e7171942c2650109dca3ec869b8ea9b00ad34ecb5039ffef797"
+        },
+        {
+          "name": "frame-0017",
+          "localTime": 0.7291666666666666,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "4aed7c1de4cd322cfe9c9a78edaddaafcfbd9778396f18d8a7f01321fe14793a"
+        },
+        {
+          "name": "frame-0018",
+          "localTime": 0.7708333333333334,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "e7f925a88f3c9fd63151d7b1bac23678fe0de33bdb5c86b4507a056174aaaec8"
+        },
+        {
+          "name": "frame-0019",
+          "localTime": 0.8125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "13c414f3d6533f3263b9bfca0260b29f7ac1b617bddae00d4187385a34f59aba"
+        },
+        {
+          "name": "frame-0020",
+          "localTime": 0.8541666666666666,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "f5206be737e882f4a5efb799aad60c10afacec35e351afd2d05a85bfe1546df8"
+        },
+        {
+          "name": "frame-0021",
+          "localTime": 0.8958333333333334,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "2f76b65341cd3ea5c88cf610300de4e9f8bacce0b17c41fe4191482961bcd3ed"
+        },
+        {
+          "name": "frame-0022",
+          "localTime": 0.9375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "78dc0e93a7c99ba4e4a75daf62c7267c2fb55f9cf3064d3781cf0186e6d257c8"
+        },
+        {
+          "name": "frame-0023",
+          "localTime": 0.9791666666666666,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "94390ae8078567a14799cab8810d49c4af7ca23b10c804220608185959e8eef7"
+        },
+        {
+          "name": "frame-0024",
+          "localTime": 1.0208333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6e7978b835d6f67f575bed344179cafe25f93ce52d92d9b78566c27d9d48957e"
+        },
+        {
+          "name": "frame-0025",
+          "localTime": 1.0625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b7766c3c6de98edcdc18bc7327171f79dea28d7762692a6cf6162e41bcadf6e5"
+        },
+        {
+          "name": "frame-0026",
+          "localTime": 1.1041666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "df96c9ba041a660e96335d68106440f93e3f0070b304d6c8af28b93a0381899c"
+        },
+        {
+          "name": "frame-0027",
+          "localTime": 1.1458333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "04145927fc12b081f7db49c96672e677143bed86240102f60773eab631753bec"
+        },
+        {
+          "name": "frame-0028",
+          "localTime": 1.1875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "47518c7f73bb4f24cd2abc4193547fe8293b9a0eb735f0b0475a7f599db3b6bc"
+        },
+        {
+          "name": "frame-0029",
+          "localTime": 1.2291666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "2ae263bb8e75e6c6a6318ae29536bc65e8e47b20d33801f547aa68bbf14f42e0"
+        },
+        {
+          "name": "frame-0030",
+          "localTime": 1.2708333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "5207f672a869d885080efe2b75e78f593d9b6dd5d5c741d0b2286a39f7e0b377"
+        },
+        {
+          "name": "frame-0031",
+          "localTime": 1.3125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b155f09807f0f8917018ec49b26448959a2a8efceac8c1949cae6227a8ac5f68"
+        },
+        {
+          "name": "frame-0032",
+          "localTime": 1.3541666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9a8b906362a1a1732879d38e89220815bd64944f7ea8771c287b87075e16fa4b"
+        },
+        {
+          "name": "frame-0033",
+          "localTime": 1.3958333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "8f7790a2c2ab0afed43b394cba46b263e7fd7bd9a803ac8d32fb27aa5b2f0054"
+        },
+        {
+          "name": "frame-0034",
+          "localTime": 1.4375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "7bb6379c0ac879309434c354be4bd82c67e8fbddce8728f58865ff39f6513846"
+        },
+        {
+          "name": "frame-0035",
+          "localTime": 1.4791666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a2e8bd1437d4771d60e62918b5c4bd5c066b6e5c4a9a62d782abd2efbff3f712"
+        },
+        {
+          "name": "frame-0036",
+          "localTime": 1.5208333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "abcc8af2b506ed93d5a6102420725d96859df302bf9f9ee3c775a1cc7412d9c1"
+        },
+        {
+          "name": "frame-0037",
+          "localTime": 1.5625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "e63fb3f8da9618a9479920df90fef253eabeb43c69d8f5236fafe7941cd42f6d"
+        },
+        {
+          "name": "frame-0038",
+          "localTime": 1.6041666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9c1cae7fedd85b0b935750af337860410474b277bd2e2738462c9c286f4067c3"
+        },
+        {
+          "name": "frame-0039",
+          "localTime": 1.6458333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "283fbca6b7f938b28ee9526f4a06bbd64b73a4ba2ee82061ab5a090a9b3a36c4"
+        },
+        {
+          "name": "frame-0040",
+          "localTime": 1.6875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "f3ecdc884e80f8307db09a6ad739eee7728f043bb6d94b2bd81754ca8885caae"
+        },
+        {
+          "name": "frame-0041",
+          "localTime": 1.7291666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "aef1b8aefbec07b6674c48218b7a80a03ee5cabda7eea5371462eec09f7b1522"
+        },
+        {
+          "name": "frame-0042",
+          "localTime": 1.7708333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "1c75827182f573482dcf8960a141d64e67be0ff95a5ead55a7a93d7fa34e67eb"
+        },
+        {
+          "name": "frame-0043",
+          "localTime": 1.8125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "cb142b7c520b32e47caa33643eee23f1f1221e2fbe9691f8d1b5604fe7e30d18"
+        },
+        {
+          "name": "frame-0044",
+          "localTime": 1.8541666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "62c0ecf13940d964c2f077b8eb71da44d44cf7cca3ee60e0b30c937e5d464059"
+        },
+        {
+          "name": "frame-0045",
+          "localTime": 1.8958333333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9bb04a861ad3a526aa5e2bedeef6431a3f4e612be6b87cb06a11e0b300ba744e"
+        },
+        {
+          "name": "frame-0046",
+          "localTime": 1.9375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "effeadf299e42b7288cb1b225a15b0bd8ab1f2ccbfd9086776a443cfb5e52727"
+        },
+        {
+          "name": "frame-0047",
+          "localTime": 1.9791666666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "4f3b6494354ff2f607c97cb41d59a83cb5ba77d8f29fc6f8abc975cd9ef9aa36"
+        },
+        {
+          "name": "frame-0048",
+          "localTime": 2.0208333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6b2eb7dfd788035760d4b13a0298423b63dbf45bd6fda4b25a174c1b29fb70f1"
+        },
+        {
+          "name": "frame-0049",
+          "localTime": 2.0625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "2a992093fe9c20e50ba312738de4e7917dc1c603caca7c773c19e052ee472417"
+        },
+        {
+          "name": "frame-0050",
+          "localTime": 2.1041666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "3b583333af6912b54a20a6f5e6df9d5507e2f774b3f8664f916a804a72c33187"
+        },
+        {
+          "name": "frame-0051",
+          "localTime": 2.1458333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "bf2afec2dadcbff2df2d399ce4e9fb96b6e5d92ed0663bfd5fc2af8f84970dd6"
+        },
+        {
+          "name": "frame-0052",
+          "localTime": 2.1875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "146636f6537d8ef5166ad13b90d3e8ca10fe1836a438b9ac9b0119c641b17ca3"
+        },
+        {
+          "name": "frame-0053",
+          "localTime": 2.2291666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "e46d5206c030476b639a228a0a2f4555b93c4f5604652c200f8de2b1d861a714"
+        },
+        {
+          "name": "frame-0054",
+          "localTime": 2.2708333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "36db3cb02a676086b337fad488bc5055b1496ab594decde7e2f0386b7d9f4bb8"
+        },
+        {
+          "name": "frame-0055",
+          "localTime": 2.3125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9cb0c7a92220ad2943e927f418b0a35c29bd4fcb5cd7e79eb0ad65234daf09fc"
+        },
+        {
+          "name": "frame-0056",
+          "localTime": 2.3541666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "43e37d03bea5cc44d59b8e2d63de035f07d678822260588785b676132152f953"
+        },
+        {
+          "name": "frame-0057",
+          "localTime": 2.3958333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "5a5b8812bbf12806ea6da6d436a15ca094ea9d0efbd4a31fef2d8fe3c4fc092e"
+        },
+        {
+          "name": "frame-0058",
+          "localTime": 2.4375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "19ed7c5378109285a02f42619b1c5e5ebfa3499dac74f4a81d5cf6b9533f2167"
+        },
+        {
+          "name": "frame-0059",
+          "localTime": 2.4791666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "cb917b2d1975144b16d09d4034c7b852954b98e3c7d6f6f06b9217fe465fa3fd"
+        },
+        {
+          "name": "frame-0060",
+          "localTime": 2.5208333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "0f73dd06d4fbb8d67722dbabd128f48dc4dd2bdb69c24aaef674c7325b8c69d4"
+        },
+        {
+          "name": "frame-0061",
+          "localTime": 2.5625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6b1c343cc429d5578b38e5848f0a3e3f13f0aa67934e08b45ef6fc4b82471a9e"
+        },
+        {
+          "name": "frame-0062",
+          "localTime": 2.6041666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "c6e2116b6f3a60f07653f957af6f500c76d0d89e474b74a0c2896699ab5cb1b7"
+        },
+        {
+          "name": "frame-0063",
+          "localTime": 2.6458333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "8d73679f9ace1e5882582ead8a66f796a31bb2f52f5aa5d366d8816bdb0facb8"
+        },
+        {
+          "name": "frame-0064",
+          "localTime": 2.6875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "8078722c3bb490ef3fd46e1ba1a9d0d7b92b4d06eed41a3674d031a20c09b40e"
+        },
+        {
+          "name": "frame-0065",
+          "localTime": 2.7291666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "af8999135319221ce3fefcc9e100c13d25ca6f762d9a4c7bba51a825cb08128f"
+        },
+        {
+          "name": "frame-0066",
+          "localTime": 2.7708333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "46f8257b142c42613c866379d41dc111dc473644ece4a2dcf42c9dba7dcbd534"
+        },
+        {
+          "name": "frame-0067",
+          "localTime": 2.8125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "aa3b7a0cdd766caaacaee5b776c2ba77aa5cbf56ebc9c8ac1880daee759afea3"
+        },
+        {
+          "name": "frame-0068",
+          "localTime": 2.8541666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6f1f3e4b1d59bcfde836cd4b808355769b01bd127b8bffc4c256eba451ecedb2"
+        },
+        {
+          "name": "frame-0069",
+          "localTime": 2.8958333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "3995221ff1b8bc3255fb8646f48f674fab70bb6a76c84f4804aac2d9e69bb766"
+        },
+        {
+          "name": "frame-0070",
+          "localTime": 2.9375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "42b70d91b331774824f6521abb575d2354f4f1d55cb51d3b0bf8a696737d2f24"
+        },
+        {
+          "name": "frame-0071",
+          "localTime": 2.9791666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b8398eeed7f6f491353a7a9a58415c3f7eae1276a439d529c439420d1d227e4d"
+        },
+        {
+          "name": "frame-0072",
+          "localTime": 3.0208333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "73336009d1f5555967823bd715dbe4a9385ee5a656f930bdd0a4a14d77a47cb2"
+        },
+        {
+          "name": "frame-0073",
+          "localTime": 3.0625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "cb468593c3ee7f12173f5793a99faa47043589590fedbfe11ba1a4cf31a9f9c2"
+        },
+        {
+          "name": "frame-0074",
+          "localTime": 3.1041666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "2140a4db0561a4e538884d084dee6faeb247aeba5d3913732e26fda4a839a8ca"
+        },
+        {
+          "name": "frame-0075",
+          "localTime": 3.1458333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "747877fcdf46035a7e16e06c382ecde4a73d144853f935cdd4811e4475d5217f"
+        },
+        {
+          "name": "frame-0076",
+          "localTime": 3.1875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "7d7619251ef9b284e98f97e765330088ff32fe677363ab7570dfbc0e79e10d36"
+        },
+        {
+          "name": "frame-0077",
+          "localTime": 3.2291666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "91f8ba1894086892dfbc4b01410129dc7f567f15ba32c311a9bc492cdbcbd0b4"
+        },
+        {
+          "name": "frame-0078",
+          "localTime": 3.2708333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b3d77a5175069077a5ec66b885be60b781fc7fba44b9caf853456621763b7753"
+        },
+        {
+          "name": "frame-0079",
+          "localTime": 3.3125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "8908436042fd669ff2a8987901a8ab14479c1b06c96c5310f5b54ddaf22d6688"
+        },
+        {
+          "name": "frame-0080",
+          "localTime": 3.3541666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "acdeae3771eeca48cd76ff131dc920e1c3f8d0e1873b7eeb4bc59ba93e3f1f72"
+        },
+        {
+          "name": "frame-0081",
+          "localTime": 3.3958333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "d53628fa735a62f82cf6f2702092f089ba80462158e1b3d1a5b1ff23fb0094e5"
+        },
+        {
+          "name": "frame-0082",
+          "localTime": 3.4375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "108ca4435f330c075ee5014336d863db9b914e362c1640116da1e0e0da8a08f1"
+        },
+        {
+          "name": "frame-0083",
+          "localTime": 3.4791666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "71317cb144ab115a67cab368eb988f0151074475b4e689153154fcb8acb20c39"
+        },
+        {
+          "name": "frame-0084",
+          "localTime": 3.5208333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "02e6a380555ef0449efe44834130619591bef1501f27f9ee8267ea242f31d2f0"
+        },
+        {
+          "name": "frame-0085",
+          "localTime": 3.5625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "3ef95cb9d180a5be986b3a37bedd2e62eda8c15b2efe7ba39d4a6a459008ef49"
+        },
+        {
+          "name": "frame-0086",
+          "localTime": 3.6041666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "d235ac0a26746bab49558f5c62a4f961f3aa37d02d96beda69554056005513e5"
+        },
+        {
+          "name": "frame-0087",
+          "localTime": 3.6458333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "8bbdd67106ccabc367666c50ac5a9e6e0e59e8663dc495a5826a0c51facc3882"
+        },
+        {
+          "name": "frame-0088",
+          "localTime": 3.6875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "64a1f2915e0a12d10ca0cdb7e544612193c926f8ae3f776cbfb3b49a7a350007"
+        },
+        {
+          "name": "frame-0089",
+          "localTime": 3.7291666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "2d3122741b9e5b7e04352c36b140350c0beec2ee56031ce0a5c07a9f9d3184f2"
+        },
+        {
+          "name": "frame-0090",
+          "localTime": 3.7708333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "ee143d7b78222bd53b7b90723e8bd3552b58cb1cb529b6424e24cc95d6527836"
+        },
+        {
+          "name": "frame-0091",
+          "localTime": 3.8125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a1d5ad0e24cc678cc89a87aba3d8221d9de75215120009027443b2bb7f46da07"
+        },
+        {
+          "name": "frame-0092",
+          "localTime": 3.8541666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "8cf26c09bd3df0fadb6c5d77f3d027f33fbbaeaf2682a9294e3610ad1f122775"
+        },
+        {
+          "name": "frame-0093",
+          "localTime": 3.8958333333333335,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6a33a3f69f2de50106444b0fc28315d33d5ae813a9445c497cb7be2b5669ada3"
+        },
+        {
+          "name": "frame-0094",
+          "localTime": 3.9375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "553a2672914f547ed013c7f26ade5f51aa49f8749b57aee5f653485bcacfa065"
+        },
+        {
+          "name": "frame-0095",
+          "localTime": 3.9791666666666665,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "7b9574c6446d47c55223644aacfc133b75e7fe22c9e1b59e619fa0c31332e17c"
+        },
+        {
+          "name": "frame-0096",
+          "localTime": 4.020833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "1798eaade99046b26f98176f1cc3454a3f33664951b7ef68e0d9553f51185cd2"
+        },
+        {
+          "name": "frame-0097",
+          "localTime": 4.0625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "24eeecac7eea7b1fc968f818d35ef2d64d40aaa7b7eb570474fd751ff61974d6"
+        },
+        {
+          "name": "frame-0098",
+          "localTime": 4.104166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a77d80c35a605b6834e9132bf62cfcc38bfddb2c5fb610d2ffb1f5e23b26ead4"
+        },
+        {
+          "name": "frame-0099",
+          "localTime": 4.145833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "23780d0216546cae662cf68d9a17cc0e0adf7190814085d6a80cc163bf05d9d0"
+        },
+        {
+          "name": "frame-0100",
+          "localTime": 4.1875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "1c095cedce2c59cb30bd54b33407cee1a5f3999d4576ab54aede6faa4a9d44d7"
+        },
+        {
+          "name": "frame-0101",
+          "localTime": 4.229166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a3bcf194709fc70d56164f7c48683ca6dd49bb1f0c4193e90bb4b8ac00e944bd"
+        },
+        {
+          "name": "frame-0102",
+          "localTime": 4.270833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "70627d52585050ff27caed3b4d1ce0087cda28a7303e8eac49a7017109ad6bb0"
+        },
+        {
+          "name": "frame-0103",
+          "localTime": 4.3125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "213f500dd971f5d38956f17b98a277e62fe25a227aab152b57d834d9c942e891"
+        },
+        {
+          "name": "frame-0104",
+          "localTime": 4.354166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6e024fb16dbbfb85825aa8bd8c58b726fe73dec11a4250facf86d480c3feb277"
+        },
+        {
+          "name": "frame-0105",
+          "localTime": 4.395833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9d16f785558b2e6615011978d1ae5b5723a089a4f0ffa957a831bc2b218a2e07"
+        },
+        {
+          "name": "frame-0106",
+          "localTime": 4.4375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "ad6c8a0865c49107a295ad855ba8fbfac75b25d5a53bd36876dc5f6db2c1a2e0"
+        },
+        {
+          "name": "frame-0107",
+          "localTime": 4.479166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "476eca89b66fa23849c6e787f90da48aa59cfb7285ed5b12449981998fd522ff"
+        },
+        {
+          "name": "frame-0108",
+          "localTime": 4.520833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "47fb2f0d8510e4acf9417a471671598203c91a6c2f30bf69e199d4cbb048496b"
+        },
+        {
+          "name": "frame-0109",
+          "localTime": 4.5625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "3fb02af2de67b81ca6983fbd25b2dbb9aa8172a271b09e1ec708e21cf157cee7"
+        },
+        {
+          "name": "frame-0110",
+          "localTime": 4.604166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "bd63d8afc0aff0de66983174dbc1ad8dae3c056aade1861b28336bbb124e4bc3"
+        },
+        {
+          "name": "frame-0111",
+          "localTime": 4.645833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "153f81b4ad2c7bc71fd02dda30ec742701eaa9bfcca2531c8d0f5227931d56c5"
+        },
+        {
+          "name": "frame-0112",
+          "localTime": 4.6875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a0ef39cf63a1803ec144a06c24225aada83faee69c85c95c31896d68a565a39a"
+        },
+        {
+          "name": "frame-0113",
+          "localTime": 4.729166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "423fe6aa3c3ed783e2a1fec84729ed65a39295e9a8b708d295787ab9b1e73dc4"
+        },
+        {
+          "name": "frame-0114",
+          "localTime": 4.770833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6a1c18b4661ec0669f86c422b4e337ce5242e909d387bc8b6bc140df2eb5e636"
+        },
+        {
+          "name": "frame-0115",
+          "localTime": 4.8125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "74faadabb0cb69a5142c791e555013e541a587d92c15ab778e7a2ee24a76b3fe"
+        },
+        {
+          "name": "frame-0116",
+          "localTime": 4.854166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a4767daba5e5013dfc7df7793c48e4f424566f3b3eeb0f6b445ea4ede450134a"
+        },
+        {
+          "name": "frame-0117",
+          "localTime": 4.895833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "080d330e9254ac639c1a48b87cb9c4711d5d0dd29e7d2d9eeb11649ce73d5682"
+        },
+        {
+          "name": "frame-0118",
+          "localTime": 4.9375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "b7634e8397094c99f6cbc503fd85ea7f87d2387bb5ffdbf82ed4aae12fcd148e"
+        },
+        {
+          "name": "frame-0119",
+          "localTime": 4.979166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "ced4e39ddf8bb36db5bbee17876e2ed5f71445d523bb082a6f55149e1d0588a6"
+        },
+        {
+          "name": "frame-0120",
+          "localTime": 5.020833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "827840630643404801f0978f9e0d68ca7662b0abbdcaf6ff333825c33a055101"
+        },
+        {
+          "name": "frame-0121",
+          "localTime": 5.0625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "5d5f0145418af16f7046861ad7328f391e8fec8cce5559c303470715f37fe939"
+        },
+        {
+          "name": "frame-0122",
+          "localTime": 5.104166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "7f424eb73557c65e99b98645aa1f45f86c66c202999c6a48480335b21a9e57cd"
+        },
+        {
+          "name": "frame-0123",
+          "localTime": 5.145833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "ba918fdfed6504802fd385a5e6cfe656fca67f5e6c510ce5499ae7a57cad20c5"
+        },
+        {
+          "name": "frame-0124",
+          "localTime": 5.1875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "4d38b3d5d73ff54970fdddc2705d10a31a3bde231ef5e49a94807b0599aaee04"
+        },
+        {
+          "name": "frame-0125",
+          "localTime": 5.229166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "578cea6fca4fd40c6299dd218718dd6f1e740e8eae09ec22c99b20ef8c72a104"
+        },
+        {
+          "name": "frame-0126",
+          "localTime": 5.270833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a0d77ca0a61b9bb8b6d13b0b3ebcbc02e4d4f3231947dfb24f466c41b1170334"
+        },
+        {
+          "name": "frame-0127",
+          "localTime": 5.3125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "ce190731e52eb08e3509c012e3e5a13acb7fd362f80da4d96133adb4e6844534"
+        },
+        {
+          "name": "frame-0128",
+          "localTime": 5.354166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "cbdf258185f0845ab6cb720c6fb66b2a4066cdb7444d08e24af77f7926072b47"
+        },
+        {
+          "name": "frame-0129",
+          "localTime": 5.395833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6012bdb1b22cfa5b6242802ad9749010f49b0b292e65ccd7a1b4fab913833f7d"
+        },
+        {
+          "name": "frame-0130",
+          "localTime": 5.4375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "d00b254b767c710b182f7ada6a9974f8cc69f55b2264650a9ce9849feb58899e"
+        },
+        {
+          "name": "frame-0131",
+          "localTime": 5.479166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "d62316966c7339b460b062133d818f3b40efcd4414246dd194786458ff9e954f"
+        },
+        {
+          "name": "frame-0132",
+          "localTime": 5.520833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "bb7eb9e77b91295ae9b49fcb78781a3a919ad2458b52db07885cebc605287a60"
+        },
+        {
+          "name": "frame-0133",
+          "localTime": 5.5625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "200b20a3ea97351f119dc12c981b5d4b2442d33130728ae4d1b6d4032519f08e"
+        },
+        {
+          "name": "frame-0134",
+          "localTime": 5.604166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "0417c77f133c45051594c9d8b9378ffc8f9528d9dde50f2359d143018af9a311"
+        },
+        {
+          "name": "frame-0135",
+          "localTime": 5.645833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "e5e55f6cc122e7f9d1aa5f03b43645e1b259d50598e087912b2e3fd9ef2fca33"
+        },
+        {
+          "name": "frame-0136",
+          "localTime": 5.6875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "85f66ef29c49da582c62f7f7b72baf8c1d9884ecc12fdb0aa7c806ce198ed3b7"
+        },
+        {
+          "name": "frame-0137",
+          "localTime": 5.729166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9add5cb7eb8984a566c405e3f8434666c15119cd2867787b083af3ac8a8de0fb"
+        },
+        {
+          "name": "frame-0138",
+          "localTime": 5.770833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "5da4a4a1167d0637187e533a2e4f280dc670ef0ef3d30de57e5548ab7bd84727"
+        },
+        {
+          "name": "frame-0139",
+          "localTime": 5.8125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "7e14d6e25ee4aeba0a3f978218b3c7a1c812373fd2d26b911ac5a40cb92a27b2"
+        },
+        {
+          "name": "frame-0140",
+          "localTime": 5.854166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "78b013235630c16a74a14e32574196b22f9828bf545cdfb22fc0e30f38b48c82"
+        },
+        {
+          "name": "frame-0141",
+          "localTime": 5.895833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "c8c73767635a36d5c7327d88a9a8b1c137a1f8abc5edfcb11814913d4eea15bd"
+        },
+        {
+          "name": "frame-0142",
+          "localTime": 5.9375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "d1712840c7a8bf5088aa110e4829d7232e2b63092f85e83e3a8a1478a3b7907e"
+        },
+        {
+          "name": "frame-0143",
+          "localTime": 5.979166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "01bda11c5682ba6d6792175fdc278c249efa0e6eaa29791029c86a8620f118cc"
+        },
+        {
+          "name": "frame-0144",
+          "localTime": 6.020833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "72cc6331c930369fda570cdc4fbd0b572aaac234b2095f701f9379e3905291ce"
+        },
+        {
+          "name": "frame-0145",
+          "localTime": 6.0625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6df501881f8bf39c02dcce8eebe33623ac65faa775895eef79884d9c88883425"
+        },
+        {
+          "name": "frame-0146",
+          "localTime": 6.104166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "c4eb9a74db5dfafaaa31893d57ec58e50c00fa4eb52ee1088f73b1e8d96463e2"
+        },
+        {
+          "name": "frame-0147",
+          "localTime": 6.145833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "e4f4469b4a323921221e56cf1dc9218c5bea420c36d92296731c7075299f7374"
+        },
+        {
+          "name": "frame-0148",
+          "localTime": 6.1875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "a167024c44936176037c3355b8b59fb483feb2183bc0b0cff58847623475622c"
+        },
+        {
+          "name": "frame-0149",
+          "localTime": 6.229166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "c3ae18ec65936b4a2edbe44a20cc83e3a08536675acdcc5693a2cb3fb8228a8c"
+        },
+        {
+          "name": "frame-0150",
+          "localTime": 6.270833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "03d2601d6140bdad7f321fee5bf6a8418a5bf34a43a1be308a903f2a38e0620e"
+        },
+        {
+          "name": "frame-0151",
+          "localTime": 6.3125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "77d0dacc16114c3c2967c9054e7b22e9ad480e7d678f84dc2084705197efbcf0"
+        },
+        {
+          "name": "frame-0152",
+          "localTime": 6.354166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "6fb49940384959e369f313978eecd75a6d825f788f2aac88fe88da38ad90c8c1"
+        },
+        {
+          "name": "frame-0153",
+          "localTime": 6.395833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "1a27a9734f62a47050493a9825459ea5d2b7277befbe08086f1e497fce0eb21a"
+        },
+        {
+          "name": "frame-0154",
+          "localTime": 6.4375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "7e1188f417cdad59abcd267b19d3b12f2b2dc0028b6ae9902ab7027354aff132"
+        },
+        {
+          "name": "frame-0155",
+          "localTime": 6.479166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "d77a6c7fef42c10b4b891b8671804b4739961e5822e2da85905cc6bd5cf62890"
+        },
+        {
+          "name": "frame-0156",
+          "localTime": 6.520833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "38305eaae7e43b9a55c282b2318e8741b09fe184c40ab2d35f173acc371aeca5"
+        },
+        {
+          "name": "frame-0157",
+          "localTime": 6.5625,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "007a3047e63dbe466a11c69fce11513a0bd850a0048907abda49dccda0b764cc"
+        },
+        {
+          "name": "frame-0158",
+          "localTime": 6.604166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9c7f56b2b8e9b508630eaee082b9c0a4a2bb3b57034fc4aa6312f416e4e0df12"
+        },
+        {
+          "name": "frame-0159",
+          "localTime": 6.645833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "fb883a6549d82f162bb86f7eae301c493c345b2ee318b016666a81926f1d0b2f"
+        },
+        {
+          "name": "frame-0160",
+          "localTime": 6.6875,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "49c59ef1fc7b7708614a67fb21c3b11083f0a46b2895812f8ad46ec051484dba"
+        },
+        {
+          "name": "frame-0161",
+          "localTime": 6.729166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "93482aef90bab2552ec49c61710d4a00557dc6f898a5d4d60bc3c3a3f2824253"
+        },
+        {
+          "name": "frame-0162",
+          "localTime": 6.770833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "fc77776ddb2bed2370ff95e09eed1bdf47528ff3a2bd525ae530f2524fb2d637"
+        },
+        {
+          "name": "frame-0163",
+          "localTime": 6.8125,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "c3c93f5c9b9886666bfe5f47b89ff372ea622fc4d2f13de30d970910b235031f"
+        },
+        {
+          "name": "frame-0164",
+          "localTime": 6.854166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "9b7e318dacb7e3dd85d89dafc16e021ccfcfc14f3eb474cfe86dfc56674a7a66"
+        },
+        {
+          "name": "frame-0165",
+          "localTime": 6.895833333333333,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "af3cfe818e4728c27c86eae9cb094ffa627c13098806070b48a126acef0873d8"
+        },
+        {
+          "name": "frame-0166",
+          "localTime": 6.9375,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "c2fcde7ec2ea6a95cac3baac5a9bdb13eae2b78ab8159d812ef857d3d0f64a87"
+        },
+        {
+          "name": "frame-0167",
+          "localTime": 6.979166666666667,
+          "detailCrop": null,
+          "valid": true,
+          "rgbaSha256": "5908893c42d875f7dfc8f042fd113edaf406fa008c66c56245967d2d6fcc1d63"
+        }
+      ],
+      "motion": {
+        "duration": 7,
+        "fps": 24,
+        "expectedFrames": 168,
+        "file": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021/motion-review.mp4",
+        "scope": "One actual seven-second shot for motion inspection; not the complete film.",
+        "audio": false,
+        "visualAccepted": false,
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 960,
+              "color_space": "bt709",
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "168"
+            }
+          ],
+          "format": {
+            "duration": "7.000000"
+          }
+        },
+        "decodeErrors": 0
+      },
+      "files": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021/frame-0000.png",
+          "bytes": 1665709,
+          "sha256": "b37fe2ff7ece108fa17a6f80095897e5cfd78f6a87c4b6e53a9478f1d883f6a9"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021/frame-0084.png",
+          "bytes": 1812526,
+          "sha256": "0fe5f82e75bf8a3a83792aad3be96cc760f33ffb00b64cab24ba9554c7dea3b1"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021/frame-0167.png",
+          "bytes": 1922064,
+          "sha256": "f332450d074353162162077cfe3cfe43e618b07b9722ebfdf7d25f92c006e589"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021/motion-review.mp4",
+          "bytes": 17037277,
+          "sha256": "4e9fd730d54edf504e77e4d8e1d03278c09cefbc5211718f2d1c954e85bb1541"
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021/report.json",
+          "bytes": 3988142,
+          "sha256": "b7b30f5b25e71b5df3601ab6c57f7accbe616db5b0e5210657e67abaae7211b3"
+        }
+      ]
+    }
+  ],
+  "tools": "Every 3D capture uses tools/render-one-reconstruction.mjs and its shared GPU mutex; full image and subfrusta are actual GPU-native renders. No reference-image or generated replacement-frame geometry.",
+  "assets": "No new downloaded assets. Existing scene02-local declared CC0 granite maps and immutable shared declared CC0 timber/rock scans remain bound by the source identity.",
+  "remainingVisibleGaps": [
+    "Hall facade, hip/gable tile assembly and bracket carving still look too clean, angular and regular relative to the photograph.",
+    "Garden crown masses, bank planting and distant forest remain much simpler and less organic than the reference.",
+    "The native gold, vermilion, cloud radiance, pond highlight pattern and veranda floor gloss do not match the photograph.",
+    "The reference camera retains its existing physical pose and silhouette anchors; camera fit alone is not fidelity acceptance.",
+    "The close-start moving camera exposes the long framing-tree trunk; the crown still needs broader mature branching."
+  ],
+  "review": "Viewed unchanged native1254 full frame, true native hall/veranda/canopy subfrusta, oblique/above/root-contact views and exact0/3.5/7-second camera poses. Fresh7-second960px24fps actual motion has168 frames, valid decode and unchanged source.",
+  "comparisonFiles": [
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/reference-left-native-right.png",
+      "bytes": 5133859,
+      "sha256": "5a8f30d754cbb80b6cdc0295a30f3f0e3cab8598f3727f07f83a14cc123a6c98"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/baseline-left-checkpoint-right.png",
+      "bytes": 4253435,
+      "sha256": "ce7e15b2f422dc9a10f6cee35ef5e43d47eae3b168253e78227bb2c01ead77f9"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/source-checks.json",
+      "bytes": 2423,
+      "sha256": "422a3d1a332e725c01f8d24ef67b846a863f3f537f1b384c6d8f00e23b939c75"
+    }
+  ],
+  "baselineSourceHash": "cc2a2ac58038ffe60cfb88c6b28b0ec1ecc4a4fc4cad2cdb9c25e019ec429d13",
+  "sourceSnapshotPath": "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021/source",
+  "newQaDirectories": [
+    "qa/ten-reference/02/iteration-scene02-carpentry-baseline-01-20261021",
+    "qa/ten-reference/02/iteration-scene02-housed-carpentry-02-20261021",
+    "qa/ten-reference/02/iteration-scene02-rooted-canopy-open-portico-03-20261021",
+    "qa/ten-reference/02/iteration-scene02-carved-veranda-and-hall-reveals-04-20261021",
+    "qa/ten-reference/02/iteration-scene02-jointed-granite-carved-joinery-05-20261021",
+    "qa/ten-reference/02/iteration-scene02-connected-pine-granite-06-20261021",
+    "qa/ten-reference/02/iteration-scene02-foliage-and-water-bearing-07-20261021",
+    "qa/ten-reference/02/iteration-scene02-physical-basin-join-08-20261021",
+    "qa/ten-reference/02/iteration-scene02-contact-above-09-20261021",
+    "qa/ten-reference/02/iteration-scene02-contact-root-09-20261021",
+    "qa/ten-reference/02/iteration-scene02-contact-hall-bearing-09-20261021",
+    "qa/ten-reference/02/iteration-scene02-physical-checkpoint-10-20261021",
+    "qa/ten-reference/02/iteration-scene02-checkpoint-veranda-10-20261021",
+    "qa/ten-reference/02/iteration-scene02-checkpoint-canopy-10-20261021",
+    "qa/ten-reference/02/iteration-scene02-checkpoint-above-10-20261021",
+    "qa/ten-reference/02/iteration-scene02-checkpoint-root-contact-10-20261021",
+    "qa/ten-reference/02/iteration-scene02-checkpoint-hall-bearing-10-20261021",
+    "qa/ten-reference/02/iteration-scene02-checkpoint-poses-10-20261021",
+    "qa/ten-reference/02/iteration-scene02-checkpoint-motion-10-20261021"
+  ]
+}

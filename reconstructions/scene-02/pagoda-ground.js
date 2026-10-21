@@ -12,7 +12,7 @@ export function buildPagodaGrounding(mats){
   const radius=Math.pow((Math.abs(u)/12)**4+(Math.abs(v)/10)**4,.25),angle=Math.atan2(v,u);
   const r=radius*(1+smooth(.47,.82,radius)*(.027*Math.sin(angle*5)+.018*Math.sin(angle*9+.6)));
   let h=r<.46?shoulder:r<.60?shoulder-(shoulder-3.45)*smooth(.46,.60,r):r<.77?3.45-1.8*smooth(.60,.77,r):1.65-1.77*smooth(.77,1,r);
-  h=Math.max(h,shoulder*(1-smooth(4.25,5.70,Math.max(Math.abs(u),Math.abs(v)))));
+  h=Math.max(h,-.12+(shoulder+.12)*(1-smooth(4.25,5.70,Math.max(Math.abs(u),Math.abs(v)))));
   h+=smooth(.47,.65,r)*(1-smooth(.90,1,r))*(.17*Math.sin(u*.72)*Math.cos(v*.91)+.055*Math.sin(u*2.7+v*1.9));
   // A real cut receives the west stair; soil is lower than every stone tread.
   if(u>start-.25&&u<end+.10){const stair=Math.max(0,Math.min(1,(u-start)/(end-start)))*plinthBottom-.18,w=1-smooth(flightWidth/2,flightWidth/2+.45,Math.abs(v));h-=w*Math.max(0,h-stair);}

@@ -49,7 +49,7 @@ function mirror(name,w,d,p,opacity=.8,ripple=.0015,geometry=null){
  const original=o.onBeforeRender;o.onBeforeRender=function(...args){let vis=reflectors.map(r=>r.visible);reflectors.forEach(r=>{if(r!==o)r.visible=false;});try{return original.apply(this,args);}finally{reflectors.forEach((r,i)=>r.visible=vis[i]);}};reflectors.push(o);scene.add(o);return o;
 }
 function pondGeometry(){
- const shore=[[-30,1],[-28,-1.5],[-23,-2.8],[-18,-2.2],[-14,-.8],[-10,.6],[-7,2.1],[-4,3.5],[-1,4.0],[2,3.4],[5,1.7],[8,.6],[10,2.2],[10.8,5.1],[11.5,8.1],[12.4,11.0],[13.4,15.0],[14.8,20.5],[16.2,27.0],[17.8,35.0],[17.6,42.0],[7.0,44.0],[-6.0,44.3],[-21.0,42.8],[-29.4,37.1],[-33.0,29.1],[-34.2,20.4],[-33.6,10.4],[-30.4,5.8]];
+ const shore=[[-30,1],[-28,-1.5],[-23,-2.8],[-18,-2.2],[-14,-.8],[-10,-.75],[-7,-.90],[-4,-1.1],[-1,-1.30],[2,-1.10],[5,-.45],[8,.6],[10,2.2],[10.8,5.1],[11.5,8.1],[12.4,11.0],[13.4,15.0],[14.8,20.5],[16.2,27.0],[17.8,35.0],[17.6,42.0],[7.0,44.0],[-6.0,44.3],[-21.0,42.8],[-29.4,37.1],[-33.0,29.1],[-34.2,20.4],[-33.6,10.4],[-30.4,5.8]];
  const curve=new T.CatmullRomCurve3(shore.map(([x,z])=>new T.Vector3(x,0,z)),true,'centripetal');
  const points=curve.getPoints(192),shape=new T.Shape(),toLocal=p=>[p.x+16,15-p.z];
  shape.moveTo(...toLocal(points[0]));for(let i=1;i<points.length;i++)shape.lineTo(...toLocal(points[i]));shape.closePath();
@@ -63,7 +63,17 @@ mirror('actual-pond-reflection',61.5,61,[-16,.016,15],.90,.0011,pondGeometry());
 // Bound capture radiance before convolution: a non-finite shading sample must not
 // contaminate every prefiltered roughness mip of the local environment.
 const finiteCapture=`vec3 finiteRGB=gl_FragColor.rgb;if(!(finiteRGB.r>=0.0&&finiteRGB.r<10000.0))finiteRGB.r=0.0;if(!(finiteRGB.g>=0.0&&finiteRGB.g<10000.0))finiteRGB.g=0.0;if(!(finiteRGB.b>=0.0&&finiteRGB.b<10000.0))finiteRGB.b=0.0;gl_FragColor.rgb=min(finiteRGB,vec3(64.0));`;
-scene.traverse(o=>{if(o.isMesh&&o.material){const leaf=o.material===mats.leaf||o.material===mats.leaflight;o.material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <tonemapping_fragment>',finiteCapture+'\n#include <tonemapping_fragment>');if(leaf){shader.uniforms.uLeafSun={value:sunDirection};shader.fragmentShader='uniform vec3 uLeafSun;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','outgoingLight+=diffuseColor.rgb*vec3(1.25,.80,.30)*1.4*pow(max(0.,dot(-normal,normalize(mat3(viewMatrix)*uLeafSun))),.7);\n#include <opaque_fragment>');}};o.material.customProgramCacheKey=()=>leaf?'scene02-thin-leaf-v1':'scene02-finite-capture-v1';o.material.needsUpdate=true;}});
+const capturedMaterials=new Set();
+scene.traverse(o=>{if(o.isMesh&&o.material&&!capturedMaterials.has(o.material)){
+ const material=o.material;capturedMaterials.add(material);
+ const leaf=material===mats.leaf||material===mats.leaflight||material.userData.thinLeaf,previous=material.onBeforeCompile.bind(material),key=material.customProgramCacheKey();
+ material.onBeforeCompile=shader=>{
+  previous(shader);
+  shader.fragmentShader=shader.fragmentShader.replace('#include <tonemapping_fragment>',finiteCapture+'\n#include <tonemapping_fragment>');
+  if(leaf){shader.uniforms.uLeafSun={value:sunDirection};shader.fragmentShader='uniform vec3 uLeafSun;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','outgoingLight+=diffuseColor.rgb*vec3(1.25,.80,.30)*1.4*pow(max(0.,dot(-normal,normalize(mat3(viewMatrix)*uLeafSun))),.7);\n#include <opaque_fragment>');}
+ };
+ material.customProgramCacheKey=()=>key+(leaf?':scene02-thin-leaf-v2':':scene02-finite-capture-v2');material.needsUpdate=true;
+}});
 const scannedTimber=await installScannedTimber(mats,scene);textures.push(...scannedTimber.textures);
 // A fixed radiance probe includes the actual gold lamps, red timber, pond and deep
 // shadowed architecture, so close polished metal has reflected structural detail.
@@ -89,6 +99,6 @@ function renderView(position,target,time=0,fov=52){setView(position,target,fov);
 // rail/deck edge on its walkable side; the photographic endpoint is unchanged.
 const dolly=createDollyPath({points:[[15.85,2.25,24.0],[15.95,2.35,24.4],[16.1,2.6,24.85],reference.position],nearTarget:[15.193872543879204,2.43,23.368270846691118],farTarget:reference.target,fov:reference.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-function info(){return{reference:2,revision:'scene02-scanned-rock-banks-and-opaque-woodland138',ready:true,frames,source:'Authored three-dimensional architecture and plants with declared CC0 timber and eroded stone scans; no reference-image scene surface',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-physical-carpentry-granite-and-rooted-garden145',ready:true,frames,source:'Authored three-dimensional architecture and plants with declared CC0 timber and eroded stone scans; no reference-image scene surface',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
 function dispose(){disposed=true;garden.dispose?.();scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);
