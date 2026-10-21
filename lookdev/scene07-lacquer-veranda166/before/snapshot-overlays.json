@@ -1,0 +1,33 @@
+{
+  "basePublicCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+  "nativeSourceHash": "bb5c958378d54356d87de2d118924b0a1507aafc603a0126fa662083207afebe",
+  "overlayFiles": [
+    {
+      "preserved": "lookdev/scene07-lacquer-veranda166/before/main.js",
+      "restoreTo": "reconstructions/scene-07/src/main.js",
+      "sha256": "69996ceec9bb26aea2e176a8f090b4f68a764247c65fe6963ad1555fe07f49d0"
+    },
+    {
+      "preserved": "lookdev/scene07-lacquer-veranda166/before/hero-pines158.js",
+      "restoreTo": "reconstructions/scene-07/src/hero-pines158.js",
+      "sha256": "3aea19fa2de9e82fbf33b045309f6d3d8c063e38650d8111496764d5c65259d6"
+    },
+    {
+      "preserved": "lookdev/scene07-lacquer-veranda166/before/scanned-frieze157.js",
+      "restoreTo": "reconstructions/scene-07/src/scanned-frieze157.js",
+      "sha256": "62e70160bdce2d9bf85bed5e08a167fc0b524196b50f9b7d035b489b9b345860"
+    },
+    {
+      "preserved": "lookdev/scene07-lacquer-veranda166/before/reference-layout118.js",
+      "restoreTo": "reconstructions/scene-07/src/reference-layout118.js",
+      "sha256": "8d70d5a1d9a21edfca0ac07cd8238207b5b6084f504cfd2b8f077e28334049ca"
+    },
+    {
+      "preserved": "lookdev/scene07-lacquer-veranda166/before/asset-dependencies.json",
+      "restoreTo": "reconstructions/scene-07/asset-dependencies.json",
+      "sha256": "1b742b249e8a4d42c43d1bf2fac4775701fcc1d69361949a588d66deb83aa514"
+    }
+  ],
+  "scope": "Restore these byte-identical source files over the declared public base to reproduce the pine158-r04 native frame. Later live floral166 edits and future pine158-r05 are excluded.",
+  "visualAccepted": false
+}
