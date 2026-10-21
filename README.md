@@ -15,9 +15,9 @@ PORT=4318 node tools/server.mjs
 - [十景影片制作预览](http://127.0.0.1:4318/film.html)：60 秒叠化剪辑、70 秒完整源镜头、十景原图与实际渲染对照。
 - [左侧参考图／右侧实时 3D](http://127.0.0.1:4318/compare-ten.html)：十个独立场景入口。
 
-播放器当前指向 `native-rebuild-review-20261021-d` 制作检查点，960×960、24 fps。每个源镜头 7 秒、168 帧；九处叠化重叠得到 60 秒、1,440 帧的剪辑。第一、二、三、六、七、八景已加入新一轮模型；第四、五、九、十景的下一轮重建仍在进行。
+播放器当前指向 `native-rebuild-review-20261021-d` 制作检查点，960×960、24 fps。每个源镜头 7 秒、168 帧；九处叠化重叠得到 60 秒、1,440 帧的剪辑。十景均已加入这一轮重建；之后的建筑比例、佛像塑形、园林层次和物理光照仍继续修改。
 
-本片逐镜头核验公开 Git 源码：九景对应 `80950d2`，第四景对应 `c6841ad`，因为它录制时还使用上一版共用石材加载器。各镜头完整文件集、源码与视频哈希在 [影片记录](qa/ten-reference/film-review-native-20261021-d/film-build.json)；[起／中／末实际视频帧](qa/ten-reference/film-review-native-20261021-d/all-shots-start-middle-end.jpg) 和 [十景原图／实际渲染](qa/ten-reference/film-review-native-20261021-d/all-ten-reference-left-native-right.jpg) 可直接查看。它是未通过照片匹配的制作版，此后模型继续修改。
+本片逐镜头核验公开 Git 源码：十景均对应同一个完整源码快照 `e553694`，包含各景声明的原始素材文件。各镜头完整文件集、源码与视频哈希在 [影片记录](qa/ten-reference/film-review-native-20261021-d/film-build.json)；[起／中／末实际视频帧](qa/ten-reference/film-review-native-20261021-d/all-shots-start-middle-end.jpg) 和 [十景原图／实际渲染](qa/ten-reference/film-review-native-20261021-d/all-ten-reference-left-native-right.jpg) 可直接查看。它是未通过照片匹配的制作版，此后模型继续修改。
 
 ## 源码与当前工作
 
@@ -27,7 +27,8 @@ PORT=4318 node tools/server.mjs
 - 雨景压低了过大的上层屋顶坡面，梁枋用闭合莲花唐草浮雕替换简单符号，并收敛水膜涟漪。[实际雨景](qa/ten-reference/10/iteration-scene10-subtle-ripples-solid-relief-root-11-20261021/reference.png)、[真实局部](qa/ten-reference/10/iteration-scene10-subtle-ripples-solid-relief-root-11-20261021/detail-native.png)。[雕刻来源与完整提示词](assets/ranma-relief-v01/provenance.json)。
 - 佛像已使用 Fralin Museum／University of Virginia Library 的 CC0 头部扫描作为真实三维解剖基础，并与躯干、手、衣褶铸合为闭合网格。[实际局部](qa/ten-reference/06/iteration-scene06-scanned-cast-r8-live-head-06/detail-native.png)。这件历史文物并非参考中的佛像，脸型、莲台和背光雕刻仍在重塑；来源、作者、许可与构建脚本全部保留。
 - 第一景重建了承托木构、桥脚、岸坡和溪流；第三景重做了屋檐木构与拱桥；第七景重建连通地形、桥梯与有承托的廊顶；第八景重建了多层院落与闭合屋面。仍有明显的体量、植物、材质和光影差距。
-- 第一景另有保持原始几何和相机的 Blender/Cycles 制作研究，修复了实例颜色传递；它不是原生 WebGL 像素等价图，也未通过照片匹配。[物理渲染与再生脚本](lookdev/scene01-cycles-current-20261021/REVIEW.md)。
+- 第一景另有保持原始几何和相机的 Blender/Cycles 制作研究，修复了实例颜色传递；它不是原生 WebGL 像素等价图，也未通过照片匹配。[当前物理渲染与可编辑模型](lookdev/scene01-solmax-cycles-20261021/README.md)。
+- 第九景也保留了完整相机、实例几何、薄纸透光和真实水面／湿石材的 Cycles 研究，含可编辑模型及所有再生脚本。[物理夜景](lookdev/scene09-solmax-cycles-20261021/README.md)。
 
 ## 再生渲染
 
