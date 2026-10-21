@@ -10,7 +10,7 @@ function sculptedLeaf(length=.27,width=.1,depth=.05){
  for(let j=0;j<rows;j++)for(const i of[0,cols]){const a=j*(cols+1)+i,b=a+cols+1;i===0?id.push(a,b,a+layer,b,b+layer,a+layer):id.push(a,a+layer,b,b,a+layer,b+layer);}
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(id);g.computeVertexNormals();return g;
 }
-export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.67}={}){
+export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.67,columnAxes=[2.86,4.73,6.88]}={}){
  const group=new T.Group();group.name='multiscale-deep-carved-entrance';const batches=new Map();
  const put=(g,m,p=[0,0,0],rot=[0,0,0])=>{g.rotateX(rot[0]);g.rotateY(rot[1]);g.rotateZ(rot[2]);g.translate(...p);let a=batches.get(m)??[];a.push(g);batches.set(m,a);};
  function curve(points,r,mat){put(new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),Math.max(14,points.length*9),r,7,false),mat);}
@@ -38,7 +38,7 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
  for(const [j,x]of[-1.92,0,1.92].entries())scroll(x,capitalTop+.14,.73,1.15,.32,j*.91);
  for(const [j,x]of[-2.22,-1.12,0,1.12,2.22].entries())scroll(x,capitalTop-.47,.88,.84,.26,j*.72);
  for(const [j,x]of[-1.95,-1.3,-.65,0,.65,1.3,1.95].entries())scroll(x,capitalTop-.76,.34,.55,.16,j*.89);
- for(const sign of[-1,1])for(const [j,x]of[3.77,5.83].entries()){
+ for(const sign of[-1,1])for(const [j,x]of[[(columnAxes[0]+columnAxes[1])/2,(columnAxes[1]+columnAxes[2])/2]].flat().entries()){
   scroll(sign*x,capitalTop-1.12,-.385,j?.88:.95,.26,j*.63);
  }
  // Projecting, differently sized wood cloud brackets enrich the side bays.
@@ -62,7 +62,7 @@ export function buildDeepEntranceCarving(mats,{capitalTop=8.85,canopyAt,front=1.
  // Small curved kibana and layered cloud shoulders stay on the existing
  // column axes. Varied depths and carved leaves break the bare timber ends.
  const kneeShape=new T.Shape();kneeShape.moveTo(-.44,.12);kneeShape.lineTo(.44,.12);kneeShape.bezierCurveTo(.56,.06,.49,-.19,.34,-.19);kneeShape.bezierCurveTo(.20,-.18,.23,-.015,.11,-.025);kneeShape.bezierCurveTo(-.04,-.04,-.11,-.17,-.30,-.14);kneeShape.bezierCurveTo(-.43,-.12,-.51,-.035,-.44,.12);kneeShape.closePath();
- for(const side of[-1,1])for(const [j,axis]of[2.86,4.73,6.88].entries()){
+ for(const side of[-1,1])for(const [j,axis]of columnAxes.entries()){
   const x=side*axis,y=canopyAt(x)-1.03,s=.84-j*.085;
   for(let layer=0;layer<3;layer++){
    const g=new T.ExtrudeGeometry(kneeShape,{depth:.25,bevelEnabled:true,bevelSize:.018,bevelThickness:.016,bevelSegments:2,curveSegments:16});g.scale(s*(1-layer*.13),.82-layer*.13,1);put(g,layer%2?mats.red:mats.cedar,[x+side*.035*layer,y-layer*.17,.56+layer*.18]);

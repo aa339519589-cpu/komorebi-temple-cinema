@@ -28,12 +28,13 @@ function addSuspendedLamps(scene,architecture,materials){
  const paper=new T.MeshStandardMaterial({name:'reference4-warm-paper',color:'#d9ae64',emissive:'#ffb248',emissiveIntensity:.46,roughness:.84,side:T.DoubleSide});
  const rows=[],axis=new T.Vector3(0,1,0);
  function mesh(g,m,p){const o=new T.Mesh(g,m);o.position.fromArray(p);o.castShadow=o.receiveShadow=true;scene.add(o);return o;}
- for(const x of [-5.55,5.55]){
-  const y=5.8+(C.architecture.stairTopY-1.8),z=1.7;const hits=new T.Raycaster(new T.Vector3(x,y+.66,1.5),axis,0,3).intersectObjects(members,false);
+ const origin=C.architecture.hallOrigin??[0,0,0];
+ for(const localX of [-5.55,5.55]){
+  const x=localX+origin[0],y=5.8+(C.architecture.stairTopY-1.8),z=1.7+origin[2];const hits=new T.Raycaster(new T.Vector3(x,y+.66,1.5+origin[2]),axis,0,3).intersectObjects(members,false);
   if(!hits.length)throw Error('No actual curved eave underface above the intended suspended lantern.');
   const contactY=hits[0].point.y,armTop=contactY+.010,armBottom=armTop-.075,rodBottom=y+.64;
   if(armBottom<=rodBottom)throw Error('Suspended lantern overlaps the measured support.');
-  mesh(new T.BoxGeometry(.14,.075,.35),materials.oldgold,[x,(armTop+armBottom)/2,1.615]);
+  mesh(new T.BoxGeometry(.14,.075,.35),materials.oldgold,[x,(armTop+armBottom)/2,1.615+origin[2]]);
   mesh(new T.CylinderGeometry(.016,.016,armBottom-rodBottom,10),materials.oldgold,[x,(armBottom+rodBottom)/2,z]);
   for(const sign of [-1,1]){
    mesh(new T.CylinderGeometry(.34,.34,.075,6),materials.gold,[x,y+sign*.46,z]);
@@ -84,7 +85,7 @@ export function buildReference4Scene(){
  const sun=new T.DirectionalLight(C.lighting.sunColor??'#ffd092',C.lighting.sunIntensity);sun.name='reference4-left-golden-hour-sun';sun.target.position.set(0,5,0);sun.position.copy(sun.target.position).addScaledVector(sunDirection,55);sun.castShadow=true;
  sun.shadow.mapSize.setScalar(C.lighting.shadowSize);Object.assign(sun.shadow.camera,{left:-25,right:25,top:28,bottom:-28,near:5,far:100});sun.shadow.camera.updateProjectionMatrix();Object.assign(sun.shadow,{bias:-.00008,normalBias:.002,radius:.75,intensity:1,needsUpdate:true});scene.add(sun,sun.target);
  const hemi=new T.HemisphereLight(C.lighting.skyColor??'#dae5ee',C.lighting.groundColor??'#7b644b',C.lighting.skyIntensity);hemi.name='reference4-cool-sky-fill';scene.add(hemi);
- const sanctuary=buildReference4Sanctuary(T,{floorY:C.architecture.stairTopY});scene.add(sanctuary.group);
+ const sanctuary=buildReference4Sanctuary(T,{floorY:C.architecture.stairTopY});sanctuary.group.position.add(new T.Vector3(...(C.architecture.hallOrigin??[0,0,0])));scene.add(sanctuary.group);
  const suspensions=addSuspendedLamps(scene,architecture,sanctuary.materials);
  for(const p of architecture.portalDepth.lights){const light=new T.PointLight('#ffd18a',4.2,4,2);light.position.fromArray(p);light.name='scene04-visible-portal-oil-lantern';scene.add(light);}
  for(const x of [-1.3,1.3]){const light=new T.PointLight('#ffcf86',3.5,6,2);light.name='reference4-small-sanctuary-practical';light.position.set(x,C.architecture.stairTopY+3.45,-4.1);scene.add(light);}
@@ -102,7 +103,7 @@ export function buildReference4Scene(){
    try{scene.updateMatrixWorld(true);probe.update(renderer,scene);pavingEnvironmentTarget=pmrem.fromCubemap(cube.texture);for(const material of garden.group.userData.pavingMaterials??[]){material.envMap=pavingEnvironmentTarget.texture;material.needsUpdate=true;}}finally{garden.subgroups.path.visible=pathVisible;waterReflection.visible=reflectionVisible;probe.removeFromParent();cube.dispose();}
   }finally{pmrem.dispose();envSky.material.dispose();}
  }
- function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe({...architecture.sockets,portalDepth:architecture.portalDepth}),garden:describe(garden.sockets),understory:understory.info,suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},lighting:{sunDirection:sunDirection.toArray(),shadowCanopyDirection:shadowCanopyDirection.toArray(),sunIntensity:C.lighting.sunIntensity,skyIntensity:C.lighting.skyIntensity},environmentInitialized:!!environmentTarget,pavingReflection:{actualSceneCapture:!!pavingEnvironmentTarget,position:[0,.28,18.2],resolution:256,scope:'Local reflection approximation; not ray-traced per-pixel reflections.'},lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
+ function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe({...architecture.sockets,portalDepth:architecture.portalDepth,hallBearing:architecture.hallBearing,hallProfile:{origin:architecture.hallProfile.origin,neckPower:architecture.hallProfile.neckPower,pitchPower:architecture.hallProfile.pitchPower,karahafuContour:architecture.hallProfile.contour}}),garden:describe(garden.sockets),understory:understory.info,suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},lighting:{sunDirection:sunDirection.toArray(),shadowCanopyDirection:shadowCanopyDirection.toArray(),sunIntensity:C.lighting.sunIntensity,skyIntensity:C.lighting.skyIntensity},environmentInitialized:!!environmentTarget,pavingReflection:{actualSceneCapture:!!pavingEnvironmentTarget,position:[0,.28,18.2],resolution:256,scope:'Local reflection approximation; not ray-traced per-pixel reflections.'},lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
  scene.updateMatrixWorld(true);
  return{scene,architecture,garden,sky,sun,focal:sanctuary.group,sanctuary,distantForest,understory,waterReflection,initializeEnvironment,info};
 }
