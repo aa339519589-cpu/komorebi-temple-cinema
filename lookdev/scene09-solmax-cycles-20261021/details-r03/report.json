@@ -1,0 +1,77 @@
+{
+  "sourceCommit": "a10b118a2b09e65e9bfad6b64c6016299c59bf41",
+  "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+  "calibratedSource": "cycles-r03/report.json",
+  "method": "Independent native Cycles samples using full2508 sensor border; no source image cropping/upscaling",
+  "sourceGeometryPreserved": true,
+  "cameraMatrixZUp": [
+    [
+      0.9904049038887024,
+      0.0088939955458045,
+      0.13790954649448395,
+      6.0
+    ],
+    [
+      0.13819603621959686,
+      -0.06374023854732513,
+      -0.9883517026901245,
+      -33.0
+    ],
+    [
+      -8.389104522166235e-09,
+      0.9979268908500671,
+      -0.06435775756835938,
+      2.700002431869507
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "cameraUnchanged": true,
+  "captures": [
+    {
+      "file": "floor-native.png",
+      "normalizedBorder": [
+        0.02,
+        0.0,
+        0.92,
+        0.27
+      ],
+      "fullSensorResolution": [
+        2508,
+        2508
+      ],
+      "renderedPixelDimensions": [
+        2257,
+        677
+      ],
+      "samples": 96,
+      "renderSeconds": 110.98141694068909,
+      "sha256": "1e3bcf06d1548dc31b21f417361d68d9f192b5128ed92ad7bafd355dcdd8f363"
+    },
+    {
+      "file": "architecture-native.png",
+      "normalizedBorder": [
+        0.38,
+        0.42,
+        0.99,
+        0.75
+      ],
+      "fullSensorResolution": [
+        2508,
+        2508
+      ],
+      "renderedPixelDimensions": [
+        1530,
+        828
+      ],
+      "samples": 96,
+      "renderSeconds": 92.21273398399353,
+      "sha256": "bcfa816919fbbf636146045cd20877ce42f8f487ce65003261540449c69cc976"
+    }
+  ],
+  "visualAccepted": false
+}

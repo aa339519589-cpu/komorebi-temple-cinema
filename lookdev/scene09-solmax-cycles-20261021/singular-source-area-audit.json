@@ -1,0 +1,121 @@
+{
+  "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+  "sourceRecordIndex": 760,
+  "sourceInstanceIndices": [
+    41,
+    42,
+    43
+  ],
+  "discovery": "Zero 3x3 determinant does not imply zero transformed triangle area. These three flattened box instances each retain four positive-area indexed triangles.",
+  "historicalCandidates": [
+    "cycles-r01",
+    "cycles-r02",
+    "cycles-r03",
+    "cycles-r04"
+  ],
+  "historicalClaimCorrection": "The old excludedCollapsedInstances reason zero-or-near-zero-area and R04 allNondegenerateSourceTrianglesPreserved:true were incorrect for this subset. Their original render receipts remain unchanged as failed-candidate evidence.",
+  "positiveAreaTrianglesOmittedHistorically": 12,
+  "totalOriginalIndexedTrianglesOmittedHistorically": 36,
+  "restoration": {
+    "restoredInstances": 3,
+    "restoredIndexedTriangles": 36,
+    "instances": [
+      {
+        "sourceRecordIndex": 760,
+        "sourceInstanceIndex": 41,
+        "materialIDs": [
+          "986a1e9a-8cc1-4ed5-afdc-a178dc5bbf43"
+        ],
+        "exactSourceLocalMatrixColumnMajor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19380000233650208,
+          0.0,
+          0.0,
+          0.0545186884701252,
+          0.0,
+          0.3378291726112366,
+          0.0,
+          -13.600000381469727,
+          23.854799270629883,
+          -17.0,
+          1.0
+        ],
+        "sourceTriangles": 12,
+        "nonzeroAreaTriangles": 4,
+        "transformedAreaLocalMetres2": 0.1326380968093872,
+        "normalAdaptation": "Recalculated planar geometric normals; singular inverse-transpose is undefined.",
+        "positionsIndicesUVsInstanceRGBPreserved": true
+      },
+      {
+        "sourceRecordIndex": 760,
+        "sourceInstanceIndex": 42,
+        "materialIDs": [
+          "986a1e9a-8cc1-4ed5-afdc-a178dc5bbf43"
+        ],
+        "exactSourceLocalMatrixColumnMajor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19380000233650208,
+          0.0,
+          0.0,
+          0.0545186884701252,
+          0.0,
+          0.3378291726112366,
+          0.0,
+          -13.600000381469727,
+          23.854799270629883,
+          -17.0,
+          1.0
+        ],
+        "sourceTriangles": 12,
+        "nonzeroAreaTriangles": 4,
+        "transformedAreaLocalMetres2": 0.1326380968093872,
+        "normalAdaptation": "Recalculated planar geometric normals; singular inverse-transpose is undefined.",
+        "positionsIndicesUVsInstanceRGBPreserved": true
+      },
+      {
+        "sourceRecordIndex": 760,
+        "sourceInstanceIndex": 43,
+        "materialIDs": [
+          "986a1e9a-8cc1-4ed5-afdc-a178dc5bbf43"
+        ],
+        "exactSourceLocalMatrixColumnMajor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19380000233650208,
+          0.0,
+          0.0,
+          0.0545186884701252,
+          0.0,
+          0.3378291726112366,
+          0.0,
+          -13.600000381469727,
+          23.854799270629883,
+          -17.0,
+          1.0
+        ],
+        "sourceTriangles": 12,
+        "nonzeroAreaTriangles": 4,
+        "transformedAreaLocalMetres2": 0.1326380968093872,
+        "normalAdaptation": "Recalculated planar geometric normals; singular inverse-transpose is undefined.",
+        "positionsIndicesUVsInstanceRGBPreserved": true
+      }
+    ],
+    "sourceGeometryChanged": false,
+    "normalAdaptationOnlyForSingularSubset": true,
+    "referenceImageUsed": false
+  },
+  "finalCandidate": "cycles-r05",
+  "normalLimitation": "The singular inverse-transpose does not exist; final geometry preserves exact transformed positions/UV/RGB and uses recalculated planar normals only for these three instances.",
+  "auditedAtUTC": "2026-10-21T09:41:56.943461+00:00"
+}

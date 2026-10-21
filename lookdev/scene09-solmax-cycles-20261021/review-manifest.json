@@ -1,0 +1,93 @@
+{
+  "status": "physical-night-court-review",
+  "sourceCommit": "a10b118a2b09e65e9bfad6b64c6016299c59bf41",
+  "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+  "sourceIndexedTriangles": 51311767,
+  "allSourceIndexedTrianglesPreserved": true,
+  "sourceInstances": 501594,
+  "sourceCameraPreserved": true,
+  "visualAccepted": false,
+  "referencePixelsUsedInScene": false,
+  "reflectionImagesOrPaintedStrokes": false,
+  "artifacts": [
+    {
+      "file": "cycles-r05/scene09-r10-physical-r05.png",
+      "bytes": 2472238,
+      "sha256": "9289fc056bc45d85363462e1c63dede9a57bf526d567006178272c83e06c5e4a",
+      "pixels": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "file": "cycles-r05/floor-native.png",
+      "bytes": 2321180,
+      "sha256": "a59d68ea3aa8b75df30315062cf42ed4f139c4c68d811895444ac3d412c24566",
+      "pixels": [
+        2257,
+        677
+      ]
+    },
+    {
+      "file": "cycles-r05/architecture-native.png",
+      "bytes": 2023709,
+      "sha256": "f6d602cf2d982dbb503dad010b3b61e0a369227095b0fce92d95abf98ddb5521",
+      "pixels": [
+        1529,
+        828
+      ]
+    },
+    {
+      "file": "cycles-r05/scene09-r10-physical-r05-linear.exr",
+      "bytes": 5887305,
+      "sha256": "8307d73a1b316508094053427ea4c86a464d4de7a28a4a5020804a85dbdada05",
+      "largeLocalReleaseAssetNotGitBlob": true
+    },
+    {
+      "file": "cycles-r05/scene09-r10-packed-physical-r05.blend",
+      "bytes": 672592378,
+      "sha256": "02eaf391e7b1e2d6ecd46454a24da3c228f80720e65c124943b437fcffec1049",
+      "largeLocalReleaseAssetNotGitBlob": true
+    },
+    {
+      "file": "reference-left-cycles-right-r05.png",
+      "bytes": 5412392,
+      "sha256": "1c0ca0994a4f9eff91d4ae2fbe5e5a6d7249fb31bf15e8a918c8a25cf01e1e7b",
+      "pixels": [
+        2508,
+        1294
+      ]
+    }
+  ],
+  "scripts": [
+    {
+      "file": "build-review.py",
+      "sha256": "17f032d84acd1eccd853598229e6f20fd1bcc9e40428328ce888e5a144f23bbf"
+    },
+    {
+      "file": "render-current-source.py",
+      "sha256": "adf7e57e689a0294c93eb05952bcc1e6ae7a218488fda0e3266d7e4a40da581b"
+    },
+    {
+      "file": "render-final-physical.py",
+      "sha256": "59be58313d142aab4c79ab1e931cfe65d3fb54853174cf980c009610928acb57"
+    },
+    {
+      "file": "render-physical-details.py",
+      "sha256": "72838dc8892b1098b49f433e6b329927e580ead9fe0c58c47c66a359f47fe112"
+    },
+    {
+      "file": "render-physical-iteration.py",
+      "sha256": "1cb642bd65fe3aab0efbd6ba68e04c9cd4004f3561441ffaf92fb8020307b0ce"
+    },
+    {
+      "file": "render-room-balance-r05.py",
+      "sha256": "951c5410b311a52a7469bd4a433e1c1b906455cb20d579361e187ce34c0e8f54"
+    },
+    {
+      "file": "restore-singular-source.py",
+      "sha256": "c944794ff1dbbe8161717472465d7ba316a0d63cce6c4db635bce1f7ded5440a"
+    }
+  ],
+  "generatedAtUTC": "2026-10-21T09:46:36.871600+00:00"
+}

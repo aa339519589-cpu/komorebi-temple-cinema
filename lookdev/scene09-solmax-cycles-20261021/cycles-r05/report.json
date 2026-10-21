@@ -1,0 +1,1427 @@
+{
+  "sourceCommit": "a10b118a2b09e65e9bfad6b64c6016299c59bf41",
+  "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+  "sourceStatistics": {
+    "meshes": 4506,
+    "geometries": 4462,
+    "materials": 84,
+    "textures": 22,
+    "instances": 501594,
+    "triangles": 51311767
+  },
+  "importedTriangles": 51311767,
+  "affinePreservation": {
+    "parentMatrices": "Retained as full source object matrices without decomposition; source parent transforms remain exact.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 464968,
+    "bakedShearedInstances": 36607,
+    "bakedShearedTriangles": 10472248,
+    "bakedShearedVertices": 7890693,
+    "maxLinkedTRSMatrixResidual": 1.9073486328125e-06,
+    "maxBakedShearResidual": 0.6804897785186768,
+    "flattenedOnlyForShearedTransforms": true,
+    "geometryDecimated": false,
+    "rankDeficientInstancesRetained": 3,
+    "rankDeficientIndexedTrianglesRetained": 36
+  },
+  "excludedCollapsedInstanceCount": 0,
+  "allNondegenerateSourceTrianglesPreserved": true,
+  "excludedZeroAreaTriangles": 0,
+  "geometryChangedFromExactImport": false,
+  "geometryDecimated": false,
+  "calibrationSource": "cycles-r04/report.json",
+  "materialAndLightCalibration": {
+    "paperTransport": {
+      "reason": "R01 source PBR panes were opaque and blocked internal source lamps under physical occlusion. Real washi is a thin diffuse transmitter. Calibrated source surface radiance plus energy-conserving 72% thin scattering permits actual fixture light to enter the courtyard.",
+      "materials": [
+        {
+          "name": "restoration-lantern-warm-paper",
+          "sourceEmissionStrength": 0.6499999761581421,
+          "physicalEmissionStrength": 6.5,
+          "emissiveRGBGainAfterSourceMapMultiply": [
+            1.0,
+            1.5,
+            1.2
+          ],
+          "thinDiffuseTransmission": 0.72,
+          "transmissionLinearRGB": [
+            0.87,
+            0.7,
+            0.42
+          ]
+        },
+        {
+          "name": "scene09-independent-washi-tissue103",
+          "sourceEmissionStrength": 1.1200000047683716,
+          "physicalEmissionStrength": 11.199999809265137,
+          "emissiveRGBGainAfterSourceMapMultiply": [
+            1.0,
+            1.5,
+            1.2
+          ],
+          "thinDiffuseTransmission": 0.72,
+          "transmissionLinearRGB": [
+            0.87,
+            0.7,
+            0.42
+          ]
+        },
+        {
+          "name": "scene09-pagoda-paper",
+          "sourceEmissionStrength": 0.6800000071525574,
+          "physicalEmissionStrength": 6.800000190734863,
+          "emissiveRGBGainAfterSourceMapMultiply": [
+            1.0,
+            1.5,
+            1.2
+          ],
+          "thinDiffuseTransmission": 0.72,
+          "transmissionLinearRGB": [
+            0.87,
+            0.7,
+            0.42
+          ]
+        },
+        {
+          "name": "scene09-recessed-room-paper",
+          "sourceEmissionStrength": 0.8399999737739563,
+          "physicalEmissionStrength": 8.399999618530273,
+          "emissiveRGBGainAfterSourceMapMultiply": [
+            1.0,
+            1.5,
+            1.2
+          ],
+          "thinDiffuseTransmission": 0.72,
+          "transmissionLinearRGB": [
+            0.87,
+            0.7,
+            0.42
+          ]
+        },
+        {
+          "name": "scene09-stone-lantern-inset-paper",
+          "sourceEmissionStrength": 1.0199999809265137,
+          "physicalEmissionStrength": 10.199999809265137,
+          "emissiveRGBGainAfterSourceMapMultiply": [
+            1.0,
+            1.5,
+            1.2
+          ],
+          "thinDiffuseTransmission": 0.72,
+          "transmissionLinearRGB": [
+            0.87,
+            0.7,
+            0.42
+          ]
+        }
+      ],
+      "sourcePositionsAndRelativeFluxPreserved": true,
+      "emissionRGBAndTexturePreserved": true,
+      "referencePhotoPixelsUsed": false
+    },
+    "sourceLightCalibration": {
+      "fixtureGain": 4.0,
+      "spotGain": 1.5,
+      "moonGain": 1.0,
+      "sourceWarmFillGain": 1.0,
+      "sourceLights": [
+        {
+          "name": "scene09-inverse-square-modeled-lantern",
+          "sourceEnergy": 394.0813903808594,
+          "calibratedEnergy": 1576.3255615234375,
+          "positionZUp": [
+            -2.4451193809509277,
+            15.444490432739258,
+            6.434998989105225
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.001",
+          "sourceEnergy": 141.86929321289062,
+          "calibratedEnergy": 567.4771728515625,
+          "positionZUp": [
+            -2.6541378498077393,
+            15.16375732421875,
+            11.114998817443848
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.002",
+          "sourceEnergy": 394.0813903808594,
+          "calibratedEnergy": 1576.3255615234375,
+          "positionZUp": [
+            -0.03883221000432968,
+            13.652904510498047,
+            6.434998989105225
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.003",
+          "sourceEnergy": 141.86929321289062,
+          "calibratedEnergy": 567.4771728515625,
+          "positionZUp": [
+            -0.24785061180591583,
+            13.372170448303223,
+            11.114998817443848
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.004",
+          "sourceEnergy": 394.0813903808594,
+          "calibratedEnergy": 1576.3255615234375,
+          "positionZUp": [
+            2.367455005645752,
+            11.86131763458252,
+            6.434998989105225
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.005",
+          "sourceEnergy": 141.86929321289062,
+          "calibratedEnergy": 567.4771728515625,
+          "positionZUp": [
+            2.1584367752075195,
+            11.580584526062012,
+            11.114998817443848
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.006",
+          "sourceEnergy": 394.0813903808594,
+          "calibratedEnergy": 1576.3255615234375,
+          "positionZUp": [
+            7.180029392242432,
+            8.278145790100098,
+            6.434999465942383
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.007",
+          "sourceEnergy": 141.86929321289062,
+          "calibratedEnergy": 567.4771728515625,
+          "positionZUp": [
+            6.971011161804199,
+            7.997411727905273,
+            11.114998817443848
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.008",
+          "sourceEnergy": 394.0813903808594,
+          "calibratedEnergy": 1576.3255615234375,
+          "positionZUp": [
+            9.58631706237793,
+            6.486558437347412,
+            6.434999465942383
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.009",
+          "sourceEnergy": 141.86929321289062,
+          "calibratedEnergy": 567.4771728515625,
+          "positionZUp": [
+            9.377298355102539,
+            6.2058258056640625,
+            11.114999771118164
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.010",
+          "sourceEnergy": 394.0813903808594,
+          "calibratedEnergy": 1576.3255615234375,
+          "positionZUp": [
+            11.99260425567627,
+            4.694972515106201,
+            6.434999465942383
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.011",
+          "sourceEnergy": 141.86929321289062,
+          "calibratedEnergy": 567.4771728515625,
+          "positionZUp": [
+            11.783585548400879,
+            4.414239406585693,
+            11.114999771118164
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT",
+          "sourceEnergy": 150.79644775390625,
+          "calibratedEnergy": 603.185791015625,
+          "positionZUp": [
+            5.026108264923096,
+            12.250628471374512,
+            6.551999092102051
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.012",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            16.49968147277832,
+            17.424949645996094,
+            7.349998474121094
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.013",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            18.58799934387207,
+            16.73290252685547,
+            7.349998474121094
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.014",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            20.67631721496582,
+            16.040855407714844,
+            7.349998474121094
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.015",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            22.76463508605957,
+            15.348810195922852,
+            7.349998950958252
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.016",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            24.852954864501953,
+            14.656764030456543,
+            7.349998950958252
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.017",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            14.958306312561035,
+            12.773695945739746,
+            7.349998950958252
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.018",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            17.04662322998047,
+            12.081649780273438,
+            7.349998950958252
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.019",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            19.13494110107422,
+            11.389603614807129,
+            7.349998950958252
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.020",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            21.22325897216797,
+            10.69755744934082,
+            7.349998950958252
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.021",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            23.31157875061035,
+            10.005510330200195,
+            7.349998950958252
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.022",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -10.34724235534668,
+            14.672606468200684,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.023",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -8.854736328125,
+            14.522855758666992,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.024",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -7.362229824066162,
+            14.373106002807617,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.025",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -5.869723796844482,
+            14.223355293273926,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.026",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -4.3772172927856445,
+            14.07360553741455,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.027",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -10.682682991027832,
+            11.329392433166504,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.028",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -9.190176010131836,
+            11.179641723632812,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.029",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -7.697669982910156,
+            11.029891967773438,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.030",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -6.205163955688477,
+            10.880141258239746,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.031",
+          "sourceEnergy": 136.0196533203125,
+          "calibratedEnergy": 544.07861328125,
+          "positionZUp": [
+            -4.712657451629639,
+            10.730391502380371,
+            4.749999046325684
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-finial-inferred-roof-uplight",
+          "sourceEnergy": 1130.973388671875,
+          "calibratedEnergy": 1696.4600830078125,
+          "positionZUp": [
+            -11.39957046508789,
+            14.845046043395996,
+            23.410198211669922
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.001",
+          "sourceEnergy": 339.2919921875,
+          "calibratedEnergy": 1357.16796875,
+          "positionZUp": [
+            -13.600000381469727,
+            12.200000762939453,
+            8.555998802185059
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.002",
+          "sourceEnergy": 339.2919921875,
+          "calibratedEnergy": 1357.16796875,
+          "positionZUp": [
+            -13.600000381469727,
+            12.200000762939453,
+            11.63399887084961
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.003",
+          "sourceEnergy": 339.2919921875,
+          "calibratedEnergy": 1357.16796875,
+          "positionZUp": [
+            -13.600000381469727,
+            12.200000762939453,
+            14.71199893951416
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.004",
+          "sourceEnergy": 339.2919921875,
+          "calibratedEnergy": 1357.16796875,
+          "positionZUp": [
+            -13.600000381469727,
+            12.200000762939453,
+            17.790000915527344
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.005",
+          "sourceEnergy": 339.2919921875,
+          "calibratedEnergy": 1357.16796875,
+          "positionZUp": [
+            -13.600000381469727,
+            12.20000171661377,
+            20.868000030517578
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.006",
+          "sourceEnergy": 527.7875366210938,
+          "calibratedEnergy": 2111.150146484375,
+          "positionZUp": [
+            -11.0,
+            -10.0,
+            2.0000007152557373
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.007",
+          "sourceEnergy": 603.185791015625,
+          "calibratedEnergy": 2412.7431640625,
+          "positionZUp": [
+            11.0,
+            -8.0,
+            2.0000007152557373
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.008",
+          "sourceEnergy": 376.9911193847656,
+          "calibratedEnergy": 1507.9644775390625,
+          "positionZUp": [
+            -10.0,
+            -14.0,
+            1.6000010967254639
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.009",
+          "sourceEnergy": 376.9911193847656,
+          "calibratedEnergy": 1507.9644775390625,
+          "positionZUp": [
+            11.0,
+            -12.0,
+            1.7000010013580322
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-POINT.010",
+          "sourceEnergy": 150.79644775390625,
+          "calibratedEnergy": 603.185791015625,
+          "positionZUp": [
+            -0.6000000238418579,
+            -1.5999999046325684,
+            1.2000001668930054
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.032",
+          "sourceEnergy": 211.0667724609375,
+          "calibratedEnergy": 844.26708984375,
+          "positionZUp": [
+            -6.800000190734863,
+            -8.0,
+            2.8296008110046387
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.033",
+          "sourceEnergy": 81.23103332519531,
+          "calibratedEnergy": 324.92413330078125,
+          "positionZUp": [
+            -3.0,
+            -5.0,
+            1.75540030002594
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.034",
+          "sourceEnergy": 65.1440658569336,
+          "calibratedEnergy": 260.5762634277344,
+          "positionZUp": [
+            -1.0,
+            -10.0,
+            1.5720007419586182
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.035",
+          "sourceEnergy": 68.66956329345703,
+          "calibratedEnergy": 274.6782531738281,
+          "positionZUp": [
+            7.5,
+            -3.999999761581421,
+            2.1579291820526123
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.036",
+          "sourceEnergy": 180.9557342529297,
+          "calibratedEnergy": 723.8229370117188,
+          "positionZUp": [
+            12.199999809265137,
+            -8.0,
+            2.6200006008148193
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.037",
+          "sourceEnergy": 17.07297134399414,
+          "calibratedEnergy": 68.29188537597656,
+          "positionZUp": [
+            9.0,
+            2.000000238418579,
+            2.3996856212615967
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.038",
+          "sourceEnergy": 115.8116683959961,
+          "calibratedEnergy": 463.2466735839844,
+          "positionZUp": [
+            19.0,
+            6.0,
+            2.0959994792938232
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.039",
+          "sourceEnergy": 101.78760528564453,
+          "calibratedEnergy": 407.1504211425781,
+          "positionZUp": [
+            -11.0,
+            6.0,
+            1.9649995565414429
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.040",
+          "sourceEnergy": 11.42143440246582,
+          "calibratedEnergy": 45.68573760986328,
+          "positionZUp": [
+            4.0,
+            1.0000001192092896,
+            1.6682264804840088
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.041",
+          "sourceEnergy": 37.211395263671875,
+          "calibratedEnergy": 148.8455810546875,
+          "positionZUp": [
+            -3.0,
+            4.0,
+            1.4581979513168335
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.042",
+          "sourceEnergy": 65.1440658569336,
+          "calibratedEnergy": 260.5762634277344,
+          "positionZUp": [
+            -8.0,
+            -14.0,
+            1.5720010995864868
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.043",
+          "sourceEnergy": 28.952917098999023,
+          "calibratedEnergy": 115.8116683959961,
+          "positionZUp": [
+            -12.0,
+            -12.0,
+            1.0480009317398071
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.044",
+          "sourceEnergy": 26.130008697509766,
+          "calibratedEnergy": 104.52003479003906,
+          "positionZUp": [
+            -10.199999809265137,
+            -19.0,
+            0.9956014156341553
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.045",
+          "sourceEnergy": 38.29023361206055,
+          "calibratedEnergy": 153.1609344482422,
+          "positionZUp": [
+            10.800000190734863,
+            -14.800000190734863,
+            1.2052010297775269
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.046",
+          "sourceEnergy": 26.130008697509766,
+          "calibratedEnergy": 104.52003479003906,
+          "positionZUp": [
+            14.199999809265137,
+            -19.0,
+            0.9956014156341553
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.047",
+          "sourceEnergy": 33.458717346191406,
+          "calibratedEnergy": 133.83486938476562,
+          "positionZUp": [
+            -9.5,
+            -1.4999998807907104,
+            1.1266001462936401
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.048",
+          "sourceEnergy": 30.418659210205078,
+          "calibratedEnergy": 121.67463684082031,
+          "positionZUp": [
+            15.399999618530273,
+            -2.4000000953674316,
+            1.0742002725601196
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.049",
+          "sourceEnergy": 35.03303146362305,
+          "calibratedEnergy": 140.1321258544922,
+          "positionZUp": [
+            -6.900000095367432,
+            -14.199999809265137,
+            1.1528010368347168
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.050",
+          "sourceEnergy": 41.692203521728516,
+          "calibratedEnergy": 166.76881408691406,
+          "positionZUp": [
+            7.400000095367432,
+            -13.800000190734863,
+            1.257601022720337
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.051",
+          "sourceEnergy": 31.920591354370117,
+          "calibratedEnergy": 127.68236541748047,
+          "positionZUp": [
+            -8.100000381469727,
+            -20.5,
+            1.100401520729065
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.052",
+          "sourceEnergy": 31.920591354370117,
+          "calibratedEnergy": 127.68236541748047,
+          "positionZUp": [
+            9.199999809265137,
+            -20.0,
+            1.100401520729065
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-SPOT",
+          "sourceEnergy": 477.5220947265625,
+          "calibratedEnergy": 716.2831420898438,
+          "positionZUp": [
+            -7.0,
+            -5.699999809265137,
+            1.450000524520874
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-SPOT.001",
+          "sourceEnergy": 527.7875366210938,
+          "calibratedEnergy": 791.6812744140625,
+          "positionZUp": [
+            8.0,
+            -5.699999809265137,
+            1.5000004768371582
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.053",
+          "sourceEnergy": 556.1882934570312,
+          "calibratedEnergy": 2224.753173828125,
+          "positionZUp": [
+            1.0,
+            -23.700000762939453,
+            7.2000017166137695
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.054",
+          "sourceEnergy": 762.3187255859375,
+          "calibratedEnergy": 3049.27490234375,
+          "positionZUp": [
+            7.699999809265137,
+            -21.600000381469727,
+            7.300001621246338
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "scene09-inverse-square-modeled-lantern.055",
+          "sourceEnergy": 170.99232482910156,
+          "calibratedEnergy": 683.9692993164062,
+          "positionZUp": [
+            4.599999904632568,
+            -34.400001525878906,
+            7.000002384185791
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-SUN",
+          "sourceEnergy": 2.5999999046325684,
+          "calibratedEnergy": 2.5999999046325684,
+          "positionZUp": [
+            -18.0,
+            -16.999998092651367,
+            37.0
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "warm-courtyard-reflected-light-proxy",
+          "sourceEnergy": 0.6499999761581421,
+          "calibratedEnergy": 0.6499999761581421,
+          "positionZUp": [
+            4.0,
+            -16.999998092651367,
+            14.000000953674316
+          ],
+          "physicalShadows": true
+        },
+        {
+          "name": "source09-SPOT.002",
+          "sourceEnergy": 527.7875366210938,
+          "calibratedEnergy": 791.6812744140625,
+          "positionZUp": [
+            5.099999904632568,
+            9.899999618530273,
+            5.999999046325684
+          ],
+          "physicalShadows": true
+        }
+      ],
+      "newLightsAdded": false,
+      "sourcePointPowerConversion": "Numerical source candela * 4pi radiant proxy; spectral efficacy is unknown.",
+      "nativeShadowDifference": "All source lights physically occlude; original native local pools often had no shadows."
+    },
+    "waterCalibration": {
+      "IOR": 1.333,
+      "baseWaveAmplitudeMultiplier": 2.6,
+      "uncoloredMicroChopAmplitudeMetres": 0.0012,
+      "chopScalePerMetre": 12,
+      "roughness": 0.03200000151991844,
+      "reflection": "Physical source geometry, fixtures and sky; no painted strokes or reference image projection"
+    },
+    "wetGranite": [
+      {
+        "name": "scene09-cc0-wet-granite-veranda-paver-0",
+        "diffuseGainOverOriginalSource": 1.4,
+        "physicalFilmIOR": 1.333,
+        "filmRoughness": "0.015 + 0.07 * original CC0 roughness green channel",
+        "rivenNormalHeightMetres": 0.0009,
+        "rivenScalePerMetre": 18,
+        "mineralNormalHeightMetres": 0.00035,
+        "mineralScalePerMetre": 180,
+        "normalStack": "Actual source facet/split normals + source CC0 normal scan + metric riven and mineral microrelief",
+        "geometryChanged": false
+      },
+      {
+        "name": "scene09-cc0-wet-granite-veranda-paver-1",
+        "diffuseGainOverOriginalSource": 1.4,
+        "physicalFilmIOR": 1.333,
+        "filmRoughness": "0.015 + 0.07 * original CC0 roughness green channel",
+        "rivenNormalHeightMetres": 0.0009,
+        "rivenScalePerMetre": 18,
+        "mineralNormalHeightMetres": 0.00035,
+        "mineralScalePerMetre": 180,
+        "normalStack": "Actual source facet/split normals + source CC0 normal scan + metric riven and mineral microrelief",
+        "geometryChanged": false
+      },
+      {
+        "name": "scene09-cc0-wet-granite-veranda-paver-2",
+        "diffuseGainOverOriginalSource": 1.4,
+        "physicalFilmIOR": 1.333,
+        "filmRoughness": "0.015 + 0.07 * original CC0 roughness green channel",
+        "rivenNormalHeightMetres": 0.0009,
+        "rivenScalePerMetre": 18,
+        "mineralNormalHeightMetres": 0.00035,
+        "mineralScalePerMetre": 180,
+        "normalStack": "Actual source facet/split normals + source CC0 normal scan + metric riven and mineral microrelief",
+        "geometryChanged": false
+      },
+      {
+        "name": "scene09-cc0-wet-granite-veranda-paver-3",
+        "diffuseGainOverOriginalSource": 1.4,
+        "physicalFilmIOR": 1.333,
+        "filmRoughness": "0.015 + 0.07 * original CC0 roughness green channel",
+        "rivenNormalHeightMetres": 0.0009,
+        "rivenScalePerMetre": 18,
+        "mineralNormalHeightMetres": 0.00035,
+        "mineralScalePerMetre": 180,
+        "normalStack": "Actual source facet/split normals + source CC0 normal scan + metric riven and mineral microrelief",
+        "geometryChanged": false
+      }
+    ],
+    "viewTransform": {
+      "name": "AgX",
+      "exposureStops": 0.20000000298023224,
+      "nativeWebglPixelEquivalence": false
+    },
+    "skyCameraGain": 0.827
+  },
+  "renderScript": {
+    "file": "render-room-balance-r05.py",
+    "sha256": "951c5410b311a52a7469bd4a433e1c1b906455cb20d579361e187ce34c0e8f54"
+  },
+  "visualAccepted": false,
+  "started": 1792575513.939394,
+  "status": "physical-night-court-review",
+  "captures": [
+    {
+      "kind": "full-reference-camera",
+      "file": "scene09-r10-physical-r05.png",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 128,
+      "renderSeconds": 127.25384879112244,
+      "sha256": "9289fc056bc45d85363462e1c63dede9a57bf526d567006178272c83e06c5e4a"
+    },
+    {
+      "kind": "floor-native",
+      "file": "floor-native.png",
+      "fullSensorPixels": [
+        2508,
+        2508
+      ],
+      "normalizedFullSensorBorder": [
+        0.02,
+        0.0,
+        0.92,
+        0.27
+      ],
+      "samples": 96,
+      "renderSeconds": 104.88257503509521,
+      "sha256": "a59d68ea3aa8b75df30315062cf42ed4f139c4c68d811895444ac3d412c24566",
+      "nativeRaySamples": true,
+      "imageUpscaled": false
+    },
+    {
+      "kind": "architecture-native",
+      "file": "architecture-native.png",
+      "fullSensorPixels": [
+        2508,
+        2508
+      ],
+      "normalizedFullSensorBorder": [
+        0.38,
+        0.42,
+        0.99,
+        0.75
+      ],
+      "samples": 96,
+      "renderSeconds": 93.3109781742096,
+      "sha256": "f6d602cf2d982dbb503dad010b3b61e0a369227095b0fce92d95abf98ddb5521",
+      "nativeRaySamples": true,
+      "imageUpscaled": false
+    }
+  ],
+  "rendererLimits": [
+    "Custom onBeforeCompile GLSL surface hooks are not automatically portable; exported actual maps, UVs, vertex/instance RGB and PBR values are retained.",
+    "Native captured environment probe and planar reflection shaders are replaced by path-traced source scene and sky radiance.",
+    "All source local lights physically occlude in Cycles; some native local pools were unshadowed. Native finite distance cutoffs are replaced by inverse-square transport.",
+    "Source FogExp2 is not a recoverable physical volume; this initial Cycles pass has no volume haze.",
+    "AgX and Three ACESFilmic differ; numerical light ratios and exposure are calibration starting values, not WebGL pixel equivalence.",
+    "Three rank2 source boxes retain all36 original indexed triangles, with exact transformed positions/UV/RGB; recalculated physical planar normals replace undefined inverse-transpose normals. R01\u2013R04 excluded them under an incorrect zero-area assumption."
+  ],
+  "roomPaneBalance": {
+    "reason": "Native architectural detail showed broad cream room panes too close to white. Reduce only room/pagoda pane radiance while keeping actual small lanterns and the original source fixture anchors/flux calibration.",
+    "materials": [
+      {
+        "material": "scene09-pagoda-paper",
+        "beforeStrength": 6.800000190734863,
+        "factor": 0.7,
+        "afterStrength": 4.760000228881836,
+        "emissiveRGBAndTextureUnchanged": true
+      },
+      {
+        "material": "scene09-recessed-room-paper",
+        "beforeStrength": 8.399999618530273,
+        "factor": 0.45,
+        "afterStrength": 3.7799997329711914,
+        "emissiveRGBAndTextureUnchanged": true
+      }
+    ]
+  },
+  "singularSourceRestoration": {
+    "restoredInstances": 3,
+    "restoredIndexedTriangles": 36,
+    "instances": [
+      {
+        "sourceRecordIndex": 760,
+        "sourceInstanceIndex": 41,
+        "materialIDs": [
+          "986a1e9a-8cc1-4ed5-afdc-a178dc5bbf43"
+        ],
+        "exactSourceLocalMatrixColumnMajor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19380000233650208,
+          0.0,
+          0.0,
+          0.0545186884701252,
+          0.0,
+          0.3378291726112366,
+          0.0,
+          -13.600000381469727,
+          23.854799270629883,
+          -17.0,
+          1.0
+        ],
+        "sourceTriangles": 12,
+        "nonzeroAreaTriangles": 4,
+        "transformedAreaLocalMetres2": 0.1326380968093872,
+        "normalAdaptation": "Recalculated planar geometric normals; singular inverse-transpose is undefined.",
+        "positionsIndicesUVsInstanceRGBPreserved": true
+      },
+      {
+        "sourceRecordIndex": 760,
+        "sourceInstanceIndex": 42,
+        "materialIDs": [
+          "986a1e9a-8cc1-4ed5-afdc-a178dc5bbf43"
+        ],
+        "exactSourceLocalMatrixColumnMajor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19380000233650208,
+          0.0,
+          0.0,
+          0.0545186884701252,
+          0.0,
+          0.3378291726112366,
+          0.0,
+          -13.600000381469727,
+          23.854799270629883,
+          -17.0,
+          1.0
+        ],
+        "sourceTriangles": 12,
+        "nonzeroAreaTriangles": 4,
+        "transformedAreaLocalMetres2": 0.1326380968093872,
+        "normalAdaptation": "Recalculated planar geometric normals; singular inverse-transpose is undefined.",
+        "positionsIndicesUVsInstanceRGBPreserved": true
+      },
+      {
+        "sourceRecordIndex": 760,
+        "sourceInstanceIndex": 43,
+        "materialIDs": [
+          "986a1e9a-8cc1-4ed5-afdc-a178dc5bbf43"
+        ],
+        "exactSourceLocalMatrixColumnMajor": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19380000233650208,
+          0.0,
+          0.0,
+          0.0545186884701252,
+          0.0,
+          0.3378291726112366,
+          0.0,
+          -13.600000381469727,
+          23.854799270629883,
+          -17.0,
+          1.0
+        ],
+        "sourceTriangles": 12,
+        "nonzeroAreaTriangles": 4,
+        "transformedAreaLocalMetres2": 0.1326380968093872,
+        "normalAdaptation": "Recalculated planar geometric normals; singular inverse-transpose is undefined.",
+        "positionsIndicesUVsInstanceRGBPreserved": true
+      }
+    ],
+    "sourceGeometryChanged": false,
+    "normalAdaptationOnlyForSingularSubset": true,
+    "referenceImageUsed": false
+  },
+  "singularRestorationScript": {
+    "file": "restore-singular-source.py",
+    "sha256": "c944794ff1dbbe8161717472465d7ba316a0d63cce6c4db635bce1f7ded5440a"
+  },
+  "sourceTriangleCount": 51311767,
+  "geometryTriangleCountPreserved": true,
+  "historicalImporterExcludedSingularInstanceCount": 3,
+  "sceneLinearAsset": {
+    "file": "scene09-r10-physical-r05-linear.exr",
+    "bytes": 5887305,
+    "sha256": "8307d73a1b316508094053427ea4c86a464d4de7a28a4a5020804a85dbdada05",
+    "channels": "Scene-linear RGB half float",
+    "releaseAssetNotGitBlob": true
+  },
+  "editableModel": {
+    "file": "scene09-r10-packed-physical-r05.blend",
+    "bytes": 672592378,
+    "sha256": "02eaf391e7b1e2d6ecd46454a24da3c228f80720e65c124943b437fcffec1049",
+    "allUsedFileImagesPacked": true,
+    "allUsedImagesHaveData": false,
+    "images": [
+      {
+        "name": "scene09 source-code-only cloudy blue sky radiance",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-0.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-0.png.001",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-1.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-10.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-10.png.001",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-11.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-12.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-13.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-14.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-15.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-16.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-17.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-18.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-18.png.001",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-19.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-19.png.001",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-2.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-20.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-21.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-3.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-4.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-5.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-6.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-7.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "sRGB"
+      },
+      {
+        "name": "texture-8.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      },
+      {
+        "name": "texture-9.png",
+        "source": "FILE",
+        "packed": true,
+        "hasData": false,
+        "colorSpace": "Non-Color"
+      }
+    ],
+    "largeReleaseAssetNotGitBlob": true,
+    "fullReferenceCameraSaved": true
+  },
+  "cameraMatrixZUp": [
+    [
+      0.9904049038887024,
+      0.0088939955458045,
+      0.13790954649448395,
+      6.0
+    ],
+    [
+      0.13819603621959686,
+      -0.06374023854732513,
+      -0.9883517026901245,
+      -33.0
+    ],
+    [
+      -8.389104522166235e-09,
+      0.9979268908500671,
+      -0.06435775756835938,
+      2.700002431869507
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "cameraUnchanged": true,
+  "finished": 1792575847.6420422
+}

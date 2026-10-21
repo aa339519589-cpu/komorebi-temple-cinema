@@ -1,0 +1,37 @@
+{
+  "scope": "Physical Cycles night-court rendering of frozen Scene09 R10",
+  "sourceCommit": "a10b118a2b09e65e9bfad6b64c6016299c59bf41",
+  "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+  "sourceGeometry": "Verified existing Three.js mesh and instance buffers in export/scene.json; final R05 retains all 51,311,767 source indexed triangles including three rank2 transforms, no remeshing or decimation. Undefined inverse-transpose normals on the rank2 subset are recalculated from exact transformed geometry.",
+  "importerOrigin": "Generic exact full-affine, linked Geometry Nodes and instanceColor transfer adapted from lookdev/scene01-solmax-cycles-20261021/render-current-source.py. No Scene01 world, water or scene-specific lighting retained.",
+  "sky": {
+    "kind": "Code-only physical radiance translation",
+    "source": "Frozen reconstructions/scene-09/src/main.js six-octave procedural night-cloud shader",
+    "generationScript": "render-current-source.py",
+    "resolution": [2048, 1024],
+    "storage": "Scene-linear float EXR; exact SHA-256 in cycles-r01/report.json; packed into the editable final model",
+    "photographicPixels": false,
+    "architectureOrGardenPixels": false,
+    "aiGeneratedSceneOrSky": false,
+    "precisionLimit": "CPU float64 sin/hash uses the same cloud equations with different precision from GPU GLSL, so cloud pixels are not asserted equivalent"
+  },
+  "materialInputs": [
+    "Actual exported source PBR textures, UVs, colors and instance colors",
+    "Existing declared CC0 Poly Haven lacquered_cherry_wood scan",
+    "Existing declared CC0 Poly Haven rock_moss_set_01 scans and source material-space cut-stone patch",
+    "Existing declared CC0 GraniteTile04 material-space face crop in Scene09",
+    "Source authored material-space washi-tissue103 fibre and emission texture fields",
+    "Authored world-space metric submillimetre granite microrelief and water ripples; no colored highlight textures"
+  ],
+  "referencePhotograph": {
+    "file": "references/hd/8-照片-9.jpg",
+    "use": "Visual comparison and manual physical color/exposure calibration only",
+    "sampledIntoMaterials": false,
+    "projectedIntoScene": false,
+    "usedAsBackground": false
+  },
+  "reflectionMethod": "Cycles ray tracing of actual frozen scene geometry, lights and sky radiance through physical dielectric water / wet granite coatings; no scene/reflection image plate and no painted reflection strokes",
+  "runtimeMutation": false,
+  "editableModelDistribution": "Large packed .blend and scene-linear EXR files are local release assets, excluded from Git blobs; reports retain exact size and SHA-256",
+  "visualAccepted": false
+}

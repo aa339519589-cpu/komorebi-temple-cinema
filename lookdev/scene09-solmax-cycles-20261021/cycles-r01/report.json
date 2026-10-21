@@ -1,0 +1,1700 @@
+{
+  "sourceCommit": "a10b118a2b09e65e9bfad6b64c6016299c59bf41",
+  "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+  "renderScript": {
+    "file": "render-current-source.py",
+    "sha256": "adf7e57e689a0294c93eb05952bcc1e6ae7a218488fda0e3266d7e4a40da581b"
+  },
+  "sourceStatistics": {
+    "meshes": 4506,
+    "geometries": 4462,
+    "materials": 84,
+    "textures": 22,
+    "instances": 501594,
+    "triangles": 51311767
+  },
+  "lightingMode": "scene09-r10-source-physical-transport",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 9,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "",
+      "type": "Reflector",
+      "material": "scene09-ripple-broken-amber-planar-water",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "",
+      "type": "Reflector",
+      "material": "scene09-wet-granite-veranda-reflection",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792572491.372852,
+  "excludedCollapsedInstances": [
+    {
+      "name": "",
+      "count": 3,
+      "reason": "Singular source transform has no invertible normal matrix; excluded only because it has zero or near-zero area."
+    }
+  ],
+  "affinePreservation": {
+    "parentMatrices": "Retained as full source object matrices without decomposition; source parent transforms remain exact.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 464968,
+    "bakedShearedInstances": 36607,
+    "bakedShearedTriangles": 10472248,
+    "bakedShearedVertices": 7890693,
+    "maxLinkedTRSMatrixResidual": 1.9073486328125e-06,
+    "maxBakedShearResidual": 0.6804897785186768,
+    "flattenedOnlyForShearedTransforms": true,
+    "geometryDecimated": false
+  },
+  "sourceLightTransfer": [
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -2.4451193809509277,
+        6.434999942779541,
+        -15.444489479064941
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 31.360000000000003,
+      "cyclesEnergy": 394.0813903808594,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -2.6541378498077393,
+        11.114999771118164,
+        -15.163756370544434
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 11.2896,
+      "cyclesEnergy": 141.86929321289062,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -0.03883221000432968,
+        6.434999942779541,
+        -13.65290355682373
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 31.360000000000003,
+      "cyclesEnergy": 394.0813903808594,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -0.24785061180591583,
+        11.114999771118164,
+        -13.372169494628906
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 11.2896,
+      "cyclesEnergy": 141.86929321289062,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        2.367455005645752,
+        6.434999942779541,
+        -11.861316680908203
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 31.360000000000003,
+      "cyclesEnergy": 394.0813903808594,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        2.1584367752075195,
+        11.114999771118164,
+        -11.580583572387695
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 11.2896,
+      "cyclesEnergy": 141.86929321289062,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        7.180029392242432,
+        6.434999942779541,
+        -8.278144836425781
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 31.360000000000003,
+      "cyclesEnergy": 394.0813903808594,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        6.971011161804199,
+        11.114999771118164,
+        -7.997410774230957
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 11.2896,
+      "cyclesEnergy": 141.86929321289062,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        9.58631706237793,
+        6.434999942779541,
+        -6.486557960510254
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 31.360000000000003,
+      "cyclesEnergy": 394.0813903808594,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        9.377298355102539,
+        11.114999771118164,
+        -6.205824851989746
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 11.2896,
+      "cyclesEnergy": 141.86929321289062,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        11.99260425567627,
+        6.434999942779541,
+        -4.694972038269043
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 31.360000000000003,
+      "cyclesEnergy": 394.0813903808594,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        11.783585548400879,
+        11.114999771118164,
+        -4.414238452911377
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 11.2896,
+      "cyclesEnergy": 141.86929321289062,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        5.026108264923096,
+        6.552000045776367,
+        -12.250627517700195
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 12.0,
+      "cyclesEnergy": 150.79644775390625,
+      "linearRGB": [
+        1.0,
+        0.672443151473999,
+        0.3324515223503113
+      ],
+      "sourceDistanceCutoff": 3.8,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        16.49968147277832,
+        7.349999904632568,
+        -17.424949645996094
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        18.58799934387207,
+        7.349999904632568,
+        -16.73290252685547
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        20.67631721496582,
+        7.349999904632568,
+        -16.040855407714844
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        22.76463508605957,
+        7.349999904632568,
+        -15.348809242248535
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        24.852954864501953,
+        7.349999904632568,
+        -14.656763076782227
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        14.958306312561035,
+        7.349999904632568,
+        -12.77369499206543
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        17.04662322998047,
+        7.349999904632568,
+        -12.081648826599121
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        19.13494110107422,
+        7.349999904632568,
+        -11.389602661132812
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        21.22325897216797,
+        7.349999904632568,
+        -10.697556495666504
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        23.31157875061035,
+        7.349999904632568,
+        -10.005509376525879
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999994,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -10.34724235534668,
+        4.75,
+        -14.672606468200684
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -8.854736328125,
+        4.75,
+        -14.522855758666992
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -7.362229824066162,
+        4.75,
+        -14.373106002807617
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -5.869723796844482,
+        4.75,
+        -14.223355293273926
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -4.3772172927856445,
+        4.75,
+        -14.07360553741455
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -10.682682991027832,
+        4.75,
+        -11.329392433166504
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -9.190176010131836,
+        4.75,
+        -11.179641723632812
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -7.697669982910156,
+        4.75,
+        -11.029891967773438
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -6.205163955688477,
+        4.75,
+        -10.880141258239746
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -4.712657451629639,
+        4.75,
+        -10.730391502380371
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 10.824099999999998,
+      "cyclesEnergy": 136.0196533203125,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-finial-inferred-roof-uplight",
+      "type": "SPOT",
+      "positionYUp": [
+        -11.39957046508789,
+        23.410200119018555,
+        -14.845044136047363
+      ],
+      "targetYUp": [
+        -13.6,
+        27.058199999999996,
+        -17
+      ],
+      "sourceIntensity": 90.0,
+      "cyclesEnergy": 1130.973388671875,
+      "linearRGB": [
+        1.0,
+        0.6444796919822693,
+        0.32314321398735046
+      ],
+      "sourceDistanceCutoff": 8.8,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -13.600000381469727,
+        8.555999755859375,
+        -12.199999809265137
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 27.0,
+      "cyclesEnergy": 339.2919921875,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 4.8,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -13.600000381469727,
+        11.633999824523926,
+        -12.199999809265137
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 27.0,
+      "cyclesEnergy": 339.2919921875,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 4.8,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -13.600000381469727,
+        14.711999893188477,
+        -12.199999809265137
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 27.0,
+      "cyclesEnergy": 339.2919921875,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 4.8,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -13.600000381469727,
+        17.790000915527344,
+        -12.199999809265137
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 27.0,
+      "cyclesEnergy": 339.2919921875,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 4.8,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -13.600000381469727,
+        20.868000030517578,
+        -12.199999809265137
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 27.0,
+      "cyclesEnergy": 339.2919921875,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 4.8,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -11.0,
+        2.0,
+        10.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 42.0,
+      "cyclesEnergy": 527.7875366210938,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 5,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        11.0,
+        2.0,
+        8.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 48.0,
+      "cyclesEnergy": 603.185791015625,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 5,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -10.0,
+        1.600000023841858,
+        14.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 30.0,
+      "cyclesEnergy": 376.9911193847656,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 4,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        11.0,
+        1.7000000476837158,
+        12.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 30.0,
+      "cyclesEnergy": 376.9911193847656,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 4,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "POINT",
+      "positionYUp": [
+        -0.6000000238418579,
+        1.2000000476837158,
+        1.600000023841858
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 12.0,
+      "cyclesEnergy": 150.79644775390625,
+      "linearRGB": [
+        1.0,
+        0.4125426113605499,
+        0.05448027700185776
+      ],
+      "sourceDistanceCutoff": 5,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -6.800000190734863,
+        2.8296000957489014,
+        8.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 16.796160000000004,
+      "cyclesEnergy": 211.0667724609375,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -3.0,
+        1.7553999423980713,
+        5.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 6.4641600000000015,
+      "cyclesEnergy": 81.23103332519531,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -1.0,
+        1.5720000267028809,
+        10.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 5.184,
+      "cyclesEnergy": 65.1440658569336,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        7.5,
+        2.157928943634033,
+        4.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 5.464550199385097,
+      "cyclesEnergy": 68.66956329345703,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        12.199999809265137,
+        2.619999885559082,
+        8.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 14.4,
+      "cyclesEnergy": 180.9557342529297,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        9.0,
+        2.399685859680176,
+        -2.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 1.358623875487844,
+      "cyclesEnergy": 17.07297134399414,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        19.0,
+        2.0959999561309814,
+        -6.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 9.216000000000001,
+      "cyclesEnergy": 115.8116683959961,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -11.0,
+        1.965000033378601,
+        -6.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 8.100000000000001,
+      "cyclesEnergy": 101.78760528564453,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        4.0,
+        1.6682265996932983,
+        -1.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 0.9088888349632359,
+      "cyclesEnergy": 11.42143440246582,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -3.0,
+        1.4581983089447021,
+        -4.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.9611888675200766,
+      "cyclesEnergy": 37.211395263671875,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -8.0,
+        1.5720000267028809,
+        14.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 5.184,
+      "cyclesEnergy": 65.1440658569336,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -12.0,
+        1.0479999780654907,
+        12.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.3040000000000003,
+      "cyclesEnergy": 28.952917098999023,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -10.199999809265137,
+        0.9955999851226807,
+        19.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.0793600000000003,
+      "cyclesEnergy": 26.130008697509766,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        10.800000190734863,
+        1.205199956893921,
+        14.800000190734863
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 3.0470400000000004,
+      "cyclesEnergy": 38.29023361206055,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        14.199999809265137,
+        0.9955999851226807,
+        19.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.0793600000000003,
+      "cyclesEnergy": 26.130008697509766,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -9.5,
+        1.1266000270843506,
+        1.5
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.66256,
+      "cyclesEnergy": 33.458717346191406,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        15.399999618530273,
+        1.0742000341415405,
+        2.4000000953674316
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.4206399999999997,
+      "cyclesEnergy": 30.418659210205078,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -6.900000095367432,
+        1.1527999639511108,
+        14.199999809265137
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.78784,
+      "cyclesEnergy": 35.03303146362305,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        7.400000095367432,
+        1.257599949836731,
+        13.800000190734863
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 3.31776,
+      "cyclesEnergy": 41.692203521728516,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        -8.100000381469727,
+        1.1003999710083008,
+        20.5
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.5401599999999998,
+      "cyclesEnergy": 31.920591354370117,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        9.199999809265137,
+        1.1003999710083008,
+        20.0
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 2.5401599999999998,
+      "cyclesEnergy": 31.920591354370117,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "SPOT",
+      "positionYUp": [
+        -7.0,
+        1.4500000476837158,
+        5.699999809265137
+      ],
+      "targetYUp": [
+        -4.6,
+        0.25,
+        3.2
+      ],
+      "sourceIntensity": 38.0,
+      "cyclesEnergy": 477.5220947265625,
+      "linearRGB": [
+        1.0,
+        0.46207699179649353,
+        0.14702726900577545
+      ],
+      "sourceDistanceCutoff": 10,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "SPOT",
+      "positionYUp": [
+        8.0,
+        1.5,
+        5.699999809265137
+      ],
+      "targetYUp": [
+        5,
+        0.25,
+        3.1
+      ],
+      "sourceIntensity": 42.0,
+      "cyclesEnergy": 527.7875366210938,
+      "linearRGB": [
+        1.0,
+        0.46207699179649353,
+        0.14702726900577545
+      ],
+      "sourceDistanceCutoff": 10,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        1.0,
+        7.199999809265137,
+        23.700000762939453
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 44.26005759999999,
+      "cyclesEnergy": 556.1882934570312,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        7.699999809265137,
+        7.300000190734863,
+        21.600000381469727
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 60.66339839999999,
+      "cyclesEnergy": 762.3187255859375,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "scene09-inverse-square-modeled-lantern",
+      "type": "POINT",
+      "positionYUp": [
+        4.599999904632568,
+        7.0,
+        34.400001525878906
+      ],
+      "targetYUp": null,
+      "sourceIntensity": 13.607137280000002,
+      "cyclesEnergy": 170.99232482910156,
+      "linearRGB": [
+        1.0,
+        0.4507857859134674,
+        0.11443537473678589
+      ],
+      "sourceDistanceCutoff": 0,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "SUN",
+      "positionYUp": [
+        -18.0,
+        37.0,
+        17.0
+      ],
+      "targetYUp": [
+        0,
+        0,
+        0
+      ],
+      "sourceIntensity": 2.6,
+      "cyclesEnergy": 2.5999999046325684,
+      "linearRGB": [
+        0.38132601976394653,
+        0.5088813304901123,
+        0.715693473815918
+      ],
+      "sourceDistanceCutoff": null,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "warm-courtyard-reflected-light-proxy",
+      "type": "SUN",
+      "positionYUp": [
+        4.0,
+        14.0,
+        17.0
+      ],
+      "targetYUp": [
+        1,
+        5,
+        -12
+      ],
+      "sourceIntensity": 0.65,
+      "cyclesEnergy": 0.6499999761581421,
+      "linearRGB": [
+        1.0,
+        0.672443151473999,
+        0.37123769521713257
+      ],
+      "sourceDistanceCutoff": null,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    },
+    {
+      "name": "",
+      "type": "SPOT",
+      "positionYUp": [
+        5.099999904632568,
+        6.0,
+        -9.899999618530273
+      ],
+      "targetYUp": [
+        6.04,
+        5.4,
+        -13.62
+      ],
+      "sourceIntensity": 42.0,
+      "cyclesEnergy": 527.7875366210938,
+      "linearRGB": [
+        1.0,
+        0.6444796919822693,
+        0.32314321398735046
+      ],
+      "sourceDistanceCutoff": 7,
+      "cyclesFiniteCutoff": false,
+      "castsPhysicalShadows": true
+    }
+  ],
+  "worldCoordinateConversion": "Source meshes, full affine instance parents, lights and camera jointly rotated +90 degrees about X from Y-up to Z-up; no deformation.",
+  "camera": {
+    "sourceView": {
+      "reference": 9,
+      "position": [
+        6,
+        2.7,
+        33
+      ],
+      "fov": 52
+    },
+    "sourceMatrixColumnMajor": [
+      0.9904048953654893,
+      0,
+      -0.13819603191146357,
+      0,
+      0.008893990310033678,
+      0.9979268889531837,
+      0.06374026388857469,
+      0,
+      0.13790953619108176,
+      -0.06435778355583814,
+      0.9883516760360862,
+      0,
+      6,
+      2.7,
+      33,
+      1
+    ],
+    "cyclesMatrix": [
+      [
+        0.9904049038887024,
+        0.0088939955458045,
+        0.13790954649448395,
+        6.0
+      ],
+      [
+        0.13819603621959686,
+        -0.06374023854732513,
+        -0.9883517026901245,
+        -33.0
+      ],
+      [
+        -8.389104522166235e-09,
+        0.9979268908500671,
+        -0.06435775756835938,
+        2.700002431869507
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sourcePosePreserved": true,
+    "depthOfField": false
+  },
+  "skyTranslation": {
+    "source": "Frozen source09 procedural six-octave cloud field; linear radiance texture generated by code only, no photographs or replacement scene content",
+    "asset": "scene09-source-shader-clouds.exr",
+    "sha256": "f5c320b3ee3158dcf4168a72e5c5345b9452065d7b40181eb7824597ceffbfce",
+    "size": [
+      2048,
+      1024
+    ],
+    "precisionLimit": "CPU float64 sin/hash versus GLSL GPU precision; same authored field equations, not pixel equivalence",
+    "sourceSourceFile": "reconstructions/scene-09/src/main.js",
+    "cameraGain": 1.0,
+    "environmentGain": 1.0,
+    "hemisphere": "Source top RGB/intensity and source ground 0x13190f translated to shadowed directional environment radiance at intensity/pi; a physical approximation to native unshadowed hemisphere light"
+  },
+  "physicalSurfaceAdaptation": {
+    "pond": {
+      "nativeFootprint": [
+        52,
+        55
+      ],
+      "sourcePositionYUp": [
+        0,
+        -0.02,
+        8
+      ],
+      "IOR": 1.333,
+      "roughness": 0.03799999877810478,
+      "transmission": 1,
+      "rippleHeightMetres": [
+        0.0024,
+        0.00075,
+        0.00022,
+        0.0008
+      ],
+      "method": "World-space physical micro-normal from source ripple directions; path-traced source geometry/light/environment reflection",
+      "bedDepthBelowSurfaceMetres": 0.78
+    },
+    "floor": {
+      "sourceGeometry": "All original closed clipped riven granite slabs, cut edges, footing and retaining foundation retained unchanged",
+      "coating": "Principled physical dielectric coat, IOR1.333, follows source geometry plus scanned normal map",
+      "coatWeight": 1.0,
+      "coatRoughness": 0.065,
+      "floatingMirrorAdded": false
+    },
+    "reflectionImagesOrPaintedStrokes": false,
+    "referencePhotoPixelsUsed": false
+  },
+  "importedTriangles": 51311731,
+  "sourceTriangleCount": 51311767,
+  "geometryTriangleCountPreserved": false,
+  "excludedCollapsedInstanceCount": 3,
+  "materialAttributeParity": {
+    "linkedInstances": "Explicit point attribute to instance; ShaderNodeAttribute INSTANCER lookup",
+    "bakedAndDirect": "GEOMETRY-domain material variants, direct source fallback white",
+    "vertexColorMultiply": "Only when source vertexColors=true; instanceColors do not double multiply vertex RGB",
+    "emissionMap": "Multiply source emissive RGB by emission texture, preserving amber tint"
+  },
+  "physicalFoliageAdaptation": "18% needle / 28% named broadleaf diffuse transmission replaces native view-dependent radiance; actual source occlusion and lighting.",
+  "rendererLimits": [
+    "Custom onBeforeCompile GLSL surface hooks are not automatically portable; exported actual maps, UVs, vertex/instance RGB and PBR values are retained.",
+    "Native captured environment probe and planar reflection shaders are replaced by path-traced source scene and sky radiance.",
+    "All source local lights physically occlude in Cycles; some native local pools were unshadowed. Native finite distance cutoffs are replaced by inverse-square transport.",
+    "Source FogExp2 is not a recoverable physical volume; this initial Cycles pass has no volume haze.",
+    "AgX and Three ACESFilmic differ; numerical light ratios and exposure are calibration starting values, not WebGL pixel equivalence."
+  ],
+  "lightCalibration": {
+    "fixtureGain": 1.0,
+    "sunGain": 1.0,
+    "pointEnergyConversion": "Source intensity * 4pi, numerical radiant proxy; source photometric spectrum/efficacy unknown",
+    "physicalBounces": {
+      "total": 12,
+      "diffuse": 6,
+      "glossy": 6,
+      "transmission": 8
+    },
+    "viewTransform": "AgX",
+    "exposureStops": -0.07400058209896088,
+    "nativeExposureMultiplier": 0.95,
+    "referencePhotoUsedOnlyForReview": true
+  },
+  "visualAccepted": false,
+  "cyclesDevice": "GPU",
+  "renderSeconds": 58.18073582649231,
+  "renderSha256": "1fa36494daa5a7a1da13c6edde26173bd82abeb6c9dbb62d25e6311edb70c871",
+  "finished": 1792572601.828925,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 48,
+  "denoised": true
+}
