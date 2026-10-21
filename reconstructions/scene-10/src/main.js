@@ -67,7 +67,10 @@ function lantern(x,y,z,s=1,hanging=false){group(x,y,z,.12,()=>{
  const cap=new T.LatheGeometry([[.32,0],[.34,.03],[.27,.08],[.19,.15],[.06,.21]].map(p=>new T.Vector2(...p)),6);emit(cap,'oldgold',0,.40,0);emit(cap.clone().rotateZ(Math.PI),'oldgold',0,-.40,0,1,.65,1);
  emit(sphere,'gold',0,.69,0,.055,.085,.055);
  if(hanging){for(let i=0;i<13;i++)emit(new T.TorusGeometry(.027,.007,5,12),'black',0,.78+i*.07,0,1,1,1,[i%2*Math.PI/2,0,0]);between([0,-.55,0],[0,-.85,0],.018,'oldgold');for(let i=0;i<24;i++){let a=i*Math.PI/12;between([Math.cos(a)*.035,-.88,Math.sin(a)*.035],[Math.cos(a)*.055,-1.14-R(0,.05),Math.sin(a)*.055],.005,'oldgold');}}
- },s);const light=new T.PointLight('#ffb34f',hanging?11:7,hanging?9.5:8,2);light.position.set(x,y,z).applyMatrix4(stack.at(-1));scene.add(light);}
+ },s);
+ const scale=s*new T.Vector3().setFromMatrixScale(stack.at(-1)).x,light=new T.PointLight('#ffb34f',(hanging?55:34)*scale*scale,0,2);light.name='scene10-inverse-square-existing-lantern';light.position.set(x,y,z).applyMatrix4(stack.at(-1));
+ if(light.position.z>5&&light.position.y>4){light.castShadow=true;light.shadow.mapSize.set(512,512);light.shadow.camera.near=.12;light.shadow.camera.far=60;light.shadow.bias=-.000035;light.shadow.normalBias=.012;}
+ scene.add(light);}
 // Five diminishing storeys, broad upturned eaves, glowing small latticed bays.
 group(...L.pagoda.position,L.pagoda.yaw,()=>{box(0,.275,0,8.8,.55,8.8,'stone');for(let l=0;l<5;l++){const s=1-l*L.pagoda.tierDecrement,y=l*3.45+.55,w=6.2*s;group(0,y,0,0,()=>{arch.pagodaStoreyFrame({w,d:w,y:0,level:l,scale:s,roofWidth:w+3*s,roofDepth:w+3*s,roofRise:2.75*s,roofY:2.9,windowMaterial:'pagodaPaper',detail:true});rail(-w/2-.35,w/2+.35,.35,w/2+.5,.65);arch.pagodaRoof({y:2.9,w:w+3*s,d:w+3*s,rise:2.75*s,wallWidth:w,wallDepth:w,frameScale:s,detail:true});});}const top=.55+4*3.45+2.9+2.75*(1-4*L.pagoda.tierDecrement);between([0,top,0],[0,top+L.pagoda.finialHeight,0],.055,'oldgold');for(let i=0;i<20;i++){const yy=top+.4+i*(L.pagoda.finialHeight-1.2)/19;emit(new T.TorusGeometry(.35-i*.011,.036,6,20),'oldgold',0,yy,0,1,1,1,[Math.PI/2,0,0]);}emit(sphere,'gold',0,top+L.pagoda.finialHeight-.18,0,.13,.24,.13);},L.pagoda.scale);
 // Hall-local physical roof underside, supported timber frame and gilded fittings.

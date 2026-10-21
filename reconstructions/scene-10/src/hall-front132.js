@@ -1,10 +1,11 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {installSurfaceDetail} from './surface-detail.js';
+import {createRanmaRelief138} from './ranma-relief138.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
-export const HALL132_REVISION='scene10-hall132-d-shoreline-underpass';
+export const HALL132_REVISION='scene10-hall138-compact-roof-solid-ranma';
 export function createHall132Palette(original){
   const specs={red:['#71301f',.60,'wood'],cedar:['#62391f',.72,'wood'],darkwood:['#27190f',.80,'wood'],endwood:['#936138',.74,'wood'],gold:['#b38d50',.42,'gold'],oldgold:['#86673b',.58,'gold']};
   const palette={};
@@ -74,6 +75,7 @@ function bilateralCloudBracketGeometry(){
 export function buildHall132(api,L){
   const {emit,box,group,between,tube,arch,lantern,R,scene,stack,emitRestoredBuddha}=api;
   const records={revision:HALL132_REVISION,scope:'Hall front and roof underside; full foundation footprint retained as side wings, sill and bearing lintel around a single shoreline underpass.',roofs:[],bearingRows:[],columns:[],eaveSupports:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
+  const ranmaRelief=createRanmaRelief138();records.ornament.reliefPanels=0;records.ornament.reliefGeometry={triangles:ranmaRelief.userData.triangles,closedSolid:true,bitmapInMaterial:false,nonMetricGuide:true};
   const leaf=leafGeometry(),rosette=new T.TorusGeometry(.13,.022,7,20),boss=new T.SphereGeometry(1,12,8),eaveArm=bilateralCloudBracketGeometry();
   const foliate=(x,y,z,s=1)=>{
     emit(rosette,'oldgold',x,y,z,s,s,s);emit(boss,'gold',x,y,z+.022,.040*s,.040*s,.028*s);records.ornament.rosettes++;
@@ -120,10 +122,14 @@ export function buildHall132(api,L){
     }
     draw(top.finish(),'slate');draw(deck.finish(),'cedar');
     for(const [ma,geometries]of pieces){const merged=mergeGeometries(geometries.map(g=>g.index?g.toNonIndexed():g),false);emit(merged,ma);for(const g of geometries)g.dispose();}
-    box(0,e+rise+.07,0,w*.53,.17,.19,'slate');records.roofs.push({label,w,d,e,rise,curl,closedTimberDepth:.152,deckTopOffset:-.028,deckBottomOffset:-.18,rafterTiers:2,rafters,outerProfile:'Unchanged layout125 analytical roof profile'});
+    box(0,e+rise+.07,0,w*.53,.17,.19,'slate');records.roofs.push({label,w,d,e,rise,curl,closedTimberDepth:.152,deckTopOffset:-.028,deckBottomOffset:-.18,rafterTiers:2,rafters,outerProfile:'Source-led compact upper roof; same definition drives skin and bearing seats'});
     return surf;
   }
-  const profile=level=>surface(level?21.5:23,level?12.9:13.6,level?10.45:6.05,level?7.7:3.45,level?.4:1.1);
+  // The rain reference reveals deep soffits and a compact upper pitch. A
+  // 7.7 m roof rise created a dominant blank roof slope at this low camera.
+  // One definition drives weather skin, bearing heights and all rafter seats.
+  const roofDefinitions=[{w:23,d:13.6,e:6.05,rise:3.45,curl:1.1},{w:21.5,d:12.9,e:10.45,rise:5.2,curl:.4}];
+  const profile=level=>{const r=roofDefinitions[level];return surface(r.w,r.d,r.e,r.rise,r.curl);};
   const rows=[{z:4.50,s:.72,pitch:1.025},{z:5.28,s:.48,pitch:.6833},{z:6.02,s:.42,pitch:.6833},{z:6.52,s:.34,pitch:.62}];
   function rowBase(surf,x,row){return surf.heightAt(x,row.z-.2)-.51-.97*row.s;}
   function frame(level){
@@ -153,7 +159,7 @@ export function buildHall132(api,L){
       box(xx,friezeY,3.43,1.78,.64,.24,'darkwood');
       for(const sy of[-1,1]){box(xx,friezeY+sy*.32,3.50,1.84,.075,.23,'red');box(xx,friezeY+sy*.252,3.57,1.60,.025,.018,'oldgold');}
       for(const sx of[-1,1]){box(xx+sx*.875,friezeY,3.50,.085,.64,.23,'red');box(xx+sx*.81,friezeY,3.52,.025,.57,.12,'oldgold');}
-      foliate(xx,friezeY,3.59,1.18);
+      emit(ranmaRelief,'gold',xx,friezeY,3.554,1.62,.48,.56);records.ornament.reliefPanels++;
       for(const sx of[-1,1])box(xx+sx*.72,friezeY-.12,3.585,.030,.23,.022,'gold');
       // Short genuine posts tie the recessed carved band into the head beam.
       for(const sx of[-.75,0,.75])box(xx+sx,headerY-.22,3.48,.10,.28,.19,'red');
@@ -182,7 +188,7 @@ export function buildHall132(api,L){
       records.bearingRows.push({level,index,z:row.z,sets:n+1,scale:row.s,capitalPrototype:{bottom:-.15,top:.82},receiverOffset:-.42,girtDepth:index===0?.14:.105});
     });
     if(level===1)railUpper(base);
-    group(0,0,.2,0,()=>roof(level?21.5:23,level?12.9:13.6,level?10.45:6.05,level?7.7:3.45,level?.4:1.1,level?'upper':'lower'));
+    const r=roofDefinitions[level];group(0,0,.2,0,()=>roof(r.w,r.d,r.e,r.rise,r.curl,level?'upper':'lower'));
   }
   function railUpper(base){for(let i=0;i<=17;i++){const x=-9+18*i/17;box(x,base+.73,5.05,.11,.86,.11,'red');emit(boss,'oldgold',x,base+1.21,5.05,.10,.09,.10);}for(const h of[.25,.65,.88])box(0,base+.3+h*.86,5.05,18,.075,.075,'red');}
   group(...L.hall.position,L.hall.yaw,()=>{
@@ -220,7 +226,7 @@ export function buildHall132(api,L){
       for(const sign of[-1,1])for(let k=0;k<5;k++){emit(leaf,'gold',sign*(.23+k*.27),5.79-k*.045,4.25,.32,.34,.30,[0,0,sign*(.40+k*.15)]);records.ornament.volumetricLeaves++;}
     });
     for(const x of[-7,-3,5,8])lantern(x,3.5,4.9,.62,true);
-    const light=new T.PointLight('#ffbd75',18,8,2);light.position.set(L.hall.entranceX,3,3).applyMatrix4(stack.at(-1));scene.add(light);
+    const light=new T.PointLight('#ffbd75',32,0,2);light.name='scene10-existing-shrine-inverse-square-source';light.position.set(L.hall.entranceX,3,3).applyMatrix4(stack.at(-1));scene.add(light);
   },L.hall.scale);
   return records;
 }

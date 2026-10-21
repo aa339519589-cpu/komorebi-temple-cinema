@@ -235,7 +235,9 @@ export function buildStoneLantern({ T, emit, box, group, R, scene, materials: m,
     // Preserve the prior fixture's random stream so downstream garden placement is stable.
     for (let i = 0; i < 102; i++) R(0, 1);
   }, scale);
-  const light = new T.PointLight('#ffc981', 8 * s, 7, 2);
+  const light = new T.PointLight('#ffc981', 24 * (isNear ? L.heroStoneLantern.scale[1] ** 2 : s ** 2), 0, 2);
+  light.name = 'scene10-inverse-square-existing-stone-fixture';
+  if (isNear) {light.castShadow = true;light.shadow.mapSize.set(512,512);light.shadow.camera.near=.10;light.shadow.camera.far=50;light.shadow.bias=-.00003;light.shadow.normalBias=.010;}
   light.position.set(x, 2.35 * (isNear ? L.heroStoneLantern.scale[1] : s) + baseY, z);
   scene.add(light);
 }

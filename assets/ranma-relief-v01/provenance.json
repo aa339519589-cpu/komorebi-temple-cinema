@@ -1,0 +1,38 @@
+{
+  "status": "non-metric-sculptural-guide-for-local-study",
+  "photographicAcceptance": false,
+  "tool": "Built-in image_gen, guided by user-supplied reference detail",
+  "referenceCrop": {
+    "source": "references/hd/3-照片-4.jpg",
+    "box": [
+      350,
+      290,
+      925,
+      420
+    ],
+    "purpose": "Comparison/design reference only; never scene albedo."
+  },
+  "iterations": [
+    {
+      "file": "generated-height-guide-v01.png",
+      "prompt": "Use case: design-exploration. Asset type: grayscale relief-height sculpting guide for a real 3D Buddhist temple beam carving, NOT a final temple scene or film frame. The attached image is a DESIGN REFERENCE for the gilded floral carvings only. Generate one long rectangular orthographic front-facing carving panel, about 3:1 landscape, densely carved Japanese Buddhist lotus/chrysanthemum vines and acanthus-like curling leaves with a small central oval floral medallion. Follow the reference's restrained old Japanese gilded timber carving proportions and intricate organic layering, with broad convex leaves, fine raised veins, narrow connecting stems, dark deeply recessed interstices, asymmetrically natural individual leaf shapes within a balanced overall band. Make the ornament occupy the full panel with a small plain margin and no frame or text. Output ONLY a pure grayscale scalar height guide: black is the uncarved flat backing height 0, dark gray is shallow background scrollwork, medium gray is the main leaf volume, pale gray is its convex raised surface, and white is the highest central ridges. Use smoothly continuous height gradients across each rounded carved leaf; dark cuts between overlaps. NO directional illumination, no cast shadows, no highlights painted from a light, no metallic gold color, no perspective, no photographic backdrop, no temple, no Buddha figure, no lettering, no watermark. This bitmap will drive newly generated, closed solid relief geometry about 30mm deep; it will never be placed in the scene as visible albedo, background, or camera projection.",
+      "selected": false,
+      "reason": "Foliage too strongly European acanthus."
+    },
+    {
+      "file": "generated-height-guide-v02.png",
+      "prompt": "Edit Image 1 only, using Image 2 as the ornamental-design reference. Preserve Image 1's long flat band layout, black backing, orthographic frontal view, grayscale height-guide encoding, central flower and connected carved relief structure. Make one targeted correction: replace its European Rococo/acanthus appearance with Japanese Buddhist hōsōge-karakusa (宝相華唐草) carving like Image 2. Use rounded, unlobed, boat-shaped lotus leaves, fine Japanese chrysanthemum petals, compact rolled cloud-scroll tips and delicate connected Tang-style stems. Avoid the broad deeply serrated European acanthus leaves. The result must feel like the actual gilded ranma beam carving of the supplied Japanese temple, not a European palace ornament. Keep the flowers relatively small among flowing vines rather than large baroque peony heads. Output pure scalar grayscale only: black=flat zero-height backing, gray=raised rounded volumes, white=highest leaf veins and flower tips. Smooth height gradients, dark geometric cuts between overlaps; no directional light, no cast shadows, no metallic coloring, no perspective, no architecture scene, no text/watermark. This guide is only for generating genuinely modeled solid carved geometry, never visible scene albedo or a replacement film frame.",
+      "selectedFor": "Limited local solid-relief modeling candidate; not an exact reconstruction.",
+      "reason": "Rounder lotus leaves and finer Japanese-style stems; motifs remain interpreted."
+    }
+  ],
+  "limits": [
+    "Image brightness is a non-metric sculpting guide, not recovered physical depth.",
+    "Generated rasters may only guide actual independently lit solid relief geometry.",
+    "Never use either bitmap as a scene image, camera projection, visible albedo, video frame or replacement temple.",
+    "Only the later actual mesh render can establish whether the local carving is an improvement.",
+    "No claim of exact historic motif or inferred physical depth; this is a modeled interpretation pending native comparison."
+  ],
+  "selectedGuideFile": "generated-height-guide.png",
+  "use": "Scalar guide for independently lit closed 3D relief only"
+}
