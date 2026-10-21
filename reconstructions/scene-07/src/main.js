@@ -1,7 +1,7 @@
 import {buildReferenceLayout118} from './reference-layout118.js';
 import {createDollyPath} from '/reconstructions/camera-dolly.js';
 import * as T from 'three';
-import {needleSpray,fern,leafySprig,watersideReeds,distantCrown,halfBarrel,stoneLanternRoof,barkBranch} from './natural-details.js';
+import {needleSpray,pineNeedleSpray,fern,leafySprig,watersideReeds,distantCrown,halfBarrel,stoneLanternRoof,barkBranch} from './natural-details.js';
 import {createRestorationArchitecture} from './architecture-kernel.js';
 import {flagstone} from './reference4-natural-forms.js';
 import {buildReference4Sanctuary} from './sanctuary.js';
@@ -161,9 +161,59 @@ function island(x,z,rx,rz,rise=0){if(rise){const lower=scannedStones.variants[1]
 island(4.876137218447144,14.2,2.1,2.4,1.75);island(-7,15.8,3.5,2.5);island(13,22,3.9,4.6);island(-13,7,4,3);island(8,7,3.6,2);
 // Bridge and near veranda are built together from the measured layout below.
 // Jointed tree skeletons carry thousands of individual needle sprays; there are no green globe crowns.
-const leafG=needleSpray();mats.needle=mats.leaf.clone();mats.needle.side=T.DoubleSide;mats.needle2=mats.leaf2.clone();mats.needle2.side=T.DoubleSide;for(const m of[mats.needle,mats.needle2]){m.roughness=.57;m.onBeforeCompile=sh=>{sh.fragmentShader=sh.fragmentShader.replace('#include <lights_fragment_end>','#include <lights_fragment_end>\n vec3 plantSun=normalize((viewMatrix*vec4(-.58,.20,-.81,0.0)).xyz);float thinScatter=pow(max(dot(-normal,plantSun),0.0),3.0);reflectedLight.indirectDiffuse+=diffuseColor.rgb*vec3(1.0,.67,.25)*thinScatter*.62;');};}
-function pinePad(x,y,z,rx,rz){for(let i=0;i<230;i++){const a=rr(0,TAU),r=Math.sqrt(R()),xx=x+Math.cos(a)*r*rx,zz=z+Math.sin(a)*r*rz,yy=y+rr(-.23,.23)*(1-r*.35)+.19*(1-r*r);emit(leafG,R()<.38?'needle2':'needle',xx,yy,zz,rr(.7,1.3),rr(.7,1.4),rr(.7,1.3),[rr(-.3,.3),rr(0,TAU),rr(-.3,.3)],rr(.75,1.2));}}
-function pine(x,z,h,spread=1,bend=null){group(0,Math.max(0,hillHeight(x,z*.6-3)),0,0,1,()=>{const lean=bend===null?rr(-.25,.25):bend,tr=[[x,.15,z],[x-h*.07,h*.23,z-.2],[x+lean*h*.55,h*.51,z+.15],[x+lean*h,h*.85,z-.2]];emit(barkBranch(tr,h*.048,h*.006,Math.floor(x*19+z*17)),'trunk',0,0,0);for(let k=0;k<5;k++){const a=k*TAU/5;emit(barkBranch([[x,.25,z],[x+Math.cos(a)*h*.055,.08,z+Math.sin(a)*h*.055],[x+Math.cos(a)*h*.12,.025,z+Math.sin(a)*h*.12]],h*.012,h*.003,k+1),'trunk',0,0,0);}for(let j=0;j<11;j++){const tier=Math.floor(j/3),t=[.31,.47,.63,.77][tier],cy=h*t,a=j*2.399+rr(-.35,.35),r=h*spread*([.33,.37,.31,.23][tier])*rr(.8,1.12),bx=x+lean*h*t,ex=bx+Math.cos(a)*r,ez=z+Math.sin(a)*r,ey=cy+h*.13;const mid=[bx+Math.cos(a)*r*.55,cy-h*.025,z+Math.sin(a)*r*.6];emit(barkBranch([[bx,cy,z],mid,[ex,ey,ez]],h*.012*(1-t),h*.002,j+Math.floor(x*11)),'trunk',0,0,0);pinePad(ex,ey,ez,h*spread*(tier===3?.15:.18),h*spread*.13);if(j%3===1)pinePad(mid[0],cy+h*.07,mid[2],h*spread*.12,h*spread*.095);}pinePad(x+lean*h,h*.91,z-.2,h*spread*.21,h*spread*.15);});}
+const leafG=needleSpray(),pineNeedleG=pineNeedleSpray();mats.needle=mats.leaf.clone();mats.needle.side=T.DoubleSide;mats.needle2=mats.leaf2.clone();mats.needle2.side=T.DoubleSide;for(const m of[mats.needle,mats.needle2]){m.roughness=.57;m.onBeforeCompile=sh=>{sh.fragmentShader=sh.fragmentShader.replace('#include <lights_fragment_end>','#include <lights_fragment_end>\n vec3 plantSun=normalize((viewMatrix*vec4(-.58,.20,-.81,0.0)).xyz);float thinScatter=pow(max(dot(-normal,plantSun),0.0),3.0);reflectedLight.indirectDiffuse+=diffuseColor.rgb*vec3(1.0,.67,.25)*thinScatter*.62;');};}
+mats.pineNeedleDry=new T.MeshPhysicalMaterial({name:'scene07-pine-needle-dry',color:0x405333,roughness:.83,metalness:0,clearcoat:.035,clearcoatRoughness:.52,side:T.DoubleSide});
+mats.pineNeedleSunlit=new T.MeshPhysicalMaterial({name:'scene07-pine-needle-sunlit',color:0x657847,roughness:.60,metalness:0,clearcoat:.12,clearcoatRoughness:.36,side:T.DoubleSide});
+function pinePad(x,y,z,rx,rz,heading=0){
+ // Each pad is an open, tiered skeleton: primary boughs, forked branchlets,
+ // then small axis-aligned needle fascicles. Crown volume comes from foliage,
+ // not an opaque hull, so gaps remain between neighboring sprays.
+ // Advance the scene's original random stream exactly as the previous pad
+ // did, while a coordinate-seeded stream varies this denser pine geometry.
+ const branchSeed=seed>>>0;let replay=seed;
+ const replayR=()=>((replay=Math.imul(replay,1664525)+1013904223>>>0)/4294967296),replayRange=(a,b)=>a+(b-a)*replayR();
+ const oldBoughs=3+Math.floor(replayR()*3);
+ for(let old=0;old<oldBoughs;old++){
+  replayRange(-.22,.22);replayRange(.56,1.02);replayRange(.38,.76);replayRange(-.10,.10);replayRange(.04,.22);
+  replayRange(.021,.034);replayRange(.010,.017);replayRange(.010,.017);
+  for(let station=0;station<4;station++)for(let side=0;side<2;side++){
+   if(replayR()<.10)continue;
+   replayRange(.64,1.12);replayRange(.20,.43);replayRange(-.08,.14);replayRange(.008,.013);
+   replayRange(0,.76);replayRange(-.38,.38);replayRange(0,TAU);replayRange(1.05,1.75);replayR();
+   replayRange(.88,1.10);replayRange(.86,1.12);replayRange(1.0,1.36);replayRange(.82,1.12);
+  }
+ }
+ seed=replay;
+ let localSeed=(branchSeed^Math.imul(Math.floor((x+37.2)*871.3),374761393)^Math.imul(Math.floor((z+23.8)*631.7),668265263)^Math.floor((y+3.4)*994.3))>>>0;
+ const pR=()=>((localSeed=Math.imul(localSeed,1664525)+1013904223>>>0)/4294967296),pRR=(a,b)=>a+(b-a)*pR();
+ const boughs=4+Math.floor(pR()*3);
+ const sprayAt=(base,end,size=1)=>{
+  const direction=new T.Vector3(end[0]-base[0],end[1]-base[1],end[2]-base[2]).normalize(),
+   q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),direction);
+  q.multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),pRR(-.8,.8)));
+  const e=new T.Euler().setFromQuaternion(q),material=pR()<.72?'pineNeedleDry':'pineNeedleSunlit',scale=size*pRR(1.02,1.30);
+  emit(pineNeedleG,material,end[0],end[1],end[2],scale*pRR(.91,1.08),scale*pRR(.90,1.13),scale*pRR(.91,1.12),[e.x,e.y,e.z],pRR(.82,1.12));
+ };
+ for(let i=0;i<boughs;i++){
+  const f=boughs===1?.5:i/(boughs-1),a=heading+(f-.5)*1.18+pRR(-.22,.22),reach=rx*pRR(.62,1.02),spread=rz*pRR(.45,.82),start=[x,y,z],mid=[x+Math.cos(a)*reach*.55,y+pRR(-.10,.10)*spread,z+Math.sin(a)*reach*.55],tip=[x+Math.cos(a)*reach,y+pRR(.04,.22)*spread,z+Math.sin(a)*reach];
+  rod(start,mid,pRR(.021,.034),'trunk',pRR(.010,.017));rod(mid,tip,pRR(.010,.017),'trunk',.0045);
+  for(let station=0;station<5;station++){
+   const t=.17+station*.16,base=[start[0]+(tip[0]-start[0])*t,start[1]+(tip[1]-start[1])*t,start[2]+(tip[2]-start[2])*t];
+   for(const side of[-1,1]){
+    if(pR()<.13)continue;
+    const aa=a+side*pRR(.66,1.12)+pRR(-.18,.18),twigLength=spread*pRR(.24,.44)*(1-.14*t),joint=[base[0]+Math.cos(aa)*twigLength*.56,base[1]+pRR(-.05,.08)*spread,base[2]+Math.sin(aa)*twigLength*.56],end=[base[0]+Math.cos(aa)*twigLength,base[1]+pRR(-.08,.14)*spread,base[2]+Math.sin(aa)*twigLength];
+    rod(base,joint,pRR(.008,.013),'trunk',.0045);rod(joint,end,pRR(.0045,.0075),'trunk',.0025);sprayAt(joint,end,pRR(.84,1.18));
+    // A few tertiary forks break the straight comb-like outline without
+    // closing the shadow gaps between adjacent sprays.
+    if(pR()<.46){const fa=aa+side*pRR(.48,.92),fl=twigLength*pRR(.36,.55),fb=[joint[0]+Math.cos(aa)*twigLength*.20,joint[1]+pRR(-.015,.04)*spread,joint[2]+Math.sin(aa)*twigLength*.20],fe=[fb[0]+Math.cos(fa)*fl,fb[1]+pRR(-.035,.06)*spread,fb[2]+Math.sin(fa)*fl];rod(fb,fe,.005,'trunk',.002);sprayAt(fb,fe,pRR(.63,.88));}
+    if(pR()<.35)sprayAt(base,joint,pRR(.68,.90));
+    if(station===4&&pR()<.28)sprayAt(base,end,pRR(.62,.82));
+   }
+  }
+  sprayAt(mid,tip,pRR(.72,.96));
+ }
+}
+function pine(x,z,h,spread=1,bend=null){group(0,Math.max(0,hillHeight(x,z*.6-3)),0,0,1,()=>{const lean=bend===null?rr(-.25,.25):bend,tr=[[x,.15,z],[x-h*.07,h*.23,z-.2],[x+lean*h*.55,h*.51,z+.15],[x+lean*h,h*.85,z-.2]];emit(barkBranch(tr,h*.048,h*.006,Math.floor(x*19+z*17)),'trunk',0,0,0);for(let k=0;k<5;k++){const a=k*TAU/5;emit(barkBranch([[x,.25,z],[x+Math.cos(a)*h*.055,.08,z+Math.sin(a)*h*.055],[x+Math.cos(a)*h*.12,.025,z+Math.sin(a)*h*.12]],h*.012,h*.003,k+1),'trunk',0,0,0);}for(let j=0;j<11;j++){const tier=Math.floor(j/3),t=[.31,.47,.63,.77][tier],cy=h*t,a=j*2.399+rr(-.35,.35),r=h*spread*([.33,.37,.31,.23][tier])*rr(.8,1.12),bx=x+lean*h*t,ex=bx+Math.cos(a)*r,ez=z+Math.sin(a)*r,ey=cy+h*.13;const mid=[bx+Math.cos(a)*r*.55,cy-h*.025,z+Math.sin(a)*r*.6];emit(barkBranch([[bx,cy,z],mid,[ex,ey,ez]],h*.012*(1-t),h*.002,j+Math.floor(x*11)),'trunk',0,0,0);pinePad(ex,ey,ez,h*spread*(tier===3?.15:.18),h*spread*.13,a);if(j%3===1)pinePad(mid[0],cy+h*.07,mid[2],h*spread*.12,h*spread*.095,a);}pinePad(x+lean*h,h*.91,z-.2,h*spread*.21,h*spread*.15,0);});}
 pine(12.6,18,10.0,1.0,.15);pine(-4.8,20,5.9,1.16);pine(-10,11,5.7,.9);pine(11.5,3.1,5.3,.8);pine(-5,1.4,4.2,.8);pine(18,-4,8.5,1);pine(-19,1,6.5,.8);pine(3,5,3.5,.8);
 const petalG=new T.SphereGeometry(1,5,3);function cherry(x,z,h,spread=3){group(0,Math.max(0,hillHeight(x,z*.6-3)),0,0,1,()=>{let tr=[[x,0,z],[x-.2,h*.4,z+.15],[x+.2,h*.7,z]];rod(tr[0],tr[1],.20,'trunk',.12);rod(tr[1],tr[2],.12,'trunk',.06);for(let j=0;j<13;j++){const a=j*2.4,r=rr(.4,1)*spread,end=[x+Math.cos(a)*r,h*.56+rr(0,h*.32),z+Math.sin(a)*r];rod(tr[1],end,.06,'trunk',.018);for(let k=0;k<190;k++){const aa=rr(0,TAU),r=rr(0,.95),xx=end[0]+Math.cos(aa)*r,zz=end[2]+Math.sin(aa)*r,yy=end[1]+rr(-.3,.45);const color=R()>.22?'pink':'pink2';for(let f=0;f<5;f++){const a=f*TAU/5+rr(-.1,.1);emit(petalG,color,xx+Math.cos(a)*.035,yy,zz+Math.sin(a)*.035,.045,.018,.04,[rr(-.4,.4),a,rr(-.4,.4)],rr(.85,1.12));}if(k%8===0)emit(leafG,'needle',xx,yy-.04,zz,.55,.55,.55,[0,rr(0,TAU),0]);}}});}
 cherry(-12,6,6.2,3);cherry(-17,13,4.8,3);cherry(15,22,4,3.1);cherry(-4,-3,4.6,2.6);cherry(18,1,5,3);
@@ -216,4 +266,4 @@ function renderView(position,target,time=0,fov=46){ensureRadiance();camera.posit
 function renderReference(n=7){return renderView([10.7,12.8,36.0],[0.0,7.0,-2.0],0,47);}
 const dolly=createDollyPath({points:[[8.2,8.55,29.3],[8.7,9.1,30.6],[10.1,11.7,34.7],[10.7,12.8,36]],nearTarget:[5.941572,8.13,24.153507],farTarget:[0,7,-2],fov:47});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,revision:'scene-07-foundation-underpass126',layout:rebuiltLayout.audit,roofRevision:PHYSICAL_ROOF_REVISION,foregroundRoof:foregroundRoof.audit,islandLantern:islandLantern.info,physicalRoofs:physicalRoofAudits,instances:instanceCount,triangles,referenceCamera:[10.7,12.8,36],externalAssets:true,assetProvenance: "reconstructions/scene-07/assets/scanned-timber-provenance.json",stoneAssetProvenance:"reconstructions/scene-07/assets/scanned-garden-stones-provenance.json",roofProvenance:"reconstructions/scene-07/assets/physical-roof-provenance.json"}),dispose(){rebuiltLayout.dispose();islandLantern.dispose();foregroundRoof.dispose();scannedTimber.dispose();scannedStones.dispose();scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,revision:'scene-07-pruned-needle-crown129',layout:rebuiltLayout.audit,roofRevision:PHYSICAL_ROOF_REVISION,foregroundRoof:foregroundRoof.audit,islandLantern:islandLantern.info,physicalRoofs:physicalRoofAudits,instances:instanceCount,triangles,referenceCamera:[10.7,12.8,36],externalAssets:true,assetProvenance: "reconstructions/scene-07/assets/scanned-timber-provenance.json",stoneAssetProvenance:"reconstructions/scene-07/assets/scanned-garden-stones-provenance.json",roofProvenance:"reconstructions/scene-07/assets/physical-roof-provenance.json",pineFoliage:{construction:'Trunk > primary bough > forked branchlet > tertiary twig > nine-whorl 3D needle fascicle; no crown hulls',sprayTriangles:pineNeedleG.attributes.position.count/3,needleGroups:9,roughness:{dry:mats.pineNeedleDry.roughness,sunlit:mats.pineNeedleSunlit.roughness},lightGapSampling:true}}),dispose(){rebuiltLayout.dispose();islandLantern.dispose();foregroundRoof.dispose();scannedTimber.dispose();scannedStones.dispose();scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());

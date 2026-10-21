@@ -3,6 +3,24 @@ const TAU=Math.PI*2;
 const random=seed=>()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296);
 function finish(p,uv=[]){const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));if(uv.length)g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();return g;}
 export function needleSpray(){const p=[];for(let k=0;k<31;k++){const a=k*2.39996,t=(k%9)/9,len=.18+(k%5)*.025,y=.015+t*.18,base=[Math.cos(a)*.035,y,Math.sin(a)*.035],tip=[Math.cos(a)*len,y+.055+(k%3)*.035,Math.sin(a)*len],w=.0085;const mid=[Math.cos(a)*len*.54,y+.045,Math.sin(a)*len*.54],side=[Math.cos(a+Math.PI/2)*w,0,Math.sin(a+Math.PI/2)*w];for(const q of[base,[mid[0]+side[0],mid[1],mid[2]+side[2]],tip,base,tip,[mid[0]-side[0],mid[1],mid[2]-side[2]]])p.push(...q);}return finish(p);}
+// A small 3D fascicle built along an implied twig axis. Whorled, staggered
+// needle groups keep it leafy while avoiding the single radial burst of a pad.
+export function pineNeedleSpray(){
+ const p=[],nodes=9,needlesPerNode=5;
+ const add=(a,b,c)=>{p.push(...a,...b,...c);};
+ for(let n=0;n<nodes;n++){
+  const t=(n+.18+.10*Math.sin(n*2.3))/nodes,stemY=.04+t*.33,stemR=.012+.024*Math.sin(t*Math.PI),phase=n*1.27;
+  for(let j=0;j<needlesPerNode;j++){
+   const k=n*needlesPerNode+j,a=phase+j*TAU/needlesPerNode+.13*Math.sin(k*3.71),len=.17+.10*(.5+.5*Math.sin(k*4.13+1.2)),lean=.10+.24*(.5+.5*Math.sin(k*2.37)),
+    base=[Math.cos(a)*stemR,stemY,Math.sin(a)*stemR],dir=[Math.cos(a)*Math.sqrt(1-lean*lean),lean,Math.sin(a)*Math.sqrt(1-lean*lean)],
+    mid=[base[0]+dir[0]*len*.54,base[1]+dir[1]*len*.54+.006,base[2]+dir[2]*len*.54],tip=[base[0]+dir[0]*len,base[1]+dir[1]*len,base[2]+dir[2]*len],
+    side=[-Math.sin(a),.12,Math.cos(a)],w=.0042+(k%5)*.0007;
+   const offset=(c,s)=>[c[0]+side[0]*s*w,c[1]+side[1]*s*w,c[2]+side[2]*s*w],baseL=offset(base,1),baseR=offset(base,-1),midL=offset(mid,.62),midR=offset(mid,-.62),ridge=[mid[0]+dir[0]*.0025,mid[1]+.006,mid[2]+dir[2]*.0025];
+   for(const tri of[[baseL,ridge,midL],[midL,ridge,tip],[ridge,baseR,midR],[midR,ridge,tip]])add(...tri);
+  }
+ }
+ return finish(p);
+}
 function leaf(p,c,d,len,w){const v=new T.Vector3(...d).normalize(),side=new T.Vector3(v.z,.12,-v.x).normalize().applyAxisAngle(v,Math.sin(c[0]*13+c[1]*33+c[2]*19)*1.45),centre=new T.Vector3(...c),tip=centre.clone().addScaledVector(v,len),left=centre.clone().addScaledVector(v,len*.43).addScaledVector(side,w),right=centre.clone().addScaledVector(v,len*.43).addScaledVector(side,-w),ridge=centre.clone().addScaledVector(v,len*.46);ridge.y+=w*.26;for(const tri of[[centre,left,ridge],[left,tip,ridge],[tip,right,ridge],[right,centre,ridge]])for(const q of tri)p.push(...q.toArray());}
 export function fern(){const p=[];for(let f=0;f<8;f++){const a=f*2.39996,len=.45+(f%3)*.13;for(let j=1;j<10;j++){const t=j/10,r=len*t,y=.1+.38*Math.sin(t*Math.PI*.8),c=[Math.cos(a)*r,y,Math.sin(a)*r];for(const s of[-1,1])leaf(p,c,[Math.cos(a+s*.95),.08,Math.sin(a+s*.95)],.15*(1-t)+.025,.027*(1-t)+.004);}}return finish(p);}
 export function leafySprig(seed=1){const p=[],r=random(seed);for(let k=0;k<13;k++){const a=k*2.39996,y=k*.035,c=[Math.cos(a)*.04,y,Math.sin(a)*.04];leaf(p,c,[Math.cos(a),.3+r()*.5,Math.sin(a)],.12+r()*.12,.025+r()*.025);}return finish(p);}
