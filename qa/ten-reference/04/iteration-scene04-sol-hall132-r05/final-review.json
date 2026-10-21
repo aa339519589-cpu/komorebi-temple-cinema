@@ -1,0 +1,436 @@
+{
+  "revision": "scene04-sol-hall132-r05",
+  "status": "held-unaccepted-native-geometry-checkpoint",
+  "visualAccepted": false,
+  "sourceHash": "45f00b80a7ea83fd1870b699ba74fe381f537600ed085284d5b458b5e6b93275",
+  "reference": {
+    "file": "references/hd/3-照片-4.jpg",
+    "sha256": "0b0272948960514bfd6278847e6dc512bfce2b127c69415f0e5ce949a9c0ffcb",
+    "usage": "Comparison and approximate manually observed numeric contours only; no photograph RGB/depth/scene plate enters the render."
+  },
+  "sourceManifest": {
+    "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/retained-source.json",
+    "sha256": "150f72dae1813cac51964f662e0216e6df0368559d95c9adf25e59e4ca0ef85b",
+    "scope": "All runtime source and declared asset hashes, including frozen shared dependencies."
+  },
+  "sourceArchive": {
+    "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/source-scripts-and-provenance.tar.gz",
+    "sha256": "5c93c4a7a1ff66585048cb0a5d285603404f48b3b32333b3a36d0c932ecaea64",
+    "files": [
+      "reconstructions/scene-04/asset-dependencies.json",
+      "reconstructions/scene-04/assets/generated-materials-20261019/provenance.json",
+      "reconstructions/scene-04/assets/granite-aggregate04/manifest.json",
+      "reconstructions/scene-04/assets/granite-image87/manifest.json",
+      "reconstructions/scene-04/assets/granite-tile-04/provenance.json",
+      "reconstructions/scene-04/assets/hall132-provenance.json",
+      "reconstructions/scene-04/assets/model131-provenance.json",
+      "reconstructions/scene-04/assets/monastery-stone-floor/provenance.json",
+      "reconstructions/scene-04/assets/rough-granite-wall/provenance.json",
+      "reconstructions/scene-04/assets/scene04-stone-loader-provenance.json",
+      "reconstructions/scene-04/assets/traced-stone04/damp-region-observations.json",
+      "reconstructions/scene-04/assets/traced-stone04/manifest.json",
+      "reconstructions/scene-04/assets/understory131-provenance.json",
+      "reconstructions/scene-04/index.html",
+      "reconstructions/scene-04/src/botany.js",
+      "reconstructions/scene-04/src/granite-aggregate04.js",
+      "reconstructions/scene-04/src/ornaments.js",
+      "reconstructions/scene-04/src/paving-canopy04.js",
+      "reconstructions/scene-04/src/reference4-architecture.js",
+      "reconstructions/scene-04/src/reference4-atmosphere.js",
+      "reconstructions/scene-04/src/reference4-config.js",
+      "reconstructions/scene-04/src/reference4-detail-kernel.js",
+      "reconstructions/scene-04/src/reference4-distant-forest.js",
+      "reconstructions/scene-04/src/reference4-foreground-scans.js",
+      "reconstructions/scene-04/src/reference4-garden-stone.js",
+      "reconstructions/scene-04/src/reference4-garden.js",
+      "reconstructions/scene-04/src/reference4-main.js",
+      "reconstructions/scene-04/src/reference4-materials.js",
+      "reconstructions/scene-04/src/reference4-natural-forms.js",
+      "reconstructions/scene-04/src/reference4-pruned-crown.js",
+      "reconstructions/scene-04/src/reference4-sanctuary.js",
+      "reconstructions/scene-04/src/reference4-scene.js",
+      "reconstructions/scene-04/src/reference4-stair-plan.js",
+      "reconstructions/scene-04/src/reference4-weathered-boulder.js",
+      "reconstructions/scene-04/src/restoration-buddha.js",
+      "reconstructions/scene-04/src/restoration-landscape-lanterns-v2.js",
+      "reconstructions/scene-04/src/restoration-lotus-leaf.js",
+      "reconstructions/scene-04/src/restoration-lotus-petal.js",
+      "reconstructions/scene-04/src/restoration-pruned-pines-v1.js",
+      "reconstructions/scene-04/src/restoration-render-diagnostics.js",
+      "reconstructions/scene-04/src/scene04-carving.js",
+      "reconstructions/scene-04/src/scene04-hall-profile132.js",
+      "reconstructions/scene-04/src/scene04-lanterns.js",
+      "reconstructions/scene-04/src/scene04-portal-depth131.js",
+      "reconstructions/scene-04/src/scene04-scanned-garden-stones.js",
+      "reconstructions/scene-04/src/scene04-scanned-stone.js",
+      "reconstructions/scene-04/src/scene04-stair-block131.js",
+      "reconstructions/scene-04/src/scene04-surfaces.js",
+      "reconstructions/scene-04/src/scene04-understory131.js",
+      "reconstructions/scene-04/src/tower-enclosure04.js",
+      "reconstructions/scene-04/src/traced-paving04.js",
+      "reconstructions/scene-04/src/traced-stone-material04.js"
+    ],
+    "scope": "Editable Scene04 namespace scripts/HTML and asset provenance/dependency JSON. Bitmap/mesh dependencies remain at their exact hashed repository paths in retained-source.json."
+  },
+  "captures": [
+    {
+      "kind": "full-and-portal-roof-detail",
+      "report": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/report.json",
+      "reportSha256": "617256255fd8d4fc7f91fd208e3b2a5e8484129701aa175c01fa765e2a16a4a9",
+      "sourceHash": "45f00b80a7ea83fd1870b699ba74fe381f537600ed085284d5b458b5e6b93275",
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": null,
+      "detailCrop": {
+        "pixels": [
+          275,
+          120,
+          710,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "c6cb2b2bdfa5735ca66eea1f854ed0f1c4fa6bd4a58274c710d06afd58ee8a34",
+          "rgbaSha256": "3ceaf982f192b2f27cf27a19d6ec1b573a3e72c4a82aaad8237e249346d0399c",
+          "localTime": null,
+          "detailCrop": null,
+          "pose": {
+            "reference": 4,
+            "revision": "scene04-sol-hall132-r05",
+            "width": 1254,
+            "height": 1254,
+            "frame": 1,
+            "camera": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "fov": 64.1754241
+            }
+          }
+        },
+        {
+          "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "1fcfa3e3defeb3cf3b3d285f482e4d522234e4067b1c61a9597896cdcba76cf3",
+          "rgbaSha256": "f6f96a01298d1107ef4b86df287a7df3cc5ae852353078e2218cba25a0009fe5",
+          "localTime": null,
+          "detailCrop": [
+            275,
+            120,
+            710,
+            1254
+          ],
+          "pose": {
+            "reference": 4,
+            "revision": "scene04-sol-hall132-r05",
+            "width": 1254,
+            "height": 1254,
+            "frame": 2,
+            "camera": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "fov": 64.1754241
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "oblique",
+      "report": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05-oblique/report.json",
+      "reportSha256": "0fb50e1c7880a3a51fcf59aa56db2a5f3b5b305cbadd79049642e5265f8d1db9",
+      "sourceHash": "45f00b80a7ea83fd1870b699ba74fe381f537600ed085284d5b458b5e6b93275",
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          -5,
+          6,
+          10
+        ],
+        "target": [
+          0,
+          7,
+          0
+        ],
+        "fov": 75,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "detailCrop": null,
+      "frames": [
+        {
+          "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05-oblique/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "56d3336464812e74f6a2b4d4e401ee2e798133567d633b017c8ce19aac6e1705",
+          "rgbaSha256": "41855f91075d214dbfcde837373348714aea25603553e4357337f832a62b9fd5",
+          "localTime": null,
+          "detailCrop": null,
+          "pose": {
+            "reference": 4,
+            "revision": "scene04-sol-hall132-r05",
+            "width": 1254,
+            "height": 1254,
+            "frame": 1,
+            "camera": {
+              "position": [
+                -5,
+                6,
+                10
+              ],
+              "fov": 75
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "three-native-film-poses",
+      "report": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05-poses/report.json",
+      "reportSha256": "8637ef9c266ac456c8af6d4ffd3457dc603645147874c7f701cd857cfea59e34",
+      "sourceHash": "45f00b80a7ea83fd1870b699ba74fe381f537600ed085284d5b458b5e6b93275",
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": null,
+      "detailCrop": null,
+      "frames": [
+        {
+          "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05-poses/shot-0.png",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "ceacbe345f7b6ba1009e7be743374413bb02de770f4ba9b297983e3706d1fb50",
+          "rgbaSha256": "2abb5c342a712a104249eb898e0030d8c252903336c5bd2fbc4389828661361b",
+          "localTime": 0,
+          "detailCrop": null,
+          "pose": {
+            "reference": 4,
+            "revision": "scene04-sol-hall132-r05",
+            "width": 1254,
+            "height": 1254,
+            "frame": 1,
+            "camera": {
+              "position": [
+                0,
+                0.55,
+                20.4
+              ],
+              "fov": 64.1754241
+            }
+          }
+        },
+        {
+          "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05-poses/shot-3p5.png",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "c8613a6ac21d891bd6bf318bb2087f4619ef26a4ef7351e92e459e8ecbcf33a8",
+          "rgbaSha256": "b1690c177a6548293108cd368c82c8f0dad6e110101861c9c36e3e1daa76b4ad",
+          "localTime": 3.5,
+          "detailCrop": null,
+          "pose": {
+            "reference": 4,
+            "revision": "scene04-sol-hall132-r05",
+            "width": 1254,
+            "height": 1254,
+            "frame": 2,
+            "camera": {
+              "position": [
+                0.06747211775715473,
+                0.8807724106109992,
+                21.887179266801933
+              ],
+              "fov": 64.1754241
+            }
+          }
+        },
+        {
+          "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05-poses/shot-7.png",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "1deff9b7aa4c0d08648dbce626789283386cd7954cd313ced71fa8a9bdaf1021",
+          "rgbaSha256": "d6a769d2af444e9f1bfc8a3665a183300f39955418223f73aee812d53808e936",
+          "localTime": 7,
+          "detailCrop": null,
+          "pose": {
+            "reference": 4,
+            "revision": "scene04-sol-hall132-r05",
+            "width": 1254,
+            "height": 1254,
+            "frame": 3,
+            "camera": {
+              "position": [
+                0,
+                1.35,
+                23.34
+              ],
+              "fov": 64.1754241
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "comparisonFiles": [
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/comparison-left-reference-right-native.png",
+      "sha256": "0737ec94d368f61b09783e30fba28e93b15bb8fb1e0c49211465b6621db38b87",
+      "scope": "CPU comparison composite only; never a rendered scene asset."
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/comparison-contours-review.png",
+      "sha256": "6809d521c09d18ac0d21faab3fda5c73197c037b32829829b77d239f6d77e261",
+      "scope": "CPU comparison composite only; never a rendered scene asset."
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/comparison-roof-left-reference-right-native.png",
+      "sha256": "8b041233746dda409d30bfe8467e94a41e452f1b7ec4c1ca4a44005c686df7c3",
+      "scope": "CPU comparison composite only; never a rendered scene asset."
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-sol-hall132-r05/comparison-hall-before-after.png",
+      "sha256": "1df7938ce3a7d0a4ad451ad5e27e1ad7f19cafc31c23dca35bb998c337fdd425",
+      "scope": "CPU comparison composite only; never a rendered scene asset."
+    }
+  ],
+  "baseline": {
+    "folder": "qa/ten-reference/04/iteration-scene04-sol-model131-r05",
+    "sourceHash": "a54f64c748ae854462e55429449a78611f7c8feb45f95f02f94dbd3636e61668"
+  },
+  "implementation": [
+    "A shared nonlinear four-face roof profile holds a narrow steep neck before the late sweeping wing flare. The weather deck, metric tile courses, rafters and purlins follow it.",
+    "An eight-station Hermite karahafu profile drives the porch roof, deeper curved trimmers, bargeboard, vault, carving and support sockets.",
+    "Six turned entasis front columns, feet, window bays and attached carving use common bay axes and the same hall origin. The original 3.5m landing, stairs, toro, approach and camera/film path remain fixed.",
+    "Added closed gable infill, ridge timber, king posts, cross ties, diagonal braces, seated rafters and real interlocking upper-eave bearings. Oblique iteration removed the unsupported-looking false clerestory grid.",
+    "Main roof cover/pan tile lanes keep a 270mm width and start at the actual hip boundary, avoiding progressive squeezing into the shorter ridge. Ridge sculptures and roof return horns are closed geometry.",
+    "R05 replaces the left ridge sculpture negative X scale with a rigid Y rotation, preserving outward winding. Main roof/body/porch dimensions are the reviewed R04 geometry."
+  ],
+  "preserved": {
+    "referenceCamera": [
+      0,
+      1.35,
+      23.34
+    ],
+    "target": [
+      0,
+      2.3,
+      0
+    ],
+    "fov": 64.1754241,
+    "stairLandingY": 3.5,
+    "stairPavingToroGeometry": true,
+    "filmPath": true,
+    "lightingAndMaterialsFromBaseline": true
+  },
+  "nativeCounts": {
+    "meshes": 1809,
+    "mixedInstances": 172286,
+    "triangles": 28342506,
+    "uniqueGeometries": 1773,
+    "lights": 14
+  },
+  "commonHallBearing": {
+    "revision": "hall132-common-profile-bearing",
+    "frontColumns": 6,
+    "roofRafters": 76,
+    "purlinRows": 5,
+    "shaftFootY": 3.5,
+    "columnAxes": [
+      -7.05,
+      -5.15,
+      -2.99,
+      2.99,
+      5.15,
+      7.05
+    ],
+    "origin": [
+      0.12,
+      0,
+      -0.1
+    ],
+    "visualAccepted": false
+  },
+  "commonHallProfile": {
+    "origin": "[shared]",
+    "neckPower": 3.25,
+    "pitchPower": 1.87,
+    "karahafuContour": [
+      [
+        0,
+        11.48
+      ],
+      [
+        0.1,
+        11.46
+      ],
+      [
+        0.25,
+        11.2
+      ],
+      [
+        0.45,
+        10.46
+      ],
+      [
+        0.65,
+        9.58
+      ],
+      [
+        0.8,
+        9.04
+      ],
+      [
+        0.92,
+        8.76
+      ],
+      [
+        1,
+        8.68
+      ]
+    ]
+  },
+  "review": {
+    "fullAndDetail": "Visually inspected against the original whole photograph. The neck/wing silhouette and coupled porch/column assembly are a substantive geometry correction; the frame remains visibly stylized.",
+    "filmPoses": "Actual final 0/3.5/7-second 1254px native images visually inspected. The unchanged low opening emphasizes paving/stairs and crops the roof; the final pose reveals the full hall. No new assembly discontinuity was visible. Three stills do not prove temporal flicker performance.",
+    "oblique": "Actual final 1254px oblique visually inspected at [-5,6,10] toward [0,7,0], FOV75. The existing porch/portal depth, roof bearing storey and stair/column relationship read as a coherent assembly in this view. Fascia sections and closed upper-eave infill remain overly regular, and this does not establish source fidelity or structural validity.",
+    "remainingGaps": [
+      "Upper roof tiles have simplified seams and exposed warm deck marks; crest/oni/karahafu carving shapes remain approximations.",
+      "Timber brackets, carved transoms, lattice bays and sanctuary are still generic compared with the dense photographed joinery.",
+      "The porch fascia/band stack remains heavier and more regular than the carved source hafu; its two-dimensional contour fit does not reproduce the source section detail.",
+      "Native illumination, mineral/timber response, vegetation silhouettes and toro weathering remain much less photographic.",
+      "All hidden dimensions and joints are authored single-view inferences. Nominal support projections and finite geometry do not prove photo fidelity or structural engineering validity."
+    ]
+  },
+  "iterationHistory": {
+    "retained": "R01 failure and R01b/R02/R03/R04 actual native candidates and obliques remain in neighboring QA folders.",
+    "r01Failure": "An internal role wrapper omitted a return value for portalDepth; fixed before R01b. Failed receipt retained."
+  },
+  "physicalStudy": "Earlier Cycles vertex-state R05 remains immutable in lookdev/scene04-solmax-cycles-20261021 and uses the different old runtime source a54f64c. It is not evidence for this hall132 source."
+}

@@ -34,12 +34,13 @@ const photo=resolve(root,'references/hd/3-照片-4.jpg'),full=resolve(out,'refer
 const baseline=resolve(root,'qa/ten-reference/04/iteration-scene04-sol-model131-r05/reference.png');
 const composites=[
  ['comparison-left-reference-right-native.png',[photo,full],'[0:v][1:v]hstack=inputs=2'],
+ ['comparison-contours-review.png',[photo,full],'[0:v]crop=850:470:200:100[p];[1:v]crop=850:470:200:100[n];[p][n]hstack=inputs=2'],
  ['comparison-roof-left-reference-right-native.png',[photo,detail],'[0:v]crop=710:710:275:120,scale=1254:1254:flags=lanczos[p];[p][1:v]hstack=inputs=2'],
  ['comparison-hall-before-after.png',[baseline,full],'[0:v]crop=850:470:200:100[b];[1:v]crop=850:470:200:100[a];[b][a]hstack=inputs=2']
 ];
 const comparisonFiles=[];
 for(const [name,inputs,filter] of composites){const dest=resolve(out,name);execFileSync('ffmpeg',['-y','-hide_banner','-loglevel','error',...inputs.flatMap(p=>['-i',p]),'-filter_complex',filter,'-frames:v','1',dest]);comparisonFiles.push({file:rel(dest),sha256:await digest(dest),scope:'CPU comparison composite only; never a rendered scene asset.'});}
-const architecture=(await json(resolve(out,'report.json'))).frames[0].info.architecture;
+const nativeInfo=(await json(resolve(out,'report.json'))).frames[0].info;
 const manifest={
  revision:'scene04-sol-hall132-r05',status:'held-unaccepted-native-geometry-checkpoint',visualAccepted:false,sourceHash:expected,
  reference:{file:'references/hd/3-照片-4.jpg',sha256:await digest(photo),usage:'Comparison and approximate manually observed numeric contours only; no photograph RGB/depth/scene plate enters the render.'},
@@ -56,13 +57,15 @@ const manifest={
   'R05 replaces the left ridge sculpture negative X scale with a rigid Y rotation, preserving outward winding. Main roof/body/porch dimensions are the reviewed R04 geometry.'
  ],
  preserved:{referenceCamera:[0,1.35,23.34],target:[0,2.3,0],fov:64.1754241,stairLandingY:3.5,stairPavingToroGeometry:true,filmPath:true,lightingAndMaterialsFromBaseline:true},
- architectureStats:architecture.stats??null,
+ nativeCounts:nativeInfo.counts,commonHallBearing:nativeInfo.architecture.hallBearing,commonHallProfile:nativeInfo.architecture.hallProfile,
  review:{
   fullAndDetail:'Visually inspected against the original whole photograph. The neck/wing silhouette and coupled porch/column assembly are a substantive geometry correction; the frame remains visibly stylized.',
-  obliqueAndFilmPoses:'Actual final oblique and 0/3.5/7-second native poses must be visually reviewed before handoff; record that review in README.txt.',
+  filmPoses:'Actual final 0/3.5/7-second 1254px native images visually inspected. The unchanged low opening emphasizes paving/stairs and crops the roof; the final pose reveals the full hall. No new assembly discontinuity was visible. Three stills do not prove temporal flicker performance.',
+  oblique:'Actual final 1254px oblique visually inspected at [-5,6,10] toward [0,7,0], FOV75. The existing porch/portal depth, roof bearing storey and stair/column relationship read as a coherent assembly in this view. Fascia sections and closed upper-eave infill remain overly regular, and this does not establish source fidelity or structural validity.',
   remainingGaps:[
    'Upper roof tiles have simplified seams and exposed warm deck marks; crest/oni/karahafu carving shapes remain approximations.',
    'Timber brackets, carved transoms, lattice bays and sanctuary are still generic compared with the dense photographed joinery.',
+   'The porch fascia/band stack remains heavier and more regular than the carved source hafu; its two-dimensional contour fit does not reproduce the source section detail.',
    'Native illumination, mineral/timber response, vegetation silhouettes and toro weathering remain much less photographic.',
    'All hidden dimensions and joints are authored single-view inferences. Nominal support projections and finite geometry do not prove photo fidelity or structural engineering validity.'
   ]
