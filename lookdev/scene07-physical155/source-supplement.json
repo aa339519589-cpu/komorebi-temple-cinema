@@ -1,0 +1,171 @@
+{
+  "sourceHash": "f3638c92c8f80d8cee8e40f346d179b4ce24e0211a44b1619ec8c2076ac03281",
+  "canonicalMainSha256": "ac542dba67800b0a2d21c3ba5c2f9e307143f21e66fdbbe82c6e8efbc1692af2",
+  "pond": {
+    "scope": "Exact reproduction of original source ShapeGeometry/sh60 and original composed world matrix; only excluded planar-reflection shader is replaced by physical dielectric transport.",
+    "outline": [
+      [
+        -15,
+        3
+      ],
+      [
+        -10,
+        0
+      ],
+      [
+        -5,
+        -3
+      ],
+      [
+        -8,
+        -6
+      ],
+      [
+        -10,
+        -8
+      ],
+      [
+        -10,
+        -10
+      ],
+      [
+        -6,
+        -12
+      ],
+      [
+        0,
+        -12
+      ],
+      [
+        4,
+        -10
+      ],
+      [
+        7,
+        -7
+      ],
+      [
+        8,
+        -3
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        15,
+        12
+      ],
+      [
+        12,
+        15
+      ],
+      [
+        16,
+        22
+      ],
+      [
+        15,
+        30
+      ],
+      [
+        9,
+        34
+      ],
+      [
+        1,
+        32
+      ],
+      [
+        -8,
+        28
+      ],
+      [
+        -14,
+        27
+      ],
+      [
+        -16,
+        20
+      ],
+      [
+        -13,
+        15
+      ],
+      [
+        -16,
+        10
+      ]
+    ],
+    "attributes": {
+      "position": {
+        "file": "pond-position.bin",
+        "type": "Float32Array",
+        "itemSize": 3,
+        "count": 72,
+        "sha256": "1729d8726e05ebd76b30f26d49e3b92c9a1eb2928b417198091ff0389da4f4cb"
+      },
+      "normal": {
+        "file": "pond-normal.bin",
+        "type": "Float32Array",
+        "itemSize": 3,
+        "count": 72,
+        "sha256": "9bc80effd2ff1251b55be500471498ca9fce61098a75982ebe775d834e6d30a0"
+      },
+      "uv": {
+        "file": "pond-uv.bin",
+        "type": "Float32Array",
+        "itemSize": 2,
+        "count": 48,
+        "sha256": "072ee5ccfc17f7da3a461e69f9c25dffd7f8ce4a0fcd5e2e725afb2be25ea0c4"
+      }
+    },
+    "index": {
+      "file": "pond-index.bin",
+      "type": "Uint16Array",
+      "count": 66,
+      "sha256": "25a1f3e33f98546a6e1ec511489f804902fb909bbe47170a5ef8d440022a2e76"
+    },
+    "matrix": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1.3322676295501878e-16,
+      -0.6,
+      0,
+      0,
+      1,
+      2.220446049250313e-16,
+      0,
+      0,
+      0.035,
+      -3,
+      1
+    ],
+    "triangles": 22
+  },
+  "extraAssets": {
+    "reconstructions/scene-07/assets/near-gallery149/ceramic-glaze-weight.png": {
+      "sha256": "2dd95b58ced9e1e7c2f1c51b5a155f64dae3984d3afba528ba82e7c20ee7781d",
+      "bytes": 70504,
+      "copyCreated": false
+    },
+    "reconstructions/scene-07/assets/near-gallery149/ceramic-glaze-rough.png": {
+      "sha256": "f1f9aeb2f3dd71a19b5180d07e842519698d491b2f9c6873bc1820b772b4bae5",
+      "bytes": 141523,
+      "copyCreated": false
+    },
+    "reconstructions/scene-07/assets/near-gallery149/ceramic-micro-normal-gl.png": {
+      "sha256": "dc249cf154fe88e71e22b4112221c3a1b5056c248c72c9430a8d607c6758fc68",
+      "bytes": 260852,
+      "copyCreated": false
+    }
+  },
+  "materialScope": "Original foreground149 clearcoat textures omitted by generic exporter are read from the verified source asset paths without copying; original clayState shader equations are ported physically."
+}

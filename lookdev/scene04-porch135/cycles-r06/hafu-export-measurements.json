@@ -1,0 +1,39 @@
+{
+  "sourceHash": "5f30b45c9d034ebb32100e9d3588621cc30e85dd9b57210b8cfb8cd66578f477",
+  "scope": "Targeted measurements from actual exported source hafu vertex buffers in Three.js world Y-up metres; not a recovered survey of the photograph.",
+  "members": {
+    "outer": {
+      "mesh": "scene04-135-main-flowing-hafu-actual-lamp-support",
+      "geometry": "23475587-10c2-4b31-8152-a5d7bf4ff539",
+      "positionFile": "assets/geometry-0-position.bin",
+      "positionSha256": "a16d8d1d4f6913af8dd43ea635e95be1e626d602832a36310cd823f988c18046",
+      "worldZBoundsMetres": [
+        1.2600000143051147,
+        1.5649999618530273
+      ],
+      "centerSectionWorldYBoundsMetres": [
+        11.154999732971191,
+        11.454999923706055
+      ]
+    },
+    "inner": {
+      "mesh": "scene04-135-recessed-second-flowing-hafu",
+      "geometry": "679fbf42-1b4e-4dc0-9c43-af2c0e6c83eb",
+      "positionFile": "assets/geometry-1-position.bin",
+      "positionSha256": "28dc0dbdcefb50f08229da18dbf75aac762a7adbbfe24408caee4a4647ab1360",
+      "worldZBoundsMetres": [
+        0.8700000286102295,
+        1.1350000143051147
+      ],
+      "centerSectionWorldYBoundsMetres": [
+        10.895000457763672,
+        11.069999694824219
+      ]
+    }
+  },
+  "actualFrontFaceSetbackMetres": 0.4299999475479126,
+  "coupledTimberBodyForeAftDepthMetres": 0.6949999332427977,
+  "visibleCenterTimberStackNormalSpanMetres": 0.5599994659423828,
+  "weatherProfileDatumToLowestTimberMetres": 0.5849995422363286,
+  "clarification": "Earlier0.54m was a nominal section reference offset (an inner back-corner plane), not the actual outer/inner front-face setback. Actual exported front-face setback is0.43m, total timber-body fore/aft depth0.695m, central wood-only normal span0.56m; the0.585m statistic is measured from the weather-profile datum to the lowest timber. Geometry/source remains unchanged."
+}

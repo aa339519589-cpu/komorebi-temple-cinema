@@ -1,3 +1,4 @@
+import {setTurnedShaftTimberUV04} from './scene04-timber-precision134.js';
 // Common architectural contour/structure, inferred from the whole photograph.
 // Numeric observations never become image UVs, albedo or scene radiance.
 export function createHallProfile132(C){
@@ -26,6 +27,6 @@ export function buildHallBearing132(T,{emit,box,between,profile,C}){
  }
  for(const t of[.12,.34,.57,.78,.96]){const a=profile.mainPoint(0,t,-.94),b=profile.mainPoint(0,t,.94);a[1]-=.31;b[1]-=.31;between(a,b,.19,.27,'cedar');}
  for(const side of[0,1,2,3])for(let row=0;row<19;row++){const u=-.95+1.90*row/18;for(let j=0;j<30;j++){const a=profile.mainPoint(side,.04+.96*j/30,u),b=profile.mainPoint(side,.04+.96*(j+1)/30,u);a[1]-=.245;b[1]-=.245;between(a,b,.055,.13,'darkwood');}}
- for(const x of C.columnAxes){const cap=Math.abs(x)<3.2?C.capitalTop:Math.abs(x)<5.5?C.capitalTop-.72:C.capitalTop-1.0,r=Math.abs(x)<3.2?.305:.274,bottom=C.stairTopY,h=cap-.18-(bottom+.25),points=[[0,0],[r*.97,0],[r,.12*h],[r*1.035,.35*h],[r*1.015,.60*h],[r*.975,.85*h],[r*.945,h],[0,h]].map(p=>new T.Vector2(...p));emit(new T.CylinderGeometry(r*1.30,r*1.47,.18,40),'granite',x,bottom+.09,0);emit(new T.CylinderGeometry(r*1.12,r*1.30,.07,40),'stone',x,bottom+.215,0);emit(new T.LatheGeometry(points,48),'red',x,bottom+.25,0);box(x,cap-.105,0,r*2.22,.15,r*2.22,'cedar');box(x,cap-.018,0,r*2.65,.045,r*2.65,'oldgold');}
+ for(const x of C.columnAxes){const cap=Math.abs(x)<3.2?C.capitalTop:Math.abs(x)<5.5?C.capitalTop-.72:C.capitalTop-1.0,r=Math.abs(x)<3.2?.327:.286,bottom=C.stairTopY,h=cap-.18-(bottom+.25),points=[[0,0],[r*.97,0],[r,.12*h],[r*1.035,.35*h],[r*1.015,.60*h],[r*.975,.85*h],[r*.945,h],[0,h]].map(p=>new T.Vector2(...p));emit(new T.CylinderGeometry(r*1.30,r*1.47,.18,48),'granite',x,bottom+.09,0);emit(new T.CylinderGeometry(r*1.12,r*1.30,.07,48),'stone',x,bottom+.215,0);emit(setTurnedShaftTimberUV04(new T.LatheGeometry(points,64)),'red',x,bottom+.25,0);box(x,cap-.105,0,r*2.22,.15,r*2.22,'cedar');box(x,cap-.018,0,r*2.65,.045,r*2.65,'oldgold');}
  return{revision:'hall132-common-profile-bearing',frontColumns:C.columnAxes.length,roofRafters:76,purlinRows:5,shaftFootY:C.stairTopY,columnAxes:C.columnAxes,origin:profile.origin,visualAccepted:false};
 }

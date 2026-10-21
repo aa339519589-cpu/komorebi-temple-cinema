@@ -25,28 +25,29 @@ function addSuspendedLamps(scene,architecture,materials){
  architecture.group.updateMatrixWorld(true);const members=[];
  architecture.group.traverse(o=>{if(o.isMesh&&o.geometry?.userData?.architectureMember==='entrance-saddled-bargeboard')members.push(o);});
  if(!members.length)throw Error('Actual entrance bargeboard is required for lamp suspension.');
- const paper=new T.MeshStandardMaterial({name:'reference4-warm-paper',color:'#d9ae64',emissive:'#ffb248',emissiveIntensity:.46,roughness:.84,side:T.DoubleSide});
+ const paper=new T.MeshStandardMaterial({name:'reference4-warm-paper',color:'#d2bb83',emissive:'#ffb248',emissiveIntensity:.30,roughness:.84,side:T.DoubleSide});
  const rows=[],axis=new T.Vector3(0,1,0);
  function mesh(g,m,p){const o=new T.Mesh(g,m);o.position.fromArray(p);o.castShadow=o.receiveShadow=true;scene.add(o);return o;}
  const origin=C.architecture.hallOrigin??[0,0,0];
  for(const localX of [-5.55,5.55]){
   const x=localX+origin[0],y=5.8+(C.architecture.stairTopY-1.8),z=1.7+origin[2];const hits=new T.Raycaster(new T.Vector3(x,y+.66,1.5+origin[2]),axis,0,3).intersectObjects(members,false);
   if(!hits.length)throw Error('No actual curved eave underface above the intended suspended lantern.');
-  const contactY=hits[0].point.y,armTop=contactY+.010,armBottom=armTop-.075,rodBottom=y+.64;
+  const lampScale=.80,body=(g,m,p)=>{const o=mesh(g,m,[x+p[0]*lampScale,y+p[1]*lampScale,z+p[2]*lampScale]);o.scale.setScalar(lampScale);return o;};
+  const contactY=hits[0].point.y,armTop=contactY+.010,armBottom=armTop-.075,rodBottom=y+.64*lampScale;
   if(armBottom<=rodBottom)throw Error('Suspended lantern overlaps the measured support.');
   mesh(new T.BoxGeometry(.14,.075,.35),materials.oldgold,[x,(armTop+armBottom)/2,1.615+origin[2]]);
   mesh(new T.CylinderGeometry(.016,.016,armBottom-rodBottom,10),materials.oldgold,[x,(armBottom+rodBottom)/2,z]);
   for(const sign of [-1,1]){
-   mesh(new T.CylinderGeometry(.34,.34,.075,6),materials.gold,[x,y+sign*.46,z]);
-   mesh(new T.CylinderGeometry(sign>0?.27:.36,sign>0?.36:.27,.16,6),materials.oldgold,[x,y+sign*.54,z]);
+   body(new T.CylinderGeometry(.34,.34,.075,6),materials.gold,[0,sign*.46,0]);
+   body(new T.CylinderGeometry(sign>0?.27:.36,sign>0?.36:.27,.16,6),materials.oldgold,[0,sign*.54,0]);
   }
   for(let j=0;j<6;j++){
-   const a=j*Math.PI/3;mesh(new T.CylinderGeometry(.018,.018,.9,8),materials.gold,[x+Math.sin(a)*.305,y,z+Math.cos(a)*.305]);
-   const pane=mesh(new T.PlaneGeometry(.275,.82),paper,[x+Math.sin(a+Math.PI/6)*.247,y,z+Math.cos(a+Math.PI/6)*.247]);pane.rotation.y=a+Math.PI/6;
+   const a=j*Math.PI/3;body(new T.CylinderGeometry(.018,.018,.9,8),materials.gold,[Math.sin(a)*.305,0,Math.cos(a)*.305]);
+   const pane=body(new T.PlaneGeometry(.275,.82),paper,[Math.sin(a+Math.PI/6)*.247,0,Math.cos(a+Math.PI/6)*.247]);pane.rotation.y=a+Math.PI/6;
   }
-  mesh(new T.SphereGeometry(.07,12,8),materials.gold,[x,y-.70,z]);
+  body(new T.SphereGeometry(.07,12,8),materials.gold,[0,-.70,0]);
   const light=new T.PointLight('#ffcf86',8,5,2);light.position.set(x,y,z);light.name='reference4-eave-lantern-light';scene.add(light);
-  rows.push({body:[x,y,z],supportContact:hits[0].point.toArray(),supportObject:hits[0].object.name,armTop,armBottom,rodBottom});
+  rows.push({body:[x,y,z],lampScale,supportContact:hits[0].point.toArray(),supportObject:hits[0].object.name,armTop,armBottom,rodBottom});
  }
  return rows;
 }
@@ -103,7 +104,7 @@ export function buildReference4Scene(){
    try{scene.updateMatrixWorld(true);probe.update(renderer,scene);pavingEnvironmentTarget=pmrem.fromCubemap(cube.texture);for(const material of garden.group.userData.pavingMaterials??[]){material.envMap=pavingEnvironmentTarget.texture;material.needsUpdate=true;}}finally{garden.subgroups.path.visible=pathVisible;waterReflection.visible=reflectionVisible;probe.removeFromParent();cube.dispose();}
   }finally{pmrem.dispose();envSky.material.dispose();}
  }
- function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe({...architecture.sockets,portalDepth:architecture.portalDepth,hallBearing:architecture.hallBearing,hallProfile:{origin:architecture.hallProfile.origin,neckPower:architecture.hallProfile.neckPower,pitchPower:architecture.hallProfile.pitchPower,karahafuContour:architecture.hallProfile.contour}}),garden:describe(garden.sockets),understory:understory.info,suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},lighting:{sunDirection:sunDirection.toArray(),shadowCanopyDirection:shadowCanopyDirection.toArray(),sunIntensity:C.lighting.sunIntensity,skyIntensity:C.lighting.skyIntensity},environmentInitialized:!!environmentTarget,pavingReflection:{actualSceneCapture:!!pavingEnvironmentTarget,position:[0,.28,18.2],resolution:256,scope:'Local reflection approximation; not ray-traced per-pixel reflections.'},lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
+ function info(){return{revision:C.revision,counts:sceneCounts(scene),architecture:describe({...architecture.sockets,portalDepth:architecture.portalDepth,hallBearing:architecture.hallBearing,porchJoinery:architecture.porchJoinery,hallProfile:{origin:architecture.hallProfile.origin,neckPower:architecture.hallProfile.neckPower,pitchPower:architecture.hallProfile.pitchPower,karahafuContour:architecture.hallProfile.contour}}),garden:describe(garden.sockets),understory:understory.info,suspensions,forest:{trees:distantForest.treeCount,crowns:distantForest.crownCount},lighting:{sunDirection:sunDirection.toArray(),shadowCanopyDirection:shadowCanopyDirection.toArray(),sunIntensity:C.lighting.sunIntensity,skyIntensity:C.lighting.skyIntensity},environmentInitialized:!!environmentTarget,pavingReflection:{actualSceneCapture:!!pavingEnvironmentTarget,position:[0,.28,18.2],resolution:256,scope:'Local reflection approximation; not ray-traced per-pixel reflections.'},lightBudget:{directionalShadows:1,pointShadows:0,rectAreaLights:0},limits:[...C.limitations,sanctuary.limits,distantForest.limits],visualAcceptance:false};}
  scene.updateMatrixWorld(true);
  return{scene,architecture,garden,sky,sun,focal:sanctuary.group,sanctuary,distantForest,understory,waterReflection,initializeEnvironment,info};
 }

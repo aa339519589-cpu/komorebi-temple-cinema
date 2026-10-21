@@ -1,0 +1,161 @@
+{
+  "revision": "scene04-porch135-r06",
+  "status": "major-porch-gable-rebuild-rendered-unaccepted",
+  "visualAccepted": false,
+  "sourceHash": "5f30b45c9d034ebb32100e9d3588621cc30e85dd9b57210b8cfb8cd66578f477",
+  "reference": "references/hd/3-照片-4.jpg",
+  "baseline": "qa/ten-reference/04/iteration-scene04-monumental134-r03",
+  "nativeEvidence": {
+    "fullAndTrueSubfrustum": "qa/ten-reference/04/iteration-scene04-porch135-r06/report.json",
+    "oblique": "qa/ten-reference/04/iteration-scene04-porch135-r06-oblique/report.json",
+    "all1254": true,
+    "allSameSourceHash": true,
+    "motionRendered": false
+  },
+  "physicalEvidence": {
+    "export": "lookdev/scene04-porch135/export-r06/export-report.json",
+    "render": "lookdev/scene04-porch135/cycles-r06/report.json",
+    "packedModel": null,
+    "sceneSaved": false,
+    "renderedFromMemory": true,
+    "sameSource": true,
+    "triangleCountPreserved": true,
+    "UVAndPointReadBackHashesMatch": true,
+    "nativePixelEquivalence": false
+  },
+  "actualAssembly": {
+    "revision": "scene04-porch135-dominant-rebuild-r06",
+    "pairedHafu": 2,
+    "hafuVisibleNormalDepthMetres": 0.585,
+    "hafuForeAftRetreatMetres": 0.54,
+    "carvedPanels": 39,
+    "reliefTriangles": 3584884,
+    "deepCorbelSets": 36,
+    "shaftBearingSets": 6,
+    "closedRafterBoards": 32,
+    "visualAccepted": false
+  },
+  "measuredHafuDimensions": {
+    "sourceHash": "5f30b45c9d034ebb32100e9d3588621cc30e85dd9b57210b8cfb8cd66578f477",
+    "scope": "Targeted measurements from actual exported source hafu vertex buffers in Three.js world Y-up metres; not a recovered survey of the photograph.",
+    "members": {
+      "outer": {
+        "mesh": "scene04-135-main-flowing-hafu-actual-lamp-support",
+        "geometry": "23475587-10c2-4b31-8152-a5d7bf4ff539",
+        "positionFile": "assets/geometry-0-position.bin",
+        "positionSha256": "a16d8d1d4f6913af8dd43ea635e95be1e626d602832a36310cd823f988c18046",
+        "worldZBoundsMetres": [
+          1.2600000143051147,
+          1.5649999618530273
+        ],
+        "centerSectionWorldYBoundsMetres": [
+          11.154999732971191,
+          11.454999923706055
+        ]
+      },
+      "inner": {
+        "mesh": "scene04-135-recessed-second-flowing-hafu",
+        "geometry": "679fbf42-1b4e-4dc0-9c43-af2c0e6c83eb",
+        "positionFile": "assets/geometry-1-position.bin",
+        "positionSha256": "28dc0dbdcefb50f08229da18dbf75aac762a7adbbfe24408caee4a4647ab1360",
+        "worldZBoundsMetres": [
+          0.8700000286102295,
+          1.1350000143051147
+        ],
+        "centerSectionWorldYBoundsMetres": [
+          10.895000457763672,
+          11.069999694824219
+        ]
+      }
+    },
+    "actualFrontFaceSetbackMetres": 0.4299999475479126,
+    "coupledTimberBodyForeAftDepthMetres": 0.6949999332427977,
+    "visibleCenterTimberStackNormalSpanMetres": 0.5599994659423828,
+    "weatherProfileDatumToLowestTimberMetres": 0.5849995422363286,
+    "clarification": "Earlier0.54m was a nominal section reference offset (an inner back-corner plane), not the actual outer/inner front-face setback. Actual exported front-face setback is0.43m, total timber-body fore/aft depth0.695m, central wood-only normal span0.56m; the0.585m statistic is measured from the weather-profile datum to the lowest timber. Geometry/source remains unchanged."
+  },
+  "implementation": [
+    "Replaced running133 small toy flower/wire-leaf module with a dominant closed solid relief and deep architectural assembly;134R03 receipts and frozen source remain intact.",
+    "Two closed swept hafu bodies have an actual0.43m front-face setback and0.695m total fore/aft timber-body depth, with solid shoulder returns, heavy sculpted crown/end bodies and seated metal fillets. Earlier0.54m was a nominal reference-corner offset, not the front-face setback; actual measurements are attached.",
+    "Actual raised wood and conforming gilt volumes form shaped transfer/nuki carvings, dense pierced ranma and an occupied recessed arched tympanum; selected existing generated hosoge-karakusa scalar guide never becomes scene albedo.",
+    "Thirty-six interlocked mortised cloud-arm bearing clusters, six shaft-bearing sets, canted octagonal receivers and bevelled bridges replace plain bracket/ladder stacks.",
+    "Thirty-two curved closed vault boards with verified outward winding and broad structural arch trimmers replace bare vault/thin repeated ribs.",
+    "Straight main-ridge box is replaced by a gently curved multi-step ceramic section; its carved medallions conform to the actual new face.",
+    "R04 lofts actual convex/cloud-ended rainbow-beam solids, conforms macro carving to their real front curvature, and adds a continuous closed hafu under-web. Closed gilt follows coherent leaf silhouettes after the high substrate cut.",
+    "R05 narrows the real ranma sculpture to4.60m, closes it into a tapered/oval pierced silhouette and phase-centres a complete macro vine/flower group on the building axis.",
+    "R06 reduces the visible centre timber stack to0.56m (0.585m below the weather datum), while retaining true fore/aft depth; secondary hafu/under-web/returns are moved coherently. This addresses the broad bare-brown section exposed by the actual oblique."
+  ],
+  "sourceUse": {
+    "selectedGuide": "reconstructions/scene-04/assets/carving135/hosoge-karakusa-height-guide.png",
+    "provenance": "reconstructions/scene-04/assets/carving135/provenance.json",
+    "newGeneratedRejectedGuide": "lookdev/scene04-porch135/rejected-authored-dragon-cloud-height-guide.png",
+    "newGeneratedPrompt": "lookdev/scene04-porch135/rejected-imagegen-prompt.txt",
+    "guideIsNonMetric": true,
+    "photoRGBRendered": false,
+    "guideUsedAsVisibleMap": false
+  },
+  "preserved": [
+    "Reference camera/film path",
+    "Main hall weather roof profile and bay axes",
+    "Actual statue/stair/path/toro/root contacts",
+    "Shared/global asset bytes",
+    "Native global light settings from134; no additional light-parameter sweep"
+  ],
+  "critiqueAndRepairs": [
+    "135R01 actual full/detail showed overcontinuous gold carpets and low-gray guide substrate. Candidate/source archive retained.",
+    "135R02 actual full/detail restored wood intervals but exposed clipped rectangular ornaments and plain receiver stacks; candidate/source archive retained.",
+    "135R03 removes more low substrate by average-cell threshold0.21 after0.18 remap, uses high-surface gilt cutoff0.60, full guide-height margins and corresponding physical field sizes, thinner coupled visible sections with real returns, canted receivers and fewer duplicate bridge strips.",
+    "R03 actual native/oblique/physical comparison exposed dark stippled rectangular fittings despite real volume. R04 replaces the section/layout/gilt topology as actual geometry; R05 narrows and closes the central sculpture silhouette to match source hierarchy.",
+    "Actual R06 oblique confirms real coupled front/rear depth and independently shadowed sculpture/bearings. A fresh verified export and physical keyframe use exactly this source geometry. R06 is rendered in RAM with CYCLES_SAVE_BLEND=0 under the parent disk constraint; no new editable blend is claimed."
+  ],
+  "review": {
+    "wholeFrame": "Major porch/gable mass, occupied carving and real coupled member depth are a substantive correction over134. This still looks like an authored CG reconstruction compared with Source04.",
+    "physical": "One fresh full1254/96 physical keyframe uses the already established134 sunlight/sky/pool interpretation, without a new light sweep. The source shader sky/cloud and planar reflection remain renderer-specific exclusions; physical world/GI/reflections and BSDF are documented adaptations.",
+    "remainingGaps": [
+      "Carving layout still has visible repetition and some stamped/regular panel read; it does not recover source iconography or arbitrary hidden rear undercuts.",
+      "Whole-scene wood/gilt/ceramic response, weathering and fine structure remain less photographic than the source.",
+      "Garden/stone-lantern/roof-tile/statue simplification persists outside this dominant-porch correction.",
+      "No film or temporal acceptance is established."
+    ]
+  },
+  "files": [
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-porch135-r06/reference.png",
+      "sha256": "8732351e920edf0fc47d0e6e8ae02a3f5dae8f3c1e05e2bb20665c303a63a764"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-porch135-r06/detail-native.png",
+      "sha256": "931e31e847eab3bcdcc03d1f7dfd86c8b0191c4b2e6cbbe0ba0ca8a94483324b"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-porch135-r06-oblique/inspection-view.png",
+      "sha256": "b409e4bdd2fd69054fed568b598610a3262b8ac5da088e6d407ef739f909d4f5"
+    },
+    {
+      "file": "lookdev/scene04-porch135/cycles-r06/scene04-porch135-physical-r06.png",
+      "sha256": "ef0dea8614939e5c18e643f00fc50c7678d826702c5f126b2ae316b03b3a908d"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-porch135-r06/comparison-only-photo-134-135-native-135-cycles.png",
+      "sha256": "492caa5256b6ca2be0663f574e7ce8195fda7be79bccf82e06a2f7980a0c944a"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-porch135-r06/comparison-only-dominant-porch.png",
+      "sha256": "165aa35c1a777d3cdb666fd94aa00734219dc8d0aa37f278e4e3b8615e6ce59c"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-porch135-r06/comparison-only-135-native-repair-history.png",
+      "sha256": "0d16731bcc1c9c54c161b53fc205c6d1317a21b145ac0f6c0d7792fb97335cce"
+    }
+  ],
+  "exportCacheDisposition": {
+    "status": "pruned-verified-regenerable-export-buffers",
+    "receipt": "lookdev/scene04-porch135/export-r06/pruned-regenerable-buffers.json",
+    "receiptSha256": "3abbf2387bf84042275f954713c5738c50dbaa48ed0855c78e9b4ef8e91cc994",
+    "deletedRegenerableBytes": 1836273112,
+    "allOriginalExportBufferHashesVerified": true,
+    "sourceTexturePNGJSONAndScriptsPreserved": true,
+    "R06PackedBlendSaved": false,
+    "regenerationInstructions": "lookdev/scene04-porch135/export-r06/REGENERATE-BUFFERS.txt"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "revision": "scene04-monumental134-r03",
+  "reference": "references/hd/3-照片-4.jpg",
+  "referenceUse": "Whole-image proportion and material/light comparison only. No photo RGB, radiance, depth, plate or 2D warp is used by the runtime.",
+  "authoredSources": [
+    "src/scene04-timber-precision134.js",
+    "src/reference4-architecture.js",
+    "src/scene04-hall-profile132.js",
+    "src/scene04-porch-joinery133.js",
+    "src/reference4-materials.js",
+    "src/reference4-config.js",
+    "src/reference4-main.js",
+    "src/reference4-scene.js"
+  ],
+  "continuation": "Existing incomplete porch133-r01b and completed hall132 roof assembly are continued; no restart or shared-global-asset mutation.",
+  "geometry": [
+    "Real 0.6–6.5mm rounded timber edges throughout the hall, pagoda and enclosing galleries. Actual face UV coordinates follow member grain at 1.45m longitudinal and 0.38m transverse texture repeat.",
+    "Front columns gain 7.2% central / 4.4% lateral shaft radius and 64 radial segments, with vertical metric grain. Existing plinth/landing/stair contacts stay at their exact datums.",
+    "Deep narrow dark window lattice replaces the tall gold grid: actual 2.82m recessed window frames, 19mm vertical / 18mm horizontal wood strips, lower timber waist panels.",
+    "Ten curved timber vault ribs occupy the existing recessed soffit. Existing 133 openwork gains joined thick folded leaves, secondary branches and raised floral bosses; fine shaft fittings are actual attached closed wood/gilt forms.",
+    "Native R01 detail exposed that the old vault occluded its ribs: R02 seats ten ribs 15–95mm below the vault, warms the actual soffit timber, adds a 430mm main ridge cap/apron and scales the actual suspended lantern bodies to0.80 while preserving their measured fascia suspension contacts.",
+    "R03 seats ridge medallions on the actual new ceramic apron front face, avoiding the R02 over-cladding occlusion. R01/R02 native candidates are retained."
+  ],
+  "materialAndLight": [
+    "Existing generated cedar detail has stronger neutralized luminance and roughness variation, with 1.2–1.8mm bump and warmer lacquer. No new external bitmap.",
+    "Ceramic is darker neutral grey, with physical roughness0.43 and clearcoat0.16; actual tile geometry is retained.",
+    "Native sky fill0.27, environment0.12, exposure1.08 and display-sky radiance0.22 retain the actual directional sun vector/intensity, increasing under-eave hierarchy. Contact AO uses 0.32m radius, blend0.60; this is declared screen-space approximation."
+  ],
+  "camera": {
+    "position": [
+      0,
+      1.35,
+      23.34
+    ],
+    "target": [
+      0,
+      2.3,
+      0
+    ],
+    "verticalFov": 64.1754241,
+    "reason": "Whole-building coverage and stair/roof framing already agree closely with the source. Preserve source-led low approach, rather than forcing a larger unfaithful crop."
+  },
+  "physicalStudy": "A new verified official all-attribute export and queue-rendered physical sky/Cycles frame is required for this source; old 131/R05 physical studies are not this source.",
+  "newExternalAssets": [],
+  "visualAccepted": false,
+  "limits": [
+    "Source dimensions and hidden joints remain single-view inferences.",
+    "Added ornamental forms approximate the source hierarchy; no claim of exact iconographic or structural reproduction.",
+    "Native WebGL fill/AO/reflection approximations are not Cycles material/light equivalence."
+  ]
+}

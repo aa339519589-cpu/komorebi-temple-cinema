@@ -1,0 +1,56 @@
+{
+  "status": "reviewed-unaccepted",
+  "sourceHash": "f3638c92c8f80d8cee8e40f346d179b4ce24e0211a44b1619ec8c2076ac03281",
+  "canonicalSourceEdited": false,
+  "full": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-physical155-full.png",
+    "sha256": "85af4b3393d145634bfe354d42328224f8b7f5053929a3d10d00cd946266907a",
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 96
+  },
+  "trueHallDetail": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-physical155-true-hall-detail.png",
+    "sha256": "8039be3cd67b8597446435fa73b58945def09e352a7010c72972ec8f1db620da",
+    "sourceCropPixels": [
+      540,
+      430,
+      240,
+      1254
+    ],
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 96,
+    "sourceCameraMatrixUnchanged": true,
+    "maximumRaySlopeError": 4.643124107417407e-09,
+    "originalApertureAndCoCPreserved": true,
+    "upscaledScreenshot": false
+  },
+  "physicalReport": "qa/ten-reference/07/iteration-scene07-physical155-20261022/report.json",
+  "sourceExportReport": "lookdev/scene07-physical155/export/export-report.json",
+  "runner": "lookdev/scene07-physical155/render-physical155.py",
+  "sourceSupplement": "lookdev/scene07-physical155/source-supplement.json",
+  "fullReferenceComparison": "qa/ten-reference/07/iteration-scene07-physical155-20261022/comparison-reference-left-physical-right.png",
+  "hallReferenceComparison": "qa/ten-reference/07/iteration-scene07-physical155-20261022/comparison-reference-left-true-hall-detail-right.png",
+  "singleBlend": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-exact-source-physical155.blend",
+    "assetsPacked": false,
+    "reason": "No duplicate source PNG/EXR bytes; original verified asset and one export tree remain linked.",
+    "sha256": "e6e62b74df2225f3a8524cfdf0debb82a7674e2451f56c40365371c0df5687c4"
+  },
+  "sourceUnchangedAfterCapture": true,
+  "visualAccepted": false,
+  "nativePixelEquivalence": false,
+  "filmsRendered": false,
+  "commitsMade": false,
+  "warnings": [
+    "Visible measured-HDR camera sky is nearly white. It differs from the native generated cloud cap and the reference blue/cloud texture; this first physical look is not photographically accepted.",
+    "Garden canopy/flower/rock morphology and architectural proportions remain source geometry approximations; no new assets or geometry redesign were integrated.",
+    "Native glTF AO modulation and GPU single-pass/culling behavior are not literal optical transport. Actual source vertexColors/alphaTest/opacity flags, UV layers, normals, RGB and matrices remain recorded; physical GI and thin BSDF replace additive leaf approximations.",
+    "Exact timber metric formula/phase is ported with Float32 CPU math; GPU sin/FMA phase and camera color curves are not pixel-equivalent."
+  ]
+}

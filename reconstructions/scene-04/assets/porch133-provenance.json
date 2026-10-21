@@ -1,0 +1,22 @@
+{
+  "revision": "scene04-porch133-r01b",
+  "reference": "references/hd/3-照片-4.jpg",
+  "referenceUse": "Comparison and approximate manually observed member hierarchy only. No source RGB, depth, radiance or scene plate is rendered.",
+  "authoredSource": "src/scene04-porch-joinery133.js",
+  "geometry": [
+    "Closed swept 292mm normal-depth fascia with two fine gilded edge fillets replaces the former 460mm section and repeated front blocks.",
+    "Fine seated canopy rafters and separate carrier/vault ribs replace the oversized nested front band stack. The hall132 weather contours are unchanged.",
+    "Single sculpted upper transfer beam and lower nuki replace multiple overlapping beam copies. Closed variable-section wood volutes and lobed leaves form actual openwork between those timbers.",
+    "The actual six shaft caps receive new cloud hijiki and fore-aft receivers, with sculpted noses and attached low-relief beam cartouches.",
+    "Closed carved leaves and variable-section volutes have attached conforming 0.6mm gilt skins rather than scattered wire scrolls or image decoration. The coarse metal thickness is an explicit visibility/precision adaptation, not literal gold-leaf gauge.",
+    "New authored indexed solids check paired edges and consistent outward orientation during construction. This does not establish absence of all self-intersection, structural engineering validity or photographic fidelity."
+  ],
+  "materialAdaptation": {
+    "scope": "Only the new carved timber and gilt geometry; retained materials elsewhere, original camera, film path, sun and exposure remain unchanged.",
+    "wood": "Existing neutralized generated cedar PBR detail retained on closed carved volumes; local warm red-brown color, roughness0.48/0.51, clearcoat0.16, bump1.7mm.",
+    "gilt": "Physical metal response on attached sculpted skins; color#d3a83f, roughness0.34, metalness0.84. No emission or painted highlights.",
+    "newExternalAssets": []
+  },
+  "preserved": ["hall132 main roof and karahafu weather contours", "common hall origin and column axes", "reference camera and native film path", "stair/landing/toro/path contacts", "sourceSun and lighting"],
+  "visualAccepted": false
+}

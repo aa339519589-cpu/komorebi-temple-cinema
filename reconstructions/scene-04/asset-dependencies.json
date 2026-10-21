@@ -1,10 +1,10 @@
 {
   "scene": "04",
-  "revision": "scene04-hall132-r05",
+  "revision": "scene04-porch135-r06",
   "referencePhotographs": {
     "usedByRuntime": false,
     "scope": "Comparison evidence only; original photo copyright remains with its owner.",
-    "reference": "3-\u7167\u7247-4.jpg"
+    "reference": "3-照片-4.jpg"
   },
   "newExternalAssets": [
     {
@@ -90,7 +90,13 @@
     "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
     "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
     "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
-    "assets/polyhaven/periwinkle-plant/provenance.json"
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "reconstructions/scene-04/src/scene04-timber-precision134.js",
+    "reconstructions/scene-04/assets/ensemble134-provenance.json",
+    "reconstructions/scene-04/src/scene04-porch-sculpture135.js",
+    "reconstructions/scene-04/assets/carving135/hosoge-karakusa-height-guide.png",
+    "reconstructions/scene-04/assets/carving135/hosoge-karakusa-height-1536x512.gray8.bin",
+    "reconstructions/scene-04/assets/carving135/provenance.json"
   ],
   "sceneLocalStoneLoader": {
     "source": "src/scene04-scanned-garden-stones.js",
@@ -113,6 +119,27 @@
     "provenance": "assets/hall132-provenance.json",
     "scope": "Connected steep irimoya roof, spline karahafu profile, actual bearing/purlin/rafter and turned-column reconstruction under the unchanged reference camera/stair datum.",
     "referenceRGBUsed": false,
+    "visualAccepted": false
+  },
+  "porch133": {
+    "provenance": "assets/porch133-provenance.json",
+    "scope": "Thin closed curved fascia, coherent transfer/nuki and cloud bearing hierarchy, source-scale closed carved wood with conforming physical gilt skins.",
+    "referenceRGBUsed": false,
+    "newExternalAssets": [],
+    "visualAccepted": false
+  },
+  "ensemble134": {
+    "provenance": "assets/ensemble134-provenance.json",
+    "scope": "Whole-ensemble timber precision, source-window depth/column proportions, denser actual vaulted carving, warmer metric PBR and light hierarchy.",
+    "referenceRGBUsed": false,
+    "newExternalAssets": [],
+    "visualAccepted": false
+  },
+  "porch135": {
+    "provenance": "assets/carving135/provenance.json",
+    "scope": "Dominant coupled hafu, real closed carved tympanum/ranma/beam-end relief and interlocked corbel hierarchy; replaces plain gable/ladder/toy-flower reads.",
+    "referenceRGBUsed": false,
+    "imageGuideUsedAsAlbedo": false,
     "visualAccepted": false
   }
 }

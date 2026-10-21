@@ -1,0 +1,2529 @@
+{
+  "status": "physical-source-exact-review",
+  "sourceHash": "f3638c92c8f80d8cee8e40f346d179b4ce24e0211a44b1619ec8c2076ac03281",
+  "sourceCommit": "c28d3fd32dc4dfea19979640f2ce111a52bf9738",
+  "exportSceneSha256": "9d55544f6cf50db3332640e12abd9a4712cdf41095545a4ef3e6b6c02237c73c",
+  "renderScriptSha256": "f17a2fc378e680824699cfd36499d746ff16d7a2d1026b6db53f5e043e0f33fe",
+  "nativeReport": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-pierced-gilt154-smooth-forest155-r02-20261021/report.json",
+  "sourceStatistics": {
+    "meshes": 1442,
+    "geometries": 1382,
+    "materials": 132,
+    "textures": 34,
+    "instances": 159380,
+    "triangles": 77247338
+  },
+  "excludedNativeShaders": [
+    {
+      "name": "",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    },
+    {
+      "name": "scene07-sky145-cloud-sphere",
+      "type": "Mesh",
+      "material": "scene07-worldlocked-golden-cloud-radiance146",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    }
+  ],
+  "blender": "5.2.1 LTS",
+  "started": 1792603389.868154,
+  "warnings": [
+    "Visible measured-HDR camera sky is nearly white. It differs from the native generated cloud cap and the reference blue/cloud texture; this first physical look is not photographically accepted.",
+    "Garden canopy/flower/rock morphology and architectural proportions remain source geometry approximations; no new assets or geometry redesign were integrated.",
+    "Native glTF AO modulation and GPU single-pass/culling behavior are not literal optical transport. Actual source vertexColors/alphaTest/opacity flags, UV layers, normals, RGB and matrices remain recorded; physical GI and thin BSDF replace additive leaf approximations.",
+    "Exact timber metric formula/phase is ported with Float32 CPU math; GPU sin/FMA phase and camera color curves are not pixel-equivalent."
+  ],
+  "visualAccepted": false,
+  "nativePixelEquivalence": false,
+  "canonicalEdits": false,
+  "materialTransfer": {
+    "originalFlags": [
+      {
+        "id": "2ec40bfc-4552-4652-85e7-1e4d305e3d07",
+        "sourceName": "sanctuary-dark-wood",
+        "vertexColors": false,
+        "sourceColor": [
+          0.035601314869097636,
+          0.014443843592229466,
+          0.007499032040460618
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "7735c483-00d4-4ed4-8b7b-01b15023adcd",
+        "sourceName": "sanctuary-recessed-gilt",
+        "vertexColors": false,
+        "sourceColor": [
+          0.2874408377161099,
+          0.16513219449147767,
+          0.04373502925049377
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "7ee6fa3e-51a4-4146-a03a-be68f3a87457",
+        "sourceName": "sanctuary-gilding",
+        "vertexColors": false,
+        "sourceColor": [
+          0.623960391667596,
+          0.3813260114221238,
+          0.06301001764564068
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a173b0ad-6630-4353-b16d-fe6670771b8d",
+        "sourceName": "sanctuary-black-lacquer",
+        "vertexColors": false,
+        "sourceColor": [
+          0.008568125615105716,
+          0.004391442035325718,
+          0.0030352698352941175
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "29ccf35e-cd49-46be-b9e7-c73cce20f6e5",
+        "sourceName": "sanctuary-hair",
+        "vertexColors": false,
+        "sourceColor": [
+          0.014443843592229466,
+          0.008568125615105716,
+          0.0036765073221525194
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "fa874424-dd8d-4f2f-92ba-0922b4b85057",
+        "sourceName": "sanctuary-real-oil-flame",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          0.8713671191959567,
+          0.4910208498384856
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "ef1c977f-d81f-435a-92c4-7d6c60483106",
+        "sourceName": "island-lantern-independent-mineral-granite",
+        "vertexColors": false,
+        "sourceColor": [
+          0.24228112245478564,
+          0.2704977910022518,
+          0.23074004851362043
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "d53beb0d-48f7-42b7-9de7-235498985faf",
+        "sourceName": "island-lantern-carved-stone-ground",
+        "vertexColors": false,
+        "sourceColor": [
+          0.16202937562896222,
+          0.1912016827303171,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "7c4aefc5-d35c-4e03-b7b6-ccda76ab3c62",
+        "sourceName": "island-lantern-fine-weathered-window-grid",
+        "vertexColors": false,
+        "sourceColor": [
+          0.05126945836711539,
+          0.04518620437910499,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "2e62cdb6-f1ad-4085-867c-5410238c5484",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          0.6375968739867731,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "paper"
+      },
+      {
+        "id": "88382d2e-d5f1-47c3-bb6b-3f53de96efff",
+        "sourceName": "island-lantern-weathered-kasa-stone",
+        "vertexColors": false,
+        "sourceColor": [
+          0.13843161502267545,
+          0.174647403645279,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "2e71ce2f-07c5-42ce-adea-fa965e6571f7",
+        "sourceName": "island-lantern-rooted-moss",
+        "vertexColors": true,
+        "sourceColor": [
+          0.06847816983662762,
+          0.08021982030622662,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "5956630d-f6ea-4298-aedc-87826320e728",
+        "sourceName": "island-lantern-independent-mineral-granite",
+        "vertexColors": false,
+        "sourceColor": [
+          0.24228112245478564,
+          0.2704977910022518,
+          0.23074004851362043
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "c0c2eb37-500a-45d1-ac73-e410b1c53219",
+        "sourceName": "island-lantern-carved-stone-ground",
+        "vertexColors": false,
+        "sourceColor": [
+          0.16202937562896222,
+          0.1912016827303171,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "e992027d-7b1c-4a5a-b580-d33d24d76bf5",
+        "sourceName": "island-lantern-fine-weathered-window-grid",
+        "vertexColors": false,
+        "sourceColor": [
+          0.05126945836711539,
+          0.04518620437910499,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "ece0f3dc-ca79-4011-a8c6-c3998dfa7ace",
+        "sourceName": "island-lantern-weathered-kasa-stone",
+        "vertexColors": false,
+        "sourceColor": [
+          0.13843161502267545,
+          0.174647403645279,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "4bb0f7ee-3b40-4306-89c6-17ac84e79b68",
+        "sourceName": "island-lantern-rooted-moss",
+        "vertexColors": true,
+        "sourceColor": [
+          0.06847816983662762,
+          0.08021982030622662,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "0f8948b3-07e9-4829-9135-8112b8f86567",
+        "sourceName": "island-lantern-independent-mineral-granite",
+        "vertexColors": false,
+        "sourceColor": [
+          0.24228112245478564,
+          0.2704977910022518,
+          0.23074004851362043
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "d2d38a03-75fd-4e07-a77d-3ad00f22c2df",
+        "sourceName": "island-lantern-carved-stone-ground",
+        "vertexColors": false,
+        "sourceColor": [
+          0.16202937562896222,
+          0.1912016827303171,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "cc987169-8dbc-40f1-956f-837313785a88",
+        "sourceName": "island-lantern-fine-weathered-window-grid",
+        "vertexColors": false,
+        "sourceColor": [
+          0.05126945836711539,
+          0.04518620437910499,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "e9f92b81-62ef-4157-83f7-38547a2da2be",
+        "sourceName": "island-lantern-weathered-kasa-stone",
+        "vertexColors": false,
+        "sourceColor": [
+          0.13843161502267545,
+          0.174647403645279,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "b3cb2e22-6411-4418-bc60-0464386199e0",
+        "sourceName": "island-lantern-rooted-moss",
+        "vertexColors": true,
+        "sourceColor": [
+          0.06847816983662762,
+          0.08021982030622662,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "c55d15d0-d3cd-4cf6-bd82-15787b47ee30",
+        "sourceName": "island-lantern-independent-mineral-granite",
+        "vertexColors": false,
+        "sourceColor": [
+          0.24228112245478564,
+          0.2704977910022518,
+          0.23074004851362043
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a37562a4-de1b-40ca-b1bc-2f77b5342ce6",
+        "sourceName": "island-lantern-carved-stone-ground",
+        "vertexColors": false,
+        "sourceColor": [
+          0.16202937562896222,
+          0.1912016827303171,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "0b218e14-6c3e-46c4-b583-630a8632388d",
+        "sourceName": "island-lantern-fine-weathered-window-grid",
+        "vertexColors": false,
+        "sourceColor": [
+          0.05126945836711539,
+          0.04518620437910499,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "c8cb7aac-b74b-4947-be00-c6f465304481",
+        "sourceName": "island-lantern-weathered-kasa-stone",
+        "vertexColors": false,
+        "sourceColor": [
+          0.13843161502267545,
+          0.174647403645279,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "5347e72e-20dd-4b33-bf09-ccfd8df12e08",
+        "sourceName": "island-lantern-rooted-moss",
+        "vertexColors": true,
+        "sourceColor": [
+          0.06847816983662762,
+          0.08021982030622662,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "0c01747f-bebc-47cd-9969-727ee0f0f9c3",
+        "sourceName": "island-lantern-independent-mineral-granite",
+        "vertexColors": false,
+        "sourceColor": [
+          0.24228112245478564,
+          0.2704977910022518,
+          0.23074004851362043
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "aee17771-fc5b-4058-a4b1-a99b88a6ae87",
+        "sourceName": "island-lantern-carved-stone-ground",
+        "vertexColors": false,
+        "sourceColor": [
+          0.16202937562896222,
+          0.1912016827303171,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "910c0155-5b4c-4bfc-bba8-aed710940623",
+        "sourceName": "island-lantern-fine-weathered-window-grid",
+        "vertexColors": false,
+        "sourceColor": [
+          0.05126945836711539,
+          0.04518620437910499,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "d1eb9754-9d99-4659-b73c-4671fffb63d7",
+        "sourceName": "island-lantern-weathered-kasa-stone",
+        "vertexColors": false,
+        "sourceColor": [
+          0.13843161502267545,
+          0.174647403645279,
+          0.15292615198613213
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "d6e1db1f-1cfe-4832-9f39-71fdef3b0938",
+        "sourceName": "island-lantern-rooted-moss",
+        "vertexColors": true,
+        "sourceColor": [
+          0.06847816983662762,
+          0.08021982030622662,
+          0.02732089163382382
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "b1a86857-dd23-4ee5-8b00-5e94c787b792",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.08228270712149792,
+          0.08865558627723595,
+          0.06301001764564068
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "258c1714-d000-4bee-93e7-0070a3dbef4f",
+        "sourceName": "scene07-weathered-cool-terrace-stone",
+        "vertexColors": false,
+        "sourceColor": [
+          0.174647403645279,
+          0.20507873637973145,
+          0.19806931954941637
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "19e5bf1b-e801-45dc-b849-6f7b2e7e42b0",
+        "sourceName": "scene07-scanned-weathered-moss-stone-0",
+        "vertexColors": false,
+        "sourceColor": [
+          0.66,
+          0.8,
+          0.83
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a0a6d713-bdc8-49da-b07e-4cd1d5f08d61",
+        "sourceName": "scene07-scanned-weathered-moss-stone-5",
+        "vertexColors": false,
+        "sourceColor": [
+          0.66,
+          0.8,
+          0.83
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "56a05662-225e-45e1-9189-522b00ed2e4a",
+        "sourceName": "scene07-scanned-weathered-moss-stone-4",
+        "vertexColors": false,
+        "sourceColor": [
+          0.66,
+          0.8,
+          0.83
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "77673b93-c3d2-4e39-9d88-7b85cd15325b",
+        "sourceName": "scene07-scanned-weathered-moss-stone-3",
+        "vertexColors": false,
+        "sourceColor": [
+          0.66,
+          0.8,
+          0.83
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a2c01692-2453-4ecc-872d-1ada7306d32f",
+        "sourceName": "scene07-scanned-weathered-moss-stone-2",
+        "vertexColors": false,
+        "sourceColor": [
+          0.66,
+          0.8,
+          0.83
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "2b3bd90d-bbe9-4292-8b14-dfba70bd6290",
+        "sourceName": "scene07-scanned-weathered-moss-stone-1",
+        "vertexColors": false,
+        "sourceColor": [
+          0.66,
+          0.8,
+          0.83
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "4ee66d5f-9f9e-45ad-973b-c0198c3476f2",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.7,
+          0.55,
+          0.38
+        ],
+        "timberMetricShader": true,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "5b98cb43-75ce-4240-8de1-9ec571fcc0bd",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          2.8,
+          1.8,
+          1.05
+        ],
+        "timberMetricShader": true,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "1753ec3c-99d4-45b9-b33d-063cbdb1ec5b",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.3231432091022285,
+          0.3277780980458375,
+          0.2704977910022518
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "6cfb167f-e6e0-4135-b011-28b2d718d6eb",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          5.2,
+          2.15,
+          1.35
+        ],
+        "timberMetricShader": true,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "f1a26a93-f0d4-4319-93a9-d0032ee9b08d",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.48514994004665124,
+          0.3005437944049895,
+          0.08021982030622662
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "f6c021b6-f389-4fbd-8c01-81ad0e90ee17",
+        "sourceName": "scene07-worn-gilt-carved-wood154",
+        "vertexColors": false,
+        "sourceColor": [
+          0.34191442489801843,
+          0.23455058215026167,
+          0.07618538147321911
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "c081892f-c975-4343-8c66-696ac3d9fbcb",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.48514994004665124,
+          0.3813260114221238,
+          0.21952619971859377
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "paper"
+      },
+      {
+        "id": "f9460502-90ab-47c7-901e-3acd13882603",
+        "sourceName": "scene07-ceramic-bedding",
+        "vertexColors": false,
+        "sourceColor": [
+          0.0343398068028541,
+          0.038204371589236,
+          0.033104766565152086
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "060bdb31-21de-46e2-ab96-09c567762414",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "18b7145d-47dd-4bed-871d-9e7327b74d0d",
+        "sourceName": "scene07-worn-ceramic-ridges",
+        "vertexColors": false,
+        "sourceColor": [
+          0.1878207722902346,
+          0.21586050010324417,
+          0.20863687013464577
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "3812d192-8d7a-4e59-9550-0fc08fcf305e",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.7454042095350284,
+          0.5840784178830671,
+          0.3515325994898463
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a3abfdd0-9118-4a8d-b46d-f38756d60821",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "504ca883-3a36-4099-b0da-130288bdbb5f",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "43cdbd27-9a92-4f8f-8491-c84a15c9334f",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "5a0699e2-f4f0-43d9-9840-cb37df256c01",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "deb49cda-47f6-42e1-9606-3f108043b331",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "891407b2-d770-4b63-bb90-fe8f771a06d0",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "2d8a2844-ec59-44a2-a670-eef5c993ceb2",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "1a0a0fcb-f429-45ea-afb2-523622a0bfcd",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "1439d035-093c-4514-8484-cb6339d4946b",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "93d60b90-c20b-462a-ba16-e6c7dd305e83",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "492e8d5e-1605-4419-8209-7c8654ea53b5",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "180e4bf7-3b9f-4f6c-a6b1-ec2823704756",
+        "sourceName": "scene07-charcoal-fired-glaze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.14702726648767014,
+          0.19806931954941637,
+          0.22696587349938613
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "e15f3e61-817c-47df-82c6-669fb669dc9b",
+        "sourceName": "scene07-connected-garden-earth",
+        "vertexColors": true,
+        "sourceColor": [
+          0.06480326668529614,
+          0.08021982030622662,
+          0.04373502925049377
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "91d53938-c8ba-40db-8651-ad20f3839f02",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.0343398068028541,
+          0.04518620437910499,
+          0.01764195448412081
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "bbb6dfab-b468-4dde-8297-cbf496dde2e1",
+        "sourceName": "scene07-scanned-weathered-moss-stone-2-wet",
+        "vertexColors": false,
+        "sourceColor": [
+          0.46199999999999997,
+          0.5599999999999999,
+          0.581
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "0f8d814c-ff52-4e83-afb7-8c373f29702b",
+        "sourceName": "scene07-scanned-weathered-moss-stone-0-wet",
+        "vertexColors": false,
+        "sourceColor": [
+          0.46199999999999997,
+          0.5599999999999999,
+          0.581
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "ae5fd2b6-15ac-45f7-bfc0-be3e9d3bb207",
+        "sourceName": "scene07-scanned-weathered-moss-stone-4-wet",
+        "vertexColors": false,
+        "sourceColor": [
+          0.46199999999999997,
+          0.5599999999999999,
+          0.581
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "2ba1f14b-c46f-40f2-a451-506baf1829c1",
+        "sourceName": "scene07-scanned-weathered-moss-stone-3-wet",
+        "vertexColors": false,
+        "sourceColor": [
+          0.46199999999999997,
+          0.5599999999999999,
+          0.581
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "b2f800e9-51b8-4da1-b7a8-52535f813d5d",
+        "sourceName": "scene07-scanned-weathered-moss-stone-5-wet",
+        "vertexColors": false,
+        "sourceColor": [
+          0.46199999999999997,
+          0.5599999999999999,
+          0.581
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "51666002-7758-41ae-9357-86457e935154",
+        "sourceName": "scene07-scanned-weathered-moss-stone-1-wet",
+        "vertexColors": false,
+        "sourceColor": [
+          0.46199999999999997,
+          0.5599999999999999,
+          0.581
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "2d7c34a5-a3ee-4cf0-8bcb-2bd3d7596acf",
+        "sourceName": "scene07-sunlit-evergreen-bank-leaves",
+        "vertexColors": false,
+        "sourceColor": [
+          0.13286832154414627,
+          0.19461783043107173,
+          0.040915196900556984
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "6a29718a-0705-4246-b18c-2eb5e8e90807",
+        "sourceName": "scene07-deep-evergreen-bank-leaves",
+        "vertexColors": false,
+        "sourceColor": [
+          0.036889450395083165,
+          0.08437621153575764,
+          0.023153366173251363
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "3fd6370c-edc9-4b97-8078-88bb5ffc8803",
+        "sourceName": "scene07-aged-pine-bark148",
+        "vertexColors": true,
+        "sourceColor": [
+          0.6938717612856897,
+          0.5332764040016892,
+          0.38642943377667954
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "68eb6496-dd77-4831-8852-fda31a6aa49f",
+        "sourceName": "scene07-old-pruning-wounds148",
+        "vertexColors": true,
+        "sourceColor": [
+          0.31854677811435356,
+          0.22696587349938613,
+          0.12213877222015301
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "dcb14156-f93f-4ea8-aa1d-826b1527bc49",
+        "sourceName": "scene07-living-pine-twigs148",
+        "vertexColors": true,
+        "sourceColor": [
+          0.1499597898006365,
+          0.10946171076915331,
+          0.05126945836711539
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "ff36f743-5d35-4d73-8090-e43079b9a2fe",
+        "sourceName": "scene07-deep-pine-needles148",
+        "vertexColors": true,
+        "sourceColor": [
+          0.10461648408208657,
+          0.16513219449147767,
+          0.036889450395083165
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "dbb64ca0-24cd-4acc-9be9-93c25384cc27",
+        "sourceName": "scene07-olive-pine-needle-tips148",
+        "vertexColors": true,
+        "sourceColor": [
+          0.22322795730611386,
+          0.3139887133649649,
+          0.06480326668529614
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "26b20431-0ddf-4db4-87e8-db812549d1a7",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.07036009568874305,
+          0.03954623527052923,
+          0.01680737574872402
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "3c64818e-54f7-455f-b93a-53ac76de51c8",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.8227857543924378,
+          0.4019777798219466,
+          0.4969329950515914
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "369a0f21-0918-4550-bb77-21ef91c57576",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.030713443727452196,
+          0.07818742179702069,
+          0.009134058699157796
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "9e8819f1-5054-4ea8-a30f-ceeb70f4197b",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          0.6444796819634361,
+          0.6795424696265424
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "72f803a0-50e6-40fe-8446-445c587c358e",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.2541520943200296,
+          0.33245153633549385,
+          0.04518620437910499
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "580c89bc-fde8-49dc-9fc3-eef029c09239",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.85499260812105,
+          0.7529422167708612,
+          0.5457244613615395
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "9e4dd6a8-4238-454e-b3d2-56dcb1ded3cb",
+        "sourceName": "scene07-waterside-sedge-sunward",
+        "vertexColors": false,
+        "sourceColor": [
+          0.2746773120495699,
+          0.3712376804636741,
+          0.10702310296918527
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "83a19f75-2c6e-41e7-a43a-f3a0006745c7",
+        "sourceName": "scene07-waterside-sedge-deep",
+        "vertexColors": false,
+        "sourceColor": [
+          0.07036009568874305,
+          0.11443537381770343,
+          0.026241221889696346
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "ed59117a-5f42-48d0-810a-40ea1a3b79b7",
+        "sourceName": "scene07-sunlit-evergreen-bank-leaves",
+        "vertexColors": false,
+        "sourceColor": [
+          0.13286832154414627,
+          0.19461783043107173,
+          0.040915196900556984
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "05b89024-532b-4d29-abcc-76380a9fae94",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.030713443727452196,
+          0.07818742179702069,
+          0.009134058699157796
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "d91e32d6-1c5c-4847-8c81-cd17946bdb9a",
+        "sourceName": "scene07-deep-evergreen-bank-leaves",
+        "vertexColors": false,
+        "sourceColor": [
+          0.036889450395083165,
+          0.08437621153575764,
+          0.023153366173251363
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "1ffca73e-20af-46b3-9c23-9f63b5763b8a",
+        "sourceName": "scene07-cc0-shrub-02-shrub_02_b",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0.5,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "3340cd39-8776-4f0c-a896-9041bb61b893",
+        "sourceName": "scene07-cc0-periwinkle-plant-periwinkle_plant_05_LOD0",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "deb472c3-192e-4430-bf37-c92c68c5b5a8",
+        "sourceName": "scene07-cc0-periwinkle-plant-periwinkle_plant_01_LOD0",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "224e864c-3817-4d39-a5e8-2307b3289667",
+        "sourceName": "scene07-cc0-shrub-02-shrub_02_a",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0.5,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "41c82840-2fea-4a63-92db-69eae488e3fb",
+        "sourceName": "scene07-cc0-shrub-02-shrub_02_d",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0.5,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "a6704b91-68d5-4305-b913-49082778be19",
+        "sourceName": "scene07-cc0-periwinkle-plant-periwinkle_plant_06_LOD0",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "24c997f4-9c19-4d6c-b834-19e4caf661ed",
+        "sourceName": "scene07-cc0-periwinkle-plant-periwinkle_plant_04_LOD0",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "66fa7748-73de-4dc2-830e-74c8e774357e",
+        "sourceName": "scene07-cc0-periwinkle-plant-periwinkle_plant_03_LOD0",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "0fcc886d-bea3-431b-8a2f-51b390197b60",
+        "sourceName": "scene07-cc0-periwinkle-plant-periwinkle_plant_02_LOD0",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "857e2cc1-1aba-4a5a-b5bf-642126c67368",
+        "sourceName": "scene07-cc0-shrub-02-shrub_02_c",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0.5,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "fcfed3fa-ddd7-4bbd-8f45-81ef9863219e",
+        "sourceName": "scene07-falling-stream-water",
+        "vertexColors": false,
+        "sourceColor": [
+          0.34670405634441115,
+          0.5209955731953768,
+          0.45641102317066595
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 0.34,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "0bea8077-3f1a-48c9-93a5-c07738a7e722",
+        "sourceName": "scene07-weir-aerated-foam",
+        "vertexColors": false,
+        "sourceColor": [
+          0.7681511472425809,
+          0.7991027380100881,
+          0.6583748172725346
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 0.72,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "08dc58a8-d256-483c-b456-4cce611fc943",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.09758734713304495,
+          0.181164244239483,
+          0.04373502925049377
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "e01d157d-62b6-440f-9d4f-8addc9ac03b7",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.15592646369776456,
+          0.22696587349938613,
+          0.04666508633021928
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "316b2263-fa27-4e1f-a788-236864d88945",
+        "sourceName": "foreground-dark-fired-clay-bedding149",
+        "vertexColors": false,
+        "sourceColor": [
+          0.018500220124016652,
+          0.01680737574872402,
+          0.013702083043526807
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "96ca2936-9def-413f-9e6a-1e6693021f10",
+        "sourceName": "foreground-rounded-charcoal-ceramic-end149",
+        "vertexColors": false,
+        "sourceColor": [
+          0.08021982030622662,
+          0.07036009568874305,
+          0.059511238155621766
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "4f2d9e95-781a-4263-8882-c9b2d25a2db8",
+        "sourceName": "foreground-oxidised-cast-bronze-seat149",
+        "vertexColors": false,
+        "sourceColor": [
+          0.1844749944900301,
+          0.11953842797895521,
+          0.04666508633021928
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "80537bca-8a2c-4a37-9b7d-ff107e22ab18",
+        "sourceName": "foreground-thin-worn-gilt-bead149",
+        "vertexColors": false,
+        "sourceColor": [
+          0.55201140150344,
+          0.3277780980458375,
+          0.08021982030622662
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "1b018585-6183-4a2d-a6a7-147baf291081",
+        "sourceName": "foreground-cast-scroll-relief-with-worn-gilt149",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "41a45d90-b9a7-4690-b3e9-0fbad95707c7",
+        "sourceName": "foreground-neutral-charcoal-partly-glazed-ceramic149",
+        "vertexColors": true,
+        "sourceColor": [
+          0.10461648408208657,
+          0.09530746662221588,
+          0.08437621153575764
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "31db35e2-02f0-41d1-b833-3befc80ecb5a",
+        "sourceName": "layout118-red-lacquered-solid-timber",
+        "vertexColors": false,
+        "sourceColor": [
+          6.2,
+          2.65,
+          3.2
+        ],
+        "timberMetricShader": true,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "eab247c0-1195-4012-9a9a-9cdfecb613bb",
+        "sourceName": "layout118-cast-gilt-copper",
+        "vertexColors": false,
+        "sourceColor": [
+          0.5840784178830671,
+          0.35640014413537763,
+          0.10461648408208657
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "3403e4fb-5965-4b1b-91b6-8988c68883f0",
+        "sourceName": "scene07-jointed-weathered-path-granite",
+        "vertexColors": false,
+        "sourceColor": [
+          0.23455058215026167,
+          0.2663556047920505,
+          0.2663556047920505
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": true,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "96c34bdc-ae7c-4441-9508-4a96e1656126",
+        "sourceName": "layout118-aged-bronze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.08228270712149792,
+          0.06847816983662762,
+          0.030713443727452196
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "ac0a4e2e-8777-4c1d-a2df-cca2b192a6e6",
+        "sourceName": "scene07-aged-stair-rail",
+        "vertexColors": false,
+        "sourceColor": [
+          2.8,
+          1.55,
+          1.4
+        ],
+        "timberMetricShader": true,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "5ea65e1b-15ee-43b0-993d-c86669be4ce3",
+        "sourceName": "scene07-pierced-cast-bronze-bell",
+        "vertexColors": false,
+        "sourceColor": [
+          0.4735314961384573,
+          0.2541520943200296,
+          0.05612849004241121
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a7f2d1d1-8b70-4477-bed0-c4d9638d0c1f",
+        "sourceName": "scene07-bell-inner-aged-bronze",
+        "vertexColors": false,
+        "sourceColor": [
+          0.07421356837213867,
+          0.05286064701616471,
+          0.024157632443547246
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "827cfd8c-a3aa-41ef-8548-dd61b0df7256",
+        "sourceName": "momiji151-opaque-thin-cupped-lamina",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "cf76d7cf-04ba-460e-8701-7362ad0c0d3b",
+        "sourceName": "momiji151-palmar-minor-veins",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "d19f58df-61ce-44b9-84d4-3d643b50e4c3",
+        "sourceName": "momiji151-mature-branch-and-twig",
+        "vertexColors": true,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a18026e2-117e-40eb-8c47-0d8fed37a793",
+        "sourceName": "",
+        "vertexColors": true,
+        "sourceColor": [
+          0.19461783043107173,
+          0.1912016827303171,
+          0.11697066774917994
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "2f19e9f0-71c6-46dc-a9e0-4b183f8db45b",
+        "sourceName": "",
+        "vertexColors": true,
+        "sourceColor": [
+          0.09989872823822872,
+          0.11697066774917994,
+          0.07036009568874305
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "8bd23e06-20a0-424d-b55f-2191bf511f03",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.09989872823822872,
+          0.11697066774917994,
+          0.07036009568874305
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "a4ac6e22-f470-4c88-bf23-bd35c7084dde",
+        "sourceName": "",
+        "vertexColors": true,
+        "sourceColor": [
+          0.040915196900556984,
+          0.06662593863608139,
+          0.031896033067374104
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "745d9e51-c70c-46eb-b1b4-f7829192ab21",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.040915196900556984,
+          0.06662593863608139,
+          0.031896033067374104
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "a438ba79-5e1b-42b4-86b0-338efebd9bc5",
+        "sourceName": "",
+        "vertexColors": true,
+        "sourceColor": [
+          0.019382360952473074,
+          0.04373502925049377,
+          0.019382360952473074
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "ff461b34-2f7d-4269-bfca-897d21b9e884",
+        "sourceName": "",
+        "vertexColors": false,
+        "sourceColor": [
+          0.019382360952473074,
+          0.04373502925049377,
+          0.019382360952473074
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "5c87bf81-c570-4601-a3e6-8dd242a074f2",
+        "sourceName": "forest150-original-pine-pine_sapling_small_b",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "6461d7d2-dab9-4a49-b0c4-a3a3224ad5fb",
+        "sourceName": "forest150-original-pine-pine_sapling_small_b",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0.5,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "78978067-98c0-47e2-a800-97f1dcec677d",
+        "sourceName": "forest150-original-pine-pine_sapling_small_a",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "375d8596-a655-4330-a4a4-0ab42a037e11",
+        "sourceName": "forest150-original-pine-pine_sapling_small_a",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0.5,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      },
+      {
+        "id": "2efefaab-7115-4cc2-9d65-33a7902d5aad",
+        "sourceName": "forest150-original-pine-pine_sapling_small_c",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0,
+        "opacity": 1,
+        "thinPhysicalTransport": null
+      },
+      {
+        "id": "869e27d1-b6e2-4825-b86d-7028e860de79",
+        "sourceName": "forest150-original-pine-pine_sapling_small_c",
+        "vertexColors": false,
+        "sourceColor": [
+          1,
+          1,
+          1
+        ],
+        "timberMetricShader": false,
+        "neutralMineralShader": false,
+        "alphaTest": 0.5,
+        "opacity": 1,
+        "thinPhysicalTransport": "foliage"
+      }
+    ],
+    "timberIds": [
+      "4ee66d5f-9f9e-45ad-973b-c0198c3476f2",
+      "ac0a4e2e-8777-4c1d-a2df-cca2b192a6e6",
+      "5b98cb43-75ce-4240-8de1-9ec571fcc0bd",
+      "6cfb167f-e6e0-4135-b011-28b2d718d6eb",
+      "31db35e2-02f0-41d1-b833-3befc80ecb5a"
+    ],
+    "timberUV": "Source longest-axis member metres, absolute source normal axis and per-instance length/translation phase. All original UV sets retained separately; derived metric UVs are the shader sampling chart.",
+    "timberPhasePrecision": "CPU NumPy Float32 dot/sin/fract follows the original GLSL equation; GPU transcendental/FMA rounding is not asserted pixel-identical.",
+    "timberReflectanceBound": "Original scan times original source RGB gains, vertex RGB if enabled and exact instance RGB. Effective timber RGB only clipped to[0,.98] for physical reflectance. Original gains retained in receipt.",
+    "roughness": "Exact native source clamp(.36+.72*mapG*.9,.42,.94) for all five scanned-timber materials. Source neutral stone and foreground clayState/glaze equations ported.",
+    "missingGenericExporterFields": "Original foreground clearcoat weight/roughness/normal maps are read from verified original source paths; no duplicate PNG files. Original UV1/color_1/clayState attributes retained.",
+    "thinTransport": "Energy-conserving source-pigment Principled/Translucent mix with actual occlusion; no native view-facing additive leaf term. Rice paper38%, momiji28%, needles18%, other leaves25%.",
+    "limits": [
+      "Source custom GLSL fog, AO and planar capture do not equal physical transport.",
+      "glTF AO map modulation is replaced by physical GI; original UV1 is preserved.",
+      "ACESFilmic native and physical AgX are different camera curves."
+    ]
+  },
+  "sourceGeometryTransfer": {
+    "linkedInstances": 56618,
+    "affineBakedInstances": 102762,
+    "rank2TransformsRetained": 0,
+    "rank2GeometryRetained": 776,
+    "rankBelow2TransformsRetained": 0,
+    "triangles": 77247338,
+    "vertices": 37862480,
+    "maxTRSDecompositionResidual": 1.430511474609375e-06,
+    "maxSourceShear": 0.4705881409571638,
+    "decimated": false,
+    "rank2Policy": "Never excluded for determinant zero. All indexed faces retained, including legitimate rank2 planes; cofactor/geometric normals for singular affine transforms. Degenerate source faces remain indices and have no ray area.",
+    "allOriginalUVSetsRetained": [
+      "uv",
+      "uv1"
+    ],
+    "sourceExtraAttributesRetained": {
+      "color": 145,
+      "timberExtent": 386,
+      "color_1": 6,
+      "clayState": 5
+    },
+    "normalSamplingCharts": 802,
+    "UVBasisConvention": "Native texture transform retained for tangent basis; file bitmap flip convention applied to image sampling only."
+  },
+  "waterReplacement": {
+    "source": "Exact canonical pondOutline/ShapeGeometry60 positions, indices, UV and world matrix reproduced from verified sourcemain.js. No replacement pond/architecture geometry.",
+    "triangles": 22,
+    "IOR": 1.333,
+    "roughness": 0.047,
+    "transmission": 0.22,
+    "sourceScreenReflectionPortedExactly": false,
+    "microNormalMetres": 0.0015
+  },
+  "evaluatedGNMatrixAudit": {
+    "groups": [
+      {
+        "parent": "reference4-sanctuary-physical-part-0 linked instances",
+        "samples": 3,
+        "maxAbsoluteResidual": 5.915733467531936e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-1 linked instances",
+        "samples": 4,
+        "maxAbsoluteResidual": 9.546773451774015e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-2 linked instances",
+        "samples": 4,
+        "maxAbsoluteResidual": 8.918318226136535e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-3 linked instances",
+        "samples": 4,
+        "maxAbsoluteResidual": 4.5539688553475344e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-4 linked instances",
+        "samples": 4,
+        "maxAbsoluteResidual": 5.983053075198086e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-5 linked instances",
+        "samples": 4,
+        "maxAbsoluteResidual": 9.232948698922883e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-6 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-7 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-8 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-9 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-10 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-11 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-12 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-13 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-14 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-15 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-16 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.3867611942971507e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-17 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 2.8196326162799323e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-18 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 2.8196326162799323e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-19 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 2.8196326162799323e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-20 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-21 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-22 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-23 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-24 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-25 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-26 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-27 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-28 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-29 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-30 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-31 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-32 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-33 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-34 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-35 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-36 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-37 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-38 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      },
+      {
+        "parent": "reference4-sanctuary-physical-part-39 linked instances",
+        "samples": 1,
+        "maxAbsoluteResidual": 4.56104608304031e-07
+      }
+    ],
+    "maxAbsoluteResidual": 9.546773451774015e-07,
+    "tolerance": 0.0001
+  },
+  "physicalLighting": {
+    "worldSource": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "worldSha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+    "sourceEnvironmentRotationXYZ": [
+      3.097784707246068,
+      0.32182821777101317,
+      3.098210260400911,
+      "XYZ"
+    ],
+    "sourceSunDirection": [
+      -0.5818283592293453,
+      0.035110332022460486,
+      -0.8125533982340857
+    ],
+    "cameraRadianceGain": 0.65,
+    "otherRayRadianceGain": 0.8,
+    "directSunEnergy": 4.1,
+    "sourceSunIntensity": 6.6,
+    "sourceSunColorLinear": [
+      1,
+      0.5209955731953768,
+      0.1844749944900301
+    ],
+    "solarDiskDegrees": 0.53,
+    "cameraGeneratedCloudCapUsed": false,
+    "scope": "Same original independently licensed source HDRI; explicit world-direction port. Original source generated camera-only cloud cap omitted for this independent physical review. No architecture or garden plate.",
+    "sourceProxyLightsOmitted": [
+      {
+        "type": "HemisphereLight",
+        "intensity": 0.45
+      },
+      {
+        "type": "DirectionalLight",
+        "intensity": 0.65
+      }
+    ],
+    "practicals": [
+      {
+        "name": "Source07 practical",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "Source07 practical.001",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "Source07 practical.002",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "Source07 practical.003",
+        "type": "POINT",
+        "energy": 213.6282958984375,
+        "sourceIntensity": 17,
+        "sourceLinearRGB": [
+          1.0,
+          0.4507857859134674,
+          0.07618538290262222
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp",
+        "type": "POINT",
+        "energy": 22.61946678161621,
+        "sourceIntensity": 1.8,
+        "sourceLinearRGB": [
+          1.0,
+          0.637596845626831,
+          0.30054378509521484
+        ]
+      },
+      {
+        "name": "reference4-visible-oil-lamp.001",
+        "type": "POINT",
+        "energy": 22.61946678161621,
+        "sourceIntensity": 1.8,
+        "sourceLinearRGB": [
+          1.0,
+          0.637596845626831,
+          0.30054378509521484
+        ]
+      },
+      {
+        "name": "Source07 practical.004",
+        "type": "POINT",
+        "energy": 226.19467163085938,
+        "sourceIntensity": 18,
+        "sourceLinearRGB": [
+          1.0,
+          0.44520118832588196,
+          0.07818742096424103
+        ]
+      },
+      {
+        "name": "Source07 practical.005",
+        "type": "POINT",
+        "energy": 226.19467163085938,
+        "sourceIntensity": 18,
+        "sourceLinearRGB": [
+          1.0,
+          0.44520118832588196,
+          0.07818742096424103
+        ]
+      },
+      {
+        "name": "Actual low source07 sun",
+        "type": "SUN",
+        "energy": 4.099999904632568,
+        "sourceIntensity": 6.6,
+        "sourceLinearRGB": [
+          1.0,
+          0.520995557308197,
+          0.18447498977184296
+        ]
+      }
+    ]
+  },
+  "physicalAtmosphere": {
+    "type": "Bounded VolumeScatter",
+    "densityPerM": 0.00065,
+    "anisotropy": 0.45,
+    "boundsZUp": [
+      [
+        -140,
+        -110,
+        -8
+      ],
+      [
+        140,
+        220,
+        66
+      ]
+    ],
+    "geometryContainsNoArchitecture": true
+  },
+  "camera": {
+    "sourcePositionYUp": [
+      10.7,
+      12.8,
+      36
+    ],
+    "sourceFov": 47,
+    "sourceMatrix": [
+      0.962568369925642,
+      3.469446951953614e-18,
+      -0.27103898837379914,
+      0,
+      -0.03939766639281422,
+      0.9893791346525467,
+      -0.1399169460679384,
+      0,
+      0.26816031977437105,
+      0.1453579303449862,
+      0.9523450608809442,
+      0,
+      10.7,
+      12.8,
+      36,
+      1
+    ],
+    "sourcePoseUnchanged": true,
+    "sensorHeightMM": 36,
+    "focalLengthMM": 41.39716720581055,
+    "focusDistanceM": 39.90150451660156,
+    "fStop": 2.8,
+    "exposureEV": 0.45
+  },
+  "renderSettings": {
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samplesFull": 96,
+    "samplesDetail": 96,
+    "device": "METAL",
+    "denoising": "OpenImageDenoise",
+    "physicalSourceCamera": "Original unchanged source pose/FOV; finite lens foreground DOF is an explicit renderer adaptation."
+  },
+  "blend": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-exact-source-physical155.blend",
+    "assetsPacked": false,
+    "reason": "No duplicate source PNG/EXR bytes; original verified asset and one export tree remain linked.",
+    "sha256": "e6e62b74df2225f3a8524cfdf0debb82a7674e2451f56c40365371c0df5687c4"
+  },
+  "full": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-physical155-full.png",
+    "sha256": "85af4b3393d145634bfe354d42328224f8b7f5053929a3d10d00cd946266907a",
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 96
+  },
+  "trueHallDetail": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/07/iteration-scene07-physical155-20261022/scene07-physical155-true-hall-detail.png",
+    "sha256": "8039be3cd67b8597446435fa73b58945def09e352a7010c72972ec8f1db620da",
+    "sourceCropPixels": [
+      540,
+      430,
+      240,
+      1254
+    ],
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 96,
+    "sourceCameraMatrixUnchanged": true,
+    "maximumRaySlopeError": 4.643124107417407e-09,
+    "originalApertureAndCoCPreserved": true,
+    "upscaledScreenshot": false
+  },
+  "elapsedSeconds": 286.4535219669342,
+  "visualReview": {
+    "reviewedFullAndTrueDetail": true,
+    "findings": [
+      "Occupied upper hall and carved relief retain actual source depth. Physical surface shading produces coherent timber grain and contact/recess shadows.",
+      "Original foreground glaze maps and clayState wear are retained; physical highlights/reflections differ from native capture.",
+      "Measured Qwantani camera sky is too pale/white for the supplied reference; original generated cloud cap is deliberately omitted from this independent physical look.",
+      "Foliage cutout alpha now applies around the complete physical BSDF, preserving transparent atlas borders.",
+      "Wood/frame repetition and garden morphology still read CG. No photographic match, final film or native pixel equivalence is claimed."
+    ],
+    "visualAccepted": false,
+    "additionalIterationsRendered": false
+  }
+}

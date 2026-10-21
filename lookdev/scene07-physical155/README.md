@@ -1,0 +1,7 @@
+# Scene07 physical155
+
+One physical full+true hall detail from exact frozen sourcef3638c92c8f80d8cee8e40f346d179b4ce24e0211a44b1619ec8c2076ac03281. No canonical07 edits, no new object/asset integration, no commits and no films. Final output/receipt/warnings are in qa/ten-reference/07/iteration-scene07-physical155-20261022/; handoff.json indexes them.
+
+The one578MB verified source export is kept in export/. Original source images are not copied again by this lane. prepare-source-supplement.mjs reproduces only the exact original pond geometry excluded by the generic shader exporter and identifies original foreground glaze files read in place. measure-radiance.mjs measures the original decoded Qwantani field numerically. render-physical155.py performs the full source-affine, UV, RGB and original-material-flag transfer, then renders one actual1254 full and one true1254 hall subfrustum. All GPU/Blender work uses the official shared FIFO tools.
+
+The final blend links the existing verified export/source image paths and is not packed; no backup blend is retained. The pre-first-frame alpha correction receipt remains in QA, while its superseded staging blend was removed for disk budget. Source geometry and original material equations remain authoritative; physical sky/paper/leaf transport, water reflection, camera DOF and AgX calibration are explicitly renderer-specific and unaccepted photographically.

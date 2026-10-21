@@ -1,0 +1,61 @@
+{
+  "file": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+  "sha256": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+  "width": 2048,
+  "height": 1024,
+  "peakLinearLuminance": 58971.479726513666,
+  "solidAngle": 12.5663755426642,
+  "meanLinearLuminance": 1.1274873827210041,
+  "incidentIrradianceLuma": {
+    "up": 2.3320692258358355,
+    "facadePositiveZ": 2.0531076993784425,
+    "positiveX": 2.002449774067092,
+    "negativeZ": 7.34114771598438
+  },
+  "skySourceInfo": {
+    "revision": "scene07-aligned-physical-sun146-r01",
+    "environment": {
+      "asset": "Qwantani Sunset Pure Sky",
+      "provider": "Poly Haven",
+      "license": "CC0-1.0",
+      "sourceSunCentroid": [
+        0.8044104867136561,
+        0.10564726466658628,
+        0.5846045024916994
+      ],
+      "rotation": [
+        3.097784707246068,
+        0.32182821777101317,
+        3.098210260400911,
+        "XYZ"
+      ],
+      "intensity": 0.38
+    },
+    "cameraSky": {
+      "asset": "/reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png",
+      "provider": "OpenAI built-in imagegen",
+      "provenance": "reconstructions/scene-07/assets/sky145/provenance.json",
+      "projection": "world-fixed spherical cap with measured HDR outside and8percent boundary blend",
+      "azimuthCenterRadians": -1.848521751106241,
+      "horizontalSpanDegrees": 70,
+      "elevationRangeDegrees": [
+        -5,
+        30
+      ],
+      "centerAzimuthRelativeToActualSunDegrees": 19.692039303913088,
+      "analyticSolarDiskAlignedToActualSun": true,
+      "solarAngularRadiusDegrees": 0.27,
+      "linearRadianceGain": 1.1,
+      "measuredHDR": false,
+      "worldLocked": true,
+      "cameraTranslationParallax": false
+    },
+    "targetSunDirection": [
+      -0.5818283592293453,
+      0.035110332022460486,
+      -0.8125533982340857
+    ],
+    "scope": "Measured CC0 HDR lighting retained. Independent generated atmosphere/cloud-only spherical cap decoded to linear and world-oriented. Low solar disk and the actual shadow-casting directional light share the same direction; measured HDR environment is re-aligned to that direction. No reference photo projection, architecture, garden, or scene replacement plate.",
+    "visualAccepted": false
+  }
+}
