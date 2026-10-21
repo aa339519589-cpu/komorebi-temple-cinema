@@ -20,6 +20,8 @@ export function buildArchitecture(mats,scanned){
  // than the close veranda probe later assigned to the shared gold material.
  mats.sorinGold=mats.gold.clone();mats.sorinGold.name='scene02-exposed-sorin-gold';mats.sorinGold.color.set('#cfab60');mats.sorinGold.roughness=.34;mats.sorinGold.metalness=.94;mats.sorinGold.envMap=null;
  mats.sorinBronze=mats.oldgold.clone();mats.sorinBronze.name='scene02-exposed-sorin-bronze';mats.sorinBronze.color.set('#a47d3d');mats.sorinBronze.roughness=.42;mats.sorinBronze.envMap=null;
+ mats.railRed170=mats.red.clone();mats.railRed170.name='scene02-veranda-rubbed-top-rail170';mats.railRed170.clearcoat=.22;mats.railRed170.clearcoatRoughness=.28;
+ mats.sorinSeat170=mats.sorinBronze.clone();mats.sorinSeat170.name='scene02-roof-fitted-aged-bronze-boot-skirt170';mats.sorinSeat170.color.setHex(0xa47a39);mats.sorinSeat170.roughness=.48;mats.sorinSeat170.metalness=.78;
  const b=new Builder(mats),lights=[];let sorinStats=null,bridgeBearings=null,hallRoof=null;const galleryFootings=[];const torus=new T.TorusGeometry(1,.075,6,20);
  const hallCarpentry=createHallCarpentry141({b,mats});
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}

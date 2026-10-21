@@ -31,38 +31,38 @@ export function buildHallEntry({b,mats,lights,column,carpentry,fitting,rosette,s
  // The occupied hall uses five equal porch bays and six continuous columns.
  // Inner rows, portal jambs, transoms and ceiling ties use that same grid.
  b.box(cx,2.25,-.8,span+1.1,.08,11.8,'darkwood');
- b.box(cx,4.74,-5.95,span+.2,5.1,.30,'darkwood');
- for(let x=left-.2;x<=right+.21;x+=.46)b.box(x,4.76,-5.76,.075,5.0,.10,'cedar');
+ b.box(cx,5.40,-5.95,span+.2,6.42,.30,'darkwood');
+ for(let x=left-.2;x<=right+.21;x+=.46)b.box(x,5.42,-5.76,.075,6.32,.10,'cedar');
  for(const [x,sign]of[[left+.26,-1],[right-.26,1]]){
-  b.box(x,4.67,-1.25,.26,4.82,9.2,'darkwood');
-  for(const z of[-4.5,-2.1,.3,2.7])b.at([x+sign*.14,0,z],sign*Math.PI/2,()=>{b.box(0,3.05,0,2.15,1.55,.18,'hallOxide');lattice(0,5.00,.04,2.05,2.28,'cedar',true);b.box(0,6.48,.015,2.10,.43,.12,'hallPlaster');for(const q of[-1,1])b.box(0,6.48+q*.25,.12,2.22,.095,.21,'hallBearing');carpentry.transomBay(0,6.48,.15,2.05);});
+  b.box(x,5.405,-1.25,.26,6.29,9.2,'darkwood');
+  for(const z of[-4.5,-2.1,.3,2.7])b.at([x+sign*.14,0,z],sign*Math.PI/2,()=>{b.box(0,3.05,0,2.15,1.55,.18,'hallOxide');lattice(0,5.255,.04,2.05,2.79,'cedar',true);b.box(0,6.99,.015,2.10,.43,.12,'hallPlaster');for(const q of[-1,1])b.box(0,6.99+q*.25,.12,2.22,.095,.21,'hallBearing');carpentry.transomBay(0,6.99,.15,2.05);});
  }
- for(const z of[4.7,-6.3])for(const x of axes){column(x,z,floor,5.20,z===4.7?.255:.225,'hallColumnRed');seatedBracket(x,7.45,z,z===4.7?1.04:.88);}
- for(const x of inner){column(x,1.2,floor+.03,4.92,.215,'hallColumnRed');seatedBracket(x,7.18,1.2,.82);}
- for(const x of[left,right])for(const z of[-3.2,.8]){column(x,z,floor,5.1,.225,'hallColumnRed');carpentry.head(x,7.35,z,.88,'side',x===left?-Math.PI/2:Math.PI/2);}
- b.box(cx,8.03,-.65,span+1.1,.20,12.0,'darkwood');
- for(let z=-6.2;z<=5.1;z+=.74)b.box(cx,7.87,z,span+.9,.19,.19,'cedar');
- for(const x of axes){b.box(x,7.50,-.7,.33,.33,11.6,'hallOxide');carpentry.tail(x,7.75,4.95,2.55,.60);}
- for(const z of[4.7,1.2,-2.6,-6.1]){b.box(cx,7.26,z,span+1.1,.38,.48,'hallOxide');b.box(cx,7.65,z,span+1.4,.25,.55,'hallBearing');}
- b.box(cx,6.50,4.68,span+.8,.29,.50,'hallBearing');
- for(const yy of[6.49,7.14])b.box(cx,yy,4.99,span+1.05,.055,.045,'oldgold');
- for(let i=0;i<axes.length-1;i++)carpentry.transomBay((axes[i]+axes[i+1])/2,6.84,5.00,pitch-.36);
+ for(const z of[4.7,-6.3])for(const x of axes){column(x,z,floor,5.80,z===4.7?.255:.225,'hallColumnRed');seatedBracket(x,8.05,z,z===4.7?1.04:.88);}
+ for(const x of inner){column(x,1.2,floor+.03,5.43,.215,'hallColumnRed');seatedBracket(x,7.69,1.2,.82);}
+ for(const x of[left,right])for(const z of[-3.2,.8]){column(x,z,floor,5.65,.225,'hallColumnRed');carpentry.head(x,7.90,z,.88,'side',x===left?-Math.PI/2:Math.PI/2);}
+ b.box(cx,8.54,-.65,span+1.1,.20,12.0,'darkwood');
+ for(let z=-6.2;z<=5.1;z+=.74)b.box(cx,8.38,z,span+.9,.19,.19,'cedar');
+ for(const x of axes){b.box(x,8.01,-.7,.33,.33,11.6,'hallOxide');carpentry.tail(x,8.26,4.95,2.55,.60);}
+ for(const z of[4.7,1.2,-2.6,-6.1]){b.box(cx,7.77,z,span+1.1,.38,.48,'hallOxide');b.box(cx,8.16,z,span+1.4,.25,.55,'hallBearing');}
+ b.box(cx,7.01,4.68,span+.8,.29,.50,'hallBearing');
+ for(const yy of[7.00,7.65])b.box(cx,yy,4.99,span+1.05,.055,.045,'oldgold');
+ for(let i=0;i<axes.length-1;i++)carpentry.transomBay((axes[i]+axes[i+1])/2,7.35,5.00,pitch-.36);
  // The sculpted head factory now supplies the complete column receiver and
  // chased sleeve; the former flat square caps and rectangular sleeves are removed.
  // The far outside bay encloses storage; the near outside bay remains open.
  // Three deeper portals frame the
  // sanctuary. Folding leaves sit on their actual jambs and clear the openings.
- for(const x of inner){b.box(x,4.50,1.45,.33,4.55,.46,'hallOxide');for(const y of[2.55,4.25,6.35])fitting(x,y,1.70,.34,.28);}
+ for(const x of inner){b.box(x,4.755,1.45,.33,5.06,.46,'hallOxide');for(const y of[2.55,4.25,6.35])fitting(x,y,1.70,.34,.28);}
  const portalLeft=inner[0],portalRight=inner.at(-1),portalCentre=(portalLeft+portalRight)/2;
- b.box(portalCentre,6.64,1.45,portalRight-portalLeft+.6,.39,.55,'hallOxide');b.box(portalCentre,6.91,1.45,portalRight-portalLeft+.95,.17,.61,'hallBearing');
- for(const i of[0]){const x=(axes[i]+axes[i+1])/2;lattice(x,5.05,3.02,pitch-.40,2.12,'cedar',true);b.box(x,3.10,3.02,pitch-.25,1.55,.20,'hallOxide');}
+ b.box(portalCentre,7.15,1.45,portalRight-portalLeft+.6,.39,.55,'hallOxide');b.box(portalCentre,7.42,1.45,portalRight-portalLeft+.95,.17,.61,'hallBearing');
+ for(const i of[0]){const x=(axes[i]+axes[i+1])/2;lattice(x,5.305,3.02,pitch-.40,2.63,'cedar',true);b.box(x,3.10,3.02,pitch-.25,1.55,.20,'hallOxide');}
  for(let i=0;i<inner.length-1;i++){
   const a=inner[i],c=inner[i+1],x=(a+c)/2;
-  carpentry.transomBay(x,6.10,1.57,pitch-.38);
-  doorLeaf(a,.88,(pitch-.22)/2,4.12,1.47,1);doorLeaf(c,.88,(pitch-.22)/2,4.12,-1.47,-1);
+  carpentry.transomBay(x,6.61,1.57,pitch-.38);
+  doorLeaf(a,.88,(pitch-.22)/2,4.63,1.47,1);doorLeaf(c,.88,(pitch-.22)/2,4.63,-1.47,-1);
   b.box(x,2.29,1.16,pitch-.1,.06,1.0,'darkwood');
  }
- for(const x of inner){b.box(x,4.41,.88,.22,4.32,.26,'hallOxide');b.box(x,6.57,1.15,.25,.24,.70,'hallBearing');}
+ for(const x of inner){b.box(x,4.665,.88,.22,4.83,.26,'hallOxide');b.box(x,7.08,1.15,.25,.24,.70,'hallBearing');}
  for(const x of[cx-2.8,cx+2.8]){b.box(x,4.30,-1.56,.28,4.06,.35,'hallOxide');fitting(x,5.90,-1.35,.30,.32);}
  b.box(cx,6.38,-1.56,6.1,.35,.43,'darkwood');
  for(const sign of[-1,1])b.at([cx+sign*4.25,0,-1.65],sign*.36,()=>{b.box(0,3.18,0,2.3,1.7,.22,'darkwood');lattice(0,5.00,.08,2.25,1.75,'cedar',false);});

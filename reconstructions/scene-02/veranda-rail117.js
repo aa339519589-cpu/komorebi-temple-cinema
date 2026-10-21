@@ -20,11 +20,16 @@ export function verandaEdge(z){
 }
 export function verandaTangent(z){const a=verandaEdge(z-.002),b=verandaEdge(z+.002);return[(b[0]-a[0])/.004,(b[1]-a[1])/.004,1];}
 
-function beamGeometry(T,a,d,height,width,depth){
+export function buildVerandaBeam170(T,a,d,height,width,depth){
  // Closed rounded rectangular timber, swept along the actual spatial edge.
  // Width is across the veranda edge; depth is vertical.
- const rings=Math.max(4,Math.ceil((d-a)/.12)),radius=height===.880?Math.min(width,depth)*.42:.007,section=[];
- for(let corner=0;corner<4;corner++)for(let k=0;k<=3;k++){
+ const rings=Math.max(4,Math.ceil((d-a)/.12)),radius=.007,section=[];
+ if(height===.880){
+  // Hold the recovered external section and path. An arched rubbed crown
+  // removes the old57mm-wide flat mirror-like top; the bearing bed stays flat.
+  for(let k=0;k<=32;k++){const angle=Math.PI*(1-k/32);section.push([Math.cos(angle)*width/2,Math.sin(angle)*depth/2]);}
+  section.push([width/2,-depth/2+.008],[width/2-.008,-depth/2],[-width/2+.008,-depth/2],[-width/2,-depth/2+.008]);section.reverse();
+ }else for(let corner=0;corner<4;corner++)for(let k=0;k<=3;k++){
   const angle=corner*Math.PI/2+k*Math.PI/6;
   section.push([(corner===0||corner===3?1:-1)*(width/2-radius)+Math.cos(angle)*radius,(corner<2?1:-1)*(depth/2-radius)+Math.sin(angle)*radius]);
  }
@@ -64,13 +69,13 @@ export function buildVerandaRail(T,b){
 
  let timberBeams=0,insetPanels=0,intermediateStiles=0,postCount=0;
  // Broad red top, middle and bottom beams share the same edge and shoulders.
- for(const [h,w,d] of[[.880,.120,.075],[.480,.100,.105],[.105,.120,.105],[.025,.170,.050]]){b.put(beamGeometry(T,8,40,h,w,d),h===.025?'cedar':'red');timberBeams++;}
+ for(const [h,w,d] of[[.880,.120,.075],[.480,.100,.105],[.105,.120,.105],[.025,.170,.050]]){b.put(buildVerandaBeam170(T,8,40,h,w,d),h===.025?'cedar':'railRed170');timberBeams++;}
  function post(p){
   const t=verandaTangent(p[2]),yaw=Math.atan(t[0]);
   b.at(p,yaw,()=>{
-   b.box(0,.4525,0,.120,.905,.120,'red');
+   b.box(0,.4525,0,.120,.905,.120,'railRed170');
    b.box(0,.039,0,.129,.050,.129,'oldgold');b.box(0,.069,0,.133,.014,.133,'gold');
-   b.box(0,.867,0,.137,.070,.137,'red');b.box(0,.897,0,.145,.017,.145,'oldgold');
+   b.box(0,.867,0,.137,.070,.137,'railRed170');b.box(0,.897,0,.145,.017,.145,'oldgold');
    b.put(cap,'gold',[0,.905,0]);
    for(let k=0;k<12;k++){
     b.put(chasedBand,k%3?'gold':'oldgold',[0,.905,0],[1,1,1],[0,k*Math.PI/6,0]);
@@ -100,9 +105,9 @@ export function buildVerandaRail(T,b){
   const a=structural[i][2],d=structural[i+1][2],span=d-a,bays=Math.max(2,Math.round(span/.80)),pitch=span/bays;
   for(let j=1;j<bays;j++){
    const z=a+j*pitch,p=verandaEdge(z),t=verandaTangent(z);
-   b.at(p,Math.atan(t[0]),()=>b.box(0,.440,0,.086,.790,.086,'red'));intermediateStiles++;
+   b.at(p,Math.atan(t[0]),()=>b.box(0,.440,0,.086,.790,.086,'railRed170'));intermediateStiles++;
   }
   for(let j=0;j<bays;j++)insetPanel(a+(j+.5)*pitch,Math.max(.20,pitch-.16));
  }
- return{kind:'one spatial balustrade with closed continuous broad beams and joined inset-panel bays',measuredPosts:posts,structuralPostCount:postCount,postSectionMetres:.120,postHeightMetres:1.12,topRailSectionMetres:[.120,.075],topRailTrueCornerRadiusMetres:.0315,middleRailSectionMetres:[.100,.105],bottomRailSectionMetres:[.120,.105],timberBeams,insetPanels,intermediateStiles,deckControlPoints:controls,photographicPixelsUsed:false,limits:'Curved plan, 69mm local deck rise and unequal bay lengths are inferred from visible cap/beam axes; the source photograph does not admit perfectly regular perspective.'};
+ return{kind:'one spatial balustrade with closed continuous broad beams and joined inset-panel bays',measuredPosts:posts,structuralPostCount:postCount,postSectionMetres:.120,postHeightMetres:1.12,topRailSectionMetres:[.120,.075],topRailCrown170:"Arched crown and flat bearing bed; original .120x.075 external section and path held",middleRailSectionMetres:[.100,.105],bottomRailSectionMetres:[.120,.105],timberBeams,insetPanels,intermediateStiles,deckControlPoints:controls,photographicPixelsUsed:false,limits:'Curved plan, 69mm local deck rise and unequal bay lengths are inferred from visible cap/beam axes; the source photograph does not admit perfectly regular perspective.'};
 }

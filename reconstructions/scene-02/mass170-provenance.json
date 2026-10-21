@@ -1,0 +1,139 @@
+{
+  "revision": "scene02-monumental-gable-and-bearing-mass170-r07",
+  "reference": "references/hd/1-照片-2.jpg",
+  "heldPrior": "source162R04; original native and physical receipts retained. Baseline complete snapshot under lookdev/scene02-mass170/source162-baseline.tar.gz.",
+  "actualObservation": [
+    "Reference gable reads as deep curved structural timber and recessed bays; source162 shows a flat applied-grid triangle and small repeated gilt foliage.",
+    "Hall capitals and cantilever body look narrow after the existing nonuniform common hall transform, while columns already compensate for that transform.",
+    "Reference tower supports are heavier and warm indirect light reveals the eave underside; source162 remains dark/regular despite high actual mesh count."
+  ],
+  "construction": [
+    "New opaque front/rear loft volumes, deep continuous closed bargeboards, curved load-bearing truss/knee solids, thick king post/collar beams, framed recessed lower coffers and upper ventilated lime bays.",
+    "Wider/deeper actual hall bracket assemblies, larger tower posts and timber balcony infill replace thin repeated white skirt panels.",
+    "Roof/ridge contours, common bearing axes, original low camera, site, bridge, stair and garden geometry held. No global scene scaling or exposure change."
+  ],
+  "lighting": {
+    "sunHeld": 8.5,
+    "frontCourtyardFill": 0.25,
+    "pondBounce": 0.42,
+    "hemisphere": 0.48,
+    "warmGroundRadiance": "#9d6938",
+    "exposureHeld": 0.94,
+    "frontFillCastsShadow": false,
+    "courtyardArea": {
+      "type": "RectAreaLight",
+      "intensity": 2.0,
+      "width": 10,
+      "height": 6,
+      "position": [
+        1,
+        3,
+        -1
+      ],
+      "lookAt": [
+        3,
+        8,
+        -12
+      ]
+    },
+    "westCourtyardArea": {
+      "type": "RectAreaLight",
+      "intensity": 2.8,
+      "width": 10,
+      "height": 8,
+      "position": [
+        -12.5,
+        3,
+        0
+      ],
+      "lookAt": [
+        -15.6,
+        12,
+        -16
+      ]
+    }
+  },
+  "materials": [
+    "Existing CC0 metric PolyHaven timber maps preserved. Existing authored157 sculpture supplies all closed carved motifs.",
+    "Worn gilt/bronze uses mixed metal/diffuse response, rather than near-pure metal in deep shade."
+  ],
+  "newExternalAssets": false,
+  "referencePhotographAsSceneSurface": false,
+  "visualAccepted": false,
+  "r01Source": "89caef506f755e3df9964e4669e74c5b930d6b0dc2f39d478ba5dff2b7782cf0",
+  "r01Findings": [
+    "Actual full/gable-column hero/low3q rejected: shaft height is too short against HD while the head stack fills excessive vertical space. Deep new loft reads structurally but the rake ornament is too sparse.",
+    "Unshadowed front fill flattens repeated heads, foreground lacquer produces an oversized white highlight and lamp paper is too white."
+  ],
+  "r02Repairs": [
+    "Extend outer shafts0.60localmetres from fixed plinth; raise outer head origin0.60m and compact primary height to74%, keeping the original upper receiver/roof seats. Inner/side posts, full door leaves, portals, transoms, joists, ceiling and opaque upper enclosure reconnect in the same structural frame.",
+    "Corner receivers grow from the same fixed columns with78% vertical height, preserving original hip contact coordinates. Tower heads retain their original vertical height.",
+    "Deep carved timber cloud bosses and fitted volumetric gilt foliage replace sparse flat rake plaques; the gable has a larger apex boss and higher framed lower coffer fields.",
+    "Front-fill light now casts an actual4096px shadow map; ground/pond bounce remains a stated broad indirect approximation. Gilt/bronze is a worn mixed response.",
+    "Measured foreground rail geometry held; its own CC0-grain vermilion material has lower physical clearcoat and rougher coating, avoiding the white spanning glare. Existing paper lamp emission is lower/amber."
+  ],
+  "r02Source": "32947f84b843bc927a688bfa8b45e9e92fe1517b12dc0bb1603ad12f8924a9bd",
+  "r02Findings": [
+    "Actual full/hero/low3q confirm taller seated posts and connected taller occupied bays under the unchanged roof.",
+    "Hard directional front-fill shadows make unnatural rafter/plant stripes across shafts. Large isolated gilt leaves on the rake/apex read as flat paddles rather than sculpted ornamental groups."
+  ],
+  "r03Repairs": [
+    "New authored closed three-ring curled-petal wood/old-gilt rosettes replace isolated rake/apex plates and broad dangling leaves. Each petal has a real underside, edge thickness and curved crown;30petals plus a modeled centre form each reusable sculpted prototype. Selected post-head and recessed coffer joints use the same carving vocabulary.",
+    "A finite16x12m warm RectAreaLight supplies courtyard radiance with actual PBR LTC integration, replacing the strong hard directional fill. Low-intensity sky/pond approximations and actual shadowed sun remain. Native area contact uses geometry-derived GTAO; it is not a cross-renderer shadow-parity claim."
+  ],
+  "authoredRosette170": {
+    "file": "carved-rosette170.js",
+    "source": "Independent authored closed parametric petal geometry, not a downloaded flower or photographed motif",
+    "license": "Authored project code/geometry; original CC0 finish maps retained",
+    "closedComponents": true,
+    "referencePixels": false,
+    "topologyCheck": "lookdev/scene02-mass170/closed-rosette170-r04-topology.json"
+  },
+  "r03Source": "1550acbf2eec419baa96639b3358417241d979de073491a3b99b813cef2fc25b",
+  "r03Findings": [
+    "Actual full/hero/low3q show soft continuous lacquer/wood response without directional stripes, but the first area source was too close to the foreground canopy and overlit its underside.",
+    "Actual carved rosettes are three-dimensional but too large/repetitive on the rake; the surface still needs a fitted finer organic frieze.",
+    "CPU seam-weld audit found8coincident edges where adjacent inner petal roots touched. Failed source and audit retained."
+  ],
+  "r04Repairs": [
+    "Reposition/shrink the finite warm source into the actual main forecourt and add a separate west/tower forecourt source. The near veranda remains outside the strong light patch. Exposure, sunlight direction and scene geometry/camera envelopes unchanged.",
+    "Smaller alternating rake rosette scales plus a true closed branching stem and68fitted fluted leaf solids follow the curved timber. All lie above the physical rake face, with the carved wood exposed behind.",
+    "Separate inner petal root edges by2mm without changing visible overall flower dimensions. All3actual prototype rings now have finite positive closed components and zero nonmanifold edges after0.1micrometre spatial seam welding."
+  ],
+  "r04Source": "960f11be79883ae09d87c8fb38c81783bd204473832f5f7ce7f4f30fb01a509b",
+  "r04Findings": [
+    "Actual full/hero/low3q confirm softer architecture lighting without the overlit near canopy; smaller carved flowers and topology repair hold.",
+    "Fine gilt rake rhythm still reads too regular. Source review caught ceramic crest calls bundled in the replaced old gable builder; restoring these is required.",
+    "At fixed common camera, the upper-tower crown and finial tip are approximately8and14pixels below HD while tower eave contours already correspond."
+  ],
+  "r05Repairs": [
+    "Fine rake relief becomes predominantly actual carved wood, with irregular clustered leaf roots and selective old-gilt accents. Ordinary head volutes/secondary leaves become wood; fitted capital metal and selected bearing castings remain.",
+    "Restore the original closed ceramic ridge-end cloud boss and paired roof-corner crests at their original physical seats, without restoring the old flat gable.",
+    "Only the uppermost tower roof rise becomes1.63m from1.40m. The original closed sorin remains seated on the raised crown and its vertical heights increase5%about its boot; all radial dimensions, tower eaves, terrain, bridge/stair and original camera remain."
+  ],
+  "r05Source": "554f5d7f19b2ea7776be10b18a2fd154ffde2c290571d01bb676b71b7de66d54",
+  "r05Findings": [
+    "Actual full/main hero/tower hero/low3q confirm restored crests and measured upper-tower crown/sorin placement.",
+    "The actual tower hero exposes unsupported outer boot lip over the curved top roof. Foreground rail still has a wide flat white highlight despite its first coating change."
+  ],
+  "r06Repairs": [
+    "Add a closed octagonal ceramic saddle with a flat boot-bearing top and an underside evaluated from the actual top-roof surface; it carries the full closed metal boot footprint with real intersection/contact.",
+    "Preserve top-rail path, measured .120x.075m outside section and post contacts, but replace its57mmflat crown by a true arch over a flat bearing bed. Other rail/bridge/stair geometry held.",
+    "Close foreground rail and veranda coating now has lower/rougher physical clearcoat and the original CC0 normal map at the same metric UV as the wood, including the actual clearcoat-normal channel. Direct sun/exposure and all background structure held."
+  ],
+  "geometryChecks": [
+    "lookdev/scene02-mass170/closed-rosette170-r04-topology.json",
+    "lookdev/scene02-mass170/roof-seat-and-rail170-r06-topology.json",
+    "lookdev/scene02-mass170/roof-seat170-r07-topology.json"
+  ],
+  "r06Source": "523b7d6988811b6e169d53a7ab9036b90b1fdd1be696f567e60ddf905a4c5e02",
+  "r06Findings": [
+    "Actual full/gable/tower/rail/low3q show narrower crown highlight with real scanned lacquer grain and a structurally carried finial.",
+    "The tower close rejects the new dark octagonal saddle as too block-like."
+  ],
+  "r07Repairs": [
+    "Replace only that saddle by a closed48-sided flared bronze boot skirt, with curved turned shoulders and a bottom evaluated on the true top roof. Upper metal seat/crown/finial positions stay unchanged.",
+    "A dedicated weathered mixed-bronze PBR material uses the existing outdoor radiance, avoiding a near-veranda reflection probe or dark ceramic cube appearance."
+  ],
+  "nativeLightingImplementation": "Bundled MIT Three.js RectAreaLightUniformsLib/TexturesLib supplies LTC integration; area contact is geometry-derived GTAO, with actual shadowed sun. No new downloaded media or scene plates."
+}

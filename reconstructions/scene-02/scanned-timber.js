@@ -10,8 +10,8 @@ export async function installScannedTimber(mats,scene){
  // The source is a very dark brown table: mean decoded linear Y=.0150512.
  // Vermilion paint takes its pigment from the material, and only the measured
  // scan's relative luminance becomes grain. Normal/roughness stay untouched.
- const pigment=new Map([[mats.red,'#bb4b29'],[mats.cedar,'#9c4928'],[mats.floor,'#925034'],[mats.hallBearing,'#5d321b'],[mats.hallOxide,'#762f1b'],[mats.hallColumnRed,'#8c3726'],[mats.verandaRed,'#9b4028'],[mats.pagodaRed160,'#853725'],[mats.bridgeRed161,'#8d3823'],[mats.bridgeCedar161,'#764124']]);
- const targets=new Map([[mats.red,[4.8,2.5,2.3]],[mats.cedar,[2.5,1.6,1.3]],[mats.darkwood,[.95,.80,.75]],[mats.floor,[1.8,1.35,1.1]],[mats.hallBearing,[1,1,1]],[mats.hallOxide,[1,1,1]],[mats.hallColumnRed,[1,1,1]],[mats.verandaRed,[1,1,1]],[mats.pagodaRed160,[1,1,1]],[mats.pagodaShadow160,[1.15,.95,.80]],[mats.bridgeRed161,[1,1,1]],[mats.bridgeCedar161,[1,1,1]]]);
+ const pigment=new Map([[mats.red,'#bb4b29'],[mats.cedar,'#9c4928'],[mats.floor,'#925034'],[mats.hallBearing,'#5d321b'],[mats.hallOxide,'#762f1b'],[mats.hallColumnRed,'#8c3726'],[mats.verandaRed,'#9b4028'],[mats.pagodaRed160,'#853725'],[mats.bridgeRed161,'#8d3823'],[mats.bridgeCedar161,'#764124'],[mats.railRed170,'#8b3f24']]);
+ const targets=new Map([[mats.red,[4.8,2.5,2.3]],[mats.cedar,[2.5,1.6,1.3]],[mats.darkwood,[.95,.80,.75]],[mats.floor,[1.8,1.35,1.1]],[mats.hallBearing,[1,1,1]],[mats.hallOxide,[1,1,1]],[mats.hallColumnRed,[1,1,1]],[mats.verandaRed,[1,1,1]],[mats.pagodaRed160,[1,1,1]],[mats.pagodaShadow160,[1.15,.95,.80]],[mats.bridgeRed161,[1,1,1]],[mats.bridgeCedar161,[1,1,1]],[mats.railRed170,[1,1,1]]]);
  scene.traverse(o=>{const m=o.material;if(!m||targets.has(m))return;if(m.name==='scene02-darkwood')targets.set(m,[.95,.80,.75]);});
  for(const [m,color] of targets){
   const previousCompile=m.onBeforeCompile,previousKey=m.customProgramCacheKey.bind(m);
@@ -46,6 +46,9 @@ export async function installScannedTimber(mats,scene){
     #endif
     #ifdef USE_ROUGHNESSMAP
      vRoughnessMapUv=metricUV;
+    #endif
+    #ifdef USE_CLEARCOAT_NORMALMAP
+     vClearcoatNormalMapUv=metricUV;
     #endif`);
    shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
     roughnessFactor=${hallShaft?'clamp(.22+roughnessFactor*.45,.30,.64)':'clamp(.36+roughnessFactor*.72,.42,.94)'};`);
@@ -69,8 +72,8 @@ export async function installScannedTimber(mats,scene){
      #endif`);
    }
   };
-  if(m===mats.floor){m.clearcoat=.82;m.clearcoatRoughness=.16;}if(hallShaft){m.clearcoat=.64;m.clearcoatRoughness=.18;}
-  m.customProgramCacheKey=()=>previousKey()+':scene02-cc0-member-timber-v2-'+(pigment.has(m)?'painted':'raw')+(m===mats.floor?':veranda73':'')+(hallShaft?':smooth-metric-lacquer154':'');m.userData.timberFinish={role:pigment.has(m)?'pigment with normalised scan grain':'retained original dark scan',pigment:pigment.get(m)??null,sourceLinearMeanY:.01505120736,normalStrength:.18,photoRGB:false};m.needsUpdate=true;
+  if(m===mats.floor){m.clearcoat=.82;m.clearcoatRoughness=.16;}if(hallShaft){m.clearcoat=.64;m.clearcoatRoughness=.18;}if(m===mats.railRed170||m===mats.verandaRed){m.clearcoat=m===mats.railRed170?.10:.16;m.clearcoatRoughness=m===mats.railRed170?.42:.38;m.specularIntensity=.55;m.clearcoatNormalMap=normal;m.clearcoatNormalScale.set(.12,.12);}
+  m.customProgramCacheKey=()=>previousKey()+':scene02-cc0-member-timber-v2-'+(pigment.has(m)?'painted':'raw')+(m===mats.floor?':veranda73':'')+(hallShaft?':smooth-metric-lacquer154':'')+((m===mats.railRed170||m===mats.verandaRed)?':rubbed-coating170-r06':'');m.userData.timberFinish={role:pigment.has(m)?'pigment with normalised scan grain':'retained original dark scan',pigment:pigment.get(m)??null,sourceLinearMeanY:.01505120736,normalStrength:.18,photoRGB:false};m.needsUpdate=true;
  }
  return {textures:[albedo,normal,rough],info:{revision:'scene02-linear-grain-painted-timber-73-veranda',sourceLinearMeanY:.01505120736,normalMapPreserved:true,roughnessMapPreserved:true,floorReflection:'Actual board clearcoat/PBR roughness and the existing captured scene probe; no spanning mirror plane',targets:[...targets.keys()].map(m=>({name:m.name,...m.userData.timberFinish}))}};
 }

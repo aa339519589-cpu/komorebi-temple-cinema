@@ -1,6 +1,7 @@
 import {T,V,gridGeometry,mix} from './kernel.js';
 import {layout} from './layout117.js';
 import {buildTurnedSorin} from './sorin-solids.js';
+import {createSorinRoofSeat170} from './roof-seat170.js';
 
 // Five occupied timber storeys. The external silhouette retains the recovered
 // tower envelope, while the wall, balcony, bracket cage and roof are separate
@@ -19,7 +20,7 @@ export function buildPagodaEnsemble160({b,mats,column,carpentry}){
  b.at(layout.pagoda.position,layout.pagoda.yaw,()=>{
   b.box(0,.30,0,7.6,.6,7.6,'stone');b.box(0,.65,0,8,.14,8,'lightstone');
   for(let level=0;level<5;level++){
-   const floor=.8+level*layout.pagoda.tierPitch,w=9.4-level*.45,body=w*.48,h=w/2,eave=floor+2.10,rise=1.40,curl=.52;
+   const floor=.8+level*layout.pagoda.tierPitch,w=9.4-level*.45,body=w*.48,h=w/2,eave=floor+2.10,rise=level===4?1.63:1.40,curl=.52;
    const P=(side,t,u)=>{let x,z;if(side<2){x=u*h*t;z=(side===0?1:-1)*h*t;}else{x=(side===2?1:-1)*h*t;z=u*h*t;}return[x,eave+rise*Math.pow(Math.max(0,1-t),1.46)+curl*Math.pow(t,7)*(.18+.82*Math.pow(Math.abs(u),8)),z];};
    // The porch is open in front of a recessed, opaque timber storey. Narrow
    // cream infill belongs inside the frame, never across a window or column.
@@ -38,8 +39,8 @@ export function buildPagodaEnsemble160({b,mats,column,carpentry}){
     }
     for(let i=0;i<5;i++){
      const x=(i-2)*body*.235;
-     column(x,wall+.23,floor+.12,1.62,.117,'pagodaRed160');
-     carpentry.head(x,floor+1.64,wall+.22,.32,'side');stats.bracketHeads++;
+     column(x,wall+.23,floor+.12,1.62,.145,'pagodaRed160');
+     carpentry.head(x,floor+1.64,wall+.22,.32,'tower');stats.bracketHeads++;
      // Housed fan levers receive the cantilevered eave purlin.
      b.line([x,floor+1.85,wall+.24],[x,floor+2.03,h-.55],.105,'hallBearing',true,.145);
      b.line([x,floor+2.13,wall+.35],[x,floor+2.16,h-.68],.095,'pagodaRed160',true,.11);
@@ -49,7 +50,7 @@ export function buildPagodaEnsemble160({b,mats,column,carpentry}){
     for(const [yy,dd]of[[1.55,.28],[1.79,.32],[2.08,.26]])b.box(0,floor+yy,wall+.27,body+.43,.13,dd,'hallBearing');
     for(const yy of[.39,.67])b.box(0,floor+yy,balcony,body+1,.062,.085,'pagodaRed160');
     for(let i=0;i<=10;i++){const x=-(body+1)/2+(body+1)*i/10;b.box(x,floor+.48,balcony,.058,.52,.062,'pagodaRed160');b.box(x,floor+.755,balcony,.10,.043,.10,'oldgold');}
-    for(let i=0;i<10;i++){const x=-(body+1)/2+(body+1)*(i+.5)/10;b.box(x,floor+.45,balcony-.025,(body+1)/10-.09,.10,.035,'pagodaPlaster160');}
+    for(let i=0;i<10;i++){const x=-(body+1)/2+(body+1)*(i+.5)/10;b.box(x,floor+.45,balcony-.025,(body+1)/10-.09,.08,.035,'pagodaRed160');}
    });
    // Corner diagonal braces land on the same column row as the straight arms.
    for(const sx of[-1,1])for(const sz of[-1,1]){
@@ -79,9 +80,15 @@ export function buildPagodaEnsemble160({b,mats,column,carpentry}){
     for(const t of[.58,.77,.94])b.tube(Array.from({length:33},(_,j)=>{const p=P(side,t,-1+2*j/32);p[1]-=.36;return p;}),.062,'hallBearing',48);
     if(side<2)for(const sign of[-1,1])b.tube(Array.from({length:29},(_,j)=>{const p=P(side,.025+.995*j/28,sign);p[1]+=.085;return p;}),.072,'ceramic1602',40);
    }
+   if(level===4){b.put(createSorinRoofSeat170({eave,rise,halfWidth:h,curl}),'sorinSeat170');stats.roofSeat170='Closed flared aged-bronze skirt follows actual roof and carries full metal boot footprint';}
    b.cyl(0,eave+rise+.055,0,.20,.11,'ceramic1602');
   }
-  b.at([0,layout.pagoda.sorinYOffset,0],0,()=>{stats.sorin=buildTurnedSorin(b);});
+  // Native/HD correspondence places only the top-roof apex about8px and
+  // sorin tip about14px low. Hold allfive eave contours and the tower base;
+  // raise the top roof crown0.23m, keep the boot seated, lengthen its metal
+  // spindle/ring heights5% about the original14.9m foot. Radial sizes held.
+  b.at([0,layout.pagoda.sorinYOffset+.23+14.9*(1-1.05),0],0,()=>{stats.sorin=buildTurnedSorin(b);},[1,1.05,1]);
+  stats.finialFit170={topRoofRise:1.63,finialHeightScale:1.05,bootSeatLocalY:14.9+layout.pagoda.sorinYOffset+.23,unchanged:'All tower eaves, site/contact, plan widths and camera'};
   for(const[ma,d]of merged){const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(d.positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(d.uv,2));g.setIndex(d.indices);g.computeVertexNormals();g.name='scene02-closed-pagoda-ceramic-and-soffit160-'+ma;b.put(g,ma);}
  },layout.pagoda.scale);
  return stats;

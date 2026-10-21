@@ -1,6 +1,7 @@
 import {T,V} from './kernel.js';
 import {createCarvedTimber157} from './carved-timber157.js';
 import {buildCornerReceiver158} from './corner-receiver158.js';
+import {buildMonumentalGable170} from './gable170.js';
 
 // Authored solid timber and cast fittings, in the hall's structural coordinates.
 // The heads follow column -> abacus -> arms -> bearing blocks -> purlins.
@@ -43,12 +44,12 @@ export function createHallCarpentry141({b,mats}){
  function frontEave(axes,roof){
   const cx=(axes[0]+axes.at(-1))/2,span=axes.at(-1)-axes[0],footY=roof.gableEave+.38;
   carved.stats.diagonalCorners=buildCornerReceiver158({b,carved,roof,axes});
-  b.box(cx,7.58,4.72,span+1.75,.32,.59,'hallBearing');
-  b.box(cx,7.83,5.30,span+2.55,.24,.41,'hallOxide');
+  b.box(cx,8.13,4.72,span+1.75,.32,.59,'hallBearing');
+  b.box(cx,8.38,5.30,span+2.55,.24,.41,'hallOxide');
   const bayWidth=span/5-.45;
   for(let i=0;i<axes.length-1;i++){
-   const x=(axes[i]+axes[i+1])/2;head(x,7.94,5.55,.78,'intermediate');
-   carved.spandrel(x,7.48,5.08,bayWidth);
+   const x=(axes[i]+axes[i+1])/2;head(x,8.45,5.55,.78,'intermediate');
+   carved.spandrel(x,7.99,5.08,bayWidth);
   }
   // The three purlins follow the actual shallow apron section. Their arms
   // carry load back through short attic struts and the column-head cross ties.
@@ -57,20 +58,20 @@ export function createHallCarpentry141({b,mats}){
    carved.cornice(cx,y,z,w,.48,roof.roofCurl*Math.pow(t,8)*.78);
   }
   for(const x of axes){
-   b.line([x,8.22,5.30],[x,9.27,8.54],.18,'hallBearing',true,.24);b.box(x,8.68,7.05,.23,.24,2.72,'hallOxide');
-   b.line([x,8.10,4.84],[x,footY-.39,roof.gableFront-.12],.19,'hallBearing',true,.23);
+   b.line([x,8.73,5.30],[x,9.27,8.54],.18,'hallBearing',true,.24);b.box(x,9.04,7.05,.23,.24,2.72,'hallOxide');
+   b.line([x,8.61,4.84],[x,footY-.39,roof.gableFront-.12],.19,'hallBearing',true,.23);
    bearing(x,9.14,6.20,.43,.44,'hallOxide',true);bearing(x,9.49,6.20,.43,.44,'hallBearing',true);
-   cloudEnd(x,8.73,7.95,Math.PI/2,.72);
+   cloudEnd(x,9.00,7.95,Math.PI/2,.72);
   }
   for(const sign of[-1,1]){
    const columnX=sign<0?axes[0]:axes.at(-1),innerX=roof.gableCenterX+sign*roof.gableWidth/2;
-   for(let z=-5.55;z<=5.56;z+=1.45)head(columnX+sign*.38,7.95,z,.80,'side',sign*Math.PI/2);
+   for(let z=-5.55;z<=5.56;z+=1.45)head(columnX+sign*.38,8.46,z,.80,'side',sign*Math.PI/2);
    for(const t of[.20,.50,.78]){
     const x=T.MathUtils.lerp(innerX,roof.gableCenterX+sign*roof.roofWidth/2,t),y=T.MathUtils.lerp(footY,roof.roofEave,t)-.96*t*(1-t)+roof.roofCurl*Math.pow(t,8)*.22-.48,z=(T.MathUtils.lerp(roof.gableBack,roof.roofBack,t)+T.MathUtils.lerp(roof.gableFront,roof.roofFront,t))/2,d=T.MathUtils.lerp(roof.gableFront-roof.gableBack,roof.roofFront-roof.roofBack,t);
     b.at([x,y,z],sign*Math.PI/2,()=>carved.cornice(0,0,0,d,.50,roof.roofCurl*Math.pow(t,8)*.78));
    }
-   b.line([columnX,8.20,4.70],[innerX+sign*.75,footY-.67,roof.gableFront+.78],.24,'hallBearing',true,.29);
-   for(let z=-5.8;z<6;z+=.74){b.line([columnX,8.40,z],[innerX+sign*2.10,9.12,z],.16,'hallBearing',true,.20);b.line([columnX,8.0,z],[innerX,footY-.4,z],.15,'hallBearing',true,.20);}
+   b.line([columnX,8.71,4.70],[innerX+sign*.75,footY-.67,roof.gableFront+.78],.24,'hallBearing',true,.29);
+   for(let z=-5.8;z<6;z+=.74){b.line([columnX,8.91,z],[innerX+sign*2.10,9.12,z],.16,'hallBearing',true,.20);b.line([columnX,8.51,z],[innerX,footY-.4,z],.15,'hallBearing',true,.20);}
   }
  }
  function sanctuaryBackdrop(cx=.9){
@@ -89,5 +90,5 @@ export function createHallCarpentry141({b,mats}){
    b.ball(x,5.55,-5.15,.14,.14,.07,'gold');
   }
  }
- return{head,transomBay,facePlate,cloudEnd,frontEave,sanctuaryBackdrop,gable:carved.gable,tail:carved.tail,stats:Object.assign(counts,{carved:carved.stats})};
+ return{head,transomBay,facePlate,cloudEnd,frontEave,sanctuaryBackdrop,gable:roof=>{counts.gableMass170=buildMonumentalGable170({b,mats,carved,roof});return counts.gableMass170;},tail:carved.tail,stats:Object.assign(counts,{carved:carved.stats})};
 }

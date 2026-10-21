@@ -5,7 +5,7 @@ export function buildCornerReceiver158({b,carved,roof,axes}){
  const arm=carved.prototypes.find(g=>g.name==='scene02-closed-sculpted-cloud-lever157'),nose=carved.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose157'),noseLeft=carved.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose-left157');if(!arm||!nose||!noseLeft)throw Error('Carved157 vocabulary required.');
  const result=[];
  for(const sign of[-1,1]){
-  const columnX=sign<0?axes[0]:axes.at(-1),innerX=roof.gableCenterX+sign*roof.gableWidth/2,frontZ=4.7,yaw=Math.atan2(innerX-columnX,roof.gableFront-frontZ),root=[columnX,7.45,frontZ],contactDistance=2.52;
+  const columnX=sign<0?axes[0]:axes.at(-1),innerX=roof.gableCenterX+sign*roof.gableWidth/2,frontZ=4.7,yaw=Math.atan2(innerX-columnX,roof.gableFront-frontZ),root=[columnX,8.05,frontZ],contactDistance=2.52;
   b.at(root,yaw,()=>{
    // Six radial diagonal lever seats share the existing column abacus and
    // climb toward the fixed inner hip bearing; no duplicate capital is added.
@@ -23,8 +23,8 @@ export function buildCornerReceiver158({b,carved,roof,axes}){
    // The fitted upper nose contacts the closed R22 diagonal hip timber.
    carved.bearing(0,2.54,contactDistance,.46,.52,'hallBearing',true);
    b.box(0,2.64,contactDistance,.41,.16,.57,'hallOxide');
-  });
-  const m=new T.Matrix4().compose(V(root),new T.Quaternion().setFromAxisAngle(V([0,1,0]),yaw),V([1,1,1]));result.push({columnLocal:root,yaw,upperSeatLocal:V([0,2.72,contactDistance]).applyMatrix4(m).toArray(),sharedCapital:true,roofReference:'Unchanged R22 inner hip edge and diagonal underside bearing'});
+  },[1,.78,1]);
+  const m=new T.Matrix4().compose(V(root),new T.Quaternion().setFromAxisAngle(V([0,1,0]),yaw),V([1,.78,1]));result.push({columnLocal:root,yaw,upperSeatLocal:V([0,2.72,contactDistance]).applyMatrix4(m).toArray(),sharedCapital:true,roofReference:'Unchanged R22 inner hip edge and diagonal underside bearing'});
  }
  return{visualAccepted:false,cornerReceivers:result};
 }

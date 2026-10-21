@@ -1,0 +1,117 @@
+{
+  "heldRevision": "scene02-monumental-gable-and-bearing-mass170-r07",
+  "sourceHash": "d09b2d777ed73c8ea1fd74b7e0f017cbccea2a9cf77336f3bed1e381125456ee",
+  "sourceStatus": "Canonical scene02 byte-frozen after seven actual modeling/review rounds. Root integrates; no Git by this worker.",
+  "visualAccepted": false,
+  "reviewed": [
+    "HD02 full and gable/column architecture close against actual source162R04",
+    "R01/R02/R03/R04 actual1254 full + true gable-column hero + low3q",
+    "R05 actual1254 full + true gable-column/tower heroes + low3q",
+    "R06 actual1254 full + true gable-column/tower/rail heroes + low3q",
+    "R07 actual1254 full + true gable-column/tower heroes + low3q"
+  ],
+  "actualSourceWork": [
+    "Closed deep recessed gable loft, heavy curved trusses/knees/bargeboards, full-depth occupied framed bays, closed sculpted three-ring wood/gilt flowers and fitted rake relief.",
+    "Taller outer shafts from fixed plinths, compact wide/deep capitals at held roof seats, reconnected taller door/portal/transom/joist/ceiling/enclosure grid and fitted corner receivers.",
+    "Restored original seated closed ceramic crests, measured upper tower crown/finial correction, thicker tower posts and a closed roof-fitted turned bronze boot skirt.",
+    "Two finite LTC warm forecourt area sources replace strong hard directional front-fill; actual shadowed sun retained. Physical lacquer/gilt/bronze/paper finishes retain declared CC0 metric scan maps.",
+    "Foreground rail path/external dimensions/post contacts held, with real arched crown and lower rough clearcoat using metric clearcoat-normal scan."
+  ],
+  "geometryValidation": {
+    "curledPetalComponents": "closed-rosette170-r04-topology.json: all3actual rings finite, positive,0nonmanifold edges after spatial seam weld; not a union",
+    "roofBoot": "roof-seat170-r07-topology.json:194vertices384triangles, finite, positive,0nonmanifold edges",
+    "archedRail": "roof-seat-and-rail170-r06-topology.json:9918vertices19832triangles, finite, positive,0nonmanifold edges",
+    "failedCandidate": "R03 had8coincident root edges; failed-check JSON/source/native images all retained."
+  },
+  "remainingVisualGaps": [
+    "Still visibly CG; not a photographic reconstruction acceptance.",
+    "Fine bracket/ornament shape and gilding distribution remain too schematic/repeated versus HD.",
+    "Roof texture/shading and real sunset radiance/contrast remain approximate; LTC area contact uses GTAO and is not Cycles shadow parity.",
+    "Existing garden species/canopy/water/rocks and broad composition-depth differences remain. Their geometry stayed unchanged in this architectural scope."
+  ],
+  "preserved": [
+    "Original reference camera, site/building poses, bridge/stair layout, all tower eave contours and major hall roof contours",
+    "Original CC0 external media bytes; no new media downloads, no NC content, no reference/AI scene plate",
+    "Scene01 byte-frozen and untouched during scene02 task; no other scenes/shared/tools edited"
+  ],
+  "archives": {
+    "completeBaseline": "source162-baseline.tar.gz",
+    "eachRound": "source170-r01-scripts.tar.gz through source170-r07-scripts.tar.gz",
+    "assetScope": "Round archives intentionally omit unchanged scene-local assets; complete original assets are in baseline and exact identities in source170-r07-identity.json. Declared global asset files remain in public repository."
+  },
+  "reports": [
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-mass170-r07-20261022/report.json",
+      "sourceHash": "d09b2d777ed73c8ea1fd74b7e0f017cbccea2a9cf77336f3bed1e381125456ee",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/02/iteration-scene02-mass170-r07-20261022/reference.png",
+          "rgbaSha256": "9035d9754bfa50d244d3eef4af28b237f201e93a70810080778dceb57970e237"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/02/iteration-scene02-mass170-r07-20261022/detail-native.png",
+          "rgbaSha256": "83824f7262c1d8aefe80b09114024f71f6071f1544c5c4da6a50f103f46ec91f"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-mass170-r07-tower-hero-20261022/report.json",
+      "sourceHash": "d09b2d777ed73c8ea1fd74b7e0f017cbccea2a9cf77336f3bed1e381125456ee",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/02/iteration-scene02-mass170-r07-tower-hero-20261022/reference.png",
+          "rgbaSha256": "9035d9754bfa50d244d3eef4af28b237f201e93a70810080778dceb57970e237"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/02/iteration-scene02-mass170-r07-tower-hero-20261022/detail-native.png",
+          "rgbaSha256": "aff2e322bc5940b94fedb511713bec3ffd7226128453e7c9d52833f095ada815"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-mass170-r07-low-3q-20261022/report.json",
+      "sourceHash": "d09b2d777ed73c8ea1fd74b7e0f017cbccea2a9cf77336f3bed1e381125456ee",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/02/iteration-scene02-mass170-r07-low-3q-20261022/inspection-view.png",
+          "rgbaSha256": "34f94b7c5dc7b0574356194567a6e05de6c6965ed4f3f3ae645f1554eaf3ab69"
+        }
+      ]
+    }
+  ],
+  "changedFiles": "source170-r07-changed-files.json"
+}

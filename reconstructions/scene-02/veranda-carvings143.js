@@ -44,7 +44,7 @@ export function buildVerandaCarvings143({b,mats,canopy}){
   beamNose(outside(z)+.68,8.70,z+.13,.73);
  }
  mats.lanternCast160=mats.verandaBronze.clone();mats.lanternCast160.name='scene02-lantern-dark-chased-bronze160';mats.lanternCast160.color.setHex(0x49351c);mats.lanternCast160.roughness=.42;
- const lampPane=new T.MeshStandardMaterial({name:'scene02-physical-emitting-paper160',color:0xad7433,emissive:0xffb559,emissiveIntensity:3.8,roughness:.84,side:T.DoubleSide});
+ const lampPane=new T.MeshStandardMaterial({name:'scene02-physical-emitting-paper160',color:0xad7433,emissive:0xffb559,emissiveIntensity:2.15,roughness:.84,side:T.DoubleSide});
  const grilleShape=new T.Shape();grilleShape.moveTo(-.211,-.55);grilleShape.lineTo(.211,-.55);grilleShape.lineTo(.211,.55);grilleShape.lineTo(-.211,.55);grilleShape.closePath();
  function aperture(x,y,rx,ry,a=0){const p=new T.Path();p.absellipse(x,y,rx,ry,0,Math.PI*2,true,a);grilleShape.holes.push(p);}
  for(const sign of[-1,1]){

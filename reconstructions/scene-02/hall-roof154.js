@@ -57,7 +57,7 @@ export function buildHallRoof154({b,mats,roof}){
  // The attic is an enclosed timber volume above the portico ceiling.
  // These real dark frieze boards close the former ray path through the roof
  // corner while keeping the interlocking brackets open in front of them.
- const wallBottom=8.03,wallTop=footY-.11,wallHeight=wallTop-wallBottom,bodyCentre=roof.bearingGrid.centre,bodySpan=roof.bearingGrid.span,friezeFront=roof.bearingGrid.frontZ-.15,friezeBack=-6.15;
+ const wallBottom=8.54,wallTop=footY-.11,wallHeight=wallTop-wallBottom,bodyCentre=roof.bearingGrid.centre,bodySpan=roof.bearingGrid.span,friezeFront=roof.bearingGrid.frontZ-.15,friezeBack=-6.15;
  // The enclosure belongs behind the column-head bearing ring. Placing it on
  // the outer hip ring hid the real stepped brackets behind a broad plank box.
  // Its closed body still blocks the former ray path through the attic corner.

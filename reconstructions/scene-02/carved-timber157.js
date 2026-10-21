@@ -1,6 +1,7 @@
 import {T,V} from './kernel.js';
 import {layout} from './layout117.js';
 import {revolveProfile} from './sorin-solids.js';
+import {createCarvedRosette170} from './carved-rosette170.js';
 
 // Scene02 authored closed carving/support vocabulary. No raster or photographed
 // relief is used. The same reproducible meshes serve the load-bearing heads,
@@ -8,9 +9,10 @@ import {revolveProfile} from './sorin-solids.js';
 export function createCarvedTimber157({b,mats}){
  const stats={revision:'scene02-monumental-fitted-ensemble161',closedPrototypeKinds:0,heads:0,carvedCapitals:0,cloudNoses:0,sculptedLeafInstances:0,corniceTiers:0,piercedSpandrels:0,gableBuilt:false,construction:'Closed sculpted timber arms, moulded bearing bowls, flared carved receivers and geometric gilded leaf/scroll relief; shared R22 seats and bearing grid',photoTexture:false};
  const sx=layout.hall.scale[0],sz=layout.hall.scale[2];
- const gold=mats.gold.clone();gold.name='scene02-carved-hall-worn-gilt157';gold.color.setHex(0xc4a064);gold.roughness=.35;gold.metalness=.94;gold.envMap=null;mats.carvingGold157=gold;
- const bronze=mats.oldgold.clone();bronze.name='scene02-carved-hall-recessed-bronze157';bronze.color.setHex(0x96703e);bronze.roughness=.47;bronze.metalness=.88;bronze.envMap=null;mats.carvingBronze157=bronze;
+ const gold=mats.gold.clone();gold.name='scene02-carved-hall-worn-gilt157';gold.color.setHex(0xc4a064);gold.roughness=.40;gold.metalness=.80;gold.envMap=null;mats.carvingGold157=gold;
+ const bronze=mats.oldgold.clone();bronze.name='scene02-carved-hall-recessed-bronze157';bronze.color.setHex(0x96703e);bronze.roughness=.56;bronze.metalness=.66;bronze.envMap=null;mats.carvingBronze157=bronze;
  const dark=mats.darkwood.clone();dark.name='scene02-carved-openwork-shadow157';dark.color.setHex(0x27170f);dark.roughness=.8;mats.carvingRecess157=dark;
+ const flower170=createCarvedRosette170({b});stats.carvedRosette170=flower170.stats;
  const prototypes=[];
  function record(g,name){g.name=name;prototypes.push(g);stats.closedPrototypeKinds++;return g;}
  function mirrorX(g,name){const c=g.clone();c.scale(-1,1,1);if(!c.index)c.setIndex(Array.from({length:c.attributes.position.count},(_,i)=>i));const a=c.index.array;for(let i=0;i<a.length;i+=3)[a[i+1],a[i+2]]=[a[i+2],a[i+1]];c.computeVertexNormals();return record(c,name);}
@@ -53,7 +55,7 @@ export function createCarvedTimber157({b,mats}){
   for(const sign of[-1,1]){scrollAt([x+sign*w*.16,y-h*.015,z+front],Math.min(w*.74,h*1.23),sign<0?Math.PI:0,sign*.10);leafAt([x+sign*w*.19,y-h*.28,z+front],h*.58,w*.55,0,sign*-.62,'carvingGold157',h*.70);}
   leafAt([x,y-h*.28,z+front],h*.65,w*.44,0,0,'carvingGold157',h*.70);
  }
- function cloudEnd(x,y,z,yaw=0,s=1,mirror=false){b.at([x,y,z],yaw,()=>{const q=mirror?-1:1;b.put(mirror?noseLeft:nose,'hallBearing');b.put(mirror?voluteLeft:volute,'carvingBronze157',[-q*.01,.035,.171],[.88,.88,.88],[0,0,-q*.20]);leafAt([-q*.23,-.12,.175],.45,.67,0,-q*.55,'carvingGold157',.45);leafAt([q*.15,-.13,.177],.36,.45,0,q*.57,'carvingGold157',.40);},s);stats.cloudNoses++;}
+ function cloudEnd(x,y,z,yaw=0,s=1,mirror=false){b.at([x,y,z],yaw,()=>{const q=mirror?-1:1;b.put(mirror?noseLeft:nose,'hallBearing');b.put(mirror?voluteLeft:volute,'hallBearing',[-q*.01,.035,.171],[.88,.88,.88],[0,0,-q*.20]);leafAt([-q*.23,-.12,.175],.45,.67,0,-q*.55,'carvingBronze157',.45);leafAt([q*.15,-.13,.177],.36,.45,0,q*.57,'hallBearing',.40);},s);stats.cloudNoses++;}
  function bearing(x,y,z,w=.42,d=.36,material='hallBearing',ornament=true){b.put(receiver,material,[x,y,z],[w,1,d/.44]);if(ornament){leafAt([x,y-.16,z+d/2+.010],.25,w*.52,0,0,'carvingGold157',.35);for(const sign of[-1,1])scrollAt([x+sign*w*.20,y-.018,z+d/2+.010],w*.42,0,sign<0?Math.PI:0,'carvingBronze157');}}
  function capital(s=1){
   b.put(collar,'carvingBronze157',[0,-.04,0],[1/sx,1,1/sz]);b.put(rim,'carvingGold157',[0,-.30,0],[1/sx,1,1/sz]);b.put(rim,'carvingGold157',[0,.13,0],[1.22/sx,1,1.22/sz]);
@@ -61,9 +63,9 @@ export function createCarvedTimber157({b,mats}){
   stats.carvedCapitals++;
  }
  function head(x,y,z,s=1,kind='primary',yaw=0){
-  const stages=kind==='inner'?2:kind==='intermediate'?3:kind==='side'||kind==='rear'?4:5,primary=kind==='primary';
+  const stages=kind==='inner'?2:kind==='intermediate'?3:kind==='side'||kind==='rear'||kind==='tower'?4:5,primary=kind==='primary';
   b.at([x,y,z],yaw,()=>{
-   if(primary)capital();
+   if(primary){capital();flower170.stamp([0,-.06,.43],.40);}
    b.put(receiver,'hallBearing',[0,.12,0],[1.18,1,1.14/.44]);b.box(0,.29,0,1.28,.12,1.15,'hallOxide');
    for(let k=0;k<stages;k++){
     const yy=.40+k*.335,span=.56+k*.095,out=.14+k*.37;
@@ -72,21 +74,21 @@ export function createCarvedTimber157({b,mats}){
     b.put(arm,k%2?'hallBearing':'hallOxide',[0,yy,out],[span,1,1]);
     b.put(arm,'hallBearing',[0,yy+.11,out-.035],[.53+k*.075,1,.92],[0,Math.PI/2,0]);
     for(const sign of[-1,1]){
-     bearing(sign*span*.76,yy+.30,out,.38+k*.018,.34,'hallBearing',k%2===0);
-     bearing(0,yy+.375,out+sign*(.40+k*.075),.35,.34,'hallOxide',sign>0);
+     bearing(sign*span*.76,yy+.30,out,.38+k*.018,.34,'hallBearing',k===0||k===stages-1);
+     bearing(0,yy+.375,out+sign*(.40+k*.075),.35,.34,'hallOxide',sign>0&&(k===0||k===stages-1));
      cloudEnd(sign*span*.86,yy+.055,out+.19,0,.48+k*.035,sign<0);
     }
     b.box(0,yy+.30,out,.25,.30,.31,'hallOxide');
     // Raised chased leaves follow the curved timber face, with dark edge
     // reveals. The load-bearing body remains wood through its full depth.
-    for(const sign of[-1,1]){scrollAt([sign*span*.42,yy+.055,out+.184],.48+k*.025,0,sign<0?Math.PI:0);leafAt([sign*span*.65,yy-.075,out+.192],.28,.40,0,-sign*.7,'carvingBronze157',.40);}
+    for(const sign of[-1,1]){scrollAt([sign*span*.42,yy+.055,out+.184],.48+k*.025,0,sign<0?Math.PI:0,'hallBearing');leafAt([sign*span*.65,yy-.075,out+.192],.28,.40,0,-sign*.7,'carvingBronze157',.40);}
    }
    const top=.40+(stages-1)*.335,forward=.14+(stages-1)*.37;
    // Upper housed arm bears below the fixed purlin; its nose stops inside
    // the R22 apron, preserving the roof seat and the open inter-bay spaces.
    b.put(arm,'hallBearing',[0,top+.08,forward+.26],[.71,1,.88],[0,Math.PI/2,0]);bearing(0,top+.29,forward+.72,.40,.45,'hallBearing',true);
    if(primary)cloudEnd(0,-.22,.43,Math.PI/2,.72);
-  },s);stats.heads++;
+  },[s*(primary||kind==='inner'||kind==='intermediate'?1.30:1.12),s*(kind==='tower'?1:kind==='inner'?.78:kind==='side'?.78:.74),s*(primary||kind==='inner'||kind==='intermediate'?1.18:1.12)]);stats.heads++;
  }
  function spandrelAt(x,y,z,width){const scale=width/2.2;b.put(spandrel,'hallBearing',[x,y,z],[scale,1,1]);for(const sign of[-1,1]){scrollAt([x+sign*.47*scale,y+.19,z+.12],.72,0,sign<0?Math.PI:0,'carvingGold157');leafAt([x+sign*.73*scale,y+.04,z+.13],.43,.66,0,-sign*.65,'carvingBronze157',.65);leafAt([x+sign*.20*scale,y+.18,z+.14],.48,.66,0,sign*.46,'carvingGold157',.65);}leafAt([x,y+.05,z+.15],.48,.75,0,0,'carvingGold157',.6);stats.piercedSpandrels++;}
  function cornice(x,y,z,width,pitch=.48,endLift=0){
@@ -169,5 +171,5 @@ export function createCarvedTimber157({b,mats}){
   }
   stats.gableBuilt=true;
  }
- return{head,facePlate,cloudEnd,bearing,spandrel:spandrelAt,cornice,leaf:leafAt,scroll:scrollAt,gable,tail,stats,prototypes};
+ return{head,facePlate,cloudEnd,bearing,spandrel:spandrelAt,cornice,leaf:leafAt,scroll:scrollAt,gable,tail,sweep,rosette:flower170.stamp,stats,prototypes};
 }
