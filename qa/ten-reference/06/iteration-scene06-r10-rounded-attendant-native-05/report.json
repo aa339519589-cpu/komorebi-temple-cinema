@@ -1,0 +1,979 @@
+{
+  "reference": 6,
+  "entry": "reconstructions/scene-06/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-21T10:59:02.722Z",
+  "source": {
+    "hash": "23f22b8ebb29b3fd1720fd6c190e3b63115aa9e632c1c0160f96eaf3a408d004",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-06/asset-dependencies.json": "d56a575e3e34da38388630f612b4bc9325e382b49f8fcdfc2ac509943e54b9d6",
+      "reconstructions/scene-06/assets/cc0-fralin-buddha-head/BuddhaHead_surfmerg_remesh.ply": "0977e11edb982c15c68acc67e33c00a16d134590da184c46c8fd3325c1b7ad56",
+      "reconstructions/scene-06/assets/cc0-fralin-buddha-head/LICENSE.md": "7b12130f0ded16d4686b69dc256217095b1519fc4699cb034f4734bf7cb2ec6a",
+      "reconstructions/scene-06/assets/cc0-fralin-buddha-head/dataset-primary-metadata.json": "4db95f43166d7bb9700aeb4f630ef3ed9f1b586d5f83c52f985b60d0b9adaa8e",
+      "reconstructions/scene-06/assets/cc0-fralin-buddha-head/provenance.json": "69037be2e235ada4479b3a3209216e1c1131c2eade6bc9829242d977bdd55026",
+      "reconstructions/scene-06/assets/floor-scan106/material.json": "b88ab910bccd70ca94be82949c804d3bfccf2cbb72042f97c2c381b27e803d3c",
+      "reconstructions/scene-06/assets/generated-wood-texture-20261020/provenance.json": "63212bef9228424c2b6b2522171076557d831bd5f7e3563a38f0a02d1ba5c55e",
+      "reconstructions/scene-06/assets/generated-wood-texture-20261020/temple-hinoki-albedo.png": "8ca9dcb84a48aefada8716636b26778c861108daaa9c118c8d3ad17118b76d36",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/central-central-9e8ffd264d07f83c.bin": "9e8ffd264d07f83c66ee4ee24257873216531aa9139bba768e7733719cb385fe",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/central-gold-257c13dc781a8904.bin": "257c13dc781a89042bc8d2caa7be227cc91b7ab7006ebbc6c7af08b850f19181",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/central-oldgold-34a404be88622dd5.bin": "34a404be88622dd53e9b345a4e0dfd3f03f6d6e57f040a779260b61fd7202047",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/left-buddha-5c574d5842bf2c74.bin": "5c574d5842bf2c74058107875d0674f261ce2fcfbc6d39df190dd1261bca8f73",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/left-gold-958e482f90b080d3.bin": "958e482f90b080d3a845c9e5a5643656e9e7e625170332f2fa479953e1af2b76",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/left-oldgold-c8d8709002a66038.bin": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/manifest.json": "750be8ca92726a791cf3ebebdde6d055fcb089d5efafcb531eb3ec82c99e78a8",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/provenance.json": "a278262d85a1f7e9b584e0468704fb3a70f27acdd381c0fa6132e7d6a87ce0bc",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/right-buddha-9de14ba15695e8a8.bin": "9de14ba15695e8a8586b58d3fe4c88f97f5c437925f923f3008c5730507fc96f",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/right-gold-958e482f90b080d3.bin": "958e482f90b080d3a845c9e5a5643656e9e7e625170332f2fa479953e1af2b76",
+      "reconstructions/scene-06/assets/sculptural-cast-r10/right-oldgold-c8d8709002a66038.bin": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/central-central.bin": "f9e1b58c9124ef3b5823a8296ba0aa1b8777a8788eda0e3952d9886b6212b724",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/central-gold.bin": "6703c264d4d98d6ca8315f8306eda49764dff77c1f9d21b62ac67da250123fd5",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/central-oldgold.bin": "2d3113006333a3b962e5ad3b759e1a009c4315067f25ac7c330fd684d97c11b0",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/left-buddha.bin": "257321f59987dd332ea9c3a6a6b278b75d8e8e43a301f763a3ed0120c48da902",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/left-crease.bin": "66f033ffbe6b0e9d30f7dbe842be8bc026420f4d982c4c3e6cae31b9448c710f",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/left-gold.bin": "c672ee117d448670a729a544c7c5c6fb42f8b787873a233a89053dd7bf0cfddc",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/left-oldgold.bin": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/manifest.json": "f853f224d0d2db98a01ded175598013c044ffbb208efd50c035ac5d6e2bfb2dc",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/provenance.json": "7f2ddf0dd64a1bde68a6ea014071d8777f105ca5d8e0d083e6d88927dce323d5",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/right-buddha.bin": "f73457f53ba089e190dca1eaf59a9d0688db216e37b7f95744783009427bf49a",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/right-crease.bin": "66f033ffbe6b0e9d30f7dbe842be8bc026420f4d982c4c3e6cae31b9448c710f",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/right-gold.bin": "c672ee117d448670a729a544c7c5c6fb42f8b787873a233a89053dd7bf0cfddc",
+      "reconstructions/scene-06/assets/sculptural-cast-r8/right-oldgold.bin": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/central-central-6c26b5d923d1412b.bin": "6c26b5d923d1412bc4d2d946408ea01d0788fd5ccf1beff0714e662123815598",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/central-gold-43ace3ebb1ccffb6.bin": "43ace3ebb1ccffb686574061c0c61e0b7d5bd79018f6328f8580162c6f685019",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/central-oldgold-2d3113006333a3b9.bin": "2d3113006333a3b962e5ad3b759e1a009c4315067f25ac7c330fd684d97c11b0",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/left-buddha-0072eaba512c0284.bin": "0072eaba512c028447f2542b9efff7539816e492dd4abacad0626935bf11969a",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/left-gold-84c767c1e2ffa914.bin": "84c767c1e2ffa914f3ebe27a2275d566abb4ef80e0c2d58e8ee5ac420f16af73",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/left-oldgold-7f0205861ee13a4f.bin": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/manifest.json": "a38cd41e6cb75cdb2eeed06a9aee71c1b10c8c7aa24989672481c580bae7f72b",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/provenance.json": "60722fa7d2211415ec03b8c93936026bd1b8c54960d2aaa55e9e619ef0226063",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/right-buddha-1e88312505db8df7.bin": "1e88312505db8df7233b0bea377fd2c62d8b8faef37163e30097f306295c5a08",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/right-gold-84c767c1e2ffa914.bin": "84c767c1e2ffa914f3ebe27a2275d566abb4ef80e0c2d58e8ee5ac420f16af73",
+      "reconstructions/scene-06/assets/sculptural-cast-r9/right-oldgold-7f0205861ee13a4f.bin": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb",
+      "reconstructions/scene-06/index.html": "f54c086e03b4b272ffa47983ff78d2075c065b9d1b96949b270f46aaea0eb6f8",
+      "reconstructions/scene-06/modeling/build-sculptural-cast-r10.mjs": "d8fe6200cb528337b50bb4af7f9a7addacab728ebdfbea434c25296172b394b5",
+      "reconstructions/scene-06/modeling/build-sculptural-cast-r9.mjs": "9b571a8d4377c605a5a979335694e1a0d9731daada46e5ac8c4ea4483fe8d591",
+      "reconstructions/scene-06/modeling/build-sculptural-cast.mjs": "0b6ae6c99c05573857943b1750481d651d95bc76d7af2691e76cc2f9577d4c5a",
+      "reconstructions/scene-06/modeling/fuse-sculptural-cast-r10.py": "76750cbbb248d593095253d0fb9e94b7244ee282921b3820b16a2cbaee7a9116",
+      "reconstructions/scene-06/modeling/fuse-sculptural-cast-r9.py": "467b87a0c17a86ad2675e5121948d53958910bd52defadffeb9c834e76958636",
+      "reconstructions/scene-06/modeling/fuse-sculptural-cast.py": "de0c6c863f0d54ae6421e72fa6023da4440cd4cc39f9bf8a2caeffb6da4f0f95",
+      "reconstructions/scene-06/modeling/scene06-r10-sculpture-landmarks.json": "f4778d9965c1a47bcc00ee3631902e7a3b2af680c7671a487d63f4d4c41e49ae",
+      "reconstructions/scene-06/src/floor-scan106.js": "a6544e43dfa578bde1a1a40d6bab8a6cb0b0c409f963f6cb516bd798bd2995dd",
+      "reconstructions/scene-06/src/floor-varnish.js": "7634a499ab95223b92f484bc07a83954b7088e316b5bf5a049613bbe96cdf8a6",
+      "reconstructions/scene-06/src/foreground-floor-panels.js": "6cbeb9718391342601fe21878b41f296d37d730908dab2763d67f4cf87463780",
+      "reconstructions/scene-06/src/lens-bloom.js": "e21b284cc1a3301149a42a0ba8a303ab4bf26ec30031e424f56a53c4769a07d8",
+      "reconstructions/scene-06/src/mandorla-botanical-cast-r10.js": "1e5dbb89a084aa84735f2fef0e293f1fda5ee1d7a14b588eb5d8fdbccaedc8d9",
+      "reconstructions/scene-06/src/mandorla-botanical-cast-r9.js": "df1685d3cdab508c139d6053e3eebadaa3a28102bce9560371a8768b08f8c802",
+      "reconstructions/scene-06/src/reference6-camera-shot.js": "3ab675085727ee8a6fbabaa622e4d9acee212287349e5114d109248e7d497423",
+      "reconstructions/scene-06/src/reference6-chandelier.js": "728364957e434b7b18b656d707ae5b7b76eafbae268bc1c51c31f0979afcc0cf",
+      "reconstructions/scene-06/src/reference6-coffer-relief.js": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53",
+      "reconstructions/scene-06/src/reference6-column-collar.js": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94",
+      "reconstructions/scene-06/src/reference6-main.js": "880b2b58a9b29807a0da902ed5e17e3f49f1d9201cf0f60543569e2fac8d6dac",
+      "reconstructions/scene-06/src/reference6-scene.js": "07564bfabbf4871baa8521ba1cb3ea128cb0ef48163d28d5b2dd0173570f4b2c",
+      "reconstructions/scene-06/src/restoration-altar.js": "cb0f0065756d00376bd52c7f4f136ba1547d37f428925891060681643dc7259f",
+      "reconstructions/scene-06/src/restoration-buddha.js": "f31986c1b3f846eedcd444f56a044f67043ab9e1ee1dc655d6ca4c9470f6cfce",
+      "reconstructions/scene-06/src/restoration-lighting.js": "05388e9b9ed8f70c043da6677853680c5a6eb58964921a3d459637d9d655c0c4",
+      "reconstructions/scene-06/src/restoration-render-diagnostics.js": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25",
+      "reconstructions/scene-06/src/sculptural-cast-assets.js": "61ceb6eedec5a0f6897135e95f636d93ecc995eb7228dcf4d1a60150d5ba8a09",
+      "reconstructions/scene-06/src/shot-focus.js": "3101c18d1285ec0b96745ef2d7c9c5e40783e7e4a9b138a8bf3966b7aa533079"
+    }
+  },
+  "sourceCommit": "acba26a7c9eba1d3a138b7ce7347e8f7f812db75",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-06/index.html",
+    "/reconstructions/scene-06/src/reference6-main.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/reconstructions/scene-06/src/lens-bloom.js",
+    "/reconstructions/scene-06/src/reference6-camera-shot.js",
+    "/reconstructions/scene-06/src/shot-focus.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-06/src/reference6-scene.js",
+    "/reconstructions/scene-06/src/floor-scan106.js",
+    "/reconstructions/scene-06/src/restoration-lighting.js",
+    "/reconstructions/scene-06/src/restoration-render-diagnostics.js",
+    "/reconstructions/scene-06/src/sculptural-cast-assets.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/reconstructions/scene-06/src/reference6-column-collar.js",
+    "/reconstructions/scene-06/src/reference6-coffer-relief.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/vendor/examples/jsm/lights/RectAreaLightUniformsLib.js",
+    "/reconstructions/scene-06/src/restoration-altar.js",
+    "/reconstructions/scene-06/src/restoration-buddha.js",
+    "/reconstructions/scene-06/src/floor-varnish.js",
+    "/reconstructions/scene-06/src/foreground-floor-panels.js",
+    "/reconstructions/scene-06/src/reference6-chandelier.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/lights/RectAreaLightTexturesLib.js",
+    "/reconstructions/scene-06/src/mandorla-botanical-cast-r10.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/reconstructions/scene-06/assets/floor-scan106/material.json",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/manifest.json",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/reconstructions/scene-06/assets/generated-wood-texture-20261020/temple-hinoki-albedo.png",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/central-central-9e8ffd264d07f83c.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/central-oldgold-34a404be88622dd5.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/central-gold-257c13dc781a8904.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/left-buddha-5c574d5842bf2c74.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/left-oldgold-c8d8709002a66038.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/left-gold-958e482f90b080d3.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/right-buddha-9de14ba15695e8a8.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/right-oldgold-c8d8709002a66038.bin",
+    "/reconstructions/scene-06/assets/sculptural-cast-r10/right-gold-958e482f90b080d3.bin"
+  ],
+  "renderDriver": {
+    "path": "tools/render-one-reconstruction.mjs",
+    "sha256": "687ba3ce07f7b6ecc2e6065867ee1e37d64f4e15dc285cb80458ef729520d98a"
+  },
+  "renderSampling": {
+    "nativeWidth": 1254,
+    "nativeHeight": 1254,
+    "outputWidth": 1254,
+    "outputHeight": 1254,
+    "scale": 1,
+    "downsampling": "none"
+  },
+  "detailCrop": {
+    "pixels": [
+      366,
+      380,
+      160,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 6,
+        "frame": 1,
+        "width": 1254,
+        "height": 1254,
+        "revision": "scene-06-sculptural-cast-r10",
+        "camera": {
+          "position": [
+            0,
+            0.58,
+            8.4
+          ],
+          "target": [
+            0,
+            2.4,
+            -2.3
+          ],
+          "quaternion": [
+            0.08414089476065134,
+            0,
+            0,
+            0.996453867386181
+          ],
+          "fov": 64
+        },
+        "shot": null,
+        "focus": {
+          "enabled": false,
+          "focusDistance": 10.853681403100055,
+          "fNumber": 2.8,
+          "strength": 0,
+          "focalLengthMm": 28.005854258218385,
+          "maxRadiusPixels": 6,
+          "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+          "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+          "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 1024,
+          "composerSamples": 4
+        },
+        "renderVariant": "scene-06-sculptural-cast-r9",
+        "validation": "Native review candidate; visual match remains under iteration."
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-06-sculptural-cast-r10",
+        "sculptureAssetRevision": "scene06-sculptural-cast-r10",
+        "reference": 6,
+        "frame": 1,
+        "counts": {
+          "meshes": 1936,
+          "instances": 20697,
+          "triangles": 13685445
+        },
+        "independentInterior": true,
+        "exteriorWorldBuilt": false,
+        "photoPlanes": false,
+        "exposure": 1.05,
+        "lights": {
+          "sun": 1,
+          "indirectAreaProxies": 8,
+          "frontWindowShadowSamples": 6,
+          "practicals": 2
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 1024
+        },
+        "renderVariant": "scene-06-sculptural-cast-r9",
+        "suspendedCanopy": {
+          "chainStrands": 120,
+          "instancedFloralDrops": 1281,
+          "centerFaceClearanceMeters": 0.46,
+          "visibleHoopRings": 0
+        },
+        "cameraShot": {
+          "revision": "scene06-kneeling-censer-dolly-camera74",
+          "duration": 7,
+          "subject": {
+            "label": "Existing central six-lobed gilt censer/cartouche and curled handles",
+            "point": [
+              0,
+              1.4709999999999999,
+              1.1922373832605224
+            ],
+            "altarLocalPoint": [
+              0,
+              1.426,
+              3.4922373832605222
+            ],
+            "mesh": "restoration-altar:merged-gold",
+            "instanceId": null,
+            "source": "Raycast against retained altar geometry at local Y1.426; no model edits"
+          },
+          "controls": [
+            [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            [
+              0.24,
+              0.8,
+              3.706678037445392
+            ],
+            [
+              -0.07,
+              0.6,
+              7.085869850484711
+            ],
+            [
+              0,
+              0.58,
+              8.4
+            ]
+          ],
+          "start": {
+            "position": [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            "quaternion": [
+              0.29069032182267135,
+              0.0894166514934571,
+              -0.0272962574791494,
+              0.9522387902002108
+            ],
+            "fov": 64
+          },
+          "end": {
+            "position": [
+              0,
+              0.58,
+              8.4
+            ],
+            "target": [
+              0,
+              2.4,
+              -2.3
+            ],
+            "quaternion": [
+              0.08414089476065134,
+              0,
+              0,
+              0.996453867386181
+            ],
+            "fov": 64
+          },
+          "orientation": "Shortest quaternion slerp independent of cubic rail",
+          "timeCurve": "quintic smootherstep; zero first/second derivatives at endpoints",
+          "focus": {
+            "enabled": false,
+            "focusDistance": 10.853681403100055,
+            "fNumber": 2.8,
+            "strength": 0,
+            "focalLengthMm": 28.005854258218385,
+            "maxRadiusPixels": 6,
+            "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+            "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+            "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+          },
+          "current": null
+        },
+        "composerAA": {
+          "requestedSamples": 4,
+          "samples": 4,
+          "colorFormat": "RGBA16F",
+          "depthFormat": "DEPTH_COMPONENT24",
+          "colorSamples": [
+            4,
+            2
+          ],
+          "depthSamples": [
+            4,
+            2
+          ],
+          "maxSamples": 4,
+          "active": true,
+          "mode": "multisample-composer",
+          "scope": "Geometry coverage only; no promise to remove normal-map/specular aliasing."
+        },
+        "solarScattering": {
+          "shadowReady": 1,
+          "hasShadowDepthTexture": true,
+          "pcfDefine": 1,
+          "density": 0.014,
+          "gain": 3.2,
+          "sunDirection": [
+            -0.6400000000000001,
+            0.48,
+            -0.6000000000000001
+          ]
+        },
+        "materialSources": {
+          "architecturalTimber": "Generated repeating hinoki albedo on modeled columns, beams, and central ceiling; no photo planes."
+        },
+        "contactOcclusion": {
+          "method": "GTAO",
+          "radius": 0.18,
+          "thickness": 0.14,
+          "blendIntensity": 0.65,
+          "source": "Actual opaque geometry normals and depth",
+          "limitation": "Screen-space multiply approximation, not physical indirect-only transport"
+        },
+        "limits": [
+          "Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.",
+          "Independent room with complete reconstructed altar7365af and sculpture5338dd, not yet visually accepted.",
+          "Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.",
+          "Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.",
+          "Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison."
+        ],
+        "diagnostics": {
+          "revision": "persistent-render-diagnostics-v1",
+          "stage": "renderer-ready",
+          "failed": false,
+          "contextLost": false,
+          "guardValid": true,
+          "errors": []
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9734737198222466,
+      "opaqueFraction": 1,
+      "rgbaSha256": "7ad6a20001ec409ca6f78d4705d027c819a2bb3fab893d57de3ed7e2905902eb"
+    },
+    {
+      "pose": {
+        "reference": 6,
+        "frame": 2,
+        "width": 1254,
+        "height": 1254,
+        "revision": "scene-06-sculptural-cast-r10",
+        "camera": {
+          "position": [
+            0,
+            0.58,
+            8.4
+          ],
+          "target": [
+            0,
+            2.4,
+            -2.3
+          ],
+          "quaternion": [
+            0.08414089476065134,
+            0,
+            0,
+            0.996453867386181
+          ],
+          "fov": 64
+        },
+        "shot": null,
+        "focus": {
+          "enabled": false,
+          "focusDistance": 10.853681403100055,
+          "fNumber": 2.8,
+          "strength": 0,
+          "focalLengthMm": 28.005854258218385,
+          "maxRadiusPixels": 6,
+          "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+          "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+          "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 1024,
+          "composerSamples": 4
+        },
+        "renderVariant": "scene-06-sculptural-cast-r9",
+        "validation": "Native review candidate; visual match remains under iteration."
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "revision": "scene-06-sculptural-cast-r10",
+        "sculptureAssetRevision": "scene06-sculptural-cast-r10",
+        "reference": 6,
+        "frame": 2,
+        "counts": {
+          "meshes": 1936,
+          "instances": 20697,
+          "triangles": 13685445
+        },
+        "independentInterior": true,
+        "exteriorWorldBuilt": false,
+        "photoPlanes": false,
+        "exposure": 1.05,
+        "lights": {
+          "sun": 1,
+          "indirectAreaProxies": 8,
+          "frontWindowShadowSamples": 6,
+          "practicals": 2
+        },
+        "quality": {
+          "sunShadow": 2048,
+          "pointShadow": 256,
+          "roomCube": 128,
+          "roomProbeCount": 2,
+          "floorReflection": 1024
+        },
+        "renderVariant": "scene-06-sculptural-cast-r9",
+        "suspendedCanopy": {
+          "chainStrands": 120,
+          "instancedFloralDrops": 1281,
+          "centerFaceClearanceMeters": 0.46,
+          "visibleHoopRings": 0
+        },
+        "cameraShot": {
+          "revision": "scene06-kneeling-censer-dolly-camera74",
+          "duration": 7,
+          "subject": {
+            "label": "Existing central six-lobed gilt censer/cartouche and curled handles",
+            "point": [
+              0,
+              1.4709999999999999,
+              1.1922373832605224
+            ],
+            "altarLocalPoint": [
+              0,
+              1.426,
+              3.4922373832605222
+            ],
+            "mesh": "restoration-altar:merged-gold",
+            "instanceId": null,
+            "source": "Raycast against retained altar geometry at local Y1.426; no model edits"
+          },
+          "controls": [
+            [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            [
+              0.24,
+              0.8,
+              3.706678037445392
+            ],
+            [
+              -0.07,
+              0.6,
+              7.085869850484711
+            ],
+            [
+              0,
+              0.58,
+              8.4
+            ]
+          ],
+          "start": {
+            "position": [
+              0.18,
+              0.82,
+              2.1422373832605226
+            ],
+            "quaternion": [
+              0.29069032182267135,
+              0.0894166514934571,
+              -0.0272962574791494,
+              0.9522387902002108
+            ],
+            "fov": 64
+          },
+          "end": {
+            "position": [
+              0,
+              0.58,
+              8.4
+            ],
+            "target": [
+              0,
+              2.4,
+              -2.3
+            ],
+            "quaternion": [
+              0.08414089476065134,
+              0,
+              0,
+              0.996453867386181
+            ],
+            "fov": 64
+          },
+          "orientation": "Shortest quaternion slerp independent of cubic rail",
+          "timeCurve": "quintic smootherstep; zero first/second derivatives at endpoints",
+          "focus": {
+            "enabled": false,
+            "focusDistance": 10.853681403100055,
+            "fNumber": 2.8,
+            "strength": 0,
+            "focalLengthMm": 28.005854258218385,
+            "maxRadiusPixels": 6,
+            "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+            "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+            "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+          },
+          "current": null
+        },
+        "composerAA": {
+          "requestedSamples": 4,
+          "samples": 4,
+          "colorFormat": "RGBA16F",
+          "depthFormat": "DEPTH_COMPONENT24",
+          "colorSamples": [
+            4,
+            2
+          ],
+          "depthSamples": [
+            4,
+            2
+          ],
+          "maxSamples": 4,
+          "active": true,
+          "mode": "multisample-composer",
+          "scope": "Geometry coverage only; no promise to remove normal-map/specular aliasing."
+        },
+        "solarScattering": {
+          "shadowReady": 1,
+          "hasShadowDepthTexture": true,
+          "pcfDefine": 1,
+          "density": 0.014,
+          "gain": 3.2,
+          "sunDirection": [
+            -0.6400000000000001,
+            0.48,
+            -0.6000000000000001
+          ]
+        },
+        "materialSources": {
+          "architecturalTimber": "Generated repeating hinoki albedo on modeled columns, beams, and central ceiling; no photo planes."
+        },
+        "contactOcclusion": {
+          "method": "GTAO",
+          "radius": 0.18,
+          "thickness": 0.14,
+          "blendIntensity": 0.65,
+          "source": "Actual opaque geometry normals and depth",
+          "limitation": "Screen-space multiply approximation, not physical indirect-only transport"
+        },
+        "limits": [
+          "Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.",
+          "Independent room with complete reconstructed altar7365af and sculpture5338dd, not yet visually accepted.",
+          "Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.",
+          "Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.",
+          "Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison."
+        ],
+        "diagnostics": {
+          "revision": "persistent-render-diagnostics-v1",
+          "stage": "renderer-ready",
+          "failed": false,
+          "contextLost": false,
+          "guardValid": true,
+          "errors": []
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        366,
+        380,
+        160,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 1,
+      "opaqueFraction": 1,
+      "rgbaSha256": "acc8080e5c3a9c4e572853bf534b63f5d6af5e248e5e6ec599ba3c279d6dd05c"
+    }
+  ],
+  "completedAt": "2026-10-21T10:59:10.466Z"
+}

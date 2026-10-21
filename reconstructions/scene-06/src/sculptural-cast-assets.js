@@ -4,9 +4,10 @@ import {installRestoredBuddhaAssets} from './restoration-buddha.js';
 // Actual indexed, lit 3D surfaces. The binary contains positions, normals,
 // neutral object UVs, and triangle indices; it contains no captured pixels.
 export async function loadSculpturalCastAssets(){
- // Promoted only after the actual upright full/native subfrustum inspection.
+ // R10 retains the verified upright +Y anatomy axes and the original pose anchors.
+ // Its actual native visual review remains unaccepted.
  // Live, reference, free camera, and film paths consume the same real mesh.
- const revision='r9';
+ const revision='r10';
  const base=new URL(`../assets/sculptural-cast-${revision}/`,import.meta.url),response=await fetch(new URL('manifest.json',base));
  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');

@@ -1,0 +1,108 @@
+{
+  "sourceHash": "7da6a0a9af8f27177d4222c55335b75089c97e03e71a6afe33fb36aaddb48bd0",
+  "status": "unaccepted-native-sculpture-checkpoint",
+  "actualProof": {
+    "full": "qa/ten-reference/06/iteration-scene06-r10-anatomical-mouth-neck-native-03/reference.png",
+    "trueHeadHands": "qa/ten-reference/06/iteration-scene06-r10-anatomical-mouth-neck-native-03/detail-native.png",
+    "report": "qa/ten-reference/06/iteration-scene06-r10-anatomical-mouth-neck-native-03/report.json"
+  },
+  "modelSourceSnapshots": "qa/ten-reference/06/iteration-scene06-r10-anatomical-mouth-neck-native-03/preserved-model-source",
+  "castSnapshot": "qa/ten-reference/06/iteration-scene06-r10-anatomical-mouth-neck-native-03/preserved-cast-assets",
+  "activeCastBytes": 85190899,
+  "coreFiles": {
+    "central": {
+      "material": "central",
+      "file": "central-central-643f52cdcb000225.bin",
+      "vertices": 546325,
+      "triangles": 1092686,
+      "sha256": "643f52cdcb000225d7a52a764d9a5e40d0407ccf03230833f3290670ca0ec66b",
+      "bounds": [
+        [
+          -1.427628755569458,
+          -0.10151533782482147,
+          -0.40657171607017517
+        ],
+        [
+          1.4276363849639893,
+          3.139913320541382,
+          1.0110775232315063
+        ]
+      ],
+      "topology": {
+        "vertices": 546325,
+        "triangles": 1092686,
+        "connectedComponents": 1,
+        "largestComponents": [
+          546325
+        ],
+        "largestComponentFraction": 1.0,
+        "removedVoxelSpeckVertices": 8
+      }
+    },
+    "left": {
+      "material": "buddha",
+      "file": "left-buddha-0d94cc1ee59bf0e4.bin",
+      "vertices": 415979,
+      "triangles": 831982,
+      "sha256": "0d94cc1ee59bf0e40ece68a4e9a8c3852a44d108df6c0d8fc5029c653bb207f4",
+      "bounds": [
+        [
+          -0.8852512836456299,
+          0.00044276731205172837,
+          -0.34162241220474243
+        ],
+        [
+          0.9286362528800964,
+          3.234729290008545,
+          0.7521878480911255
+        ]
+      ],
+      "topology": {
+        "vertices": 415979,
+        "triangles": 831982,
+        "connectedComponents": 1,
+        "largestComponents": [
+          415979
+        ],
+        "largestComponentFraction": 1.0,
+        "removedVoxelSpeckVertices": 40
+      }
+    },
+    "right": {
+      "material": "buddha",
+      "file": "right-buddha-b71477000d950ec1.bin",
+      "vertices": 415534,
+      "triangles": 831092,
+      "sha256": "b71477000d950ec16ceed338cd4b3d88572029ea9b81c0af2c7aa4e24113dfa4",
+      "bounds": [
+        [
+          -0.9286249279975891,
+          0.00044276731205172837,
+          -0.3416218161582947
+        ],
+        [
+          0.8852512836456299,
+          3.2347304821014404,
+          0.7521878480911255
+        ]
+      ],
+      "topology": {
+        "vertices": 415534,
+        "triangles": 831092,
+        "connectedComponents": 1,
+        "largestComponents": [
+          415534
+        ],
+        "largestComponentFraction": 1.0,
+        "removedVoxelSpeckVertices": 40
+      }
+    }
+  },
+  "review": [
+    "Pose/hand/body coherence improved; face remains different from source.",
+    "Broad flat angular lower face, hard double horizontal lip, squared jaw and ramp-like neck remain.",
+    "Backlight carving reads as repeated spiky maple-like forms rather than fine flame/botanical filigree."
+  ],
+  "next": "Broad real soft-tissue/skull/jaw/neck volume reconstruction with preserved measured facial detail; fine curled flame carving. Fixed camera and materials.",
+  "visualAccepted": false
+}

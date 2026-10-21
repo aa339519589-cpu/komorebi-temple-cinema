@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {buildBotanicalMandorla} from './mandorla-botanical-cast-r9.js';
+import {buildBotanicalMandorla} from './mandorla-botanical-cast-r10.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
@@ -986,33 +986,34 @@ function buildThronePedestal(b,x,z,radius,bottom,top,depthAspect){
   });
 }
 
+function smooth01R10(x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);}
 function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],depthAspect=.68) {
   b.withTransform(x,seatY-height,z,[radialCompensation[0],1,radialCompensation[1]*depthAspect],()=>{
     // The photographed cast lotus has broad overlapping, convex lobes.
     // Its belly projects out beyond the tips, which turn back toward the seat.
     // A narrow fan of straight upward triangles reads as a thorn crown.
     b.lathe('r9-rooted-convex-lotus-bearing-core',[[0,0],[.61,0],[.67,.06],[.74,.25],[.82,.50],[.76,.72],[.61,.91],[.50,.98],[.39,1.015],[.18,1.022],[0,1.022]],0,0,0,radius,height,'oldgold',48);
-    const petal=b.geometry('r9-solid-rooted-bellied-lotus-petal',()=>{
-      const p=[],uv=[],ix=[],rows=52,cols=32,stride=(rows+1)*(cols+1);
+    const petals=[0,1,2].map(kind=>b.geometry('r10-rooted-recurved-lotus-petal-'+kind,()=>{
+      const p=[],uv=[],ix=[],rows=56,cols=32,stride=(rows+1)*(cols+1);
       for(let surface=0;surface<2;surface++)for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
-        const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t),cap=Math.max(0,wave)**.45;
-        const width=.50*Math.pow(Math.max(0,wave),.57)*(1.02-.16*t);
-        const meridian=1.52*t-.97*t*t*t;
-        const belly=.085*wave*Math.pow(Math.max(0,1-u*u),.8),midrib=.007*Math.exp(-Math.pow(u/.15,2))*wave;
-        const channel=-.0025*Math.exp(-Math.pow((Math.abs(u)-.77)/.10,2))*wave*wave;
-        const veins=.004*wave*(Math.exp(-Math.pow((u-.22-.28*t)/.055,2))+Math.exp(-Math.pow((u+.22+.28*t)/.055,2)));
-        const edge=.0025*Math.exp(-Math.pow((Math.abs(u)-.94)/.07,2))*wave;
-        p.push(u*width,t,meridian+cap*(surface===0?.013+belly+midrib+channel+edge+veins:-.013-belly*.60));uv.push(i/cols,t);
+        const t=j/rows,u=i/cols*2-1,wave=Math.sin(Math.PI*t),cap=Math.max(0,wave)**.52;
+        const taper=1-.26*smooth01R10((t-.68)/.32),width=(kind===1?.425:kind===2?.465:.45)*Math.pow(Math.max(0,wave),.61)*(1.01-.12*t)*taper;
+        const meridian=(1.44+.045*kind)*t-(1.07+.035*kind)*t*t*t;
+        const belly=(kind===1?.090:.105)*wave*Math.pow(Math.max(0,1-u*u),.76);
+        const midrib=.011*Math.exp(-Math.pow(u/.14,2))*wave,margin=.008*Math.exp(-Math.pow((Math.abs(u)-.88)/.10,2))*wave;
+        const valleys=-.006*wave*wave*(Math.exp(-Math.pow((u-.33-.25*t)/.075,2))+Math.exp(-Math.pow((u+.33+.25*t)/.075,2)));
+        const x=u*width*(1+.035*(kind-1)*Math.sin(Math.PI*t)*u)+(kind-1)*.024*t*t*Math.sin(Math.PI*t);
+        p.push(x,t,meridian+cap*(surface===0?.016+belly+midrib+margin+valleys:-.016-belly*.56));uv.push(i/cols,t);
         if(j<rows&&i<cols){const a=surface*stride+j*(cols+1)+i;surface===0?ix.push(a,a+1,a+cols+1,a+1,a+cols+2,a+cols+1):ix.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}
       }
-      closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='r9-lotus-lobes-rooted-inside-continuous-convex-bearing';return g;
-    });
+      closeCarvedShell(ix,rows,cols,stride);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.closedCarvedShell=true;g.userData.reference6Reconstruction='r10-cast-lotus-bellies-deep-margins-and-returning-tips';return g;
+    }));
     for(let row=0;row<2;row++){
       const n=row?13:15,rr=radius*(row?.55:.60),base=height*(row?.25:0),hh=height*(row?.78:.86);
       for(let k=0;k<n;k++){
         const a=(k+row*.53)/n*Math.PI*2,lean=.048*Math.sin(a*3+.7);
         b.withTransform(Math.sin(a)*rr,base,Math.cos(a)*rr,1,()=>{
-          b.withTransform(0,0,0,1,()=>b.add(petal,'gold',0,0,0,radius*(row?.42:.47),hh*(1+.055*Math.sin(k*2.1+row*.7)),radius*(row?.45:.48),0,0,lean),a);
+          b.withTransform(0,0,0,1,()=>b.add(petals[(k+(row?1:0))%3],'gold',0,0,0,radius*(row?.42:.47),hh*(1+.055*Math.sin(k*2.1+row*.7)),radius*(row?.45:.48),0,0,lean),a);
         });
       }
     }

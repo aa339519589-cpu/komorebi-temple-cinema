@@ -1,0 +1,7 @@
+# R10-04 native volume/flame candidate, unaccepted
+
+The actual full1254 and fresh [520,329,230,1254] head/hands subfrustum share source hash `23f22b8ebb29b3fd1720fd6c190e3b63115aa9e632c1c0160f96eaf3a408d004`. Camera, lights/materials and original furniture/seat contacts are unchanged. Broad cheek/chin/mandibular/throat volume profiles and actual normal-directed clay pads replace the earlier rigid lower-face patch. Measured 3D orbital/nasal/labial/concha relief is restored along new surface normals; no face texture, normal-map plate, RGB or reference-image/depth projection is used.
+
+Observed changes: cheek/chin surfaces are rounder and the mouth retains a softer measured labial form instead of the earlier hard analytic double line. The throat is narrower, although the lower-jaw/throat transition still differs from the photograph. Fine returning flame/palmette tongues with real rounded cross-sections/voids replace serrated maple-like leaves. The body/hand gesture remains coherent.
+
+Remaining gaps include exact serene facial likeness/plane balance, lip-corner expression, jaw/throat silhouette, cloth/lotus detail hierarchy and the source mandorla/halo/altar motif identity. The carving remains an editable 3D interpretation rather than an exact artifact reconstruction. A connected genuine mesh and successful native rendering do not establish photographic acceptance. True attendant detail follows under the same held source. `visualAccepted: false`.
