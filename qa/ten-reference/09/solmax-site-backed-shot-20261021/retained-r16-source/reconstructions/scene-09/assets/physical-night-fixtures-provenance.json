@@ -1,0 +1,25 @@
+{
+  "revision": "scene09-stone-fixtures-and-local-light-70",
+  "geometry": "Original authored cut-stone lantern assemblies with eight-sided bevelled plinth, waist, shaft, capital, chamber framing, stone umbrella cap and turned finial. Carved wooden hanging lantern masks, recessed individual paper sheets, independent bronze/brass fittings, smooth entasis columns and hollow metal shoes are actual geometry.",
+  "wood": {
+    "provider": "Poly Haven",
+    "asset": "lacquered_cherry_wood",
+    "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+    "license": "CC0-1.0",
+    "use": "Existing project albedo, OpenGL normal and roughness maps with member-aligned metric UVs baked into scale buckets. Exposed lacquer colors are material albedo gains."
+  },
+  "stone": {
+    "provider": "Poly Haven",
+    "author": "Kless Gyzen",
+    "asset": "rock_moss_set_01",
+    "source": "https://polyhaven.com/a/rock_moss_set_01",
+    "license": "CC0-1.0",
+    "use": "Existing scanned geometry retains uniform aspect ratio and original UVs at the two largest lantern foundations. A matching material-space crop [1696,768,544,544] of the actual albedo/normal/roughness atlas is resampled to 512px for authored cut-stone surfaces; albedo is neutralized to gray. The original provider is not claimed to have scanned a temple lantern."
+  },
+  "paper": "Original mathematical paper-fiber base color and lamp-centered emissive attenuation, on independent inset paper sheets; no view or scene colors sampled.",
+  "lighting": "Independent local inverse-square point-light pools at lamp centers and a narrowed shrine spotlight. A new actual hanging lamp and connected continuation beam behind the observer replace the old unsupported foreground wash point; no scene-photo lighting or background.",
+  "referencePhotoUsedAsSurface": false,
+  "cameraChanged": false,
+  "siteChanged": false,
+  "limitations": "Interpretive physical construction and material reuse. Actual rendering and visual review are required; this is not a historical survey or photographic acceptance."
+}

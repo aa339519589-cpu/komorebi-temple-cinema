@@ -1,0 +1,58 @@
+{
+  "revision": "scene09-one-bronze-pierced-hanging-lantern-76b",
+  "baseCommit": "db08d1e2a575b5e1f3e2a61fa1c332c0a58e37ba",
+  "scope": "Only the nearest upper-right hanging lamp, original call lantern(7.7,7.3,21.6,1.35,true). The left and behind-camera hanging lamps and every smaller fixture retain their original generator.",
+  "source": "Original editable closed geometry in src/hero-hanging-lantern.js; no external mesh, generated bitmap, image model or AI height guide.",
+  "comparison": "references/hd/8-照片-9.jpg, upper-right lamp. Photograph remains a comparison input under its original copyright; no pixels are copied into scene materials or geometry.",
+  "geometry": {
+    "units": "Assembly local metres multiplied by original 1.35*0.88 factor",
+    "window": "Eight separate closed 18 mm-deep narrow petal rims with true bevelled holes, a cast eight-lobed centre rosette and small boss; four closed curved corner vines support the bloom from the jambs. Open negative spaces remain between petals. Four original paper boxes retain exact size, transform, material and emission.",
+    "frame": "28 mm corner columns with separate shoes, 22 mm inner jambs, 23 mm rails, quatrefoil-pierced upper and lower aprons and rolled cornice. Dimensions are structural inference, not claimed metric measurements of the photograph.",
+    "capAndSuspension": "Closed square-section shallow cap replaces block pyramid; thinner 6 mm radius chain stock retains original outer ring radius and vertical limits. Original external suspension above the assembly remains unchanged.",
+    "underside": "Closed annular rims, open four-brace cradle, a central collar and five small turned drops replace solid black four-sided cone. No new luminous pane or light source.",
+    "normals": "Flat load-bearing bronze cap facets, smooth turned drops and true narrow bevels at sheet edges. No alpha-mask or normal-map imitation of perforations."
+  },
+  "privateMetalSurface": {
+    "method": "Original deterministic 128x128 scalar micrograin DataTextures, only roughness and 0.22/0.12 mm bump; independent bronze/brass pigment. No photograph colors or AI raster.",
+    "seedPhase": 79.3,
+    "hash": "fract(sin(x*127.1+y*311.7+79.3)*43758.5453)",
+    "castBronze": {
+      "sRGB": "#80633b",
+      "metalness": 0.8,
+      "roughnessScalar": 0.88
+    },
+    "rubbedBrass": {
+      "sRGB": "#9d7c46",
+      "metalness": 0.8,
+      "roughnessScalar": 0.83
+    },
+    "materialsSharedWithOtherLamps": false
+  },
+  "retained": {
+    "anchor": [
+      7.7,
+      7.3,
+      21.6
+    ],
+    "scale": 1.188,
+    "paper": "Original M.paper object, fiber maps, attenuation, color and emissive intensity unmodified",
+    "light": {
+      "localPosition": [
+        0,
+        0,
+        0
+      ],
+      "color": "#ffd39b",
+      "unscaledIntensity": 38,
+      "unscaledDistance": 7,
+      "decay": 2,
+      "worldIntensity": 53.631072,
+      "worldDistance": 8.316
+    },
+    "cameraExposureSkySiteOtherFixtures": "Unchanged"
+  },
+  "limitations": "Interpretive one-component construction; reference bloom and apron carving are not exactly surveyed. Actual native full/detail review is mandatory and whole scene remains unaccepted.",
+  "referencePhotoUsedAsSurface": false,
+  "newLights": 0,
+  "visualAccepted": false
+}

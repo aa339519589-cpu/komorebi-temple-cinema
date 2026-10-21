@@ -1,0 +1,374 @@
+{
+  "revision": "scene09-site-backed-cinematic-dolly144-r17",
+  "source": {
+    "hash": "8822979b57630f702d82493a4181b5f22bbd4ab68a42423146539a9ee56bfb06",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-09/asset-dependencies.json": "ba77662f9423f78e530cfb8ae0cb76aa9efad25214300ac745a25c5c98467dac",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png": "0d46b0bfe3ed488f9855f51ec917355642d20afc45b5cbd1f6afad202ac747b6",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-provenance.json": "ec0c27f2dc67fed7f5c10e6c3d82dfcedea8aa7403fbf67dc50beada58700897",
+      "reconstructions/scene-09/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-09/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-09/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-09/assets/granite-tile-04/provenance.json": "cec30ee57255e4892e43d7167e711fc8df882866f9367d2f5df9570f9dd44061",
+      "reconstructions/scene-09/assets/hero-hanging-lantern/provenance.json": "ed1e24b793fe9ff1619e309708b1765bad481242ac6db9c5df62ee0036c92448",
+      "reconstructions/scene-09/assets/open-sanctuary143/provenance.json": "3b53bd5337d8286127e5a17d2f318f5fc2b348eaed3d4193228a26d4b438f20e",
+      "reconstructions/scene-09/assets/physical-night-fixtures-provenance.json": "346141cb35cad7de65e9d009e1d84994ac0457b84fb8339608f52c456d3ba688",
+      "reconstructions/scene-09/assets/site-shot144/provenance.json": "99aa907122ca1d73acb7d07526bdf67e0d52b827573a7e55e91e9b4cbea6fd00",
+      "reconstructions/scene-09/index.html": "f10bccc1d16c93aa46ee5c417fbee1460acd8713b1bcaa0f96f2274ebd1bae30",
+      "reconstructions/scene-09/src/arched-garden-bridge.js": "3ce07c3f929d81e4fa0bd8cc4e239b4d407cdcac9c09dfafc9a63e84c8c3e402",
+      "reconstructions/scene-09/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-09/src/bridge-coating.js": "932ebddf0d0723f81bf2230edbb9c37cfb9f3321875f3807f854a2327d369d85",
+      "reconstructions/scene-09/src/carved-joinery.js": "9190d3a92771139b0de1a8b83303472e1588bce05a44941af3b03e0921be3044",
+      "reconstructions/scene-09/src/garden-ferns.js": "77ef4f483cebdd0780e60fb2c258669b939bcfda2b454996a0abebdf3daa04b7",
+      "reconstructions/scene-09/src/hall-circulation133.js": "993877f84adf75035a02f660b3b42c7217c3c0d13953b780c28e2ae2a7d5910e",
+      "reconstructions/scene-09/src/hall-envelope143.js": "d1276f09ddd24033baeaacc337081342ed8a73d32dcb6593a0161b52a448a18b",
+      "reconstructions/scene-09/src/hero-hanging-lantern.js": "9fe5ebc78d0bd900de490b07963172247f37361d005c84a9ff5a989351000bca",
+      "reconstructions/scene-09/src/highlight-scatter.js": "7cfd3bed7479213f870d7be3868baf58a293f6644ce156a81507f2bad41b4b62",
+      "reconstructions/scene-09/src/lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+      "reconstructions/scene-09/src/lotus-petal.js": "921e5dcb2a87f784688909107b6e04f541bbd80b0d34885dab673aa29ece455f",
+      "reconstructions/scene-09/src/main.js": "a40507a6b6009c44e270095167e5373f29bcacbc86db013ce11c5c430d24ae4c",
+      "reconstructions/scene-09/src/night-hall-frame139.js": "862768ffc95f776a9c42563325b74533576259afa5e53ca5ce05c5d0468e44a6",
+      "reconstructions/scene-09/src/night-main-roofs123.js": "f46f3c9792a5c0120683c1e51bdfbfc54afb2126e948ca9d7e92d8f5a643e538",
+      "reconstructions/scene-09/src/pagoda-bank139.js": "64fd571baa879f89a51ee5d6e2892779f29821e6578d9997432d45097611788c",
+      "reconstructions/scene-09/src/pagoda-finial09.js": "ae7ed3f7e1790bde2fca6b568736ba3f8855b2c711d4768cb2e956832dea1480",
+      "reconstructions/scene-09/src/pagoda-frame143.js": "40d2ea8dfecc862e6a11db9fd8f909bf29c57785b67340e6aaf8bcbaf4efc192",
+      "reconstructions/scene-09/src/physical-night-fixtures.js": "001941cc8358bee9c9ea4c490422f141dbacab90ae2edeed23fd74d94a32c006",
+      "reconstructions/scene-09/src/pine-needles.js": "2b0c81a1ac2cc15d93da182a85e211061dcf7bfd492f1546a36f04dc611e514a",
+      "reconstructions/scene-09/src/process-bridge-roughness.py": "905116fb8b487cd1087968a72d51de9213b775e1a1d41ac3ba7f26df6c937141",
+      "reconstructions/scene-09/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-09/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-09/src/restoration-pruned-pines-v1.js": "e9ba9f69aa3e3c8786efceaa1cc2e0e776ba31088bcbba6c9a4a52b358be238c",
+      "reconstructions/scene-09/src/site-perimeter144.js": "025884b36556a00d9389d3309b0e7be17b922d553f80b0a9a88d53fcc88a5fbc",
+      "reconstructions/scene-09/src/site-shot144.js": "6d5c3212a929d483cbf2c49994d1c667fb0abfb6cddb816101e16b853b159477",
+      "reconstructions/scene-09/src/veranda-apron139.js": "e3114af6b5e83b4a170bb6f8eb070842da86a1b7b17c92a75011ed68658a9807",
+      "reconstructions/scene-09/src/washi-tissue103.js": "738fbb6e1465af712de6ea1da93150b38daef1934c1ed5102de9a6e2ee3a7ddc",
+      "reconstructions/scene-09/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1"
+    }
+  },
+  "sourceHeld": true,
+  "visualAccepted": false,
+  "scope": "Native shot/site continuity repair; no claim of photographic fidelity acceptance",
+  "retainedReferenceCamera": {
+    "position": [
+      6,
+      2.7,
+      33
+    ],
+    "target": [
+      0,
+      5.5,
+      -10
+    ],
+    "fov": 52
+  },
+  "geometryChanges": "Actual closed eastern/western soil banks, 156 seated scanned rocks, 78 rooted shrubs, 30 branch/leaf trees; same-elevation reflective pond surface extends to actual outer banks.",
+  "cameraChanges": "Occupied-deck finial close-up with temple/garden behind it; curved retreat rises gently behind the rail end and settles to retained 7 s reference pose.",
+  "modifiedCommonSourceFilesAgainstR14": [
+    "reconstructions/scene-09/asset-dependencies.json",
+    "reconstructions/scene-09/src/main.js"
+  ],
+  "addedSourceFilesAgainstR14": [
+    "reconstructions/scene-09/assets/site-shot144/provenance.json",
+    "reconstructions/scene-09/src/site-perimeter144.js",
+    "reconstructions/scene-09/src/site-shot144.js"
+  ],
+  "contactPreflight": {
+    "revision": "scene09-site-backed-close-to-wide144-r16",
+    "method": "Actual source camera path,169 evenly spaced time samples; conservative finite finial boxes and actual source granite footprint",
+    "minimumFinialBoxClearanceMetres": 0.33286633954186484,
+    "allPositionsOverOccupiedFloor": true,
+    "endpointPositionPreserved": true,
+    "endpointTargetPreserved": true,
+    "samples": [
+      {
+        "time": 0,
+        "position": [
+          7.5,
+          2.3,
+          31.85
+        ],
+        "target": [
+          7.05,
+          2.42,
+          30.5
+        ],
+        "focusDistance": 1.42807562824943,
+        "fov": 52,
+        "phase": 0,
+        "deckLocal": [
+          1.6445330246509948,
+          -0.9316711495115898
+        ],
+        "overOccupiedDeck": true,
+        "eyeHeightAboveDeck": 0.8499999999999999,
+        "finialBoxDistances": [
+          2.9931254567759105,
+          1.2127654348636423,
+          0.33286633954186484
+        ]
+      },
+      {
+        "time": 1.75,
+        "position": [
+          7.7031359203817,
+          2.4483776202704446,
+          32.05760398791386
+        ],
+        "target": [
+          7.231534665756051,
+          2.5785055112382045,
+          30.54793646456499
+        ],
+        "focusDistance": 1.5869584249206121,
+        "fov": 52,
+        "phase": 0.103515625,
+        "deckLocal": [
+          1.817029725855214,
+          -0.6979865201053761
+        ],
+        "overOccupiedDeck": true,
+        "eyeHeightAboveDeck": 0.9983776202704446,
+        "finialBoxDistances": [
+          3.2240098482057085,
+          1.4693077093779605,
+          0.4831359203817005
+        ]
+      },
+      {
+        "time": 3.5,
+        "position": [
+          7.513218822936595,
+          2.8909583728389046,
+          33.025049389172196
+        ],
+        "target": [
+          6.884078411791319,
+          3.0961414683589608,
+          30.34001531621841
+        ],
+        "focusDistance": 2.765379853211136,
+        "fov": 52,
+        "phase": 0.5,
+        "deckLocal": [
+          1.4952375423179782,
+          0.23393026745251472
+        ],
+        "overOccupiedDeck": true,
+        "eyeHeightAboveDeck": 1.4409583728389046,
+        "finialBoxDistances": [
+          4.171780731842093,
+          2.3844447306551353,
+          0.7539288761969378
+        ]
+      },
+      {
+        "time": 5.25,
+        "position": [
+          6.301843200202882,
+          2.7716070732965115,
+          33.1013231919063
+        ],
+        "target": [
+          4.619788673347823,
+          3.484788884338594,
+          22.515736308561692
+        ],
+        "focusDistance": 10.742094087828141,
+        "fov": 52,
+        "phase": 0.896484375,
+        "deckLocal": [
+          0.28494448270774575,
+          0.14206459270773153
+        ],
+        "overOccupiedDeck": true,
+        "eyeHeightAboveDeck": 1.3216070732965115,
+        "finialBoxDistances": [
+          4.272097538484532,
+          2.5016102589058318,
+          0.9389116225617162
+        ]
+      },
+      {
+        "time": 7,
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "target": [
+          1.7763568394002505e-15,
+          5.499999999999999,
+          -10
+        ],
+        "focusDistance": 43.50678108065454,
+        "fov": 52,
+        "phase": 1,
+        "deckLocal": [
+          0,
+          0
+        ],
+        "overOccupiedDeck": true,
+        "eyeHeightAboveDeck": 1.2500000000000002,
+        "finialBoxDistances": [
+          4.222901845887493,
+          2.4909636689442083,
+          1.083005078473778
+        ]
+      }
+    ],
+    "scope": "Geometric preflight only; actual native five-pose and motion evidence still decides framing/contacts",
+    "visualAccepted": false
+  },
+  "poses": {
+    "report": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-poses-20261021/report.json",
+    "status": "rendered-review",
+    "frames": [
+      {
+        "time": 0,
+        "path": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-poses-20261021/shot-0.png",
+        "width": 960,
+        "height": 960,
+        "glError": 0,
+        "sha256": "2823456a0005229649298e3614c8900df47517b07d10197215984bc372d882e5"
+      },
+      {
+        "time": 1.75,
+        "path": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-poses-20261021/shot-1p75.png",
+        "width": 960,
+        "height": 960,
+        "glError": 0,
+        "sha256": "b2d871b9869374b9a33341c53064554035f1273e81afa32fdfb4e46a58feaafc"
+      },
+      {
+        "time": 3.5,
+        "path": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-poses-20261021/shot-3p5.png",
+        "width": 960,
+        "height": 960,
+        "glError": 0,
+        "sha256": "df187c53cb8ed01b6b931273015dc7666b1c8a29057ef6fcd467c2063b8e61fd"
+      },
+      {
+        "time": 5.25,
+        "path": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-poses-20261021/shot-5p25.png",
+        "width": 960,
+        "height": 960,
+        "glError": 0,
+        "sha256": "b7428e7cebf99701c891f615b1bd96a73edeff877cc31e7d9b3528611753fd70"
+      },
+      {
+        "time": 7,
+        "path": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-poses-20261021/shot-7.png",
+        "width": 960,
+        "height": 960,
+        "glError": 0,
+        "sha256": "805f0b1582ae471b2837946f34d904048a025b1e23b0d47b8e1cbb18f47dd5cc"
+      }
+    ],
+    "inspection": "All five actual images reviewed: near finial backed by modeled temple/garden, mid-shot finials leave through lower foreground, outer banks close visible site. Exact 7 s reference camera retained."
+  },
+  "movie": {
+    "report": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-motion-20261021/report.json",
+    "path": "qa/ten-reference/09/iteration-scene09-solmax-grounded-site-dolly-r17-motion-20261021/motion-review.mp4",
+    "status": "motion-review-rendered",
+    "sha256": "42364dcb3eff1f0812399cb1cbf9b069575a959abacb093f87f16031719d4408",
+    "actualRenderedFrames": 168,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 960,
+          "color_space": "bt709",
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "168"
+        }
+      ],
+      "format": {
+        "duration": "7.000000"
+      }
+    },
+    "decodeErrors": 0,
+    "allFrameGLErrors": 0,
+    "renderSampling": {
+      "nativeWidth": 960,
+      "nativeHeight": 960,
+      "outputWidth": 960,
+      "outputHeight": 960,
+      "scale": 1,
+      "downsampling": "none",
+      "requestedNativeWidth": 960,
+      "requestedNativeHeight": 960
+    },
+    "decodedReview": {
+      "method": "Nine frames decoded directly from completed genuine 24 fps MP4; no interpolation or retouching",
+      "frames": [
+        {
+          "frame": 0,
+          "sourceRenderTime": 0.020833333333333332,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-00.png"
+        },
+        {
+          "frame": 21,
+          "sourceRenderTime": 0.8958333333333334,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-01.png"
+        },
+        {
+          "frame": 42,
+          "sourceRenderTime": 1.7708333333333333,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-02.png"
+        },
+        {
+          "frame": 63,
+          "sourceRenderTime": 2.6458333333333335,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-03.png"
+        },
+        {
+          "frame": 84,
+          "sourceRenderTime": 3.5208333333333335,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-04.png"
+        },
+        {
+          "frame": 105,
+          "sourceRenderTime": 4.395833333333333,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-05.png"
+        },
+        {
+          "frame": 126,
+          "sourceRenderTime": 5.270833333333333,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-06.png"
+        },
+        {
+          "frame": 147,
+          "sourceRenderTime": 6.145833333333333,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-07.png"
+        },
+        {
+          "frame": 167,
+          "sourceRenderTime": 6.979166666666667,
+          "decodedPNG": "qa/ten-reference/09/solmax-site-backed-shot-20261021/movie-decoded/decoded-08.png"
+        }
+      ],
+      "visualAccepted": false
+    },
+    "inspection": "Nine actual encoded-film frames at indices 0,21,42,63,84,105,126,147,167 visually inspected. Temple/garden back the finial opening, the camera turn keeps foreground caps below the architecture, the physical banks close the visible pond, and the retained wide view is reached. This is acceptance of the scoped framing repair only; photographic fidelity remains false."
+  },
+  "reviewBoards": [
+    "five-poses-r17.jpg",
+    "opening-r14-left-r17-right.jpg",
+    "movie-nine-frames-r17.jpg"
+  ],
+  "limits": "Outer site is inferred continuity beyond the photograph. Temple/material/garden fidelity remains unaccepted. Native planar reflection and shared source camera are retained; no image plate, painted reflection, screen mask or fade is added."
+}

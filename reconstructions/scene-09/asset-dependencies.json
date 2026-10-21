@@ -17,7 +17,8 @@
     "reconstructions/scene-09/assets/granite-tile-04/granite-face-nor_gl.png",
     "reconstructions/scene-09/assets/granite-tile-04/granite-face-rough.png",
     "reconstructions/scene-09/assets/granite-tile-04/provenance.json",
-    "reconstructions/scene-09/assets/open-sanctuary143/provenance.json"
+    "reconstructions/scene-09/assets/open-sanctuary143/provenance.json",
+    "reconstructions/scene-09/assets/site-shot144/provenance.json"
   ],
   "heroHangingLantern": {
     "source": "reconstructions/scene-09/src/hero-hanging-lantern.js",
@@ -47,5 +48,10 @@
     "provenance": "reconstructions/scene-09/assets/open-sanctuary143/provenance.json",
     "source": "Original solid scene09 carpentry/portal/roof/pagoda reconstruction; no new image surfaces or third-party dependencies",
     "camera": "Same low source09 reference camera and shared shot path; floor/pond/near supports retained"
+  },
+  "siteShot144": {
+    "provenance": "reconstructions/scene-09/assets/site-shot144/provenance.json",
+    "geometry": "Closed inferred outer bank, rooted original geometric trees/shrubs and existing declared CC0 rocks; extended actual water surface",
+    "camera": "New low finial-to-court dolly ends at the unchanged reference camera at7seconds"
   }
 }

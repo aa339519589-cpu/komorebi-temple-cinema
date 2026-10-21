@@ -1,0 +1,45 @@
+{
+  "revision": "scene09-bridge-shared-roughness-74",
+  "source": "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+  "sourceSha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+  "provider": "Poly Haven",
+  "asset": "lacquered_cherry_wood",
+  "license": "CC0-1.0",
+  "sourceURL": "https://polyhaven.com/a/lacquered_cherry_wood",
+  "processor": "reconstructions/scene-09/src/process-bridge-roughness.py",
+  "processorSha256": "905116fb8b487cd1087968a72d51de9213b775e1a1d41ac3ba7f26df6c937141",
+  "formula": "outputRoughness = 0.50 + 0.20 * originalScanG; material roughness factor = 1.0",
+  "output": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+  "outputSha256": "0d46b0bfe3ed488f9855f51ec917355642d20afc45b5cbd1f6afad202ac747b6",
+  "size": [
+    2048,
+    2048
+  ],
+  "colorSpace": "Non-Color, numeric roughness",
+  "sourceValues": {
+    "min": 0.1568627506494522,
+    "median": 0.24313727021217346,
+    "max": 0.9960784912109375
+  },
+  "savedOutputValues": {
+    "min": 0.5333333611488342,
+    "median": 0.5490196347236633,
+    "max": 0.6980392336845398
+  },
+  "nativeAndCyclesShareOneProcessedImage": true,
+  "materials": [
+    "bridge vermilion rails/posts",
+    "bridge structural timber",
+    "bridge deck timber"
+  ],
+  "preserved": [
+    "albedo texture and color gains",
+    "normal texture/strength",
+    "metalness",
+    "IOR/specular settings",
+    "geometry and camera",
+    "lights and exposure"
+  ],
+  "reason": "The forensic cycles73 frame preserved red base color but showed91-93 percent glossy luminance on gray sections with effective roughness around0.226. The source furniture-varnish gloss is inconsistent with the reference bridge.",
+  "scenePhotographSampled": false
+}
