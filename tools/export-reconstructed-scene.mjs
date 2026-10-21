@@ -10,11 +10,11 @@ import {reconstructionSourceIdentity} from './reconstruction-source-identity.mjs
 const reference=Number(process.env.REFERENCE||6),id=String(reference).padStart(2,'0');
 if(!Number.isInteger(reference)||reference<1||reference>10)throw Error('Invalid reference');
 const out=process.env.SCENE_EXPORT||'output/pathtrace-reference-'+id;await mkdir(out+'/assets',{recursive:true});
+const releaseGpu=await acquireGpuRenderSlot('export-real-geometry-'+id);
 const hash=b=>createHash('sha256').update(b).digest('hex'),source=await reconstructionSourceIdentity(process.cwd(),id);
 const report={status:'building',sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),source,sourceHash:source.hash,errors:[],newSceneConstruction:false,exportedAssets:{}};
 const save=()=>writeFile(out+'/export-report.json',JSON.stringify(report,null,2));await save();
 process.env.PORT=process.env.EXPORT_PORT||'4511';
-const releaseGpu=await acquireGpuRenderSlot('export-real-geometry-'+id);
 const serverModule=resolve(process.cwd(),'tools/server.mjs');
 const {server}=await import(pathToFileURL(serverModule).href);let browser;
 try{
