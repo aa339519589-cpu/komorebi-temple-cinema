@@ -20,7 +20,7 @@
     "newExternalAssets": [],
     "photoTextureOrProjection": false
   },
-  "revision": "mesh75b",
+  "revision": "garden130",
   "islandLantern": {
     "scope": "Only the nearest water-island stone lantern, replacing the single original lantern(4.8,14.2,5.8,.2) call. Other4lanterns, islands/garden RNG, existing camera/light/roof/rail geometry stay.",
     "anchor": "Local4.8,.2,14.2 scaled5.8/3.7, under the exact retained garden transform T(0,0,-3)*S(1,1,.6), world anchor4.8,.2,5.52.",
@@ -53,7 +53,21 @@
     "measurementTool": "tools/fit-layout07-118.mjs",
     "scope": "Whole foreground railing, bridge/right flight, main stone stair/shared landing and island placement reconstructed as actual3D geometry. Old independently overlapping stairs and landing removed.",
     "camera": "Reference camera unchanged; physical heights and hidden depths inferred, not survey data.",
-    "status": "Working reconstruction candidate, not visually accepted.",
+    "status": "Superseded by layout130-connected-garden; old observed landmarks retained as evidence, hidden depths revised.",
     "referencesUsedAsTexture": false
+  },
+  "garden130": {
+    "source": [
+      "src/garden-terrain.js",
+      "src/garden-accents.js",
+      "src/reference-layout118.js",
+      "src/natural-details.js",
+      "src/main.js",
+      "src/veranda-bell.js"
+    ],
+    "provenance": "assets/garden130-provenance.json",
+    "newExternalAssets": [],
+    "referenceAsTexture": false,
+    "visualAccepted": false
   }
 }

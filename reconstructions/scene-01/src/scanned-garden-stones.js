@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {mossSkin132} from './garden-surface132.js';
 
 // Keep the scan's albedo and UVs, but turn its warm earth palette into the
 // charcoal stone and sparse olive lichen seen around the reference pond. The
@@ -47,10 +48,10 @@ function addStoneSurfaceBreakup(material){
     float broad=stoneValueNoise(vStoneFieldPosition*5.0+vec3(7.0,3.0,11.0));
     float strata=stoneValueNoise(vStoneFieldPosition*14.0+vec3(2.7,6.1,0.9));
     float flecks=smoothstep(0.72,0.91,stoneValueNoise(vStoneFieldPosition*31.0+vec3(4.0,8.0,2.0)));
-    float proceduralMoss=smoothstep(0.70,0.83,broad)*(0.5+0.5*strata);
-    float mossMask=clamp(max(scanMoss*0.62,proceduralMoss*0.18),0.0,0.62);
+    float proceduralMoss=smoothstep(0.43,0.71,broad)*(0.65+0.35*strata);
+    float mossMask=clamp(max(scanMoss*0.95,proceduralMoss*0.88),0.0,0.91);
     vec3 charcoal=vec3(stoneLuma*0.78,stoneLuma*0.83,stoneLuma*0.89);
-    vec3 oliveMoss=vec3(stoneLuma*0.62,stoneLuma*0.75,stoneLuma*0.43);
+    vec3 oliveMoss=mix(vec3(.026,.045,.006),vec3(.10,.14,.020),strata);
     float facetValue=0.82+broad*0.22+(strata-0.5)*0.08;
     diffuseColor.rgb=mix(charcoal,oliveMoss,mossMask)*facetValue;
     diffuseColor.rgb+=flecks*vec3(0.007,0.009,0.011);`
@@ -80,13 +81,13 @@ export async function loadScannedGardenStones(){
   const wet=new T.MeshPhysicalMaterial({
    name:dry.name+'-wet',color:dry.color,map:dry.map,normalMap:dry.normalMap,
    normalScale:dry.normalScale,roughnessMap:dry.roughnessMap,aoMap:dry.aoMap,
-   aoMapIntensity:dry.aoMapIntensity,roughness:.78,
-   metalness:0,clearcoat:.10,clearcoatRoughness:.48
+   aoMapIntensity:dry.aoMapIntensity,roughness:.62,
+   metalness:0,clearcoat:.20,clearcoatRoughness:.35
   });
-  wet.color.multiplyScalar(.72);
+  wet.color.multiplyScalar(.90);
   addStoneSurfaceBreakup(wet);
   for(const key of ['map','normalMap','roughnessMap','aoMap'])if(dry[key])textures.add(dry[key]);
-  variants.push({geometry,dry,wet});
+  variants.push({geometry,dry,wet,mossGeometry:mossSkin132(geometry)});
  });
  if(variants.length!==6)throw Error('Expected six separate scanned garden stones, got '+variants.length);
  return {variants,info:{asset:'rock_moss_set_01',author:'Kless Gyzen',license:'CC0-1.0',pieces:variants.length,source:'https://polyhaven.com/a/rock_moss_set_01'},

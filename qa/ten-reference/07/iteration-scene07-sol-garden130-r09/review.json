@@ -1,0 +1,130 @@
+{
+  "revision": "scene07-connected-slope-garden130-r09",
+  "status": "working-reconstruction-for-root-review",
+  "visualAccepted": false,
+  "sourceHash": "700254acaf3d23202023e470bef85087a090eff9fdc060f6c30e7c335e8e4774",
+  "referenceInput": {
+    "file": "references/hd/6-照片-7.jpg",
+    "sha256": "580daa56c7d0378ea163bf24b96f8d5380749609a421a740f62eb0dc627ba428",
+    "use": "Comparison-only; absent from actual browser requests."
+  },
+  "evidence": [
+    {
+      "kind": "full-detail",
+      "report": "qa/ten-reference/07/iteration-scene07-sol-garden130-r09/report.json",
+      "sourceHash": "700254acaf3d23202023e470bef85087a090eff9fdc060f6c30e7c335e8e4774",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "reference",
+          "localTime": null,
+          "valid": true,
+          "glError": 0,
+          "pngSaved": true
+        },
+        {
+          "name": "detail-native",
+          "localTime": null,
+          "valid": true,
+          "glError": 0,
+          "pngSaved": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "kind": "above",
+      "report": "qa/ten-reference/07/iteration-scene07-sol-garden130-above-r09/report.json",
+      "sourceHash": "700254acaf3d23202023e470bef85087a090eff9fdc060f6c30e7c335e8e4774",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "localTime": null,
+          "valid": true,
+          "glError": 0,
+          "pngSaved": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "kind": "shot-poses",
+      "report": "qa/ten-reference/07/iteration-scene07-sol-garden130-shots-r09/report.json",
+      "sourceHash": "700254acaf3d23202023e470bef85087a090eff9fdc060f6c30e7c335e8e4774",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "shot-0",
+          "localTime": 0,
+          "valid": true,
+          "glError": 0,
+          "pngSaved": true
+        },
+        {
+          "name": "shot-3p5",
+          "localTime": 3.5,
+          "valid": true,
+          "glError": 0,
+          "pngSaved": true
+        },
+        {
+          "name": "shot-7",
+          "localTime": 7,
+          "valid": true,
+          "glError": 0,
+          "pngSaved": true
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "actualScene": {
+    "instances": 207665,
+    "triangles": 45316654,
+    "bridge": {
+      "widthMetres": 2.8,
+      "screenSpanFraction": 0.30518750043024306,
+      "observedReferenceSpanFraction": 0.3118022328548644,
+      "knots": [
+        [
+          -7.751062679658208,
+          4.1,
+          -2
+        ],
+        [
+          -5.3963726810815515,
+          4.65,
+          -1.3
+        ],
+        [
+          -2.4798549617700036,
+          5.45,
+          0
+        ],
+        [
+          0.9901721459789012,
+          5.3,
+          1
+        ],
+        [
+          4.4,
+          4.8,
+          2
+        ]
+      ],
+      "lengthMetres": 13.026191312296872,
+      "separateDescendingStairFlight": true,
+      "midWaterPiers": 0,
+      "abutments": "Weathered rock shoulders embedded in the two planted banks"
+    }
+  },
+  "inspection": "Full, genuine garden subfrustum, actual left-side above-garden view, and three native shot poses were visually inspected. The R08 bridge/stair overlap was repaired in R09. Render diagnostics do not prove photographic fidelity.",
+  "remaining": [
+    "The bank/pond balance remains unlike the photograph; the nearest lantern island is less clearly isolated in the reference view.",
+    "Dense pine crowns still read stylized and need better branch/needle hierarchy and sunlit microstructure.",
+    "Facade repetition, roof response, procedural sky and distant terrain remain visibly simplified.",
+    "Hidden overhang bearing dimensions and route depths are authored hypotheses; no structural certification or survey recovery is claimed."
+  ],
+  "ownership": "Scene07 source/assets/QA only. No commits, shared-source edits, other-scene edits or child agents."
+}

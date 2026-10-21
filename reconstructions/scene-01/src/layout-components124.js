@@ -5,7 +5,7 @@ import {buildBalustradeFinial131} from './foreground-hardware131.js';
 
 export function verandaEdge124(z){const a=L.foreground.postL,b=L.foreground.postN,t=(z-a[2])/(b[2]-a[2]);return[a[0]+(b[0]-a[0])*t,L.foreground.deckY,z];}
 export function solidTerrain124(grid,bottom=-.35){const g=surface(grid,.72),p=g.attributes.position,n=grid.length*grid[0].length;for(let i=n;i<p.count;i++)p.setY(i,bottom);g.computeVertexNormals();return g;}
-export function bridgeSupport124(x,z){const G=L.bridge,c=Math.cos(G.yaw),s=Math.sin(G.yaw),dx=x-G.position[0],dz=z-G.position[2],u=(c*dx-s*dz)/G.scale[0],v=(s*dx+c*dz)/G.scale[2];let h=0;for(const end of[-G.halfSpan,G.halfSpan]){const r=Math.max(Math.abs(u-end)/1.9,Math.abs(v)/2.2);if(r<1){const top=G.position[1]+G.deckBaseline+G.slope*end/G.halfSpan-.14;h=Math.max(h,.14+(top-.14)*(1-T.MathUtils.smoothstep(r,.28,1)));}}return h;}
+export function bridgeSupport124(x,z){const G=L.bridge,c=Math.cos(G.yaw),s=Math.sin(G.yaw),dx=x-G.position[0],dz=z-G.position[2],u=(c*dx-s*dz)/G.scale[0],v=(s*dx+c*dz)/G.scale[2];let h=0;for(const end of[-G.halfSpan,G.halfSpan]){const r=Math.hypot((u-end)/1.75,v/2.15)*(1+.055*Math.sin(x*3.2+z*2.4));if(r<1){const top=G.position[1]+G.deckBaseline+G.slope*end/G.halfSpan-.14;h=Math.max(h,.14+(top-.14)*(1-T.MathUtils.smoothstep(r,.28,1)));}}return h;}
 
 const area124=p=>p.reduce((s,a,i)=>{const b=p[(i+1)%p.length];return s+a[0]*b[1]-b[0]*a[1];},0)/2;
 function cleanPolygon124(points){
@@ -71,7 +71,7 @@ export function buildForeground124(B,{carvedFitting,squareGold}){
     for(let x=lo+.10;x<hi;x+=.62)B.box(x,-.18,(z0+z1)/2,.19,.33,z1-z0,'wood');
     for(let z=z0+.15;z<z1;z+=1.8)B.box((lo+hi)/2,-.41,z,hi-lo,.28,.29,'redLight');
    }
-   for(let i=0;i<=14;i++){const x=-w/2+w*i/14;B.box(x,-.35,.04,.24,.12,.35,'redLight');squareGold(x,-.35,.23,.20,.12);}
+   B.box(0,-.37,.10,w,.27,.32,'wood');for(const y of[-.47,-.26])B.box(0,y,.275,w,.024,.018,'hardwareGold131');for(let i=0;i<=Math.ceil(w/.32);i++){const x=-w/2+w*i/Math.ceil(w/.32);B.box(x,-.35,.04,.24,.12,.35,'redLight');if(B.joineryKit)B.emit(B.joineryKit.relief,'hardwareRelief131',x,-.365,.276,.23,.16,.10);}
    // This beam's lower face is exactly the column top (Y9.595), while its
    // upper face bears against the rafters at Y9.955. No suspended column.
    B.box((9.2-w/2)/2,-.525,colLocal.z,9.2+w/2,.36,.34,'wood');
@@ -113,8 +113,8 @@ export function bankHeight124(x,z,original){
  let height=Math.max(original,landing);
  // The falling water occupies a cut channel with a supporting bed. The soil
  // must not seal that passage simply because a landing was raised nearby.
- const cross=1-T.MathUtils.smoothstep(Math.abs(x-L.waterfall.x),.50,.75),mask=cross*T.MathUtils.smoothstep(z,-1.75,-1.35)*(1-T.MathUtils.smoothstep(z,.15,.45));
- if(mask>0){let bed;if(z<=-.68){const t=Math.sqrt(T.MathUtils.clamp((z+1.35)/.67,0,1));bed=1.35-.60*t-.05;}else if(z<-.60)bed=.70;else{const t=Math.sqrt(T.MathUtils.clamp((z+.60)/.67,0,1));bed=.75-.60*t-.05;}height=T.MathUtils.lerp(height,Math.min(height,bed),mask);}
+ const W=L.waterfall,z0=W.z[0],z1=W.z[1],run=.57,cross=1-T.MathUtils.smoothstep(Math.abs(x-W.x),.50,.75),mask=cross*T.MathUtils.smoothstep(z,z0-.32,z0)*(1-T.MathUtils.smoothstep(z,z1+run+.08,z1+run+.35));
+ if(mask>0){let bed;if(z<=z1-.06){const t=Math.sqrt(T.MathUtils.clamp((z-z0)/(z1-.06-z0),0,1));bed=W.lips[0]-(W.lips[0]-W.lips[1])*t-.05;}else if(z<z1)bed=W.lips[1]-.05;else{const t=Math.sqrt(T.MathUtils.clamp((z-z1)/run,0,1));bed=W.lips[1]-(W.lips[1]-W.basinY)*t-.05;}height=T.MathUtils.lerp(height,Math.min(height,bed),mask);}
  return height;
 }
 

@@ -197,3 +197,15 @@ export const layout118={
     }
   ]
 };
+
+// Shared physical route after actual above-garden inspection. The former
+// projected spline crossed beneath the main stair/landing. These authored
+// points put the arch in front of that landing; heights retain its observed
+// shallow projected rise as closely as the connected 3D layout permits.
+export const garden130BridgeKnots=Object.freeze([
+ Object.freeze([-7.751062679658208,4.10,-2.0]),
+ Object.freeze([-5.3963726810815515,4.65,-1.30]),
+ Object.freeze([-2.4798549617700036,5.45,0.0]),
+ Object.freeze([.9901721459789012,5.30,1.0]),
+ Object.freeze([4.4,4.80,2.0])
+]);

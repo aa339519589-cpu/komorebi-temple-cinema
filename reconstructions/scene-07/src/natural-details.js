@@ -14,7 +14,7 @@ export function pineNeedleSpray(){
    const k=n*needlesPerNode+j,a=phase+j*TAU/needlesPerNode+.13*Math.sin(k*3.71),len=.17+.10*(.5+.5*Math.sin(k*4.13+1.2)),lean=.10+.24*(.5+.5*Math.sin(k*2.37)),
     base=[Math.cos(a)*stemR,stemY,Math.sin(a)*stemR],dir=[Math.cos(a)*Math.sqrt(1-lean*lean),lean,Math.sin(a)*Math.sqrt(1-lean*lean)],
     mid=[base[0]+dir[0]*len*.54,base[1]+dir[1]*len*.54+.006,base[2]+dir[2]*len*.54],tip=[base[0]+dir[0]*len,base[1]+dir[1]*len,base[2]+dir[2]*len],
-    side=[-Math.sin(a),.12,Math.cos(a)],w=.0042+(k%5)*.0007;
+    side=[-Math.sin(a),.12,Math.cos(a)],w=.0070+(k%5)*.0010;
    const offset=(c,s)=>[c[0]+side[0]*s*w,c[1]+side[1]*s*w,c[2]+side[2]*s*w],baseL=offset(base,1),baseR=offset(base,-1),midL=offset(mid,.62),midR=offset(mid,-.62),ridge=[mid[0]+dir[0]*.0025,mid[1]+.006,mid[2]+dir[2]*.0025];
    for(const tri of[[baseL,ridge,midL],[midL,ridge,tip],[ridge,baseR,midR],[midR,ridge,tip]])add(...tri);
   }

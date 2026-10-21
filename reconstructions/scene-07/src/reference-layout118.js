@@ -1,11 +1,11 @@
 import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
-import {layout118} from './layout118-data.js';
+import {layout118,garden130BridgeKnots} from './layout118-data.js';
 import {createWeatheredBoulderGeometry} from './boulder.js';
 const V=p=>new T.Vector3(...p),TAU=Math.PI*2;
 
 export function buildReferenceLayout118(api){
- const {emit,box,rod,group,mats,graniteMaps}=api,land=layout118.landmarks;
+ const {emit,box,rod,group,mats,graniteMaps,scannedStones}=api,land=layout118.landmarks;
  const timber=mats.red.clone();timber.name='layout118-red-lacquered-solid-timber';timber.color.setRGB(6.2,2.65,3.2);timber.onBeforeCompile=mats.red.onBeforeCompile;timber.customProgramCacheKey=()=>mats.red.customProgramCacheKey()+':red-lacquer118';timber.userData.scannedTimber=true;
  const gilt=new T.MeshPhysicalMaterial({name:'layout118-cast-gilt-copper',color:0xc9a15b,metalness:.96,roughness:.23,clearcoat:.08,clearcoatRoughness:.2});
  const patina=new T.MeshStandardMaterial({name:'layout118-aged-bronze',color:0x514a31,metalness:.85,roughness:.48});
@@ -52,13 +52,18 @@ export function buildReferenceLayout118(api){
    });
   }
  }
- const bridgeWidth=2.8,knots=['bridgeLeft','bridgeQuarter','bridgeCrown','bridgeThreeQuarter','bridgeRight'].map(k=>V(land[k].world)),curve=new T.CatmullRomCurve3(knots,false,'centripetal');
+ const bridgeWidth=2.8,knots=garden130BridgeKnots.map(V);
+ // The arch ends on a planted bank. Its right end continues into the
+ // descending garden stair visible in the photograph, rather than ending
+ // abruptly at the hall's tall foundation wall.
+ const curve=new T.CatmullRomCurve3(knots,false,'centripetal');
  const deckPoint=t=>curve.getPoint(t);
  const cross=(t,side=0)=>{const p=deckPoint(t),d=curve.getTangent(t),n=new T.Vector3(-d.z,0,d.x).normalize();return p.addScaledVector(n,side*bridgeWidth*.5);};
- const stone=new T.MeshStandardMaterial({name:'layout118-metric-worn-granite',color:0xa5a198,roughness:.9,map:graniteMaps.map,normalMap:graniteMaps.normalMap,roughnessMap:graniteMaps.roughnessMap});stone.normalScale.set(.22,.22);stone.userData.metricGranite=true;
+ const stone=new T.MeshStandardMaterial({name:'scene07-jointed-weathered-path-granite',color:0x858d8d,roughness:.92,map:graniteMaps.map,normalMap:graniteMaps.normalMap,roughnessMap:graniteMaps.roughnessMap});stone.normalScale.set(.32,.32);stone.userData.metricGranite=true;
  stone.onBeforeCompile=sh=>{sh.fragmentShader=sh.fragmentShader.replace('#include <map_fragment>',`#ifdef USE_MAP
  vec3 g=texture2D(map,vMapUv).rgb;float mineral=dot(g,vec3(.2126,.7152,.0722));diffuseColor.rgb*=clamp(pow(max(mineral,.0001)/.153180782734,.65),.66,1.42);
- #endif`);};stone.customProgramCacheKey=()=> 'layout118-metric-neutral-granite';
+ #endif`);};stone.customProgramCacheKey=()=> 'scene07-neutral-path-granite130';
+ const stairTimber=timber.clone();stairTimber.name='scene07-aged-stair-rail';stairTimber.color.setRGB(2.8,1.55,1.40);stairTimber.onBeforeCompile=timber.onBeforeCompile;stairTimber.customProgramCacheKey=timber.customProgramCacheKey;
  const terrainHeight=typeof api.terrainHeight==='function'?api.terrainHeight:()=>-.2;
  const abutmentRocks=[
   createWeatheredBoulderGeometry(T,{scale:[1,.72,.9],seed:1207,sectors:28,rings:14}),
@@ -67,19 +72,12 @@ export function buildReferenceLayout118(api){
  function bankBearing(t,landwardSign){
   const p=deckPoint(t),d=curve.getTangent(t).normalize(),n=new T.Vector3(-d.z,0,d.x).normalize(),yaw=-Math.atan2(d.z,d.x);
   for(const side of[-1,1]){
-   const foot=p.clone().addScaledVector(d,landwardSign*.56).addScaledVector(n,side*.82),ground=terrainHeight(foot.x,foot.z);
-   const footY=Math.min(Math.max(.45,ground+.66),p.y-2.65);
-   emit(abutmentRocks[(side+1)/2],mats.rock,foot.x,footY,foot.z,1.20,1.34,1.08,[.02,yaw+side*.06,-.025]);
-   const middle=foot.clone().addScaledVector(n,-side*.12),middleY=footY+(p.y-.65-footY)*.58;
-   emit(abutmentRocks[(side+1)/2],mats.rock,middle.x,middleY,middle.z,1.02,1.55,1.00,[.01,yaw-side*.04,.01]);
-   const upper=middle.clone().addScaledVector(n,side*.10);
-   emit(abutmentRocks[(side+1)/2],mats.rock,upper.x,p.y-.48,upper.z,.90,.96,.92,[.01,yaw-side*.07,.015]);
+   const foot=p.clone().addScaledVector(d,landwardSign*.50).addScaledVector(n,side*.72),ground=Math.min(terrainHeight(foot.x,foot.z),p.y-.32),height=p.y-.28-ground;
+   const rows=Math.max(1,Math.ceil(height/.42));
+   for(let j=0;j<rows;j++){const v=scannedStones.variants[(j*3+(side+1)/2)%6],ss=.57+.025*Math.sin(j*2.4+side);emit(v.geometry,ground+j*.42<.6?v.wet:v.dry,foot.x+.10*Math.sin(j*2.1),ground+.20+j*.42,foot.z+.08*Math.cos(j*1.9),ss,ss,ss,[0,yaw+j*.34,side*.03],.86+.08*Math.sin(j));}
   }
-  const seat=p.clone().addScaledVector(d,landwardSign*.10);
-  b([seat.x,p.y-.19,seat.z],[bridgeWidth+.90,.38,1.34],stone,yaw);
+  const seat=p.clone().addScaledVector(d,landwardSign*.10);b([seat.x,p.y-.22,seat.z],[1.15,.32,bridgeWidth+.48],stone,yaw);
  }
- // Bearing stones rise only at the two banks; the crossing remains clear over
- // the water instead of standing on exposed mid-channel piers.
  bankBearing(0,-1);bankBearing(1,1);
  const band=(side,y0,y1,width,material,end=1)=>{
   const p=[],ix=[],N=96;
@@ -88,40 +86,64 @@ export function buildReferenceLayout118(api){
   ix.push(0,3,2,0,2,1,N*4,N*4+1,N*4+2,N*4,N*4+2,N*4+3);
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.computeVertexNormals();g.setAttribute('uv',new T.Float32BufferAttribute(p.flatMap((q,i)=>i%3===0?[q,p[i+2]]:[]),2));emit(g,material,0,0,0);
  };
- for(let i=0;i<52;i++){const t=(i+.5)/52,p=deckPoint(t),d=curve.getTangent(t),yaw=-Math.atan2(d.z,d.x);b([p.x,p.y-.13,p.z],[curve.getLength()/52*.98,.26,bridgeWidth+.04],stone,yaw);}
+ // A closed curved bed carries the individual jointed treads. Its timber
+ // edge beams bend with the arch; there are no mid-channel support stacks.
+ band(0,-.42,-.14,bridgeWidth,stone);
+ for(let i=0;i<56;i++){const t=(i+.5)/56,p=deckPoint(t),d=curve.getTangent(t),yaw=-Math.atan2(d.z,d.x);for(let j=0;j<3;j++){const n=new T.Vector3(-d.z,0,d.x).normalize(),q=p.clone().addScaledVector(n,(j-1)*bridgeWidth/3);b([q.x,q.y-.08,q.z],[curve.getLength()/56*.99,.16,bridgeWidth/3-.014],stone,yaw);}}
+ const bridgeFinial=(p)=>{const profile=[[0,0],[.15,0],[.15,.06],[.10,.10],[.085,.18],[.14,.23],[.12,.29],[0,.40]];emit(new T.LatheGeometry(profile.map(q=>new T.Vector2(...q)),20),patina,p.x,p.y,p.z);};
  for(const side of[-1,1]){
-  band(side,-.46,-.14,.27,timber);
-  for(const y of[.24,.64,1.06])band(side,y-.06,y+.06,y>1?.18:.12,timber,side<0?.73:1);
-  for(let i=0;i<=(side<0?5:8);i++){
-   const p=cross(i/8,side),d=curve.getTangent(i/8),yaw=-Math.atan2(d.z,d.x),major=i%4===0;
-   b([p.x,p.y+.59,p.z],[major?.25:.16,1.18,major?.25:.16],major?stone:timber,yaw);
-   if(major){b([p.x,p.y+1.23,p.z],[.34,.12,.34],stone,yaw);finial([p.x,p.y+1.29,p.z],.12);}
+  band(side,-.43,-.17,.24,timber);
+  const end=side<0?.64:1;
+  for(const y of[.24,.64,1.06])band(side,y-.055,y+.055,y>1?.18:.115,timber,end);
+  const count=side<0?7:9;
+  for(let i=0;i<=count;i++){
+   const t=end*i/count,p=cross(t,side),d=curve.getTangent(t),yaw=-Math.atan2(d.z,d.x),major=i===0||i===count||i===Math.floor(count/2);
+   b([p.x,p.y+.55,p.z],[major?.24:.15,1.10,major?.24:.15],major?stone:timber,yaw);
+   if(major){b([p.x,p.y+1.13,p.z],[.32,.10,.32],stone,yaw);bridgeFinial(new T.Vector3(p.x,p.y+1.18,p.z));}
   }
  }
- // A connected stair/landing/bridge graph. Every datum is shared by the
- // adjacent pieces, rather than placing independent solid boxes by eye.
- const hall=new T.Matrix4().makeTranslation(4.6,0,-9).multiply(new T.Matrix4().makeRotationY(-.25));
- const hp=(x,y,z)=>V([x,y,z]).applyMatrix4(hall);
- const flightTop=6.60,flightBottom=5.0,flightCount=10,runStart=5.15,tread=.32,stairWidth=5.8;
- const stepSolids=[];
- for(let i=0;i<flightCount;i++){
-  const y=flightTop-(i+1)*(flightTop-flightBottom)/flightCount,z=runStart+(i+.5)*tread;
-  // Four independently jointed granite slabs form each tread. Full-height
-  // riser faces are supported by masonry, with no huge smooth gray frontage.
-  for(let j=0;j<4;j++){const q=hp(-stairWidth/2+(j+.5)*stairWidth/4,y-.085,z);b(q.toArray(),[stairWidth/4-.012,.17,tread+.018],stone,-.25);stepSolids.push({centre:q.toArray(),top:y});}
-  for(const side of[-1,1]){const q=hp(side*(stairWidth/2+.10),y-.20,z);b(q.toArray(),[.22,.40,tread+.016],stone,-.25);}
-  // Solid coursed backing rises directly below its own tread.
-  const bottom=4.82;
-  for(let yy=bottom+.10;yy<y-.17;yy+=.20)for(let j=0;j<8;j++){const q=hp(-stairWidth/2+(j+.5)*stairWidth/8,yy,z);b(q.toArray(),[stairWidth/8-.012,.192,tread+.014],stone,-.25);}
+ function slopeBeam(a,bp,h,width=.14,material=timber){const p=a.clone().add(new T.Vector3(0,h,0)),q=bp.clone().add(new T.Vector3(0,h,0)),direction=q.clone().sub(p),mid=p.clone().add(q).multiplyScalar(.5),g=new RoundedBoxGeometry(direction.length(),width,width,2,.012),quat=new T.Quaternion().setFromUnitVectors(new T.Vector3(1,0,0),direction.normalize()),e=new T.Euler().setFromQuaternion(quat);emit(g,material,...mid.toArray(),1,1,1,[e.x,e.y,e.z]);}
+ function stair(a,end,width,count,{railMaterial=timber,railSides=[-1,1],minBase=-.3}={}){
+  const direction=end.clone().sub(a),horizontal=Math.hypot(direction.x,direction.z),d=new T.Vector3(direction.x,0,direction.z).normalize(),n=new T.Vector3(-d.z,0,d.x),yaw=-Math.atan2(d.z,d.x),depth=horizontal/count;
+  for(let i=0;i<count;i++){
+   const t=(i+.5)/count,p=a.clone().lerp(end,t),top=a.y+(end.y-a.y)*(i+1)/count;
+   const ground=Math.min(top-.18,Math.max(minBase,terrainHeight(p.x,p.z)-.08)),h=Math.max(.18,top-ground);
+   b([p.x,top-h/2-.02,p.z],[depth+.025,h,width],mats.terraceStone,yaw);
+   for(let j=0;j<4;j++){const q=p.clone().addScaledVector(n,(-.5+(j+.5)/4)*width);b([q.x,top-.065,q.z],[depth+.028,.13,width/4-.012],stone,yaw);}
+  }
+  for(const side of railSides){
+   const aa=a.clone().addScaledVector(n,side*(width*.5+.06)),bb=end.clone().addScaledVector(n,side*(width*.5+.06));
+   const posts=Math.max(3,Math.ceil(horizontal/.75));
+   for(let j=0;j<=posts;j++){const p=aa.clone().lerp(bb,j/posts);b([p.x,p.y+.51,p.z],[.17,1.02,.17],railMaterial,yaw);b([p.x,p.y+1.04,p.z],[.22,.08,.22],railMaterial,yaw);}
+   for(const h of[.24,.64,1.05])slopeBeam(aa,bb,h,h>1?.15:.11,railMaterial);
+  }
  }
- function slabQuad(corners,thickness=.25){const pos=[],ix=[];for(const h of[0,-thickness])for(const q of corners)pos.push(q.x,q.y+h,q.z);ix.push(0,2,1,0,3,2,4,5,6,4,6,7);for(let i=0;i<4;i++){const j=(i+1)%4;ix.push(i,j,i+4,j,j+4,i+4);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.setAttribute('uv',new T.Float32BufferAttribute(pos.flatMap((q,i)=>i%3===0?[q/.317,pos[i+2]/.317]:[]),2));g.setIndex(ix);g.computeVertexNormals();emit(g,stone,0,0,0);}
- const stairBottomLeft=hp(-stairWidth/2,5,runStart+flightCount*tread+.01),stairBottomRight=hp(stairWidth/2,5,runStart+flightCount*tread+.01);
- const bridgeLandingRight=cross(1,-1),bridgeLandingLeft=cross(1,1);
- // One broad granite landing ties the stair edge directly to the bridge seat.
- slabQuad([stairBottomLeft,stairBottomRight,bridgeLandingRight,bridgeLandingLeft],.24);
- function slopeBeam(a,bp,h,width=.14){const p=a.clone().add(new T.Vector3(0,h,0)),q=bp.clone().add(new T.Vector3(0,h,0)),direction=q.clone().sub(p),mid=p.clone().add(q).multiplyScalar(.5),g=new RoundedBoxGeometry(direction.length(),width,width,2,.012),quat=new T.Quaternion().setFromUnitVectors(new T.Vector3(1,0,0),direction.normalize()),e=new T.Euler().setFromQuaternion(quat);emit(g,timber,...mid.toArray(),1,1,1,[e.x,e.y,e.z]);}
- for(const side of[-1,1]){const a=hp(side*3.02,flightTop,runStart),end=hp(side*3.02,flightBottom,runStart+flightCount*tread);for(let i=0;i<=5;i++){const p=a.clone().lerp(end,i/5);b([p.x,p.y+.52,p.z],[.20,1.04,.20],timber,-.25);}for(const h of[.24,.66,1.03])slopeBeam(a,end,h);}
- const connectionAudit={stairRisers:flightCount,riseMetres:.16,treadMetres:.32,slabsPerTread:4,mainLandingY:5,bridgeJoinY:deckPoint(1).y,connectorRisers:0,stairTreadSlabs:stepSolids.length,landingSupports:'Irregular stone abutments at both banks; no mid-water piers',unmeasuredDepths:true};
- const audit={revision:'layout121',connections:connectionAudit,reference:layout118.reference,observedLandmarks:layout118.landmarks,nearRail:{corner:corner.toArray(),heightSectionMetres:.25,depthSectionMetres:.34,postSectionMetres:.56,intermediateGoldFinials:0,lowerPanelBelowHandrailMetres:1.72},bridge:{widthMetres:bridgeWidth,screenSpanFraction:(land.bridgeRight.pixel[0]-land.bridgeLeft.pixel[0])/layout118.imageDimensions[0],knots:knots.map(p=>p.toArray()),lengthMetres:curve.getLength(),separateDescendingStairFlight:false,midWaterPiers:0,abutments:'Weathered rock masses and granite bearing seats at both ends'},scope:'Reconstructed near rail and short arched bridge crossing in real3D; endpoint depths and abutment internals are inferred from the fixed camera fit.',visualAccepted:false};
- return{audit,dispose(){timber.dispose();gilt.dispose();patina.dispose();stone.dispose();for(const g of abutmentRocks)g.dispose();}};
+ // The shortened lower storey raises the entrance floor while preserving
+ // every roof/pagoda anchor. Twelve shallow treads meet a compact forecourt.
+ const hall=new T.Matrix4().makeTranslation(4.6,0,-9).multiply(new T.Matrix4().makeRotationY(-.25)),hp=(x,y,z)=>V([x,y,z]).applyMatrix4(hall);
+ const flightTop=7.50,flightBottom=5.80,flightCount=12,runStart=5.15,tread=.24,stairWidth=5.8;
+ const stairTop=hp(0,flightTop,runStart),stairBottom=hp(0,flightBottom,runStart+flightCount*tread);
+ stair(stairTop,stairBottom,stairWidth,flightCount,{railMaterial:stairTimber});
+ const landingCentre=hp(0,flightBottom,runStart+flightCount*tread+.47);
+ b([landingCentre.x,flightBottom-.17,landingCentre.z],[stairWidth,.34,.96],stone,-.25);
+ // Four closed timber bearing members carry the short over-bank landing.
+ // Its two rubble seats use uniformly scaled stones, rather than stretching
+ // a single boulder into the tall smooth pillars rejected in native r03.
+ for(const zz of[8.08,8.35,8.62,8.89]){const p=hp(0,flightBottom-.55,zz);b([p.x,p.y,p.z],[stairWidth+.12,.46,.24],stairTimber,-.25);}
+ for(const side of[-1,1]){
+  const p=hp(side*2.40,0,8.48),ground=terrainHeight(p.x,p.z),height=flightBottom-.78-ground,rows=Math.max(1,Math.ceil(height/.40));
+  for(let j=0;j<rows;j++){const v=scannedStones.variants[(j*3+(side+1)/2)%6],ss=.53+.02*Math.cos(j*2.1);emit(v.geometry,ground+j*.4<.55?v.wet:v.dry,p.x+.08*Math.sin(j*2.2),ground+.19+j*.40,p.z+.08*Math.cos(j*1.7),ss,ss,ss,[0,-.25+j*.31,side*.025],.86+.06*Math.cos(j*1.8));}
+ }
+ // A short side connection descends from the forecourt to the bridge bank.
+ // The longer visible right approach continues from the same bridge datum.
+ const connectorStart=hp(2.10,flightBottom,9.0),connectorEnd=deckPoint(1);
+ stair(connectorStart,connectorEnd,2.55,6,{railMaterial:timber,railSides:[-1]});
+ const rightApproachEnd=new T.Vector3(11.5,3.10,5.35);
+ stair(deckPoint(1),rightApproachEnd,bridgeWidth,14,{railMaterial:timber});
+ const pathEnd=new T.Vector3(17.2,2.88,7.0);stair(rightApproachEnd,pathEnd,bridgeWidth,3,{railMaterial:timber,railSides:[1]});
+ stair(new T.Vector3(-10.2,3.30,-3.5),deckPoint(0),bridgeWidth,5,{railMaterial:timber,railSides:[-1]});
+ const connectionAudit={stairRisers:flightCount,riseMetres:(flightTop-flightBottom)/flightCount,treadMetres:tread,slabsPerTread:4,mainLandingY:flightBottom,bridgeJoinY:deckPoint(1).y,connectorRisers:6,rightApproachRisers:14,landingSupports:'Embedded retaining courses and terrain-supported bank stairs; no mid-water piers',unmeasuredDepths:true};
+ const auditCamera=new T.PerspectiveCamera(layout118.camera.fov,1,.1,350);auditCamera.position.fromArray(layout118.camera.position);auditCamera.lookAt(V(layout118.camera.target));auditCamera.updateMatrixWorld(true);const projected=knots.map(p=>p.clone().project(auditCamera));
+ const audit={revision:'layout130-connected-garden',connections:connectionAudit,reference:layout118.reference,observedLandmarks:layout118.landmarks,nearRail:{corner:corner.toArray(),heightSectionMetres:.25,depthSectionMetres:.34,postSectionMetres:.56,intermediateGoldFinials:0,lowerPanelBelowHandrailMetres:1.72},bridge:{widthMetres:bridgeWidth,screenSpanFraction:(projected.at(-1).x-projected[0].x)/2,observedReferenceSpanFraction:(land.bridgeRight.pixel[0]-land.bridgeLeft.pixel[0])/layout118.imageDimensions[0],knots:knots.map(p=>p.toArray()),lengthMetres:curve.getLength(),separateDescendingStairFlight:true,midWaterPiers:0,abutments:'Weathered rock shoulders embedded in the two planted banks'},scope:'Actual closed arched bridge in front of the main stair/landing, with jointed granite deck, compact hall stair, front-edge side connection and descending right approach; hidden depths and heights remain inferred.',visualAccepted:false};
+ return{audit,dispose(){timber.dispose();stairTimber.dispose();gilt.dispose();patina.dispose();stone.dispose();for(const g of abutmentRocks)g.dispose();}};
 }

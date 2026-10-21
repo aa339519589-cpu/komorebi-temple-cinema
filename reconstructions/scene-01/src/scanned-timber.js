@@ -13,7 +13,7 @@ export async function installScannedTimber(mats){
  // on the bridge and [89,39,15] on the members; the current frame reads cooler
  // at [106,57,37] and [135,81,54]. Keep the mapped grain and lower its
  // midrange roughness so the grain catches a restrained, readable highlight.
- for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.max(46,Math.min(244,values.data[i]*1.05+8)));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
+ for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.max(116,Math.min(244,values.data[i]*.76+82)));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
  ctx.putImageData(values,0,0);const roughness=new T.CanvasTexture(canvas);rawRoughness.dispose();
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of [normal,roughness])tex.colorSpace=T.NoColorSpace;
@@ -25,14 +25,14 @@ export async function installScannedTimber(mats){
  // Linear gains shift the furniture scan toward the reference's red-brown
  // chroma. The sampled albedo peaks are .0666/.0452/.0222; these gains keep
  // all channels below .52 linear while cutting the excess green-blue cast.
- const colors={red:[6.9,2.6,1.4],redLight:[7.7,3.7,1.9],wood:[6.8,3.9,2.2],endwood:[7.6,5.2,3.1],darkwood:[1.9,1.2,.8]};
+ const colors={red:[5.7,2.65,1.45],redLight:[6.5,3.5,1.9],wood:[6.5,4.0,2.25],endwood:[7.6,5.2,3.1],darkwood:[2.4,1.5,.92]};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.38,.38);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
+  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.24,.24);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
   mat.color.setRGB(...colors[key]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.18:.10;mat.clearcoatRoughness=.20;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.55,.55);mat.specularIntensity=.70;}
-  mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-varnished-timber-red-lacquer-v02';
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.045:.025;mat.clearcoatRoughness=.48;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.25,.25);mat.specularIntensity=.48;}
+  mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-aged-temple-timber-v03';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=.7;mat.needsUpdate=true;
  }
  return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps'},
