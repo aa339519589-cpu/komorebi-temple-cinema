@@ -9,16 +9,13 @@ export function createSculptedJoinery(){
  const keep=g=>{owned.add(g);return g;};
  function extrude(shape,depth=.22,bevel=.012){const g=new T.ExtrudeGeometry(shape,{depth,steps:1,curveSegments:10,bevelEnabled:true,bevelThickness:bevel,bevelSize:bevel,bevelSegments:2});g.translate(0,0,-depth/2);return keep(g);}
  function part(g,material='kit_cedar',position=[0,0,0],rotation=0,cornerOnly=false){const q=keep(g.clone());q.rotateY(rotation);q.translate(...position);parts.push({geometry:q,material,cornerOnly,cornerAxis:cornerOnly});return q;}
- function curvedArm(length=1.30,notch='none'){
-  const h=length/2,s=new T.Shape();s.moveTo(-h,.10);
-  if(notch==='top'){s.lineTo(-.12,.10);s.lineTo(-.12,0);s.lineTo(.12,0);s.lineTo(.12,.10);}
-  s.lineTo(h,.10);s.quadraticCurveTo(h+.025,.005,h-.09,-.015);
-  s.bezierCurveTo(h-.22,-.01,h-.19,-.11,h-.30,-.115);
-  s.bezierCurveTo(h-.42,-.12,.22,-.225,.12,-.225);
-  if(notch==='bottom'){s.lineTo(.12,0);s.lineTo(-.12,0);s.lineTo(-.12,-.225);}else s.lineTo(-.12,-.225);
-  s.bezierCurveTo(-.22,-.225,-h+.42,-.12,-h+.30,-.115);
-  s.bezierCurveTo(-h+.19,-.11,-h+.22,-.01,-h+.09,-.015);
-  s.quadraticCurveTo(-h-.025,.005,-h,.10);s.closePath();return extrude(s,.29,.012);
+ function curvedArm(length=1.30,notch='none',notchCentres=[0]){
+  const h=length/2,halfSlot=.108,coords=[-h,h,...Array.from({length:65},(_,i)=>-h+length*i/64),...notchCentres.flatMap(x=>[x-halfSlot,x+halfSlot])].filter(x=>x>=-h&&x<=h).sort((a,b)=>a-b),xs=[...new Set(coords)],s=new T.Shape();
+  const bottom=x=>{const u=Math.abs(x)/h;return -.290+.170*Math.pow(u,1.6)-.012*Math.exp(-Math.pow((u-.78)/.11,2));};
+  const inSlot=x=>notchCentres.some(c=>Math.abs(x-c)<halfSlot-1e-8);
+  for(let i=0;i<xs.length-1;i++){const yy=notch==='top'&&inSlot((xs[i]+xs[i+1])/2)?-.095:.1;i?s.lineTo(xs[i],yy):s.moveTo(xs[i],yy);s.lineTo(xs[i+1],yy);}
+  for(let i=xs.length-2;i>=0;i--){const slot=notch==='bottom'&&inSlot((xs[i]+xs[i+1])/2),a=slot?-.095:bottom(xs[i+1]),b=slot?-.095:bottom(xs[i]);s.lineTo(xs[i+1],a);s.lineTo(xs[i],b);}s.closePath();
+  return extrude(s,.24,.009);
  }
  function beam(length,depth,bottom,top,notches=[]){
   const xs=[-length/2,...notches.flatMap(n=>[n.x-n.width/2,n.x+n.width/2]),length/2].sort((a,b)=>a-b),s=new T.Shape();
@@ -55,56 +52,29 @@ export function createSculptedJoinery(){
   s.bezierCurveTo(-.09,.14,-.19,.12,-.19,.06);s.closePath();
   const g=extrude(s,.22,.006);g.userData.architectureJoint='scene05-curved-seated-corner-corbel';return g;
  }
- // Retained shaft/purlin contacts, with a rounded, flaring daito and genuinely
- // half-lapped first cross. Each later arm bears on a separate curved block.
- // .31*.64*1.04*1.15=.237 m: the foot seats on the retained .235m shaft.
- part(cushion(.31,.20),'kit_cedar',[0,-.15,0]);
- part(curvedArm(1.30,'top'),'kit_cedar',[0,.225,0]);part(curvedArm(1.30,'bottom'),'kit_cedar',[0,.225,0],Math.PI/2);
- for(const side of[-1,1]){part(cushion(.145,.055),'kit_cedar',[side*.40,.325,0]);part(cushion(.145,.055),'kit_cedar',[0,.325,side*.40]);}
- for(const side of[-1,1]){part(curvedArm(1.50),'kit_cedar',[side*.40,.60,0],Math.PI/2);part(curvedArm(1.50),'kit_cedar',[0,.60,side*.40]);}
- for(const sx of[-1,1])for(const sz of[-1,1])part(cushion(.14,.10),'kit_cedar',[sx*.40,.70,sz*.40]);
- for(const side of[-1,1])part(beam(1.54,.29,.80,.93,[{x:0,width:.24,side:'top',y:.865}]),'kit_cedar',[0,0,side*.40]);
- part(beam(1.52,.30,.865,.970,[-1,1].map(sign=>({x:sign*.40,width:.23,side:'bottom',y:.93}))),'kit_endwood',[0,0,0],Math.PI/2);
- // Actual raked ang at true corner posts only, between cross-arm and hip.
- const diagonal=curvedArm(2.02);const a=diagonal.attributes.position;
- for(let i=0;i<a.count;i++)a.setY(i,a.getY(i)+a.getX(i)*.22+.45);diagonal.computeVertexNormals();part(diagonal,'kit_cedar',[0,0,0],0,true);
-
- // Original bracket root is -.15 and its receiver is .82 above the group
- // datum. Compress only the new vertical profiles to those retained seats.
- const heightScale=.970/1.120;
- for(const part of parts){const p=part.geometry.attributes.position;for(let i=0;i<p.count;i++)p.setY(i,(p.getY(i)+.15)*heightScale-.15);part.geometry.computeVertexNormals();}
-
- // The actual corner posts need a deeper primary head than the repeated
- // intermediate-column bracket. Three crossed, half-lapped levels rise from
- // the post cap; each change in arm length sits on four tapered receivers.
- // Local top datums stop beneath the retained roof purlin after bracketScale.
- const cornerFan=[],fanPart=(geometry,material,position,rotation=0,role='arm')=>{
-  geometry.userData.architectureJoint='scene05-corner-fan-'+role;
-  cornerFan.push({geometry,material,position,rotation,role});
- };
- const cross=(length,y,first='top')=>{
-  const x=curvedArm(length,first),z=curvedArm(length,first==='top'?'bottom':'top');
-  for(const arm of[x,z]){arm.scale(1,.78,.72);arm.computeVertexNormals();}
-  fanPart(x,'kit_cedar',[0,y,0],0,'half-lapped-arm');
-  fanPart(z,'kit_cedar',[0,y,0],Math.PI/2,'half-lapped-arm');
- };
- fanPart(cushion(.34,.18),'kit_cedar',[0,-.15,0],0,'post-head-daito');
- cross(2.35,.06,'top');
- const corbel=carvedCorbel();
- for(const side of[-1,1]){
-  fanPart(corbel,'kit_cedar',[side*.80,.10,0],0,'first-curved-corbel');
-  fanPart(corbel,'kit_cedar',[0,.10,side*.80],Math.PI/2,'first-curved-corbel');
+ // Three real expanding courses occupy the fixed -.15 .. +.82 bearing
+ // interval. The broadest arms are above the receivers, with genuine half
+ // laps at every orthogonal crossing, not inverted stacks of broad slabs.
+ const bracketFittings=[],cornerFan=[],cornerFanFittings=[];
+ function buildCourses(corner=false){
+  const lengths=corner?[1.06,1.54,2.05]:[1.00,1.34,1.70],ys=[.1982,.4694,.7406],fit=corner?cornerFanFittings:bracketFittings;
+  const add=(g,pos=[0,0,0],rot=0,material='kit_cedar',role='bearing')=>{
+   g.userData.architectureJoint='scene05-three-step-'+role;
+   if(corner)cornerFan.push({geometry:g,material,position:pos,rotation:rot,role});else part(g,material,pos,rot,false);
+  };
+  add(cushion(.31,.18),[0,-.15,0],0,'kit_cedar','post-head-daito');
+  for(let stage=0;stage<3;stage++){
+   const length=lengths[stage],yy=ys[stage],offsets=stage===0?[0]:[-.31,.31],slots=stage===0?[0]:[-.31,.31];
+   for(let axis=0;axis<2;axis++)for(const offset of offsets){
+    const g=curvedArm(length,axis===0?'top':'bottom',slots);g.scale(1,.58,.80);g.computeVertexNormals();
+    add(g,axis===0?[0,yy,offset]:[offset,yy,0],axis*Math.PI/2,'kit_cedar','half-lapped-paired-expanding-hijiki');
+    for(const sign of[-1,1])fit.push({position:axis===0?[sign*(length/2+.018),yy-.0058,offset]:[offset,yy-.0058,sign*(length/2+.018)],yaw:axis===0?sign*Math.PI/2:(sign<0?Math.PI:0),width:.210,height:.148,stage});
+   }
+   const off=.31,base=[.2562,.5274,.7986][stage],height=stage===2?.0214:.0450;
+   for(const sign of[-1,1]){add(cushion(stage===2?.17:.14,height),[sign*off,base,0],0,'kit_cedar','seated-receiver');add(cushion(stage===2?.17:.14,height),[0,base,sign*off],0,'kit_cedar','seated-receiver');}
+  }
  }
- cross(1.95,.46,'bottom');
- for(const side of[-1,1]){
-  fanPart(corbel,'kit_cedar',[side*.65,.43,0],0,'second-curved-corbel');
-  fanPart(corbel,'kit_cedar',[0,.43,side*.65],Math.PI/2,'second-curved-corbel');
- }
- cross(1.58,.82,'top');
- for(const side of[-1,1]){
-  fanPart(cushion(.17,.13),'kit_endwood',[side*.50,.81,0],0,'roof-seat-receiver');
-  fanPart(cushion(.17,.13),'kit_endwood',[0,.81,side*.50],0,'roof-seat-receiver');
- }
+ buildCourses(false);buildCourses(true);
  // Deep, open foliate metalwork. Full-depth apertures reveal the timber end;
  // this is not the prior flat image-guided flower boss scaled onto every end.
  const relief=[];const frame=new T.Shape();frame.moveTo(-.44,-.5);frame.lineTo(.44,-.5);frame.quadraticCurveTo(.5,-.5,.5,-.44);frame.lineTo(.5,.44);frame.quadraticCurveTo(.5,.5,.44,.5);frame.lineTo(-.44,.5);frame.quadraticCurveTo(-.5,.5,-.5,.44);frame.lineTo(-.5,-.44);frame.quadraticCurveTo(-.5,-.5,-.44,-.5);
@@ -135,5 +105,5 @@ export function createSculptedJoinery(){
  const bridge=new T.Shape();bridge.moveTo(-.017,.29);bridge.lineTo(.017,.29);bridge.quadraticCurveTo(.027,.195,.058,.142);bridge.lineTo(.029,.113);bridge.lineTo(-.029,.113);bridge.lineTo(-.058,.142);bridge.quadraticCurveTo(-.027,.195,-.017,.29);const ng=extrude(bridge,.067,.008);ng.translate(0,0,.175);mask.push({geometry:ng,material:'slate'});
  const crest=new T.Shape();crest.moveTo(-.055,.365);crest.quadraticCurveTo(-.078,.47,0,.565);crest.quadraticCurveTo(.078,.47,.055,.365);crest.closePath();const cg=extrude(crest,.075,.008);cg.translate(0,0,.015);mask.push({geometry:cg,material:'slate'});
  for(const xx of[-.07,-.026,.026,.07]){const tooth=keep(new T.ConeGeometry(.009,.030,6));tooth.rotateZ(Math.PI);tooth.translate(xx,.056,.145);mask.push({geometry:tooth,material:'slate'});}
- return {bracket:parts,cornerFan,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 crossed half-lap brackets with three progressively shorter corner arm courses, seated curved corbels, raked corner ang, pierced gilt and ceramic masks',cornerFan:{levels:3,arms:6,curvedCorbels:8,receivers:4,footprintM:[2.35,1.95,1.58],construction:'closed bevelled profiles; alternating top/bottom centre laps; each course seats through four curved corbels and a tapered roof receiver'},bearingCorrection:'Only the formerly bulging support blocks changed; flat bearing planes and hard planar cheek normals retain the existing seat/top/nominal-width datums. Unresolved actual corner wear remains interpreted.',guideRole:'Authored 3D curves and solids; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
+ return {bracket:parts,bracketFittings,cornerFan,cornerFanFittings,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 three expanding half-lapped timber bearing courses, actual separated receivers, true cut-plane cast copper fittings, pierced gilt and ceramic masks',cornerFan:{levels:3,arms:10,receivers:12,footprintM:[1.06,1.54,2.05],construction:'closed curved profiles; first orthogonal half lap and two paired expanding courses with complementary lap slots; all courses bear through four real seated receivers into the roof purlin'},bearingCorrection:'Closed planar tapered cushions are retained inside a fully rebuilt three-course paired bearing assembly, with direct receiver seats, complementary lap slots, smaller true end cuts and matching copper sleeves. Unseen historic joints and wear remain interpreted.',guideRole:'Authored 3D curves and solids; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
 }

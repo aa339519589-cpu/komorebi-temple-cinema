@@ -1,3 +1,4 @@
+import {createHandlaidRoof05} from './handlaid-ceramics.js';
 import * as T from 'three';
 import {timberSweep} from './natural-forms.js';
 
@@ -1300,10 +1301,10 @@ export function createRestorationArchitecture(ctx) {
       group(x,y,z,0,()=>{
         if(options.corner&&ctx.joineryKit.cornerFan){
           for(const part of ctx.joineryKit.cornerFan)
-            draw(part.geometry,part.material,part.position,[hs,s,hs],[0,part.rotation,0]);
+            draw(part.geometry,part.material,part.position.map((v,i)=>v*(i===1?s:hs)),[hs,s,hs],[0,part.rotation,0]);
         }else{
           for(const part of ctx.joineryKit.bracket){if(part.cornerOnly&&!options.corner)continue;draw(part.geometry,part.material,[0,0,0],[hs,s,hs],part.cornerAxis?[0,(options.cornerYaw??0)-PI/2,0]:null);}
-          for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
+          if(!ctx.joineryKit.bracketFittings)for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
             const firstY=ctx.joineryKit.sculpted?.1748:(axis===0?.165:.184),secondY=ctx.joineryKit.sculpted?.4996:(axis===0?.4965:.4775);
             for(const sign of [-1,1]){
               squareFitting(sign*(ctx.joineryKit.sculpted?.655:.6208)*hs,firstY*s,0,.24*hs,(ctx.joineryKit.sculpted?.22:.24)*s,sign*PI/2,options.detail??s>=1);
@@ -1311,6 +1312,8 @@ export function createRestorationArchitecture(ctx) {
             }
           });
         }
+        const fittings=options.corner?ctx.joineryKit.cornerFanFittings:ctx.joineryKit.bracketFittings;
+        if(fittings)for(const f of fittings)squareFitting(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.width*hs,f.height*s,f.yaw,true);
       });
       return;
     }
@@ -1640,9 +1643,9 @@ export function createRestorationArchitecture(ctx) {
       wood(eaveSweep(molding,.102,.015),'oldgold',.80);
       // The round terminal row belongs to the ceramic tile spacing, not the
       // rafter spacing. Alternate flat rain channels remain visible between it.
-      const tiles=Math.max(5,Math.round((face<2?w:d)/.35));
+      const tiles=Math.max(5,Math.round((face<2?w:d)/.26));
       for(let i=0;i<=tiles;i++) {
-        const p=evalP(face,1.014,-1+2*i/tiles);p.y-=.006;
+        const edgeT=ctx.handlaidCeramics?1.030:1.014,u=-1+2*i/tiles;const p=evalP(face,edgeT,ctx.handlaidCeramics?u/edgeT:u);p.y+=ctx.handlaidCeramics?.028:-.006;
         if(opening?.woodOnly||!inOpening(p,.11)){tileEnd(p,angle,.102,detail); stats.tileEnds++;}
       }
     }
@@ -2502,7 +2505,7 @@ export function createRestorationArchitecture(ctx) {
     const posts=[],windows=[];
     const post=(x,z,corner)=>{
       footColumn(x,z,y+.2,shaftHeight,shaftRadius*(corner?1:.96));
-      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.23,corner,cornerYaw:Math.atan2(x,z)});
+      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.04,corner,cornerYaw:Math.atan2(x,z)});
       posts.push({x,z,corner,shaftBottom,shaftTop,radius:shaftRadius*(corner?1:.96)});
     };
     // Twelve distinct posts: four true corner pillars and two between each
@@ -2684,9 +2687,12 @@ export function createRestorationArchitecture(ctx) {
           }
           // Backing needs independently normalled lower vertices, not just
           // reversed indices that retain upward normals on the underside.
-          const vertexCount=pos.length/3,original=[...ids];pos.push(...pos);
-          for(let i=0;i<original.length;i+=3)ids.push(original[i]+vertexCount,
-            original[i+2]+vertexCount,original[i+1]+vertexCount);
+          const vertexCount=pos.length/3,original=[...ids],upper=[...pos],thickness=material==='slate'?.035:.065;
+          for(let k=0;k<upper.length;k+=3)pos.push(upper[k],upper[k+1]-thickness,upper[k+2]);
+          for(let i=0;i<original.length;i+=3)ids.push(original[i]+vertexCount,original[i+2]+vertexCount,original[i+1]+vertexCount);
+          const edge=[...Array.from({length:40},(_,i)=>i),...Array.from({length:20},(_,j)=>j*41+40),...Array.from({length:40},(_,i)=>20*41+40-i),...Array.from({length:20},(_,j)=>(20-j)*41)];
+          if(face!==0&&face!==3)edge.reverse();
+          for(let k=0;k<edge.length;k++){const a=edge[k],b=edge[(k+1)%edge.length];ids.push(a,b,a+vertexCount,b,b+vertexCount,a+vertexCount);}
           const geometry=new T.BufferGeometry();
           geometry.setAttribute('position',new T.Float32BufferAttribute(pos,3));
           geometry.setIndex(ids);geometry.computeVertexNormals();
@@ -2698,7 +2704,7 @@ export function createRestorationArchitecture(ctx) {
       tiles.setAttribute('position',new T.Float32BufferAttribute(positions,3));
       tiles.setIndex(indices);tiles.computeVertexNormals();
       tiles.userData.architectureSurface='pagoda-tiles';
-      draw(roofOpening?clipRestorationRoofOpening(tiles,roofOpening):tiles,'slate',[0,0,0],[1,1,1]);
+      if(ctx.handlaidCeramics&&!roofOpening){draw(createHandlaidRoof05(evalP,w,d),'handformedClay',[0,0,0],[1,1,1]);tiles.dispose();}else draw(roofOpening?clipRestorationRoofOpening(tiles,roofOpening):tiles,'slate',[0,0,0],[1,1,1]);
       eaves({w,d,evalP,roofOrigin:[x,y,z],detail,separateTiers:true,hipSeat:{width:wallWidth,depth:wallDepth,
         purlinWidth:.29*frameScale,top:pagodaRafterBearing(evalP,w,wallDepth,frameScale)},opening:tierOpening});
       for(const face of [0,1])for(const side of [-1,1]) {

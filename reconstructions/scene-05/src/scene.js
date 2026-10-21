@@ -7,6 +7,7 @@ import {buildMapleCanopy} from './foliage.js';
 import {loadBlenderJoinery} from './blender-joinery.js';
 import {createSculptedJoinery} from './sculpted-joinery.js';
 import {createRafterEndCopper} from './rafter-end-copper.js';
+import {createClayTile05} from './handlaid-ceramics.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
 export const POSE={position:[10.8,0.8,13.7],target:[-1.7,15,0],fov:35.5};
 export async function buildScene(){
@@ -18,12 +19,12 @@ export async function buildScene(){
  mats.gold.roughness=.33;mats.oldgold.roughness=.42;
  mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#f2e5bb');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.12;
  // Private cap surfaces keep the glazed ceramic recess distinct from the roof.
- mats.tileEndCeramic=mats.slate.clone();mats.tileEndCeramic.name='scene05-dark-inset-tile-cap';mats.tileEndCeramic.color.set('#29343c');mats.tileEndCeramic.roughness=.62;
- mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#4b514b');mats.tileEndRelief.roughness=.73;
+ mats.tileEndCeramic=mats.slate.clone();mats.tileEndCeramic.name='scene05-dark-inset-tile-cap';mats.tileEndCeramic.color.set('#3e4b53');mats.tileEndCeramic.roughness=.62;
+ mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#969991');mats.tileEndRelief.roughness=.73;
  mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#1b242a');mats.cornerCeramic.roughness=.57;mats.cornerCeramic.bumpScale=.0025;
 
  const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createRafterEndCopper(),endCopperSmall=createRafterEndCopper({detail:'small'});
- const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();}};Object.assign(mats,joineryKit.materials);
+ const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();}};Object.assign(mats,joineryKit.materials);
  mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-thin-cast-copper-end-cup',color:'#aa7d34',metalness:.88,roughness:.43,envMapIntensity:.82});
  mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-shallow-cast-floral-copper',color:'#c49b4b',metalness:.88,roughness:.38,envMapIntensity:1.02});
  mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-lower-patinated-copper-grooves',color:'#4a381c',metalness:.62,roughness:.78,envMapIntensity:.40});
@@ -45,7 +46,8 @@ export async function buildScene(){
      instance(geometryCache.get(key),ma,x,y,z,1,1,1,[0,rot,0],tint);
    }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
  }
- const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit});
+ mats.handformedClay=new T.MeshPhysicalMaterial({name:'scene05-handformed-grey-fired-clay',color:'#47545e',roughness:.59,metalness:.015,clearcoat:.12,clearcoatRoughness:.46,vertexColors:true});
+ const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit,handlaidCeramics:true});
  mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#293b48');mats.architecture_slate.roughness=.48;mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#526053');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
  for(const [name,m]of Object.entries(mats)){
@@ -68,7 +70,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    if(name==='gold'||name==='architecture_gold'){m.roughness=.38;m.envMapIntensity=1.45;}
    if(name==='oldgold'||name==='architecture_oldgold'){m.roughness=.46;m.envMapIntensity=1.08;}
  }
- mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#88602c',metalness:.86,roughness:.43,envMapIntensity:.88});
+ mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#654322',metalness:.82,roughness:.46,envMapIntensity:.88});
  const scannedTimber=await installScannedTimber(mats);
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
  mats.carvingGround=new T.MeshStandardMaterial({name:'scene05-dark-carved-ground',color:'#2b2116',roughness:.9});
@@ -86,7 +88,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    pentRoof(w,y+.32,scale);carvedWindowInserts(w,y,scale);
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
    const r=(w+3.5*scale)/2;
-   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+2.60,sz*r*1.025,.62*scale);
+   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+2.60,sz*r*1.025,.62*scale,[sx*(w/2+1.23*scale),y+3.60,sz*(w/2+1.23*scale)]);
    // Flanking upper ties and chased metal straps on the visible actual member ends.
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      for(let k=-1;k<=1;k++){
@@ -117,8 +119,8 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  }
  function cornerTails(w,y,s){
    for(const sx of [-1,1])for(const sz of [-1,1]){
-     const start=new T.Vector3(sx*(w/2+1.50*s),y+3.95,sz*(w/2+1.50*s));
-     const end=new T.Vector3(sx*(w/2+1.46*s),y+2.25,sz*(w/2+1.46*s));
+     const start=new T.Vector3(sx*(w/2+1.10*s),y+3.95,sz*(w/2+1.10*s));
+     const end=new T.Vector3(sx*(w/2+1.72*s),y+2.25,sz*(w/2+1.72*s));
      const mid=start.clone().lerp(end,.55).add(new T.Vector3(sx*.015,.025,sz*.015));
      const path=new T.CatmullRomCurve3([start,mid,end]),up=new T.Vector3(0,1,0),points=[];
      for(let j=0;j<=16;j++)points.push(path.getPoint(j/16).toArray());
@@ -135,14 +137,21 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    }
  }
  function pentRoof(w,y,s){
-   // A shallow annular ceramic waist eave: no roof surface exists inside the wall.
    const inner=w/2+.035,outer=w/2+.75*s;
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
-     const p=[],ids=[],rows=5,cols=Math.round(w/.19),profile=t=>.36*s*(1-t)**1.3+.16*s*t**5;
-     for(let j=0;j<=rows;j++)for(let k=0;k<=cols;k++){const t=j/rows,z=inner+(outer-inner)*t,x=(-1+2*k/cols)*(inner+(outer-inner)*t);p.push(x,y+profile(t)+.026*Math.cos(k*Math.PI*2),z);if(j<rows&&k<cols){const a=j*(cols+1)+k;ids.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}}
+     const p=[],ids=[],rows=5,cols=Math.round((2*outer)/.26),profile=t=>.36*s*Math.pow(Math.max(0,1-t),1.3)+.16*s*Math.pow(t,5);
+     for(let j=0;j<=rows;j++)for(let k=0;k<=cols;k++){const t=j/rows,z=inner+(outer-inner)*t,x=(-1+2*k/cols)*(inner+(outer-inner)*t);p.push(x,y+profile(t),z);if(j<rows&&k<cols){const a=j*(cols+1)+k;ids.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}}
+     const stride=p.length/3,upper=[...p],original=[...ids];for(let k=0;k<upper.length;k+=3)p.push(upper[k],upper[k+1]-.028,upper[k+2]);for(let k=0;k<original.length;k+=3)ids.push(original[k]+stride,original[k+2]+stride,original[k+1]+stride);
+     const border=[...Array.from({length:cols},(_,i)=>i),...Array.from({length:rows},(_,j)=>j*(cols+1)+cols),...Array.from({length:cols},(_,i)=>rows*(cols+1)+cols-i),...Array.from({length:rows},(_,j)=>(rows-j)*(cols+1))];for(let k=0;k<border.length;k++){const a=border[k],b=border[(k+1)%border.length];ids.push(a,b,a+stride,b,b+stride,a+stride);}
      const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ids);g.computeVertexNormals();instance(g,'slate');
+     const pieces=[];
+     for(let j=0;j<=cols;j++){
+      const x=-outer+2*outer*j/cols,lo=Math.max(0,(Math.abs(x)-inner)/(outer-inner));
+      if(lo<.98){for(let row=0;row<2;row++){const a=lo+(1.025-lo)*row/2,b=lo+(1.025-lo)*(row+1.025)/2,ts=Array.from({length:5},(_,k)=>a+(b-a)*k/4);pieces.push(createClayTile05(ts.map(t=>[x,y+profile(t),inner+(outer-inner)*t]),.163,{cover:true,variant:face*7+j*1.71+row}));if(j<cols){const xx=x+outer/cols;pieces.push(createClayTile05(ts.map(t=>[xx,y+profile(t),inner+(outer-inner)*t]),.213,{cover:false,variant:face*3+j*.87+row}));}}}
+      arch.tileEnd(new T.Vector3(x,y+.16*s+.028,outer+.045),0,.102,true);
+     }
+     if(pieces.length){instance(mergeGeometries(pieces,false),'handformedClay');pieces.forEach(g=>g.dispose());}
      box(0,y+.08*s,outer,w+1.50*s,.13*s,.15*s,'red');
-     for(let j=0;j<=cols;j++){const x=-outer+2*outer*j/cols;arch.tileEnd(new T.Vector3(x,y+.17*s,outer+.018),0,.083*s,true);}
      for(let j=1;j<cols;j++){const x=-inner+2*inner*j/cols;box(x,y+.10*s,(inner+outer)/2,.075*s,.105*s,outer-inner,'cedar');}
    });
  }
@@ -157,7 +166,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      }
    });
  }
- function lantern(x,y,z,s){
+ function lantern(x,y,z,s,beamAnchor){
    group(x,y,z,0,()=>{
      const bronze='lanternBronze',gold='oldgold';
      function loft(profile,ma,segments=6){const g=new T.LatheGeometry(profile.map(p=>new T.Vector2(p[0]*s,p[1]*s)),segments,-Math.PI/6);instance(g.toNonIndexed(),ma);}
@@ -177,6 +186,14 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
        geometryCache.set(crownKey,new T.ExtrudeGeometry(shape,{depth:.012,steps:1,bevelEnabled:true,bevelThickness:.0025,bevelSize:.0025,bevelSegments:1,curveSegments:7}));
      }
      const crownPanel=geometryCache.get(crownKey);
+     const apronKey='scene05-chased-pierced-hood-apron';
+     if(!geometryCache.has(apronKey)){
+      const shape=new T.Shape();shape.moveTo(-.245,.46);shape.lineTo(.245,.46);shape.lineTo(.23,.37);shape.bezierCurveTo(.17,.40,.16,.30,.11,.33);shape.quadraticCurveTo(0,.25,-.11,.33);shape.bezierCurveTo(-.16,.30,-.17,.40,-.23,.37);shape.closePath();
+      for(const xx of[-.155,-.055,.055,.155]){const hole=new T.Path();hole.absellipse(xx,.39,.025,.035,0,Math.PI*2,true);shape.holes.push(hole);}
+      geometryCache.set(apronKey,new T.ExtrudeGeometry(shape,{depth:.014,steps:1,curveSegments:10,bevelEnabled:true,bevelSize:.002,bevelThickness:.002,bevelSegments:2}));
+     }
+     const apron=geometryCache.get(apronKey);
+
 
      // Closed stepped six-hip hood, rolled eave and an enclosed faceted bowl.
      // The shade seats on the top chassis ring; no open cylinder faces remain.
@@ -194,6 +211,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
          for(const yy of[-.30,0,.30])instance('sphere',gold,side*.155*s,yy*s,.322*s,.015*s,.015*s,.008*s);
        }
        for(const yy of[-.35,.35])box(0,yy*s,.304*s,.31*s,.026*s,.025*s,bronze);
+       for(const yy of[-.25,0,.25])box(0,yy*s,.304*s,.29*s,.006*s,.009*s,bronze);
        // Every floral leaf is a closed extruded ribbon with a real aperture.
        // Two four-petal flowers and joining volutes replace the thin box grid.
        for(const yy of[-.175,.175]){
@@ -209,6 +227,9 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
          wire([[side*.015,.84,.150],[side*.11,.90,.166],[side*.09,1.06,.160],[0,1.145,.150]],.012,gold);
          instance(petal,gold,side*.065*s,.855*s,.154*s,.68*s,1.35*s,.7*s,[0,0,side*.28]);
        }
+       instance(apron,bronze,0,0,.434*s,s,s,s);
+       wire([[0,.78,.09],[0,.66,.24],[0,.53,.40],[0,.49,.52]],.012,gold);
+       for(const xx of[-.16,-.055,.055,.16])wire([[xx,.445,.453],[xx+.018,.395,.455],[xx,.35,.451]],.005,gold);
        // Upturned hip tip and small stamped leaf remain attached to the hood.
        wire([[-.25,.465,.425],[0,.48,.490],[0,.535,.515]],.012,gold);
      });
@@ -216,7 +237,10 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      loft([[0,1.18],[.12,1.18],[.105,1.23],[.065,1.27],[.045,1.33],[0,1.33]],gold,12);
      // Alternating oval links carry the cap to its retained real beam anchor.
      for(let j=0;j<5;j++)instance(new T.TorusGeometry(.029*s,.0075*s,6,18),j%2?gold:bronze,0,(1.34+j*.058)*s,0,.82,1.30,.82,[0,j%2?Math.PI/2:0,0]);
-     wire([[-Math.sign(x)*.22/s,1.65,-Math.sign(z)*.22/s],[0,1.65,0]],.014,bronze);
+     const mount=beamAnchor.map((v,i)=>(v-[x,y,z][i])/s);
+     wire([mount,[mount[0]*.50,Math.max(mount[1],1.65)+.11,mount[2]*.50],[0,1.65,0]],.024,bronze);
+     wire([[mount[0],mount[1]-.18,mount[2]],[mount[0]*.44,1.58,mount[2]*.44],[0,1.65,0]],.016,bronze);
+     box(mount[0]*s,mount[1]*s,mount[2]*s,.12*s,.14*s,.12*s,bronze);
      box(0,1.638*s,0,.085*s,.030*s,.085*s,bronze);
      // A linked hanging pendant and fluted finial close the lower cup.
      for(let j=0;j<3;j++)instance(new T.TorusGeometry(.023*s,.0055*s,6,16),gold,0,(-.69-j*.044)*s,0,.8,1.18,.8,[0,j%2?Math.PI/2:0,0]);
@@ -264,5 +288,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-low-angle-asymmetric-corner-fit-v08',levels,triangles,parts,geometry:'Scaled crossed half-lap corner-arm courses on curved seated corbels, dark recessed soffit backing, narrow dense rafters, and reduced hip ribs',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:.60,courtyardBounceCastsShadows:true,hemisphere:.50,environmentIntensity:scene.environmentIntensity,limits:'Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-paired-bearing-handlaid-ceramic-rooted-canopy-solmax06',levels,triangles,parts,geometry:'Three expanding bearing courses with paired complementary laps and four direct receiver seats per level; true cut-face cast copper; closed pan/cover roof courses; raked supported hip tails, forged lantern mounts and rooted closed maple laminae',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:.60,courtyardBounceCastsShadows:true,hemisphere:.50,environmentIntensity:scene.environmentIntensity,limits:'Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
 }

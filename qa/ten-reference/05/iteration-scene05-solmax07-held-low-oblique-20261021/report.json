@@ -1,0 +1,346 @@
+{
+  "reference": 5,
+  "entry": "reconstructions/scene-05/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1000,
+  "startedAt": "2026-10-21T05:59:32.633Z",
+  "source": {
+    "hash": "c0b7bac3afca10afa556f1a583a23b6d39c45b4f88f3949ae278959af8249b74",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/temple-joinery-v01/temple-joinery-v01.glb": "b984ebc15df7251c376c95f71cc0c9fe3e4706e3a1abaa1bd3a7bfd492e597bd",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-05/asset-dependencies.json": "35b118a6030b347a34edca28b4f480cf2adb7801f64e86b3e6d8126fe8e82290",
+      "reconstructions/scene-05/cycles/hdri-provenance.json": "45e7d0d3a2746dcb4a5798c8dceca1322fe5dfc8389572f2814b6264936597ef",
+      "reconstructions/scene-05/cycles/physical03-settings.json": "2cb6f17b9c2a936b0f4fb40ddf6ce636e022695f4d2cf5c642378f9db83004b8",
+      "reconstructions/scene-05/cycles/physical04-settings.json": "bcf816e291f68e5f822c4f4b5063cc00d7e741731a998c92e46ea45a84c6dbe9",
+      "reconstructions/scene-05/cycles/physical05-settings.json": "9a984df1911fe44c750d8335d31e78d73205c612df36b1ad5a5a9cd25ddd046d",
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/architecture.js": "4e8e005f16cc5aeb39cf43b9ca9babf0dd76ad8e71a3d511c673f4407a2e04d6",
+      "reconstructions/scene-05/src/blender-joinery.js": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "reconstructions/scene-05/src/foliage.js": "843d8bf0b6703eb562768e0c30da3bfa6dc9952090f391e03e28958cd5573074",
+      "reconstructions/scene-05/src/handlaid-ceramics.js": "91ecddb647b275078c3569a588c2aa5a3740e86dc73d7c8caa1c0714742b2a77",
+      "reconstructions/scene-05/src/main.js": "3c5b6d40b28ccba734326d30a2ace23f4fea4075df25e6d242cca26f57769b4a",
+      "reconstructions/scene-05/src/materials.js": "53e5cf330ee6c5b3adf7a0bd99bcd9bbefe585a3cedac1e7c6c0b6a2721b1a0a",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/rafter-end-copper.js": "23479a6b98916fa47ac7d8009e6749c4bd7c3bd1af1d7eac3474e6db3d732cab",
+      "reconstructions/scene-05/src/scanned-timber.js": "c9f0ea7305faeb72db27deef419842a32ce6426dc756faccc3e62bc0baac86c7",
+      "reconstructions/scene-05/src/scene.js": "31365a6d77a718ef28c239527865ce6c3aff322d8b6eb178bc75d530acd8f450",
+      "reconstructions/scene-05/src/sculpted-joinery.js": "199158db92ab5a2c4f18e498ae00f813efc1bc1702d8b1dc95209ff28b1c1da7"
+    }
+  },
+  "sourceCommit": "3d419e8f395616fc812b36609521135e60f6eef5",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-05/index.html",
+    "/reconstructions/scene-05/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-05/src/scene.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-05/src/architecture.js",
+    "/reconstructions/scene-05/src/materials.js",
+    "/reconstructions/scene-05/src/foliage.js",
+    "/reconstructions/scene-05/src/blender-joinery.js",
+    "/reconstructions/scene-05/src/sculpted-joinery.js",
+    "/reconstructions/scene-05/src/rafter-end-copper.js",
+    "/reconstructions/scene-05/src/handlaid-ceramics.js",
+    "/reconstructions/scene-05/src/scanned-timber.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/reconstructions/scene-05/src/natural-forms.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/temple-joinery-v01/temple-joinery-v01.glb",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+  ],
+  "inspectionView": {
+    "position": [
+      8.5,
+      1.2,
+      10.5
+    ],
+    "target": [
+      4,
+      9,
+      4
+    ],
+    "fov": 50,
+    "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "camera": [
+          8.5,
+          1.2,
+          10.5
+        ],
+        "fov": 50,
+        "triangles": 149664357,
+        "calls": 1900
+      },
+      "width": 1000,
+      "height": 1000,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 5,
+        "revision": "scene05-paired-bearing-handlaid-ceramic-rooted-canopy-solmax06",
+        "levels": [
+          {
+            "level": 0,
+            "y": 0.35,
+            "width": 8.8,
+            "shaftTop": 2.599717432155291
+          },
+          {
+            "level": 1,
+            "y": 5.1,
+            "width": 8.14,
+            "shaftTop": 7.415222204443321
+          },
+          {
+            "level": 2,
+            "y": 9.85,
+            "width": 7.48,
+            "shaftTop": 12.230731890927489
+          },
+          {
+            "level": 3,
+            "y": 14.6,
+            "width": 6.820000000000001,
+            "shaftTop": 17.04627236563074
+          },
+          {
+            "level": 4,
+            "y": 19.35,
+            "width": 6.16,
+            "shaftTop": 21.86182457099878
+          }
+        ],
+        "triangles": 19742294,
+        "parts": 28867,
+        "geometry": "Three expanding bearing courses with paired complementary laps and four direct receiver seats per level; true cut-face cast copper; closed pan/cover roof courses; raked supported hip tails, forged lantern mounts and rooted closed maple laminae",
+        "joineryKit": {
+          "source": "Scene05 three expanding half-lapped timber bearing courses, actual separated receivers, true cut-plane cast copper fittings, pierced gilt and ceramic masks",
+          "cornerFan": {
+            "levels": 3,
+            "arms": 10,
+            "receivers": 12,
+            "footprintM": [
+              1.06,
+              1.54,
+              2.05
+            ],
+            "construction": "closed curved profiles; first orthogonal half lap and two paired expanding courses with complementary lap slots; all courses bear through four real seated receivers into the roof purlin"
+          },
+          "bearingCorrection": "Closed planar tapered cushions are retained inside a fully rebuilt three-course paired bearing assembly, with direct receiver seats, complementary lap slots, smaller true end cuts and matching copper sleeves. Unseen historic joints and wear remain interpreted.",
+          "guideRole": "Authored 3D curves and solids; no image-plane or displacement-guide replacement",
+          "endFitting": {
+            "source": "Scene05 closed thin copper end cup with broad cast chrysanthemum, four finite-width volutes and lower patinated groove field",
+            "detail": "full",
+            "photoTexture": false,
+            "normalizedReturnDepth": 0.1,
+            "normalizedFaceThickness": 0.022
+          }
+        },
+        "timber": {
+          "provider": "Poly Haven",
+          "asset": "lacquered_cherry_wood",
+          "license": "CC0-1.0",
+          "physicalTileMetres": 1,
+          "grain": "Member-aligned metric UV; filtered normal and roughness maps",
+          "pigments": {
+            "red": "#a14b30",
+            "cedar": "#9e633c"
+          },
+          "pigmentCoverage": "CC0 scan luminance normalized to .42–1 under opaque vermilion with member-aligned filtered longitudinal tissue; source photo unused",
+          "sourceMeanLinearLuma": 0.015213019170802358
+        },
+        "lighting": {
+          "sunPosition": [
+            -18,
+            20,
+            30
+          ],
+          "sunIntensity": 5.3,
+          "sunColor": "#ffdfaa",
+          "courtyardBounce": 0.6,
+          "courtyardBounceCastsShadows": true,
+          "hemisphere": 0.5,
+          "environmentIntensity": 0.56,
+          "limits": "Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI"
+        },
+        "canopy": {
+          "leaves": 25272,
+          "leafPrototypes": 3,
+          "rootedTrees": 4,
+          "closedLamina": true,
+          "pairedPetioles": true,
+          "twigSegments": 29484,
+          "photoTextures": false
+        },
+        "cameraHeightRange": [
+          0.72,
+          1.02
+        ],
+        "renderer": {
+          "frame": 26,
+          "calls": 1900,
+          "triangles": 149664357,
+          "points": 0,
+          "lines": 0
+        },
+        "referencePose": {
+          "position": [
+            10.8,
+            0.8,
+            13.7
+          ],
+          "target": [
+            -1.7,
+            15,
+            0
+          ],
+          "fov": 35.5
+        }
+      },
+      "name": "inspection-view",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.983917,
+      "opaqueFraction": 1,
+      "rgbaSha256": "d976f8ba95e47305e6646d2f6f5f370599bd4916c2be599c0184630ce1cb6eda"
+    }
+  ],
+  "completedAt": "2026-10-21T05:59:43.060Z"
+}

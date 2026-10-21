@@ -1,0 +1,46 @@
+{
+  "status": "source-held-for-root-review",
+  "visualAccepted": false,
+  "sourceHash": "c0b7bac3afca10afa556f1a583a23b6d39c45b4f88f3949ae278959af8249b74",
+  "inspectionSourceHash": "c0b7bac3afca10afa556f1a583a23b6d39c45b4f88f3949ae278959af8249b74",
+  "sameSourceForNativeAndInspection": true,
+  "earlierCandidate": "qa/ten-reference/05/iteration-scene05-asymmetric-low-corner-root-03-20261021",
+  "evidence": [
+    "reference.png",
+    "detail-native.png",
+    "hd05-left-render-right.png",
+    "eave-crop-left-render-right.png",
+    "qa/ten-reference/05/iteration-scene05-solmax07-held-low-oblique-20261021/inspection-view.png"
+  ],
+  "physicalInspection": {
+    "position": [
+      8.5,
+      1.2,
+      10.5
+    ],
+    "target": [
+      4,
+      9,
+      4
+    ],
+    "fov": 50
+  },
+  "cameraPathChanged": false,
+  "actualSourceWork": [
+    "Three expanding bearing levels with paired upper arms, complementary half-lap slots and twelve real direct receiver seats, including consistent per-tier scaling of corner translations",
+    "Smaller proper arm end sections and true cut-plane thin cast copper cups with raised chrysanthemum/scrolls and patinated lower field",
+    "Closed short pan/cover clay courses on main and waist roofs; tile medallions matched to real exposed barrel ends; closed clay/timber deck perimeters",
+    "Raked closed hip tails with cut-plane-oriented sleeves and braced forged lantern mounts into the actual beam",
+    "Pierced chased lantern hood aprons, sloping ribs, retained closed cast grille and recessed paper core",
+    "Retained CC0 member-aligned scan detail under revised pigment, filtered longitudinal fibre and bounded broad wear",
+    "Four rooted tree systems, fine branching paired petioles and closed serrated seven-lobed leaf laminae; no alpha foliage cards"
+  ],
+  "remainingVisualMismatch": [
+    "Timber joinery, copper and ceramic carving remain more regular and less intricate than the photograph.",
+    "The preserved camera/tier geometry still has wholeframe perspective differences; a matched source lens has not been recovered.",
+    "Canopy placement/species, leaf scattering and material age are reconstruction hypotheses; analytical native lighting is not measured physical GI.",
+    "Native load success, source identity and nonempty pixels do not establish photographic fidelity."
+  ],
+  "committedByWorker": false,
+  "lastReceiptCorrection": "The runtime joinery note now describes the complete rebuilt paired assembly, superseding an inherited description that said only cushion normals changed. Geometry/material/camera are unchanged from solmax06."
+}
