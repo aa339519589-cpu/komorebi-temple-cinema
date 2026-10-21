@@ -10,3 +10,7 @@ lookdev/**/export/assets/
 lookdev/**/*.blend
 lookdev/**/*.blend1
 lookdev/**/__pycache__/
+
+# Reproducible Python caches and temporary geometry-export buffers.
+__pycache__/
+lookdev/**/export-*/assets/

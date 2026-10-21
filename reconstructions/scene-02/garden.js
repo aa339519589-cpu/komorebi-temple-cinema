@@ -3,13 +3,14 @@ import {buildForegroundStoneLantern120,foregroundLanternFootprint120} from './fo
 import {loadScannedGardenStones} from './scanned-garden-stones.js';
 import {buildRootedCanopy142} from './rooted-canopy142.js';
 import {createGardenPines145} from './garden-pines145.js';
+import {createBankEvergreen156} from './bank-evergreen156.js';
 import {loadScannedUnderstory146} from './scanned-understory146.js';
 import {buildPlantedShoulders147} from './planted-shoulders147.js';
 import {loadFirWoodland150,buildFirWoodland150} from './scanned-fir-woodland150.js';
 export async function buildGarden(mats,sharedScanned=null){
  const scanned=sharedScanned??await loadScannedGardenStones(),understory=await loadScannedUnderstory146(),firWoodland=await loadFirWoodland150(mats);let scannedRockPlacements=0;
  for(const [i,stone]of scanned.variants.entries()){mats['scannedGardenDry'+i]=stone.dry;mats['scannedGardenWet'+i]=stone.wet;}
- const b=new Builder(mats),lights=[],gardenPines=createGardenPines145(b,mats);mats.rock=mats.stone.clone();mats.rock.color.setHex(0x77786f);mats.rock.roughness=.92;mats.rock.metalness=0;mats.rock.flatShading=true;mats.pondBed=mats.moss.clone();mats.pondBed.name='scene02-muted-pond-bed';mats.pondBed.color.setHex(0x3b4236);mats.pondBed.roughness=.98;
+ const b=new Builder(mats),lights=[],gardenPines=createGardenPines145(b,mats),bankEvergreen=createBankEvergreen156(b,mats);mats.rock=mats.stone.clone();mats.rock.color.setHex(0x77786f);mats.rock.roughness=.92;mats.rock.metalness=0;mats.rock.flatShading=true;mats.pondBed=mats.moss.clone();mats.pondBed.name='scene02-muted-pond-bed';mats.pondBed.color.setHex(0x3b4236);mats.pondBed.roughness=.98;
  const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=mats.pink.side=mats.pinkDark.side=T.DoubleSide;
  const petalGeo=(()=>{let rows=Array.from({length:9},(_,j)=>Array.from({length:7},(_,i)=>{let t=j/8,s=-1+2*i/6;return[s*Math.sin(Math.PI*t)*.38,.65*t*t+.13*Math.sin(Math.PI*t)*(1-s*s),t];}));return gridGeometry(rows);})();
  function rock(x,y,z,r=1){
@@ -153,7 +154,9 @@ export async function buildGarden(mats,sharedScanned=null){
  const islands=[[-5.8,0,9.3,.78],[8.3,0,5.5,1.25],[4.6,0,13.5,.55],[-9,0,1.8,1.1]];
  for(let [x,y,z,r]of islands){b.put(b.lowSphere,'moss',[x,-.05,z],[r*1.45,.35,r]);for(let i=0;i<7;i++){let a=rand()*6.28,rr=r*(.6+rand()*.55);rock(x+Math.cos(a)*rr,.05,z+Math.sin(a)*rr,.20+rand()*.38);}for(let i=0;i<3;i++)shrub(x+(rand()-.5)*r*1.2,.2,z+(rand()-.5)*r*1.1,r*.30+rand()*.25,i%2===0);}
  // Garden height is deliberately varied: dense low flowers, articulated rocks, pruned pines and blossom canopies.
- tree(-6.5,-.5,5.6,3.1,true);tree(-20,-4,7,3.5,true);tree(8.5,2.0,3.6,1.8,true);b.at([12.5,.04,-2],0,()=>b.at([-10,0,3],0,()=>tree(10,-3,6,3,true)),[.70,3.5/6,.70]);tree(-2,1,3.8,1.9,true);
+ tree(-20,-4,7,3.5,true);
+ // The visible bridge/stair bank pines are now rooted on the continuous
+ // evaluated garden shoulders below, rather than the old flat y0 placements.
  // Smaller pruned pines bridge the height change from talus to mature canopy.
   prunedPine(-14.2,4.0,2.5,1.15);prunedPine(-15.6,10.0,2.8,1.30);prunedPine(-12.8,16.0,2.35,1.08);prunedPine(11.8,8.0,2.25,.98);
  cherry(15,0,5.8,3.3);cherry(-10,0,4.4,2.8);cherry(9,-4,5,2.8);
@@ -262,7 +265,7 @@ export async function buildGarden(mats,sharedScanned=null){
   const g=gridGeometry(rows),m=mountainMat.clone();m.color.lerp(new T.Color(0xb39a76),layer*.24);m.side=T.DoubleSide;b.put(g,m);
  }
  const scannedWoodland=buildFirWoodland150({b,library:firWoodland,ridgeTop,mountainSurface}),mountainCanopyTrees=scannedWoodland.trees;
- const plantedShoulders=buildPlantedShoulders147({b,mats,scanned,understory});
+ const plantedShoulders=buildPlantedShoulders147({b,mats,scanned,understory,gardenPines,bankEvergreen});
  const matureGardenPines=gardenPines.finish();
- return {group:b.finish(),lights,dispose(){scanned.dispose();understory.dispose();firWoodland.dispose();},stats:{scannedGardenStones:{...scanned.info,placements:scannedRockPlacements,groundContact:"Actual transformed scan minima with a 6.5 percent radius soil embed; no image projection"},instances:b.count,buckets:b.buckets.size,rootedCanopy,matureGardenPines,plantedShoulders,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,scannedWoodland,woodlandConstruction:'Original fine conifer meshes and4K botanical surfaces on the actual ridge terrain; no large authored triangular leaf masses or smooth crown spheres',openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
+ return {group:b.finish(),lights,dispose(){scanned.dispose();understory.dispose();firWoodland.dispose();},stats:{scannedGardenStones:{...scanned.info,placements:scannedRockPlacements,groundContact:"Actual transformed scan minima with a 6.5 percent radius soil embed; no image projection"},instances:b.count,buckets:b.buckets.size,rootedCanopy,matureGardenPines,bankEvergreen:bankEvergreen.stats,plantedShoulders,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,scannedWoodland,woodlandConstruction:'Original fine conifer meshes and4K botanical surfaces on the actual ridge terrain; no large authored triangular leaf masses or smooth crown spheres',openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
 }

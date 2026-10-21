@@ -1,19 +1,20 @@
-// Recovered from native 1254px contours by tools/fit-layout02-117.py.
-// Fixed photographic camera; actual spatial dimensions, never image/depth projection.
+// One common physical perspective and five-bay bearing frame.
+// Scene02 joint measurement in qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021.
+// Reference pixels are comparison targets only; no image projection or replacement surface.
 export const layout = {
   "referenceCamera": {
     "position": [
       16.2,
       2.72,
-      25.0
+      25
     ],
     "target": [
-      -1.0,
+      -1,
       4.7,
-      -7.0
+      -7
     ],
     "fov": 52,
-    "status": "unchanged"
+    "status": "retained after joint bridge-rail-canopy and architecture perspective measurement"
   },
   "pagoda": {
     "position": [
@@ -32,24 +33,43 @@ export const layout = {
   },
   "hall": {
     "position": [
-      2.806487523828569,
-      3.0838743719291903,
-      -12.052804118961358
+      2.839658826218076,
+      3.0863624109860766,
+      -12.131012899660618
     ],
     "scale": [
-      0.5507670901749787,
-      0.8294324951031192,
-      0.6663453367213374
+      0.5520987933515367,
+      0.82830156825908,
+      0.6800433430239969
     ],
-    "yaw": -0.2704425869385706,
-    "roofWidth": 24.318208762308384,
-    "roofFront": 10.318012540435827,
-    "roofBack": -10.860123572071092,
-    "gableWidth": 16.25347355821445,
-    "gableFront": 9.466003440134164,
-    "gableEave": 9.987729235019623,
-    "gableRise": 5.384688898235284,
-    "gableCenterX": 3.169077976445595
+    "yaw": -0.27308984315941026,
+    "roofWidth": 24.22166337497416,
+    "roofFront": 10.434156133089864,
+    "roofBack": -10.063530526328192,
+    "gableWidth": 17.486548200101787,
+    "gableFront": 6.402000727072713,
+    "gableEave": 10.431202802556143,
+    "gableRise": 5.182892419189324,
+    "gableCenterX": 0.2178671588808961,
+    "roofEave": 8.91075912537992,
+    "roofCurl": 0.6999999861012436,
+    "ridgeY": 15.614095221745467,
+    "gableBack": -5.2341319948794975,
+    "bearingGrid": {
+      "centre": 0.2178671588808961,
+      "span": 15.209753784816835,
+      "bayCount": 5,
+      "axes": [
+        -7.387009733527521,
+        -4.345058976564154,
+        -1.3031082196007873,
+        1.7388425373625802,
+        4.780793294325947,
+        7.822744051289313
+      ],
+      "frontZ": 4.7
+    },
+    "structuralModel": "scene02-common-five-bay-bearing-grid-and-connected-hip-gable154"
   },
   "bridge": {
     "position": [
@@ -142,5 +162,10 @@ export const layout = {
         393
       ]
     }
+  ],
+  "sunDirection": [
+    -0.7481226270926461,
+    0.2010196779198914,
+    -0.632379335463281
   ]
 };

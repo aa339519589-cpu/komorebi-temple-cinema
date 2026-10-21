@@ -9,13 +9,14 @@ import {buildVerandaCarvings143} from './veranda-carvings143.js';
 import {installHallTerraceMaterials144,buildHallStair144} from './hall-terrace144.js';
 import {buildEmbeddedBridgeBearings146} from './embedded-bridge-bearings146.js';
 import {ensureBankSoil147} from './planted-shoulders147.js';
+import {buildHallRoof154} from './hall-roof154.js';
 export function buildArchitecture(mats,scanned){
  installHallTerraceMaterials144(mats);ensureBankSoil147(mats);
  // The exposed tower finial must use the outdoor sky environment rather
  // than the close veranda probe later assigned to the shared gold material.
  mats.sorinGold=mats.gold.clone();mats.sorinGold.name='scene02-exposed-sorin-gold';mats.sorinGold.color.set('#cfab60');mats.sorinGold.roughness=.34;mats.sorinGold.metalness=.94;mats.sorinGold.envMap=null;
  mats.sorinBronze=mats.oldgold.clone();mats.sorinBronze.name='scene02-exposed-sorin-bronze';mats.sorinBronze.color.set('#a47d3d');mats.sorinBronze.roughness=.42;mats.sorinBronze.envMap=null;
- const b=new Builder(mats),lights=[];let sorinStats=null,bridgeBearings=null;const torus=new T.TorusGeometry(1,.075,6,20);
+ const b=new Builder(mats),lights=[];let sorinStats=null,bridgeBearings=null,hallRoof=null;const torus=new T.TorusGeometry(1,.075,6,20);
  const hallCarpentry=createHallCarpentry141({b,mats});
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
@@ -65,33 +66,24 @@ export function buildArchitecture(mats,scanned){
   }
   b.cyl(0,eave+rise+.055,0,.20,.11,'slate');
  }
- function gableRoof(w,d,eave,rise,zcenter){const hw=w/2;const P=(s,t,z)=>[s*hw*t,eave+rise*Math.pow(1-t,1.28)+.38*Math.pow(t,8),zcenter+z];
-  for(let s of[-1,1]){let rows=Array.from({length:25},(_,j)=>Array.from({length:37},(_,i)=>P(s,i/36,-d/2+d*j/24)));let g=gridGeometry(rows);const m=mats.slate.clone();m.side=T.DoubleSide;b.put(g,m);const under=g.clone();under.translate(0,-.2,0);b.put(under,'darkwood');
-   for(let k=0;k<=Math.ceil(d/.22);k++){let z=-d/2+d*k/Math.ceil(d/.22);for(let j=0;j<14;j++){let a=P(s,j/14,z),c=P(s,(j+1)/14,z);a[1]+=.055;c[1]+=.055;b.line(a,c,.055,'slate');}}
-   // Wide carved bargeboards at the front face and timber rafters underneath.
-   for(let z of[-d/2,d/2]){let pts=Array.from({length:40},(_,i)=>{let p=P(s,i/39,z);p[1]-=.04;return p;});b.tube(pts,.19,'cedar',48);b.tube(pts.map(p=>[p[0],p[1]+.06,p[2]+.10]),.055,'gold',48);}
-   const x=s*hw;b.box(x,eave-.05,zcenter,.18,.35,d+.2,'darkwood');for(let k=0;k<Math.ceil(d/.22);k++)roofEnd([x,eave+.42,zcenter-d/2+k*.22],s*Math.PI/2);
-  }
-  b.box(0,eave+rise+.18,zcenter,.32,.32,d+.7,'slate');for(let z of[zcenter-d/2,zcenter+d/2]){b.tube([[0,eave+rise+.1,z],[0,eave+rise+.55,z+.14],[0,eave+rise+.8,z+.38]],.13,'slate');b.ball(0,eave+rise+.85,z+.38,.13,.16,.12,'oldgold');}
- }
  function windowPanel(x,y,z,w,h,pane='paper'){b.box(x,y,z,w,h,.16,'darkwood');b.box(x,y,z+.13,w-.13,h-.13,.03,pane);for(let j=0;j<=18;j++)b.box(x-w/2+w*j/18,y,z+.18,.019,h,.04,'cedar');for(let j=0;j<=22;j++)b.box(x,y-h/2+h*j/22,z+.19,w,.016,.035,'cedar');for(let xx of[-w/2,w/2])b.box(x+xx,y,z+.18,.065,h,.11,'red');}
  function rail(length,base=0,height=1.05){for(let y of[.28,.73,height])b.box(0,base+y,0,length,y===height?.16:.10,.15,'red');let n=Math.ceil(length/1.75);for(let k=0;k<=n;k++){const x=-length/2+length*k/n;b.box(x,base+.55,0,.18,1.1,.18,'red');b.cyl(x,base+1.13,0,.12,.10,'gold');b.ball(x,base+1.26,0,.095,.12,.095);}for(let k=0;k<n*3;k++)b.box(-length/2+length*(k+.5)/(n*3),base+.5,0,.045,.42,.045,'red');}
  // The main hall is a tall, occupied building raised over an articulated stone terrace.
  const hallBase=layout.hall.position[1],hallY=layout.hall.scale[1],hallX=layout.hall.scale[0],hallZ=layout.hall.scale[2],hallFloor=hallBase+2.2*hallY;
  columnXComp=1/hallX;columnZComp=1/hallZ;b.at(layout.hall.position,layout.hall.yaw,()=>{
-  const foundationBottom=-hallBase/hallY,foundationTop=1.9;
-  b.box(0,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'terraceBody');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'terraceBody',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(9.24,yy,-7.1+j*1.1,.13,.475,1.075,'terraceBody',0,.85+.18*Math.sin(j*6+row));}b.box(0,2.05,-.8,19,.32,13.8,'terraceTread');
-  for(let side of[-1,1])b.at([side*6.2,2.2,6.15],0,()=>rail(5.1));
-  const axes=[-7.8,-5.2,-2.6,0,2.6,5.2,7.8];
-  buildHallEntry({b,mats,lights,column,carpentry:hallCarpentry,fitting,rosette,scroll});
-  // Lower hipped skirt carries dense parallel tile courses and exposed bracket tiers.
-  b.at([0,0,(layout.hall.roofFront+layout.hall.roofBack)/2],Math.PI/2,()=>roof({w:layout.hall.roofFront-layout.hall.roofBack,d:layout.hall.roofWidth,eave:9.0,rise:6.2,curl:.7,ridgeOffset:layout.hall.gableCenterX}));
-  // A small front gable is seated into one continuous steep hip roof.
-  // Its lower edges sink into the tile plane rather than creating a second full eave.
+  const foundationBottom=-hallBase/hallY,foundationTop=1.9,hallCentre=layout.hall.bearingGrid.centre;
+  b.box(hallCentre,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'terraceBody');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=hallCentre-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'terraceBody',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(hallCentre+9.24,yy,-7.1+j*1.1,.13,.475,1.075,'terraceBody',0,.85+.18*Math.sin(j*6+row));}b.box(hallCentre,2.05,-.8,19,.32,13.8,'terraceTread');
+  for(const [a,c]of[[layout.hall.bearingGrid.axes[0]-.5,-2.65],[2.65,layout.hall.bearingGrid.axes.at(-1)+.5]])b.at([(a+c)/2,2.2,6.15],0,()=>rail(c-a));
+  const axes=layout.hall.bearingGrid.axes;
+  buildHallEntry({b,mats,lights,column,carpentry:hallCarpentry,fitting,rosette,scroll,frame:layout.hall.bearingGrid});
+  // The roof, gable and lower hip aprons share one bearing-centred ridge.
+  hallRoof=buildHallRoof154({b,mats,roof:layout.hall});
   const {gableWidth:gW,gableEave:gE,gableRise:gR,gableFront:gF,gableCenterX:gX}=layout.hall;
   b.at([gX,0,0],0,()=>{
-  gableRoof(gW,6.2,gE,gR,gF-3.1);
-  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-gW*.47,gE+.30,gF-.02,gW*.47,gE+.30,gF-.02,0,gE+gR-.18,gF-.02],3));tri.computeVertexNormals();const face=mats.darkwood.clone();face.side=T.DoubleSide;b.put(tri,face);
+  const tri=new T.BufferGeometry();tri.setAttribute('position',new T.Float32BufferAttribute([-gW*.47,gE+.30,gF-.02,gW*.47,gE+.30,gF-.02,0,gE+gR-.18,gF-.02],3));tri.computeVertexNormals();const face=mats.hallBearing.clone();face.side=T.DoubleSide;face.name='scene02-loft-board-backing154';b.put(tri,face);
+  // Loft posts and lapped vertical boards follow the same curved bargeboard.
+  for(let x=-gW*.45;x<=gW*.451;x+=.34){const t=Math.abs(x)/(gW/2),top=gE+gR*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.24,bottom=gE+.32;if(top>bottom)b.box(x,(top+bottom)/2,gF-.10,.325,top-bottom,.12,'hallBearing',0,.82+.16*Math.sin(x*8.1)**2);}
+  for(const x of[-gW*.30,-gW*.15,0,gW*.15,gW*.30]){const t=Math.abs(x)/(gW/2),top=gE+gR*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.22;b.box(x,(top+gE+.35)/2,gF+.015,.15,top-gE-.35,.23,'hallOxide');}
   for(let sign of[-1,1]){
    const points=Array.from({length:49},(_,i)=>{const t=i/48;return[sign*gW/2*t,gE+gR*Math.pow(1-t,1.28)+.38*Math.pow(t,8)-.13,gF+.10];});
    b.tube(points,.105,'oldgold',56);b.tube(points.map(p=>[p[0],p[1]+.065,p[2]+.03]),.028,'gold',56);
@@ -134,7 +126,7 @@ export function buildArchitecture(mats,scanned){
   }
 
   });
-  hallCarpentry.frontEave(axes);
+  hallCarpentry.frontEave(axes,layout.hall);
  },layout.hall.scale);columnXComp=columnZComp=1;
  // The photographed forecourt stair reaches the raised bridge approach.
  // Its plan is recovered independently of the hall column grid.
@@ -219,5 +211,5 @@ export function buildArchitecture(mats,scanned){
  // Faceted bronze lamps have actual perforated cast panels and warm paper
  // recessed behind them. Each link joins the fixture to the beam overhead.
  for(const lamp of layout.hangingLamps)lights.push(verandaCarvings.lantern(...lamp.position,lamp.scale,9.3));lights.push(verandaCarvings.lantern(18,7.8,7,.5,9.3));
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,bridgeBearings,hallCarpentry:hallCarpentry.stats,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'fixed-camera native contour recovery',source:'tools/fit-layout02-117.py',visualAccepted:false}},deck};
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,bridgeBearings,hallRoof,hallCarpentry:hallCarpentry.stats,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'joint fixed-contact perspective and common five-bay roof/bearing-grid recovery',source:'qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py',visualAccepted:false}},deck};
 }

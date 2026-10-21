@@ -1,0 +1,822 @@
+{
+  "scope": "All preserved Scene02 phase19..22 QA payloads and exact candidate source snapshots, excluding this manifest itself",
+  "visualAccepted": false,
+  "heldSourceHash": "e414085adb5fb64af5e5e807926ab1ed4100edfe2448645ed64076ecfb2ea30f",
+  "files": [
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-common-hall-above-22-20261021/inspection-view.png",
+      "bytes": 1865802,
+      "sha256": "d9bb1bc65c1139ebf75ac5635a8870f085a150a78d087a03e20d92069944cca0"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-common-hall-above-22-20261021/report.json",
+      "bytes": 92032,
+      "sha256": "7c1b67b43ac03c79a3e5fcac58fa66a193063b16e96e8e3b0eac2888f191aa39"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-common-hall-poses-22-20261021/report.json",
+      "bytes": 245762,
+      "sha256": "ff365421342d6799263a9103681c867640257f0ea3d4ab42c218cf62149b2573"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-common-hall-poses-22-20261021/shot-0.png",
+      "bytes": 2759607,
+      "sha256": "cb0264304b262174729d95faeb2de868fad43e2013f9ca02566358dab88f9fde"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-common-hall-poses-22-20261021/shot-3p5.png",
+      "bytes": 3057947,
+      "sha256": "39d35b88d8332f65725c1d7527bfc0dd0a686fdee1a5bc218d071f4263ebabd6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-common-hall-poses-22-20261021/shot-7.png",
+      "bytes": 3242133,
+      "sha256": "30ff435bcb7794c2ba518f91c5fb00787e749956b8d312c716f97e9dddfaea5f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/baseline-column-crop.png",
+      "bytes": 190522,
+      "sha256": "b96636631bf9f4e078c9085ac138aa28a13fb59973e39688433f771718500813"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/baseline-hall-crop.png",
+      "bytes": 714326,
+      "sha256": "dfbdf6ef89bf8a624dfc8833f355685978d4faf558ccd678bc377bca3687989a"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/baseline-landmarks.json",
+      "bytes": 14610,
+      "sha256": "0424ec545ccd0293274c0a703f6a214a13c4d484a38fed06630fa12ffcc2e9a2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/candidate-source-identity.json",
+      "bytes": 9228,
+      "sha256": "c1fa559874796a29d791c70f979fbbc5ee705e3f1f65c27470251f0891bd262d"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/checkpoint18-left-candidate19-right.png",
+      "bytes": 4256904,
+      "sha256": "fc0922b6e6b925a8475196eabaa6bf117366cbb8029c77784bba2d51d75a10c7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/detail-native.png",
+      "bytes": 3203345,
+      "sha256": "04b2dee5be70ade2de85c77f8dcc76ea7e6b947275385947ed8f282cb2d22e0f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py",
+      "bytes": 7316,
+      "sha256": "8e8f21671415fdc0ff7b6f4c2f22034ec4a47c4e517b3d439f200fc7f4774ea1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/joint-fit-proposal.json",
+      "bytes": 11366,
+      "sha256": "27ca28321082246b1b2dfd0ee08a5128b6f9d2b17c2afa4344c597b1af909c9f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/layout-baseline.json",
+      "bytes": 2648,
+      "sha256": "5b3069dd0599566556fb3c9645674e6450507b03cea151e10f3b565439a553c8"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/measure-landmarks.mjs",
+      "bytes": 2459,
+      "sha256": "8986251434fe6b8b6477c6559bee8a1f541e95c539b8bef9e8010bd70ae5209a"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/reference-column-crop.png",
+      "bytes": 183595,
+      "sha256": "3bbac7ab99a32c987322d9c6f2b12bef01958cc53a860002083a40d68c091a42"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/reference-hall-crop.png",
+      "bytes": 713889,
+      "sha256": "5042ab79d5a122113c8b6136e94534d5370538778b94f27614ebd5455b80bbe7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/reference.png",
+      "bytes": 3252211,
+      "sha256": "df9117f4174c79e1fc52d1e89297abedc18cf3c057534d8542c341ff4c58686a"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/report.json",
+      "bytes": 73377,
+      "sha256": "d681346d969751a9a8b2d71ef5f0275370350d5f796e79a04a335037d766cf0f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/roof-occlusion-probe.json",
+      "bytes": 14404,
+      "sha256": "8b84a42b0d7cc6814b55dca0c2d8f151692e3bee9f2cbe097254c84d5bf1054a"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/roof-occlusion-probe.mjs",
+      "bytes": 1962,
+      "sha256": "9fb163c7c894033a1df9c2297dae38572266071a257299b8cc3f3631c05fcfba"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/altar-figure.js",
+      "bytes": 34034,
+      "sha256": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/architecture.js",
+      "bytes": 23120,
+      "sha256": "b87aa502c982614a4a09435be69c82c60fa2891edc0af3a4fb25666e2f2645b2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/asset-dependencies.json",
+      "bytes": 9745,
+      "sha256": "1aa9d89be4c09ba58d11e2d4025ba38cfafa177bebe5e25dec2343f09014f738"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/embedded-bridge-bearings146.js",
+      "bytes": 5234,
+      "sha256": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/foreground-stone-lantern120.js",
+      "bytes": 11854,
+      "sha256": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/garden-pines145.js",
+      "bytes": 5506,
+      "sha256": "a8ed8be2868ebb3af906e532824b1856bd4b75025f5b1fdc71ad248d48da75b0"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/garden.js",
+      "bytes": 23641,
+      "sha256": "c15c673502088afa85d7e91e9f7a246aa4e4056beeece7a91ce603400ca396be"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/hall-carpentry141.js",
+      "bytes": 10284,
+      "sha256": "8b84cf125a914b8eeb0ad1ee9b30f3f5c82f5fe74ce315f72dfbda2a07940f68"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/hall-entry.js",
+      "bytes": 7402,
+      "sha256": "4ab5f8adc4b76766380c125e0daee21c0a8645635eaac52465c304942f327e7b"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/hall-roof154.js",
+      "bytes": 8342,
+      "sha256": "3f832eda7dad3a8bbc5a68a99f54372e0d40e48c4bce6783106621b99a50e26a"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/hall-terrace144.js",
+      "bytes": 3874,
+      "sha256": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/index.html",
+      "bytes": 661,
+      "sha256": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/kernel.js",
+      "bytes": 6395,
+      "sha256": "b0c4d54605a926b8d976a48b6e83ca18e96682662441142fc379ed8e399d90bb"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/layout117.js",
+      "bytes": 3659,
+      "sha256": "b2b2eb170691ec8e1f0046a8bfff6f0be76f5eb0e4c589c95093d8fea328c693"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/main.js",
+      "bytes": 17737,
+      "sha256": "5122df0f6dec412485de5e7a78a29517fd4813909f96d533f768b1de07d2b506"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/pagoda-ground.js",
+      "bytes": 6121,
+      "sha256": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/planted-shoulders147.js",
+      "bytes": 10762,
+      "sha256": "fa14c69e72e0b20f5560cb8426573095b80cdcc3d1eaa8a49157740a15fb0901"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/rooted-canopy142.js",
+      "bytes": 7457,
+      "sha256": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/scanned-fir-woodland150.js",
+      "bytes": 4585,
+      "sha256": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/scanned-garden-stones.js",
+      "bytes": 1974,
+      "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/scanned-timber.js",
+      "bytes": 6098,
+      "sha256": "34e2e811ffd5d1904d7bdd6d6324a3fd52ab814bbfc1e61ead3e54ae939c95d1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/scanned-understory146.js",
+      "bytes": 2829,
+      "sha256": "07bc479fab2d1467f20cb9560475386031a0769721247d920e108966c06f9491"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/sorin-solids.js",
+      "bytes": 2830,
+      "sha256": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/veranda-boards.js",
+      "bytes": 4611,
+      "sha256": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/veranda-carvings143.js",
+      "bytes": 7563,
+      "sha256": "3c3b9c43fa8fae92dbdba6f719dd54839e665fab6cbf006aaa43d674e850fa2f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/veranda-rail117.js",
+      "bytes": 7074,
+      "sha256": "d20b2c9234bb2c73b5389c1c9293c5e72bdbf7035be208405a60ef19aea2b4a7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/source/woodland-terminal148.js",
+      "bytes": 2527,
+      "sha256": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/candidate-source-identity.json",
+      "bytes": 9228,
+      "sha256": "a856ea81fd017ea097211e0a2f1c7388f64d3c97a8d6e06cedb40fbf67ead465"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/detail-native.png",
+      "bytes": 3120230,
+      "sha256": "861f79a55e6ff55247853f79a413b2d64b39a82674707e454c0edd5f335e3296"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/reference.png",
+      "bytes": 3222063,
+      "sha256": "d3b8651fae7775274b7e65f168ade6ec60ff838ffd3b4d5acb1a60d5c7a1a74d"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/report.json",
+      "bytes": 87322,
+      "sha256": "c4a3d0b2189ae90e5823f4e57808efae1c0d0abea9751b92e8ca5c0573416876"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/roof-occlusion-probe.json",
+      "bytes": 19078,
+      "sha256": "6fceda349910b20fdba2e8a0f60a2dec924dca9ad5c6d6800f42ce3a9faf7d3c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/roof-occlusion-probe.log",
+      "bytes": 17279,
+      "sha256": "1289e2cae076aebaad307b3ffd98beecd24c960fd56218aa93d573732e2ccf5a"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/roof-occlusion-probe.mjs",
+      "bytes": 1962,
+      "sha256": "9fb163c7c894033a1df9c2297dae38572266071a257299b8cc3f3631c05fcfba"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/altar-figure.js",
+      "bytes": 34034,
+      "sha256": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/architecture.js",
+      "bytes": 23120,
+      "sha256": "b87aa502c982614a4a09435be69c82c60fa2891edc0af3a4fb25666e2f2645b2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/asset-dependencies.json",
+      "bytes": 10677,
+      "sha256": "ec806ac28899e1e867c0a941302af50e4ad0c582fd75ffe31f438b933f7bbf17"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/embedded-bridge-bearings146.js",
+      "bytes": 5234,
+      "sha256": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/foreground-stone-lantern120.js",
+      "bytes": 11854,
+      "sha256": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/garden-pines145.js",
+      "bytes": 8986,
+      "sha256": "51df80b6b9d1931cdd774a2b24e4588c435275e06f5bd5e2c21f27617e9e5e5d"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/garden.js",
+      "bytes": 23640,
+      "sha256": "e1f1236ffa9e9a5b4866e72198dfcb2321618abaa5b3dfda797a996e52be1fc4"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/hall-carpentry141.js",
+      "bytes": 10391,
+      "sha256": "7c2ec393523e303d4f3a6d7db8b8c536244157f2080e797792c99193b67d81bd"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/hall-entry.js",
+      "bytes": 7402,
+      "sha256": "4ab5f8adc4b76766380c125e0daee21c0a8645635eaac52465c304942f327e7b"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/hall-roof154.js",
+      "bytes": 9303,
+      "sha256": "d6b1dc20329019a771b65f550e6508c4fe8ada8fa3fb1462b354b75cd81144ca"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/hall-terrace144.js",
+      "bytes": 3874,
+      "sha256": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/index.html",
+      "bytes": 661,
+      "sha256": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/kernel.js",
+      "bytes": 6395,
+      "sha256": "b0c4d54605a926b8d976a48b6e83ca18e96682662441142fc379ed8e399d90bb"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/layout117.js",
+      "bytes": 3659,
+      "sha256": "b2b2eb170691ec8e1f0046a8bfff6f0be76f5eb0e4c589c95093d8fea328c693"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/main.js",
+      "bytes": 17749,
+      "sha256": "50af6b94498221a87817ebf020137e58749ccca22bcf70f5a3c1f0db252561d4"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/pagoda-ground.js",
+      "bytes": 6121,
+      "sha256": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/planted-shoulders147.js",
+      "bytes": 13594,
+      "sha256": "a17259f998a32ab4e4515586da64110ce090bb66ac5a015933f157fe6adb136c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/rooted-canopy142.js",
+      "bytes": 7457,
+      "sha256": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/scanned-fir-woodland150.js",
+      "bytes": 4585,
+      "sha256": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/scanned-garden-stones.js",
+      "bytes": 1974,
+      "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/scanned-timber.js",
+      "bytes": 6098,
+      "sha256": "34e2e811ffd5d1904d7bdd6d6324a3fd52ab814bbfc1e61ead3e54ae939c95d1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/scanned-understory146.js",
+      "bytes": 2872,
+      "sha256": "d883a6c1176ef8177a941d89050b6532a26fd77b4e9e63bd345fbbe1e7ad2192"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/sorin-solids.js",
+      "bytes": 2830,
+      "sha256": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/veranda-boards.js",
+      "bytes": 4611,
+      "sha256": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/veranda-carvings143.js",
+      "bytes": 7563,
+      "sha256": "3c3b9c43fa8fae92dbdba6f719dd54839e665fab6cbf006aaa43d674e850fa2f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/veranda-rail117.js",
+      "bytes": 7074,
+      "sha256": "d20b2c9234bb2c73b5389c1c9293c5e72bdbf7035be208405a60ef19aea2b4a7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-enclosed-hall-mature-bank-20-20261021/source/woodland-terminal148.js",
+      "bytes": 2527,
+      "sha256": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/candidate-source-identity.json",
+      "bytes": 9349,
+      "sha256": "59618b94ff09cbc4833ad481492d15d683ca21de21be625c9ec0bc270d1cfe40"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/pre-portal-opening-occlusion-probe.json",
+      "bytes": 29369,
+      "sha256": "115f7319cf2b4f3ef6dea6c510d322c1bb264ac7905f7f3cf0593c08550a523c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/pre-portal-opening-occlusion-probe.log",
+      "bytes": 26510,
+      "sha256": "762f2d1e261178b4b5912bca9d7f11c61c5ae6133a57af662be8258706e0d6e0"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/pre-portal-opening-occlusion-probe.mjs",
+      "bytes": 2012,
+      "sha256": "c281df69405bf6a6b3960d68f4115b01fe358108de42d77b6ad20e37b3355a8e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/report.json",
+      "bytes": 16457,
+      "sha256": "29991e4347a3f119086cdf1ac3a49d03e7b4313bf50e4109f59d8407d7118307"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/roof-occlusion-probe-current.json",
+      "bytes": 27684,
+      "sha256": "0ceafed97c44538033eaba3db04045bea21cbb0b703096efa8e1d7b53b5d747c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/roof-occlusion-probe-current.log",
+      "bytes": 25133,
+      "sha256": "81bda3cbaa2ddc3f4b558bdcd4d2eb83547cb5703db4cda8b9497757e5c563cc"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/roof-occlusion-probe-current.mjs",
+      "bytes": 2020,
+      "sha256": "6c766677b072b9bdc261cc908ad43bcd2588ca415bbcfaa6ca8199542652d87b"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/altar-figure.js",
+      "bytes": 34034,
+      "sha256": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/architecture.js",
+      "bytes": 23120,
+      "sha256": "b87aa502c982614a4a09435be69c82c60fa2891edc0af3a4fb25666e2f2645b2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/asset-dependencies.json",
+      "bytes": 11525,
+      "sha256": "cc7a1ecb8ef78ea00bad470f753eace289083d88d892a647aa40e859996e4603"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/bank-evergreen156.js",
+      "bytes": 5540,
+      "sha256": "9600f93f0eb3aaf5e2721ee1d43a3846eb2ab131743e9f699b3bc6dd478cbd92"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/embedded-bridge-bearings146.js",
+      "bytes": 5234,
+      "sha256": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/foreground-stone-lantern120.js",
+      "bytes": 11854,
+      "sha256": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/garden-pines145.js",
+      "bytes": 9925,
+      "sha256": "3343fe6a9e5eb2ca0ab492852925af35e9142699a4e2315f204d5015408cdaa2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/garden.js",
+      "bytes": 23796,
+      "sha256": "b208751dcd51e20d24a813ba481ca13214d58f865906fd2df5cacd0b9d7f72e8"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/hall-carpentry141.js",
+      "bytes": 10391,
+      "sha256": "7c2ec393523e303d4f3a6d7db8b8c536244157f2080e797792c99193b67d81bd"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/hall-entry.js",
+      "bytes": 7434,
+      "sha256": "84b086635b63db697ed05af9417a6781c0b87c809d1d35d4fcbafe7361eda71e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/hall-roof154.js",
+      "bytes": 9303,
+      "sha256": "d6b1dc20329019a771b65f550e6508c4fe8ada8fa3fb1462b354b75cd81144ca"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/hall-terrace144.js",
+      "bytes": 3874,
+      "sha256": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/index.html",
+      "bytes": 661,
+      "sha256": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/kernel.js",
+      "bytes": 6395,
+      "sha256": "b0c4d54605a926b8d976a48b6e83ca18e96682662441142fc379ed8e399d90bb"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/layout117.js",
+      "bytes": 3659,
+      "sha256": "b2b2eb170691ec8e1f0046a8bfff6f0be76f5eb0e4c589c95093d8fea328c693"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/main.js",
+      "bytes": 17752,
+      "sha256": "af815990f85d4200ef84b8ead1e4527f4fed658b7eb7988c61be581b57f08d11"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/pagoda-ground.js",
+      "bytes": 6121,
+      "sha256": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/planted-shoulders147.js",
+      "bytes": 14772,
+      "sha256": "d5be0fbb7e04ede5a9c152d7ac997207e72b9a7075c6b32731e040174753a90d"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/rooted-canopy142.js",
+      "bytes": 7457,
+      "sha256": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/scanned-fir-woodland150.js",
+      "bytes": 4585,
+      "sha256": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/scanned-garden-stones.js",
+      "bytes": 1974,
+      "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/scanned-timber.js",
+      "bytes": 6098,
+      "sha256": "34e2e811ffd5d1904d7bdd6d6324a3fd52ab814bbfc1e61ead3e54ae939c95d1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/scanned-understory146.js",
+      "bytes": 2872,
+      "sha256": "d883a6c1176ef8177a941d89050b6532a26fd77b4e9e63bd345fbbe1e7ad2192"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/sorin-solids.js",
+      "bytes": 2830,
+      "sha256": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/veranda-boards.js",
+      "bytes": 4611,
+      "sha256": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/veranda-carvings143.js",
+      "bytes": 7563,
+      "sha256": "3c3b9c43fa8fae92dbdba6f719dd54839e665fab6cbf006aaa43d674e850fa2f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/veranda-rail117.js",
+      "bytes": 7074,
+      "sha256": "d20b2c9234bb2c73b5389c1c9293c5e72bdbf7035be208405a60ef19aea2b4a7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-21-20261021/source/woodland-terminal148.js",
+      "bytes": 2527,
+      "sha256": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/candidate-source-identity.json",
+      "bytes": 9349,
+      "sha256": "85ff01e0609af16b410d7d3cdcd744fa4d71cc09ac9b4bca967e13b94fd821ff"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/checkpoint-manifest.json",
+      "bytes": 19074,
+      "sha256": "491fa9ae01769bd441a1a1afd79aebfb9d6d8c5fd9c8f19e3209b6f94d6a488c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/checkpoint-source-identity.json",
+      "bytes": 9349,
+      "sha256": "85ff01e0609af16b410d7d3cdcd744fa4d71cc09ac9b4bca967e13b94fd821ff"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/checkpoint18-left-candidate22-right.png",
+      "bytes": 5365774,
+      "sha256": "3c2802c4948df8cabfcb2a6b7e81b6882df529b6ade8a926f60a7299ab758d11"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/curved-wood-compile.json",
+      "bytes": 1066,
+      "sha256": "f2915feed2bf42f398a751eddaedc8b1b068e6fd43432bb5b502bef2c79012ef"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/detail-native.png",
+      "bytes": 3163923,
+      "sha256": "499089d2a2b44c292e806f1cd5febfc32d0d39cafabf1785012e10a1a5f783df"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/final-landmarks.json",
+      "bytes": 6999,
+      "sha256": "da4d61519b766f00a742856635d3e5d32530eb2ea830132e13e1bd42021d3ad1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/finalize-checkpoint.mjs",
+      "bytes": 7022,
+      "sha256": "580ff06fde1479be51f80c3017f6310aba98b018246a0cc962e39f7f39266204"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/measure-final-landmarks.mjs",
+      "bytes": 2088,
+      "sha256": "aec9dc2d30d7bd890c48a888b30bab4ebd229dd6c149fe6535951d098a381e6c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/reference-left-native-right.png",
+      "bytes": 5215756,
+      "sha256": "84e7261b4f5855cb997092dc05fd164b4d3f7d8572cf5062e9b847c2f2d5562e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/reference.png",
+      "bytes": 3242133,
+      "sha256": "30ff435bcb7794c2ba518f91c5fb00787e749956b8d312c716f97e9dddfaea5f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/report.json",
+      "bytes": 169049,
+      "sha256": "ed5d00e5d6b03331131f87e7f3c5a08e7dbc66c2c1a4a0225931c8c7935e8481"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/REVIEW.md",
+      "bytes": 3222,
+      "sha256": "255bcfce58893dd8cbcb9493cf436ab122a7cbb6d55c97b07182e787785d693e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/roof-shell-contact-check.json",
+      "bytes": 2263,
+      "sha256": "fa4021dd07e7930040524152ac1d9e3628465456d926216b63510f65586ca19c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/roof-shell-contact-check.mjs",
+      "bytes": 2863,
+      "sha256": "f72753de8f8ad4a26d8aa4a70408166158da4d147e6dfff2f8bbf98921ccde10"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source-checks.json",
+      "bytes": 2711,
+      "sha256": "2aeaddc36b4ad835a8126fa5a120e4a4fdbcea329ab27bc3595197ad05844739"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/altar-figure.js",
+      "bytes": 34034,
+      "sha256": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/architecture.js",
+      "bytes": 23120,
+      "sha256": "b87aa502c982614a4a09435be69c82c60fa2891edc0af3a4fb25666e2f2645b2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/asset-dependencies.json",
+      "bytes": 11525,
+      "sha256": "cc7a1ecb8ef78ea00bad470f753eace289083d88d892a647aa40e859996e4603"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/bank-evergreen156.js",
+      "bytes": 5540,
+      "sha256": "9600f93f0eb3aaf5e2721ee1d43a3846eb2ab131743e9f699b3bc6dd478cbd92"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/embedded-bridge-bearings146.js",
+      "bytes": 5234,
+      "sha256": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/foreground-stone-lantern120.js",
+      "bytes": 11854,
+      "sha256": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/garden-pines145.js",
+      "bytes": 10035,
+      "sha256": "7906cb512520298811faf0f2933d708c32afee80b17e164be808e4b060eff658"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/garden.js",
+      "bytes": 23796,
+      "sha256": "b208751dcd51e20d24a813ba481ca13214d58f865906fd2df5cacd0b9d7f72e8"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/hall-carpentry141.js",
+      "bytes": 10391,
+      "sha256": "7c2ec393523e303d4f3a6d7db8b8c536244157f2080e797792c99193b67d81bd"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/hall-entry.js",
+      "bytes": 7434,
+      "sha256": "84b086635b63db697ed05af9417a6781c0b87c809d1d35d4fcbafe7361eda71e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/hall-roof154.js",
+      "bytes": 9303,
+      "sha256": "d6b1dc20329019a771b65f550e6508c4fe8ada8fa3fb1462b354b75cd81144ca"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/hall-terrace144.js",
+      "bytes": 3874,
+      "sha256": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/index.html",
+      "bytes": 661,
+      "sha256": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/kernel.js",
+      "bytes": 6395,
+      "sha256": "b0c4d54605a926b8d976a48b6e83ca18e96682662441142fc379ed8e399d90bb"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/layout117.js",
+      "bytes": 3659,
+      "sha256": "b2b2eb170691ec8e1f0046a8bfff6f0be76f5eb0e4c589c95093d8fea328c693"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/main.js",
+      "bytes": 17752,
+      "sha256": "af815990f85d4200ef84b8ead1e4527f4fed658b7eb7988c61be581b57f08d11"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/pagoda-ground.js",
+      "bytes": 6121,
+      "sha256": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/planted-shoulders147.js",
+      "bytes": 14772,
+      "sha256": "d5be0fbb7e04ede5a9c152d7ac997207e72b9a7075c6b32731e040174753a90d"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/rooted-canopy142.js",
+      "bytes": 7457,
+      "sha256": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/scanned-fir-woodland150.js",
+      "bytes": 4585,
+      "sha256": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/scanned-garden-stones.js",
+      "bytes": 1974,
+      "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/scanned-timber.js",
+      "bytes": 6098,
+      "sha256": "34e2e811ffd5d1904d7bdd6d6324a3fd52ab814bbfc1e61ead3e54ae939c95d1"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/scanned-understory146.js",
+      "bytes": 2872,
+      "sha256": "d883a6c1176ef8177a941d89050b6532a26fd77b4e9e63bd345fbbe1e7ad2192"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/sorin-solids.js",
+      "bytes": 2830,
+      "sha256": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/veranda-boards.js",
+      "bytes": 4611,
+      "sha256": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/veranda-carvings143.js",
+      "bytes": 7563,
+      "sha256": "3c3b9c43fa8fae92dbdba6f719dd54839e665fab6cbf006aaa43d674e850fa2f"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/veranda-rail117.js",
+      "bytes": 7074,
+      "sha256": "d20b2c9234bb2c73b5389c1c9293c5e72bdbf7035be208405a60ef19aea2b4a7"
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-evergreen-mass-22-20261021/source/woodland-terminal148.js",
+      "bytes": 2527,
+      "sha256": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1"
+    }
+  ]
+}

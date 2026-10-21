@@ -82,36 +82,47 @@ export function createHallCarpentry141({b,mats}){
   }
   facePlate(x,y-.34,z+.035,.29,.25);counts.transomBays++;
  }
- function frontEave(axes){
-  // The primary heads coincide with the columns. Mid-bay heads sit on the deep
-  // continuous tie beam and carry the outer purlin through three stepped levels.
-  b.box(0,7.58,4.72,17.35,.32,.59,'hallBearing');
-  b.box(0,7.83,5.30,18.15,.24,.41,'hallOxide');
+ function frontEave(axes,roof){
+  const cx=(axes[0]+axes.at(-1))/2,span=axes.at(-1)-axes[0],footY=roof.gableEave+.38;
+  b.box(cx,7.58,4.72,span+1.75,.32,.59,'hallBearing');
+  b.box(cx,7.83,5.30,span+2.55,.24,.41,'hallOxide');
   const infillShape=new T.Shape();infillShape.moveTo(-1.02,0);infillShape.bezierCurveTo(-.65,.03,-.52,.25,-.35,.40);infillShape.quadraticCurveTo(0,.66,.35,.40);infillShape.bezierCurveTo(.52,.25,.65,.03,1.02,0);infillShape.closePath();
   const infill=new T.ExtrudeGeometry(infillShape,{depth:.10,bevelEnabled:true,bevelSize:.009,bevelThickness:.006,bevelSegments:1,curveSegments:10});
+  const bayScale=(span/5-.45)/2.04;
   for(let i=0;i<axes.length-1;i++){
    const x=(axes[i]+axes[i+1])/2;head(x,7.94,5.55,.78,'intermediate');
-   b.put(infill,'hallPlaster',[x,7.48,5.08]);
-   for(const sign of[-1,1])b.tube([[x+sign*.98,7.50,5.22],[x+sign*.65,7.54,5.22],[x+sign*.45,7.81,5.22],[x+sign*.20,8.00,5.22],[x,8.04,5.22]],.042,'hallBearing',28);
+   b.put(infill,'hallPlaster',[x,7.48,5.08],[bayScale,1,1]);
+   for(const sign of[-1,1])b.tube([[x+sign*.98*bayScale,7.50,5.22],[x+sign*.65*bayScale,7.54,5.22],[x+sign*.45*bayScale,7.81,5.22],[x+sign*.20*bayScale,8.00,5.22],[x,8.04,5.22]],.042,'hallBearing',28);
    rosette(x,7.77,5.235,.13);
   }
-  for(const [z,y,w] of[[6.40,8.50,18.8],[7.35,8.79,19.8],[8.15,9.01,20.8]]){
-   b.box(0,y,z,w,.19,.24,'hallBearing');
-   for(let x=-w/2+.25;x<w/2;x+=.48){b.box(x,y+.055,z+.16,.12,.14,.16,'hallOxide');if(Math.abs(z-7.35)<.1)facePlate(x,y-.015,z+.255,.085,.10);}
+  // The three purlins follow the actual shallow apron section. Their arms
+  // carry load back through short attic struts and the column-head cross ties.
+  for(const t of[.20,.50,.78]){
+   const z=T.MathUtils.lerp(roof.gableFront,roof.roofFront,t),w=T.MathUtils.lerp(roof.gableWidth,roof.roofWidth,t),y=T.MathUtils.lerp(footY,roof.roofEave,t)-.96*t*(1-t)+roof.roofCurl*Math.pow(t,8)*.22-.48;
+   b.box(cx,y,z,w,.19,.25,'hallBearing');
+   for(let x=cx-w/2+.25;x<cx+w/2;x+=.48){b.box(x,y+.055,z+.16,.12,.14,.16,'hallOxide');if(t===.5)facePlate(x,y-.015,z+.255,.085,.10);}
   }
-  // Diagonal tails are real members extending back into the roof frame.
-  for(const x of axes){b.line([x,8.22,5.30],[x,9.66,8.34],.18,'hallBearing',true,.24);b.box(x,8.68,7.05,.23,.24,2.72,'hallOxide');}
-  // The east and west returns close the same structural ring at the corners.
+  for(const x of axes){
+   b.line([x,8.22,5.30],[x,9.27,8.54],.18,'hallBearing',true,.24);b.box(x,8.68,7.05,.23,.24,2.72,'hallOxide');
+   b.line([x,8.10,4.84],[x,footY-.39,roof.gableFront-.12],.19,'hallBearing',true,.23);
+   b.box(x,9.14,6.20,.32,.54,.40,'hallOxide');bearing(x,9.49,6.20,.43,.44);
+   cloudEnd(x,8.73,7.95,Math.PI/2,.72);
+  }
   for(const sign of[-1,1]){
-   for(let z=-5.55;z<=5.56;z+=1.45)head(sign*8.18,7.95,z,.80,'side',sign*Math.PI/2);
-   for(const [x,y] of[[8.92,8.50],[9.80,8.78],[10.55,9.02]])b.box(sign*x,y,0,.24,.19,14.8,'hallBearing');
-   for(let z=-6.4;z<6.5;z+=.74)b.line([sign*8.0,8.4,z],[sign*11.0,9.45,z],.16,'hallBearing',true,.20);
+   const columnX=sign<0?axes[0]:axes.at(-1),innerX=roof.gableCenterX+sign*roof.gableWidth/2;
+   for(let z=-5.55;z<=5.56;z+=1.45)head(columnX+sign*.38,7.95,z,.80,'side',sign*Math.PI/2);
+   for(const t of[.20,.50,.78]){
+    const x=T.MathUtils.lerp(innerX,roof.gableCenterX+sign*roof.roofWidth/2,t),y=T.MathUtils.lerp(footY,roof.roofEave,t)-.96*t*(1-t)+roof.roofCurl*Math.pow(t,8)*.22-.48,z=(T.MathUtils.lerp(roof.gableBack,roof.roofBack,t)+T.MathUtils.lerp(roof.gableFront,roof.roofFront,t))/2,d=T.MathUtils.lerp(roof.gableFront-roof.gableBack,roof.roofFront-roof.roofBack,t);
+    b.box(x,y,z,.24,.19,d,'hallBearing');
+   }
+   b.line([columnX,8.20,4.70],[innerX+sign*.75,footY-.67,roof.gableFront+.78],.24,'hallBearing',true,.29);
+   for(let z=-5.8;z<6;z+=.74){b.line([columnX,8.40,z],[innerX+sign*2.10,9.12,z],.16,'hallBearing',true,.20);b.line([columnX,8.0,z],[innerX,footY-.4,z],.15,'hallBearing',true,.20);}
   }
  }
- function sanctuaryBackdrop(){
+ function sanctuaryBackdrop(cx=.9){
   // Gilded lotus-and-vine relief is actual raised geometry behind the altar.
   // Lamp light catches the relief differently from the dark oxidised backing.
-  for(const x of[-1.20,.90,3.0]){
+  for(const x of[cx-2.10,cx,cx+2.10]){
    b.box(x,4.88,-5.46,1.94,3.87,.18,'oldgold',0,.58);
    for(const sign of[-1,1]){b.box(x+sign*.99,4.88,-5.32,.065,4.02,.12,'hallBearing');b.box(x,4.88+sign*1.99,-5.32,2.03,.075,.12,'gold');}
    b.tube([[x,3.14,-5.32],[x-.15,3.68,-5.29],[x+.13,4.30,-5.30],[x-.08,5.01,-5.30],[x+.06,5.82,-5.30],[x,6.57,-5.30]],.031,'gold',48);

@@ -9,10 +9,10 @@ export function ensureBankSoil147(mats){
 // Continuous closed earth shoulders follow the actual stair and bridge seats.
 // Embedded eroded rock outcrops carry the slope. Original scanned understory
 // roots meet that same surface; foliage never replaces the terrain volume.
-export function buildPlantedShoulders147({b,mats,scanned,understory}){
+export function buildPlantedShoulders147({b,mats,scanned,understory,gardenPines,bankEvergreen}){
  ensureBankSoil147(mats);
  let state=0x1475eed;const random=()=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state/4294967296;};
- const stats={continuousSoilVolumes:0,embeddedOutcrops:0,scannedShrubs:0,scannedPeriwinkle:0,rootContact:'All original botanical base vertices are normalized to root y0 and embedded25mm into the evaluated physical soil surface',stairShoulders:[]};
+ const stats={continuousSoilVolumes:0,embeddedOutcrops:0,scannedShrubs:0,scannedPeriwinkle:0,rootContact:'All original botanical base vertices are normalized to root y0 and embedded25mm into the evaluated physical soil surface',stairShoulders:[],matureBankPlanting:[],rearGardenBank:null};
  for(const [key,variants]of Object.entries({shrub:understory.shrub,periwinkle:understory.periwinkle}))for(const [i,v]of variants.entries())mats[`scene02Understory147${key}${i}`]=v.material;
  function solidSurface(rows,name,bottom=-.34){
   const top=gridGeometry(rows),positions=Array.from(top.attributes.position.array),indices=Array.from(top.index.array),width=rows[0].length,height=rows.length,ring=[];
@@ -67,6 +67,37 @@ export function buildPlantedShoulders147({b,mats,scanned,understory}){
   }
   stats.stairShoulders.push({side,innerBearing:'Actual stair cheek toe1.59metres from the fixed stair axis',runMetres:run,range:[-.22,1.22],surface:'Closed irregular graded soil, with a rolling outer toe and interlocked eroded outcrops'});
  }
+ // Mature pine root systems follow the evaluated shoulder, including the
+ // individual buttress toes. Their masses sit outside the stair tread/cheek.
+ function stairSoil(xx,zz,side){const q=V([xx-bottom.x,0,zz-bottom.z]),t=q.dot(along)/run,width=2.35+3.75*smooth(t/.85)+.28*Math.sin(t*9+side),u=Math.max(0,Math.min(1,(side*q.dot(across)-1.59)/width));return shoulder(t,u,side)[1];}
+ for(const [side,t,u,h,r]of[[-1,.70,.37,2.35,1.05],[1,.58,.41,2.80,1.24],[1,.90,.60,2.30,1.14]]){
+  const p=shoulder(t,u,side);gardenPines.addMature(p[0],p[2],h,r,(xx,zz)=>stairSoil(xx,zz,side));stats.matureBankPlanting.push({kind:'Mature authored pine',root:p,height:h,soil:'Evaluated continuous stair shoulder'});
+ }
+ // A rear planted bank rises behind the fixed bridge and joins the western
+ // stair shoulder. It carries mature roots above the pond instead of exposing
+ // bare level ground and growing trunks from the water bed.
+ function rearBank(xx,zz){const rx=(xx+4.6)/7.7,rz=(zz+4.45)/4.0,r=Math.sqrt(rx*rx+rz*rz),shape=1-smooth((r-.35)/.65);return -.12+4.12*shape+.11*Math.sin(xx*1.7+zz*.8)*Math.sin(Math.PI*Math.min(1,r))**2;}
+ solidSurface(Array.from({length:43},(_,j)=>Array.from({length:69},(_,i)=>{const xx=-12.3+15.4*i/68,zz=-8.45+8*j/42;return[xx,rearBank(xx,zz),zz];})),'scene02-closed-mature-rear-garden-bank155');
+ for(let j=0;j<21;j++)for(let band=0;band<5;band++){
+  const xx=-11.65+(j+.2+random()*.65)/21*13.9,zz=-7.9+(band+.15+random()*.62)/5*6.9,y=rearBank(xx,zz);if(y<.05)continue;
+  if((j+band)%3!==1)outcrop([xx,y,zz],.42+random()*.46,j*3+band,.50);
+  if((j+band)%3===1)plant('shrub',[xx,y,zz],.65+random()*.52,j+band);
+  for(let k=0;k<3;k++){const px=xx+(random()-.5)*.55,pz=zz+(random()-.5)*.55;plant('periwinkle',[px,rearBank(px,pz),pz],.26+random()*.18,j*3+k+band);}
+ }
+ for(const [x,z,h,r]of[[-4.6,-2.85,3.05,1.30],[-.75,-5.0,2.55,1.15],[-8.6,-4.1,2.45,1.10]]){
+  gardenPines.addMature(x,z,h,r,rearBank);stats.matureBankPlanting.push({kind:'Mature authored pine',root:[x,rearBank(x,z),z],height:h,soil:'Closed continuous rear garden bank'});
+ }
+ stats.rearGardenBank={bounds:[[-12.3,-8.45],[3.1,-.45]],crestMetres:4.0,construction:'Closed graded soil core, embedded eroded stone outcrops, actual original low understory and planted mature pine buttresses; bridge deck/seats retained'};
+ // Interlocking woody evergreen crowns fill the mature bank mass, while
+ // original periwinkle remains fine groundcover below their actual stems.
+ for(let j=0;j<25;j++)for(let band=0;band<5;band++){
+  const xx=-11.65+(j+.15+random()*.7)/25*13.9,zz=-7.9+(band+.12+random()*.72)/5*6.8,y=rearBank(xx,zz);if(y<.25||Math.sin(xx*2+zz*3)>.88)continue;
+  bankEvergreen.add([xx,y,zz],.72+random()*.45,.52+random()*.30,j*3+band,(j+band)%4===1);
+ }
+ for(const side of[-1,1])for(let j=0;j<25;j++)for(let band=0;band<3;band++){
+  const t=.03+(j+.14+random()*.72)/25*1.03,u=.18+band*.27+(random()-.5)*.10,p=shoulder(t,u,side);if(p[1]<.15||(j+band)%7===1)continue;
+  bankEvergreen.add(p,.65+random()*.50,.49+random()*.28,j*5+band+(side<0?2:0),(j+band)%4===0);
+ }
  // A continuous raised garden shoulder wraps the exposed east foundation.
  // Its crest meets the side wall below the terrace, instead of terminating
  // inside the building as the first narrow stair-only shoulder did.
@@ -85,6 +116,13 @@ export function buildPlantedShoulders147({b,mats,scanned,understory}){
   if(Math.sin(t*26+u*17)+Math.cos(t*15-u*18)>.95)continue;
   plant('periwinkle',eastTerrace(t,u),.29+random()*.17,j*3+band+2);
  }
+ for(let j=0;j<27;j++)for(let band=0;band<3;band++){
+  const t=.035+(j+.13+random()*.7)/27*1.15,u=.16+band*.25+(random()-.5)*.10,p=eastTerrace(t,u);if(p[1]<.13||(j+band)%6===1)continue;
+  bankEvergreen.add(p,.71+random()*.51,.49+random()*.28,j*3+band+1,(j+band)%4===1);
+ }
+ const inverseHall=hall.clone().invert();
+ function eastSoil(xx,zz){const p=V([xx,0,zz]).applyMatrix4(inverseHall),t=(p.z+6.8)/14.3,u=Math.max(0,Math.min(1,(p.x-9.25)/(7.1+.45*Math.sin(t*8))));return eastTerrace(t,u)[1];}
+ for(const [t,u,h,r]of[[.24,.28,2.3,1.1],[.71,.37,2.7,1.24]]){const p=eastTerrace(t,u);gardenPines.addMature(p[0],p[2],h,r,eastSoil);stats.matureBankPlanting.push({kind:'Mature authored pine',root:p,height:h,soil:'Evaluated east terrace shoulder'});}
  const bridge=new T.Matrix4().compose(V(layout.bridge.position),new T.Quaternion().setFromAxisAngle(V([0,1,0]),layout.bridge.yaw),V(layout.bridge.scale));
  for(const side of[-1,1]){
   const center=V([side*7.08,0,0]).applyMatrix4(bridge),peak=side<0?.57:1.09,rx=side<0?2.30:2.42,rz=2.72;
@@ -92,6 +130,7 @@ export function buildPlantedShoulders147({b,mats,scanned,understory}){
    const shape=Math.pow(Math.max(0,1-t*t),1.30),r=1+.075*Math.sin(a*5+side)+.04*Math.sin(a*9),x=center.x+Math.cos(a)*rx*t*r,z=center.z+Math.sin(a)*rz*t*r;return[x,-.12+(peak+.12)*shape,z];
   }
   solidRadialBank(bank,`scene02-closed-planted-bridge-shoulder-${side}`,-.40);
+  for(let j=0;j<8;j++){const a=j*2.399+side*.7,p=bank(.78+random()*.10,a);bankEvergreen.add(p,.35+random()*.24,.38+random()*.22,j+2,false);}
   for(let j=0;j<20;j++){
    const a=j*2.399+side*.6,t=.59+random()*.27,p=bank(t,a);outcrop(p,.43+random()*.40,j+2,.43);
    if(j%3!==0){const pp=bank(Math.min(.95,t+.035),a+.16);plant('shrub',pp,.34+random()*.44,j+side+5);}

@@ -1,0 +1,138 @@
+{
+  "files": [
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/shrub-02/provider-files.json",
+    "assets/polyhaven/shrub-02/provider-info.json",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-02/assets/fir-sapling/fetch-original.py",
+    "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin",
+    "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf",
+    "reconstructions/scene-02/assets/fir-sapling/provenance.json",
+    "reconstructions/scene-02/assets/fir-sapling/provider-files.json",
+    "reconstructions/scene-02/assets/fir-sapling/provider-info.json",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg"
+  ],
+  "use": "Existing CC0 lacquered-cherry scan supplies metric normal/roughness and normalized grain on independently modeled timber. Red/cedar keep their existing pigment. The veranda floor now also has independent warm red-brown pigment instead of multiplying the dark source brown; the lower rail is real segmented wood. No photo RGB.",
+  "revision": "layout117-with-foreground-stone-lantern120",
+  "materialCalibration": {
+    "sourceLinearMeanY": 0.01505120736,
+    "method": "Decode via the sRGB texture, divide linear luminance by the measured full-map mean, apply exponent .55 and clamp .52..1.46 as painted grain. Material pigment supplies warm vermilion.",
+    "redPigment": "#bb4b29",
+    "cedarPigment": "#9c4928",
+    "normalScale": 0.18,
+    "originalNormalAndRoughnessRetained": true,
+    "sceneExposureAndLightingChanged": false,
+    "floorPigment": "#925034",
+    "floorSourceRole": "Normalized grain; no raw dark-brown albedo multiplication. Worn/wet clearcoat stays on the actual closed boards."
+  },
+  "authoredMetalGeometry": {
+    "file": "sorin-solids.js",
+    "construction": "Closed revolved annular webs with thick rounded rims, central spindle, stepped roof boot and seated terminal. Nineteen levels follow the photographed taper/spacing; not torus wire loops.",
+    "baseSeatLocalY": 14.9,
+    "bootTopLocalY": 15.3,
+    "topLocalY": 20.71,
+    "finish": "Sorin-only gold/bronze use the existing outdoor sky environment, rather than the veranda-local reflection probe. Other metal remains unchanged."
+  },
+  "referencePhotographUse": {
+    "scope": "Comparison only",
+    "sceneRGBOrProjection": false,
+    "copyright": "Retained by its original owner."
+  },
+  "verandaBoards": {
+    "scope": "Only foreground deck and lowest rail/foot sill. Reference pose, dolly, lighting, building positions, middle/top rails and all upper cast metalwork retained.",
+    "referenceVisibility": "HD0-photo1 exposes only a narrow floor strip at the foreground rail; the present native view exposes a larger right-bottom deck. Board end locations and hidden joists cannot be measured from that photo and are explicitly structural hypotheses.",
+    "diagnosis": "Prior geometry already had25closed strips and7mm gaps, but each strip was30m long with no end joints or supporting joist detail. Unit rounded-box scaling stretched the end rounding to~0.54m. A full5.9x30m Reflector6mm above the boards, alpha0.71, obscured real floor joints/height. Floor albedo remained the raw near-black scan.",
+    "construction": "25longitudinalZboard columns subdivided into1.2–3.6m staggered closed45mm boards with4mm end gaps,1.5–2.2mm true arrises,±1.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
+    "lowerRail": "Only the lowest rail is segmented with small true bevels/end tenons and a closed wood sill under retained post shafts. Existing middle/top rails, posts and metalwork stay.",
+    "material": "Floor pigment#925034 multiplied by normalized source linear luminance/0.01505120736^.55, clamped.52..1.46; scanned normal and roughness retained at metric scale. Actual per-board clearcoat with worn/wet roughness plus the already-captured real scene probe. The deck-spanning Reflector is removed; the pond Reflector remains.",
+    "lightingChanged": false,
+    "visualAccepted": false,
+    "roundTwoCorrection": "The first actual had clear true joints/grain/warm pigment but a dry response. Update the actual cup/wear geometry normals through the deformation inverse-transpose; only floor wet clearcoat roughness becomes about0.09–0.21 with actual probe factor0.65→1.0. Light positions/intensities/exposure and all upper rail/metal material settings stay unchanged; no deck reflector sheet returns.",
+    "geometryAudit": "Actual emitted225boards plus42framing/lower-rail prototype geometries checked on the CPU:267unique solids, all finite, positive volume, closed after10micrometre spatial weld, zero nonmanifold edges. No browser or test suite was used for this geometry inspection."
+  },
+  "foregroundStoneLantern120": {
+    "scope": "Entire left foreground stone lantern and its supporting rock footing. Fixed reference camera, hall, tower, bridge and recovered veranda geometry held.",
+    "source": "assets/foreground-lantern120/provenance.json",
+    "materialUse": "Existing CC0 Poly Haven Granite Tile04 single-face crop reused from scene07; three copied maps, .3173828125m metric repeat. No reference-image pixels.",
+    "construction": "Common ground-contact anchor and vertical axis; closed chamfered square shaft, connected stepped pedestal/capital, recessed four-sided fire bag, closed four-hip stone roof, closed rock bearing with a flat masonry support.",
+    "pose": "Recovered from five native silhouette landmarks and checked against bridge separation and ground bearing.",
+    "visualAccepted": false
+  },
+  "scene02Understory146": {
+    "source": "Frozen original Poly Haven shrub_02 and periwinkle_plant glTF meshes and4K atlases; primary metadata and byte hashes in each asset provenance.",
+    "role": "Shrub and small groundcover drifts on modeled soil banks; no substitution for lotus, cherry or pine species.",
+    "loader": "scanned-understory146.js",
+    "sceneSourceDependencies": "Scene02-local source only; immutable declared global asset bytes."
+  },
+  "scene02FirWoodland150": {
+    "source": "https://polyhaven.com/a/fir_sapling",
+    "provenance": "assets/fir-sapling/provenance.json",
+    "license": "CC0-1.0",
+    "originalBytes": "Original glTF, original binary geometry and original4K maps, verified against primary provider MD5 and byte counts; SHA256 recorded.",
+    "role": "Actual three-dimensional conifer woodland on the finite ridge terrain; no whole-scene image or reference projection.",
+    "loader": "scanned-fir-woodland150.js",
+    "noGeometryDecimation": true
+  },
+  "scene02CommonHall154": {
+    "geometry": "Authored common five-bay/six-column bearing grid, seated attic gable on shared centre axis, four joined hip aprons, overlapping closed ceramic units, connected rafter/boarding/purlin solids, deep three-bay portal and sanctuary",
+    "files": [
+      "hall-roof154.js",
+      "hall-entry.js",
+      "hall-carpentry141.js",
+      "architecture.js",
+      "layout117.js"
+    ],
+    "measurement": "Joint bridge/rail/canopy and architecture perspective hypothesis in qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py",
+    "camera": "Original reference camera retained; joint fit recovers it within10mm and0.014degree field of view",
+    "contact": "Original hall stair landing world point retained exactly; existing stair/bank contacts computed from the same hall transformation",
+    "sun": "Sky disc and real directional sunlight share one direction inverse-projected through the retained camera at the measured125,416 reference target",
+    "photographicTexture": false,
+    "visualAccepted": false,
+    "atticRepair": "Closed lapped timber frieze above the portico ceiling and real diagonal hip bearing behind the open interlocking brackets",
+    "skyFill": "Broad courtyard/sky approximation uses1.15intensity without a second hard shadow map; primary directional sun and actual geometry/GTAO contacts retained",
+    "portalRepair": "The measured near outside porch bay is genuinely open; a removed storage lattice no longer blocks the physical sightline to the existing sanctuary and statue"
+  },
+  "scene02MatureBanks155": {
+    "construction": "Closed rear garden soil shoulder connected to the stair bank; mature bent pine scaffolds, individually rooted buttresses and attached fine needle pads on evaluated rear/stair/east soil",
+    "rootContact": "Root centre and each exposed buttress toe sample the same physical soil function as the closed mesh",
+    "species": "Authored mature pine branch/needle geometry; original frozen shrub/periwinkle meshes remain low understory",
+    "bridgeStairContacts": "Useful bridge anchors and original stair top/bottom contact preserved",
+    "visualAccepted": false,
+    "crownRepair": "Bent scaffold stems and main boughs are continuous tapered woody sweeps, with gnarly radial profile and deeper three-dimensional needle pads"
+  },
+  "scene02EvergreenBanks156": {
+    "file": "bank-evergreen156.js",
+    "construction": "Authored woody evergreen crowns with attached fine shoots, closed curved leaf blades, small five-petal terminal flowers, original low scanned understory below",
+    "placement": "Graded rear garden, stair shoulders and east terrace use the actual evaluated terrain function for each root; low crowns sit outside the useful bridge bearing/deck footprint",
+    "photoTexture": false,
+    "visualAccepted": false
+  }
+}

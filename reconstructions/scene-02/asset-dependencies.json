@@ -70,12 +70,12 @@
     "scope": "Only foreground deck and lowest rail/foot sill. Reference pose, dolly, lighting, building positions, middle/top rails and all upper cast metalwork retained.",
     "referenceVisibility": "HD0-photo1 exposes only a narrow floor strip at the foreground rail; the present native view exposes a larger right-bottom deck. Board end locations and hidden joists cannot be measured from that photo and are explicitly structural hypotheses.",
     "diagnosis": "Prior geometry already had25closed strips and7mm gaps, but each strip was30m long with no end joints or supporting joist detail. Unit rounded-box scaling stretched the end rounding to~0.54m. A full5.9x30m Reflector6mm above the boards, alpha0.71, obscured real floor joints/height. Floor albedo remained the raw near-black scan.",
-    "construction": "25longitudinalZboard columns subdivided into1.2\u20133.6m staggered closed45mm boards with4mm end gaps,1.5\u20132.2mm true arrises,\u00b11.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
+    "construction": "25longitudinalZboard columns subdivided into1.2–3.6m staggered closed45mm boards with4mm end gaps,1.5–2.2mm true arrises,±1.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
     "lowerRail": "Only the lowest rail is segmented with small true bevels/end tenons and a closed wood sill under retained post shafts. Existing middle/top rails, posts and metalwork stay.",
     "material": "Floor pigment#925034 multiplied by normalized source linear luminance/0.01505120736^.55, clamped.52..1.46; scanned normal and roughness retained at metric scale. Actual per-board clearcoat with worn/wet roughness plus the already-captured real scene probe. The deck-spanning Reflector is removed; the pond Reflector remains.",
     "lightingChanged": false,
     "visualAccepted": false,
-    "roundTwoCorrection": "The first actual had clear true joints/grain/warm pigment but a dry response. Update the actual cup/wear geometry normals through the deformation inverse-transpose; only floor wet clearcoat roughness becomes about0.09\u20130.21 with actual probe factor0.65\u21921.0. Light positions/intensities/exposure and all upper rail/metal material settings stay unchanged; no deck reflector sheet returns.",
+    "roundTwoCorrection": "The first actual had clear true joints/grain/warm pigment but a dry response. Update the actual cup/wear geometry normals through the deformation inverse-transpose; only floor wet clearcoat roughness becomes about0.09–0.21 with actual probe factor0.65→1.0. Light positions/intensities/exposure and all upper rail/metal material settings stay unchanged; no deck reflector sheet returns.",
     "geometryAudit": "Actual emitted225boards plus42framing/lower-rail prototype geometries checked on the CPU:267unique solids, all finite, positive volume, closed after10micrometre spatial weld, zero nonmanifold edges. No browser or test suite was used for this geometry inspection."
   },
   "foregroundStoneLantern120": {
@@ -100,5 +100,39 @@
     "role": "Actual three-dimensional conifer woodland on the finite ridge terrain; no whole-scene image or reference projection.",
     "loader": "scanned-fir-woodland150.js",
     "noGeometryDecimation": true
+  },
+  "scene02CommonHall154": {
+    "geometry": "Authored common five-bay/six-column bearing grid, seated attic gable on shared centre axis, four joined hip aprons, overlapping closed ceramic units, connected rafter/boarding/purlin solids, deep three-bay portal and sanctuary",
+    "files": [
+      "hall-roof154.js",
+      "hall-entry.js",
+      "hall-carpentry141.js",
+      "architecture.js",
+      "layout117.js"
+    ],
+    "measurement": "Joint bridge/rail/canopy and architecture perspective hypothesis in qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py",
+    "camera": "Original reference camera retained; joint fit recovers it within10mm and0.014degree field of view",
+    "contact": "Original hall stair landing world point retained exactly; existing stair/bank contacts computed from the same hall transformation",
+    "sun": "Sky disc and real directional sunlight share one direction inverse-projected through the retained camera at the measured125,416 reference target",
+    "photographicTexture": false,
+    "visualAccepted": false,
+    "atticRepair": "Closed lapped timber frieze above the portico ceiling and real diagonal hip bearing behind the open interlocking brackets",
+    "skyFill": "Broad courtyard/sky approximation uses1.15intensity without a second hard shadow map; primary directional sun and actual geometry/GTAO contacts retained",
+    "portalRepair": "The measured near outside porch bay is genuinely open; a removed storage lattice no longer blocks the physical sightline to the existing sanctuary and statue"
+  },
+  "scene02MatureBanks155": {
+    "construction": "Closed rear garden soil shoulder connected to the stair bank; mature bent pine scaffolds, individually rooted buttresses and attached fine needle pads on evaluated rear/stair/east soil",
+    "rootContact": "Root centre and each exposed buttress toe sample the same physical soil function as the closed mesh",
+    "species": "Authored mature pine branch/needle geometry; original frozen shrub/periwinkle meshes remain low understory",
+    "bridgeStairContacts": "Useful bridge anchors and original stair top/bottom contact preserved",
+    "visualAccepted": false,
+    "crownRepair": "Bent scaffold stems and main boughs are continuous tapered woody sweeps, with gnarly radial profile and deeper three-dimensional needle pads"
+  },
+  "scene02EvergreenBanks156": {
+    "file": "bank-evergreen156.js",
+    "construction": "Authored woody evergreen crowns with attached fine shoots, closed curved leaf blades, small five-petal terminal flowers, original low scanned understory below",
+    "placement": "Graded rear garden, stair shoulders and east terrace use the actual evaluated terrain function for each root; low crowns sit outside the useful bridge bearing/deck footprint",
+    "photoTexture": false,
+    "visualAccepted": false
   }
 }

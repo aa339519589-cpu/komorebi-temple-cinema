@@ -18,7 +18,7 @@ export async function loadScannedUnderstory146(){
    // no alpha channel; render those existing shapes as opaque, sorted solids.
    material.transparent=false;material.opacity=1;material.depthWrite=true;material.side=T.DoubleSide;material.alphaTest=0;material.roughness=.89;material.metalness=0;
    if(material.normalScale)material.normalScale.set(.65,.65);
-   material.userData.thinLeaf=true;material.userData.provenance=`/assets/polyhaven/${directory}/provenance.json`;
+   material.userData.thinLeaf=true;material.userData.thinLeafTransmission=.45;material.userData.provenance=`/assets/polyhaven/${directory}/provenance.json`;
    for(const k of['map','normalMap','roughnessMap','metalnessMap','aoMap'])if(material[k]){material[k].anisotropy=8;textures.add(material[k]);}
    variants.push({geometry,material,height:geometry.boundingBox.max.y,root:[0,0,0],sourceName:o.name});
   });
