@@ -1,0 +1,405 @@
+{
+  "revision": "scene08-solmax-calibrated-bearing-court147-r17-20261021",
+  "heldSourceHash": "775b3faa6ce3ee8b5f92ce05ae1a99e090d7a6a2d164794d5c8f8194d57c6328",
+  "sourceManifest": "source-manifest.json",
+  "sourceArchive": "scene08-r17-source.tar.gz",
+  "runtimeSource": "reconstructions/scene-08",
+  "provenance": "reconstructions/scene-08/assets/courtyard147-provenance.json",
+  "baselineSourceHash": "26cba87fc7d91a57a2fb66dddec94f117865873b626d6e36afe6a3f617ed94cc",
+  "changedExistingSourceFiles": [
+    "reconstructions/scene-08/asset-dependencies.json",
+    "reconstructions/scene-08/src/gallery-joinery.js",
+    "reconstructions/scene-08/src/main.js",
+    "reconstructions/scene-08/src/scene.js"
+  ],
+  "unchangedOriginalLocalAssets": true,
+  "sameReferenceCamera": true,
+  "captureTool": "tools/render-one-reconstruction.mjs with shared GPU mutex, Metal backend",
+  "allFourJobsSameSource": true,
+  "captures": [
+    {
+      "directory": "qa/ten-reference/08/iteration-scene08-solmax-calibrated-bearing-court-r17-20261021",
+      "report": "qa/ten-reference/08/iteration-scene08-solmax-calibrated-bearing-court-r17-20261021/report.json",
+      "backend": "metal",
+      "sourceHash": "775b3faa6ce3ee8b5f92ce05ae1a99e090d7a6a2d164794d5c8f8194d57c6328",
+      "frames": [
+        {
+          "name": "reference",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": null,
+          "rgbaSha256": "1f0c5fc86c66f9524f3d4f63343f2e58e091d298f566909b19180c7e4edd578b",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "detail-native",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": [
+            180,
+            110,
+            520,
+            1254
+          ],
+          "localTime": null,
+          "rgbaSha256": "11bb1f353b903c2d959d6704aa9f855bd491cfa62aead18ebc885ee26cabc211",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/08/iteration-scene08-solmax-calibrated-garden-r17-20261021",
+      "report": "qa/ten-reference/08/iteration-scene08-solmax-calibrated-garden-r17-20261021/report.json",
+      "backend": "metal",
+      "sourceHash": "775b3faa6ce3ee8b5f92ce05ae1a99e090d7a6a2d164794d5c8f8194d57c6328",
+      "frames": [
+        {
+          "name": "reference",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": null,
+          "rgbaSha256": "1f0c5fc86c66f9524f3d4f63343f2e58e091d298f566909b19180c7e4edd578b",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "detail-native",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": [
+            360,
+            610,
+            560,
+            1254
+          ],
+          "localTime": null,
+          "rgbaSha256": "17c99c6b5737e4b6f738d6989914a0c93d165c48acb749d51e41a986e2c6d6cc",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/08/iteration-scene08-solmax-bearing-oblique-r17-20261021",
+      "report": "qa/ten-reference/08/iteration-scene08-solmax-bearing-oblique-r17-20261021/report.json",
+      "backend": "metal",
+      "sourceHash": "775b3faa6ce3ee8b5f92ce05ae1a99e090d7a6a2d164794d5c8f8194d57c6328",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": null,
+          "rgbaSha256": "75f77c6ac9ea590fda0d478bbf61ed868d80a9de99cb390a8d9ecc2a5b3db63e",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/08/iteration-scene08-solmax-original-path-r17-20261021",
+      "report": "qa/ten-reference/08/iteration-scene08-solmax-original-path-r17-20261021/report.json",
+      "backend": "metal",
+      "sourceHash": "775b3faa6ce3ee8b5f92ce05ae1a99e090d7a6a2d164794d5c8f8194d57c6328",
+      "frames": [
+        {
+          "name": "shot-0",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": 0,
+          "rgbaSha256": "b60a6b461823df7c8477f5f26c30cf58bcb0540e7cf35ddf0fd34dc07d183020",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "shot-3p5",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": 3.5,
+          "rgbaSha256": "358b4bdf94333ac9198c035ce810140b0430289707b8f8dc429ae9e308294a69",
+          "valid": true,
+          "glError": 0
+        },
+        {
+          "name": "shot-7",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "detailCrop": null,
+          "localTime": 7,
+          "rgbaSha256": "1f0c5fc86c66f9524f3d4f63343f2e58e091d298f566909b19180c7e4edd578b",
+          "valid": true,
+          "glError": 0
+        }
+      ]
+    }
+  ],
+  "modelStatistics": {
+    "instances": 1335514,
+    "triangles": 66164840,
+    "botany": {
+      "revision": "scene08-supported-colored-blades147-r15",
+      "shrubs": 0,
+      "groundcover": 149,
+      "scannedBlades": 419400,
+      "bladeVariants": 20,
+      "bladeAttributes": [
+        "position",
+        "normal",
+        "uv",
+        "uv1",
+        "color",
+        "color_1"
+      ],
+      "variants": [
+        {
+          "asset": "shrub-02",
+          "variants": [
+            {
+              "name": "shrub_02_a",
+              "width": 1.8315207611800246,
+              "height": 2.158229440132593
+            },
+            {
+              "name": "shrub_02_b",
+              "width": 2.0632089113281946,
+              "height": 1.9539081294317668
+            },
+            {
+              "name": "shrub_02_c",
+              "width": 2.535989395067265,
+              "height": 2.3815157996350242
+            },
+            {
+              "name": "shrub_02_d",
+              "width": 1.8173407358652882,
+              "height": 1.946683332352773
+            }
+          ]
+        },
+        {
+          "asset": "periwinkle-plant",
+          "variants": [
+            {
+              "name": "periwinkle_plant_04_LOD0",
+              "width": 0.18423788994550705,
+              "height": 0.26496778754335537
+            },
+            {
+              "name": "periwinkle_plant_06_LOD0",
+              "width": 0.10294053331017494,
+              "height": 0.15972968739515636
+            },
+            {
+              "name": "periwinkle_plant_03_LOD0",
+              "width": 0.16746312379837036,
+              "height": 0.3002435565213091
+            },
+            {
+              "name": "periwinkle_plant_02_LOD0",
+              "width": 0.2311365306377411,
+              "height": 0.4107213826205225
+            },
+            {
+              "name": "periwinkle_plant_05_LOD0",
+              "width": 0.14089443162083626,
+              "height": 0.2057981897614809
+            },
+            {
+              "name": "periwinkle_plant_01_LOD0",
+              "width": 0.32074545323848724,
+              "height": 0.3971823533211136
+            }
+          ]
+        }
+      ],
+      "construction": "Connected original scanned green blades with all original vertexRGBA, UV sets and4K PBR maps, on physically modeled woody forks; complete periwinkle plants retained only at soil level.",
+      "referenceSceneImageUsed": false
+    },
+    "scannedStones": {
+      "asset": "Poly Haven Rock Moss Set01 original4K glTF",
+      "license": "CC0-1.0",
+      "count": 27,
+      "variants": [
+        {
+          "name": "rock_moss_set_01_rock01",
+          "width": 3.3688043355941772,
+          "height": 1.4726980924606323
+        },
+        {
+          "name": "rock_moss_set_01_rock02",
+          "width": 3.263720393180847,
+          "height": 1.261991173028946
+        },
+        {
+          "name": "rock_moss_set_01_rock03",
+          "width": 2.108582615852356,
+          "height": 1.0996944606304169
+        },
+        {
+          "name": "rock_moss_set_01_rock04",
+          "width": 2.127629339694977,
+          "height": 1.768319845199585
+        },
+        {
+          "name": "rock_moss_set_01_rock05",
+          "width": 2.9986637830734253,
+          "height": 1.205450713634491
+        },
+        {
+          "name": "rock_moss_set_01_rock06",
+          "width": 2.7573031187057495,
+          "height": 1.2618526816368103
+        }
+      ]
+    },
+    "grandFrame": {
+      "x": -3.954,
+      "z": -8.701,
+      "yaw": -0.28,
+      "w": 9.3,
+      "d": 8.5,
+      "floor": 4.4,
+      "lintel": 8.55,
+      "eave": 10.15,
+      "rise": 3.85
+    },
+    "measuredSky": {
+      "provider": "Poly Haven",
+      "asset": "Kloppenheim06 Pure Sky",
+      "license": "CC0-1.0",
+      "source": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+      "sourceSunDirection": [
+        0.7631947771722822,
+        0.09834987841040348,
+        0.6386399874057445
+      ],
+      "targetSunDirection": [
+        -0.6976744186046512,
+        0.41860465116279066,
+        0.5813953488372093
+      ],
+      "rotation": [
+        -2.334115053091636,
+        -1.2758762660955982,
+        -2.096566096266847,
+        "XYZ"
+      ],
+      "peakLinearLuminance": 33.07556504898071,
+      "meanLinearLuminance": 0.5894732954632208,
+      "environmentIntensity": 0.32,
+      "cameraRadianceGain": 0.55,
+      "worldLocked": true,
+      "photoProjection": false
+    }
+  },
+  "landmarkData": "qa/ten-reference/08/landmark-fit147/landmark-fit.json",
+  "CC0OriginalAssetChecks": [
+    {
+      "file": "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+      "sha256": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+      "sha256": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/shrub-02/shrub_02.bin",
+      "sha256": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+      "sha256": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+      "sha256": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+      "sha256": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+      "sha256": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+      "sha256": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+      "sha256": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+      "sha256": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+      "sha256": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+      "sha256": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+      "sha256": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+      "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "providerSHA256Matches": true
+    },
+    {
+      "file": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+      "sha256": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "providerSHA256Matches": true
+    }
+  ],
+  "visualAccepted": false,
+  "continuousMotionEncodedByThisLane": false,
+  "remainingGaps": [
+    "Some roof/cornice and carving remain broad and regular compared with the reference.",
+    "The bank remains too bare/wide; some scanned stone cut bases and inferred soil contact remain apparent in the oblique inspection.",
+    "Vegetation species, density, maturity, canopy form and dapple differ; no species recovery is claimed.",
+    "Warm/cool response, gilded edge radiance and source depth of field are still approximate.",
+    "Three path snapshots confirm only those poses; continuous final motion is the root integration handoff."
+  ]
+}
