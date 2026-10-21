@@ -1,0 +1,84 @@
+{
+  "use": "Existing verified CC0 PBR timber and scanned stone surfaces/geometry on actual night-temple construction. Reference09 remains comparison-only.",
+  "files": [
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-09/src/process-bridge-roughness.py",
+    "reconstructions/scene-09/assets/granite-tile-04/granite-face-diff.png",
+    "reconstructions/scene-09/assets/granite-tile-04/granite-face-nor_gl.png",
+    "reconstructions/scene-09/assets/granite-tile-04/granite-face-rough.png",
+    "reconstructions/scene-09/assets/granite-tile-04/provenance.json",
+    "reconstructions/scene-09/assets/open-sanctuary143/provenance.json",
+    "reconstructions/scene-09/assets/site-shot144/provenance.json",
+    "reconstructions/scene-09/assets/monumental-night145/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "reconstructions/scene-09/assets/night-sky145/sky-2k.exr",
+    "reconstructions/scene-09/assets/night-sky145/provenance.json",
+    "reconstructions/scene-09/assets/toro09-158/provenance.json",
+    "reconstructions/scene-09/assets/toro09-158/source156-contract.json",
+    "reconstructions/scene-09/assets/toro09-158/shaft-components158.glb"
+  ],
+  "heroHangingLantern": {
+    "source": "reconstructions/scene-09/src/hero-hanging-lantern.js",
+    "provenance": "reconstructions/scene-09/assets/hero-hanging-lantern/provenance.json",
+    "surfaces": "Authored scalar metal roughness/bump; stochastic metric washi tissue103. Original texture-free lamp material layout is retained in the historical76b record.",
+    "scope": "Two foreground lamps at retained anchors/scales; inferred fine casting, unchanged original local light definitions.",
+    "currentUses": [
+      {
+        "anchor": [
+          1,
+          7.2,
+          23.7
+        ],
+        "scale": 0.82,
+        "assemblyScale": 0.7216
+      },
+      {
+        "anchor": [
+          7.7,
+          7.3,
+          21.6
+        ],
+        "scale": 0.96,
+        "assemblyScale": 0.8448
+      }
+    ]
+  },
+  "openSanctuary143": {
+    "provenance": "reconstructions/scene-09/assets/open-sanctuary143/provenance.json",
+    "source": "Original solid scene09 carpentry/portal/roof/pagoda reconstruction; no new image surfaces or third-party dependencies",
+    "camera": "Same low source09 reference camera and shared shot path; floor/pond/near supports retained"
+  },
+  "siteShot144": {
+    "provenance": "reconstructions/scene-09/assets/site-shot144/provenance.json",
+    "geometry": "Closed inferred outer bank, rooted original geometric trees/shrubs and existing declared CC0 rocks; extended actual water surface",
+    "camera": "New low finial-to-court dolly ends at the unchanged reference camera at7seconds"
+  },
+  "monumentalNight145": {
+    "provenance": "reconstructions/scene-09/assets/monumental-night145/provenance.json",
+    "geometry": "Deep solid dou-hijiki carpentry and roof members; recessed mineral infill; original botanical crown volumes",
+    "camera": "Exact R17 site-shot144 maintained"
+  },
+  "stoneToro158": {
+    "provenance": "reconstructions/scene-09/assets/toro09-158/provenance.json",
+    "source": "Japanese Toro by3dlunatic CC BY4.0, exact selected Toro156 weathered shaft/foot/niche parts; original source09 square chamber/cap and physical mineral root bed",
+    "reference": "Reference09 comparison only; unchanged camera, anchor, bank/stair/contact modules",
+    "lighting": "Existing7.2intensity practical moved inside new chamber; shadows cast by actual geometry; no new lights"
+  }
+}

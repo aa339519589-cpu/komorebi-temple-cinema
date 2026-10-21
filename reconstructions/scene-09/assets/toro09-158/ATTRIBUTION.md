@@ -1,0 +1,9 @@
+# Scene09 Tōrō158 attribution
+
+The weathered shaft, foot, collar and attached niche components are derived from **[Japanese Toro](https://sketchfab.com/3d-models/japanese-toro-3b03ece9c7b64a188e1139673cec4a38)** by **[3dlunatic](https://sketchfab.com/3dlunatic)**, licensed under **[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)**. The original was obtained in the project's Tōrō156 study through Sketchfab/public Objaverse. The parent asset's original identity and modifications are retained in `source156-contract.json`.
+
+The Scene09 extractor copies selected original Tōrō156 GLB attribute/index views and node transforms into `shaft-components158.glb`; the parent six-sided chamber, cap, lotus receiver and other donor silhouette are excluded. The exact source SHA-256, selected components and extraction result are in `provenance.json`. Runtime further scales the shaft/foot, supplies metre-based UVs and age colours, adds small solid mineral grains sampled across actual surfaces, and builds a new Scene09-specific square chamber, four-corner cap, mullions, inset paper, finial and actual moss fibres. The source photograph is comparison-only.
+
+Unchanged RGB, normal and roughness pixels from **[Granite Tile 04](https://polyhaven.com/a/granite_tile_04)** by **Amal Kumar / Poly Haven**, **CC0**, provide the mineral aggregate surface. Existing verified Scene09 `rock_moss_set_01` by **Kless Gyzen / Poly Haven**, **CC0**, provides the seated natural rock geometry and surfaces. Their existing provenance files retain original download identities.
+
+Local soil volumes, angular grit, ferns, four-sided lantern head and weathering selection fields are original project-authored geometry. No supplied temple-scene photograph, generated replacement frame or depth projection enters the scene.

@@ -1,0 +1,752 @@
+{
+  "revision": "scene09-square-stone-lantern158-r02",
+  "source": {
+    "title": "Japanese Toro",
+    "author": "3dlunatic",
+    "authorProfile": "https://sketchfab.com/3dlunatic",
+    "license": "CC-BY-4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "originalModel": "https://sketchfab.com/3d-models/japanese-toro-3b03ece9c7b64a188e1139673cec4a38",
+    "originalGLBSha256": "e3d499aac1d5781c8a68bbf86e306a172d3794273c8f89b5fc83b513dade8d91",
+    "originalGLBBytesPreserved": true,
+    "contribution": "Local 3D weathering residuals sampled from the licensed shaft surface only. Donor whole silhouette, macro shaft envelope, roof, fire chamber and captured ground are excluded. Missing-scan regions interpolate nearby captured samples; residuals are clamped to \u00b112 mm and applied to a new target-controlled square profile.",
+    "attribution": "Japanese Toro by 3dlunatic, CC BY 4.0, via Sketchfab and public Objaverse; modified in the temple-cinema T\u014dr\u014d156 study. New roof/frame/lattice/stonework and further edits are documented in r05/report.json."
+  },
+  "parentHybridAsset": {
+    "path": "reconstructions/scene-07/assets/toro156/r05/toro156.glb",
+    "sha256": "076f56d4580f08d63f4407db3fda24a41c5a5411b050fbd7f2a7513c3893b2d2"
+  },
+  "selectedComponents": [
+    {
+      "originalNode": 96,
+      "name": "Broad irregular square foot.001",
+      "originalMesh": 96,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 295,
+          "NORMAL": 296,
+          "TEXCOORD_0": 297,
+          "COLOR_0": 298
+        },
+        "indices": 299,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 97,
+      "name": "Captured weathered shaft:3dlunatic CC-BY4.001",
+      "originalMesh": 97,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 300,
+          "NORMAL": 301,
+          "TEXCOORD_0": 302,
+          "COLOR_0": 303
+        },
+        "indices": 304,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 110,
+      "name": "Carved lotus stem.004",
+      "originalMesh": 110,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 365,
+          "NORMAL": 366,
+          "TEXCOORD_0": 367,
+          "COLOR_0": 368
+        },
+        "indices": 369,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 111,
+      "name": "Carved lotus stem.005",
+      "originalMesh": 111,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 370,
+          "NORMAL": 371,
+          "TEXCOORD_0": 372,
+          "COLOR_0": 373
+        },
+        "indices": 374,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 112,
+      "name": "Carved lotus stem.006",
+      "originalMesh": 112,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 375,
+          "NORMAL": 376,
+          "TEXCOORD_0": 377,
+          "COLOR_0": 378
+        },
+        "indices": 379,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 113,
+      "name": "Carved lotus stem.007",
+      "originalMesh": 113,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 380,
+          "NORMAL": 381,
+          "TEXCOORD_0": 382,
+          "COLOR_0": 383
+        },
+        "indices": 384,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 114,
+      "name": "Carved lower lotus leaf.008",
+      "originalMesh": 114,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 385,
+          "NORMAL": 386,
+          "TEXCOORD_0": 387,
+          "COLOR_0": 388
+        },
+        "indices": 389,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 115,
+      "name": "Carved lower lotus leaf.009",
+      "originalMesh": 115,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 390,
+          "NORMAL": 391,
+          "TEXCOORD_0": 392,
+          "COLOR_0": 393
+        },
+        "indices": 394,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 116,
+      "name": "Carved lower lotus leaf.010",
+      "originalMesh": 116,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 395,
+          "NORMAL": 396,
+          "TEXCOORD_0": 397,
+          "COLOR_0": 398
+        },
+        "indices": 399,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 117,
+      "name": "Carved lower lotus leaf.011",
+      "originalMesh": 117,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 400,
+          "NORMAL": 401,
+          "TEXCOORD_0": 402,
+          "COLOR_0": 403
+        },
+        "indices": 404,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 118,
+      "name": "Carved lower lotus leaf.012",
+      "originalMesh": 118,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 405,
+          "NORMAL": 406,
+          "TEXCOORD_0": 407,
+          "COLOR_0": 408
+        },
+        "indices": 409,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 119,
+      "name": "Carved lower lotus leaf.013",
+      "originalMesh": 119,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 410,
+          "NORMAL": 411,
+          "TEXCOORD_0": 412,
+          "COLOR_0": 413
+        },
+        "indices": 414,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 120,
+      "name": "Carved lower lotus leaf.014",
+      "originalMesh": 120,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 415,
+          "NORMAL": 416,
+          "TEXCOORD_0": 417,
+          "COLOR_0": 418
+        },
+        "indices": 419,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 121,
+      "name": "Carved lower lotus leaf.015",
+      "originalMesh": 121,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 420,
+          "NORMAL": 421,
+          "TEXCOORD_0": 422,
+          "COLOR_0": 423
+        },
+        "indices": 424,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 236,
+      "name": "Chiselled plinth shoulder.001",
+      "originalMesh": 236,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 943,
+          "NORMAL": 944,
+          "TEXCOORD_0": 945,
+          "COLOR_0": 946
+        },
+        "indices": 947,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 291,
+      "name": "Shaft lower seated collar.001",
+      "originalMesh": 291,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1175,
+          "NORMAL": 1176,
+          "TEXCOORD_0": 1177,
+          "COLOR_0": 1178
+        },
+        "indices": 1179,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 355,
+      "name": "Worn carved lotus petal.032",
+      "originalMesh": 355,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1417,
+          "NORMAL": 1418,
+          "TEXCOORD_0": 1419,
+          "COLOR_0": 1420
+        },
+        "indices": 1421,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 356,
+      "name": "Worn carved lotus petal.033",
+      "originalMesh": 356,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1422,
+          "NORMAL": 1423,
+          "TEXCOORD_0": 1424,
+          "COLOR_0": 1425
+        },
+        "indices": 1426,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 357,
+      "name": "Worn carved lotus petal.034",
+      "originalMesh": 357,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1427,
+          "NORMAL": 1428,
+          "TEXCOORD_0": 1429,
+          "COLOR_0": 1430
+        },
+        "indices": 1431,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 358,
+      "name": "Worn carved lotus petal.035",
+      "originalMesh": 358,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1432,
+          "NORMAL": 1433,
+          "TEXCOORD_0": 1434,
+          "COLOR_0": 1435
+        },
+        "indices": 1436,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 359,
+      "name": "Worn carved lotus petal.036",
+      "originalMesh": 359,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1437,
+          "NORMAL": 1438,
+          "TEXCOORD_0": 1439,
+          "COLOR_0": 1440
+        },
+        "indices": 1441,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 360,
+      "name": "Worn carved lotus petal.037",
+      "originalMesh": 360,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1442,
+          "NORMAL": 1443,
+          "TEXCOORD_0": 1444,
+          "COLOR_0": 1445
+        },
+        "indices": 1446,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 361,
+      "name": "Worn carved lotus petal.038",
+      "originalMesh": 361,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1447,
+          "NORMAL": 1448,
+          "TEXCOORD_0": 1449,
+          "COLOR_0": 1450
+        },
+        "indices": 1451,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 362,
+      "name": "Worn carved lotus petal.039",
+      "originalMesh": 362,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1452,
+          "NORMAL": 1453,
+          "TEXCOORD_0": 1454,
+          "COLOR_0": 1455
+        },
+        "indices": 1456,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 363,
+      "name": "Worn carved lotus petal.040",
+      "originalMesh": 363,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1457,
+          "NORMAL": 1458,
+          "TEXCOORD_0": 1459,
+          "COLOR_0": 1460
+        },
+        "indices": 1461,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 364,
+      "name": "Worn carved lotus petal.041",
+      "originalMesh": 364,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1462,
+          "NORMAL": 1463,
+          "TEXCOORD_0": 1464,
+          "COLOR_0": 1465
+        },
+        "indices": 1466,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 365,
+      "name": "Worn carved lotus petal.042",
+      "originalMesh": 365,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1467,
+          "NORMAL": 1468,
+          "TEXCOORD_0": 1469,
+          "COLOR_0": 1470
+        },
+        "indices": 1471,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 366,
+      "name": "Worn carved lotus petal.043",
+      "originalMesh": 366,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1472,
+          "NORMAL": 1473,
+          "TEXCOORD_0": 1474,
+          "COLOR_0": 1475
+        },
+        "indices": 1476,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 367,
+      "name": "Worn carved lotus petal.044",
+      "originalMesh": 367,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1477,
+          "NORMAL": 1478,
+          "TEXCOORD_0": 1479,
+          "COLOR_0": 1480
+        },
+        "indices": 1481,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 368,
+      "name": "Worn carved lotus petal.045",
+      "originalMesh": 368,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1482,
+          "NORMAL": 1483,
+          "TEXCOORD_0": 1484,
+          "COLOR_0": 1485
+        },
+        "indices": 1486,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 369,
+      "name": "Worn carved lotus petal.046",
+      "originalMesh": 369,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1487,
+          "NORMAL": 1488,
+          "TEXCOORD_0": 1489,
+          "COLOR_0": 1490
+        },
+        "indices": 1491,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 370,
+      "name": "Worn carved lotus petal.047",
+      "originalMesh": 370,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1492,
+          "NORMAL": 1493,
+          "TEXCOORD_0": 1494,
+          "COLOR_0": 1495
+        },
+        "indices": 1496,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 371,
+      "name": "Worn carved lotus petal.048",
+      "originalMesh": 371,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1497,
+          "NORMAL": 1498,
+          "TEXCOORD_0": 1499,
+          "COLOR_0": 1500
+        },
+        "indices": 1501,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 372,
+      "name": "Worn carved lotus petal.049",
+      "originalMesh": 372,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1502,
+          "NORMAL": 1503,
+          "TEXCOORD_0": 1504,
+          "COLOR_0": 1505
+        },
+        "indices": 1506,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 373,
+      "name": "Worn carved lotus petal.050",
+      "originalMesh": 373,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1507,
+          "NORMAL": 1508,
+          "TEXCOORD_0": 1509,
+          "COLOR_0": 1510
+        },
+        "indices": 1511,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 374,
+      "name": "Worn carved lotus petal.051",
+      "originalMesh": 374,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1512,
+          "NORMAL": 1513,
+          "TEXCOORD_0": 1514,
+          "COLOR_0": 1515
+        },
+        "indices": 1516,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 375,
+      "name": "Worn carved lotus petal.052",
+      "originalMesh": 375,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1517,
+          "NORMAL": 1518,
+          "TEXCOORD_0": 1519,
+          "COLOR_0": 1520
+        },
+        "indices": 1521,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 376,
+      "name": "Worn carved lotus petal.053",
+      "originalMesh": 376,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1522,
+          "NORMAL": 1523,
+          "TEXCOORD_0": 1524,
+          "COLOR_0": 1525
+        },
+        "indices": 1526,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 377,
+      "name": "Worn carved lotus petal.054",
+      "originalMesh": 377,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1527,
+          "NORMAL": 1528,
+          "TEXCOORD_0": 1529,
+          "COLOR_0": 1530
+        },
+        "indices": 1511,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 378,
+      "name": "Worn carved lotus petal.055",
+      "originalMesh": 378,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1531,
+          "NORMAL": 1532,
+          "TEXCOORD_0": 1533,
+          "COLOR_0": 1534
+        },
+        "indices": 1535,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 379,
+      "name": "Worn carved lotus petal.056",
+      "originalMesh": 379,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1536,
+          "NORMAL": 1537,
+          "TEXCOORD_0": 1538,
+          "COLOR_0": 1539
+        },
+        "indices": 1540,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 380,
+      "name": "Worn carved lotus petal.057",
+      "originalMesh": 380,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1541,
+          "NORMAL": 1542,
+          "TEXCOORD_0": 1543,
+          "COLOR_0": 1544
+        },
+        "indices": 1545,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 381,
+      "name": "Worn carved lotus petal.058",
+      "originalMesh": 381,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1546,
+          "NORMAL": 1547,
+          "TEXCOORD_0": 1548,
+          "COLOR_0": 1549
+        },
+        "indices": 1550,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 382,
+      "name": "Worn carved lotus petal.059",
+      "originalMesh": 382,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1551,
+          "NORMAL": 1552,
+          "TEXCOORD_0": 1553,
+          "COLOR_0": 1554
+        },
+        "indices": 1555,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 383,
+      "name": "Worn carved lotus petal.060",
+      "originalMesh": 383,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1556,
+          "NORMAL": 1557,
+          "TEXCOORD_0": 1558,
+          "COLOR_0": 1559
+        },
+        "indices": 1560,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 384,
+      "name": "Worn carved lotus petal.061",
+      "originalMesh": 384,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1561,
+          "NORMAL": 1562,
+          "TEXCOORD_0": 1563,
+          "COLOR_0": 1564
+        },
+        "indices": 1545,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 385,
+      "name": "Worn carved lotus petal.062",
+      "originalMesh": 385,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1565,
+          "NORMAL": 1566,
+          "TEXCOORD_0": 1567,
+          "COLOR_0": 1568
+        },
+        "indices": 1569,
+        "material": 1
+      }
+    },
+    {
+      "originalNode": 386,
+      "name": "Worn carved lotus petal.063",
+      "originalMesh": 386,
+      "copiedAccessors": {
+        "attributes": {
+          "POSITION": 1570,
+          "NORMAL": 1571,
+          "TEXCOORD_0": 1572,
+          "COLOR_0": 1573
+        },
+        "indices": 1574,
+        "material": 1
+      }
+    }
+  ],
+  "componentGLB": {
+    "file": "shaft-components158.glb",
+    "bytes": 2929272,
+    "sha256": "b0d2dc3ca942cc86d7593c2b8baa081b5a5e2abf1157074848efed7d9aa1fccb"
+  },
+  "changes": "Exact source attribute/index buffer views and source node transforms retained for shaft, foot, collars and attached niche relief. Runtime adds reference09-controlled square hollow chamber, four-corner cap, mullions, real moss and rooted substrate. Source07 six-sided roof/chamber/lotus receiver excluded.",
+  "maps": "Existing declared Scene09 CC0 Granite Tile04 RGB/normal/roughness files unchanged, sampled in metres.",
+  "referenceUse": "Reference09 is comparison-only; no reference RGB, image displacement, depth card or replacement frame.",
+  "visualAccepted": false,
+  "runtimeDerivativeEdits": "Shaft/niche geometry scaled XZ0.90 and Y1.60; foot XZ0.80. New world-metric granite UVs and material age colours. Actual thin closed granular mineral-rind prisms are selected from fine shaft/roof triangles by a deterministic3D field. New square chamber shortened after R01 native comparison. Two primary lamps use new heads; secondary lanterns retain historical assemblies.",
+  "substrate": "Two nearby flat green procedural mounds replaced by existing declared CC0 textured rock geometry, raycast-seated fern roots and solid angular detritus. Original terrain/bank/stair/camera modules unchanged."
+}

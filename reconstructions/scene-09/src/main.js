@@ -9,6 +9,8 @@ import {buildSitePerimeter144} from './site-perimeter144.js';
 import {installNightFinishes145} from './night-finishes145.js';
 import {createRootedGarden145} from './rooted-garden145.js';
 import {createNightSky145} from './night-sky145.js';
+import {createSquareStoneLantern158} from './square-stone-lantern158.js';
+import {buildLanternSubstrate158,createNaturalBanks158} from './lantern-substrate158.js';
 import {buildPhysicalRoof as buildMainRoof123} from './night-main-roofs123.js';
 import {createDollyPath} from '/reconstructions/camera-dolly.js';
 import * as T from 'three';
@@ -86,15 +88,16 @@ function mainRoof123(spec){
 function lattice(x,y,z,w,h,bright=true,paperMaterial=M.windowPaper){box(x,y,z,w,h,.10,M.dark);if(bright)box(x,y,z+.061,w*.9,h*.9,.014,paperMaterial);for(let i=0;i<=8;i++)box(x-w/2+i*w/8,y,z+.09,.035,h,.045,M.wood);for(let j=0;j<=10;j++)box(x,y-h/2+j*h/10,z+.10,w,.027,.045,M.bronze);}
 installNightPaper(M,materials,textures);
 const fixtures=createPhysicalFixtures(M,scannedNight),fixtureLights=[];
-function fixtureLight(x,y,z,intensity,dist){
+function fixtureLight(x,y,z,intensity,dist,options={}){
  const scale=new T.Vector3().setFromMatrixScale(stack.at(-1)).x,world=V([x,y,z]).applyMatrix4(stack.at(-1)),nearVeranda=world.y>6&&world.z>15,gain=nearVeranda?1:2;
  // A light's useful radius is not a physical extinction wall. Retain actual
  // inverse-square falloff so existing overhead lanterns can reach the paving.
  const l=new T.PointLight(0xffb35f,intensity*scale*scale*gain,0,2);l.name='scene09-inverse-square-modeled-lantern';l.position.copy(world);
  if(nearVeranda){l.castShadow=true;l.shadow.mapSize.set(512,512);l.shadow.camera.near=.12;l.shadow.camera.far=55;l.shadow.bias=-.000035;l.shadow.normalBias=.015;}
- if(!nearVeranda&&world.z> -14&&world.z< -4&&world.y>5&&world.y<8&&intensity>10&&fixtureLights.filter(q=>q.userData.hallShadow145).length<3){
+ if(!nearVeranda&&world.z> -14&&world.z< -4&&world.y>5&&world.y<8&&intensity>10&&fixtureLights.filter(q=>q.userData.hallShadow145).length<2){
   l.shadow.radius=2.8;l.userData.hallShadow145=true;l.name='scene09-shadowed-hall-lantern145';l.castShadow=true;l.shadow.mapSize.set(512,512);l.shadow.camera.near=.10;l.shadow.camera.far=35;l.shadow.bias=-.000035;l.shadow.normalBias=.012;
  }
+ if(options.stoneHero158){l.castShadow=true;l.name='scene09-toro158-existing-practical-shadow';l.shadow.mapSize.set(768,768);l.shadow.camera.near=.06;l.shadow.camera.far=24;l.shadow.bias=-.000025;l.shadow.normalBias=.008;l.shadow.radius=2.2;}
  scene.add(l);fixtureLights.push(l);
 }
 const fixtureApi={group,emit,box,between,light:fixtureLight};
@@ -124,8 +127,9 @@ M.bridgeDeck=M.wood.clone();M.bridgeDeck.color.setRGB(3.7,3.6,2.7);M.bridgeDeck.
 const bridgeCoating=await installBridgeCoating(M,materials,textures);M.bridgeBent139=M.bridgeTimber.clone();M.bridgeBent139.name="scene09-dark-damp-bent139";M.bridgeBent139.color.setRGB(.18,.20,.23);materials.push(M.bridgeBent139);M.bridgeGirder139=M.bridgeTimber.clone();M.bridgeGirder139.name="scene09-dark-weathered-structural-girders139";M.bridgeGirder139.color.setRGB(1.05,1.12,1.20);materials.push(M.bridgeGirder139);
 group(-.6,0,0,0,()=>buildArchedGardenBridge({emit,box,between,lantern,materials:M}),[.72,1,1]);point(-.6,1.2,1.6,4,5);
 const route133=await buildCirculation133({emit,box,between,group,materials:M,scans:scannedNight,ownedMaterials:materials,ownedTextures:textures});
-// Garden stone lanterns are solid granite supports with emissive chambers, tiled lids and lattice.
-function stoneLantern(x,z,s=1){const ground=Math.max(0,M.bankHeight139?.(x,z)??0),size=s*Math.max(.40,1-ground/(4.06*s));group(0,ground,0,0,()=>fixtures.stoneLantern(fixtureApi,x,z,size));}
+const lantern158=await createSquareStoneLantern158({materials:M,ownedMaterials:materials,ownedTextures:textures}),naturalBanks158=createNaturalBanks158({emit,materials:M,scans:scannedNight,ownedMaterials:materials});
+// Source09 square chamber/head on exact preserved world anchors and soil roots.
+function stoneLantern(x,z,s=1){const ground=Math.max(0,M.bankHeight139?.(x,z)??0),size=s*Math.max(.40,1-ground/(4.06*s));group(0,ground,0,0,()=>((x===-6.8&&z===8)||(x===12.2&&z===8))?lantern158.build(fixtureApi,x,z,size,x===-6.8&&z===8):fixtures.stoneLantern(fixtureApi,x,z,size));}
 for(const [x,z,s] of[[-6.8,8,1.08],[-3,5,.67],[-1,10,.60],[7.5,4,.75],[12.2,8,1.00],[9,-2,.70],[19,-6,.8],[-11,-6,.75],[4,-1,.5],[-3,-4,.52],[-8,14,.6]]){stoneLantern(x,z,s);}
 // Smaller lamps sit inside irregular bank pockets, extending warm points along
 // the planted edge without turning the shoreline into a repeated lamp row.
@@ -139,14 +143,20 @@ function boulder(x,y,z,s=1){const i=Math.floor(rand()*naturalRocks.length),rot=[
 for(const cx of[-6.0,5.0])for(let j=0;j<16;j++){const a=j*2.399,r=.25+rand()*.7;boulder(cx+Math.cos(a)*r,.1+rand()*.25,1.7+Math.sin(a)*1.9,.45+rand()*.43);}
 for(let j=0;j<18;j++){const cx=j<9?-6.0:5.0,a=j*2.399;boulder(cx+Math.cos(a)*(.25+(j%3)*.1),.2+rand()*.24,2.08+Math.sin(a)*.6,.44+rand()*.24);}for(const side of[-1,1])for(let j=0;j<12;j++)boulder(5.1-j*.275+side*.96,.15+rand()*.25,1.5-j*.6-side*.44,.45+rand()*.2);
 
-function mound(x,z,r=2,y=.3){emit(naturalRocks[Math.floor(rand()*4)],M.moss,x,y,z,r,.45+r*.1,r*.8,rand()*6.28,.65);for(let i=0;i<9;i++){const a=i/9*Math.PI*2;boulder(x+Math.cos(a)*r*.82,.05,z+Math.sin(a)*r*.68,.40+rand()*.35);}shrub(x,y+.4,z,r*.80);for(let i=0;i<4;i++){const a=i*2.399;shrub(x+Math.cos(a)*r*.62,y+.25,z+Math.sin(a)*r*.5,r*.48);}}
+function mound(x,z,r=2,y=.3){
+ const index=Math.floor(rand()*4),yaw=rand()*6.28,local=(x===-4&&z===12)||(x===-6&&z===6),bank=local?naturalBanks158.build(x,z,r,index,yaw):null;
+ if(!local)emit(naturalRocks[index],M.moss,x,y,z,r,.45+r*.1,r*.8,yaw,.65);
+ for(let i=0;i<9;i++){const a=local?i*2.399:i/9*Math.PI*2,spread=local?.42+.47*(.5+.5*Math.sin(i*7.31+x)):.82,px=x+Math.cos(a)*r*spread,pz=z+Math.sin(a)*r*(local?spread*.83:.68);boulder(px,local?bank.surface(px,pz)+.15:.05,pz,.40+rand()*.35);}
+ shrub(x,local?bank.surface(x,z)+.10:y+.4,z,r*.80,1,local?.82:1);
+ for(let i=0;i<4;i++){const a=i*2.399,px=x+Math.cos(a)*r*.62,pz=z+Math.sin(a)*r*.5;shrub(px,local?bank.surface(px,pz)+.10:y+.25,pz,r*.48,1,local?.84:1);}
+}
 const rootedGarden145=await createRootedGarden145({emit,between,materials:botany.materials,ownedMaterials:materials,ownedTextures:textures});
-function shrub(x,y,z,r=1,height=1){
+function shrub(x,y,z,r=1,height=1,formScale=1){
  const formerCount=Math.max(90,Math.round(800*r)),rootSeed=seed;
  // Preserve every subsequent R17 placement: the old routine consumed exactly
  //24+9N draws. The new branching layout has an independent local RNG.
  for(let i=0;i<24+9*formerCount;i++)rand();
- rootedGarden145.shrub(x,y,z,r,height,rootSeed);
+ rootedGarden145.shrub(x,y,z,r*formScale,height,rootSeed);
 }
 for(let side of[-1,1]){for(let i=0;i<78;i++){let z=-10+rand()*31,x=side*(11.5+Math.sin(z*.20)*1.7+rand()*5.5),s=.45+rand()*1.1;boulder(x,.1,z,s);if(i%2===0)shrub(x,.5,z,.7+rand()*1.3);}for(let i=0;i<16;i++){let z=-7+rand()*23,x=side*(9.4+Math.sin(z*.24)*1.8);boulder(x,0,z,.6+rand()*.9);shrub(x,.4,z,.7+rand()*.7);}}
 // Islands behind the bridge visually connect its piers with both buildings.
@@ -185,6 +195,7 @@ between([4.1,9.34,30.2],[4.6,9.34,34.4],.25,.30,M.wood);
 lantern(4.6,7.0,34.4,.68,true);
 for(let y=8.0;y<9.34;y+=.10)emit(chainLink,M.lanternMetal,4.6,y,34.4,1,1,1,[0,Math.round(y*10)%2*Math.PI/2,0]);
 const pineCards=createPineNeedleTuft(),pineNeedleMaterial=material(0x344b25,.79);const pines=[];for(const [x,z,scale,id,n]of[[-7,-3,1.4,'east-island-existing-pine',9201],[13,-1,1.5,'west-island-existing-pine',9202],[-7,6,1.0,'east-island-existing-pine',9203],[-15,-10.0,1.15,'scene09-pagoda-bank-pine139a',9231],[-7,-8.2,1.0,'scene09-pagoda-bank-pine139b',9232]]){const pine=buildRestorationPrunedPine({materials:{...botany.materials,needleGreen:pineNeedleMaterial},needleGeometry:pineCards,options:{id,seed:n}});pine.group.position.set(x,id.startsWith('scene09-pagoda-bank')?towerBank139.height(x,z):.2,z);pine.group.scale.setScalar(scale);scene.add(pine.group);pines.push(pine);}
+const substrate158=buildLanternSubstrate158({emit,materials:M,scans:scannedNight,ownedMaterials:materials});
 // A real offscreen reflected scene, mildly rippled in projective coordinates. No photographic projection.
 const waterShader={name:'scene09-ripple-broken-amber-planar-water',uniforms:{color:{value:new T.Color(0x050d11)},tDiffuse:{value:null},textureMatrix:{value:new T.Matrix4()},time:{value:0}},vertexShader:`uniform mat4 textureMatrix;varying vec4 vUv;varying vec3 vWorld;void main(){vUv=textureMatrix*vec4(position,1.);vWorld=(modelMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:`uniform sampler2D tDiffuse;uniform vec3 color;uniform float time;varying vec4 vUv;varying vec3 vWorld;void main(){vec2 uv=vUv.xy/vUv.w;float along=sin(vWorld.z*1.35+sin(vWorld.x*.24)*1.8+time*.17)*.0048+sin(vWorld.z*5.2-vWorld.x*.62+time*.30)*.0010+sin(vWorld.z*14.5+vWorld.x*2.7-time*.36)*.00030;float cross=sin(vWorld.x*1.4+vWorld.z*.38-time*.19)*.0017+sin(vWorld.z*7.7-vWorld.x*3.9)*.00035;uv+=vec2(cross,along);vec3 c=vec3(0.),streak=vec3(0.);float total=0.;for(int j=-4;j<=4;j++){float f=float(j),weight=1.-abs(f)*.085;float chop=sin(vWorld.x*1.1+vWorld.z*.62+f*1.7+time*.08)*.0016;vec2 tap=uv+vec2(sin(vWorld.x*1.9+vWorld.z*.27+f*2.13)*.0018,f*.0019+chop);vec3 q=texture2D(tDiffuse,tap).rgb;c+=q*weight;total+=weight;float bright=smoothstep(.025,.20,dot(q,vec3(.2126,.7152,.0722)));float warm=smoothstep(.005,.09,q.r-q.b*.60);streak+=q*bright*warm*weight;}c/=total;streak/=total;float luminance=dot(c,vec3(.2126,.7152,.0722));float reflection=smoothstep(.035,.24,luminance);float stripes=.87+.13*pow(.5+.5*sin(vWorld.z*32.+sin(vWorld.x*2.3+vWorld.z*.4)*2.1),2.);float nDotV=clamp(abs(normalize(cameraPosition-vWorld).y),0.,1.);float fresnel=.020+.980*pow(1.-nDotV,5.);vec3 water=color*.30+c*(.18+.82*fresnel)+streak*.35;water*=stripes;gl_FragColor=vec4(water,1.);
 #include <tonemapping_fragment>\n#include <colorspace_fragment>}`};
@@ -263,6 +274,6 @@ function renderReference(n=9){if(n!==9)throw new RangeError('Scene 09 only');set
 function renderView(position,target,time=0,fov=52){setCamera(position,target,fov);return draw(time);}
 const dolly=createDollyPath({...SCENE09_SHOT144,farTarget:REFERENCE.target,fov:REFERENCE.fov});
 function renderShot(localTime=0){if(localTime===-133)return renderView([15,9,9],[3.5,2,-4.5],0,58);if(localTime===-1330)return renderReference();const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-function info(){return{reference:9,revision:'scene09-monumental-interlocked-night145-r05',nightSky145:nightSky145.info,finishes145,rootedGarden145:rootedGarden145.revision,sitePerimeter144:site144.info,shot144:SCENE09_SHOT144,pondSurface144:{height:-.02,oldInnerBounds:{x:[-26,26],z:[-19.5,35.5]},extendedBounds:{x:[-37,53],z:[-38,46]},sameSurfaceShader:true},circulation:route133,hallFrame139:hall139Info,pagodaBank139:towerBank139.info,mainRoof123:roof123Audits,foregroundVeranda:{slabs:verandaSlabCount,footprint:verandaDeckPolygon,pondWaterlineWorld:VERANDA_WATERLINE139,copingStones:coping139,occupiedFloorUnderCamera:true,foundationBottomY:-.28,wetReflection:true,surface:'Closed metric granite slabs, 25mm riven cap grid, separate cut-edge normals; IOR 1.333 view-dependent actual scene reflection',lightFalloff:'Existing modeled lanterns use inverse-square decay without distance cutoff; fixed shadow maps for near veranda lamps'},width:W,height:H,frames,instances,meshes:buckets.size,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:{position:camera.position.toArray(),fov:camera.fov},diagnostics:{shaderErrors:errors,glError:gl.getError(),maxTextureUnits:renderer.capabilities.maxTextures,shadowCastingLights:scene.children.filter(o=>o.isLight&&o.castShadow).length,pointLights:scene.children.filter(x=>x.isPointLight).length},reflectionEnvironment:{actualSceneCapture:!!envTarget,position:[1.5,4.1,4.0],resolution:128,scope:'Static local courtyard probe; planar water and veranda use independent scene reflection captures.'},fixtureRevision:NIGHT_FIXTURE_REVISION,heroHangingLantern:heroHangingLantern.info,pagodaFinial,bridgeCoating,scannedMaterials:scannedNight.info,fixtureLocalLights:fixtureLights.length,constraints:{assets:'Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture',animation:'explicit renderShot only; no RAF'}};}
+function info(){return{reference:9,revision:'scene09-square-hero-toro158-r04',stoneLantern158:lantern158.info,substrate158,naturalBanks158:naturalBanks158.records,nightSky145:nightSky145.info,finishes145,rootedGarden145:rootedGarden145.revision,sitePerimeter144:site144.info,shot144:SCENE09_SHOT144,pondSurface144:{height:-.02,oldInnerBounds:{x:[-26,26],z:[-19.5,35.5]},extendedBounds:{x:[-37,53],z:[-38,46]},sameSurfaceShader:true},circulation:route133,hallFrame139:hall139Info,pagodaBank139:towerBank139.info,mainRoof123:roof123Audits,foregroundVeranda:{slabs:verandaSlabCount,footprint:verandaDeckPolygon,pondWaterlineWorld:VERANDA_WATERLINE139,copingStones:coping139,occupiedFloorUnderCamera:true,foundationBottomY:-.28,wetReflection:true,surface:'Closed metric granite slabs, 25mm riven cap grid, separate cut-edge normals; IOR 1.333 view-dependent actual scene reflection',lightFalloff:'Existing modeled lanterns use inverse-square decay without distance cutoff; fixed shadow maps for near veranda lamps'},width:W,height:H,frames,instances,meshes:buckets.size,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:{position:camera.position.toArray(),fov:camera.fov},diagnostics:{shaderErrors:errors,glError:gl.getError(),maxTextureUnits:renderer.capabilities.maxTextures,shadowCastingLights:scene.children.filter(o=>o.isLight&&o.castShadow).length,pointLights:scene.children.filter(x=>x.isPointLight).length},reflectionEnvironment:{actualSceneCapture:!!envTarget,position:[1.5,4.1,4.0],resolution:128,scope:'Static local courtyard probe; planar water and veranda use independent scene reflection captures.'},fixtureRevision:NIGHT_FIXTURE_REVISION,heroHangingLantern:heroHangingLantern.info,pagodaFinial,bridgeCoating,scannedMaterials:scannedNight.info,fixtureLocalLights:fixtureLights.length,constraints:{assets:'Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture',animation:'explicit renderShot only; no RAF'}};}
 function dispose(){composer.dispose();contactAO.dispose();bloom.dispose();for(const p of pines)p.dispose();for(const object of extras)object.traverse(o=>{if(o.isMesh)o.geometry.dispose();});pineCards.dispose();envTarget?.dispose();water.dispose();wetVeranda.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();sky.geometry.dispose();skyMat.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};window.templeDiagnostics={snapshot:()=>info().diagnostics};if(!Q.has('defer'))renderReference(9);

@@ -1,0 +1,136 @@
+{
+  "format": "temple-toro156-geometry-v1",
+  "revision": "r05-weathered-reference-profile",
+  "visualAccepted": false,
+  "glb": {
+    "file": "r05/toro156.glb",
+    "sha256": "076f56d4580f08d63f4407db3fda24a41c5a5411b050fbd7f2a7513c3893b2d2",
+    "bytes": 15551500
+  },
+  "source": {
+    "title": "Japanese Toro",
+    "author": "3dlunatic",
+    "authorProfile": "https://sketchfab.com/3dlunatic",
+    "license": "CC-BY-4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "originalModel": "https://sketchfab.com/3d-models/japanese-toro-3b03ece9c7b64a188e1139673cec4a38",
+    "originalGLBSha256": "e3d499aac1d5781c8a68bbf86e306a172d3794273c8f89b5fc83b513dade8d91",
+    "originalGLBBytesPreserved": true,
+    "contribution": "Local 3D weathering residuals sampled from the licensed shaft surface only. Donor whole silhouette, macro shaft envelope, roof, fire chamber and captured ground are excluded. Missing-scan regions interpolate nearby captured samples; residuals are clamped to \u00b112 mm and applied to a new target-controlled square profile.",
+    "attribution": "Japanese Toro by 3dlunatic, CC BY 4.0, via Sketchfab and public Objaverse; modified in the temple-cinema T\u014dr\u014d156 study. New roof/frame/lattice/stonework and further edits are documented in r05/report.json."
+  },
+  "authoredGeometry": "Broad chipped six-sided curved cap with real thick underside/downturned fascia/raised hips; spherical finial; hollow six-window stone chamber; actual cast lattice, recessed emitting paper, closed heavy platform, lobed lotus receiver, carved petals, irregular plinth.",
+  "coordinateSystem": "GLB Y-up; native adapter seats the true minimum Y at zero, sets height 4.05 and roof maximum plan half-width 1.06 by a declared 3D normalization.",
+  "nominalLocalBounds": [
+    [
+      -1.06,
+      0,
+      -1.06
+    ],
+    [
+      1.06,
+      4.05,
+      1.06
+    ]
+  ],
+  "fireBagCentreY": 2.84,
+  "maps": {
+    "provider": "Poly Haven",
+    "asset": "Granite Tile 04",
+    "author": "Amal Kumar",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/granite_tile_04",
+    "metresPerTile": 0.3173828125,
+    "sourceRGBPixelsChanged": false,
+    "files": {
+      "diff": {
+        "file": "/reconstructions/scene-07/assets/island-lantern-granite/granite-face-diff.png",
+        "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2"
+      },
+      "nor_gl": {
+        "file": "/reconstructions/scene-07/assets/island-lantern-granite/granite-face-nor_gl.png",
+        "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789"
+      },
+      "rough": {
+        "file": "/reconstructions/scene-07/assets/island-lantern-granite/granite-face-rough.png",
+        "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459"
+      }
+    }
+  },
+  "builder": {
+    "file": "build-toro156.py",
+    "sha256": "c0c55cf973f2353079d2eaf86c465d26c87f9364d1c8dfb258f926d41ed6d627",
+    "geometryReport": "r05/report.json",
+    "editableBlend": "r05/toro156-editable.blend"
+  },
+  "evidence": [
+    {
+      "name": "front",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-stone-toro156/r05/front.png",
+      "sha256": "ada1fef4e80f938acbf7ed5273e159ea66c011a453d3aed84ef95d678a6c9119",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 64,
+      "positionBlenderZUp": [
+        0,
+        -8.5,
+        3.15
+      ],
+      "targetBlenderZUp": [
+        0,
+        0,
+        2.02
+      ],
+      "lensMm": 67
+    },
+    {
+      "name": "three-quarter",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-stone-toro156/r05/three-quarter.png",
+      "sha256": "8455683db176cc85f0642f0801879d4693fc6f282f13bdc3168db131e5d71575",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 64,
+      "positionBlenderZUp": [
+        5,
+        -7,
+        4.1
+      ],
+      "targetBlenderZUp": [
+        0,
+        0,
+        2.02
+      ],
+      "lensMm": 65
+    },
+    {
+      "name": "head-close",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-stone-toro156/r05/head-close.png",
+      "sha256": "cf09e1ac5436a3a966399add7f2ca9691cf795551114ff989df37542ae7266d8",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "samples": 64,
+      "positionBlenderZUp": [
+        3.2,
+        -4.4,
+        3.65
+      ],
+      "targetBlenderZUp": [
+        0,
+        0,
+        2.99
+      ],
+      "lensMm": 92
+    }
+  ],
+  "limits": [
+    "Standalone Cycles material uses metric box sampling and granular bump; native adapter uses the original map/normal/roughness images with metric geometry UVs and vertex age colors. They are independent PBR implementations, not identical pixels.",
+    "Exact HD ornament and weathering patterns remain unaccepted. The model is an authored reference-guided variant, not a scan of the supplied photograph.",
+    "No source07 integration, anchoring or live lighting was changed."
+  ]
+}
