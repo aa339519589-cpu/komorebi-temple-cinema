@@ -1,0 +1,62 @@
+{
+  "revision": "scene06-sculptural-cast-r8",
+  "scope": "Independent CPU audit of the actual indexed physical core binaries, prompted by the repaired open neckline. This is geometric integrity evidence, not photographic acceptance.",
+  "visualAccepted": false,
+  "meshes": [
+    {
+      "variant": "central",
+      "file": "central-central.bin",
+      "sha256": "f9e1b58c9124ef3b5823a8296ba0aa1b8777a8788eda0e3952d9886b6212b724",
+      "vertices": 561698,
+      "triangles": 1123428,
+      "components": 1,
+      "finite": true,
+      "degenerateTriangles": 0,
+      "boundaryEdges": 0,
+      "orientationOrNonmanifoldEdges": 0,
+      "signedVolume": 2.7441478342771988,
+      "normalLengthRange": [
+        0.9999998713075848,
+        1.000000124314571
+      ],
+      "passed": true
+    },
+    {
+      "variant": "left",
+      "file": "left-buddha.bin",
+      "sha256": "257321f59987dd332ea9c3a6a6b278b75d8e8e43a301f763a3ed0120c48da902",
+      "vertices": 414014,
+      "triangles": 828052,
+      "components": 1,
+      "finite": true,
+      "degenerateTriangles": 0,
+      "boundaryEdges": 0,
+      "orientationOrNonmanifoldEdges": 0,
+      "signedVolume": 2.021363512128132,
+      "normalLengthRange": [
+        0.9999998810300456,
+        1.0000001214023946
+      ],
+      "passed": true
+    },
+    {
+      "variant": "right",
+      "file": "right-buddha.bin",
+      "sha256": "f73457f53ba089e190dca1eaf59a9d0688db216e37b7f95744783009427bf49a",
+      "vertices": 413660,
+      "triangles": 827340,
+      "components": 1,
+      "finite": true,
+      "degenerateTriangles": 0,
+      "boundaryEdges": 0,
+      "orientationOrNonmanifoldEdges": 0,
+      "signedVolume": 2.0212454754192835,
+      "normalLengthRange": [
+        0.999999871630562,
+        1.000000134314629
+      ],
+      "passed": true
+    }
+  ],
+  "physicalMeshChecksPassed": true
+}

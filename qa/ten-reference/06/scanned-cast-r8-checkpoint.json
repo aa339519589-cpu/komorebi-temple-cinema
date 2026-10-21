@@ -1,0 +1,39 @@
+{
+  "checkpoint": "scene06-scanned-cast-r8-live",
+  "sourceHash": "99339bcd7769272141c568cdb765c1620cb7376cfde2b5f2034195f81fcf3ed8",
+  "visualAccepted": false,
+  "defaultLiveAssetRevision": "scene06-sculptural-cast-r8",
+  "actualEvidence": {
+    "full": "qa/ten-reference/06/iteration-scene06-scanned-cast-r8-live-head-06/reference.png",
+    "headHandNativeSubfrustum": "qa/ten-reference/06/iteration-scene06-scanned-cast-r8-live-head-06/detail-native.png",
+    "triadNativeSubfrustum": "qa/ten-reference/06/iteration-scene06-scanned-cast-r8-live-triad-07/detail-native.png",
+    "reports": [
+      "qa/ten-reference/06/iteration-scene06-scanned-cast-r8-live-head-06/report.json",
+      "qa/ten-reference/06/iteration-scene06-scanned-cast-r8-live-triad-07/report.json"
+    ],
+    "sameSourceHash": true,
+    "fullFramePixelHashesEqual": false
+  },
+  "physicalAudit": "qa/ten-reference/06/physical-cast-r8-audit.json",
+  "physicalMeshChecksPassed": true,
+  "sourceOwnership": [
+    "reconstructions/scene-06/README.md",
+    "reconstructions/scene-06/asset-dependencies.json",
+    "reconstructions/scene-06/src/reference6-main.js",
+    "reconstructions/scene-06/src/reference6-scene.js",
+    "reconstructions/scene-06/src/restoration-buddha.js",
+    "reconstructions/scene-06/src/restoration-altar.js",
+    "reconstructions/scene-06/src/sculptural-cast-assets.js",
+    "reconstructions/scene-06/modeling/",
+    "reconstructions/scene-06/assets/sculptural-cast-r8/",
+    "reconstructions/scene-06/assets/cc0-fralin-buddha-head/"
+  ],
+  "primaryAnatomyProvenance": "reconstructions/scene-06/assets/cc0-fralin-buddha-head/provenance.json",
+  "limits": [
+    "The anatomical base is a different historical artifact, not the exact photographed face.",
+    "Attendant anatomy, exact robe/lotus identity, material response, mandorlas, and full-room fidelity remain visibly different.",
+    "Two fresh browser captures have different full-frame pixel hashes at the same source hash and reference pose; the cause has not been isolated, and bit-identical pixel repeatability is not claimed.",
+    "No full film was rendered by this worker; root owns film integration."
+  ],
+  "ownershipCheckpoint": "Only Scene06 source, declared assets and QA changed. No shared files, other scenes, commits or children. Source edits stopped for root review."
+}
