@@ -17,8 +17,17 @@ export async function installCourtyardRadiance({renderer,scene,sun}){
  const wanted=sun.position.clone().sub(sun.target.position).normalize(),a=Math.atan2(source.z,source.x),b=Math.atan2(wanted.z,wanted.x);
  const yaw=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),a-b),pitch=new T.Quaternion().setFromAxisAngle(new T.Vector3(-Math.sin(b),0,Math.cos(b)),Math.asin(wanted.y)-Math.asin(source.y));
  const rotation=new T.Euler().setFromQuaternion(pitch.multiply(yaw)),inverse=new T.Matrix3().setFromMatrix4(new T.Matrix4().makeRotationFromEuler(rotation).invert());
- const pmrem=new T.PMREMGenerator(renderer),target=pmrem.fromEquirectangular(texture);pmrem.dispose();scene.environment=target.texture;scene.environmentRotation.copy(rotation);scene.environmentIntensity=.48;
- const gain=.70,geometry=new T.SphereGeometry(120,48,24),material=new T.ShaderMaterial({
+ // The direct solar key is already a separate shadow-casting light.
+ // Remove only the source HDR solar spike from lighting integration to avoid
+ // a second broad white solar reflection on timber. Visible HDR is untouched.
+ const environmentData=data.slice(),solarLimit=total/(width*height)*12,solarCone=Math.cos(.055);let solarPixelsClamped=0;
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  const lat=((y+.5)/height-.5)*Math.PI,lon=((x+.5)/width-.5)*Math.PI*2,c=Math.cos(lat),dot=source.x*c*Math.cos(lon)+source.y*Math.sin(lat)+source.z*c*Math.sin(lon),i=(y*width+x)*4,l=.2126*data[i]+.7152*data[i+1]+.0722*data[i+2];
+  if(dot>solarCone&&l>solarLimit){const gain=solarLimit/l;environmentData[i]*=gain;environmentData[i+1]*=gain;environmentData[i+2]*=gain;solarPixelsClamped++;}
+ }
+ const environmentTexture=new T.DataTexture(environmentData,width,height,T.RGBAFormat,T.FloatType);environmentTexture.mapping=T.EquirectangularReflectionMapping;environmentTexture.minFilter=environmentTexture.magFilter=T.LinearFilter;environmentTexture.needsUpdate=true;
+ const pmrem=new T.PMREMGenerator(renderer),target=pmrem.fromEquirectangular(environmentTexture);pmrem.dispose();scene.environment=target.texture;scene.environmentRotation.copy(rotation);scene.environmentIntensity=.48;
+ const gain=1.05,geometry=new T.SphereGeometry(120,48,24),material=new T.ShaderMaterial({
   name:'scene08-measured-sun-aligned-sky148',side:T.BackSide,depthTest:false,depthWrite:false,
   uniforms:{radiance:{value:texture},worldToSky:{value:inverse},gain:{value:gain}},
   vertexShader:'varying vec3 ray;void main(){vec4 w=modelMatrix*vec4(position,1.);ray=w.xyz-cameraPosition;vec4 clip=projectionMatrix*viewMatrix*w;gl_Position=clip.xyww;}',
@@ -26,5 +35,5 @@ export async function installCourtyardRadiance({renderer,scene,sun}){
  });
  const mesh=new T.Mesh(geometry,material);mesh.name='scene08-measured-atmosphere148';mesh.frustumCulled=false;mesh.renderOrder=-1000;
  mesh.onBeforeRender=(_r,_s,camera)=>{mesh.position.copy(camera.position);mesh.updateMatrixWorld();};scene.add(mesh);
- return {info:{provider:'Poly Haven',asset:'Kloofendal48d Partly Cloudy Pure Sky',license:'CC0-1.0',source:'reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr',sourceSunDirection:source.toArray(),targetSunDirection:wanted.toArray(),rotation:rotation.toArray(),peakLinearLuminance:peak,meanLinearLuminance:total/(width*height),environmentIntensity:.48,cameraRadianceGain:gain,worldLocked:true,photoProjection:false},dispose(){scene.remove(mesh);geometry.dispose();material.dispose();target.dispose();texture.dispose();}};
+ return {info:{provider:'Poly Haven',asset:'Kloofendal48d Partly Cloudy Pure Sky',license:'CC0-1.0',source:'reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr',sourceSunDirection:source.toArray(),targetSunDirection:wanted.toArray(),rotation:rotation.toArray(),peakLinearLuminance:peak,meanLinearLuminance:total/(width*height),environmentIntensity:.48,cameraRadianceGain:gain,solarSeparation:{solarPixelsClamped,sourceSolarPeak:peak,environmentSolarLimit:solarLimit,directKeyPreserved:true,visibleSourceHDRPreserved:true},worldLocked:true,photoProjection:false},dispose(){scene.remove(mesh);geometry.dispose();material.dispose();target.dispose();environmentTexture.dispose();texture.dispose();}};
 }

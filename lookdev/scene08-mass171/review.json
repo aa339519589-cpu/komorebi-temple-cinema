@@ -1,0 +1,184 @@
+{
+  "lane": "scene08-mass171",
+  "visualAccepted": false,
+  "baseline": {
+    "sourceSha256": "4823d9265316fcf5cd30aaa72f7ea5609edc0914beb1c768c226e1eb0790b9aa",
+    "native": "qa/ten-reference/08/iteration-scene08-monumental-continuous-court-v2-r05-20261021/reference.png",
+    "reference": "references/hd/7-照片-8.jpg"
+  },
+  "preservedAnchors": {
+    "camera": [
+      0,
+      1.78,
+      13
+    ],
+    "target": [
+      0,
+      6.1,
+      -9
+    ],
+    "fov": 49,
+    "sitePathsBridgeStairs": "Preserved"
+  },
+  "candidates": [
+    {
+      "revision": "scene08-mass171-r01",
+      "sourceSha256": "52fe0a8476b617ef9e285aec665f82c5455b51edaee45eebf5b551095514ec62",
+      "snapshot": "source-snapshots/mass171-r01.tgz",
+      "status": "Actual native full/hero/low-oblique rendered; visually rejected",
+      "evidence": [
+        "qa/ten-reference/08/iteration-scene08-mass171-r01",
+        "qa/ten-reference/08/iteration-scene08-mass171-r01-low-oblique"
+      ],
+      "findings": [
+        "Broader higher shaft axes and real peony relief improve facade occupation, but exposed outer ring beams still form a ladder.",
+        "Uncritically repeating whole tower bracket kits on main and secondary axes creates an overlapping brick carpet.",
+        "Existing gray sky, right return silhouette and botanical clumps remain unresolved."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "revision": "scene08-mass171-r02",
+      "sourceSha256": "88435cc64d017d0cbd3daac28d9410626633324833dc3b859d2343e92198221b",
+      "snapshot": "source-snapshots/mass171-r02.tgz",
+      "status": "Actual native full/hero/low-oblique rendered; visually rejected",
+      "visualAccepted": false,
+      "evidence": [
+        "qa/ten-reference/08/iteration-scene08-mass171-r02",
+        "qa/ten-reference/08/iteration-scene08-mass171-r02-low-oblique"
+      ],
+      "findings": [
+        "Main ring ladder removed and tower overlap reduced, but long cantilever slabs are too featureless/pale.",
+        "Four reported roof receivers lie outside the nonrectangular roof plan, requiring geometric reach/body correction."
+      ]
+    },
+    {
+      "revision": "scene08-mass171-r03",
+      "sourceSha256": "c1cbe1cccad935892b41ab4aba99d6c2f33d3077ca38fa4054da4bf519f971fe",
+      "snapshot": "source-snapshots/mass171-r03.tgz",
+      "status": "Actual native full/hero/low-oblique rendered; visually unaccepted",
+      "visualAccepted": false,
+      "evidence": [
+        "qa/ten-reference/08/iteration-scene08-mass171-r03",
+        "qa/ten-reference/08/iteration-scene08-mass171-r03-low-oblique"
+      ],
+      "findings": [
+        "All16 real roof receivers now have finite actual weather-surface contacts.",
+        "Main bearing ladder is replaced by shorter crossed arms and seated receivers; whole main bays have real recess.",
+        "Timber reflections remain too pale, right hall geometry remains near-frontal/duplicated and pine pads stay too solid."
+      ]
+    },
+    {
+      "revision": "scene08-mass171-r04",
+      "sourceSha256": "fa6bb901627c576901a246077b23cfc4f5806e544ab68cebdbdbc11da2387111",
+      "snapshot": "source-snapshots/mass171-r04.tgz",
+      "status": "Actual native full/hero/low-oblique rendered; visually unaccepted",
+      "visualAccepted": false,
+      "evidence": [
+        "qa/ten-reference/08/iteration-scene08-mass171-r04",
+        "qa/ten-reference/08/iteration-scene08-mass171-r04-low-oblique"
+      ],
+      "findings": [
+        "Native solar separation clamped988 source HDR solar pixels, reducing pale double-sun timber reflections.",
+        "Right hall now has a single six-axis frame/five recessed bays and a diagonal roof return; pine pads have actual holes/irregular boundaries.",
+        "Later garden RNG exactly matches R03.",
+        "Old shrine remains world-positioned outside its rotated host, and the trial near rail lift overshoots the reference; both need repair."
+      ]
+    },
+    {
+      "revision": "scene08-mass171-r05",
+      "sourceSha256": "e81193122d55cbad3785a305436f7776da91444cfb95dc13d1f16fd3cbd256df",
+      "snapshot": "source-snapshots/mass171-r05.tgz",
+      "status": "Actual native full/hero/low-oblique rendered; visually unaccepted",
+      "visualAccepted": false,
+      "evidence": [
+        "qa/ten-reference/08/iteration-scene08-mass171-r05",
+        "qa/ten-reference/08/iteration-scene08-mass171-r05-low-oblique"
+      ],
+      "findings": [
+        "Near rail returns to its anchored reference baseline; shrine is a host-local interior object with dais base on the real floor.",
+        "All16 roof receivers remain on actual roof coverage and later garden RNG matches original baseline.",
+        "The new solid S-shaped ceramic cap is rejected after HD corner comparison because it reads like a bow instead of the photographed pierced curl."
+      ]
+    },
+    {
+      "revision": "scene08-mass171-r06",
+      "sourceSha256": "2be4ee7025a9d889e26a5913c4c2bf64a4c72f1b91b8c8528f30638a04a89a51",
+      "snapshot": "source-snapshots/mass171-r06.tgz",
+      "status": "Actual native full/hero/low-oblique rendered; visually unaccepted",
+      "visualAccepted": false,
+      "evidence": [
+        "qa/ten-reference/08/iteration-scene08-mass171-r06",
+        "qa/ten-reference/08/iteration-scene08-mass171-r06-low-oblique"
+      ],
+      "findings": [
+        "R05 solid bow-shaped cap is replaced by a genuinely pierced round-section ceramic curl and deep circular end.",
+        "All16 modeled roof receivers have finite weather-surface contacts; actual low oblique shows deep shaft/beam/cantilever and recessed bay parallax.",
+        "Right hall has one six-axis frame and5 recessed bays; its shrine remains host-local with real floor contact.",
+        "The reference still differs materially in exact Japanese bracket/copper-carving vocabulary, roof contour/detail, botanical/stone silhouettes and integrated warm daylight. Photographic fidelity remains rejected."
+      ]
+    }
+  ],
+  "scope": "Only scene08/lookdev/new native08 QA changed. Existing scene07 CC BY scan assets reused read-only with explicit dependencies; no scene04/shared/tool/Git edits.",
+  "failedCPUInspection": {
+    "files": [
+      "sky38-inspection.jpg",
+      "sky48-inspection.jpg"
+    ],
+    "status": "Invalid black previews from ffmpeg EXR decode_block failure, not used as visual/color evidence. Native EXRLoader render remains valid."
+  },
+  "final": {
+    "revision": "scene08-mass171-r06",
+    "sourceSha256": "2be4ee7025a9d889e26a5913c4c2bf64a4c72f1b91b8c8528f30638a04a89a51",
+    "visualAccepted": false,
+    "full": "qa/ten-reference/08/iteration-scene08-mass171-r06/reference.png",
+    "hero": "qa/ten-reference/08/iteration-scene08-mass171-r06/detail-native.png",
+    "lowOblique": "qa/ten-reference/08/iteration-scene08-mass171-r06-low-oblique/inspection-view.png",
+    "reports": [
+      "qa/ten-reference/08/iteration-scene08-mass171-r06/report.json",
+      "qa/ten-reference/08/iteration-scene08-mass171-r06-low-oblique/report.json"
+    ],
+    "comparisonBoard": "lookdev/scene08-mass171/comparison-reference-baseline-r06.jpg",
+    "comparisonOrder": [
+      "HD original reference",
+      "Native court148-R05 baseline",
+      "Native mass171-R06"
+    ],
+    "boardScope": "627px comparison derivatives only; all final native buffers are separately preserved at1254x1254.",
+    "validation": {
+      "nativeBuffers": [
+        1254,
+        1254
+      ],
+      "nativeScale": 1,
+      "fullAndHeroAndObliqueValid": true,
+      "runtimeErrors": [],
+      "sourceStable": true,
+      "hero": "True native subfrustum x180 y110 size730 of1254 reference camera, not an upscaled crop",
+      "oblique": {
+        "position": [
+          1.6,
+          2.2,
+          5.6
+        ],
+        "target": [
+          -3,
+          8.2,
+          -8
+        ],
+        "fov": 51
+      },
+      "roofReceivers": 16,
+      "receiversOutsideRoof": 0,
+      "triangles": 82672166,
+      "mixedInstances": 1291263,
+      "laterGardenRNGMatchesOriginal": true,
+      "sixIterations": {
+        "officialNativeJobs": 12,
+        "actual1254Buffers": 18
+      }
+    },
+    "sourceAndEvidenceHandoffReady": true,
+    "remainingFidelityAccepted": false
+  }
+}

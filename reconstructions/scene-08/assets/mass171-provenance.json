@@ -1,0 +1,68 @@
+{
+  "revision": "scene08-mass171-r06",
+  "visualAccepted": false,
+  "referenceSceneRGBUsed": false,
+  "replacementFrameUsed": false,
+  "cameraAndSite": "Camera [0,1.78,13] target [0,6.1,-9] fov49, court paths, bridge and stairs preserved.",
+  "structure": "Grand-hall front axes reduced from five thin columns to three broad turned shafts; recessed two-bay screens, higher shaft seats, opaque framed spandrels, deep continuous ring beams, compact receiving brackets and actual curved projecting ties. Roof rise is independently adjusted, not a whole-scene scale.",
+  "tower": "Fixed tower roof datums with real recessed dark interior, wider framed central shutters, short plaster bands and outward-set gallery decks/rails supported by whole curved bearing kits.",
+  "scanReuse": {
+    "source": "wood carving by Diana Liu / Thunk3D scanner",
+    "license": "CC-BY-4.0",
+    "sourceURL": "https://sketchfab.com/3d-models/wood-carving-93766a4c12eb4c278d23294582034e8c",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "component": "reconstructions/scene-07/assets/floral157/component.gltf",
+    "provenance": "reconstructions/scene-07/assets/floral157/component-provenance.json",
+    "attribution": "assets/sculpture171/ATTRIBUTION.txt",
+    "selectedSourceTriangles": 1633989,
+    "sourceNormalsRetained": true,
+    "sourceHasUV": false,
+    "sourceHasImages": false,
+    "unitConversionVerified": false,
+    "fitting": "Rigid alignment and uniform fitting of complete natural-aspect carving, four instances at two prominent frieze locations. No anisotropic stretching or invented source UVs.",
+    "finish": "Added aged copper/gilt over dark wood based on actual relief depth; original source geometry is not remeshed."
+  },
+  "limits": [
+    "Single-view geometry and hidden framing are authored hypotheses.",
+    "The reused floral scan is not the exact photographed ornament.",
+    "Actual native full/hero/low-oblique review is required; successful loading does not establish fidelity."
+  ],
+  "nativeR01Failure": "Actual full, genuine hero and low-oblique review found that exposed ring beams still read as a ladder and repeating full tower kits on every secondary axis created an overlapping brick carpet.",
+  "structureR02": "The actual authored weather-roof triangle grid is queried by XZ barycentric interpolation for column/cantilever receiver levels. Closed curved three-stage cantilevers and continuous outer carriers replace exposed outer ring rails. Full tower kits are reserved for main post axes; smaller crossed arms occupy secondary axes. No reference depth or camera-space model deformation is used.",
+  "nativeR02Failure": "Actual full/hero/low-oblique review found oversized pale continuous cantilever slabs; four reported receiver points fell outside the nonrectangular roof plan.",
+  "structureR03": "Shorter crossed arms, independent vertical receivers and dark timber replace large rising slabs. Cantilever reach is clipped to actual roof coverage, and the rear body row is shortened to fit the physical roof footprint. All receiver heights are queried from the real roof mesh, never image data.",
+  "nativeR03Findings": "Actual full/hero/low-oblique review confirms all16 roof receivers lie on actual weather surface coverage. Large pale timber highlights, incorrect near-frontal right roof/duplicate doorway columns, low near handrail and solid pine pads remain.",
+  "rightHallR04": {
+    "position": [
+      8.8,
+      3,
+      -14.2
+    ],
+    "yaw": -0.9,
+    "uniformScale": 0.62,
+    "floorWorldY": 4.302,
+    "construction": "One six-axis broad-shaft frame now carries five recessed doorway bays. Duplicated generic/custom shafts through door centres removed; whole receiving kits and coffered joists carry the rotated roof.",
+    "basis": "The photographed ridge is narrower and recedes diagonally. The fixed stair-top landing remains inside the rotated real floor footprint at the same elevation. No global scene scale or camera change."
+  },
+  "lightingR04": "Native PMREM integration clamps only the measured HDR solar spike within3.15degrees to12x mean sky luminance, keeping the separate warm shadow-casting sun as the sole direct solar key. Original visible HDR remains full, with explicitly recorded1.05 camera radiance gain. This native solar separation is not a Cycles equivalence claim.",
+  "pineR04": "The real bent-trunk pine retains its root/height/branches. Each pad has420 individual needle sprays instead of900, with irregular lobed footprint and thinner crown depth. The historical327652 RNG calls are advanced after construction so later garden inputs remain unchanged.",
+  "railR04": "Only the full-width near handrail and baluster heights grow0.20m to correct the measured low rail line. Post feet, gate columns, short foreground rail, finial, paths and bridge are retained.",
+  "nativeR04Failure": "Actual full/hero/low-oblique review improved material response and single right-hall framing but exposed the old world-positioned shrine outside the rotated host and showed the trial handrail lift overshooting the photograph.",
+  "rightHallR05": {
+    "frame": {
+      "x": 8.4,
+      "y": 3,
+      "z": -14.2,
+      "yaw": -0.9,
+      "scale": 0.62,
+      "floorWorldY": 4.302,
+      "roofRise": 4.2
+    },
+    "shrine": "Host-local central back-room placement, with actual dais base on4.302m floor; inferred occupied interior, not a new visible reference object.",
+    "roofAdjustment": "Small independently measured x/rise correction after R04 image review, no global scale or camera change."
+  },
+  "railR05": "The R04 trial lift is rejected and baseline near handrail/baluster heights are restored. All gate, near post, physical camera, court paths, bridge and stair anchors remain at baseline.",
+  "ceramicR05": "Four authored closed curled ceramic hip-end caps replace doubled open tubular horns. These are finite 3D masses on the actual roof endpoints, not flat crests or an exact archaeological scan.",
+  "nativeR05Findings": "Actual full/hero/low-oblique review confirms restored near rail, host-local hidden shrine and finite16 receiver contacts, but the solid extruded S-shaped roof trial reads as a bow instead of the pierced ceramic curl in the HD detail.",
+  "ceramicR06": "R05 is preserved and rejected. R06 uses a finite round-section3D pierced curl, solid overlapping tube end caps, a deep circular ceramic hip end and a raised ceramic rim. All four assemblies use actual modeled roof endpoint transforms. This is authored interpretation, not an exact historic artifact or photograph surface."
+}
