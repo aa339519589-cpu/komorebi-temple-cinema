@@ -2,10 +2,11 @@ import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {installSurfaceDetail} from './surface-detail.js';
 import {createRanmaRelief138} from './ranma-relief138.js';
+import {createRainCeramicField141} from './rain-ceramic141.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
-export const HALL132_REVISION='scene10-hall138-compact-roof-solid-ranma';
+export const HALL132_REVISION='scene10-solmax-supported-rain-court-r11-20261021';
 export function createHall132Palette(original){
   const specs={red:['#71301f',.60,'wood'],cedar:['#62391f',.72,'wood'],darkwood:['#27190f',.80,'wood'],endwood:['#936138',.74,'wood'],gold:['#b38d50',.42,'gold'],oldgold:['#86673b',.58,'gold']};
   const palette={};
@@ -17,6 +18,9 @@ export function createHall132Palette(original){
   const recessedStone=original.stone.clone();recessedStone.name='hall132-shadowed-shoreline-foundation';recessedStone.color.set('#59605d');recessedStone.roughness=.91;installSurfaceDetail(recessedStone,'stone');palette.recessedStone=recessedStone;
   // Recessed timber-backed lattice bays keep independent warm interior light.
   for(let i=0;i<5;i++){const key='window'+i,mat=original[key].clone();mat.name='hall132-'+key;mat.color.set(['#372016','#573019','#78512a','#a37432','#c1954b'][i]);mat.emissiveIntensity=[.16,.32,.58,.90,1.20][i];palette[key]=mat;}
+  palette.slate=new T.MeshPhysicalMaterial({name:'hall141-wet-blue-grey-ceramic',color:'#34434e',map:original.slate.map,bumpMap:original.slate.bumpMap,bumpScale:.0025,roughness:.38,metalness:0,clearcoat:.62,clearcoatRoughness:.115,vertexColors:true});
+  installSurfaceDetail(palette.slate,'stone');
+  palette.tileEdge=original.tileEdge.clone();palette.tileEdge.name='hall141-clay-cut-and-raised-seal';palette.tileEdge.color.set('#3a454b');palette.tileEdge.roughness=.53;
   return palette;
 }
 
@@ -107,9 +111,8 @@ export function buildHall132(api,L){
         if(j===0)deck.quad(aa,bb,db,da);if(j===nt-1)deck.quad(dq,dc,cc,dd);if(i===0)deck.quad(da,dq,dd,aa);if(i===nu-1)deck.quad(bb,cc,dc,db);
       }
       // Preserve the ceramic course rhythm and existing outer silhouette.
-      const lanes=Math.ceil(w/.25);
-      for(let i=0;i<=lanes;i++){const u=-1+2*i/lanes;draw(new T.TubeGeometry(new T.CatmullRomCurve3(Array.from({length:15},(_,j)=>V(at(face,j/14,u,.045)))),42,.045,7,false),'slate');}
-      for(let j=1;j<=26;j++)for(let i=0;i<50;i++)between(at(face,j/26,-1+2*i/50,.023),at(face,j/26,-1+2*(i+1)/50,.023),.024,'tileEdge');
+      const lanes=Math.ceil((face%2?d:w)/.235),angle=face===0?0:face===1?Math.PI/2:face===2?Math.PI:-Math.PI/2;
+      for(let i=0;i<=lanes;i++)arch.tileEnd(V(at(face,1,-1+2*i/lanes,.032)),angle,.078,face===0);
       draw(new T.TubeGeometry(new T.CatmullRomCurve3(curve(face,1,0).map(V)),96,.12,7,false),'slate');
       for(const sign of[-1,1])draw(new T.TubeGeometry(new T.CatmullRomCurve3(Array.from({length:20},(_,i)=>V(at(face,i/19,sign)))),57,.095,7,false),'slate');
       draw(timber(curve(face,1,-.20),.18,.16),'red');draw(timber(curve(face,1.009,-.29),.15,.065),'darkwood');draw(timber(curve(face,1.012,-.22),.022,.025),'oldgold');
@@ -120,15 +123,21 @@ export function buildHall132(api,L){
         draw(timber(main,.095,.125),'cedar');draw(timber(flying,.070,.075),'red');sleeve(main.at(-1),main.at(-2),.095,.125,.075);sleeve(flying.at(-1),flying.at(-2),.070,.075,.055);rafters+=2;
       }
     }
+    const ceramic=createRainCeramicField141({point:surf.point,w,d,rows:30,pitch:.235});draw(ceramic,'slate');
+    records.ceramicField141=records.ceramicField141||[];records.ceramicField141.push({label,...ceramic.userData.rainCeramic141});
     draw(top.finish(),'slate');draw(deck.finish(),'cedar');
-    for(const [ma,geometries]of pieces){const merged=mergeGeometries(geometries.map(g=>g.index?g.toNonIndexed():g),false);emit(merged,ma);for(const g of geometries)g.dispose();}
+    for(const [ma,geometries]of pieces){
+      const hasColor=geometries.some(g=>g.hasAttribute('color'));
+      if(hasColor)for(const g of geometries)if(!g.hasAttribute('color'))g.setAttribute('color',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*3).fill(1),3));
+      const merged=mergeGeometries(geometries.map(g=>g.index?g.toNonIndexed():g),false);emit(merged,ma);for(const g of geometries)g.dispose();
+    }
     box(0,e+rise+.07,0,w*.53,.17,.19,'slate');records.roofs.push({label,w,d,e,rise,curl,closedTimberDepth:.152,deckTopOffset:-.028,deckBottomOffset:-.18,rafterTiers:2,rafters,outerProfile:'Source-led compact upper roof; same definition drives skin and bearing seats'});
     return surf;
   }
   // The rain reference reveals deep soffits and a compact upper pitch. A
   // 7.7 m roof rise created a dominant blank roof slope at this low camera.
   // One definition drives weather skin, bearing heights and all rafter seats.
-  const roofDefinitions=[{w:23,d:13.6,e:6.05,rise:3.45,curl:1.1},{w:21.5,d:12.9,e:10.45,rise:5.2,curl:.4}];
+  const roofDefinitions=[{w:23,d:13.6,e:6.05,rise:3.45,curl:1.1},{w:21.5,d:12.9,e:10.00,rise:5.65,curl:.85}];
   const profile=level=>{const r=roofDefinitions[level];return surface(r.w,r.d,r.e,r.rise,r.curl);};
   const rows=[{z:4.50,s:.72,pitch:1.025},{z:5.28,s:.48,pitch:.6833},{z:6.02,s:.42,pitch:.6833},{z:6.52,s:.34,pitch:.62}];
   function rowBase(surf,x,row){return surf.heightAt(x,row.z-.2)-.51-.97*row.s;}
@@ -209,6 +218,14 @@ export function buildHall132(api,L){
     box(0,4.1,-2,18.1,5.4,5.8,'darkwood');frame(0);frame(1);
     group(L.hall.entranceX,0,0,0,()=>{
       box(0,3.8,1,3.5,4.5,.18,'darkwood');box(0,1.58,0,3.3,.22,3.1,'darkwood');
+      // A stepped closed pedestal carries the lotus from the real hall floor.
+      // Its top meets the lotus's y=2.02 underside; the figure sits at y=2.25.
+      box(0,1.39,1.48,1.80,.18,1.65,'darkwood');
+      box(0,1.655,1.48,1.55,.35,1.45,'darkwood');
+      box(0,1.925,1.48,1.50,.19,1.42,'darkwood');
+      for(const y of[1.47,1.82])box(0,y,1.48,1.60,.035,1.49,'oldgold');
+      records.shrineSeatContact141={floorY:1.30,pedestalTop:2.02,lotusBottom:2.02,lotusTop:2.26,figureSeatY:2.25,source:'Closed modeled bearing solids; no hovering plinth'};
+
       for(const sign of[-1,1]){arch.footColumn(sign*1.15,2.3,1.5,4,.13);for(let yy=2.2;yy<5.2;yy+=.35)box(sign*1.15,yy,2.32,.21,.07,.19,'oldgold');}
       emitRestoredBuddha(emit,{x:0,y:2.25,z:1.48,scale:.52});
       emit(new T.LatheGeometry([[.52,0],[.64,.08],[.62,.16],[.48,.24]].map(p=>new T.Vector2(...p)),40),'oldgold',0,2.02,1.48);

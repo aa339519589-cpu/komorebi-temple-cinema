@@ -36,32 +36,39 @@ export function buildRootedCanopy142(b,mats){
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(idx);g.computeVertexNormals();g.name='closed-rooted-evergreen-tapered-limb';limbGeometries.push(g);stats.closedTaperedLimbs++;return curve;
  }
  const root=V(stats.root);
- const trunk=limb([stats.root,[-7.77,1.30,10.54],[-7.52,3.10,10.62],[-7.08,4.8,10.78],[-6.1,6.45,10.96],[-4.2,8.15,11.10],[-1.1,10.2,11.17],[1.85,12.40,11.30]],.34,.032);
+ // Mature main stem stays west of the photographic opening; large curved
+ // boughs spread across it, rather than one long diagonal sapling pole.
+ const trunk=limb([stats.root,[-8.0,1.55,10.35],[-8.45,4.1,10.10],[-8.8,6.8,9.9],[-8.3,9.3,10.0],[-7.3,11.3,10.2],[-5.8,13.2,10.6],[-4.5,14.6,10.9]],.43,.048);
  for(let j=0;j<7;j++){
   const a=j*Math.PI*2/7,len=.68+random()*.44;
   limb([[root.x+Math.cos(a)*len,-.018,root.z+Math.sin(a)*len],[root.x+Math.cos(a)*.42,.10,root.z+Math.sin(a)*.42],[root.x,1.00,root.z]],.085,.17);
  }
  const boughs=[
-  {from:.65,points:[[-3.2,9.1,10.4],[-1.9,11.1,10.5],[-1.8,13.55,10.65]],radius:.13},
-  {from:.49,points:[[-4.8,7.5,9.75],[-3.6,8.25,9.0],[-1.5,8.75,8.85]],radius:.14},
-  {from:.56,points:[[-3.6,8.5,11.45],[-1.4,9.35,11.55],[1.3,10.8,11.35]],radius:.12},
-  {from:.41,points:[[-6.7,6.8,9.4],[-6.5,8.25,8.7],[-4.7,9.5,8.9]],radius:.13},
-  {from:.79,points:[[.0,11.6,11.7],[.5,13.1,11.65],[.8,14.15,11.4]],radius:.095},
+  {from:.34,points:[[-7.1,6.9,9.6],[-5.4,7.8,9.2],[-3.4,8.2,8.9],[-1.5,8.4,9.2]],radius:.20},
+  {from:.51,points:[[-6.7,8.7,10.3],[-4.7,9.6,10.65],[-1.6,10.1,11.0],[2.0,10.7,11.8]],radius:.20},
+  {from:.65,points:[[-5.8,10.7,10.6],[-3.6,11.4,11.0],[-1.2,11.8,11.4],[1.0,12.2,11.5]],radius:.17},
+  {from:.40,points:[[-7.1,7.8,9.1],[-5.4,8.4,8.3],[-3.6,9.0,8.2],[-1.8,9.3,8.6]],radius:.15},
+  {from:.60,points:[[-6.3,10.4,9.3],[-4.6,11.6,9.0],[-1.4,12.4,9.6]],radius:.16},
+  {from:.73,points:[[-5.0,12.2,10.7],[-3.8,13.5,11.1],[-1.8,14.2,11.4]],radius:.14},
+  {from:.47,points:[[-8.3,8.9,11.2],[-6.1,9.9,11.9],[-3.8,10.8,12.4]],radius:.16},
+  {from:.80,points:[[-5.8,13.7,9.6],[-4.1,14.9,9.7],[-2.4,15.4,10.1]],radius:.11}
  ];
  const crownCurves=[trunk];
  for(const item of boughs){const start=trunk.getPoint(item.from);crownCurves.push(limb([start.toArray(),...item.points],item.radius,.026));}
  const terminalAnchors=[
-  [-4.8,10.5,9.5],[-3.4,11.3,9.8],[-1.6,11.6,10.7],[.3,11.2,10.95],[1.4,11.2,11.4],[1.8,12.2,11.5],
-  [-3.5,13.0,10.3],[-1.7,13.4,10.5],[.5,13.55,11.5],[1.7,13.0,11.15],[-.1,10.0,10.35],[1.5,10.6,11.3],
-  [-6.8,9.35,8.8],[-5.2,9.4,8.45],[-3.7,9.15,8.6],[-2.3,8.9,8.65],[-1.1,8.65,8.85],[-4.3,8.0,8.75]
+  [-7.0,9.6,8.8],[-5.9,9.3,8.3],[-4.8,8.5,8.6],[-3.5,8.7,8.7],[-2.0,8.5,9.0],[-1.3,8.5,9.3],
+  [-6.8,10.3,9.4],[-5.4,10.2,10.4],[-3.8,10.3,10.8],[-2.0,10.1,11.0],[-.4,10.6,11.4],[1.4,10.8,11.8],
+  [-5.8,11.7,9.0],[-4.3,12.0,9.2],[-2.6,12.4,9.5],[-1.1,12.5,9.8],[-4.5,11.7,10.9],[-2.7,11.7,11.3],[-.6,12.1,11.4],[1.0,12.1,11.7],
+  [-6.1,13.3,10.4],[-4.4,13.6,10.6],[-2.8,14.0,11.2],[-1.7,14.3,11.4],[-4.7,14.8,9.7],[-2.8,15.2,10.1],
+  [-7.4,10.0,11.8],[-5.5,10.7,12.2],[-3.8,11.0,12.4],[-3.1,9.5,8.5]
  ];
  function nearestSeat(point){let distance=Infinity,seat=null;for(const curve of crownCurves)for(let j=3;j<=24;j++){const p=curve.getPoint(j/24),d=p.distanceToSquared(point);if(d<distance){distance=d;seat=p;}}return seat;}
  function leafyShoot(start,end,size){
   const middle=start.clone().lerp(end,.53);middle.y+=size*.12;
   const curve=limb([start.toArray(),middle.toArray(),end.toArray()],.010+size*.0013,.0035);
-  const pairs=9+Math.floor(random()*5),axis=end.clone().sub(start),yaw=Math.atan2(axis.x,axis.z);
+  const pairs=11+Math.floor(random()*6),axis=end.clone().sub(start),yaw=Math.atan2(axis.x,axis.z);
   for(let i=0;i<pairs;i++){
-   const t=.08+.89*(i+.5)/pairs,p=curve.getPoint(t),side=i%2?1:-1,leafSize=(.12+random()*.075)*(.82+.23*Math.sin(Math.PI*t)),angle=yaw+side*(.55+random()*.55),tilt=-.78+random()*.90,roll=(random()-.5)*.72;
+   const t=.08+.89*(i+.5)/pairs,p=curve.getPoint(t),side=i%2?1:-1,leafSize=(.095+random()*.070)*(.82+.23*Math.sin(Math.PI*t)),angle=yaw+side*(.55+random()*.55),tilt=-.78+random()*.90,roll=(random()-.5)*.72;
    const leafBase=p.clone().add(new T.Vector3(Math.sin(angle)*.023,.006,Math.cos(angle)*.023));
    b.line(p.toArray(),leafBase.toArray(),.0028,'trunk');
    const material=random()<.12?light:random()<.40?green:dark;

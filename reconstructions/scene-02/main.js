@@ -4,6 +4,7 @@ import {installScannedTimber} from './scanned-timber.js';
 import {buildPagodaGrounding} from './pagoda-ground.js';
 import {buildArchitecture} from './architecture.js';
 import {buildGarden} from './garden.js';
+import {loadScannedGardenStones} from './scanned-garden-stones.js';
 import {layout} from './layout117.js';
 import {loadForegroundStone120} from './foreground-stone-lantern120.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
@@ -16,7 +17,8 @@ const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,po
 const scene=new T.Scene();scene.name='reference02-layout117-recovered-veranda';scene.fog=new T.FogExp2(0xd3b181,.005);
 const {mats,textures}=materials();mats.slate.side=T.DoubleSide;
 const foregroundStone120=await loadForegroundStone120();Object.assign(mats,foregroundStone120.mats);textures.push(...foregroundStone120.textures);
-const architecture=buildArchitecture(mats),garden=await buildGarden(mats),grounding=buildPagodaGrounding(mats);scene.add(architecture.group,garden.group,grounding.group,...architecture.lights,...garden.lights);
+const sharedGardenStones=await loadScannedGardenStones();
+const architecture=buildArchitecture(mats,sharedGardenStones),garden=await buildGarden(mats,sharedGardenStones),grounding=buildPagodaGrounding(mats);scene.add(architecture.group,garden.group,grounding.group,...architecture.lights,...garden.lights);
 const sunDirection=V([-.87,.23,-.75]).normalize();
 // A procedural atmosphere: directional high-frequency cloud structure, atmospheric gradient,
 // physically located luminous sun. No image assets or screen-facing photographic geometry.
@@ -70,9 +72,9 @@ scene.traverse(o=>{if(o.isMesh&&o.material&&!capturedMaterials.has(o.material)){
  material.onBeforeCompile=shader=>{
   previous(shader);
   shader.fragmentShader=shader.fragmentShader.replace('#include <tonemapping_fragment>',finiteCapture+'\n#include <tonemapping_fragment>');
-  if(leaf){shader.uniforms.uLeafSun={value:sunDirection};shader.fragmentShader='uniform vec3 uLeafSun;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','outgoingLight+=diffuseColor.rgb*vec3(1.25,.80,.30)*1.4*pow(max(0.,dot(-normal,normalize(mat3(viewMatrix)*uLeafSun))),.7);\n#include <opaque_fragment>');}
+  if(leaf){const transmission=material.userData.thinLeafTransmission??1.4;shader.uniforms.uLeafSun={value:sunDirection};shader.fragmentShader='uniform vec3 uLeafSun;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','outgoingLight+=diffuseColor.rgb*vec3(1.25,.80,.30)*'+Number(transmission).toFixed(3)+'*pow(max(0.,dot(-normal,normalize(mat3(viewMatrix)*uLeafSun))),.7);\n#include <opaque_fragment>');}
  };
- material.customProgramCacheKey=()=>key+(leaf?':scene02-thin-leaf-v2':':scene02-finite-capture-v2');material.needsUpdate=true;
+ material.customProgramCacheKey=()=>key+(leaf?':scene02-thin-leaf-v3-t'+Number(material.userData.thinLeafTransmission??1.4).toFixed(3):':scene02-finite-capture-v2');material.needsUpdate=true;
 }});
 const scannedTimber=await installScannedTimber(mats,scene);textures.push(...scannedTimber.textures);
 // A fixed radiance probe includes the actual gold lamps, red timber, pond and deep
@@ -99,6 +101,6 @@ function renderView(position,target,time=0,fov=52){setView(position,target,fov);
 // rail/deck edge on its walkable side; the photographic endpoint is unchanged.
 const dolly=createDollyPath({points:[[15.85,2.25,24.0],[15.95,2.35,24.4],[16.1,2.6,24.85],reference.position],nearTarget:[15.193872543879204,2.43,23.368270846691118],farTarget:reference.target,fov:reference.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-function info(){return{reference:2,revision:'scene02-physical-carpentry-granite-and-rooted-garden145',ready:true,frames,source:'Authored three-dimensional architecture and plants with declared CC0 timber and eroded stone scans; no reference-image scene surface',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
+function info(){return{reference:2,revision:'scene02-closed-embedded-banks-and-connected-original-woodland153',ready:true,frames,source:'Authored three-dimensional architecture and plants with declared CC0 timber and eroded stone scans; no reference-image scene surface',architecture:architecture.stats,timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
 function dispose(){disposed=true;garden.dispose?.();scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);

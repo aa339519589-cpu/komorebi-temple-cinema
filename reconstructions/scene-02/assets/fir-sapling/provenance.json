@@ -1,0 +1,87 @@
+{
+  "provider": "Poly Haven",
+  "asset": "fir_sapling",
+  "source": "https://polyhaven.com/a/fir_sapling",
+  "authors": {
+    "Rob Tuytel": "photography",
+    "Rico Cilliers": "modeling"
+  },
+  "license": "CC0-1.0",
+  "licenseSource": "https://polyhaven.com/license",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "primaryMetadata": "provider-info.json",
+  "primaryFileListing": "provider-files.json",
+  "metadataUrls": [
+    "https://api.polyhaven.com/info/fir_sapling",
+    "https://api.polyhaven.com/files/fir_sapling"
+  ],
+  "resolution": "Original4K glTF model, original unchanged binary mesh and original4K atlases; no mesh decimation.",
+  "use": "Three-dimensional conifer woodland on the actual finite ridges. No supplied reference-scene image is used as radiance, backdrop or projection.",
+  "buildSource": "fetch-original.py",
+  "files": [
+    {
+      "file": "fir_sapling_4k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/fir_sapling/fir_sapling_4k.gltf",
+      "bytes": 10979,
+      "md5": "b820af767c2a1982caa0325c217bb24b",
+      "sha256": "b9e79991ac418a68da4e48fac0cf7e427835ff339369fc41f26232033bede433",
+      "providerMd5Verified": true
+    },
+    {
+      "file": "textures/fir_sapling_branches_nor_gl_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/fir_sapling/fir_sapling_branches_nor_gl_4k.jpg",
+      "bytes": 12003472,
+      "md5": "0bd15ca4e762391eeeb15174700b9460",
+      "sha256": "9fc044399e69277a5585da98e4836783ff2a4e4346b5743964dc8ce4a9326002",
+      "providerMd5Verified": true
+    },
+    {
+      "file": "textures/fir_sapling_branches_arm_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/fir_sapling/fir_sapling_branches_arm_4k.jpg",
+      "bytes": 8874243,
+      "md5": "4f580c4fc8ec9e061f33421e91d76abc",
+      "sha256": "58d613a7612205159ab605bc4f17dfc848ab79551b0bab5680a65f409a90c8c9",
+      "providerMd5Verified": true
+    },
+    {
+      "file": "textures/fir_sapling_twigs_arm_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/fir_sapling/fir_sapling_twigs_arm_4k.jpg",
+      "bytes": 2621137,
+      "md5": "6154dd4896043d1907f29ed8974b7604",
+      "sha256": "4612704ed3f6f39bea681468964c9ee844ea607a5a6e9418a3c82ba7e2815058",
+      "providerMd5Verified": true
+    },
+    {
+      "file": "textures/fir_sapling_branches_diff_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/fir_sapling/fir_sapling_branches_diff_4k.jpg",
+      "bytes": 8557890,
+      "md5": "e120e0f1a7024398813011d0ad8f75c2",
+      "sha256": "d5a11f7e16189426018a1d3123e30108a09648f569d3b54dd2ed44d063807f69",
+      "providerMd5Verified": true
+    },
+    {
+      "file": "textures/fir_sapling_twigs_diff_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/fir_sapling/fir_sapling_twigs_diff_4k.jpg",
+      "bytes": 2134503,
+      "md5": "581a32372682d0b790408d189d84299a",
+      "sha256": "14b17f44ea87c75dcf9055293ad1975dcbeabe30748dda0775d48aab8ad2bd3c",
+      "providerMd5Verified": true
+    },
+    {
+      "file": "textures/fir_sapling_twigs_nor_gl_4k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/fir_sapling/fir_sapling_twigs_nor_gl_4k.jpg",
+      "bytes": 5191218,
+      "md5": "ec7bfc08cc34f0b896bbd1cd16041192",
+      "sha256": "77fa92733acc4e658408b02f47e41c089e90e888e1e359a4cba4af940bc200cf",
+      "providerMd5Verified": true
+    },
+    {
+      "file": "fir_sapling.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/fir_sapling/fir_sapling.bin",
+      "bytes": 21677180,
+      "md5": "b329143a90d95201891afc52daeb9698",
+      "sha256": "efdebfae6ee4b3ea20c7a85eb9f798ff4953259a3616bcff0b7e580b00f34f40",
+      "providerMd5Verified": true
+    }
+  ]
+}

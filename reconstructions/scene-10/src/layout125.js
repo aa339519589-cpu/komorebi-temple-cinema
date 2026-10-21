@@ -3,7 +3,7 @@
 export const scene10Layout125=Object.freeze({
  revision:'scene10-whole-layout125',
  camera:{position:[0,1,14],target:[0,4.65,-14],fov:60},
- pagoda:{position:[-6.90,6.79,-20],yaw:-.10,scale:[.88,.70,.88],tierDecrement:.055,finialHeight:8.0},
+ pagoda:{position:[-6.90,6.79,-20],yaw:-.10,scale:[1.00,.70,1.00],tierDecrement:.055,finialHeight:8.0},
  hall:{position:[14,2.6,-14],yaw:-.58,scale:[1.12,.95,1.12],floorLocalY:1.3,entranceX:-2.85,upperLandingLocal:[-2.85,1.3,6.75]},
  bridge:{position:[2.35,1.22,-5.4],yaw:.12,span:10.3,width:2.0,archRise:1.08,phaseSkew:.20,endRise:.53,deckOffset:.25,deckThickness:.18,approachCount:7,approachRun:.25,railHeight:1.0,hallApproachLandingRun:1.0,turningHalfWidth:1.75,exitRailCutT:.82},
  veranda:{column:[-3.35,0,7.9],radius:.42,shoeHeight:.80,ceilingY:7.1,ceilingYaw:.75,ceilingCenter:[.07,-1.4],hangingLamp:[-2.83,5.85,6.35],lampScale:.76},

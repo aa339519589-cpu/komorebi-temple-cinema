@@ -1,5 +1,7 @@
 # Twelve near rain stones
 
+Current SOL Max r11 supersedes the historical optical and general-paving values below. The active water-film height is 0.050 m; the twelve authored cap/arris surfaces still drive their real occlusion atlas. General foreground courses are broader/staggered and use flatter 2–5 mm crowns with isolated angular wear. The actual revised footprints and height functions drive the wet mask. See README.md and the r11 native/low inspection records for the held source; the older iterations below remain historical evidence.
+
 `near-rain-stones.js` authors actual solid stone topography and low joint soil for existing path rows 9–12, columns 3–5. Approximate world bounds are x [-1.62, 1.19] m, z [5.31, 8.72] m. Each block has independent sparse angular spalls, a narrow surviving lip, shallow wear basins and metric mesh pockets. The cap's final boundary also drives its edge bands, side and underside. The old water surface, material, lights, optics, camera and seven-second path are retained.
 
 The original PBR is [Poly Haven Granite Tile 04](https://polyhaven.com/a/granite_tile_04), Amal Kumar, [CC0-1.0](https://polyhaven.com/license), with raw file hashes in scene04's [provenance](../scene-04/assets/granite-tile-04/provenance.json). The original photograph is comparison only; geometry and wetness masks read no reference RGB or depth.

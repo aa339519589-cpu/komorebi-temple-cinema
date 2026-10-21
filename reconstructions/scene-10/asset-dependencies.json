@@ -14,6 +14,29 @@
     "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png",
     "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png",
     "reconstructions/scene-04/assets/granite-tile-04/provenance.json",
-    "tools/build-ranma-relief-field.py"
-  ]
+    "tools/build-ranma-relief-field.py",
+    "reconstructions/scene-03/assets/timber/normal-gl-2k.png",
+    "reconstructions/scene-03/assets/timber/roughness-2k.jpg",
+    "reconstructions/scene-03/assets/timber/provenance.json"
+  ],
+  "materialUse141": {
+    "timber": "Existing Poly Haven Lacquered Cherry Wood CC0 normal and bounded roughness on authored painted carpentry; no color-photo projection.",
+    "roughnessRange": [
+      0.68,
+      0.98
+    ],
+    "granite": "Existing CC0 granite scan, on new closed staggered/eroded flagstone geometry.",
+    "visualAccepted": false
+  },
+  "runtimeModels": [
+    "reconstructions/scene-10/assets/pine-sapling-cc0-141/pine_sapling_small_1k.gltf"
+  ],
+  "modelUse141": {
+    "source": "https://polyhaven.com/a/pine_sapling_small",
+    "license": "CC0-1.0",
+    "provenance": "reconstructions/scene-10/assets/pine-sapling-cc0-141/provenance.json",
+    "construction": "Three true 3D branch/needle crown variants retain geometry and UVs, uniformly scaled on authored mature stems rooted in a 3D ridge.",
+    "photographSampled": false,
+    "botanicalMatchAccepted": false
+  }
 }

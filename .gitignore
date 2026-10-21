@@ -4,3 +4,9 @@ output/
 .env.*
 *.log
 .DS_Store
+
+# Reproducible physical-render intermediates; editable models use release assets.
+lookdev/**/export/assets/
+lookdev/**/*.blend
+lookdev/**/*.blend1
+lookdev/**/__pycache__/

@@ -2486,12 +2486,12 @@ export function createRestorationArchitecture(ctx) {
         const windowBottom=y+.71,windowTop=Math.min(y+2.41,shaftTop-.14*scale);
         const windowHeight=windowTop-windowBottom,windowY=(windowTop+windowBottom)/2;
         for(let k=0;k<3;k++) {
-          const xx=(k-1)*bay;
+          const xx=(k-1)*bay,bayMaterial=windowMaterial==='pagodaPaper'?'pagodaWindow'+[2,4,3,1,2][(level+face+k)%5]:windowMaterial==='paper'?(k===1?'window3':'window1'):windowMaterial;
           // A closed lower spandrel and shallow recessed window, not a whole
           // plaster cube shining through between unrelated skinny posts.
           box(xx,y+.59,-.032,clear,.24,.11,'red');
           box(xx,y+.59,.030,Math.max(.08,clear-.10*scale),.15,.018,'darkwood');
-          box(xx,windowY,-.125,clear,windowHeight,.05,windowMaterial==='paper'?(k===1?'window3':'window1'):windowMaterial);
+          box(xx,windowY,-.125,clear,windowHeight,.05,bayMaterial);
           for(const yy of [windowBottom,windowTop])box(xx,yy,.022,clear+.06*scale,.075*scale,.095*scale,'red');
           for(const side of [-1,1])box(xx+side*clear/2,windowY,.022,.065*scale,windowHeight,.095*scale,'red');
           const bars=Math.max(6,Math.round(clear/(.18*scale)));
@@ -2521,9 +2521,9 @@ export function createRestorationArchitecture(ctx) {
             worldCenter:worldCenter.toArray(),worldNormal:worldNormal.toArray(),
             width:clear,height:windowHeight,worldWidth,worldHeight,
             surfaceLocalCenter:surfaceStorey.toArray(),surfaceWorldCenter:surfaceWorld.toArray(),
-            emitterWorldOffset,material:ctx.materials?.[materialKey(windowMaterial)]||null,
+            emitterWorldOffset,material:ctx.materials?.[materialKey(bayMaterial)]||null,
             worldBottom:worldCenter.y-worldHeight/2,worldTop:worldCenter.y+worldHeight/2,
-            materialKey:materialKey(windowMaterial)});
+            materialKey:materialKey(bayMaterial)});
         }
       });
     }

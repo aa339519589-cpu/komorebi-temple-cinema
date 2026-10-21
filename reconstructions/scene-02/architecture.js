@@ -7,13 +7,15 @@ import {layout} from './layout117.js';
 import {createHallCarpentry141} from './hall-carpentry141.js';
 import {buildVerandaCarvings143} from './veranda-carvings143.js';
 import {installHallTerraceMaterials144,buildHallStair144} from './hall-terrace144.js';
-export function buildArchitecture(mats){
- installHallTerraceMaterials144(mats);
+import {buildEmbeddedBridgeBearings146} from './embedded-bridge-bearings146.js';
+import {ensureBankSoil147} from './planted-shoulders147.js';
+export function buildArchitecture(mats,scanned){
+ installHallTerraceMaterials144(mats);ensureBankSoil147(mats);
  // The exposed tower finial must use the outdoor sky environment rather
  // than the close veranda probe later assigned to the shared gold material.
  mats.sorinGold=mats.gold.clone();mats.sorinGold.name='scene02-exposed-sorin-gold';mats.sorinGold.color.set('#cfab60');mats.sorinGold.roughness=.34;mats.sorinGold.metalness=.94;mats.sorinGold.envMap=null;
  mats.sorinBronze=mats.oldgold.clone();mats.sorinBronze.name='scene02-exposed-sorin-bronze';mats.sorinBronze.color.set('#a47d3d');mats.sorinBronze.roughness=.42;mats.sorinBronze.envMap=null;
- const b=new Builder(mats),lights=[];let sorinStats=null;const torus=new T.TorusGeometry(1,.075,6,20);
+ const b=new Builder(mats),lights=[];let sorinStats=null,bridgeBearings=null;const torus=new T.TorusGeometry(1,.075,6,20);
  const hallCarpentry=createHallCarpentry141({b,mats});
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
@@ -147,7 +149,7 @@ export function buildArchitecture(mats){
  for(let i=0;i<33;i++)ring.push(i);for(let j=1;j<25;j++)ring.push(j*33+32);for(let i=31;i>=0;i--)ring.push(24*33+i);for(let j=23;j>0;j--)ring.push(j*33);
  const lower=ring.map(i=>{const n=bp.length/3;bp.push(bp[i*3],-.3,bp[i*3+2]);return n;}),bottom=bp.length/3;bp.push(5.9,-.3,1.2);
  for(let i=0;i<ring.length;i++){const n=(i+1)%ring.length;bi.push(ring[i],ring[n],lower[i],ring[n],lower[n],lower[i],bottom,lower[i],lower[n]);}
- const bankSolid=new T.BufferGeometry();bankSolid.setAttribute('position',new T.Float32BufferAttribute(bp,3));bankSolid.setIndex(bi);bankSolid.computeVertexNormals();b.put(bankSolid,'moss');bank.dispose();
+ const bankSolid=new T.BufferGeometry();bankSolid.setAttribute('position',new T.Float32BufferAttribute(bp,3));bankSolid.setIndex(bi);bankSolid.computeVertexNormals();b.put(bankSolid,'bankSoil147');bank.dispose();
  // Native photograph contours recover the opposite near-corner orientation
  // from the old positive yaw, and a shorter physical tier pitch.
  b.at(layout.pagoda.position,layout.pagoda.yaw,()=>{
@@ -200,21 +202,7 @@ export function buildArchitecture(mats){
    for(let i=0;i<=10;i++){const x=-7.5+i*1.5,y=arch(x);b.box(x,y+.36,z,.22,.70,.22,'red');b.cyl(x,y+.73,z,.16,.10,'gold');b.ball(x,y+.87,z,.13,.14,.13);if(i%2===0)fitting(x,y-.06,z+.16,.38,.38);}
    for(let i=0;i<40;i++){const x=-7.3+i*.375;b.box(x,arch(x)+.34,z,.075,.37,.075,'red');}
   }
-  const bridgeRock=new T.IcosahedronGeometry(1,2),bridgeRockPos=bridgeRock.attributes.position;
-  for(let i=0;i<bridgeRockPos.count;i++){const x=bridgeRockPos.getX(i),y=bridgeRockPos.getY(i),z=bridgeRockPos.getZ(i),q=1+.10*Math.sin(x*7.1+y*5.7-z*8.3);bridgeRockPos.setXYZ(i,x*q,y*q,z*q);}bridgeRock.computeVertexNormals();
-  // Broad masonry abutments support both ribs at the shore and sit inside
-  // irregular waterline stones so the bridge reads as one supported span.
-  for(const sign of[-1,1]){const x=sign*7.08,footTop=arch(x)-.47,footHeight=footTop+layout.bridge.position[1],footY=(footTop-layout.bridge.position[1])/2;
-   const base=-layout.bridge.position[1]-.05,courses=Math.max(3,Math.ceil((footTop-base)/.28)),courseH=(footTop-base)/courses;
-   for(let j=0;j<courses;j++)for(let k=0;k<5;k++){
-    const dz=(k-2)*.69+(j%2?.10:-.04),tone=.72+.18*(.5+.5*Math.sin(j*9+k*13));
-    b.box(x+.03*Math.sin(j*4+k),base+(j+.5)*courseH,dz,1.14+.10*Math.sin(k*3+j),courseH-.018,.71+.04*Math.sin(k+j),'stone',[0,.015*Math.sin(j*3+k),.006*Math.cos(j+k)],tone);
-   }
-   b.box(x,footTop-.025,0,1.24,.12,3.42,'lightstone');
-   b.box(x-sign*.43,.08-layout.bridge.position[1],0,.66,.26,3.46,'stone');
-   const rockOffsets=[[-.74,.13,-1.32,.72,.28,.54],[-.28,.17,.72,.64,.31,.61],[.56,.10,-.62,.82,.24,.70],[.82,.15,1.12,.73,.27,.58]];
-   for(let i=0;i<rockOffsets.length;i++){const [dx,worldY,dz,sx,sy,sz]=rockOffsets[i];b.put(bridgeRock,'stone',[x+sign*dx,worldY-layout.bridge.position[1],dz],[sx,sy,sz],[.08*i,.21*i*sign,-.12*i],.88+.04*i);}
-  }
+  bridgeBearings=buildEmbeddedBridgeBearings146({b,mats,scanned,arch});
  },layout.bridge.scale);
  // Foreground veranda is constructed at human scale around the low camera.
  const deck={x:15.5,y:1.35,z:25};
@@ -231,5 +219,5 @@ export function buildArchitecture(mats){
  // Faceted bronze lamps have actual perforated cast panels and warm paper
  // recessed behind them. Each link joins the fixture to the beam overhead.
  for(const lamp of layout.hangingLamps)lights.push(verandaCarvings.lantern(...lamp.position,lamp.scale,9.3));lights.push(verandaCarvings.lantern(18,7.8,7,.5,9.3));
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,hallCarpentry:hallCarpentry.stats,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'fixed-camera native contour recovery',source:'tools/fit-layout02-117.py',visualAccepted:false}},deck};
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,bridgeBearings,hallCarpentry:hallCarpentry.stats,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'fixed-camera native contour recovery',source:'tools/fit-layout02-117.py',visualAccepted:false}},deck};
 }
