@@ -1,0 +1,38 @@
+{
+  "scope": "Scene06 Cycles lookdev only; R9 runtime and assets remain untouched",
+  "sourceCommit": "d18484812cf3a4fe14d21f0435d771afb9d5ddc0",
+  "sourceHash": "061e581d9b6fdf04e08a8133ad6f45b28bc9c6531c6a41aefd3b142ca2deefe0",
+  "exportStatus": "exported-existing-geometry",
+  "importerDerivation": {
+    "file": "lookdev/scene01-solmax-cycles-20261021/render-current-source.py",
+    "sha256": "aadcbf7b2fe9068ad68a9d8c112701ab70e7a818042b4685fdd9699cc35677c3",
+    "reused": [
+      "source binary decoding",
+      "full object matrices",
+      "exact orthogonal TRS Geometry Nodes instances",
+      "full affine/shear baking with inverse-transpose normals and winding correction",
+      "instanceColor / vertexColor domain parity"
+    ],
+    "removed": [
+      "Scene01 world panorama",
+      "Scene01 water plane",
+      "Scene02/03 water surface overrides",
+      "Scene02 sky/cloud shell",
+      "native indirect area/spot/hemisphere light proxies"
+    ],
+    "added": [
+      "exact Three texture UV rotation/center/repeat/offset/flip",
+      "shared image data deduplicated by byte hash and color space",
+      "actual imported-geometry aperture/sun ray checks",
+      "physical nonemissive scattering/absorption medium",
+      "true camera subfrustum rendering"
+    ]
+  },
+  "pixelInputs": {
+    "surfaceAlbedoAndRoughness": "Existing declared R9 material textures only",
+    "sourcePhotograph": "Comparison only; never loaded by Blender",
+    "sourceFrameRGBA": "Export evidence only; never loaded by Blender",
+    "wholeFrameAIReplacement": false
+  },
+  "visualAccepted": false
+}

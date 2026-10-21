@@ -1,0 +1,175 @@
+{
+  "status": "path-traced-same-sample-review",
+  "started": 1792575210.424733,
+  "sourceCommit": "d18484812cf3a4fe14d21f0435d771afb9d5ddc0",
+  "sourceHash": "061e581d9b6fdf04e08a8133ad6f45b28bc9c6531c6a41aefd3b142ca2deefe0",
+  "sourceExportSceneSha256": "5ae9967bf1c793ce7e6d2c69d90538b74e9197eae91976c10540761794dc4349",
+  "sourcePortableBlendSha256": "abc8ba4a9c35cab9c2bb7e088da459c68bac43e09945637ae1a4f6f877c4085c",
+  "sourceImportScriptSha256": "510bab149924bd535c8d46dc81c1e22797b89dd85f4208a28406c8a4a2bd8a4c",
+  "renderScript": {
+    "file": "render-same-sample-comparison.py",
+    "sha256": "d779385499bf3eb3e8af85b7d203ce4d17d84db84cad6d3c36543dd844987e3d"
+  },
+  "basePhysicalCandidate": "iteration-03-thinner-air",
+  "label": "window-floor",
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samplesPerPixel": 192,
+  "adaptiveSampling": false,
+  "seed": 0,
+  "denoiser": "OPENIMAGEDENOISE",
+  "sameMonteCarloSamplesForBothOutputs": true,
+  "rawPass": "Cycles Noisy Image",
+  "denoisedPass": "Cycles Combined / OpenImageDenoise",
+  "externalImageInput": false,
+  "referencePhotoLoaded": false,
+  "sourceGeometryCounts": {
+    "objects": 2139,
+    "meshes": 1911,
+    "vertices": 5232639,
+    "polygons": 8633701
+  },
+  "sourceBufferTriangleCount": 13491029,
+  "sourceAttributeAudit": "export-attribute-audit.json",
+  "cameraMatrixUnchanged": true,
+  "trueSubfrustum": {
+    "cropInFullSourcePixels": [
+      0.0,
+      450.0,
+      650.0,
+      1254.0
+    ],
+    "lensMm": 37.048973083496094,
+    "shift": [
+      -0.4646153450012207,
+      -0.22769227623939514
+    ],
+    "desiredCameraLocalRaySlopes": [
+      -0.6248693534449014,
+      0.02292184231137595,
+      -0.47139267014264485,
+      0.17639852561363245
+    ],
+    "actualCameraLocalRaySlopes": [
+      -0.6248693487922944,
+      0.022921868743752197,
+      -0.47139264631101224,
+      0.17639855191935166
+    ],
+    "maxAbsoluteRaySlopeError": 2.64323762461105e-08,
+    "upsampledScreenshot": false
+  },
+  "physicalCalibration": {
+    "sky": {
+      "type": "Uniform exterior sky radiance, visible only through actual room openings and shared by camera/diffuse/glossy paths",
+      "linearColor": [
+        1,
+        0.94,
+        0.82
+      ],
+      "strength": 6.0,
+      "sourcePixelTextureUsed": false,
+      "nativeCubeEnvironmentImported": false,
+      "nativeHemisphereImported": false
+    },
+    "lights": [
+      {
+        "name": "reference6-physical-left-window-daylight",
+        "type": "SUN",
+        "colorLinear": [
+          1.0,
+          0.7454041838645935,
+          0.38642942905426025
+        ],
+        "energy": 90.0,
+        "positionYUp": [
+          -25.600000381469727,
+          23.200000762939453,
+          -24.200000762939453
+        ]
+      },
+      {
+        "name": "reference6-floor-lantern-source",
+        "type": "POINT",
+        "colorLinear": [
+          1.0,
+          0.5583403706550598,
+          0.18447498977184296
+        ],
+        "energy": 17.592918395996094,
+        "positionYUp": [
+          -3.2249999046325684,
+          1.350000023841858,
+          -0.11999999731779099
+        ]
+      },
+      {
+        "name": "reference6-floor-lantern-source.001",
+        "type": "POINT",
+        "colorLinear": [
+          1.0,
+          0.5583403706550598,
+          0.18447498977184296
+        ],
+        "energy": 17.592918395996094,
+        "positionYUp": [
+          3.174999952316284,
+          1.350000023841858,
+          -0.11999999731779099
+        ]
+      }
+    ],
+    "medium": {
+      "type": "Actual volume scatter plus absorption",
+      "boundsYUp": {
+        "x": [
+          -6.79,
+          6.79
+        ],
+        "y": [
+          0.02,
+          7.18
+        ],
+        "z": [
+          -5.79,
+          9.99
+        ]
+      },
+      "scatteringDensityPerMetre": 0.0025,
+      "absorptionDensityPerMetre": 0.0002,
+      "anisotropy": 0.35,
+      "emission": 0,
+      "nativeDisplayVolumePlanesImported": false,
+      "requiresActualApertureLightVisibility": true
+    },
+    "varnish": {
+      "sourceClearcoatRoughness": 0.17,
+      "cyclesClearcoatRoughness": 0.065,
+      "sourceClearcoatWeight": 0.72,
+      "sourceBaseAlbedoAndRoughnessMapKept": true,
+      "reason": "Native floor GLSL samples room-reflection radiance with a custom small image footprint; Cycles instead uses actual ray-traced clearcoat with an explicitly calibrated physical lobe. This is not native pixel parity."
+    },
+    "toneMapExposure": 0.44999998807907104,
+    "materialPositionsOrLightingChanged": false
+  },
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "outputs": {
+    "raw": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-solmax-cycles-20261021/iteration-07-fixed192-room-comparison/window-floor-raw.png",
+      "bytes": 3553111,
+      "sha256": "0108caf2453ef5f62dffd6b4f77650c2d89cc88c03e8118011ba8daec14a5309",
+      "colorManagement": "Same scene AgX Medium High Contrast, exposure .45 EV"
+    },
+    "denoised": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-solmax-cycles-20261021/iteration-07-fixed192-room-comparison/window-floor-denoised.png",
+      "bytes": 2312664,
+      "sha256": "32a82ea8dc038d0e797c6b786a725c1f18c5de3de1b8d61511922137387191bb",
+      "colorManagement": "Same scene AgX Medium High Contrast, exposure .45 EV"
+    }
+  },
+  "elapsedSeconds": 160.17746710777283,
+  "finished": 1792575370.602201
+}

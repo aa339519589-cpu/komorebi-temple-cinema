@@ -1,0 +1,344 @@
+{
+  "blender": "5.2.1 LTS",
+  "outputNode": {
+    "file_output_items": {
+      "type": "COLLECTION",
+      "description": "",
+      "value": []
+    },
+    "active_item_index": {
+      "type": "INT",
+      "description": "Index of the active item",
+      "value": "0"
+    },
+    "directory": {
+      "type": "STRING",
+      "description": "The directory where the image will be written",
+      "value": "/tmp/"
+    },
+    "file_name": {
+      "type": "STRING",
+      "description": "The base name of the file. Other information might be included in the final file name depending on the node options",
+      "value": "{blend_name}"
+    },
+    "format": {
+      "type": "POINTER",
+      "description": "",
+      "value": "<bpy_struct, ImageFormatSettings at 0xb99798a20>"
+    },
+    "use_file_extension": {
+      "type": "BOOLEAN",
+      "description": "Add the file format extensions to the saved file name (eg: filename + .jpg)",
+      "value": "True"
+    }
+  },
+  "outputInputs": [
+    ""
+  ],
+  "outputFunctions": [
+    "bl_system_properties_get",
+    "socket_value_update",
+    "is_registered_node_type",
+    "poll",
+    "poll_instance",
+    "update",
+    "insert_link",
+    "init",
+    "copy",
+    "free",
+    "draw_buttons",
+    "draw_buttons_ext",
+    "draw_label",
+    "debug_zone_body_lazy_function_graph",
+    "debug_zone_lazy_function_graph",
+    "poll",
+    "poll_instance",
+    "update",
+    "draw_buttons",
+    "draw_buttons_ext",
+    "is_registered_node_type",
+    "input_template",
+    "output_template"
+  ],
+  "denoiseNode": {},
+  "denoiseInputs": [
+    "Image",
+    "Albedo",
+    "Normal",
+    "HDR",
+    "Prefilter",
+    "Quality"
+  ],
+  "renderOutputs": [
+    "Image",
+    "Alpha",
+    "Noisy Image",
+    "Denoising Albedo",
+    "Denoising Specular Albedo",
+    "Denoising Normal",
+    "Denoising Roughness",
+    "Denoising Depth"
+  ],
+  "file_output_items": {
+    "type": "<class 'bpy_prop_collection'>",
+    "functions": [
+      "new: Add an item at the end",
+      "remove: Remove an item",
+      "clear: Remove all items",
+      "move: Move an item to another position"
+    ]
+  },
+  "newParameters": [
+    {
+      "name": "socket_type",
+      "type": "ENUM",
+      "is_output": false,
+      "enum": [
+        "FLOAT",
+        "INT",
+        "BOOLEAN",
+        "VECTOR",
+        "RGBA",
+        "ROTATION",
+        "MATRIX",
+        "STRING",
+        "MENU",
+        "SHADER",
+        "OBJECT",
+        "IMAGE",
+        "GEOMETRY",
+        "COLLECTION",
+        "TEXTURE",
+        "MATERIAL",
+        "BUNDLE",
+        "CLOSURE",
+        "FONT",
+        "SCENE",
+        "TEXT",
+        "MASK",
+        "SOUND",
+        "INT_VECTOR"
+      ]
+    },
+    {
+      "name": "name",
+      "type": "STRING",
+      "is_output": false,
+      "enum": []
+    },
+    {
+      "name": "item",
+      "type": "POINTER",
+      "is_output": true,
+      "enum": []
+    }
+  ],
+  "newItem": {
+    "override_node_format": {
+      "type": "BOOLEAN",
+      "description": "Use a different format instead of the node format for this file",
+      "value": "False"
+    },
+    "format": {
+      "type": "POINTER",
+      "description": "",
+      "value": "<bpy_struct, ImageFormatSettings at 0xb99ea8020>"
+    }
+  },
+  "newInputs": [
+    "raw",
+    ""
+  ],
+  "formatFields": [
+    {
+      "name": "rna_type",
+      "type": "POINTER",
+      "enum": []
+    },
+    {
+      "name": "media_type",
+      "type": "ENUM",
+      "enum": [
+        "IMAGE",
+        "MULTI_LAYER_IMAGE",
+        "VIDEO"
+      ]
+    },
+    {
+      "name": "file_format",
+      "type": "ENUM",
+      "enum": [
+        "AVIF",
+        "JPEG",
+        "OPEN_EXR",
+        "PNG",
+        "WEBP",
+        "BMP",
+        "CINEON",
+        "DPX",
+        "IRIS",
+        "JPEG2000",
+        "HDR",
+        "TARGA",
+        "TARGA_RAW",
+        "TIFF",
+        "OPEN_EXR_MULTILAYER",
+        "FFMPEG"
+      ]
+    },
+    {
+      "name": "color_mode",
+      "type": "ENUM",
+      "enum": [
+        "BW",
+        "RGB",
+        "RGBA"
+      ]
+    },
+    {
+      "name": "color_depth",
+      "type": "ENUM",
+      "enum": [
+        "8",
+        "10",
+        "12",
+        "16",
+        "32"
+      ]
+    },
+    {
+      "name": "quality",
+      "type": "INT",
+      "enum": []
+    },
+    {
+      "name": "compression",
+      "type": "INT",
+      "enum": []
+    },
+    {
+      "name": "use_preview",
+      "type": "BOOLEAN",
+      "enum": []
+    },
+    {
+      "name": "exr_codec",
+      "type": "ENUM",
+      "enum": [
+        "NONE",
+        "ZIP",
+        "PIZ",
+        "DWAA",
+        "DWAB",
+        "HTJ2K",
+        "ZIPS",
+        "RLE",
+        "PXR24",
+        "B44",
+        "B44A"
+      ]
+    },
+    {
+      "name": "use_exr_interleave",
+      "type": "BOOLEAN",
+      "enum": []
+    },
+    {
+      "name": "use_jpeg2k_ycc",
+      "type": "BOOLEAN",
+      "enum": []
+    },
+    {
+      "name": "use_jpeg2k_cinema_preset",
+      "type": "BOOLEAN",
+      "enum": []
+    },
+    {
+      "name": "use_jpeg2k_cinema_48",
+      "type": "BOOLEAN",
+      "enum": []
+    },
+    {
+      "name": "jpeg2k_codec",
+      "type": "ENUM",
+      "enum": [
+        "JP2",
+        "J2K"
+      ]
+    },
+    {
+      "name": "tiff_codec",
+      "type": "ENUM",
+      "enum": [
+        "NONE",
+        "DEFLATE",
+        "LZW",
+        "PACKBITS"
+      ]
+    },
+    {
+      "name": "use_cineon_log",
+      "type": "BOOLEAN",
+      "enum": []
+    },
+    {
+      "name": "cineon_black",
+      "type": "INT",
+      "enum": []
+    },
+    {
+      "name": "cineon_white",
+      "type": "INT",
+      "enum": []
+    },
+    {
+      "name": "cineon_gamma",
+      "type": "FLOAT",
+      "enum": []
+    },
+    {
+      "name": "views_format",
+      "type": "ENUM",
+      "enum": [
+        "INDIVIDUAL",
+        "STEREO_3D",
+        "MULTIVIEW"
+      ]
+    },
+    {
+      "name": "stereo_3d_format",
+      "type": "POINTER",
+      "enum": []
+    },
+    {
+      "name": "color_management",
+      "type": "ENUM",
+      "enum": [
+        "FOLLOW_SCENE",
+        "OVERRIDE"
+      ]
+    },
+    {
+      "name": "view_settings",
+      "type": "POINTER",
+      "enum": []
+    },
+    {
+      "name": "display_settings",
+      "type": "POINTER",
+      "enum": []
+    },
+    {
+      "name": "linear_colorspace_settings",
+      "type": "POINTER",
+      "enum": []
+    },
+    {
+      "name": "has_linear_colorspace",
+      "type": "BOOLEAN",
+      "enum": []
+    }
+  ],
+  "itemPngOverride": "accepted",
+  "nodePngAfterItem": "bpy_struct: item.attr = val: enum \"PNG\" not found in ('OPEN_EXR_MULTILAYER')"
+}

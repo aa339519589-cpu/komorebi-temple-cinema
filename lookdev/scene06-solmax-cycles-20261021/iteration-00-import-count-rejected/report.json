@@ -1,0 +1,39 @@
+{
+  "sourceCommit": "d18484812cf3a4fe14d21f0435d771afb9d5ddc0",
+  "sourceHash": "061e581d9b6fdf04e08a8133ad6f45b28bc9c6531c6a41aefd3b142ca2deefe0",
+  "exportSceneSha256": "5ae9967bf1c793ce7e6d2c69d90538b74e9197eae91976c10540761794dc4349",
+  "renderScript": {
+    "file": "render-scene06-cycles.py",
+    "sha256": "791615f4e4a521e4fdf609e07240aa609eb7d770f62fcfba6de7263fdc088b7a"
+  },
+  "sourceStatistics": {
+    "meshes": 1933,
+    "geometries": 1685,
+    "materials": 224,
+    "textures": 391,
+    "instances": 20696,
+    "triangles": 13491053
+  },
+  "lightingMode": "source-sun-physical-apertures",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 6,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "reference6-room-reflection-capture-only",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "rejected-before-render",
+  "started": 1792569204.386816,
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "error": "Exact raw triangle assertion counted two source zero-determinant lacquer instances (24 zero-area triangles) as renderable geometry.",
+  "renderOutput": null
+}
