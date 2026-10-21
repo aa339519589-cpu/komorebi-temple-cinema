@@ -70,7 +70,7 @@ function reliefSolid135({width,height,nx,ny,depth=.10,back=.045,uRepeat=1,uPhase
  }
  for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){
   const a=j*(nx+1)+i,mean=(q[a]+q[a+1]+q[a+nx+1]+q[a+nx+2])/4;
-  active[j*nx+i]=mean>(skin?.245:.21)?1:0;
+  active[j*nx+i]=mean>(skin?.46:.21)?1:0;
  }
  function vert(k,rearSide){
   const map=rearSide?vr:vf;if(map[k]>=0)return map[k];
@@ -95,10 +95,10 @@ function reliefSolid135({width,height,nx,ny,depth=.10,back=.045,uRepeat=1,uPhase
 export function buildPorchJoinery135(mats,{C,profile}){
  if(!reliefField)throw Error('Carving135 data not ready');
  const group=new T.Group();group.name='scene04-135-dominant-carved-porch-and-coupled-hafu';
- const materials=[],batches=new Map(),stats={revision:'scene04-porch135-dominant-rebuild-r06',pairedHafu:2,hafuVisibleNormalDepthMetres:.585,hafuForeAftRetreatMetres:.54,carvedPanels:0,reliefTriangles:0,deepCorbelSets:0,shaftBearingSets:0,closedRafterBoards:0,visualAccepted:false};
+ const materials=[],batches=new Map(),stats={revision:'scene04-mass164-coupled-bearing-r02',pairedHafu:2,hafuVisibleNormalDepthMetres:.585,hafuForeAftRetreatMetres:.54,carvedPanels:0,reliefTriangles:0,deepCorbelSets:0,shaftBearingSets:0,closedRafterBoards:0,visualAccepted:false};
  const finish=(source,name,color,roughness)=>{const m=source.clone();m.name=name;m.color.setHex(color);m.roughness=roughness;m.clearcoat=.12;m.clearcoatRoughness=.37;materials.push(m);return m;};
- const wood=finish(mats.cedar,'scene04-135-carved-aged-cedar',0x63301a,.58),red=finish(mats.red,'scene04-135-carved-vermilion-timber',0x74321b,.53),dark=finish(mats.darkwood,'scene04-135-deep-carving-recess',0x241107,.78),gilt=finish(mats.gold,'scene04-135-worn-gilded-carving',0xb58a35,.40),oldgilt=finish(mats.oldgold,'scene04-135-recessed-aged-gold',0x9b732e,.47);gilt.metalness=.88;oldgilt.metalness=.85;
- const vaultWood=finish(mats.darkwood,'scene04-135-dark-curved-vault-timber',0x381a0c,.73);
+ const wood=finish(mats.cedar,'scene04-135-carved-aged-cedar',0x643016,.70),red=finish(mats.red,'scene04-135-carved-vermilion-timber',0x743b22,.68),dark=finish(mats.darkwood,'scene04-135-deep-carving-recess',0x241107,.78),gilt=finish(mats.gold,'scene04-135-worn-gilded-carving',0xac8338,.47),oldgilt=finish(mats.oldgold,'scene04-135-recessed-aged-gold',0x9b732e,.47);gilt.metalness=.88;oldgilt.metalness=.85;
+ const vaultWood=finish(mats.darkwood,'scene04-135-dark-curved-vault-timber',0x4a220f,.78);
  function put(g,m,x=0,y=0,z=0,rotY=0){if(rotY)g.rotateY(rotY);g.translate(x,y,z);let list=batches.get(m);if(!list){list=[];batches.set(m,list);}list.push(g);}
  function mesh(g,m,name){const o=new T.Mesh(g,m);o.name=name;o.castShadow=o.receiveShadow=true;group.add(o);return o;}
  const box=(w,h,d,x,y,z,m=wood)=>put(new RoundedBoxGeometry(w,h,d,1,Math.min(.0045,Math.min(w,h,d)*.065)),m,x,y,z);
@@ -145,7 +145,7 @@ export function buildPorchJoinery135(mats,{C,profile}){
   const xs=lin(-width/2,width/2,180),p=[],id=[],sections=[];
   for(const x of xs){
    const u=2*x/width,top=y+height*.47+bow*(1-u*u)+.035*Math.exp(-Math.pow((Math.abs(u)-.79)/.11,2)),bottom=y-height*.46+.09*Math.pow(Math.abs(u),4)-.045*Math.exp(-Math.pow(u/.45,2))+.020*Math.cos(2*Math.PI*u),zf=z+beamBulge(x);
-   const ring=[[top,z-.50],[top,zf-.018],[top-.018,zf+.004],[(top+bottom)/2,zf+.035],[bottom+.018,zf+.004],[bottom,zf-.018],[bottom,z-.50]];
+   const ring=[[top,z-.80],[top,zf-.018],[top-.018,zf+.004],[(top+bottom)/2,zf+.035],[bottom+.018,zf+.004],[bottom,zf-.018],[bottom,z-.80]];
    sections.push(ring);for(const [yy,zz]of ring)p.push(x,yy,zz);
   }
   const n=7;
@@ -156,16 +156,16 @@ export function buildPorchJoinery135(mats,{C,profile}){
   }
   put(closedGeometry(p,id,'135-convex-cloud-ended-rainbow-transfer-beam'),m);
  }
- const upperY=C.capitalTop+.39,lowerY=C.capitalTop-.69,upperZ=.94,lowerZ=.85;
- shapedBeam(6.90,.48,upperY,upperZ,.10);
- shapedBeam(6.90,.44,lowerY,lowerZ,.06,red);
+ const upperY=C.capitalTop+.39,lowerY=C.capitalTop-.69,upperZ=.83,lowerZ=.22;
+ shapedBeam(6.90,.62,upperY,upperZ,.11);
+ shapedBeam(6.90,.57,lowerY,lowerZ,.09,red);
  // Dense carved wood/gold occupies both transfer faces and the pierced gap.
  for(const [i,x]of[-2.45,-1.23,0,1.23,2.45].entries()){
   const width=i===2?1.22:.78,h=i===2?.45:.38,u0=i===2?.34:i<2?.02:.66,u1=i===2?.66:i<2?.34:.98;
-  relief({name:'scene04-135-separated-upper-transfer-carving-'+i,width,height:h,x,y:upperY+.018,z:upperZ+.006,depth:.065,back:.022,nx:i===2?280:190,ny:72,u0,u1,warp:(xx,yy,zz)=>[xx,yy,zz+beamBulge(x+xx)+.025]});
-  relief({name:'scene04-135-separated-lower-nuki-carving-'+i,width:width*.94,height:h*.87,x,y:lowerY+.015,z:lowerZ+.006,depth:.055,back:.022,nx:i===2?270:180,ny:66,u0,u1,warp:(xx,yy,zz)=>[xx,yy,zz+beamBulge(x+xx)+.025]});
+  relief({name:'scene04-135-separated-upper-transfer-carving-'+i,width,height:h,x,y:upperY+.018,z:upperZ+.006,depth:.065,back:.022,nx:i===2?280:190,ny:72,u0,u1,limit:(xx,yy)=>(xx/(width*.50))**2+(yy/(h*.49))**2<1,warp:(xx,yy,zz)=>[xx,yy,zz+beamBulge(x+xx)+.025]});
+  relief({name:'scene04-135-separated-lower-nuki-carving-'+i,width:width*.94,height:h*.87,x,y:lowerY+.015,z:lowerZ+.006,depth:.055,back:.022,nx:i===2?270:180,ny:66,u0,u1,limit:(xx,yy)=>(xx/(width*.47))**2+(yy/(h*.43))**2<1,warp:(xx,yy,zz)=>[xx,yy,zz+beamBulge(x+xx)+.025]});
  }
- relief({name:'scene04-135-pierced-dense-ranma',width:4.60,height:.82,y:(upperY+lowerY)/2+.025,z:.77,depth:.175,back:.075,nx:1140,ny:148,uRepeat:2,uPhase:.5,v0:0,v1:1,limit:(x,y)=>Math.pow(x/2.30,2)+Math.pow(y/.41,2)<1});
+ relief({name:'scene04-135-pierced-dense-ranma',width:4.60,height:.72,y:(upperY+lowerY)/2+.015,z:.10,depth:.24,back:.075,nx:1140,ny:148,uRepeat:2,uPhase:.5,v0:0,v1:1,limit:(x,y)=>Math.pow(x/2.30,2)+Math.pow(y/.41,2)<1});
  // A carved arched tympanum lives deep behind the paired hafu, with real
  // pierced black interstices and 155mm variable depth rather than blank wood.
  const tymY=upperY+.80;
@@ -231,7 +231,7 @@ export function buildPorchJoinery135(mats,{C,profile}){
   stats.deepCorbelSets++;if(column)stats.shaftBearingSets++;
  }
  for(const x of C.columnAxes){
-  const cap=Math.abs(x)<3.2?C.capitalTop:Math.abs(x)<5.5?C.capitalTop-.72:C.capitalTop-1.0;
+  const cap=Math.abs(x)<3.2?C.capitalTop+.26:Math.abs(x)<5.5?C.capitalTop-.62:C.capitalTop-.94;
   corbels(x,cap+.40,.03,.88,true);
   relief({name:'scene04-135-gilded-carved-column-nose-'+x,width:.63,height:.52,x,y:cap-.54,z:.37,depth:.14,back:.095,nx:150,ny:84,u0:.02,u1:.98});
  }
@@ -248,4 +248,10 @@ export function buildPorchJoinery135(mats,{C,profile}){
  relief({name:'scene04-135-real-door-lintel-relief',width:4.64,height:.40,y:C.stairTopY+4.61,z:-.352,depth:.047,back:.025,nx:720,ny:62,uRepeat:2});
  for(const [m,parts]of batches){const all=parts.map(g=>g.index?g.toNonIndexed():g),g=mergeGeometries(all,false);if(!g)throw Error('135 structural batch failed');mesh(g,m,'scene04-135-deep-structural-'+m.name);for(const q of parts)q.dispose();for(const q of all)q.dispose();}
  group.userData.porch135=stats;return{group,materials,stats};
+}
+
+// A reusable physical relief volume for the occupied sanctuary. The scalar
+// guide deforms real closed geometry and never supplies rendered RGB.
+export function createSanctuaryCarving164(options){
+ const g=reliefSolid135(options);g.userData.architectureMember=options.skin?'164-sanctuary-real-gilt-volume':'164-sanctuary-closed-carved-substance';return g;
 }

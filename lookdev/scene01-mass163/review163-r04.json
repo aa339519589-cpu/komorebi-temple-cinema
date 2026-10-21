@@ -1,0 +1,100 @@
+{
+  "heldRevision": "scene01-mass-and-daylight163-r04",
+  "sourceHash": "b714da0c19a0cdb38fd6afd3602c6c3c956a08a70f42ce1d5e34df97c88fbfca",
+  "visualAccepted": false,
+  "sourceStatus": "Canonical scene01 frozen after four actual review rounds. Parent integrates; no Git operations by this worker.",
+  "reviewed": [
+    "HD reference full and architecture close",
+    "R01 full / actual native facade hero / genuine low-oblique",
+    "R02 full / actual native facade hero / clear genuine low-oblique",
+    "R03 full / actual native facade hero / actual native tower hero / same low-oblique",
+    "R04 full / actual native facade hero / actual native tower hero / same low-oblique"
+  ],
+  "actualRepairs": [
+    "Rebuilt narrow-core five-storey tower galleries, deeper sculpted capital/cantilever/purlin hierarchy and overlapping ceramic pans.",
+    "Taller hall posts, compact lower and larger projecting upper capitals; higher full-height screens/portal from fixed sills; closed coffered sanctuary ceiling.",
+    "Warm ground-side indirect light and physical timber/ceramic finish repair with existing CC0 scan; exposure and direct-sun direction fixed.",
+    "Closed formed-clay hip ridges/ornaments replace hollow gray pipe ends; tower rafters use finer physical cross sections.",
+    "Guarded static light-space shadow caching after real environment capture; no recorded-frame reuse."
+  ],
+  "remainingVisualGaps": [
+    "The scene remains visibly CG and does not match the HD photograph.",
+    "Fine carved ornament, roof/column shape correspondence and the reference's very rich warm reflected-light contrast still differ.",
+    "Pond, rock, ground vegetation and canopy appearance remain approximate; this163 scope preserved their geometry."
+  ],
+  "externalAssets": "No new media assets. Existing CC0 PolyHaven texture provenance and independently authored sky retained. No reference-photo scene projection.",
+  "reports": [
+    {
+      "path": "qa/ten-reference/01/iteration-scene01-mass163-r04-20261022/report.json",
+      "sourceHash": "b714da0c19a0cdb38fd6afd3602c6c3c956a08a70f42ce1d5e34df97c88fbfca",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/01/iteration-scene01-mass163-r04-20261022/reference.png",
+          "rgbaSha256": "3c225cc9e9c1dcbb68b79bc49d0c434f4bac59659b5c5d728d715178d7715cfd"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/01/iteration-scene01-mass163-r04-20261022/detail-native.png",
+          "rgbaSha256": "c2d15c7189ef1e28418399da7a29cb67740c5274aa740366f9cace2ca762dcbc"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/01/iteration-scene01-mass163-r04-tower-hero-20261022/report.json",
+      "sourceHash": "b714da0c19a0cdb38fd6afd3602c6c3c956a08a70f42ce1d5e34df97c88fbfca",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/01/iteration-scene01-mass163-r04-tower-hero-20261022/reference.png",
+          "rgbaSha256": "3c225cc9e9c1dcbb68b79bc49d0c434f4bac59659b5c5d728d715178d7715cfd"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/01/iteration-scene01-mass163-r04-tower-hero-20261022/detail-native.png",
+          "rgbaSha256": "c4a23d02c6e62cf49da014edc9d8b99a7ba11bdb5df6c06a95b85021cbb12003"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/01/iteration-scene01-mass163-r04-low-oblique-20261022/report.json",
+      "sourceHash": "b714da0c19a0cdb38fd6afd3602c6c3c956a08a70f42ce1d5e34df97c88fbfca",
+      "status": "rendered-review",
+      "visualAccepted": false,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "file": "qa/ten-reference/01/iteration-scene01-mass163-r04-low-oblique-20261022/inspection-view.png",
+          "rgbaSha256": "a76444cac84d996310e9e2a4fd527ab3f7f065b0a9c9c71067cf642935bbe7a3"
+        }
+      ]
+    }
+  ]
+}

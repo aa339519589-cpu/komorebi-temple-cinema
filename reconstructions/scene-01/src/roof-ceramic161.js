@@ -6,7 +6,7 @@ import {noise,surface} from './kernel.js';
 // profiles. Geometry follows the existing physical roof, including its hips.
 export function createCeramicRoof161(B){
  const pans=[],variants=new Map();
- const mat=B.m.slate.clone();mat.name='hall161-concave-pan-ceramic';mat.vertexColors=true;mat.roughness=.65;mat.clearcoat=.09;mat.clearcoatRoughness=.39;B.m.hall161Pan=mat;
+ const mat=B.m.slate.clone();mat.name='hall161-concave-pan-ceramic';mat.vertexColors=true;mat.roughness=.52;mat.clearcoat=.12;mat.clearcoatRoughness=.39;B.m.hall161Pan=mat;
  const lip=new T.LatheGeometry([[0,-.07],[.72,-.07],[.91,-.06],[1,-.02],[1,.055],[.94,.14],[.83,.14],[.75,.065],[.20,.035],[0,.04]].map(p=>new T.Vector2(...p)),32).toNonIndexed();
  const flower=new T.Shape();for(let j=0;j<=112;j++){const a=j/112*Math.PI*2,r=.41+.14*Math.pow(.5+.5*Math.cos(a*14),.78),x=Math.cos(a)*r,y=Math.sin(a)*r;j?flower.lineTo(x,y):flower.moveTo(x,y);}flower.closePath();
  const relief=new T.ExtrudeGeometry(flower,{depth:.059,steps:1,bevelEnabled:true,bevelSize:.012,bevelThickness:.012,bevelSegments:2});relief.rotateX(-Math.PI/2);relief.translate(0,.041,0);

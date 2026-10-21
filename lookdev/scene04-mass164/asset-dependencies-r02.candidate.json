@@ -1,0 +1,180 @@
+{
+  "scene": "04",
+  "revision": "scene04-mass164-r02",
+  "referencePhotographs": {
+    "usedByRuntime": false,
+    "scope": "Comparison evidence only; original photo copyright remains with its owner.",
+    "reference": "3-照片-4.jpg"
+  },
+  "newExternalAssets": [
+    {
+      "name": "Granite Tile 04",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "sourceWidthMetres": 2,
+      "provenance": "assets/granite-tile-04/provenance.json",
+      "runtimeFiles": [
+        "assets/granite-tile-04/granite-face-diff.png",
+        "assets/granite-tile-04/granite-face-nor_gl.png",
+        "assets/granite-tile-04/granite-face-rough.png"
+      ],
+      "runtimeRepeatMetres": 0.3173828125,
+      "adaptation": "Same 650 x 650 crop from each 4096 px map, x=2100 y=920, inside one granite face. Source grout is excluded; three-dimensional model supplies worn slab joints and thickness."
+    },
+    {
+      "name": "shrub_02",
+      "provider": "Poly Haven",
+      "author": "Rico Cilliers",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/shrub_02",
+      "provenance": "assets/polyhaven/shrub-02/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+        "assets/polyhaven/shrub-02/shrub_02.bin",
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    },
+    {
+      "name": "periwinkle_plant",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    },
+    {
+      "name": "Lacquered Cherry Wood",
+      "provider": "Poly Haven",
+      "authors": [
+        "Jenelle van Heerden",
+        "Rico Cilliers"
+      ],
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+      "provenance": "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+        "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+        "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+      ],
+      "adaptation": "Existing frozen repository scan, no global edits. Diffuse chroma removed and scalar luma normalized for the authored warm cedar palette. Original GL tangent normal at scale 0.30. Source roughness remapped to 0.70+0.26*source for worn exterior coating. Metric per-member UV grain orientation retained; authored anisotropic repeat 1.45m along grain and 0.38m across grain."
+    }
+  ],
+  "newSharedAssetsCopied": [],
+  "authoredGeometry": [
+    "Closed shaped karahafu roof and four separated curved timber ribs",
+    "Raised side-eave bearing members and column-to-beam relations",
+    "140 mm closed granite pavers with 15 mm worn arrises, settling, broad crown, low wear basin, two-axis tilt and millimetre pits",
+    "Low closed moss cushions rooted in actual model joints",
+    "0.80m deep shaped transfer and receding nuki members",
+    "Deep orthogonal column receiver and rear return assemblies",
+    "Four broad curved vault carriers and sixteen sloping upper-overhang ties",
+    "True overlapping ceramic courses with raised tails",
+    "Continuous carved reveal and curved portal lintel with actual deep ceiling coffers",
+    "Reference-led asymmetric pitched gallery masses and joined foundations",
+    "Raised altar/mandorla with a slimmer seated figure and torso-level oil lamps",
+    "Real distant wooded hillside relief raised to the observed backdrop behind the higher right gallery; no screen-facing terrain"
+  ],
+  "retainedUnusedHistoricalAsset": "assets/monastery-stone-floor retains its original CC0 source and provenance; runtime paving now loads Granite Tile 04.",
+  "excludedRepresentations": [
+    "photo-projected albedo or background",
+    "photo-estimated depth surface",
+    "point cloud",
+    "Gaussian splats"
+  ],
+  "visualAccepted": false,
+  "files": [
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "reconstructions/camera-dolly.js",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "reconstructions/scene-04/src/scene04-timber-precision134.js",
+    "reconstructions/scene-04/assets/ensemble134-provenance.json",
+    "reconstructions/scene-04/src/scene04-porch-sculpture135.js",
+    "reconstructions/scene-04/assets/carving135/hosoge-karakusa-height-guide.png",
+    "reconstructions/scene-04/assets/carving135/hosoge-karakusa-height-1536x512.gray8.bin",
+    "reconstructions/scene-04/assets/carving135/provenance.json",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+  ],
+  "sceneLocalStoneLoader": {
+    "source": "src/scene04-scanned-garden-stones.js",
+    "copiedFromCommit": "c6841ad",
+    "copiedFromPath": "reconstructions/scene-01/src/scanned-garden-stones.js",
+    "sha256": "bbd2e69d72a377f352fb419ac3d265b8985f005a3441c64673123a3993a8b6b0",
+    "scope": "Exact baseline loader vendored into Scene04; global licensed scan files remain unchanged; no runtime source dependency on Scene01.",
+    "newExternalAssets": []
+  },
+  "model131": {
+    "provenance": "assets/model131-provenance.json",
+    "scope": "Sculpted toro, concave/cover ceramic courses, deep entrance, scanned mineral weathering and actual dry-rooted understory geometry.",
+    "newExternalAssets": [
+      "Poly Haven shrub_02 and periwinkle_plant, existing frozen repository assets, CC0-1.0"
+    ],
+    "referenceRGBUsed": false,
+    "visualAccepted": false
+  },
+  "hall132": {
+    "provenance": "assets/hall132-provenance.json",
+    "scope": "Connected steep irimoya roof, spline karahafu profile, actual bearing/purlin/rafter and turned-column reconstruction under the unchanged reference camera/stair datum.",
+    "referenceRGBUsed": false,
+    "visualAccepted": false
+  },
+  "porch133": {
+    "provenance": "assets/porch133-provenance.json",
+    "scope": "Thin closed curved fascia, coherent transfer/nuki and cloud bearing hierarchy, source-scale closed carved wood with conforming physical gilt skins.",
+    "referenceRGBUsed": false,
+    "newExternalAssets": [],
+    "visualAccepted": false
+  },
+  "ensemble134": {
+    "provenance": "assets/ensemble134-provenance.json",
+    "scope": "Whole-ensemble timber precision, source-window depth/column proportions, denser actual vaulted carving, warmer metric PBR and light hierarchy.",
+    "referenceRGBUsed": false,
+    "newExternalAssets": [],
+    "visualAccepted": false
+  },
+  "porch135": {
+    "provenance": "assets/carving135/provenance.json",
+    "scope": "Dominant coupled hafu, real closed carved tympanum/ranma/beam-end relief and interlocked corbel hierarchy; replaces plain gable/ladder/toy-flower reads.",
+    "referenceRGBUsed": false,
+    "imageGuideUsedAsAlbedo": false,
+    "visualAccepted": false
+  },
+  "mass164": {
+    "provenance": "assets/mass164-provenance.json",
+    "scope": "Deep coupled main bearing hierarchy, genuine lapped ceramics, recessed upper-wall structure, continuous sanctuary reveal, corrected shrine proportions and asymmetric courtyard roof masses. Frozen CC0 timber scan used only as physical PBR surface detail.",
+    "referenceRGBUsed": false,
+    "visualAccepted": false
+  }
+}

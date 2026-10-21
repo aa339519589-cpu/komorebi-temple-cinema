@@ -1,0 +1,69 @@
+{
+  "revision": "scene01-mass-and-daylight163-r04",
+  "reference": "references/hd/0-照片-1.jpg",
+  "heldSource": "source161R03, 78cb125098c56e38cd5027ec5d38e9453ed9f01ba52dee2b8ea7359c340ac3f8",
+  "sourceSnapshot": "lookdev/scene01-mass163/r00-source/source161.tar.gz",
+  "observations": [
+    "Tower gallery walls read as boxes and thin grille bands instead of narrow cores supporting deep eave masses.",
+    "Lower hall bearing/soffit sits about20–30pixels below the photographed relief courses while stair/door baseline already corresponds.",
+    "Shadowed carpentry lacks coherent warm reflected daylight and its scanned normal/roughness looks dry."
+  ],
+  "construction": [
+    "Rebuilt allfive tower galleries with narrow timber cores, recessed lime cells, heavier physical columns, sculpted crossed capitals, paired outward cantilevers and two continuous purlin courses.",
+    "Tower roof widths taper7.02to6.03metres; lower apex rise1.13m and cornercurl0.57m. Allfive roofs now contain closed overlapping concave pan tiles and ceramic end profiles.",
+    "Lower hall column tops rise0.48m while their stonebases remain seated on the original platform; capitals, headers, arches, rafter receivers and lower roof move together.",
+    "Upper primary columns gain physical diameter0.40m. Canonical camera, bridge, stairs, site and sculpture held."
+  ],
+  "materials": [
+    "Existing CC0 PolyHaven lacquered cherry wood maps retained with metric member UV. Hall timber roughness0.78, small rough clearcoat and reduced normal strength avoid dry diffuse clamping.",
+    "Upper recessed lime albedo warmagedbeige. No reference pixels, AI architecture plates or fabricated image scene planes."
+  ],
+  "lighting": {
+    "sun": 7.2,
+    "hemisphere": 0.42,
+    "hemisphereGround": "#a9713b",
+    "courtyardReflectedDaylight": 1.62,
+    "environmentIntensity": 0.34,
+    "exposureUnchanged": true
+  },
+  "assetProvenance": "No new external assets; existing asset-dependencies.json and material150-provenance.json describe the CC0 wood and independently authored sky. New geometry source-built.",
+  "visualAccepted": false,
+  "r01Source": "be990e747bece9bfdf41df08242c7ce551d8d685f67d8050a716ba62c6eb5355",
+  "r01NativeReview": [
+    "qa/ten-reference/01/iteration-scene01-mass163-r01-20261022/reference.png",
+    "qa/ten-reference/01/iteration-scene01-mass163-r01-20261022/detail-native.png",
+    "qa/ten-reference/01/iteration-scene01-mass163-r01-low-oblique-20261022/inspection-view.png"
+  ],
+  "r01Findings": [
+    "Actual full/hero/low views rejected R01: lower roof contour rose about20pixels above the HD reference and occluded the upper plaque in the low view.",
+    "Taller front posts need vertically compact, wide capitals seated below the measured roof, not an upward-shifted roof.",
+    "A genuine sky-through gap is visible above the portal; original screen transoms no longer meet the raised lintels.",
+    "Narrower top roof widths and oversized tower-column fittings need correction. Above-roof directional fill cannot provide warm radiance to downward-facing eave surfaces."
+  ],
+  "r02Repairs": [
+    "Restore measured6.6m lower-eave contour. Lower post tops rise0.35m from source161, while wide capitals compress to76% vertical height; continuous receivers remain at6.37m. Stonebases, camera, bridge and stairs held.",
+    "Screen leaves, stiles, transoms and portal jamb/header grow from their original fixed sills. A closed recessed coffer ceiling and taller real enclosure close the sanctuary gap.",
+    "Restore measured124 tower roof widths while retaining the rebuilt44.5%-width timber cores, real outward cantilevers, sculpted capitals and ceramic pans. Tower head plates shrink to0.19m; rafter ends use actual wood-endgrain material rather than repeated gilt squares.",
+    "Warm lower-hemisphere radiance represents sunlit courtyard ground bounce, while sky-side illumination stays cool and the fixed low sun remains unchanged.",
+    "After the existing actual six-face environment capture initializes both4096px static light-space maps, cache them with guarded initialization. Bundled DirectionalLightShadow uses fixed light/target matrices independent of view camera. All color frames, reflection and ripple shading still render live; no frame reuse."
+  ],
+  "r02Source": "99e762a470bf11c48caa450120d4ec26fdaa137444a2342054ee4559ab135097",
+  "r02Findings": [
+    "Full/hero/clear low oblique show restored roof contour, complete plaque, continuous portal/screen joints and a closed actual coffer ceiling.",
+    "Upper capitals still read too small behind horizontal beam bands; tower gallery shafts are compressed; broad weathering islands obscure real scanned grain."
+  ],
+  "r03Repairs": [
+    "Larger wider upper capitals start0.23m lower and meet the same roof bearing, with a shorter shaft and greater real fore-aft projection. Lower capitals also gain projecting depth while their fixed roof contour and seated receiver height stay intact.",
+    "Upper tower gallery decks settle0.26m toward the actual roof carried below; exposed shafts and framed infill become taller while allfive roof contours remain fixed.",
+    "Hall-only world weather modulation becomes subtle so actual CC0 metric grain carries the ageing. Fired ceramic pan roughness0.52 and restrained clearcoat preserve broader sky highlights."
+  ],
+  "r03Source": "c4457744ddb7611195dba7a583f347556776a55ebc9fffce8296ea4ebee8def0",
+  "r03Findings": [
+    "Actual tower hero exposes hollow oversized gray hip-ridge tube terminations. Ceramic-mode rafters were using main-hall cross sections, making the tower underside too coarse.",
+    "Full/main hero/low view confirm larger upper capitals, taller gallery cores and closed sanctuary; overall photographic match still rejected."
+  ],
+  "r04Repairs": [
+    "Replace hip tubes and ceramic corner/ridge ornaments with closed formed-clay solids: flat bearing bed, arched crown, sealed ends, tapered termination and shorter physical overrun.",
+    "Use tower-specific smaller primary/secondary rafter cross sections and endgrain faces while retaining heavy sculpted capitals, cantilevers and continuous purlins. All roof contours and site held."
+  ]
+}

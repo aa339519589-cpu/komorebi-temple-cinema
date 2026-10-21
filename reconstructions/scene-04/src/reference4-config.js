@@ -1,8 +1,8 @@
 export const reference4Config=Object.freeze({
- revision:'scene04-porch135-r06',
+ revision:'scene04-mass164-r04',
  camera:{position:[0,1.35,23.34],target:[0,2.3,0],fov:64.1754241,near:.08,far:1200},
  architecture:{hallOrigin:[.12,0,-.10],columnAxes:[-7.05,-5.15,-2.99,2.99,5.15,7.05],stairTopY:3.5,stairBaseY:.048,stairTopZ:0,stairBottomZ:8,stairWidth:6.65,stairTopWidth:5.1,stairCount:18,capitalTop:8.85,ridgeY:16.5,ridgeZ:-5,upperRoofWidth:16.4,upperEaveY:11.3,upperRoofCurl:1.15,upperRidgeHalfRatio:.312,upperRidgeOffsetX:.10,upperEaveOffsetX:0,towerPosition:[-15.900260499093745,2.0,-12.0044],towerHeight:17.91537398057979,towerSceneScale:1.16,towerYaw:-0.056650511557074415,towerWidthFactor:0.8233786463534434,towerDepthRatio:0.8344768956713122,towerEaveBase:4.507119688219024,towerEavePitch:1.8780905497520939,towerTopRoofRise:1.9034561537819705,towerTopRidgeHalfRatio:0.1026946167933868,towerGroundY:-.8},
  garden:{stairBottomZ:8,pathWidth:6.4,pathEndZ:27,soilY:-.08,waterY:-.14,lanternX:2.84,lanternZ:16.35,lanternHeight:3.06,lanternWidthFactor:.90,lanternInwardYaw:.32,pineHeight:5.0,stairTopY:3.5,towerPosition:[-14.21,2.0,-12.0044],towerGroundY:-.8,towerHalfWidth:3.8},
- lighting:{sunDirection:[-.80,.60,.45],sunIntensity:6.4,sunColor:'#ffe0b3',skyIntensity:.27,skyColor:'#c5def8',groundColor:'#615b44',environmentIntensity:.12,skyDisplayRadiance:.22,exposure:1.08,shadowSize:4096},
+ lighting:{sunDirection:[-.80,.60,.45],sunIntensity:6.4,sunColor:'#ffe0b3',skyIntensity:.27,skyColor:'#c5def8',groundColor:'#615b44',environmentIntensity:.12,skyDisplayRadiance:.29,exposure:1.08,shadowSize:4096},
  limitations:['Complete new source after execution-workspace reset, not a byte-identical recovery of v3.','Camera and hidden dimensions remain a single-view reconstruction hypothesis.','Actual rendered comparison is required; CPU validity is not visual acceptance.']
 });

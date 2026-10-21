@@ -1,0 +1,41 @@
+{
+  "revision": "scene04-mass164-r02",
+  "status": "unaccepted-reconstruction-candidate",
+  "visualAccepted": false,
+  "reference": "references/hd/3-照片-4.jpg, comparison input only",
+  "authoredSource": [
+    "src/scene04-mass-frame164.js",
+    "src/scene04-portal164.js",
+    "src/reference4-architecture.js",
+    "src/scene04-porch-sculpture135.js",
+    "src/reference4-sanctuary.js"
+  ],
+  "construction": "Closed extruded shaped timber, turned columns, ordinary beam solids, individually closed ceramic pan/cover units, real finite-depth carving135 relief and conforming gilt volumes. Oblique parallax must be inspected in the actual native renderer.",
+  "cameraAndSite": "Reference camera [0,1.35,23.34], target [0,2.3,0], fov 64.1754241 degrees, main stairs/path/lantern plan preserved.",
+  "galleryInference": "The photograph has a substantially higher right rear gallery than the low gallery in front of the left pagoda. These are separate pitched roof hypotheses, avoiding false bilateral symmetry or arbitrary whole-scene enlargement. The near return galleries use steeper roofs. Visible foundations remain connected solids.",
+  "externalSurfaceAsset": {
+    "name": "Lacquered Cherry Wood",
+    "provider": "Poly Haven",
+    "authors": [
+      "Jenelle van Heerden",
+      "Rico Cilliers"
+    ],
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+    "provenance": "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "runtimeFiles": [
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+    ],
+    "adaptation": "Existing frozen repository scan, no global edits. Diffuse chroma removed and scalar luma normalized for the authored warm cedar palette. Original GL tangent normal at scale 0.30. Source roughness remapped to 0.70+0.26*source for worn exterior coating. Metric per-member UV grain orientation retained; authored anisotropic repeat 1.45m along grain and 0.38m across grain."
+  },
+  "retainedGuides": "Earlier carving135 scalar guide and generated mineral materials retain their original provenance. No reference photograph RGB or replacement frame is used by scene rendering.",
+  "limits": [
+    "Single-view metric and hidden joints are reconstruction hypotheses, not a structural engineering certification.",
+    "Overlapping separate solid timber members form authored joints; this is not a global Boolean-union model.",
+    "Native render validity does not establish photographic fidelity.",
+    "No Blender cross-renderer equivalence claimed in this lane."
+  ],
+  "distantTerrainInference": "Existing distant finite terrain and individual crowns remain at their original depths; terrain relief is raised 1.55x to place the right hill silhouette above the taller reference-led gallery mass, rather than leaving the hill hidden at the old eave line."
+}

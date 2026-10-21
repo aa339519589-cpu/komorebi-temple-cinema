@@ -1,0 +1,209 @@
+{
+  "lane": "scene04-mass164",
+  "scope": "Scene04 canonical source and scene-local review only",
+  "visualAccepted": false,
+  "baseline": {
+    "publicCommit": "f538de7",
+    "sourceSha256": "5f30b45c9d034ebb32100e9d3588621cc30e85dd9b57210b8cfb8cd66578f477",
+    "native": "qa/ten-reference/04/iteration-scene04-porch135-r06/reference.png",
+    "oblique": "qa/ten-reference/04/iteration-scene04-porch135-r06-oblique/inspection-view.png",
+    "reference": "references/hd/3-照片-4.jpg"
+  },
+  "comparisonObservations": [
+    "The old native full-frame hall silhouette already occupies approximately the reference width; arbitrary camera widening or enlargement would damage the path/stair/lantern correspondence.",
+    "The old porch reads as two narrow same-depth horizontal strips over shafts, with a dark lattice-like vault. Reference mass comes from thick shaped transfer members, bearings and deep warm nested timber under the curved roof.",
+    "The old roof barrel units meet end to end with a gap. Reference ceramic courses visibly overlap and carry substantial curved end lips.",
+    "The old gold figure is low and squat in the opening; the reference figure is slimmer and higher on a raised altar, within a more occupied carved recess.",
+    "The old material produces broad artificial pale patches in the shaft close view. The repository contains a licensed CC0 timber scan suitable for a separate material revision."
+  ],
+  "unchangedAnchors": {
+    "cameraPosition": [
+      0,
+      1.35,
+      23.34
+    ],
+    "cameraTarget": [
+      0,
+      2.3,
+      0
+    ],
+    "fovDegrees": 64.1754241,
+    "stairTopY": 3.5,
+    "sitePathAndLanternPlan": "Preserved",
+    "filmOrSharedToolEdits": "None"
+  },
+  "candidates": [
+    {
+      "revision": "scene04-mass164-r01",
+      "sourceSha256": "989ea3bfab3e199bbe5205895e080b2bf849aa40025fec782722ef01dea58a73",
+      "sourceSnapshot": "lookdev/scene04-mass164/source-snapshots/mass164-r01.tgz",
+      "status": "Rendered-review, visually rejected",
+      "geometryChanges": [
+        "Upper and lower shaped beam heights 0.48/0.44m to 0.62/0.57m; actual fore-aft depth 0.50m to 0.80m.",
+        "Lower nuki plane moved from z=0.85m to z=0.22m, leaving actual parallax beneath the upper transfer.",
+        "Central turned shaft bearing datum raised by 0.26m; actual orthogonal deep receiving arms, blocks and rear return beams added.",
+        "Four deep curved vault carriers and four side-bay bearing headers added as closed extruded solids.",
+        "Main and canopy ceramic units genuinely overlap, with larger front barrel sections and independent tail rise.",
+        "Four framed floral lattice centres added behind the columns.",
+        "Sanctuary canopy/dais raised 0.55m, figure slimmed and raised on a joined high pedestal, lamps positioned beside the torso."
+      ],
+      "visualAccepted": false,
+      "nativeEvidence": "qa/ten-reference/04/iteration-scene04-mass164-r01",
+      "findings": [
+        "Two transfers are heavier and shrine figure is better placed, but the shoulder wall stays flat and the side galleries remain too low.",
+        "Rectangular gold plaque/collar forms persist; wood is too pale and uneven in the genuine hero view.",
+        "Full and hero native buffers are both 1254x1254 with no upscaling; runtime errors empty."
+      ]
+    },
+    {
+      "revision": "scene04-mass164-r02",
+      "sourceSha256": "3b7964cc661ee116b45a417c6de13357c6737aea91b4160e67674464247c997a",
+      "sourceSnapshot": "lookdev/scene04-mass164/source-snapshots/mass164-r02.tgz",
+      "status": "Rendered-review, visually rejected",
+      "visualAccepted": false,
+      "nativeEvidence": [
+        "qa/ten-reference/04/iteration-scene04-mass164-r02",
+        "qa/ten-reference/04/iteration-scene04-mass164-r02-oblique"
+      ],
+      "findings": [
+        "Real deep frame/reveal/roof parallax is visible in the native low oblique; right rear roof height is improved.",
+        "Return galleries sit too far outward and expose bare toy-like gallery walls.",
+        "Raised far hill shows pale angular crown blobs; flowering cherries remain low bushes instead of the tall reference canopies.",
+        "Portal front leaf strip still reads as flat applied gold."
+      ]
+    },
+    {
+      "revision": "scene04-mass164-r03",
+      "sourceSha256": "f5adea473996cc1379f59474c90da2b11eac550ec3fa07362d4a3bfd785c5a33",
+      "sourceSnapshot": "lookdev/scene04-mass164/source-snapshots/mass164-r03.tgz",
+      "status": "Rendered-review, visually unaccepted",
+      "visualAccepted": false,
+      "nativeEvidence": [
+        "qa/ten-reference/04/iteration-scene04-mass164-r03",
+        "qa/ten-reference/04/iteration-scene04-mass164-r03-oblique"
+      ],
+      "findings": [
+        "Full native view now has substantial near return roof framing, taller real cherry branches and a fuller carved portal.",
+        "Low native oblique retains deep structural/reveal parallax.",
+        "Hill crowns still read as large discrete blobs and cherry blooms form too uniform a horizontal band."
+      ]
+    },
+    {
+      "revision": "scene04-mass164-r04",
+      "sourceSha256": "6c7873b890baf77edb1434e723bd8a2de0ec92a3f38f0aa18bd52961fa6c9be7",
+      "sourceSnapshot": "lookdev/scene04-mass164/source-snapshots/mass164-r04.tgz",
+      "status": "Rendered-review, visually unaccepted",
+      "visualAccepted": false,
+      "nativeEvidence": [
+        "qa/ten-reference/04/iteration-scene04-mass164-r04",
+        "qa/ten-reference/04/iteration-scene04-mass164-r04-oblique"
+      ],
+      "findings": [
+        "Finer real hill clusters and nonuniform cherry branch elevation repair the preceding large-blob/flat-band failures.",
+        "Full view retains improved right/back/return roof occupation and the low fixed processional composition.",
+        "Hero and low oblique show genuine closed timber/ceramic/reveal geometry and correct raised shrine occupation.",
+        "Photographic fidelity is still rejected: timber/roof/carving forms and surface response remain stylized, the botanical canopy and stone-lantern silhouettes differ, and the original photograph has a more integrated warm daylight/micro-shadow response."
+      ]
+    }
+  ],
+  "limitations": [
+    "Single-view metric and hidden construction remain authored hypotheses.",
+    "Authored carving135 relief and historical generated material guides retain their original provenance.",
+    "Valid native geometry and nonempty pixels do not prove photographic fidelity.",
+    "No reference-photo RGB, view-facing architecture, AI replacement frame, point cloud or Gaussian splat is used."
+  ],
+  "preparedRevision": {
+    "revision": "scene04-mass164-r02",
+    "status": "R02 design drafts retained; exact applied r02/r03/r04 source is preserved in source-snapshots and actual native receipts.",
+    "candidateFiles": {
+      "reference4-materials-r02.candidate.js": "src/reference4-materials.js",
+      "scene04-porch-sculpture-r02.candidate.js": "src/scene04-porch-sculpture135.js",
+      "scene04-mass-frame-r02.candidate.js": "src/scene04-mass-frame164.js",
+      "reference4-architecture-r02.candidate.js": "src/reference4-architecture.js",
+      "scene04-portal164.candidate.js": "src/scene04-portal164.js",
+      "reference4-distant-forest-r02.candidate.js": "src/reference4-distant-forest.js",
+      "asset-dependencies-r02.candidate.json": "asset-dependencies.json",
+      "mass164-provenance-r02.candidate.json": "assets/mass164-provenance.json"
+    },
+    "mainRepairs": [
+      "Continuous carved reveal instead of three nested rectangular collars",
+      "Existing frozen CC0 cherry-wood scan for grain and tangent relief",
+      "Upper cladding recessed 1.20m and crossed by sixteen substantial sloping timber ties",
+      "Rounded transfer plaques with partial gilding on actual relief ridges",
+      "Higher/steeper right back gallery and near returns, lower left back gallery retained for visible pagoda correspondence",
+      "Real distant hill relief raised 1.55x behind the corrected right roof mass"
+    ],
+    "galleryMeasurement": {
+      "oldRightRidgeWorld": [
+        12.65,
+        7.76,
+        -4.6
+      ],
+      "oldRightRidgePixel": [
+        1076,
+        440
+      ],
+      "candidateRightRidgeWorld": [
+        12.65,
+        9.9,
+        -4.6
+      ],
+      "candidateRightRidgePixel": [
+        1075,
+        365
+      ],
+      "scope": "Analytic projection through unchanged camera; actual native render comparison remains required."
+    },
+    "remainingApplicationEdits": [
+      "Change reference4-config revision to scene04-mass164-r02",
+      "Expose architecture.massFrame in reference4-scene info",
+      "Archive exact source after applying, before queued actual native capture"
+    ],
+    "visualAccepted": false
+  },
+  "final": {
+    "revision": "scene04-mass164-r04",
+    "sourceSha256": "6c7873b890baf77edb1434e723bd8a2de0ec92a3f38f0aa18bd52961fa6c9be7",
+    "visualAccepted": false,
+    "full": "qa/ten-reference/04/iteration-scene04-mass164-r04/reference.png",
+    "genuineHero": "qa/ten-reference/04/iteration-scene04-mass164-r04/detail-native.png",
+    "oblique": "qa/ten-reference/04/iteration-scene04-mass164-r04-oblique/inspection-view.png",
+    "comparisonBoard": "lookdev/scene04-mass164/comparison-reference-baseline-r04.jpg",
+    "comparisonBoardOrder": [
+      "Original reference photograph",
+      "Native public porch135-r06 baseline",
+      "Native mass164-r04"
+    ],
+    "comparisonBoardScope": "627px derivatives for compact comparison only; actual final native buffers are separately preserved at 1254x1254.",
+    "nativeReports": [
+      "qa/ten-reference/04/iteration-scene04-mass164-r04/report.json",
+      "qa/ten-reference/04/iteration-scene04-mass164-r04-oblique/report.json"
+    ],
+    "validation": {
+      "nativeBuffer": [
+        1254,
+        1254
+      ],
+      "nativeScale": 1,
+      "runtimeErrors": [],
+      "sourceStable": true,
+      "hero": "A second genuine 1254x1254 native subfrustum, x275 y120 size710 of the 1254 reference camera; not an upscaled screenshot.",
+      "obliquePosition": [
+        8,
+        3.2,
+        18
+      ],
+      "obliqueTarget": [
+        0,
+        8.1,
+        -1
+      ],
+      "obliqueFov": 58,
+      "sceneTriangles": 33820810,
+      "sceneMeshes": 1947,
+      "mixedInstances": 206950
+    },
+    "sourceAndEvidenceHandoffReady": true,
+    "scope": "Only canonical scene04, lookdev/scene04-mass164 and new scene04 native QA iterations. No film, shared tool or global asset edits; no Git mutation. Existing tracked CC0 cherry maps are read-only runtime dependencies."
+  }
+}

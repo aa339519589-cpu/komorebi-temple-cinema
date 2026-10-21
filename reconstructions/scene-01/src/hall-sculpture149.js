@@ -59,7 +59,7 @@ export function createHallSculpture149(B){
  const daito=seat(.70,.64,.22),makito=seat(.29,.29,.14),first=[profileArm(.94,.27,[{x:0,side:'top'}]),profileArm(.94,.27,[{x:0,side:'bottom'}])],second=[profileArm(1.24,.23,[-1,1].map(s=>({x:s*.30,side:'top'}))),profileArm(1.24,.23,[-1,1].map(s=>({x:s*.30,side:'bottom'})))];
  const receiver=profileArm(1.58,.26,[{x:0,side:'top'}],.12,-.11),cross=profileArm(1.40,.26,[-1,1].map(s=>({x:s*.30,side:'bottom'})),.12,-.11);
  const knee=(()=>{const s=new T.Shape();s.moveTo(0,0);s.lineTo(.76,.57);s.lineTo(.82,.72);s.bezierCurveTo(.58,.65,.56,.43,.37,.37);s.bezierCurveTo(.22,.34,.24,.18,0,0);s.closePath();return solid(s,.16,.009);})();
- function capital(x,y,z,{scale=1,depth=1,corner=false,headFitting=true}={}){B.with(x,y,z,0,()=>{
+ function capital(x,y,z,{scale=1,height=1,depth=1,corner=false,headFitting=true}={}){B.with(x,y,z,0,()=>{
   B.emit(daito,wood);for(const axis of[0,1])B.emit(first[axis],wood,0,.33,0,1,1,1,axis*Math.PI/2);
   for(const sign of[-1,1]){B.emit(makito,wood,sign*.30,.43,0);B.emit(makito,wood,0,.43,sign*.30);}
   for(const sign of[-1,1]){B.emit(second[0],wood,0,.68,sign*.30);B.emit(second[1],wood,sign*.30,.68,0,1,1,1,Math.PI/2);}
@@ -73,7 +73,7 @@ export function createHallSculpture149(B){
   if(headFitting)fitting(0,.06,.342,.32,.31);for(const sign of[-1,1])B.with(sign*.326,.07,0,sign*Math.PI/2,()=>fitting(0,0,0,.24,.24,{old:true}));
   for(const sign of[-1,1]){mirrorEmit(curl,wood,sign*.31,.63,.432,sign*.66,.55,1.6);carveLeaf(sign*.44,.61,.437,.22,.27,sign<0?Math.PI-.32:.32,wood,1.4);}
   if(corner)for(const sign of[-1,1])mirrorEmit(knee,wood,0,.27,.03,sign,1,1,sign*Math.PI/4);
- },[scale,scale,scale*depth]);}
+ },[scale,scale*height,scale*depth]);}
  function reliefStrip(left,right,y,z,height=.28,{rich=true,phase=0,wooden=false}={}){const width=right-left,cx=(left+right)/2,h=height;
   moulding(cx,y,z,width,h,.32);moulding(cx,y,z+.170,width-.065,h-.052,.022,dark);
   for(const sign of[-1,1]){moulding(cx,y+sign*(h/2-.011),z+.198,width,.025,.034);moulding(cx,y+sign*(h/2-.038),z+.196,width-.025,.014,.017,'hall149OldGilt');}
@@ -91,24 +91,24 @@ export function createHallSculpture149(B){
   for(const sign of[-1,1]){mirrorEmit(curl,wood,cx+sign*width*.20,y-.025,z+.137,sign*width*.60,.47,1.2);carveLeaf(cx+sign*width*.08,y+.015,z+.135,width*.20,.24,sign<0?Math.PI-.10:.10,wood,1.25);carveLeaf(cx+sign*width*.30,y-.015,z+.139,width*.15,.22,sign<0?-.10:Math.PI+.10,'goldDark',.9);}
  }
  const shaft=keep(new T.CylinderGeometry(.93,1,1,48,1)),ring=keep(new T.TorusGeometry(1,.045,8,48));
- function column(x,z,base,top,r=.31){
+ function column(x,z,base,top,r=.31,{headFittingHeight=.40}={}){
   B.cyl(x,base+.10,z,r*1.40,.20,'stoneLight');B.cyl(x,base+.25,z,r*1.20,.16,'stone');const start=base+.34;
   B.emit(shaft,'red',x,(start+top)/2,z,r,top-start,r);B.cyl(x,base+.39,z,r*1.04,.12,'goldDark');
   for(const yy of[base+.65,top-.15]){B.cyl(x,yy,z,r*1.015,.10,'goldDark');B.emit(ring,'goldDark',x,yy-.048,z,r,r,r,[Math.PI/2,0,0]);}
-  fitting(x,top-.07,z+r*.96,r*1.50,.40);
+  fitting(x,top-.07,z+r*.96,r*1.50,headFittingHeight);
  }
  function portal(center=.6){B.label('hall149-sculpted-open-portal',()=>{
-  for(const sign of[-1,1])B.with(center+sign*2.08,3.445,3.80,0,()=>{
-   moulding(0,0,0,.36,4.30,.48,dark);moulding(0,0,.262,.30,4.22,.065,wood);
+  for(const sign of[-1,1])B.with(center+sign*2.08,3.62,3.80,0,()=>{
+   moulding(0,0,0,.36,4.65,.48,dark);moulding(0,0,.262,.30,4.57,.065,wood);
    // Turn a continuous carved member into a jamb; its backing is housed
    // in the original frame and each raised leaf has real undercut depth.
-   B.with(0,0,.125,0,()=>{const mat=new T.Matrix4().makeRotationZ(Math.PI/2);B.stack.push(B.stack.at(-1).clone().multiply(mat));reliefStrip(-2.06,2.06,0,.16,.235,{rich:true,phase:sign*.7});B.stack.pop();});
-   for(const side of[-1,1])moulding(side*.168,0,.265,.027,4.30,.044,'goldDark');
+   B.with(0,0,.125,0,()=>{const mat=new T.Matrix4().makeRotationZ(Math.PI/2);B.stack.push(B.stack.at(-1).clone().multiply(mat));reliefStrip(-2.235,2.235,0,.16,.235,{rich:true,phase:sign*.7});B.stack.pop();});
+   for(const side of[-1,1])moulding(side*.168,0,.265,.027,4.65,.044,'goldDark');
   });
-  for(const yy of[1.40,5.62]){moulding(center,yy,3.80,4.50,.27,.47);reliefStrip(center-2.15,center+2.15,yy,3.89,.25,{rich:true,phase:yy});}
+  for(const yy of[1.40,5.97]){moulding(center,yy,3.80,4.50,.27,.47);reliefStrip(center-2.15,center+2.15,yy,3.89,.25,{rich:true,phase:yy});}
   // The long transom is framed as one relief panel, with separately cast
   // corner leaves. It does not introduce text or change the portal opening.
-  for(const sign of[-1,1])B.with(center+sign*2.17,5.60,4.12,0,()=>{mirrorEmit(curl,'hall149Gilt',0,0,0,sign*.65,.65,1.1);carveLeaf(sign*.025,-.05,.018,.25,.32,sign<0?Math.PI+.65:-.65,'gold',1.1);});
+  for(const sign of[-1,1])B.with(center+sign*2.17,5.95,4.12,0,()=>{mirrorEmit(curl,'hall149Gilt',0,0,0,sign*.65,.65,1.1);carveLeaf(sign*.025,-.05,.018,.25,.32,sign<0?Math.PI+.65:-.65,'gold',1.1);});
  });}
  return {capital,fitting,frieze:reliefStrip,arch,column,portal,moulding,revision:'hall149-solid-carving-and-housed-cross-receivers',resources:owned};
 }

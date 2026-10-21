@@ -2,6 +2,7 @@ import {stoneMaterial} from './scene04-surfaces.js';
 import {scannedStoneMaps,scannedStoneRepeatMetres,createNeutralScannedGranite04} from './scene04-scanned-stone.js';
 import * as T from 'three';
 let generatedMaps=null;
+let scannedCedar164=null;
 let generatedMapsPromise=null;
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const linearToSrgb=x=>x<=.0031308?12.92*x:1.055*Math.pow(x,1/2.4)-.055;
@@ -22,7 +23,20 @@ export function loadReference4GeneratedMaps(){
     const root=new URL('../assets/generated-materials-20261019/',import.meta.url),loader=new T.TextureLoader(),items=await Promise.all([
       ['wood','lacquered-cedar-source.png'],['granite','warm-granite-source.png'],['slate','charcoal-mineral-source.png']
     ].map(async([key,file])=>{const source=await loader.loadAsync(new URL(file,root).href);return[key,textureFromMaterialSource(T,source,key)];}));
-    generatedMaps=Object.fromEntries(items);return generatedMaps;
+    const generated=Object.fromEntries(items);
+    // Frozen CC0 scan, with diffuse chroma removed so the timber palette owns
+    // its warm varnish. The scan supplies genuine grain and tangent relief.
+    const cedarRoot=new URL('/assets/polyhaven/lacquered-cherry-wood/',location.origin),[cedarDiffuse,cedarNormal,cedarRoughness]=await Promise.all(['diffuse-2k.jpg','normal-gl-2k.png','roughness-2k.jpg'].map(file=>loader.loadAsync(new URL(file,cedarRoot).href)));
+    const cedar=textureFromMaterialSource(T,cedarDiffuse,'wood');
+    for(const texture of[cedarNormal,cedarRoughness]){texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.anisotropy=8;texture.needsUpdate=true;}
+    cedarNormal.name='scene04-CC0-lacquered-cherry-tangent-normal';
+    // Keep the worn coating rough: the source photograph's polished lacquer
+    // roughness is remapped to a weathered physical finish for exterior cedar.
+    const image=cedarRoughness.image,canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);const data=ctx.getImageData(0,0,image.width,image.height).data;
+    for(let i=0;i<data.length;i+=4){const v=Math.round(255*(.70+.26*data[i]/255));data[i]=data[i+1]=data[i+2]=v;data[i+3]=255;}
+    const roughness=new T.DataTexture(data,image.width,image.height,T.RGBAFormat);roughness.name='scene04-CC0-weathered-exterior-cedar-roughness';roughness.wrapS=roughness.wrapT=T.RepeatWrapping;roughness.generateMipmaps=true;roughness.minFilter=T.LinearMipmapLinearFilter;roughness.magFilter=T.LinearFilter;roughness.anisotropy=8;roughness.needsUpdate=true;cedarRoughness.dispose();
+    scannedCedar164={albedo:cedar.albedo,height:cedar.height,normal:cedarNormal,roughness,sourceStatistics:cedar.sourceStatistics};
+    generatedMaps=generated;return generatedMaps;
   })();return generatedMapsPromise;
 }
 export function getReference4GeneratedMaps(){if(!generatedMaps)throw Error('Generated PBR material detail is not ready');return generatedMaps;}
@@ -31,7 +45,7 @@ export function getReference4GeneratedMaps(){if(!generatedMaps)throw Error('Gene
 export function createReference4MaterialSet(T, options={}) {
   if(!generatedMaps)throw Error('Generated PBR material detail must load before scene04 construction');
   const palette={
-    cedar:[0x763c21,.55,0],red:[0x893b24,.50,0],endwood:[0x8b532b,.68,0],darkwood:[0x2b160c,.74,0],
+    cedar:[0x733b1f,.69,0],red:[0x814026,.67,0],endwood:[0x8b532b,.68,0],darkwood:[0x2b160c,.74,0],
     gold:[0xd4a74b,.31,.86],oldgold:[0xac7f33,.49,.76],black:[0x20231f,.66,.03],
     slate:[0x4e565a,.64,0],tileEdge:[0x646a69,.73,0],stone:[0x62676c,.95,0],
     granite:[0x73777b,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
@@ -39,13 +53,13 @@ export function createReference4MaterialSet(T, options={}) {
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
     const woodLike=['cedar','red','endwood','darkwood'].includes(key);
-    const m=options.materials?.[key]||(['stone','granite'].includes(key)?stoneMaterial('reference4_'+key,color,{seed:key==='stone'?31:73}):key==='slate'?new T.MeshPhysicalMaterial({name:'kiln-fired-ceramic',color,roughness:.43,metalness:0,envMapIntensity:.50,clearcoat:.16,clearcoatRoughness:.29}):woodLike?new T.MeshPhysicalMaterial({name:'reference4_'+key,color,roughness,metalness,clearcoat:key==='darkwood'?.07:.25,clearcoatRoughness:.29}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
+    const m=options.materials?.[key]||(['stone','granite'].includes(key)?stoneMaterial('reference4_'+key,color,{seed:key==='stone'?31:73}):key==='slate'?new T.MeshPhysicalMaterial({name:'kiln-fired-ceramic',color,roughness:.43,metalness:0,envMapIntensity:.50,clearcoat:.16,clearcoatRoughness:.29}):woodLike?new T.MeshPhysicalMaterial({name:'reference4_'+key,color,roughness,metalness,clearcoat:key==='darkwood'?.05:.12,clearcoatRoughness:.42}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
     mats[key]=m;if(!options.materials?.[key])materials.push(m);
   }
-  const wood=generatedMaps.wood.albedo,woodHeight=generatedMaps.wood.height,stone=generatedMaps.slate.albedo,stoneHeight=generatedMaps.slate.height;
-  const generatedTextureSet=Object.values(generatedMaps).flatMap(m=>[m.albedo,m.height,m.roughness]);textures.push(...generatedTextureSet);
+  const wood=scannedCedar164.albedo,woodHeight=scannedCedar164.height,stone=generatedMaps.slate.albedo,stoneHeight=generatedMaps.slate.height;
+  const generatedTextureSet=Object.values(generatedMaps).flatMap(m=>[m.albedo,m.height,m.roughness]);textures.push(...generatedTextureSet,...[scannedCedar164.albedo,scannedCedar164.height,scannedCedar164.normal,scannedCedar164.roughness]);
   for(const key of ['red','cedar','endwood','darkwood'])if(materials.includes(mats[key])) {
-    Object.assign(mats[key],{map:wood,bumpMap:woodHeight,bumpScale:key==='red'?.0012:.0018,roughnessMap:generatedMaps.wood.roughness});
+    Object.assign(mats[key],{map:wood,normalMap:scannedCedar164.normal,normalScale:new T.Vector2(.30,.30),bumpMap:null,bumpScale:0,roughnessMap:scannedCedar164.roughness});
   }
   for(const key of ['slate'])if(materials.includes(mats[key])) {
     Object.assign(mats[key],{map:stone,bumpMap:stoneHeight,bumpScale:.0028,roughnessMap:generatedMaps.slate.roughness});

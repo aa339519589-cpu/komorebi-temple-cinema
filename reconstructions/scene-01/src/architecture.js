@@ -9,6 +9,8 @@ import {buildForegroundLantern131} from './foreground-hardware131.js';
 import {buildHallCarpentry132} from './hall-carpentry132.js';
 import {installHallFinish161,emitLowerWindow161} from './hall-facade161.js';
 import {createCeramicRoof161} from './roof-ceramic161.js';
+import {buildPagodaMass163} from './pagoda-mass163.js';
+import {createClosedRidge163} from './roof-ridge163.js';
 export function architecture(B){
 const {m}=B;
 const hallJoinery=createHallCurvedJoinery();
@@ -89,7 +91,7 @@ for(const axis of[0,1])B.with(0,0,0,axis*Math.PI/2,()=>{
 },s);}
 function column(x,z,base,h,r=.27){B.cyl(x,base+.10,z,r*1.40,.20,'stoneLight');B.cyl(x,base+.25,z,r*1.20,.16,'stone');B.cyl(x,base+.34+h/2,z,r,h,'red',r*.93);B.cyl(x,base+.39,z,r*1.04,.12,'goldDark');B.cyl(x,base+.48,z,r*1.045,.04,'gold');for(const yy of[base+.65,base+h-.10]){B.cyl(x,yy,z,r*1.015,.14,'goldDark');for(let k=0;k<10;k++){const a=k*TAU/10;B.sphere(x+Math.sin(a)*r*1.03,yy,z+Math.cos(a)*r*1.03,.035,.045,.025,'gold',a);}}squareGold(x,base+h-.16,z+r+.01,r*1.75,.42);}
 function tileBetween(a,b,r=.062,tint=1,ceramic=null){a=V(a);b=V(b);const z=b.clone().sub(a),len=z.length();z.normalize();let x=V([0,1,0]).cross(z).normalize();if(x.length()<.1)x.set(1,0,0);const y=z.clone().cross(x).normalize(),mat=new T.Matrix4().makeBasis(x,y,z);mat.scale(V([r,r,len]));mat.setPosition(a.add(b).multiplyScalar(.5));if(ceramic)ceramic.cover(tile,mat,tint);else B.put(tile,'slate',mat,tint);}
-function roof({w,d,eave,rise,curl=.55,zc=0,inner=0,name='roof',detail=true,ridge=.53,tilePitch=.19,tileRadius=.080,edgeCapRadius=.090,irimoya=false,wallFootprint=null}){B.label(name,()=>{const ceramic=w>15?createCeramicRoof161(B):null,hw=w/2,hd=d/2,rh=hw*ridge;const gableStart=.44;const P=(side,t,u)=>{const expansion=irimoya?Math.max(0,(t-gableStart)/(1-gableStart)):t,span=rh+(hw-rh)*expansion;let x,z;if(side===0||side===2){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}return[x,eave+rise*(Math.max(0,1-t)**1.46)+curl*(t**8)*(.25+.75*(Math.abs(u)**5)),z+zc];};
+function roof({w,d,eave,rise,curl=.55,zc=0,inner=0,name='roof',detail=true,ridge=.53,tilePitch=.19,tileRadius=.080,edgeCapRadius=.090,irimoya=false,wallFootprint=null,ceramicRoof=false}){B.label(name,()=>{const ceramic=(w>15||ceramicRoof)?createCeramicRoof161(B):null,hw=w/2,hd=d/2,rh=hw*ridge;const gableStart=.44;const P=(side,t,u)=>{const expansion=irimoya?Math.max(0,(t-gableStart)/(1-gableStart)):t,span=rh+(hw-rh)*expansion;let x,z;if(side===0||side===2){x=u*span;z=(side===0?1:-1)*hd*t;}else{x=(side===1?1:-1)*span;z=u*hd*t;}return[x,eave+rise*(Math.max(0,1-t)**1.46)+curl*(t**8)*(.25+.75*(Math.abs(u)**5)),z+zc];};
 const startAt=(side,u)=>{
  if(!wallFootprint)return irimoya&&side%2?Math.max(inner,gableStart):inner;
  const [xmin,xmax,zmin,zmax]=wallFootprint,sign=side===0||side===1?1:-1,x0=side%2?sign*rh:u*rh,dx=side%2?sign*(hw-rh):u*(hw-rh),z0=zc,dz=side%2?u*hd:sign*hd;
@@ -117,14 +119,17 @@ for(let side=0;side<4;side++){
   if(detail)for(let layer=0;layer<3;layer++){
    if(ceramic&&layer===2&&i%2)continue;
    const a=P(side,.68+layer*.065,u),b=P(side,1.025-layer*.035,u);a[1]-=.23+layer*.16;b[1]-=.23+layer*.16;
-   const rw=ceramic?(layer===2?.13:layer===1?.085:.105):.075,rh=ceramic?(layer===2?.14:layer===1?.10:.13):.105;
-   B.between(a,b,rw,rh,layer===1?'endwood':'wood');B.box(b[0],b[1],b[2],rw,rh*.82,.05,w>15?'hallSap132':i%3?'goldDark':'gold',0,ceramic?.73+.27*ceramic.field(b[0]*1.7,b[2]*1.7):1);
+   const rw=ceramicRoof?(layer===2?.085:layer===1?.055:.068):ceramic?(layer===2?.13:layer===1?.085:.105):.075,rh=ceramicRoof?(layer===2?.10:layer===1?.07:.085):ceramic?(layer===2?.14:layer===1?.10:.13):.105;
+   B.between(a,b,rw,rh,layer===1?'endwood':'wood');B.box(b[0],b[1],b[2],rw,rh*.82,.05,w>15?'hallSap132':ceramicRoof?'tower163RafterEnd':i%3?'goldDark':'gold',0,ceramic?.73+.27*ceramic.field(b[0]*1.7,b[2]*1.7):1);
   }
  }
  for(let i=0;i<40;i++){
   const a=P(side,1,-1+2*i/40),b=P(side,1,-1+2*(i+1)/40);a[1]-=.20;b[1]-=.20;B.between(a,b,.18,.25,'redLight');a[1]-=.13;b[1]-=.13;B.between(a,b,.035,.045,'goldDark');
  }
- if(side<2)for(const sign of[-1,1])B.tube(lin(startAt(side,sign),1.045,18).map(t=>{const p=P(side,t,sign);p[1]+=.12;return p;}),.11,'tileEdge',30);
+ if(side<2)for(const sign of[-1,1]){
+  const ridgePoints=lin(startAt(side,sign),ceramicRoof?1.008:1.02,24).map(t=>{const p=P(side,t,sign);p[1]+=.014;return p;});
+  B.emit(createClosedRidge163(ridgePoints,ceramicRoof?.067:.085),'tileEdge');
+ }
 }
 if(ceramic)B.label(name+'-161-closed-pan-tiling',()=>ceramic.finish());
 if(irimoya){
@@ -139,24 +144,29 @@ if(irimoya){
   B.with(sign*(rh+.14),spring+.54,zc,sign*Math.PI/2,()=>{carvedFitting(0,0,0,.48,.45);});
  }
 }
-if(w>15)for(const sign of[-1,1]){const p=P(0,1,sign),q=[p[0]+sign*.18,p[1]+.4,p[2]];B.sphere(p[0],p[1]+.14,p[2],.16,.19,.15,'slate');B.emit(torus,'tileEdge',p[0],p[1]+.20,p[2]+.09,.13,.13,.13);B.tube([[p[0],p[1]+.13,p[2]],q,[p[0]+sign*.27,p[1]+.67,p[2]],[p[0]+sign*.18,p[1]+.83,p[2]]],.065,'tileEdge',20);}
-if(inner===0&&ridge>.05){B.box(0,eave+rise+.18,zc,rh*2+.2,.30,.34,'slate');B.box(0,eave+rise+.37,zc,rh*2+.4,.11,.43,'tileEdge');for(const s of[-1,1]){const x=s*(rh+.12);B.tube([[x,eave+rise+.16,zc],[x+s*.10,eave+rise+.5,zc],[x+s*.34,eave+rise+.75,zc],[x+s*.36,eave+rise+1.0,zc]],.11,'tileEdge',18);B.sphere(x+s*.34,eave+rise+.89,zc,.14,.23,.13,'slate');rosette(x-s*.12,eave+rise+.20,zc+.20,.13,'goldDark');}}
+if(w>15)for(const sign of[-1,1]){const p=P(0,1,sign),q=[p[0]+sign*.18,p[1]+.4,p[2]];B.sphere(p[0],p[1]+.14,p[2],.16,.19,.15,'slate');B.emit(torus,'tileEdge',p[0],p[1]+.20,p[2]+.09,.13,.13,.13);B.emit(createClosedRidge163([[p[0],p[1]+.13,p[2]],q,[p[0]+sign*.27,p[1]+.67,p[2]],[p[0]+sign*.18,p[1]+.83,p[2]]],.065,28),'tileEdge');}
+if(inner===0&&ridge>.05){B.box(0,eave+rise+.18,zc,rh*2+.2,.30,.34,'slate');B.box(0,eave+rise+.37,zc,rh*2+.4,.11,.43,'tileEdge');for(const s of[-1,1]){const x=s*(rh+.12);B.emit(createClosedRidge163([[x,eave+rise+.16,zc],[x+s*.10,eave+rise+.5,zc],[x+s*.34,eave+rise+.75,zc],[x+s*.36,eave+rise+1.0,zc]],.085,28),'tileEdge');B.sphere(x+s*.34,eave+rise+.89,zc,.14,.23,.13,'slate');rosette(x-s*.12,eave+rise+.20,zc+.20,.13,'goldDark');}}
 if(inner===0&&ridge<=.05){B.cyl(0,eave+rise+.10,zc,.18,.17,'tileEdge');B.cyl(0,eave+rise+.23,zc,.12,.10,'goldDark');}
 });}
 function railing(w,y,z,ma='red',h=.85){for(const yy of[y+.23,y+h])B.box(0,yy,z,w,.13,.15,ma);for(let i=0;i<=Math.ceil(w/.75);i++){const x=-w/2+w*i/Math.ceil(w/.75);B.box(x,y+h*.56,z,.11,h,.11,ma);}for(const x of[-w/2,w/2]){B.box(x,y+h*.55,z,.20,h+.25,.2,ma);B.sphere(x,y+h+.18,z,.14,.17,.14,'goldDark');}}
 function hangingLantern(x,y,z,s=1,bright=true){B.with(x,y,z,0,()=>{const r=.30,h=.72;for(let k=0;k<6;k++){const a=k*TAU/6,b=(k+1)*TAU/6;const xx=Math.sin((a+b)/2)*r*.87,zz=Math.cos((a+b)/2)*r*.87;B.box(xx,0,zz,r, h,.016,bright?'paperGlow':'paper',[(0),(a+b)/2,0]);B.between([Math.sin(a)*r,-h/2,Math.cos(a)*r],[Math.sin(a)*r,h/2,Math.cos(a)*r],.04,.04,'goldDark');for(const yy of[-.27,0,.27])B.between([Math.sin(a)*r,yy,Math.cos(a)*r],[Math.sin(b)*r,yy,Math.cos(b)*r],.022,.022,'goldDark');}for(const yy of[-.40,.40])B.cyl(0,yy,0,.39,.06,'goldDark');B.emit(B.coneG,'goldDark',0,.49,0,.47,.15,.47);B.sphere(0,.63,0,.15,.15,.15,'gold');B.cyl(0,.84,0,.025,.30,'goldDark');B.sphere(0,-.54,0,.17,.09,.17,'gold');B.sphere(0,-.69,0,.06,.12,.06,'goldDark');},s);}
-function pagoda(){B.with(...L.pagoda.position,L.pagoda.yaw,()=>{B.label('pagoda-plinth',()=>{B.box(0,.05,0,5.1,.8,5.1,'stone');B.box(0,.48,0,5.4,.16,5.4,'stoneLight');});const eaves=Array.from({length:5},(_,i)=>5.6+i*L.pagoda.tierPitch),widths=Array.from({length:5},(_,i)=>L.pagoda.bottomRoofWidth+(L.pagoda.topRoofWidth-L.pagoda.bottomRoofWidth)*i/4);for(let k=0;k<5;k++){const w=widths[k],y=eaves[k],floor=k?eaves[k-1]+.78:.6,body=w*.50,half=body/2;B.label('pagoda-'+(k+1)+'-timber-gallery',()=>{B.box(0,floor-.1,0,body+.65,.22,body+.65,'red');for(let s=0;s<4;s++)B.with(0,0,0,s*Math.PI/2,()=>{B.box(0,(floor+y-.8)/2,half-.12,body,y-.8-floor,.16,'plaster');for(const x of[-half,0,half]){column(x,half,floor,y-floor-.80,.105);bracket(x,y-.52,half,[.48,.48,1.05],true);}for(const x of[-body*.27,body*.27]){B.box(x,floor+1.02,half+.01,.80,1.16,.09,'darkwood');for(let j=0;j<5;j++)B.box(x-.36+j*.18,floor+1.02,half+.07,.026,1.1,.04,'goldDark');for(let j=0;j<5;j++)B.box(x,floor+.49+j*.265,half+.08,.80,.027,.04,'redLight');}B.box(0,y-.42,half,body+.5,.19,.22,'red');for(const yy of[floor+.18,floor+.64])B.box(0,yy,half+.38,body+.75,.095,.10,'redLight');for(let j=0;j<15;j++){const x=-body*.55+j*body*1.1/14;B.box(x,floor+.4,half+.38,.065,.55,.065,'red');}for(let j=0;j<7;j++)ornament(-body*.45+j*body*.9/6,y-.42,half+.13,.39,.13);});});roof({w,d:w,eave:y,rise:1.27,curl:.44,ridge:0,name:'pagoda-'+(k+1)+'-curved-ceramic-roof'});}B.label('pagoda-finial',()=>{B.with(0,eaves[4]+1.25,0,0,()=>B.with(0,-17.65,0,0,()=>{const base=17.65;B.cyl(0,base+.08,0,.34,.18,'goldDark');B.emit(B.coneG,'gold',0,base+.40,0,.30,.55,.30);B.cyl(0,19.65,0,.043,4.1,'goldDark');for(let k=0;k<16;k++){const y=base+.78+k*.22,r=.24*(1-k*.037);B.emit(finialTorus,'gold',0,y,0,r,r,r,[Math.PI/2,0,0]);B.sphere(0,y,0,.075,.10,.075,'gold');}B.sphere(0,21.95,0,.12,.19,.12,'goldLight');B.cyl(0,22.3,0,.024,.5,'gold');}),[1,L.pagoda.finialHeight/4.9,1]);});},L.pagoda.scale);}
 function hall(){const restoreHallMaterials=installHallFinish161(B);B.with(...L.hall.position,L.hall.yaw,()=>{
 B.label('great-hall-stone-platform',()=>{B.box(1.45,-.525,0,21.1,3.55,11.8,'stone');emitHallCap124(B);for(let x=-8.5;x<12;x+=1.2)for(let z=-5.4;z<6;z+=1.3)B.box(x,1.285,z,1.18,.08,1.28,'stoneLight',0,.89+.13*Math.abs(Math.sin(x*7+z)));});
 buildHallCarpentry132(B,{column,carvedFitting,rosette});
 B.label('great-hall-depth-enclosure',()=>{
- B.box(1.45,3.475,-5.4,19.1,4.45,.25,'darkwood');B.box(-8.20,3.425,0,.3,4.35,10.5,'red');B.box(11.2,3.425,0,.3,4.35,10.5,'red');
+ B.box(1.45,3.65,-5.4,19.1,4.80,.25,'darkwood');B.box(-8.20,3.60,0,.3,4.70,10.5,'red');B.box(11.2,3.60,0,.3,4.70,10.5,'red');
  const axes=L.hall.frontAxes;for(let i=0;i<axes.length-1;i++){
   const a=axes[i],b=axes[i+1],gap=b-a;if(gap>3.5)continue;const x=(a+b)/2,width=gap-.35;
   B.label('hall161-recessed-lower-sliding-screens-and-transoms',()=>emitLowerWindow161(B,B.hallSculpture149,a,b));
  }
 });
-B.label('great-hall-gilded-open-portal',()=>{const center=.6;B.hallSculpture149.portal(center);B.box(center,3.275,-2.3,4.1,3.75,.14,'black');for(const x of[center-1.65,center+1.65]){B.box(x,3.175,-2.05,.17,3.35,.2,'gold');for(let k=0;k<9;k++)rosette(x,1.70+k*.36,-1.92,.10);}B.box(center,4.95,-2.05,3.55,.28,.30,'goldDark');for(let k=0;k<9;k++)ornament(center-1.5+k*.375,4.95,-1.88,.3,.16);
+B.label('great-hall-gilded-open-portal',()=>{const center=.6;B.hallSculpture149.portal(center);
+// A real recessed coffer soffit closes the taller sanctuary opening. Beam
+// bottoms sit below the ceiling slab and cast shadows from the live lights.
+B.box(center,5.69,1.2,4.65,.18,6.8,'darkwood');
+for(const dx of[-1.6,-.8,0,.8,1.6])B.box(center+dx,5.52,1.2,.105,.19,6.8,'wood');
+for(const zz of[-1.8,-.6,.6,1.8,3.0,4.2])B.box(center,5.52,zz,4.65,.19,.105,'wood');
+B.box(center,3.275,-2.3,4.1,3.75,.14,'black');for(const x of[center-1.65,center+1.65]){B.box(x,3.175,-2.05,.17,3.35,.2,'gold');for(let k=0;k<9;k++)rosette(x,1.70+k*.36,-1.92,.10);}B.box(center,4.95,-2.05,3.55,.28,.30,'goldDark');for(let k=0;k<9;k++)ornament(center-1.5+k*.375,4.95,-1.88,.3,.16);
 // The visible sanctuary is enclosed by recessed gilded panels, with real
 // cast relief and projecting frame members behind the freestanding sculpture.
 for(let bay=0;bay<3;bay++){
@@ -181,5 +191,5 @@ const foreFit=(...args)=>{const saved={gold:B.m.gold,goldDark:B.m.goldDark,goldL
 buildForeground124(B,{carvedFitting:foreFit,squareGold});
 buildForegroundLantern131(B);}
 
-pagoda();hall();buildStair124(B);veranda();buildTowerGround124(B);return{roof,rosette,squareGold,carvedFitting,column,bracket,hangingLantern};
+buildPagodaMass163(B,{roof,finialTorus});hall();buildStair124(B);veranda();buildTowerGround124(B);return{roof,rosette,squareGold,carvedFitting,column,bracket,hangingLantern};
 }

@@ -208,7 +208,22 @@ export function buildReference4Garden(T,options={}){
    cluster(tip,.32,.17,.29,18,lowMatrices,.23);
   }
  }
- for(const side of[-1,1]){const root=[side*10.5,plan.soilY,1.1],fork=[side*10.2,2.2,1.0];sweep([root,[side*10.7,1,1.15],fork,[side*10.1,3.9,1.05]],.13,m.bark,'cherry-trunk-'+side,subgroups.trees);for(let j=0;j<8;j++){const a=j*TAU/8,end=[side*10.3+Math.cos(a)*2.1,3.5+rr(-.4,.6),1.15+Math.sin(a)*1.6];sweep([fork,[(fork[0]+end[0])/2,2.85,(fork[2]+end[2])/2],end],.052,m.bark,'cherry-bough',subgroups.trees);for(let k=0;k<4;k++){const tip=[end[0]+rr(-.55,.55),end[1]+rr(.1,.6),end[2]+rr(-.55,.55)];line(end,tip,.017,m.bark,'cherry-twig',subgroups.trees,.007);cluster(tip,.50,.34,.45,95,flowerMatrices,.061,true);}}records.treeRoots.push({kind:'flowering-cherry',position:root});
+ for(const side of[-1,1]){
+  const cherrySeed=seed,drop=side<0?.55:0,root=[side*10.5,plan.soilY,1.1],fork=[side*10.2,3.55-drop*.5,1.0];
+  sweep([root,[side*10.7,1.55,1.15],fork,[side*10.1,5.80-drop,1.05]],.15,m.bark,'cherry-trunk-'+side,subgroups.trees);
+  for(let j=0;j<8;j++){
+   const a=j*TAU/8,end=[side*10.3+Math.cos(a)*(side>0?2.75:2.55),(side>0?5.15+.85*Math.sin(a+1.2):4.60+.55*Math.cos(a))+rr(-.25,.25),1.15+Math.sin(a)*1.90];
+   sweep([fork,[(fork[0]+end[0])/2,4.45-drop*.65,(fork[2]+end[2])/2],end],.061,m.bark,'cherry-bough',subgroups.trees);
+   for(let k=0;k<4;k++){
+    const tip=[end[0]+rr(-.68,.68),end[1]+rr(.15,.65),end[2]+rr(-.63,.63)];line(end,tip,.020,m.bark,'cherry-twig',subgroups.trees,.007);
+    cluster(tip,.64,.47,.60,175,flowerMatrices,.066,true);
+   }
+  }
+  // Preserve the historical random stream after the cherry subtree. All
+  // later low planting, maples and path-shadow anchors stay byte-stable in
+  // their numeric inputs despite the denser, taller flowering branches.
+  seed=cherrySeed;for(let n=0;n<8*(1+4*(3+95*7));n++)random();
+  records.treeRoots.push({kind:'flowering-cherry',position:root});
   for(let i=0;i<380;i++){const z=i%3===0?rr(2,27):rr(plan.stairBottomZ+.1,plan.pathEndZ-.1),x=side*(i%3===0?rr(15.25,16.75):halfCauseway+rr(.08,2.8));if(!clearPlantRoot(x,z))continue;const base=[x,-.29,z];records.plantRoots.push({kind:'low-bank-shrub',position:base});for(let j=0;j<5;j++){const tip=[x+rr(-.17,.17),rr(.20,.60),z+rr(-.16,.16)];line(base,tip,.008,m.leafDark,'low-shrub-stem',subgroups.plants,.004);cluster(tip,.18,.10,.18,7,lowMatrices,.25);}}
   for(let i=0;i<27;i++){const x=side*(halfCauseway+.25),z=plan.stairBottomZ+.35+i*(plan.pathEndZ-plan.stairBottomZ-.7)/27;if(!clearPlantRoot(x,z))continue;const base=[x,-.055,z];records.plantRoots.push({kind:'compound-fern',position:base});for(let f=0;f<5;f++){const a=f*TAU/5+i*.73,len=.44+.13*Math.sin(i*1.33+f),start=V(base),tip=start.clone().add(new T.Vector3(Math.cos(a)*len,.16,Math.sin(a)*len)),mid=start.clone().lerp(tip,.48);mid.y+=.23;const curve=new T.CatmullRomCurve3([start,mid,tip]);sweep([start.toArray(),mid.toArray(),tip.toArray()],.0035,m.leafDark,'fern-rachis',subgroups.plants,12);for(let k=1;k<9;k++)for(const sign of[-1,1]){const t=k/9,point=curve.getPoint(t),angle=a+sign*.95,len=.16-.08*t,o=new T.Object3D();o.position.copy(point).add(new T.Vector3(Math.cos(angle),0,Math.sin(angle)).multiplyScalar(len*.30));o.rotation.set(.1,Math.PI/2-angle,.05*sign);o.scale.set(len*.58,len,len);o.updateMatrix();fernMatrices.push(o.matrix.clone());}}}
  }

@@ -20,9 +20,9 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
  const bayArch=(left,right,y,z)=>sculpture.arch(left,right,y,z);
  const lower=L.hall.frontAxes,upper=[-6.770258796240704,-4.361749389177344,-1.9692422182982536,2.0017996375181815,4.722704860993423,6.939714594097563,9.15,11.15];
  B.label('hall132-lower-posts-and-seated-capitals',()=>{
-  for(const z of[5.15,-.1,-5.1])for(const x of(z===5.15?lower:Array.from({length:7},(_,i)=>-7.95+i*3.18))){sculpture.column(x,z,1.35,5.19,.31);bracket(x,5.19,z,{scale:1.01,depth:z===5.15?1.28:1,headFitting:false,corner:Math.abs(x)>9});}
-  for(const [y,h,d,z]of[[5.49,.19,.36,5.15],[6.37,.18,.28,5.66]])B.box(1.45,y,z,19.75,h,d,'wood');
-  for(let i=0;i<lower.length-1;i++){const major=lower[i+1]-lower[i]>4;frieze(lower[i]+.15,lower[i+1]-.15,major?5.57:5.01,major?5.47:5.32,major);if(!major)bayArch(lower[i],lower[i+1],5.61,5.22);}
+  for(const z of[5.15,-.1,-5.1])for(const x of(z===5.15?lower:Array.from({length:7},(_,i)=>-7.95+i*3.18))){sculpture.column(x,z,1.35,5.54,.34);bracket(x,5.54,z,{scale:1.01,height:.76,depth:z===5.15?1.65:1,headFitting:false,corner:Math.abs(x)>9});}
+  for(const [y,h,d,z]of[[5.84,.23,.40,5.15],[6.37,.21,.31,5.66]])B.box(1.45,y,z,19.75,h,d,'wood');
+  for(let i=0;i<lower.length-1;i++){const major=lower[i+1]-lower[i]>4;frieze(lower[i]+.15,lower[i+1]-.15,major?5.92:5.36,major?5.47:5.32,major);if(!major)bayArch(lower[i],lower[i+1],5.83,5.22);}
   // A single continuous bearing course is carried by the capitals, with fine
   // shadowed mortises between the ends rather than a floating gold strip.
   for(let k=0;k<67;k++){const x=-8.55+k*.30;B.box(x,6.32,6.35,.15,.17,.63,'darkwood');B.box(x,6.32,6.68,.12,.12,.055,'hallSap132');}
@@ -35,7 +35,7 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
    for(let i=0;i<upper.length-1;i++)B.label('hall161-recessed-upper-window-plaster-and-beams',()=>emitUpperBay161(B,sculpture,upper[i],upper[i+1],z));
    for(let i=0;i<upper.length;i++){
     const x=upper[i],front=z>0?z+.85:z;B.box(x,8.14,z+.11,.18,2.96,.29,'wood');B.box(x,8.14,z+.52,.15,2.96,.14,'wood');
-    B.cyl(x,8.0,front+.13,.175,2.38,'red');bracket(x,9.19,front+.13,{scale:.91,depth:z>0?1.10:1.35,corner:i===0||i===upper.length-1});giltFace(x,7.46,front+.31,.30,.32);B.cyl(x,7.02,front+.13,.183,.15,'goldDark');B.cyl(x,8.78,front+.13,.182,.14,'goldDark');
+    B.cyl(x,7.885,front+.13,.20,2.15,'red');bracket(x,8.96,front+.13,{scale:1.10,height:1.03,depth:1.35,corner:i===0||i===upper.length-1});giltFace(x,7.46,front+.31,.30,.32);B.cyl(x,7.02,front+.13,.208,.15,'goldDark');B.cyl(x,8.78,front+.13,.208,.14,'goldDark');
    }
    frieze(-8.10,11.40,9.35,z+.20,false);
    B.box(1.50,10.27,z+(z>0?1.0:.60),20.0,.21,.33,'wood');B.box(1.65,9.22,z+(z>0?.98:.13),19.40,.18,.32,'wood');

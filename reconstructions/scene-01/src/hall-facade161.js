@@ -18,13 +18,14 @@ export function installHallFinish161(B){
  const paint=new T.CanvasTexture(canvas);paint.name='hall161-vermilion-paint-over-existing-CC0-timber';paint.colorSpace=T.SRGBColorSpace;paint.wrapS=paint.wrapT=T.RepeatWrapping;paint.anisotropy=8;
  for(const key of['red','redLight','wood','darkwood','endwood']){
   const original=B.m[key],mat=original.clone();saved[key]=original;mat.name='hall161-aged-'+key;
-  mat.onBeforeCompile=original.onBeforeCompile;mat.customProgramCacheKey=original.customProgramCacheKey;
+  mat.onBeforeCompile=shader=>{original.onBeforeCompile(shader);shader.fragmentShader=shader.fragmentShader.replace('diffuseColor.rgb*=.73+.40*age;','diffuseColor.rgb*=.90+.16*age;').replace('smoothstep(.72,.83,chip)*.16','smoothstep(.72,.83,chip)*.08');};
+  mat.customProgramCacheKey=()=>original.customProgramCacheKey()+'-hall163-subtle-member-weathering';
   if(key==='red'||key==='redLight'){mat.map=paint;mat.color.setRGB(...(key==='red'?[1,1,1]:[1.05,1.015,.96]));}
   else mat.color.setRGB(...({wood:[3.1,2.05,1.55],darkwood:[1.15,.72,.44],endwood:[3.9,2.75,1.95]}[key]));
-  mat.roughness=key==='darkwood'?.98:.95;mat.clearcoat=.018;mat.clearcoatRoughness=.72;mat.specularIntensity=.28;mat.normalScale.set(.28,.28);
+  mat.roughness=key==='darkwood'?.90:.78;mat.clearcoat=.045;mat.clearcoatRoughness=.58;mat.specularIntensity=.38;mat.normalScale.set(.15,.15);
   B.m[key]=mat;B.m['hall161-'+key]=mat;
  }
- const plaster=new T.MeshStandardMaterial({name:'hall161-recessed-aged-lime',color:0x7b7467,roughness:.98});B.m.hall161Plaster=plaster;
+ const plaster=new T.MeshStandardMaterial({name:'hall161-recessed-aged-lime',color:0xada08a,roughness:.96});B.m.hall161Plaster=plaster;
  const recess=B.m.darkwood.clone();recess.name='hall161-deep-vent-shadow';recess.color.multiplyScalar(.40);B.m.hall161Recess=recess;
  return()=>Object.assign(B.m,saved);
 }
@@ -73,20 +74,22 @@ export function emitUpperBay161(B,S,left,right,z,{back=false}={}){
 
 export function emitLowerWindow161(B,S,left,right,z=4.50){
  const width=right-left-.39,cx=(left+right)/2;
- B.box(cx,3.08,z-.29,width,3.36,.17,'hall161Recess');
+ // Taller screen leaves meet the raised163 headers; their sill remains on
+ // the held stone platform. Rebuilt stiles and transoms close the actual bay.
+ B.box(cx,3.235,z-.29,width,3.67,.17,'hall161Recess');
  const leaves=width>1.55?3:2,leafW=(width-.10)/leaves;
  for(let k=0;k<leaves;k++){
   const x=cx-width/2+.05+leafW*(k+.5),recess=k===leaves-1?-.14:0;
-  B.box(x,3.10,z-.16+recess,leafW-.045,2.41,.06,'paper');
+  B.box(x,3.255,z-.16+recess,leafW-.045,2.72,.06,'paper');
   B.box(x,1.65,z-.08+recess,leafW-.035,.47,.13,'wood');
-  for(const xx of[x-leafW/2+.025,x+leafW/2-.025])S.moulding(xx,2.96,z+.015+recess,.058,3.12,.15,'red');
+  for(const xx of[x-leafW/2+.025,x+leafW/2-.025])S.moulding(xx,3.115,z+.015+recess,.058,3.43,.15,'red');
   const n=Math.max(4,Math.round(leafW/.075));
-  for(let j=1;j<n;j++)B.box(x-leafW/2+j*leafW/n,3.10,z-.045+recess,.018,2.37,.048,'wood');
-  for(const yy of[1.93,2.48,3.10,3.72,4.30])S.moulding(x,yy,z+.015+recess,leafW-.04,.035,.085,'wood');
+  for(let j=1;j<n;j++)B.box(x-leafW/2+j*leafW/n,3.255,z-.045+recess,.018,2.68,.048,'wood');
+  for(const yy of[1.93,2.55,3.255,3.96,4.61])S.moulding(x,yy,z+.015+recess,leafW-.04,.035,.085,'wood');
  }
- for(const xx of[cx-width/2-.04,cx+width/2+.04])S.moulding(xx,3.10,z+.075,.145,3.47,.32,'redLight');
- for(const [y,h]of[[1.42,.16],[4.39,.16],[4.83,.14]])S.moulding(cx,y,z+.085,width+.22,h,.35,'wood');
+ for(const xx of[cx-width/2-.04,cx+width/2+.04])S.moulding(xx,3.255,z+.075,.145,3.78,.32,'redLight');
+ for(const [y,h]of[[1.42,.16],[4.70,.16],[5.14,.14]])S.moulding(cx,y,z+.085,width+.22,h,.35,'wood');
  const transoms=Math.ceil(width/.10);
- for(let j=0;j<=transoms;j++)B.box(cx-width/2+j*width/transoms,4.61,z+.015,.027,.31,.13,'wood');
- for(const yy of[4.52,4.68])B.box(cx,yy,z+.035,width,.027,.15,'darkwood');
+ for(let j=0;j<=transoms;j++)B.box(cx-width/2+j*width/transoms,4.92,z+.015,.027,.31,.13,'wood');
+ for(const yy of[4.83,4.99])B.box(cx,yy,z+.035,width,.027,.15,'darkwood');
 }
