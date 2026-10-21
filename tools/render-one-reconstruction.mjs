@@ -59,13 +59,16 @@ try{
  await Promise.race([page.goto(`http://127.0.0.1:${port}/${entry}?render&defer&w=${renderSize}&h=${renderSize}`,{waitUntil:'load',timeout:600000}),fatal]);
  await Promise.race([page.waitForFunction(()=>window.temple?.ready&&typeof window.temple.renderReference==='function',null,{timeout:600000}),fatal]);
  const frames=motionFps?Array.from({length:motionFps*motionDuration},(_,i)=>(i+.5)/motionFps):process.env.SHOT_TIMES?process.env.SHOT_TIMES.split(',').map(Number):detailCrop?[null,null]:[null];
- if(motionFps){
-  encoder=spawn('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${renderSize}x${renderSize}`,'-framerate',String(motionFps),'-i','pipe:0','-an','-vf',`vflip,scale=${size}:${size}:flags=lanczos:in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p`,'-frames:v',String(frames.length),'-c:v','libx264','-preset','fast','-crf','15','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','iec61966-2-1','-movflags','+faststart',videoFile],{stdio:['pipe','ignore','inherit']});
+ function startEncoder(width,height){
+  report.renderSampling.requestedNativeWidth=renderSize;report.renderSampling.requestedNativeHeight=renderSize;
+  report.renderSampling.nativeWidth=width;report.renderSampling.nativeHeight=height;
+  report.renderSampling.scale=width/size;
+  encoder=spawn('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','rawvideo','-pixel_format','rgba','-video_size',`${width}x${height}`,'-framerate',String(motionFps),'-i','pipe:0','-an','-vf',`vflip,scale=${size}:${size}:flags=lanczos:in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p`,'-frames:v',String(frames.length),'-c:v','libx264','-preset','fast','-crf','15','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','iec61966-2-1','-movflags','+faststart',videoFile],{stdio:['pipe','ignore','inherit']});
   encoder.stdin.on('error',e=>encoderError=e);
   encoded=new Promise((yes,no)=>{encoder.on('error',no);encoder.on('close',code=>code===0?yes():no(Error('Motion encoder exited '+code)));});
   encoded.catch(e=>encoderError=e);
-  report.motion={duration:motionDuration,fps:motionFps,expectedFrames:frames.length,file:videoFile,scope:'One actual seven-second shot for motion inspection; not the complete film.',audio:false,visualAccepted:false};
  }
+ if(motionFps)report.motion={duration:motionDuration,fps:motionFps,expectedFrames:frames.length,file:videoFile,scope:'One actual seven-second native-camera shot; not the complete film.',audio:false,visualAccepted:false};
  report.frames=[];
  for(const localTime of frames){
   if(encoderError)throw encoderError;
@@ -103,6 +106,8 @@ try{
   report.frames.push({...result,name,localTime,detailCrop:crop,valid,pngSaved:savePixels,nonblackFraction:nonblack/(result.width*result.height),opaqueFraction:opaque/(result.width*result.height),rgbaSha256:createHash('sha256').update(bytes).digest('hex')});
   if(!valid)throw Error('Actual GPU frame failed: '+name);
   if(motionFps){
+   if(!encoder)startEncoder(result.width,result.height);
+   if(result.width!==report.renderSampling.nativeWidth||result.height!==report.renderSampling.nativeHeight||bytes.length!==result.width*result.height*4)throw Error('Native framebuffer dimensions changed during capture.');
    if(!encoder.stdin.write(bytes))await Promise.race([new Promise(resolve=>encoder.stdin.once('drain',resolve)),encoded.then(()=>{throw Error('Encoder closed before the last frame');})]);
    if(index===0||(index+1)%motionFps===0||index===frames.length-1)console.log(JSON.stringify({event:'motion-frame',reference,frame:index+1,total:frames.length,time:localTime}));
   }
