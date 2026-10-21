@@ -21,12 +21,12 @@ export function createClayTile05(points,width=.17,{cover=true,variant=0}={}){
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('color',new T.Float32BufferAttribute(col,3));g.setIndex(ix);g.computeVertexNormals();g.userData={closedCeramic:true,clayThickness:.019,kind:cover?'cylindrical-cover':'concave-rain-pan'};return g;
 }
 
-export function createHandlaidRoof05(sample,w,d){
+export function createHandlaidRoof05(sample,w,d,opening=null){
  const pieces=[],mix=(a,b,t)=>a+(b-a)*t;
  for(let face=0;face<4;face++){
   const width=face<2?w:d,depth=face<2?d:w,lanes=Math.max(8,Math.round(width/.26));
   for(let i=0;i<=lanes;i++){
-   const u=-1+2*i/lanes,lo=Math.max(.04,Math.abs(u)+.004),hi=1.025;
+   const u=-1+2*i/lanes,x=u*width/2,insideAcross=opening&&(face<2?x>opening.minX-.12&&x<opening.maxX+.12:x>opening.minZ-.12&&x<opening.maxZ+.12),inner=opening?(face<2?(face===0?opening.maxZ:-opening.minZ):(face===2?opening.maxX:-opening.minX)):0,lo=Math.max(.04,Math.abs(u)+.004,insideAcross?(inner-.022)/(depth/2):0),hi=1.025;
    const courses=Math.max(1,Math.ceil((hi-lo)*Math.hypot(depth/2,2)/.34));
    const P=(t,uu)=>sample(face,t,Math.max(-1,Math.min(1,uu/t)),.004);
    for(let j=0;j<courses;j++){

@@ -3,14 +3,32 @@
   "files": [
     "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
     "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
-    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
     "assets/polyhaven/lacquered-cherry-wood/provenance.json",
-    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/qwantani-sunset-puresky/provenance.json",
+    "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
     "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
     "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
     "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
     "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
-    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/shrub-02/provider-files.json",
+    "assets/polyhaven/shrub-02/provider-info.json",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
     "reconstructions/camera-dolly.js"
   ],
   "foregroundRoof": {
@@ -24,7 +42,7 @@
   "islandLantern": {
     "scope": "Only the nearest water-island stone lantern, replacing the single original lantern(4.8,14.2,5.8,.2) call. Other4lanterns, islands/garden RNG, existing camera/light/roof/rail geometry stay.",
     "anchor": "Local4.8,.2,14.2 scaled5.8/3.7, under the exact retained garden transform T(0,0,-3)*S(1,1,.6), world anchor4.8,.2,5.52.",
-    "envelope": "Old local full lamp bounds x/z\u00b11.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
+    "envelope": "Old local full lamp bounds x/z±1.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
     "geometry": "Thick closed curved/fluted kasa with a small actual rolled/upturned lip, original-height rounded-neck finial, short recessed firebag,7vertical+5horizontal fine bars per face, smaller closed warm core, closed carved-stone panels/petals, substantial shaft/base and11surface-rooted closed moss pads plus132small closed moss fibres.",
     "light": "The original mats.glow material/emissive intensity is borrowed unchanged; luminous centrelocalY2.84 retained. No point/area lights added or moved.",
     "inspectedConstruction": "scene04/src/scene04-lanterns.js reviewed for closed cap/cavity/relief/moss construction only. Scene04 proportions, scale and lights are not copied.",
@@ -69,5 +87,22 @@
     "newExternalAssets": [],
     "referenceAsTexture": false,
     "visualAccepted": false
+  },
+  "planting144": {
+    "source": "src/scanned-planting144.js",
+    "skySource": "src/sky-radiance144.js",
+    "license": "Independent Poly Haven CC0 models/HDRI, original bytes and publisher checksums/provenance retained.",
+    "referencePhotoUsedAsSceneAsset": false,
+    "visualAccepted": false
+  },
+  "sky145": {
+    "source": "src/sky-radiance144.js",
+    "asset": "assets/sky145/sky-cloud-cap-generated-r04.png",
+    "provenance": "assets/sky145/provenance.json",
+    "scope": "Independent atmosphere/cloud-only70x35degree spherical cap, fixed in world azimuth43degrees from actual sun; boundary blends to measured HDR sky. Existing CC0 Qwantani EXR environment lighting unchanged.",
+    "referencePhotoUsedAsSceneAsset": false,
+    "measuredHDRCameraSky": false,
+    "visualAccepted": false,
+    "revision": "scene07-golden-cloud-sky145-r04"
   }
 }

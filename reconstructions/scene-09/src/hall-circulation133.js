@@ -26,9 +26,9 @@ function metreBox(w,h,d){const g=new RoundedBoxGeometry(w,h,d,2,.008),p=g.attrib
 
 export async function buildCirculation133({emit,box,between,group,materials:M,scans,ownedMaterials,ownedTextures}){
   const stone=M.cutStone.clone();stone.name='route133-metric-granite';stone.color.setRGB(1.10,1.13,1.12);stone.roughness=.88;stone.normalScale.set(.37,.37);stone.envMapIntensity=.8;ownedMaterials.push(stone);
-  const loader=new T.TextureLoader(),maps=await Promise.all(['diff','nor_gl','rough'].map(k=>loader.loadAsync('/reconstructions/scene-04/assets/granite-tile-04/granite-face-'+k+'.png')));
+  const loader=new T.TextureLoader(),maps=await Promise.all(['diff','nor_gl','rough'].map(k=>loader.loadAsync('/reconstructions/scene-09/assets/granite-tile-04/granite-face-'+k+'.png')));
   for(const [i,t]of maps.entries()){t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(3.151,3.151);t.anisotropy=8;if(i===0)t.colorSpace=T.SRGBColorSpace;ownedTextures.push(t);}
-  [stone.map,stone.normalMap,stone.roughnessMap]=maps;stone.color.setHex(0xb4b3ad);
+  [stone.map,stone.normalMap,stone.roughnessMap]=maps;stone.color.setHex(0xb4b3ad);M.routeGranite139=stone;
   const cap=stone.clone();cap.name='route133-damp-tread-granite';cap.color.setRGB(1.27,1.25,1.18);cap.roughness=.65;ownedMaterials.push(cap);
   const soil=M.cutStoneDark.clone();soil.name='route133-supported-earth';soil.color.setHex(0x383b2c);soil.normalScale.set(.6,.6);ownedMaterials.push(soil);
   const plan=circulation133,S=plan.stair,top=plan.hall.floor,rise=(top-S.lowerY)/S.count,run=(S.lowerZ-S.upperZ)/S.count,records=[],plants=[],walkSurfaces=[];
@@ -107,8 +107,12 @@ export async function buildCirculation133({emit,box,between,group,materials:M,sc
   }return inside?0:d;}
   const nearestWalkSurface=(x,z)=>{let d=Infinity,height=.06;for(const route of walkSurfaces){const q=distance(route.poly,x,z);if(q<d){d=q;height=route.height;}}return{distance:d,height};};
   const pathDistance=(x,z)=>nearestWalkSurface(x,z).distance;
-  const bankY=(x,z)=>{const {distance:d,height}=nearestWalkSurface(x,z),t=T.MathUtils.smoothstep(d,.02,1.80),wave=.025*Math.sin(x*2.7+z*1.9)*Math.sin(z*2.8)*t;let h=.06+Math.max(0,height-.24-.06)*(1-t)+wave;if(x<5.16&&x>-6.36&&z>-.10&&z<3.30)h=Math.min(h,.58);return h;};
-  const nx=88,nz=84,x0=-5,z0=-9,dxg=15/nx,dzg=14/nz,pp=[],uv=[],ix=[];
+  const bankY=(x,z)=>{const {distance:d,height}=nearestWalkSurface(x,z),t=T.MathUtils.smoothstep(d,.02,1.80),wave=.025*Math.sin(x*2.7+z*1.9)*Math.sin(z*2.8)*t;let h=-.10+Math.max(0,height-.24+.10)*(1-t)+wave;
+    const H=plan.hall,c=Math.cos(H.yaw),s=Math.sin(H.yaw),dx=x-H.position[0],dz=z-H.position[2],u=c*dx-s*dz,v=s*dx+c*dz;
+    if(Math.abs(u)>3.53&&Math.abs(u)<12.2&&v>5.85&&v<11.8){const along=1-T.MathUtils.smoothstep(v,6.10,11.5),side=1-T.MathUtils.smoothstep(Math.abs(u),10.5,12.2);h=Math.max(h,-.10+(H.floor*H.scale[1]-.28+.10)*along*side+.06*Math.sin(u*2.1+v)*along);}
+    if(x<5.16&&x>-6.36&&z>-.10&&z<3.30)h=Math.min(h,.13);return h;};
+  M.bankHeight139=bankY;
+  const nx=126,nz=104,x0=-12,z0=-16,dxg=34/nx,dzg=21/nz,pp=[],uv=[],ix=[];
   for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){const x=x0+i*dxg,z=z0+j*dzg;pp.push(x,bankY(x,z),z);uv.push(x,z);if(i<nx&&j<nz){const a=j*(nx+1)+i,b=a+1,c=a+nx+1,d=c+1;ix.push(a,c,b,b,c,d);}}
   const edges=[];for(let i=0;i<=nx;i++)edges.push(i);for(let j=1;j<=nz;j++)edges.push(j*(nx+1)+nx);for(let i=nx-1;i>=0;i--)edges.push(nz*(nx+1)+i);for(let j=nz-1;j>0;j--)edges.push(j*(nx+1));
   const bottom=[];for(const i of edges){bottom.push(pp.length/3);pp.push(pp[i*3],-.30,pp[i*3+2]);uv.push(pp[i*3],pp[i*3+2]);}
@@ -116,9 +120,9 @@ export async function buildCirculation133({emit,box,between,group,materials:M,sc
   const centre=pp.length/3;pp.push(2.5,-.30,-2);uv.push(0,0);for(let k=0;k<bottom.length;k++)ix.push(centre,bottom[k],bottom[(k+1)%bottom.length]);
   const ground=new T.BufferGeometry();ground.setAttribute('position',new T.Float32BufferAttribute(pp,3));ground.setAttribute('uv',new T.Float32BufferAttribute(uv,2));ground.setIndex(ix);ground.computeVertexNormals();ground.name='continuous-pond-bank-beneath-bridge-landing-and-hall-route';emit(ground,soil);
   let stoneCount=0;
-  for(let j=0;j<23;j++)for(let i=0;i<25;i++){
-    const x=-4.6+i*.59+.14*Math.sin(i*11+j*2),z=-8.5+j*.61+.12*Math.cos(i*6+j*9),d=pathDistance(x,z);
-    if(d<.32||d>1.18||(x<5.22&&x>-6.36&&z>-.15&&z<3.4))continue;
+  for(let j=0;j<34;j++)for(let i=0;i<51;i++){
+    const x=-10.6+i*.61+.14*Math.sin(i*11+j*2),z=-15.0+j*.61+.12*Math.cos(i*6+j*9),d=pathDistance(x,z);
+    if(d<.32||(d>1.18&&bankY(x,z)<.25)||(x<5.22&&x>-6.36&&z>-.15&&z<3.4))continue;
     const k=stoneCount++,scan=scans.variants[k%scans.variants.length],scale=.37+.21*(.5+.5*Math.sin(i*7.1+j*3.3));scan.geometry.computeBoundingBox();
     emit(scan.geometry,scan.material,x,bankY(x,z)-scan.geometry.boundingBox.min.y*scale-.14,z,scale,scale,scale,k*2.399,.86+.1*Math.sin(k*2)**2);
     if(k%2===0)plants.push([x,bankY(x,z)+.05,z]);

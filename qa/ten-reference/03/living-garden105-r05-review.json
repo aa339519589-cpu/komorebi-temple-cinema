@@ -1,0 +1,86 @@
+{
+  "revision": "scene03-carpentry104-living-garden105-r05",
+  "sourceHash": "cf782df39acf37d57e4c3d90a7c9a1f2dfd51bd905055202958cd81a70940016",
+  "sourceCommitAtFullCapture": "d18484812cf3a4fe14d21f0435d771afb9d5ddc0",
+  "photographicAccepted": false,
+  "visualAccepted": false,
+  "scope": "Actual scene03 garden/pond/toro and supported stair/bridge-route reconstruction; retained main hall/carpentry/bridge/tower anchor geometry.",
+  "captureManifest": {
+    "fullAndDetail": {
+      "directory": "iteration-scene03-living-garden105-r05-20261021",
+      "status": "rendered-review",
+      "size": 1254,
+      "sourceHash": "cf782df39acf37d57e4c3d90a7c9a1f2dfd51bd905055202958cd81a70940016",
+      "report": "iteration-scene03-living-garden105-r05-20261021/report.json"
+    },
+    "aboveContact": {
+      "directory": "iteration-scene03-living-garden105-contact-r05-20261021",
+      "status": "rendered-review",
+      "size": 1100,
+      "sourceHash": "cf782df39acf37d57e4c3d90a7c9a1f2dfd51bd905055202958cd81a70940016",
+      "report": "iteration-scene03-living-garden105-contact-r05-20261021/report.json"
+    },
+    "nearToro": {
+      "directory": "iteration-scene03-living-garden105-toro-r05-20261021",
+      "status": "rendered-review",
+      "size": 1100,
+      "sourceHash": "cf782df39acf37d57e4c3d90a7c9a1f2dfd51bd905055202958cd81a70940016",
+      "report": "iteration-scene03-living-garden105-toro-r05-20261021/report.json"
+    },
+    "poses": {
+      "directory": "iteration-scene03-living-garden105-poses-r05-20261021",
+      "status": "rendered-review",
+      "size": 960,
+      "sourceHash": "cf782df39acf37d57e4c3d90a7c9a1f2dfd51bd905055202958cd81a70940016",
+      "report": "iteration-scene03-living-garden105-poses-r05-20261021/report.json"
+    },
+    "motion": {
+      "directory": "iteration-scene03-living-garden105-motion-r05-20261021",
+      "status": "motion-review-rendered",
+      "size": 960,
+      "sourceHash": "cf782df39acf37d57e4c3d90a7c9a1f2dfd51bd905055202958cd81a70940016",
+      "report": "iteration-scene03-living-garden105-motion-r05-20261021/report.json"
+    }
+  },
+  "nativeDetail": {
+    "pixels": [
+      205,
+      690,
+      560,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "motion": {
+    "file": "iteration-scene03-living-garden105-motion-r05-20261021/motion-review.mp4",
+    "fps": 24,
+    "duration": 7,
+    "decodedFrames": 168,
+    "width": 960,
+    "height": 960,
+    "decodeErrors": 0
+  },
+  "completedModeling": [
+    "Closed folded lotus leaves with19 coherent physical radial folds/veins, irregular rolled margins, pale undersides and connected bed-rooted stems.",
+    "Closed pointed/twisted petals, reflexed outer tips, unequal ranks and resized near bloom; smaller right-bank leaves stand close to water.",
+    "Neutral independent granite toro PBR, closed footstones/tapered shaft/inset shallow carved wear panels, framed open chambers, heavy closed caps and small moss sprays. Repeated placeholder marks removed; exact historic inscription not claimed.",
+    "Twenty closed granite stair levels over a3.10m rise,4.0m width,-0.55m local center and0.20rad independent turn. Upper landing bearing wedge, cores to ground,5closed bank/soil bodies and a supported stone path meet fixed bridge landing.",
+    "109original-topology CC0 understory shrubs,571groundcover plants,53scanned moss rocks,172authored rooted azalea sprigs and8iris fans on real soil/rock surfaces.",
+    "Finer weathered retaining boulder geometry, tapered outer shoulder replacing the square cutoff visible at3.5s, darker physical pond bed and darker submerged continuous stem segments."
+  ],
+  "retainedRejectedCandidates": {
+    "r01": "Overlarge folded foreground leaves, sparse dry scan-only understory, shelf-like stones and inherited exposed stair wedge.",
+    "r02": "Raised/turned stair and density improved; retaining boulders still coarse and some plant bases needed deeper rooting.",
+    "r03": "0/3.5/7 views revealed an outer bank cutoff and bright cut-looking submerged stems.",
+    "r04": "Close toro review exposed brown mineral pigment and repeated raised cross-like placeholder marks."
+  },
+  "remainingVisualLimits": [
+    "Photographic fidelity remains unachieved. Main hall/gable/joinery are dark and regular; carving/weathering and leaf/petal tissue are simplified.",
+    "Near leaf silhouettes/albedo and lotus petals remain broad interpreted botanical forms; crown habits and garden species are not exact source matches.",
+    "Native screen-depth optical gather is not aperture integration; water reflection is real scene reflection with a simple Fresnel surface and darker submerged pigments, not volumetric absorption, caustics or a measured physical pond.",
+    "The inset toro channels are non-textual wear interpretations; exact historic inscription is not reconstructed.",
+    "The retained shrine icon is an interpreted stand-in, as declared by prior scene03 provenance."
+  ],
+  "referenceComparison": "Source photo is comparison-only; runtime loads no photo RGB, inferred depth, replacement scene frame or projection.",
+  "referenceContours": "source03-garden105-observed-contours.json"
+}

@@ -1,0 +1,400 @@
+{
+  "sourceHash": "5c91f7ec6a8b11285cfc2f595a84fcda00ec4369982ff3c05fdcbf36c1981f38",
+  "referencePixels": 1254,
+  "scope": "Runtime world anchors projected through the actual low reference camera. Manually assigned ornament/post/fixture feature centres retain9\u201318px uncertainty and ambiguous correspondence; no photographic acceptance follows from RMS.",
+  "baselineR07RmsPixels": 141.33128232740572,
+  "currentRuntimeRmsPixels": 44.97310940534907,
+  "relativeRmsReduction": 0.681789419407056,
+  "mainLeftEaveEndpointChordSlope": {
+    "reference": -0.7167042889390519,
+    "R07": -0.5731873211426639,
+    "current": -0.6873757957293458
+  },
+  "pose": {
+    "position": [
+      14.82335137,
+      0.8,
+      14.62564576
+    ],
+    "target": [
+      -4.93362536,
+      15,
+      -0.40723472
+    ],
+    "fov": 27.8228581
+  },
+  "canonicalTierSpec": {
+    "width": 8.8,
+    "pitch": 5.7,
+    "ratio": 0.83656108,
+    "roofAddition": 4.38973926,
+    "roofHeight": 3.85697332,
+    "roofRise": 3.5,
+    "bearingVerticalScale": 1.65313409,
+    "bearingHorizontalScale": 1.12,
+    "baseY": 0.35,
+    "tailCutHeight": 1.92
+  },
+  "landmarks": [
+    {
+      "name": "lower_near_hip",
+      "level": 0,
+      "anchor": "hip_near",
+      "observedPixels": [
+        916,
+        1074
+      ],
+      "uncertaintyPixels": 16,
+      "world": [
+        6.68886963,
+        5.00597332,
+        6.68886963
+      ],
+      "projectedPixels": [
+        923.3218342249273,
+        1042.4043414406717
+      ],
+      "errorPixels": [
+        7.321834224927329,
+        -31.595658559328285
+      ],
+      "distancePixels": 32.43292919572594
+    },
+    {
+      "name": "main_near_hip",
+      "level": 1,
+      "anchor": "hip_near",
+      "observedPixels": [
+        920,
+        342
+      ],
+      "uncertaintyPixels": 10,
+      "world": [
+        5.595648001652,
+        9.945006069030384,
+        5.595648001652
+      ],
+      "projectedPixels": [
+        885.3878065670677,
+        372.0645249305802
+      ],
+      "errorPixels": [
+        -34.61219343293226,
+        30.064524930580205
+      ],
+      "distancePixels": 45.846260409549195
+    },
+    {
+      "name": "main_far_left_hip",
+      "level": 1,
+      "anchor": "hip_left",
+      "observedPixels": [
+        34,
+        977
+      ],
+      "uncertaintyPixels": 15,
+      "world": [
+        -5.595648001652,
+        9.945006069030384,
+        5.595648001652
+      ],
+      "projectedPixels": [
+        66.6478827583202,
+        934.846531554002
+      ],
+      "errorPixels": [
+        32.64788275832019,
+        -42.15346844599799
+      ],
+      "distancePixels": 53.3179064726736
+    },
+    {
+      "name": "upper_far_left_hip",
+      "level": 2,
+      "anchor": "hip_left",
+      "observedPixels": [
+        251,
+        552
+      ],
+      "uncertaintyPixels": 10,
+      "world": [
+        -4.68110133556184,
+        14.076808639714612,
+        4.68110133556184
+      ],
+      "projectedPixels": [
+        237.01947258372215,
+        544.1083490646918
+      ],
+      "errorPixels": [
+        -13.980527416277852,
+        -7.891650935308235
+      ],
+      "distancePixels": 16.054074290411393
+    },
+    {
+      "name": "high_far_left_hip",
+      "level": 3,
+      "anchor": "hip_left",
+      "observedPixels": [
+        338,
+        286
+      ],
+      "uncertaintyPixels": 15,
+      "world": [
+        -3.9160271888670546,
+        17.533313860592983,
+        3.9160271888670546
+      ],
+      "projectedPixels": [
+        361.0414574474147,
+        259.6705211145141
+      ],
+      "errorPixels": [
+        23.0414574474147,
+        -26.329478885485912
+      ],
+      "distancePixels": 34.98785817511942
+    },
+    {
+      "name": "main_near_lantern",
+      "level": 1,
+      "anchor": "lantern_near",
+      "observedPixels": [
+        930,
+        598
+      ],
+      "uncertaintyPixels": 9,
+      "world": [
+        5.6549365416352995,
+        8.225058808,
+        5.6549365416352995
+      ],
+      "projectedPixels": [
+        899.6886548363583,
+        605.4384572783009
+      ],
+      "errorPixels": [
+        -30.311345163641704,
+        7.438457278300916
+      ],
+      "distancePixels": 31.21070797515707
+    },
+    {
+      "name": "upper_near_lantern",
+      "level": 2,
+      "anchor": "lantern_near",
+      "observedPixels": [
+        808,
+        141
+      ],
+      "uncertaintyPixels": 10,
+      "world": [
+        4.730699820601892,
+        12.63796770148399,
+        4.730699820601892
+      ],
+      "projectedPixels": [
+        874.2693988929971,
+        162.38189602728315
+      ],
+      "errorPixels": [
+        66.26939889299706,
+        21.381896027283148
+      ],
+      "distancePixels": 69.63345968254562
+    },
+    {
+      "name": "upper_far_left_lantern",
+      "level": 2,
+      "anchor": "lantern_left",
+      "observedPixels": [
+        260,
+        643
+      ],
+      "uncertaintyPixels": 10,
+      "world": [
+        -4.730699820601892,
+        12.63796770148399,
+        4.730699820601892
+      ],
+      "projectedPixels": [
+        218.6619240591495,
+        670.8030620289178
+      ],
+      "errorPixels": [
+        -41.3380759408505,
+        27.803062028917793
+      ],
+      "distancePixels": 49.81813706548423
+    },
+    {
+      "name": "high_far_left_lantern",
+      "level": 3,
+      "anchor": "lantern_left",
+      "observedPixels": [
+        350,
+        333
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        -3.9575193510785245,
+        16.329635531358562,
+        3.9575193510785245
+      ],
+      "projectedPixels": [
+        349.46704152082674,
+        352.39300938355524
+      ],
+      "errorPixels": [
+        -0.53295847917326,
+        19.39300938355524
+      ],
+      "distancePixels": 19.400331380963166
+    },
+    {
+      "name": "main_near_post_head",
+      "level": 1,
+      "anchor": "post_head",
+      "observedPixels": [
+        896,
+        850
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        3.6808687520000003,
+        8.006909628648359,
+        3.6808687520000003
+      ],
+      "projectedPixels": [
+        918.8120663196071,
+        840.6772072885691
+      ],
+      "errorPixels": [
+        22.812066319607084,
+        -9.322792711430907
+      ],
+      "distancePixels": 24.643555622321653
+    },
+    {
+      "name": "upper_near_post_head",
+      "level": 2,
+      "anchor": "post_head",
+      "observedPixels": [
+        806,
+        382
+      ],
+      "uncertaintyPixels": 17,
+      "world": [
+        3.0792715385113723,
+        12.455472588404467,
+        3.0792715385113723
+      ],
+      "projectedPixels": [
+        890.3533266810634,
+        372.7553828681265
+      ],
+      "errorPixels": [
+        84.35332668106344,
+        -9.244617131873497
+      ],
+      "distancePixels": 84.8583918541775
+    },
+    {
+      "name": "main_far_left_post_head",
+      "level": 1,
+      "anchor": "post_head_left",
+      "observedPixels": [
+        342,
+        1102
+      ],
+      "uncertaintyPixels": 18,
+      "world": [
+        -3.6808687520000003,
+        8.006909628648359,
+        3.6808687520000003
+      ],
+      "projectedPixels": [
+        341.41225777912985,
+        1124.5178075982028
+      ],
+      "errorPixels": [
+        -0.5877422208701546,
+        22.517807598202808
+      ],
+      "distancePixels": 22.525476686362786
+    },
+    {
+      "name": "main_right_inner_post_head",
+      "level": 1,
+      "anchor": "post_head_midright",
+      "observedPixels": [
+        725,
+        951
+      ],
+      "uncertaintyPixels": 18,
+      "world": [
+        1.2269562506666667,
+        8.006909628648359,
+        3.6808687520000003
+      ],
+      "projectedPixels": [
+        691.4948125673152,
+        952.4227687027355
+      ],
+      "errorPixels": [
+        -33.50518743268481,
+        1.4227687027355387
+      ],
+      "distancePixels": 33.53538214603829
+    },
+    {
+      "name": "main_near_hip_tail_cut",
+      "level": 1,
+      "anchor": "tail_cut",
+      "observedPixels": [
+        906,
+        722
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        5.485534531421166,
+        7.6561972736,
+        5.485534531421166
+      ],
+      "projectedPixels": [
+        906.6760734588968,
+        710.9520699206739
+      ],
+      "errorPixels": [
+        0.6760734588967807,
+        -11.047930079326079
+      ],
+      "distancePixels": 11.068596765602342
+    },
+    {
+      "name": "upper_near_hip_tail_cut",
+      "level": 2,
+      "anchor": "tail_cut",
+      "observedPixels": [
+        811,
+        233
+      ],
+      "uncertaintyPixels": 12,
+      "world": [
+        4.588984691982985,
+        12.162080281895868,
+        4.588984691982985
+      ],
+      "projectedPixels": [
+        878.9430339321113,
+        232.7458490988314
+      ],
+      "errorPixels": [
+        67.94303393211135,
+        -0.2541509011686003
+      ],
+      "distancePixels": 67.94350927484243
+    }
+  ]
+}

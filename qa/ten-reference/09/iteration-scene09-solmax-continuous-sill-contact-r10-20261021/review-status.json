@@ -1,0 +1,102 @@
+{
+  "scene": 9,
+  "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+  "sourceHeld": true,
+  "visualAccepted": false,
+  "status": "modeled-night-court review checkpoint",
+  "fullSevenSecondMovieRenderedByThisLane": false,
+  "artifacts": [
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-solmax-continuous-sill-contact-r10-20261021",
+      "status": "rendered-review",
+      "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+      "visualAccepted": false,
+      "frames": [
+        {
+          "name": "reference",
+          "localTime": null,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "6b2a098ff5be298d822352aaae59773d8206857be2496d7b0e6624644890ebda"
+        },
+        {
+          "name": "detail-native",
+          "localTime": null,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "7ecd89aaa7738294091c48a729a8cb52162ab06f1ba3b8eb728288b3082348cd"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-solmax-final-oblique-contacts-r10-20261021",
+      "status": "rendered-review",
+      "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+      "visualAccepted": false,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "localTime": null,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "4d859d94c8dac28f4bebd04cf37eb7c2df9e90a502bc84a726e2f529dbcd8665"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-solmax-apron-contact-above-r10-20261021",
+      "status": "rendered-review",
+      "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+      "visualAccepted": false,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "localTime": null,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "5a7969eb70612f1802fab64ebaf7d532f79bfd845a298161c85f760dc594eb4a"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-solmax-final-dolly-poses-r10-20261021",
+      "status": "rendered-review",
+      "sourceHash": "b2d659097d51b2a49b720f3ff83a6bdf84e6c265dd2a89225e5c8ba074637715",
+      "visualAccepted": false,
+      "frames": [
+        {
+          "name": "shot-0",
+          "localTime": 0,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "fc87290736928b6f17617471fd52c2040d04c43ba6113c84bdf61c1408abed79"
+        },
+        {
+          "name": "shot-3p5",
+          "localTime": 3.5,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "c9450614cfa19d85adbf9531268a474069c271a33ec1154edcd28178ec89195b"
+        },
+        {
+          "name": "shot-7",
+          "localTime": 7,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "f88ea2d05c354cc2fa2cc8a7d46bbcf9eb0070818e75862ee10be96456aebc48"
+        }
+      ]
+    }
+  ],
+  "scene01ObservedHash": "5d8fc84e187380a0fbea5d36ad9e1159f2202f727f3275580bde66f636537c2f",
+  "scope": {
+    "owned": [
+      "reconstructions/scene-09",
+      "qa/ten-reference/09"
+    ],
+    "sharedSourceWritten": false,
+    "otherSceneSourceWritten": false,
+    "commitsCreated": false,
+    "childrenCreated": false
+  }
+}

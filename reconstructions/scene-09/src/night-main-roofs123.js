@@ -124,16 +124,16 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
     // layered assembly, with the rafter tips seated behind its lower lip.
     draw(timber(curve(face,1,-.18),.22,.25),'red');
     draw(timber(curve(face,1.008,-.31),.23,.105),'dark');
-    draw(timber(curve(face,1.012,-.22),.032,.034),'gold');
+    draw(timber(curve(face,1.012,-.22),.032,.034),'gold');if(api.ornament){const n=Math.ceil((face%2?hd+bd:w)/.40);for(let i=0;i<=n;i++){const p=at(face,1,-1+2*i/n,-.18);api.ornament(p,face,.070);}}
     for(const t of[.58,.78,.92]){
       if(t<t0)continue;draw(timber(curve(face,t,-.45,32),.20,.20),'wood');
     }
-    const rafters=Math.ceil((face%2?hd+bd:w)/.34);
+    const rafters=Math.ceil((face%2?hd+bd:w)/.22);
     for(let i=0;i<=rafters;i++){
       const u=-1+2*i/rafters,start=Math.max(t0,.50),main=Array.from({length:15},(_,j)=>at(face,start+(1.014-start)*j/14,u,-.275));
-      draw(timber(main,.13,.16),'red');
-      const flying=Array.from({length:9},(_,j)=>at(face,.79+.245*j/8,u,-.158));draw(timber(flying,.10,.10),'red');
-      const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.107,.106),'gold');
+      draw(timber(main,.11,.13),'red');
+      const flying=Array.from({length:9},(_,j)=>at(face,.79+.245*j/8,u,-.158));draw(timber(flying,.075,.090),'red');
+      const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.078,.092),'gold');
     }
     // Hip rolls have real segmented ridge caps rather than one smooth pipe.
     for(const side of[-1,1]){

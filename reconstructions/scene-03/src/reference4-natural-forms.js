@@ -4,17 +4,18 @@ import * as T from 'three';
 // Fractured granite with a flattened foot and broad cleavage faces.
 // A shared analytical field keeps coincident vertices watertight.
 export function granite(seed=1){
- const g=new T.IcosahedronGeometry(1,3),p=g.attributes.position;
+ const g=new T.IcosahedronGeometry(1,8),p=g.attributes.position;
+ const softMin=(a,b,k)=>Math.min(a,b)-Math.max(0,k-Math.abs(a-b))**2/(4*k);
  for(let i=0;i<p.count;i++){
   let x=p.getX(i),y=p.getY(i),z=p.getZ(i);
-  const r=1+.17*Math.sin(x*3.2+seed)*Math.sin(y*4.3+z*2.7)+.065*Math.cos(z*8.2+x*5.1+seed*2.3);
+  const r=.96+.14*Math.sin(x*3.2+seed)*Math.sin(y*4.3+z*2.7)+.055*Math.cos(z*8.2+x*5.1+seed*2.3)+.018*Math.sin(x*19.1+y*15.3+z*13.7+seed);
   x*=r;y*=r;z*=r;
-  y=Math.min(y,.69+x*.16+Math.cos(z*3.1+seed)*.035);
+  y=softMin(y,.69+x*.16+Math.cos(z*3.1+seed)*.035,.13);
   y=Math.max(y,-.66+x*.035-z*.026);
-  x=Math.min(x,.85+y*.14-z*.09);
+  x=softMin(x,.85+y*.14-z*.09,.14);
   p.setXYZ(i,x,y,z);
  }
- g.computeVertexNormals();return toCreasedNormals(g,.62);
+ g.computeVertexNormals();g.name=`weathered-connected-granite105-${seed}`;return toCreasedNormals(g,.80);
 }
 
 export function grassTuft(){

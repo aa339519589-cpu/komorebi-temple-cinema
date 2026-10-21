@@ -1,0 +1,160 @@
+{
+  "scope": "Scene07 narrow sky production lane145; visual review is a selected improved checkpoint, not photographic acceptance.",
+  "baselineReceipt": "qa/ten-reference/07/iteration-scene07-radiance-exposure-and-water-root-03-20261021/report.json",
+  "baselineHash": "c0422e330569f41ea457cb43c7d6b7f701fdeb1144941d043d944b55465334b6",
+  "selectedSourceHash": "72cca037d5e5e616afa171f820a28929861800e32665b3214da278b538d8f2ff",
+  "changedExistingFiles": [
+    "reconstructions/scene-07/asset-dependencies.json",
+    "reconstructions/scene-07/src/sky-radiance144.js"
+  ],
+  "newFiles": [
+    "reconstructions/scene-07/assets/sky145/generation-cap-r03.json",
+    "reconstructions/scene-07/assets/sky145/generation-panorama-r01.json",
+    "reconstructions/scene-07/assets/sky145/provenance.json",
+    "reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r03.png",
+    "reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png",
+    "reconstructions/scene-07/assets/sky145/sky-clouds-generated-r01.png"
+  ],
+  "outsideOwnedChanges": [],
+  "mainSourceUnchanged": true,
+  "allOtherOriginalSceneSourcesUnchanged": true,
+  "originalGlobalAssetBytesUnchanged": true,
+  "existingPMREM": {
+    "provider": "Poly Haven",
+    "asset": "Qwantani Sunset Pure Sky",
+    "license": "CC0-1.0",
+    "intensity": 0.38,
+    "rotation": [
+      -3.065625712249867,
+      -0.08167494080106492,
+      -3.0308123802546123,
+      "XYZ"
+    ],
+    "unchangedFromBaseline": true
+  },
+  "selectedSkyAsset": {
+    "asset": "/reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png",
+    "provider": "OpenAI built-in imagegen",
+    "provenance": "reconstructions/scene-07/assets/sky145/provenance.json",
+    "projection": "world-fixed spherical cap with measured HDR outside and8percent boundary blend",
+    "azimuthCenterRadians": -1.848521751106241,
+    "horizontalSpanDegrees": 70,
+    "elevationRangeDegrees": [
+      -5,
+      30
+    ],
+    "centerAzimuthRelativeToActualSunDegrees": 43,
+    "solarAzimuthOutsideLeftEdgeDegrees": 8,
+    "linearRadianceGain": 1.1,
+    "measuredHDR": false,
+    "worldLocked": true,
+    "cameraTranslationParallax": false
+  },
+  "captures": {
+    "qa/ten-reference/07/iteration-scene07-solmax-cloud-sky-r04-20261021": {
+      "sourceHash": "72cca037d5e5e616afa171f820a28929861800e32665b3214da278b538d8f2ff",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "glError": 0,
+          "linkedShaders": true,
+          "rgbaSha256": "43367f964dcac7c2babcff3f3370881ca22cb5ce04b0245ac088f4c3ab9c46a7"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "glError": 0,
+          "linkedShaders": true,
+          "rgbaSha256": "894509cff3256c0c30f375e3a4772b4a694c2698b38c7c087c19c4030ffdafbf"
+        }
+      ]
+    },
+    "qa/ten-reference/07/iteration-scene07-solmax-cloud-sky-r04-reflection-20261021": {
+      "sourceHash": "72cca037d5e5e616afa171f820a28929861800e32665b3214da278b538d8f2ff",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "glError": 0,
+          "linkedShaders": true,
+          "rgbaSha256": "45d0fbec9dccbc13a0a24a64e1afbf9a8e1d5cacc89e413be9ffaac900f88e5b"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "glError": 0,
+          "linkedShaders": true,
+          "rgbaSha256": "201ff042ff9842ac791ad7e475781a22972501f96a3b40f9b9dacc7f8be6d2a6"
+        }
+      ]
+    },
+    "qa/ten-reference/07/iteration-scene07-solmax-cloud-sky-r04-path-20261021": {
+      "sourceHash": "72cca037d5e5e616afa171f820a28929861800e32665b3214da278b538d8f2ff",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "shot-0",
+          "size": [
+            960,
+            960
+          ],
+          "glError": 0,
+          "linkedShaders": true,
+          "rgbaSha256": "5f49dd8527f6e6d65ee4dcb5419b38ae7867aa6017b0d73a6440924dbdaabeb8"
+        },
+        {
+          "name": "shot-3p5",
+          "size": [
+            960,
+            960
+          ],
+          "glError": 0,
+          "linkedShaders": true,
+          "rgbaSha256": "05f0ae59071ceee80faff7766164339eef457ef2518c75af338103daeda7c190"
+        },
+        {
+          "name": "shot-7",
+          "size": [
+            960,
+            960
+          ],
+          "glError": 0,
+          "linkedShaders": true,
+          "rgbaSha256": "a51e507b53976ba1ee140a30ceff8d3fd326a54cd5d179d7b1dc6adb99ba4517"
+        }
+      ]
+    }
+  },
+  "allCapturesSameSource": true,
+  "sourceArchive": {
+    "file": "scene07-sky145-r04-source.tar.gz",
+    "sha256": "69331679896e81a4cff07689b7f4d47f342c5c06df6f2a980769d243723d96b6",
+    "scope": "Complete local Scene07 namespace. Shared original assets are identified by source receipt hashes and remain in their immutable project paths."
+  },
+  "visualAccepted": false,
+  "remainingGaps": [
+    "Cloud positions and edge radiance are an independent approximation, not a photographic match.",
+    "The retained actual directional sun falls outside the left edge of the47degree reference view, whereas source7 shows a visible sun; sky-only scope preserves that light and camera.",
+    "The1774x887 LDR atlas is an authored display sky proxy, not measured HDR. The genuine1254 sky detail subfrustum still shows softer cloud edges than source7.",
+    "Scene geometry/materials, mountain silhouette, foliage and overall light response retain the preexisting draft gaps and were outside this lane.",
+    "Only three static path positions were captured here; this is not a continuous motion-film receipt."
+  ]
+}

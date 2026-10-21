@@ -62,12 +62,6 @@ export function buildGardenAccents({emit,rod,mats,scannedStones,shoots,height}){
   const v=scannedStones.variants[(j+row*3)%6],s=rr(.42,.69);embeddedStone(v,x,z,s,rr(.78,1.06));
   for(let k=0;k<9;k++){const xx=x+rr(-.28,.28),zz=z+rr(-.27,.27),yy=height(xx,zz)+.015,ss=rr(.70,1.12);if(isGardenRoute(xx,zz,.28)&&yy>3.90)continue;emit(shoots[(j+k)%3],k%4?mats.gardenShrub:mats.gardenShrubLit,xx,yy,zz,ss,rr(.62,1.0),ss,[0,rr(0,TAU),0],rr(.78,1.14));leafShoots++;}
  }
- const flowerPetal=new T.SphereGeometry(1,5,3);
- for(let j=0;j<180;j++){
-  const a=rr(0,TAU),r=Math.sqrt(rr(.25,1)),x=4.876+Math.cos(a)*2.08*r,z=5.52+Math.sin(a)*1.40*r,y=.28+1.75*Math.sqrt(1-r*r),stem=.14+rr(0,.22);
-  rod([x,y,z],[x,y+stem,z],.004,'leaf',.002);
-  for(let k=0;k<5;k++){const aa=k*TAU/5;emit(flowerPetal,j%3?mats.white:mats.pink,x+Math.cos(aa)*.028,y+stem,z+Math.sin(aa)*.028,.034,.012,.025,[rr(-.25,.25),aa,0],rr(.85,1.15));}
- }
  // A low rocky weir feeds the genuine open water channel below the arch.
  // Water is a set of narrow curved sheets, never a scene/backdrop plane.
  const water=new T.MeshPhysicalMaterial({name:'scene07-falling-stream-water',color:0x9fbfb4,roughness:.12,metalness:.10,transparent:true,opacity:.34,side:T.DoubleSide,depthWrite:false,clearcoat:.50,clearcoatRoughness:.1});

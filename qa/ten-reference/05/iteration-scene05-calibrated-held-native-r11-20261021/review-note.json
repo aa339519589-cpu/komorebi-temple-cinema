@@ -1,0 +1,44 @@
+{
+  "status": "source-held-for-root-review",
+  "sourceHash": "5c91f7ec6a8b11285cfc2f595a84fcda00ec4369982ff3c05fdcbf36c1981f38",
+  "sameSourceForFullDetailThreePosesAndOblique": true,
+  "referenceCameraHeightMetres": 0.8,
+  "dollyHeightRangeMetres": [
+    0.72,
+    0.8
+  ],
+  "visualAccepted": false,
+  "geometryChanges": [
+    "One common calibrated low camera/FOV plus positive uniform transforms of each complete canonical tier, instead of mixed fixed story heights and independently shrinking roofs",
+    "Roof/body/bearing/gallery/fixture dimensions share one layout; real capped roof/deck openings and supported closed timber collars carry the next floor",
+    "Bearing depth and roof rise/overhang are fitted common dimensions; closed transom boards connect the bearing field behind the actual posts",
+    "Hip-tail cut height is a shared canonical dimension, and its two forged lantern braces attach to sampled points on its actual spline",
+    "Brighter honeyed copper/cedar pigment preserves scanned metric grain and transformed normals; geometry merge now respects existing ceramic vertex pigments and member tints"
+  ],
+  "measuredImprovement": {
+    "baselineR07RmsPixels": 141.33128232740572,
+    "currentRuntimeRmsPixels": 44.97310940534907,
+    "relativeRmsReduction": 0.681789419407056,
+    "mainLeftEaveEndpointChordSlope": {
+      "reference": -0.7167042889390519,
+      "R07": -0.5731873211426639,
+      "current": -0.6873757957293458
+    }
+  },
+  "evidence": {
+    "referencePair": "hd05-left-render-right.png",
+    "trueDetailPair": "eave-crop-left-render-right.png",
+    "nativeBeforeAfter": "r07-left-r11-right-native.png",
+    "landmarks": "landmark-comparison.png",
+    "threePoses": "qa/ten-reference/05/iteration-scene05-calibrated-three-poses-r11-20261021/three-poses.png",
+    "physicalOblique": "qa/ten-reference/05/iteration-scene05-calibrated-held-oblique-r11-20261021/inspection-view.png"
+  },
+  "R10PoseRepair": "Actual pose0 with the inherited post-head aim was occluded by a lower roof. The corrected .72m low start aims at the real near lantern and opens continuously to the same calibrated endpoint. R10 frames are retained.",
+  "remainingVisualGaps": [
+    "The upper near hip/post/lantern axis remains displaced relative to the source; selected upper anchors still differ by roughly60–85pixels at1254px.",
+    "Timber/ceramic/metal carving is more regular and less intricate, while collar/transom detailing, canopy placement, weathering and lighting remain visibly synthetic.",
+    "Landmark assignment, world dimensions and source lens are reconstruction hypotheses, with cropped or differently modeled features carrying uncertainty.",
+    "Native load success and lower landmark RMS establish neither photographic fidelity nor completion of the film."
+  ],
+  "committedByWorker": false
+}

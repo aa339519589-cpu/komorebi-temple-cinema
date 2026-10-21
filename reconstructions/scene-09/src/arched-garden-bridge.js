@@ -5,7 +5,7 @@ import * as T from 'three';
 export function buildArchedGardenBridge({emit,box,between,lantern,materials:M}){
   const height=x=>1.25+1.36*Math.pow(Math.max(0,1-(x/8)**2),1.15);
   const slope=x=>(height(Math.min(8,x+.01))-height(Math.max(-8,x-.01)))/.02;
-  const finial=new T.SphereGeometry(1,12,8),peg=new T.CylinderGeometry(1,1,1,8);
+  const finial=new T.LatheGeometry([[0,0],[.095,0],[.105,.035],[.08,.08],[.125,.14],[.13,.22],[.09,.29],[.035,.34],[0,.39]].map(p=>new T.Vector2(...p)),24),peg=new T.CylinderGeometry(1,1,1,8);
   function curvedMember(z,width,offset,depth,material,bevel=.008){
     const shape=new T.Shape();
     for(let i=0;i<=80;i++){const x=-8+i*.2,y=height(x)+offset;i?shape.lineTo(x,y):shape.moveTo(x,y);}
@@ -17,8 +17,8 @@ export function buildArchedGardenBridge({emit,box,between,lantern,materials:M}){
 
   // Thin transverse decking bears on two exposed side girders and two inner
   // stringers. Open air remains below; there is no masonry band across it.
-  for(const z of[.14,3.06])curvedMember(z,.30,-.09,.38,M.bridgeTimber,.012);
-  for(const z of[1.02,2.18])curvedMember(z,.17,-.12,.26,M.bridgeTimber);
+  for(const z of[.14,3.06])curvedMember(z,.30,-.09,.38,M.bridgeGirder139,.012);
+  for(const z of[1.02,2.18])curvedMember(z,.17,-.12,.26,M.bridgeGirder139);
   const count=58,step=16/count;
   for(let i=0;i<count;i++){
     const x=-8+(i+.5)*step,angle=Math.atan(slope(x));
@@ -46,7 +46,7 @@ export function buildArchedGardenBridge({emit,box,between,lantern,materials:M}){
       box(x,y+.04,z,.285,.115,.285,M.bridgeTimber);
       box(x,y+1.14,z,.28,.09,.29,M.bridgeTimber);
       box(x,y+1.198,z,.20,.025,.22,M.bronze);
-      emit(finial,M.gold,x,y+1.30,z,.085,.115,.085);
+      emit(finial,M.gold,x,y+1.21,z,.74,.74,.74);
       // Flush straps and transverse pegs on the real side-girder faces.
       const face=z>1?3.225:-.025;
       box(x,y-.275,face,.115,.28,.018,M.bronze);
@@ -57,6 +57,10 @@ export function buildArchedGardenBridge({emit,box,between,lantern,materials:M}){
       }
     }
   }
+  // A transverse bent actually receives the two arched girders. Its foot
+  // stands on a stone plinth in the pond; the lamp remains between the legs.
+  const bentX=-.60,seat=height(bentX)-.47,base=.24;box(bentX,seat-.10,1.60,.50,.20,3.45,M.bridgeBent139);
+  for(const z of[.42,2.78]){box(bentX,(base+seat-.20)/2,z,.44,seat-.20-base,.42,M.bridgeBent139);box(bentX,.10,z,.72,.28,.70,M.cutStoneDark);box(bentX,seat-.30,z,.61,.18,.59,M.bridgeBent139);}
   // The small lamp is hung from a real transverse beam in the open under-gap.
   lantern(0,1.35,1.60,.40);
   between([0,1.78,1.60],[0,height(0)-.37,1.60],.014,.014,M.bronze,true);

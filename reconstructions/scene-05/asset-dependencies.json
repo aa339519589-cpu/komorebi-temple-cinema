@@ -10,7 +10,7 @@
   "sourceBuilder": "tools/build-temple-joinery-kit.py",
   "provenance": "lookdev/gilded-kiku-v01/README.md",
   "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
-  "revision": "scene05-solmax-bearing-ceramic-canopy06",
+  "revision": "scene05-solmax11-calibrated-uniform-tier-dolly",
   "bearingBlockCorrection": {
     "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
     "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5照片6 has flatter bearing planes and sharper tapered sides.",
@@ -78,12 +78,74 @@
     ],
     "fov": 35.5,
     "changedByThisLane": false,
-    "dolly": "Retained root-03 physical path and aim."
+    "dolly": "Retained root-03 physical path and aim.",
+    "historicalStatus": "R07 pose retained by the previous modeling phase. Superseded by wholeFrameCalibration10, with R07 source and actual motion retained unchanged."
   },
   "remainingVisualLimits06": [
     "Joinery/ornament remains more regular and less historically specific than the supplied photograph.",
     "The source corner framing and tier perspective remain a reconstruction hypothesis; this lane preserves the root camera/path.",
     "Native analytical environment and courtyard-bounce proxy are not a physical GI measurement; leaf scattering and material ageing remain approximate.",
     "Native full, detail and inspection renders are 3D evidence only and do not establish photographic acceptance."
-  ]
+  ],
+  "wholeFrameCalibration10": {
+    "source": [
+      "src/tier-layout.js",
+      "tools/solve-perspective.py",
+      "tools/solve-canonical-tiers.py"
+    ],
+    "comparisonInput": "references/hd/5-照片-6.jpg",
+    "measurements": "qa/ten-reference/05/perspective-fit-solmax-20261021",
+    "method": "Explicit manually observed hip/eave endpoints, corner/inner post heads, hip-tail cut faces and near/far lantern centres; bounded common-camera and coherent common-tier fits. Measurements include10–18px uncertainty and ambiguous cropped/ornamented features.",
+    "heightMetres": 0.8,
+    "pose": {
+      "position": [
+        14.82335137,
+        0.8,
+        14.62564576
+      ],
+      "target": [
+        -4.93362536,
+        15,
+        -0.40723472
+      ],
+      "verticalFov": 27.8228581
+    },
+    "unifiedTier": {
+      "canonicalWidth": 8.8,
+      "canonicalPitch": 5.7,
+      "uniformRatio": 0.83656108,
+      "roofWidthAddition": 4.38973926,
+      "roofHeight": 3.85697332,
+      "roofRise": 3.5,
+      "bearingVerticalScale": 1.65313409,
+      "bearingHorizontalScale": 1.12,
+      "baseY": 0.35,
+      "hipTailCutHeight": 1.92
+    },
+    "construction": "Each complete canonical roof/body/bearing/gallery/fixture assembly receives one positive uniform tier transform. Closed capped roof/deck openings and supported timber collars carry the next deck; the former complete pyramid no longer runs through its upper room. Closed transom boarding ties the bearing field to the real posts. All receivers, complementary laps, applied fitting normals and member UVs transform with their members.",
+    "refinement": "Both source tail-cut landmarks supported a longer common raked hip-tail member. Its end cut uses the actual spline tangent. Two forged fixture braces now mount to sampled physical points on that same timber.",
+    "dolly": "Continuous low Bezier endpoint and attitude refitted to the measured reference pose; start[10.2,.72,11.4], controls[11.2,.76,12.2] and[13.8,.80,13.8], calibrated reference endpoint. Initial aim is the actual near tier1 lantern; y.72..80m; shared camera-dolly code unchanged.",
+    "predictedLandmarkRMSPixels": {
+      "R07baseline": 141.33,
+      "cameraOnly": 55.43,
+      "coupledBeforeCommonTailLengthRefinement": 47.23
+    },
+    "limits": "These manually assigned feature correspondences and a lower RMS do not establish photographic fidelity or a recovered physical source camera. Native full/detail/oblique and0/3.5/7pose views are required for actual review.",
+    "visualAccepted": false,
+    "poseReviewRepair": "Actual R10 pose0 was dominated by the foreground lower soffit because the inherited post-head aim was occluded. The revised start/near-lantern aim is a common physical low trajectory, not a separate screen-space camera deformation. R10 full/three-pose/oblique evidence remains retained.",
+    "runtimeMetricsEvidence": "qa/ten-reference/05/iteration-scene05-coherent-tier-closure-r10-20261021/runtime-landmark-measurements.json",
+    "runtimeMeasuredRMSPixels": 44.9731094,
+    "mainLeftEaveChordSlope": {
+      "source": -0.71670429,
+      "R07": -0.57318732,
+      "refit": -0.6873758
+    }
+  },
+  "material10": {
+    "source": "src/scanned-timber.js and src/scene.js",
+    "pigment": "Brighter warm honeyed cedar/copper-red stained timber; retained CC0 scan luminance/normal/roughness and filtered longitudinal fibres. Positive uniform tier scales use correctly transformed normals and metric member-aligned UV.",
+    "light": "Retain the same shadow-casting key/analytical environment, increase the existing shadow-casting warm courtyard bounce to.80.",
+    "dataCorrection": "Preserve actual ceramic vertex pigments and intended per-member tint during geometry merge; they were previously stripped/ignored. Closed structures and real cast shadows remain the occlusion source.",
+    "visualAccepted": false
+  }
 }

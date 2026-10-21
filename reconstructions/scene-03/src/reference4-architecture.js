@@ -34,9 +34,9 @@ export function buildReference4Architecture(T,options={}) {
  const gableInfill=new T.MeshStandardMaterial({name:'scene03-recessed-ochre-gable-infill',color:'#93815f',roughness:.88});materials.push(gableInfill);mats.gableInfill=gableInfill;
  const foundationStone=mats.stone.clone();foundationStone.name='scene03-recessed-rubble-foundation';foundationStone.color.set('#60655b');foundationStone.roughness=.96;materials.push(foundationStone);mats.foundationStone=foundationStone;
  const stairGranite=new T.MeshStandardMaterial({name:'scene03-CC0-granite-entry-blocks',color:'#858c91',roughness:.90,vertexColors:true}),stairBed=new T.MeshStandardMaterial({name:'scene03-step-hidden-dark-stone-core',color:'#45494a',roughness:.96});materials.push(stairGranite,stairBed);mats.stairGranite=stairGranite;mats.stairBed=stairBed;
- const hallElevation=C.hallElevation??0,groundY=-hallElevation,physicalStairHeight=C.stairTopY+hallElevation;
+ const hallElevation=C.hallElevation??0,groundY=-hallElevation,stairBottomLocalY=(C.stairBottomWorldY??0)-hallElevation,physicalStairHeight=C.stairTopY-stairBottomLocalY;
  const stairSet=createGraniteEntrySteps(T,{count:20,width:C.stairWidth,height:physicalStairHeight,front:C.stairTopZ,back:C.stairBottomZ});
- for(const g of stairSet.slabs)g.translate(0,groundY,0);
+ for(const g of stairSet.slabs)g.translate(0,stairBottomLocalY,0);
  for(const part of solidJoinery.bracket)if(!part.cornerOnly){part.geometry.computeBoundingBox();bearingBounds.union(part.geometry.boundingBox);}
  let closedBearingInstances=0,curvedRafters=0;
  const arch={...legacyArch,brackets(x,y,z,s=1,options={}){
@@ -121,8 +121,16 @@ export function buildReference4Architecture(T,options={}) {
   const sideCap=(15.45-C.stairWidth)/2;
   for(const s of[-1,1])box(s*(C.stairWidth/2+sideCap/2),C.stairTopY-.065,-4.4,sideCap,.13,9.65,'granite');
   box(0,C.stairTopY-.065,(-9.225+C.stairTopZ)/2,C.stairWidth,.13,C.stairTopZ+9.225,'granite');
-  const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=physicalStairHeight*(n-i-1)/n+groundY,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;if(top>groundY)box(0,(top+groundY)/2,(z0+z1)/2,C.stairWidth,top-groundY,z1-z0,'stairBed');}
-  for(const stone of stairSet.slabs)emit(stone,'stairGranite');
+  grouped(0,0,0,C.stairYawRelative??0,()=>grouped(C.stairCenterX??0,0,0,0,()=>{
+   const n=20,run=C.stairBottomZ-C.stairTopZ;for(let i=0;i<n;i++){const top=physicalStairHeight*(n-i-1)/n+stairBottomLocalY,z0=C.stairTopZ+run*i/n,z1=C.stairTopZ+run*(i+1)/n;if(top>groundY)box(0,(top+groundY)/2,(z0+z1)/2,C.stairWidth,top-groundY,z1-z0,'stairBed');}
+   for(const stone of stairSet.slabs)emit(stone,'stairGranite');
+  }));
+  // A closed bearing wedge joins the turned upper tread to the original
+  // hall landing. Its cap and foundation overlap the retained podium.
+  if(C.stairYawRelative){
+   box((C.stairCenterX??0)*.5,(C.stairTopY-.15+groundY)/2,-.02,C.stairWidth+.95,C.stairTopY-.15-groundY,1.30,'foundationStone');
+   box((C.stairCenterX??0)*.5,C.stairTopY-.075,-.31,C.stairWidth+.95,.15,.70,'granite');
+  }
   // The porch rails stop at the stair landing; no unsupported red rail runs
   // down the exposed flight in the low pond-side view.
   for(const s of[-1,1])for(const y of[C.stairTopY+.38,C.stairTopY+.81])box(s*5.35,y,.23,4.8,.12,.14,'red');

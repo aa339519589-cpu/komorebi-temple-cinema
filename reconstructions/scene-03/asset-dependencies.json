@@ -1,6 +1,6 @@
 {
   "scene": "03",
-  "revision": "scene03-carpentry104-grounded-garden104",
+  "revision": "scene03-carpentry104-living-garden105",
   "referencePhotographs": {
     "usedByRuntime": false,
     "comparisonInput": "references/hd/2-照片-3.jpg",
@@ -40,7 +40,10 @@
     "Closed recessed upper gallery with seven principal three-step bearing stations, six intermediate stations, two flying rafter courses and connected curved girts",
     "Six lower hall capitals reconstructed as three-step closed timber rather than vertically stretching a two-step prototype",
     "Closed curved plank bridge girders and arch ribs, individual deck boards, supported stone landing caps and connected interlocking granite abutments",
-    "Closed soil bank bodies with perimeter and bottom faces, physically overlapping fractured stone and stemmed planting around the recessed hall masonry"
+    "Closed soil bank bodies with perimeter and bottom faces, physically overlapping fractured stone and stemmed planting around the recessed hall masonry",
+    "Rebuilt closed cupped lotus leaves with 19 coherent radial folds, irregular rolled margins and rooted pond-bed stems",
+    "Pointed, twisted lotus petal ranks with reflexed outer tips and thin closed edges",
+    "Carved tapered granite toro shafts with recessed cartouches, open chambers, chamfered footstones and closed heavy hipped caps"
   ],
   "proceduralBotanicalMaps": "Locally generated petal/leaf pigments and fine venation; no photograph inputs",
   "visualAccepted": false,
@@ -61,7 +64,29 @@
   "files": [
     "reconstructions/camera-dolly.js",
     "reconstructions/scene-03/tools/build-ranma-relief.py",
-    "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend"
+    "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/shrub-02/provider-files.json",
+    "assets/polyhaven/shrub-02/provider-info.json",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
   ],
   "carvedRanma": {
     "scope": "Central portal crossbeams only: hall-local y=8.70 and 9.30m; x=-2.01,-0.67,0.67,2.01m; front datum z=0.330m.",
@@ -105,18 +130,21 @@
     "roundTwoCorrection": "Observed the unchanged fore-hanging lantern covering half the face in mesh71a. Move only the icon and its supported lotus plinth0.53m left within the inner shrine (x+.35→-.18); retain exterior lights. Offering table becomes0.67m tall on matching shortened legs, x0, to expose more of the knees. Inner wood now uses explicit roughness0.55–0.83 without multiplying the dark scanned roughness channel; normal detail retained."
   },
   "entryStairStone": {
-    "scope": "Twenty levels remain at the same5.5m width and7.8m run. The raised physical podium increases world rise from4.0m to5.25m, with a0.2625m rise at each level. Stair stones, support core, landing and shaft footings stay connected to ground.",
-    "geometry": "105closed authored stone pieces at twenty proportional levels, using retained millimetre joints, sparse chips/pits and wear basins. Scene-local landing remains at4.0m, plus hall group elevation1.25m; staircase lower slabs are translated down1.25m inside that group so their world bottom remains grounded.",
+    "scope": "Twenty closed granite tread levels now connect the retained5.25m hall landing to a raised2.15m rock terrace. The actual flight is4.0m wide, shifted0.55m to hall-local left and turned0.20rad relative to the hall. A continuous closed stone/soil apron and a supported1.04m-wide stone path link its foot to the retained bridge landing.",
+    "geometry": "105 closed authored granite tread/cap pieces at20 proportional levels across a3.10m rise. Actual world bottom2.15m, top5.25m, local bottom0.90m, flight width4.0m and run7.8m; physical millimetre joints/chips/arris normals retained. The rotated/offset flight has closed stone cores to ground, an overlapping supported upper landing wedge, closed rock/soil side shoulders and a supported bridge approach.",
     "runtimePBR": "assets/granite-tile-04/granite-face-{diff,nor_gl,rough}.png; metric repeat0.3173828125m; each stone uses a deterministic UV offset/quarter turn. Independent neutral-gray pigment, preserving actual mineral variation and normal/roughness.",
     "visualAccepted": false,
     "roundTwoCorrection": "Pillow-shaped shading corrected through actual hard wall/end/bottom normals after indexed closed-topology validation. Only the physical millimetre arris/top field remains smooth. Material/roughness/exposure unchanged from72a. Partition only the old cap to preserve rear/side placement and material, replacing its central front pale strip with five closed same-granite caps at the original bounds.",
     "currentPhysicalDimensions": {
       "worldTopY": 5.25,
-      "worldBottomY": 0,
-      "rise": 0.2625,
+      "worldBottomY": 2.15,
+      "height": 3.1,
+      "rise": 0.155,
       "run": 0.39,
       "count": 20,
-      "width": 5.5
+      "width": 4.0,
+      "centerX": -0.55,
+      "relativeYaw": 0.2
     }
   },
   "copiedSurfaceAssets": [
@@ -189,5 +217,58 @@
     "Garden species, weathering, pond reflections and foreground optical response remain interpretations. Native ambient lighting is not a physical multi-bounce path trace.",
     "The reused seated icon is still an interpretation of an obscured sanctuary; it should not be cited as exact historic iconography.",
     "No finished film or photographic acceptance is claimed by native loading, linked shaders or nonempty pixels."
-  ]
+  ],
+  "livingGarden105": {
+    "sourceModules": [
+      "src/scene03-garden-assets.js",
+      "src/scene03-living-banks.js",
+      "src/scene03-carved-toro.js"
+    ],
+    "geometry": "Original full-topology CC0 glTF shrub, periwinkle and moss rock variants placed on closed sloped soil or overlapping bearing stones. Provider display translations removed; provider rotations retained. No decimation. Understory only; not lotus/cherry/pine substitutes.",
+    "speciesLimit": "Understory scans are botanical stand-ins, not an assertion of the exact photographed garden species.",
+    "rooting": "All rebuilt slope shrubs and azalea branch roots use the same analytic surface as each real closed bank. Near iris and toro pockets have closed soil down to -0.55 m and interlocking stone. Lotus stems continue to the actual pond bed at -0.33 m.",
+    "visualAccepted": false,
+    "stairFootprintCorrection": "Direct source-left/native-right review showed the old full5.25m descent exposing a broad masonry wedge below the bridge. The physically shorter3.10m rise and separate0.20rad stair turn end on a raised stone terrace; all tread cores, upper landing wedge, planted slopes and bridge approach remain closed and grounded. The main hall, roofs, bridge span and bridge anchor positions are retained.",
+    "limits": "R105 r01 rejected for excess near-leaf occlusion, sparse dry understory and exposed inherited stair mass. R02 physically revises those shapes. Botanical species and exact historic geometry remain interpretations; native/physical loading does not establish photo fidelity.",
+    "outerShoulderCorrection": "R03 pose3.5 revealed square sidebank cutoff faces outside the first narrow apron. R04 widens the real closed apron to match the7.4m outer shoulders at the stair foot, then tapers to4.1m at the pond toe; new rooted azalea/groundcover and real boulders follow this surface."
+  },
+  "licensedGardenAssets105": [
+    {
+      "source": "https://polyhaven.com/a/shrub_02",
+      "author": "Rico Cilliers",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/shrub-02/provenance.json",
+      "role": "actual rooted understory shrub mesh"
+    },
+    {
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+      "role": "actual groundcover in stone and soil joints"
+    },
+    {
+      "source": "https://polyhaven.com/a/rock_moss_set_01",
+      "author": "Kless Gyzen",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/rock-moss-set-01/provenance.json",
+      "role": "actual bearing garden rock geometry"
+    }
+  ],
+  "lotus105": {
+    "geometry": "Closed19-fold peltate leaves with coherent veins, irregular cupped margins, pale underside and 1.6–2.8mm thickness; closed pointed/twisted lotus petals in three unequal ranks with reflexed outer tips.",
+    "foregroundAnchorCorrection": "Actual near leaf diameters reduced from2.10m to1.50m/0.70m, farther from the lens; source-led manual contour comparison determines the authored physical anchors. Main near bloom moved to0.50m base height and0.39 overall scale. Smaller bank leaves stand0.08–0.31m above the pond.",
+    "rooting": "All stems continue to -0.33m into the pond bed at -0.30m. The same continuous stem is split only by material at the actual -0.055m water level; submerged tissue uses a darker green pigment.",
+    "underwaterLimit": "Darker submerged tissue and mineral bed are a bounded appearance approximation. No volumetric absorption/scattering or solved caustics are claimed in native WebGL; Fresnel reflection remains real view-dependent scene reflection.",
+    "sourcePhotoUsedAsTexture": false,
+    "photographicAccepted": false
+  },
+  "toro105": {
+    "source": "src/scene03-carved-toro.js",
+    "geometry": "Closed chamfered footstones, tapered square shaft, shallow 4.2mm carved/eroded channels on closed inset panels, framed open light chamber, timber mullions, closed thick hipped granite cap, closed lathed bud finial and rooted micro moss sprays.",
+    "inscriptionPolicy": "R04 native close view rejected the repeated raised cross-like placeholder marks. R05 removes them and uses fragmentary actual shallow wear channels; no historic inscription transcription is claimed.",
+    "surface": "Retained independent Poly Haven granite_tile_04 diffuse/normal/roughness, local metric UVs, neutral cool mineral pigment, high roughness and subdued normal strength. Uniform material gains export as standard PBR; no photographed scene RGB or custom image projection.",
+    "placement": "Near toro base0.85m, scale1.83; stair-side base2.25m, scale0.82 on a connected boulder pocket.",
+    "visualAccepted": false
+  }
 }

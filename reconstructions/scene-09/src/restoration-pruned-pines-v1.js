@@ -2,13 +2,14 @@ import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {foliageNormalMaterial} from './botany.js';
 
-// Complete isolated form candidate for two EXISTING garden pines. No new tree,
-// ground, camera, texture, light or source-material replacement is introduced.
-// The other old pine (-7,-4) remains outside this candidate: its original root
-// ring lies inside the main-hall stone foundation and is not silently moved.
+// Scene09 retains the two borrowed pruned-pine forms and explicitly adds
+// two smaller night-garden forms for the new supported pagoda island139.
+// Scene09 callers place new roots on the same analytic soil height field.
 export const RESTORATION_PRUNED_PINE_SCOPE=Object.freeze([
   Object.freeze({id:'east-island-existing-pine',oldCall:Object.freeze([12,3,5.2,'pine','leafDark',-.4]),islandIndex:1,worldRoot:Object.freeze([2.059273238,-.12,1.284909604])}),
-  Object.freeze({id:'west-island-existing-pine',oldCall:Object.freeze([-18,5,6.5,'pine','leafDark',1.2]),islandIndex:2,worldRoot:Object.freeze([-15.940726762,-.12,2.484909604])})
+  Object.freeze({id:'west-island-existing-pine',oldCall:Object.freeze([-18,5,6.5,'pine','leafDark',1.2]),islandIndex:2,worldRoot:Object.freeze([-15.940726762,-.12,2.484909604])}),
+  Object.freeze({id:'scene09-pagoda-bank-pine139a',oldCall:Object.freeze([0,0,3.2,'pine','leafDark',.20]),islandIndex:3,newReconstruction139:true,rootPolicy:'Scene09 caller uses pagodaBank139.height(-15,-10)'}),
+  Object.freeze({id:'scene09-pagoda-bank-pine139b',oldCall:Object.freeze([0,0,3.3,'pine','leafDark',-.30]),islandIndex:4,newReconstruction139:true,rootPolicy:'Scene09 caller uses pagodaBank139.height(-7,-8.2)'})
 ]);
 const TAU=Math.PI*2,vec=p=>new T.Vector3(...p),rng=s=>()=>((s=(Math.imul(s,1664525)+1013904223)>>>0)/4294967296);
 
@@ -43,7 +44,7 @@ function closedSweep(points,radius,segments,radial=8,tipRatio=.22){
 }
 
 export function buildRestorationPrunedPine({materials,needleGeometry,options={}}={}){
-  const plan=RESTORATION_PRUNED_PINE_SCOPE.find(p=>p.id===options.id);if(!plan)throw Error('Select one of the two explicitly retained garden pines.');
+  const plan=RESTORATION_PRUNED_PINE_SCOPE.find(p=>p.id===options.id);if(!plan)throw Error('Select an explicitly declared Scene09 pruned-pine form.');
   if(!materials?.bark?.isMaterial||!materials?.needleGreen?.isMaterial||!needleGeometry?.isBufferGeometry)throw Error('Actual borrowed bark, needle material and needle card are required.');
   const h=plan.oldCall[2],lean=plan.oldCall[5],random=rng(options.seed??(plan.islandIndex===1?620178:620279)),rr=(a,b)=>a+(b-a)*random();
   const group=new T.Group();group.name=plan.id+'-pruned-form-candidate';const owned=new Set(),pieces=[],attachments=[],pads=[],cardMatrices=[],cardShades=[],dummy=new T.Object3D();let normalMaterial=null,foliage=null,normal=null,disposed=false;

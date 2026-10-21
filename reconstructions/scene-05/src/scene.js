@@ -9,7 +9,8 @@ import {createSculptedJoinery} from './sculpted-joinery.js';
 import {createRafterEndCopper} from './rafter-end-copper.js';
 import {createClayTile05} from './handlaid-ceramics.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
-export const POSE={position:[10.8,0.8,13.7],target:[-1.7,15,0],fov:35.5};
+import {POSE,TIER_SPEC,tierPlacement,tierWorldPoint} from './tier-layout.js';
+export {POSE};
 export async function buildScene(){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
@@ -47,7 +48,7 @@ export async function buildScene(){
    }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
  }
  mats.handformedClay=new T.MeshPhysicalMaterial({name:'scene05-handformed-grey-fired-clay',color:'#47545e',roughness:.59,metalness:.015,clearcoat:.12,clearcoatRoughness:.46,vertexColors:true});
- const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit,handlaidCeramics:true});
+ const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit,handlaidCeramics:true,tierCollarMaterial:'red'});
  mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#293b48');mats.architecture_slate.roughness=.48;mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#526053');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
  for(const [name,m]of Object.entries(mats)){
@@ -76,19 +77,22 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  mats.carvingGround=new T.MeshStandardMaterial({name:'scene05-dark-carved-ground',color:'#2b2116',roughness:.9});
  const leafShape=new T.Shape();leafShape.moveTo(-.5,0);leafShape.bezierCurveTo(-.15,.23,.29,.28,.5,0);leafShape.bezierCurveTo(.15,-.19,-.2,-.13,-.5,0);
  const carvedLeaf=new T.ExtrudeGeometry(leafShape,{depth:.025,steps:1,bevelEnabled:true,bevelThickness:.012,bevelSize:.012,bevelSegments:1,curveSegments:5});
- const levels=[];
+ const levels=[],landmarkWorlds={};
  for(let level=0;level<5;level++){
-   const scale=1-level*.075,w=8.8*scale,y=.35+level*4.75;
-   box(0,y+.15,0,w+.5,.30,w+.5,'darkwood');
-   const frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth:w+3.5*scale,roofDepth:w+3.5*scale,roofRise:2.35*scale,roofY:y+3.55,windowMaterial:'paper',detail:true});
-   arch.pagodaRoof({y:y+3.55,w:w+3.5*scale,d:w+3.5*scale,rise:2.35*scale,wallWidth:w,wallDepth:w,frameScale:scale,detail:true,soffitMaterial:'darkwood'});
-   levels.push({level,y,width:w,shaftTop:frame.shaftTop});
-   balcony(w,y+(level===0?.58:0),scale);
+   const placement=tierPlacement(level);stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(0,placement.baseY,0)).multiply(new T.Matrix4().makeScale(placement.scale,placement.scale,placement.scale)));
+   const scale=1,w=TIER_SPEC.width,y=0,deckWidth=level?TIER_SPEC.width/TIER_SPEC.ratio:w+.5,roofWidth=w+TIER_SPEC.roofAddition;
+   box(0,.15,0,deckWidth,.30,deckWidth,'darkwood');
+   const frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth,roofDepth:roofWidth,roofRise:TIER_SPEC.roofRise,roofY:TIER_SPEC.roofHeight,bracketVerticalScale:TIER_SPEC.bearingVerticalScale,bracketHorizontalScale:TIER_SPEC.bearingHorizontalScale,windowMaterial:'paper',detail:true});
+   const upperFloor=level<4?{width:w,depth:w,bottomY:TIER_SPEC.pitch,topY:TIER_SPEC.pitch+.30*TIER_SPEC.ratio}:null;
+   arch.pagodaRoof({y:TIER_SPEC.roofHeight,w:roofWidth,d:roofWidth,rise:TIER_SPEC.roofRise,wallWidth:w,wallDepth:w,frameScale:1,detail:true,soffitMaterial:'darkwood',referenceMode:'scene05-calibrated',upperFloor});
+   levels.push({level,y:placement.baseY,scale:placement.scale,width:w*placement.scale,shaftTop:placement.baseY+frame.shaftTop*placement.scale,roofY:placement.baseY+TIER_SPEC.roofHeight*placement.scale,roofWidth:roofWidth*placement.scale,upperFloor:upperFloor?{width:w*placement.scale,bottomY:placement.baseY+TIER_SPEC.pitch*placement.scale}:null});
+   const R=roofWidth/2;landmarkWorlds[level]={hipNear:tierWorldPoint(level,[R+.094,TIER_SPEC.roofHeight+.799,R+.094]),hipLeft:tierWorldPoint(level,[-R-.094,TIER_SPEC.roofHeight+.799,R+.094]),postHead:tierWorldPoint(level,[w/2,frame.shaftTop,w/2]),lanternNear:tierWorldPoint(level,[R*1.025,2.60,R*1.025]),lanternLeft:tierWorldPoint(level,[-R*1.025,2.60,R*1.025]),tailCut:tierWorldPoint(level,[w/2+TIER_SPEC.roofAddition/2*(1.72/1.75),TIER_SPEC.tailCutHeight,w/2+TIER_SPEC.roofAddition/2*(1.72/1.75)])};
+   balcony(w,y+(level===0?.58:0),scale,deckWidth);
    cornerTails(w,y,scale);
-   pentRoof(w,y+.32,scale);carvedWindowInserts(w,y,scale);
+   pentRoof(w,y+.32,scale,deckWidth);carvedWindowInserts(w,y,scale);
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
-   const r=(w+3.5*scale)/2;
-   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+2.60,sz*r*1.025,.62*scale,[sx*(w/2+1.23*scale),y+3.60,sz*(w/2+1.23*scale)]);
+   const r=roofWidth/2;
+   for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+2.60,sz*r*1.025,.62*scale,[tailPath(w,y,scale,sx,sz).getPoint(.20).toArray(),tailPath(w,y,scale,sx,sz).getPoint(.28).toArray()]);
    // Flanking upper ties and chased metal straps on the visible actual member ends.
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      for(let k=-1;k<=1;k++){
@@ -102,6 +106,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
        }
      }
    });
+   stack.pop();
  }
  function carvedWindowInserts(w,y,s){
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>group(0,y+1.57,w/2+.09,0,()=>{
@@ -117,17 +122,18 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      }
    }));
  }
+ function tailPath(w,y,s,sx,sz){
+   const start=new T.Vector3(sx*(w/2+TIER_SPEC.roofAddition/2*(1.10/1.75)*s),y+TIER_SPEC.roofHeight+.40,sz*(w/2+TIER_SPEC.roofAddition/2*(1.10/1.75)*s));
+   const end=new T.Vector3(sx*(w/2+TIER_SPEC.roofAddition/2*(1.72/1.75)*s),y+TIER_SPEC.tailCutHeight,sz*(w/2+TIER_SPEC.roofAddition/2*(1.72/1.75)*s));
+   const mid=start.clone().lerp(end,.55).add(new T.Vector3(sx*.015,.025,sz*.015));return new T.CatmullRomCurve3([start,mid,end]);
+ }
  function cornerTails(w,y,s){
    for(const sx of [-1,1])for(const sz of [-1,1]){
-     const start=new T.Vector3(sx*(w/2+1.10*s),y+3.95,sz*(w/2+1.10*s));
-     const end=new T.Vector3(sx*(w/2+1.72*s),y+2.25,sz*(w/2+1.72*s));
-     const mid=start.clone().lerp(end,.55).add(new T.Vector3(sx*.015,.025,sz*.015));
-     const path=new T.CatmullRomCurve3([start,mid,end]),up=new T.Vector3(0,1,0),points=[];
-     for(let j=0;j<=16;j++)points.push(path.getPoint(j/16).toArray());
+     const path=tailPath(w,y,s,sx,sz),end=path.getPoint(1);
      // Rectangular curved timber with real depth, connected to the crossing capital.
      const rim=new T.Shape();rim.moveTo(-.125*s,-.17*s);rim.lineTo(.125*s,-.17*s);rim.lineTo(.125*s,.17*s);rim.lineTo(-.125*s,.17*s);rim.closePath();
      const geometry=new T.ExtrudeGeometry(rim,{steps:20,bevelEnabled:false,extrudePath:path});instance(geometry,'red');
-     const normal=end.clone().sub(mid).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
+     const normal=path.getTangent(1).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
      const goldEnd=end.clone().addScaledVector(normal,.008);
      // The sleeve and its flower follow the real downward cut-plane normal.
      // The old yaw-only plaque left that true underside as a blank gold box.
@@ -136,8 +142,8 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      for(let j=0;j<4;j++){const p=path.getPoint(.30+j*.14);group(p.x,p.y,p.z,Math.atan2(sx,sz),()=>{instance(carvedLeaf,'oldgold',.165*s,0,0,.18*s,.14*s,.16,[0,Math.PI/2,j%2?.6:-.6]);});}
    }
  }
- function pentRoof(w,y,s){
-   const inner=w/2+.035,outer=w/2+.75*s;
+ function pentRoof(w,y,s,deckWidth=w+1.5*s){
+   const inner=w/2+.035,outer=Math.max(w/2+.25,deckWidth/2+.04);
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      const p=[],ids=[],rows=5,cols=Math.round((2*outer)/.26),profile=t=>.36*s*Math.pow(Math.max(0,1-t),1.3)+.16*s*Math.pow(t,5);
      for(let j=0;j<=rows;j++)for(let k=0;k<=cols;k++){const t=j/rows,z=inner+(outer-inner)*t,x=(-1+2*k/cols)*(inner+(outer-inner)*t);p.push(x,y+profile(t),z);if(j<rows&&k<cols){const a=j*(cols+1)+k;ids.push(a,a+cols+1,a+1,a+1,a+cols+1,a+cols+2);}}
@@ -151,12 +157,12 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
       arch.tileEnd(new T.Vector3(x,y+.16*s+.028,outer+.045),0,.102,true);
      }
      if(pieces.length){instance(mergeGeometries(pieces,false),'handformedClay');pieces.forEach(g=>g.dispose());}
-     box(0,y+.08*s,outer,w+1.50*s,.13*s,.15*s,'red');
+     box(0,y+.08*s,outer,outer*2,.13*s,.15*s,'red');
      for(let j=1;j<cols;j++){const x=-inner+2*inner*j/cols;box(x,y+.10*s,(inner+outer)/2,.075*s,.105*s,outer-inner,'cedar');}
    });
  }
- function balcony(w,y,s){
-   const d=w+.72,base=y+.29,top=base+.82;
+ function balcony(w,y,s,deckWidth=w+.72){
+   const d=deckWidth+.10,base=y+.29,top=base+.82;
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      box(0,base,d/2,d+.10,.15,.22,'red');box(0,base+.43,d/2,d+.10,.10,.14,'red');box(0,top,d/2,d+.18,.135,.19,'red');
      for(let i=0;i<=6;i++){
@@ -166,7 +172,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      }
    });
  }
- function lantern(x,y,z,s,beamAnchor){
+ function lantern(x,y,z,s,beamAnchors){
    group(x,y,z,0,()=>{
      const bronze='lanternBronze',gold='oldgold';
      function loft(profile,ma,segments=6){const g=new T.LatheGeometry(profile.map(p=>new T.Vector2(p[0]*s,p[1]*s)),segments,-Math.PI/6);instance(g.toNonIndexed(),ma);}
@@ -237,9 +243,9 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      loft([[0,1.18],[.12,1.18],[.105,1.23],[.065,1.27],[.045,1.33],[0,1.33]],gold,12);
      // Alternating oval links carry the cap to its retained real beam anchor.
      for(let j=0;j<5;j++)instance(new T.TorusGeometry(.029*s,.0075*s,6,18),j%2?gold:bronze,0,(1.34+j*.058)*s,0,.82,1.30,.82,[0,j%2?Math.PI/2:0,0]);
-     const mount=beamAnchor.map((v,i)=>(v-[x,y,z][i])/s);
+     const mount=beamAnchors[0].map((v,i)=>(v-[x,y,z][i])/s),mountB=beamAnchors[1].map((v,i)=>(v-[x,y,z][i])/s);
      wire([mount,[mount[0]*.50,Math.max(mount[1],1.65)+.11,mount[2]*.50],[0,1.65,0]],.024,bronze);
-     wire([[mount[0],mount[1]-.18,mount[2]],[mount[0]*.44,1.58,mount[2]*.44],[0,1.65,0]],.016,bronze);
+     wire([mountB,[mount[0]*.44,1.58,mount[2]*.44],[0,1.65,0]],.016,bronze);
      box(mount[0]*s,mount[1]*s,mount[2]*s,.12*s,.14*s,.12*s,bronze);
      box(0,1.638*s,0,.085*s,.030*s,.085*s,bronze);
      // A linked hanging pendant and fluted finial close the lower cup.
@@ -256,7 +262,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000025;sun.shadow.normalBias=.006;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
  // Bounded first-bounce courtyard proxy. Its own actual shadows preserve
  // the separate eave layers; it is not a screen exposure or flat ambient lift.
- const groundBounce=new T.DirectionalLight('#ffc77c',.60);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
+ const groundBounce=new T.DirectionalLight('#ffc77c',.80);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
  groundBounce.shadow.mapSize.set(2048,2048);Object.assign(groundBounce.shadow.camera,{left:-18,right:18,top:25,bottom:-12,near:1,far:85});groundBounce.shadow.bias=-.000025;groundBounce.shadow.normalBias=.004;groundBounce.shadow.autoUpdate=false;groundBounce.shadow.needsUpdate=true;scene.add(groundBounce,groundBounce.target);
  // Procedural environment radiance provides directional metal reflections.
  const faces=[],sunDirection=new T.Vector3(-18,11,30).normalize();
@@ -281,12 +287,13 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      const g=geo.index?geo.toNonIndexed():geo.clone();
      if(material.userData.metricTimberGrain)assignMetricTimberUV(g,matrix);
      g.applyMatrix4(matrix);
-     for(const attr of Object.keys(g.attributes))if(!['position','normal','uv'].includes(attr))g.deleteAttribute(attr);
+     for(const attr of Object.keys(g.attributes))if(!['position','normal','uv','color'].includes(attr))g.deleteAttribute(attr);
      const n=g.attributes.position.count;if(!g.attributes.uv)g.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(n*2),2));
+     const existing=g.attributes.color,c=new Float32Array(n*3);if(existing){for(let i=0;i<n;i++){c[i*3]=existing.getX(i)*tint;c[i*3+1]=existing.getY(i)*tint;c[i*3+2]=existing.getZ(i)*tint;}}else c.fill(tint);g.setAttribute('color',new T.Float32BufferAttribute(c,3));material.vertexColors=true;material.needsUpdate=true;
      return g;
    });
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-paired-bearing-handlaid-ceramic-rooted-canopy-solmax06',levels,triangles,parts,geometry:'Three expanding bearing courses with paired complementary laps and four direct receiver seats per level; true cut-face cast copper; closed pan/cover roof courses; raked supported hip tails, forged lantern mounts and rooted closed maple laminae',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:.60,courtyardBounceCastsShadows:true,hemisphere:.50,environmentIntensity:scene.environmentIntensity,limits:'Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,1.02]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-calibrated-uniform-tiers-solmax11',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,geometry:'Three expanding bearing courses with paired complementary laps and four direct receiver seats per level; true cut-face cast copper; closed pan/cover roof courses; raked supported hip tails, forged lantern mounts and rooted closed maple laminae',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:.80,courtyardBounceCastsShadows:true,hemisphere:.50,environmentIntensity:scene.environmentIntensity,limits:'Analytical sky/environment and shadow-casting inferred courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();env.dispose();skyMaterial.dispose();}};
 }

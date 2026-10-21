@@ -1297,7 +1297,7 @@ export function createRestorationArchitecture(ctx) {
   // original-photo section dimensions are measured.
   function brackets(x,y,z,s=1,options={}) {
     if(ctx.joineryKit&&options.interlocked&&!options.throughBeam){
-      stats.bracketSets++;const hs=s*(options.corner?1.02:(options.horizontalScale??1));
+      stats.bracketSets++;const hs=options.horizontalBearingScale??s*(options.corner?1.02:(options.horizontalScale??1));
       group(x,y,z,0,()=>{
         if(options.corner&&ctx.joineryKit.cornerFan){
           for(const part of ctx.joineryKit.cornerFan)
@@ -2486,11 +2486,11 @@ export function createRestorationArchitecture(ctx) {
 
   function pagodaStoreyFrame({w,d=w,y=0,level=0,scale=1-level*.115,
     roofWidth=w+3.3*scale,roofDepth=d+3.3*scale,roofRise=2.18*scale,
-    roofY=y+3.55,windowMaterial='darkwood',detail=level<2}={}) {
+    roofY=y+3.55,bracketVerticalScale=1.12,bracketHorizontalScale=1.12,windowMaterial='darkwood',detail=level<2}={}) {
     // Ref05: the stepped capital is a broad load-bearing mass. Keep the
     // receiving purlin datum fixed while allowing the capital to deepen
     // downwards, rather than leaving a thin decorative strip on a tall post.
-    const shaftRadius=.235*scale,bracketScale=1.12*scale;
+    const shaftRadius=.235*scale,bracketScale=bracketVerticalScale*scale;
     // The purlin bears against the underside of the main rafters, not through
     // the ceramic shell. Respect the existing hipRoof equation and soffit.
     // This frame is coupled only to the square pyramid pagodaRoof hook,
@@ -2505,7 +2505,7 @@ export function createRestorationArchitecture(ctx) {
     const posts=[],windows=[];
     const post=(x,z,corner)=>{
       footColumn(x,z,y+.2,shaftHeight,shaftRadius*(corner?1:.96));
-      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalScale:1.04,corner,cornerYaw:Math.atan2(x,z)});
+      brackets(x,bracketY,z,bracketScale,{detail:detail&&corner,interlocked:true,horizontalBearingScale:bracketHorizontalScale*scale*(corner?1.02:1.04),corner,cornerYaw:Math.atan2(x,z)});
       posts.push({x,z,corner,shaftBottom,shaftTop,radius:shaftRadius*(corner?1:.96)});
     };
     // Twelve distinct posts: four true corner pillars and two between each
@@ -2531,6 +2531,10 @@ export function createRestorationArchitecture(ctx) {
         const purlin=purlinGeometries.get(purlinKey);
         draw(purlin,'red',[0,purlinTop-purlinHeight/2,0],[1,1,1]);
         box(0,y+2.57,0,span+.18*scale,.21*scale,.25*scale,'red');
+        // Closed recessed transom boarding ties the real posts behind the
+        // stepped bearing courses. The room is not an open black slot.
+        const transomBottom=Math.min(y+2.41,shaftTop-.14*scale)+.055*scale,transomTop=purlinTop-.07*scale,transomHeight=transomTop-transomBottom;
+        if(transomHeight>0)for(let course=0;course<3;course++)box(0,transomBottom+(course+.5)*transomHeight/3,-.16*scale,span-.20*scale,transomHeight/3+.002*scale,.14*scale,course%2?'cedar':'red');
         box(0,y+.49,0,span+.12*scale,.14*scale,.24*scale,'darkwood');
         const bay=span/3,clear=bay-shaftRadius*2-.10*scale;
         const windowBottom=y+.71,windowTop=Math.min(y+2.41,shaftTop-.14*scale);
@@ -2600,7 +2604,7 @@ export function createRestorationArchitecture(ctx) {
     const collarThickness=.10*frameScale,
       purlinTop=y+pagodaRafterBearing(evalP,w,wallDepth,frameScale);
     if(upperFloor) {
-      const good=referenceMode==='reference10'&&!apexOpening
+      const good=['reference10','scene05-calibrated'].includes(referenceMode)&&!apexOpening
         &&['width','depth','bottomY','topY'].every(k=>Number.isFinite(upperFloor[k]))
         &&upperFloor.width>0&&upperFloor.depth>0&&frameScale>0
         &&upperFloor.bottomY>purlinTop+.15*frameScale
@@ -2697,14 +2701,14 @@ export function createRestorationArchitecture(ctx) {
           geometry.setAttribute('position',new T.Float32BufferAttribute(pos,3));
           geometry.setIndex(ids);geometry.computeVertexNormals();
           geometry.userData.architectureSurface='pagoda-'+material+'-backing';
-          draw(roofOpening?clipRestorationRoofOpening(geometry,roofOpening):geometry,material,[0,0,0],[1,1,1]);
+          for(const piece of roofTimberOutsideOpening(geometry,roofOpening))draw(piece,material,[0,0,0],[1,1,1]);
         }
       }
       const tiles=new T.BufferGeometry();
       tiles.setAttribute('position',new T.Float32BufferAttribute(positions,3));
       tiles.setIndex(indices);tiles.computeVertexNormals();
       tiles.userData.architectureSurface='pagoda-tiles';
-      if(ctx.handlaidCeramics&&!roofOpening){draw(createHandlaidRoof05(evalP,w,d),'handformedClay',[0,0,0],[1,1,1]);tiles.dispose();}else draw(roofOpening?clipRestorationRoofOpening(tiles,roofOpening):tiles,'slate',[0,0,0],[1,1,1]);
+      if(ctx.handlaidCeramics){draw(createHandlaidRoof05(evalP,w,d,roofOpening),'handformedClay',[0,0,0],[1,1,1]);tiles.dispose();}else draw(roofOpening?clipRestorationRoofOpening(tiles,roofOpening):tiles,'slate',[0,0,0],[1,1,1]);
       eaves({w,d,evalP,roofOrigin:[x,y,z],detail,separateTiers:true,hipSeat:{width:wallWidth,depth:wallDepth,
         purlinWidth:.29*frameScale,top:pagodaRafterBearing(evalP,w,wallDepth,frameScale)},opening:tierOpening});
       for(const face of [0,1])for(const side of [-1,1]) {
@@ -2738,7 +2742,7 @@ export function createRestorationArchitecture(ctx) {
         const member=(width,depth,xx,zz,label)=>{
           const geometry=joineryBox(width,depth,bottom,top);
           geometry.userData.architectureJoint='pagoda-tier-collar-'+label;
-          draw(geometry,soffitMaterial,[xx,0,zz],[1,1,1]);
+          draw(geometry,ctx.tierCollarMaterial||soffitMaterial,[xx,0,zz],[1,1,1]);
           collarParts.push({geometry,label,center:[x+xx,y,z+zz],
             bounds:{minX:x+xx-width/2,maxX:x+xx+width/2,
               minZ:z+zz-depth/2,maxZ:z+zz+depth/2,bottomY:purlinTop,topY:upperFloor.bottomY}});
