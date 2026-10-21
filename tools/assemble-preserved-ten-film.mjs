@@ -34,7 +34,7 @@ try{
   for(const file of unique){const bytes=gitBytes(file,revision);if(sha(bytes)!==receipt.source.files[file])throw Error('Scene '+id+' source differs from public snapshot: '+file);h.update(file+'\0');h.update(bytes);h.update('\0');}
   if(h.digest('hex')!==receipt.source.hash)throw Error('Source identity mismatch '+id);
   const file=receipt.motion.file,bytes=await readFile(file);
-  report.shots.push({reference,file,receipt:receiptFile,sourceCommit:revision,source:receipt.source,frames:168,duration:7,actualWebgl:true,reusedIdenticalSourceShot:true,videoSha256:sha(bytes),visualAccepted:false});await save();
+  report.shots.push({reference,file,receipt:receiptFile,sourceCommit:revision,source:receipt.source,frames:168,duration:7,actualWebgl:true,renderSampling:receipt.renderSampling||{nativeWidth:receipt.size,nativeHeight:receipt.size,scale:1},renderDriver:receipt.renderDriver||null,reusedIdenticalSourceShot:true,videoSha256:sha(bytes),visualAccepted:false});await save();
  }
  const args=['-y','-hide_banner','-loglevel','error','-filter_complex_threads','1'];
  for(const shot of report.shots)args.push('-i',shot.file);
