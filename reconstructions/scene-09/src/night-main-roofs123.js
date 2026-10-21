@@ -49,9 +49,9 @@ function panelPrism(profile,depth,axis='x'){
   if(axis==='x'){const p=g.attributes.position;for(let i=0;i<p.count;i++){const u=p.getX(i),v=p.getY(i),w=p.getZ(i);p.setXYZ(i,w,v,-u);}g.computeVertexNormals();}return g;
 }
 
-export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=false,supports=[],label='roof',frontDepth=null,backDepth=null,ridgeLeft=null,ridgeRight=null,inner=0}={}){
+export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=false,supports=[],label='roof',frontDepth=null,backDepth=null,ridgeLeft=null,ridgeRight=null,inner=0,gableCut=.43,slopePower=null,ornamentHeight=1}={}){
   const {emit,box,rod,bracket,materials}=api,hw=w/2,hd=frontDepth??d/2,bd=backDepth??d/2;
-  const ridge=pagoda?w*.055:w*(gabled?.30:.24),rl=ridgeLeft??ridge,rr=ridgeRight??ridge,cut=gabled?.43:0,exponent=gabled?1.72:1.49;
+  const ridge=pagoda?w*.055:w*(gabled?.30:.24),rl=ridgeLeft??ridge,rr=ridgeRight??ridge,cut=gabled?gableCut:0,exponent=slopePower??(gabled?1.72:1.49);
   const span=(t,side=1)=>{const r=side<0?rl:rr;return r+(hw-r)*(gabled?Math.max(0,(t-cut)/(1-cut)):t);};
   const P=(face,t,u)=>{
     const h=e+rise*Math.pow(Math.max(0,1-t),exponent)+curl*Math.pow(t,10)*(.17+.83*Math.pow(Math.abs(u),8))+(gabled?.11:.035)*Math.pow(1-t,8)*Math.pow(Math.abs(u),8);
@@ -173,8 +173,8 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
   // brass leading edge. Their S-shaped body is not a wire hook or billboard.
   if(!pagoda)for(const side of[-1,1]){
     const shape=new T.Shape();shape.moveTo(0,0);shape.bezierCurveTo(.18,.03,.38,.16,.40,.40);shape.bezierCurveTo(.42,.65,.27,.79,.15,.82);shape.bezierCurveTo(.28,.63,.26,.51,.17,.42);shape.bezierCurveTo(.10,.32,-.05,.24,-.09,.13);shape.closePath();
-    const g=new T.ExtrudeGeometry(shape,{depth:.17,steps:1,bevelEnabled:true,bevelSize:.018,bevelThickness:.02,bevelSegments:2,curveSegments:12});g.translate(0,0,-.085);emit(g,materials.worn,(side>0?rr:-rl),e+rise+.22,0,side,1,1);
-    const points=[[(side>0?rr:-rl),e+rise+.25,.105],[(side>0?rr+.24:-rl-.24),e+rise+.41,.105],[(side>0?rr+.33:-rl-.33),e+rise+.69,.105],[(side>0?rr+.15:-rl-.15),e+rise+1.03,.105]];
+    const g=new T.ExtrudeGeometry(shape,{depth:.17,steps:1,bevelEnabled:true,bevelSize:.018,bevelThickness:.02,bevelSegments:2,curveSegments:12});g.translate(0,0,-.085);emit(g,materials.worn,(side>0?rr:-rl),e+rise+.22,0,side,ornamentHeight,1);
+    const points=[[(side>0?rr:-rl),e+rise+.22+.03*ornamentHeight,.105],[(side>0?rr+.24:-rl-.24),e+rise+.22+.19*ornamentHeight,.105],[(side>0?rr+.33:-rl-.33),e+rise+.22+.47*ornamentHeight,.105],[(side>0?rr+.15:-rl-.15),e+rise+.22+.81*ornamentHeight,.105]];
     for(let j=0;j<points.length-1;j++)rod(points[j],points[j+1],.027,'gold');
   }
   } // Open lower skirt has no phantom ridge above its real central opening.

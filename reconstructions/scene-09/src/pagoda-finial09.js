@@ -3,7 +3,7 @@ import * as T from 'three';
 // Authored solid reconstruction of the visible silhouette, not an identified
 // historic sōrin type. The photograph resolves nine main rims; the small upper
 // support count and the concealed roof light are explicitly inferred.
-export const PAGODA_FINIAL_REVISION = 'scene09-closed-cast-finial-105b';
+export const PAGODA_FINIAL_REVISION = 'scene09-slender-eleven-rim-finial143';
 export const GOLD_PBR_SOURCE = 'https://dev.epicgames.com/documentation/en-us/unreal-engine/physically-based-materials-in-unreal-engine';
 
 // A closed radial profile with shared angular vertices and single axis poles.
@@ -57,11 +57,15 @@ export function installPagodaFinial09({emit, materials, scene, transform, base})
   };
   materials.push(metal);
   const parts = [], bounds = new T.Box3();
+  const fittedHeight=h=>h<1.57?h*.54:h<4.5?.85+(h-1.57)*1.075:4.00+(h-4.50)*(1.45/1.82);
   function place(g, y = base) {
-    emit(g, metal, 0, y, 0);
-    const box = g.boundingBox.clone().translate(new T.Vector3(0, y, 0));
+    const disc=g.name.startsWith('closed-cast-annular-wheel-'),p=g.attributes.position;
+    for(let i=0;i<p.count;i++)p.setXYZ(i,p.getX(i)*.72,fittedHeight(p.getY(i)*(disc?.35:1)+y-base),p.getZ(i)*.72);
+    g.computeVertexNormals();g.computeBoundingBox();
+    emit(g, metal, 0, base, 0);
+    const box = g.boundingBox.clone().translate(new T.Vector3(0, base, 0));
     bounds.union(box);
-    parts.push({name: g.name, geometry: g, y});
+    parts.push({name: g.name, geometry: g, y:base, originalPlacementY:y});
   }
   function sleeve(y, radius, h, name, bore = .106) {
     place(turned([
@@ -84,8 +88,8 @@ export function installPagodaFinial09({emit, materials, scene, transform, base})
   ], 'closed-continuous-tapered-spindle'));
 
   const wheels = [];
-  for (let i = 0; i < 9; i++) {
-    const radius = .43 - i * .012, y = base + 1.57 + i * .3375;
+  for (let i = 0; i < 11; i++) {
+    const radius = .43 - i * .012, y = base + 1.57 + i * .2925;
     // Annular cast disc: bored hub, sloping web, rounded outer lip, underside.
     // The central bore is occupied by the continuous shaft, not an empty ring.
     place(turned([
@@ -96,7 +100,7 @@ export function installPagodaFinial09({emit, materials, scene, transform, base})
       [radius * .92, .128], [radius * .70, .148],
       [.20, .176], [.145, .19], [.106, .19]
     ], 'closed-cast-annular-wheel-' + (i + 1)), y);
-    wheels.push({localY: y, outerRadius: radius + .012, profileHeight: .29});
+    wheels.push({localY:base+fittedHeight(y-base),outerRadius:(radius+.012)*.72,profileHeight:fittedHeight(y-base+.19*.35)-fittedHeight(y-base-.10*.35),airGapBetweenRims:true});
     sleeve(y + .215, .121, .070, 'closed-wheel-shaft-collar-' + (i + 1));
   }
 
@@ -147,7 +151,7 @@ export function installPagodaFinial09({emit, materials, scene, transform, base})
   return {
     revision: PAGODA_FINIAL_REVISION,
     authoredGeometry: true, photoSampled: false, visualAccepted: false,
-    mainWheelCount: wheels.length, wheelCountConfidence: 'Nine main rims visible; upper small fittings unresolved',
+    mainWheelCount: wheels.length, wheelCountConfidence: 'Eleven closely spaced modeled rims fit the slender stack; concealed fittings remain inferred',
     wheels, closedComponents: parts.length,
     triangles: parts.reduce((n, p) => n + (p.geometry.index?.count ?? p.geometry.attributes.position.count) / 3, 0),
     localBounds: {min: bounds.min.toArray(), max: bounds.max.toArray()},

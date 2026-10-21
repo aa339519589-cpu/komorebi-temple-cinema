@@ -1,0 +1,51 @@
+{
+  "use": "Existing verified CC0 PBR timber and scanned stone surfaces/geometry on actual night-temple construction. Reference09 remains comparison-only.",
+  "files": [
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-09/src/process-bridge-roughness.py",
+    "reconstructions/scene-09/assets/granite-tile-04/granite-face-diff.png",
+    "reconstructions/scene-09/assets/granite-tile-04/granite-face-nor_gl.png",
+    "reconstructions/scene-09/assets/granite-tile-04/granite-face-rough.png",
+    "reconstructions/scene-09/assets/granite-tile-04/provenance.json",
+    "reconstructions/scene-09/assets/open-sanctuary143/provenance.json"
+  ],
+  "heroHangingLantern": {
+    "source": "reconstructions/scene-09/src/hero-hanging-lantern.js",
+    "provenance": "reconstructions/scene-09/assets/hero-hanging-lantern/provenance.json",
+    "surfaces": "Authored scalar metal roughness/bump; stochastic metric washi tissue103. Original texture-free lamp material layout is retained in the historical76b record.",
+    "scope": "Two foreground lamps at retained anchors/scales; inferred fine casting, unchanged original local light definitions.",
+    "currentUses": [
+      {
+        "anchor": [
+          1,
+          7.2,
+          23.7
+        ],
+        "scale": 1.15
+      },
+      {
+        "anchor": [
+          7.7,
+          7.3,
+          21.6
+        ],
+        "scale": 1.35
+      }
+    ]
+  },
+  "openSanctuary143": {
+    "provenance": "reconstructions/scene-09/assets/open-sanctuary143/provenance.json",
+    "source": "Original solid scene09 carpentry/portal/roof/pagoda reconstruction; no new image surfaces or third-party dependencies",
+    "camera": "Same low source09 reference camera and shared shot path; floor/pond/near supports retained"
+  }
+}

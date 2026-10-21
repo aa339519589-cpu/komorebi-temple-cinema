@@ -1,0 +1,162 @@
+{
+  "sourceHash": "a9e7fe2dfe50c8d5c01d9a694c873cbd9f8ca7477275bf5c6390873e0b078b5a",
+  "sourceFilesChecked": 48,
+  "sourceMismatchFiles": [],
+  "referenceCameraPreserved": {
+    "position": [
+      6,
+      2.7,
+      33
+    ],
+    "target": [
+      0,
+      5.5,
+      -10
+    ],
+    "fov": 52
+  },
+  "sameSourceAcrossAllCaptures": true,
+  "frames": [
+    {
+      "capture": "main",
+      "pose": null,
+      "name": "reference",
+      "glError": 0,
+      "valid": true,
+      "linkedPrograms": 70,
+      "rgbaSha256": "1b735380e0d961fd147cd254d1c8fcb08f168a66161f8aaec3ddb5ab3d2fd176"
+    },
+    {
+      "capture": "main",
+      "pose": null,
+      "name": "detail-native",
+      "glError": 0,
+      "valid": true,
+      "linkedPrograms": 70,
+      "rgbaSha256": "e437f74ee643f9cd6a84628e705eef01e686d27bc15051167a156acac14e8098"
+    },
+    {
+      "capture": "oblique",
+      "pose": null,
+      "name": "inspection-view",
+      "glError": 0,
+      "valid": true,
+      "linkedPrograms": 67,
+      "rgbaSha256": "d775ecefbf72203498918b2b8c383994aba4364185df60d77dadda708855b91e"
+    },
+    {
+      "capture": "poses",
+      "pose": 0,
+      "name": "shot-0",
+      "glError": 0,
+      "valid": true,
+      "linkedPrograms": 70,
+      "rgbaSha256": "2596860cd4ab6cae8742602a18a4d306b01c140c2ad02165be15850c9832da77"
+    },
+    {
+      "capture": "poses",
+      "pose": 3.5,
+      "name": "shot-3p5",
+      "glError": 0,
+      "valid": true,
+      "linkedPrograms": 70,
+      "rgbaSha256": "7f427fc6d80465fae242251dabee1aad4bb82383842940c8b9939f9081106d62"
+    },
+    {
+      "capture": "poses",
+      "pose": 7,
+      "name": "shot-7",
+      "glError": 0,
+      "valid": true,
+      "linkedPrograms": 70,
+      "rgbaSha256": "2a3b3d527d3b3fd6dc80e819b0d009d6a955d61517676579ffa4f5beaa7b274d"
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "main",
+      "file": "qa/ten-reference/09/iteration-scene09-solmax-bearing-return-gallery-r14-20261021/detail-native.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "sha256": "c44c7c5609a247303480a8b0ac5d1d276a80d60474524f1f69b8e9ab07e6d08c"
+    },
+    {
+      "kind": "main",
+      "file": "qa/ten-reference/09/iteration-scene09-solmax-bearing-return-gallery-r14-20261021/reference.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "sha256": "41e5484c5f24d76b8504521bd55ea5c9245c2b123b9d75876d857e43c4717757"
+    },
+    {
+      "kind": "oblique",
+      "file": "qa/ten-reference/09/iteration-scene09-solmax-bearing-return-oblique-r14-20261021/inspection-view.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "sha256": "414e49e3a94966247fed8b7ea315ebd87431a9994cc98f88b57194bd360b8024"
+    },
+    {
+      "kind": "poses",
+      "file": "qa/ten-reference/09/iteration-scene09-solmax-bearing-return-poses-r14-20261021/shot-0.png",
+      "pixels": [
+        960,
+        960
+      ],
+      "sha256": "6641b11cd38a4f9ce5420612e2d80f5efb166461255856a67b608e21194724a9"
+    },
+    {
+      "kind": "poses",
+      "file": "qa/ten-reference/09/iteration-scene09-solmax-bearing-return-poses-r14-20261021/shot-3p5.png",
+      "pixels": [
+        960,
+        960
+      ],
+      "sha256": "460ccbe7436c07d6006f62b09254d3d69cc0200274b1ae6e1fb14be2313e398e"
+    },
+    {
+      "kind": "poses",
+      "file": "qa/ten-reference/09/iteration-scene09-solmax-bearing-return-poses-r14-20261021/shot-7.png",
+      "pixels": [
+        960,
+        960
+      ],
+      "sha256": "a20b1bdb7e187d9f0a277b62154653269f9dfff66b340ad542684412cf6ca6fc"
+    },
+    {
+      "kind": "comparison-only",
+      "file": "qa/ten-reference/09/solmax-open-sanctuary-20261021/baseline-left-r14-right.png",
+      "pixels": [
+        2508,
+        1292
+      ],
+      "sha256": "0fd2b8901b61354a016e9e75d1e8b040c37032480a0898d8a8c02500b53f7a9d"
+    },
+    {
+      "kind": "comparison-only",
+      "file": "qa/ten-reference/09/solmax-open-sanctuary-20261021/reference-left-native-right-r14.png",
+      "pixels": [
+        2508,
+        1292
+      ],
+      "sha256": "8871073dd385583848d6cbe25047524ef9095c1cdedb1c84e7c1c2e90aa138c5"
+    },
+    {
+      "kind": "comparison-only",
+      "file": "qa/ten-reference/09/solmax-open-sanctuary-20261021/three-native-shot-poses-r14.png",
+      "pixels": [
+        2880,
+        998
+      ],
+      "sha256": "52d12c600fb5b5681c270528658cf775b09e2d8077388bbefe3d85a0bf1b1b7e"
+    }
+  ],
+  "visualAccepted": false,
+  "sourcePictureOrDepthProjected": false,
+  "scope": "Substantive scene09 runtime architectural checkpoint, not complete photographic acceptance",
+  "generatedAtUTC": "2026-10-21T11:04:09.856846+00:00"
+}

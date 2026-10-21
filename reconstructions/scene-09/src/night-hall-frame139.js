@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {makeClosedCarvedLeaf} from './carved-joinery.js';
+import {roofBearing143} from './hall-envelope143.js';
 
 // Scene09-only reconstruction. Every timber, infill and relief is geometry;
 // the photograph supplies dimensions/composition, never a surface projection.
@@ -47,12 +48,7 @@ export function createNightCarpentry139(api){
  return{capital,frieze,fitting,flower,bayArch,revision:'scene09-seated-curved-timber-139'};
 }
 
-function bearingHeight139(x,z,upper){
- const S=upper?{w:20.09,front:9,back:6,e:9.8,rise:6,curl:.78,left:6.48,right:4.20,cut:.43,power:1.72}:{w:21.30,front:8.30,back:6.20,e:7.25,rise:3,curl:.62,left:21.30*.24,right:21.30*.24,cut:0,power:1.49},half=S.w/2,span=(t,r)=>r+(half-r)*(S.cut?Math.max(0,(t-S.cut)/(1-S.cut)):t);
- let t=Math.abs(z)/(z>=0?S.front:S.back),u=(2*x+span(t,S.left)-span(t,S.right))/(span(t,S.left)+span(t,S.right));
- if(x>span(t,S.right)||x< -span(t,S.left)){const r=x>=0?S.right:S.left;t=S.cut+(1-S.cut)*(Math.abs(x)-r)/(half-r);u=z/((z>=0?S.front:S.back)*t);}
- return S.e+S.rise*Math.pow(Math.max(0,1-t),S.power)+S.curl*Math.pow(t,10)*(.17+.83*Math.pow(Math.abs(u),8))+(upper?.11:.035)*Math.pow(1-t,8)*Math.pow(Math.abs(u),8)-.31;
-}
+const bearingHeight139=roofBearing143;
 
 export function buildNightHallFrame139(api,C){
  const {emit,box,between,group,post,lantern,materials:M}=api,railBoss=new T.SphereGeometry(1,10,6),lower=[-9.8,-7.2,-4.3,-1.2,2.1,5.2,7.4],upper=[-7.9,-4.34,-.96,2.10,4.84,7.07],floor=3.09;
@@ -64,17 +60,56 @@ export function buildNightHallFrame139(api,C){
   for(let i=0;i<lower.length-1;i++){const x=(lower[i]+lower[i+1])/2;C.capital(x,6.77,z,.51,1.30,Math.max(.22,(bearingHeight139(x,z,false)-6.77)/1.30));}box(0,6.63,z,19.2,.27,.38,M.wood);for(let i=0;i<66;i++){const a=-10+i*20/66,b=-10+(i+1)*20/66;between([a,bearingHeight139(a,z+.30,false)-.11,z+.30],[b,bearingHeight139(b,z+.30,false)-.11,z+.30],.20,.34,M.wood);}
   for(let i=0;i<lower.length-1;i++){const a=lower[i]+.16,b=lower[i+1]-.16;C.frieze(a,b,6.66,z+.24,.31);C.bayArch(a,b,7.16,z+.13);}
  }
- function windowBay(cx,z,width=2.75){
-  box(cx,4.72,z,width,3.24,.18,M.dark);box(cx,4.65,z+.105,width-.28,2.60,.022,M.windowPaper);
-  for(const dx of[-width/2+.06,width/2-.06]){box(cx+dx,4.73,z+.13,.13,3.23,.20,M.red);C.fitting(cx+dx,6.12,z+.25,.13,.20);}
-  for(const y of[3.20,6.24])box(cx,y,z+.14,width,.14,.22,M.wood);
-  for(let i=0;i<=14;i++)box(cx-(width-.31)/2+i*(width-.31)/14,4.65,z+.15,.025,2.60,.036,M.wood);
-  for(let j=0;j<=15;j++)box(cx,3.35+j*2.60/15,z+.16,width-.28,.022,.035,M.bronze);
-  box(cx,6.48,z,width-.15,.28,.16,M.ivory);C.frieze(cx-width/2,cx+width/2,6.61,z+.08,.20);
+ function screen(cx,z,width=.73){
+  box(cx,4.65,z,width,2.83,.12,M.dark);box(cx,4.65,z+.075,width-.12,2.61,.014,M.windowPaper);
+  for(const dx of[-width/2,width/2])box(cx+dx,4.65,z+.10,.075,2.91,.14,M.wood);
+  for(const y of[3.22,6.08])box(cx,y,z+.11,width+.09,.085,.15,M.wood);
+  for(let i=0;i<=5;i++)box(cx-width*.41+i*width*.82/5,4.65,z+.095,.019,2.67,.026,M.bronze);
+  for(let j=0;j<=13;j++)box(cx,3.30+j*2.67/13,z+.10,width-.09,.019,.027,M.wood);
  }
- for(const x of[-7.5,-4.5,4.5,7.5])windowBay(x,1.19);
- for(const side of[-1,1])group(side*9.35,0,-1.13,side*Math.PI/2,()=>{box(0,4.71,0,8.7,3.3,.18,M.dark);for(const xx of[-2.85,0,2.85])windowBay(xx,.05,2.78);});
+ function portal(a,b,z,depth=2.3){
+  const width=b-a,cx=(a+b)/2;
+  // An actual open volume: jamb returns, header soffit, threshold and framed
+  // deep ceiling. No dark/color plane spans the opening.
+  for(const x of[a,b]){box(x,4.74,z,.18,3.26,.38,M.wood);box(x,4.74,z-depth/2,.16,3.26,depth,M.dark);C.fitting(x,6.13,z+.21,.16,.23);}
+  box(cx,6.35,z-depth/2,width+.18,.25,depth+.28,M.dark);
+  C.frieze(a-.09,b+.09,6.34,z+.23,.32);C.bayArch(a,b,6.50,z+.18);
+  for(let i=0;i<=Math.ceil(width/.42);i++)box(a+i*width/Math.ceil(width/.42),6.20,z-depth/2,.08,.13,depth+.10,M.wood);
+  box(cx,3.12,z-depth/2,width,.12,depth+.20,M.wood);
+  // Narrow side lights and paired folded shutter leaves are hinged to the
+  // actual jambs; they do not close the sanctuary's main view into the room.
+  for(const side of[-1,1]){
+   const x=side<0?a+.49:b-.49;screen(x,z-.10,.67);
+   group(side<0?a+.88:b-.88,0,z-.32,side*.96,()=>{box(0,4.68,0,.72,2.98,.085,M.wood);for(const dx of[-.32,.32])box(dx,4.68,.055,.045,2.91,.06,M.bronze);for(const y of[3.25,6.10])box(0,y,.058,.71,.07,.06,M.bronze);for(let j=0;j<8;j++)C.flower(0,3.43+j*.34,.058,.105);});
+  }
+  // A narrow carved transom sits above the opening, rather than luminous
+  // full-height infill. Golden depth continues onto the real jamb returns.
+  for(let i=0;i<Math.ceil(width/.38);i++)C.flower(a+(i+.5)*width/Math.ceil(width/.38),6.04,z-.10,.12);
+ }
+ portal(-7.10,-3.20,1.24,2.25);portal(3.05,7.10,1.24,2.25);
+ for(const side of[-1,1])group(side*7.15,0,-1.13,side*Math.PI/2,()=>{portal(-4.18,-.15,.05,1.45);portal(.35,4.18,.05,1.45);});
  box(0,4.80,-4.45,18.6,3.44,.22,M.dark);
+ // Real shadowed room depth remains visible between the narrow side lights.
+ // These carved back furnishings sit behind the jamb-return volumes.
+ for(const cx of[-5.25,5.10]){
+  box(cx,4.73,-1.20,3.0,3.20,.16,M.dark);
+  for(const dx of[-1.35,0,1.35])box(cx+dx,4.73,-1.07,.14,3.20,.18,M.wood);
+  for(const yy of[3.18,5.95,6.27])box(cx,yy,-1.02,3.02,.11,.20,M.wood);
+  for(let col=0;col<4;col++){
+   const x=cx-.99+col*.66;box(x,4.68,-1.08,.59,2.77,.055,M.bronze);
+   for(let row=0;row<7;row++)for(const side of[-1,1])C.flower(x+side*.17,3.52+row*.35,-1.037,.135);
+  }
+  C.frieze(cx-1.5,cx+1.5,6.12,-.95,.30);
+ }
+ // Low sanctuary plinths and offering-table legs contact the unchanged floor.
+ for(const [x,z,w,d]of[[-1.1,1.3,2.48,1.65],[6.05,-.20,1.70,1.25]]){
+  box(x,3.17,z,w,.16,d,M.dark);box(x,3.28,z,w+.06,.08,d+.06,M.bronze);
+  for(const yy of[3.12,3.25,3.32])box(x,yy,z+d/2+.015,w+.08,.025,.045,M.gold);
+  for(let j=0;j<Math.ceil(w/.25);j++)C.flower(x-w*.43+j*w*.86/(Math.ceil(w/.25)-1),3.19,z+d/2+.03,.055);
+ }
+ for(const x of[-2.05,-.15])box(x,4.43,1.02,.075,2.68,.09,M.bronze);
+ for(const x of[-2.25,.05])for(const z of[2.29,2.75])box(x,3.31,z,.10,.44,.10,M.wood);
+ box(-1.1,3.54,2.52,2.74,.10,.69,M.wood);C.frieze(-2.47,.27,3.47,2.90,.14);
  // A deep open portal frames the actual freestanding Buddha and altar.
  for(const x of[-2.65,2.65]){
   box(x,4.73,3.20,.36,3.45,.48,M.dark);box(x,4.73,3.455,.25,3.34,.035,M.bronze);
@@ -96,6 +131,17 @@ export function buildNightHallFrame139(api,C){
  // across the lower capital grid and supports the upper gallery floor.
  box(0,8.05,.45,18.7,.24,10.5,M.dark);box(0,8.16,.45,18.5,.10,10.5,M.wood);box(0,8.02,5.35,19.0,.26,.36,M.wood);
  for(const x of lower)if(Math.abs(x)<9.1){const seat=bearingHeight139(x,4.80,false),top=7.945;box(x,(seat+top)/2,4.80,.32,top-seat+.020,.40,M.wood);}
+ // The returning colonnade carries the same upper-floor datum. Its posts
+ // are inside the lower skirt opening; they do not pierce ceramic surfaces.
+ for(const side of[-1,1]){
+  for(const z of[-3.5,-1.2,1.1,3.4]){
+   post(side*8.10,z,floor,6.55-floor-.30,.25);
+   group(side*8.10,6.55,z,side*Math.PI/2,()=>C.capital(0,0,0,.82,1.02,(7.93-6.55)/1.30));
+  }
+  box(side*8.10,7.94,.45,.38,.20,9.25,M.wood);
+  for(let i=0;i<=10;i++)box(side*8.73,7.95,-4.15+i*.91,1.56,.20,.18,M.wood);
+  group(side*8.10,0,0,side*Math.PI/2,()=>{for(const z of[-3.5,-1.2,1.1,3.4]){const cx=-side*z;C.frieze(cx-.95,cx+.95,6.69,.22,.24);}});
+ }
  for(const z of[3.30,-4.45]){
   box(0,8.94,z,18.3,1.56,.18,M.dark);
   for(let i=0;i<upper.length-1;i++){
@@ -111,9 +157,32 @@ export function buildNightHallFrame139(api,C){
   for(const y of[8.42,8.83])box(0,y,z+.26,18.6,.075,.10,M.red);
   for(let i=0;i<49;i++)box(-9.1+i*18.2/48,8.60,z+.26,.045,.43,.055,M.red);
  }
- for(const side of[-1,1])group(side*9.14,0,-.58,side*Math.PI/2,()=>{
-  box(0,8.94,0,7.4,1.56,.15,M.dark);for(const y of[8.65,9.20])box(0,y,.09,7.2,.26,.07,M.ivory);for(const x of[-3.5,-1.17,1.17,3.5])box(x,8.95,.14,.13,1.65,.20,M.wood);
- });
+ for(const side of[-1,1]){
+  // Real side gallery: independently seated posts and roof receivers, with
+  // the opaque enclosure set back behind a walkable floor and open railing.
+  for(const z of[-3.4,-1.1,1.2,3.45]){
+   post(side*8.10,z,8.19,9.25-8.19-.30,.18);
+   const head=bearingHeight139(side*8.10,z,true);
+   group(side*8.10,9.25,z,side*Math.PI/2,()=>C.capital(0,0,0,.76,1.06,Math.max(.22,(head-9.25)/1.30)));
+  }
+  for(let i=0;i<36;i++){
+   const a=-4.30+i*9.5/36,b=-4.30+(i+1)*9.5/36;
+   between([side*8.10,bearingHeight139(side*8.10,a,true)-.08,a],[side*8.10,bearingHeight139(side*8.10,b,true)-.08,b],.22,.30,M.wood);
+  }
+  for(const y of[8.42,8.83])box(side*9.10,y,.45,.10,.075,9.45,M.red);
+  for(let i=0;i<=25;i++)box(side*9.10,8.60,-4.23+i*9.38/25,.055,.43,.045,M.red);
+  group(side*6.85,0,-.58,side*Math.PI/2,()=>{
+   const axes=[-3.5,-1.17,1.17,3.5];
+   for(let i=0;i<axes.length-1;i++){
+    const a=axes[i],b=axes[i+1],cx=(a+b)/2;
+    box(cx,8.96,-.06,b-a-.10,1.55,.15,M.dark);
+    for(const y of[8.63,9.18])box(cx,y,.045,b-a-.36,.19,.07,M.ivory);
+    C.frieze(a+.06,b-.06,8.93,.085,.18);C.bayArch(a,b,9.62,.08);
+   }
+   for(const x of axes)box(x,8.96,.08,.14,1.70,.20,M.wood);
+   for(const y of[8.33,9.45])box(0,y,.08,7.30,.14,.20,M.wood);
+  });
+ }
  for(const x of[-9,-6,-3,3,6,9]){lantern(x,5.50,4.90,.80);lantern(x,9.50,5.25,.48);}
- return{revision:C.revision,lowerAxes:lower,upperAxes:upper,upperWallZ:3.30,upperPostZ:5.20,cream:'Narrow recessed transoms only',sillReceivers:lower.filter(x=>Math.abs(x)<9.1).map(x=>({x,z:4.80,bottom:bearingHeight139(x,4.80,false)-.010,top:7.955})),completeLoadPath:true};
+ return{revision:'scene09-deep-open-sanctuary143-return14',lowerAxes:lower,upperAxes:upper,upperWallZ:3.30,upperPostZ:5.20,sanctuary:{sideOpenings:[[-7.10,-3.20],[3.05,7.10]],sideLightWidth:.67,portalDepth:2.25,openJambReturns:true,fullHeightLuminousWallRemoved:true},returnGallery:{lowerWallX:7.15,upperWallX:6.85,structuralPostX:8.10,railX:9.10,lowerCapitalSeat:7.93,floorBearing:7.94,lowerCeramicNotPierced:true},cream:'Narrow recessed transoms only',sillReceivers:lower.filter(x=>Math.abs(x)<9.1).map(x=>({x,z:4.80,bottom:bearingHeight139(x,4.80,false)-.010,top:7.955})),completeLoadPath:true};
 }

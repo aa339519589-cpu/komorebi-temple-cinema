@@ -1,0 +1,3288 @@
+{
+  "reference": 9,
+  "entry": "reconstructions/scene-09/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-21T10:56:50.155Z",
+  "source": {
+    "hash": "a9e7fe2dfe50c8d5c01d9a694c873cbd9f8ca7477275bf5c6390873e0b078b5a",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-09/asset-dependencies.json": "0eacbfb8a20380a2757404dfe5b77c0a5cc3f90b91e7ad9474952218f27be197",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png": "0d46b0bfe3ed488f9855f51ec917355642d20afc45b5cbd1f6afad202ac747b6",
+      "reconstructions/scene-09/assets/bridge-coating-roughness-provenance.json": "ec0c27f2dc67fed7f5c10e6c3d82dfcedea8aa7403fbf67dc50beada58700897",
+      "reconstructions/scene-09/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-09/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-09/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-09/assets/granite-tile-04/provenance.json": "cec30ee57255e4892e43d7167e711fc8df882866f9367d2f5df9570f9dd44061",
+      "reconstructions/scene-09/assets/hero-hanging-lantern/provenance.json": "ed1e24b793fe9ff1619e309708b1765bad481242ac6db9c5df62ee0036c92448",
+      "reconstructions/scene-09/assets/open-sanctuary143/provenance.json": "3b53bd5337d8286127e5a17d2f318f5fc2b348eaed3d4193228a26d4b438f20e",
+      "reconstructions/scene-09/assets/physical-night-fixtures-provenance.json": "346141cb35cad7de65e9d009e1d84994ac0457b84fb8339608f52c456d3ba688",
+      "reconstructions/scene-09/index.html": "f10bccc1d16c93aa46ee5c417fbee1460acd8713b1bcaa0f96f2274ebd1bae30",
+      "reconstructions/scene-09/src/arched-garden-bridge.js": "3ce07c3f929d81e4fa0bd8cc4e239b4d407cdcac9c09dfafc9a63e84c8c3e402",
+      "reconstructions/scene-09/src/botany.js": "17de10094d503c8b15465ba0c49eaf7ddf46c5b1045cdeaae30ac87d5bc371d5",
+      "reconstructions/scene-09/src/bridge-coating.js": "932ebddf0d0723f81bf2230edbb9c37cfb9f3321875f3807f854a2327d369d85",
+      "reconstructions/scene-09/src/carved-joinery.js": "9190d3a92771139b0de1a8b83303472e1588bce05a44941af3b03e0921be3044",
+      "reconstructions/scene-09/src/garden-ferns.js": "77ef4f483cebdd0780e60fb2c258669b939bcfda2b454996a0abebdf3daa04b7",
+      "reconstructions/scene-09/src/hall-circulation133.js": "993877f84adf75035a02f660b3b42c7217c3c0d13953b780c28e2ae2a7d5910e",
+      "reconstructions/scene-09/src/hall-envelope143.js": "d1276f09ddd24033baeaacc337081342ed8a73d32dcb6593a0161b52a448a18b",
+      "reconstructions/scene-09/src/hero-hanging-lantern.js": "9fe5ebc78d0bd900de490b07963172247f37361d005c84a9ff5a989351000bca",
+      "reconstructions/scene-09/src/highlight-scatter.js": "7cfd3bed7479213f870d7be3868baf58a293f6644ce156a81507f2bad41b4b62",
+      "reconstructions/scene-09/src/lotus-leaf.js": "498f745d726847c472bc620eeea034a69fca388223b63e1dd443aac5a380586d",
+      "reconstructions/scene-09/src/lotus-petal.js": "921e5dcb2a87f784688909107b6e04f541bbd80b0d34885dab673aa29ece455f",
+      "reconstructions/scene-09/src/main.js": "76cf1bf4b9d59b860c5e3cbd51febcc36472d7b0271a66416608590425ada185",
+      "reconstructions/scene-09/src/night-hall-frame139.js": "862768ffc95f776a9c42563325b74533576259afa5e53ca5ce05c5d0468e44a6",
+      "reconstructions/scene-09/src/night-main-roofs123.js": "f46f3c9792a5c0120683c1e51bdfbfc54afb2126e948ca9d7e92d8f5a643e538",
+      "reconstructions/scene-09/src/pagoda-bank139.js": "64fd571baa879f89a51ee5d6e2892779f29821e6578d9997432d45097611788c",
+      "reconstructions/scene-09/src/pagoda-finial09.js": "ae7ed3f7e1790bde2fca6b568736ba3f8855b2c711d4768cb2e956832dea1480",
+      "reconstructions/scene-09/src/pagoda-frame143.js": "40d2ea8dfecc862e6a11db9fd8f909bf29c57785b67340e6aaf8bcbaf4efc192",
+      "reconstructions/scene-09/src/physical-night-fixtures.js": "001941cc8358bee9c9ea4c490422f141dbacab90ae2edeed23fd74d94a32c006",
+      "reconstructions/scene-09/src/pine-needles.js": "2b0c81a1ac2cc15d93da182a85e211061dcf7bfd492f1546a36f04dc611e514a",
+      "reconstructions/scene-09/src/process-bridge-roughness.py": "905116fb8b487cd1087968a72d51de9213b775e1a1d41ac3ba7f26df6c937141",
+      "reconstructions/scene-09/src/restoration-altar.js": "7365af57fbbef4c761ac6d799291e6be16a1d4d466cd2e1189f5342a0bdd56a0",
+      "reconstructions/scene-09/src/restoration-buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-09/src/restoration-pruned-pines-v1.js": "e9ba9f69aa3e3c8786efceaa1cc2e0e776ba31088bcbba6c9a4a52b358be238c",
+      "reconstructions/scene-09/src/veranda-apron139.js": "e3114af6b5e83b4a170bb6f8eb070842da86a1b7b17c92a75011ed68658a9807",
+      "reconstructions/scene-09/src/washi-tissue103.js": "738fbb6e1465af712de6ea1da93150b38daef1934c1ed5102de9a6e2ee3a7ddc",
+      "reconstructions/scene-09/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1"
+    }
+  },
+  "sourceCommit": "acba26a7c9eba1d3a138b7ce7347e8f7f812db75",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-09/index.html",
+    "/reconstructions/scene-09/src/main.js",
+    "/reconstructions/scene-09/src/hall-circulation133.js",
+    "/reconstructions/scene-09/src/pagoda-bank139.js",
+    "/reconstructions/scene-09/src/veranda-apron139.js",
+    "/reconstructions/scene-09/src/night-hall-frame139.js",
+    "/reconstructions/scene-09/src/hall-envelope143.js",
+    "/reconstructions/scene-09/src/pagoda-frame143.js",
+    "/reconstructions/scene-09/src/night-main-roofs123.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-09/src/highlight-scatter.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-09/src/pine-needles.js",
+    "/reconstructions/scene-09/src/lotus-leaf.js",
+    "/reconstructions/scene-09/src/lotus-petal.js",
+    "/reconstructions/scene-09/src/carved-joinery.js",
+    "/reconstructions/scene-09/src/restoration-altar.js",
+    "/reconstructions/scene-09/src/weathered-boulder.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-09/src/restoration-buddha.js",
+    "/reconstructions/scene-09/src/botany.js",
+    "/reconstructions/scene-09/src/restoration-pruned-pines-v1.js",
+    "/reconstructions/scene-09/src/garden-ferns.js",
+    "/reconstructions/scene-09/src/arched-garden-bridge.js",
+    "/reconstructions/scene-09/src/physical-night-fixtures.js",
+    "/reconstructions/scene-09/src/bridge-coating.js",
+    "/reconstructions/scene-09/src/hero-hanging-lantern.js",
+    "/reconstructions/scene-09/src/pagoda-finial09.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/reconstructions/scene-09/src/washi-tissue103.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+    "/reconstructions/scene-09/assets/granite-tile-04/granite-face-diff.png",
+    "/reconstructions/scene-09/assets/granite-tile-04/granite-face-nor_gl.png",
+    "/reconstructions/scene-09/assets/granite-tile-04/granite-face-rough.png"
+  ],
+  "renderDriver": {
+    "path": "tools/render-one-reconstruction.mjs",
+    "sha256": "687ba3ce07f7b6ecc2e6065867ee1e37d64f4e15dc285cb80458ef729520d98a"
+  },
+  "renderSampling": {
+    "nativeWidth": 1254,
+    "nativeHeight": 1254,
+    "outputWidth": 1254,
+    "outputHeight": 1254,
+    "scale": 1,
+    "downsampling": "none"
+  },
+  "inspectionView": {
+    "position": [
+      17,
+      8,
+      8
+    ],
+    "target": [
+      5.7,
+      6,
+      -12
+    ],
+    "fov": 55,
+    "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "reference": 9,
+        "revision": "scene09-open-sanctuary-and-returning-pagoda143-r14",
+        "circulation": {
+          "plan": {
+            "hall": {
+              "position": [
+                7.7,
+                0,
+                -14
+              ],
+              "yaw": -0.64,
+              "scale": [
+                1,
+                1.17,
+                1
+              ],
+              "floor": 3.09
+            },
+            "stair": {
+              "width": 6.5,
+              "upperZ": 6.4,
+              "lowerZ": 10.6,
+              "lowerY": 1.0683760683760684,
+              "count": 14
+            },
+            "bridge": {
+              "eastX": 5.16,
+              "nearZ": 3.19,
+              "farZ": 0.01,
+              "deckY": 1.25
+            },
+            "evidence": "Authored reconstruction; exact hidden masonry is not recoverable from one image."
+          },
+          "steps": [
+            {
+              "riser": 1,
+              "localTop": 1.2127777777777777,
+              "worldTop": 1.41895,
+              "frontZ": 10.6,
+              "backZ": 10.299999999999999
+            },
+            {
+              "riser": 2,
+              "localTop": 1.357179487179487,
+              "worldTop": 1.5878999999999999,
+              "frontZ": 10.299999999999999,
+              "backZ": 10
+            },
+            {
+              "riser": 3,
+              "localTop": 1.5015811965811965,
+              "worldTop": 1.7568499999999998,
+              "frontZ": 10,
+              "backZ": 9.7
+            },
+            {
+              "riser": 4,
+              "localTop": 1.645982905982906,
+              "worldTop": 1.9258,
+              "frontZ": 9.7,
+              "backZ": 9.4
+            },
+            {
+              "riser": 5,
+              "localTop": 1.7903846153846152,
+              "worldTop": 2.09475,
+              "frontZ": 9.4,
+              "backZ": 9.1
+            },
+            {
+              "riser": 6,
+              "localTop": 1.9347863247863248,
+              "worldTop": 2.2637,
+              "frontZ": 9.1,
+              "backZ": 8.8
+            },
+            {
+              "riser": 7,
+              "localTop": 2.079188034188034,
+              "worldTop": 2.4326499999999998,
+              "frontZ": 8.8,
+              "backZ": 8.5
+            },
+            {
+              "riser": 8,
+              "localTop": 2.2235897435897436,
+              "worldTop": 2.6016,
+              "frontZ": 8.5,
+              "backZ": 8.2
+            },
+            {
+              "riser": 9,
+              "localTop": 2.367991452991453,
+              "worldTop": 2.77055,
+              "frontZ": 8.2,
+              "backZ": 7.9
+            },
+            {
+              "riser": 10,
+              "localTop": 2.5123931623931623,
+              "worldTop": 2.9395,
+              "frontZ": 7.9,
+              "backZ": 7.6000000000000005
+            },
+            {
+              "riser": 11,
+              "localTop": 2.6567948717948715,
+              "worldTop": 3.1084499999999995,
+              "frontZ": 7.6000000000000005,
+              "backZ": 7.300000000000001
+            },
+            {
+              "riser": 12,
+              "localTop": 2.8011965811965815,
+              "worldTop": 3.2774,
+              "frontZ": 7.300000000000001,
+              "backZ": 7
+            },
+            {
+              "riser": 13,
+              "localTop": 2.9455982905982907,
+              "worldTop": 3.44635,
+              "frontZ": 7,
+              "backZ": 6.700000000000001
+            },
+            {
+              "riser": 14,
+              "localTop": 3.09,
+              "worldTop": 3.6152999999999995,
+              "frontZ": 6.700000000000001,
+              "backZ": 6.4
+            }
+          ],
+          "plants": [
+            [
+              -6.1900671777986975,
+              0.468327064477792,
+              -15.047998237798602
+            ],
+            [
+              -5.249888956786089,
+              2.4521087910821664,
+              -15.099517179943579
+            ],
+            [
+              -3.7501658685386987,
+              3.336272209799238,
+              -15.119957694715962
+            ],
+            [
+              -5.5948404670959215,
+              2.3503411302538484,
+              -14.282015980763697
+            ],
+            [
+              -4.624599384611357,
+              2.997072180368089,
+              -14.270793154433328
+            ],
+            [
+              -3.1559705256956065,
+              3.387144348022288,
+              -14.296797682157404
+            ],
+            [
+              -6.831655304581895,
+              0.46579679381980743,
+              -13.879517179943578
+            ],
+            [
+              -5.8291252497462125,
+              2.047847449893631,
+              -13.899957694715962
+            ],
+            [
+              -4.390102745584617,
+              2.925156826381552,
+              -13.882936371189398
+            ],
+            [
+              -3.390660648941204,
+              3.288523436855781,
+              -13.8337688339355
+            ],
+            [
+              -1.9485846264861568,
+              3.4185712305747105,
+              -13.767809715556405
+            ],
+            [
+              -6.194428975445974,
+              1.398000546345057,
+              -13.050793154433327
+            ],
+            [
+              -5.2458749396952475,
+              1.9928432546814203,
+              -13.076797682157403
+            ],
+            [
+              -3.7538317905860628,
+              2.8322402674344676,
+              -13.131908555817636
+            ],
+            [
+              -2.8064508107332293,
+              3.192551226125905,
+              -13.198915085908345
+            ],
+            [
+              -1.3132772784879,
+              3.3304493020747,
+              -13.256891663604057
+            ],
+            [
+              -6.354650586792802,
+              1.0458407453117717,
+              -12.6629363711894
+            ],
+            [
+              -5.084130555761506,
+              1.7495296251729908,
+              -12.6137688339355
+            ],
+            [
+              -3.9170862748853854,
+              2.3274653144145483,
+              -12.547809715556406
+            ],
+            [
+              -2.6416990166018084,
+              2.840954467325591,
+              -12.485657526492895
+            ],
+            [
+              -1.4795134746078866,
+              3.2289433793162736,
+              -12.446721903301723
+            ],
+            [
+              -0.1992763464808315,
+              3.432158563386047,
+              -12.443162132834058
+            ],
+            [
+              -6.445054497128315,
+              0.4986896847571593,
+              -11.881629959888162
+            ],
+            [
+              -4.995656035070915,
+              1.2643572625594819,
+              -11.945221494352822
+            ],
+            [
+              -4.003624474199138,
+              1.8482288044341748,
+              -12.010305318297446
+            ],
+            [
+              -2.557103918691432,
+              2.635287350913422,
+              -12.056556268803021
+            ],
+            [
+              -1.562158843324925,
+              3.097041664351378,
+              -12.069530540216942
+            ],
+            [
+              -0.11858718199124983,
+              3.4370499983240186,
+              -12.045176370299977
+            ],
+            [
+              0.8793419361909548,
+              1.1467408619041737,
+              -11.991099373493908
+            ],
+            [
+              2.3198946398586973,
+              0.8003420458135116,
+              -11.924187367748543
+            ],
+            [
+              -5.790891189755366,
+              0.44920940798597275,
+              -11.327809715556405
+            ],
+            [
+              -4.430180158454505,
+              1.0520394099953114,
+              -11.265657526492895
+            ],
+            [
+              -3.348743023145785,
+              1.6452061772635942,
+              -11.226721903301723
+            ],
+            [
+              -1.9923391810780446,
+              2.437606046560023,
+              -11.223162132834057
+            ],
+            [
+              -0.906573313661688,
+              2.952788823944992,
+              -11.256089903222595
+            ],
+            [
+              0.44548059256798705,
+              3.293831053625754,
+              -11.315222132479462
+            ],
+            [
+              1.5356172587474997,
+              3.1195913719770467,
+              -11.382092293585096
+            ],
+            [
+              2.883279845728818,
+              0.9664691557066059,
+              -11.435817364668363
+            ],
+            [
+              -4.6393961781644855,
+              0.663556174584237,
+              -10.836556268803022
+            ],
+            [
+              -3.1404943157629512,
+              1.498391984261853,
+              -10.849530540216943
+            ],
+            [
+              -2.1996042604283716,
+              2.0234492892355744,
+              -10.825176370299978
+            ],
+            [
+              -0.7003081009847159,
+              2.703025541561329,
+              -10.77109937349391
+            ],
+            [
+              0.2402314068684527,
+              3.023298679187467,
+              -10.704187367748544
+            ],
+            [
+              3.4349515448158643,
+              1.9203840702694999,
+              -10.610230044690374
+            ],
+            [
+              -4.021952023638155,
+              0.45568194277426904,
+              -10.003162132834058
+            ],
+            [
+              -2.5384672375601594,
+              1.198191571058639,
+              -10.036089903222596
+            ],
+            [
+              -1.5811031960164694,
+              1.7588880005120906,
+              -10.095222132479464
+            ],
+            [
+              -0.09933664197662598,
+              2.604369439526254,
+              -10.162092293585097
+            ],
+            [
+              3.985706681083909,
+              1.8933330267285762,
+              -10.206158210076367
+            ],
+            [
+              -3.7925487816285357,
+              0.32884920019116737,
+              -9.605176370299978
+            ],
+            [
+              -2.768337089980832,
+              0.7296610188051815,
+              -9.551099373493908
+            ],
+            [
+              -1.35078474284651,
+              1.437545441925153,
+              -9.484187367748543
+            ],
+            [
+              -0.33008565108748744,
+              2.03619449316728,
+              -9.425336442684696
+            ],
+            [
+              5.353828952529271,
+              1.0877911453968838,
+              -9.532691978415583
+            ],
+            [
+              -2.1911046763951703,
+              0.6217466237325567,
+              -8.942092293585096
+            ],
+            [
+              -0.7084657922202094,
+              1.6853557982215062,
+              -8.995817364668364
+            ],
+            [
+              5.911487570389625,
+              1.8129150388965403,
+              -8.806134546806927
+            ],
+            [
+              -2.050094686948752,
+              0.4696415018339068,
+              -8.205336442684695
+            ],
+            [
+              5.731151500614622,
+              2.9396349105992012,
+              -8.406334236792041
+            ],
+            [
+              7.22868445267457,
+              0.5407823767796863,
+              -8.403962456743619
+            ],
+            [
+              7.014876230273603,
+              2.6844770421261095,
+              -7.591654425750498
+            ],
+            [
+              -3.1685846264861555,
+              0.34418211197451515,
+              -6.964946613183887
+            ],
+            [
+              7.013840585567707,
+              3.429996456037872,
+              -7.117026195660982
+            ],
+            [
+              -3.249280463826939,
+              0.491293278271325,
+              -6.579619431396332
+            ],
+            [
+              7.2285107685049645,
+              3.4070194053396037,
+              -6.462651594313443
+            ],
+            [
+              -3.861699016601808,
+              0.4783338736017177,
+              -5.730230044690373
+            ],
+            [
+              6.3454055124449384,
+              2.929598801774444,
+              -5.830444675263494
+            ],
+            [
+              7.834248201278004,
+              3.268221989323877,
+              -5.769970127952619
+            ],
+            [
+              8.78610860297117,
+              3.3478935316783875,
+              -5.734488276048431
+            ],
+            [
+              5.976755452883588,
+              2.370677625417272,
+              -5.27606765520201
+            ],
+            [
+              6.984050409218029,
+              2.847495941103398,
+              -5.331847358306804
+            ],
+            [
+              8.41513542782544,
+              3.3128355312479445,
+              -5.358943858610625
+            ],
+            [
+              9.425686972198609,
+              3.428966664842053,
+              -5.348895133604184
+            ],
+            [
+              -2.5471374297112037,
+              0.9630377600786074,
+              -4.618863253732496
+            ],
+            [
+              5.7432172392524095,
+              1.6860231221142363,
+              -4.54997012795262
+            ],
+            [
+              7.21730339592458,
+              2.5033494070502935,
+              -4.514488276048432
+            ],
+            [
+              8.182185942764422,
+              2.9868034421936,
+              -4.5150798209742895
+            ],
+            [
+              9.658314704671705,
+              3.3778281659497322,
+              -4.551560027933384
+            ],
+            [
+              -2.660098896586541,
+              0.482218010522103,
+              -3.980906243335782
+            ],
+            [
+              5.3999877163820695,
+              1.17309968434867,
+              -4.111847358306803
+            ],
+            [
+              6.340001352469135,
+              1.7407298344640627,
+              -4.138943858610625
+            ],
+            [
+              7.83999861017612,
+              2.595547510220506,
+              -4.128895133604184
+            ],
+            [
+              8.78001239567924,
+              2.96830636292605,
+              -4.084839320546563
+            ],
+            [
+              10.279965630827068,
+              3.283076029579547,
+              -4.020534701045301
+            ],
+            [
+              11.220067308583399,
+              3.3488314373762518,
+              -3.9560630986410685
+            ],
+            [
+              -1.3193366419766248,
+              0.8721155644638954,
+              -3.5263342367920414
+            ],
+            [
+              5.997810612852015,
+              0.9369457756240371,
+              -3.290004668869123
+            ],
+            [
+              6.962700116529065,
+              1.4818084574830659,
+              -3.3093094486568204
+            ],
+            [
+              8.436779180499062,
+              2.2994315600568247,
+              -3.3600590904150787
+            ],
+            [
+              9.403751455267983,
+              2.7883657075076966,
+              -3.4264048828313047
+            ],
+            [
+              10.875708017743632,
+              3.318103027203331,
+              -3.4876275602243996
+            ],
+            [
+              11.844842358117306,
+              3.432784927296414,
+              -3.5246077651729046
+            ],
+            [
+              -0.12905179641011197,
+              0.9082908532464561,
+              -2.711654425750499
+            ],
+            [
+              6.571974942153406,
+              0.946375370495539,
+              -2.8904706470124357
+            ],
+            [
+              7.608962908461493,
+              1.4469125096194042,
+              -2.834042930978384
+            ],
+            [
+              9.010092108421414,
+              2.1831018450343196,
+              -2.766983877133497
+            ],
+            [
+              10.05085993316108,
+              2.7260166205528638,
+              -2.7102354970558222
+            ],
+            [
+              11.448181041380822,
+              3.2548995694618057,
+              -2.681519860540306
+            ],
+            [
+              12.492784892815907,
+              3.336310888812815,
+              -2.6898046335156964
+            ],
+            [
+              0.5123623216889571,
+              0.8942847822572191,
+              -2.2043052077878333
+            ],
+            [
+              7.834596810048912,
+              1.1096517764607827,
+              -2.206404882831304
+            ],
+            [
+              8.785067520692504,
+              1.7086580225184536,
+              -2.267627560224399
+            ],
+            [
+              10.275257576982689,
+              2.587526368315669,
+              -2.304607765172904
+            ],
+            [
+              11.224427922396002,
+              2.9884449639181043,
+              -2.3057968724608786
+            ],
+            [
+              12.715875956531177,
+              2.5146812965783822,
+              -2.2708235332970035
+            ],
+            [
+              13.663830810043846,
+              0.34131768905826126,
+              -2.210609644601969
+            ],
+            [
+              1.1292753220139495,
+              0.8364549064491448,
+              -1.646610587354799
+            ],
+            [
+              8.448323776336725,
+              0.9548191076542557,
+              -1.4902354970558216
+            ],
+            [
+              9.391872825032324,
+              1.4486484077847237,
+              -1.461519860540305
+            ],
+            [
+              10.887919751719737,
+              2.2457454679402145,
+              -1.4698046335156958
+            ],
+            [
+              11.832298477156048,
+              2.5357808346773605,
+              -1.512502546976179
+            ],
+            [
+              1.7204075637050393,
+              0.5927196980993934,
+              -0.854488276048432
+            ],
+            [
+              2.7002293880948853,
+              0.9121156562508369,
+              -0.8550798209742897
+            ],
+            [
+              8.232796744063913,
+              0.5764490608769479,
+              -1.0846077651729051
+            ],
+            [
+              9.608233966664892,
+              1.2631673619711976,
+              -1.0857968724608797
+            ],
+            [
+              10.67074145201937,
+              1.8132910183301594,
+              -1.0508235332970046
+            ],
+            [
+              12.0502769196102,
+              1.460731798501884,
+              -0.9906096446019701
+            ],
+            [
+              2.289251590278847,
+              0.5757801641273695,
+              -0.4688951336041835
+            ],
+            [
+              3.351773033057527,
+              0.8999922404703404,
+              -0.42483932054656337
+            ],
+            [
+              8.800871289650516,
+              0.331065600242043,
+              -0.24980463351569507
+            ],
+            [
+              10.259774982099138,
+              1.0366983625685593,
+              -0.2925025469761784
+            ],
+            [
+              11.239588130186968,
+              1.3165324038315518,
+              -0.3562793806072802
+            ],
+            [
+              8.448849579452526,
+              0.5204626883880406,
+              0.14761170050168404
+            ],
+            [
+              10.156065681606856,
+              0.6452013757344851,
+              0.22939035539803052
+            ],
+            [
+              11.345165944800556,
+              0.47549043891789267,
+              0.2960404729261207
+            ],
+            [
+              10.706143962640475,
+              0.3061001262071486,
+              0.7987818657831444
+            ],
+            [
+              8.438314704671706,
+              0.5285133194898176,
+              2.0500586887432624
+            ],
+            [
+              8.183751455267984,
+              0.7638627924486879,
+              3.192961050797061
+            ],
+            [
+              5.351974942153407,
+              0.6673998610354436,
+              3.9232428740389733
+            ],
+            [
+              6.38896290846149,
+              0.614860095226152,
+              3.9851705141350102
+            ],
+            [
+              7.790092108421416,
+              0.5516209441242645,
+              4.023622997826597
+            ]
+          ],
+          "lowerLandingWorld": [
+            3.314702925262539,
+            1.25,
+            -2.3665753294096987
+          ],
+          "landingConnection": "right edge of 2.7 m deep lower landing; both path sides cut to the same physical plane",
+          "turn": [
+            6.36,
+            -0.42
+          ],
+          "walkLength": 3.614275831542332,
+          "worldRiser": 0.16895,
+          "tread": 0.29999999999999993,
+          "bankStones": 261,
+          "sourcePhotoUsedAsTexture": false
+        },
+        "hallFrame139": {
+          "revision": "scene09-deep-open-sanctuary143-return14",
+          "lowerAxes": [
+            -9.8,
+            -7.2,
+            -4.3,
+            -1.2,
+            2.1,
+            5.2,
+            7.4
+          ],
+          "upperAxes": [
+            -7.9,
+            -4.34,
+            -0.96,
+            2.1,
+            4.84,
+            7.07
+          ],
+          "upperWallZ": 3.3,
+          "upperPostZ": 5.2,
+          "sanctuary": {
+            "sideOpenings": [
+              [
+                -7.1,
+                -3.2
+              ],
+              [
+                3.05,
+                7.1
+              ]
+            ],
+            "sideLightWidth": 0.67,
+            "portalDepth": 2.25,
+            "openJambReturns": true,
+            "fullHeightLuminousWallRemoved": true
+          },
+          "returnGallery": {
+            "lowerWallX": 7.15,
+            "upperWallX": 6.85,
+            "structuralPostX": 8.1,
+            "railX": 9.1,
+            "lowerCapitalSeat": 7.93,
+            "floorBearing": 7.94,
+            "lowerCeramicNotPierced": true
+          },
+          "cream": "Narrow recessed transoms only",
+          "sillReceivers": [
+            {
+              "x": -7.2,
+              "z": 4.8,
+              "bottom": 7.759754512431759,
+              "top": 7.955
+            },
+            {
+              "x": -4.3,
+              "z": 4.8,
+              "bottom": 7.759073893582975,
+              "top": 7.955
+            },
+            {
+              "x": -1.2,
+              "z": 4.8,
+              "bottom": 7.759062697610639,
+              "top": 7.955
+            },
+            {
+              "x": 2.1,
+              "z": 4.8,
+              "bottom": 7.7590627334301,
+              "top": 7.955
+            },
+            {
+              "x": 5.2,
+              "z": 4.8,
+              "bottom": 7.759113907448998,
+              "top": 7.955
+            },
+            {
+              "x": 7.4,
+              "z": 4.8,
+              "bottom": 7.759924055625599,
+              "top": 7.955
+            }
+          ],
+          "completeLoadPath": true
+        },
+        "pagodaBank139": {
+          "revision": "scene09-pagoda-ground139",
+          "plinthContactY": 5.72,
+          "corridorFloorY": 2.8,
+          "closedTerrain": true,
+          "stones": 96,
+          "photoUsedAsSurface": false
+        },
+        "mainRoof123": [
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-open-sanctuary-annular-eave143",
+            "width": 21.3,
+            "frontDepth": 8.3,
+            "backDepth": 6.2,
+            "ridgeLeft": 5.112,
+            "ridgeRight": 5.112,
+            "innerOpening": 0.58,
+            "eave": 7.25,
+            "peak": 10.25,
+            "tiles": {
+              "cover": 6360,
+              "pan": 6290
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-open-sanctuary-hip-gable143",
+            "width": 20.09,
+            "frontDepth": 9,
+            "backDepth": 6,
+            "ridgeLeft": 6.85,
+            "ridgeRight": 5.25,
+            "innerOpening": 0,
+            "eave": 9.8,
+            "peak": 15.950000000000001,
+            "tiles": {
+              "cover": 4827,
+              "pan": 4636
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-1",
+            "width": 7.8,
+            "frontDepth": 3.9,
+            "backDepth": 3.9,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5875897435897436,
+            "eave": 2.79,
+            "peak": 4.51,
+            "tiles": {
+              "cover": 1760,
+              "pan": 1716
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-2",
+            "width": 7.34,
+            "frontDepth": 3.67,
+            "backDepth": 3.67,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5722615803814715,
+            "eave": 5.819999999999999,
+            "peak": 7.539999999999999,
+            "tiles": {
+              "cover": 1480,
+              "pan": 1440
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-3",
+            "width": 6.88,
+            "frontDepth": 3.44,
+            "backDepth": 3.44,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5548837209302325,
+            "eave": 8.85,
+            "peak": 10.57,
+            "tiles": {
+              "cover": 1400,
+              "pan": 1360
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-4",
+            "width": 6.42,
+            "frontDepth": 3.21,
+            "backDepth": 3.21,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5350155763239876,
+            "eave": 11.879999999999999,
+            "peak": 13.6,
+            "tiles": {
+              "cover": 1320,
+              "pan": 1280
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-5",
+            "width": 5.96,
+            "frontDepth": 2.98,
+            "backDepth": 2.98,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0,
+            "eave": 14.909999999999998,
+            "peak": 17.06,
+            "tiles": {
+              "cover": 1240,
+              "pan": 1200
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          }
+        ],
+        "foregroundVeranda": {
+          "slabs": 96,
+          "footprint": [
+            [
+              -2.37926,
+              -4.96895
+            ],
+            [
+              -1.92848,
+              -4.68969
+            ],
+            [
+              -1.27422,
+              -4.11369
+            ],
+            [
+              -0.66172,
+              -3.60306
+            ],
+            [
+              -0.34426,
+              -3.57257
+            ],
+            [
+              0.56272,
+              -4.27079
+            ],
+            [
+              1.95983,
+              -5.20166
+            ],
+            [
+              2.96265,
+              -6.16755
+            ],
+            [
+              3.68523,
+              2.53359
+            ],
+            [
+              -4.73321,
+              1.35893
+            ]
+          ],
+          "pondWaterlineWorld": [
+            [
+              2.95688,
+              1.45,
+              28.40753
+            ],
+            [
+              3.44192,
+              1.45,
+              28.62181
+            ],
+            [
+              4.16951,
+              1.45,
+              29.10187
+            ],
+            [
+              4.8467,
+              1.45,
+              29.523
+            ],
+            [
+              5.16533,
+              1.45,
+              29.50929
+            ],
+            [
+              5.96711,
+              1.45,
+              28.69243
+            ],
+            [
+              7.22218,
+              1.45,
+              27.57741
+            ],
+            [
+              8.08189,
+              1.45,
+              26.4822
+            ]
+          ],
+          "copingStones": 0,
+          "occupiedFloorUnderCamera": true,
+          "foundationBottomY": -0.28,
+          "wetReflection": true,
+          "surface": "Closed metric granite slabs, 25mm riven cap grid, separate cut-edge normals; IOR 1.333 view-dependent actual scene reflection",
+          "lightFalloff": "Existing modeled lanterns use inverse-square decay without distance cutoff; fixed shadow maps for near veranda lamps"
+        },
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 440054,
+        "meshes": 4498,
+        "drawCalls": 13547,
+        "triangles": 117834388,
+        "camera": {
+          "position": [
+            17,
+            8,
+            8
+          ],
+          "fov": 55
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 7,
+          "pointLights": 82
+        },
+        "reflectionEnvironment": {
+          "actualSceneCapture": true,
+          "position": [
+            1.5,
+            4.1,
+            4
+          ],
+          "resolution": 128,
+          "scope": "Static local courtyard probe; planar water and veranda use independent scene reflection captures."
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-two-bronze-pierced-hanging-lanterns-103b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "installations": [
+            {
+              "position": [
+                1,
+                7.2,
+                23.7
+              ],
+              "scale": 0.7215999999999999
+            },
+            {
+              "position": [
+                7.7,
+                7.3,
+                21.6
+              ],
+              "scale": 0.8448
+            }
+          ],
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "physicalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 85,
+            "unscaledDistance": 0,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "pagodaFinial": {
+          "revision": "scene09-slender-eleven-rim-finial143",
+          "authoredGeometry": true,
+          "photoSampled": false,
+          "visualAccepted": false,
+          "mainWheelCount": 11,
+          "wheelCountConfidence": "Eleven closely spaced modeled rims fit the slender stack; concealed fittings remain inferred",
+          "wheels": [
+            {
+              "localY": 17.91,
+              "outerRadius": 0.31823999999999997,
+              "profileHeight": 0.09258749999999993,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 18.2244375,
+              "outerRadius": 0.3096,
+              "profileHeight": 0.10911249999999995,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 18.538875,
+              "outerRadius": 0.30095999999999995,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 18.8533125,
+              "outerRadius": 0.29232,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 19.167749999999998,
+              "outerRadius": 0.28368,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 19.4821875,
+              "outerRadius": 0.27504,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 19.796625,
+              "outerRadius": 0.26639999999999997,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 20.1110625,
+              "outerRadius": 0.25776,
+              "profileHeight": 0.10911250000000061,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 20.4255,
+              "outerRadius": 0.24911999999999998,
+              "profileHeight": 0.10911250000000061,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 20.7399375,
+              "outerRadius": 0.24048,
+              "profileHeight": 0.10911249999999972,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 21.054375,
+              "outerRadius": 0.23184,
+              "profileHeight": 0.09224725274725287,
+              "airGapBetweenRims": true
+            }
+          ],
+          "closedComponents": 32,
+          "triangles": 35392,
+          "localBounds": {
+            "min": [
+              -0.3182399868965149,
+              17.041100000441073,
+              -0.3182399868965149
+            ],
+            "max": [
+              0.3182399868965149,
+              22.510000286102294,
+              0.3182399868965149
+            ]
+          },
+          "metal": {
+            "linearBaseColor": [
+              1,
+              0.766,
+              0.336
+            ],
+            "metalness": 1,
+            "roughness": 0.36,
+            "emissiveIntensity": 0,
+            "source": "https://dev.epicgames.com/documentation/en-us/unreal-engine/physically-based-materials-in-unreal-engine"
+          },
+          "uplight": {
+            "inferred": true,
+            "sourceLocal": [
+              1.55,
+              16.86,
+              2.1
+            ],
+            "targetLocal": [
+              0,
+              20.06,
+              0
+            ],
+            "worldPosition": [
+              -10.390467800384057,
+              25.040399999999998,
+              -17.353536022935756
+            ],
+            "worldTarget": [
+              -13.45,
+              28.688399999999998,
+              -17
+            ],
+            "intensity": 90,
+            "distance": 8.8,
+            "halfConeAngleRadians": 0.41,
+            "penumbra": 0.55,
+            "decay": 2,
+            "colorHex": 16765594
+          },
+          "uncertainty": "Roof landing and whole pagoda alignment retained; upper support rod count and concealed lamp are inferred",
+          "frame": {
+            "position": [
+              -13.45,
+              5.82,
+              -17
+            ],
+            "yaw": 1.05,
+            "scale": [
+              1.18,
+              1.14,
+              1.18
+            ],
+            "floor": 0.7,
+            "pitch": 3.03,
+            "roofWidth": 7.8,
+            "roofTaper": 0.46,
+            "roofSeat": 2.09,
+            "curl": 0.38,
+            "topRise": 2.15,
+            "revision": "scene09-returning-pagoda-frame143-r12",
+            "levels": [
+              {
+                "floor": 0.7,
+                "bodyWidth": 4.466,
+                "roofWidth": 7.8,
+                "roofEave": 2.79,
+                "roofRise": 1.72,
+                "innerOpening": 0.5875897435897436
+              },
+              {
+                "floor": 3.7299999999999995,
+                "bodyWidth": 4.0832,
+                "roofWidth": 7.34,
+                "roofEave": 5.819999999999999,
+                "roofRise": 1.72,
+                "innerOpening": 0.5722615803814715
+              },
+              {
+                "floor": 6.76,
+                "bodyWidth": 3.7003999999999997,
+                "roofWidth": 6.88,
+                "roofEave": 8.85,
+                "roofRise": 1.72,
+                "innerOpening": 0.5548837209302325
+              },
+              {
+                "floor": 9.79,
+                "bodyWidth": 3.3176,
+                "roofWidth": 6.42,
+                "roofEave": 11.879999999999999,
+                "roofRise": 1.72,
+                "innerOpening": 0.5350155763239876
+              },
+              {
+                "floor": 12.819999999999999,
+                "bodyWidth": 2.9348,
+                "roofWidth": 5.96,
+                "roofEave": 14.909999999999998,
+                "roofRise": 2.15,
+                "innerOpening": 0
+              }
+            ],
+            "base": 17.06,
+            "fullHeightPaperWall": false,
+            "actualReturningFaces": true
+          }
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 76,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 9,
+        "revision": "scene09-open-sanctuary-and-returning-pagoda143-r14",
+        "circulation": {
+          "plan": {
+            "hall": {
+              "position": [
+                7.7,
+                0,
+                -14
+              ],
+              "yaw": -0.64,
+              "scale": [
+                1,
+                1.17,
+                1
+              ],
+              "floor": 3.09
+            },
+            "stair": {
+              "width": 6.5,
+              "upperZ": 6.4,
+              "lowerZ": 10.6,
+              "lowerY": 1.0683760683760684,
+              "count": 14
+            },
+            "bridge": {
+              "eastX": 5.16,
+              "nearZ": 3.19,
+              "farZ": 0.01,
+              "deckY": 1.25
+            },
+            "evidence": "Authored reconstruction; exact hidden masonry is not recoverable from one image."
+          },
+          "steps": [
+            {
+              "riser": 1,
+              "localTop": 1.2127777777777777,
+              "worldTop": 1.41895,
+              "frontZ": 10.6,
+              "backZ": 10.299999999999999
+            },
+            {
+              "riser": 2,
+              "localTop": 1.357179487179487,
+              "worldTop": 1.5878999999999999,
+              "frontZ": 10.299999999999999,
+              "backZ": 10
+            },
+            {
+              "riser": 3,
+              "localTop": 1.5015811965811965,
+              "worldTop": 1.7568499999999998,
+              "frontZ": 10,
+              "backZ": 9.7
+            },
+            {
+              "riser": 4,
+              "localTop": 1.645982905982906,
+              "worldTop": 1.9258,
+              "frontZ": 9.7,
+              "backZ": 9.4
+            },
+            {
+              "riser": 5,
+              "localTop": 1.7903846153846152,
+              "worldTop": 2.09475,
+              "frontZ": 9.4,
+              "backZ": 9.1
+            },
+            {
+              "riser": 6,
+              "localTop": 1.9347863247863248,
+              "worldTop": 2.2637,
+              "frontZ": 9.1,
+              "backZ": 8.8
+            },
+            {
+              "riser": 7,
+              "localTop": 2.079188034188034,
+              "worldTop": 2.4326499999999998,
+              "frontZ": 8.8,
+              "backZ": 8.5
+            },
+            {
+              "riser": 8,
+              "localTop": 2.2235897435897436,
+              "worldTop": 2.6016,
+              "frontZ": 8.5,
+              "backZ": 8.2
+            },
+            {
+              "riser": 9,
+              "localTop": 2.367991452991453,
+              "worldTop": 2.77055,
+              "frontZ": 8.2,
+              "backZ": 7.9
+            },
+            {
+              "riser": 10,
+              "localTop": 2.5123931623931623,
+              "worldTop": 2.9395,
+              "frontZ": 7.9,
+              "backZ": 7.6000000000000005
+            },
+            {
+              "riser": 11,
+              "localTop": 2.6567948717948715,
+              "worldTop": 3.1084499999999995,
+              "frontZ": 7.6000000000000005,
+              "backZ": 7.300000000000001
+            },
+            {
+              "riser": 12,
+              "localTop": 2.8011965811965815,
+              "worldTop": 3.2774,
+              "frontZ": 7.300000000000001,
+              "backZ": 7
+            },
+            {
+              "riser": 13,
+              "localTop": 2.9455982905982907,
+              "worldTop": 3.44635,
+              "frontZ": 7,
+              "backZ": 6.700000000000001
+            },
+            {
+              "riser": 14,
+              "localTop": 3.09,
+              "worldTop": 3.6152999999999995,
+              "frontZ": 6.700000000000001,
+              "backZ": 6.4
+            }
+          ],
+          "plants": [
+            [
+              -6.1900671777986975,
+              0.468327064477792,
+              -15.047998237798602
+            ],
+            [
+              -5.249888956786089,
+              2.4521087910821664,
+              -15.099517179943579
+            ],
+            [
+              -3.7501658685386987,
+              3.336272209799238,
+              -15.119957694715962
+            ],
+            [
+              -5.5948404670959215,
+              2.3503411302538484,
+              -14.282015980763697
+            ],
+            [
+              -4.624599384611357,
+              2.997072180368089,
+              -14.270793154433328
+            ],
+            [
+              -3.1559705256956065,
+              3.387144348022288,
+              -14.296797682157404
+            ],
+            [
+              -6.831655304581895,
+              0.46579679381980743,
+              -13.879517179943578
+            ],
+            [
+              -5.8291252497462125,
+              2.047847449893631,
+              -13.899957694715962
+            ],
+            [
+              -4.390102745584617,
+              2.925156826381552,
+              -13.882936371189398
+            ],
+            [
+              -3.390660648941204,
+              3.288523436855781,
+              -13.8337688339355
+            ],
+            [
+              -1.9485846264861568,
+              3.4185712305747105,
+              -13.767809715556405
+            ],
+            [
+              -6.194428975445974,
+              1.398000546345057,
+              -13.050793154433327
+            ],
+            [
+              -5.2458749396952475,
+              1.9928432546814203,
+              -13.076797682157403
+            ],
+            [
+              -3.7538317905860628,
+              2.8322402674344676,
+              -13.131908555817636
+            ],
+            [
+              -2.8064508107332293,
+              3.192551226125905,
+              -13.198915085908345
+            ],
+            [
+              -1.3132772784879,
+              3.3304493020747,
+              -13.256891663604057
+            ],
+            [
+              -6.354650586792802,
+              1.0458407453117717,
+              -12.6629363711894
+            ],
+            [
+              -5.084130555761506,
+              1.7495296251729908,
+              -12.6137688339355
+            ],
+            [
+              -3.9170862748853854,
+              2.3274653144145483,
+              -12.547809715556406
+            ],
+            [
+              -2.6416990166018084,
+              2.840954467325591,
+              -12.485657526492895
+            ],
+            [
+              -1.4795134746078866,
+              3.2289433793162736,
+              -12.446721903301723
+            ],
+            [
+              -0.1992763464808315,
+              3.432158563386047,
+              -12.443162132834058
+            ],
+            [
+              -6.445054497128315,
+              0.4986896847571593,
+              -11.881629959888162
+            ],
+            [
+              -4.995656035070915,
+              1.2643572625594819,
+              -11.945221494352822
+            ],
+            [
+              -4.003624474199138,
+              1.8482288044341748,
+              -12.010305318297446
+            ],
+            [
+              -2.557103918691432,
+              2.635287350913422,
+              -12.056556268803021
+            ],
+            [
+              -1.562158843324925,
+              3.097041664351378,
+              -12.069530540216942
+            ],
+            [
+              -0.11858718199124983,
+              3.4370499983240186,
+              -12.045176370299977
+            ],
+            [
+              0.8793419361909548,
+              1.1467408619041737,
+              -11.991099373493908
+            ],
+            [
+              2.3198946398586973,
+              0.8003420458135116,
+              -11.924187367748543
+            ],
+            [
+              -5.790891189755366,
+              0.44920940798597275,
+              -11.327809715556405
+            ],
+            [
+              -4.430180158454505,
+              1.0520394099953114,
+              -11.265657526492895
+            ],
+            [
+              -3.348743023145785,
+              1.6452061772635942,
+              -11.226721903301723
+            ],
+            [
+              -1.9923391810780446,
+              2.437606046560023,
+              -11.223162132834057
+            ],
+            [
+              -0.906573313661688,
+              2.952788823944992,
+              -11.256089903222595
+            ],
+            [
+              0.44548059256798705,
+              3.293831053625754,
+              -11.315222132479462
+            ],
+            [
+              1.5356172587474997,
+              3.1195913719770467,
+              -11.382092293585096
+            ],
+            [
+              2.883279845728818,
+              0.9664691557066059,
+              -11.435817364668363
+            ],
+            [
+              -4.6393961781644855,
+              0.663556174584237,
+              -10.836556268803022
+            ],
+            [
+              -3.1404943157629512,
+              1.498391984261853,
+              -10.849530540216943
+            ],
+            [
+              -2.1996042604283716,
+              2.0234492892355744,
+              -10.825176370299978
+            ],
+            [
+              -0.7003081009847159,
+              2.703025541561329,
+              -10.77109937349391
+            ],
+            [
+              0.2402314068684527,
+              3.023298679187467,
+              -10.704187367748544
+            ],
+            [
+              3.4349515448158643,
+              1.9203840702694999,
+              -10.610230044690374
+            ],
+            [
+              -4.021952023638155,
+              0.45568194277426904,
+              -10.003162132834058
+            ],
+            [
+              -2.5384672375601594,
+              1.198191571058639,
+              -10.036089903222596
+            ],
+            [
+              -1.5811031960164694,
+              1.7588880005120906,
+              -10.095222132479464
+            ],
+            [
+              -0.09933664197662598,
+              2.604369439526254,
+              -10.162092293585097
+            ],
+            [
+              3.985706681083909,
+              1.8933330267285762,
+              -10.206158210076367
+            ],
+            [
+              -3.7925487816285357,
+              0.32884920019116737,
+              -9.605176370299978
+            ],
+            [
+              -2.768337089980832,
+              0.7296610188051815,
+              -9.551099373493908
+            ],
+            [
+              -1.35078474284651,
+              1.437545441925153,
+              -9.484187367748543
+            ],
+            [
+              -0.33008565108748744,
+              2.03619449316728,
+              -9.425336442684696
+            ],
+            [
+              5.353828952529271,
+              1.0877911453968838,
+              -9.532691978415583
+            ],
+            [
+              -2.1911046763951703,
+              0.6217466237325567,
+              -8.942092293585096
+            ],
+            [
+              -0.7084657922202094,
+              1.6853557982215062,
+              -8.995817364668364
+            ],
+            [
+              5.911487570389625,
+              1.8129150388965403,
+              -8.806134546806927
+            ],
+            [
+              -2.050094686948752,
+              0.4696415018339068,
+              -8.205336442684695
+            ],
+            [
+              5.731151500614622,
+              2.9396349105992012,
+              -8.406334236792041
+            ],
+            [
+              7.22868445267457,
+              0.5407823767796863,
+              -8.403962456743619
+            ],
+            [
+              7.014876230273603,
+              2.6844770421261095,
+              -7.591654425750498
+            ],
+            [
+              -3.1685846264861555,
+              0.34418211197451515,
+              -6.964946613183887
+            ],
+            [
+              7.013840585567707,
+              3.429996456037872,
+              -7.117026195660982
+            ],
+            [
+              -3.249280463826939,
+              0.491293278271325,
+              -6.579619431396332
+            ],
+            [
+              7.2285107685049645,
+              3.4070194053396037,
+              -6.462651594313443
+            ],
+            [
+              -3.861699016601808,
+              0.4783338736017177,
+              -5.730230044690373
+            ],
+            [
+              6.3454055124449384,
+              2.929598801774444,
+              -5.830444675263494
+            ],
+            [
+              7.834248201278004,
+              3.268221989323877,
+              -5.769970127952619
+            ],
+            [
+              8.78610860297117,
+              3.3478935316783875,
+              -5.734488276048431
+            ],
+            [
+              5.976755452883588,
+              2.370677625417272,
+              -5.27606765520201
+            ],
+            [
+              6.984050409218029,
+              2.847495941103398,
+              -5.331847358306804
+            ],
+            [
+              8.41513542782544,
+              3.3128355312479445,
+              -5.358943858610625
+            ],
+            [
+              9.425686972198609,
+              3.428966664842053,
+              -5.348895133604184
+            ],
+            [
+              -2.5471374297112037,
+              0.9630377600786074,
+              -4.618863253732496
+            ],
+            [
+              5.7432172392524095,
+              1.6860231221142363,
+              -4.54997012795262
+            ],
+            [
+              7.21730339592458,
+              2.5033494070502935,
+              -4.514488276048432
+            ],
+            [
+              8.182185942764422,
+              2.9868034421936,
+              -4.5150798209742895
+            ],
+            [
+              9.658314704671705,
+              3.3778281659497322,
+              -4.551560027933384
+            ],
+            [
+              -2.660098896586541,
+              0.482218010522103,
+              -3.980906243335782
+            ],
+            [
+              5.3999877163820695,
+              1.17309968434867,
+              -4.111847358306803
+            ],
+            [
+              6.340001352469135,
+              1.7407298344640627,
+              -4.138943858610625
+            ],
+            [
+              7.83999861017612,
+              2.595547510220506,
+              -4.128895133604184
+            ],
+            [
+              8.78001239567924,
+              2.96830636292605,
+              -4.084839320546563
+            ],
+            [
+              10.279965630827068,
+              3.283076029579547,
+              -4.020534701045301
+            ],
+            [
+              11.220067308583399,
+              3.3488314373762518,
+              -3.9560630986410685
+            ],
+            [
+              -1.3193366419766248,
+              0.8721155644638954,
+              -3.5263342367920414
+            ],
+            [
+              5.997810612852015,
+              0.9369457756240371,
+              -3.290004668869123
+            ],
+            [
+              6.962700116529065,
+              1.4818084574830659,
+              -3.3093094486568204
+            ],
+            [
+              8.436779180499062,
+              2.2994315600568247,
+              -3.3600590904150787
+            ],
+            [
+              9.403751455267983,
+              2.7883657075076966,
+              -3.4264048828313047
+            ],
+            [
+              10.875708017743632,
+              3.318103027203331,
+              -3.4876275602243996
+            ],
+            [
+              11.844842358117306,
+              3.432784927296414,
+              -3.5246077651729046
+            ],
+            [
+              -0.12905179641011197,
+              0.9082908532464561,
+              -2.711654425750499
+            ],
+            [
+              6.571974942153406,
+              0.946375370495539,
+              -2.8904706470124357
+            ],
+            [
+              7.608962908461493,
+              1.4469125096194042,
+              -2.834042930978384
+            ],
+            [
+              9.010092108421414,
+              2.1831018450343196,
+              -2.766983877133497
+            ],
+            [
+              10.05085993316108,
+              2.7260166205528638,
+              -2.7102354970558222
+            ],
+            [
+              11.448181041380822,
+              3.2548995694618057,
+              -2.681519860540306
+            ],
+            [
+              12.492784892815907,
+              3.336310888812815,
+              -2.6898046335156964
+            ],
+            [
+              0.5123623216889571,
+              0.8942847822572191,
+              -2.2043052077878333
+            ],
+            [
+              7.834596810048912,
+              1.1096517764607827,
+              -2.206404882831304
+            ],
+            [
+              8.785067520692504,
+              1.7086580225184536,
+              -2.267627560224399
+            ],
+            [
+              10.275257576982689,
+              2.587526368315669,
+              -2.304607765172904
+            ],
+            [
+              11.224427922396002,
+              2.9884449639181043,
+              -2.3057968724608786
+            ],
+            [
+              12.715875956531177,
+              2.5146812965783822,
+              -2.2708235332970035
+            ],
+            [
+              13.663830810043846,
+              0.34131768905826126,
+              -2.210609644601969
+            ],
+            [
+              1.1292753220139495,
+              0.8364549064491448,
+              -1.646610587354799
+            ],
+            [
+              8.448323776336725,
+              0.9548191076542557,
+              -1.4902354970558216
+            ],
+            [
+              9.391872825032324,
+              1.4486484077847237,
+              -1.461519860540305
+            ],
+            [
+              10.887919751719737,
+              2.2457454679402145,
+              -1.4698046335156958
+            ],
+            [
+              11.832298477156048,
+              2.5357808346773605,
+              -1.512502546976179
+            ],
+            [
+              1.7204075637050393,
+              0.5927196980993934,
+              -0.854488276048432
+            ],
+            [
+              2.7002293880948853,
+              0.9121156562508369,
+              -0.8550798209742897
+            ],
+            [
+              8.232796744063913,
+              0.5764490608769479,
+              -1.0846077651729051
+            ],
+            [
+              9.608233966664892,
+              1.2631673619711976,
+              -1.0857968724608797
+            ],
+            [
+              10.67074145201937,
+              1.8132910183301594,
+              -1.0508235332970046
+            ],
+            [
+              12.0502769196102,
+              1.460731798501884,
+              -0.9906096446019701
+            ],
+            [
+              2.289251590278847,
+              0.5757801641273695,
+              -0.4688951336041835
+            ],
+            [
+              3.351773033057527,
+              0.8999922404703404,
+              -0.42483932054656337
+            ],
+            [
+              8.800871289650516,
+              0.331065600242043,
+              -0.24980463351569507
+            ],
+            [
+              10.259774982099138,
+              1.0366983625685593,
+              -0.2925025469761784
+            ],
+            [
+              11.239588130186968,
+              1.3165324038315518,
+              -0.3562793806072802
+            ],
+            [
+              8.448849579452526,
+              0.5204626883880406,
+              0.14761170050168404
+            ],
+            [
+              10.156065681606856,
+              0.6452013757344851,
+              0.22939035539803052
+            ],
+            [
+              11.345165944800556,
+              0.47549043891789267,
+              0.2960404729261207
+            ],
+            [
+              10.706143962640475,
+              0.3061001262071486,
+              0.7987818657831444
+            ],
+            [
+              8.438314704671706,
+              0.5285133194898176,
+              2.0500586887432624
+            ],
+            [
+              8.183751455267984,
+              0.7638627924486879,
+              3.192961050797061
+            ],
+            [
+              5.351974942153407,
+              0.6673998610354436,
+              3.9232428740389733
+            ],
+            [
+              6.38896290846149,
+              0.614860095226152,
+              3.9851705141350102
+            ],
+            [
+              7.790092108421416,
+              0.5516209441242645,
+              4.023622997826597
+            ]
+          ],
+          "lowerLandingWorld": [
+            3.314702925262539,
+            1.25,
+            -2.3665753294096987
+          ],
+          "landingConnection": "right edge of 2.7 m deep lower landing; both path sides cut to the same physical plane",
+          "turn": [
+            6.36,
+            -0.42
+          ],
+          "walkLength": 3.614275831542332,
+          "worldRiser": 0.16895,
+          "tread": 0.29999999999999993,
+          "bankStones": 261,
+          "sourcePhotoUsedAsTexture": false
+        },
+        "hallFrame139": {
+          "revision": "scene09-deep-open-sanctuary143-return14",
+          "lowerAxes": [
+            -9.8,
+            -7.2,
+            -4.3,
+            -1.2,
+            2.1,
+            5.2,
+            7.4
+          ],
+          "upperAxes": [
+            -7.9,
+            -4.34,
+            -0.96,
+            2.1,
+            4.84,
+            7.07
+          ],
+          "upperWallZ": 3.3,
+          "upperPostZ": 5.2,
+          "sanctuary": {
+            "sideOpenings": [
+              [
+                -7.1,
+                -3.2
+              ],
+              [
+                3.05,
+                7.1
+              ]
+            ],
+            "sideLightWidth": 0.67,
+            "portalDepth": 2.25,
+            "openJambReturns": true,
+            "fullHeightLuminousWallRemoved": true
+          },
+          "returnGallery": {
+            "lowerWallX": 7.15,
+            "upperWallX": 6.85,
+            "structuralPostX": 8.1,
+            "railX": 9.1,
+            "lowerCapitalSeat": 7.93,
+            "floorBearing": 7.94,
+            "lowerCeramicNotPierced": true
+          },
+          "cream": "Narrow recessed transoms only",
+          "sillReceivers": [
+            {
+              "x": -7.2,
+              "z": 4.8,
+              "bottom": 7.759754512431759,
+              "top": 7.955
+            },
+            {
+              "x": -4.3,
+              "z": 4.8,
+              "bottom": 7.759073893582975,
+              "top": 7.955
+            },
+            {
+              "x": -1.2,
+              "z": 4.8,
+              "bottom": 7.759062697610639,
+              "top": 7.955
+            },
+            {
+              "x": 2.1,
+              "z": 4.8,
+              "bottom": 7.7590627334301,
+              "top": 7.955
+            },
+            {
+              "x": 5.2,
+              "z": 4.8,
+              "bottom": 7.759113907448998,
+              "top": 7.955
+            },
+            {
+              "x": 7.4,
+              "z": 4.8,
+              "bottom": 7.759924055625599,
+              "top": 7.955
+            }
+          ],
+          "completeLoadPath": true
+        },
+        "pagodaBank139": {
+          "revision": "scene09-pagoda-ground139",
+          "plinthContactY": 5.72,
+          "corridorFloorY": 2.8,
+          "closedTerrain": true,
+          "stones": 96,
+          "photoUsedAsSurface": false
+        },
+        "mainRoof123": [
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-open-sanctuary-annular-eave143",
+            "width": 21.3,
+            "frontDepth": 8.3,
+            "backDepth": 6.2,
+            "ridgeLeft": 5.112,
+            "ridgeRight": 5.112,
+            "innerOpening": 0.58,
+            "eave": 7.25,
+            "peak": 10.25,
+            "tiles": {
+              "cover": 6360,
+              "pan": 6290
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-open-sanctuary-hip-gable143",
+            "width": 20.09,
+            "frontDepth": 9,
+            "backDepth": 6,
+            "ridgeLeft": 6.85,
+            "ridgeRight": 5.25,
+            "innerOpening": 0,
+            "eave": 9.8,
+            "peak": 15.950000000000001,
+            "tiles": {
+              "cover": 4827,
+              "pan": 4636
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-1",
+            "width": 7.8,
+            "frontDepth": 3.9,
+            "backDepth": 3.9,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5875897435897436,
+            "eave": 2.79,
+            "peak": 4.51,
+            "tiles": {
+              "cover": 1760,
+              "pan": 1716
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-2",
+            "width": 7.34,
+            "frontDepth": 3.67,
+            "backDepth": 3.67,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5722615803814715,
+            "eave": 5.819999999999999,
+            "peak": 7.539999999999999,
+            "tiles": {
+              "cover": 1480,
+              "pan": 1440
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-3",
+            "width": 6.88,
+            "frontDepth": 3.44,
+            "backDepth": 3.44,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5548837209302325,
+            "eave": 8.85,
+            "peak": 10.57,
+            "tiles": {
+              "cover": 1400,
+              "pan": 1360
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-4",
+            "width": 6.42,
+            "frontDepth": 3.21,
+            "backDepth": 3.21,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0.5350155763239876,
+            "eave": 11.879999999999999,
+            "peak": 13.6,
+            "tiles": {
+              "cover": 1320,
+              "pan": 1280
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          },
+          {
+            "revision": "scene09-closed-main-roofs-123",
+            "label": "scene09-returning-pagoda-roof143-5",
+            "width": 5.96,
+            "frontDepth": 2.98,
+            "backDepth": 2.98,
+            "ridgeLeft": 0,
+            "ridgeRight": 0,
+            "innerOpening": 0,
+            "eave": 14.909999999999998,
+            "peak": 17.06,
+            "tiles": {
+              "cover": 1240,
+              "pan": 1200
+            },
+            "construction": "Closed curved bedding; individual closed pan/cover courses; closed fascia, purlins, twin capped rafters, seated receiver beams; solid gable truss and ridge ornaments."
+          }
+        ],
+        "foregroundVeranda": {
+          "slabs": 96,
+          "footprint": [
+            [
+              -2.37926,
+              -4.96895
+            ],
+            [
+              -1.92848,
+              -4.68969
+            ],
+            [
+              -1.27422,
+              -4.11369
+            ],
+            [
+              -0.66172,
+              -3.60306
+            ],
+            [
+              -0.34426,
+              -3.57257
+            ],
+            [
+              0.56272,
+              -4.27079
+            ],
+            [
+              1.95983,
+              -5.20166
+            ],
+            [
+              2.96265,
+              -6.16755
+            ],
+            [
+              3.68523,
+              2.53359
+            ],
+            [
+              -4.73321,
+              1.35893
+            ]
+          ],
+          "pondWaterlineWorld": [
+            [
+              2.95688,
+              1.45,
+              28.40753
+            ],
+            [
+              3.44192,
+              1.45,
+              28.62181
+            ],
+            [
+              4.16951,
+              1.45,
+              29.10187
+            ],
+            [
+              4.8467,
+              1.45,
+              29.523
+            ],
+            [
+              5.16533,
+              1.45,
+              29.50929
+            ],
+            [
+              5.96711,
+              1.45,
+              28.69243
+            ],
+            [
+              7.22218,
+              1.45,
+              27.57741
+            ],
+            [
+              8.08189,
+              1.45,
+              26.4822
+            ]
+          ],
+          "copingStones": 0,
+          "occupiedFloorUnderCamera": true,
+          "foundationBottomY": -0.28,
+          "wetReflection": true,
+          "surface": "Closed metric granite slabs, 25mm riven cap grid, separate cut-edge normals; IOR 1.333 view-dependent actual scene reflection",
+          "lightFalloff": "Existing modeled lanterns use inverse-square decay without distance cutoff; fixed shadow maps for near veranda lamps"
+        },
+        "width": 1254,
+        "height": 1254,
+        "frames": 1,
+        "instances": 440054,
+        "meshes": 4498,
+        "drawCalls": 13547,
+        "triangles": 117834388,
+        "camera": {
+          "position": [
+            17,
+            8,
+            8
+          ],
+          "fov": 55
+        },
+        "diagnostics": {
+          "shaderErrors": [],
+          "glError": 0,
+          "maxTextureUnits": 16,
+          "shadowCastingLights": 7,
+          "pointLights": 82
+        },
+        "reflectionEnvironment": {
+          "actualSceneCapture": true,
+          "position": [
+            1.5,
+            4.1,
+            4
+          ],
+          "resolution": 128,
+          "scope": "Static local courtyard probe; planar water and veranda use independent scene reflection captures."
+        },
+        "fixtureRevision": "scene09-stone-fixtures-and-local-light-70",
+        "heroHangingLantern": {
+          "revision": "scene09-two-bronze-pierced-hanging-lanterns-103b",
+          "anchor": [
+            7.7,
+            7.3,
+            21.6
+          ],
+          "assemblyScale": 1.1880000000000002,
+          "installations": [
+            {
+              "position": [
+                1,
+                7.2,
+                23.7
+              ],
+              "scale": 0.7215999999999999
+            },
+            {
+              "position": [
+                7.7,
+                7.3,
+                21.6
+              ],
+              "scale": 0.8448
+            }
+          ],
+          "localBounds": {
+            "min": [
+              -0.41100001335144043,
+              -0.9399999976158142,
+              -0.41100001335144043
+            ],
+            "max": [
+              0.41100001335144043,
+              1.4249999523162842,
+              0.41100001335144043
+            ]
+          },
+          "triangles": 35460,
+          "closedMetalComponents": 187,
+          "metalMeshes": 2,
+          "originalPaperSheets": 4,
+          "physicalLight": {
+            "color": 16765851,
+            "unscaledIntensity": 85,
+            "unscaledDistance": 0,
+            "decay": 2
+          },
+          "photoSampled": false,
+          "visualAccepted": false
+        },
+        "pagodaFinial": {
+          "revision": "scene09-slender-eleven-rim-finial143",
+          "authoredGeometry": true,
+          "photoSampled": false,
+          "visualAccepted": false,
+          "mainWheelCount": 11,
+          "wheelCountConfidence": "Eleven closely spaced modeled rims fit the slender stack; concealed fittings remain inferred",
+          "wheels": [
+            {
+              "localY": 17.91,
+              "outerRadius": 0.31823999999999997,
+              "profileHeight": 0.09258749999999993,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 18.2244375,
+              "outerRadius": 0.3096,
+              "profileHeight": 0.10911249999999995,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 18.538875,
+              "outerRadius": 0.30095999999999995,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 18.8533125,
+              "outerRadius": 0.29232,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 19.167749999999998,
+              "outerRadius": 0.28368,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 19.4821875,
+              "outerRadius": 0.27504,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 19.796625,
+              "outerRadius": 0.26639999999999997,
+              "profileHeight": 0.10911250000000017,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 20.1110625,
+              "outerRadius": 0.25776,
+              "profileHeight": 0.10911250000000061,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 20.4255,
+              "outerRadius": 0.24911999999999998,
+              "profileHeight": 0.10911250000000061,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 20.7399375,
+              "outerRadius": 0.24048,
+              "profileHeight": 0.10911249999999972,
+              "airGapBetweenRims": true
+            },
+            {
+              "localY": 21.054375,
+              "outerRadius": 0.23184,
+              "profileHeight": 0.09224725274725287,
+              "airGapBetweenRims": true
+            }
+          ],
+          "closedComponents": 32,
+          "triangles": 35392,
+          "localBounds": {
+            "min": [
+              -0.3182399868965149,
+              17.041100000441073,
+              -0.3182399868965149
+            ],
+            "max": [
+              0.3182399868965149,
+              22.510000286102294,
+              0.3182399868965149
+            ]
+          },
+          "metal": {
+            "linearBaseColor": [
+              1,
+              0.766,
+              0.336
+            ],
+            "metalness": 1,
+            "roughness": 0.36,
+            "emissiveIntensity": 0,
+            "source": "https://dev.epicgames.com/documentation/en-us/unreal-engine/physically-based-materials-in-unreal-engine"
+          },
+          "uplight": {
+            "inferred": true,
+            "sourceLocal": [
+              1.55,
+              16.86,
+              2.1
+            ],
+            "targetLocal": [
+              0,
+              20.06,
+              0
+            ],
+            "worldPosition": [
+              -10.390467800384057,
+              25.040399999999998,
+              -17.353536022935756
+            ],
+            "worldTarget": [
+              -13.45,
+              28.688399999999998,
+              -17
+            ],
+            "intensity": 90,
+            "distance": 8.8,
+            "halfConeAngleRadians": 0.41,
+            "penumbra": 0.55,
+            "decay": 2,
+            "colorHex": 16765594
+          },
+          "uncertainty": "Roof landing and whole pagoda alignment retained; upper support rod count and concealed lamp are inferred",
+          "frame": {
+            "position": [
+              -13.45,
+              5.82,
+              -17
+            ],
+            "yaw": 1.05,
+            "scale": [
+              1.18,
+              1.14,
+              1.18
+            ],
+            "floor": 0.7,
+            "pitch": 3.03,
+            "roofWidth": 7.8,
+            "roofTaper": 0.46,
+            "roofSeat": 2.09,
+            "curl": 0.38,
+            "topRise": 2.15,
+            "revision": "scene09-returning-pagoda-frame143-r12",
+            "levels": [
+              {
+                "floor": 0.7,
+                "bodyWidth": 4.466,
+                "roofWidth": 7.8,
+                "roofEave": 2.79,
+                "roofRise": 1.72,
+                "innerOpening": 0.5875897435897436
+              },
+              {
+                "floor": 3.7299999999999995,
+                "bodyWidth": 4.0832,
+                "roofWidth": 7.34,
+                "roofEave": 5.819999999999999,
+                "roofRise": 1.72,
+                "innerOpening": 0.5722615803814715
+              },
+              {
+                "floor": 6.76,
+                "bodyWidth": 3.7003999999999997,
+                "roofWidth": 6.88,
+                "roofEave": 8.85,
+                "roofRise": 1.72,
+                "innerOpening": 0.5548837209302325
+              },
+              {
+                "floor": 9.79,
+                "bodyWidth": 3.3176,
+                "roofWidth": 6.42,
+                "roofEave": 11.879999999999999,
+                "roofRise": 1.72,
+                "innerOpening": 0.5350155763239876
+              },
+              {
+                "floor": 12.819999999999999,
+                "bodyWidth": 2.9348,
+                "roofWidth": 5.96,
+                "roofEave": 14.909999999999998,
+                "roofRise": 2.15,
+                "innerOpening": 0
+              }
+            ],
+            "base": 17.06,
+            "fullHeightPaperWall": false,
+            "actualReturningFaces": true
+          }
+        },
+        "bridgeCoating": {
+          "revision": "scene09-bridge-shared-roughness-74",
+          "image": "reconstructions/scene-09/assets/bridge-coating-roughness-2k.png",
+          "formula": "roughness = 0.50 + 0.20 * originalScanG",
+          "factor": 1,
+          "scope": "Three bridge coatings only; source albedo/colors/normals/metalness/IOR/lights/exposure retained"
+        },
+        "scannedMaterials": {
+          "timber": "Poly Haven lacquered_cherry_wood, CC0-1.0",
+          "stone": "Poly Haven rock_moss_set_01, Kless Gyzen, CC0-1.0",
+          "cutStoneTextureProcessing": {
+            "sourceAtlasPixels": [
+              1696,
+              768,
+              544,
+              544
+            ],
+            "neutralizedAlbedo": true,
+            "size": 512
+          },
+          "scenePhotoSampled": false
+        },
+        "fixtureLocalLights": 76,
+        "constraints": {
+          "assets": "Authored solid architectural fixtures with declared existing CC0 Poly Haven timber and stone scans; no reference-photo surface or view texture",
+          "animation": "explicit renderShot only; no RAF"
+        }
+      },
+      "name": "inspection-view",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9899975580534633,
+      "opaqueFraction": 0.9324846297271379,
+      "rgbaSha256": "d775ecefbf72203498918b2b8c383994aba4364185df60d77dadda708855b91e"
+    }
+  ],
+  "completedAt": "2026-10-21T10:57:06.102Z"
+}
