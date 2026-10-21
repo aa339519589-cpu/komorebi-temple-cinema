@@ -115,3 +115,23 @@ export function createClayCoverTile(){
  }
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return g;
 }
+
+ // A shallow concave pan between adjacent half-round covers. Both skins,
+ // sides and cut ends are closed; scene scale gives14mm ceramic thickness.
+ export function createClayPanTile(){
+  const p=[],uv=[],ix=[],N=14,L=5,row=(N+1)*(L+1);
+  for(let skin=0;skin<2;skin++)for(let j=0;j<=L;j++)for(let i=0;i<=N;i++){
+   const x=-1+2*i/N,y=.18*x*x-skin*.12;p.push(x,y,j/L-.5);uv.push(i/N,j/L);
+  }
+  for(let skin=0;skin<2;skin++)for(let j=0;j<L;j++)for(let i=0;i<N;i++){
+   const a=skin*row+j*(N+1)+i,b=a+1,c=a+N+1,d=c+1;
+   if(!skin)ix.push(a,c,b,b,c,d);else ix.push(a,b,c,b,d,c);
+  }
+  for(const j of[0,L])for(let i=0;i<N;i++){
+   const a=j*(N+1)+i,b=a+1,c=a+row,d=b+row;if(!j)ix.push(a,b,c,b,d,c);else ix.push(a,c,b,b,c,d);
+  }
+  for(const i of[0,N])for(let j=0;j<L;j++){
+   const a=j*(N+1)+i,b=a+N+1,c=a+row,d=b+row;if(!i)ix.push(a,c,b,b,c,d);else ix.push(a,b,c,b,d,c);
+  }
+  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return g;
+ }

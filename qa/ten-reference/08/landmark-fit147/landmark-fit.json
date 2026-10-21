@@ -1,0 +1,175 @@
+{
+  "reference": "references/hd/7-照片-8.jpg",
+  "coordinateSystem": "1254square top-left pixels",
+  "status": "Manual coupled physical landmark fit, not a camera-space deformation or recovered survey. Source landmarks are approximate human estimates from the photograph; no numerical acceptance threshold is claimed.",
+  "camera": {
+    "position": [
+      0,
+      1.78,
+      13
+    ],
+    "target": [
+      0,
+      6.1,
+      -9
+    ],
+    "fov": 49
+  },
+  "beforeFrame": {
+    "x": -4.3,
+    "z": -7.5,
+    "yaw": -0.28,
+    "w": 9,
+    "d": 6,
+    "floor": 4.4,
+    "lintel": 8.15,
+    "eave": 10.15,
+    "rise": 3.5
+  },
+  "afterFrame": {
+    "x": -3.954,
+    "z": -8.701,
+    "yaw": -0.28,
+    "w": 9.3,
+    "d": 8.5,
+    "floor": 4.4,
+    "lintel": 8.55,
+    "eave": 10.15,
+    "rise": 3.85
+  },
+  "bodyAfter": {
+    "centerLocal": [
+      -0.4,
+      0,
+      0.6
+    ],
+    "width": 3.5,
+    "depth": 4.4
+  },
+  "points": [
+    {
+      "label": "near main eave corner, before horn",
+      "observedApprox": [
+        574,
+        197
+      ],
+      "before": {
+        "world": [
+          -0.8043174732938718,
+          10.6,
+          -3.3732332665291755
+        ],
+        "pixel": [
+          564.7120362461048,
+          201.07965214384788
+        ]
+      },
+      "after": {
+        "world": [
+          -0.659603718252399,
+          10.6,
+          -3.3314606213560953
+        ],
+        "pixel": [
+          575.800832758002,
+          199.46992041805004
+        ]
+      },
+      "beforeErrorPixels": 10.144448349145101,
+      "afterErrorPixels": 3.0567148204884225
+    },
+    {
+      "label": "far end of receding main eave, before horn",
+      "observedApprox": [
+        714,
+        422
+      ],
+      "before": {
+        "world": [
+          0.853816418090811,
+          10.6,
+          -9.139565896393801
+        ],
+        "pixel": [
+          677.1491904497525,
+          369.2234453178769
+        ]
+      },
+      "after": {
+        "world": [
+          1.6894192945425686,
+          10.6,
+          -11.500431846997648
+        ],
+        "pixel": [
+          717.2982036708095,
+          416.7369984785481
+        ]
+      },
+      "beforeErrorPixels": 64.36883476204726,
+      "afterErrorPixels": 6.211065324801044
+    },
+    {
+      "label": "near facade corner column lintel datum",
+      "observedApprox": [
+        390,
+        410
+      ],
+      "before": {
+        "world": [
+          -2.5317415295878085,
+          8.15,
+          -5.326693307005305
+        ],
+        "pixel": [
+          445.68218162792493,
+          432.2444931387271
+        ]
+      },
+      "after": {
+        "world": [
+          -3.430370974259978,
+          8.55,
+          -5.636964647168289
+        ],
+        "pixel": [
+          386.10848876705717,
+          412.67243077996335
+        ]
+      },
+      "beforeErrorPixels": 59.961010880772335,
+      "afterErrorPixels": 4.720778108513019
+    },
+    {
+      "label": "same corner column floor datum",
+      "observedApprox": [
+        385,
+        700
+      ],
+      "before": {
+        "world": [
+          -2.5317415295878085,
+          4.4,
+          -5.326693307005305
+        ],
+        "pixel": [
+          438.59579176059543,
+          698.4666770811652
+        ]
+      },
+      "after": {
+        "world": [
+          -3.430370974259978,
+          4.4,
+          -5.636964647168289
+        ],
+        "pixel": [
+          375.8583608738611,
+          701.6857315923096
+        ]
+      },
+      "beforeErrorPixels": 53.617720705178556,
+      "afterErrorPixels": 9.295765536730377
+    }
+  ]
+}

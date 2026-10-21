@@ -1,0 +1,120 @@
+{
+  "revision": "scene08-solmax-calibrated-bearing-court147-r17-20261021",
+  "scope": "Actual Three.js geometry/material/light reconstruction checkpoint. Draft, visualAccepted false.",
+  "reference": {
+    "file": "references/hd/7-照片-8.jpg",
+    "sha256": "798dd84173dff9d39fa4b3e229e95db4ca56b5b267d1f7f8c206c1248ee7f1d2",
+    "use": "Comparison and approximate landmark observation only. No reference pixels sampled by runtime scene materials, sky, backdrop or projection.",
+    "singleViewDepthsInferred": true
+  },
+  "sources": {
+    "scene": "src/scene.js",
+    "botany": "src/courtyard-botany147.js",
+    "relief": "src/courtyard-relief147.js",
+    "stones": "src/courtyard-stones147.js",
+    "radiance": "src/courtyard-radiance147.js",
+    "closedJoineryAndTiles": "src/gallery-joinery.js"
+  },
+  "assets": [
+    {
+      "id": "Poly Haven Shrub02",
+      "files": "assets/polyhaven/shrub-02",
+      "source": "https://polyhaven.com/a/shrub_02",
+      "license": "CC0-1.0",
+      "use": "Original unchanged4K mesh/PBR source retained in asset manifest; sparse whole-plant trial rejected inR11. The held dense shrub canopy uses supported derived broadleaf geometry instead."
+    },
+    {
+      "id": "Poly Haven Periwinkle Plant",
+      "files": "assets/polyhaven/periwinkle-plant",
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "license": "CC0-1.0",
+      "use": "Original unchanged4K meshes/PBR. Complete rooted plants at soil level. Derived green blades from first variant discovered by welding coincident physical vertices at1e-6m for component discovery; all original position/normal/uv/uv1/color/color_1 values and triangle topology retained in each selected blade. Runtime clones are rooted on actual modeled woody twigs. This is authored botanical kitbashing, not a claim of recovered plant species."
+    },
+    {
+      "id": "Poly Haven Rock Moss Set01",
+      "files": "assets/polyhaven/rock-moss-set-01",
+      "source": "https://polyhaven.com/a/rock_moss_set_01",
+      "license": "CC0-1.0",
+      "use": "Original unchanged4K geometry and PBR cloned at runtime for27 hero garden stones. Uniform scale constrained by both requested width and height; no anisotropic stretching. Authored wet/damp albedo multiplier linearRGB[.27,.30,.285]."
+    },
+    {
+      "id": "Poly Haven Kloppenheim06 Pure Sky",
+      "files": "assets/polyhaven/kloppenheim-06-puresky",
+      "source": "https://polyhaven.com/a/kloppenheim_06_puresky",
+      "license": "CC0-1.0",
+      "use": "Original measured2K EXR. Bright solar centroid aligned in full azimuth/elevation to actual existing Scene08 sun; source direction, target and exact Euler retained in native report. PMREM environmentIntensity.32, explicit camera-sky linear gain.55; world-direction lookup and per-camera sphere recentering remove translation parallax. No flat recolored gradient or image plate."
+    },
+    {
+      "id": "Poly Haven Lacquered Cherry Wood",
+      "files": "reconstructions/scene-08/assets/timber",
+      "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+      "license": "CC0-1.0",
+      "use": "Original unchanged1m physical PBR tile. Measured linear diffuse mean.015051207361250781. Painted timber uses scalar grain clamp(pow(luminance/mean,.38),.72,1.32) around authored pigment; original normal and remapped weathered roughness retained. This avoids double-darkening the painted structure."
+    },
+    {
+      "id": "Poly Haven Granite Tile04",
+      "files": "reconstructions/scene-08/assets/granite",
+      "license": "CC0-1.0",
+      "use": "Existing declared single granite face scans retained on authored stone surfaces. No source photo grout or temple pixels."
+    }
+  ],
+  "authoredGeometry": {
+    "hall": "Roof frame9.3x8.5m at[-3.954,0,-8.701], yaw-.28. Body3.5x4.4m offset[-.4,0,.6], floor4.4, lintel8.55, eave10.15. Near eave corner retained while longer right return and offset front post fit approximate observed landmarks together. See QA landmark-fit147/measure.mjs and landmark-fit.json.",
+    "joinery": "One complete closed housed bracket hierarchy per actual post, spreading receiver rings and continuous curved supporting timbers replace three overlapping full kits. Recessed dark lintel beds carry closed scrolling stems and bevelled cast gilt leaves.",
+    "roof": "Actual hollow half-round cover tiles and closed concave ceramic pans, roof underside and edge thickness, continuous curved rafters and smaller transverse battens. Glazed material has clearcoat.24/roughness.38.",
+    "connections": "Six closed75mm risers span the newly offset hall body to the existing gallery deck. Main near railing now meets its return at one1.25m datum. Right gate jamb and pagoda sorin fit changed as physical geometry.",
+    "ground": "Actual raised west-bank terrain meets the hall foundation; rooted layered bushes/understory stand on terrain. Hall footprint excludes added shrubs/understory. Uniform scaled hero stones key into actual bank.",
+    "foliage": "Whole scanned green blades follow closed woody branches/twigs at varied levels and angles, not clipped ellipsoid crown shells. All component derivation, UVs, vertexRGBA and transforms remain public source."
+  },
+  "camera": {
+    "position": [
+      0,
+      1.78,
+      13
+    ],
+    "target": [
+      0,
+      6.1,
+      -9
+    ],
+    "fov": 49,
+    "changed": false
+  },
+  "lighting": {
+    "sunPosition": [
+      -30,
+      22,
+      18
+    ],
+    "sunTarget": [
+      0,
+      4,
+      -7
+    ],
+    "sunIntensity": 6.5,
+    "sunColor": "#ffd092",
+    "sunChanged": false,
+    "hemisphere": 0.48,
+    "ambient": 0.04,
+    "eaveBounce": 0.42,
+    "exposure": 1.1,
+    "toneMapping": "Existing ACES physical camera pass"
+  },
+  "reflection": "The main detail render retains its genuine setViewOffset. Only the independent Reflector capture temporarily uses the complete physical projection, restored in finally; reflection UVs therefore reference the complete scene.",
+  "generatedImagesUsed": false,
+  "priorCandidates": {
+    "r11": "Sparse raw botanical morphology rejected; full/detail and source archive retained.",
+    "r12": "Whole periwinkle grafts too flowery/sparse; retained.",
+    "r13": "Leaf extraction split at glTF seams; retained.",
+    "r14": "Missing source vertexRGBA/UV1 made leaves black; retained.",
+    "r15": "All attributes corrected; lower crown and stones still approximate, retained.",
+    "r16": "Denser lower forks, understorey and scanned granite, retained before final specific paint/stone/connection calibration."
+  },
+  "visualAccepted": false,
+  "limitations": [
+    "Reference likeness remains incomplete; geometric/ornamental simplification, light balance, foliage maturity and bank density still differ.",
+    "Physical hidden depths and species/stone placement are inferred from a single image.",
+    "Native shader/pixel validity is technical evidence and does not establish photographic fidelity.",
+    "The source and queued native evidence are a reconstruction checkpoint, not a completed film."
+  ]
+}

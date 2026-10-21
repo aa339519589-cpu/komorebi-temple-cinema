@@ -1,9 +1,37 @@
 {
   "files": [
+    "assets/polyhaven/kloppenheim-06-puresky/provenance.json",
+    "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/shrub-02/provider-files.json",
+    "assets/polyhaven/shrub-02/provider-info.json",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
     "reconstructions/camera-dolly.js"
   ],
   "runtimeImages": [],
-  "runtimeModels": [],
+  "runtimeModels": [
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf"
+  ],
   "runtimeTextures": [
     "reconstructions/scene-08/assets/timber/diffuse-2k.jpg",
     "reconstructions/scene-08/assets/timber/normal-gl-2k.png",
@@ -12,5 +40,18 @@
     "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png",
     "reconstructions/scene-08/assets/granite/granite-face-rough.png"
   ],
-  "construction": "Authored Three.js solid architecture, ceramic rolls, cast metal details, terrain, rocks and instanced foliage. Six declared CC0 PBR scans supply timber/granite surface detail. No reference photograph or replacement scene image is sampled."
+  "construction": "Authored physical Scene08 courtyard with coupled hall/body/cornice geometry, closed gilt relief and original CC0 rooted shrub/groundcover variants. Reference photograph stays comparison-only. Native subfrustum retains complete reflection projection.",
+  "radiance": {
+    "asset": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+    "provider": "Poly Haven",
+    "license": "CC0-1.0",
+    "scope": "Measured linear sky radiance, solar centroid aligned in full azimuth/elevation to actual Scene08 directional light; separate calibrated PMREM environment. No recolored flat gradient."
+  },
+  "checkpoint147": {
+    "revision": "scene08-solmax-calibrated-bearing-court147-r17-20261021",
+    "provenance": "assets/courtyard147-provenance.json",
+    "referenceSceneRGBUsed": false,
+    "generatedReplacementFrameUsed": false,
+    "visualAccepted": false
+  }
 }

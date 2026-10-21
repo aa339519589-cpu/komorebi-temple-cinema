@@ -1,0 +1,783 @@
+{
+  "reference": 8,
+  "entry": "reconstructions/scene-08/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-21T09:52:43.926Z",
+  "source": {
+    "hash": "775b3faa6ce3ee8b5f92ce05ae1a99e090d7a6a2d164794d5c8f8194d57c6328",
+    "files": {
+      "assets/polyhaven/kloppenheim-06-puresky/provenance.json": "a85657e8f5f5104be09731fb58c392e9bbe062431c9c3de555e446264afb7153",
+      "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr": "5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063",
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+      "assets/polyhaven/periwinkle-plant/provenance.json": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+      "assets/polyhaven/periwinkle-plant/provider-files.json": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+      "assets/polyhaven/periwinkle-plant/provider-info.json": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "assets/polyhaven/shrub-02/provenance.json": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+      "assets/polyhaven/shrub-02/provider-files.json": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+      "assets/polyhaven/shrub-02/provider-info.json": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+      "assets/polyhaven/shrub-02/shrub_02.bin": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+      "assets/polyhaven/shrub-02/shrub_02_4k.gltf": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+      "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+      "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+      "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-08/asset-dependencies.json": "406d9b296a0727111d4fa7d4d8c9ea8d764236a3364250a30d6b784d630c8ae4",
+      "reconstructions/scene-08/assets/courtyard147-provenance.json": "5a60496aa887790bd433f494026fd3437c6fa3f08d23a27c8786d99aea0b1092",
+      "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json": "e2bbe36fc8955a2177e7387ffb24d450417aec5271a680dceec64c5b81e83f26",
+      "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json": "e3c6bab6f20acbb0263ad4317537763f18d87f92c991ef0b94399fd672fc64a7",
+      "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+      "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json": "15992a312377a3a0a607607db41d3c63f5544ee3bccca1ee55a7b14ec28ee49e",
+      "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json": "a302e66df3e6497b08e8674b1cb0273ec3cfe7b67ee3110e8ae664fcd7c289ca",
+      "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json": "c9928fa7dd96025c03e9ff82591726cfb159c1d44f2665d850d25c3aa1a71589",
+      "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+      "reconstructions/scene-08/assets/granite/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-08/assets/granite/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-08/assets/granite/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-08/assets/material-use-20261021.json": "19c03ef609df72ec978ef46dcdff6ab2629914e9741baff9e90213f800824dfd",
+      "reconstructions/scene-08/assets/timber/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "reconstructions/scene-08/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-08/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-08/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-08/index.html": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+      "reconstructions/scene-08/src/courtyard-botany147.js": "d7e41f71170667efc7bfc65d19d8b30d37b4c982844ed9ef4bbc1eda5439b3b6",
+      "reconstructions/scene-08/src/courtyard-radiance147.js": "c4febf567cfc478676c9d11f49c46f6056dc6bd50559d5f65109ceb212515c35",
+      "reconstructions/scene-08/src/courtyard-relief147.js": "2af49df5d27794bbf6b01fcf7a508ec8e3b0c24539e0467f9aa3a315e9b2ee39",
+      "reconstructions/scene-08/src/courtyard-stones147.js": "aad549dfe67e7a0ca3a30e0a32e4ad9bfabba1ce3b9ba872a285bf5e1867b4f3",
+      "reconstructions/scene-08/src/gallery-joinery.js": "7633809f9a9519d5e5cc977e01a0db7c58831bad999cb79c4c8430acf7a57c9d",
+      "reconstructions/scene-08/src/gate-hardware.js": "97b11925d69e24e62c6efa272ac48aac8722ec8d82ee21f23a8b38dd57cbb04a",
+      "reconstructions/scene-08/src/main.js": "e9fad2ff287f42cc6cc41ac2d9302f19f1e77044e8d6a8bd716952c7772f49dc",
+      "reconstructions/scene-08/src/post.js": "a64cee534dc1c79edbd2c652dd4d7ee1808460a594d45d4741275975d75cbfe2",
+      "reconstructions/scene-08/src/rocks.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-08/src/scene.js": "38fc4ab75780200dfadc0974140fd34f64755401ecd81fc13dfb42b719909aa1"
+    }
+  },
+  "sourceCommit": "ca1af4edd823f9db929b831728e61cbe52d5ef18",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-08/index.html",
+    "/reconstructions/scene-08/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/reconstructions/scene-08/src/scene.js",
+    "/reconstructions/scene-08/src/post.js",
+    "/vendor/examples/jsm/objects/Reflector.js",
+    "/reconstructions/scene-08/src/rocks.js",
+    "/reconstructions/scene-08/src/gallery-joinery.js",
+    "/reconstructions/scene-08/src/gate-hardware.js",
+    "/reconstructions/scene-08/src/courtyard-botany147.js",
+    "/reconstructions/scene-08/src/courtyard-relief147.js",
+    "/reconstructions/scene-08/src/courtyard-radiance147.js",
+    "/reconstructions/scene-08/src/courtyard-stones147.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/vendor/examples/jsm/loaders/EXRLoader.js",
+    "/vendor/examples/jsm/libs/fflate.module.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "/assets/polyhaven/shrub-02/shrub_02.bin",
+    "/assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "/assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "/assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "/assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "/assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "/assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "/assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "/assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "/assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "/assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "/reconstructions/scene-08/assets/timber/diffuse-2k.jpg",
+    "/reconstructions/scene-08/assets/timber/normal-gl-2k.png",
+    "/reconstructions/scene-08/assets/timber/roughness-2k.jpg",
+    "/reconstructions/scene-08/assets/granite/granite-face-diff.png",
+    "/reconstructions/scene-08/assets/granite/granite-face-nor_gl.png",
+    "/reconstructions/scene-08/assets/granite/granite-face-rough.png",
+    "/assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr"
+  ],
+  "detailCrop": {
+    "pixels": [
+      180,
+      110,
+      520,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "position": [
+          0,
+          1.78,
+          13
+        ],
+        "target": [
+          0,
+          6.1,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "scene08-solmax-calibrated-bearing-court147-r17-20261021",
+        "instances": 1335514,
+        "triangles": 66164840,
+        "roles": {
+          "left-grand-hall": 11219,
+          "layered-walkways": 20914,
+          "main-hall-sanctum": 233,
+          "five-tier-pagoda": 23796,
+          "foreground-veranda": 760,
+          "arched-stream-bridge": 255,
+          "gallery-stone-stair": 35,
+          "garden-ground": 1,
+          "stream-surface-glints": 7,
+          "weathered-garden-rocks": 158,
+          "stream-bank-granite": 402,
+          "left-garden-stone-island": 73,
+          "stone-lanterns": 501,
+          "branching-garden-trees": 364784,
+          "distant-forest-ridge": 1,
+          "hanging-veranda-foliage": 45546,
+          "dense-layered-shrubs": 853724,
+          "scanned-bank-understory": 137,
+          "fern-and-ground-cover": 12600,
+          "garden-flowers": 336,
+          "stream-lotus": 32
+        },
+        "seed": 80247,
+        "rngFinalState": 3655197300,
+        "externalAssets": true,
+        "proceduralPlaqueGeometry": true,
+        "description": "Coupled longer hall return and offset frame, single housed joinery and cast gilt relief, closed glazed pan/cover roof and finer rafters, six-step connected gallery, rooted bank and complete scanned broadleaf shoots, uniform scanned granite and calibrated measured timber/sky radiance.",
+        "botany": {
+          "revision": "scene08-supported-colored-blades147-r15",
+          "shrubs": 0,
+          "groundcover": 149,
+          "scannedBlades": 419400,
+          "bladeVariants": 20,
+          "bladeAttributes": [
+            "position",
+            "normal",
+            "uv",
+            "uv1",
+            "color",
+            "color_1"
+          ],
+          "variants": [
+            {
+              "asset": "shrub-02",
+              "variants": [
+                {
+                  "name": "shrub_02_a",
+                  "width": 1.8315207611800246,
+                  "height": 2.158229440132593
+                },
+                {
+                  "name": "shrub_02_b",
+                  "width": 2.0632089113281946,
+                  "height": 1.9539081294317668
+                },
+                {
+                  "name": "shrub_02_c",
+                  "width": 2.535989395067265,
+                  "height": 2.3815157996350242
+                },
+                {
+                  "name": "shrub_02_d",
+                  "width": 1.8173407358652882,
+                  "height": 1.946683332352773
+                }
+              ]
+            },
+            {
+              "asset": "periwinkle-plant",
+              "variants": [
+                {
+                  "name": "periwinkle_plant_04_LOD0",
+                  "width": 0.18423788994550705,
+                  "height": 0.26496778754335537
+                },
+                {
+                  "name": "periwinkle_plant_06_LOD0",
+                  "width": 0.10294053331017494,
+                  "height": 0.15972968739515636
+                },
+                {
+                  "name": "periwinkle_plant_03_LOD0",
+                  "width": 0.16746312379837036,
+                  "height": 0.3002435565213091
+                },
+                {
+                  "name": "periwinkle_plant_02_LOD0",
+                  "width": 0.2311365306377411,
+                  "height": 0.4107213826205225
+                },
+                {
+                  "name": "periwinkle_plant_05_LOD0",
+                  "width": 0.14089443162083626,
+                  "height": 0.2057981897614809
+                },
+                {
+                  "name": "periwinkle_plant_01_LOD0",
+                  "width": 0.32074545323848724,
+                  "height": 0.3971823533211136
+                }
+              ]
+            }
+          ],
+          "construction": "Connected original scanned green blades with all original vertexRGBA, UV sets and4K PBR maps, on physically modeled woody forks; complete periwinkle plants retained only at soil level.",
+          "referenceSceneImageUsed": false
+        },
+        "grandFrame": {
+          "x": -3.954,
+          "z": -8.701,
+          "yaw": -0.28,
+          "w": 9.3,
+          "d": 8.5,
+          "floor": 4.4,
+          "lintel": 8.55,
+          "eave": 10.15,
+          "rise": 3.85
+        },
+        "measuredSky": {
+          "provider": "Poly Haven",
+          "asset": "Kloppenheim06 Pure Sky",
+          "license": "CC0-1.0",
+          "source": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+          "sourceSunDirection": [
+            0.7631947771722822,
+            0.09834987841040348,
+            0.6386399874057445
+          ],
+          "targetSunDirection": [
+            -0.6976744186046512,
+            0.41860465116279066,
+            0.5813953488372093
+          ],
+          "rotation": [
+            -2.334115053091636,
+            -1.2758762660955982,
+            -2.096566096266847,
+            "XYZ"
+          ],
+          "peakLinearLuminance": 33.07556504898071,
+          "meanLinearLuminance": 0.5894732954632208,
+          "environmentIntensity": 0.32,
+          "cameraRadianceGain": 0.55,
+          "worldLocked": true,
+          "photoProjection": false
+        },
+        "scannedStones": {
+          "asset": "Poly Haven Rock Moss Set01 original4K glTF",
+          "license": "CC0-1.0",
+          "count": 27,
+          "variants": [
+            {
+              "name": "rock_moss_set_01_rock01",
+              "width": 3.3688043355941772,
+              "height": 1.4726980924606323
+            },
+            {
+              "name": "rock_moss_set_01_rock02",
+              "width": 3.263720393180847,
+              "height": 1.261991173028946
+            },
+            {
+              "name": "rock_moss_set_01_rock03",
+              "width": 2.108582615852356,
+              "height": 1.0996944606304169
+            },
+            {
+              "name": "rock_moss_set_01_rock04",
+              "width": 2.127629339694977,
+              "height": 1.768319845199585
+            },
+            {
+              "name": "rock_moss_set_01_rock05",
+              "width": 2.9986637830734253,
+              "height": 1.205450713634491
+            },
+            {
+              "name": "rock_moss_set_01_rock06",
+              "width": 2.7573031187057495,
+              "height": 1.2618526816368103
+            }
+          ]
+        },
+        "camera": {
+          "position": [
+            0,
+            1.78,
+            13
+          ],
+          "target": [
+            0,
+            6.1,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 812,
+          "triangles": 65520240,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 22.420133808699713,
+          "focalLengthMM": 39.49739516097068,
+          "verticalSensorMM": 36,
+          "focalSource": "original camera.fov; viewOffset excluded"
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9998098588504027,
+      "opaqueFraction": 1,
+      "rgbaSha256": "1f0c5fc86c66f9524f3d4f63343f2e58e091d298f566909b19180c7e4edd578b"
+    },
+    {
+      "pose": {
+        "position": [
+          0,
+          1.78,
+          13
+        ],
+        "target": [
+          0,
+          6.1,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 8,
+        "revision": "scene08-solmax-calibrated-bearing-court147-r17-20261021",
+        "instances": 1335514,
+        "triangles": 66164840,
+        "roles": {
+          "left-grand-hall": 11219,
+          "layered-walkways": 20914,
+          "main-hall-sanctum": 233,
+          "five-tier-pagoda": 23796,
+          "foreground-veranda": 760,
+          "arched-stream-bridge": 255,
+          "gallery-stone-stair": 35,
+          "garden-ground": 1,
+          "stream-surface-glints": 7,
+          "weathered-garden-rocks": 158,
+          "stream-bank-granite": 402,
+          "left-garden-stone-island": 73,
+          "stone-lanterns": 501,
+          "branching-garden-trees": 364784,
+          "distant-forest-ridge": 1,
+          "hanging-veranda-foliage": 45546,
+          "dense-layered-shrubs": 853724,
+          "scanned-bank-understory": 137,
+          "fern-and-ground-cover": 12600,
+          "garden-flowers": 336,
+          "stream-lotus": 32
+        },
+        "seed": 80247,
+        "rngFinalState": 3655197300,
+        "externalAssets": true,
+        "proceduralPlaqueGeometry": true,
+        "description": "Coupled longer hall return and offset frame, single housed joinery and cast gilt relief, closed glazed pan/cover roof and finer rafters, six-step connected gallery, rooted bank and complete scanned broadleaf shoots, uniform scanned granite and calibrated measured timber/sky radiance.",
+        "botany": {
+          "revision": "scene08-supported-colored-blades147-r15",
+          "shrubs": 0,
+          "groundcover": 149,
+          "scannedBlades": 419400,
+          "bladeVariants": 20,
+          "bladeAttributes": [
+            "position",
+            "normal",
+            "uv",
+            "uv1",
+            "color",
+            "color_1"
+          ],
+          "variants": [
+            {
+              "asset": "shrub-02",
+              "variants": [
+                {
+                  "name": "shrub_02_a",
+                  "width": 1.8315207611800246,
+                  "height": 2.158229440132593
+                },
+                {
+                  "name": "shrub_02_b",
+                  "width": 2.0632089113281946,
+                  "height": 1.9539081294317668
+                },
+                {
+                  "name": "shrub_02_c",
+                  "width": 2.535989395067265,
+                  "height": 2.3815157996350242
+                },
+                {
+                  "name": "shrub_02_d",
+                  "width": 1.8173407358652882,
+                  "height": 1.946683332352773
+                }
+              ]
+            },
+            {
+              "asset": "periwinkle-plant",
+              "variants": [
+                {
+                  "name": "periwinkle_plant_04_LOD0",
+                  "width": 0.18423788994550705,
+                  "height": 0.26496778754335537
+                },
+                {
+                  "name": "periwinkle_plant_06_LOD0",
+                  "width": 0.10294053331017494,
+                  "height": 0.15972968739515636
+                },
+                {
+                  "name": "periwinkle_plant_03_LOD0",
+                  "width": 0.16746312379837036,
+                  "height": 0.3002435565213091
+                },
+                {
+                  "name": "periwinkle_plant_02_LOD0",
+                  "width": 0.2311365306377411,
+                  "height": 0.4107213826205225
+                },
+                {
+                  "name": "periwinkle_plant_05_LOD0",
+                  "width": 0.14089443162083626,
+                  "height": 0.2057981897614809
+                },
+                {
+                  "name": "periwinkle_plant_01_LOD0",
+                  "width": 0.32074545323848724,
+                  "height": 0.3971823533211136
+                }
+              ]
+            }
+          ],
+          "construction": "Connected original scanned green blades with all original vertexRGBA, UV sets and4K PBR maps, on physically modeled woody forks; complete periwinkle plants retained only at soil level.",
+          "referenceSceneImageUsed": false
+        },
+        "grandFrame": {
+          "x": -3.954,
+          "z": -8.701,
+          "yaw": -0.28,
+          "w": 9.3,
+          "d": 8.5,
+          "floor": 4.4,
+          "lintel": 8.55,
+          "eave": 10.15,
+          "rise": 3.85
+        },
+        "measuredSky": {
+          "provider": "Poly Haven",
+          "asset": "Kloppenheim06 Pure Sky",
+          "license": "CC0-1.0",
+          "source": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+          "sourceSunDirection": [
+            0.7631947771722822,
+            0.09834987841040348,
+            0.6386399874057445
+          ],
+          "targetSunDirection": [
+            -0.6976744186046512,
+            0.41860465116279066,
+            0.5813953488372093
+          ],
+          "rotation": [
+            -2.334115053091636,
+            -1.2758762660955982,
+            -2.096566096266847,
+            "XYZ"
+          ],
+          "peakLinearLuminance": 33.07556504898071,
+          "meanLinearLuminance": 0.5894732954632208,
+          "environmentIntensity": 0.32,
+          "cameraRadianceGain": 0.55,
+          "worldLocked": true,
+          "photoProjection": false
+        },
+        "scannedStones": {
+          "asset": "Poly Haven Rock Moss Set01 original4K glTF",
+          "license": "CC0-1.0",
+          "count": 27,
+          "variants": [
+            {
+              "name": "rock_moss_set_01_rock01",
+              "width": 3.3688043355941772,
+              "height": 1.4726980924606323
+            },
+            {
+              "name": "rock_moss_set_01_rock02",
+              "width": 3.263720393180847,
+              "height": 1.261991173028946
+            },
+            {
+              "name": "rock_moss_set_01_rock03",
+              "width": 2.108582615852356,
+              "height": 1.0996944606304169
+            },
+            {
+              "name": "rock_moss_set_01_rock04",
+              "width": 2.127629339694977,
+              "height": 1.768319845199585
+            },
+            {
+              "name": "rock_moss_set_01_rock05",
+              "width": 2.9986637830734253,
+              "height": 1.205450713634491
+            },
+            {
+              "name": "rock_moss_set_01_rock06",
+              "width": 2.7573031187057495,
+              "height": 1.2618526816368103
+            }
+          ]
+        },
+        "camera": {
+          "position": [
+            0,
+            1.78,
+            13
+          ],
+          "target": [
+            0,
+            6.1,
+            -9
+          ],
+          "fov": 49
+        },
+        "renderer": {
+          "calls": 771,
+          "triangles": 65490682,
+          "cameraPass": "depth-contact-occlusion-and-subtle-focus",
+          "focus": 22.420133808699713,
+          "focalLengthMM": 39.49739516097068,
+          "verticalSensorMM": 36,
+          "focalSource": "original camera.fov; viewOffset excluded"
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        180,
+        110,
+        520,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9998193977040615,
+      "opaqueFraction": 1,
+      "rgbaSha256": "11bb1f353b903c2d959d6704aa9f855bd491cfa62aead18ebc885ee26cabc211"
+    }
+  ],
+  "completedAt": "2026-10-21T09:52:52.351Z"
+}

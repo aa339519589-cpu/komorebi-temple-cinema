@@ -5,7 +5,7 @@ import {createCameraPass} from './post.js';
 const Q=new URLSearchParams(location.search),w=Math.min(2048,+(Q.get('w')||768)),h=Math.min(2048,+(Q.get('h')||768));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
 renderer.setPixelRatio(1);renderer.setSize(w,h);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.10;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;document.body.append(renderer.domElement);
-const {scene,stats,dispose,setTime}=await buildScene(),camera=new T.PerspectiveCamera(49,w/h,.06,180);
+const {scene,stats,dispose,setTime}=await buildScene({renderer}),camera=new T.PerspectiveCamera(49,w/h,.06,180);
 const cameraPass=createCameraPass(renderer,w,h);
 const reference={position:[0,1.78,13],target:[0,6.10,-9],fov:49};
 function renderView(position,target,time=0,fov=49){setTime(time);camera.position.fromArray(position);camera.userData.focusDistance=new T.Vector3(...position).distanceTo(new T.Vector3(...target));camera.fov=fov;camera.lookAt(...target);camera.updateProjectionMatrix();scene.updateMatrixWorld(true);cameraPass.render(scene,camera);return {position,target,time,fov};}

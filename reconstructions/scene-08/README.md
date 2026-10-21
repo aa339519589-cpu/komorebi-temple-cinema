@@ -1,19 +1,13 @@
-# Scene08 — 门框、重檐庭院实体重建候选 r10
+# Scene08 — calibrated bearing courtyard147 R17
 
-2026-10-21 的 SOL Max 建模轮替换了原先朝向相反、墙身过高的左殿主体。当前为宽正面、短右回折的四坡陶瓦屋面，屋下是三层外挑斗栱、连续承重梁、较窄且较短的木构门窗墙身。取消了 pass07 的钟形前罩，加入有壁厚的瓦筒、瓦当和角部圆形陶饰。建筑尺寸与朝向是依据单张照片作出的建模假设，并非实测尺寸。
+This draft couples the left hall's longer roof return with a narrower, offset timber body and a higher lintel. The reference camera remains fixed. Four approximate observed landmarks improve from errors10–64px to3–9px through real frame/roof/post dimensions; these human-observed landmarks and hidden depths are not survey measurements. Reproduction data is in qa/ten-reference/08/landmark-fit147/.
 
-下方回廊改为独立承重的四坡屋顶，三阶实体踏步连接主殿地板，外柱、石墩及河岸接地；后殿以闭合石砌台基抬离河谷，近桥落脚有三阶花岗石踏步。门框补全右柱和倾斜木天花；近景栏杆有实体转角柱与铜质宝珠。塔层间距压缩，冠顶与相轮的高度保持；右侧殿的门楣、内部及樱花冠层也作了调整。曲桥向右横跨庭院，桥面、弯曲栏杆、铜帽望柱与石砌桥台均为几何体。
+One complete housed bracket hierarchy now sits on each actual post, with spreading receiver rings, continuous curved cantilevers and recessed closed gilt relief. The roof has hollow ceramic covers, concave pans, closed lower/edge surfaces and finer rafters/battens. A six-step solid connection reaches the existing gallery deck; the near railing meets its return at one height. The right gate jamb and pagoda sorin were refitted as actual geometry.
 
-溪流沿种植岸线转弯，岩石改为高低不一的闭合体；河岸、庭石、常绿灌木、针叶冠层、樱花和杜鹃花均有实际几何。叶片带中脉/侧脉程序纹理，花朵为分开的花瓣面。水面使用真实场景反射，光照由独立的太阳、天空环境与补光计算。没有引用原照片、AI 替代画面或深度板作为场景颜色。
+The west bank physically rises beneath the hall. Supported forked woody shrubs carry complete green blades derived from independent Poly Haven meshes, preserving every original vertex RGBA/UV/PBR attribute. Rooted understorey plants and uniformly fitted original scanned mossy stones fill the bank. The hall footprint excludes added planting. This is an authored botanical approximation, not a recovered species survey.
 
-材质采用本目录声明的 Poly Haven CC0 木纹与无灰缝花岗岩面 PBR 扫描。木纹沿构件长度/圆柱周长映射；扫描漆面粗糙度重映射至约 0.68–0.98，以免建筑变成镜面。使用与 SHA-256 清单见 assets/material-use-20261021.json；上游授权及来源保存在 assets/timber/provenance.json 和 assets/granite/provenance.json。
+All external assets are declared in asset-dependencies.json with original CC0 provenance. The existing lacquered timber scan is normalized around authored pigment using its measured linear mean0.0150512; natural grain, normal and weathered roughness remain. Solar-aligned measured Kloppenheim06 EXR radiance replaces the previous procedural environment and sky. Source photographs remain comparison-only; no reference or AI whole-scene frame is used as scene color.
 
-原生验收图位于：
+Exact calibration, transformations, source/licensing and limitations are in assets/courtyard147-provenance.json. Native full/detail, oblique and0/3.5/7 camera-path evidence is recorded under qa/ten-reference/08/iteration-scene08-solmax-calibrated-bearing-court-r17-20261021/ and companion capture directories. Every official capture uses tools/render-one-reconstruction.mjs and its shared GPU mutex. The main subfrustum stays genuine while the separate planar reflection uses a complete physical projection.
 
-- qa/ten-reference/08/iteration-scene08-solmax-supported-courtyard-r10-20261021/：1254px 全帧及真实屋顶子视锥，另有原照左/实渲右对照。
-- qa/ten-reference/08/iteration-scene08-solmax-native-garden-r10-20261021/：同源的真实庭院子视锥与对照。
-- qa/ten-reference/08/solmax-reconstruction-20261021/：接手前的源备份、比较脚本与本轮建模记录。
-
-所有原生图均由 tools/render-one-reconstruction.mjs 经共享 GPU mutex 渲染，子视锥使用原低相机的 setViewOffset，没有放大原生截图。报告包含实际源身份及错误/着色器状态。
-
-visualAccepted 仍为 **false**。本候选作了大幅实体与空间重建，但还没有达到照片一致性：主殿斗栱仍过于规整，陶瓦及木雕轮廓只是同类结构近似；园林枝叶的形态、石材侵蚀、精细五金、木构雕花及暖光反射仍需继续向原照校正。有效着色器、闭合几何与非空画面只证明能渲染，不等同于视觉验收。此目录不是完成影片的声明。
+R11–R16 failed/intermediate images and complete local source archives are preserved. visualAccepted remains **false**. Building carving, some proportions, material/light response, vegetation maturity and bank density still differ substantially from the source. Technical render validity is not photographic acceptance. The source is a held reconstruction checkpoint, not a finished film.
