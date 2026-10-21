@@ -7,7 +7,9 @@ export async function installScannedTimber(mats){
  const [albedo,normal,rough]=await Promise.all(['diffuse-2k.jpg','normal-gl-2k.png','roughness-2k.jpg'].map(x=>loader.loadAsync(directory+x)));
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of[albedo,normal,rough]){tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.anisotropy=8;}
- const gains={red:[3.1,3.3,4.3],wood:[2.1,2.3,3.0],dark:[.70,.85,1.1]};
+ // Reflectance tint of aged vermilion/cedar; the former blue-heavy gains
+ // neutralised the red lacquer and made the occupied facade read grey-brown.
+ const gains={red:[5.2,2.15,1.35],wood:[2.8,1.8,1.05],dark:[.70,.55,.38]};
  for(const [key,color] of Object.entries(gains)){
   const m=mats[key];m.map=albedo;m.normalMap=normal;m.normalScale.set(.24,.24);m.bumpMap=null;m.roughnessMap=rough;m.roughness=.9;m.metalness=0;m.color.setRGB(...color);m.userData.scannedTimber=true;if(m.isMeshPhysicalMaterial){m.clearcoat=.10;m.clearcoatRoughness=.60;}
   m.onBeforeCompile=shader=>{

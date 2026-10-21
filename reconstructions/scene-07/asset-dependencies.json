@@ -149,7 +149,7 @@
     "visualAccepted": false
   },
   "momiji151": {
-    "revision": "scene07-mature-cupped-momiji151-r01",
+    "revision": "scene07-mature-cupped-momiji151-r02",
     "source": "src/momiji-framing151.js",
     "construction": "Fixed world-space mature branch/forks, 442 closed serrated cupped 5/7-lobed leaves, petioles and actual raised veins; authored code, no raster scene assets.",
     "comparison": "references/hd/6-照片-7.jpg",
@@ -159,11 +159,16 @@
     "visualAccepted": false
   },
   "occupiedHall152": {
-    "revision": "scene07-solid-upper-room-and-outer-gallery152-r01",
+    "revision": "scene07-solid-upper-room-and-outer-gallery152-r02",
     "source": "src/occupied-hall152.js",
     "roofSource": "src/physical-roofs.js",
     "construction": "Closed upper room with front/return/rear walls, opaque lime spandrels, recessed shutters, joisted boarded gallery, ceiling and continuous frames. Lower roof cut at real upper-room footprint and seated in fitted closed timber curb. Broader lower columns.",
     "referenceAsTexture": false,
-    "visualAccepted": false
+    "visualAccepted": false,
+    "additionalChanges": [
+      "Matched physical1.4cm maximum timber bevels, coherent warm vermilion reflectance and warmer lower fill",
+      "Shortened physically joined left wing to remove roof through sanctuary, retaining downstream garden seed",
+      "Broad maple151R02 blades/poses"
+    ]
   }
 }
