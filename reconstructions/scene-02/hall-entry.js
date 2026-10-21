@@ -15,7 +15,7 @@ export function buildHallEntry({b,mats,lights,column,carpentry,fitting,rosette,s
   for(let i=1;i<rows;i++)b.box(x,y-h/2+h*i/rows,z+.07,w,.035,.055,ma);
  }
  // Dedicated housed timber heads replace repeated generic box stacks.
- const seatedBracket=(x,y,z,s=1)=>carpentry.head(x,y,z,s,z===1.2?'inner':'primary');
+ const seatedBracket=(x,y,z,s=1)=>carpentry.head(x,y,z,s,z===1.2?'inner':z<0?'rear':'primary',z<0?Math.PI:0);
  function doorLeaf(hingeX,z,width,height,yaw,sign){
   b.at([hingeX,floor+.13,z],yaw,()=>{
    const x=sign*width/2;
@@ -42,15 +42,13 @@ export function buildHallEntry({b,mats,lights,column,carpentry,fitting,rosette,s
  for(const x of[left,right])for(const z of[-3.2,.8]){column(x,z,floor,5.1,.225,'hallColumnRed');carpentry.head(x,7.35,z,.88,'side',x===left?-Math.PI/2:Math.PI/2);}
  b.box(cx,8.03,-.65,span+1.1,.20,12.0,'darkwood');
  for(let z=-6.2;z<=5.1;z+=.74)b.box(cx,7.87,z,span+.9,.19,.19,'cedar');
- for(const x of axes){b.box(x,7.50,-.7,.33,.33,11.6,'hallOxide');b.box(x,7.75,4.95,.60,.32,2.55,'hallBearing');}
+ for(const x of axes){b.box(x,7.50,-.7,.33,.33,11.6,'hallOxide');carpentry.tail(x,7.75,4.95,2.55,.60);}
  for(const z of[4.7,1.2,-2.6,-6.1]){b.box(cx,7.26,z,span+1.1,.38,.48,'hallOxide');b.box(cx,7.65,z,span+1.4,.25,.55,'hallBearing');}
  b.box(cx,6.50,4.68,span+.8,.29,.50,'hallBearing');
  for(const yy of[6.49,7.14])b.box(cx,yy,4.99,span+1.05,.055,.045,'oldgold');
  for(let i=0;i<axes.length-1;i++)carpentry.transomBay((axes[i]+axes[i+1])/2,6.84,5.00,pitch-.36);
- for(const x of axes){
-  b.box(x,7.34,4.70,.70,.35,.79,'hallOxide');carpentry.facePlate(x,7.35,5.12,.61,.29);
-  for(const yaw of[0,Math.PI/2,Math.PI,-Math.PI/2])b.at([x,7.00,4.70],yaw,()=>{b.box(0,0,.26,.45,.37,.038,'oldgold');for(const side of[-1,1])b.box(side*.215,0,.265,.020,.38,.022,'gold');carpentry.facePlate(0,0,.287,.28,.27);});
- }
+ // The sculpted head factory now supplies the complete column receiver and
+ // chased sleeve; the former flat square caps and rectangular sleeves are removed.
  // The far outside bay encloses storage; the near outside bay remains open.
  // Three deeper portals frame the
  // sanctuary. Folding leaves sit on their actual jambs and clear the openings.

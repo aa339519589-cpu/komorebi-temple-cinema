@@ -1,0 +1,79 @@
+{
+  "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+  "scope": "Only the three new physical gallery footings, with material aliases for CPU geometry inspection. Emitted transforms and actual box bounds measured; not a visual-fidelity test.",
+  "visualAccepted": false,
+  "checks": [
+    {
+      "worldPosition": [
+        -14,
+        0.65,
+        -6
+      ],
+      "lengthMetres": 15,
+      "depthMetres": 4.3,
+      "worldBottom": -0.25,
+      "commonSoilDatum": -0.12,
+      "worldFloorTop": 1.35,
+      "floorAndSuperstructureMoved": false,
+      "closedBearingCore": true,
+      "masonryFaceClasts": 210,
+      "sourcePhotoPixels": false,
+      "emittedInstances": 213,
+      "actualWorldYBounds": [
+        -0.25,
+        1.35
+      ],
+      "finite": true,
+      "belowCommonGround": true,
+      "unchangedFloorTopError": 0
+    },
+    {
+      "worldPosition": [
+        16,
+        3.3,
+        -11
+      ],
+      "lengthMetres": 12,
+      "depthMetres": 4.3,
+      "worldBottom": -0.25,
+      "commonSoilDatum": -0.12,
+      "worldFloorTop": 4,
+      "floorAndSuperstructureMoved": false,
+      "closedBearingCore": true,
+      "masonryFaceClasts": 468,
+      "sourcePhotoPixels": false,
+      "emittedInstances": 471,
+      "actualWorldYBounds": [
+        -0.2500000000000001,
+        3.9999999999999996
+      ],
+      "finite": true,
+      "belowCommonGround": true,
+      "unchangedFloorTopError": 4.440892098500626e-16
+    },
+    {
+      "worldPosition": [
+        -22,
+        1.1,
+        0
+      ],
+      "lengthMetres": 10,
+      "depthMetres": 4.3,
+      "worldBottom": -0.25,
+      "commonSoilDatum": -0.12,
+      "worldFloorTop": 1.8,
+      "floorAndSuperstructureMoved": false,
+      "closedBearingCore": true,
+      "masonryFaceClasts": 192,
+      "sourcePhotoPixels": false,
+      "emittedInstances": 195,
+      "actualWorldYBounds": [
+        -0.25,
+        1.8
+      ],
+      "finite": true,
+      "belowCommonGround": true,
+      "unchangedFloorTopError": 0
+    }
+  ]
+}

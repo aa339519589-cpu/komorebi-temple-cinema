@@ -1,0 +1,70 @@
+{
+  "status": "native-reviewed-development-candidate",
+  "reference": 1,
+  "revision": "scene01-deep-layered-facade161-r03",
+  "sourceHash": "78cb125098c56e38cd5027ec5d38e9453ed9f01ba52dee2b8ea7359c340ac3f8",
+  "sourceCommitAtRender": "201b1f37b199ce08ff3fa32cd3d991a7058e8427",
+  "nativeFrames": [
+    {
+      "name": "reference",
+      "valid": true,
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "rgbaSha256": "2ab5819aab25c7b9627402726fea5b6c13ee8bb80882dabac34ab511975fd436"
+    },
+    {
+      "name": "detail-native",
+      "valid": true,
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "rgbaSha256": "33dd3e1153ef32a27e64f99331a1c46784eabe5e1b520d500904df56605d8532"
+    }
+  ],
+  "detailCrop": {
+    "pixels": [
+      470,
+      260,
+      760,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "newFacadeMemberPlacements": {
+    "hall161-recessed-upper-window-plaster-and-beams": 1254,
+    "hall161-occupied-return-enclosure-in-held-end-frame": 680,
+    "hall161-recessed-lower-sliding-screens-and-transoms": 472,
+    "great-hall-lower-monumental-roof-161-closed-pan-tiling": 1,
+    "great-hall-main-monumental-roof-161-closed-pan-tiling": 1
+  },
+  "changes": [
+    "Replace upper continuous pale bands with recessed timber vent windows, narrow individual lime cells, projecting bearing beams, secondary stiles and carved lintels.",
+    "Replace lower flat paper grids with separately recessed sliding leaves, wood dados, deep jambs, open transom cells and layered headers.",
+    "Retain original end-frame locations, outer dimensions, floors, reference camera and all ground/route contacts; primary upper shaft width0.35m now better relates to the existing lower posts.",
+    "Replace main-hall flat slate sheet with closed concave ceramic pans; overlap and stagger cover courses on the original roof, vary UV phases/coherent fired-clay weather field and model fired cap lips/relief.",
+    "Differentiate primary/secondary rafter cross sections and spacing with rough endgrain faces, reducing equal pale comb repetition.",
+    "Use worn muted vermilion over the existing CC0 wood grain, normal and roughness data; ordinary friezes are carved wood and gilding stays on fittings/portal."
+  ],
+  "imageIteration": [
+    "R01 revealed overly new red paint and equal bright rafter rows.",
+    "R02 added exposed timber/rafter hierarchy, then revealed excessive cross-grain weather modulation.",
+    "R03 aligns subtle wear with metric grain and reduces broad modulation; close image confirms the cross-band artifact is removed."
+  ],
+  "comparisonLayout": {
+    "columnsLeftToRight": [
+      "Source photograph",
+      "Native150R03",
+      "Native161R03"
+    ],
+    "whole": "All1254px whole images reduced to626px per column for review.",
+    "facade": "Reference and150R03 are actual760px crops at470,260;161R03 is a genuine1254px native subfrustum reduced to760px only in this comparison."
+  },
+  "remainingPhotographicGaps": [
+    "Native light/roughness response remains flatter and darker than the source photo, especially the roof and tree canopy.",
+    "Roof/beam repetition is still visible and the facade remains less richly irregular at photo scale.",
+    "Garden, stone surfaces and water are inherited from the held source and remain visibly synthetic.",
+    "Overwhelming monumental force and photographic precision are not established."
+  ],
+  "visualAccepted": false
+}

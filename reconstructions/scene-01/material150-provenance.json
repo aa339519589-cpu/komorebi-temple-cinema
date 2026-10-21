@@ -1,0 +1,27 @@
+{
+  "revision": "scene01-monumental-occupied-eave150-r03",
+  "reference": "references/hd/0-照片-1.jpg",
+  "photographRole": "Whole-scene and close-view comparison input only; not an albedo, overlay, geometry card, or texture source.",
+  "newGeometry": [
+    "Open upper eave bearing stacks seated on the existing header and fitted to the physical148 roof underside",
+    "Closed curved timber tie members, open-cell eave struts and three continuous purlin courses extending round the return",
+    "Dense three-course real rafters with opaque aged sapwood ends",
+    "Ceramic half-tile radial precision increased8→12; round edge caps12→32 radial segments"
+  ],
+  "surfaceWork": [
+    "Restore world-space weathering overwritten by scanned-timber loader, and propagate the hook to aged hall and carved timber clones",
+    "Retain existing licensed scan maps and metric timber UVs",
+    "Physically rough ceramic clearcoat18%, roughness32%, lower base roughness53%/64%; no new raster image assets"
+  ],
+  "nativeLightBudget": {
+    "sunIntensity": 7.2,
+    "sunColor": "#ffbd70",
+    "hemisphereIntensity": 0.18,
+    "courtyardDirectionalFill": 0.76,
+    "environmentIntensity": 0.34
+  },
+  "cameraAndRoutes": "Canonical camera, exact source-derived terrace, staircase, bridge, veranda and planted shore contacts are retained.",
+  "physicalStudy": "lookdev/scene01-monumental-light-v2/",
+  "status": "Rendered comparison candidate; photographic precision and monumental force remain subject to photo evidence.",
+  "visualAccepted": false
+}

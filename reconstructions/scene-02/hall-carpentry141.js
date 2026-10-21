@@ -1,4 +1,6 @@
 import {T,V} from './kernel.js';
+import {createCarvedTimber157} from './carved-timber157.js';
+import {buildCornerReceiver158} from './corner-receiver158.js';
 
 // Authored solid timber and cast fittings, in the hall's structural coordinates.
 // The heads follow column -> abacus -> arms -> bearing blocks -> purlins.
@@ -9,59 +11,15 @@ export function createHallCarpentry141({b,mats}){
  mats.hallOxide=mats.red.clone();mats.hallOxide.name='scene02-hall-recessed-oxide-lacquer';mats.hallOxide.color.setHex(0x612c19);mats.hallOxide.roughness=.47;
  mats.hallColumnRed=mats.red.clone();mats.hallColumnRed.name='scene02-hall-deep-vermilion-shaft';mats.hallColumnRed.color.setHex(0x883426);mats.hallColumnRed.clearcoat=.34;mats.hallColumnRed.clearcoatRoughness=.19;
  mats.hallPlaster=new T.MeshStandardMaterial({name:'scene02-hall-warm-lime-infill',color:0xb7aa8a,roughness:.91,metalness:0});
- const armShape=new T.Shape();
- armShape.moveTo(-1,-.025);armShape.lineTo(-1,.11);armShape.bezierCurveTo(-.91,.27,-.84,.28,-.76,.23);armShape.quadraticCurveTo(-.66,.11,-.51,.115);armShape.lineTo(.51,.115);armShape.quadraticCurveTo(.66,.11,.76,.23);armShape.bezierCurveTo(.84,.28,.91,.27,1,.11);armShape.lineTo(1,-.025);armShape.quadraticCurveTo(.79,-.12,.57,-.08);armShape.lineTo(-.57,-.08);armShape.quadraticCurveTo(-.79,-.12,-1,-.025);armShape.closePath();
- const arm=new T.ExtrudeGeometry(armShape,{depth:1,bevelEnabled:true,bevelSize:.016,bevelThickness:.015,bevelSegments:2,steps:1,curveSegments:8});arm.translate(0,0,-.5);
- const blockShape=new T.Shape();blockShape.moveTo(-.50,.13);blockShape.lineTo(.50,.13);blockShape.lineTo(.48,-.015);blockShape.lineTo(.32,-.13);blockShape.lineTo(-.32,-.13);blockShape.lineTo(-.48,-.015);blockShape.closePath();
- const block=new T.ExtrudeGeometry(blockShape,{depth:1,bevelEnabled:true,bevelSize:.015,bevelThickness:.01,bevelSegments:1,steps:1});block.translate(0,0,-.5);
- const endShape=new T.Shape();endShape.moveTo(-.28,-.11);endShape.lineTo(.12,-.11);endShape.bezierCurveTo(.38,-.10,.46,.09,.28,.23);endShape.bezierCurveTo(.16,.30,.02,.22,.09,.14);endShape.bezierCurveTo(.14,.08,.24,.12,.18,.16);endShape.lineTo(-.28,.12);endShape.closePath();
- const end=new T.ExtrudeGeometry(endShape,{depth:.15,bevelEnabled:true,bevelSize:.014,bevelThickness:.008,bevelSegments:2,curveSegments:10});end.translate(0,0,-.075);
+ const carved=createCarvedTimber157({b,mats});
  const petal=new T.Shape();petal.moveTo(0,-.06);petal.bezierCurveTo(-.12,-.025,-.10,.09,0,.17);petal.bezierCurveTo(.10,.09,.12,-.025,0,-.06);petal.closePath();
  const reliefLeaf=new T.ExtrudeGeometry(petal,{depth:.016,bevelEnabled:true,bevelSize:.007,bevelThickness:.005,bevelSegments:1,curveSegments:5});
  function rosette(x,y,z,r=.14){
   for(let i=0;i<7;i++){const a=i*Math.PI*2/7;b.put(reliefLeaf,'oldgold',[x+Math.cos(a)*r*.42,y+Math.sin(a)*r*.42,z],[r*2.0,r*1.50,.8],[0,0,a-Math.PI/2]);}
   b.ball(x,y,z+.028,r*.18,r*.18,.025,'gold');
  }
- function facePlate(x,y,z,w=.46,h=.23){
-  b.box(x,y,z,w,h,.025,'oldgold');
-  for(const sign of[-1,1]){b.box(x+sign*w*.46,y,z+.016,.016,h*.92,.013,'gold');b.box(x,y+sign*h*.43,z+.016,w*.92,.014,.013,'gold');}
-  rosette(x,y,z+.019,Math.min(w,h)*.43);
- }
- function bearing(x,y,z,w=.38,d=.32,ma='hallBearing'){
-  b.put(block,ma,[x,y,z],[w,1,d]);counts.bearingBlocks++;
- }
- function cloudEnd(x,y,z,yaw=0,s=1){
-  b.at([x,y,z],yaw,()=>{
-   b.put(end,'hallBearing',[0,0,0],[s,s,s]);
-   b.tube([[-.22,.095,.086],[-.02,.105,.086],[.14,.16,.086],[.25,.16,.086],[.29,.10,.086],[.22,.045,.086],[.13,.065,.086]],.011,'oldgold',24);
-   b.put(reliefLeaf,'oldgold',[-.12,.01,.087],[.55,.55,.5],[0,0,-.7]);
-  });counts.carvedBeamEnds++;
- }
- function head(x,y,z,s=1,kind='primary',yaw=0){
-  b.at([x,y,z],yaw,()=>{
-   b.box(0,-.10,0,.98,.20,.91,'hallBearing');
-   b.box(0,.025,0,1.16,.09,1.08,'hallOxide');
-   const stages=kind==='inner'?2:3;
-   for(let k=0;k<stages;k++){
-    const yy=.12+k*.265,span=.64+k*.23,out=.10+k*.44;
-    // The lower transverse arm crosses the long outward arm in a housed joint.
-    b.put(arm,k%2?'hallBearing':'hallOxide',[0,yy,out],[span,1,.25]);
-    b.put(arm,'hallBearing',[0,yy+.095,out-.12],[.66+k*.20,1,.26],[0,Math.PI/2,0]);
-    for(const sign of[-1,1]){
-     bearing(sign*span*.76,yy+.255,out,.34+k*.035,.34);
-     bearing(0,yy+.255,out+sign*(.48+k*.12),.32,.35);
-     if(k!==1)facePlate(sign*span*.77,yy+.235,out+.183,.27,.17);
-    }
-    // Small dark open intervals remain between the blocks and the next arm.
-    b.box(0,yy+.24,out,.27,.24,.32,'hallOxide');
-    if(k===2){cloudEnd(-span+.10,yy+.04,out+.17,Math.PI,.65);cloudEnd(span-.10,yy+.04,out+.17,0,.65);}
-   }
-   const top=.12+(stages-1)*.265;
-   b.box(0,top+.37,.56+(stages-1)*.20,.38,.18,1.76+(stages-1)*.20,'hallBearing');
-   cloudEnd(0,-.19,.44,Math.PI/2,.75);
-  },s);
-  if(kind==='primary'||kind==='inner')counts.primaryHeads++;else if(kind==='side')counts.sideHeads++;else counts.intermediateHeads++;
- }
+ const facePlate=carved.facePlate,bearing=carved.bearing,cloudEnd=carved.cloudEnd;
+ function head(x,y,z,s=1,kind='primary',yaw=0){carved.head(x,y,z,s,kind,yaw);if(kind==='primary'||kind==='inner')counts.primaryHeads++;else if(kind==='side'||kind==='rear')counts.sideHeads++;else counts.intermediateHeads++;}
  function transomBay(x,y,z,width){
   // Small recessed lime panels sit above a separately carved lintel. The lime
   // surfaces have thickness and visible dark reveals, never luminous paper.
@@ -84,28 +42,24 @@ export function createHallCarpentry141({b,mats}){
  }
  function frontEave(axes,roof){
   const cx=(axes[0]+axes.at(-1))/2,span=axes.at(-1)-axes[0],footY=roof.gableEave+.38;
+  carved.stats.diagonalCorners=buildCornerReceiver158({b,carved,roof,axes});
   b.box(cx,7.58,4.72,span+1.75,.32,.59,'hallBearing');
   b.box(cx,7.83,5.30,span+2.55,.24,.41,'hallOxide');
-  const infillShape=new T.Shape();infillShape.moveTo(-1.02,0);infillShape.bezierCurveTo(-.65,.03,-.52,.25,-.35,.40);infillShape.quadraticCurveTo(0,.66,.35,.40);infillShape.bezierCurveTo(.52,.25,.65,.03,1.02,0);infillShape.closePath();
-  const infill=new T.ExtrudeGeometry(infillShape,{depth:.10,bevelEnabled:true,bevelSize:.009,bevelThickness:.006,bevelSegments:1,curveSegments:10});
-  const bayScale=(span/5-.45)/2.04;
+  const bayWidth=span/5-.45;
   for(let i=0;i<axes.length-1;i++){
    const x=(axes[i]+axes[i+1])/2;head(x,7.94,5.55,.78,'intermediate');
-   b.put(infill,'hallPlaster',[x,7.48,5.08],[bayScale,1,1]);
-   for(const sign of[-1,1])b.tube([[x+sign*.98*bayScale,7.50,5.22],[x+sign*.65*bayScale,7.54,5.22],[x+sign*.45*bayScale,7.81,5.22],[x+sign*.20*bayScale,8.00,5.22],[x,8.04,5.22]],.042,'hallBearing',28);
-   rosette(x,7.77,5.235,.13);
+   carved.spandrel(x,7.48,5.08,bayWidth);
   }
   // The three purlins follow the actual shallow apron section. Their arms
   // carry load back through short attic struts and the column-head cross ties.
   for(const t of[.20,.50,.78]){
    const z=T.MathUtils.lerp(roof.gableFront,roof.roofFront,t),w=T.MathUtils.lerp(roof.gableWidth,roof.roofWidth,t),y=T.MathUtils.lerp(footY,roof.roofEave,t)-.96*t*(1-t)+roof.roofCurl*Math.pow(t,8)*.22-.48;
-   b.box(cx,y,z,w,.19,.25,'hallBearing');
-   for(let x=cx-w/2+.25;x<cx+w/2;x+=.48){b.box(x,y+.055,z+.16,.12,.14,.16,'hallOxide');if(t===.5)facePlate(x,y-.015,z+.255,.085,.10);}
+   carved.cornice(cx,y,z,w,.48,roof.roofCurl*Math.pow(t,8)*.78);
   }
   for(const x of axes){
    b.line([x,8.22,5.30],[x,9.27,8.54],.18,'hallBearing',true,.24);b.box(x,8.68,7.05,.23,.24,2.72,'hallOxide');
    b.line([x,8.10,4.84],[x,footY-.39,roof.gableFront-.12],.19,'hallBearing',true,.23);
-   b.box(x,9.14,6.20,.32,.54,.40,'hallOxide');bearing(x,9.49,6.20,.43,.44);
+   bearing(x,9.14,6.20,.43,.44,'hallOxide',true);bearing(x,9.49,6.20,.43,.44,'hallBearing',true);
    cloudEnd(x,8.73,7.95,Math.PI/2,.72);
   }
   for(const sign of[-1,1]){
@@ -113,7 +67,7 @@ export function createHallCarpentry141({b,mats}){
    for(let z=-5.55;z<=5.56;z+=1.45)head(columnX+sign*.38,7.95,z,.80,'side',sign*Math.PI/2);
    for(const t of[.20,.50,.78]){
     const x=T.MathUtils.lerp(innerX,roof.gableCenterX+sign*roof.roofWidth/2,t),y=T.MathUtils.lerp(footY,roof.roofEave,t)-.96*t*(1-t)+roof.roofCurl*Math.pow(t,8)*.22-.48,z=(T.MathUtils.lerp(roof.gableBack,roof.roofBack,t)+T.MathUtils.lerp(roof.gableFront,roof.roofFront,t))/2,d=T.MathUtils.lerp(roof.gableFront-roof.gableBack,roof.roofFront-roof.roofBack,t);
-    b.box(x,y,z,.24,.19,d,'hallBearing');
+    b.at([x,y,z],sign*Math.PI/2,()=>carved.cornice(0,0,0,d,.50,roof.roofCurl*Math.pow(t,8)*.78));
    }
    b.line([columnX,8.20,4.70],[innerX+sign*.75,footY-.67,roof.gableFront+.78],.24,'hallBearing',true,.29);
    for(let z=-5.8;z<6;z+=.74){b.line([columnX,8.40,z],[innerX+sign*2.10,9.12,z],.16,'hallBearing',true,.20);b.line([columnX,8.0,z],[innerX,footY-.4,z],.15,'hallBearing',true,.20);}
@@ -135,5 +89,5 @@ export function createHallCarpentry141({b,mats}){
    b.ball(x,5.55,-5.15,.14,.14,.07,'gold');
   }
  }
- return{head,transomBay,facePlate,cloudEnd,frontEave,sanctuaryBackdrop,stats:counts};
+ return{head,transomBay,facePlate,cloudEnd,frontEave,sanctuaryBackdrop,gable:carved.gable,tail:carved.tail,stats:Object.assign(counts,{carved:carved.stats})};
 }

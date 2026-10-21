@@ -1,0 +1,27 @@
+{
+  "scope": "Comparison previews only. Independent originals and actual1254px native subfrustum images are retained in their official QA output directories. No source photograph is used in a scene material.",
+  "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+  "images": {
+    "reference-r25-r162-native.png": {
+      "left": "Supplied HD reference, downsampled to627px",
+      "middle": "Frozen R25 actual native full frame, downsampled to627px",
+      "right": "R162 actual native full frame, downsampled to627px"
+    },
+    "gable-reference-r25-r162-native.png": {
+      "left": "Supplied HD photo crop590,180,340,1254 enlarged to627px only for comparison",
+      "middle": "Frozen R25 actual1254px native subfrustum, downsampled to627px",
+      "right": "R162 actual1254px native subfrustum, downsampled to627px"
+    },
+    "beam-reference-r25-r162-native.png": {
+      "left": "Supplied HD photo crop610,340,500,1254 enlarged to627px only for comparison",
+      "middle": "Frozen R25 actual1254px native subfrustum, downsampled to627px",
+      "right": "R162 actual1254px native subfrustum, downsampled to627px"
+    },
+    "reference-native-cycles162-r04.png": {
+      "left": "Supplied HD reference, downsampled to627px",
+      "middle": "Actual R162 native full frame, downsampled to627px",
+      "right": "Actual R162 physical Cycles full frame,64samples at1254px, downsampled to627px; independent material/light transfer, not WebGL pixel equivalence"
+    }
+  },
+  "visualAccepted": false
+}

@@ -23,7 +23,7 @@ export function verandaTangent(z){const a=verandaEdge(z-.002),b=verandaEdge(z+.0
 function beamGeometry(T,a,d,height,width,depth){
  // Closed rounded rectangular timber, swept along the actual spatial edge.
  // Width is across the veranda edge; depth is vertical.
- const rings=Math.max(4,Math.ceil((d-a)/.12)),radius=.007,section=[];
+ const rings=Math.max(4,Math.ceil((d-a)/.12)),radius=height===.880?Math.min(width,depth)*.42:.007,section=[];
  for(let corner=0;corner<4;corner++)for(let k=0;k<=3;k++){
   const angle=corner*Math.PI/2+k*Math.PI/6;
   section.push([(corner===0||corner===3?1:-1)*(width/2-radius)+Math.cos(angle)*radius,(corner<2?1:-1)*(depth/2-radius)+Math.sin(angle)*radius]);
@@ -104,5 +104,5 @@ export function buildVerandaRail(T,b){
   }
   for(let j=0;j<bays;j++)insetPanel(a+(j+.5)*pitch,Math.max(.20,pitch-.16));
  }
- return{kind:'one spatial balustrade with closed continuous broad beams and joined inset-panel bays',measuredPosts:posts,structuralPostCount:postCount,postSectionMetres:.120,postHeightMetres:1.12,topRailSectionMetres:[.120,.075],middleRailSectionMetres:[.100,.105],bottomRailSectionMetres:[.120,.105],timberBeams,insetPanels,intermediateStiles,deckControlPoints:controls,photographicPixelsUsed:false,limits:'Curved plan, 69mm local deck rise and unequal bay lengths are inferred from visible cap/beam axes; the source photograph does not admit perfectly regular perspective.'};
+ return{kind:'one spatial balustrade with closed continuous broad beams and joined inset-panel bays',measuredPosts:posts,structuralPostCount:postCount,postSectionMetres:.120,postHeightMetres:1.12,topRailSectionMetres:[.120,.075],topRailTrueCornerRadiusMetres:.0315,middleRailSectionMetres:[.100,.105],bottomRailSectionMetres:[.120,.105],timberBeams,insetPanels,intermediateStiles,deckControlPoints:controls,photographicPixelsUsed:false,limits:'Curved plan, 69mm local deck rise and unequal bay lengths are inferred from visible cap/beam axes; the source photograph does not admit perfectly regular perspective.'};
 }

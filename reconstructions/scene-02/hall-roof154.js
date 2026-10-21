@@ -9,7 +9,7 @@ export function buildHallRoof154({b,mats,roof}){
  const footY=gE+.38,peakY=gE+gR,halfW=W/2,halfG=gW/2,merged=new Map();
  const stats={construction:'One common ridge and seated gable, four joined shallow hip aprons, closed ceramic courses, supported cantilever rafters',bearingAxisLocalX:cx,gableFaceLocalZ:gF,gableRearLocalZ:gB,innerHipSeatLocalY:footY,ridgeLocalY:peakY,ceramicCourses:0,closedCeramicUnits:0,rafters:0,facePhotoTexture:false};
  for(let i=0;i<5;i++){
-  const m=mats.slate.clone();m.name=`scene02-hall-fired-blue-tile154-${i}`;m.color.setHex([0x3b4b5c,0x44566a,0x384956,0x4b5b70,0x3d5268][i]);m.roughness=.36+i*.012;m.metalness=.035;m.bumpScale=.010;m.side=T.FrontSide;mats[`hallTile154${i}`]=m;
+  const m=mats[`ceramic160${i}`].clone();m.name=`scene02-hall-fired-blue-tile154-${i}`;m.roughness=.78+i*.012;m.side=T.FrontSide;mats[`hallTile154${i}`]=m;
  }
  const under=mats.darkwood.clone();under.name='scene02-closed-roof-inner-boarding154';under.color.setHex(0x392116);under.roughness=.85;mats.hallRoofUnder154=under;
  function shell(rows,thickness,material){
@@ -32,7 +32,7 @@ export function buildHallRoof154({b,mats,roof}){
     for(let j=0;j<4;j++){
      const t=mix(a,z,j/3),row=[];
      for(let k=0;k<5;k++){
-      const q=-1+2*k/4,p=P(t,u+q*du);p[1]+=.028-.017*(1-q*q)+.015*(1-j/3);row.push(p);
+      const q=-1+2*k/4,p=P(t,u+q*du);p[1]+=.032-.020*(1-q*q)+.022*(1-j/3);row.push(p);
      }rows.push(row);
     }
     shell(rows,.032,`hallTile154${(run*13+course*7+offset)%5}`);stats.closedCeramicUnits++;
@@ -57,14 +57,18 @@ export function buildHallRoof154({b,mats,roof}){
  // The attic is an enclosed timber volume above the portico ceiling.
  // These real dark frieze boards close the former ray path through the roof
  // corner while keeping the interlocking brackets open in front of them.
- const wallBottom=8.03,wallTop=footY-.11,wallHeight=wallTop-wallBottom;
- for(const z of[gF-.22,gB+.22]){
-  b.box(cx,(wallBottom+wallTop)/2,z,gW-.16,wallHeight,.18,'darkwood');
-  for(let x=cx-halfG+.2;x<cx+halfG-.15;x+=.42)b.box(x,(wallBottom+wallTop)/2,z+(z>0?.10:-.10),.405,wallHeight,.045,'hallBearing',0,.72+.14*Math.sin(x*8.1)**2);
+ const wallBottom=8.03,wallTop=footY-.11,wallHeight=wallTop-wallBottom,bodyCentre=roof.bearingGrid.centre,bodySpan=roof.bearingGrid.span,friezeFront=roof.bearingGrid.frontZ-.15,friezeBack=-6.15;
+ // The enclosure belongs behind the column-head bearing ring. Placing it on
+ // the outer hip ring hid the real stepped brackets behind a broad plank box.
+ // Its closed body still blocks the former ray path through the attic corner.
+ for(const z of[friezeFront,friezeBack]){
+  b.box(bodyCentre,(wallBottom+wallTop)/2,z,bodySpan+.64,wallHeight,.18,'darkwood');
+  for(let x=bodyCentre-bodySpan/2-.2;x<bodyCentre+bodySpan/2+.2;x+=.42)b.box(x,(wallBottom+wallTop)/2,z+(z>0?.10:-.10),.405,wallHeight,.045,'hallBearing',0,.72+.14*Math.sin(x*8.1)**2);
  }
  for(const sign of[-1,1]){
-  b.box(cx+sign*(halfG-.18),(wallBottom+wallTop)/2,(gF+gB)/2,.18,wallHeight,gF-gB,'darkwood');
-  for(let z=gB+.12;z<gF-.1;z+=.42)b.box(cx+sign*(halfG-.075),(wallBottom+wallTop)/2,z,.045,wallHeight,.405,'hallBearing',0,.72+.14*Math.sin(z*7.7)**2);
+  const x=sign<0?roof.bearingGrid.axes[0]-.20:roof.bearingGrid.axes.at(-1)+.20;
+  b.box(x,(wallBottom+wallTop)/2,(friezeFront+friezeBack)/2,.18,wallHeight,friezeFront-friezeBack,'darkwood');
+  for(let z=friezeBack+.12;z<friezeFront-.1;z+=.42)b.box(x+sign*.10,(wallBottom+wallTop)/2,z,.045,wallHeight,.405,'hallBearing',0,.72+.14*Math.sin(z*7.7)**2);
  }
  const upper=(sign,t,u)=>[cx+sign*halfG*t,gE+gR*Math.pow(1-t,1.28)+.38*Math.pow(t,8),mix(gB,gF,(u+1)/2)];
  for(const sign of[-1,1]){

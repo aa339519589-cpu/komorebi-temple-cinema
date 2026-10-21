@@ -1,0 +1,222 @@
+{
+  "scope": "Only the newly authored closed pagoda ceramic/soffit shell buffers. Separate overlapping and touching closed roof units are checked by their original index topology, without welding them into an unintended boolean union. Column callback omitted because unchanged column geometry is outside this check.",
+  "visualAccepted": false,
+  "stats": {
+    "revision": "scene02-deep-five-storey-pagoda160",
+    "storeys": 5,
+    "roofUnits": 8920,
+    "bracketHeads": 100,
+    "wallPanels": 160,
+    "bells": 20,
+    "photographicPixels": false,
+    "sorin": {
+      "kind": "closed lathe annular plates, rolled rims and continuous central post",
+      "plates": 19,
+      "rows": [
+        {
+          "height": 15.680000000000001,
+          "outerRadius": 0.48,
+          "rolledRimThickness": 0.10752,
+          "webThickness": 0.024640000000000002,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 15.95995862131477,
+          "outerRadius": 0.46799999999999997,
+          "rolledRimThickness": 0.10592,
+          "webThickness": 0.024273333333333334,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 16.23582827887692,
+          "outerRadius": 0.45599999999999996,
+          "rolledRimThickness": 0.10432000000000001,
+          "webThickness": 0.02390666666666667,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 16.507418553041894,
+          "outerRadius": 0.444,
+          "rolledRimThickness": 0.10271999999999999,
+          "webThickness": 0.02354,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 16.774516944919817,
+          "outerRadius": 0.432,
+          "rolledRimThickness": 0.10112,
+          "webThickness": 0.023173333333333334,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 17.036884563822472,
+          "outerRadius": 0.42,
+          "rolledRimThickness": 0.09952,
+          "webThickness": 0.022806666666666666,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 17.294250576896022,
+          "outerRadius": 0.408,
+          "rolledRimThickness": 0.09792000000000001,
+          "webThickness": 0.02244,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 17.54630493298543,
+          "outerRadius": 0.39599999999999996,
+          "rolledRimThickness": 0.09631999999999999,
+          "webThickness": 0.022073333333333334,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 17.792688618464428,
+          "outerRadius": 0.384,
+          "rolledRimThickness": 0.09472,
+          "webThickness": 0.021706666666666666,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 18.032980277034962,
+          "outerRadius": 0.372,
+          "rolledRimThickness": 0.09312,
+          "webThickness": 0.02134,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 18.266677280637083,
+          "outerRadius": 0.36,
+          "rolledRimThickness": 0.09152,
+          "webThickness": 0.020973333333333333,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 18.493167964743723,
+          "outerRadius": 0.348,
+          "rolledRimThickness": 0.08992,
+          "webThickness": 0.02060666666666667,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 18.711689038751512,
+          "outerRadius": 0.33599999999999997,
+          "rolledRimThickness": 0.08832,
+          "webThickness": 0.02024,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 18.92125641994199,
+          "outerRadius": 0.32399999999999995,
+          "rolledRimThickness": 0.08671999999999999,
+          "webThickness": 0.019873333333333333,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 19.120544103387935,
+          "outerRadius": 0.31199999999999994,
+          "rolledRimThickness": 0.08512,
+          "webThickness": 0.01950666666666667,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 19.307648499460022,
+          "outerRadius": 0.3,
+          "rolledRimThickness": 0.08352,
+          "webThickness": 0.019139999999999997,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 19.47955087856557,
+          "outerRadius": 0.28800000000000003,
+          "rolledRimThickness": 0.08192,
+          "webThickness": 0.018773333333333336,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 19.630494633714903,
+          "outerRadius": 0.276,
+          "rolledRimThickness": 0.08032,
+          "webThickness": 0.01840666666666667,
+          "boreRadius": 0.08
+        },
+        {
+          "height": 19.740000000000002,
+          "outerRadius": 0.264,
+          "rolledRimThickness": 0.07872,
+          "webThickness": 0.01804,
+          "boreRadius": 0.08
+        }
+      ],
+      "baseSeat": 14.9,
+      "bootTop": 15.3,
+      "top": 20.71,
+      "axisPreserved": true,
+      "referencePhotographUsedAsTexture": false
+    }
+  },
+  "checks": [
+    {
+      "name": "scene02-closed-pagoda-ceramic-and-soffit160-ceramic1600",
+      "vertices": 49986,
+      "triangles": 94040,
+      "finite": true,
+      "signedVolume": 8.079674342869971,
+      "indexBoundaryOrNonmanifold": 0,
+      "indexWindingDisagreement": 0
+    },
+    {
+      "name": "scene02-closed-pagoda-ceramic-and-soffit160-pagodaShadow160",
+      "vertices": 17160,
+      "triangles": 34240,
+      "finite": true,
+      "signedVolume": 14.525173389199338,
+      "indexBoundaryOrNonmanifold": 0,
+      "indexWindingDisagreement": 0
+    },
+    {
+      "name": "scene02-closed-pagoda-ceramic-and-soffit160-ceramic1603",
+      "vertices": 51848,
+      "triangles": 97760,
+      "finite": true,
+      "signedVolume": 10.917280127390075,
+      "indexBoundaryOrNonmanifold": 0,
+      "indexWindingDisagreement": 0
+    },
+    {
+      "name": "scene02-closed-pagoda-ceramic-and-soffit160-ceramic1601",
+      "vertices": 50586,
+      "triangles": 95160,
+      "finite": true,
+      "signedVolume": 8.560111127626408,
+      "indexBoundaryOrNonmanifold": 0,
+      "indexWindingDisagreement": 0
+    },
+    {
+      "name": "scene02-closed-pagoda-ceramic-and-soffit160-ceramic1604",
+      "vertices": 52448,
+      "triangles": 98880,
+      "finite": true,
+      "signedVolume": 10.016899309808743,
+      "indexBoundaryOrNonmanifold": 0,
+      "indexWindingDisagreement": 0
+    },
+    {
+      "name": "scene02-closed-pagoda-ceramic-and-soffit160-ceramic1602",
+      "vertices": 49986,
+      "triangles": 94040,
+      "finite": true,
+      "signedVolume": 8.971655145737529,
+      "indexBoundaryOrNonmanifold": 0,
+      "indexWindingDisagreement": 0
+    },
+    {
+      "name": "scene02-closed-pagoda-ceramic-and-soffit160-ceramic1605",
+      "vertices": 49986,
+      "triangles": 94040,
+      "finite": true,
+      "signedVolume": 7.595062837338307,
+      "indexBoundaryOrNonmanifold": 0,
+      "indexWindingDisagreement": 0
+    }
+  ]
+}

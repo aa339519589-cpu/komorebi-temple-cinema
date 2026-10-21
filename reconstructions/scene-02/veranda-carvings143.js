@@ -5,7 +5,7 @@ import {T,V} from './kernel.js';
 export function buildVerandaCarvings143({b,mats,canopy}){
  const stats={carvedBeamNoses:0,columnHeadClamps:0,piercedLanternFaces:0,chainLinks:0};
  mats.verandaRed=mats.red.clone();mats.verandaRed.name='scene02-veranda-rubbed-lacquer-shaft';mats.verandaRed.color.setHex(0x8d3520);mats.verandaRed.clearcoat=.27;mats.verandaRed.clearcoatRoughness=.22;
- mats.verandaBronze=mats.oldgold.clone();mats.verandaBronze.name='scene02-aged-lantern-cast-bronze';mats.verandaBronze.color.setHex(0x8f6428);mats.verandaBronze.roughness=.47;
+ mats.verandaBronze=mats.oldgold.clone();mats.verandaBronze.name='scene02-aged-lantern-cast-bronze';mats.verandaBronze.color.setHex(0x4e361e);mats.verandaBronze.roughness=.47;
  const leafShape=new T.Shape();leafShape.moveTo(0,-.035);leafShape.bezierCurveTo(-.13,.02,-.12,.14,0,.25);leafShape.bezierCurveTo(.12,.14,.13,.02,0,-.035);leafShape.closePath();
  const leaf=new T.ExtrudeGeometry(leafShape,{depth:.025,bevelEnabled:true,bevelSize:.010,bevelThickness:.008,bevelSegments:2,curveSegments:7});
  const smallRing=new T.TorusGeometry(1,.060,6,32);
@@ -43,7 +43,8 @@ export function buildVerandaCarvings143({b,mats,canopy}){
   beamNose(canopy.columnX-.70,8.65,z+.13,.88);
   beamNose(outside(z)+.68,8.70,z+.13,.73);
  }
- const lampPane=new T.MeshBasicMaterial({name:'scene02-warm-paper-behind-solid-bronze-piercing',color:0xffb250,toneMapped:false});
+ mats.lanternCast160=mats.verandaBronze.clone();mats.lanternCast160.name='scene02-lantern-dark-chased-bronze160';mats.lanternCast160.color.setHex(0x49351c);mats.lanternCast160.roughness=.42;
+ const lampPane=new T.MeshStandardMaterial({name:'scene02-physical-emitting-paper160',color:0xad7433,emissive:0xffb559,emissiveIntensity:3.8,roughness:.84,side:T.DoubleSide});
  const grilleShape=new T.Shape();grilleShape.moveTo(-.211,-.55);grilleShape.lineTo(.211,-.55);grilleShape.lineTo(.211,.55);grilleShape.lineTo(-.211,.55);grilleShape.closePath();
  function aperture(x,y,rx,ry,a=0){const p=new T.Path();p.absellipse(x,y,rx,ry,0,Math.PI*2,true,a);grilleShape.holes.push(p);}
  for(const sign of[-1,1]){
@@ -60,22 +61,22 @@ export function buildVerandaCarvings143({b,mats,canopy}){
    for(const sign of[-1,1]){b.put(new T.CylinderGeometry(.44,.44,.055,6),'oldgold',[0,sign*.58,0]);for(let j=0;j<6;j++){const a=j*Math.PI/3;b.ball(Math.sin(a)*.49,sign*.645,Math.cos(a)*.49,.036,.044,.036,'oldgold');}}
    for(let side=0;side<6;side++)b.at([0,0,0],side*Math.PI/3,()=>{
     b.box(0,0,.363,.404,1.08,.018,lampPane);
-    b.put(grille,'oldgold',[0,0,.398]);
+    b.put(grille,'lanternCast160',[0,0,.398]);
     // The large open piercings carry cast curling stems and small raised leaves,
     // with genuine air between them and the paper four centimetres behind.
     for(const sign of[-1,1])for(const side of[-1,1]){
      const yy=sign*.347;
-     b.tube([[0,sign*.205,.430],[side*.11,sign*.245,.433],[side*.145,sign*.346,.435],[side*.080,sign*.435,.434],[side*.025,sign*.385,.434],[side*.060,sign*.329,.435],[side*.106,sign*.359,.434]],.010,'oldgold',30);
-     for(let j=0;j<3;j++)b.put(leaf,j%2?'gold':'oldgold',[side*(.06+j*.035),sign*(.235+j*.083),.435],[.23,.23,.38],[0,0,side*sign*(.60+j*.5)]);
-     b.tube([[side*.16,sign*.49,.433],[side*.10,sign*.465,.433],[side*.04,sign*.49,.433],[0,sign*.505,.433]],.008,'gold',18);
+     b.tube([[0,sign*.205,.430],[side*.11,sign*.245,.433],[side*.145,sign*.346,.435],[side*.080,sign*.435,.434],[side*.025,sign*.385,.434],[side*.060,sign*.329,.435],[side*.106,sign*.359,.434]],.008,'lanternCast160',30);
+     for(let j=0;j<3;j++)b.put(leaf,j%2?'lanternCast160':'oldgold',[side*(.06+j*.035),sign*(.235+j*.083),.435],[.19,.19,.30],[0,0,side*sign*(.60+j*.5)]);
+     b.tube([[side*.16,sign*.49,.433],[side*.10,sign*.465,.433],[side*.04,sign*.49,.433],[0,sign*.505,.433]],.0065,'lanternCast160',18);
     }
-    for(let j=0;j<10;j++){const a=j*Math.PI/5;b.put(leaf,j%3?'gold':'oldgold',[Math.cos(a)*.044,Math.sin(a)*.044,.435],[.38,.38,.45],[0,0,a-Math.PI/2]);}
+    for(let j=0;j<10;j++){const a=j*Math.PI/5;b.put(leaf,j%3?'lanternCast160':'oldgold',[Math.cos(a)*.044,Math.sin(a)*.044,.435],[.30,.30,.35],[0,0,a-Math.PI/2]);}
     b.ball(0,0,.453,.032,.032,.017,'gold');
     for(const sign of[-1,1]){
      b.box(sign*.217,0,.397,.047,1.24,.064,'black');b.box(sign*.214,0,.434,.012,1.20,.017,'gold');
      b.box(0,sign*.565,.409,.45,.055,.066,'black');b.box(0,sign*.562,.447,.44,.013,.016,'oldgold');
     }
-    b.put(smallRing,'gold',[0,0,.438],[.169,.169,.12]);
+    b.put(smallRing,'lanternCast160',[0,0,.438],[.169,.169,.12]);
     for(let k=0;k<6;k++){const a=k*Math.PI/3;b.ball(Math.cos(a)*.170,Math.sin(a)*.170,.446,.012,.012,.009,'gold');}
     stats.piercedLanternFaces++;
    });

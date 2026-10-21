@@ -70,12 +70,12 @@
     "scope": "Only foreground deck and lowest rail/foot sill. Reference pose, dolly, lighting, building positions, middle/top rails and all upper cast metalwork retained.",
     "referenceVisibility": "HD0-photo1 exposes only a narrow floor strip at the foreground rail; the present native view exposes a larger right-bottom deck. Board end locations and hidden joists cannot be measured from that photo and are explicitly structural hypotheses.",
     "diagnosis": "Prior geometry already had25closed strips and7mm gaps, but each strip was30m long with no end joints or supporting joist detail. Unit rounded-box scaling stretched the end rounding to~0.54m. A full5.9x30m Reflector6mm above the boards, alpha0.71, obscured real floor joints/height. Floor albedo remained the raw near-black scan.",
-    "construction": "25longitudinalZboard columns subdivided into1.2–3.6m staggered closed45mm boards with4mm end gaps,1.5–2.2mm true arrises,±1.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
+    "construction": "25longitudinalZboard columns subdivided into1.2\u20133.6m staggered closed45mm boards with4mm end gaps,1.5\u20132.2mm true arrises,\u00b11.2mm top differences, shallow cupping/wear, fixed bottom support contact and small physical fasteners. End joints fall on0.6m transverse joists, with longitudinal bearer solids below.",
     "lowerRail": "Only the lowest rail is segmented with small true bevels/end tenons and a closed wood sill under retained post shafts. Existing middle/top rails, posts and metalwork stay.",
     "material": "Floor pigment#925034 multiplied by normalized source linear luminance/0.01505120736^.55, clamped.52..1.46; scanned normal and roughness retained at metric scale. Actual per-board clearcoat with worn/wet roughness plus the already-captured real scene probe. The deck-spanning Reflector is removed; the pond Reflector remains.",
     "lightingChanged": false,
     "visualAccepted": false,
-    "roundTwoCorrection": "The first actual had clear true joints/grain/warm pigment but a dry response. Update the actual cup/wear geometry normals through the deformation inverse-transpose; only floor wet clearcoat roughness becomes about0.09–0.21 with actual probe factor0.65→1.0. Light positions/intensities/exposure and all upper rail/metal material settings stay unchanged; no deck reflector sheet returns.",
+    "roundTwoCorrection": "The first actual had clear true joints/grain/warm pigment but a dry response. Update the actual cup/wear geometry normals through the deformation inverse-transpose; only floor wet clearcoat roughness becomes about0.09\u20130.21 with actual probe factor0.65\u21921.0. Light positions/intensities/exposure and all upper rail/metal material settings stay unchanged; no deck reflector sheet returns.",
     "geometryAudit": "Actual emitted225boards plus42framing/lower-rail prototype geometries checked on the CPU:267unique solids, all finite, positive volume, closed after10micrometre spatial weld, zero nonmanifold edges. No browser or test suite was used for this geometry inspection."
   },
   "foregroundStoneLantern120": {
@@ -133,6 +133,48 @@
     "construction": "Authored woody evergreen crowns with attached fine shoots, closed curved leaf blades, small five-petal terminal flowers, original low scanned understory below",
     "placement": "Graded rear garden, stair shoulders and east terrace use the actual evaluated terrain function for each root; low crowns sit outside the useful bridge bearing/deck footprint",
     "photoTexture": false,
+    "visualAccepted": false
+  },
+  "scene02CarvedCarpentry157": {
+    "file": "carved-timber157.js",
+    "authoring": "Reproducible authored closed three-dimensional mesh algorithms; no imagegen bitmap, scene image, heightmap or reference projection",
+    "geometry": "Volumetric lobed/fluted leaves and tapered volutes; profiled solid cloud levers; moulded bearing bowls and mirrored carved noses; solid flared column receiver/collar; pierced extruded spandrels with oriented hole walls; profiled cornice receiver courses; swept curved gilded bargeboards and carved coffer/pendant gable truss",
+    "sourceUse": "Reference photograph is a comparison input only; source-led motif scale, silhouette and support placement are hand-authored in the common R22 bearing frame",
+    "seats": "R22 hall roof/eave ring, bay axes, reference camera, bridge, stair and terrain retained",
+    "license": "Authored project code/geometry; existing CC0 material maps remain separately declared",
+    "visualAccepted": false,
+    "native23Repair": "The closed attic frieze is recessed behind the fixed column-head bearing ring, revealing the stepped levers; it remains opaque behind the previously leaking corner. Gable coffers/posts are shortened to remain below the unchanged rake. Continuous curved cornice receiver/bedding courses meet the retained rafter tails.",
+    "cornerReceivers": "corner-receiver158.js: closed radial diagonal timber/gilt receivers share each original corner column abacus and the fixed inner hip bearing, without a second capital.",
+    "native24SurfaceRepair": "Completed true closes exposed a scaled-assembly attachment error: gilt nose offsets now scale with their complete wood body. The capital relief is a closed mesh warped onto the actual flared receiver surface. Smaller escutcheon sheets have metric cast thickness and surface-seated leaf/volute relief; the leaf carving depth is reduced from bulbous ornament to geometric bas-relief.",
+    "reproduction": "carved-timber157.js and corner-receiver158.js are deterministic authored construction sources; the exact24-to159 surface repair script is retained under QA02, with original24 source snapshots and closed prototype checks."
+  },
+  "scene02MonumentalEnsemble160": {
+    "files": [
+      "architectural-finishes160.js",
+      "pagoda-ensemble160.js",
+      "carved-timber157.js",
+      "veranda-carvings143.js"
+    ],
+    "geometry": "Five physically occupied tower storeys, recessed lime/wood framed fields, separate open balconies, fitted multi-stage timber heads, radial eave receivers, closed overlapping ceramic units and soffits, seated corner bells, thick main gable timber rakes with small surface-fitted plates and dense botanical relief in opaque recessed fields.",
+    "materials": "Deterministic fired-clay microstructure maps on independently closed tiles; original declared CC0 timber maps and original scan bytes retained. Small lantern now has PBR paper emission and dark chased bronze.",
+    "lighting": "Reduced unshadowed native sky/courtyard approximation and larger geometry-derived contact occlusion; source sunlight position unchanged. Cycles independent physical-lighting comparison remains a separate diagnostic.",
+    "camera": "Existing measured reference camera retained for first review; explicit lower-camera inspection is a separate real 3D render before choosing a change.",
+    "visualAccepted": false,
+    "sourcePhotoUse": "Comparison and manual dimension judgement only; no reference RGB, projection, 2D warp or replacement frame.",
+    "nativeCloseRepair161": {
+      "gable": "Lower/shorten the upper coffer fields so their outer top corners remain behind the thick curved rake; broaden and shorten upper botanical leaves to remove the coarse straw silhouette exposed in the actual native/physical gable close.",
+      "bridge": "Distinct weathered exterior red/cedar materials retain original metric scan maps, but use lower physical clearcoat and deeper pigment. This prevents the first physical bridge sun reflection from covering the central rail as a broad white patch.",
+      "nearHandrail": "Top beam retains original centreline and external section, with a true31.5mm corner radius instead of7mm. The more rounded real cross-section narrows the flat top highlight. Other rail paths/contacts remain unchanged.",
+      "sourcePixelUse": false,
+      "visualAccepted": false
+    }
+  },
+  "scene02GroundedGallery162": {
+    "file": "gallery-footings162.js",
+    "diagnosis": "The actual R161 above/oblique inspections exposed that all three low-gallery .7m foundation boxes began at their raised world Y (.65,1.1,3.3m), above the finite site soil.",
+    "construction": "Closed granite-bearing cores extend to worldY-.25m into common soil datum-.12m. Closed foot flanges, individually jointed front/back/end masonry faces and level granite floor caps carry the unchanged floor/column/roof geometry.",
+    "originalSourceMaps": "Existing original declared foreground-lantern120 CC0 granite maps retained; native metric granite hook is used on the real masonry.",
+    "cameraOrSuperstructureMoved": false,
     "visualAccepted": false
   }
 }

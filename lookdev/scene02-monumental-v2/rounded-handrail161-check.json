@@ -1,0 +1,117 @@
+{
+  "scope": "Only the four actual continuous closed rail timbers; first has newly rounded top cross-section. No scene fidelity or broad test claim.",
+  "sourceHash": "87e2afd4ad6ad96d47c6fa1866711d7dd7d317c07c7f33277bf0d7173a315d37",
+  "visualAccepted": false,
+  "stats": {
+    "kind": "one spatial balustrade with closed continuous broad beams and joined inset-panel bays",
+    "measuredPosts": [
+      [
+        15.586114982218282,
+        1.4116018838120357,
+        19.442761528529996
+      ],
+      [
+        15.301670941934049,
+        1.4359151386049729,
+        22.03832476365354
+      ],
+      [
+        15.193872543879204,
+        1.3671515944498158,
+        23.368270846691118
+      ]
+    ],
+    "structuralPostCount": 7,
+    "postSectionMetres": 0.12,
+    "postHeightMetres": 1.12,
+    "topRailSectionMetres": [
+      0.12,
+      0.075
+    ],
+    "topRailTrueCornerRadiusMetres": 0.0315,
+    "middleRailSectionMetres": [
+      0.1,
+      0.105
+    ],
+    "bottomRailSectionMetres": [
+      0.12,
+      0.105
+    ],
+    "timberBeams": 4,
+    "insetPanels": 40,
+    "intermediateStiles": 34,
+    "deckControlPoints": [
+      [
+        16.2,
+        1.35,
+        8
+      ],
+      [
+        15.95,
+        1.35,
+        17
+      ],
+      [
+        15.586114982218282,
+        1.4116018838120357,
+        19.442761528529996
+      ],
+      [
+        15.301670941934049,
+        1.4359151386049729,
+        22.03832476365354
+      ],
+      [
+        15.193872543879204,
+        1.3671515944498158,
+        23.368270846691118
+      ],
+      [
+        14.9,
+        1.35,
+        26
+      ],
+      [
+        14.4,
+        1.35,
+        40
+      ]
+    ],
+    "photographicPixelsUsed": false,
+    "limits": "Curved plan, 69mm local deck rise and unequal bay lengths are inferred from visible cap/beam axes; the source photograph does not admit perfectly regular perspective."
+  },
+  "checks": [
+    {
+      "vertices": 4290,
+      "triangles": 8576,
+      "finite": true,
+      "signedVolume": 0.2568743664724607,
+      "boundaryOrNonmanifold": 0,
+      "inconsistentWinding": 0
+    },
+    {
+      "vertices": 4290,
+      "triangles": 8576,
+      "finite": true,
+      "signedVolume": 0.33524956305463244,
+      "boundaryOrNonmanifold": 0,
+      "inconsistentWinding": 0
+    },
+    {
+      "vertices": 4290,
+      "triangles": 8576,
+      "finite": true,
+      "signedVolume": 0.40261371957433084,
+      "boundaryOrNonmanifold": 0,
+      "inconsistentWinding": 0
+    },
+    {
+      "vertices": 4290,
+      "triangles": 8576,
+      "finite": true,
+      "signedVolume": 0.2710929370087605,
+      "boundaryOrNonmanifold": 0,
+      "inconsistentWinding": 0
+    }
+  ]
+}

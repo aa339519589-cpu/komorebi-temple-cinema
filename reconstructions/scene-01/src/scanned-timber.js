@@ -32,7 +32,8 @@ export async function installScannedTimber(mats){
   mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.24,.24);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
   mat.color.setRGB(...colors[key]);mat.metalness=0;
   if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.045:.025;mat.clearcoatRoughness=.48;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.25,.25);mat.specularIntensity=.48;}
-  mat.onBeforeCompile=()=>{};mat.customProgramCacheKey=()=> 'temple-scanned-aged-temple-timber-v03';
+  // Keep the world-space weathering installed by scene.js. Replacing the
+  // image maps must not silently erase the physical member's ageing hook.
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=.7;mat.needsUpdate=true;
  }
  return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps'},

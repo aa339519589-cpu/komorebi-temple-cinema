@@ -1,0 +1,349 @@
+{
+  "status": "reviewable-3d-reconstruction-candidate",
+  "visualAccepted": false,
+  "photographicFidelityComplete": false,
+  "scope": "Scene02 only. Actual modeling/material/light changes and native/current-source physical evidence; no full-film completion claim.",
+  "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+  "sourceFiles": [
+    "reconstructions/scene-02/altar-figure.js",
+    "reconstructions/scene-02/architectural-finishes160.js",
+    "reconstructions/scene-02/architecture.js",
+    "reconstructions/scene-02/asset-dependencies.json",
+    "reconstructions/scene-02/assets/fir-sapling/fetch-original.py",
+    "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin",
+    "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf",
+    "reconstructions/scene-02/assets/fir-sapling/provenance.json",
+    "reconstructions/scene-02/assets/fir-sapling/provider-files.json",
+    "reconstructions/scene-02/assets/fir-sapling/provider-info.json",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg",
+    "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png",
+    "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png",
+    "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png",
+    "reconstructions/scene-02/assets/foreground-lantern120/provenance.json",
+    "reconstructions/scene-02/bank-evergreen156.js",
+    "reconstructions/scene-02/carved-timber157.js",
+    "reconstructions/scene-02/corner-receiver158.js",
+    "reconstructions/scene-02/embedded-bridge-bearings146.js",
+    "reconstructions/scene-02/foreground-stone-lantern120.js",
+    "reconstructions/scene-02/gallery-footings162.js",
+    "reconstructions/scene-02/garden-pines145.js",
+    "reconstructions/scene-02/garden.js",
+    "reconstructions/scene-02/hall-carpentry141.js",
+    "reconstructions/scene-02/hall-entry.js",
+    "reconstructions/scene-02/hall-roof154.js",
+    "reconstructions/scene-02/hall-terrace144.js",
+    "reconstructions/scene-02/index.html",
+    "reconstructions/scene-02/kernel.js",
+    "reconstructions/scene-02/layout117.js",
+    "reconstructions/scene-02/main.js",
+    "reconstructions/scene-02/pagoda-ensemble160.js",
+    "reconstructions/scene-02/pagoda-ground.js",
+    "reconstructions/scene-02/planted-shoulders147.js",
+    "reconstructions/scene-02/rooted-canopy142.js",
+    "reconstructions/scene-02/scanned-fir-woodland150.js",
+    "reconstructions/scene-02/scanned-garden-stones.js",
+    "reconstructions/scene-02/scanned-timber.js",
+    "reconstructions/scene-02/scanned-understory146.js",
+    "reconstructions/scene-02/sorin-solids.js",
+    "reconstructions/scene-02/veranda-boards.js",
+    "reconstructions/scene-02/veranda-carvings143.js",
+    "reconstructions/scene-02/veranda-rail117.js",
+    "reconstructions/scene-02/woodland-terminal148.js"
+  ],
+  "sourceSnapshot": "qa/ten-reference/02/iteration-scene02-grounded-ensemble162-r04-20261021/source",
+  "baseline": {
+    "hash": "636e2798c996976bba8e7881db17260ac19ca7d9182768aac3dbf3ddbf5ebba7",
+    "native": "qa/ten-reference/02/iteration-scene02-surface-fitted-carpentry-25-20261021/reference.png"
+  },
+  "changes": [
+    "Five occupied recessed tower storeys, separate balconies, 100 fitted heads, 160 lime panels, 20 seated bells, 8920 closed ceramic units and opaque boarding. Recovered outer tower envelope retained.",
+    "Thick timber gable rakes with smaller fitted gilt plates and recessed botanical fields; actual close exposed and then repaired protruding upper coffer corners and oversized slender leaves.",
+    "Authored fired-ceramic microstructure, original scanned metric wood grain retained, dark chased PBR lantern castings and actual emitting paper; reduced unshadowed native fill and stronger contact AO.",
+    "Distinct weathered exterior bridge red/cedar with lower coat; actual near handrail retains its centreline/external section with a true 31.5 mm corner radius.",
+    "Three existing raised galleries now bear on closed granite foundations down to world Y = -0.25 m inside site ground at -0.12 m, with 870 masonry clasts. Their floor/column/roof heights are unchanged."
+  ],
+  "camera": {
+    "referenceRetained": true,
+    "lowerCameraRenderedAndRejected": true,
+    "receipt": "lookdev/scene02-monumental-v2/lower-camera-review.json",
+    "reason": "An eye position 22 cm lower raised the near railing across bridge/pond by roughly 150 pixels, with little change to distant building size. Useful reference frame contacts were better retained by the measured camera."
+  },
+  "native": [
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-grounded-ensemble162-r04-20261021",
+      "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+      "status": "rendered-review",
+      "errors": [],
+      "backend": "metal",
+      "detailCrop": {
+        "pixels": [
+          590,
+          180,
+          340,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "time": null,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "67aacab6c66416402c706b4ed52dd0511d425adba3f9e553d95f87ec8bc467af"
+        },
+        {
+          "name": "detail-native",
+          "time": null,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "8aec8d63c4e8cb43c06db9118cabc5234344c82e922d6e97b66f35fa0bbc7caa"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-true-beam162-r04-20261021",
+      "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+      "status": "rendered-review",
+      "errors": [],
+      "backend": "metal",
+      "detailCrop": {
+        "pixels": [
+          610,
+          340,
+          500,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "time": null,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "67aacab6c66416402c706b4ed52dd0511d425adba3f9e553d95f87ec8bc467af"
+        },
+        {
+          "name": "detail-native",
+          "time": null,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "6347018f748cd9c079bdb226047267a55248fbd8d4ea147e334bb6b5916d8ce8"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-hall-oblique162-r04-20261021",
+      "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+      "status": "rendered-review",
+      "errors": [],
+      "backend": "metal",
+      "inspectionView": {
+        "position": [
+          12.5,
+          7.8,
+          1
+        ],
+        "target": [
+          2.7,
+          11,
+          -11.5
+        ],
+        "fov": 50,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "frames": [
+        {
+          "name": "inspection-view",
+          "time": null,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "5dcdc4ab3542d78501bb55d1743aff4caa31265ff463d7ac3b431b3402a74c8c"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-ensemble-above162-r04-20261021",
+      "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+      "status": "rendered-review",
+      "errors": [],
+      "backend": "metal",
+      "inspectionView": {
+        "position": [
+          14,
+          25,
+          12
+        ],
+        "target": [
+          -2,
+          7,
+          -7
+        ],
+        "fov": 60,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "frames": [
+        {
+          "name": "inspection-view",
+          "time": null,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "18f218641d41e150d2cf1ba13085e380ac4d99c63569a70f53f39497bf732308"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-three-poses162-r04-20261021",
+      "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+      "status": "rendered-review",
+      "errors": [],
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "shot-0",
+          "time": 0,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "fdf143e97dd61dfe5422f3e5649b8f24a760f28e01238465abd251d47635c0a0"
+        },
+        {
+          "name": "shot-3p5",
+          "time": 3.5,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "57ffb7975d9c29d8ce352dbfe6793ae314778507cc4ac9628d964e1de8294775"
+        },
+        {
+          "name": "shot-7",
+          "time": 7,
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "67aacab6c66416402c706b4ed52dd0511d425adba3f9e553d95f87ec8bc467af"
+        }
+      ]
+    }
+  ],
+  "physical": {
+    "report": "lookdev/scene02-monumental-v2/cycles-r04/report.json",
+    "full": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/scene02-current-source-physical162-r04.png",
+    "trueGable": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/scene02-true-gable-physical162-r04.png",
+    "fullSamples": 64,
+    "trueGableSamples": 48,
+    "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+    "exportReport": "lookdev/scene02-monumental-v2/export-r04/export-report.json",
+    "sourceStatistics": {
+      "meshes": 1685,
+      "geometries": 1566,
+      "materials": 113,
+      "textures": 29,
+      "instances": 179915,
+      "triangles": 191594367
+    },
+    "allRenderableTrianglesPreserved": true,
+    "actualEvaluatedLinkedMatrixMaxAbsoluteError": 4.76837158203125e-7,
+    "actualEvaluatedLinkedBuckets": 40,
+    "portableSkyHDR": {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/authored-source-atmosphere162.exr",
+      "sha256": "ba2bff46f5bb07f8aeb66d1fa67cf17b90676a90b961554a62d764d943b43cb8",
+      "packedBytes": 33571237,
+      "decodedMaxLinearRGB": 15.39661693572998,
+      "decodedMeanLinearRGB": 0.4933840036392212,
+      "maximumSourceVsDecodedAbsoluteRGBError": 0,
+      "storageVerifiedBeforeRender": true
+    },
+    "driver": "lookdev/scene02-monumental-v2/render-physical162-r04.py",
+    "driverSha256": "fb36286b97b0dc8c5b98859ef65195f2ed2555481b8cdec25c4bd628c5ae28c8",
+    "nativePixelEquivalence": false,
+    "materialTransfer": {
+      "sourceOriginalAssets": "All original declared compressed source assets remain immutable; the verified exporter retains their file hashes and exports decoded pixels. Every exported binary/image hash is checked before use.",
+      "geometry": "All original indexed positions/indices/normals and matrices retained, no decimation. Full affine matrices baked only for shears and metric-timber UV realization.",
+      "RGB": "Source vertex RGB only if vertexColors enabled, multiplied separately by exact per-instance RGB. Linked instances read INSTANCER; baked/direct meshes read GEOMETRY.",
+      "timberUV": "Original native position/normal, actual instance-column lengths and timberExtent choose longest-axis metric UV exactly by original formula; native phase formula recomputed in CPU double precision, so sin/fract phase can differ from GPU float rounding. UV pixels are original decoded scan maps.",
+      "timberPigment": "Original linear material color times normalized decoded linear scan luminance/0.01505120736 with source exponent/clamps; no extra pigment override.",
+      "graniteUV": "Original native position/normal and actual instance-column lengths choose the dominant-face metric UV at0.3173828125m per original granite map; native phase formula is recomputed in CPU double precision, so sin/fract phase can differ from native GPU float rounding. Original UV buffers and texture bytes remain in the verified export.",
+      "roughness": "Native timber roughness remap ported; individual ceramic source maps, normal maps, clearcoat and all source PBR values retained. The original metric-world wear/wetness formula drives physical floor roughness and clearcoat, with sourceX=worldX and sourceZ=-worldY after the shared coordinate conversion.",
+      "water": "Same source pond surface and bump map use physical dielectric IOR1.333/transmission.55/roughness.038, plus actual world-metric 0.17m ripples with1.6mm normal distance instead of the native screen-space offset in place of excluded screen-space reflector.",
+      "limits": [
+        "Native shader leaf transmission is not automatically portable.",
+        "Native PMREM/captured-probe, AO, screen-space reflection and ACES differ from physical ray transport and AgX.",
+        "Photo fidelity remains unaccepted; Cycles pixels are not WebGL equivalents."
+      ]
+    }
+  },
+  "geometryChecks": [
+    "lookdev/scene02-monumental-v2/carving-prototype-check161-r03.json",
+    "lookdev/scene02-monumental-v2/roof-shell-check160.json",
+    "lookdev/scene02-monumental-v2/rounded-handrail161-check.json",
+    "lookdev/scene02-monumental-v2/gallery-contact-check162.json"
+  ],
+  "comparisons": "lookdev/scene02-monumental-v2/comparison-preview-labels.json",
+  "retainedFailures": [
+    "lookdev/scene02-monumental-v2/cycles-r02/rejected-review.json",
+    "qa/ten-reference/02/iteration-scene02-hall-oblique160-r02-20261021/queue-cancelled.json"
+  ],
+  "remaining": [
+    "Exact ornament motifs, carved relief finesse, tile aging and native lighting still differ visibly from the supplied HD source.",
+    "Background terrain/woodland and near lotus/flower richness remain less natural and less dense than the photograph.",
+    "Current native view is a procedural-scanned 3D reconstruction; physical Cycles still is an independent cross-renderer diagnostic with declared texture/shader/light transfer limits."
+  ],
+  "commitAndFilm": "Parent owns Git integration, publication and full-film assembly; no edits were made to those shared files.",
+  "originalAssetPreservation": {
+    "frozenR25FilesCompared": 29,
+    "allOriginalFileBytesUnchanged": true,
+    "scope": "Original raster and binary glTF assets. New ceramic microstructure is deterministic authored source code, not a modified scan."
+  },
+  "verification": {
+    "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+    "nativeReports": 5,
+    "nativeFrames": 9,
+    "nativeErrors": 0,
+    "physicalFrames": 2,
+    "nativeDimensions": [
+      1254,
+      1254
+    ],
+    "physicalDimensions": [
+      1254,
+      1254
+    ],
+    "executedPhysicalDriverBytesMatch": true,
+    "physicalPNGBytesMatch": true,
+    "allRenderableSourceTrianglesPreserved": true,
+    "actualEvaluatedGNMatrixMaxAbsoluteError": 4.76837158203125e-7,
+    "portableSkyDecodedMaxError": 0,
+    "visualAccepted": false
+  }
+}

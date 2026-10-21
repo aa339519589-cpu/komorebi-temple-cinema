@@ -1,0 +1,541 @@
+{
+  "sourceCommit": "201b1f37b199ce08ff3fa32cd3d991a7058e8427",
+  "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+  "exportSceneSha256": "be6271f78cb05c0958587a55fcafb7c75d801a957aeff6f1b8b4cb0be5e485a7",
+  "renderScript": {
+    "file": "render-physical162-r04.py",
+    "sha256": "fb36286b97b0dc8c5b98859ef65195f2ed2555481b8cdec25c4bd628c5ae28c8"
+  },
+  "sourceStatistics": {
+    "meshes": 1685,
+    "geometries": 1566,
+    "materials": 113,
+    "textures": 29,
+    "instances": 179915,
+    "triangles": 191594367
+  },
+  "lightingMode": "scene02-source-sun-and-physical-bounce",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 2,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "procedural-golden-cloud-atmosphere",
+      "type": "Mesh",
+      "material": "",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "actual-pond-reflection",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "physical-current-source-review",
+  "started": 1792595697.011277,
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "affinePreservation": {
+    "parentMatrices": "Retained as full exported source object matrices.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 132555,
+    "bakedShearedInstances": 47359,
+    "bakedShearedTriangles": 19241141,
+    "bakedShearedVertices": 32257567,
+    "maxLinkedTRSMatrixResidual": 2.86102294921875e-06,
+    "maxBakedShearResidual": 0.38477322459220886,
+    "flattenedForShearedTransformsAndNativeMetricTimberAndGraniteUV": true,
+    "geometryDecimated": false
+  },
+  "evaluatedGNMatrixAudit": {
+    "scope": "Up to four actual evaluated linked-instance transforms from the first forty GN buckets, after common coordinate conversion; source vertex buffers remain original.",
+    "groups": [
+      {
+        "parent": "source-object-3 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 3.725290298461914e-09
+      },
+      {
+        "parent": "source-object-4 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 2.7939677238464355e-09
+      },
+      {
+        "parent": "source-object-8 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.4901161193847656e-07
+      },
+      {
+        "parent": "source-object-10 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-11 linked instances",
+        "sampledInstances": 3,
+        "maxAbsoluteMatrixResidual": 1.9112998472792242e-07
+      },
+      {
+        "parent": "source-object-12 linked instances",
+        "sampledInstances": 3,
+        "maxAbsoluteMatrixResidual": 1.9112998472792242e-07
+      },
+      {
+        "parent": "source-object-13 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-14 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.862645149230957e-08
+      },
+      {
+        "parent": "source-object-15 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 6.568679111751408e-08
+      },
+      {
+        "parent": "source-object-16 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 9.313225746154785e-09
+      },
+      {
+        "parent": "source-object-17 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-18 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-19 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-20 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-21 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-22 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-23 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-24 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-25 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-26 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-27 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-28 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-29 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-30 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 1.1920928955078125e-07
+      },
+      {
+        "parent": "source-object-31 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.4901161193847656e-08
+      },
+      {
+        "parent": "source-object-33 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.4901161193847656e-08
+      },
+      {
+        "parent": "source-object-34 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-35 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 5.960464477539063e-08
+      },
+      {
+        "parent": "source-object-36 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      },
+      {
+        "parent": "source-object-40 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 2.075962690639699e-08
+      },
+      {
+        "parent": "source-object-43 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 1.4901161193847656e-08
+      },
+      {
+        "parent": "source-object-45 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 7.450580596923828e-09
+      },
+      {
+        "parent": "source-object-46 linked instances",
+        "sampledInstances": 4,
+        "maxAbsoluteMatrixResidual": 4.76837158203125e-07
+      },
+      {
+        "parent": "source-object-47 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      },
+      {
+        "parent": "source-object-48 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      },
+      {
+        "parent": "source-object-49 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      },
+      {
+        "parent": "source-object-50 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      },
+      {
+        "parent": "source-object-51 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      },
+      {
+        "parent": "source-object-52 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      },
+      {
+        "parent": "source-object-53 linked instances",
+        "sampledInstances": 1,
+        "maxAbsoluteMatrixResidual": 4.470348358154297e-08
+      }
+    ],
+    "maxAbsoluteMatrixResidual": 4.76837158203125e-07,
+    "tolerance": 0.0001
+  },
+  "portableSkyHDR": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/authored-source-atmosphere162.exr",
+    "sha256": "ba2bff46f5bb07f8aeb66d1fa67cf17b90676a90b961554a62d764d943b43cb8",
+    "packedBytes": 33571237,
+    "decodedMaxLinearRGB": 15.39661693572998,
+    "decodedMeanLinearRGB": 0.4933840036392212,
+    "maximumSourceVsDecodedAbsoluteRGBError": 0.0,
+    "storageVerifiedBeforeRender": true
+  },
+  "physicalLights": [
+    {
+      "name": "actual-source-sun160",
+      "type": "POINT",
+      "energy": 565.4866943359375,
+      "colorLinear": [
+        1.0,
+        0.423267662525177,
+        0.0666259378194809
+      ],
+      "positionSourceYUp": [
+        2.162806272506714,
+        7.683435916900635,
+        -13.874261856079102
+      ]
+    },
+    {
+      "name": "actual-source-sun160.001",
+      "type": "POINT",
+      "energy": 565.4866943359375,
+      "colorLinear": [
+        1.0,
+        0.423267662525177,
+        0.0666259378194809
+      ],
+      "positionSourceYUp": [
+        4.5817646980285645,
+        7.683435916900635,
+        -13.196742057800293
+      ]
+    },
+    {
+      "name": "actual-source-sun160.002",
+      "type": "POINT",
+      "energy": 193.52210998535156,
+      "colorLinear": [
+        1.0,
+        0.4507857859134674,
+        0.10702310502529144
+      ],
+      "positionSourceYUp": [
+        13.822479248046875,
+        6.099999904632568,
+        15.638394355773926
+      ]
+    },
+    {
+      "name": "actual-source-sun160.003",
+      "type": "POINT",
+      "energy": 120.63716125488281,
+      "colorLinear": [
+        1.0,
+        0.4507857859134674,
+        0.10702310502529144
+      ],
+      "positionSourceYUp": [
+        14.227234840393066,
+        7.25,
+        4.532506942749023
+      ]
+    },
+    {
+      "name": "actual-source-sun160.004",
+      "type": "POINT",
+      "energy": 125.66370391845703,
+      "colorLinear": [
+        1.0,
+        0.4507857859134674,
+        0.10702310502529144
+      ],
+      "positionSourceYUp": [
+        18.0,
+        7.800000190734863,
+        7.0
+      ]
+    },
+    {
+      "name": "actual-source-sun160.005",
+      "type": "POINT",
+      "energy": 100.53096771240234,
+      "colorLinear": [
+        1.0,
+        0.4564110338687897,
+        0.0802198201417923
+      ],
+      "positionSourceYUp": [
+        0.9988413453102112,
+        3.0299999713897705,
+        13.205061912536621
+      ]
+    },
+    {
+      "name": "actual-source-sun160.006",
+      "type": "POINT",
+      "energy": 104.04954528808594,
+      "colorLinear": [
+        1.0,
+        0.4019777774810791,
+        0.05448027700185776
+      ],
+      "positionSourceYUp": [
+        10.399999618530273,
+        2.069999933242798,
+        5.900000095367432
+      ]
+    },
+    {
+      "name": "actual-source-sun160.007",
+      "type": "POINT",
+      "energy": 90.47786712646484,
+      "colorLinear": [
+        1.0,
+        0.4019777774810791,
+        0.05448027700185776
+      ],
+      "positionSourceYUp": [
+        -22.0,
+        1.7999999523162842,
+        0.0
+      ]
+    },
+    {
+      "name": "actual-source-sun160.008",
+      "type": "SUN",
+      "energy": 4.5,
+      "colorLinear": [
+        1.0,
+        0.7230551242828369,
+        0.43415364623069763
+      ],
+      "positionSourceYUp": [
+        -69.33103942871094,
+        22.09177017211914,
+        -56.91413879394531
+      ]
+    }
+  ],
+  "omittedNativeLightProxies": [
+    {
+      "name": "",
+      "type": "HemisphereLight",
+      "intensity": 0.4,
+      "reason": "Native unshadowed sky/courtyard proxy replaced by actual sky visibility and multi-bounce transport."
+    },
+    {
+      "name": "broad-warm-sky-and-courtyard-bounce",
+      "type": "DirectionalLight",
+      "intensity": 0.78,
+      "reason": "Native unshadowed sky/courtyard proxy replaced by actual sky visibility and multi-bounce transport."
+    },
+    {
+      "name": "soft-pond-bounce-approximation",
+      "type": "DirectionalLight",
+      "intensity": 0.28,
+      "reason": "Native unshadowed sky/courtyard proxy replaced by actual sky visibility and multi-bounce transport."
+    }
+  ],
+  "skyTransfer": {
+    "source": "The exact source-authored analytic/10-step atmosphere GLSL ported as linear floats, original sun direction; no photograph or generated scene image",
+    "texture": [
+      2048,
+      1024
+    ],
+    "sphereRadiusMetres": 5000,
+    "UV": "Explicit code-generated world-locked UVs, sourceYUp to worldZUp consistent with all geometry",
+    "sameForAllRayTypes": true,
+    "strength": 1.0
+  },
+  "physicalAir": {
+    "type": "Bounded VolumeScatter",
+    "densityPerMetre": 0.0008,
+    "emission": 0,
+    "boundsZUp": [
+      [
+        -85,
+        -85,
+        -6
+      ],
+      [
+        85,
+        85,
+        50
+      ]
+    ]
+  },
+  "camera": {
+    "sourcePositionYUp": [
+      16.2,
+      2.72,
+      25
+    ],
+    "sourceFovDegrees": 52,
+    "sourceMatrix": [
+      0.8808243970156511,
+      1.734723475976807e-18,
+      -0.47344311339591244,
+      0,
+      0.02576489052461952,
+      0.9985181204490787,
+      0.04793468004580376,
+      0,
+      0.4727415277276465,
+      -0.054420245633763964,
+      0.879519121353761,
+      0,
+      16.2,
+      2.72,
+      25,
+      1
+    ],
+    "unchangedMatrix": true
+  },
+  "materialTransfer": {
+    "sourceOriginalAssets": "All original declared compressed source assets remain immutable; the verified exporter retains their file hashes and exports decoded pixels. Every exported binary/image hash is checked before use.",
+    "geometry": "All original indexed positions/indices/normals and matrices retained, no decimation. Full affine matrices baked only for shears and metric-timber UV realization.",
+    "RGB": "Source vertex RGB only if vertexColors enabled, multiplied separately by exact per-instance RGB. Linked instances read INSTANCER; baked/direct meshes read GEOMETRY.",
+    "timberUV": "Original native position/normal, actual instance-column lengths and timberExtent choose longest-axis metric UV exactly by original formula; native phase formula recomputed in CPU double precision, so sin/fract phase can differ from GPU float rounding. UV pixels are original decoded scan maps.",
+    "timberPigment": "Original linear material color times normalized decoded linear scan luminance/0.01505120736 with source exponent/clamps; no extra pigment override.",
+    "graniteUV": "Original native position/normal and actual instance-column lengths choose the dominant-face metric UV at0.3173828125m per original granite map; native phase formula is recomputed in CPU double precision, so sin/fract phase can differ from native GPU float rounding. Original UV buffers and texture bytes remain in the verified export.",
+    "roughness": "Native timber roughness remap ported; individual ceramic source maps, normal maps, clearcoat and all source PBR values retained. The original metric-world wear/wetness formula drives physical floor roughness and clearcoat, with sourceX=worldX and sourceZ=-worldY after the shared coordinate conversion.",
+    "water": "Same source pond surface and bump map use physical dielectric IOR1.333/transmission.55/roughness.038, plus actual world-metric 0.17m ripples with1.6mm normal distance instead of the native screen-space offset in place of excluded screen-space reflector.",
+    "limits": [
+      "Native shader leaf transmission is not automatically portable.",
+      "Native PMREM/captured-probe, AO, screen-space reflection and ACES differ from physical ray transport and AgX.",
+      "Photo fidelity remains unaccepted; Cycles pixels are not WebGL equivalents."
+    ]
+  },
+  "importedTriangles": 191594367,
+  "sourceTriangles": 191594367,
+  "excludedCollapsedTriangles": 0,
+  "renderableTriangleCountPreserved": true,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 64,
+  "exposureEV": 0.10000000149011612,
+  "nativeWebglPixelEquivalence": false,
+  "blend": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/scene02-current-source-physical162-r04.blend",
+  "full": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/scene02-current-source-physical162-r04.png",
+    "sha256": "753495d5e97af131886f13e8a8f5acadfb3161c7e5280916ecf97fa799e01c00",
+    "resolution": [
+      1254,
+      1254
+    ],
+    "samples": 64
+  },
+  "trueGable": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/scene02-true-gable-physical162-r04.png",
+    "sha256": "69f05684ab75dd9fc602b8e3540559138c1700d329f5f5dbcc3f71a60cb1911b",
+    "cropInSourcePixels": [
+      590,
+      180,
+      340,
+      1254
+    ],
+    "nativeResolution": [
+      1254,
+      1254
+    ],
+    "samples": 48,
+    "sourceCameraMatrixUnchanged": true,
+    "maximumRaySlopeError": 1.7994913836805182e-08,
+    "upsampledScreenshot": false
+  },
+  "render": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-monumental-v2/cycles-r04/scene02-current-source-physical162-r04.png",
+  "renderSha256": "753495d5e97af131886f13e8a8f5acadfb3161c7e5280916ecf97fa799e01c00",
+  "blendSha256": "5c0dd2d509b5747c5b5b7c42ebf0765eeb8b09d302fc6aba430b3e92bbea8052",
+  "elapsedSeconds": 258.8031928539276
+}

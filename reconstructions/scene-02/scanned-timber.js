@@ -10,8 +10,8 @@ export async function installScannedTimber(mats,scene){
  // The source is a very dark brown table: mean decoded linear Y=.0150512.
  // Vermilion paint takes its pigment from the material, and only the measured
  // scan's relative luminance becomes grain. Normal/roughness stay untouched.
- const pigment=new Map([[mats.red,'#bb4b29'],[mats.cedar,'#9c4928'],[mats.floor,'#925034'],[mats.hallBearing,'#5d321b'],[mats.hallOxide,'#762f1b'],[mats.hallColumnRed,'#8c3726'],[mats.verandaRed,'#9b4028']]);
- const targets=new Map([[mats.red,[4.8,2.5,2.3]],[mats.cedar,[2.5,1.6,1.3]],[mats.darkwood,[.95,.80,.75]],[mats.floor,[1.8,1.35,1.1]],[mats.hallBearing,[1,1,1]],[mats.hallOxide,[1,1,1]],[mats.hallColumnRed,[1,1,1]],[mats.verandaRed,[1,1,1]]]);
+ const pigment=new Map([[mats.red,'#bb4b29'],[mats.cedar,'#9c4928'],[mats.floor,'#925034'],[mats.hallBearing,'#5d321b'],[mats.hallOxide,'#762f1b'],[mats.hallColumnRed,'#8c3726'],[mats.verandaRed,'#9b4028'],[mats.pagodaRed160,'#853725'],[mats.bridgeRed161,'#8d3823'],[mats.bridgeCedar161,'#764124']]);
+ const targets=new Map([[mats.red,[4.8,2.5,2.3]],[mats.cedar,[2.5,1.6,1.3]],[mats.darkwood,[.95,.80,.75]],[mats.floor,[1.8,1.35,1.1]],[mats.hallBearing,[1,1,1]],[mats.hallOxide,[1,1,1]],[mats.hallColumnRed,[1,1,1]],[mats.verandaRed,[1,1,1]],[mats.pagodaRed160,[1,1,1]],[mats.pagodaShadow160,[1.15,.95,.80]],[mats.bridgeRed161,[1,1,1]],[mats.bridgeCedar161,[1,1,1]]]);
  scene.traverse(o=>{const m=o.material;if(!m||targets.has(m))return;if(m.name==='scene02-darkwood')targets.set(m,[.95,.80,.75]);});
  for(const [m,color] of targets){
   const previousCompile=m.onBeforeCompile,previousKey=m.customProgramCacheKey.bind(m);
