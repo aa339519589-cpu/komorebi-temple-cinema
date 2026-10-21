@@ -15,7 +15,9 @@ PORT=4318 node tools/server.mjs
 - [十景影片制作预览](http://127.0.0.1:4318/film.html)：60 秒叠化剪辑、70 秒完整源镜头、十景原图与实际渲染对照。
 - [左侧参考图／右侧实时 3D](http://127.0.0.1:4318/compare-ten.html)：十个独立场景入口。
 
-播放器当前指向 `native-rebuild-review-20261021-b` 制作检查点，960×960、24 fps。每个源镜头 7 秒、168 帧；九处叠化重叠得到 60 秒、1,440 帧的剪辑。录制源码保存在提交 `c6841ad`，逐文件来源和视频哈希在 [影片记录](qa/ten-reference/film-review-native-20261021-b/film-build.json)；[起／中／末实际视频帧](qa/ten-reference/film-review-native-20261021-b/all-shots-start-middle-end.jpg) 可直接查看。此后模型继续修改，新的局部修改尚未全部进入这段影片。
+播放器当前指向 `native-rebuild-review-20261021-c` 制作检查点，960×960、24 fps。每个源镜头 7 秒、168 帧；九处叠化重叠得到 60 秒、1,440 帧的剪辑。第一、二、三、六、七、八景已加入新一轮模型；第四、五、九、十景的下一轮重建仍在进行。
+
+本片逐镜头核验公开 Git 源码：九景对应 `80950d2`，第四景对应 `c6841ad`，因为它录制时还使用上一版共用石材加载器。各镜头完整文件集、源码与视频哈希在 [影片记录](qa/ten-reference/film-review-native-20261021-c/film-build.json)；[起／中／末实际视频帧](qa/ten-reference/film-review-native-20261021-c/all-shots-start-middle-end.jpg) 和 [十景原图／实际渲染](qa/ten-reference/film-review-native-20261021-c/all-ten-reference-left-native-right.jpg) 可直接查看。它是未通过照片匹配的制作版，此后模型继续修改。
 
 ## 源码与当前工作
 
@@ -23,8 +25,8 @@ PORT=4318 node tools/server.mjs
 - 原生全图、真实局部视锥与迭代差距：[qa/ten-reference](qa/ten-reference/)。有效渲染、着色器通过不代表照片匹配。
 - 夜景新增了现有灯具的反平方照明、固定阴影、实际庭院反射探针，以及磨损花岗岩实体与水膜反射。[实际夜景](qa/ten-reference/09/iteration-scene09-physical-wet-courtyard-root-05-20261021/reference.png)。
 - 雨景压低了过大的上层屋顶坡面，梁枋用闭合莲花唐草浮雕替换简单符号，并收敛水膜涟漪。[实际雨景](qa/ten-reference/10/iteration-scene10-subtle-ripples-solid-relief-root-11-20261021/reference.png)、[真实局部](qa/ten-reference/10/iteration-scene10-subtle-ripples-solid-relief-root-11-20261021/detail-native.png)。[雕刻来源与完整提示词](assets/ranma-relief-v01/provenance.json)。
-- 佛像的躯干、喉颈和面部已连接为连续形体，手与衣褶仍在重塑。[当前局部](qa/ten-reference/06/iteration-scene06-mudra-topology-repair-02/detail-native.png)。
-- 第三景承托木构、第四景磨损石路与树影、第八景屋顶和开敞廊道继续重建，仍有明显未解决的体量与结构差距。
+- 佛像已使用 Fralin Museum／University of Virginia Library 的 CC0 头部扫描作为真实三维解剖基础，并与躯干、手、衣褶铸合为闭合网格。[实际局部](qa/ten-reference/06/iteration-scene06-scanned-cast-r8-live-head-06/detail-native.png)。这件历史文物并非参考中的佛像，脸型、莲台和背光雕刻仍在重塑；来源、作者、许可与构建脚本全部保留。
+- 第一景重建了承托木构、桥脚、岸坡和溪流；第三景重做了屋檐木构与拱桥；第七景重建连通地形、桥梯与有承托的廊顶；第八景重建了多层院落与闭合屋面。仍有明显的体量、植物、材质和光影差距。
 - 第一景另有保持原始几何和相机的 Blender/Cycles 制作研究，修复了实例颜色传递；它不是原生 WebGL 像素等价图，也未通过照片匹配。[物理渲染与再生脚本](lookdev/scene01-cycles-current-20261021/REVIEW.md)。
 
 ## 再生渲染

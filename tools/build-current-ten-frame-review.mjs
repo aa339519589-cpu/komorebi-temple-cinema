@@ -40,7 +40,7 @@ for(const scene of config.scenes){
  candidates.sort((a,b)=>String(b.report.completedAt).localeCompare(String(a.report.completedAt)));
  if(!candidates.length)throw Error(`Scene ${id} has no current-source native reference frame; render it before packaging.`);
  const {report,frame,folder}=candidates[0];
- frames.push({reference:scene.reference,name:scene.shortName,referenceFile:scene.referenceFile.replace(/^\//,''),nativeFile:relative(root,resolve(folder,'reference.png')),receipt:relative(root,resolve(folder,'report.json')),sourceHash:identity.hash,rgbaSha256:frame.rgbaSha256,renderedAt:report.completedAt,size:[frame.width,frame.height],visualAccepted:false});
+ frames.push({reference:scene.reference,name:scene.shortName,referenceFile:scene.referenceFile.replace(/^\//,''),nativeFile:relative(root,resolve(folder,'reference.png')),receipt:relative(root,resolve(folder,'report.json')),sourceCommit:frozen?.shots.find(s=>s.reference===scene.reference)?.sourceCommit||report.sourceCommit,sourceHash:identity.hash,rgbaSha256:frame.rgbaSha256,renderedAt:report.completedAt,size:[frame.width,frame.height],visualAccepted:false});
 }
 await mkdir(out,{recursive:true});
 const manifest={status:'ongoing-reconstruction-review',createdAt:new Date().toISOString(),sourceCommit:frozen?.sourceCommit||execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),...(frozen?{capturedFilmBuild:frozenFile,scope:'Canonical native stills matching the recorded immutable film sources; ongoing working scenes may be newer.'}:{}),photoOnLeft:true,nativeOnRight:true,visualAccepted:false,frames};

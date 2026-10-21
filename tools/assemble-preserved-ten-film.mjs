@@ -9,27 +9,32 @@ const root=process.cwd(),commit=process.env.FILM_SOURCE_COMMIT||'c6841ad';
 const iteration=process.env.FILM_ITERATION||'native-rebuild-review-20261021-b';
 if(!/^[a-z0-9_-]+$/i.test(iteration)||!/^[a-f0-9]{7,40}$/i.test(commit))throw Error('Invalid snapshot or output');
 const snapshot=execFileSync('git',['rev-parse',commit],{encoding:'utf8'}).trim();
-const versions=['native-rebuild-review-20261021-a','native-rebuild-review-20261021-a','native-rebuild-review-20261021-a','granite-maple-approach-motion-20261021','pagoda-asymmetric-corner-motion-20261021','connected-sculpture-mudra-motion-20261021','native-rebuild-review-20261021-a','native-rebuild-review-20261021-a','night-physical-courtyard-motion-20261021','rain-solid-relief-motion-20261021-b'];
+const requestedCommits=process.env.FILM_SHOT_COMMITS?.split(',')||Array(10).fill(snapshot);
+if(requestedCommits.length!==10||requestedCommits.some(v=>!/^[a-f0-9]{7,40}$/i.test(v)))throw Error('FILM_SHOT_COMMITS requires ten public source revisions.');
+const shotCommits=requestedCommits.map(v=>execFileSync('git',['rev-parse',v],{encoding:'utf8'}).trim());
+const defaultVersions=['native-rebuild-review-20261021-a','native-rebuild-review-20261021-a','native-rebuild-review-20261021-a','granite-maple-approach-motion-20261021','pagoda-asymmetric-corner-motion-20261021','connected-sculpture-mudra-motion-20261021','native-rebuild-review-20261021-a','native-rebuild-review-20261021-a','night-physical-courtyard-motion-20261021','rain-solid-relief-motion-20261021-b'];
+const versions=process.env.FILM_SHOT_ITERATIONS?.split(',')||defaultVersions;
+if(versions.length!==10||versions.some(v=>!/^[a-z0-9-]+$/i.test(v)))throw Error('FILM_SHOT_ITERATIONS requires exactly ten native iteration names, in reference order.');
 const out=resolve(root,'output',iteration);await mkdir(out,{recursive:true});
-const report={status:'assembling-preserved-native-shots',startedAt:new Date().toISOString(),sourceCommit:snapshot,size:[960,960],fps:24,visualAccepted:false,completeRequestedFidelity:false,scope:'An immutable production checkpoint; later ongoing model revisions are not included.',shots:[]};
+const report={status:'assembling-preserved-native-shots',startedAt:new Date().toISOString(),sourceCommit:snapshot,sourceCommits:shotCommits,sourceIterations:versions,size:[960,960],fps:24,visualAccepted:false,completeRequestedFidelity:false,scope:'An immutable production checkpoint with individually verified public Git revisions for each shot; later ongoing model revisions are not included.',shots:[]};
 const save=()=>writeFile(resolve(out,'film-build.json'),JSON.stringify(report,null,2)+'\n');
 const cache=new Map(),sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-function gitBytes(file){if(!cache.has(file))cache.set(file,execFileSync('git',['show',snapshot+':'+file],{maxBuffer:256*1024*1024}));return cache.get(file);}
+function gitBytes(file,revision){const key=revision+':'+file;if(!cache.has(key))cache.set(key,execFileSync('git',['show',key],{maxBuffer:256*1024*1024}));return cache.get(key);}
 async function run(cmd,args){await new Promise((yes,no)=>{const p=spawn(cmd,args,{cwd:root,stdio:'inherit'});p.on('error',no);p.on('exit',code=>code===0?yes():no(Error(cmd+' exited '+code)));});}
 try{
  await save();
  for(let reference=1;reference<=10;reference++){
-  const id=String(reference).padStart(2,'0'),receiptFile=resolve(root,'qa/ten-reference',id,'iteration-'+versions[reference-1],'report.json');
+  const id=String(reference).padStart(2,'0'),revision=shotCommits[reference-1],receiptFile=resolve(root,'qa/ten-reference',id,'iteration-'+versions[reference-1],'report.json');
   const receipt=JSON.parse(await readFile(receiptFile,'utf8'));
   if(receipt.status!=='motion-review-rendered'||receipt.size!==960||receipt.motion?.fps!==24||receipt.motion.expectedFrames!==168)throw Error('Invalid native source clip '+id);
-  const names=execFileSync('git',['ls-tree','-r','--name-only',snapshot,'--','reconstructions/scene-'+id],{encoding:'utf8'}).trim().split('\n').filter(f=>/\.(?:m?js|html|json|glb|gltf|bin|png|jpe?g|webp)$/.test(f));
-  const dependencies=JSON.parse(gitBytes('reconstructions/scene-'+id+'/asset-dependencies.json').toString());names.push(...dependencies.files);
+  const names=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','reconstructions/scene-'+id],{encoding:'utf8'}).trim().split('\n').filter(f=>/\.(?:m?js|html|json|glb|gltf|bin|png|jpe?g|webp)$/.test(f));
+  const dependencies=JSON.parse(gitBytes('reconstructions/scene-'+id+'/asset-dependencies.json',revision).toString());names.push(...dependencies.files);
   const unique=[...new Set(names)].sort(),h=createHash('sha256');
   if(unique.length!==Object.keys(receipt.source.files).length)throw Error('Source file set differs from snapshot '+id);
-  for(const file of unique){const bytes=gitBytes(file);if(sha(bytes)!==receipt.source.files[file])throw Error('Source differs from public snapshot: '+file);h.update(file+'\0');h.update(bytes);h.update('\0');}
+  for(const file of unique){const bytes=gitBytes(file,revision);if(sha(bytes)!==receipt.source.files[file])throw Error('Scene '+id+' source differs from public snapshot: '+file);h.update(file+'\0');h.update(bytes);h.update('\0');}
   if(h.digest('hex')!==receipt.source.hash)throw Error('Source identity mismatch '+id);
   const file=receipt.motion.file,bytes=await readFile(file);
-  report.shots.push({reference,file,receipt:receiptFile,source:receipt.source,frames:168,duration:7,actualWebgl:true,reusedIdenticalSourceShot:true,videoSha256:sha(bytes),visualAccepted:false});await save();
+  report.shots.push({reference,file,receipt:receiptFile,sourceCommit:revision,source:receipt.source,frames:168,duration:7,actualWebgl:true,reusedIdenticalSourceShot:true,videoSha256:sha(bytes),visualAccepted:false});await save();
  }
  const args=['-y','-hide_banner','-loglevel','error','-filter_complex_threads','1'];
  for(const shot of report.shots)args.push('-i',shot.file);
