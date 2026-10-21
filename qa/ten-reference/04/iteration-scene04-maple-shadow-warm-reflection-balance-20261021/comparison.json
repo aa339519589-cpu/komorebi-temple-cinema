@@ -1,0 +1,49 @@
+{
+  "reference": {
+    "path": "references/hd/3-照片-4.jpg",
+    "sha256": "0b0272948960514bfd6278847e6dc512bfce2b127c69415f0e5ce949a9c0ffcb",
+    "nativeSize": [1254, 1254]
+  },
+  "render": {
+    "path": "qa/ten-reference/04/iteration-scene04-maple-shadow-warm-reflection-balance-20261021/shot--11041.png",
+    "sha256": "2c9fa011604576a7b18db1ea7ad387baeb6b8308ae49b7a57bac2a6e5f50e8df",
+    "nativeSize": [768, 768],
+    "localTime": -11041,
+    "shadowCacheMode": "cached-first-reference"
+  },
+  "dollyRender": {
+    "path": "qa/ten-reference/04/iteration-scene04-maple-shadow-warm-reflection-balance-20261021/shot--11042.png",
+    "sha256": "8de649efe1260ec37263f29bb7ed8e36a0cea417b5666500bce0758493e15d14",
+    "nativeSize": [768, 768],
+    "localTime": -11042,
+    "shadowCacheMode": "cached-moving-t6"
+  },
+  "comparison": {
+    "path": "qa/ten-reference/04/iteration-scene04-maple-shadow-warm-reflection-balance-20261021/reference-left-render-right.png",
+    "sha256": "156367e48b37a208be47b51772920285a9fa6c192d8fb7f3cb20133599874883",
+    "nativeSize": [1536, 768],
+    "composition": "Original reference left; unretouched native Three.js still right."
+  },
+  "dollyComparison": {
+    "path": "qa/ten-reference/04/iteration-scene04-maple-shadow-warm-reflection-balance-20261021/dolly-t6-reference-left-render-right.png",
+    "sha256": "aa1529dcfedecee350a61768d8032821cb0555c949a53866d7241743d5d6e43f",
+    "nativeSize": [1536, 768],
+    "comparisonOnly": true
+  },
+  "floorCropComparison": {
+    "path": "qa/ten-reference/04/iteration-scene04-maple-shadow-warm-reflection-balance-20261021/floor-crop-left-reference-right-native.png",
+    "sha256": "a8a6b4550248fd20673dedb07e6e31d328510640868473bcd06a3ee2328a27a7",
+    "nativeSize": [1536, 768],
+    "referenceCropIn768View": [227, 454, 313, 313],
+    "comparisonOnly": true
+  },
+  "source": {
+    "hash": "9f050934c02b8d59970b87be2b5ca1339acf1063c1ed2ef8233f5d109b394e2a",
+    "commit": "8843c34f0be6fadb1d01a6ffb2c0c404fd1f9b0f"
+  },
+  "status": "rendered-review",
+  "renderRetouched": false,
+  "cameraChanged": false,
+  "sunDirectionChanged": false,
+  "visualAcceptance": false
+}

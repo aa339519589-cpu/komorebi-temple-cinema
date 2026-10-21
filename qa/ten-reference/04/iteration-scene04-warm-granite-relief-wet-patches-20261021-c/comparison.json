@@ -1,0 +1,41 @@
+{
+  "reference": {
+    "path": "references/hd/3-照片-4.jpg",
+    "sha256": "0b0272948960514bfd6278847e6dc512bfce2b127c69415f0e5ce949a9c0ffcb",
+    "nativeSize": [1254, 1254]
+  },
+  "render": {
+    "path": "qa/ten-reference/04/iteration-scene04-warm-granite-relief-wet-patches-20261021-c/reference.png",
+    "sha256": "daae4059cbe4ebfeb5284605b565924aca955bf01199478e155d281e60957e87",
+    "nativeSize": [1254, 1254]
+  },
+  "floorDetailRender": {
+    "path": "qa/ten-reference/04/iteration-scene04-warm-granite-relief-wet-patches-20261021-c/detail-native.png",
+    "sha256": "c2c5e0a3193e58709e5eb663d0c82ab1c0047b98d75013a31ebbfeb19e019695",
+    "nativeSize": [1254, 1254],
+    "cameraCrop": [371, 742, 512, 1254],
+    "comparisonOnly": false
+  },
+  "comparison": {
+    "path": "qa/ten-reference/04/iteration-scene04-warm-granite-relief-wet-patches-20261021-c/reference-left-render-right.png",
+    "sha256": "666b69ebbd91aa63fe0c26c9b048518d17e59ea06fae43dff94b7982afa5a447",
+    "nativeSize": [2508, 1254]
+  },
+  "floorCropComparison": {
+    "path": "qa/ten-reference/04/iteration-scene04-warm-granite-relief-wet-patches-20261021-c/floor-crop-left-reference-right-native.png",
+    "sha256": "bb5581cad858904e1ef7b9c24750477e61eaeb097d4ae7317ac0c51e59087cbb",
+    "nativeSize": [2508, 1254],
+    "referenceCrop": [371, 742, 512, 512],
+    "nativeSubfrustum": [371, 742, 512, 1254]
+  },
+  "source": {
+    "hash": "9a2c2d02807ff4b553f814b4e7c61bf9a4dbbd651fadfef16d99d12cc115c9d3",
+    "commit": "209e754187e72b9cd04a95edc30c36543b017972"
+  },
+  "status": "rendered-review",
+  "comparisonOnly": true,
+  "renderRetouched": false,
+  "cameraChanged": false,
+  "visualAcceptance": false,
+  "composition": "Original reference photo on the left; unretouched native Three.js frame on the right."
+}

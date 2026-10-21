@@ -73,14 +73,13 @@ export function buildReference4Scene(){
  const architecture=buildReference4Architecture(T,C.architecture),garden=buildReference4Garden(T,{...C.garden,stairDimensions:C.architecture});scene.add(architecture.group,garden.group);
  const waterReflection=createWaterReflection(scene,garden);
  const sunDirection=new T.Vector3(...C.lighting.sunDirection).normalize();
- // Keep the authored foliage-shadow tree at its verified baseline placement
- // while testing a different physical sun. Its geometry remains fixed; the
- // directional light now produces the actual changed shadow vectors.
- const shadowCanopyDirection=new T.Vector3(...(C.lighting.shadowCanopyDirection??C.lighting.sunDirection)).normalize();
+ // Reposition the real supported boughs for the current physical sun so
+ // the canopy shadows remain on the observed processional stone regions.
+ const shadowCanopyDirection=sunDirection.clone();
  const pavingCanopy=createPavingCanopy04(shadowCanopyDirection);scene.add(pavingCanopy);
  const sky=buildReference4Atmosphere(T,{sunDirection,displayRadiance:C.lighting.skyDisplayRadiance});scene.add(sky);
  const sun=new T.DirectionalLight(C.lighting.sunColor??'#ffd092',C.lighting.sunIntensity);sun.name='reference4-left-golden-hour-sun';sun.target.position.set(0,5,0);sun.position.copy(sun.target.position).addScaledVector(sunDirection,55);sun.castShadow=true;
- sun.shadow.mapSize.setScalar(C.lighting.shadowSize);Object.assign(sun.shadow.camera,{left:-25,right:25,top:28,bottom:-28,near:5,far:100});sun.shadow.camera.updateProjectionMatrix();Object.assign(sun.shadow,{bias:-.000035,normalBias:.012,radius:2});scene.add(sun,sun.target);
+ sun.shadow.mapSize.setScalar(C.lighting.shadowSize);Object.assign(sun.shadow.camera,{left:-25,right:25,top:28,bottom:-28,near:5,far:100});sun.shadow.camera.updateProjectionMatrix();Object.assign(sun.shadow,{bias:-.00008,normalBias:.002,radius:.75,intensity:1,needsUpdate:true});scene.add(sun,sun.target);
  const hemi=new T.HemisphereLight(C.lighting.skyColor??'#dae5ee',C.lighting.groundColor??'#7b644b',C.lighting.skyIntensity);hemi.name='reference4-cool-sky-fill';scene.add(hemi);
  const sanctuary=buildReference4Sanctuary(T,{floorY:C.architecture.stairTopY});scene.add(sanctuary.group);
  const suspensions=addSuspendedLamps(scene,architecture,sanctuary.materials);
