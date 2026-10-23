@@ -1,0 +1,111 @@
+{
+  "revision": "scene06-altar198-r06b",
+  "status": "held-for-primary-visual-review",
+  "visualAccepted": false,
+  "candidateHash": "c985390f86a992c83cdde89ee984dc3cbbf423931ca7430a7ae5b471bedb63b0",
+  "personallyInspected": [
+    "R06a full1254 and genuine table subfrustum1254",
+    "R06b full1254",
+    "R06b genuine table subfrustum1254",
+    "R06b matching low oblique1254",
+    "R06b dedicated chased sleeve/foot close1254",
+    "original HD4/photo5 and R05 comparison frames"
+  ],
+  "actualReports": [
+    {
+      "candidateReport": "lookdev/scene06-altar198/candidate-root/qa/ten-reference/06/iteration-scene06-altar198-r06b-personal-nc/report.json",
+      "rootReviewCopy": "qa/ten-reference/06/iteration-scene06-altar198-r06b-personal-nc/report.json",
+      "sourceHash": "c985390f86a992c83cdde89ee984dc3cbbf423931ca7430a7ae5b471bedb63b0",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "ed73e737b9fc86cecbb1e341d15ffa45957a00cd0fa2f649c2fba63a590819a9"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "20c41a7f3e8c3b152cb629378de88482f9d26ea2914175e2405a79bc411f6808"
+        }
+      ]
+    },
+    {
+      "candidateReport": "lookdev/scene06-altar198/candidate-root/qa/ten-reference/06/iteration-scene06-altar198-r06b-low-oblique-personal-nc/report.json",
+      "rootReviewCopy": "qa/ten-reference/06/iteration-scene06-altar198-r06b-low-oblique-personal-nc/report.json",
+      "sourceHash": "c985390f86a992c83cdde89ee984dc3cbbf423931ca7430a7ae5b471bedb63b0",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "bc06262f1224c7185b718811e468585750cc143d580c753645fe92cb65e9ec52"
+        }
+      ]
+    },
+    {
+      "candidateReport": "lookdev/scene06-altar198/candidate-root/qa/ten-reference/06/iteration-scene06-altar198-r06b-metal-inspection-personal-nc/report.json",
+      "rootReviewCopy": "qa/ten-reference/06/iteration-scene06-altar198-r06b-metal-inspection-personal-nc/report.json",
+      "sourceHash": "c985390f86a992c83cdde89ee984dc3cbbf423931ca7430a7ae5b471bedb63b0",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "1845da77a83e189bcd419e95711aa214b3f8d61b7a7e52e4b6122ca3698818ee"
+        }
+      ]
+    }
+  ],
+  "visualFindings": {
+    "full": "Red shafts are narrower and retain original foot spacing. Large fruit-like ovoid sleeves and four fat horn leaves are removed. Brocade201 makes the unchanged cushion an actual dense woven material rather than sparse raised floral wires.",
+    "tableClose": "Thin gold neck rings and chasing, smaller staggered supported inner returns and concealed cloud-knee saddles are visible. Cushion shows several medium floral motifs and dense vines rather than one large motif. No hard front texture seam was apparent at this pose.",
+    "lowOblique": "Deep source cloud faces are mostly seated inside the actual apron saddle; the old odd horizontal side chunk is absent. The red shaft remains the bearing core; inner foliate branches form finer supported voids. Shoes have coved sides, layered soles and small integral chased fans.",
+    "metalInspection": "Sleeve fan cuts and circumferential flutes are actual recesses in a closed thin-wall casting, not bump/normal-map motifs. Fine repouss\u00e9 enters that surface. Coved shoe sidewalls, sole thickness and neck bearings are visible. The ornament remains an interpretation and is more regular than the photograph."
+  },
+  "preserved": {
+    "R05FullFrozenRoot": "r05-frozen-root",
+    "R05ExactHash": "eb497565884bdb36470c0d3f1908fc74eca7123ffe1b9640d66a0fc38fad36a4",
+    "originalR05ClothConstructorAndUVs": "r06-cushion-shape-uv-proof.json",
+    "rawBrocade201PNGsha256": "912380812cd2d6577be111674fb99cc7082b129ee5540a6d726bdd5afeccd793",
+    "floor200": "No candidate or canonical floor edit; current primary floor200 must be preserved at integration.",
+    "Buddha179R08": "Source geometry and loader unchanged by this lane"
+  },
+  "geometryAudit": "r06-metal-solid-audit.json: actual ferrule and coved shoe constructors independently checked; finite positions, zero degenerate triangles, zero boundary/nonmanifold edges, positive volume and zero source normal conflicts at 1e-8 geometric weld tolerance. This establishes component solidity only, not photographic acceptance.",
+  "textile": {
+    "newGeneratedMaterialOnly": true,
+    "rawPNGAndPromptProvenancePreserved": true,
+    "positionAndUVEdit": false,
+    "extrudedFloralWireLayerRemoved": true,
+    "whiteBase": true,
+    "sRGB": true,
+    "roughness": 0.72,
+    "metalness": 0,
+    "sheen": 0.12,
+    "independentMicroWeaveBumpMetres": 8e-05,
+    "anisotropy": 8,
+    "mipmaps": true,
+    "repeat": [
+      2.7,
+      0.54
+    ],
+    "offset": [
+      -0.055,
+      0.16
+    ],
+    "uWrap": "MirroredRepeat to join supplied tile without a visible pixel jump; mirrored motif symmetry is explicit"
+  },
+  "remainingLimits": [
+    "New metal chasing and inner filigree remain interpreted and more regular than the photograph; no reference artifact identity claimed.",
+    "Cushion textile is an authorized new AI albedo, not the exact original textile. Warm scene lighting makes its antique-gold motifs prominent; all-around seam/pole behavior is not claimed from the inspected front/oblique poses.",
+    "Older upper/lower altar small fields, censer and unchanged Buddha179R08 remain schematic or unlike the reference.",
+    "All views use isolated original195 lighting/floor baseline; primary floor200 remains outside this delta.",
+    "No complete physical export/render, film, or photographic acceptance."
+  ],
+  "scope": "Only isolated lookdev198 and newQA06. No canonical/shared-tool/Git/Blender edits or additional scans."
+}

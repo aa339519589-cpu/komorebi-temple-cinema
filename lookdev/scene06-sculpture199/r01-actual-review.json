@@ -1,0 +1,70 @@
+{
+  "revision": "scene06-sculpture199-r01",
+  "status": "rejected-after-six-actual-native-views",
+  "visualAccepted": false,
+  "sourceHash": "d0c6ac6114a8e2e05a2ea05299d6c0dca613ebeeb522cd5c138f52aeae915270",
+  "frozenRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r01-frozen-root",
+  "personallyViewed": [
+    "front",
+    "clear-statue",
+    "three-quarter",
+    "profile",
+    "full",
+    "low-opening"
+  ],
+  "evidence": [
+    {
+      "view": "front",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r01-front/report.json",
+      "sourceHash": "d0c6ac6114a8e2e05a2ea05299d6c0dca613ebeeb522cd5c138f52aeae915270",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "clear-statue",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r01-clear-statue/report.json",
+      "sourceHash": "d0c6ac6114a8e2e05a2ea05299d6c0dca613ebeeb522cd5c138f52aeae915270",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "three-quarter",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r01-three-quarter/report.json",
+      "sourceHash": "d0c6ac6114a8e2e05a2ea05299d6c0dca613ebeeb522cd5c138f52aeae915270",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "profile",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r01-profile/report.json",
+      "sourceHash": "d0c6ac6114a8e2e05a2ea05299d6c0dca613ebeeb522cd5c138f52aeae915270",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "full",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r01-full/report.json",
+      "sourceHash": "d0c6ac6114a8e2e05a2ea05299d6c0dca613ebeeb522cd5c138f52aeae915270",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "low-opening",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r01-low-opening/report.json",
+      "sourceHash": "d0c6ac6114a8e2e05a2ea05299d6c0dca613ebeeb522cd5c138f52aeae915270",
+      "status": "rendered-review",
+      "size": 1254
+    }
+  ],
+  "findings": [
+    "Source face is visibly elongated and narrowed; original ears, nose and lips remain actual sculpted geometry, but reference likeness remains weak.",
+    "Raised hands and original arm joins remain in place.",
+    "Blank torso replaced by diagonal folds, but R01 folds are too parallel and sharp; old U-folds still cross underneath.",
+    "Source scalp remains too two-tiered; shallow curls look hammered and have nearest-root discontinuities.",
+    "Neck rings and drapery have jagged local shading; audit finds large normal rotations and projection changes, which alone do not prove triangle inversion.",
+    "Full and low opening confirm cloth reads like repeated rib bands, so R01 is rejected."
+  ],
+  "sourceRawUnchanged": true,
+  "canonicalPromoted": false,
+  "auditCaveat": "Normal rotation against baseline is not alone a proof of triangle inversion. R01 rejection is based on personally viewed sharp repetitive folds, crossing source folds and jagged/stippled appearance."
+}

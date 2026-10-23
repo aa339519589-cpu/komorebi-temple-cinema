@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
 import {buildLayeredSourceLotus179} from './lotus-throne179.js';
 import {buildMonumentalMandorla,buildMonumentalAltarAccents,buildMonumentalFlowers,sculptedDragonRelief} from './monumental-altar-v3.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -35,6 +36,7 @@ export const RESTORATION_ALTAR_LAYOUT = Object.freeze({
  */
 export function buildRestorationAltar(options = {}) {
   const b = new FurnishingBuilder(options.materials);
+  installAltarMaterials198(b);
   const layout = { ...RESTORATION_ALTAR_LAYOUT, ...options.layout };
   layout.innerRitualLotusSupportY ??= 2.85-layout.sideThroneHeight;
   layout.outerRitualLotusSupportY ??= 2.85-layout.sideThroneHeight;
@@ -507,8 +509,7 @@ function buildTerraces(b,layout) {
         const x=side*t.w*.416,w=t.w*.145;
         b.box(x,t.y,front+.005,w,t.h-.075,.065,'lacquer');
         for(const xx of [-1,1])b.box(x+xx*w/2,t.y,front+.048,.023,t.h-.055,.026,'trim');
-        for(let k=0;k<8;k++){const a=k*Math.PI/4;b.leaf(x+Math.sin(a)*.017,t.y+Math.cos(a)*.017,front+.0385,.052,.10,-a,'gold',.4);}
-        b.ball(x,t.y,front+.0505,.029,.029,.015,'trim');
+        chasedBaseRosette198(b,x,t.y,front+.039,.063);
       }
       b.box(0,t.y,front-.4725,t.w*.64,t.h-.11,.070,'lacquer');
     }else if(level===4){
@@ -561,17 +562,10 @@ function buildTerraces(b,layout) {
         }
       });
     }
-    // Black horizontal ledge cores with narrow gilt lips and chased mounts
-    // generate the photograph's stacked shadow bands rather than flat plates.
+    // Real ogee cornice, shadow quirk and depth returns replace stacked bars.
     if(level>0&&level<4){
-      b.box(0,t.y+t.h/2+.037,front+.010,frontWidth+.16,.072,.12,'lacquer');
-      b.box(0,t.y+t.h/2+.071,front+.061,frontWidth+.18,.008,.018,'trim');
-      b.box(0,t.y-t.h/2-.012,front-.008,frontWidth+.09,.027,.088,'lacquer');
-      const mounts=Math.round(frontWidth/.42);
-      for(let j=0;j<mounts;j++){
-        const mx=-frontWidth*.47+j/(mounts-1)*frontWidth*.94;
-        ref6Rosette(b,mx,t.y+t.h/2+.036,front+.073,.026,0,'trim');
-      }
+      addCornice198(b,t.y+t.h/2+.037,front+.008,frontWidth+.14,t.d+.03);
+      b.box(0,t.y-t.h/2-.012,front-.008,frontWidth+.09,.024,.088,'lacquer');
     }
     // Gilt corner caps visibly wrap the depth of the cabinet.
     for(const s of [-1,1])for(const [width,depthOffset] of stepped?[[frontWidth,0],[t.w,wingInset]]:[[t.w,0]]){
@@ -593,8 +587,7 @@ function buildTerraces(b,layout) {
   }
   b.box(0,1.01,1.57,.43,.48,.13,'trim');
   b.box(0,1.01,1.645,.35,.40,.035,'lacquer');
-  for(let k=0;k<10;k++){const a=k*Math.PI/5;b.leaf(Math.sin(a)*.025,1.01+Math.cos(a)*.025,1.6505,.06,.14,-a,'gold',.65);}
-  b.ball(0,1.01,1.6805,.040,.040,.02,'trim');
+  chasedBaseRosette198(b,0,1.01,1.661,.091);
   // Raised plinth beneath central lotus. Attendants have individually stepped bases.
   const seatBottom=3.00-layout.mainThroneHeight;
   // The original central lotus stands on two recessed black-lacquer bands
@@ -674,6 +667,12 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
     b.box(x+side*(w/2-.013),y,z+.043,.0065,h+.024,.014,'oldgold');
     b.box(x,y+side*(h/2-.010),z+.043,w+.010,.0065,.014,'oldgold');
     b.box(x+side*w/2,y+side*h/2,z+.046,.061,.040,.022,'oldgold');
+  }
+  // Only the two broad middle fields receive the original complete dragon
+  // scan: equal world scale on all axes, continuous backing and actual depth.
+  if(y>1.20&&y<1.40&&w/h>4){
+    sourceLongDragon198(b,x,y,z+.009,w,h);
+    return;
   }
   const ratio=w/h;
   let field,mirror=1;
@@ -1616,88 +1615,7 @@ function buildOfferingTable(b,layout) {
   // The low foreground table is a distinct physical object in front of the
   // central ritual vessel. Scale about its floor contact; never sink its feet.
   b.withTransform(0,floorY,z+advance,layout.foregroundTableScale,()=>b.withTransform(0,-floorY,-z,1,()=>{
-  // Narrow gilded altar table with open negative space under the apron.
-  b.box(0,.65,z,4.02,.080,.96,'lacquer');
-  b.box(0,.698,z,4.13,.009,1.02,'oldgold');
-  b.box(0,.595,z+.45,3.96,.14,.075,'lacquer');
-  // The foreground rail is largely black between separate chased metal
-  // fittings. It is not another full-length, compressed dragon cabinet panel.
-  b.box(0,.531,z+.4945,3.91,.010,.016,'oldgold');
-  // Applied gilt fittings must enter their real lacquer rail or scalloped
-  // plate; retain every X/Y outline and recess only the detached depth.
-  const apronPlate=b.geometry('table-scalloped-apron-plate',()=>{
-    const s=new T.Shape();s.moveTo(-.5,.5);s.lineTo(.5,.5);s.lineTo(.5,-.12);
-    s.bezierCurveTo(.50,-.40,.32,-.43,.24,-.36);
-    s.bezierCurveTo(.10,-.58,-.10,-.58,-.24,-.36);
-    s.bezierCurveTo(-.32,-.43,-.50,-.40,-.50,-.12);s.closePath();
-    return new T.ExtrudeGeometry(s,{depth:.035,bevelEnabled:true,bevelThickness:.008,bevelSize:.014,bevelSegments:2,curveSegments:8});
-  });
-  for(const side of [-1,1]){
-    for(const [xx,width,height] of [[1.88,.27,.14],[1.075,.45,.19]]){
-      const x=side*xx;
-      b.add(apronPlate,'gold',x,.596,z+.491,width,height,.65);
-      b.box(x,.615,z+.522,width*.77,.055,.010,'oldgold');
-      ref6Rosette(b,x,.600,z+.533,width*.17,0,'gold');
-      for(const sign of[-1,1])ref6Scroll(b,x+sign*width*.25,.596,z+.531,width*.29,height*.29,sign*.30,'oldgold',sign);
-      for(const sign of [-1,1])b.carvedCurve('table-cap-curl:'+xx+':'+side+':'+sign,
-        [[x+sign*width*.04,.555,z+.508],[x+sign*width*.27,.563,z+.512],[x+sign*width*.31,.596,z+.512],[x+sign*width*.20,.611,z+.512],[x+sign*width*.13,.592,z+.516]],.019,.010,'gold',16);
-      b.ball(x,.562,z+.525,.018,.021,.009,'gold');
-    }
-    for(const center of [.65,1.47]){
-      const points=[[side*(center-.19),.588,z+.483],[side*(center-.06),.605,z+.485],[side*(center+.08),.585,z+.487],[side*(center+.19),.613,z+.484]];
-      b.carvedCurve('table-rail-frond:'+side+':'+center,points,.024,.012,'gold',20);
-      for(let k=0;k<3;k++)for(const sign of [-1,1])b.flame(side*(center-.10+k*.09),.594,z+.481,.10,.075,sign*(.72+k*.15),'gold',.15);
-    }
-  }
-  for(const side of [-1,1])b.carvedCurve('table-rail-center-scroll:'+side,
-    [[0,.591,z+.485],[side*.075,.573,z+.485],[side*.16,.594,z+.488],[side*.13,.622,z+.487],[side*.084,.615,z+.491]],.025,.012,'gold',20);
-  for(const side of [-1,1])for(const dz of [-.34,.34]) {
-    const x=side*1.73;
-    b.lathe('offering-table-turned-leg',[[0,0],[.10,.015],[.09,.06],[.06,.11],[.072,.18],[.08,.23],[.063,.31],[.072,.40],[.08,.44],[.09,.49],[0,.51]],x,.09,z+dz,1,1.12,'red',24);
-    b.box(x,(floorY+.10)/2,z+dz,.25,.10-floorY,.25,'gold');
-    b.box(x,.11,z+dz,.18,.025,.18,'lacquer');
-    for(const [yy,rr] of [[.17,.084],[.32,.098],[.53,.092]])b.torus(x,.09+(yy-.09)*1.12,z+dz,rr,.018,'gold',Math.PI/2);
-    // Open gilt ferrules reveal the red shaft between their bowed ribs;
-    // solid spherical gold beads erase the reference's slender post.
-    for(const yy of [.405,.514])b.torus(x,yy,z+dz,.086,.012,'gold',Math.PI/2);
-    for(let k=0;k<6;k++){
-      const a=k*Math.PI/3,ps=[[.086,.405],[.118,.435],[.121,.470],[.086,.514]].map(([r,y])=>[x+Math.sin(a)*r,y,z+dz+Math.cos(a)*r]);
-      const key='table-leg-ferrule:'+side+':'+dz+':'+k;
-      b.curve(key,ps,.013,'gold',16);
-      // The bowed cage must bear on the red shaft, not float around it.
-      // Recess only its two end quarters; retain the exact broad middle
-      // silhouette, all Y coordinates, rings and original instance matrices.
-      const ferrule=b.cache.get(key),position=ferrule.attributes.position;
-      for(let row=0;row<=16;row++){
-        const inset=.022*Math.max(0,1-Math.min(row,16-row)/4);
-        if(!inset)continue;
-        for(let col=0;col<=5;col++){
-          const i=row*6+col;
-          position.setXYZ(i,position.getX(i)-Math.sin(a)*inset,position.getY(i),position.getZ(i)-Math.cos(a)*inset);
-        }
-      }
-      position.needsUpdate=true;ferrule.computeVertexNormals();
-      ferrule.userData.tableFerruleRooted=true;
-    }
-  }
-  // Two separately carved inner supports are plainly visible beside the
-  // cushion in the original. They are not identical outer/back table legs.
-  for(const side of [-1,1]){
-    const x=side*1.075,zz=z+.34;
-    b.lathe('table-inner-carved-support',[[0,0],[.13,.008],[.135,.042],[.10,.070],[.078,.115],[.10,.205],[.077,.295],[.070,.375],[.110,.432],[.095,.480],[0,.490]],x,.085,zz,1,1,'lacquer',28);
-    b.lathe('table-inner-red-core',[[0,0],[.061,.012],[.070,.045],[.073,.160],[.057,.290],[.065,.325],[0,.337]],x,.18,zz+.035,1,1,'red',24);
-    b.box(x,(floorY+.1195)/2,zz,.21,.1195-floorY,.21,'trim');
-    b.box(x,.072,zz+.133,.18,.062,.018,'oldgold');
-    for(const yy of [.15,.30,.52])b.torus(x,yy,zz,yy===.30?.102:.091,.012,'gold',Math.PI/2);
-    for(const sign of [-1,1]){
-      b.carvedCurve('table-inner-carved-scroll:'+side+':'+sign,
-        [[x+sign*.040,.155,zz+.072],[x+sign*.101,.205,zz+.083],[x+sign*.097,.280,zz+.079],[x+sign*.050,.319,zz+.092],[x+sign*.060,.390,zz+.071],[x+sign*.094,.453,zz+.064],[x+sign*.047,.482,zz+.071]],.030,.015,'gold',32);
-      b.carvedCurve('table-inner-counter-scroll:'+side+':'+sign,
-        [[x+sign*.093,.280,zz+.077],[x+sign*.153,.314,zz+.064],[x+sign*.147,.367,zz+.058],[x+sign*.100,.379,zz+.069],[x+sign*.089,.352,zz+.077]],.023,.012,'oldgold',22);
-    }
-    b.ball(x,.231,zz+.104,.032,.048,.015,'gold');
-    b.ball(x,.443,zz+.086,.025,.031,.013,'gold');
-  }
+  buildOfferingJoinery198(b,layout,z,floorY);
   }));
   // A separate floor-bearing stand remains behind the foreground table and
   // carries the central ritual vessel. It cannot hover when the table advances.
@@ -1842,165 +1760,7 @@ function buildOfferingTable(b,layout) {
   b.cylinder(0,(1.647+1.704)/2,z,.006,1.704-1.647,'lacquer');
   b.ball(0,1.735,z,.010,.038,.010,'flame');
   b.withTransform(0,floorY,3.28+advance,layout.foregroundCushionScale,()=>b.withTransform(0,-floorY,-3.28,1,()=>{
-  // Low brocade kneeling cushion and carved base in front, as in the photograph.
-  // The original cushion sits inside a visibly wider black timber frame.
-  // Keep its cloth/contact plane fixed; only the surrounding base changes.
-  // Two hidden rear-edge rebates clear the existing inner table feet rather
-  // than moving either the table or the cushion to conceal an intersection.
-  const base=b.geometry('kneeling-base-rebated-timber:'+floorY,()=>{
-    const sh=new T.Shape();sh.moveTo(-1.35,3.81);sh.lineTo(1.35,3.81);sh.lineTo(1.35,2.75);
-    sh.lineTo(1.24,2.75);sh.lineTo(1.24,3.015);sh.lineTo(.91,3.015);sh.lineTo(.91,2.75);
-    sh.lineTo(-.91,2.75);sh.lineTo(-.91,3.015);sh.lineTo(-1.24,3.015);sh.lineTo(-1.24,2.75);sh.lineTo(-1.35,2.75);sh.closePath();
-    const g=new T.ExtrudeGeometry(sh,{depth:.097-floorY,bevelEnabled:false,steps:1,curveSegments:1});
-    g.rotateX(Math.PI/2);g.translate(0,.097,0);g.userData.kneelingTimberBase=true;return g;
-  });
-  b.add(base,'lacquer');
-  // A fine front molding, not a full gold plate beneath the textile.
-  b.box(0,.088,3.811,2.70,.012,.012,'oldgold');
-  // The original kneeling cushion bears broadly on its timber base. Keep
-  // the top and sides fixed, flattening only the hidden lower soft filling.
-  const contactY=(.097-.27)/.18;
-  const flattenY=v=>v<-.4?T.MathUtils.lerp(v,contactY,T.MathUtils.smoothstep(-v,.40,.75)):v;
-  const unflattenY=v=>{
-    if(v>=-.4)return v;if(v<=contactY)return -.75;
-    let lo=-.75,hi=-.4;for(let k=0;k<26;k++){const mid=(lo+hi)/2;if(flattenY(mid)<v)lo=mid;else hi=mid;}return(lo+hi)/2;
-  };
-  const cushion=b.geometry('rounded-brocade-bolster',()=>{
-    const g=new T.SphereGeometry(1,48,24),p=g.attributes.position;
-    const power=(v,n)=>Math.sign(v)*Math.pow(Math.abs(v),n);
-    for(let i=0;i<p.count;i++)p.setXYZ(i,power(p.getX(i),.60),flattenY(power(p.getY(i),.80)),power(p.getZ(i),.60));
-    g.computeVertexNormals();smoothCoincidentShellNormals(g);g.userData.cushionContactY=.097;return g;
-  });
-  b.add(cushion,'textile',0,.27,3.28,1.02,.18,.47);
-  // Small floral brocade lies on the cloth surface, not floating dragon
-  // reliefs repeated from the wooden altar panels.
-  const brocade=b.geometry('cushion-floral-brocade',()=>{
-    const parts=[];
-    // Woven marks follow the existing faceted cloth, not an ideal smooth
-    // surface bridged by large flat flower triangles. Partition only the
-    // existing pattern at the cushion's real triangle edges; retain its
-    // planar outlines and UVs and the existing .003 thread relief.
-    const clothSheets={};
-    for(const plane of ['front','top']){
-      const axes=plane==='front'?[0,1,2]:[0,2,1],p=cushion.attributes.position,n=cushion.attributes.normal,ix=cushion.index;
-      const faces=[];
-      for(let k=0;k<ix.count;k+=3){
-        const ids=[ix.getX(k),ix.getX(k+1),ix.getX(k+2)];
-        const v=ids.map(i=>[p.getX(i)*1.02,.27+p.getY(i)*.18,3.28+p.getZ(i)*.47]);
-        const [a,c,d]=v,det=(c[axes[0]]-a[axes[0]])*(d[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(d[axes[0]]-a[axes[0]]);
-        if((plane==='front'?det:-det)<=1e-14)continue;
-        const normal=ids.map(i=>new T.Vector3(n.getX(i)/1.02,n.getY(i)/.18,n.getZ(i)/.47).normalize());
-        faces.push({v,normal,det,min:axes.slice(0,2).map(q=>Math.min(...v.map(p=>p[q]))),max:axes.slice(0,2).map(q=>Math.max(...v.map(p=>p[q])))});
-      }
-      clothSheets[plane]={axes,faces};
-    }
-    const conformToCloth=(g,plane)=>{
-      const {axes,faces}=clothSheets[plane],p=g.attributes.position,uv=g.attributes.uv,ix=g.index,positions=[],normals=[],uvs=[],indices=[];
-      for(let k=0;k<ix.count;k+=3){
-        const input=[0,1,2].map(j=>{const i=ix.getX(k+j);return[p.getX(i),p.getY(i),p.getZ(i),uv.getX(i),uv.getY(i)];});
-        const low=axes.slice(0,2).map(q=>Math.min(...input.map(p=>p[q]))),high=axes.slice(0,2).map(q=>Math.max(...input.map(p=>p[q])));
-        for(const f of faces){
-          if(low.some((v,i)=>v>f.max[i])||high.some((v,i)=>v<f.min[i]))continue;
-          let polygon=input;
-          for(let edge=0;edge<3&&polygon.length;edge++){
-            const a=f.v[edge],c=f.v[(edge+1)%3],side=q=>Math.sign(f.det)*((c[axes[0]]-a[axes[0]])*(q[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(q[axes[0]]-a[axes[0]])),clipped=[];
-            for(let i=0;i<polygon.length;i++){
-              const v=polygon[i],w=polygon[(i+1)%polygon.length],dv=side(v),dw=side(w),inside=dv>=0,next=dw>=0;
-              if(inside)clipped.push(v);
-              if(inside!==next){const t=dv/(dv-dw);clipped.push(v.map((q,j)=>q+(w[j]-q)*t));}
-            }
-            polygon=clipped;
-          }
-          if(polygon.length<3)continue;
-          const mapped=polygon.map(q=>{
-            const [a,c,d]=f.v,u=((q[axes[0]]-a[axes[0]])*(d[axes[1]]-a[axes[1]])-(q[axes[1]]-a[axes[1]])*(d[axes[0]]-a[axes[0]]))/f.det;
-            const v=((c[axes[0]]-a[axes[0]])*(q[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(q[axes[0]]-a[axes[0]]))/f.det,w=1-u-v;
-            const point=q.slice(0,3);point[axes[2]]=a[axes[2]]*w+c[axes[2]]*u+d[axes[2]]*v+.003;
-            const normal=f.normal[0].clone().multiplyScalar(w).addScaledVector(f.normal[1],u).addScaledVector(f.normal[2],v).normalize();
-            return{point:point.map(Math.fround),normal,uv:q.slice(3)};
-          });
-          for(let i=1;i<mapped.length-1;i++){
-            const triangle=[mapped[0],mapped[i],mapped[i+1]],a=triangle[0].point,c=triangle[1].point,d=triangle[2].point;
-            const area=(c[axes[0]]-a[axes[0]])*(d[axes[1]]-a[axes[1]])-(c[axes[1]]-a[axes[1]])*(d[axes[0]]-a[axes[0]]);
-            if(Math.abs(area)<=1e-14)continue;
-            for(const q of triangle){indices.push(positions.length/3);positions.push(...q.point);normals.push(...q.normal.toArray());uvs.push(...q.uv);}
-          }
-        }
-      }
-      g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('normal',new T.Float32BufferAttribute(normals,3));g.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));g.setIndex(indices);
-    };
-    const place=(shape,cx,cy,angle=0,plane='front')=>{
-      const g=new T.ShapeGeometry(shape,8),p=g.attributes.position,ca=Math.cos(angle),sa=Math.sin(angle);
-      for(let i=0;i<p.count;i++){
-        const px=p.getX(i),py=p.getY(i),xx=cx+px*ca-py*sa,yy=cy+px*sa+py*ca;
-        if(plane==='top'){
-          const shell=Math.max(.003,1-Math.pow(Math.abs(xx/1.02),2/.60)-Math.pow(Math.abs(yy/.47),2/.60));
-          p.setXYZ(i,xx,.27+.18*Math.pow(shell,.40)+.003,3.28+yy);
-        }else{
-          const shell=Math.max(.003,1-Math.pow(Math.abs(xx/1.02),2/.60)-Math.pow(Math.abs(unflattenY((yy-.27)/.18)),2/.80));
-          p.setXYZ(i,xx,yy,3.28+.47*Math.pow(shell,.30)+.003);
-        }
-      }
-      if(plane==='top'&&g.index)for(let i=0;i<g.index.count;i+=3){const a=g.index.getX(i+1);g.index.setX(i+1,g.index.getX(i+2));g.index.setX(i+2,a);}
-      conformToCloth(g,plane);parts.push(g);
-    };
-    const ribbon=(points,width,plane='front')=>{
-      const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(p[0],p[1],0))),left=[],right=[];
-      for(let k=0;k<=40;k++){
-        const t=k/40,v=curve.getPoint(t),d=curve.getTangent(t),w=width*(.62+.38*Math.sin(Math.PI*t));
-        left.push([v.x+d.y*w/2,v.y-d.x*w/2]);right.push([v.x-d.y*w/2,v.y+d.x*w/2]);
-      }
-      const shape=new T.Shape();shape.moveTo(...left[0]);for(const p of left.slice(1))shape.lineTo(...p);for(const p of right.reverse())shape.lineTo(...p);shape.closePath();place(shape,0,0,0,plane);
-    };
-    const rosette=(cx,cy,r,plane='front')=>{
-      for(let row=0;row<2;row++)for(let k=0;k<8;k++){
-        const length=r*(row===0?1:.52),w=length*.26,a=k*Math.PI/4+row*Math.PI/8;
-        const path=[[0,length*.18],[-w*.6,length*.42],[-w*.65,length*.72],[0,length],[w*.65,length*.72],[w*.6,length*.42],[0,length*.18]].map(([x,y])=>[cx+x*Math.cos(a)-y*Math.sin(a),cy+x*Math.sin(a)+y*Math.cos(a)]);
-        ribbon(path,.0018,plane);
-      }
-      const center=new T.Shape();center.absellipse(0,0,.006,.006,0,Math.PI*2,false,0);place(center,cx,cy,0,plane);
-    };
-    // Three larger floral medallions and their diagonal connecting vines
-    // are visible on the original bolster, not dozens of isolated badges.
-    for(const cx of[-.8,-.6,-.4,-.2,0,.2,.4,.6,.8])rosette(cx,.267,.061);
-    for(let k=-4;k<=4;k++){
-      const cx=k*.22;
-      ribbon([[cx-.13,.165],[cx-.06,.214],[cx+.02,.302],[cx+.12,.367]],.0042);
-      ribbon([[cx-.13,.367],[cx-.04,.311],[cx+.03,.225],[cx+.12,.165]],.0035);
-      for(const sign of[-1,1])rosette(cx+sign*.055,.225+sign*.059,.018);
-    }
-    for(const cx of[-.8,-.6,-.4,-.2,0,.2,.4,.6,.8])rosette(cx,.03,.065,'top');
-    for(let k=-4;k<=4;k++){
-      const cx=k*.22;
-      ribbon([[cx-.13,-.28],[cx-.06,-.12],[cx+.04,.08],[cx+.13,.26]],.004,'top');
-      ribbon([[cx-.13,.26],[cx-.06,.12],[cx+.04,-.08],[cx+.13,-.28]],.0035,'top');
-    }
-    const g=mergeGeometries(parts,false);parts.forEach(p=>p.dispose());g.userData.cushionEmbroidery=true;return g;
-  });
-  b.add(brocade,'brocadeThread');
-  const cornerPost=b.geometry('kneeling-base-turned-corner-post',()=>{
-    const profile=[[0,.091],[.073,.091],[.075,.110],[.061,.125],[.057,.153],[.077,.168],[.077,.190],[.057,.202],[.062,.221],[.051,.243],[.031,.258],[0,.269]];
-    const g=new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),32);
-    g.computeVertexNormals();smoothCoincidentShellNormals(g);g.userData.kneelingCornerPost=true;return g;
-  });
-  const cornerInlay=b.geometry('kneeling-base-three-lobed-corner-inlay',()=>{
-    const q=new T.Shape();q.moveTo(0,-.022);q.bezierCurveTo(-.010,-.014,-.012,-.006,-.015,.002);
-    q.bezierCurveTo(-.033,-.007,-.038,.008,-.027,.018);q.bezierCurveTo(-.019,.026,-.013,.018,-.009,.008);
-    q.bezierCurveTo(-.014,.027,-.004,.038,0,.041);q.bezierCurveTo(.004,.038,.014,.027,.009,.008);
-    q.bezierCurveTo(.013,.018,.019,.026,.027,.018);q.bezierCurveTo(.038,.008,.033,-.007,.015,.002);
-    q.bezierCurveTo(.012,-.006,.010,-.014,0,-.022);q.closePath();
-    const g=new T.ExtrudeGeometry(q,{depth:.0035,bevelEnabled:true,bevelSize:.001,bevelThickness:.001,bevelSegments:1,curveSegments:7});
-    g.userData.kneelingCornerInlay=true;return rebuildKneelingCornerInlayExterior(g);
-  });
-  const cornerBorder=b.geometry('kneeling-base-oval-corner-border',()=>{
-    const points=[];for(let k=0;k<64;k++){const a=k/64*Math.PI*2;points.push(new T.Vector3(.103*Math.cos(a),.040*Math.sin(a),0));}
-    const g=new T.TubeGeometry(new T.CatmullRomCurve3(points,true),64,.0032,6,true);g.userData.kneelingCornerBorder=true;return g;
-  });
-  for(const side of [-1,1]){
-    b.add(cornerPost,'lacquer',side*1.16,0,3.60);
-    b.add(cornerBorder,'oldgold',side*1.16,.018,3.8105);
-    b.add(cornerInlay,'gold',side*1.16,.012,3.8085);
-  }
+  buildKneelingSeat198(b,layout,floorY);
   }));
   });
 }

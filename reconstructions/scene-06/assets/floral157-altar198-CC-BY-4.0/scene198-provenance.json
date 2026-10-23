@@ -1,0 +1,20 @@
+{
+  "revision": "scene06-altar198-r05",
+  "source": "wood carving",
+  "author": "Diana Liu / Thunk3D scanner",
+  "sourceURL": "https://sketchfab.com/3d-models/wood-carving-93766a4c12eb4c278d23294582034e8c",
+  "license": "CC-BY-4.0",
+  "parentComponent": "lookdev/architectural-scan-library157/derived/floral-frieze157-r01",
+  "sourceGeometryChanges": "Original157 glTF/bin retained exact. Runtime spatial selection after rigid original157 wrapper and Y180: convex48-plane XY oval centered [-.110,.025], radii [.150,.065]. Original retained surface positions/normals stay unchanged except rigid centering and linearly interpolated boundary intersections. New cut-side return quads close only the new perimeter into the physical strap carrier at rearZ=-.001. Original pierced/internal channels are retained. Positive uniform WORLD scale .44; complete inherited [.84*.74,.80,.74] compensated and measured. No source image, mask, depth field, remesh, nonrigid deformation or exposed rectangular donor plaque.",
+  "runtimeSurface": "src/altar-joinery198.js",
+  "sourceFiles": {
+    "component.gltf": "ac61b7f1ace82721271c6d99e5cbda62dacb1f20b7376c61ec1104029763c06b",
+    "component.bin": "4b6f16a2aa6efd0bbde92b26547d569c334c5f6516d621284b25c8b02bdb59b5",
+    "component-provenance.json": "0ca01adc78a33929b49a3b7efdc110dbb19b038976b17f1caf0f0d8abc0ca6e4",
+    "attribute-preservation-validation.json": "d0c2cab10e79b1bf5cf81bbf9f541150316ed3658f31929e21b8eea3aebc6e38"
+  },
+  "culturalProvenance": "Unspecified by creator; no Japanese/reference-artifact identity claimed.",
+  "physicalUnits": "Original source dimensions unverified; retained157 millimetre interpretation is explicit proposal.",
+  "visualAccepted": false,
+  "rejectedHistory": "R02 source field partly buried; R03/R04 full rectangular donor backing visibly protruded beyond shaped strap. Those source revisions and actual native cap frames are retained; not accepted."
+}

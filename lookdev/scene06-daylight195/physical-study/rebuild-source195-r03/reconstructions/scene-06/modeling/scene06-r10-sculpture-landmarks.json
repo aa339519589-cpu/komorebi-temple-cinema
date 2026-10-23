@@ -1,0 +1,53 @@
+{
+  "revision": "scene06-r10-source-led-sculpture",
+  "reference": "references/hd/4-\u7167\u7247-5.jpg",
+  "referenceSha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+  "referenceUse": "Manual approximate proportion/pose landmarks and visual sculptural interpretation only. No raster/depth projection, source RGB material, image-plane statue or whole-frame generator.",
+  "referenceFramePixels": [
+    1254,
+    1254
+  ],
+  "centralManualImageGuidesPixels": {
+    "eyeCenters": [
+      [
+        612,
+        373
+      ],
+      [
+        637,
+        373
+      ]
+    ],
+    "noseTip": [
+      625,
+      386
+    ],
+    "lipCleft": [
+      625,
+      394
+    ],
+    "chin": [
+      625,
+      401
+    ],
+    "neckBearing": [
+      625,
+      414
+    ]
+  },
+  "guidePrecision": "Approximate at original image resolution; no claim of subpixel or photogrammetric measurement. Used as a narrow guide to preserve existing overall head/camera anchors and change only local real anatomy.",
+  "modelCoordinateSystem": "Existing model-local +Y up, +Z front; all R9 overall world placement and seat contacts retained.",
+  "actualMeshSculptures": {
+    "orbit": "Reduce tall upper-orbital arch by local proportional vertex warp, keeping the measured eyelid/concha planes",
+    "mouth": "Retain actual measured 3D labial relief and retarget that geometry detail over the new curved tissue volume, with narrower width and gently lifted corners. Remove the analytic hard double lip and broad X-compressed cheek base from the earlier candidates.",
+    "lowerFace": "Lateral lower-cheek/jaw vertex fullness; soften nasolabial corners",
+    "submentalReturn": "Narrow the genuine lower-head/neck base, round the low central chin and lift the lateral mandibular corners; join it to the original body bearing and keep the three shallow real skin folds.",
+    "cloth": "Six primary asymmetric hanging folds with short tributaries, three-scale gathered sleeve folds, broad stole turns and independently varied attendant folds",
+    "hands": "Preserve gesture/wrist pose while curving distal upright digits into natural knuckle-to-tip arcs",
+    "headPlacement": "The first native shared-pixel-window inspection found the face/crown about ten pixels high over the aligned bearing. Translate the real central head/crown down .180 model units; applying that same anatomical translation before attendant retargeting yields .1404 model-unit attendant crown/face drops. Original low camera and body/seat/furniture anchors stay fixed.",
+    "faceVolumes": "R10-04 substantially rebuilds broad skull, malar/buccal, mandibular, rounded-chin and narrow-throat volumes using separate C1 radial profiles and normal-directed clay pads. Measured 3D eye/nose/lip/concha relief is separated and restored along the new surface normals; no photographic pixels or normal-map face mask.",
+    "mandorla": "R10-04 replaces serrated maple-like outlines with fine keeled flame/palmette tongues, subordinate curled tongues and real open voids. Each is a closed carved 3D section on the retained mandorla scaffold, not a gold line or image mask."
+  },
+  "anatomicalInput": "Existing genuine CC0 Fralin/UVA head geometry; different historical artifact, genuinely deformed as editable 3D source anatomy.",
+  "visualAccepted": false
+}

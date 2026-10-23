@@ -1,0 +1,57 @@
+{
+  "status": "root-reviewed-physical-material-progress-held-not-photographic-match",
+  "immutableSourceHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "originalR03": {
+    "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r03-full/scene06-daylight195-r03-cycles-full-CC-BY-NC-SA-4.0.png",
+    "sha256": "953ae537951b390eb87baa43e00588184806b5d17015102a1107099e9d2e8fde",
+    "coatRoughness": 0.095,
+    "coatWeight": 0.72,
+    "report": "cycles-195-r03-full/report.json"
+  },
+  "floorR04": {
+    "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-floor-r04-full/scene06-daylight195-floor-r04-cycles-full-CC-BY-NC-SA-4.0.png",
+    "sha256": "ec41bc96bed930c2d7c2fa0f531633ec18ac4eff24fac2cd4038edaf8fb04d0c",
+    "coatRoughness": 0.035,
+    "coatWeight": 1.0,
+    "report": "cycles-195-floor-r04-full/report.json",
+    "scriptSha256": "eefcdebbdce9e1978e0f355a273b1b8cce8a031e383162edc2ba945748b3c618",
+    "resolution": [
+      1254,
+      1254
+    ],
+    "fixedSamples": 256
+  },
+  "changedOnlyFloorCoatInputs": true,
+  "nativePhase200Separate": true,
+  "numericalDiagnosis": "floor-diagnosis195-r03.json",
+  "readableDiagnosis": "floor-diagnosis195-r03.md",
+  "actualEvaluation": "actual-floor-review195-r04.json",
+  "sourceRebuildMap": "rebuild-source195-r03/exact-replay-map.json",
+  "exactRecipes": [
+    "review-recipe195-r03.json",
+    "review-recipe195-floor-r04.json"
+  ],
+  "fullInputInventory": "cycles-195-r03-export-verified-inventory.json",
+  "dedupInventory": "cycles-195-r03-export-dedup-inventory.json",
+  "pruneReceipt": "cycles-195-r03-prune-receipt.json",
+  "prunedDerivedFiles": 7364,
+  "prunedUniqueBytes": 330773657,
+  "retainedSourceFrameFormats": [
+    "PNG",
+    "RGBA"
+  ],
+  "sourceAssetsHistoryOtherJobsDeleted": 0,
+  "noOpenExportHandlesAtPrune": true,
+  "allActualPngsAndReportsStillByteExact": true,
+  "canonicalSourceFilesUnchangedByPrune": true,
+  "reexportNeededForFuturePhysicalReplay": true,
+  "noActiveOwnedBlenderOrBrowser": true,
+  "noExtraRenderOrFilmPlanned": true,
+  "noGitAction": true,
+  "noBlendCreated": true,
+  "freeBytesAfterRetention": 5127479296,
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "photographicAccepted": false,
+  "filmAccepted": false
+}

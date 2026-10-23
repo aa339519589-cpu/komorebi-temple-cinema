@@ -1,0 +1,350 @@
+{
+  "revision": "scene06-sculpture199-r05",
+  "status": "proposed-unaccepted-delta-held-for-root-review",
+  "visualAccepted": false,
+  "canonicalPromoted": false,
+  "baselineCanonicalHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "heldCandidateHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+  "postRenderCandidateHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+  "proposedFiles": [
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/continuous-displacement199-r05.bin",
+      "destination": "reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/continuous-displacement199-r05.bin",
+      "sha256": "5bc8f11c369e254670ebc4462cad00c43b7e7abec1727b04461aeba16b3cf5af",
+      "bytes": 9468212,
+      "baselineSha256": null,
+      "operation": "Copy exact new file after root review"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/continuous-sculpt199-r05-cd9778adc17846aa.bin",
+      "destination": "reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/continuous-sculpt199-r05-cd9778adc17846aa.bin",
+      "sha256": "cd9778adc17846aa8ab40127b1b9f328ddafbfca10f3fbb0006ca775bf736eb3",
+      "bytes": 44184964,
+      "baselineSha256": null,
+      "operation": "Copy exact new file after root review"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/manifest.json",
+      "destination": "reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/manifest.json",
+      "sha256": "5c791476a6f648ae2d7fca7d553d7e264cbaf3f6403d8733e7c7d48ac6bfb7f5",
+      "bytes": 8044,
+      "baselineSha256": null,
+      "operation": "Copy exact new file after root review"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/midpoint-parent-pairs199-r05.bin",
+      "destination": "reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/midpoint-parent-pairs199-r05.bin",
+      "sha256": "c07983e65ed77b16fd4986064cac9e2687ab0994848b5b69fb153860f7ec68c8",
+      "bytes": 4626000,
+      "baselineSha256": null,
+      "operation": "Copy exact new file after root review"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/provenance.json",
+      "destination": "reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/provenance.json",
+      "sha256": "b5058db93885271f493eed850979099a1a5216d1c46742130b89a544978c8b67",
+      "bytes": 12024,
+      "baselineSha256": null,
+      "operation": "Copy exact new file after root review"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/modeling/build-sculpt199-r05.mjs",
+      "destination": "reconstructions/scene-06/modeling/build-sculpt199-r05.mjs",
+      "sha256": "3c12c50b2acd5b3de137ba16d41cc79d7787739272ec890600bb6bc32733ed52",
+      "bytes": 21908,
+      "baselineSha256": null,
+      "operation": "Copy exact new file after root review"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/src/reference6-scene.js",
+      "destination": "reconstructions/scene-06/src/reference6-scene.js",
+      "sha256": "ba4f52fb1e0a2a5dd2ea3f5bbaad5488755fe1267215e2b626fa24e828cd15fe",
+      "bytes": 28400,
+      "baselineSha256": "b71fe188f32e89a0c3af8954ee875221e582a6e3883cf8375b7aeea3560853a1",
+      "operation": "Apply only revision/sourceLimit metadata hunk; never replace the full195 file over floor200"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/src/sculptural-cast-assets.js",
+      "destination": "reconstructions/scene-06/src/sculptural-cast-assets.js",
+      "sha256": "d4f5a9474c17040430f5c5681bcce7dfbe28697e35caa6676e2796450ebe6cb8",
+      "bytes": 4483,
+      "baselineSha256": "49d10d0369341fab3d8ec04733a7eabdfaf05a6e56460bd390368ad31152a514",
+      "operation": "Reviewed loader-only central derivative package/revision/comment update"
+    },
+    {
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/LICENSE-CC-BY-NC-SA-4.0.txt",
+      "destination": "reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/LICENSE-CC-BY-NC-SA-4.0.txt",
+      "sha256": "67a71a7d10db274cc4e07ae4ffe4381e739de67b0643c766fa34d3da25ddaf57",
+      "bytes": 1126,
+      "baselineSha256": null,
+      "operation": "Copy exact new file after root review"
+    }
+  ],
+  "totalProposedBytes": 58355161,
+  "regenerateFromRepositoryRoot": "node lookdev/scene06-sculpture199/authoring/build-sculpt199-r05.mjs",
+  "builderSha256": "3c12c50b2acd5b3de137ba16d41cc79d7787739272ec890600bb6bc32733ed52",
+  "inputRawSha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+  "sourceDeltaFormat": {
+    "file": "continuous-displacement199-r05.bin",
+    "sha256": "5bc8f11c369e254670ebc4462cad00c43b7e7abec1727b04461aeba16b3cf5af",
+    "format": "SD19 header 20 bytes: ASCII SD19, uint32 allVertexCount, originalSourceCount, parentPairCount, version1; then little-endian float32 XYZ displacement from original vertices plus recursively constructed source-edge midpoint vertices.",
+    "changedVertices": 631662,
+    "maxDisplacementSourceUnits": {
+      "all": 0.13035862111254248,
+      "face": 0.10601417157745209,
+      "robe": 0.052435509860515594,
+      "scalp": 0.13035862111254248,
+      "seat": 0
+    }
+  },
+  "geometry": {
+    "file": "continuous-sculpt199-r05-cd9778adc17846aa.bin",
+    "sha256": "cd9778adc17846aa8ab40127b1b9f328ddafbfca10f3fbb0006ca775bf736eb3",
+    "vertices": 789016,
+    "triangles": 1578036,
+    "bytes": 44184964,
+    "bounds": [
+      [
+        -1.2409567832946777,
+        0,
+        -0.7778676152229309
+      ],
+      [
+        1.2409567832946777,
+        3.1787880907152135,
+        0.8428356647491455
+      ]
+    ]
+  },
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "evidence": [
+    {
+      "view": "front",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-front/inspection-view.png",
+      "pngSha256": "679b36b812c93c575c110c45908ee713c3ff532998bda0c18bf57e1a7fb96cc9",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-front/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          0,
+          5.55,
+          0.15
+        ],
+        "target": [
+          0,
+          5.55,
+          -2.55
+        ],
+        "fov": 26,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "clear-statue",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-clear-statue/inspection-view.png",
+      "pngSha256": "eb9dcbe28260233ca9573b332979551cf11fd8fdaf617f8a9dc7486989419ec7",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-clear-statue/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          0,
+          4.65,
+          -0.25
+        ],
+        "target": [
+          0,
+          4.65,
+          -2.55
+        ],
+        "fov": 62,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "three-quarter",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-three-quarter/inspection-view.png",
+      "pngSha256": "b6b4c994a942206192caf3c99db6834c22b76c026f5a303dafa5706a37893dfe",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-three-quarter/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          1.75,
+          5.6,
+          -0.75
+        ],
+        "target": [
+          0,
+          5.55,
+          -2.55
+        ],
+        "fov": 28,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "profile",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-profile/inspection-view.png",
+      "pngSha256": "693935e39de31245bd296caa24bfd0e95892b3c7477c12e2fdc80c7118cb943f",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-profile/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          2.15,
+          5.55,
+          -2.55
+        ],
+        "target": [
+          0,
+          5.55,
+          -2.55
+        ],
+        "fov": 28,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "full",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-full/reference.png",
+      "pngSha256": "89cabd6574c6c005cf5bfee3d4db2a2153d2e499a94f8f9183043ace2647544a",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-full/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": null,
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "low-opening",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-low-opening/shot-0.png",
+      "pngSha256": "fefb35e42395d06653145f6d9e5f0673ce4e4c373f9bc98a11f7c71af8f16d8d",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-low-opening/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": null,
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "body-three-quarter",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-body-three-quarter/inspection-view.png",
+      "pngSha256": "75a3f99036705797cbd824ef7bc241c22e11758b618347fc8a54c4eee0a777c9",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-body-three-quarter/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          1.15,
+          4.7,
+          -0.6
+        ],
+        "target": [
+          0,
+          4.65,
+          -2.55
+        ],
+        "fov": 68,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    }
+  ],
+  "reviewFile": "lookdev/scene06-sculpture199/r05-actual-review.json",
+  "preservationFile": "lookdev/scene06-sculpture199/r05-preservation-and-scope.json",
+  "integrationConstraints": [
+    "Do not copy whole CoW roots or old baseline assets into canonical/Git. Only this explicit reviewed delta is proposed.",
+    "Canonical floor200 and independent altar198 changes are excluded. Patch the two scene metadata fields independently to retain those lanes.",
+    "No camera, daylight, material value, floor, altar or source-raw buffer change is proposed.",
+    "All five sculpt source versions and their actual frame evidence are retained; no likeness acceptance is claimed."
+  ]
+}

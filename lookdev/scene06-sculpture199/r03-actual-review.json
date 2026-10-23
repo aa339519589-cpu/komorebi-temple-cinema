@@ -1,0 +1,82 @@
+{
+  "revision": "scene06-sculpture199-r03",
+  "status": "rejected-eyelid-ridge-layering-after-seven-native-views",
+  "visualAccepted": false,
+  "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+  "frozenRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r03-frozen-root",
+  "personallyViewed": [
+    "front",
+    "clear-statue",
+    "three-quarter",
+    "profile",
+    "full",
+    "low-opening",
+    "body-three-quarter"
+  ],
+  "evidence": [
+    {
+      "view": "front",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r03-front/report.json",
+      "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "clear-statue",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r03-clear-statue/report.json",
+      "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "three-quarter",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r03-three-quarter/report.json",
+      "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "profile",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r03-profile/report.json",
+      "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "full",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r03-full/report.json",
+      "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "low-opening",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r03-low-opening/report.json",
+      "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "body-three-quarter",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r03-body-three-quarter/report.json",
+      "sourceHash": "695d5f63471090c2d209d4a98c6ca0f3a030accb2fdb6ff41e818f564e3acca1",
+      "status": "rendered-review",
+      "size": 1254
+    }
+  ],
+  "findings": [
+    "R03 upper-lid/brow relief stacks with original source creases, reading as triple eyelid bands and an overly sharp expression; reject face treatment.",
+    "Quieter source lips and softer three neck rings are preferable to R02.",
+    "Added sleeve tension folds read as actual continuous cloth from body3q, but exact sleeve likeness remains unresolved.",
+    "R02 flowing chest folds remain continuous in front/body3q/low view.",
+    "Deeper compact curls still look engraved/stippled; source cap overhang remains excessive."
+  ],
+  "auditCaveat": "turnedPast90 is normal rotation against baseline, not alone proof of triangle inversion; no open or nonmanifold edges, finite unit normals. Self-intersection freedom and likeness are not established by this metric.",
+  "highProjectingPalms": {
+    "vertices": 16160,
+    "maxPositionDelta": 0
+  },
+  "originalContactBandMaxPositionDelta": 0,
+  "originalRawUnchanged": true,
+  "canonicalPromoted": false
+}

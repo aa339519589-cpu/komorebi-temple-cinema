@@ -21,13 +21,15 @@ PORT=4318 node tools/server.mjs
 
 本轮夜景另有 [1080×1080、24 fps 的真实 7 秒运镜草稿](qa/ten-reference/09/iteration-scene09-carried-hall-motion187-r02/motion-review.mp4)：从低机位殿前木构拉远到塔、桥和池塘。它没有配乐，只用于检查这一景的模型与镜头，不是十景成片。此前前景柱帽占据开场的版本已按实际画面退回，原帧与片段保留。
 
+佛堂本轮另有 [206 真实 7 秒建模样片（1080×1080／24 fps，静音）](qa/ten-reference/06/iteration-scene06-combined206-motion-r01-personal-nc/motion-review.mp4)：195 窗外实体遮光与较柔散射、200 地面反射投影修正、198 供桌／坛体／织锦、199 连续三维衣褶和面部塑形已合并。原始雕像与所有失败候选保留；面相、发髻、背光雕花、家具和整体光感仍未达到参考。织锦是贴在真实靠垫上的生成材质，[原图与完整提示词](reconstructions/scene-06/assets/brocade201/provenance.json) 已公开；不用于替换场景画面。
+
 ## 源码与当前工作
 
 - 十景模型：[reconstructions](reconstructions/)，各景为独立目录；[参考编号与入口](reconstructions/ten-scenes.json)。
 - 原生全图、真实局部视锥与迭代差距：[qa/ten-reference](qa/ten-reference/)。有效渲染、着色器通过不代表照片匹配。
 - 夜景新增了现有灯具的反平方照明、固定阴影、实际庭院反射探针，以及磨损花岗岩实体与水膜反射。[实际夜景](qa/ten-reference/09/iteration-scene09-physical-wet-courtyard-root-05-20261021/reference.png)。
 - 雨景压低了过大的上层屋顶坡面，梁枋用闭合莲花唐草浮雕替换简单符号，并收敛水膜涟漪。[实际雨景](qa/ten-reference/10/iteration-scene10-subtle-ripples-solid-relief-root-11-20261021/reference.png)、[真实局部](qa/ten-reference/10/iteration-scene10-subtle-ripples-solid-relief-root-11-20261021/detail-native.png)。[雕刻来源与完整提示词](assets/ranma-relief-v01/provenance.json)。
-- 第六景已在用户明确允许个人非商用使用后，接入 Scan-the-World／Sainsbury Centre 的真实日本阿弥陀佛模型，并重建连续承托的莲座与殿内梁架。[当前实际全幅](qa/ten-reference/06/iteration-scene06-nc-adoption179-r08-full/reference.png)、[低机位局部](qa/ten-reference/06/iteration-scene06-nc-adoption179-r08-hero-low-front/inspection-view.png)。这件模型及其衍生画面使用 **CC BY-NC-SA 4.0**；[作者、修改与独立许可](reconstructions/scene-06/ATTRIBUTION-AND-ASSET-LICENSES.md) 完整保留，项目源码许可不覆盖第三方素材。雕像仍是不同文物，发髻、衣褶、莲台和整个佛堂均未达到参考。原先的 CC0／CC BY 塑形研究继续保留。
+- 第六景已在用户明确允许个人非商用使用后，接入 Scan-the-World／Sainsbury Centre 的真实日本阿弥陀佛模型，并重建连续承托的莲座与殿内梁架。[当前合并后的实际全幅](qa/ten-reference/06/iteration-scene06-combined206-r01-personal-nc/reference.png)、[供桌真实局部](qa/ten-reference/06/iteration-scene06-combined206-r01-personal-nc/detail-native.png)；[179 原始采用版](qa/ten-reference/06/iteration-scene06-nc-adoption179-r08-full/reference.png) 继续保留。这件模型及其衍生画面使用 **CC BY-NC-SA 4.0**；[作者、修改与独立许可](reconstructions/scene-06/ATTRIBUTION-AND-ASSET-LICENSES.md) 完整保留，项目源码许可不覆盖第三方素材。雕像仍是不同文物，发髻、衣褶、莲台和整个佛堂均未达到参考。原先的 CC0／CC BY 塑形研究继续保留。
 - 第一景重建了承托木构、桥脚、岸坡和溪流；第三景重做了屋檐木构与拱桥；第七景重建连通地形、桥梯与有承托的廊顶；第八景重建了多层院落与闭合屋面。仍有明显的体量、植物、材质和光影差距。
 - 第一景另有保持原始几何和相机的 Blender/Cycles 制作研究，修复了实例颜色传递；它不是原生 WebGL 像素等价图，也未通过照片匹配。[当前物理渲染与可编辑模型](lookdev/scene01-solmax-cycles-20261021/README.md)。
 - 第九景也保留了完整相机、实例几何、薄纸透光和真实水面／湿石材的 Cycles 研究，含可编辑模型及所有再生脚本。[物理夜景](lookdev/scene09-solmax-cycles-20261021/README.md)。

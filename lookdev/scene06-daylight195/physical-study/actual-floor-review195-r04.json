@@ -1,0 +1,50 @@
+{
+  "status": "actual-floor-only-r04-viewed-improvement-not-photographic-acceptance",
+  "sourceHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "actualPng": "lookdev/scene06-daylight195/physical-study/cycles-195-floor-r04-full/scene06-daylight195-floor-r04-cycles-full-CC-BY-NC-SA-4.0.png",
+  "actualPngSha256": "ec41bc96bed930c2d7c2fa0f531633ec18ac4eff24fac2cd4038edaf8fb04d0c",
+  "actualReport": "lookdev/scene06-daylight195/physical-study/cycles-195-floor-r04-full/report.json",
+  "previousPng": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r03-full/scene06-daylight195-r03-cycles-full-CC-BY-NC-SA-4.0.png",
+  "previousPngSha256": "953ae537951b390eb87baa43e00588184806b5d17015102a1107099e9d2e8fde",
+  "native200Comparison": "qa/ten-reference/06/iteration-scene06-floor200-r01-personal-nc/reference.png",
+  "native200ActualFloorCrop": "qa/ten-reference/06/iteration-scene06-floor200-r01-personal-nc/detail-native.png",
+  "suppliedReference": "references/hd/4-\u7167\u7247-5.jpg",
+  "comparisonsPersonallyViewed": true,
+  "physicalChangeOnly": {
+    "floorCoatRoughness": [
+      0.095,
+      0.035
+    ],
+    "floorCoatWeight": [
+      0.72,
+      1.0
+    ],
+    "albedoCorrectionApplied": false,
+    "allOtherRecordedPhysicalParametersEqualToR03": true
+  },
+  "geometrySourceAndCameraPreserved": true,
+  "observedImprovements": [
+    "Real lantern reflections become readable near their CPU-predicted in-frame horizontal positions.",
+    "Altar, central censer and lower gilt bowl reflections regain structured gold shape in the foreground.",
+    "Reflection sharpness and energy increase without displacing a Buddha face that lies outside the physical frame.",
+    "Broken sunlight and coherent low-contrast air stay continuous with the prior physical render."
+  ],
+  "remainingFailures": [
+    "Floor wood grain remains darker and more dominant than the strongly reflecting supplied reference.",
+    "The whole source sculpture face/robe/cap, altar ornament and room detail remain different from reference.",
+    "Some fine reflected and direct ornament remains soft; fixed256 samples and valid source transfer do not establish photographic detail.",
+    "Physical and native200 material/tone/GI differences remain; this is not WebGL pixel equivalence."
+  ],
+  "numericalDiagnosis": "floor-diagnosis195-r03.json",
+  "diagnosisTakeaway": "Correct flat normals, physically bounded map-times-color albedo and in-frame altar/lantern mirror paths supported a continuous sharper coat. No base-color clamping or forced out-of-frame face reflection.",
+  "primaryActualReviewPending": false,
+  "cachePruned": true,
+  "newExportRequired": false,
+  "noMovieOrBlend": true,
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "visualAccepted": false,
+  "filmAccepted": false,
+  "primaryActualReview": "Root personally viewed R04: correctly placed stronger lantern/altar reflections, retained as physical material progress; photographic fidelity remains unaccepted.",
+  "pruneReceipt": "cycles-195-r03-prune-receipt.json"
+}

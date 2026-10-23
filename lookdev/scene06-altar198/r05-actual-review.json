@@ -1,0 +1,113 @@
+{
+  "revision": "scene06-altar198-r05",
+  "status": "held-for-primary-visual-review",
+  "visualAccepted": false,
+  "candidateHash": "eb497565884bdb36470c0d3f1908fc74eca7123ffe1b9640d66a0fc38fad36a4",
+  "personallyInspected": [
+    "original full HD4/photo5",
+    "actual195 full reference",
+    "unscaled diagnostic table/platform crops",
+    "R01 full, real subfrustum and low oblique",
+    "R02 full, subfrustum, low oblique and corrected cap inspection",
+    "R03 full and subfrustum",
+    "R04 full, subfrustum, low oblique and cap inspection",
+    "R05 full1254, actual table subfrustum1254, low oblique1254 and cap/knee1254"
+  ],
+  "actualReports": [
+    {
+      "candidateReport": "lookdev/scene06-altar198/candidate-root/qa/ten-reference/06/iteration-scene06-altar198-r05-personal-nc/report.json",
+      "rootReviewCopy": "qa/ten-reference/06/iteration-scene06-altar198-r05-personal-nc/report.json",
+      "sourceHash": "eb497565884bdb36470c0d3f1908fc74eca7123ffe1b9640d66a0fc38fad36a4",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "a6f45bf2a0866183babd0bc72db3971f0b70cddabe61eb032b2ec57cfa252da8"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "e961982987b70a5dc066c37a7757758e7459a96cf7123c248de05daad9debda2"
+        }
+      ]
+    },
+    {
+      "candidateReport": "lookdev/scene06-altar198/candidate-root/qa/ten-reference/06/iteration-scene06-altar198-r05-low-oblique-personal-nc/report.json",
+      "rootReviewCopy": "qa/ten-reference/06/iteration-scene06-altar198-r05-low-oblique-personal-nc/report.json",
+      "sourceHash": "eb497565884bdb36470c0d3f1908fc74eca7123ffe1b9640d66a0fc38fad36a4",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "ab2d1e6e1efd91a7671d14d18e9090fc481f4294cb8484617920494d99c49498"
+        }
+      ]
+    },
+    {
+      "candidateReport": "lookdev/scene06-altar198/candidate-root/qa/ten-reference/06/iteration-scene06-altar198-r05-cap-inspection-personal-nc/report.json",
+      "rootReviewCopy": "qa/ten-reference/06/iteration-scene06-altar198-r05-cap-inspection-personal-nc/report.json",
+      "sourceHash": "eb497565884bdb36470c0d3f1908fc74eca7123ffe1b9640d66a0fc38fad36a4",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "35713f0c8bce47c30c0d0d8b1cbdfd4e85801179e33276c7f4475283e3411bfe"
+        }
+      ]
+    }
+  ],
+  "visualFindings": {
+    "full": "Table overhang is narrower, top/waist thinner; original broad cream scalloped fascia is gone. Cushion is smaller/taller with three denser floral medallions. Unchanged Buddha/room/195 lighting remain explicit.",
+    "subfrustum": "Distinct top/waist members, actual front negative space, turned red shafts/cast sleeves/foot shoes and connected inner folded-leaf supports are visible. Source176 long dragons replace the former schematic anatomy in the two broad middle altar fields.",
+    "lowOblique": "Real apron thickness, end joinery, tenoned legs, shoe side faces, source cloud depth and carrier contact are visible. New little metal fronds use concealed pins into the upper rail; inlays enter their faces.",
+    "cap": "R04 rectangular donor backing failure is removed. The actual rounded157 peony component and authored cut-side returns fit inside the shaped strap. Original176 pierced channels, five end-grain caps and upright mounting cheek remain visible. The peony still reads as an interpreted decorative insert and is not a verified reference artifact."
+  },
+  "sourceWorldScaleAudit": "Every actual R05 source mount has equal absolute world matrix column lengths and orthogonal axes, including complete old .84*[.74,.80,.74] table compensation. Left cloud reflection is explicit.",
+  "cpuCapAudit": "source-and-cap-audit198.json: five exact planar sections, zero zero-area triangles and zero axis-normal error; no welded watertight claim.",
+  "retainedFailures": [
+    {
+      "revision": "R01",
+      "reasons": [
+        "caps too bright",
+        "lacquer too gray",
+        "inner supports too loop-like",
+        "thread detail sparse"
+      ]
+    },
+    {
+      "revision": "R02",
+      "reasons": [
+        "157 field partly buried behind carrier",
+        "first cap inspection camera omitted inherited foreground advance"
+      ]
+    },
+    {
+      "revision": "R03/R04",
+      "reasons": [
+        "157 rectangular backing protruded beyond shaped carrier and read as attached picture plaque"
+      ]
+    }
+  ],
+  "remainingLimits": [
+    "Alternative carved artifacts are not the reference originals; cultural identity and physical source units remain unspecified.",
+    "Upper/lower small altar fields, censer and old raised shelf geometry remain schematic and more regular than the photo.",
+    "The unchanged actual Buddha179R08 still differs from reference in anatomy, face, scalp and robe.",
+    "New peony fitting is an interpreted insert; full photographic likeness remains unaccepted.",
+    "No physical export/render, welded topology proof or film was made."
+  ],
+  "scope": "Only isolated lookdev198 candidate and new QA06 paths. Root primary alone integrates and commits. Current root floor-varnish change observed but not copied or overwritten."
+}

@@ -1,0 +1,80 @@
+{
+  "revision": "altar198-r04-source-and-cap-audit",
+  "scope": "Pure CPU geometry audit. No render/browser/Blender/GPU/export.",
+  "sourceSha256": "6b88a3785d280d79b41c518dc1357cd4d6526b69164fc23a32f30f98c19b2fb3",
+  "sourceBytesUnchanged": true,
+  "allFiveCutsClosedAsPlanarSections": true,
+  "loops": [
+    {
+      "id": 0,
+      "mountPlane": "left-x-cut",
+      "points": 565,
+      "closed": true,
+      "triangles": 563,
+      "polygonArea": 0.03700044577172836,
+      "triangulatedArea": 0.037000445771728396,
+      "areaError": 3.469446951953614e-17,
+      "zeroAreaTriangles": 0,
+      "axisNormalError": 0,
+      "finite": true,
+      "claim": "Exact planar end-grain surface; separate mesh closure, not a welded watertight-topology claim."
+    },
+    {
+      "id": 1,
+      "mountPlane": "left-x-cut",
+      "points": 281,
+      "closed": true,
+      "triangles": 279,
+      "polygonArea": 0.013706698009404272,
+      "triangulatedArea": 0.013706698009404229,
+      "areaError": 4.336808689942018e-17,
+      "zeroAreaTriangles": 0,
+      "axisNormalError": 0,
+      "finite": true,
+      "claim": "Exact planar end-grain surface; separate mesh closure, not a welded watertight-topology claim."
+    },
+    {
+      "id": 2,
+      "mountPlane": "left-x-cut",
+      "points": 247,
+      "closed": true,
+      "triangles": 245,
+      "polygonArea": 0.015105026672004909,
+      "triangulatedArea": 0.015105026672004883,
+      "areaError": 2.6020852139652106e-17,
+      "zeroAreaTriangles": 0,
+      "axisNormalError": 0,
+      "finite": true,
+      "claim": "Exact planar end-grain surface; separate mesh closure, not a welded watertight-topology claim."
+    },
+    {
+      "id": 3,
+      "mountPlane": "left-x-cut",
+      "points": 144,
+      "closed": true,
+      "triangles": 142,
+      "polygonArea": 0.005347720614731984,
+      "triangulatedArea": 0.005347720614731933,
+      "areaError": 5.117434254131581e-17,
+      "zeroAreaTriangles": 0,
+      "axisNormalError": 0,
+      "finite": true,
+      "claim": "Exact planar end-grain surface; separate mesh closure, not a welded watertight-topology claim."
+    },
+    {
+      "id": 4,
+      "mountPlane": "left-x-cut",
+      "points": 20,
+      "closed": true,
+      "triangles": 18,
+      "polygonArea": 0.000028614178210327294,
+      "triangulatedArea": 0.000028614178210326955,
+      "areaError": 3.3881317890172014e-19,
+      "zeroAreaTriangles": 0,
+      "axisNormalError": 0,
+      "finite": true,
+      "claim": "Exact planar end-grain surface; separate mesh closure, not a welded watertight-topology claim."
+    }
+  ],
+  "visualAccepted": false
+}

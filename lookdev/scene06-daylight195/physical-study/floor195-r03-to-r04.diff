@@ -1,0 +1,57 @@
+--- releasedR03/render-scene06-cycles195-r03.py
++++ floor-study/render-scene06-cycles195-floor-r04.py
+@@ -1,4 +1,4 @@
+-"""Scene06 daylight195 R03 physical Cycles comparison, imported from frozen native geometry.
++"""Scene06 daylight195 floor R04 material-only Cycles comparison, imported from frozen native geometry.
+ 
+ Owns only this lookdev directory. No photograph pixels, camera plate, AI frame,
+ mesh replacement, scene source mutation, or native screen-space volume planes.
+@@ -11,7 +11,7 @@
+ from mathutils import Matrix,Vector,Quaternion
+ HERE=Path(__file__).resolve().parent
+ ROOT=Path(os.environ.get('SCENE_PACKAGE',str(HERE/'cycles-195-r03-export'))).resolve()
+-OUT=Path(os.environ.get('CYCLES_OUTPUT',str(HERE/'cycles-195-r03-full'))).resolve();OUT.mkdir(parents=True,exist_ok=True)
++OUT=Path(os.environ.get('CYCLES_OUTPUT',str(HERE/'cycles-195-floor-r04-full'))).resolve();OUT.mkdir(parents=True,exist_ok=True)
+ MODE='source-sun-physical-apertures'
+ scene_data=json.loads((ROOT/'scene.json').read_text());source_export=json.loads((ROOT/'export-report.json').read_text())
+ assert source_export['status']=='exported-existing-geometry'
+@@ -35,7 +35,8 @@
+ instance_colored={mid for o in scene_data['meshes'] if 'instanceColors' in o for mid in o['materials']}
+ textures={t['id']:t for t in scene_data['textures']}; material_records={m['id']:m for m in scene_data['materials']};materials={};geometry_materials={}
+ image_cache={}
+-varnish_coat_roughness=float(os.environ.get('CYCLES_VARNISH_COAT_ROUGHNESS','.095'))
++varnish_coat_roughness=float(os.environ.get('CYCLES_VARNISH_COAT_ROUGHNESS','.035'))
++varnish_coat_weight=float(os.environ.get('CYCLES_VARNISH_COAT_WEIGHT','1.0'))
+ for rec in scene_data['materials']:
+     mat=bpy.data.materials.new(rec['name'] or rec['id']);mat.use_nodes=True;n=mat.node_tree.nodes;n.clear();links=mat.node_tree.links
+     bs=n.new('ShaderNodeBsdfPrincipled');out=n.new('ShaderNodeOutputMaterial');links.new(bs.outputs['BSDF'],out.inputs['Surface'])
+@@ -45,7 +46,9 @@
+     value(bs,['Specular IOR Level'],.5*float(rec.get('specularIntensity') if rec.get('specularIntensity') is not None else 1))
+     value(bs,['Coat Weight','Clearcoat'],float(rec.get('clearcoat') or 0));value(bs,['Coat Roughness','Clearcoat Roughness'],float(rec.get('clearcoatRoughness') or .15))
+     if rec['name']=='reference6-varnished-red-brown-floor-body':
++        # Continuous physical lacquer only; source base/map/roughness/normals stay exact.
+         value(bs,['Coat Roughness','Clearcoat Roughness'],varnish_coat_roughness)
++        value(bs,['Coat Weight','Clearcoat'],varnish_coat_weight)
+     emission=tuple(rec.get('emissive') or [0,0,0])+(1,);value(bs,['Emission Color','Emission'],emission);value(bs,['Emission Strength'],float(rec.get('emissiveIntensity') or 0))
+     value(bs,['Alpha'],float(rec.get('opacity',1)))
+     uv=n.new('ShaderNodeTexCoord'); tex_nodes={}
+@@ -371,16 +374,17 @@
+     cam_data.shift_x=float((desired[0]-initial[0])/dx);cam_data.shift_y=float((desired[2]-initial[2])/dy)
+     actual=frame_bounds();error=float(np.max(np.abs(actual-desired)));assert error<2e-6,(actual,desired,error)
+     report['trueSubfrustum']={'cropInFullSourcePixels':[x,y,size,full],'outputResolution':scene.render.resolution_x,'sourceCameraMatrixUnchanged':True,'lensMm':cam_data.lens,'shift':[cam_data.shift_x,cam_data.shift_y],'desiredCameraLocalRaySlopes':desired.tolist(),'actualCameraLocalRaySlopes':actual.tolist(),'maxAbsoluteRaySlopeError':error,'upsampledScreenshot':False}
+-render_name='scene06-daylight195-r03-cycles-full-CC-BY-NC-SA-4.0.png';assert Path(render_name).name==render_name;scene.render.filepath=str(OUT/render_name)
++render_name='scene06-daylight195-floor-r04-cycles-full-CC-BY-NC-SA-4.0.png';assert Path(render_name).name==render_name;scene.render.filepath=str(OUT/render_name)
+ report['materialAttributeParity']={'linkedInstances':'Instancer attribute plus explicit Geometry Nodes Store Named Attribute','bakedShearAndDirect':'Geometry-domain material variants, direct white instanceColor fallback and actual RGB for baked shear','vertexColors':'sourceColor multiplied only when source vertexColors is true','uvTransform':'Exact Three.js rotation, repeat, center, offset and flipY','deduplicatedImageBuffers':len(image_cache),'textureCoordinatesAndPixelsPreserved':True}
+ report['importedTriangles']=imported_triangles;report['sourceTriangleCount']=scene_data['statistics']['triangles'];report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['excludedCollapsedTriangles']=collapsed_triangle_count;report['noncollapsedSourceTriangleCount']=scene_data['statistics']['triangles']-collapsed_triangle_count;report['renderableTriangleCountPreserved']=imported_triangles==report['noncollapsedSourceTriangleCount'];assert report['renderableTriangleCountPreserved']
+ report['excludedCollapsedInstanceCount']=collapsed_instance_count
+-report['physicalVarnishCalibration']={'sourceClearcoatRoughness':.17,'cyclesClearcoatRoughness':varnish_coat_roughness,'sourceClearcoatWeight':.72,'sourceBaseAlbedoAndRoughnessMapKept':True,'reason':'Native floor GLSL samples room-reflection radiance with a custom small image footprint; Cycles instead uses actual ray-traced clearcoat with an explicitly calibrated physical lobe. This is not native pixel parity.'}
++report['physicalVarnishCalibration']={'sourceClearcoatRoughness':.17,'cyclesClearcoatRoughness':varnish_coat_roughness,'sourceClearcoatWeight':.72,'cyclesClearcoatWeight':varnish_coat_weight,'previousPhysical195R03':{'coatRoughness':.095,'coatWeight':.72,'imageSha256':'953ae537951b390eb87baa43e00588184806b5d17015102a1107099e9d2e8fde'},'sourceBaseAlbedoAndRoughnessMapKept':True,'sourceFloorNormalsKept':True,'reason':'CPU diagnosis confirms flat upward floor tops, plausible dark mapped base reflectance and in-frame altar/lantern mirror locations. A smoother continuous lacquer is tested with true reflection only; no source base darkening, camera changes, displaced capture or forced out-of-frame Buddha reflection. This is not native pixel parity.'}
+ report['materialTransfer']='Exported linear PBR colors, all source map/bump/roughness textures, metallic, roughness, transmission and clearcoat parameters. Cycles Principled BSDF is a physical cross-renderer approximation; native GLSL hooks, PMREM cube environment, tone mapping and screen-space reflector are not ported. Actual imported floor reflects actual room geometry through its physical clearcoat.'
+ report['lightCalibration']={'sunDirection':'Exact exported source direction unless a separately declared verified-upper-window experiment is selected','sunEnergyWPerSquareMetre':float(os.environ.get('CYCLES_SUN_ENERGY','90')),'sunEnergyNotPhotometricEquivalence':True,'nativeIndirectProxiesRemoved':True,'actualMultiBounceGI':True,'maxBounces':12,'diffuseBounces':6,'glossyBounces':6,'volumeBounces':2,'practicals':'Point source source intensity * 4pi physical power calibration; actual lamp positions retained','exteriorRadianceCalibration':'Exterior daylight strength is an explicitly calibrated boundary, not a measured HDR environment','exposureEV':scene.view_settings.exposure,'toneMap':'AgX Medium High Contrast; Three ACESFilmic differs','nativeWebglPixelEquivalence':False}
+ report['camera']={'sourcePositionYUp':scene_data['view']['position'],'sourceFovDegrees':scene_data['view']['fov'],'sourceMatrix':scene_data['cameraMatrix'],'depthOfField':False}
+ report['scopeLimits']=['Same actual native195 R03 source: 179R08 source statue and continuous carved bowl, 189R02 camera, repaired room and actual exterior maple geometry. Exact source geometry, matrices, UVs, colors and full low reference camera retained; no192 hair candidate.','Actual Scan-the-World Sainsbury Japanese Amida central source under CC BY-NC-SA4.0; raw source face/anatomy retained under positive uniform runtime fit. Different artifact from reference; independent CC BY attendant heads retained.','Exact face likeness, ornament pattern, proportions and photographic fidelity remain unaccepted.','Exported source-frame.rgba is provenance evidence only and is never loaded as a texture or background.']
+ report['daylight195PhysicalHypothesis']={'sourcePin':source_export['sourceHash'],'sourceGeometryAndTexturePixelsUnchanged':True,'actualSolarDiscDiameterDegrees':float(os.environ.get('CYCLES_SUN_ANGLE','0.53')),'actualWindowsAndCanopyCastShadows':True,'nativeScatteringShaderImported':False,'physicalAirReplacesNativeGLSL':True,'nativeRectAreaSpotHemisphereProxiesImported':False,'floorCoatRoughnessHypothesis':varnish_coat_roughness,'previousPhysicalR06CoatRoughness':.17,'fixedSamples':256,'adaptiveSampling':False,'purpose':'Test finite solar penumbrae and broken leaf/window light under actual GI plus calibrated floor gloss; a renderer comparison, not native pixel equivalence or final film acceptance.'}
++report['floorOnlyR04Study']={'changedMaterialName':'reference6-varnished-red-brown-floor-body','changedInputs':['Coat Roughness .095 to .035','Coat Weight .72 to 1.0'],'sourceGeometryCameraSunSkyVolumeAndAllOtherMaterialsUnchanged':True,'baseAlbedoColorFactorsAndTexturePixelsUnchanged':True,'roughnessMapAndFactorUnchanged':True,'sourceFloorNormalsUnchanged':True,'diagnosisFile':'floor-diagnosis195-r03.json','diagnosisSha256':'f3a34f8a3c6607490e737caae567969371e690fbde8b26914ab80803522f8b22','reference':'https://docs.blender.org/manual/sr/latest/render/shader_nodes/shader/principled.html','interpretation':'Coat weight1 tests continuous lacquer coverage; its sharp physical lobe may improve visible altar/lantern reflections. Face reflection is physically outside this fixed frame and must not be forced into it. No claim of photographic acceptance.'}
+ report['status']='rendering';(OUT/'report.json').write_text(json.dumps(report,indent=2))
+ report['blendSaved']=False
+ bpy.ops.render.render(write_still=True)

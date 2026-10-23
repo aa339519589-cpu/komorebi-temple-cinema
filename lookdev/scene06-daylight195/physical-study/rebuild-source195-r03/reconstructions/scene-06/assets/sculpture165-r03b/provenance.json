@@ -1,0 +1,38 @@
+{
+  "status": "actual-3D-candidate-awaiting-native-review",
+  "visualAccepted": false,
+  "heldIncomingSourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+  "builder": "reconstructions/scene-06/modeling/sculpture165-r03/build.py",
+  "geometry": "reconstructions/scene-06/modeling/sculpture165-r03/anatomy.py",
+  "builderSha256": "118fbd06eae9619405f529fd0f210a4d644b91e6515cd97806100b5d4637eab9",
+  "geometrySha256": "11992ae1a9cffbec2bfc967323af19d288e5462a28c9425721516fd5d062dea6",
+  "additionalHelperHashes": {
+    "anatomy.py": "11992ae1a9cffbec2bfc967323af19d288e5462a28c9425721516fd5d062dea6",
+    "priorReviewedHandGeometry": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3"
+  },
+  "exactBuildSource": "lookdev/scene06-sculpture165/r03b",
+  "sourceAttribution": "Seated figure of Buddha by Daniel Pett, CC0-1.0; Chinese Tang dynasty marble, different artifact from Japanese reference06. Main head/ears/arms/hands and local bridges newly authored. No unchanged scanned face is claimed.",
+  "sourceLicense": "CC0-1.0 + newly authored anatomy",
+  "sourceURL": "https://sketchfab.com/3d-models/seated-figure-of-buddha-a4d22eb6d3c44848bd49b89fb4c28759",
+  "sourceLimit": "Different Chinese Tang marble sculpture, source real dimensions undocumented. Viewing-unit normalization and all affine fits declared. Surface erosion remains; no photographic acceptance.",
+  "sourceRetarget": {
+    "method": "MeasuredCC0 cloth under declared affine fit with local mount trim/bridges; fully authored clean closed head/ears with intrinsic eyelid/labial clefts. No donor face projection or separate incision floor.",
+    "retainedMeasuredPointMaxDelta": 0,
+    "measuredClothGlobalSmoothing": false,
+    "erosionRestoration": "None in initial integrated candidate; visible damage remains for local native gold inspection."
+  },
+  "authoredChanges": [
+    "Genuine CC0 DanielPett Tang knee/hip and torso cloth surfaces provide weighted anatomy and unequal original folds, under an explicitly recorded affine fit.",
+    "Only hidden torso waist overlap is trimmed; local waist/shoulder/neck bridges and named mount caps connect the measured pieces. No global measured-cloth remesh/smoothing.",
+    "Main head/ears are fully authored clean closed3D anatomical volumes, with intrinsic downcast eyelids/lip cleft and long nasal planes; no projected donor face or separate incision floors.",
+    "Authored arm/hand geometry receives its own local CPU union; no such modifier touches measured cloth.",
+    "Source stone erosion and ragged hem remain for bounded local native gold review.",
+    "Original source point preservation and successful mesh creation do not establish likeness."
+  ],
+  "noNoncommercialGeometry": true,
+  "noPhotoOrGeneratedFrame": true,
+  "limits": [
+    "CC0 Tang cloth is a different Chinese artifact; main head is newly authored and still requires anatomical/likeness review.",
+    "Topology and valid rendering do not establish photographic fidelity."
+  ]
+}

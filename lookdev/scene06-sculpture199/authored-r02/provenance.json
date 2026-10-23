@@ -1,0 +1,390 @@
+{
+  "revision": "scene06-sculpture199-r02",
+  "status": "isolated-native-review-required",
+  "visualAccepted": false,
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "personalNoncommercialUseOnly": true,
+  "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0. Sculpture199 is a declared nonrigid sculpted derivative: shared-edge refinement, bounded local averaging of the actual robe surface, narrower elongated source face, rounded existing lids and brow/nasal-ridge sculpt, continuous neck rings, oblique robe folds and chased cloth edge, smaller scalp silhouette and fine shallow carved curls. Original SC07 and source GLBs retained unchanged. No endorsement implied.",
+  "input": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/nc-sainsbury-amida179-CC-BY-NC-SA-4.0/central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+    "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "vertices": 210766,
+    "triangles": 421536
+  },
+  "method": "Bounded continuous displacement of the actual source mesh with conforming shared-edge refinement. Existing neck/ears/arms and original manifold connectivity retained. No replacement face/head, photo projection, depth cards, floating cloth or separate hair sweeps.",
+  "originalRawAssetUnchanged": true,
+  "sourceFacePreservedUnchanged": false,
+  "sourceNormalsPreservedUnchanged": false,
+  "sourceIndicesPreservedUnchanged": false,
+  "sourceTopologyDerivation": {
+    "subdivisionPasses": [
+      {
+        "pass": 0,
+        "addedVertices": 171858,
+        "vertices": 382624,
+        "triangles": 765252
+      },
+      {
+        "pass": 1,
+        "addedVertices": 263831,
+        "vertices": 646455,
+        "triangles": 1292914
+      },
+      {
+        "pass": 2,
+        "addedVertices": 142561,
+        "vertices": 789016,
+        "triangles": 1578036
+      }
+    ],
+    "parentFile": "midpoint-parent-pairs199-r02.bin",
+    "parentSha256": "c07983e65ed77b16fd4986064cac9e2687ab0994848b5b69fb153860f7ec68c8",
+    "parentRecord": "Each new vertex, in increasing ID order after original source vertices, is the arithmetic midpoint of this pair of already-existing vertex IDs. Source triangles are subdivided conformingly. UVs interpolate by the same map."
+  },
+  "sculptDelta": {
+    "file": "continuous-displacement199-r02.bin",
+    "sha256": "c5d2396ef1fd5549953b0376578ff117c5b0737ded5c6a639d458be7bc0b551d",
+    "format": "SD19 header 20 bytes: ASCII SD19, uint32 allVertexCount, originalSourceCount, parentPairCount, version1; then little-endian float32 XYZ displacement from original vertices plus recursively constructed source-edge midpoint vertices.",
+    "changedVertices": 620452,
+    "maxDisplacementSourceUnits": {
+      "all": 0.11546600253596696,
+      "face": 0.10340772629825319,
+      "robe": 0.052435509860515594,
+      "scalp": 0.11546600253596696,
+      "seat": 0
+    }
+  },
+  "geometry": {
+    "file": "continuous-sculpt199-r02-2a5426f0ffbb9896.bin",
+    "sha256": "2a5426f0ffbb98963575f8a864781e04ec38957d072c67140d71ea8543508040",
+    "vertices": 789016,
+    "triangles": 1578036,
+    "bytes": 44184964,
+    "bounds": [
+      [
+        -1.2409567832946777,
+        0,
+        -0.7778676152229309
+      ],
+      [
+        1.2409567832946777,
+        3.1785239292625906,
+        0.8428356647491455
+      ]
+    ]
+  },
+  "compactCurls": {
+    "count": 1131,
+    "separation": 0.024,
+    "maximumReliefPerCurl": 0.0056,
+    "spiralGrooveDepth": 0.0019,
+    "method": "Poisson selected actual scalp surface vertices; smooth summed compact curl relief and shallow grooves are sculpted into the same continuous high-resolution scalp, along a smooth radial field. No nearest-cell discontinuities or added worms/pins."
+  },
+  "sculptGuides": {
+    "faceCenterX": 0.065,
+    "headWidthScale": 0.91,
+    "headCenterCorrection": -0.065,
+    "faceLengthDeltaScale": 0.12,
+    "capHeightScale": 0.8,
+    "lidRoundLift": 0.023,
+    "nasalRidgeForward": 0.02,
+    "clothFoldPaths": [
+      {
+        "name": "upper-shoulder-return",
+        "p": [
+          [
+            -0.39,
+            1.68
+          ],
+          [
+            -0.22,
+            1.62
+          ],
+          [
+            0.04,
+            1.67
+          ],
+          [
+            0.28,
+            1.82
+          ],
+          [
+            0.43,
+            1.92
+          ]
+        ],
+        "amp": 0.01,
+        "width": 0.026
+      },
+      {
+        "name": "upper-chest-fan",
+        "p": [
+          [
+            -0.42,
+            1.44
+          ],
+          [
+            -0.24,
+            1.4
+          ],
+          [
+            0.02,
+            1.5
+          ],
+          [
+            0.26,
+            1.68
+          ],
+          [
+            0.43,
+            1.82
+          ]
+        ],
+        "amp": 0.016,
+        "width": 0.03
+      },
+      {
+        "name": "chest-layer-return",
+        "p": [
+          [
+            -0.43,
+            1.25
+          ],
+          [
+            -0.24,
+            1.23
+          ],
+          [
+            0.04,
+            1.33
+          ],
+          [
+            0.27,
+            1.5
+          ],
+          [
+            0.44,
+            1.7
+          ]
+        ],
+        "amp": 0.022,
+        "width": 0.032
+      },
+      {
+        "name": "middle-main-drape",
+        "p": [
+          [
+            -0.43,
+            1.05
+          ],
+          [
+            -0.22,
+            1.05
+          ],
+          [
+            0.05,
+            1.17
+          ],
+          [
+            0.26,
+            1.36
+          ],
+          [
+            0.44,
+            1.58
+          ]
+        ],
+        "amp": 0.02,
+        "width": 0.028
+      },
+      {
+        "name": "middle-short-branch",
+        "p": [
+          [
+            -0.32,
+            1.16
+          ],
+          [
+            -0.17,
+            1.16
+          ],
+          [
+            0.02,
+            1.26
+          ],
+          [
+            0.16,
+            1.4
+          ]
+        ],
+        "amp": 0.009,
+        "width": 0.023
+      },
+      {
+        "name": "waist-fan-upper",
+        "p": [
+          [
+            -0.41,
+            0.89
+          ],
+          [
+            -0.18,
+            0.92
+          ],
+          [
+            0.08,
+            1.05
+          ],
+          [
+            0.28,
+            1.25
+          ],
+          [
+            0.43,
+            1.46
+          ]
+        ],
+        "amp": 0.017,
+        "width": 0.03
+      },
+      {
+        "name": "waist-fan-deep",
+        "p": [
+          [
+            -0.37,
+            0.75
+          ],
+          [
+            -0.15,
+            0.81
+          ],
+          [
+            0.1,
+            0.93
+          ],
+          [
+            0.3,
+            1.15
+          ],
+          [
+            0.44,
+            1.37
+          ]
+        ],
+        "amp": 0.023,
+        "width": 0.035
+      },
+      {
+        "name": "lower-layer-wide",
+        "p": [
+          [
+            -0.42,
+            0.63
+          ],
+          [
+            -0.18,
+            0.67
+          ],
+          [
+            0.1,
+            0.81
+          ],
+          [
+            0.3,
+            1.02
+          ],
+          [
+            0.44,
+            1.25
+          ]
+        ],
+        "amp": 0.018,
+        "width": 0.028
+      },
+      {
+        "name": "lower-layer-return",
+        "p": [
+          [
+            -0.38,
+            0.55
+          ],
+          [
+            -0.12,
+            0.58
+          ],
+          [
+            0.13,
+            0.69
+          ],
+          [
+            0.31,
+            0.88
+          ],
+          [
+            0.44,
+            1.1
+          ]
+        ],
+        "amp": 0.013,
+        "width": 0.027
+      },
+      {
+        "name": "right-waist-tuck",
+        "p": [
+          [
+            0.1,
+            0.54
+          ],
+          [
+            0.26,
+            0.67
+          ],
+          [
+            0.4,
+            0.86
+          ],
+          [
+            0.47,
+            1.07
+          ]
+        ],
+        "amp": 0.015,
+        "width": 0.026
+      }
+    ],
+    "robeSourceAverageRadius": 0.065,
+    "robeSourceAverageMaximumDelta": 0.045,
+    "robeReliefDirection": "+Z with original XY retained",
+    "foldRidgeHeightRange": [
+      0.009,
+      0.023
+    ],
+    "neckRingCenters": [
+      2.017,
+      2.076,
+      2.135
+    ],
+    "seatBandMaximumY": 0.13
+  },
+  "goldMaterial": {
+    "baseColorLinear": [
+      0.5647115111351013,
+      0.3613067865371704,
+      0.08865558356046677,
+      1
+    ],
+    "metalness": 0.88,
+    "roughness": 0.47
+  },
+  "builder": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authoring/build-sculpt199-r02.mjs",
+    "sha256": "5c74cc09a1691916d4584895872525a3bab527541da80d8824970555dbdaa834"
+  },
+  "limits": [
+    "This is a hand-sculpted reconstruction derivative of a different surviving artifact, not exact photogrammetry of the reference.",
+    "No face or garment likeness is accepted by authoring metrics.",
+    "Actual front, true three-quarter, profile, body and published-view comparison must be inspected before any adoption.",
+    "No renderer/light/material/camera changes, physical export, Blend or movie."
+  ]
+}

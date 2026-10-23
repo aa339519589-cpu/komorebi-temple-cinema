@@ -1,0 +1,376 @@
+{
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "isolatedNoncommercialOnly": false,
+  "productionIntegrated": false,
+  "visualAccepted": false,
+  "sourceAndProductionLicenseDecisionPending": false,
+  "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0. Sculpture199 is a declared nonrigid sculpted derivative: shared-edge refinement, bounded local averaging of the actual robe surface, narrower elongated source face, rounded existing lids and brow/nasal-ridge sculpt, continuous neck rings, oblique robe folds and chased cloth edge, smaller scalp silhouette and fine shallow carved curls. Original SC07 and source GLBs retained unchanged. No endorsement implied.",
+  "revision": "scene06-sculpture199-r02",
+  "variants": {
+    "central": [
+      {
+        "material": "central",
+        "file": "continuous-sculpt199-r02-2a5426f0ffbb9896.bin",
+        "vertices": 789016,
+        "triangles": 1578036,
+        "bytes": 44184964,
+        "sha256": "2a5426f0ffbb98963575f8a864781e04ec38957d072c67140d71ea8543508040",
+        "topology": {
+          "sourceMeshDerivative": true,
+          "nonrigidDeformation": true,
+          "sourceFacePreservedUnchanged": false,
+          "conformingSubdivision": true,
+          "originalContactBandPreserved": true
+        }
+      }
+    ]
+  },
+  "materials": {
+    "central": {
+      "baseColorLinear": [
+        0.5647115111351013,
+        0.3613067865371704,
+        0.08865558356046677,
+        1
+      ],
+      "metalness": 0.88,
+      "roughness": 0.47
+    }
+  },
+  "canonicalPackageScope": "Actual source body SC07, original source and curated R09 GLB. These files and adaptations remain CC BY-NC-SA 4.0. Independently authored room/altar and separately licensed attendant assets keep their individual terms. The repository permissive license does not relicense this NC asset. Derived scene06 still/video imagery is marked CC BY-NC-SA 4.0.",
+  "nativeMaterialStudyChange": "Sculpture199: unchanged source gold PBR on a declared sculpted source derivative; original SC07 kept unchanged.",
+  "personalNoncommercialUseOnly": true,
+  "userAuthorization": {
+    "date": "2026-10-23",
+    "text": "仅个人欣赏，允许使用非商用雕像素材",
+    "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+  },
+  "recommendedCentralHaloCenterModelY": 2.72,
+  "recommendedCentralMandorlaZ": -0.79,
+  "recommendedMainLotusDepthAspect": 0.72,
+  "recommendedUniformWorldHeight": 2.5,
+  "sourceContactBearing": {
+    "license": "CC-BY-NC-SA-4.0",
+    "source": "central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+    "sourceSha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "method": "Convex hull of actual source positions at normalized y <= .07. Used only for an independently authored thin physical seat bearing below the unchanged body.",
+    "coordinates": "source normalized x,z; positive uniform world scale remains 2.50/3.26",
+    "sourceYThreshold": 0.07,
+    "sourceBodyChanged": true,
+    "outlineXZ": [
+      [
+        -1.2409568,
+        0.2032168
+      ],
+      [
+        -1.240738,
+        0.1949044
+      ],
+      [
+        -1.239863,
+        0.1828732
+      ],
+      [
+        -1.2392068,
+        0.174342
+      ],
+      [
+        -1.2383319,
+        0.1686546
+      ],
+      [
+        -1.2365818,
+        0.1607797
+      ],
+      [
+        -1.2343943,
+        0.1531235
+      ],
+      [
+        -1.0381775,
+        -0.4735892
+      ],
+      [
+        -1.0235213,
+        -0.5151513
+      ],
+      [
+        -1.0167401,
+        -0.5333074
+      ],
+      [
+        -1.0051465,
+        -0.5597759
+      ],
+      [
+        -1.0007716,
+        -0.5680882
+      ],
+      [
+        -0.990053,
+        -0.5860255
+      ],
+      [
+        -0.9852405,
+        -0.5939005
+      ],
+      [
+        -0.9406159,
+        -0.6658686
+      ],
+      [
+        -0.936241,
+        -0.6698061
+      ],
+      [
+        -0.8559605,
+        -0.738493
+      ],
+      [
+        -0.8518043,
+        -0.7415555
+      ],
+      [
+        -0.8472105,
+        -0.7439616
+      ],
+      [
+        -0.7118056,
+        -0.7618989
+      ],
+      [
+        -0.6951808,
+        -0.7623366
+      ],
+      [
+        0.6951808,
+        -0.7623366
+      ],
+      [
+        0.7118056,
+        -0.7618989
+      ],
+      [
+        0.8472105,
+        -0.7439616
+      ],
+      [
+        0.8518043,
+        -0.7415555
+      ],
+      [
+        0.8559605,
+        -0.738493
+      ],
+      [
+        0.936241,
+        -0.6698061
+      ],
+      [
+        0.9406159,
+        -0.6658686
+      ],
+      [
+        0.9852405,
+        -0.5939005
+      ],
+      [
+        0.990053,
+        -0.5860255
+      ],
+      [
+        1.0007716,
+        -0.5680882
+      ],
+      [
+        1.0051465,
+        -0.5597759
+      ],
+      [
+        1.0167401,
+        -0.5333074
+      ],
+      [
+        1.0235213,
+        -0.5151513
+      ],
+      [
+        1.0381775,
+        -0.4735892
+      ],
+      [
+        1.2343943,
+        0.1531235
+      ],
+      [
+        1.2365818,
+        0.1607797
+      ],
+      [
+        1.2383319,
+        0.1686546
+      ],
+      [
+        1.2392068,
+        0.174342
+      ],
+      [
+        1.239863,
+        0.1828732
+      ],
+      [
+        1.240738,
+        0.1949044
+      ],
+      [
+        1.2409568,
+        0.2032168
+      ],
+      [
+        1.2405194,
+        0.2121854
+      ],
+      [
+        1.2400818,
+        0.2185292
+      ],
+      [
+        1.2392068,
+        0.224654
+      ],
+      [
+        1.2365818,
+        0.2369039
+      ],
+      [
+        1.1729262,
+        0.5217137
+      ],
+      [
+        1.1676762,
+        0.5361511
+      ],
+      [
+        1.1630825,
+        0.5457759
+      ],
+      [
+        1.1315829,
+        0.5617446
+      ],
+      [
+        0.6879621,
+        0.7715238
+      ],
+      [
+        0.6431188,
+        0.7863986
+      ],
+      [
+        0.6308689,
+        0.7896799
+      ],
+      [
+        0.6089941,
+        0.7940548
+      ],
+      [
+        0.5713695,
+        0.8014922
+      ],
+      [
+        0.4619956,
+        0.8209609
+      ],
+      [
+        0.3482465,
+        0.8316795
+      ],
+      [
+        0.3259344,
+        0.8325545
+      ],
+      [
+        0.1154989,
+        0.8391169
+      ],
+      [
+        0.085093,
+        0.8399919
+      ],
+      [
+        -0.102374,
+        0.8428357
+      ],
+      [
+        -0.3482465,
+        0.8316795
+      ],
+      [
+        -0.4619956,
+        0.8209609
+      ],
+      [
+        -0.5713695,
+        0.8014922
+      ],
+      [
+        -0.6089941,
+        0.7940548
+      ],
+      [
+        -0.6308689,
+        0.7896799
+      ],
+      [
+        -0.6431188,
+        0.7863986
+      ],
+      [
+        -0.6879621,
+        0.7715238
+      ],
+      [
+        -1.1315829,
+        0.5617446
+      ],
+      [
+        -1.1630825,
+        0.5457759
+      ],
+      [
+        -1.1676762,
+        0.5361511
+      ],
+      [
+        -1.1729262,
+        0.5217137
+      ],
+      [
+        -1.2365818,
+        0.2369039
+      ],
+      [
+        -1.2392068,
+        0.224654
+      ],
+      [
+        -1.2400818,
+        0.2185292
+      ],
+      [
+        -1.2405194,
+        0.2121854
+      ]
+    ],
+    "originalContactBandPreserved": true,
+    "contactBandPositionsUnchanged": true
+  },
+  "derivativeOf": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/nc-sainsbury-amida179-CC-BY-NC-SA-4.0/central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+    "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "vertices": 210766,
+    "triangles": 421536
+  }
+}

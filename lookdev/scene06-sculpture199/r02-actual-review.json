@@ -1,0 +1,81 @@
+{
+  "revision": "scene06-sculpture199-r02",
+  "status": "retained-improved-cloth-but-face-hair-unaccepted",
+  "visualAccepted": false,
+  "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+  "frozenRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r02-frozen-root",
+  "personallyViewed": [
+    "front",
+    "clear-statue",
+    "three-quarter",
+    "profile",
+    "full",
+    "low-opening",
+    "body-three-quarter"
+  ],
+  "evidence": [
+    {
+      "view": "front",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r02-front/report.json",
+      "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "clear-statue",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r02-clear-statue/report.json",
+      "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "three-quarter",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r02-three-quarter/report.json",
+      "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "profile",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r02-profile/report.json",
+      "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "full",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r02-full/report.json",
+      "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "low-opening",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r02-low-opening/report.json",
+      "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+      "status": "rendered-review",
+      "size": 1254
+    },
+    {
+      "view": "body-three-quarter",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r02-body-three-quarter/report.json",
+      "sourceHash": "9bbf42f54f58f7ba41dd304c29a189e9ebc9d24b620f8ce51d6f67fa5c100c7e",
+      "status": "rendered-review",
+      "size": 1254
+    }
+  ],
+  "improvements": [
+    "Individually drawn oblique drape paths have varied spacing, start/end points and a short branch.",
+    "Bounded local averaging of actual source robe integrates most of old four U-fold relief; no prominent crossing underlay in front/body3q/low view.",
+    "Existing palms, arm joins, ears and neck remain actual connected source geometry; original contact band remains exact.",
+    "Entire scalp is continuous source mesh with compact integrated shallow relief; no separate swept curls or pins."
+  ],
+  "remainingFailures": [
+    "Reference face likeness remains weak: source eyes are too narrow, forehead dominates and original mouth still looks youthful/pouting.",
+    "Hair reads shallow engraved stipple rather than convincing sculpted compact curls.",
+    "Sleeves are still plain against the reference.",
+    "Geometry normals rotate substantially in some high curvature areas; orientation metrics alone do not establish valid likeness or visual completion."
+  ],
+  "originalRawUnchanged": true,
+  "canonicalPromoted": false
+}

@@ -1,0 +1,351 @@
+{
+  "revision": "scene06-sculpture199-r05",
+  "status": "actual-seven-view-sculpted-source-candidate-held-for-root-review",
+  "visualAccepted": false,
+  "canonicalPromoted": false,
+  "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+  "baselineHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/candidate-root",
+  "personallyViewed": [
+    "front",
+    "clear-statue",
+    "three-quarter",
+    "profile",
+    "full",
+    "low-opening",
+    "body-three-quarter"
+  ],
+  "comparisonInputs": [
+    "lookdev/scene06-statue-foundation-v2/sources/target-statue-comparison-crop.png",
+    "references/hd/4-照片-5.jpg"
+  ],
+  "observedImprovements": [
+    "Actual connected source face is narrower and elongated, recentered on the body, with a stronger nasal bridge and bounded local lid/lip sculpt. Original ears/neck remain present in true3q/profile.",
+    "Huge blank torso and four broad U-fold underlay have been integrated into varied hand-drawn oblique fan drapery, with short branch/tuck paths and a narrow chased cloth edge.",
+    "Three sculpted neck rings, sleeve tension folds and smaller leg folds remain genuine connected 3D source surfaces in front/body3q/low views.",
+    "Both source hands stay raised; high projecting palm/finger region and full original lower contact band retain exact positions.",
+    "R03 stacked eye ridges and R04 excessively smoothed facial features were rejected and rolled back to a conservative blend."
+  ],
+  "remainingFailures": [
+    "The face remains recognizably derived from the different Sainsbury artifact. Lids are still narrower and the mouth more youthful than the supplied calm rounded reference; likeness is unaccepted.",
+    "Compact integrated curl relief now avoids long raised spiral worms, but still reads as beaded/engraved gold, with a visible two-tier source cap. It is not an accepted match to the fine reference curls.",
+    "Oblique chest drapes are improved from the blank four-U-fold source, but fold/layer separation and the chased border do not reproduce all reference detail. Sleeve/leg cloth still differs.",
+    "The source gold, native room lighting and all camera parameters remain195. This is not a test against root's independently updated floor200 or altar198 candidate.",
+    "No self-intersection proof, physical export or final-film performance/likeness acceptance is established. Topology and finite normals are integrity facts, not photographic acceptance."
+  ],
+  "geometry": {
+    "file": "continuous-sculpt199-r05-cd9778adc17846aa.bin",
+    "sha256": "cd9778adc17846aa8ab40127b1b9f328ddafbfca10f3fbb0006ca775bf736eb3",
+    "vertices": 789016,
+    "triangles": 1578036,
+    "bytes": 44184964,
+    "bounds": [
+      [
+        -1.2409567832946777,
+        0,
+        -0.7778676152229309
+      ],
+      [
+        1.2409567832946777,
+        3.1787880907152135,
+        0.8428356647491455
+      ]
+    ]
+  },
+  "preservation": {
+    "revision": "scene06-sculpture199-r05",
+    "sourceRawSha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "originalContactBand": {
+      "vertices": 29712,
+      "maximumPositionDelta": 0
+    },
+    "highProjectingPalmFingerRegion": {
+      "vertices": 16160,
+      "maximumPositionDelta": 0
+    },
+    "finiteUnitNormals": true,
+    "sceneOnlyRevisionAndSourceLimitChanged": true,
+    "goldDefinitionByteValuesUnchanged": true,
+    "cameraSourceSha256": "1a523ba662e994ff012985f32701b6e85132ad889101075fbb4683467cb4cf48",
+    "status": "source-and-contact-facts-only-not-likeness-acceptance",
+    "visualAccepted": false
+  },
+  "integrity": {
+    "source": {
+      "vertices": 210766,
+      "faces": 421536,
+      "edges": 632304,
+      "open": 0,
+      "nonmanifold": 0,
+      "euler": -2
+    },
+    "derivative": {
+      "vertices": 789016,
+      "faces": 1578036,
+      "edges": 2367054,
+      "open": 0,
+      "nonmanifold": 0,
+      "euler": -2
+    },
+    "degenerate": 0,
+    "turnedPast90": 4935,
+    "minCos": -1,
+    "turnedBins": {
+      "2.7": 758,
+      "2.8": 2391,
+      "1.1": 128,
+      "2.6": 280,
+      "3.1": 153,
+      "3.0": 356,
+      "2.9": 818,
+      "1.0": 6,
+      "3.2": 7,
+      "1.4": 1,
+      "0.6": 1,
+      "0.4": 4,
+      "1.8": 4,
+      "1.2": 22,
+      "0.3": 2,
+      "0.9": 2,
+      "0.7": 2
+    },
+    "frontProjectionReversals": {
+      "robe": 0,
+      "face": 636
+    },
+    "originalSeatBandChangedComponents": 0,
+    "status": "geometry-integrity-only-not-visual-acceptance",
+    "visualAccepted": false,
+    "interpretation": "Normal rotation versus original surface, including turnedPast90 and frontProjectionReversals, is not alone a proof of triangle inversion or self-intersection. No open/nonmanifold edges or degenerate triangles were found."
+  },
+  "evidence": [
+    {
+      "view": "front",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-front/inspection-view.png",
+      "pngSha256": "679b36b812c93c575c110c45908ee713c3ff532998bda0c18bf57e1a7fb96cc9",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-front/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          0,
+          5.55,
+          0.15
+        ],
+        "target": [
+          0,
+          5.55,
+          -2.55
+        ],
+        "fov": 26,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "clear-statue",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-clear-statue/inspection-view.png",
+      "pngSha256": "eb9dcbe28260233ca9573b332979551cf11fd8fdaf617f8a9dc7486989419ec7",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-clear-statue/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          0,
+          4.65,
+          -0.25
+        ],
+        "target": [
+          0,
+          4.65,
+          -2.55
+        ],
+        "fov": 62,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "three-quarter",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-three-quarter/inspection-view.png",
+      "pngSha256": "b6b4c994a942206192caf3c99db6834c22b76c026f5a303dafa5706a37893dfe",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-three-quarter/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          1.75,
+          5.6,
+          -0.75
+        ],
+        "target": [
+          0,
+          5.55,
+          -2.55
+        ],
+        "fov": 28,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "profile",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-profile/inspection-view.png",
+      "pngSha256": "693935e39de31245bd296caa24bfd0e95892b3c7477c12e2fdc80c7118cb943f",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-profile/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          2.15,
+          5.55,
+          -2.55
+        ],
+        "target": [
+          0,
+          5.55,
+          -2.55
+        ],
+        "fov": 28,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "full",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-full/reference.png",
+      "pngSha256": "89cabd6574c6c005cf5bfee3d4db2a2153d2e499a94f8f9183043ace2647544a",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-full/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": null,
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "low-opening",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-low-opening/shot-0.png",
+      "pngSha256": "fefb35e42395d06653145f6d9e5f0673ce4e4c373f9bc98a11f7c71af8f16d8d",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-low-opening/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": null,
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    },
+    {
+      "view": "body-three-quarter",
+      "png": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-body-three-quarter/inspection-view.png",
+      "pngSha256": "75a3f99036705797cbd824ef7bc241c22e11758b618347fc8a54c4eee0a777c9",
+      "report": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-body-three-quarter/report.json",
+      "sourceHash": "9fe2b4db8d1e7ca03f8a841d8f0bce8c5dbb812ddb792cee27537d6ebd3863d6",
+      "size": 1254,
+      "renderSampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "inspectionView": {
+        "position": [
+          1.15,
+          4.7,
+          -0.6
+        ],
+        "target": [
+          0,
+          4.65,
+          -2.55
+        ],
+        "fov": 68,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "personallyViewed": true
+    }
+  ],
+  "rejectedOrUnacceptedPredecessors": [
+    "r01",
+    "r02",
+    "r03",
+    "r04"
+  ],
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "physicalExportOrBlendOrMovie": false
+}

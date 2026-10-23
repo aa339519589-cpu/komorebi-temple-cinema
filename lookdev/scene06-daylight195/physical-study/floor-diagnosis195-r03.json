@@ -1,0 +1,650 @@
+{
+  "status": "pure-cpu-floor-material-normal-projection-diagnosis",
+  "sourceHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "sceneJsonSha256": "f81b85c61fc0f364749f1c16fd7a36c02dbc94431d18f0108eaf6abf25d65a17",
+  "inspectionScriptSha256": "b60b9abc5494db74ad40c8e68b5ce1407beffa1e2c3514adde59f2687ced94f1",
+  "noBlenderOrRendererExecuted": true,
+  "noSourceChanged": true,
+  "materials": {
+    "count": 193,
+    "meshCount": 193,
+    "colorFactorLinear": [
+      {
+        "min": 2.6615605112630862,
+        "max": 3.1002792768559027,
+        "mean": 2.880793607713612
+      },
+      {
+        "min": 2.6259503408547338,
+        "max": 3.058799298138481,
+        "mean": 2.842250222790423
+      },
+      {
+        "min": 3.2865590844317176,
+        "max": 3.8282995928545285,
+        "mean": 3.557273397218705
+      }
+    ],
+    "roughnessMultiplier": {
+      "min": 0.9290908038883472,
+      "max": 0.9290908038883472,
+      "mean": 0.929090803888349
+    },
+    "sourceCoatWeight": {
+      "min": 0.72,
+      "max": 0.72,
+      "mean": 0.7199999999999992
+    },
+    "sourceCoatRoughness": {
+      "min": 0.17,
+      "max": 0.17,
+      "mean": 0.17000000000000082
+    },
+    "ior": {
+      "min": 1.5,
+      "max": 1.5,
+      "mean": 1.5
+    },
+    "bumpOrNormalTextureMaterials": 0
+  },
+  "floorTopNormals": {
+    "floorPlaneY": 0,
+    "sourceBoardBoundsY": [
+      -0.05000000074505806,
+      1.4245510326915678e-9
+    ],
+    "measuredTopVertices": 814,
+    "angleFromYUpDegrees": {
+      "min": 0,
+      "max": 0,
+      "mean": 0
+    },
+    "measuredTopTriangles": 386,
+    "opposedTopTriangles": 0,
+    "nativeMetricVarnishNormalMaximumAnalyticDeviationDegrees": 0.13838558559871403,
+    "interpretation": "Actual exported flat top normals and winding can be assessed here; no claim about arbitrary beveled faces or shaded normal maps."
+  },
+  "albedo": {
+    "mapFile": "texture-1.png",
+    "mapSha256": "b0003d1e9b28b03e14245e6c7bbabe14de4cc058c4edd86d770f6d7ae10e284d",
+    "mapColorSpace": "srgb",
+    "decodedSourceLinearMeanRGB": [
+      0.029172253972814,
+      0.01208532242259156,
+      0.004947799503979838
+    ],
+    "decodedSourceLinearMaxRGB": [
+      0.06480326669290577,
+      0.04518620438567554,
+      0.021219010376003555
+    ],
+    "effectiveBaseMeanRGB": [
+      {
+        "min": 0.07764371919857943,
+        "max": 0.09044213445109253,
+        "mean": 0.08403924276748065
+      },
+      {
+        "min": 0.03173545653494366,
+        "max": 0.03696657574400031,
+        "mean": 0.03434951034810497
+      },
+      {
+        "min": 0.016261235407751682,
+        "max": 0.018941658826611852,
+        "mean": 0.017600675550279388
+      }
+    ],
+    "effectiveBaseMaxRGB": [
+      {
+        "min": 0.17247781563068842,
+        "max": 0.20090822480058212,
+        "mean": 0.18668483644788347
+      },
+      {
+        "min": 0.11865672880849636,
+        "max": 0.1382155302604463,
+        "mean": 0.12843049948223983
+      },
+      {
+        "min": 0.06973753131390537,
+        "max": 0.08123272878323043,
+        "mean": 0.07548182112586517
+      }
+    ],
+    "physicalReflectanceAboveOne": false,
+    "roughnessFile": "texture-2.png",
+    "roughnessSha256": "4484404ebaa38114c949ff8581f449f93d9389cea6ae1d8440e1eae218b05a31",
+    "roughnessMapColorSpace": "Non-Color",
+    "roughnessMapGreen": {
+      "mean": 0.24755384407299094,
+      "min": 0.1568627450980392,
+      "max": 0.996078431372549
+    },
+    "effectiveBaseRoughnessMean": {
+      "min": 0.2299999999954257,
+      "max": 0.2299999999954257,
+      "mean": 0.22999999999542603
+    },
+    "sourcePixelsModified": false,
+    "method": "ffmpeg software PNG decode to original RGB24; source sRGB inverse transfer for albedo only, scalar green for noncolor roughness. Full2048x2048 pixels, actual texture hashes verified."
+  },
+  "camera": {
+    "sourceYUp": [
+      0,
+      0.58,
+      8.4
+    ],
+    "fov": 64,
+    "upwardPitchDegrees": 9.65324957603562,
+    "bottomRayDownwardPitchDegrees": 22.34675042396438
+  },
+  "projectedMirrorLandmarks": [
+    {
+      "label": "actual-source-eye-bridge-vertex40685",
+      "source": {
+        "geometry": "00b2472d-c160-4243-8ed1-13a917aeebe6",
+        "vertex": 40685
+      },
+      "actualSourcePointYUp": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ],
+      "actualProjection": {
+        "pixel": [
+          633.8403828988629,
+          365.2369091662138
+        ],
+        "ndc": [
+          0.010909701593082882,
+          0.41748499335532085,
+          0.9830939005031245
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          0.07716570895142351,
+          2.952924533634302,
+          -11.319369960695582
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          635.140126445224,
+          1436.4020369410846
+        ],
+        "ndc": [
+          0.012982657807374865,
+          -1.290912339618955,
+          0.9797353485813515
+        ],
+        "inFrame": false,
+        "cameraSpace": [
+          0.07716570895142351,
+          -7.672863858758653,
+          -9.511992869653042
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        0.0074978383238563425,
+        0,
+        7.363834456731723
+      ],
+      "cameraToFloorCosine": 0.4884316168297679,
+      "schlickUncoatedDielectricApprox": 0.07363486672290628,
+      "sourceCoatWeightTimesFresnelApprox": 0.05301710404049252,
+      "blockedBeforeWoodByActualPrayerMat": false,
+      "matHits": [],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    },
+    {
+      "label": "foreground-offering-table-gilt",
+      "source": {
+        "name": "restoration-altar:merged-gold",
+        "geometry": "1f623f09-3196-4b9e-82f0-8f966d356cbf",
+        "vertex": 3545847,
+        "instance": null,
+        "nearestInferredLandmark": [
+          0,
+          0.6,
+          2.7
+        ],
+        "distanceToLandmark": 0.3665961415690398
+      },
+      "actualSourcePointYUp": [
+        -0.0008707315428182483,
+        0.5134673547744751,
+        3.056235980987549
+      ],
+      "actualProjection": {
+        "pixel": [
+          626.8338006513668,
+          810.5551323261549
+        ],
+        "ndc": [
+          -0.00026507073147237915,
+          -0.2927514072187478,
+          0.9627099646016655
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          -0.0008707315428182483,
+          -0.9616598673639507,
+          -5.256943102533483
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          626.8281720876242,
+          1016.554678733391
+        ],
+        "ndc": [
+          -0.00027404770713847926,
+          -0.6212993281234306,
+          0.9614210265084631
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          -0.0008707315428182483,
+          -1.9740538177737434,
+          -5.084741514706771
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        -0.0004618558502267714,
+        0,
+        5.565545804825183
+      ],
+      "cameraToFloorCosine": 0.20047097114403034,
+      "schlickUncoatedDielectricApprox": 0.3536479226707636,
+      "sourceCoatWeightTimesFresnelApprox": 0.2546265043229498,
+      "blockedBeforeWoodByActualPrayerMat": true,
+      "matHits": [
+        "reference6-woven-prayer-mat"
+      ],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    },
+    {
+      "label": "lower-altar-gilt",
+      "source": {
+        "name": "restoration-altar:gold",
+        "geometry": "d8cb2a2a-6f74-4376-9895-bdd02b4bad30",
+        "vertex": 328,
+        "instance": 0,
+        "nearestInferredLandmark": [
+          0,
+          1.55,
+          0.2
+        ],
+        "distanceToLandmark": 0.3180463501008743
+      },
+      "actualSourcePointYUp": [
+        3.466858742196281e-17,
+        1.4935000202953814,
+        0.5129875925749543
+      ],
+      "actualProjection": {
+        "pixel": [
+          627,
+          680.4030949299944
+        ],
+        "ndc": [
+          6.997693783176295e-18,
+          -0.08517240020732746,
+          0.9755344240857234
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          3.466858742196281e-17,
+          -0.4219685647899041,
+          -7.928517486408505
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          627,
+          1081.808394458593
+        ],
+        "ndc": [
+          7.469575882040541e-18,
+          -0.7253722399658579,
+          0.9738327215570016
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          3.466858742196281e-17,
+          -3.3666745357236385,
+          -7.427642265184263
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        9.69750687625938e-18,
+        0,
+        6.193842704831578
+      ],
+      "cameraToFloorCosine": 0.2542605380768768,
+      "schlickUncoatedDielectricApprox": 0.2614149077030553,
+      "sourceCoatWeightTimesFresnelApprox": 0.1882187335461998,
+      "blockedBeforeWoodByActualPrayerMat": false,
+      "matHits": [],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    },
+    {
+      "label": "upper-altar-gilt",
+      "source": {
+        "name": "restoration-altar:gold",
+        "geometry": "c2fa72f9-5cea-4ab8-8625-cdc2d65b3d91",
+        "vertex": 10,
+        "instance": 2,
+        "nearestInferredLandmark": [
+          0,
+          2.75,
+          -1.2
+        ],
+        "distanceToLandmark": 0.42121236787430955
+      },
+      "actualSourcePointYUp": [
+        5.773107287151252e-17,
+        2.7439998817443847,
+        -1.6211696302337115
+      ],
+      "actualProjection": {
+        "pixel": [
+          627,
+          582.6242208665902
+        ],
+        "ndc": [
+          9.020475293272579e-18,
+          0.07077476735791031,
+          0.9812348566429497
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          5.773107287151252e-17,
+          0.4529587542744129,
+          -10.242146484650293
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          627,
+          1160.6082120306794
+        ],
+        "ndc": [
+          9.910975044445764e-18,
+          -0.8510497799532368,
+          0.9793063974103651
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          5.773107287151252e-17,
+          -4.9573343332449635,
+          -9.321891024904007
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        1.0073412592272823e-17,
+        0,
+        6.651420399423915
+      ],
+      "cameraToFloorCosine": 0.3148302930056095,
+      "schlickUncoatedDielectricApprox": 0.18496461303855005,
+      "sourceCoatWeightTimesFresnelApprox": 0.13317452138775604,
+      "blockedBeforeWoodByActualPrayerMat": false,
+      "matHits": [],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    },
+    {
+      "label": "left-lantern-gilt",
+      "source": {
+        "name": "restoration-altar:oldgold",
+        "geometry": "c2e3f474-7890-49cd-a012-94e9165184af",
+        "vertex": 241,
+        "instance": 4,
+        "nearestInferredLandmark": [
+          -3.225,
+          1.35,
+          -0.12
+        ],
+        "distanceToLandmark": 0.0871717616485556
+      },
+      "actualSourcePointYUp": [
+        -3.228671688946266,
+        1.2631933813441218,
+        -0.11292570238628685
+      ],
+      "actualProjection": {
+        "pixel": [
+          246.17244917525883,
+          715.9321574625645
+        ],
+        "ndc": [
+          -0.6073804638353129,
+          -0.14183757171062922,
+          0.9772502901049227
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          -3.228671688946266,
+          -0.7539705003339778,
+          -8.506949259005111
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          226.21370673037728,
+          1029.7616919782386
+        ],
+        "ndc": [
+          -0.6392125889467667,
+          -0.6423631451008588,
+          0.9760176734376039
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          -3.228671688946266,
+          -3.244585191957703,
+          -8.083311993700889
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        -1.015970216984637,
+        0,
+        5.721226867805131
+      ],
+      "cameraToFloorCosine": 0.19842056174252312,
+      "schlickUncoatedDielectricApprox": 0.357690387783009,
+      "sourceCoatWeightTimesFresnelApprox": 0.25753707920376645,
+      "blockedBeforeWoodByActualPrayerMat": false,
+      "matHits": [],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    },
+    {
+      "label": "right-lantern-gilt",
+      "source": {
+        "name": "restoration-altar:oldgold",
+        "geometry": "c2e3f474-7890-49cd-a012-94e9165184af",
+        "vertex": 28,
+        "instance": 8,
+        "nearestInferredLandmark": [
+          3.175,
+          1.35,
+          -0.12
+        ],
+        "distanceToLandmark": 0.08717176365701458
+      },
+      "actualSourcePointYUp": [
+        3.178671736629982,
+        1.2631933813441218,
+        -0.11292570238628685
+      ],
+      "actualProjection": {
+        "pixel": [
+          1001.9299677886107,
+          715.9321574625645
+        ],
+        "ndc": [
+          0.5979744302848655,
+          -0.14183757171062922,
+          0.9772502901049227
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          3.178671736629982,
+          -0.7539705003339778,
+          -8.506949259005111
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          1021.5796245578091,
+          1029.7616919782386
+        ],
+        "ndc": [
+          0.6293135957859793,
+          -0.6423631451008588,
+          0.9760176734376039
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          3.178671736629982,
+          -3.244585191957703,
+          -8.083311993700889
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        1.0002366685480115,
+        0,
+        5.721226867805131
+      ],
+      "cameraToFloorCosine": 0.19878991943919674,
+      "schlickUncoatedDielectricApprox": 0.3569591233864703,
+      "sourceCoatWeightTimesFresnelApprox": 0.2570105688382586,
+      "blockedBeforeWoodByActualPrayerMat": false,
+      "matHits": [],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    },
+    {
+      "label": "actual-point-practical--3.225",
+      "source": {
+        "type": "PointLight",
+        "name": "reference6-floor-lantern-source"
+      },
+      "actualSourcePointYUp": [
+        -3.225,
+        1.35,
+        -0.12
+      ],
+      "actualProjection": {
+        "pixel": [
+          247.56584412931582,
+          705.7786798850681
+        ],
+        "ndc": [
+          -0.6051581433344245,
+          -0.12564382756789177,
+          0.9773096648441915
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          -3.225,
+          -0.6695792634860525,
+          -8.528479560268025
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          226.2936289456617,
+          1040.9202304141033
+        ],
+        "ndc": [
+          -0.6390851212987851,
+          -0.6601598571197822,
+          0.975994434723952
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          -3.225,
+          -3.331348936561988,
+          -8.075729952324268
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        -0.9691709844559584,
+        0,
+        5.839585492227981
+      ],
+      "cameraToFloorCosine": 0.2072563657290192,
+      "schlickUncoatedDielectricApprox": 0.34056267666519224,
+      "sourceCoatWeightTimesFresnelApprox": 0.24520512719893842,
+      "blockedBeforeWoodByActualPrayerMat": false,
+      "matHits": [],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    },
+    {
+      "label": "actual-point-practical-3.1750000000000003",
+      "source": {
+        "type": "PointLight",
+        "name": "reference6-floor-lantern-source"
+      },
+      "actualSourcePointYUp": [
+        3.1750000000000003,
+        1.35,
+        -0.12
+      ],
+      "actualProjection": {
+        "pixel": [
+          1000.5514557796658,
+          705.7786798850681
+        ],
+        "ndc": [
+          0.5957758465385421,
+          -0.12564382756789177,
+          0.9773096648441915
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          3.1750000000000003,
+          -0.6695792634860525,
+          -8.528479560268025
+        ]
+      },
+      "mirrorProjection": {
+        "pixel": [
+          1021.4938691775268,
+          1040.9202304141033
+        ],
+        "ndc": [
+          0.6291768248445405,
+          -0.6601598571197822,
+          0.975994434723952
+        ],
+        "inFrame": true,
+        "cameraSpace": [
+          3.1750000000000003,
+          -3.331348936561988,
+          -8.075729952324268
+        ]
+      },
+      "mirrorFloorHitYUp": [
+        0.9541450777202072,
+        0,
+        5.839585492227981
+      ],
+      "cameraToFloorCosine": 0.20763983716191559,
+      "schlickUncoatedDielectricApprox": 0.33983642833456174,
+      "sourceCoatWeightTimesFresnelApprox": 0.24468222840088444,
+      "blockedBeforeWoodByActualPrayerMat": false,
+      "matHits": [],
+      "scope": "Ideal plane mirror geometry only, no invented reflected subject or replacement texture. Other actual objects/BRDF may further occlude or blur the path."
+    }
+  ],
+  "limits": [
+    "Projection and source-array checks do not prove the actual Blender BSDF evaluation.",
+    "Schlick Fresnel is a dielectric estimate for comparison; full rough Principled/GGX/multibounce response differs.",
+    "Nearest gold vertices are actual exported points selected near stated inferred furniture landmarks, not photographic feature fits.",
+    "Prayer-mat occlusion uses actual exported opaque AABBs before the ideal floor plane; other geometry can add occlusion.",
+    "No forced Buddha face reflection outside the frame; no camera/geometry/source texture edits."
+  ],
+  "visualAccepted": false
+}

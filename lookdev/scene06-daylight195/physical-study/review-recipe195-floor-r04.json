@@ -1,0 +1,116 @@
+{
+  "status": "prepared-floor-only-r04-awaiting-primary-review-no-Blender-execution",
+  "immutableExportSourceHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "scenePackage": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r03-export",
+  "sceneJsonSha256": "f81b85c61fc0f364749f1c16fd7a36c02dbc94431d18f0108eaf6abf25d65a17",
+  "exportReportSha256": "3414504c59a4f41a0148f24f19c564f1eda39b1676fb61e6ad24c74b9154929c",
+  "releasedPriorImporterSha256": "bc7dc7dea1be451a2d7429874e5ed4f34915713adc02a6492b6e313481c9d484",
+  "renderScript": {
+    "path": "lookdev/scene06-daylight195/physical-study/render-scene06-cycles195-floor-r04.py",
+    "sha256": "eefcdebbdce9e1978e0f355a273b1b8cce8a031e383162edc2ba945748b3c618"
+  },
+  "exactDiff": "floor195-r03-to-r04.diff",
+  "diagnosis": {
+    "report": "floor-diagnosis195-r03.json",
+    "reportSha256": "f3a34f8a3c6607490e737caae567969371e690fbde8b26914ab80803522f8b22",
+    "cpuInspectionScript": "inspect-floor195-r03.mjs",
+    "cpuInspectionScriptSha256": "b60b9abc5494db74ad40c8e68b5ce1407beffa1e2c3514adde59f2687ced94f1",
+    "flatTopVertices": 814,
+    "flatTopTriangles": 386,
+    "opposedTopTriangles": 0,
+    "mappedBaseMeanRGB": [
+      0.08403924276748065,
+      0.03434951034810497,
+      0.017600675550279388
+    ],
+    "mappedMaximumRGB": [
+      0.20090822480058212,
+      0.1382155302604463,
+      0.08123272878323043
+    ],
+    "mappedBaseRoughnessMean": 0.23,
+    "mirrorEyePixelY": 1436.4020369410846,
+    "renderHeight": 1254,
+    "tableGiltReflectionMatOccluded": true,
+    "exposedWoodMirrorPixelY": {
+      "lowerAltar": 1081.808394458593,
+      "upperAltar": 1160.6082120306794,
+      "lanterns": 1029.7616919782386
+    }
+  },
+  "materialOnlyChanges": {
+    "materialName": "reference6-varnished-red-brown-floor-body",
+    "coatRoughness": {
+      "from": 0.095,
+      "to": 0.035
+    },
+    "coatWeight": {
+      "from": 0.72,
+      "to": 1.0
+    },
+    "mappedBaseAlbedoAndRoughnessKept": true,
+    "albedoGainCorrectionApplied": false,
+    "physicalReason": "Continuous lacquer coverage and narrower lobe; source mapped albedo is already physically bounded, top normals/winding are correct and visible altar/lantern reflections are geometrically possible.",
+    "primaryDocumentation": "https://docs.blender.org/manual/sr/latest/render/shader_nodes/shader/principled.html"
+  },
+  "heldRenderParameters": {
+    "sourceCameraAndGeometry": true,
+    "resolution": [
+      1254,
+      1254
+    ],
+    "fixedSamples": 256,
+    "adaptiveSampling": false,
+    "device": "METAL",
+    "threads": 4,
+    "sunDiscDegrees": 0.53,
+    "sunEnergy": 90,
+    "skyStrength": 6,
+    "exposureEV": 0.45,
+    "mediumDensity": 0.002,
+    "mediumAnisotropy": 0.2,
+    "noNativeAreaSpotHemisphereProxies": true,
+    "otherMaterialsAndAllTexturePixelsUnchanged": true
+  },
+  "launchAfterReviewOnly": {
+    "cwd": "/Users/mima1234/temple-cinema-live-sync",
+    "argv": [
+      "node",
+      "tools/run-blender-queued.mjs",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/render-scene06-cycles195-floor-r04.py"
+    ],
+    "env": {
+      "SCENE_PACKAGE": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r03-export",
+      "CYCLES_OUTPUT": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-floor-r04-full",
+      "CYCLES_DEVICE": "METAL",
+      "CYCLES_THREADS": "4",
+      "CYCLES_SUN_ANGLE": "0.53",
+      "CYCLES_SUN_ENERGY": "90",
+      "CYCLES_SKY_STRENGTH": "6.0",
+      "CYCLES_EXPOSURE": ".45",
+      "CYCLES_HAZE_DENSITY": ".0020",
+      "CYCLES_HAZE_ANISOTROPY": ".20",
+      "CYCLES_VARNISH_COAT_ROUGHNESS": ".035",
+      "CYCLES_VARNISH_COAT_WEIGHT": "1.0"
+    }
+  },
+  "officialLauncherSha256": "56cdb3c5d640e6215bf4afdac81902c60680f9777af1a409537e8121435dc7c1",
+  "noNewExportRequired": true,
+  "oldPhysicalPngPreserved": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r03-full/scene06-daylight195-r03-cycles-full-CC-BY-NC-SA-4.0.png",
+    "sha256": "953ae537951b390eb87baa43e00588184806b5d17015102a1107099e9d2e8fde"
+  },
+  "nativeFloorProjectionPhase200OwnedByPrimary": "Separate native source change; this physical comparison stays on immutable c241 export and never loads current canonical source.",
+  "actualImageAcceptanceCriteria": [
+    "Sharper true altar/lamp reflected forms at predicted in-frame locations, not an impossible Buddha face image.",
+    "Reflections gain readable structure while the old floor grain loses dominance through actual coat energy response.",
+    "Original broken solar shadows and coherent air remain unchanged in shape/geometry.",
+    "Any remaining weak reflection, glare or plastic response is reported openly; no automatic film or geometry promotion."
+  ],
+  "noCachePrune": true,
+  "noBlendOrMovie": true,
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "renderStarted": false,
+  "visualAccepted": false
+}

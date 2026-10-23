@@ -1,0 +1,132 @@
+{
+  "revision": "scene06-sculpture199-r01",
+  "status": "isolated-native-review-required",
+  "visualAccepted": false,
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "personalNoncommercialUseOnly": true,
+  "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0. Sculpture199 is a declared nonrigid sculpted derivative: shared-edge refinement, bounded smoothing, narrower elongated source face, rounded existing lids and brow/nasal-ridge sculpt, continuous neck rings, oblique robe folds and chased cloth edge, smaller scalp silhouette and fine shallow carved curls. Original SC07 and source GLBs retained unchanged. No endorsement implied.",
+  "input": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/nc-sainsbury-amida179-CC-BY-NC-SA-4.0/central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+    "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "vertices": 210766,
+    "triangles": 421536
+  },
+  "method": "Bounded continuous displacement of the actual source mesh with conforming shared-edge refinement. Existing neck/ears/arms and original manifold connectivity retained. No replacement face/head, photo projection, depth cards, floating cloth or separate hair sweeps.",
+  "originalRawAssetUnchanged": true,
+  "sourceFacePreservedUnchanged": false,
+  "sourceNormalsPreservedUnchanged": false,
+  "sourceIndicesPreservedUnchanged": false,
+  "sourceTopologyDerivation": {
+    "subdivisionPasses": [
+      {
+        "pass": 0,
+        "addedVertices": 140171,
+        "vertices": 350937,
+        "triangles": 701878
+      },
+      {
+        "pass": 1,
+        "addedVertices": 100040,
+        "vertices": 450977,
+        "triangles": 901958
+      }
+    ],
+    "parentFile": "midpoint-parent-pairs199-r01.bin",
+    "parentSha256": "fa00d01514913dac108c916df5dda6a9af691a869e197dea05c588da40d1ca58",
+    "parentRecord": "Each new vertex, in increasing ID order after original source vertices, is the arithmetic midpoint of this pair of already-existing vertex IDs. Source triangles are subdivided conformingly. UVs interpolate by the same map."
+  },
+  "sculptDelta": {
+    "file": "continuous-displacement199-r01.bin",
+    "sha256": "33ceacf9b6d4033c028d0a1ac321dfe6b54905e5da9a57354a91a4d9bcd79337",
+    "format": "SD19 header 20 bytes: ASCII SD19, uint32 allVertexCount, originalSourceCount, parentPairCount, version1; then little-endian float32 XYZ displacement from original vertices plus recursively constructed source-edge midpoint vertices.",
+    "changedVertices": 290726,
+    "maxDisplacementSourceUnits": {
+      "all": 0.11258195914068451,
+      "face": 0.10428407469448452,
+      "robe": 0.03966636190750828,
+      "scalp": 0.11258195914068451,
+      "seat": 0
+    }
+  },
+  "geometry": {
+    "file": "continuous-sculpt199-r01-af0634e00344f4b4.bin",
+    "sha256": "af0634e00344f4b466d7e1caec10757b68adc324aca2c8f7298110a1c9f00e72",
+    "vertices": 450977,
+    "triangles": 901958,
+    "bytes": 25254780,
+    "bounds": [
+      [
+        -1.2409567832946777,
+        0,
+        -0.7778676152229309
+      ],
+      [
+        1.2409567832946777,
+        3.1792918473887157,
+        0.8428356647491455
+      ]
+    ]
+  },
+  "compactCurls": {
+    "count": 684,
+    "separation": 0.03,
+    "maximumRelief": 0.0077,
+    "spiralGrooveDepth": 0.0026,
+    "method": "Poisson selected actual scalp surface vertices; low domed relief with shallow spiral groove is sculpted into the same continuous scalp mesh, not added worms/pins."
+  },
+  "sculptGuides": {
+    "faceCenterX": 0.065,
+    "headWidthScale": 0.91,
+    "headCenterCorrection": -0.065,
+    "faceLengthDeltaScale": 0.12,
+    "capHeightScale": 0.8,
+    "lidRoundLift": 0.018,
+    "nasalRidgeForward": 0.02,
+    "clothFoldBases": [
+      0.6,
+      0.69,
+      0.785,
+      0.885,
+      0.99,
+      1.1,
+      1.215,
+      1.34,
+      1.47,
+      1.6,
+      1.72
+    ],
+    "foldSlope": 0.29,
+    "foldCurvature": 0.46,
+    "foldRidgeHeightRange": [
+      0.017,
+      0.025
+    ],
+    "neckRingCenters": [
+      2.017,
+      2.076,
+      2.135
+    ],
+    "seatBandMaximumY": 0.13
+  },
+  "goldMaterial": {
+    "baseColorLinear": [
+      0.5647115111351013,
+      0.3613067865371704,
+      0.08865558356046677,
+      1
+    ],
+    "metalness": 0.88,
+    "roughness": 0.47
+  },
+  "builder": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authoring/build-sculpt199-r01.mjs",
+    "sha256": "db585118ebbb58d24c02c209f281e572643bcbb2ff98e5b9eed0b49cc326dce6"
+  },
+  "limits": [
+    "This is a hand-sculpted reconstruction derivative of a different surviving artifact, not exact photogrammetry of the reference.",
+    "No face or garment likeness is accepted by authoring metrics.",
+    "Actual front, true three-quarter, profile, body and published-view comparison must be inspected before any adoption.",
+    "No renderer/light/material/camera changes, physical export, Blend or movie."
+  ]
+}

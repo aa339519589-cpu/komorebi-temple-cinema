@@ -1,0 +1,105 @@
+{
+  "status": "actual-3D-candidate-awaiting-native-review",
+  "visualAccepted": false,
+  "heldIncomingSourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+  "builder": "reconstructions/scene-06/modeling/sculpture165-r06/build.py",
+  "geometry": "reconstructions/scene-06/modeling/sculpture165-r06/anatomy.py",
+  "builderSha256": "10a9b08e3ee616204b7c1cf28ef27d8d233157e5f33eb65472cd039794c98c39",
+  "geometrySha256": "f550f1695cf3c91d734486796d58b80d4b3aa2513ab97d990ac4b0738767842a",
+  "additionalHelperHashes": {
+    "anatomy.py": "f550f1695cf3c91d734486796d58b80d4b3aa2513ab97d990ac4b0738767842a",
+    "priorReviewedHandGeometry": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3"
+  },
+  "exactBuildSource": "lookdev/scene06-sculpture165/r06",
+  "sourceAttribution": "CC0-1.0 measured Tang cloth by Daniel Pett plus Buddha head by peel-3d.com, CC BY4.0. Head source face/ears/jaw/neck retained under declared uniform fit; crown cut/scalp, neck/waist/under-leg mounts and hands authored. Both artifacts differ from Japanese reference06.",
+  "sourceLicense": "CC0-1.0 + CC-BY-4.0 + authored mounts",
+  "sourceURL": "https://sketchfab.com/3d-models/seated-figure-of-buddha-a4d22eb6d3c44848bd49b89fb4c28759",
+  "sourceLimit": "Different Chinese Tang cloth artifact and decorative source head of undocumented culture/era, not verified Japanese/Amida. Source real dimensions undocumented; viewing normalization, body affine and uniform head fit declared. Stone erosion and wave hair remain; no photographic acceptance.",
+  "sourceRetarget": {
+    "method": "MeasuredCC0 cloth under declared affine fit; coincident seams welded within3e-6 viewing metres before connected orientation anchored to retained source triangles. Exact original boundary vertices retained in local waist/neck zipper bridges; source shoulder cowls are joined before actual torso waist trim. Actual CC BY head face/ears/jaw/neck under declared uniform fit, with exact original normals exported; measured neck/crown rings connect authored neck/scalp closure. No local facial displacement, source-head remesh/smoothing, donor-face projection, incision floor or DoubleSide mask.",
+    "retainedMeasuredPointMaxDelta": 3.205991647391149e-16,
+    "retainedPointAuditBasis": "Separately bounded-restored169R04 surface; original169R03 buffers and all restoration deltas remain retained.",
+    "boundedLocalRestoration": {
+      "kneesSourceViewingUnits": 0.006195700174469931,
+      "torsoSourceViewingUnits": 0.0021178678028657594,
+      "kneesAfterDeclaredAffine": 0.014931831446946008,
+      "torsoAfterDeclaredAffine": 0.005074195830458512
+    },
+    "measuredClothGlobalSmoothing": false,
+    "mountTopology": {
+      "vertices": 429137,
+      "faces": 644004,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "components": [
+        {
+          "faces": 643982,
+          "sourceOrientationAnchors": 410836,
+          "sourceDisagreements": 0,
+          "componentFlippedToSource": false
+        },
+        {
+          "faces": 22,
+          "sourceOrientationAnchors": 2,
+          "sourceDisagreements": 0,
+          "componentFlippedToSource": true
+        }
+      ]
+    },
+    "erosionRestoration": "Separately viewed169R04 iteration02 alternate only: bounded front-knee erosion and torso chatter masks, topology/mount rings locked. Max source viewing-unit deltas recorded; deeper damage remains."
+  },
+  "additionalSourceAttributions": [
+    {
+      "title": "Buddha head",
+      "creator": "peel-3d.com",
+      "license": "CC-BY-4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceURL": "https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79",
+      "originalSourceSha256": "41d8c094ada94bcf265b92ac72e4737f60710532dd5719f871cacd144f305d9d",
+      "componentInputSha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8",
+      "changes": "Source173 clipped crown/neck and neutralized colors. This recipe applies only positive uniform fit, authors scalp/neck bridges, and retains original face geometry/normals. Source RGB/textures unused.",
+      "cultureAndPeriod": "Undocumented by creator; not a verified Japanese/Amida artifact."
+    }
+  ],
+  "actualHeadPreservation": {
+    "inputVertices": 166523,
+    "outputFaceVertices": 166523,
+    "inputTriangles": 330147,
+    "outputFaceTriangles": 330147,
+    "maxLocalPositionDeltaAfterDeclaredUniformFit": 0,
+    "normalMethod": "Exact original SC07 normal vectors exported at every source head vertex; positive uniform scale does not rotate normal directions.",
+    "sourceFaceRemeshed": false,
+    "sourceFaceSmoothed": false,
+    "sourceFaceLocallyDeformed": false
+  },
+  "headUniformFit": {
+    "scale": 0.65,
+    "translation": [
+      -0.0016903987852856517,
+      2.830005168914795,
+      -1.1531648635864258
+    ],
+    "neckRiseAboveActualClothRing": 0.13,
+    "scalpHeight": 0.23,
+    "sourceOriginalVertices": 166523,
+    "sourceOriginalTriangles": 330147,
+    "sourceFaceLocalDeformation": false,
+    "sourceFaceRemeshOrSmoothing": false,
+    "sourceNormals": "Original SC07 vectors unchanged under positive uniform scale; exact original per-position normals override assembly recomputation on export.",
+    "sourceCulture": "Unknown culture and period; not a verified Japanese/Amida artifact."
+  },
+  "authoredChanges": [
+    "Genuine CC0 DanielPett Tang knee/hip and torso cloth surfaces provide weighted anatomy and unequal original folds, under an explicitly recorded affine fit.",
+    "MeasuredCC0 cloth under declared affine fit; coincident seams welded within3e-6 viewing metres before connected orientation anchored to retained source triangles. Exact original boundary vertices retained in local waist/neck zipper bridges; source shoulder cowls are joined before actual torso waist trim. Actual CC BY head face/ears/jaw/neck under declared uniform fit, with exact original normals exported; measured neck/crown rings connect authored neck/scalp closure. No local facial displacement, source-head remesh/smoothing, donor-face projection, incision floor or DoubleSide mask.",
+    "Actual peel-3d.com CC BY face/ears/jaw/neck receive only a declared uniform fit, with original face triangles and normals retained. Measured crown/neck cuts join authored scalp/neck closure.",
+    "Authored arm/hand geometry receives its own local CPU union; no such modifier touches measured cloth.",
+    "Source stone erosion and ragged hem remain for bounded local native gold review.",
+    "Source preservation, orientation checks and successful mesh creation do not establish likeness."
+  ],
+  "noNoncommercialGeometry": true,
+  "noPhotoOrGeneratedFrame": true,
+  "limits": [
+    "CC0 Tang cloth and CC BY head are different artifacts. Head culture/period is undocumented; no verified Japanese/Amida attribution.",
+    "Topology and valid rendering do not establish photographic fidelity."
+  ]
+}
