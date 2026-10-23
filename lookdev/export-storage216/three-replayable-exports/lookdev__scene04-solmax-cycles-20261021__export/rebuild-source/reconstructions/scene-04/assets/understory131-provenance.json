@@ -1,0 +1,42 @@
+{
+  "revision": "scene04-understory131-r04",
+  "referenceRGBUsed": false,
+  "visualAccepted": false,
+  "sources": [
+    {
+      "name": "shrub_02",
+      "provider": "Poly Haven",
+      "author": "Rico Cilliers",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/shrub_02",
+      "provenance": "assets/polyhaven/shrub-02/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+        "assets/polyhaven/shrub-02/shrub_02.bin",
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    },
+    {
+      "name": "periwinkle_plant",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    }
+  ],
+  "construction": "Actual original licensed multi-leaf/stem mesh geometry and original PBR surface maps. Each plant retains uniform scale and all original mesh triangles. No whole-plant billboard, scene photograph, scene plate, depth substitute or reference RGB is rendered.",
+  "placement": "Root positions are raycast against actual dry ground after garden warping. Water, stair/curb reserve, toro foot reserve and actual stone intersections are rejected. Roots are buried 12mm in support.",
+  "limits": "Specific species and inferred placements are reconstruction hypotheses; CC0 acquisition provenance and original asset hashes remain in frozen global manifests."
+}

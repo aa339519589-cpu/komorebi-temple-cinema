@@ -1,0 +1,250 @@
+{
+  "revision": "scene06-sculptural-cast-r8",
+  "format": "SC07:20-byte header, float32 position/normal/uv, uint32 triangle indices",
+  "variants": {
+    "central": [
+      {
+        "material": "central",
+        "file": "central-central.bin",
+        "vertices": 561698,
+        "triangles": 1123428,
+        "sha256": "f9e1b58c9124ef3b5823a8296ba0aa1b8777a8788eda0e3952d9886b6212b724",
+        "bounds": [
+          [
+            -1.427628755569458,
+            -0.10151533782482147,
+            -0.40657350420951843
+          ],
+          [
+            1.4276363849639893,
+            3.3199708461761475,
+            1.0110775232315063
+          ]
+        ],
+        "topology": {
+          "vertices": 561698,
+          "triangles": 1123428,
+          "connectedComponents": 1,
+          "largestComponents": [
+            561698
+          ],
+          "largestComponentFraction": 1.0,
+          "removedVoxelSpeckVertices": 11
+        }
+      },
+      {
+        "material": "oldgold",
+        "file": "central-oldgold.bin",
+        "vertices": 35592,
+        "triangles": 70352,
+        "sha256": "2d3113006333a3b962e5ad3b759e1a009c4315067f25ac7c330fd684d97c11b0",
+        "bounds": [
+          [
+            -0.44200536608695984,
+            3.294999122619629,
+            -0.3412671387195587
+          ],
+          [
+            0.44005975127220154,
+            3.589967727661133,
+            0.28239890933036804
+          ]
+        ]
+      },
+      {
+        "material": "gold",
+        "file": "central-gold.bin",
+        "vertices": 124722,
+        "triangles": 248146,
+        "sha256": "6703c264d4d98d6ca8315f8306eda49764dff77c1f9d21b62ac67da250123fd5",
+        "bounds": [
+          [
+            -0.37070780992507935,
+            0.9248884320259094,
+            -0.019863680005073547
+          ],
+          [
+            0.7407008409500122,
+            3.605001211166382,
+            0.46624305844306946
+          ]
+        ]
+      }
+    ],
+    "left": [
+      {
+        "material": "buddha",
+        "file": "left-buddha.bin",
+        "vertices": 414014,
+        "triangles": 828052,
+        "sha256": "257321f59987dd332ea9c3a6a6b278b75d8e8e43a301f763a3ed0120c48da902",
+        "bounds": [
+          [
+            -0.8852512240409851,
+            0.0004427674866747111,
+            -0.3416156768798828
+          ],
+          [
+            0.9286362528800964,
+            3.4117259979248047,
+            0.7277344465255737
+          ]
+        ],
+        "topology": {
+          "vertices": 414014,
+          "triangles": 828052,
+          "connectedComponents": 1,
+          "largestComponents": [
+            414014
+          ],
+          "largestComponentFraction": 1.0
+        }
+      },
+      {
+        "material": "oldgold",
+        "file": "left-oldgold.bin",
+        "vertices": 2290,
+        "triangles": 4576,
+        "sha256": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb",
+        "bounds": [
+          [
+            -0.28165343403816223,
+            3.300001859664917,
+            -0.26076802611351013
+          ],
+          [
+            0.28165343403816223,
+            3.6100003719329834,
+            0.2111533135175705
+          ]
+        ]
+      },
+      {
+        "material": "gold",
+        "file": "left-gold.bin",
+        "vertices": 9116,
+        "triangles": 18172,
+        "sha256": "c672ee117d448670a729a544c7c5c6fb42f8b787873a233a89053dd7bf0cfddc",
+        "bounds": [
+          [
+            -0.28979068994522095,
+            1.9449998140335083,
+            -0.2550000250339508
+          ],
+          [
+            0.2897867262363434,
+            3.75,
+            0.3382262587547302
+          ]
+        ]
+      },
+      {
+        "material": "crease",
+        "file": "left-crease.bin",
+        "vertices": 1241,
+        "triangles": 2470,
+        "sha256": "66f033ffbe6b0e9d30f7dbe842be8bc026420f4d982c4c3e6cae31b9448c710f",
+        "bounds": [
+          [
+            -0.18881000578403473,
+            2.9060099124908447,
+            0.12096403539180756
+          ],
+          [
+            0.18881000578403473,
+            3.1407957077026367,
+            0.19936026632785797
+          ]
+        ]
+      }
+    ],
+    "right": [
+      {
+        "material": "buddha",
+        "file": "right-buddha.bin",
+        "vertices": 413660,
+        "triangles": 827340,
+        "sha256": "f73457f53ba089e190dca1eaf59a9d0688db216e37b7f95744783009427bf49a",
+        "bounds": [
+          [
+            -0.9286362528800964,
+            0.0004427674866747111,
+            -0.3416156768798828
+          ],
+          [
+            0.8852512836456299,
+            3.4117045402526855,
+            0.7277344465255737
+          ]
+        ],
+        "topology": {
+          "vertices": 413660,
+          "triangles": 827340,
+          "connectedComponents": 1,
+          "largestComponents": [
+            413660
+          ],
+          "largestComponentFraction": 1.0
+        }
+      },
+      {
+        "material": "oldgold",
+        "file": "right-oldgold.bin",
+        "vertices": 2290,
+        "triangles": 4576,
+        "sha256": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb",
+        "bounds": [
+          [
+            -0.28165343403816223,
+            3.300001859664917,
+            -0.26076802611351013
+          ],
+          [
+            0.28165343403816223,
+            3.6100003719329834,
+            0.2111533135175705
+          ]
+        ]
+      },
+      {
+        "material": "gold",
+        "file": "right-gold.bin",
+        "vertices": 9116,
+        "triangles": 18172,
+        "sha256": "c672ee117d448670a729a544c7c5c6fb42f8b787873a233a89053dd7bf0cfddc",
+        "bounds": [
+          [
+            -0.28979068994522095,
+            1.9449998140335083,
+            -0.2550000250339508
+          ],
+          [
+            0.2897867262363434,
+            3.75,
+            0.3382262587547302
+          ]
+        ]
+      },
+      {
+        "material": "crease",
+        "file": "right-crease.bin",
+        "vertices": 1241,
+        "triangles": 2470,
+        "sha256": "66f033ffbe6b0e9d30f7dbe842be8bc026420f4d982c4c3e6cae31b9448c710f",
+        "bounds": [
+          [
+            -0.18881000578403473,
+            2.9060099124908447,
+            0.12096403539180756
+          ],
+          [
+            0.18881000578403473,
+            3.1407957077026367,
+            0.19936026632785797
+          ]
+        ]
+      }
+    ]
+  },
+  "visualAccepted": false
+}

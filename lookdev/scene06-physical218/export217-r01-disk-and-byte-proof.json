@@ -1,0 +1,41 @@
+{
+  "sourcePin": "7514b2fddc215ebae8c48dbf0f7f7d41fa23e8b5c3b514f3df72dfacffbe6b62",
+  "status": "official-current217-export-all-bytes-and-source-verified",
+  "exitCode": 0,
+  "failure": null,
+  "elapsedSeconds": 107.39351987838745,
+  "peakObservedUniqueFilesystemBytes": 489044403,
+  "maxUniqueAssetBytes": 671088640,
+  "perWriteMinimumFreeBytes": 402653184,
+  "emergencyMinimumFreeBytes": 268435456,
+  "officialFifoUnchanged": true,
+  "originalOrCanonicalFilesDeleted": false,
+  "writeTimeExactDeduplication": true,
+  "tools": {
+    "tools/export-reconstructed-scene.mjs": "898cb4e4cf49608da42809abe97ceb6129848efe2dc3deffed6ef3397a6c3489",
+    "tools/export-asset-writer.mjs": "1d4376974762153626a4b13d39fc304ba57b273545395abe2ae83fc8ccf95cde"
+  },
+  "statistics": {
+    "meshes": 1980,
+    "geometries": 1723,
+    "materials": 246,
+    "textures": 393,
+    "instances": 23149,
+    "triangles": 21784384
+  },
+  "assetStorage": {
+    "mode": "exact-byte-verified-hardlinks-within-this-export",
+    "limits": {
+      "maxUniqueBytes": 671088640,
+      "minimumFreeBytes": 402653184
+    },
+    "files": 7545,
+    "logicalBytes": 3211695550,
+    "uniqueBytes": 488160516,
+    "linkedFiles": 6029,
+    "savedBytes": 2723535034
+  },
+  "uniqueBytesVerified": 488160516,
+  "allPayloadHashesVerified": true,
+  "freeBytesAfter": 913330176
+}

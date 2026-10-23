@@ -1,0 +1,398 @@
+{
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "isolatedNoncommercialOnly": false,
+  "productionIntegrated": false,
+  "visualAccepted": false,
+  "sourceAndProductionLicenseDecisionPending": false,
+  "attribution": "NC source/R05 body and retained skull/ears/neck: Scan-the-World Sainsbury Amida, Zenodo21353739, https://doi.org/10.5281/zenodo.21353739 , CC BY-NC-SA4.0. Actual facial surface target: Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79 , CC BY4.0, https://creativecommons.org/licenses/by/4.0/ . Donor culture/period unspecified; not claimed Japanese. Modifications: real3D BVH ray-triangle surface retarget onto NC connected topology, 99% core donor hit plus1% source regularization, broad smooth neck/temple/scalp transition; knownR05 curl relief removed and bounded source cap cage. Originals retained unchanged. No endorsement implied. Combined adaptation/imagery retains NC-SA4.0; original donor remains CC BY4.0. R06f additionally fairs a measured 3D source scalp radial field, with compact anisotropic deformation of existing scalp and restrained Taubin fairing of actual head triangles; no synthetic head replacement. R06g fairs the actual inherited scalp ridge with 300 pinned-boundary Laplacian steps and reduces lower-cheek scan chatter with 60 Taubin pairs. R06h carves fine shallow spiral curl relief directly into the same continuous scalp; sampled original scalp vertex roots and tangent frames retained. R06j, after rejecting I for excessive ear/jaw smoothing, repositions the anterior ear attachment posteriorly and inward, preserves the ear bowl/rim through smooth anchors, and blends side-cheek/jaw curvature with gentler connected-mesh fairing. Actual donor eyelid/nose/lip cores and all body positions below Y2.15 remain exact. Ear attachment is a declared reshaped derivative.",
+  "revision": "scene06-sculpture199-r06j-ear-root-blend",
+  "variants": {
+    "central": [
+      {
+        "material": "central",
+        "file": "ear-root-blend-sculpt199-r06j-849e3edbb348fa10.bin",
+        "sha256": "849e3edbb348fa104cccadf94caa00cd19d156e1033ce473a6bc37140178e3dc",
+        "vertices": 789016,
+        "triangles": 1578036,
+        "bytes": 44184964,
+        "topology": {
+          "vertices": 789016,
+          "triangles": 1578036,
+          "indicesByteExactFromR05": true,
+          "uvsByteExactFromR05": true,
+          "originalClosedManifoldConnectivityRetained": true,
+          "degenerateTriangles": 0
+        }
+      }
+    ]
+  },
+  "materials": {
+    "central": {
+      "baseColorLinear": [
+        0.5647115111351013,
+        0.3613067865371704,
+        0.08865558356046677,
+        1
+      ],
+      "metalness": 0.88,
+      "roughness": 0.47
+    }
+  },
+  "canonicalPackageScope": "Actual source body SC07, original source and curated R09 GLB. These files and adaptations remain CC BY-NC-SA 4.0. Independently authored room/altar and separately licensed attendant assets keep their individual terms. The repository permissive license does not relicense this NC asset. Derived scene06 still/video imagery is marked CC BY-NC-SA 4.0.",
+  "nativeMaterialStudyChange": "Unchanged R05/195 gold values on actual3D surface-retarget geometry; no image, texture or material repair.",
+  "personalNoncommercialUseOnly": true,
+  "userAuthorization": {
+    "date": "2026-10-23",
+    "text": "仅个人欣赏，允许使用非商用雕像素材",
+    "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+  },
+  "recommendedCentralHaloCenterModelY": 2.72,
+  "recommendedCentralMandorlaZ": -0.79,
+  "recommendedMainLotusDepthAspect": 0.72,
+  "recommendedUniformWorldHeight": 2.5,
+  "sourceContactBearing": {
+    "license": "CC-BY-NC-SA-4.0",
+    "source": "central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+    "sourceSha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "method": "Convex hull of actual source positions at normalized y <= .07. Used only for an independently authored thin physical seat bearing below the unchanged body.",
+    "coordinates": "source normalized x,z; positive uniform world scale remains 2.50/3.26",
+    "sourceYThreshold": 0.07,
+    "sourceBodyChanged": true,
+    "outlineXZ": [
+      [
+        -1.2409568,
+        0.2032168
+      ],
+      [
+        -1.240738,
+        0.1949044
+      ],
+      [
+        -1.239863,
+        0.1828732
+      ],
+      [
+        -1.2392068,
+        0.174342
+      ],
+      [
+        -1.2383319,
+        0.1686546
+      ],
+      [
+        -1.2365818,
+        0.1607797
+      ],
+      [
+        -1.2343943,
+        0.1531235
+      ],
+      [
+        -1.0381775,
+        -0.4735892
+      ],
+      [
+        -1.0235213,
+        -0.5151513
+      ],
+      [
+        -1.0167401,
+        -0.5333074
+      ],
+      [
+        -1.0051465,
+        -0.5597759
+      ],
+      [
+        -1.0007716,
+        -0.5680882
+      ],
+      [
+        -0.990053,
+        -0.5860255
+      ],
+      [
+        -0.9852405,
+        -0.5939005
+      ],
+      [
+        -0.9406159,
+        -0.6658686
+      ],
+      [
+        -0.936241,
+        -0.6698061
+      ],
+      [
+        -0.8559605,
+        -0.738493
+      ],
+      [
+        -0.8518043,
+        -0.7415555
+      ],
+      [
+        -0.8472105,
+        -0.7439616
+      ],
+      [
+        -0.7118056,
+        -0.7618989
+      ],
+      [
+        -0.6951808,
+        -0.7623366
+      ],
+      [
+        0.6951808,
+        -0.7623366
+      ],
+      [
+        0.7118056,
+        -0.7618989
+      ],
+      [
+        0.8472105,
+        -0.7439616
+      ],
+      [
+        0.8518043,
+        -0.7415555
+      ],
+      [
+        0.8559605,
+        -0.738493
+      ],
+      [
+        0.936241,
+        -0.6698061
+      ],
+      [
+        0.9406159,
+        -0.6658686
+      ],
+      [
+        0.9852405,
+        -0.5939005
+      ],
+      [
+        0.990053,
+        -0.5860255
+      ],
+      [
+        1.0007716,
+        -0.5680882
+      ],
+      [
+        1.0051465,
+        -0.5597759
+      ],
+      [
+        1.0167401,
+        -0.5333074
+      ],
+      [
+        1.0235213,
+        -0.5151513
+      ],
+      [
+        1.0381775,
+        -0.4735892
+      ],
+      [
+        1.2343943,
+        0.1531235
+      ],
+      [
+        1.2365818,
+        0.1607797
+      ],
+      [
+        1.2383319,
+        0.1686546
+      ],
+      [
+        1.2392068,
+        0.174342
+      ],
+      [
+        1.239863,
+        0.1828732
+      ],
+      [
+        1.240738,
+        0.1949044
+      ],
+      [
+        1.2409568,
+        0.2032168
+      ],
+      [
+        1.2405194,
+        0.2121854
+      ],
+      [
+        1.2400818,
+        0.2185292
+      ],
+      [
+        1.2392068,
+        0.224654
+      ],
+      [
+        1.2365818,
+        0.2369039
+      ],
+      [
+        1.1729262,
+        0.5217137
+      ],
+      [
+        1.1676762,
+        0.5361511
+      ],
+      [
+        1.1630825,
+        0.5457759
+      ],
+      [
+        1.1315829,
+        0.5617446
+      ],
+      [
+        0.6879621,
+        0.7715238
+      ],
+      [
+        0.6431188,
+        0.7863986
+      ],
+      [
+        0.6308689,
+        0.7896799
+      ],
+      [
+        0.6089941,
+        0.7940548
+      ],
+      [
+        0.5713695,
+        0.8014922
+      ],
+      [
+        0.4619956,
+        0.8209609
+      ],
+      [
+        0.3482465,
+        0.8316795
+      ],
+      [
+        0.3259344,
+        0.8325545
+      ],
+      [
+        0.1154989,
+        0.8391169
+      ],
+      [
+        0.085093,
+        0.8399919
+      ],
+      [
+        -0.102374,
+        0.8428357
+      ],
+      [
+        -0.3482465,
+        0.8316795
+      ],
+      [
+        -0.4619956,
+        0.8209609
+      ],
+      [
+        -0.5713695,
+        0.8014922
+      ],
+      [
+        -0.6089941,
+        0.7940548
+      ],
+      [
+        -0.6308689,
+        0.7896799
+      ],
+      [
+        -0.6431188,
+        0.7863986
+      ],
+      [
+        -0.6879621,
+        0.7715238
+      ],
+      [
+        -1.1315829,
+        0.5617446
+      ],
+      [
+        -1.1630825,
+        0.5457759
+      ],
+      [
+        -1.1676762,
+        0.5361511
+      ],
+      [
+        -1.1729262,
+        0.5217137
+      ],
+      [
+        -1.2365818,
+        0.2369039
+      ],
+      [
+        -1.2392068,
+        0.224654
+      ],
+      [
+        -1.2400818,
+        0.2185292
+      ],
+      [
+        -1.2405194,
+        0.2121854
+      ]
+    ],
+    "originalContactBandPreserved": true,
+    "contactBandPositionsUnchanged": true,
+    "bodyUnchangedFrom199R05": true
+  },
+  "derivativeOf": {
+    "r05": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/continuous-sculpt199-r05-cd9778adc17846aa.bin",
+      "sha256": "cd9778adc17846aa8ab40127b1b9f328ddafbfca10f3fbb0006ca775bf736eb3"
+    },
+    "preCurl": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r06-input-prehair/r05-exact-pre-curl-sc07.bin",
+      "sha256": "868f5086bcad76278f18643350bc4175122cf2cc494a03a1514d07cdb809c550"
+    },
+    "donor": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/calm-buddha-head173/component-r01/actual-face-ears-neck-sc07.bin",
+      "sha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8",
+      "originalGlbSha256": "41d8c094ada94bcf265b92ac72e4737f60710532dd5719f871cacd144f305d9d"
+    }
+  },
+  "sourceLicenses": [
+    {
+      "source": "Scan-the-World Sainsbury Amida",
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "source": "Buddha head by peel-3d.com",
+      "license": "CC-BY-4.0",
+      "culture": "Unspecified by creator; not a verified Japanese artifact"
+    }
+  ]
+}

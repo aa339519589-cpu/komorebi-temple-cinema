@@ -1,0 +1,21 @@
+{
+  "revision": "granite-aggregate04-v01",
+  "method": "Periodic Voronoi mineral volumes with actual metric height; finite-difference residual normals",
+  "seed": 804231,
+  "periodMetres": 0.3,
+  "size": 1024,
+  "meanGrainPitchMetres": 0.005769230769230769,
+  "referenceRGBUsed": false,
+  "photographicAcceptance": false,
+  "geometryHeight": {
+    "file": "geometry-height.f32.bin",
+    "dtype": "little-endian-float32",
+    "imageY": "negative physical V",
+    "minMetres": -0.0007494646706618369,
+    "maxMetres": 0.0011891946196556091
+  },
+  "limits": [
+    "Mineral microstructure is an authored hypothesis, not recovered individual crystals.",
+    "Visible slab joints remain separately observed geometry."
+  ]
+}

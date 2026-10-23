@@ -1,0 +1,112 @@
+{
+  "scene": "04",
+  "revision": "model131-r05",
+  "referencePhotographs": {
+    "usedByRuntime": false,
+    "scope": "Comparison evidence only; original photo copyright remains with its owner.",
+    "reference": "3-\u7167\u7247-4.jpg"
+  },
+  "newExternalAssets": [
+    {
+      "name": "Granite Tile 04",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "sourceWidthMetres": 2,
+      "provenance": "assets/granite-tile-04/provenance.json",
+      "runtimeFiles": [
+        "assets/granite-tile-04/granite-face-diff.png",
+        "assets/granite-tile-04/granite-face-nor_gl.png",
+        "assets/granite-tile-04/granite-face-rough.png"
+      ],
+      "runtimeRepeatMetres": 0.3173828125,
+      "adaptation": "Same 650 x 650 crop from each 4096 px map, x=2100 y=920, inside one granite face. Source grout is excluded; three-dimensional model supplies worn slab joints and thickness."
+    },
+    {
+      "name": "shrub_02",
+      "provider": "Poly Haven",
+      "author": "Rico Cilliers",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/shrub_02",
+      "provenance": "assets/polyhaven/shrub-02/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+        "assets/polyhaven/shrub-02/shrub_02.bin",
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    },
+    {
+      "name": "periwinkle_plant",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+      "runtimeFiles": [
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+      ],
+      "adaptation": "Existing frozen original mesh geometry and PBR maps; world transforms baked, root datum normalized, uniformly scaled, instanced on raycast dry terrain. No global asset changes."
+    }
+  ],
+  "newSharedAssetsCopied": [],
+  "authoredGeometry": [
+    "Closed shaped karahafu roof and four separated curved timber ribs",
+    "Raised side-eave bearing members and column-to-beam relations",
+    "140 mm closed granite pavers with 15 mm worn arrises, settling, broad crown, low wear basin, two-axis tilt and millimetre pits",
+    "Low closed moss cushions rooted in actual model joints"
+  ],
+  "retainedUnusedHistoricalAsset": "assets/monastery-stone-floor retains its original CC0 source and provenance; runtime paving now loads Granite Tile 04.",
+  "excludedRepresentations": [
+    "photo-projected albedo or background",
+    "photo-estimated depth surface",
+    "point cloud",
+    "Gaussian splats"
+  ],
+  "visualAccepted": false,
+  "files": [
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "reconstructions/camera-dolly.js",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/provenance.json"
+  ],
+  "sceneLocalStoneLoader": {
+    "source": "src/scene04-scanned-garden-stones.js",
+    "copiedFromCommit": "c6841ad",
+    "copiedFromPath": "reconstructions/scene-01/src/scanned-garden-stones.js",
+    "sha256": "bbd2e69d72a377f352fb419ac3d265b8985f005a3441c64673123a3993a8b6b0",
+    "scope": "Exact baseline loader vendored into Scene04; global licensed scan files remain unchanged; no runtime source dependency on Scene01.",
+    "newExternalAssets": []
+  },
+  "model131": {
+    "provenance": "assets/model131-provenance.json",
+    "scope": "Sculpted toro, concave/cover ceramic courses, deep entrance, scanned mineral weathering and actual dry-rooted understory geometry.",
+    "newExternalAssets": [
+      "Poly Haven shrub_02 and periwinkle_plant, existing frozen repository assets, CC0-1.0"
+    ],
+    "referenceRGBUsed": false,
+    "visualAccepted": false
+  }
+}

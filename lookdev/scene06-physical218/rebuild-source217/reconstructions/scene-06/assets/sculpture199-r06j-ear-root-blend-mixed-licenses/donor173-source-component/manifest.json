@@ -1,0 +1,198 @@
+{
+  "revision": "calm-buddha-head173-component-r01",
+  "source": "https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79",
+  "author": "peel-3d.com",
+  "license": "CC-BY-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceSha256": "41d8c094ada94bcf265b92ac72e4737f60710532dd5719f871cacd144f305d9d",
+  "builderSha256": "b655a034bf3a2d9fee023095c3549e05f21ec845a81348c23f6257a3f553d59a",
+  "coordinateSystem": "+Y-up/+Z-front",
+  "sourceRawBounds": [
+    [
+      -134.2867431640625,
+      -234.63205718994138,
+      -123.413948059082
+    ],
+    [
+      132.0392608642578,
+      235.4699478149414,
+      175.41605377197266
+    ]
+  ],
+  "sourceWorldCenter": [
+    -1.1237411499023438,
+    0.4189453125000142,
+    26.001052856445327
+  ],
+  "sourceUniformScale": 0.00425439580922278,
+  "neckAnchor": [
+    0,
+    0,
+    0
+  ],
+  "cutPlanesSourceNormalized": {
+    "neck": -0.88,
+    "crown": 0.12,
+    "jawMeasurementOnly": -0.68
+  },
+  "bounds": {
+    "min": [
+      -0.5665281177125676,
+      0,
+      -0.5452135856199916
+    ],
+    "max": [
+      0.5665281177125676,
+      1,
+      0.6356705537300374
+    ]
+  },
+  "vertices": 166523,
+  "triangles": 330147,
+  "retainedUncutSourceTriangles": 325801,
+  "clippedBoundarySourceTriangles": 2899,
+  "sourcePrimitives": [
+    {
+      "node": 2,
+      "mesh": 0,
+      "primitive": 0,
+      "sourceVertexOffset": 0,
+      "sourceVertices": 65532,
+      "sourceTriangleOffset": 0,
+      "sourceTriangles": 118559
+    },
+    {
+      "node": 3,
+      "mesh": 1,
+      "primitive": 0,
+      "sourceVertexOffset": 65532,
+      "sourceVertices": 65532,
+      "sourceTriangleOffset": 118559,
+      "sourceTriangles": 115803
+    },
+    {
+      "node": 4,
+      "mesh": 2,
+      "primitive": 0,
+      "sourceVertexOffset": 131064,
+      "sourceVertices": 65532,
+      "sourceTriangleOffset": 234362,
+      "sourceTriangles": 113912
+    },
+    {
+      "node": 5,
+      "mesh": 3,
+      "primitive": 0,
+      "sourceVertexOffset": 196596,
+      "sourceVertices": 65532,
+      "sourceTriangleOffset": 348274,
+      "sourceTriangles": 117214
+    },
+    {
+      "node": 6,
+      "mesh": 4,
+      "primitive": 0,
+      "sourceVertexOffset": 262128,
+      "sourceVertices": 65532,
+      "sourceTriangleOffset": 465488,
+      "sourceTriangles": 116645
+    },
+    {
+      "node": 7,
+      "mesh": 5,
+      "primitive": 0,
+      "sourceVertexOffset": 327660,
+      "sourceVertices": 65532,
+      "sourceTriangleOffset": 582133,
+      "sourceTriangles": 116983
+    },
+    {
+      "node": 8,
+      "mesh": 6,
+      "primitive": 0,
+      "sourceVertexOffset": 393192,
+      "sourceVertices": 65533,
+      "sourceTriangleOffset": 699116,
+      "sourceTriangles": 101995
+    },
+    {
+      "node": 9,
+      "mesh": 7,
+      "primitive": 0,
+      "sourceVertexOffset": 458725,
+      "sourceVertices": 16204,
+      "sourceTriangleOffset": 801111,
+      "sourceTriangles": 14593
+    }
+  ],
+  "traceFormat": {
+    "vertex": "16-byte records: uint32 parent original flattened triangle, float32 barycentric corner weights x3; source original triangles flatten by primitiveRecords.",
+    "triangle": "uint32 original flattened source triangle per output triangle."
+  },
+  "sourcePositionReconstructionMaxError": 1.3597399555105182e-16,
+  "sourceNormalReconstructionMaxError": 4.871083751574258e-16,
+  "topology": {
+    "geometricVertices": 166523,
+    "boundaryEdges": 2899,
+    "nonmanifoldEdges": 0,
+    "degenerateTriangles": 0,
+    "sourceNormalOpposedTriangles": 0
+  },
+  "mountRings": {
+    "neck": {
+      "componentY": 0,
+      "loops": [
+        {
+          "closed": true,
+          "pointCount": 1310,
+          "degreeAnomalies": 0
+        }
+      ]
+    },
+    "jawMeasurementOnly": {
+      "componentY": 0.19999999999999996,
+      "loops": [
+        {
+          "closed": true,
+          "pointCount": 1589,
+          "degreeAnomalies": 0
+        }
+      ]
+    },
+    "crown": {
+      "componentY": 1,
+      "loops": [
+        {
+          "closed": true,
+          "pointCount": 1589,
+          "degreeAnomalies": 0
+        }
+      ]
+    }
+  },
+  "geometryChanges": "Rigid recenter, uniform scale, two horizontal linear clips; source face/eyelid/nose/mouth/ear anatomy unchanged. Source normals retained/interpolated at clips. No remesh, smoothing, image sampling, projection or authored face. Open neck and crown mount cuts are intentional. Donor side hair remains.",
+  "culture": "Creator does not specify culture/era. Crowned decorative sculpture scan; period and culture unspecified by creator. This adaptation is not verified Japanese/Amida.",
+  "attribution": "Buddha head by peel-3d.com, CC BY 4.0; cropped, uniformly normalized and scan colors removed.",
+  "status": "Candidate for owner165/root visual and integration review; not canonical or accepted.",
+  "visualAccepted": false,
+  "files": {
+    "sc07": {
+      "file": "actual-face-ears-neck-sc07.bin",
+      "bytes": 9290520,
+      "sha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8"
+    },
+    "glb": {
+      "file": "actual-face-ears-neck-y-up-z-front.glb",
+      "bytes": 9292180,
+      "sha256": "2192f22ca28f89b950f3e5d7685137e402c04b1d59f431ba19c54533f1fcc4fa"
+    },
+    "vertexTrace": {
+      "file": "source-vertex-barycentric-trace.bin",
+      "sha256": "4f015fabdcb086d69e34eace47184ccd76d4ffe9082b5d71cef2ceaafeeceaa5"
+    },
+    "triangleTrace": {
+      "file": "source-triangle-trace.bin",
+      "sha256": "9514f9531cc1de3ccb23cc01fe8b481714a672f4ad81ccd347ea0e32b4283e06"
+    }
+  }
+}

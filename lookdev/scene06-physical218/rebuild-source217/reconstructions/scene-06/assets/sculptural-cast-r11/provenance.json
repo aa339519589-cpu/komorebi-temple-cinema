@@ -1,0 +1,315 @@
+{
+  "asset": "scene06-sculptural-cast-r11",
+  "createdUtc": "2026-10-21T13:16:47Z",
+  "method": "R11 source-led C2 soft-tissue sections, rounded chin/throat, actual new closed lip solids replacing inherited puckering, gentler orbital corners and asymmetric broad tension drapery. Editable procedural body/cloth and signed-distance hands with genuine CC0 structured-light head anatomy retargeted and actually sculpted toward the reference cheeks, jaw, forehead and downcast lids. The full-figure museum pose is not substituted. Each closed neckline, head, body, robe and newly cupped hands are physically voxel-unioned, gently relaxed, and decimated. No image projection, depth photograph mesh, AI frame, image plane, photographic texture, or source RGB used.",
+  "reference": "references/hd/4-\u7167\u7247-5.jpg, visual proportion/pose comparison only",
+  "anatomicalBase": "assets/cc0-fralin-buddha-head/provenance.json",
+  "referenceLandmarkGuide": "reconstructions/scene-06/modeling/scene06-r11-sculpture-landmarks.json",
+  "referenceLandmarkGuideSha256": "ba456630ec0d2aa9345302381631506fa4e1253dcbc485fc2b98e3ac43c4149a",
+  "source": "reconstructions/scene-06/src/restoration-buddha.js",
+  "sourceSha256": "91a3d04500fc0d49bc96d9a44abb3a4a7518f49c0d55118cafdef4e5f5c4e31d",
+  "generator": "reconstructions/scene-06/modeling/build-sculptural-cast-r11.mjs",
+  "fuser": "reconstructions/scene-06/modeling/fuse-sculptural-cast-r11.py",
+  "fuserSha256": "b2a2c541800e961a9a4752b44914237e95ac8302135fc48b422c54be275ea40c",
+  "blenderVersion": "5.2.1 LTS",
+  "headMeshSculpture": [
+    {
+      "variant": "central",
+      "method": "C2 full cheek/chin/submental/throat sections; replace lower-face scan planes and puckered lips with newly modeled closed shallow upper/lower labial solids on actual skin. Genuine nasal/orbital mesh anatomy retained; newly authored closed cartilage ears; broad orbital corner warp. No RGB, raster face, normal-map mask or view-facing construction.",
+      "profileRowsYRxRzCz": [
+        [
+          2.32,
+          0.126,
+          0.132,
+          -0.018
+        ],
+        [
+          2.42,
+          0.139,
+          0.15,
+          -0.015
+        ],
+        [
+          2.48,
+          0.155,
+          0.182,
+          -0.024
+        ],
+        [
+          2.54,
+          0.191,
+          0.255,
+          -0.035
+        ],
+        [
+          2.6,
+          0.242,
+          0.312,
+          -0.03
+        ],
+        [
+          2.68,
+          0.292,
+          0.345,
+          -0.022
+        ],
+        [
+          2.77,
+          0.328,
+          0.355,
+          -0.02
+        ],
+        [
+          2.89,
+          0.349,
+          0.358,
+          -0.023
+        ],
+        [
+          3.02,
+          0.346,
+          0.353,
+          -0.027
+        ],
+        [
+          3.16,
+          0.324,
+          0.354,
+          -0.029
+        ],
+        [
+          3.28,
+          0.28,
+          0.322,
+          -0.03
+        ],
+        [
+          3.32,
+          0.253,
+          0.294,
+          -0.03
+        ]
+      ],
+      "measuredAnatomicalInputVertices": 800090,
+      "removedInheritedLabialRegionVertices": 20066,
+      "closedLipSolids": 2,
+      "mouthHalfWidthModelUnits": 0.1,
+      "mouthCleftYModelUnits": 2.69,
+      "orbitalSourceLineY": 3.045,
+      "orbitalSourceOuterRise": 0.02,
+      "orbitalTargetLineY": 3.038,
+      "orbitalTargetOuterRise": -0.004,
+      "orbitalHeightScale": 0.85,
+      "lipCleftDepthModelUnits": 0.0013,
+      "earConstruction": "Two closed full-thickness cartilage surfaces with lobule, concha, helix and branching antihelix, fused into a continuous remapped head circumference",
+      "earForwardPlacementModelUnits": 0.115,
+      "earLobeHeightScale": 0.88,
+      "earInwardTurnRadians": 0.3,
+      "headPlacementY": -0.18,
+      "temporaryBaseSmoothIterations": 120,
+      "temporaryBaseIsNotFinalSurface": true
+    },
+    {
+      "variant": "left",
+      "method": "C2 full cheek/chin/submental/throat sections; replace lower-face scan planes and puckered lips with newly modeled closed shallow upper/lower labial solids on actual skin. Genuine nasal/orbital mesh anatomy retained; newly authored closed cartilage ears; broad orbital corner warp. No RGB, raster face, normal-map mask or view-facing construction.",
+      "profileRowsYRxRzCz": [
+        [
+          2.32,
+          0.126,
+          0.132,
+          -0.018
+        ],
+        [
+          2.42,
+          0.139,
+          0.15,
+          -0.015
+        ],
+        [
+          2.48,
+          0.155,
+          0.182,
+          -0.024
+        ],
+        [
+          2.54,
+          0.191,
+          0.255,
+          -0.035
+        ],
+        [
+          2.6,
+          0.242,
+          0.312,
+          -0.03
+        ],
+        [
+          2.68,
+          0.292,
+          0.345,
+          -0.022
+        ],
+        [
+          2.77,
+          0.328,
+          0.355,
+          -0.02
+        ],
+        [
+          2.89,
+          0.349,
+          0.358,
+          -0.023
+        ],
+        [
+          3.02,
+          0.346,
+          0.353,
+          -0.027
+        ],
+        [
+          3.16,
+          0.324,
+          0.354,
+          -0.029
+        ],
+        [
+          3.28,
+          0.28,
+          0.322,
+          -0.03
+        ],
+        [
+          3.32,
+          0.253,
+          0.294,
+          -0.03
+        ]
+      ],
+      "measuredAnatomicalInputVertices": 800090,
+      "removedInheritedLabialRegionVertices": 20066,
+      "closedLipSolids": 2,
+      "mouthHalfWidthModelUnits": 0.1,
+      "mouthCleftYModelUnits": 2.69,
+      "orbitalSourceLineY": 3.045,
+      "orbitalSourceOuterRise": 0.02,
+      "orbitalTargetLineY": 3.038,
+      "orbitalTargetOuterRise": -0.004,
+      "orbitalHeightScale": 0.85,
+      "lipCleftDepthModelUnits": 0.0013,
+      "earConstruction": "Two closed full-thickness cartilage surfaces with lobule, concha, helix and branching antihelix, fused into a continuous remapped head circumference",
+      "earForwardPlacementModelUnits": 0.115,
+      "earLobeHeightScale": 0.88,
+      "earInwardTurnRadians": 0.3,
+      "headPlacementY": -0.18,
+      "temporaryBaseSmoothIterations": 120,
+      "temporaryBaseIsNotFinalSurface": true
+    },
+    {
+      "variant": "right",
+      "method": "C2 full cheek/chin/submental/throat sections; replace lower-face scan planes and puckered lips with newly modeled closed shallow upper/lower labial solids on actual skin. Genuine nasal/orbital mesh anatomy retained; newly authored closed cartilage ears; broad orbital corner warp. No RGB, raster face, normal-map mask or view-facing construction.",
+      "profileRowsYRxRzCz": [
+        [
+          2.32,
+          0.126,
+          0.132,
+          -0.018
+        ],
+        [
+          2.42,
+          0.139,
+          0.15,
+          -0.015
+        ],
+        [
+          2.48,
+          0.155,
+          0.182,
+          -0.024
+        ],
+        [
+          2.54,
+          0.191,
+          0.255,
+          -0.035
+        ],
+        [
+          2.6,
+          0.242,
+          0.312,
+          -0.03
+        ],
+        [
+          2.68,
+          0.292,
+          0.345,
+          -0.022
+        ],
+        [
+          2.77,
+          0.328,
+          0.355,
+          -0.02
+        ],
+        [
+          2.89,
+          0.349,
+          0.358,
+          -0.023
+        ],
+        [
+          3.02,
+          0.346,
+          0.353,
+          -0.027
+        ],
+        [
+          3.16,
+          0.324,
+          0.354,
+          -0.029
+        ],
+        [
+          3.28,
+          0.28,
+          0.322,
+          -0.03
+        ],
+        [
+          3.32,
+          0.253,
+          0.294,
+          -0.03
+        ]
+      ],
+      "measuredAnatomicalInputVertices": 800090,
+      "removedInheritedLabialRegionVertices": 20066,
+      "closedLipSolids": 2,
+      "mouthHalfWidthModelUnits": 0.1,
+      "mouthCleftYModelUnits": 2.69,
+      "orbitalSourceLineY": 3.045,
+      "orbitalSourceOuterRise": 0.02,
+      "orbitalTargetLineY": 3.038,
+      "orbitalTargetOuterRise": -0.004,
+      "orbitalHeightScale": 0.85,
+      "lipCleftDepthModelUnits": 0.0013,
+      "earConstruction": "Two closed full-thickness cartilage surfaces with lobule, concha, helix and branching antihelix, fused into a continuous remapped head circumference",
+      "earForwardPlacementModelUnits": 0.115,
+      "earLobeHeightScale": 0.88,
+      "earInwardTurnRadians": 0.3,
+      "headPlacementY": -0.18,
+      "temporaryBaseSmoothIterations": 120,
+      "temporaryBaseIsNotFinalSurface": true
+    }
+  ],
+  "voxelSizeModelUnits": 0.0045,
+  "decimateRatio": 0.36,
+  "elapsedSeconds": 194.69877767562866,
+  "visualAccepted": false,
+  "limits": [
+    "A valid connected cast mesh does not establish a photo match.",
+    "The anatomical source is a different historical artifact, retargeted as a real 3D modeling base; it is not claimed as a scan of the photographed statue.",
+    "Voxel union may soften features finer than 4.5mm in pre-conversion model units.",
+    "The indoor light field and carved mandorlas remain separate reconstruction candidates."
+  ]
+}

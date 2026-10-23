@@ -1,0 +1,35 @@
+{
+  "status": "actual-3D-candidate-awaiting-native-review",
+  "visualAccepted": false,
+  "heldIncomingSourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+  "builder": "reconstructions/scene-06/modeling/sculpture165-r02/build.py",
+  "geometry": "reconstructions/scene-06/modeling/sculpture165-r02/geometry.py",
+  "builderSha256": "d6eadd4c661f21fca2adc9e48bd083fd2daa3abe4e75abdfaa008881a34e3c4e",
+  "geometrySha256": "f2dc8dd36421522538a79ff86623cb5320b06c132fae099c4c87148fcb897ee2",
+  "exactBuildSource": "lookdev/scene06-sculpture165/r02b",
+  "sourceAttribution": "Buddha Head by beachmouse, CC BY 4.0, via Sketchfab and Objaverse; cropped, fitted and resculpted in actual 3D. Donor remains the rear/lateral skull and ear basis outside the facial blend; frontal tissue, downcast lids, nose and closed lips newly authored. R01 knee volumes retained pending a separately licensed cloth donor. New deep outer cloak, curved feet, body, neck bridge and fine hair geometry authored for this reconstruction.",
+  "sourceLicense": "CC-BY-4.0",
+  "sourceURL": "https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab",
+  "sourceLimit": "Creator records Japanese tea garden in California; maker, date, manufacturing origin undocumented. Different statue than supplied reference.",
+  "sourceRetarget": {
+    "facialGeometryReshaped": true,
+    "maxSourceCageDelta": 0.05842970413693615,
+    "frontalDenseSurfaceVerticesSculpted": 24276,
+    "frontalDenseSurfaceMaxDelta": 0.20888036296616289,
+    "operation": "ActualR01 native review rejected donor orbits/lips. Dense front is newly authored curved tissue volume with malar/chin planes, downcast lids, long nasal bridge/alar anatomy and shallow closed lips; incised bronze eye/lip floors are closed physical solids. Donor remains the rear/lateral skull and ear basis outside the blended front. Blend is zero for sourceY>=-.055, absX>=.340, or sourceZ<=2.540 after the prior proportional retarget. No image displacement, view-facing surface or photographic RGB."
+  },
+  "authoredChanges": [
+    "R01 knees retained explicitly unresolved, pending separately licensed genuine cloth donor.",
+    "Dense frontal head tissue is newly sculpted with downcast lids, malar/chin planes, long bridge/alar volumes and quiet closed lips.",
+    "Closed incised bronze eye/lip floor solids follow the curved face; actual native profile review is required to exclude floating.",
+    "Closed thick shoulder-to-knee cloak and flared covered elbows provide actual side thickness.",
+    "Curved ankle/heel/arch/ball feet replace the R01 flat stacked instep bars.",
+    "Material roughness cloth.48/face.42/hand.40; PBR response still requires native visual comparison."
+  ],
+  "noNoncommercialGeometry": true,
+  "noPhotoOrGeneratedFrame": true,
+  "limits": [
+    "CC BY donor is a different sculpture; facial identity still differs.",
+    "Topology and valid rendering do not establish photographic fidelity."
+  ]
+}

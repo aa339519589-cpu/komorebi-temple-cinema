@@ -1,0 +1,64 @@
+{
+  "asset": "Fralin Museum of Art / University of Virginia Library Head of Buddha structured-light mesh",
+  "authors": [
+    "Will Rourk",
+    "Matthew Schneider"
+  ],
+  "publisher": "University of Virginia Library Dataverse",
+  "datasetTitle": "The Fraliln Museum of Art Asian Collection : Head of Buddha 3D Dataset",
+  "datasetDoi": "10.18130/V3/NCPOAE",
+  "datasetUrl": "https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/NCPOAE",
+  "primaryMetadataUrl": "https://dataverse.lib.virginia.edu/api/datasets/:persistentId/?persistentId=doi:10.18130/V3/NCPOAE",
+  "originalFileUrl": "https://dataverse.lib.virginia.edu/api/access/datafile/68370",
+  "originalFileName": "BuddhaHead_surfmerg_remesh.ply",
+  "originalFileId": 68370,
+  "license": "CC0 1.0 Universal",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "licenseEvidence": "dataset-primary-metadata.json > data.latestVersion.license",
+  "attribution": "Head of Buddha, The Fralin Museum of Art; 3D data by Matthew Schneider and Will Rourk, University of Virginia Library. CC0 1.0.",
+  "sourceBytes": 71561082,
+  "sourceMd5": "06b7be98aef9dc90305a0e39b0af956e",
+  "sourceMd5MatchesPrimary": true,
+  "sourceSha256": "0977e11edb982c15c68acc67e33c00a16d134590da184c46c8fd3325c1b7ad56",
+  "sourceArtifact": "Head of Buddha, 2nd\u20133rd century, Swat Valley, Pakistan, unknown Gandharan artist. This is a different historical artifact used as an anatomical modeling base, not claimed as the photographed altar statue.",
+  "geometryUseOnly": true,
+  "vertexRgbUsed": false,
+  "texturesUsed": false,
+  "transformations": {
+    "affineRows": [
+      [
+        0.0057,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0.0086,
+        0,
+        2.99
+      ],
+      [
+        0,
+        0,
+        0.0038,
+        0.09
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "description": "The verified source and import matrix already use +Y up and +Z front. Fit those actual axes directly with nonuniform dimensions; taper neck below Y2.53; extend lateral rear auricles; trim above Y3.32 and below Y2.40; retain the real jaw above Y2.46 and blend only the lower 6cm neck bearing into the existing ringed throat; cap cuts; restore the eroded urna socket with finite cast geometry; mildly smooth; union into body/hand/robe with 4.5mm model voxels and decimate. The rejected r8-01 inversion came from misreading an isolated inspection camera with an automatic pi roll, not an import transform.",
+    "topologyRepair": "Weld duplicate procedural meridians before bisecting, close all cut loops, and recalculate consistent outward component winding before the real voxel union.",
+    "referenceLedSculptureRepairs": [
+      "Preserve the actual scanned jaw and chin; extend its real neck down to Y2.40 and blend only Y2.40\u20132.46 into the grooved throat. This avoids both the flat clipped shelf and an overlong artificial jaw taper.",
+      "Retain actual concha/helix anatomy, shorten pointed lower scan tips, and union rounded auricle lobes.",
+      "Sculpt the eroded forehead socket toward a continuous forehead plane, then add the small finite cast urna bead."
+    ]
+  },
+  "buildSource": "reconstructions/scene-06/modeling/fuse-sculptural-cast.py",
+  "visualAccepted": false
+}

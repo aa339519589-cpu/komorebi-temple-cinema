@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {buildMandorla205} from './mandorla205.js';
 import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
 import {buildLayeredSourceLotus179} from './lotus-throne179.js';
 import {buildMonumentalMandorla,buildMonumentalAltarAccents,buildMonumentalFlowers,sculptedDragonRelief} from './monumental-altar-v3.js';
@@ -968,7 +969,7 @@ function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedH
   const rootY=Number.isFinite(supportY)?supportY:y+1.40*s,unit=s/.75;
   b.withTransform(x,rootY,z,1,()=>{
     const previousAliases=b.materialAliases;b.materialAliases={gold:'haloGold',oldgold:'haloShadow'};
-    try{buildMonumentalMandorla(b,{height:apexY-rootY,halfWidth:chasedHeadWheel?1.43*unit*widthScale/1.16:.69*(unit/(.52/.75))*widthScale/1.02,headCenter:headCenterY-rootY,isMain:chasedHeadWheel});}
+    try{buildMandorla205(b,{height:apexY-rootY,halfWidth:chasedHeadWheel?1.43*unit*widthScale/1.16:.69*(unit/(.52/.75))*widthScale/1.02,headCenter:headCenterY-rootY,isMain:chasedHeadWheel});}
     finally{b.materialAliases=previousAliases;}
     b.box(0,.13,-.10,.19*unit,.26,.22*unit,'oldgold');
   });

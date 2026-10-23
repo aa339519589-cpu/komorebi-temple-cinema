@@ -5,17 +5,19 @@ import {installRestoredBuddhaAssets} from './restoration-buddha.js';
 // Actual indexed, lit 3D surfaces. The binary contains positions, normals,
 // neutral object UVs, and triangle indices; it contains no captured pixels.
 export async function loadSculpturalCastAssets(){
- // Main body uses actual Scan-the-World Japanese Amida geometry (CC BY-NC-SA4).
+ // Connected source body: Scan-the-World Sainsbury Amida (NC-SA4).
+ // Actual3D ray target: Buddha head by peel-3d.com (BY4), culture unspecified.
  // User authorized personal noncommercial adoption; this declared sculpture199
- // derivative sculpts the original connected face/robe/scalp. Original SC07 retained. All
+ // derivative retains NC topology/body and retargets face to actual3D donor hits.
+ // Original inputs retained. Both attributions in manifest. All
  // live/reference/free-camera/film views use the same indexed3D surfaces.
  const revision='r11';
  const base=new URL(`../assets/sculptural-cast-${revision}/`,import.meta.url),response=await fetch(new URL('manifest.json',base));
  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');
- const foundationBase=new URL('../assets/sculpture199-r05-CC-BY-NC-SA-4.0/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
+ const foundationBase=new URL('../assets/sculpture199-r06j-ear-root-blend-mixed-licenses/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
  if(!foundationResponse.ok)throw Error('Paired-pose foundation manifest failed');
- const foundation=await foundationResponse.json();if(foundation.revision!=='scene06-sculpture199-r05')throw Error('Wrong NC actual-source revision');
+ const foundation=await foundationResponse.json();if(foundation.revision!=='scene06-sculpture199-r06j-ear-root-blend')throw Error('Wrong NC actual-source revision');
  const sideBase=new URL('../assets/attendant-bearing-v4/',import.meta.url),sideResponse=await fetch(new URL('manifest.json',sideBase));
  if(!sideResponse.ok)throw Error('Closed attendant head manifest failed');
  const sideManifest=await sideResponse.json();if(sideManifest.revision!=='scene06-attendant-bearing-v4')throw Error('Wrong attendant head revision');
@@ -38,5 +40,5 @@ export async function loadSculpturalCastAssets(){
   return{geometry:g,material:p.material};
   }));
  }
- installRestoredBuddhaAssets(variants);return{revision:'scene06-sculpture199-r05-source-sculpt-with-v4-attendants',foundation:foundation.revision,attendantFaces:sideManifest.revision,legacyAttendantBodies:manifest.revision,license:foundation.license,attribution:foundation.attribution,personalNoncommercialUseOnly:true,mainMetrics:{sourceContactProfiles:contactProfiles.profiles,sourceBearingOutline:foundation.sourceContactBearing?.outlineXZ,uniformWorldHeight:foundation.recommendedUniformWorldHeight,haloCenterModelY:foundation.recommendedCentralHaloCenterModelY,centralMandorlaZ:foundation.recommendedCentralMandorlaZ,mainLotusDepthAspect:foundation.recommendedMainLotusDepthAspect},visualAccepted:false};
+ installRestoredBuddhaAssets(variants);return{revision:'scene06-sculpture199-r06j-ear-root-blend-with-v4-attendants',foundation:foundation.revision,attendantFaces:sideManifest.revision,legacyAttendantBodies:manifest.revision,license:foundation.license,attribution:foundation.attribution,personalNoncommercialUseOnly:true,mainMetrics:{sourceContactProfiles:contactProfiles.profiles,sourceBearingOutline:foundation.sourceContactBearing?.outlineXZ,uniformWorldHeight:foundation.recommendedUniformWorldHeight,haloCenterModelY:foundation.recommendedCentralHaloCenterModelY,centralMandorlaZ:foundation.recommendedCentralMandorlaZ,mainLotusDepthAspect:foundation.recommendedMainLotusDepthAspect},visualAccepted:false};
 }

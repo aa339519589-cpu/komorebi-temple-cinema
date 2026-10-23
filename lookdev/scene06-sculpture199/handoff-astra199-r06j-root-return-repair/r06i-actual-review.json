@@ -1,0 +1,32 @@
+{
+  "revision": "scene06-sculpture199-r06i-side-curvature",
+  "status": "rejected-ear-volume-loss-and-overfaired-jaw",
+  "sourceHash": "0f948a5b68ad83639e6cd031164c8b61aabd4da785f3714e9bc4042f35f44313",
+  "personallyViewed": [
+    "profile",
+    "three-quarter"
+  ],
+  "evidence": [
+    {
+      "view": "profile",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r06-candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r06i-profile/report.json",
+      "sourceHash": "0f948a5b68ad83639e6cd031164c8b61aabd4da785f3714e9bc4042f35f44313",
+      "image": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r06-candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r06i-profile/inspection-view.png",
+      "imageSha256": "c05b6114b04e063d077665fe8152fb88e9276e0064eb767cd9bca9114ac34a1b"
+    },
+    {
+      "view": "three-quarter",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r06-candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r06i-three-quarter/report.json",
+      "sourceHash": "0f948a5b68ad83639e6cd031164c8b61aabd4da785f3714e9bc4042f35f44313",
+      "image": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r06-candidate-root/qa/ten-reference/06/iteration-scene06-sculpture199-r06i-three-quarter/inspection-view.png",
+      "imageSha256": "f6f938858ebb76a13901f007bfc1ef95aa1e00098dc1b48d2f955336a4a47905"
+    }
+  ],
+  "failures": [
+    "Broad implicit fairing flattened the actual ear bowl/rim and produced an unnaturally smooth side head.",
+    "Jaw underside over-rounded; the entire fixed front region became visually distinct."
+  ],
+  "decision": "Reject I. Return to H for a selective ear-root warp with ear anatomy anchors and smaller protected facial-feature cores. No front/full spent on I.",
+  "visualAccepted": false,
+  "canonicalPromoted": false
+}

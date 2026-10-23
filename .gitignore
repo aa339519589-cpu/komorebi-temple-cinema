@@ -14,3 +14,6 @@ lookdev/**/__pycache__/
 # Reproducible Python caches and temporary geometry-export buffers.
 __pycache__/
 lookdev/**/export-*/assets/
+
+# Numbered integration exports use the same regenerable asset cache.
+lookdev/scene06-physical218/export217-r01/assets/

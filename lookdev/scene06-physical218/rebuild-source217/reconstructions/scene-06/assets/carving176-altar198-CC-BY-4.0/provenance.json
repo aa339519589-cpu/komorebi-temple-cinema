@@ -1,0 +1,39 @@
+{
+  "revision": "scene06-altar198-r03",
+  "source": "Wood Carving of Dragon",
+  "author": "SCANOLOGY_3D",
+  "sourceURL": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceGeometryChanges": "Existing176 extraction, unchanged source bytes and normals. Runtime authored planar closures cap the five cloud X cuts; no source remesh/deformation. Whole frieze only uniformly scaled and translated. Cloud placements compensate BOTH the old .84 assembly X scale and the full [.74,.80,.74] table layout matrix, then use equal absolute world scale and optional isometric X reflection. Actual world matrix column lengths and orthogonality are checked at native scene build and emitted in every native frame receipt.",
+  "cultureAndPeriod": "Unspecified by creator. Not the reference artifact.",
+  "physicalUnits": "Source units unknown. Scene placement is an explicit proposed scale, not a surveyed dimension.",
+  "sourceFiles": {
+    "cloud-scroll-sc07.bin": {
+      "original": "lookdev/temple-carved-bearing176/components-r01/cloud-scroll/component-sc07.bin",
+      "sha256": "6b88a3785d280d79b41c518dc1357cd4d6526b69164fc23a32f30f98c19b2fb3"
+    },
+    "cloud-scroll-manifest.json": {
+      "original": "lookdev/temple-carved-bearing176/components-r01/cloud-scroll/manifest.json",
+      "sha256": "59e96e5476f98d4e5b36b34265e51cd6566448d05405e8a27e163f84c672e196"
+    },
+    "cloud-scroll-mount-loops.json": {
+      "original": "lookdev/temple-carved-bearing176/components-r01/cloud-scroll/measured-mount-loops.json",
+      "sha256": "0788e0fdc7bd398ace5e93cd63a8de490ba490c45f0123272f7da90a18d843b0"
+    },
+    "whole-dragon-frieze.glb": {
+      "original": "lookdev/temple-carved-bearing176/prepared/1336fa1889cf4eba829594fa30edd6ff/axis-clean-source.glb",
+      "sha256": "5bad0e5a3b1c75a0b5f320708a15933c0dabdfd9b713fa46ba002ff77584e2a3"
+    },
+    "whole-frieze-orientation.json": {
+      "original": "lookdev/temple-carved-bearing176/prepared/1336fa1889cf4eba829594fa30edd6ff/orientation.json",
+      "sha256": "33af7fedb41a768639bed2597537e9de199b403504c88a893d74cf7758e74ea8"
+    },
+    "LICENSE-ATTRIBUTION.txt": {
+      "original": "lookdev/temple-carved-bearing176/LICENSE-ATTRIBUTION.txt",
+      "sha256": "3cb60aff88595ed3864ccc74bf48b0a38613b68a0dcddb70f4b77457a47beb62"
+    }
+  },
+  "authoring": "src/altar-joinery198.js",
+  "visualAccepted": false
+}

@@ -1,0 +1,1808 @@
+{
+  "packages": {
+    "lookdev/scene02-monumental-v2/export": {
+      "sourceHash": "ab494e2ae55612c501a5823e1d8b1cc32568584cdc82f2981f38f28a6bd8c677",
+      "sourceCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+      "inputs": {
+        "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": {
+          "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+          "location": "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg"
+        },
+        "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": {
+          "sha256": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+          "location": "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png"
+        },
+        "assets/polyhaven/lacquered-cherry-wood/provenance.json": {
+          "sha256": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+          "location": "assets/polyhaven/lacquered-cherry-wood/provenance.json"
+        },
+        "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": {
+          "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+          "location": "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": {
+          "sha256": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": {
+          "sha256": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf"
+        },
+        "assets/polyhaven/periwinkle-plant/provenance.json": {
+          "sha256": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+          "location": "assets/polyhaven/periwinkle-plant/provenance.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-files.json": {
+          "sha256": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+          "location": "assets/polyhaven/periwinkle-plant/provider-files.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-info.json": {
+          "sha256": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+          "location": "assets/polyhaven/periwinkle-plant/provider-info.json"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": {
+          "sha256": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": {
+          "sha256": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": {
+          "sha256": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/provenance.json": {
+          "sha256": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+          "location": "assets/polyhaven/rock-moss-set-01/provenance.json"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": {
+          "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": {
+          "sha256": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": {
+          "sha256": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": {
+          "sha256": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": {
+          "sha256": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/provenance.json": {
+          "sha256": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+          "location": "assets/polyhaven/shrub-02/provenance.json"
+        },
+        "assets/polyhaven/shrub-02/provider-files.json": {
+          "sha256": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+          "location": "assets/polyhaven/shrub-02/provider-files.json"
+        },
+        "assets/polyhaven/shrub-02/provider-info.json": {
+          "sha256": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+          "location": "assets/polyhaven/shrub-02/provider-info.json"
+        },
+        "assets/polyhaven/shrub-02/shrub_02.bin": {
+          "sha256": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+          "location": "assets/polyhaven/shrub-02/shrub_02.bin"
+        },
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf": {
+          "sha256": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+          "location": "assets/polyhaven/shrub-02/shrub_02_4k.gltf"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": {
+          "sha256": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": {
+          "sha256": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": {
+          "sha256": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+        },
+        "reconstructions/camera-dolly.js": {
+          "sha256": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+          "location": "reconstructions/camera-dolly.js"
+        },
+        "reconstructions/scene-02/altar-figure.js": {
+          "sha256": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13",
+          "location": "reconstructions/scene-02/altar-figure.js"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/fetch-original.py": {
+          "sha256": "defa06e13b1d1c9665354f933b1d8c515aac6994ca955fd972b881228e422034",
+          "location": "reconstructions/scene-02/assets/fir-sapling/fetch-original.py"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin": {
+          "sha256": "efdebfae6ee4b3ea20c7a85eb9f798ff4953259a3616bcff0b7e580b00f34f40",
+          "location": "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf": {
+          "sha256": "b9e79991ac418a68da4e48fac0cf7e427835ff339369fc41f26232033bede433",
+          "location": "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/provenance.json": {
+          "sha256": "89756dd583836588701aa6256a20c37c156730483df9d36afc591ac84ef8095b",
+          "location": "reconstructions/scene-02/assets/fir-sapling/provenance.json"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/provider-files.json": {
+          "sha256": "4a87921ef6b878af2d0789ea9b9da4855c76f98a5c8ad6ca68bf263fee4e89c6",
+          "location": "reconstructions/scene-02/assets/fir-sapling/provider-files.json"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/provider-info.json": {
+          "sha256": "56c9ec5614688ba0eb8b628918fe49d05875d9ae70fc7ee5a4a8449607775617",
+          "location": "reconstructions/scene-02/assets/fir-sapling/provider-info.json"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg": {
+          "sha256": "58d613a7612205159ab605bc4f17dfc848ab79551b0bab5680a65f409a90c8c9",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg": {
+          "sha256": "d5a11f7e16189426018a1d3123e30108a09648f569d3b54dd2ed44d063807f69",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg": {
+          "sha256": "9fc044399e69277a5585da98e4836783ff2a4e4346b5743964dc8ce4a9326002",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg": {
+          "sha256": "4612704ed3f6f39bea681468964c9ee844ea607a5a6e9418a3c82ba7e2815058",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg": {
+          "sha256": "14b17f44ea87c75dcf9055293ad1975dcbeabe30748dda0775d48aab8ad2bd3c",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg": {
+          "sha256": "77fa92733acc4e658408b02f47e41c089e90e888e1e359a4cba4af940bc200cf",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png": {
+          "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png": {
+          "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png": {
+          "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/provenance.json": {
+          "sha256": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/provenance.json"
+        },
+        "reconstructions/scene-02/bank-evergreen156.js": {
+          "sha256": "9600f93f0eb3aaf5e2721ee1d43a3846eb2ab131743e9f699b3bc6dd478cbd92",
+          "location": "reconstructions/scene-02/bank-evergreen156.js"
+        },
+        "reconstructions/scene-02/embedded-bridge-bearings146.js": {
+          "sha256": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7",
+          "location": "reconstructions/scene-02/embedded-bridge-bearings146.js"
+        },
+        "reconstructions/scene-02/foreground-stone-lantern120.js": {
+          "sha256": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899",
+          "location": "reconstructions/scene-02/foreground-stone-lantern120.js"
+        },
+        "reconstructions/scene-02/garden-pines145.js": {
+          "sha256": "7906cb512520298811faf0f2933d708c32afee80b17e164be808e4b060eff658",
+          "location": "reconstructions/scene-02/garden-pines145.js"
+        },
+        "reconstructions/scene-02/garden.js": {
+          "sha256": "b208751dcd51e20d24a813ba481ca13214d58f865906fd2df5cacd0b9d7f72e8",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-02/garden.js"
+        },
+        "reconstructions/scene-02/hall-terrace144.js": {
+          "sha256": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6",
+          "location": "reconstructions/scene-02/hall-terrace144.js"
+        },
+        "reconstructions/scene-02/index.html": {
+          "sha256": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+          "location": "reconstructions/scene-02/index.html"
+        },
+        "reconstructions/scene-02/layout117.js": {
+          "sha256": "b2b2eb170691ec8e1f0046a8bfff6f0be76f5eb0e4c589c95093d8fea328c693",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-02/layout117.js"
+        },
+        "reconstructions/scene-02/pagoda-ground.js": {
+          "sha256": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6",
+          "location": "reconstructions/scene-02/pagoda-ground.js"
+        },
+        "reconstructions/scene-02/planted-shoulders147.js": {
+          "sha256": "d5be0fbb7e04ede5a9c152d7ac997207e72b9a7075c6b32731e040174753a90d",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-02/planted-shoulders147.js"
+        },
+        "reconstructions/scene-02/rooted-canopy142.js": {
+          "sha256": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42",
+          "location": "reconstructions/scene-02/rooted-canopy142.js"
+        },
+        "reconstructions/scene-02/scanned-fir-woodland150.js": {
+          "sha256": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e",
+          "location": "reconstructions/scene-02/scanned-fir-woodland150.js"
+        },
+        "reconstructions/scene-02/scanned-garden-stones.js": {
+          "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+          "location": "reconstructions/scene-02/scanned-garden-stones.js"
+        },
+        "reconstructions/scene-02/scanned-understory146.js": {
+          "sha256": "d883a6c1176ef8177a941d89050b6532a26fd77b4e9e63bd345fbbe1e7ad2192",
+          "location": "reconstructions/scene-02/scanned-understory146.js"
+        },
+        "reconstructions/scene-02/sorin-solids.js": {
+          "sha256": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c",
+          "location": "reconstructions/scene-02/sorin-solids.js"
+        },
+        "reconstructions/scene-02/veranda-boards.js": {
+          "sha256": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-02/veranda-boards.js"
+        },
+        "reconstructions/scene-02/veranda-rail117.js": {
+          "sha256": "d20b2c9234bb2c73b5389c1c9293c5e72bdbf7035be208405a60ef19aea2b4a7",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-02/veranda-rail117.js"
+        },
+        "reconstructions/scene-02/woodland-terminal148.js": {
+          "sha256": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1",
+          "location": "reconstructions/scene-02/woodland-terminal148.js"
+        }
+      },
+      "missing": [
+        "reconstructions/scene-02/architectural-finishes160.js",
+        "reconstructions/scene-02/architecture.js",
+        "reconstructions/scene-02/asset-dependencies.json",
+        "reconstructions/scene-02/carved-timber157.js",
+        "reconstructions/scene-02/corner-receiver158.js",
+        "reconstructions/scene-02/hall-carpentry141.js",
+        "reconstructions/scene-02/hall-entry.js",
+        "reconstructions/scene-02/hall-roof154.js",
+        "reconstructions/scene-02/kernel.js",
+        "reconstructions/scene-02/main.js",
+        "reconstructions/scene-02/pagoda-ensemble160.js",
+        "reconstructions/scene-02/scanned-timber.js",
+        "reconstructions/scene-02/veranda-carvings143.js"
+      ]
+    },
+    "lookdev/scene02-monumental-v2/export-r04": {
+      "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+      "sourceCommit": "201b1f37b199ce08ff3fa32cd3d991a7058e8427",
+      "inputs": {
+        "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": {
+          "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+          "location": "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg"
+        },
+        "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": {
+          "sha256": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+          "location": "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png"
+        },
+        "assets/polyhaven/lacquered-cherry-wood/provenance.json": {
+          "sha256": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+          "location": "assets/polyhaven/lacquered-cherry-wood/provenance.json"
+        },
+        "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": {
+          "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+          "location": "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": {
+          "sha256": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": {
+          "sha256": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf"
+        },
+        "assets/polyhaven/periwinkle-plant/provenance.json": {
+          "sha256": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+          "location": "assets/polyhaven/periwinkle-plant/provenance.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-files.json": {
+          "sha256": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+          "location": "assets/polyhaven/periwinkle-plant/provider-files.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-info.json": {
+          "sha256": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+          "location": "assets/polyhaven/periwinkle-plant/provider-info.json"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": {
+          "sha256": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": {
+          "sha256": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": {
+          "sha256": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/provenance.json": {
+          "sha256": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+          "location": "assets/polyhaven/rock-moss-set-01/provenance.json"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": {
+          "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": {
+          "sha256": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": {
+          "sha256": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": {
+          "sha256": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": {
+          "sha256": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/provenance.json": {
+          "sha256": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+          "location": "assets/polyhaven/shrub-02/provenance.json"
+        },
+        "assets/polyhaven/shrub-02/provider-files.json": {
+          "sha256": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+          "location": "assets/polyhaven/shrub-02/provider-files.json"
+        },
+        "assets/polyhaven/shrub-02/provider-info.json": {
+          "sha256": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+          "location": "assets/polyhaven/shrub-02/provider-info.json"
+        },
+        "assets/polyhaven/shrub-02/shrub_02.bin": {
+          "sha256": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+          "location": "assets/polyhaven/shrub-02/shrub_02.bin"
+        },
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf": {
+          "sha256": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+          "location": "assets/polyhaven/shrub-02/shrub_02_4k.gltf"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": {
+          "sha256": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": {
+          "sha256": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": {
+          "sha256": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+        },
+        "reconstructions/camera-dolly.js": {
+          "sha256": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+          "location": "reconstructions/camera-dolly.js"
+        },
+        "reconstructions/scene-02/altar-figure.js": {
+          "sha256": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13",
+          "location": "reconstructions/scene-02/altar-figure.js"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/fetch-original.py": {
+          "sha256": "defa06e13b1d1c9665354f933b1d8c515aac6994ca955fd972b881228e422034",
+          "location": "reconstructions/scene-02/assets/fir-sapling/fetch-original.py"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin": {
+          "sha256": "efdebfae6ee4b3ea20c7a85eb9f798ff4953259a3616bcff0b7e580b00f34f40",
+          "location": "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf": {
+          "sha256": "b9e79991ac418a68da4e48fac0cf7e427835ff339369fc41f26232033bede433",
+          "location": "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/provenance.json": {
+          "sha256": "89756dd583836588701aa6256a20c37c156730483df9d36afc591ac84ef8095b",
+          "location": "reconstructions/scene-02/assets/fir-sapling/provenance.json"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/provider-files.json": {
+          "sha256": "4a87921ef6b878af2d0789ea9b9da4855c76f98a5c8ad6ca68bf263fee4e89c6",
+          "location": "reconstructions/scene-02/assets/fir-sapling/provider-files.json"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/provider-info.json": {
+          "sha256": "56c9ec5614688ba0eb8b628918fe49d05875d9ae70fc7ee5a4a8449607775617",
+          "location": "reconstructions/scene-02/assets/fir-sapling/provider-info.json"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg": {
+          "sha256": "58d613a7612205159ab605bc4f17dfc848ab79551b0bab5680a65f409a90c8c9",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg": {
+          "sha256": "d5a11f7e16189426018a1d3123e30108a09648f569d3b54dd2ed44d063807f69",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg": {
+          "sha256": "9fc044399e69277a5585da98e4836783ff2a4e4346b5743964dc8ce4a9326002",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg": {
+          "sha256": "4612704ed3f6f39bea681468964c9ee844ea607a5a6e9418a3c82ba7e2815058",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg": {
+          "sha256": "14b17f44ea87c75dcf9055293ad1975dcbeabe30748dda0775d48aab8ad2bd3c",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg": {
+          "sha256": "77fa92733acc4e658408b02f47e41c089e90e888e1e359a4cba4af940bc200cf",
+          "location": "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png": {
+          "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png": {
+          "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png": {
+          "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png"
+        },
+        "reconstructions/scene-02/assets/foreground-lantern120/provenance.json": {
+          "sha256": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+          "location": "reconstructions/scene-02/assets/foreground-lantern120/provenance.json"
+        },
+        "reconstructions/scene-02/bank-evergreen156.js": {
+          "sha256": "9600f93f0eb3aaf5e2721ee1d43a3846eb2ab131743e9f699b3bc6dd478cbd92",
+          "location": "reconstructions/scene-02/bank-evergreen156.js"
+        },
+        "reconstructions/scene-02/embedded-bridge-bearings146.js": {
+          "sha256": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7",
+          "location": "reconstructions/scene-02/embedded-bridge-bearings146.js"
+        },
+        "reconstructions/scene-02/foreground-stone-lantern120.js": {
+          "sha256": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899",
+          "location": "reconstructions/scene-02/foreground-stone-lantern120.js"
+        },
+        "reconstructions/scene-02/gallery-footings162.js": {
+          "sha256": "3d86fdbc5e0272fb8c66cf95c24ecc4eef0da13a45474c65a85e3324c7505803",
+          "location": "reconstructions/scene-02/gallery-footings162.js"
+        },
+        "reconstructions/scene-02/garden-pines145.js": {
+          "sha256": "7906cb512520298811faf0f2933d708c32afee80b17e164be808e4b060eff658",
+          "location": "reconstructions/scene-02/garden-pines145.js"
+        },
+        "reconstructions/scene-02/garden.js": {
+          "sha256": "b208751dcd51e20d24a813ba481ca13214d58f865906fd2df5cacd0b9d7f72e8",
+          "gitCommit": "201b1f37b199ce08ff3fa32cd3d991a7058e8427",
+          "gitPath": "reconstructions/scene-02/garden.js"
+        },
+        "reconstructions/scene-02/hall-terrace144.js": {
+          "sha256": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6",
+          "location": "reconstructions/scene-02/hall-terrace144.js"
+        },
+        "reconstructions/scene-02/index.html": {
+          "sha256": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+          "location": "reconstructions/scene-02/index.html"
+        },
+        "reconstructions/scene-02/layout117.js": {
+          "sha256": "b2b2eb170691ec8e1f0046a8bfff6f0be76f5eb0e4c589c95093d8fea328c693",
+          "gitCommit": "201b1f37b199ce08ff3fa32cd3d991a7058e8427",
+          "gitPath": "reconstructions/scene-02/layout117.js"
+        },
+        "reconstructions/scene-02/pagoda-ground.js": {
+          "sha256": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6",
+          "location": "reconstructions/scene-02/pagoda-ground.js"
+        },
+        "reconstructions/scene-02/planted-shoulders147.js": {
+          "sha256": "d5be0fbb7e04ede5a9c152d7ac997207e72b9a7075c6b32731e040174753a90d",
+          "gitCommit": "201b1f37b199ce08ff3fa32cd3d991a7058e8427",
+          "gitPath": "reconstructions/scene-02/planted-shoulders147.js"
+        },
+        "reconstructions/scene-02/rooted-canopy142.js": {
+          "sha256": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42",
+          "location": "reconstructions/scene-02/rooted-canopy142.js"
+        },
+        "reconstructions/scene-02/scanned-fir-woodland150.js": {
+          "sha256": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e",
+          "location": "reconstructions/scene-02/scanned-fir-woodland150.js"
+        },
+        "reconstructions/scene-02/scanned-garden-stones.js": {
+          "sha256": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+          "location": "reconstructions/scene-02/scanned-garden-stones.js"
+        },
+        "reconstructions/scene-02/scanned-understory146.js": {
+          "sha256": "d883a6c1176ef8177a941d89050b6532a26fd77b4e9e63bd345fbbe1e7ad2192",
+          "location": "reconstructions/scene-02/scanned-understory146.js"
+        },
+        "reconstructions/scene-02/sorin-solids.js": {
+          "sha256": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c",
+          "location": "reconstructions/scene-02/sorin-solids.js"
+        },
+        "reconstructions/scene-02/veranda-boards.js": {
+          "sha256": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2",
+          "gitCommit": "201b1f37b199ce08ff3fa32cd3d991a7058e8427",
+          "gitPath": "reconstructions/scene-02/veranda-boards.js"
+        },
+        "reconstructions/scene-02/woodland-terminal148.js": {
+          "sha256": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1",
+          "location": "reconstructions/scene-02/woodland-terminal148.js"
+        }
+      },
+      "missing": [
+        "reconstructions/scene-02/architectural-finishes160.js",
+        "reconstructions/scene-02/architecture.js",
+        "reconstructions/scene-02/asset-dependencies.json",
+        "reconstructions/scene-02/carved-timber157.js",
+        "reconstructions/scene-02/corner-receiver158.js",
+        "reconstructions/scene-02/hall-carpentry141.js",
+        "reconstructions/scene-02/hall-entry.js",
+        "reconstructions/scene-02/hall-roof154.js",
+        "reconstructions/scene-02/kernel.js",
+        "reconstructions/scene-02/main.js",
+        "reconstructions/scene-02/pagoda-ensemble160.js",
+        "reconstructions/scene-02/scanned-timber.js",
+        "reconstructions/scene-02/veranda-carvings143.js",
+        "reconstructions/scene-02/veranda-rail117.js"
+      ]
+    },
+    "lookdev/scene03-monumental-garden-v2/export": {
+      "sourceHash": "4701698d2542b678da85e9bd5ad872d11d039afc317ed5c0030e8ff903b5cca9",
+      "sourceCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+      "inputs": {
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": {
+          "sha256": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": {
+          "sha256": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf"
+        },
+        "assets/polyhaven/periwinkle-plant/provenance.json": {
+          "sha256": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+          "location": "assets/polyhaven/periwinkle-plant/provenance.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-files.json": {
+          "sha256": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+          "location": "assets/polyhaven/periwinkle-plant/provider-files.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-info.json": {
+          "sha256": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+          "location": "assets/polyhaven/periwinkle-plant/provider-info.json"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": {
+          "sha256": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": {
+          "sha256": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": {
+          "sha256": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/provenance.json": {
+          "sha256": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+          "location": "assets/polyhaven/rock-moss-set-01/provenance.json"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": {
+          "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": {
+          "sha256": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": {
+          "sha256": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": {
+          "sha256": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": {
+          "sha256": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/provenance.json": {
+          "sha256": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+          "location": "assets/polyhaven/shrub-02/provenance.json"
+        },
+        "assets/polyhaven/shrub-02/provider-files.json": {
+          "sha256": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+          "location": "assets/polyhaven/shrub-02/provider-files.json"
+        },
+        "assets/polyhaven/shrub-02/provider-info.json": {
+          "sha256": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+          "location": "assets/polyhaven/shrub-02/provider-info.json"
+        },
+        "assets/polyhaven/shrub-02/shrub_02.bin": {
+          "sha256": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+          "location": "assets/polyhaven/shrub-02/shrub_02.bin"
+        },
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf": {
+          "sha256": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+          "location": "assets/polyhaven/shrub-02/shrub_02_4k.gltf"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": {
+          "sha256": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": {
+          "sha256": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": {
+          "sha256": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+        },
+        "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json": {
+          "sha256": "2de7b594417d56aeba6f5870f39fab95ace5bdc8ad9c5f67f9d897719cbe5f0d",
+          "location": "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json"
+        },
+        "reconstructions/camera-dolly.js": {
+          "sha256": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+          "location": "reconstructions/camera-dolly.js"
+        },
+        "reconstructions/scene-03/assets/daylight108/provider-files.json": {
+          "sha256": "a7cbb453c0269ac0996e43edaa7995d52b72f89830f4c7d7f813569f6647832c",
+          "location": "reconstructions/scene-03/assets/daylight108/provider-files.json"
+        },
+        "reconstructions/scene-03/assets/daylight108/sky-2k.hdr": {
+          "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+          "location": "reconstructions/scene-03/assets/daylight108/sky-2k.hdr"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/diffuse-2k.jpg": {
+          "sha256": "9c38b2b151a0415457a6914966422cfca5a546c94674442e5395e0b1e908a196",
+          "location": "reconstructions/scene-03/assets/forest-floor108/diffuse-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/displacement-2k.jpg": {
+          "sha256": "0e3e244b3e3cfd4910762515e7d723b50abe1c7b72b456b3e39e9029eeb5defe",
+          "location": "reconstructions/scene-03/assets/forest-floor108/displacement-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/normal-gl-2k.jpg": {
+          "sha256": "af0346114834c347a8d6a138f6ea16a97b0bec8d6e4db32c24f1c7e482163235",
+          "location": "reconstructions/scene-03/assets/forest-floor108/normal-gl-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/provenance.json": {
+          "sha256": "c13bda25c031c6d038540c4d0a75ae4f2018f6cae98824fca6788d0b8a56a44a",
+          "location": "reconstructions/scene-03/assets/forest-floor108/provenance.json"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/provider-files.json": {
+          "sha256": "699ecdd756c337c63ea2fbe5fa6362623d0d9a9c1ddb7151cf53c71a37f8927f",
+          "location": "reconstructions/scene-03/assets/forest-floor108/provider-files.json"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/roughness-2k.jpg": {
+          "sha256": "ed2dd60a10242640b1738760015cfae85c8526a79dbf5da563fdffdf30828eae",
+          "location": "reconstructions/scene-03/assets/forest-floor108/roughness-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/granite-face-diff.png": {
+          "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/granite-face-diff.png"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/granite-face-nor_gl.png": {
+          "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/granite-face-nor_gl.png"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/granite-face-rough.png": {
+          "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/granite-face-rough.png"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/provenance.json": {
+          "sha256": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/provenance.json"
+        },
+        "reconstructions/scene-03/assets/lotus-leaf96/material.json": {
+          "sha256": "86cacfc0ff72930644a8fbdc98f9f4231199e0c201975beacedc814779244a0d",
+          "location": "reconstructions/scene-03/assets/lotus-leaf96/material.json"
+        },
+        "reconstructions/scene-03/assets/lotus-leaf96/neutral-leaf-diffuse-v01.png": {
+          "sha256": "dd45a5ebf6bbf4c6fec0bbb071417cddd81f1f7573454760e7180eefb79b4725",
+          "location": "reconstructions/scene-03/assets/lotus-leaf96/neutral-leaf-diffuse-v01.png"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/build-report.json": {
+          "sha256": "3e5dd33b3108d3b7a4adca9aa32caf55a966f203c2f855219f6b6010ddf17387",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/build-report.json"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/imagegen-provenance.json": {
+          "sha256": "04b8b45fdf97993d90531add59030d5f9c46dbdc0d8b3a20a9ad70a175702bf4",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/imagegen-provenance.json"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend": {
+          "sha256": "26a9cd0ad96d24c08961e32d9137ad307ec2566e83839a3b2b02b15aed66998e",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb": {
+          "sha256": "e1f3d9ad9e819111def15b7501ff6630c4d83de552398dbaa4eb4e8fa618b1a4",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/source-height-guide.png": {
+          "sha256": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/source-height-guide.png"
+        },
+        "reconstructions/scene-03/assets/timber/diffuse-2k.jpg": {
+          "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+          "location": "reconstructions/scene-03/assets/timber/diffuse-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/timber/normal-gl-2k.png": {
+          "sha256": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+          "location": "reconstructions/scene-03/assets/timber/normal-gl-2k.png"
+        },
+        "reconstructions/scene-03/assets/timber/provenance.json": {
+          "sha256": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+          "location": "reconstructions/scene-03/assets/timber/provenance.json"
+        },
+        "reconstructions/scene-03/assets/timber/roughness-2k.jpg": {
+          "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+          "location": "reconstructions/scene-03/assets/timber/roughness-2k.jpg"
+        },
+        "reconstructions/scene-03/index.html": {
+          "sha256": "055f4b3a9530e7c502546f8a78abfd91fbedd21acff4884775309730788fb34c",
+          "location": "reconstructions/scene-03/index.html"
+        },
+        "reconstructions/scene-03/src/architecture-layout106.js": {
+          "sha256": "82b3ef54987008048c4bbac638e9961697315eefc153c3f6fec223a906d401b9",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/architecture-layout106.js"
+        },
+        "reconstructions/scene-03/src/entrance-sanctuary.js": {
+          "sha256": "254fa189487fae5085b62936e787d1b23bc80c72dc5e59c2b5e47bf0135d4880",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/entrance-sanctuary.js"
+        },
+        "reconstructions/scene-03/src/granite-entry-steps.js": {
+          "sha256": "45727aca2da3e21fa99584d21eb519a2a8e61a5a84f472e150ac07bbb0515b82",
+          "location": "reconstructions/scene-03/src/granite-entry-steps.js"
+        },
+        "reconstructions/scene-03/src/hall-layout.js": {
+          "sha256": "ece3900234b46f002db9a33c91ddc29fc251995ee5332b173503a76cf841c590",
+          "location": "reconstructions/scene-03/src/hall-layout.js"
+        },
+        "reconstructions/scene-03/src/lens03-coc101.js": {
+          "sha256": "f5ac4f1bb460d393eb2bf5acb2c2e313d3e89a98d0c6a8f65f8ba78bfc990545",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/lens03-coc101.js"
+        },
+        "reconstructions/scene-03/src/lotus-bud98.js": {
+          "sha256": "1c2b2601cfb41e3af08f83f89e3c28675e4297ce8c54a34ed5bea65f24ddeb2d",
+          "location": "reconstructions/scene-03/src/lotus-bud98.js"
+        },
+        "reconstructions/scene-03/src/lotus-material.js": {
+          "sha256": "f559b29b13450191fc10c83442fda60e7ecdcdf0f777ae870513044204b33923",
+          "location": "reconstructions/scene-03/src/lotus-material.js"
+        },
+        "reconstructions/scene-03/src/ranma-relief.js": {
+          "sha256": "5f7263c7c38e01ae10f1bc18ac5461519fbdfc0fd4e6532f429143f19d7b4c6b",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/ranma-relief.js"
+        },
+        "reconstructions/scene-03/src/reference4-architecture.js": {
+          "sha256": "206a446ac58451c2d7d112ea9b65b3b4c15e0e6b30ccec3744ece4ca991f4b9e",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/reference4-architecture.js"
+        },
+        "reconstructions/scene-03/src/reference4-detail-kernel.js": {
+          "sha256": "18193225a51a63a81e5f399c10b4262819854191c971876e9c977b0ba4065024",
+          "location": "reconstructions/scene-03/src/reference4-detail-kernel.js"
+        },
+        "reconstructions/scene-03/src/reference4-materials.js": {
+          "sha256": "f3ef009732ba14953ba3b8f1898cd79c8791fc6fb36e9be52681403163125325",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/reference4-materials.js"
+        },
+        "reconstructions/scene-03/src/reference4-natural-forms.js": {
+          "sha256": "0e4339261b20e0aa4ed99648d609d8737170592fad256975f6881b24514da8f4",
+          "location": "reconstructions/scene-03/src/reference4-natural-forms.js"
+        },
+        "reconstructions/scene-03/src/restoration-lotus-leaf.js": {
+          "sha256": "105821a6b1aafc995c734b4166886c3cc51d009f7daa4460292a9c6684a1082b",
+          "location": "reconstructions/scene-03/src/restoration-lotus-leaf.js"
+        },
+        "reconstructions/scene-03/src/scene03-arched-bridge.js": {
+          "sha256": "5bdbd51ae4c7d653c5c22023ffb6598efcc09e02599a9ec16c9b31038462d3c7",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-arched-bridge.js"
+        },
+        "reconstructions/scene-03/src/scene03-carved-receivers106.js": {
+          "sha256": "91e7726999bda523d9edc3c4a4ac700646a4e9772ba49e660f050994233cb69a",
+          "location": "reconstructions/scene-03/src/scene03-carved-receivers106.js"
+        },
+        "reconstructions/scene-03/src/scene03-curved-rafter.js": {
+          "sha256": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-curved-rafter.js"
+        },
+        "reconstructions/scene-03/src/scene03-fractured-stone107.js": {
+          "sha256": "7b35a197d607606045582cb4089415a4e8b5beeec05f2e5f167964e8b3d3b7c4",
+          "location": "reconstructions/scene-03/src/scene03-fractured-stone107.js"
+        },
+        "reconstructions/scene-03/src/scene03-garden-assets.js": {
+          "sha256": "c26680b5021b9c27899b65bf02a69106018448757acc44d5e36d0713ba76a2f3",
+          "location": "reconstructions/scene-03/src/scene03-garden-assets.js"
+        },
+        "reconstructions/scene-03/src/scene03-hall-carpentry.js": {
+          "sha256": "346a0149a86fc67be0174468d6e1d497f33179de24c3c578faa11e3c503b3d5e",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-hall-carpentry.js"
+        },
+        "reconstructions/scene-03/src/scene03-living-banks.js": {
+          "sha256": "4f17bd711e2630deb8c17679840be28cbccdbcf56359a6ec6fd953d81f6496ea",
+          "location": "reconstructions/scene-03/src/scene03-living-banks.js"
+        },
+        "reconstructions/scene-03/src/scene03-lotus-stem107.js": {
+          "sha256": "fa6e0a3970df2031de3b13f1e58495f03db60cc6bcbe5e289a6ace6d18300d94",
+          "location": "reconstructions/scene-03/src/scene03-lotus-stem107.js"
+        },
+        "reconstructions/scene-03/src/scene03-overhang108.js": {
+          "sha256": "0768f4db0a11f4dbe21c60954aa7abe6676cb703148de1a798fc5dff024f7f17",
+          "location": "reconstructions/scene-03/src/scene03-overhang108.js"
+        },
+        "reconstructions/scene-03/src/scene03-roof-solids.js": {
+          "sha256": "6ee6b30a2875bdcc8cce70cdae33ed3a9487f3051d1d50197a44e799b978d5ec",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-roof-solids.js"
+        },
+        "reconstructions/scene-03/src/scene03-root-surfaces108.js": {
+          "sha256": "e882635916ffe124fd19f285e5fcadb4c65785f5cd50c5c916bbbf7ad12413e7",
+          "location": "reconstructions/scene-03/src/scene03-root-surfaces108.js"
+        },
+        "reconstructions/scene-03/src/scene03-sanctuary-buddha.js": {
+          "sha256": "90eb79e35fcb5b3cdb6db23cc0e327e64f0bd47a8f70418729fa0fbc21b1133b",
+          "location": "reconstructions/scene-03/src/scene03-sanctuary-buddha.js"
+        },
+        "reconstructions/scene-03/src/scene03-solid-joinery.js": {
+          "sha256": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+          "location": "reconstructions/scene-03/src/scene03-solid-joinery.js"
+        },
+        "reconstructions/scene-03/src/scene03-tower-ground106.js": {
+          "sha256": "476c417e1556b2f140d0b561f233f39c6302e138cab401fe2c4c07830794648f",
+          "location": "reconstructions/scene-03/src/scene03-tower-ground106.js"
+        },
+        "reconstructions/scene-03/src/tower-enclosure03.js": {
+          "sha256": "06986042fe7fa58fb5f117fe1a526181bf7dfad6e73b51b7bd0ab0b6f9f999df",
+          "location": "reconstructions/scene-03/src/tower-enclosure03.js"
+        },
+        "reconstructions/scene-03/src/vendor/HDRLoader.js": {
+          "sha256": "0986b578f9acd14cec74e5ee85e07f45e681b40bcd229a601a0391201f9b5ff1",
+          "location": "reconstructions/scene-03/src/vendor/HDRLoader.js"
+        },
+        "reconstructions/scene-03/src/vendor/THREE-LICENSE.txt": {
+          "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+          "location": "reconstructions/scene-03/src/vendor/THREE-LICENSE.txt"
+        },
+        "reconstructions/scene-03/src/water-surface.js": {
+          "sha256": "3b6cc654936f8a43f66338face7e92b5dd65c46f60c30d014abb0f34ae075e60",
+          "location": "reconstructions/scene-03/src/water-surface.js"
+        },
+        "reconstructions/scene-03/tools/audit-stone107.mjs": {
+          "sha256": "82382d3d39c4aefb46953f1be486e483b1e1b4bc202652643e71f99bc206a166",
+          "location": "reconstructions/scene-03/tools/audit-stone107.mjs"
+        },
+        "reconstructions/scene-03/tools/build-ranma-relief.py": {
+          "sha256": "da30e89793e5a5e6533d02525d45f0ccd4d81868b8719f75d5e465912559cc08",
+          "location": "reconstructions/scene-03/tools/build-ranma-relief.py"
+        },
+        "reconstructions/scene-03/tools/local-three-loader107.mjs": {
+          "sha256": "471f52a202c978391ed6e83dbafb8ce61ecd08e317d3dce58d74753c2a5de383",
+          "location": "reconstructions/scene-03/tools/local-three-loader107.mjs"
+        },
+        "reconstructions/scene-03/tools/solve-architecture106-bridge.py": {
+          "sha256": "a3260fa0039d4afa2040c0a9eb71f1bdb7ca92cc69fbc1147778778975f43ced",
+          "location": "reconstructions/scene-03/tools/solve-architecture106-bridge.py"
+        },
+        "reconstructions/scene-03/tools/solve-architecture106.py": {
+          "sha256": "842a071759e64815f59ba4c65517ea4d1c72267b8cdbda4df51bd27ae2862bef",
+          "location": "reconstructions/scene-03/tools/solve-architecture106.py"
+        },
+        "reconstructions/scene-03/src/restoration-lotus-petal.js": {
+          "sha256": "92fc9ec94501c2847d01aee5b16f6cd27d75e69c32cd57303b3a0294f45386e1",
+          "location": "lookdev/scene03-finish180/r02-source/restoration-lotus-petal.js"
+        },
+        "reconstructions/scene-03/src/scanned-timber.js": {
+          "sha256": "7cae43b2f0b84f95f4cfbb46a3f5aa00d7a34d6bbb119e7d86b455baba31fedb",
+          "location": "lookdev/scene03-mainhall109-finish/checkpoint-r05-source/src/scanned-timber.js"
+        },
+        "reconstructions/scene-03/src/scene03-carved-toro.js": {
+          "sha256": "d321af44efe7b390f36ab6195a30ba76c191b4ad7977e37c8c4106ef42f11d19",
+          "location": "lookdev/scene03-finish180/r02-source/scene03-carved-toro.js"
+        },
+        "reconstructions/scene-03/src/scene03-daylight108.js": {
+          "sha256": "972e70d0088195abaed33f638bc37e5822de90ba50b340108523b5447b326501",
+          "location": "lookdev/scene03-finish180/r03-source/scene03-daylight108.js"
+        }
+      },
+      "missing": [
+        "reconstructions/scene-03/asset-dependencies.json",
+        "reconstructions/scene-03/assets/daylight108/provenance.json",
+        "reconstructions/scene-03/src/main.js"
+      ]
+    },
+    "lookdev/scene03-monumental-garden-v2/export-r05": {
+      "sourceHash": "3fe3cf8363370109963b6a4ea297f023f19abe017684e9ba2e137cec7da4bb59",
+      "sourceCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+      "inputs": {
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": {
+          "sha256": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": {
+          "sha256": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf"
+        },
+        "assets/polyhaven/periwinkle-plant/provenance.json": {
+          "sha256": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+          "location": "assets/polyhaven/periwinkle-plant/provenance.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-files.json": {
+          "sha256": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+          "location": "assets/polyhaven/periwinkle-plant/provider-files.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-info.json": {
+          "sha256": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+          "location": "assets/polyhaven/periwinkle-plant/provider-info.json"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": {
+          "sha256": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": {
+          "sha256": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": {
+          "sha256": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/provenance.json": {
+          "sha256": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+          "location": "assets/polyhaven/rock-moss-set-01/provenance.json"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": {
+          "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": {
+          "sha256": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": {
+          "sha256": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": {
+          "sha256": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": {
+          "sha256": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/provenance.json": {
+          "sha256": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+          "location": "assets/polyhaven/shrub-02/provenance.json"
+        },
+        "assets/polyhaven/shrub-02/provider-files.json": {
+          "sha256": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+          "location": "assets/polyhaven/shrub-02/provider-files.json"
+        },
+        "assets/polyhaven/shrub-02/provider-info.json": {
+          "sha256": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+          "location": "assets/polyhaven/shrub-02/provider-info.json"
+        },
+        "assets/polyhaven/shrub-02/shrub_02.bin": {
+          "sha256": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+          "location": "assets/polyhaven/shrub-02/shrub_02.bin"
+        },
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf": {
+          "sha256": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+          "location": "assets/polyhaven/shrub-02/shrub_02_4k.gltf"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": {
+          "sha256": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": {
+          "sha256": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": {
+          "sha256": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+        },
+        "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json": {
+          "sha256": "2de7b594417d56aeba6f5870f39fab95ace5bdc8ad9c5f67f9d897719cbe5f0d",
+          "location": "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json"
+        },
+        "reconstructions/camera-dolly.js": {
+          "sha256": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+          "location": "reconstructions/camera-dolly.js"
+        },
+        "reconstructions/scene-03/assets/daylight108/provider-files.json": {
+          "sha256": "a7cbb453c0269ac0996e43edaa7995d52b72f89830f4c7d7f813569f6647832c",
+          "location": "reconstructions/scene-03/assets/daylight108/provider-files.json"
+        },
+        "reconstructions/scene-03/assets/daylight108/sky-2k.hdr": {
+          "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+          "location": "reconstructions/scene-03/assets/daylight108/sky-2k.hdr"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/diffuse-2k.jpg": {
+          "sha256": "9c38b2b151a0415457a6914966422cfca5a546c94674442e5395e0b1e908a196",
+          "location": "reconstructions/scene-03/assets/forest-floor108/diffuse-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/displacement-2k.jpg": {
+          "sha256": "0e3e244b3e3cfd4910762515e7d723b50abe1c7b72b456b3e39e9029eeb5defe",
+          "location": "reconstructions/scene-03/assets/forest-floor108/displacement-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/normal-gl-2k.jpg": {
+          "sha256": "af0346114834c347a8d6a138f6ea16a97b0bec8d6e4db32c24f1c7e482163235",
+          "location": "reconstructions/scene-03/assets/forest-floor108/normal-gl-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/provenance.json": {
+          "sha256": "c13bda25c031c6d038540c4d0a75ae4f2018f6cae98824fca6788d0b8a56a44a",
+          "location": "reconstructions/scene-03/assets/forest-floor108/provenance.json"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/provider-files.json": {
+          "sha256": "699ecdd756c337c63ea2fbe5fa6362623d0d9a9c1ddb7151cf53c71a37f8927f",
+          "location": "reconstructions/scene-03/assets/forest-floor108/provider-files.json"
+        },
+        "reconstructions/scene-03/assets/forest-floor108/roughness-2k.jpg": {
+          "sha256": "ed2dd60a10242640b1738760015cfae85c8526a79dbf5da563fdffdf30828eae",
+          "location": "reconstructions/scene-03/assets/forest-floor108/roughness-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/granite-face-diff.png": {
+          "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/granite-face-diff.png"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/granite-face-nor_gl.png": {
+          "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/granite-face-nor_gl.png"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/granite-face-rough.png": {
+          "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/granite-face-rough.png"
+        },
+        "reconstructions/scene-03/assets/granite-tile-04/provenance.json": {
+          "sha256": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+          "location": "reconstructions/scene-03/assets/granite-tile-04/provenance.json"
+        },
+        "reconstructions/scene-03/assets/lotus-leaf96/material.json": {
+          "sha256": "86cacfc0ff72930644a8fbdc98f9f4231199e0c201975beacedc814779244a0d",
+          "location": "reconstructions/scene-03/assets/lotus-leaf96/material.json"
+        },
+        "reconstructions/scene-03/assets/lotus-leaf96/neutral-leaf-diffuse-v01.png": {
+          "sha256": "dd45a5ebf6bbf4c6fec0bbb071417cddd81f1f7573454760e7180eefb79b4725",
+          "location": "reconstructions/scene-03/assets/lotus-leaf96/neutral-leaf-diffuse-v01.png"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/build-report.json": {
+          "sha256": "3e5dd33b3108d3b7a4adca9aa32caf55a966f203c2f855219f6b6010ddf17387",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/build-report.json"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/imagegen-provenance.json": {
+          "sha256": "04b8b45fdf97993d90531add59030d5f9c46dbdc0d8b3a20a9ad70a175702bf4",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/imagegen-provenance.json"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend": {
+          "sha256": "26a9cd0ad96d24c08961e32d9137ad307ec2566e83839a3b2b02b15aed66998e",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb": {
+          "sha256": "e1f3d9ad9e819111def15b7501ff6630c4d83de552398dbaa4eb4e8fa618b1a4",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.glb"
+        },
+        "reconstructions/scene-03/assets/ranma-frieze-v01/source-height-guide.png": {
+          "sha256": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+          "location": "reconstructions/scene-03/assets/ranma-frieze-v01/source-height-guide.png"
+        },
+        "reconstructions/scene-03/assets/timber/diffuse-2k.jpg": {
+          "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+          "location": "reconstructions/scene-03/assets/timber/diffuse-2k.jpg"
+        },
+        "reconstructions/scene-03/assets/timber/normal-gl-2k.png": {
+          "sha256": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+          "location": "reconstructions/scene-03/assets/timber/normal-gl-2k.png"
+        },
+        "reconstructions/scene-03/assets/timber/provenance.json": {
+          "sha256": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+          "location": "reconstructions/scene-03/assets/timber/provenance.json"
+        },
+        "reconstructions/scene-03/assets/timber/roughness-2k.jpg": {
+          "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+          "location": "reconstructions/scene-03/assets/timber/roughness-2k.jpg"
+        },
+        "reconstructions/scene-03/index.html": {
+          "sha256": "055f4b3a9530e7c502546f8a78abfd91fbedd21acff4884775309730788fb34c",
+          "location": "reconstructions/scene-03/index.html"
+        },
+        "reconstructions/scene-03/src/architecture-layout106.js": {
+          "sha256": "82b3ef54987008048c4bbac638e9961697315eefc153c3f6fec223a906d401b9",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/architecture-layout106.js"
+        },
+        "reconstructions/scene-03/src/entrance-sanctuary.js": {
+          "sha256": "254fa189487fae5085b62936e787d1b23bc80c72dc5e59c2b5e47bf0135d4880",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/entrance-sanctuary.js"
+        },
+        "reconstructions/scene-03/src/granite-entry-steps.js": {
+          "sha256": "45727aca2da3e21fa99584d21eb519a2a8e61a5a84f472e150ac07bbb0515b82",
+          "location": "reconstructions/scene-03/src/granite-entry-steps.js"
+        },
+        "reconstructions/scene-03/src/hall-layout.js": {
+          "sha256": "ece3900234b46f002db9a33c91ddc29fc251995ee5332b173503a76cf841c590",
+          "location": "reconstructions/scene-03/src/hall-layout.js"
+        },
+        "reconstructions/scene-03/src/lens03-coc101.js": {
+          "sha256": "f5ac4f1bb460d393eb2bf5acb2c2e313d3e89a98d0c6a8f65f8ba78bfc990545",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/lens03-coc101.js"
+        },
+        "reconstructions/scene-03/src/lotus-bud98.js": {
+          "sha256": "1c2b2601cfb41e3af08f83f89e3c28675e4297ce8c54a34ed5bea65f24ddeb2d",
+          "location": "reconstructions/scene-03/src/lotus-bud98.js"
+        },
+        "reconstructions/scene-03/src/lotus-material.js": {
+          "sha256": "f559b29b13450191fc10c83442fda60e7ecdcdf0f777ae870513044204b33923",
+          "location": "reconstructions/scene-03/src/lotus-material.js"
+        },
+        "reconstructions/scene-03/src/ranma-relief.js": {
+          "sha256": "5f7263c7c38e01ae10f1bc18ac5461519fbdfc0fd4e6532f429143f19d7b4c6b",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/ranma-relief.js"
+        },
+        "reconstructions/scene-03/src/reference4-architecture.js": {
+          "sha256": "206a446ac58451c2d7d112ea9b65b3b4c15e0e6b30ccec3744ece4ca991f4b9e",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/reference4-architecture.js"
+        },
+        "reconstructions/scene-03/src/reference4-detail-kernel.js": {
+          "sha256": "18193225a51a63a81e5f399c10b4262819854191c971876e9c977b0ba4065024",
+          "location": "reconstructions/scene-03/src/reference4-detail-kernel.js"
+        },
+        "reconstructions/scene-03/src/reference4-materials.js": {
+          "sha256": "f3ef009732ba14953ba3b8f1898cd79c8791fc6fb36e9be52681403163125325",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/reference4-materials.js"
+        },
+        "reconstructions/scene-03/src/reference4-natural-forms.js": {
+          "sha256": "0e4339261b20e0aa4ed99648d609d8737170592fad256975f6881b24514da8f4",
+          "location": "reconstructions/scene-03/src/reference4-natural-forms.js"
+        },
+        "reconstructions/scene-03/src/restoration-lotus-leaf.js": {
+          "sha256": "105821a6b1aafc995c734b4166886c3cc51d009f7daa4460292a9c6684a1082b",
+          "location": "reconstructions/scene-03/src/restoration-lotus-leaf.js"
+        },
+        "reconstructions/scene-03/src/scene03-arched-bridge.js": {
+          "sha256": "5bdbd51ae4c7d653c5c22023ffb6598efcc09e02599a9ec16c9b31038462d3c7",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-arched-bridge.js"
+        },
+        "reconstructions/scene-03/src/scene03-carved-receivers106.js": {
+          "sha256": "91e7726999bda523d9edc3c4a4ac700646a4e9772ba49e660f050994233cb69a",
+          "location": "reconstructions/scene-03/src/scene03-carved-receivers106.js"
+        },
+        "reconstructions/scene-03/src/scene03-curved-rafter.js": {
+          "sha256": "b6d256059ca9f80807b4d7d4b7af34fc7399305ada53a41ab0d0508de8eb240f",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-curved-rafter.js"
+        },
+        "reconstructions/scene-03/src/scene03-fractured-stone107.js": {
+          "sha256": "7b35a197d607606045582cb4089415a4e8b5beeec05f2e5f167964e8b3d3b7c4",
+          "location": "reconstructions/scene-03/src/scene03-fractured-stone107.js"
+        },
+        "reconstructions/scene-03/src/scene03-garden-assets.js": {
+          "sha256": "c26680b5021b9c27899b65bf02a69106018448757acc44d5e36d0713ba76a2f3",
+          "location": "reconstructions/scene-03/src/scene03-garden-assets.js"
+        },
+        "reconstructions/scene-03/src/scene03-hall-carpentry.js": {
+          "sha256": "346a0149a86fc67be0174468d6e1d497f33179de24c3c578faa11e3c503b3d5e",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-hall-carpentry.js"
+        },
+        "reconstructions/scene-03/src/scene03-lotus-stem107.js": {
+          "sha256": "fa6e0a3970df2031de3b13f1e58495f03db60cc6bcbe5e289a6ace6d18300d94",
+          "location": "reconstructions/scene-03/src/scene03-lotus-stem107.js"
+        },
+        "reconstructions/scene-03/src/scene03-overhang108.js": {
+          "sha256": "0768f4db0a11f4dbe21c60954aa7abe6676cb703148de1a798fc5dff024f7f17",
+          "location": "reconstructions/scene-03/src/scene03-overhang108.js"
+        },
+        "reconstructions/scene-03/src/scene03-roof-solids.js": {
+          "sha256": "6ee6b30a2875bdcc8cce70cdae33ed3a9487f3051d1d50197a44e799b978d5ec",
+          "gitCommit": "89c859e229fd84c775d2e66be25a62a6d5b2b768",
+          "gitPath": "reconstructions/scene-03/src/scene03-roof-solids.js"
+        },
+        "reconstructions/scene-03/src/scene03-root-surfaces108.js": {
+          "sha256": "e882635916ffe124fd19f285e5fcadb4c65785f5cd50c5c916bbbf7ad12413e7",
+          "location": "reconstructions/scene-03/src/scene03-root-surfaces108.js"
+        },
+        "reconstructions/scene-03/src/scene03-sanctuary-buddha.js": {
+          "sha256": "90eb79e35fcb5b3cdb6db23cc0e327e64f0bd47a8f70418729fa0fbc21b1133b",
+          "location": "reconstructions/scene-03/src/scene03-sanctuary-buddha.js"
+        },
+        "reconstructions/scene-03/src/scene03-solid-joinery.js": {
+          "sha256": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+          "location": "reconstructions/scene-03/src/scene03-solid-joinery.js"
+        },
+        "reconstructions/scene-03/src/scene03-tower-ground106.js": {
+          "sha256": "476c417e1556b2f140d0b561f233f39c6302e138cab401fe2c4c07830794648f",
+          "location": "reconstructions/scene-03/src/scene03-tower-ground106.js"
+        },
+        "reconstructions/scene-03/src/tower-enclosure03.js": {
+          "sha256": "06986042fe7fa58fb5f117fe1a526181bf7dfad6e73b51b7bd0ab0b6f9f999df",
+          "location": "reconstructions/scene-03/src/tower-enclosure03.js"
+        },
+        "reconstructions/scene-03/src/vendor/HDRLoader.js": {
+          "sha256": "0986b578f9acd14cec74e5ee85e07f45e681b40bcd229a601a0391201f9b5ff1",
+          "location": "reconstructions/scene-03/src/vendor/HDRLoader.js"
+        },
+        "reconstructions/scene-03/src/vendor/THREE-LICENSE.txt": {
+          "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+          "location": "reconstructions/scene-03/src/vendor/THREE-LICENSE.txt"
+        },
+        "reconstructions/scene-03/src/water-surface.js": {
+          "sha256": "3b6cc654936f8a43f66338face7e92b5dd65c46f60c30d014abb0f34ae075e60",
+          "location": "reconstructions/scene-03/src/water-surface.js"
+        },
+        "reconstructions/scene-03/tools/audit-stone107.mjs": {
+          "sha256": "82382d3d39c4aefb46953f1be486e483b1e1b4bc202652643e71f99bc206a166",
+          "location": "reconstructions/scene-03/tools/audit-stone107.mjs"
+        },
+        "reconstructions/scene-03/tools/build-ranma-relief.py": {
+          "sha256": "da30e89793e5a5e6533d02525d45f0ccd4d81868b8719f75d5e465912559cc08",
+          "location": "reconstructions/scene-03/tools/build-ranma-relief.py"
+        },
+        "reconstructions/scene-03/tools/local-three-loader107.mjs": {
+          "sha256": "471f52a202c978391ed6e83dbafb8ce61ecd08e317d3dce58d74753c2a5de383",
+          "location": "reconstructions/scene-03/tools/local-three-loader107.mjs"
+        },
+        "reconstructions/scene-03/tools/solve-architecture106-bridge.py": {
+          "sha256": "a3260fa0039d4afa2040c0a9eb71f1bdb7ca92cc69fbc1147778778975f43ced",
+          "location": "reconstructions/scene-03/tools/solve-architecture106-bridge.py"
+        },
+        "reconstructions/scene-03/tools/solve-architecture106.py": {
+          "sha256": "842a071759e64815f59ba4c65517ea4d1c72267b8cdbda4df51bd27ae2862bef",
+          "location": "reconstructions/scene-03/tools/solve-architecture106.py"
+        },
+        "reconstructions/scene-03/src/restoration-lotus-petal.js": {
+          "sha256": "92fc9ec94501c2847d01aee5b16f6cd27d75e69c32cd57303b3a0294f45386e1",
+          "location": "lookdev/scene03-finish180/r02-source/restoration-lotus-petal.js"
+        },
+        "reconstructions/scene-03/src/scanned-timber.js": {
+          "sha256": "7cae43b2f0b84f95f4cfbb46a3f5aa00d7a34d6bbb119e7d86b455baba31fedb",
+          "location": "lookdev/scene03-mainhall109-finish/checkpoint-r05-source/src/scanned-timber.js"
+        },
+        "reconstructions/scene-03/src/scene03-carved-toro.js": {
+          "sha256": "d321af44efe7b390f36ab6195a30ba76c191b4ad7977e37c8c4106ef42f11d19",
+          "location": "lookdev/scene03-finish180/r02-source/scene03-carved-toro.js"
+        },
+        "reconstructions/scene-03/src/scene03-daylight108.js": {
+          "sha256": "972e70d0088195abaed33f638bc37e5822de90ba50b340108523b5447b326501",
+          "location": "lookdev/scene03-finish180/r03-source/scene03-daylight108.js"
+        }
+      },
+      "missing": [
+        "reconstructions/scene-03/asset-dependencies.json",
+        "reconstructions/scene-03/assets/daylight108/provenance.json",
+        "reconstructions/scene-03/src/main.js",
+        "reconstructions/scene-03/src/scene03-living-banks.js"
+      ]
+    },
+    "lookdev/scene08-monumental-court-v2/export-r04": {
+      "sourceHash": "d28def9f4b1238876ccb02abac8353289521644e9b4a593497afda85ad9e73d0",
+      "sourceCommit": "8342b9a9f35f7f94d8c77a766dbf299c92b0654f",
+      "inputs": {
+        "assets/polyhaven/kloppenheim-06-puresky/provenance.json": {
+          "sha256": "a85657e8f5f5104be09731fb58c392e9bbe062431c9c3de555e446264afb7153",
+          "location": "assets/polyhaven/kloppenheim-06-puresky/provenance.json"
+        },
+        "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr": {
+          "sha256": "5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063",
+          "location": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": {
+          "sha256": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": {
+          "sha256": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf"
+        },
+        "assets/polyhaven/periwinkle-plant/provenance.json": {
+          "sha256": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+          "location": "assets/polyhaven/periwinkle-plant/provenance.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-files.json": {
+          "sha256": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+          "location": "assets/polyhaven/periwinkle-plant/provider-files.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-info.json": {
+          "sha256": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+          "location": "assets/polyhaven/periwinkle-plant/provider-info.json"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": {
+          "sha256": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": {
+          "sha256": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": {
+          "sha256": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/provenance.json": {
+          "sha256": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+          "location": "assets/polyhaven/rock-moss-set-01/provenance.json"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": {
+          "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": {
+          "sha256": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": {
+          "sha256": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": {
+          "sha256": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": {
+          "sha256": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/provenance.json": {
+          "sha256": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+          "location": "assets/polyhaven/shrub-02/provenance.json"
+        },
+        "assets/polyhaven/shrub-02/provider-files.json": {
+          "sha256": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+          "location": "assets/polyhaven/shrub-02/provider-files.json"
+        },
+        "assets/polyhaven/shrub-02/provider-info.json": {
+          "sha256": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+          "location": "assets/polyhaven/shrub-02/provider-info.json"
+        },
+        "assets/polyhaven/shrub-02/shrub_02.bin": {
+          "sha256": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+          "location": "assets/polyhaven/shrub-02/shrub_02.bin"
+        },
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf": {
+          "sha256": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+          "location": "assets/polyhaven/shrub-02/shrub_02_4k.gltf"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": {
+          "sha256": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": {
+          "sha256": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": {
+          "sha256": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+        },
+        "reconstructions/camera-dolly.js": {
+          "sha256": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+          "location": "reconstructions/camera-dolly.js"
+        },
+        "reconstructions/scene-08/assets/courtyard147-provenance.json": {
+          "sha256": "5a60496aa887790bd433f494026fd3437c6fa3f08d23a27c8786d99aea0b1092",
+          "location": "reconstructions/scene-08/assets/courtyard147-provenance.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json": {
+          "sha256": "e2bbe36fc8955a2177e7387ffb24d450417aec5271a680dceec64c5b81e83f26",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json": {
+          "sha256": "e3c6bab6f20acbb0263ad4317537763f18d87f92c991ef0b94399fd672fc64a7",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json": {
+          "sha256": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json": {
+          "sha256": "15992a312377a3a0a607607db41d3c63f5544ee3bccca1ee55a7b14ec28ee49e",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json": {
+          "sha256": "a302e66df3e6497b08e8674b1cb0273ec3cfe7b67ee3110e8ae664fcd7c289ca",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json": {
+          "sha256": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json": {
+          "sha256": "c9928fa7dd96025c03e9ff82591726cfb159c1d44f2665d850d25c3aa1a71589",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json": {
+          "sha256": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json"
+        },
+        "reconstructions/scene-08/assets/granite/carved-gray-albedo148.png": {
+          "sha256": "22bdc7dbcfb4d73becf72aaabbde3e0ee5e3a7af207c6f0dc22d6f877af08afb",
+          "location": "reconstructions/scene-08/assets/granite/carved-gray-albedo148.png"
+        },
+        "reconstructions/scene-08/assets/granite/granite-face-diff.png": {
+          "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+          "location": "reconstructions/scene-08/assets/granite/granite-face-diff.png"
+        },
+        "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png": {
+          "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+          "location": "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png"
+        },
+        "reconstructions/scene-08/assets/granite/granite-face-rough.png": {
+          "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+          "location": "reconstructions/scene-08/assets/granite/granite-face-rough.png"
+        },
+        "reconstructions/scene-08/assets/granite/gray-albedo148-provenance.json": {
+          "sha256": "83ed9da94d24aa1e99e1e3db523385e99dceead4edf10f2f2145acb0043c65a0",
+          "location": "reconstructions/scene-08/assets/granite/gray-albedo148-provenance.json"
+        },
+        "reconstructions/scene-08/assets/granite/provenance.json": {
+          "sha256": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+          "location": "reconstructions/scene-08/assets/granite/provenance.json"
+        },
+        "reconstructions/scene-08/assets/granite/stair-gray-albedo148.png": {
+          "sha256": "30f1f0ad2461ca3bac3ac43bb97665d2e50e7c5ca699cc0af327026e00f2e06c",
+          "location": "reconstructions/scene-08/assets/granite/stair-gray-albedo148.png"
+        },
+        "reconstructions/scene-08/assets/material-use-20261021.json": {
+          "sha256": "19c03ef609df72ec978ef46dcdff6ab2629914e9741baff9e90213f800824dfd",
+          "location": "reconstructions/scene-08/assets/material-use-20261021.json"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal38/provenance.json": {
+          "sha256": "e0cc44121006608f800b43230be6a06f0f7bfe0bf8af21d009135c297460ad55",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal38/provenance.json"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal38/sky-2k.exr": {
+          "sha256": "2d797b30f0f53dcb2ff96c51e61b6f899ae6c3ebdad0bd98b6c36c42a1d1ca3d",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal38/sky-2k.exr"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal48/provenance.json": {
+          "sha256": "89ff290590bf4d9d190357e0b5651447cb9c95a9156ebee5ca22991bf30b30f0",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal48/provenance.json"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr": {
+          "sha256": "e56997073870b6c1afec424cbc7f9fc307dd96ac70b975defacac091926a03e6",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr"
+        },
+        "reconstructions/scene-08/assets/timber/diffuse-2k.jpg": {
+          "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+          "location": "reconstructions/scene-08/assets/timber/diffuse-2k.jpg"
+        },
+        "reconstructions/scene-08/assets/timber/normal-gl-2k.png": {
+          "sha256": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+          "location": "reconstructions/scene-08/assets/timber/normal-gl-2k.png"
+        },
+        "reconstructions/scene-08/assets/timber/provenance.json": {
+          "sha256": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+          "location": "reconstructions/scene-08/assets/timber/provenance.json"
+        },
+        "reconstructions/scene-08/assets/timber/roughness-2k.jpg": {
+          "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+          "location": "reconstructions/scene-08/assets/timber/roughness-2k.jpg"
+        },
+        "reconstructions/scene-08/index.html": {
+          "sha256": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+          "location": "reconstructions/scene-08/index.html"
+        },
+        "reconstructions/scene-08/src/courtyard-botany147.js": {
+          "sha256": "d7e41f71170667efc7bfc65d19d8b30d37b4c982844ed9ef4bbc1eda5439b3b6",
+          "location": "reconstructions/scene-08/src/courtyard-botany147.js"
+        },
+        "reconstructions/scene-08/src/courtyard-radiance147.js": {
+          "sha256": "c4febf567cfc478676c9d11f49c46f6056dc6bd50559d5f65109ceb212515c35",
+          "location": "reconstructions/scene-08/src/courtyard-radiance147.js"
+        },
+        "reconstructions/scene-08/src/courtyard-relief147.js": {
+          "sha256": "2af49df5d27794bbf6b01fcf7a508ec8e3b0c24539e0467f9aa3a315e9b2ee39",
+          "location": "reconstructions/scene-08/src/courtyard-relief147.js"
+        },
+        "reconstructions/scene-08/src/courtyard-stones147.js": {
+          "sha256": "aad549dfe67e7a0ca3a30e0a32e4ad9bfabba1ce3b9ba872a285bf5e1867b4f3",
+          "gitCommit": "8342b9a9f35f7f94d8c77a766dbf299c92b0654f",
+          "gitPath": "reconstructions/scene-08/src/courtyard-stones147.js"
+        },
+        "reconstructions/scene-08/src/gallery-joinery.js": {
+          "sha256": "7633809f9a9519d5e5cc977e01a0db7c58831bad999cb79c4c8430acf7a57c9d",
+          "location": "reconstructions/scene-08/src/gallery-joinery.js"
+        },
+        "reconstructions/scene-08/src/gate-hardware.js": {
+          "sha256": "97b11925d69e24e62c6efa272ac48aac8722ec8d82ee21f23a8b38dd57cbb04a",
+          "location": "reconstructions/scene-08/src/gate-hardware.js"
+        },
+        "reconstructions/scene-08/src/main.js": {
+          "sha256": "e9fad2ff287f42cc6cc41ac2d9302f19f1e77044e8d6a8bd716952c7772f49dc",
+          "gitCommit": "8342b9a9f35f7f94d8c77a766dbf299c92b0654f",
+          "gitPath": "reconstructions/scene-08/src/main.js"
+        },
+        "reconstructions/scene-08/src/post.js": {
+          "sha256": "a64cee534dc1c79edbd2c652dd4d7ee1808460a594d45d4741275975d75cbfe2",
+          "location": "reconstructions/scene-08/src/post.js"
+        },
+        "reconstructions/scene-08/src/rocks.js": {
+          "sha256": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+          "location": "reconstructions/scene-08/src/rocks.js"
+        }
+      },
+      "missing": [
+        "reconstructions/scene-08/asset-dependencies.json",
+        "reconstructions/scene-08/assets/courtyard148-provenance.json",
+        "reconstructions/scene-08/src/courtyard-botany148.js",
+        "reconstructions/scene-08/src/courtyard-radiance148.js",
+        "reconstructions/scene-08/src/scene.js"
+      ]
+    },
+    "lookdev/scene08-monumental-court-v2/export-r05": {
+      "sourceHash": "4823d9265316fcf5cd30aaa72f7ea5609edc0914beb1c768c226e1eb0790b9aa",
+      "sourceCommit": "342af4d8af87f7aa3ba6a0af81a8e820f1bdb6c2",
+      "inputs": {
+        "assets/polyhaven/kloppenheim-06-puresky/provenance.json": {
+          "sha256": "a85657e8f5f5104be09731fb58c392e9bbe062431c9c3de555e446264afb7153",
+          "location": "assets/polyhaven/kloppenheim-06-puresky/provenance.json"
+        },
+        "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr": {
+          "sha256": "5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063",
+          "location": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": {
+          "sha256": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin"
+        },
+        "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": {
+          "sha256": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+          "location": "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf"
+        },
+        "assets/polyhaven/periwinkle-plant/provenance.json": {
+          "sha256": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+          "location": "assets/polyhaven/periwinkle-plant/provenance.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-files.json": {
+          "sha256": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+          "location": "assets/polyhaven/periwinkle-plant/provider-files.json"
+        },
+        "assets/polyhaven/periwinkle-plant/provider-info.json": {
+          "sha256": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+          "location": "assets/polyhaven/periwinkle-plant/provider-info.json"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": {
+          "sha256": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": {
+          "sha256": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg"
+        },
+        "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": {
+          "sha256": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+          "location": "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/provenance.json": {
+          "sha256": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+          "location": "assets/polyhaven/rock-moss-set-01/provenance.json"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": {
+          "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin"
+        },
+        "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": {
+          "sha256": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+          "location": "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": {
+          "sha256": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": {
+          "sha256": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg"
+        },
+        "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": {
+          "sha256": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+          "location": "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/provenance.json": {
+          "sha256": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+          "location": "assets/polyhaven/shrub-02/provenance.json"
+        },
+        "assets/polyhaven/shrub-02/provider-files.json": {
+          "sha256": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+          "location": "assets/polyhaven/shrub-02/provider-files.json"
+        },
+        "assets/polyhaven/shrub-02/provider-info.json": {
+          "sha256": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+          "location": "assets/polyhaven/shrub-02/provider-info.json"
+        },
+        "assets/polyhaven/shrub-02/shrub_02.bin": {
+          "sha256": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+          "location": "assets/polyhaven/shrub-02/shrub_02.bin"
+        },
+        "assets/polyhaven/shrub-02/shrub_02_4k.gltf": {
+          "sha256": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+          "location": "assets/polyhaven/shrub-02/shrub_02_4k.gltf"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": {
+          "sha256": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": {
+          "sha256": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg"
+        },
+        "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": {
+          "sha256": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+          "location": "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+        },
+        "reconstructions/camera-dolly.js": {
+          "sha256": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+          "location": "reconstructions/camera-dolly.js"
+        },
+        "reconstructions/scene-08/assets/courtyard147-provenance.json": {
+          "sha256": "5a60496aa887790bd433f494026fd3437c6fa3f08d23a27c8786d99aea0b1092",
+          "location": "reconstructions/scene-08/assets/courtyard147-provenance.json"
+        },
+        "reconstructions/scene-08/assets/courtyard148-provenance.json": {
+          "sha256": "ef3be61706357bf4a1650a2870cd54fcae9d83dd06ffb29907c2259dd964cebb",
+          "location": "reconstructions/scene-08/assets/courtyard148-provenance.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json": {
+          "sha256": "e2bbe36fc8955a2177e7387ffb24d450417aec5271a680dceec64c5b81e83f26",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v03/build-report.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json": {
+          "sha256": "e3c6bab6f20acbb0263ad4317537763f18d87f92c991ef0b94399fd672fc64a7",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v03/export-audit.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json": {
+          "sha256": "e86148eb8d27603a71e00ea4f1d16495af994a6ac9de13becc801d974f08c55c",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v03/hand-drawn-vectors.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json": {
+          "sha256": "15992a312377a3a0a607607db41d3c63f5544ee3bccca1ee55a7b14ec28ee49e",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v04/build-report.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json": {
+          "sha256": "a302e66df3e6497b08e8674b1cb0273ec3cfe7b67ee3110e8ae664fcd7c289ca",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v04/export-audit.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json": {
+          "sha256": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v04/hand-drawn-vectors.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json": {
+          "sha256": "c9928fa7dd96025c03e9ff82591726cfb159c1d44f2665d850d25c3aa1a71589",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v05/build-report.json"
+        },
+        "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json": {
+          "sha256": "ca159b12d0c35f7a9dd4d74e5d99712b2acc63936cf467512f8a977970f30bab",
+          "location": "reconstructions/scene-08/assets/gate-plaque-v05/hand-drawn-vectors.json"
+        },
+        "reconstructions/scene-08/assets/granite/carved-gray-albedo148.png": {
+          "sha256": "22bdc7dbcfb4d73becf72aaabbde3e0ee5e3a7af207c6f0dc22d6f877af08afb",
+          "location": "reconstructions/scene-08/assets/granite/carved-gray-albedo148.png"
+        },
+        "reconstructions/scene-08/assets/granite/granite-face-diff.png": {
+          "sha256": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+          "location": "reconstructions/scene-08/assets/granite/granite-face-diff.png"
+        },
+        "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png": {
+          "sha256": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+          "location": "reconstructions/scene-08/assets/granite/granite-face-nor_gl.png"
+        },
+        "reconstructions/scene-08/assets/granite/granite-face-rough.png": {
+          "sha256": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+          "location": "reconstructions/scene-08/assets/granite/granite-face-rough.png"
+        },
+        "reconstructions/scene-08/assets/granite/gray-albedo148-provenance.json": {
+          "sha256": "83ed9da94d24aa1e99e1e3db523385e99dceead4edf10f2f2145acb0043c65a0",
+          "location": "reconstructions/scene-08/assets/granite/gray-albedo148-provenance.json"
+        },
+        "reconstructions/scene-08/assets/granite/provenance.json": {
+          "sha256": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+          "location": "reconstructions/scene-08/assets/granite/provenance.json"
+        },
+        "reconstructions/scene-08/assets/granite/stair-gray-albedo148.png": {
+          "sha256": "30f1f0ad2461ca3bac3ac43bb97665d2e50e7c5ca699cc0af327026e00f2e06c",
+          "location": "reconstructions/scene-08/assets/granite/stair-gray-albedo148.png"
+        },
+        "reconstructions/scene-08/assets/material-use-20261021.json": {
+          "sha256": "19c03ef609df72ec978ef46dcdff6ab2629914e9741baff9e90213f800824dfd",
+          "location": "reconstructions/scene-08/assets/material-use-20261021.json"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal38/provenance.json": {
+          "sha256": "e0cc44121006608f800b43230be6a06f0f7bfe0bf8af21d009135c297460ad55",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal38/provenance.json"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal38/sky-2k.exr": {
+          "sha256": "2d797b30f0f53dcb2ff96c51e61b6f899ae6c3ebdad0bd98b6c36c42a1d1ca3d",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal38/sky-2k.exr"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal48/provenance.json": {
+          "sha256": "89ff290590bf4d9d190357e0b5651447cb9c95a9156ebee5ca22991bf30b30f0",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal48/provenance.json"
+        },
+        "reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr": {
+          "sha256": "e56997073870b6c1afec424cbc7f9fc307dd96ac70b975defacac091926a03e6",
+          "location": "reconstructions/scene-08/assets/sky-kloofendal48/sky-2k.exr"
+        },
+        "reconstructions/scene-08/assets/timber/diffuse-2k.jpg": {
+          "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+          "location": "reconstructions/scene-08/assets/timber/diffuse-2k.jpg"
+        },
+        "reconstructions/scene-08/assets/timber/normal-gl-2k.png": {
+          "sha256": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+          "location": "reconstructions/scene-08/assets/timber/normal-gl-2k.png"
+        },
+        "reconstructions/scene-08/assets/timber/provenance.json": {
+          "sha256": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+          "location": "reconstructions/scene-08/assets/timber/provenance.json"
+        },
+        "reconstructions/scene-08/assets/timber/roughness-2k.jpg": {
+          "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+          "location": "reconstructions/scene-08/assets/timber/roughness-2k.jpg"
+        },
+        "reconstructions/scene-08/index.html": {
+          "sha256": "17afb8bb52f3362b4a9991a76e04476759a53f31f952248f52b0b1827c6c3cd9",
+          "location": "reconstructions/scene-08/index.html"
+        },
+        "reconstructions/scene-08/src/courtyard-botany147.js": {
+          "sha256": "d7e41f71170667efc7bfc65d19d8b30d37b4c982844ed9ef4bbc1eda5439b3b6",
+          "location": "reconstructions/scene-08/src/courtyard-botany147.js"
+        },
+        "reconstructions/scene-08/src/courtyard-radiance147.js": {
+          "sha256": "c4febf567cfc478676c9d11f49c46f6056dc6bd50559d5f65109ceb212515c35",
+          "location": "reconstructions/scene-08/src/courtyard-radiance147.js"
+        },
+        "reconstructions/scene-08/src/courtyard-relief147.js": {
+          "sha256": "2af49df5d27794bbf6b01fcf7a508ec8e3b0c24539e0467f9aa3a315e9b2ee39",
+          "location": "reconstructions/scene-08/src/courtyard-relief147.js"
+        },
+        "reconstructions/scene-08/src/courtyard-stones147.js": {
+          "sha256": "aad549dfe67e7a0ca3a30e0a32e4ad9bfabba1ce3b9ba872a285bf5e1867b4f3",
+          "gitCommit": "342af4d8af87f7aa3ba6a0af81a8e820f1bdb6c2",
+          "gitPath": "reconstructions/scene-08/src/courtyard-stones147.js"
+        },
+        "reconstructions/scene-08/src/gallery-joinery.js": {
+          "sha256": "7633809f9a9519d5e5cc977e01a0db7c58831bad999cb79c4c8430acf7a57c9d",
+          "location": "reconstructions/scene-08/src/gallery-joinery.js"
+        },
+        "reconstructions/scene-08/src/gate-hardware.js": {
+          "sha256": "97b11925d69e24e62c6efa272ac48aac8722ec8d82ee21f23a8b38dd57cbb04a",
+          "location": "reconstructions/scene-08/src/gate-hardware.js"
+        },
+        "reconstructions/scene-08/src/main.js": {
+          "sha256": "e9fad2ff287f42cc6cc41ac2d9302f19f1e77044e8d6a8bd716952c7772f49dc",
+          "gitCommit": "342af4d8af87f7aa3ba6a0af81a8e820f1bdb6c2",
+          "gitPath": "reconstructions/scene-08/src/main.js"
+        },
+        "reconstructions/scene-08/src/post.js": {
+          "sha256": "a64cee534dc1c79edbd2c652dd4d7ee1808460a594d45d4741275975d75cbfe2",
+          "location": "reconstructions/scene-08/src/post.js"
+        },
+        "reconstructions/scene-08/src/rocks.js": {
+          "sha256": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+          "location": "reconstructions/scene-08/src/rocks.js"
+        }
+      },
+      "missing": [
+        "reconstructions/scene-08/asset-dependencies.json",
+        "reconstructions/scene-08/src/courtyard-botany148.js",
+        "reconstructions/scene-08/src/courtyard-radiance148.js",
+        "reconstructions/scene-08/src/scene.js"
+      ]
+    }
+  }
+}

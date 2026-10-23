@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-19",
+  "generator": "OpenAI built-in image_gen",
+  "purpose": "Texture detail for the existing Three.js temple geometry in canonical scene 04; these files are material inputs, never a replacement scene frame.",
+  "referenceImage": "references/hd/3-照片-4.jpg",
+  "referenceUse": "Palette, surface age, and material appearance only. No reference pixels were composited into the model or output frames.",
+  "outputs": [
+    {
+      "file": "warm-granite-source.png",
+      "sha256": "dd4a62edd9a44390fc20f8156751523f282e2857fb8e8bc50ff9d14bebeb4766",
+      "dimensions": [1254, 1254],
+      "prompt": "Use case: photorealistic-natural. Asset type: seamless albedo texture for a physically based 3D temple courtyard floor. Input images: Image 1 is a reference for the stone colour, scale, age and golden-hour atmosphere only; do not copy its layout or architecture. Primary request: a true seamless, tileable, square close-up material texture of individual hand-split Japanese granite flagstone surfaces, warm charcoal, weathered umber and muted ochre minerals, fine crystalline flecks, subtle shallow pits, edge wear visible only as material wear, realistic rain-aged patina in small non-repeating patches. It must read as a flat texture viewed perfectly from above. Lighting/mood: neutral even diffuse scan lighting, preserve the natural warm mineral palette without baked shadows or highlights. Materials/textures: physically plausible fine-grain granite with varied but restrained roughness cues; detailed enough for close camera work. Constraints: seamless left/right/top/bottom edges; surface only, no visible stone boundaries or grout; no perspective, no cast shadows, no horizon, no temple, no vegetation, no flowers, no lantern, no text, no watermark, no diagram labels."
+    },
+    {
+      "file": "lacquered-cedar-source.png",
+      "sha256": "0f7bde070c828e12bca378b475a39f8ff1e31e349593f0f17340f15a25208efe",
+      "dimensions": [1254, 1254],
+      "prompt": "Use case: photorealistic-natural. Asset type: seamless albedo texture for physically based 3D temple timber. Input images: Image 1 is a reference for the Japanese temple timber hue, age and gold-lit atmosphere only; do not reproduce its composition or ornaments. Primary request: a square, truly tileable, close-range material scan of old Japanese hinoki cedar beams finished with deep red-brown urushi lacquer, restrained warm highlights, visible fine straight grain, tiny worn edges and subtle hand-planed tool variation. Flat overhead material texture, uniform scale, no perspective. Lighting/mood: neutral diffuse texture capture with no baked directional light, no casts or object shadows; keep the warm mahogany/red cedar colour from the reference. Materials/textures: realistic fine cypress wood grain, slightly porous lacquer with low sheen, natural color variation across the surface. Constraints: seamless borders on all four edges; fill frame with the same wood surface; no separate objects, no carved patterns, no gold decorations, no letters, no watermark, no background, no cast shadow."
+    },
+    {
+      "file": "charcoal-mineral-source.png",
+      "sha256": "30539516adcf56bda60c8ff80e56c5bc995794cf366a372baf294e9f8eb624ad",
+      "dimensions": [1254, 1254],
+      "prompt": "Use case: photorealistic-natural. Asset type: seamless albedo texture for physically based 3D Japanese temple roof tiles. Input images: Image 1 is a reference for the roof tile colour, age and ceramic finish only; do not reproduce its architecture or composition. Primary request: a square, truly tileable close-up material scan of old hand-fired Japanese kawara roof tile ceramic, charcoal blue-gray with subtle smoky variation and finely granular kiln-fired clay, tiny age speckles, faint glaze sheen, slight weathering. Flat orthographic surface texture. Lighting/mood: neutral diffuse capture, no baked highlights, no directional shadows or sunlight. Materials/textures: realistic fine mineral grain and fired clay pores, restrained natural variation. Constraints: seamless on all four borders, no separate tile shapes, no tile seams, no rows, no roof geometry, no perspective, no sky, no temple, no vegetation, no gold ornament, no text, no watermark."
+    }
+  ],
+  "tilingStatus": "The prompts request seamless borders; exact edge continuity has not yet been measured. Runtime textures use repeat wrapping and will be judged in the actual render."
+}

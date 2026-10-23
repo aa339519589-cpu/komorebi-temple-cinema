@@ -1,0 +1,13 @@
+{
+  "asset": "temple-hinoki-albedo.png",
+  "createdAt": "2026-10-20",
+  "tool": "built-in OpenAI ImageGen",
+  "role": "albedo texture on modeled scene-06 timber columns, beams, and central ceiling",
+  "usage": "Repeating surface texture on actual 3D meshes only; never used as a camera-facing scene plate or a video frame.",
+  "referenceImagesUsedAsInputs": false,
+  "tileableRequested": true,
+  "mapsProvided": ["albedo"],
+  "mapsNotProvided": ["normal", "roughness", "displacement"],
+  "sha256": "8ca9dcb84a48aefada8716636b26778c861108daaa9c118c8d3ad17118b76d36",
+  "prompt": "Use case: photorealistic-natural. Asset type: seamless physically-based albedo texture for a code-built 3D Japanese Buddhist temple interior. Primary request: a square, perfectly tileable, neutral orthographic close-up of dark warm reddish-brown hinoki / zelkova temple timber, fine straight longitudinal grain with subtle pores, slight age and hand-planed irregularity, elegant old clear lacquer absorbed into the wood, deep umber fibers and restrained copper-red highlights. Materials/textures: photoreal true wood fibers at believable architectural scale, matte albedo only; evenly lit diffuse neutral daylight; no directional light, no reflections, no shadow, no perspective, no board edges, no seams, no knots larger than natural subtle pin knots. Constraints: texture must tile seamlessly on all four edges; no gold ornament, no pattern, no objects, no text, no watermark; keep natural warm dark wood values rather than orange or red plastic."
+}

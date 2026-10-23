@@ -1,0 +1,244 @@
+{
+  "revision": "scene06-sculpture199-r06j-ear-root-blend",
+  "status": "root-returned-H-side-views-required",
+  "visualAccepted": false,
+  "license": "CC-BY-NC-SA-4.0",
+  "sourceLicenses": [
+    {
+      "source": "Scan-the-World Sainsbury Amida",
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "source": "Buddha head by peel-3d.com",
+      "license": "CC-BY-4.0",
+      "culture": "Unspecified by creator; not a verified Japanese artifact"
+    }
+  ],
+  "attribution": "NC source/R05 body and retained skull/ears/neck: Scan-the-World Sainsbury Amida, Zenodo21353739, https://doi.org/10.5281/zenodo.21353739 , CC BY-NC-SA4.0. Actual facial surface target: Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79 , CC BY4.0, https://creativecommons.org/licenses/by/4.0/ . Donor culture/period unspecified; not claimed Japanese. Modifications: real3D BVH ray-triangle surface retarget onto NC connected topology, 99% core donor hit plus1% source regularization, broad smooth neck/temple/scalp transition; knownR05 curl relief removed and bounded source cap cage. Originals retained unchanged. No endorsement implied. Combined adaptation/imagery retains NC-SA4.0; original donor remains CC BY4.0. R06f additionally fairs a measured 3D source scalp radial field, with compact anisotropic deformation of existing scalp and restrained Taubin fairing of actual head triangles; no synthetic head replacement. R06g fairs the actual inherited scalp ridge with 300 pinned-boundary Laplacian steps and reduces lower-cheek scan chatter with 60 Taubin pairs. R06h carves fine shallow spiral curl relief directly into the same continuous scalp; sampled original scalp vertex roots and tangent frames retained. R06j, after rejecting I for excessive ear/jaw smoothing, repositions the anterior ear attachment posteriorly and inward, preserves the ear bowl/rim through smooth anchors, and blends side-cheek/jaw curvature with gentler connected-mesh fairing. Actual donor eyelid/nose/lip cores and all body positions below Y2.15 remain exact. Ear attachment is a declared reshaped derivative.",
+  "inputs": {
+    "r05": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/sculpture199-r05-CC-BY-NC-SA-4.0/continuous-sculpt199-r05-cd9778adc17846aa.bin",
+      "sha256": "cd9778adc17846aa8ab40127b1b9f328ddafbfca10f3fbb0006ca775bf736eb3"
+    },
+    "preCurl": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r06-input-prehair/r05-exact-pre-curl-sc07.bin",
+      "sha256": "868f5086bcad76278f18643350bc4175122cf2cc494a03a1514d07cdb809c550"
+    },
+    "donor": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/calm-buddha-head173/component-r01/actual-face-ears-neck-sc07.bin",
+      "sha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8",
+      "originalGlbSha256": "41d8c094ada94bcf265b92ac72e4737f60710532dd5719f871cacd144f305d9d"
+    }
+  },
+  "registration": {
+    "scale": [
+      0.65,
+      0.7,
+      0.65
+    ],
+    "translation": [
+      0,
+      2.12,
+      -0.325
+    ]
+  },
+  "retarget": {
+    "method": "Actual3D BVH/Moller-Trumbore ray intersection from outside toward measured skull center; outermost actual donor triangle hit in XYZ. Not an image/depth/height projection. Broad angular and vertical transition on the existing connected NC surface; no inserted disc or hidden closed head.",
+    "headCenter": [
+      0,
+      2.53,
+      -0.35
+    ],
+    "coreWeight": 0.99,
+    "sourceRegularization": 0.01,
+    "azimuthFade": [
+      0.72,
+      1.33
+    ],
+    "neckFade": [
+      2.16,
+      2.29
+    ],
+    "foreheadFade": [
+      2.69,
+      2.77
+    ],
+    "donorHairExclusion": {
+      "absoluteXFade": [
+        0.33,
+        0.4
+      ],
+      "sourceYFade": [
+        0.4,
+        0.55
+      ]
+    },
+    "attempted": 105700,
+    "hitCount": 86142,
+    "coreHitCount": 37237,
+    "coreMisses": 0,
+    "outerMisses": 5208,
+    "maximumDisplacementFromPreCurl": 0.06821840537957151,
+    "bvhNodes": 65535,
+    "reusedExactETrace": true,
+    "postRetargetHeadFairing": true
+  },
+  "bodyPreservation": {
+    "vertices": 300363,
+    "maximumPositionDelta": 0,
+    "scope": "All R05 positions below Y2.15 remain exact."
+  },
+  "topology": {
+    "vertices": 789016,
+    "triangles": 1578036,
+    "indicesByteExactFromR05": true,
+    "uvsByteExactFromR05": true,
+    "originalClosedManifoldConnectivityRetained": true,
+    "degenerateTriangles": 0
+  },
+  "geometry": {
+    "file": "ear-root-blend-sculpt199-r06j-849e3edbb348fa10.bin",
+    "sha256": "849e3edbb348fa104cccadf94caa00cd19d156e1033ce473a6bc37140178e3dc",
+    "vertices": 789016,
+    "triangles": 1578036,
+    "bytes": 44184964
+  },
+  "trace": {
+    "file": "actual-donor-ray-triangle-barycentric-r06j.bin",
+    "sha256": "4c72d79421d5ce78b41784c06e37700948f4a758b909795c0f9969a6bc2578e1",
+    "records": 86142,
+    "format": "24bytes: uint32 NC/R05 vertex, uint32 donor component triangle, float32 barycentric3, float32 actual surface blend weight. Full donor XYZ transform supplied above."
+  },
+  "displacement": {
+    "file": "r05-to-r06j-displacement.bin",
+    "sha256": "ce67bdec555d81bf21d5b2aaa16b628fe7fc6765eb3137be261631856468452c",
+    "format": "20-byte RD06 header: ASCII RD06, uint32 vertexCount, uint32 version1, reserved8; then float32 XYZ deltas from R05, same vertex/index topology."
+  },
+  "builder": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authoring/build-sculpt199-r06j-ear-root-blend.mjs",
+    "sha256": "42318587c8031eac1116c09cd9796671c3e9c0322662f82365c24c9e487a20b4"
+  },
+  "limits": [
+    "Purposeful donor anatomy study, not accepted photographic likeness.",
+    "Ray-sampled donor surface can lose very small undercuts; actual lid/lip shape must be judged from front/true3q/profile.",
+    "Source topology/finite normals do not prove self-intersection freedom.",
+    "No canonical/shared/Git edits, Blender, export, Blend or movie.",
+    "Topological connectivity is not visual C1 continuity; root-requested true profile and 3q must be inspected before front/full review."
+  ],
+  "sourceCrown": {
+    "center": [
+      0,
+      2.63,
+      -0.29
+    ],
+    "grid": [
+      128,
+      96
+    ],
+    "elevationBounds": [
+      -0.2,
+      1.5707963267948966
+    ],
+    "sampledSourceVertices": 299362,
+    "fillSteps": 3,
+    "filterSigmaRadians": 0.12,
+    "sourceRadiusRetained": 0.12,
+    "filteredSourceRadiusWeight": 0.88,
+    "maximumBlend": 0.94,
+    "compactScale": [
+      0.91,
+      0.84,
+      1
+    ],
+    "angularBlend": "front elevation .30 to .80 rad; rear elevation .01 to .53 rad, cosine-interpolated azimuth bounds",
+    "vertices": 254647,
+    "maximumDisplacement": 0.1094466954140767,
+    "field": {
+      "file": "measured-source-scalp-field-r06f-f64.bin",
+      "sha256": "60c216968e126564e518cc62a4f82f7259ad974d7e3d8fbddb6db0f4fc5dfcbd",
+      "format": "float64 little-endian radial lengths; 96 elevation rows x 128 periodic azimuth columns"
+    },
+    "fineCurlsAdded": true,
+    "method": "Measured pre-curl NC scalp radii sampled in 3D, spherical Gaussian fairing, compact deformation of existing scalp vertices by smooth angular weights; no ellipsoid or independent replacement head."
+  },
+  "headFairing": {
+    "method": "18 Taubin pairs lambda .45, mu -.47 on actual connected mesh; smooth pinned neck boundary; preserves actual donor anatomy at larger scales",
+    "iterations": 18,
+    "maximumPositionDelta": 0.007610095560003455
+  },
+  "predecessor": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r06h/carved-curls-sculpt199-r06h-d49d00de7d4c0025.bin",
+    "sha256": "d49d00de7d4c0025fdd1d70d610acdf3541706627843ffb550c9fb894a1116e5",
+    "rootRejectedFor": "Vertical cheek-ear ridge/gutter and abrupt chin-neck join"
+  },
+  "transitionFairing": {
+    "scalp": {
+      "iterations": 300,
+      "lambda": 0.45,
+      "mask": "Azimuth-interpolated boundary: front Y2.70..2.785, rear Y2.57..2.655",
+      "maximumDelta": 0.017136612813307976
+    },
+    "cheeks": {
+      "iterations": 60,
+      "lambda": 0.46,
+      "mu": -0.49,
+      "scope": "Lower side cheeks only; excludes core nose, lips, eyelids and ears",
+      "maximumDelta": 0.0014418734087969145
+    },
+    "maximumDelta": 0.017136612813307976
+  },
+  "compactCurls": {
+    "count": 1447,
+    "separation": 0.0185,
+    "nominalRadius": 0.012,
+    "nominalHeight": 0.0018,
+    "grooveDepth": 0.00125,
+    "grooveWidth": 0.0017,
+    "maximumActualRelief": 0.0019250957021739092,
+    "minimumActualRelief": -0.002306943180358795,
+    "changedVertices": 199642,
+    "method": "Smooth summed shallow curl relief and one-turn cut spiral in actual continuous scalp coordinates; no added geometry, beads or tube meshes.",
+    "hairline": "Front Y2.78, side Y2.715, rear Y2.60; 0.016-unit continuous feather",
+    "rootTrace": {
+      "file": "actual-scalp-curl-root-traces-r06h.bin",
+      "sha256": "540f22811aaf499a6195175298aba9d68e735d2105e51553bc5db916a87a820b",
+      "format": "56-byte records: uint32 source G vertex; float32 position3, normal3, tangentU3, radius, height, phase, reserved4. TangentV = normal cross tangentU."
+    }
+  },
+  "sideJawEarFairing": {
+    "method": "Posterior/inward bounded warp of the existing anterior ear attachment, followed by gentle symmetric implicit graph fairing. Source ear bowl/rim has smooth positional anchors. Only actual eye/nose/lip feature cores are pinned; side cheeks and jaw remain free across broad smooth transition weights. No added surface or material concealment.",
+    "lambda": 40,
+    "activeVertices": 197371,
+    "pinnedCoreVertices": 11283,
+    "coreDefinition": "Smooth ellipsoidal protection around actual H eye cores (X +/-0.137,Y2.585), nose (Y2.53) and lips (Y2.345), with exact position constraints only at feature centers.",
+    "warpMaxDelta": 0.03262127557116274,
+    "coreMaxDelta": 0,
+    "maximumDelta": 0.03938290346925009,
+    "earRootMaxDelta": 0.03938290346925009,
+    "jawMaxDelta": 0.03306897868203491,
+    "solves": [
+      {
+        "axis": 0,
+        "iterations": 189,
+        "initialResidual": 35.2731743555435,
+        "finalResidual": 0.0000032632761356519143,
+        "relativeResidual": 9.251438792434798e-8
+      },
+      {
+        "axis": 1,
+        "iterations": 192,
+        "initialResidual": 32.08946042037757,
+        "finalResidual": 0.0000031573805809824976,
+        "relativeResidual": 9.839307173197234e-8
+      },
+      {
+        "axis": 2,
+        "iterations": 194,
+        "initialResidual": 34.59684651888907,
+        "finalResidual": 0.0000033977743950254807,
+        "relativeResidual": 9.821052312297813e-8
+      }
+    ],
+    "earPositionsImmutable": false
+  }
+}
