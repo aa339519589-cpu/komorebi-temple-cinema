@@ -2,6 +2,7 @@ import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {layout118,garden130BridgeKnots} from './layout118-data.js';
 import {createWeatheredBoulderGeometry} from './boulder.js';
+import {handcutStep184} from './handcut-steps184.js';
 const V=p=>new T.Vector3(...p),TAU=Math.PI*2;
 
 export function buildReferenceLayout118(api){
@@ -109,7 +110,10 @@ export function buildReferenceLayout118(api){
    const t=(i+.5)/count,p=a.clone().lerp(end,t),top=a.y+(end.y-a.y)*(i+1)/count;
    const ground=Math.min(top-.18,Math.max(minBase,terrainHeight(p.x,p.z)-.08)),h=Math.max(.18,top-ground);
    b([p.x,top-h/2-.02,p.z],[depth+.025,h,width],mats.terraceStone,yaw);
-   for(let j=0;j<4;j++){const q=p.clone().addScaledVector(n,(-.5+(j+.5)/4)*width);b([q.x,top-.065,q.z],[depth+.028,.13,width/4-.012],stone,yaw);}
+   for(let j=0;j<4;j++){
+    const q=p.clone().addScaledVector(n,(-.5+(j+.5)/4)*width),g=handcutStep184(depth+.028,width/4-.012,.13,Math.round((a.x+31)*29+(a.z+41)*17)+i*13+j*3);
+    emit(g,stone,q.x,top-.065,q.z,1,1,1,[0,yaw,0],.94+.035*Math.sin(i*2.1+j*1.7));
+   }
   }
   for(const side of railSides){
    const aa=a.clone().addScaledVector(n,side*(width*.5+.06)),bb=end.clone().addScaledVector(n,side*(width*.5+.06));
@@ -121,7 +125,7 @@ export function buildReferenceLayout118(api){
  // The shortened lower storey raises the entrance floor while preserving
  // every roof/pagoda anchor. Twelve shallow treads meet a compact forecourt.
  const hall=new T.Matrix4().makeTranslation(4.6,0,-9).multiply(new T.Matrix4().makeRotationY(-.25)),hp=(x,y,z)=>V([x,y,z]).applyMatrix4(hall);
- const flightTop=7.50,flightBottom=5.80,flightCount=12,runStart=5.15,tread=.24,stairWidth=5.8;
+ const flightTop=7.50,flightBottom=5.80,flightCount=12,runStart=5.15,tread=.24,stairWidth=4.85;
  const stairTop=hp(0,flightTop,runStart),stairBottom=hp(0,flightBottom,runStart+flightCount*tread);
  stair(stairTop,stairBottom,stairWidth,flightCount,{railMaterial:stairTimber});
  const landingCentre=hp(0,flightBottom,runStart+flightCount*tread+.47);
@@ -131,7 +135,7 @@ export function buildReferenceLayout118(api){
  // a single boulder into the tall smooth pillars rejected in native r03.
  for(const zz of[8.08,8.35,8.62,8.89]){const p=hp(0,flightBottom-.55,zz);b([p.x,p.y,p.z],[stairWidth+.12,.46,.24],stairTimber,-.25);}
  for(const side of[-1,1]){
-  const p=hp(side*2.40,0,8.48),ground=terrainHeight(p.x,p.z),height=flightBottom-.78-ground,rows=Math.max(1,Math.ceil(height/.40));
+  const p=hp(side*(stairWidth/2-.50),0,8.48),ground=terrainHeight(p.x,p.z),height=flightBottom-.78-ground,rows=Math.max(1,Math.ceil(height/.40));
   for(let j=0;j<rows;j++){const v=scannedStones.variants[(j*3+(side+1)/2)%6],ss=.53+.02*Math.cos(j*2.1);emit(v.geometry,ground+j*.4<.55?v.wet:v.dry,p.x+.08*Math.sin(j*2.2),ground+.19+j*.40,p.z+.08*Math.cos(j*1.7),ss,ss,ss,[0,-.25+j*.31,side*.025],.86+.06*Math.cos(j*1.8));}
  }
  // A short side connection descends from the forecourt to the bridge bank.
@@ -142,7 +146,7 @@ export function buildReferenceLayout118(api){
  stair(deckPoint(1),rightApproachEnd,bridgeWidth,14,{railMaterial:timber});
  const pathEnd=new T.Vector3(17.2,2.88,7.0);stair(rightApproachEnd,pathEnd,bridgeWidth,3,{railMaterial:timber,railSides:[1]});
  stair(new T.Vector3(-10.2,3.30,-3.5),deckPoint(0),bridgeWidth,5,{railMaterial:timber,railSides:[-1]});
- const connectionAudit={stairRisers:flightCount,riseMetres:(flightTop-flightBottom)/flightCount,treadMetres:tread,slabsPerTread:4,mainLandingY:flightBottom,bridgeJoinY:deckPoint(1).y,connectorRisers:6,rightApproachRisers:14,landingSupports:'Embedded retaining courses and terrain-supported bank stairs; no mid-water piers',unmeasuredDepths:true};
+ const connectionAudit={revision:'scene07-narrowed-handcut-approach184-r01',stairWidth,stairRisers:flightCount,riseMetres:(flightTop-flightBottom)/flightCount,treadMetres:tread,slabsPerTread:4,mainLandingY:flightBottom,bridgeJoinY:deckPoint(1).y,connectorRisers:6,rightApproachRisers:14,landingSupports:'Embedded retaining courses and terrain-supported bank stairs; no mid-water piers',granite:'Closed hand-cut solid treads with variable clipped corners, 6mm top arris and separate walked plane',unmeasuredDepths:true};
  const auditCamera=new T.PerspectiveCamera(layout118.camera.fov,1,.1,350);auditCamera.position.fromArray(layout118.camera.position);auditCamera.lookAt(V(layout118.camera.target));auditCamera.updateMatrixWorld(true);const projected=knots.map(p=>p.clone().project(auditCamera));
  const audit={revision:'layout130-connected-garden',connections:connectionAudit,reference:layout118.reference,observedLandmarks:layout118.landmarks,nearRail:{corner:corner.toArray(),heightSectionMetres:.25,depthSectionMetres:.34,postSectionMetres:.56,intermediateGoldFinials:0,lowerPanelBelowHandrailMetres:1.72},bridge:{widthMetres:bridgeWidth,screenSpanFraction:(projected.at(-1).x-projected[0].x)/2,observedReferenceSpanFraction:(land.bridgeRight.pixel[0]-land.bridgeLeft.pixel[0])/layout118.imageDimensions[0],knots:knots.map(p=>p.toArray()),lengthMetres:curve.getLength(),separateDescendingStairFlight:true,midWaterPiers:0,abutments:'Weathered rock shoulders embedded in the two planted banks'},scope:'Actual closed arched bridge in front of the main stair/landing, with jointed granite deck, compact hall stair, front-edge side connection and descending right approach; hidden depths and heights remain inferred.',visualAccepted:false};
  audit.nearRail.revision='scene07-recessed-scanned-floral-cassettes166-r01';audit.nearRail.scannedCarving='Declared CC BY peony field, mounted as a uniform 3D reused ornament; exact photographic motif unaccepted';

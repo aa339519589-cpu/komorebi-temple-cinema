@@ -8,8 +8,8 @@ const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const smooth=(a,b,x)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t);};
 const hpoint=(x,y,z)=>{const c=Math.cos(-.25),s=Math.sin(-.25);return[4.6+c*x+s*z,y,-9-s*x+c*z];};
 const routeSegments=[
- [hpoint(0,7.50,5.15),hpoint(0,5.80,8.03),2.9],
- [hpoint(0,5.80,8.03),hpoint(0,5.80,9.0),2.9],
+ [hpoint(0,7.50,5.15),hpoint(0,5.80,8.03),2.425],
+ [hpoint(0,5.80,8.03),hpoint(0,5.80,9.0),2.425],
  [hpoint(2.10,5.80,9.0),[4.4,4.8,2.0],1.275],
  [[4.4,4.8,2.0],[11.5,3.10,5.35],1.4],
  [[11.5,3.10,5.35],[17.2,2.88,7.0],1.4]

@@ -1,0 +1,27 @@
+{
+  "status": "working-model-unaccepted",
+  "sourceHash": "9114374385a4df7f894aedc169b040f7a092ea90c2926b9a3b6b1fc81fec6985",
+  "visualAccepted": false,
+  "changes": [
+    "Narrowed main flight/landing from5.80m to4.85m to reduce oversized blank approach in reference view; adjoining foot seats and route exclusion widths updated together",
+    "New genuinely closed hand-cut granite treads with unequal clipped corners, bevelled arrises and planar walked tops; original CC0 surface pixels retained"
+  ],
+  "actualViewed": [
+    "qa/ten-reference/07/iteration-scene07-handcut-approach184-r02/reference.png",
+    "qa/ten-reference/07/iteration-scene07-handcut-approach184-r02/detail-native.png"
+  ],
+  "retained": [
+    "Hall/tower/roof/camera/bridge end anchors",
+    "Existing twelve riser heights and .24m tread run",
+    "Original source textures and garden random sequence"
+  ],
+  "failedCandidate": "R01 top/bottom cap winding opposed exterior orientation; original scripts and actual images preserved. R02 reverses only the cap index order. Underlying solid core made successful pixels insufficient evidence.",
+  "remaining": [
+    "Landing/connector articulation and large blank stone side still too schematic",
+    "Granite aging, garden and overall photographic match remain insufficient"
+  ],
+  "imageSha256": {
+    "reference.png": "be54b2eb0b15cf155113d0d9efdceb13c413e42b4a707fcfe27a98d4934faf8d",
+    "detail-native.png": "a3d12532efd9102011512356adf4e5a6ad083ffef2a8a9036d8577fa74a4706f"
+  }
+}
