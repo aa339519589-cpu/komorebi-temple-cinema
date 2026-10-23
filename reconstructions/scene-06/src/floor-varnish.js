@@ -39,10 +39,10 @@ export function bindFloorVarnish(material,state,phase=0){
   shader.fragmentShader=shader.fragmentShader.replace('#include <aomap_fragment>',`#include <aomap_fragment>
  #ifdef USE_CLEARCOAT
  if(scene06FloorCaptureEnabled>.5&&floorTop>.5){
-  vec3 toEye=normalize(cameraPosition-vScene06FloorWorld);
-  vec3 coatWorld=inverseTransformDirection(geometryClearcoatNormal,viewMatrix);
-  vec3 ray=reflect(-toEye,coatWorld);
-  vec4 projected=scene06FloorCaptureMatrix*scene06FloorCaptureInverse*vec4(vScene06FloorWorld+ray*9.0,1.0);
+  // The reflection camera already contains the mirror transform. Project the
+  // actual floor point once. Advancing an arbitrary9m along a reflected ray
+  // projected a different point and displaced the reflected furnishings.
+  vec4 projected=scene06FloorCaptureMatrix*scene06FloorCaptureInverse*vec4(vScene06FloorWorld,1.0);
   vec2 uv=projected.xy/projected.w;
   float wear=scene06VarnishWear(vScene06FloorWorld.xz),lod=mix(.04,.92,smoothstep(.15,.88,wear));
   vec2 footprint=mix(vec2(.12,.42),vec2(.32,1.10),wear)/scene06FloorCaptureSize;
@@ -57,7 +57,7 @@ export function bindFloorVarnish(material,state,phase=0){
  }
  #endif`);
  };
- material.customProgramCacheKey=()=> 'scene06-opaque-board-room-clearcoat-100b';material.userData.actualFloorSolidReflection=true;
+ material.customProgramCacheKey=()=> 'scene06-opaque-board-room-clearcoat-200-plane-projection';material.userData.actualFloorSolidReflection=true;
 }
 export function bindFloorReflection(floor,size,state){
  floor.updateMatrixWorld(true);state.size.value=size;state.inverse.value.copy(floor.matrixWorld).invert();state.matrix.value=floor.material.uniforms.textureMatrix.value;

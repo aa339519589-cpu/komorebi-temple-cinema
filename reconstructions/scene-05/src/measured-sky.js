@@ -3,7 +3,7 @@ import {EXRLoader} from 'three/addons/loaders/EXRLoader.js';
 
 // Licensed measured SKY radiance, not a reference photograph, scene plate or
 // model substitute. The unchanged source asset/provenance are hash-declared.
-export async function installMeasuredSky(scene,targetDirection){
+export async function installMeasuredSky(scene,targetDirection,{environmentIntensity=.22,backgroundIntensity=1.6}={}){
  const path='/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr',texture=await new EXRLoader().setDataType(T.FloatType).loadAsync(path);
  texture.mapping=T.EquirectangularReflectionMapping;texture.colorSpace=T.LinearSRGBColorSpace;
  const {data,width,height}=texture.image,channels=data.length/(width*height);let maximum=-Infinity,at=0,mean=0;
@@ -23,6 +23,6 @@ export async function installMeasuredSky(scene,targetDirection){
   const scale=3/l;for(let k=0;k<3;k++)fillData[i+k]*=scale;separatedPixels++;
  }
  const fill=new T.DataTexture(fillData,width,height,T.RGBAFormat,T.FloatType);fill.mapping=T.EquirectangularReflectionMapping;fill.colorSpace=T.LinearSRGBColorSpace;fill.flipY=texture.flipY;fill.minFilter=fill.magFilter=T.LinearFilter;fill.needsUpdate=true;
- scene.background=texture;scene.environment=fill;scene.backgroundRotation.copy(rotation);scene.environmentRotation.copy(rotation);scene.backgroundIntensity=1.35;scene.backgroundBlurriness=0;scene.environmentIntensity=.42;
- return{info:{provider:'Poly Haven',asset:'kloofendal_48d_partly_cloudy_puresky',license:'CC0-1.0',path,source:'https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky',authors:['Greg Zaal','Jarod Guest'],sourceSunPixel:[at%width,Math.floor(at/width)],maximumLuma:maximum,meanLuma:mean/(width*height),sourceDirectionYUp:source.toArray(),targetDirectionYUp:target.toArray(),rotationXYZ:rotation.toArray(),nativeEnvironmentIntensity:.42,solarSeparation:{coneDegrees:2.3,fillRadianceCeiling:3,pixels:separatedPixels},scope:'Original measured CC0 sky is the background. Native IBL solar disk is separated into the shadow-casting directional key; courtyard-bounce proxy and sky occlusion remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh.'},dispose(){texture.dispose();fill.dispose();}};
+ scene.background=texture;scene.environment=fill;scene.backgroundRotation.copy(rotation);scene.environmentRotation.copy(rotation);scene.backgroundIntensity=backgroundIntensity;scene.backgroundBlurriness=0;scene.environmentIntensity=environmentIntensity;
+ return{info:{provider:'Poly Haven',asset:'kloofendal_48d_partly_cloudy_puresky',license:'CC0-1.0',path,source:'https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky',authors:['Greg Zaal','Jarod Guest'],sourceSunPixel:[at%width,Math.floor(at/width)],maximumLuma:maximum,meanLuma:mean/(width*height),sourceDirectionYUp:source.toArray(),targetDirectionYUp:target.toArray(),rotationXYZ:rotation.toArray(),nativeEnvironmentIntensity:environmentIntensity,backgroundIntensity,solarSeparation:{coneDegrees:2.3,fillRadianceCeiling:3,pixels:separatedPixels},scope:'Original measured CC0 sky is the background. Native IBL solar disk is separated into the shadow-casting directional key; courtyard-bounce proxy and sky occlusion remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh.'},dispose(){texture.dispose();fill.dispose();}};
 }

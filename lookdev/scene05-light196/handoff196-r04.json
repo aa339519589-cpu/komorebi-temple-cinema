@@ -1,0 +1,125 @@
+{
+  "status": "actual-native-review-candidate-held",
+  "scene": 5,
+  "lane": 196,
+  "round": "R04",
+  "sourceHash": "0973c4377eb0dc03c395ea4b5f74919d2385b146e898b3d10eb2155ef3d8d8ad",
+  "sourceSnapshot": "lookdev/scene05-light196/r04-source",
+  "sourceIdentity": "lookdev/scene05-light196/source196-r04-identity.json",
+  "baselineSourceHash": "0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
+  "visualAccepted": false,
+  "parentVisualReviewPending": true,
+  "frames": [
+    {
+      "path": "qa/ten-reference/05/iteration-scene05-light196-r04-20261023/reference.png",
+      "report": "qa/ten-reference/05/iteration-scene05-light196-r04-20261023/report.json",
+      "name": "reference",
+      "sourceHash": "0973c4377eb0dc03c395ea4b5f74919d2385b146e898b3d10eb2155ef3d8d8ad",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "rgbaSha256": "3ea9fc8eb6755463fe4b48c8c0c949fb6ab496ae32886874641062eca6a1a997",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/05/iteration-scene05-light196-r04-20261023/detail-native.png",
+      "report": "qa/ten-reference/05/iteration-scene05-light196-r04-20261023/report.json",
+      "name": "detail-native",
+      "sourceHash": "0973c4377eb0dc03c395ea4b5f74919d2385b146e898b3d10eb2155ef3d8d8ad",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "rgbaSha256": "246f1de4e3b1825f557d42f7f7a7a9775c403da7febd7d97dfc10107d29cabae",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/05/iteration-scene05-light196-r04-low3q-20261023/inspection-view.png",
+      "report": "qa/ten-reference/05/iteration-scene05-light196-r04-low3q-20261023/report.json",
+      "name": "inspection-view",
+      "sourceHash": "0973c4377eb0dc03c395ea4b5f74919d2385b146e898b3d10eb2155ef3d8d8ad",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "rgbaSha256": "55018b7d8dd3096a320fb91bb03fba5c4cb7305cb8c185c09f64eb3dafe392f3",
+      "personallyViewed": true
+    }
+  ],
+  "actualChanges": [
+    "Exposed bearing noses beyond all protected receiver/lap spans have canonical50mm lifted under-tips and real narrow lower feet at76% of the retained upper width; top planes remain fixed",
+    "Primary and secondary closed copper caps fit actual revised nose sections/finite cut heights, retaining existing independent roof/hip/lantern fittings",
+    "Same physical solar direction now uses stronger warm-neutral key8; measured sunless sky intensity.22 and residual hemisphere.055 replace brighter uniform fill",
+    "Parallel upward fill replaced with two unequal finite shadow-casting inverse-square court proxies: retained front patch320 at[2,.35,15], weaker cooler adjacent return110 at[15,.35,2]",
+    "Perspective bounce shadow range/bias/filter repaired after actualR02 acne; source has4/45m range, smaller PCF radius and4k front map",
+    "Retained rawCC0 timber scan with gentler fibres/normals and restrained varnish; rougher less mirror-like worked copper"
+  ],
+  "declaredAnchorChange": "Only free bearing nose cut profile/cap centre and inferred lighting/finish values change. Added a weaker finite courtyard light proxy. All measured tier/site/camera/dolly/roof/hip/lantern anchors and physical sun position/target retained.",
+  "preserved": {
+    "rawAssetsAndRetainedModules": "lookdev/scene05-light196/preserved196-r04.json",
+    "byteExactFiles": 22,
+    "allUnchanged": true,
+    "held190R04SnapshotFiles": 20,
+    "held190R04SnapshotUnchanged": true,
+    "runtime": "lookdev/scene05-light196/runtime-anchors196-r04.json",
+    "allRuntimeAnchorsExact": true
+  },
+  "changedSceneFiles": [
+    "reconstructions/scene-05/asset-dependencies.json",
+    "reconstructions/scene-05/src/architecture.js",
+    "reconstructions/scene-05/src/bearing-ends196.js",
+    "reconstructions/scene-05/src/daylight196.js",
+    "reconstructions/scene-05/src/measured-sky.js",
+    "reconstructions/scene-05/src/scanned-timber.js",
+    "reconstructions/scene-05/src/scene.js",
+    "reconstructions/scene-05/src/sculpted-joinery.js"
+  ],
+  "verification": {
+    "geometryAudit": "lookdev/scene05-light196/geometry196-r04-final.json",
+    "scope": "Finite closed template usability and protected-contact identity, not visual acceptance",
+    "templates": 487,
+    "templateFailures": 0,
+    "protectedAssemblies": 22,
+    "protectedVertexComparisons": 15940,
+    "allProtectedContactsExact": true,
+    "earlierAuditMetadataNote": "Earlier audit receipts had an overwritten contacts detail key; the exact-contact boolean and22-assembly console result were correct. Final receipt preserves the complete actual contact records."
+  },
+  "priorActualRounds": [
+    {
+      "round": "R01",
+      "source": "bc29b776a5930cfd3d55a7bc354dbd864029d93c1fcf0f35d9bed986d59a6107",
+      "status": "preserved dark/dull failed intermediate",
+      "review": "lookdev/scene05-light196/review196-r01.json"
+    },
+    {
+      "round": "R02",
+      "source": "732149ce482361b09ae78a66c0c2965a87f49bb83c6fbfb544732fa465c77251",
+      "status": "preserved shadow-acne/one-sided failed intermediate",
+      "review": "lookdev/scene05-light196/review196-r02.json"
+    },
+    {
+      "round": "R03",
+      "source": "e67bedb60ec995de52f88c5f69acd1bc72834fcc32b32dee3a96559ca2a1cff6",
+      "status": "preserved clean-shadow but excess orange-wash intermediate",
+      "review": "lookdev/scene05-light196/review196-r03.json"
+    }
+  ],
+  "remainingVisualLimits": [
+    "Authored timber, blank end fields and applied ornament remain regular and less historically specific than the photograph",
+    "Native finite court proxies are not measured area radiance or traced multibounce GI; their powers and colours are inferred",
+    "Surface wear, the ceramic medallion/copper patterns and foliage transmission still differ from the reference",
+    "Tier/camera correspondence remains the retained175 reconstruction hypothesis; no photograph acceptance claimed"
+  ],
+  "noBlenderExportOrLargeExports": true,
+  "noGitSharedOrOtherSceneEdits": true,
+  "ownRenderProcessIds": [
+    43710,
+    43199,
+    44821,
+    44398,
+    45969,
+    45520,
+    46852,
+    46480
+  ],
+  "activeOwnProcessText": "",
+  "allOwnJobsFinished": true
+}

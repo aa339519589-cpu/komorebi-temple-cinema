@@ -14,6 +14,8 @@ import {createHipTimber190,closedWire190} from './detail190-solids.js';
 import {createSecondaryCopper190} from './secondary-copper190.js';
 import {createLantern190} from './lantern190.js';
 import {createCornerMask190} from './corner-mask190.js';
+import {createFittedBearingCopper196} from './bearing-ends196.js';
+import {installDaylight196} from './daylight196.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
 import {installMeasuredSky} from './measured-sky.js';
 import {POSE,TIER_SPEC,tierPlacement,tierWorldPoint} from './tier-layout.js';
@@ -31,15 +33,15 @@ export async function buildScene(){
  mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#b49b64');mats.tileEndRelief.roughness=.66;mats.tileEndRelief.metalness=.28;
  mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#4b5052');mats.cornerCeramic.roughness=.68;mats.cornerCeramic.bumpScale=.0018;
 
- const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createRafterEndCopper(),endCopperSmall=createRafterEndCopper({detail:'small'}),secondary190=createSecondaryCopper190(),lantern190=createLantern190(),mask190=createCornerMask190();
- const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,waistBearing:sculptedJoinery.waistBearing,waistFittings:sculptedJoinery.waistFittings,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,secondaryFittingParts:secondary190.parts,cornerMask:mask190.parts,cornerMaskMount190:mask190.mountParts,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info,secondary190:secondary190.info,lantern190:lantern190.info,mask190:mask190.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();secondary190.dispose();lantern190.dispose();mask190.dispose();}};Object.assign(mats,joineryKit.materials);
+ const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createRafterEndCopper(),endCopperSmall=createRafterEndCopper({detail:'small'}),secondary190=createSecondaryCopper190(),lantern190=createLantern190(),mask190=createCornerMask190(),primary196=createFittedBearingCopper196(endCopper.parts),secondary196=createFittedBearingCopper196(secondary190.parts);
+ const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,waistBearing:sculptedJoinery.waistBearing,waistFittings:sculptedJoinery.waistFittings,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,secondaryFittingParts:secondary190.parts,primaryBearingFitting196:primary196.parts,secondaryBearingFitting196:secondary196.parts,cornerMask:mask190.parts,cornerMaskMount190:mask190.mountParts,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info,secondary190:secondary190.info,bearingCut196:primary196.info,lantern190:lantern190.info,mask190:mask190.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();secondary190.dispose();lantern190.dispose();mask190.dispose();primary196.dispose();secondary196.dispose();}};Object.assign(mats,joineryKit.materials);
  const copperPixels=new Uint8Array(128*128*4);for(let y=0;y<128;y++)for(let x=0;x<128;x++){
    const hash=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
    const q=Math.round(255*(.83+.09*Math.sin(x*.20+Math.sin(y*.11))+.06*(hash(x,y)-.5)-.09*(hash(x>>2,y>>2)>.92?1:0))),i=(y*128+x)*4;copperPixels[i]=copperPixels[i+1]=copperPixels[i+2]=q;copperPixels[i+3]=255;
  }
  const copperFinish=new T.DataTexture(copperPixels,128,128);copperFinish.wrapS=copperFinish.wrapT=T.RepeatWrapping;copperFinish.minFilter=T.LinearMipmapLinearFilter;copperFinish.magFilter=T.LinearFilter;copperFinish.generateMipmaps=true;copperFinish.needsUpdate=true;
- mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-worked-copper-wrapped-end-cup',color:'#bc944e',metalness:.86,roughness:.46,envMapIntensity:1.30,bumpMap:copperFinish,bumpScale:.00025,roughnessMap:copperFinish});
- mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-folded-chrysanthemum-copper',color:'#dab86f',metalness:.90,roughness:.39,envMapIntensity:1.45,bumpMap:copperFinish,bumpScale:.00018,roughnessMap:copperFinish});
+ mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-worked-copper-wrapped-end-cup',color:'#bc944e',metalness:.78,roughness:.51,envMapIntensity:1.15,bumpMap:copperFinish,bumpScale:.00025,roughnessMap:copperFinish});
+ mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-folded-chrysanthemum-copper',color:'#dab86f',metalness:.82,roughness:.46,envMapIntensity:1.20,bumpMap:copperFinish,bumpScale:.00018,roughnessMap:copperFinish});
  mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-lower-patinated-copper-grooves',color:'#5c4325',metalness:.65,roughness:.80,envMapIntensity:.45});
  // Solid code-built geometry and the user-authorized image-assisted relief.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
@@ -85,8 +87,8 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
 `);
      };m.customProgramCacheKey=()=> 'scene05-aged-wood-grain-v3';
    }
-   if(name==='gold'||name==='architecture_gold'){m.roughness=.38;m.envMapIntensity=1.45;}
-   if(name==='oldgold'||name==='architecture_oldgold'){m.roughness=.46;m.envMapIntensity=1.08;}
+   if(name==='gold'||name==='architecture_gold'){m.roughness=.45;m.envMapIntensity=1.10;}
+   if(name==='oldgold'||name==='architecture_oldgold'){m.roughness=.52;m.envMapIntensity=.90;}
  }
  mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#8a6738',metalness:.64,roughness:.47,envMapIntensity:1.12});
  const scannedTimber=await installScannedTimber(mats);
@@ -228,13 +230,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
     }
    });
  }
- const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.24);scene.add(hemi);
- const sun=new T.DirectionalLight('#ffdfaa',5.3);sun.position.set(-18,36,30);sun.target.position.set(0,9,0);sun.castShadow=true;
- sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000012;sun.shadow.normalBias=.002;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
- // Bounded first-bounce courtyard proxy. Its own actual shadows preserve
- // the separate eave layers; it is not a screen exposure or flat ambient lift.
- const groundBounce=new T.DirectionalLight('#ffc77c',.64);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
- groundBounce.shadow.mapSize.set(2048,2048);Object.assign(groundBounce.shadow.camera,{left:-18,right:18,top:25,bottom:-12,near:1,far:85});groundBounce.shadow.bias=-.000012;groundBounce.shadow.normalBias=.0015;groundBounce.shadow.autoUpdate=false;groundBounce.shadow.needsUpdate=true;scene.add(groundBounce,groundBounce.target);
+ const daylight196=installDaylight196(scene),{hemi,sun,groundBounce}=daylight196;
  const measuredSky=await installMeasuredSky(scene,sun.position.clone().sub(sun.target.position));
  const canopy=buildMapleCanopy(scene);
  // Flatten static geometry by material: dense joinery remains real 3D but submission cost stays bounded.
@@ -269,5 +265,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-worked-corner-detail190-r04',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,detail190:{hip:'Closed waisted/faceted loft follows the retained tail centreline and flat cuts; selective fitted surface copper on two primary ranks',lantern:lantern190.info,mask:mask190.info,secondaryCopper:secondary190.info,contactDatumsUnchanged:true},geometry:'Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:groundBounce.intensity,courtyardBounceCastsShadows:true,hemisphere:hemi.intensity,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native directional key and shadow-casting courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();copperFinish.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-sunlit-bearing-light196-r04',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,detail196:{bearing:primary196.info,lighting:daylight196.info,contactDatumsUnchanged:true},detail190:{hip:'Closed waisted/faceted loft follows the retained tail centreline and flat cuts; selective fitted surface copper on two primary ranks',lantern:lantern190.info,mask:mask190.info,secondaryCopper:secondary190.info,contactDatumsUnchanged:true},geometry:'Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; exposed narrow-foot free noses and fitted copper196; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#fff0d8',hierarchy196:daylight196.info,courtyardBounce:groundBounce.intensity,courtyardBounceType:'unequal finite inverse-square shadow-casting courtyard patches',courtyardBounceCastsShadows:true,hemisphere:hemi.intensity,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();copperFinish.dispose();}};
 }

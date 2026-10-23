@@ -12,5 +12,5 @@ function renderView(position,target,time=0,fov=49){setTime(time);camera.position
 function renderReference(n=8){if(n!==8)throw Error('Independent reference 08');return renderView(reference.position,reference.target,0,reference.fov);}
 const dolly=createDollyPath({points:[[-.6,1.86,9.25],[-.45,1.90,10.2],[-.1,1.84,11.65],reference.position],nearTarget:[-1.99,3.3,7.9],farTarget:reference.target,fov:reference.fov});
 function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:8,revision:'scene08-occupied-portals-and-carried-gallery191-r06',...stats,camera:reference,renderer:cameraPass.info()}),dispose(){cameraPass.dispose();dispose();renderer.dispose();}};
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:8,revision:'scene08-natural-sun-carved-court197-r04',...stats,camera:reference,renderer:cameraPass.info()}),dispose(){cameraPass.dispose();dispose();renderer.dispose();}};
 if(!Q.has('defer'))renderReference();

@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {createContinuousTimber} from './gallery-joinery.js';
+import{createCantilever197}from'./natural-joinery197.js';
 // Complete broad-shaft frame. Bearing endpoints are queried from the same
 // authored roof triangles, so the curved cantilevers meet its real underside.
 export function buildGrandBearing171({emit,box,between,group,lantern,lattice,galleryJoinery,grandFrame,peony,roof171,spatial191}){
@@ -13,19 +14,12 @@ export function buildGrandBearing171({emit,box,between,group,lantern,lattice,gal
   for(let i=0;i<p.count;i++)uv.setXY(i,p.getY(i)/1.6,Math.atan2(p.getZ(i),p.getX(i))*r/.55);g.userData.member='171-entasis-turned-timber-shaft';
   emit(g,'red',x,bottom,z);emit(new T.CylinderGeometry(r*1.36,r*1.48,.20,32),'hallFoundation',x,floor+.10,z);box(x,seat-.095,z,r*2.38,.17,r*2.38,'wood');spatial191.collar(x,z,seat,r);caps.push([x,z,seat]);
  }
- function cloudArm(length,rise,depth=.34){
-  const s=new T.Shape(),L=length,R=rise;
-  s.moveTo(-.22,.13);s.lineTo(.08,.13);s.lineTo(L*.35,R*.35+.13);s.lineTo(L*.73,R*.73+.13);s.lineTo(L,R+.13);
-  s.bezierCurveTo(L+.055,R+.02,L-.05,R-.17,L-.18,R-.155);
-  s.bezierCurveTo(L-.34,R-.11,L*.66,R*.66-.33,L*.50,R*.50-.27);
-  s.quadraticCurveTo(L*.22,R*.22-.10,.055,-.205);s.lineTo(-.22,-.13);s.closePath();
-  const g=new T.ExtrudeGeometry(s,{depth,bevelEnabled:true,bevelSize:.013,bevelThickness:.010,bevelSegments:3,curveSegments:20});g.translate(0,0,-depth/2);g.userData.member='171-closed-deep-carved-cantilever';return g;
- }
+ function cloudArm(length,rise,depth=.34){return createCantilever197(length,rise,depth);}
  function armAt(x,z,seat,dx,dz,wanted){
   const reach=availableReach(x,z,dx,dz,wanted),endX=x+dx*reach,endZ=z+dz*reach,weatherY=weather(endX,endZ),target=(weatherY??(seat+1.08))-.25,yaw=Math.atan2(-dz,dx);
   for(let level=0;level<3;level++){
    const start=level*reach/3,length=reach/3+(level<2?.09:0),y=seat+.10+(target-seat-.10)*level/2;
-   const carrier=cloudArm(Math.max(.18,length),.025,.37-level*.035);emit(carrier,'red',x+dx*start,y,z+dz*start,1,1,1,[0,yaw,0]);spatial191.cladCantilever(carrier,x+dx*start,y,z+dz*start,yaw,'grand-carrier-'+x+'-'+z+'-'+dx+'-'+dz+'-'+level);
+   const carrier=cloudArm(Math.max(.18,length),.025,.37-level*.035);emit(carrier,'red',x+dx*start,y,z+dz*start,1,1,1,[0,yaw,0]);
    const q=start+length*.60,cross=Math.min(.72,.42+reach*.12),px=-dz,pz=dx;
    emit(cloudArm(cross,.02,.23),'redlight',x+dx*q-px*cross*.5,y+.105,z+dz*q-pz*cross*.5,1,1,1,[0,yaw+Math.PI/2,0]);
    if(level){const h=(target-seat-.10)/2-.025;box(x+dx*start,y-h/2-.035,z+dz*start,.31,Math.max(.14,h),.39,'wood');}
@@ -60,7 +54,7 @@ export function buildGrandBearing171({emit,box,between,group,lantern,lattice,gal
    if(side>0){const seat=seatAt(bw/2,2.50);peony.panel({emit,x:-2.50,y:seat-1.035,z:.245,width:1.20,height:.28,copies:2,label:'near-return-bay'});}
   });
   spatial191.interior({floor,front:front-.40,back:far+.40,width:bw-.24,seat:Math.min(...caps.map(q=>q[2]))});
-  for(const [x,z,seat]of caps){for(const part of galleryJoinery.parts)emit(part.geometry,part.material,x,seat-.03,z,.88,.62,.88);spatial191.cladJoinery(x,seat-.03,z,.88,.62,.88,galleryJoinery,'grand-bearing-'+x+'-'+z);}
+  for(const [x,z,seat]of caps){for(const part of galleryJoinery.parts)emit(part.geometry,part.material,x,seat-.03,z,.88,.62,.88);}
   // Inner ring members are hidden behind the carved crossed arms, while
   // each outer carrier is seated directly below the queried roof surface.
   for(const sign of[-1,1]){

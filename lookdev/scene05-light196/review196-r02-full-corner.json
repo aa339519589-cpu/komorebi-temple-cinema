@@ -1,0 +1,15 @@
+{
+  "sourceHash": "732149ce482361b09ae78a66c0c2965a87f49bb83c6fbfb544732fa465c77251",
+  "visualAccepted": false,
+  "actualFramesViewed": [
+    "qa/ten-reference/05/iteration-scene05-light196-r02-20261023/reference.png",
+    "qa/ten-reference/05/iteration-scene05-light196-r02-20261023/detail-native.png"
+  ],
+  "findings": [
+    "Finite courtyard irradiance restores warmer luminous wood and stronger front-to-return volume without lifting uniform ambient",
+    "Brighter bounced light exposes fine perspective shadow-map acne/stipple across the actual wood and ceramic surfaces; this is a rendering defect, not acceptable material wear",
+    "Right return remains too dark because the finite proxy represents only one front courtyard patch; a weaker adjacent side patch will provide a separate actual shadowed contribution",
+    "Free-nose sections and fitted cap silhouettes remain seated; protected joinery contacts retain prior exact CPU comparison"
+  ],
+  "next": "Actual same-source low3q, then near-plane/normal-bias repair and bounded weaker adjacent courtyard patch. R02 preserved as a failed intermediate."
+}

@@ -1318,7 +1318,9 @@ export function createRestorationArchitecture(ctx) {
         }
         const fittings=options.waist?ctx.joineryKit.waistFittings:options.corner?ctx.joineryKit.cornerFanFittings:ctx.joineryKit.bracketFittings;
         if(fittings)for(const f of fittings){
-          if(ctx.joineryKit.secondaryFittingParts&&f.stage!==2)group(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.yaw,()=>{for(const p of ctx.joineryKit.secondaryFittingParts)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
+          const shaped=f.profile196&&(f.stage===2?ctx.joineryKit.primaryBearingFitting196:ctx.joineryKit.secondaryBearingFitting196);
+          if(shaped)group(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.yaw,()=>{for(const p of shaped)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
+          else if(ctx.joineryKit.secondaryFittingParts&&f.stage!==2)group(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.yaw,()=>{for(const p of ctx.joineryKit.secondaryFittingParts)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
           else squareFitting(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.width*hs,f.height*s,f.yaw,true);
         }
       });

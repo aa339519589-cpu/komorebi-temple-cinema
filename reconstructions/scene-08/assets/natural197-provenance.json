@@ -1,0 +1,76 @@
+{
+  "revision": "scene08-natural-sun-carved-court197-r04",
+  "baselineSource": "b5e6804330c4406c557a13a0d4fe4b7a44f51b18a29c1de1855867df3d942fe2",
+  "reference": "references/hd/7-照片-8.jpg",
+  "observations": [
+    "191 doorway/room depth is retained progress.",
+    "Oversized plain rounded bracket ends and repeated bright cast end sleeves dominate the reference view.",
+    "Multiple unoccluded directional fills plus warm sun make timber punchy orange and flatten roof/door depth."
+  ],
+  "geometry": [
+    "Original closed stepped/waisted bearing and cantilever profiles replace the broad rounded arms at the same authored transforms and structural datums.",
+    "Real14mm carved coves in both broad faces use closed triangulated timber surfaces, not a normal map, photo card or added scanner component.",
+    "Repeated191 cast end sleeves are retired from active construction. Original small shoes remain with rougher/darker aged-gilt finish.",
+    "191 six portals and four actual roof-queried supports, original171 receiver arrays, peony source/mounts, site/camera/bridge/garden RNG and asset placements are preserved.",
+    "R02 uses analytic derivatives of the same actual carved surface for its broad-face shading normals; no topology/position/relief change.",
+    "R04 constrained Lawson/Delaunay flips improve cap triangulation without moving its sampled vertices or perimeter; closed primitive CPU audit retained."
+  ],
+  "light": {
+    "sun": {
+      "position": [
+        -31,
+        25,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -7
+      ],
+      "linearRGB": [
+        1,
+        0.88,
+        0.7
+      ],
+      "intensity": 4.5
+    },
+    "sky": "Original independent CC0 measured Kloofendal48 radiance remains visible/environment solar-aligned to the true sun, environment intensity.62",
+    "unoccludedDirectionalFills": 0,
+    "hemisphereLights": 0,
+    "ambientLights": 0,
+    "localCourtProbe": "One128 native linear fixed open-porch scene capture at hall-local [.15,floor+1.70,3.90], assigned to existing main hall finishes; actual blocked sky and courtyard radiance. Approximate one-bounce environment, not path-traced GI.",
+    "cameraFollowingLights": false,
+    "localCaptureSolarSeparation": {
+      "sameClampedHDRAsGlobalEnvironment": true,
+      "captureSkyGain": 0.62,
+      "visibleSkyRestoredAfterCapture": true,
+      "separateDirectSunUnchanged": true,
+      "noPaintedLightField": true
+    }
+  },
+  "materials": "Existing portable pigment/normal/roughness scans retained. Grand hall paint adjusted to coherent vermilion/brown, bearing parts share structural red, existing end shoes have bounded aged-gilt reflectance. Paper emission unchanged. R04 actual carved members use geometry normals without the unrelated flat-board scan normal map, with low clearcoat. Existing leaf transmission follows actual directional sun/shadow.",
+  "newExternalAssets": false,
+  "referenceImageUsedInScene": false,
+  "visualAccepted": false,
+  "limitations": [
+    "Single-view inferred carvings are not verified historic motifs.",
+    "Native real geometry and coherent light do not establish photographic acceptance."
+  ],
+  "r01Source": "cb0f71b56c552dd0c62bfb5bc6151981dba009a8fcf258a48d4ccc947c99f572",
+  "r01Findings": [
+    "Actual1254 full/true hero/low3q reviewed. Repetitive191 cast sleeves retired; actual carved arms retain exact original kit envelope/contact axes.",
+    "Interior-court probe is too occluded for outside porch surfaces, making main eave nearly black. Carved cap surfaces show triangulation-weighted shading facets. R02 uses analytic cove normals and a fixed open-porch capture; true sun elevation reduced to26degrees for the reference-facing hall."
+  ],
+  "r02Source": "876e3eb62fc479c29ffc4cfeab7d0c72f308e12773b00f4b2d9c68f6d04020d4",
+  "r02Findings": [
+    "Actual1254 full/true hero/low3q inspected; shifted porch probe recovers exterior form and analytic normals reduce the first cove shading failure.",
+    "The local probe captured the full visible HDR solar spike, duplicating the separately represented sun and making broad timber highlights pale. R03 captures the same solar-separated lighting radiance as the global environment, with matched environment gain. Visible sky is restored after capture.",
+    "Cove tessellation remains coarse at the14mm relief width; R03 samples at12mm with analytic normals while preserving the outer bearing contour."
+  ],
+  "r03Source": "2017c0369757d831767f8fe14035b445cd74fda8440cda5fdc781addda9b7cc4",
+  "r03Findings": [
+    "Actual1254 full/true hero/low3q inspected. Shared solar-separated radiance removes broad pale local-capture flare while191 depth and original contact axes remain.",
+    "Long skinny cap triangles and the board-scan normal response still reveal triangular facets in carved faces. R04 applies constrained Delaunay flips without moving sample vertices, analytic relief normals and a matte carved-timber finish retaining the original pigment/roughness maps.",
+    "Existing normal-only thin-leaf approximation is unoccluded and uses an old fixed sun vector; R04 follows the actual directional-light direction and its shadow-attenuated directLight.color. All foliage geometry/placement is retained."
+  ]
+}

@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {bearingWidth196} from './bearing-ends196.js';
 
 // Actual solid profiles authored from the visible Ref05 corner silhouette.
 // This replaces the old rectangular capital kit; no image or displacement
@@ -50,8 +51,17 @@ export function createSculptedJoinery(){
   const g=arrisedProfile(s,width),p=g.attributes.position,protectedX=length>1.7?.65:length>1.3?.60:.44;
   //190: the exposed cheek necks in three dimensions, beyond all lap and
   // bearing footprints. FlatY seats, slot widths and true cut ends stay fixed.
-  for(let i=0;i<p.count;i++){const e=Math.abs(p.getX(i)),u=T.MathUtils.clamp((e-protectedX)/(length/2-protectedX),0,1),neck=1-.32*Math.sin(Math.PI*u)**2;p.setZ(i,p.getZ(i)*neck);}
-  g.computeVertexNormals();g.userData.armProfile='reference-led-ogee-with-worked-waisted-cheeks190';g.userData.protectedSeatHalfSpan=protectedX;return g;
+  const protectedVertices196=[];
+  for(let i=0;i<p.count;i++){
+   const x=p.getX(i),e=Math.abs(x),u=T.MathUtils.clamp((e-protectedX)/(length/2-protectedX),0,1),neck=1-.32*Math.sin(Math.PI*u)**2,w=T.MathUtils.smoothstep(u,0,1),bottom=armUnderside(x,length),newBottom=bottom+.050*w,ny=(p.getY(i)-bottom)/(.1-bottom);
+   if(e<=protectedX){protectedVertices196.push(i);continue;}
+   // Only the free nose beyond every existing seat/lap changes. Its top
+   // plane stays at+.1, its under-tip rises50mm, and its lower cheeks taper
+   // toward a finite cut foot. All protected contact vertices remain exact.
+   const y=newBottom+ny*(.1-newBottom),cutY=ny-.5,section=1+w*(bearingWidth196(cutY)-1);
+   p.setY(i,y);p.setZ(i,p.getZ(i)*neck*section);
+  }
+  g.computeVertexNormals();g.userData.armProfile='reference-led-ogee-with-waisted-narrow-foot-free-nose196';g.userData.protectedSeatHalfSpan=protectedX;g.userData.freeTip196={underTipLift:.050,bottomWidthRatio:.76,protectedContactsUnchanged:true,protectedVertexIndices:protectedVertices196};return g;
  }
  function beam(length,depth,bottom,top,notches=[]){
   const xs=[-length/2,...notches.flatMap(n=>[n.x-n.width/2,n.x+n.width/2]),length/2].sort((a,b)=>a-b),s=new T.Shape();
@@ -106,7 +116,8 @@ export function createSculptedJoinery(){
    for(let axis=0;axis<2;axis++)for(const offset of offsets){
     const g=curvedArm(length,axis===0?'top':'bottom',slots),pos=axis===0?[0,yy,offset]:[offset,yy,0],rot=axis*Math.PI/2;g.scale(1,armY,1);g.computeVertexNormals();
     add(g,pos,rot,'kit_cedar','half-lapped-ogee-hijiki');
-    for(const sign of[-1,1])fit.push({position:axis===0?[sign*(length/2+.006),yy-.058*armY,offset]:[offset,yy-.058*armY,sign*(length/2+.006)],yaw:axis===0?sign*Math.PI/2:(sign<0?Math.PI:0),width:.221,height:.318*armY,stage});
+    const tipBottom=armUnderside(length/2,length)+.050,tipCentre=(.1+tipBottom)/2,tipHeight=.1-tipBottom;
+    for(const sign of[-1,1])fit.push({position:axis===0?[sign*(length/2+.006),yy+tipCentre*armY,offset]:[offset,yy+tipCentre*armY,sign*(length/2+.006)],yaw:axis===0?sign*Math.PI/2:(sign<0?Math.PI:0),width:.221,height:tipHeight*armY,stage,profile196:true});
     // Closed broad curled leaves replace the wire-like cheek decoration.
     // They sit on the true timber sides, with a finite worked copper return.
     for(const sign of[-1,1])for(const cheek of[-1,1]){
@@ -135,7 +146,8 @@ export function createSculptedJoinery(){
  waistPart(cushion(.285,.17),[0,-.15,0]);
  for(let axis=0;axis<2;axis++){
   const g=curvedArm(1.05,axis?'bottom':'top',[0]);g.scale(1,.72,1);g.computeVertexNormals();waistPart(g,[0,.0848,0],axis*Math.PI/2);
-  for(const sign of[-1,1])waistFittings.push({position:axis?[0,.0848-.058*.72,sign*.531]:[sign*.531,.0848-.058*.72,0],yaw:axis?(sign<0?Math.PI:0):sign*Math.PI/2,width:.221,height:.318*.72});
+  const tipBottom=armUnderside(1.05/2,1.05)+.050,tipCentre=(.1+tipBottom)/2;
+  for(const sign of[-1,1])waistFittings.push({position:axis?[0,.0848+tipCentre*.72,sign*.531]:[sign*.531,.0848+tipCentre*.72,0],yaw:axis?(sign<0?Math.PI:0):sign*Math.PI/2,width:.221,height:(.1-tipBottom)*.72,profile196:true});
  }
  for(const sign of[-1,1]){waistPart(cushion(.14,.08),[sign*.285,.1568,0]);waistPart(cushion(.14,.08),[0,.1568,sign*.285]);}
  // Narrow pierced acanthus collars fit the square post neck. Three paired
@@ -184,5 +196,5 @@ export function createSculptedJoinery(){
  }
  tube([[-.17,-.086,.185],[-.090,-.116,.210],[0,-.126,.222],[.090,-.116,.210],[.17,-.086,.185]],.011);
  for(const xx of[-.07,-.026,.026,.07]){const tooth=keep(new T.ConeGeometry(.009,.030,6));tooth.rotateZ(Math.PI);tooth.translate(xx,.056,.145);mask.push({geometry:tooth,material:'slate'});}
- return {bracket:parts,bracketFittings,cornerFan,cornerFanFittings,waistBearing,waistFittings,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 detail190: worked waisted cheeks beyond retained slots/seats, arrised double-ogee half-lapped timber courses, concave-neck receivers sampled to real undersides, closed cast cheek clouds, pierced acanthus collars and layered ceramic faces',cornerFan:{levels:3,arms:10,receivers:16,footprintM:[1.08,1.52,2.04],construction:'Closed shallow-web/downturned-nose curved arms with inset3.5mm arrises; first orthogonal half lap and two paired courses spreading in plan and length; concave-neck support blocks retain the previous seat bounds and sampled curved-underside contacts; four final flat seats meet the common purlin datum'},waistGallery:{courses:1,headToPurlin:.3868,arms:2,receivers:4},bearingCorrection:'Authored closed 3D timber retains the established complementary slots, course offsets and flat seats; copper end cups fit each actual section; broad closed cloud leaves follow the timber cheeks. Concealed historic joints and exact wear remain interpreted.',guideRole:'Authored 3D curves and solids; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
+ return {bracket:parts,bracketFittings,cornerFan,cornerFanFittings,waistBearing,waistFittings,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 light196: narrow-foot free noses and waisted cheeks beyond retained slots/seats, arrised double-ogee half-lapped timber courses, concave-neck receivers sampled to real undersides, closed cast cheek clouds, pierced acanthus collars and layered ceramic faces',cornerFan:{levels:3,arms:10,receivers:16,footprintM:[1.08,1.52,2.04],construction:'Closed shallow-web/downturned-nose curved arms with inset3.5mm arrises; first orthogonal half lap and two paired courses spreading in plan and length; concave-neck support blocks retain the previous seat bounds and sampled curved-underside contacts; four final flat seats meet the common purlin datum'},waistGallery:{courses:1,headToPurlin:.3868,arms:2,receivers:4},bearingCorrection:'Authored closed3D timber retains the established complementary slots, course offsets and flat seats; only free nose under-tips and lower feet change beyond protected spans, with refitted copper cut profiles; broad closed cloud leaves follow the timber cheeks. Concealed historic joints and exact wear remain interpreted.',guideRole:'Authored 3D curves and solids; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
 }

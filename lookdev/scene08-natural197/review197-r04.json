@@ -1,0 +1,158 @@
+{
+  "revision": "scene08-natural197-r04",
+  "sourceHash": "23bd50dc0446813cbed88cc6ac3de7dfa178c31a548848f3838d1bf43c1a823b",
+  "sourceInputs": 80,
+  "status": "Actual native checkpoint ready for parent review; photographic acceptance false",
+  "visualAccepted": false,
+  "reference": "references/hd/7-照片-8.jpg",
+  "images": [
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r04/reference.png",
+      "sha256": "a291c5ddbadf5535070d54bf5520994e34735a0f798046014a660b652cfcfdaf",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "rgbaSha256": "d81ebeebebd4189b93cc91cd31a14ac80b2dc81863664ccd3a190081a6f0f4ed",
+      "pose": {
+        "position": [
+          0,
+          1.78,
+          13
+        ],
+        "target": [
+          0,
+          6.1,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "subfrustum": null,
+      "sourceHash": "23bd50dc0446813cbed88cc6ac3de7dfa178c31a548848f3838d1bf43c1a823b",
+      "valid": true,
+      "visualAccepted": false
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r04/detail-native.png",
+      "sha256": "4594c893a8f94132303154a6c6ae18b623ca079ef039b5e3f6400b04d0c05dc5",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "rgbaSha256": "879e28ecde6d5427df26e6bcde7fd7de2ec9527e72e49a5193e92a36b0ba72fe",
+      "pose": {
+        "position": [
+          0,
+          1.78,
+          13
+        ],
+        "target": [
+          0,
+          6.1,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "subfrustum": [
+        180,
+        110,
+        730,
+        1254
+      ],
+      "sourceHash": "23bd50dc0446813cbed88cc6ac3de7dfa178c31a548848f3838d1bf43c1a823b",
+      "valid": true,
+      "visualAccepted": false
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r04-low3q/inspection-view.png",
+      "sha256": "b6a28cd7d316b70cc8bba5bf72d7c264aad8aadd5aa5146a496c9a4acce3bbb9",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "rgbaSha256": "2b26046cd68305d13678a8d4e724e0d8d3fb4405cd5e69a7ba0f688646e2e648",
+      "pose": {
+        "position": [
+          1.6,
+          2.2,
+          5.6
+        ],
+        "target": [
+          -3,
+          8.2,
+          -8
+        ],
+        "time": 0,
+        "fov": 51
+      },
+      "subfrustum": null,
+      "sourceHash": "23bd50dc0446813cbed88cc6ac3de7dfa178c31a548848f3838d1bf43c1a823b",
+      "valid": true,
+      "visualAccepted": false
+    }
+  ],
+  "rounds": [
+    {
+      "round": "baseline",
+      "sourceHash": "b5e6804330c4406c557a13a0d4fe4b7a44f51b18a29c1de1855867df3d942fe2",
+      "sourceArchive": "baseline-source-scripts.tgz",
+      "archiveSha256": "177b91f9465bc36e6a07cad7753acd4a53b79a0fb72b12b81006821d66938a88",
+      "status": "Immutable191 R06 baseline",
+      "visualAccepted": false
+    },
+    {
+      "round": "r01",
+      "sourceHash": "cb0f71b56c552dd0c62bfb5bc6151981dba009a8fcf258a48d4ccc947c99f572",
+      "sourceArchive": "r01-source-scripts.tgz",
+      "archiveSha256": "e126f8dc110956008f8a26af701f5a5b7f3ec44f60aa8120e623344119f09600",
+      "status": "Rejected native trial, findings retained",
+      "visualAccepted": false
+    },
+    {
+      "round": "r02",
+      "sourceHash": "876e3eb62fc479c29ffc4cfeab7d0c72f308e12773b00f4b2d9c68f6d04020d4",
+      "sourceArchive": "r02-source-scripts.tgz",
+      "archiveSha256": "001e18c5ef6dc167409f62e3793e3ee811547bf81af538dd5db61c00ccc7c73c",
+      "status": "Rejected native trial, findings retained",
+      "visualAccepted": false
+    },
+    {
+      "round": "r03",
+      "sourceHash": "2017c0369757d831767f8fe14035b445cd74fda8440cda5fdc781addda9b7cc4",
+      "sourceArchive": "r03-source-scripts.tgz",
+      "archiveSha256": "f947959c6066804915874774c83ddaf87a5cc832f2fd8db92786d0541556baf8",
+      "status": "Rejected native trial, findings retained",
+      "visualAccepted": false
+    },
+    {
+      "round": "r04",
+      "sourceHash": "23bd50dc0446813cbed88cc6ac3de7dfa178c31a548848f3838d1bf43c1a823b",
+      "sourceArchive": "r04-source-scripts.tgz",
+      "archiveSha256": "589cfe4e3946e05af39eeeddbbb11c617ed51f1d0abee5b2f08ae9632d7fca5e",
+      "status": "Worker held for parent review",
+      "visualAccepted": false
+    }
+  ],
+  "findings": [
+    "The native full/hero/low3q retain191 doorway depth, actual roof-seated support positions and original171 receiver arrays. Exact source/native protected comparisons pass.",
+    "Broad rounded arms now have stepped/waisted profiles and real14mm carved coves. Repeated191 cast end sleeves are retired; original small shoes use rough aged gilt. Actual relief uses improved cap triangulation, analytic normals and its own matte finish.",
+    "One shadow-casting sun and the independent measured sky replace the unoccluded directional/hemi/ambient fills. A fixed native open-porch capture supplies approximate local reflected radiance to the main hall.",
+    "Local captures now use the same solar-separated sky radiance and lighting gain as the global environment, avoiding a second72870-linear visible solar peak. The original visible HDR is restored after capture.",
+    "The existing thin-leaf term now follows the actual directional-light direction and shadow-attenuated radiance. Garden geometry, placement and RNG remain held."
+  ],
+  "limitations": [
+    "The scene remains strongly CG and photographically unaccepted. Exact bracket carving/cushion profiles, roof contours and ornamental specificity still differ.",
+    "The fixed porch environment is an approximate one-bounce field, not spatially resolved path-traced GI. The photograph has richer warm indirect transport and more varied material wear.",
+    "Stone-lantern forms and foliage/forest morphology remain off-reference. No new camera movement, film, Blender or physical export is claimed."
+  ],
+  "protectedProof": "lookdev/scene08-natural197/protected-native-proof-r04.json",
+  "closedPrimitiveProof": "lookdev/scene08-natural197/primitive-audit-r04.json",
+  "geometryAndRenderingMethods": "Original closed JS mesh authoring and plain CPU closure audit; all actual images use tools/render-one-reconstruction.mjs shared FIFO",
+  "newExternalAssets": false,
+  "newScanInstances": 0,
+  "newFilm": false,
+  "newPhysicalOrBlenderExport": false,
+  "referenceRGBUsedInScene": false
+}

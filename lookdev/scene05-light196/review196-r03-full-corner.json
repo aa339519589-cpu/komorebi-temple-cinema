@@ -1,0 +1,15 @@
+{
+  "sourceHash": "e67bedb60ec995de52f88c5f69acd1bc72834fcc32b32dee3a96559ca2a1cff6",
+  "actualFramesViewed": [
+    "qa/ten-reference/05/iteration-scene05-light196-r03-20261023/reference.png",
+    "qa/ten-reference/05/iteration-scene05-light196-r03-20261023/detail-native.png"
+  ],
+  "visualAccepted": false,
+  "findings": [
+    "The perspective shadow repair removes R02 fine stipple/acne in actual full and native corner views",
+    "Weaker side court source restores readable return faces and shaped joints, but total bounced light is now too broadly bright/orange across the soffits",
+    "Fine-grain and metal finish is more restrained, but overall highly regular timber/ornament still reads as a CG reconstruction",
+    "Narrow-foot free noses with lifted under-tips and fitted caps remain seated in the actual corner frame; no contact vertices changed"
+  ],
+  "next": "Actual same-source low3q and reduced finite bounce strength with direct sun/key and all shadow repairs retained. No uniform ambient or black-painted recess changes."
+}

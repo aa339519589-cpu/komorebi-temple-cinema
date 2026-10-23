@@ -67,7 +67,7 @@ export function createSpatialPortals191({emit,box,between,group}){
  }
  function galleryReceiver({x,z,floor,weatherY,column,galleryJoinery,label}){
   if(!Number.isFinite(weatherY)){skippedReceivers.push({label,axis:[x,z],reason:"Outside actual roof coverage; no forced post emitted"});return false;}const roofUnder=weatherY-.38,base=roofUnder-.65,h=base-floor-.20;if(h<.70){skippedReceivers.push({label,axis:[x,z],reason:"Insufficient actual roof height; no forced post emitted"});return false;}
-  column(x,z,floor,h,.145);for(const q of galleryJoinery.parts)emit(q.geometry,q.material,x,base,z,.49,.64,.49);cladJoinery(x,base,z,.49,.64,.49,galleryJoinery,label);box(x,roofUnder-.065,z,.29,.16,.33,'wood');
+  column(x,z,floor,h,.145);for(const q of galleryJoinery.parts)emit(q.geometry,q.material,x,base,z,.49,.64,.49);box(x,roofUnder-.065,z,.29,.16,.33,'wood');
   receivers.push({label,axis:[x,z],floor,shaftTop:base,roofReceiver:roofUnder+.015,weatherY,actualRoofQueried:true});return true;
  }
  return{portal,collar,interior,galleryReceiver,cladJoinery,cladCantilever,info:()=>({revision:SPATIAL191_REVISION,portals,caps,receivers,skippedReceivers,claddingMounts,cantileverCladding,photographSampled:false,newScannedInstances:0,visualAccepted:false})};

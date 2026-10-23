@@ -13,7 +13,7 @@
   "sourceBuilder": "tools/build-temple-joinery-kit.py",
   "provenance": "lookdev/gilded-kiku-v01/README.md",
   "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
-  "revision": "scene05-worked-corner-detail190-r04",
+  "revision": "scene05-sunlit-bearing-light196-r04",
   "bearingBlockCorrection": {
     "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
     "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5\u7167\u72476 has flatter bearing planes and sharper tapered sides.",
@@ -200,6 +200,48 @@
       "Lantern crown grows to almost chamber width through a real open floral cast lattice with closed stems/petals, domed lid, fine chamber grid bars and hanging corner eave fittings",
       "Retain authored metricPathUV metadata when indexed loft geometry is expanded by Three.toNonIndexed, which otherwise drops userData and overwrites arclength grain with generic member-axis UVs",
       "Camera/tier geometry/beam centrelines/birdsmouth seats/lantern-body and suspension anchors/measured sky/direct sun are retained; all original scan bytes remain unchanged"
+    ]
+  },
+  "light196": {
+    "status": "Actual native-review candidate; photographic fidelity unaccepted",
+    "baseline": "190R04 0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
+    "reference": "references/hd/5-\u7167\u7247-6.jpg",
+    "construction": [
+      "Only exposed nose sections beyond the original protected half-lap/receiver spans change: under-tip rises50mm, upper face remains fixed, lower-foot width becomes76% of upper width",
+      "Closed primary and secondary copper fittings follow the actual narrower-foot cut profile and updated finite cut height; retained independent roof/tail fittings stay unchanged"
+    ],
+    "light": [
+      "Same physical sun position/target, stronger warm-neutral direct key",
+      "Lower measured sunless sky IBL and residual hemisphere; original measured sky bytes/solar orientation retained",
+      "One finite inverse-square shadow-casting courtyard-patch proxy replaces parallel upward fill, producing natural distance falloff across tiers"
+    ],
+    "finish": "Retained rawCC0 scanned wood with subtler fibres/normal response and restrained varnish; slightly rougher/less mirror-like worked metal. No photo colours, black-painted recesses or regular lighting stripes",
+    "preserved": "All175 site/tier/camera/dolly/roof/hip path and cut anchors, real bearing/lap footprints, original external raw assets and190R04 evidence/snapshots",
+    "declaredChange": "Exposed bearing nose cut height/foot section and fitted cap centre change together; protected top/slot/receiver geometry is byte-exact in CPU vertex comparison",
+    "limits": [
+      "Native light proxies are reconstructed diagnostics, not measured irradiance or traced GI",
+      "Authored nose/ornament sections remain conservation hypotheses",
+      "Finite closed geometry and valid pixels do not establish visual acceptance",
+      "Two finite native court proxies approximate reflected irradiance; they do not recover area-source radiance or traced multi-bounce transport"
+    ],
+    "newExternalAssets": false,
+    "referencePhotographRuntimeUse": false,
+    "visualAccepted": false,
+    "r02": [
+      "ActualR01 full/truecorner/low3q are preserved dark/dull failures: finite courtyard irradiance was insufficient at the retained13\u201325m source distances",
+      "Raise only the existing finite inverse-square shadow-casting courtyard source from115 to600 and broaden its shadow penumbra; retain measured sky/residual hemisphere/direct key and all source directions",
+      "No equal fill, painted-black recesses, image-plane patches or regular light stripes"
+    ],
+    "r03": [
+      "ActualR02 full/truecorner/low3q expose fine perspective-shadow acne and an overly dark right return; all evidence/source retained",
+      "Set native bounce shadow near/far to4/45m, narrower.92rad cone, calibrated negative depth bias/6mm normal bias and smaller PCF radius, with4k front map",
+      "Use unequal finite court patches: retained front location at420 with warmer ground return, weaker190 side patch at[15,.35,2] with cooler stone/sky return; inverse-square falloff and geometry shadows retained",
+      "Sun direction, measured raw sky/rotation, sky residual, tier/roof/camera/beam paths and protected bearing seats remain unchanged"
+    ],
+    "r04": [
+      "ActualR03 full/truecorner/low3q resolveR02 stippling but show overly broad orange soffit wash",
+      "Reduce only the finite front/side court patches to320/110, retain stronger direct sun, low measured-sky/residual hemisphere and all perspective-shadow repairs",
+      "Protected seats/laps, tier/roof/hip/camera/scene anchors remain unchanged; no native still constitutes photographic acceptance"
     ]
   }
 }

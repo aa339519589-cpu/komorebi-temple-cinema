@@ -1,0 +1,202 @@
+{
+  "sourceHash": "0973c4377eb0dc03c395ea4b5f74919d2385b146e898b3d10eb2155ef3d8d8ad",
+  "baselineSourceHash": "0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
+  "scope": "Actual native runtime invariants; finite lighting/finish and exposed cut sections intentionally change. No fidelity acceptance.",
+  "fields": [
+    {
+      "key": "levels",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "tierSpec",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "landmarkWorlds",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "referencePose",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "cameraHeightRange",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "canopy",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "physicalSunPosition",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.path",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.sourceSunPixel",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.maximumLuma",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.meanLuma",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.sourceDirectionYUp",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.targetDirectionYUp",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.rotationXYZ",
+      "exactlyUnchanged": true
+    },
+    {
+      "key": "measuredSky.solarSeparation",
+      "exactlyUnchanged": true
+    }
+  ],
+  "allPreservedFieldsExact": true,
+  "newLighting": {
+    "sunPosition": [
+      -18,
+      36,
+      30
+    ],
+    "sunIntensity": 8,
+    "sunColor": "#fff0d8",
+    "hierarchy196": {
+      "revision": 196,
+      "sun": {
+        "position": [
+          -18,
+          36,
+          30
+        ],
+        "target": [
+          0,
+          9,
+          0
+        ],
+        "intensity": 8,
+        "color": "#fff0d8"
+      },
+      "sky": {
+        "measuredSunlessEnvironmentIntensity": 0.22,
+        "hemisphereResidual": 0.055
+      },
+      "courtyard": {
+        "type": "SpotLight",
+        "position": [
+          2,
+          0.35,
+          15
+        ],
+        "target": [
+          0,
+          12,
+          0
+        ],
+        "intensity": 320,
+        "color": "ead5bb",
+        "decay": 2,
+        "cone": 0.92,
+        "penumbra": 0.7,
+        "castsShadows": true,
+        "shadowNear": 4,
+        "shadowFar": 45,
+        "normalBias": 0.006,
+        "shadowBias": -0.00006,
+        "shadowRadius": 0.75,
+        "shadowMap": [
+          4096,
+          4096
+        ]
+      },
+      "adjacentCourtyard": {
+        "type": "SpotLight",
+        "position": [
+          15,
+          0.35,
+          2
+        ],
+        "target": [
+          0,
+          12,
+          0
+        ],
+        "intensity": 110,
+        "color": "cbd4df",
+        "decay": 2,
+        "cone": 0.92,
+        "penumbra": 0.7,
+        "castsShadows": true,
+        "shadowNear": 4,
+        "shadowFar": 45,
+        "normalBias": 0.006,
+        "shadowBias": -0.00006,
+        "shadowRadius": 0.75,
+        "shadowMap": [
+          2048,
+          2048
+        ]
+      },
+      "limits": "Measured sky with bounded native direct/finite unequal bounce proxies, not recovered scene irradiance or physical GI"
+    },
+    "courtyardBounce": 320,
+    "courtyardBounceType": "unequal finite inverse-square shadow-casting courtyard patches",
+    "courtyardBounceCastsShadows": true,
+    "hemisphere": 0.055,
+    "environmentIntensity": 0.22,
+    "measuredSky": {
+      "provider": "Poly Haven",
+      "asset": "kloofendal_48d_partly_cloudy_puresky",
+      "license": "CC0-1.0",
+      "path": "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+      "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+      "authors": [
+        "Greg Zaal",
+        "Jarod Guest"
+      ],
+      "sourceSunPixel": [
+        1218,
+        784
+      ],
+      "maximumLuma": 72870.25335625,
+      "meanLuma": 0.6762980197300532,
+      "sourceDirectionYUp": [
+        0.5545620062863689,
+        0.741980411720831,
+        0.37673073913104493
+      ],
+      "targetDirectionYUp": [
+        -0.40730653998127836,
+        0.6109598099719176,
+        0.6788442333021306
+      ],
+      "rotationXYZ": [
+        1.1181197707635133,
+        -1.4594669702652538,
+        0.9673187755123099,
+        "XYZ"
+      ],
+      "nativeEnvironmentIntensity": 0.22,
+      "backgroundIntensity": 1.6,
+      "solarSeparation": {
+        "coneDegrees": 2.3,
+        "fillRadianceCeiling": 3,
+        "pixels": 803
+      },
+      "scope": "Original measured CC0 sky is the background. Native IBL solar disk is separated into the shadow-casting directional key; courtyard-bounce proxy and sky occlusion remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh."
+    },
+    "limits": "Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI"
+  }
+}

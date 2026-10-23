@@ -3,6 +3,8 @@ import {loadScannedPeony171} from './scanned-peony171.js';
 import {buildGrandBearing171} from './grand-bearing171.js';
 import {createSpatialPortals191,SPATIAL191_REVISION} from './spatial-portals191.js';
 import {installMaterialHierarchy191,captureEntryCourt191} from './material-hierarchy191.js';
+import{createNaturalJoinery197}from'./natural-joinery197.js';
+import{installSun197,captureHallCourt197,NATURAL197_REVISION}from'./natural-light197.js';
 import {Reflector} from '../../../vendor/examples/jsm/objects/Reflector.js';
 import {createWeatheredBoulderGeometry,createBoulderMossGeometry} from './rocks.js';
 import {createGalleryCurvedJoinery,createContinuousTimber,createClayCoverTile,createClayPanTile} from './gallery-joinery.js';
@@ -56,7 +58,7 @@ function pigmentTimber(m,color){
  m.map=paintedTimberMaps.get(color);m.color.set('#ffffff');m.onBeforeCompile=()=>{};m.customProgramCacheKey=()=> 'scene08-portable-pigment148';return m;
 }
 for(const name of['red','redlight','wood','dark'])pigmentTimber(mats[name],{red:'#8c321b',redlight:'#a04c28',wood:'#4d2e20',dark:'#241d16'}[name]);
-const finish191=installMaterialHierarchy191(mats,materials,peony);
+const finish191=installMaterialHierarchy191(mats,materials,peony);mats.joinerygilt.color.setRGB(.37,.22,.065);mats.joinerygilt.roughness=.62;mats.joinerygilt.metalness=.82;
 
 for(const t of[graniteColor,graniteNormal,graniteRough])t.repeat.set(2,1.5);
 mats.rock.map=graniteColor;mats.rock.bumpMap=null;mats.rock.normalMap=graniteNormal;mats.rock.normalScale=new T.Vector2(.30,.30);mats.rock.roughnessMap=graniteRough;mats.rock.color.set('#a2a6a0');
@@ -74,12 +76,13 @@ const boxG=new T.BoxGeometry(1,1,1),cylG=new T.CylinderGeometry(1,1,1,12),ballG=
  for(const ma of[mats.leaf,mats.leaflight,mats.maple]){ma.map=leafTexture;ma.bumpMap=leafTexture;ma.bumpScale=.0006;}
 }
 
-const galleryJoinery=createGalleryCurvedJoinery(),clayCoverG=createClayCoverTile(),clayPanG=createClayPanTile();for(const g of galleryJoinery.resources)geometries.add(g);for(const g of relief.resources)geometries.add(g);mats.gallerytile=new T.MeshPhysicalMaterial({name:'scene08-aged-glazed-cover-tile147',color:'#2b4258',roughness:.38,metalness:.015,clearcoat:.24,clearcoatRoughness:.32,map:stone,bumpMap:stone,bumpScale:.004});materials.push(mats.gallerytile);mats.ceramictile=mats.gallerytile.clone();mats.ceramictile.name='scene08-aged-closed-ceramic148';mats.ceramictile.color.set('#304457');mats.ceramictile.roughness=.46;mats.ceramictile.clearcoat=.18;materials.push(mats.ceramictile);
+const galleryJoinery=createNaturalJoinery197(),clayCoverG=createClayCoverTile(),clayPanG=createClayPanTile();for(const g of galleryJoinery.resources)geometries.add(g);for(const g of relief.resources)geometries.add(g);mats.gallerytile=new T.MeshPhysicalMaterial({name:'scene08-aged-glazed-cover-tile147',color:'#2b4258',roughness:.38,metalness:.015,clearcoat:.24,clearcoatRoughness:.32,map:stone,bumpMap:stone,bumpScale:.004});materials.push(mats.gallerytile);mats.ceramictile=mats.gallerytile.clone();mats.ceramictile.name='scene08-aged-closed-ceramic148';mats.ceramictile.color.set('#304457');mats.ceramictile.roughness=.46;mats.ceramictile.clearcoat=.18;materials.push(mats.ceramictile);
 mats.leaf.color.set('#526932');mats.leaflight.color.set('#879948');mats.leaf.roughness=.46;mats.leaflight.roughness=.49;
 material('pine','#426330',.82);const needleG=new T.BufferGeometry(),needleP=[];for(let k=0;k<9;k++){const a=k*2.39996,dx=Math.cos(a),dz=Math.sin(a),p=[[0,0,0],[dx*.027,.11,dz*.027],[dx*.09,.23,dz*.09]];for(let j=0;j<2;j++){const aa=p[j],bb=p[j+1],ww=.016*(1-j*.45);needleP.push(aa[0]-dz*ww,aa[1],aa[2]+dx*ww,aa[0]+dz*ww,aa[1],aa[2]-dx*ww,...bb);}}needleG.setAttribute('position',new T.Float32BufferAttribute(needleP,3));needleG.computeVertexNormals();mats.pine.side=T.DoubleSide;
 const v=a=>new T.Vector3(...a);
 function resolveMaterial191(ma){return typeof ma==='string'?(role==='foreground-veranda'&&mats['entry191_'+ma]?mats['entry191_'+ma]:mats[ma]):ma;}
-function emit(g,ma,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=[0,0,0],tint=1){const m=resolveMaterial191(ma),key=g.uuid+m.uuid;let b=buckets.get(key);if(!b)buckets.set(key,b={g,m,items:[]});const matrix=new T.Matrix4().compose(v([x,y,z]),new T.Quaternion().setFromEuler(new T.Euler(...rot)),v([sx,sy,sz])).premultiply(stack.at(-1));b.items.push({matrix,tint});geometries.add(g);roles[role]=(roles[role]||0)+1;}
+const carvedMaterials197=new Map();function realCarvingMaterial197(g,m){if(!g.userData.closedCarvedTimber197)return m;if(!carvedMaterials197.has(m)){const q=m.clone();q.name=m.name+'-real-carved197';q.onBeforeCompile=m.onBeforeCompile;q.customProgramCacheKey=m.customProgramCacheKey;q.normalMap=null;q.roughness=.86;if(q.isMeshPhysicalMaterial){q.clearcoat=.045;q.clearcoatRoughness=.55;}materials.push(q);carvedMaterials197.set(m,q);}return carvedMaterials197.get(m);}
+function emit(g,ma,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=[0,0,0],tint=1){const m=realCarvingMaterial197(g,resolveMaterial191(ma)),key=g.uuid+m.uuid;let b=buckets.get(key);if(!b)buckets.set(key,b={g,m,items:[]});const matrix=new T.Matrix4().compose(v([x,y,z]),new T.Quaternion().setFromEuler(new T.Euler(...rot)),v([sx,sy,sz])).premultiply(stack.at(-1));b.items.push({matrix,tint});geometries.add(g);roles[role]=(roles[role]||0)+1;}
 const bevels=new Map();function bevelBox(w,h,d){const key=[w,h,d].join(',');if(bevels.has(key))return bevels.get(key);const geo=new T.BoxGeometry(w,h,d,3,3,3),p=geo.attributes.position,n=geo.attributes.normal,r=Math.min(.028,Math.min(w,h,d)*.13),half=[w/2-r,h/2-r,d/2-r];for(let i=0;i<p.count;i++){const point=new T.Vector3(p.getX(i),p.getY(i),p.getZ(i)),core=point.clone();core.x=T.MathUtils.clamp(core.x,-half[0],half[0]);core.y=T.MathUtils.clamp(core.y,-half[1],half[1]);core.z=T.MathUtils.clamp(core.z,-half[2],half[2]);const normal=point.clone().sub(core).normalize();point.copy(core).addScaledVector(normal,r);p.setXYZ(i,point.x,point.y,point.z);n.setXYZ(i,normal.x,normal.y,normal.z);}const dims=[w,h,d],longest=dims.indexOf(Math.max(...dims)),uv2=[];
 for(let i=0;i<p.count;i++){
  const coords=[p.getX(i),p.getY(i),p.getZ(i)],nn=[Math.abs(n.getX(i)),Math.abs(n.getY(i)),Math.abs(n.getZ(i))],face=nn.indexOf(Math.max(...nn)),along=longest===face?(face+1)%3:longest,across=[0,1,2].find(k=>k!==face&&k!==along);
@@ -300,7 +303,7 @@ function inGrandHallFootprint(x,z,padding=.18){
 }
 function monumentalHall(){
  const original={red:mats.red,redlight:mats.redlight,wood:mats.wood,dark:mats.dark};
- for(const [name,color]of Object.entries({red:'#824024',redlight:'#a05c2d',wood:'#57311d',dark:'#22180f'})){
+ for(const [name,color]of Object.entries({red:'#8c3a22',redlight:'#934329',wood:'#59301f',dark:'#231a13'})){
   const m=mats[name].clone();m.onBeforeCompile=mats[name].onBeforeCompile;m.customProgramCacheKey=mats[name].customProgramCacheKey;m.name='grand-hall-'+name;pigmentTimber(m,color);if(m.normalMap)m.normalScale.set(.22,.22);m.roughness=name==='wood'?.86:.82;m.envMapIntensity=.55;materials.push(m);mats[name]=m;
  }
  const roof171=roof(grandFrame.w,grandFrame.d,grandFrame.eave,grandFrame.rise,.45,.12,.42);
@@ -326,7 +329,6 @@ group(lowerGalleryFrame.x,0,lowerGalleryFrame.z,lowerGalleryFrame.yaw,()=>{
   for(const z of[-.92,.92]){
    column(x,z,fy,ey-fy-.67,.175);
    for(const q of galleryJoinery.parts)emit(q.geometry,q.material,x,ey-.61,z,.43,.60,.43);
-   spatial191.cladJoinery(x,ey-.61,z,.43,.60,.43,galleryJoinery,'lower-gallery-'+j+'-'+z);
   }
   if(j<5){const xx=x+run*.092;if(j===2)spatial191.portal({x:xx,z:-.55,lo:floorAt(xx)+.035,hi:eaveAt(xx)-.75,width:.76,depth:.47,jamb:.08,label:'lower-court-stair-bay'});else{box(xx,floorAt(xx)+1.05,-.67,.84,2.04,.12,'dark');lattice(xx,floorAt(xx)+1.10,-.55,.65,1.70);box(xx,eaveAt(xx)-.82,-.52,.85,.26,.13,'wall');}}
   box(x,ey-.31,0,.16,.18,2.55,'red');
@@ -357,7 +359,6 @@ role='upper-descending-gallery';
    for(const z of[-.89,-.30]){
     column(x,z,fy,ey-fy-.83,.18);
     for(const q of galleryJoinery.parts)emit(q.geometry,q.material,x,ey-.75,z,.63,.80,.63);
-    spatial191.cladJoinery(x,ey-.75,z,.63,.80,.63,galleryJoinery,'upper-gallery-'+i+'-'+z);
     box(x,ey-.30,z,.19,.22,.65,'red');
    }
    box(x,ey-.38,0,.18,.20,2.48,'red');
@@ -713,8 +714,9 @@ const skyG=new T.SphereGeometry(120,48,32),skyM=new T.ShaderMaterial({side:T.Bac
 const skyMesh=new T.Mesh(skyG,skyM);skyMesh.renderOrder=-10;scene.add(skyMesh);geometries.add(skyG);materials.push(skyM)
 const bounceMats=new Set(['red','redlight','wood','dark','gold','oldgold','wall','joinerygilt','hardwarebrass','hardwareRecess'].map(k=>mats[k]));
 let instances=0,triangles=0;for(const {g,m,items} of buckets.values()){const mesh=new T.InstancedMesh(g,m,items.length);for(let i=0;i<items.length;i++){mesh.setMatrixAt(i,items[i].matrix);mesh.setColorAt(i,new T.Color().setScalar(items[i].tint));}mesh.instanceMatrix.needsUpdate=true;mesh.castShadow=mesh.receiveShadow=true;if(g===leafG)mesh.castShadow=true;mesh.frustumCulled=true;if(bounceMats.has(m)||m.name.startsWith('grand-hall-')||m.name==='foregroundSoffit'||m===peony.material)mesh.layers.enable(1);scene.add(mesh);instances+=items.length;triangles+=(g.index?.count??g.attributes.position.count)/3*items.length;}
-scene.add(new T.HemisphereLight('#d4e1e8','#6a4b29',.46));scene.add(new T.AmbientLight('#d7b98f',.04));const porchBounce=new T.DirectionalLight('#ffdcac',.34);porchBounce.position.set(7,6,16);scene.add(porchBounce);const eaveBounce=new T.DirectionalLight('#ffce8f',.36);eaveBounce.layers.set(1);eaveBounce.position.set(4,1.8,5);eaveBounce.target.position.set(-4,9,-10);scene.add(eaveBounce,eaveBounce.target);const sun=new T.DirectionalLight('#ffd092',6.5);sun.position.set(-30,22,18);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.radius=2.4;Object.assign(sun.shadow.camera,{left:-27,right:27,top:33,bottom:-18,near:1,far:90});sun.shadow.bias=-.00014;sun.shadow.normalBias=.035;sun.target.position.set(0,4,-7);scene.add(sun,sun.target);const fill=new T.DirectionalLight('#c3d4df',.24);fill.position.set(-10,14,-18);scene.add(fill);
+const natural197=installSun197(scene),sun=natural197.sun;
 skyMesh.visible=false;const measuredSky=await installCourtyardRadiance({renderer,scene,sun});
-const entryCourt191=captureEntryCourt191({renderer,scene,mats,stream});
-return {scene,setTime(time){void time;},stats:{instances,triangles,roles,seed:80247,rngFinalState:seed,revision:SPATIAL191_REVISION,spatial191:spatial191.info(),finish191,entryCourt191:entryCourt191.info,externalAssets:true,proceduralPlaqueGeometry:true,description:'Extended occupied grand-hall return, upper sloping gallery with recessed load-bearing post line, foreground lower tiled gallery on distinct terrain-rooted piers, complete five-bay right veranda and low wing, solid central stone flight and connected bridge landing, closed ceramic pans/covers, portable pigmented scan PBR and measured partly cloudy radiance, mature branched broadleaf crowns and carved weathered stone lantern.',botany:botany.stats,grandFrame,grandMass171,scannedPeony:peony.info(),pine171:pine171Stats,rightHall171:{frame:rightHallFrame171,shrineIsHostLocal:true,frontAxes:[-4.05,-2.43,-.81,.81,2.43,4.05],bayCount:5},measuredSky:measuredSky.info,scannedStones:{...scannedStones.info,count:scannedStones.info.count()}},dispose(){entryCourt191.dispose();peony.dispose();scannedStones.dispose();measuredSky.dispose();botany.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
+scene.environmentIntensity=.62;measuredSky.info.environmentIntensity=.62;
+let hallCourt197,entryCourt191;measuredSky.beginIndirectCapture();try{hallCourt197=captureHallCourt197({renderer,scene,materials,stream,grandFrame});entryCourt191=captureEntryCourt191({renderer,scene,mats,stream});}finally{measuredSky.endIndirectCapture();}
+return {scene,setTime(time){void time;},stats:{instances,triangles,roles,seed:80247,rngFinalState:seed,revision:NATURAL197_REVISION,natural197:{...natural197.info,hallCourt:hallCourt197.info,joinery:galleryJoinery.info197,skyEnvironmentIntensity:.62},spatial191:spatial191.info(),finish191,entryCourt191:entryCourt191.info,externalAssets:true,proceduralPlaqueGeometry:true,description:'Extended occupied grand-hall return, upper sloping gallery with recessed load-bearing post line, foreground lower tiled gallery on distinct terrain-rooted piers, complete five-bay right veranda and low wing, solid central stone flight and connected bridge landing, closed ceramic pans/covers, portable pigmented scan PBR and measured partly cloudy radiance, mature branched broadleaf crowns and carved weathered stone lantern.',botany:botany.stats,grandFrame,grandMass171,scannedPeony:peony.info(),pine171:pine171Stats,rightHall171:{frame:rightHallFrame171,shrineIsHostLocal:true,frontAxes:[-4.05,-2.43,-.81,.81,2.43,4.05],bayCount:5},measuredSky:measuredSky.info,scannedStones:{...scannedStones.info,count:scannedStones.info.count()}},dispose(){hallCourt197.dispose();entryCourt191.dispose();peony.dispose();scannedStones.dispose();measuredSky.dispose();botany.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
 }

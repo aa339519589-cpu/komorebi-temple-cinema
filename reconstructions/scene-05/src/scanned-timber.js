@@ -42,9 +42,9 @@ export async function installScannedTimber(mats){
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.15:.105,kind==='endwood'?.15:.105);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=.88;
+  const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.11:.075,kind==='endwood'?.11:.075);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=.80;
   if(painted)mat.color.set(pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=.085;mat.clearcoatRoughness=.43;mat.specularIntensity=.62;}
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=.17;mat.clearcoatRoughness=.34;mat.specularIntensity=.55;}
   mat.onBeforeCompile=shader=>{
    shader.vertexShader='attribute float woodCut190;attribute vec2 woodEndUv190;varying float vWoodCut190;varying vec2 vWoodEndUv190;\n'+shader.vertexShader;
    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\n vWoodCut190=woodCut190;vWoodEndUv190=woodEndUv190;');
@@ -54,8 +54,8 @@ export async function installScannedTimber(mats){
      vec2 woodUv=vMapUv;
      float fibre=woodUv.y*1020.+sin(woodUv.x*3.7+sin(woodUv.y*9.))*2.4;
      float filterFibre=1.-smoothstep(.6,2.4,fwidth(fibre));
-     float longitudinal=(sin(fibre)*.041+sin(fibre*2.71)*.020)*filterFibre;
-     float age=.070*sin(woodUv.x*1.9+woodUv.y*21.)+.040*sin(woodUv.x*5.2+woodUv.y*7.);
+     float longitudinal=(sin(fibre)*.023+sin(fibre*2.71)*.011)*filterFibre;
+     float age=.040*sin(woodUv.x*1.9+woodUv.y*21.)+.024*sin(woodUv.x*5.2+woodUv.y*7.);
      float worn=smoothstep(.48,.88,sin(woodUv.x*3.1+sin(woodUv.y*16.)*.42)*sin(woodUv.x*.81+woodUv.y*3.2));
      float checkPhase=woodUv.y*184.+sin(woodUv.x*3.2+woodUv.y*9.)*.16;
      float checkFilter=1.-smoothstep(.55,1.8,fwidth(checkPhase));
@@ -66,7 +66,7 @@ export async function installScannedTimber(mats){
      float filtered190=1.-smoothstep(.7,2.5,fwidth(phase190)),growth190=.5+.5*cos(phase190)*filtered190;
      diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.230,.125,.055)*(.94+.06*growth190),smoothstep(.75,.98,vWoodCut190)*.70);
     #endif`);
-  };mat.customProgramCacheKey=()=> 'scene05-detail190-scanned-wood-natural-cut-response';
+  };mat.customProgramCacheKey=()=> 'scene05-light196-subdued-grain-varnish-cut-response';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=painted?.70:.7;mat.needsUpdate=true;
  }
  return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV, subdued scanned normals, longitudinal aged tissue and bounded fine checks',pigments,pigmentCoverage:'CC0 scan luminance .36–.98 and10% source chroma under warm red-brown stain; broad rub-through to natural timber; scene photograph unused',sourceMeanLinearLuma:meanLuma},

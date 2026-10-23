@@ -1,0 +1,17 @@
+{
+  "sourceHash": "bc29b776a5930cfd3d55a7bc354dbd864029d93c1fcf0f35d9bed986d59a6107",
+  "visualAccepted": false,
+  "actualFramesViewed": [
+    "qa/ten-reference/05/iteration-scene05-light196-r01-20261023/reference.png",
+    "qa/ten-reference/05/iteration-scene05-light196-r01-20261023/detail-native.png",
+    "qa/ten-reference/05/iteration-scene05-light196-r01-low3q-20261023/inspection-view.png"
+  ],
+  "findings": [
+    "Reduced uniform fill makes depth more apparent but darkens most sheltered timber too far; R01 remains dull vs warm luminous photographed timber",
+    "Direct warm sun remains limited to geometry it can actually see; existing roof/tier/sun anchors retained",
+    "Exposed narrow-foot cut planes and shorter tipped sections read less like tall full rectangles; fitted copper appears seated in native corner view",
+    "One finite shadowed courtyard proxy is too weak at actual tier distances; correcting its local irradiance and gradient before accepting any lighting candidate",
+    "Actual low3q confirms broad upper/lower sheltered fields remain dark and dull; finite courtyard falloff needs more energy, not a lift of uniform sky or ambient"
+  ],
+  "next": "Obtain and inspect same-source low3q; then repair finite courtyard bounce strength/color and under-eave gradient. No uniform fill increase or black-painted recesses."
+}
