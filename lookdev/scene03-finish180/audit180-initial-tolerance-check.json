@@ -1,0 +1,16 @@
+{
+  "scope": "Preserved initial CPU audit false-positive and repair of the audit tolerance, not a changed scan candidate",
+  "actualInitialCounts": {
+    "coordinateQuantization": 1e-06,
+    "triangleCrossLengthSqThreshold": 1e-20,
+    "degenerateCount": 14,
+    "boundaryOrNonmanifoldEdgeCount": 34
+  },
+  "correctedAudit": "audit180.mjs",
+  "correctedTolerance": {
+    "coordinateQuantization": 1e-08,
+    "triangleCrossLengthSqThreshold": 1e-28
+  },
+  "reason": "The initial audit collapsed distinct close vertices in the actual high-density scan. The corrected published176-style geometric tolerance preserves these vertices. Current scan+cut closures audit zero boundary/nonmanifold/degenerate/opposed edges.",
+  "sourcePositionNormalIndexChanged": false
+}

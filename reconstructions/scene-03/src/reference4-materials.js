@@ -9,7 +9,7 @@ export function createReference4MaterialSet(T, options={}) {
   };
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
-    const m=options.materials?.[key]||new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness});
+    const m=options.materials?.[key]||(['red','cedar','endwood','darkwood'].includes(key)?new T.MeshPhysicalMaterial({name:'reference4_'+key,color,roughness,metalness,clearcoat:key==='red'?.22:.12,clearcoatRoughness:.38}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
     mats[key]=m;if(!options.materials?.[key])materials.push(m);
   }
   const fract=x=>x-Math.floor(x), hash=(x,y)=>fract(Math.sin(x*127.1+y*311.7+7.3)*43758.5453123);

@@ -1,0 +1,494 @@
+{
+  "revision": 180,
+  "scope": "Actual scan cut closure and closed gable prototype topology; no photographic acceptance",
+  "sourceComponentSha256": "0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee",
+  "unchangedComponentBytes": 8553444,
+  "cloudClosure": {
+    "sourceLoops": 5,
+    "closedPatches": 5,
+    "holeLoops": 0,
+    "capTriangles": 1247,
+    "sourcePositionNormalIndexUnchanged": true,
+    "method": "Planar polygon closure at the measured source X cut; nesting retains the existing pierced channel"
+  },
+  "closedCloud": {
+    "finite": true,
+    "triangles": 356034,
+    "degenerate": 0,
+    "signedVolume": 0.05967880681671308,
+    "boundaryOrNonmanifoldEdges": 0,
+    "opposedEdgePairs": 0
+  },
+  "gable": {
+    "revision": 180,
+    "diaphragm": {
+      "bottom": 15.04,
+      "frontZ": 0,
+      "backZ": -0.38,
+      "thickness": 0.38
+    },
+    "tieSection": [
+      0.49,
+      0.8
+    ],
+    "kingPostSection": [
+      0.53,
+      0.71
+    ],
+    "sockets": [
+      {
+        "position": [
+          -0.57,
+          16.009999999999998,
+          0.45
+        ],
+        "scale": 1.1,
+        "mirrorX": true
+      },
+      {
+        "position": [
+          0.57,
+          16.009999999999998,
+          0.45
+        ],
+        "scale": 1.1,
+        "mirrorX": false
+      }
+    ],
+    "removed": "Exposed diagonal truss, separate synthetic foliate strut, pale broad apron and repeated procedural gold receiver stamps",
+    "weatherProfileChanged": false
+  },
+  "lanterns": {
+    "revision": 180,
+    "coordinateSystem": "Retained hallFixtureMatrix; x-5/z+3 converts to the pre-turn architecture frame",
+    "supports": [
+      {
+        "fixtureX": -0.8,
+        "hallLocalX": -5.8,
+        "bodyCenter": [
+          -0.8,
+          7.38,
+          -0.9
+        ],
+        "outriggerRootSection": [
+          0.19,
+          0.25
+        ],
+        "outriggerTipSection": [
+          0.1235,
+          0.1625
+        ],
+        "outriggerCenterline": [
+          [
+            -0.8,
+            10,
+            -3.16
+          ],
+          [
+            -0.8,
+            10.02,
+            -2.77
+          ],
+          [
+            -0.8,
+            9.96,
+            -2.05
+          ],
+          [
+            -0.8,
+            9.74,
+            -1.38
+          ],
+          [
+            -0.8,
+            9.58,
+            -0.9
+          ]
+        ],
+        "retainedGirtCenter": [
+          -5.8,
+          9.96,
+          0.12
+        ],
+        "retainedGirtSection": [
+          0.28,
+          0.37
+        ],
+        "clampCenter": [
+          -0.8,
+          10.016,
+          -2.84
+        ],
+        "hookCenter": [
+          -0.8,
+          9.445,
+          -0.9
+        ],
+        "rodEndpoints": [
+          [
+            -0.8,
+            9.445,
+            -0.9
+          ],
+          [
+            -0.8,
+            7.7,
+            -0.9
+          ]
+        ],
+        "bodyMoved": false
+      },
+      {
+        "fixtureX": 2,
+        "hallLocalX": -3,
+        "bodyCenter": [
+          2,
+          7.38,
+          -0.9
+        ],
+        "outriggerRootSection": [
+          0.19,
+          0.25
+        ],
+        "outriggerTipSection": [
+          0.1235,
+          0.1625
+        ],
+        "outriggerCenterline": [
+          [
+            2,
+            10,
+            -3.16
+          ],
+          [
+            2,
+            10.02,
+            -2.77
+          ],
+          [
+            2,
+            9.96,
+            -2.05
+          ],
+          [
+            2,
+            9.74,
+            -1.38
+          ],
+          [
+            2,
+            9.58,
+            -0.9
+          ]
+        ],
+        "retainedGirtCenter": [
+          -3,
+          9.96,
+          0.12
+        ],
+        "retainedGirtSection": [
+          0.28,
+          0.37
+        ],
+        "clampCenter": [
+          2,
+          10.016,
+          -2.84
+        ],
+        "hookCenter": [
+          2,
+          9.445,
+          -0.9
+        ],
+        "rodEndpoints": [
+          [
+            2,
+            9.445,
+            -0.9
+          ],
+          [
+            2,
+            7.7,
+            -0.9
+          ]
+        ],
+        "bodyMoved": false
+      },
+      {
+        "fixtureX": 8,
+        "hallLocalX": 3,
+        "bodyCenter": [
+          8,
+          7.38,
+          -0.9
+        ],
+        "outriggerRootSection": [
+          0.19,
+          0.25
+        ],
+        "outriggerTipSection": [
+          0.1235,
+          0.1625
+        ],
+        "outriggerCenterline": [
+          [
+            8,
+            10,
+            -3.16
+          ],
+          [
+            8,
+            10.02,
+            -2.77
+          ],
+          [
+            8,
+            9.96,
+            -2.05
+          ],
+          [
+            8,
+            9.74,
+            -1.38
+          ],
+          [
+            8,
+            9.58,
+            -0.9
+          ]
+        ],
+        "retainedGirtCenter": [
+          3,
+          9.96,
+          0.12
+        ],
+        "retainedGirtSection": [
+          0.28,
+          0.37
+        ],
+        "clampCenter": [
+          8,
+          10.016,
+          -2.84
+        ],
+        "hookCenter": [
+          8,
+          9.445,
+          -0.9
+        ],
+        "rodEndpoints": [
+          [
+            8,
+            9.445,
+            -0.9
+          ],
+          [
+            8,
+            7.7,
+            -0.9
+          ]
+        ],
+        "bodyMoved": false
+      },
+      {
+        "fixtureX": 10.8,
+        "hallLocalX": 5.800000000000001,
+        "bodyCenter": [
+          10.8,
+          7.38,
+          -0.9
+        ],
+        "outriggerRootSection": [
+          0.19,
+          0.25
+        ],
+        "outriggerTipSection": [
+          0.1235,
+          0.1625
+        ],
+        "outriggerCenterline": [
+          [
+            10.8,
+            10,
+            -3.16
+          ],
+          [
+            10.8,
+            10.02,
+            -2.77
+          ],
+          [
+            10.8,
+            9.96,
+            -2.05
+          ],
+          [
+            10.8,
+            9.74,
+            -1.38
+          ],
+          [
+            10.8,
+            9.58,
+            -0.9
+          ]
+        ],
+        "retainedGirtCenter": [
+          5.800000000000001,
+          9.96,
+          0.12
+        ],
+        "retainedGirtSection": [
+          0.28,
+          0.37
+        ],
+        "clampCenter": [
+          10.8,
+          10.016,
+          -2.84
+        ],
+        "hookCenter": [
+          10.8,
+          9.445,
+          -0.9
+        ],
+        "rodEndpoints": [
+          [
+            10.8,
+            9.445,
+            -0.9
+          ],
+          [
+            10.8,
+            7.7,
+            -0.9
+          ]
+        ],
+        "bodyMoved": false
+      }
+    ],
+    "source": "Actual closed authored timber outriggers, folded bronze clamps, torus hooks and continuous rods",
+    "scope": "Visible support/contact repair; inferred carpentry, not engineering certification",
+    "visualAccepted": false
+  },
+  "prototypes": [
+    {
+      "name": "scene03-closed-recessed-gable-diaphragm180",
+      "finite": true,
+      "triangles": 1376,
+      "degenerate": 0,
+      "signedVolume": 2.844842179382255,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 1.4645886934246402,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.4276015350111311,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 2.7477841061740413,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.7746628961036788,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "scene03-closed-seated-tapered-lantern-outrigger180",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.08937504128429447,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "curved timber",
+      "finite": true,
+      "triangles": 384,
+      "degenerate": 0,
+      "signedVolume": 0.00011384854094532902,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "scene03-closed-seated-tapered-lantern-outrigger180",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.08937506045378726,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "curved timber",
+      "finite": true,
+      "triangles": 384,
+      "degenerate": 0,
+      "signedVolume": 0.00011384854094532902,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "scene03-closed-seated-tapered-lantern-outrigger180",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.0893749986940642,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "curved timber",
+      "finite": true,
+      "triangles": 384,
+      "degenerate": 0,
+      "signedVolume": 0.00011384854094532902,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "scene03-closed-seated-tapered-lantern-outrigger180",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.08937504087764023,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "curved timber",
+      "finite": true,
+      "triangles": 384,
+      "degenerate": 0,
+      "signedVolume": 0.00011384854094532902,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    }
+  ],
+  "visualAccepted": false
+}

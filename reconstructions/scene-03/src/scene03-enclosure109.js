@@ -5,9 +5,31 @@ export function buildEnclosure109(T,{C,emit,box,grouped,role,mats,materials,keep
  const warmPaper=material('warm-recessed-window-paper109','#b99b69',.96),shadowPaper=material('shadow-window-inner-wood109','#5c3f23',.85),windowBronze=material('aged-window-metal109','#9c7a3c',.62,.68),blackReveal=material('black-lacquer-portal-reveal109','#23190f',.68);
  role('hall-deep-window-enclosure109',()=>{
   box(0,5.65,-8.65,14.2,6.9,.26,'darkwood');
-  for(const s of[-1,1]){
-   box(s*7.02,5.65,-4.5,.30,6.9,8.4,'darkwood');
-   for(let j=0;j<6;j++){box(s*6.88,6.35,-1.4-j*1.25,.22,3.4,.12,'cedar');box(s*6.84,7.85,-1.4-j*1.25,.18,.18,1.2,'oldgold');}
+  // Full-depth framed returns replace the unbroken dark side-wall board.
+  // Their outside plane remains exactly x=+/-7.17; all new recess is inward.
+  for(const sign of[-1,1])for(const [za,zb]of[[-.3,-3.6],[-3.6,-7.8],[-7.8,-8.7]]){
+   const span=za-zb,cz=(za+zb)/2,bottom=C.stairTopY,top=9.10;
+   grouped(sign*7.02,0,cz,sign*Math.PI/2,()=>{
+    const low=bottom+1.04,high=C.capitalTop-.78;
+    box(0,(bottom+low)/2,0,span,low-bottom,.30,'darkwood');
+    box(0,(high+top)/2,0,span,top-high,.30,'darkwood');
+    if(span<1){box(0,(low+high)/2,0,span,high-low,.30,'cedar');return;}
+    const w=span-.86,h=high-low,y=(low+high)/2,front=.15,back=-.62;
+    for(const edge of[-1,1]){
+     box(edge*(span/2-.215),(low+high)/2,0,.43,h,.30,'red');
+     box(edge*(w/2-.055),y,(front+back)/2,.11,h,front-back,'cedar');
+     box(0,y+edge*(h/2-.075),(front+back)/2,w,.15,front-back,'red');
+    }
+    box(0,y,back-.025,w-.12,h-.12,.11,warmPaper);
+    // Actual rabbeted leaves, intermediate stiles and depth-separated rails.
+    for(const leaf of[-1,1])grouped(leaf*w*.245,y,.11,leaf*.026,()=>{
+     const ww=w*.49;
+     for(const edge of[-1,1]){box(edge*(ww/2-.035),0,0,.07,h-.07,.13,'darkwood');box(0,edge*(h/2-.045),0,ww,.09,.13,'cedar');}
+     for(let j=1;j<6;j++)box(-ww/2+ww*j/6,0,-.026,.034,h-.13,.08,'cedar');
+     for(let j=1;j<10;j++)box(0,-h/2+h*j/10,-.004,ww-.07,.029,.09,'cedar');
+    });
+    for(const y of[bottom+.20,bottom+.82,high+.17,top-.10])box(0,y,.195,span+.05,.13,.22,'red');
+   });
   }
   for(const s of[-1,1])for(const [index,seg]of[[0,[3.0,4.55]],[1,[4.95,6.7]]]){
    const cx=s*(seg[0]+seg[1])/2,w=seg[1]-seg[0],h=3.42,bottom=C.stairTopY+.27,y=bottom+h/2,front=-.18,back=-1.58;
@@ -54,5 +76,5 @@ export function buildEnclosure109(T,{C,emit,box,grouped,role,mats,materials,keep
    const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.43,.62,'red');emit(carving.scrollFace(2),'endwood',x,span[2]+.12,.385,w*.86,.31,.22);
   }
  });
- return{revision:109,windowRecessMetres:1.40,portalClear:[4.2,C.portalHeight],portalJambSection:[.60,1.0],mainHeadSection:[.46,.74],imageProjection:false};
+ return{revision:174,sideRecessMetres:.77,sideWindowBays:4,sideOuterPlaneX:7.17,windowRecessMetres:1.40,portalClear:[4.2,C.portalHeight],portalJambSection:[.60,1.0],mainHeadSection:[.46,.74],imageProjection:false};
 }

@@ -4,7 +4,7 @@ export const SUN_AXIS108=new T.Vector3(-20,21,16).normalize();
 export function attachLeafSun108(shader){shader.uniforms.scene03SunDirection108={value:SUN_AXIS108};shader.fragmentShader='uniform vec3 scene03SunDirection108;\n'+shader.fragmentShader;}
 
 export async function installDaylight108({scene,skyDome,sunAxis,textures}){
- const hdr=await new HDRLoader().setDataType(T.FloatType).loadAsync(new URL('../assets/daylight108/sky-2k.hdr',import.meta.url).href);
+ const hdr=await new HDRLoader().setDataType(T.FloatType).loadAsync(new URL('../assets/daylight108/sky-4k.hdr',import.meta.url).href);
  hdr.name='scene03-independent-CC0-daylight-sky108';hdr.mapping=T.EquirectangularReflectionMapping;textures.add(hdr);
  const {width,height,data}=hdr.image;let peak=-1,peakIndex=0;
  for(let i=0;i<width*height;i++){const k=i*4,l=.2126*data[k]+.7152*data[k+1]+.0722*data[k+2];if(l>peak){peak=l;peakIndex=i;}}
@@ -24,5 +24,8 @@ export async function installDaylight108({scene,skyDome,sunAxis,textures}){
  const light=new T.DataTexture(ibl,width,height,T.RGBAFormat,T.FloatType);light.name='scene03-daylight-solar-disc-capped-IBL108';light.mapping=T.EquirectangularReflectionMapping;light.colorSpace=T.LinearSRGBColorSpace;light.flipY=hdr.flipY;light.needsUpdate=true;textures.add(light);
  scene.background=hdr;scene.backgroundIntensity=1.5;scene.backgroundRotation.set(0,yaw,0);skyDome.visible=false;
  scene.environment=light;scene.environmentIntensity=.95;scene.environmentRotation.set(0,yaw,0);
- return{revision:108,asset:'Poly Haven / Kloofendal48d Partly Cloudy Pure Sky',license:'CC0-1.0',provenance:'reconstructions/scene-03/assets/daylight108/provenance.json',yawRadians:yaw,sourceSunElevationDegrees:latitude*180/Math.PI,shadowSunElevationDegrees:Math.asin(sunAxis.y)*180/Math.PI,sunAxis:sunAxis.toArray(),solarIblCapPixels:capped,referencePhotoUsed:false,nativeGIClaimed:false};
+ //180: the whole independent pure-sky capture, IBL and captured sun rotate
+ // together. The pitch brings the actual cumulus field above the low eave.
+ const skyPitch180=.24;scene.backgroundRotation.set(skyPitch180,yaw,0);scene.environmentRotation.copy(scene.backgroundRotation);sunAxis.applyAxisAngle(new T.Vector3(1,0,0),skyPitch180);SUN_AXIS108.copy(sunAxis);
+ return{revision:108,asset:'Poly Haven / Kloofendal48d Partly Cloudy Pure Sky',license:'CC0-1.0',provenance:'reconstructions/scene-03/assets/daylight108/provenance.json',yawRadians:yaw,wholeSkyPitchRadians180:skyPitch180,sourceSunElevationDegrees:latitude*180/Math.PI,shadowSunElevationDegrees:Math.asin(sunAxis.y)*180/Math.PI,sunAxis:sunAxis.toArray(),solarIblCapPixels:capped,referencePhotoUsed:false,nativeGIClaimed:false};
 }

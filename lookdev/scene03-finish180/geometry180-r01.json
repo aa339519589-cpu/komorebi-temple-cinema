@@ -1,0 +1,109 @@
+{
+  "revision": 180,
+  "scope": "Actual scan cut closure and closed gable prototype topology; no photographic acceptance",
+  "sourceComponentSha256": "0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee",
+  "unchangedComponentBytes": 8553444,
+  "cloudClosure": {
+    "sourceLoops": 5,
+    "closedPatches": 5,
+    "holeLoops": 0,
+    "capTriangles": 1247,
+    "sourcePositionNormalIndexUnchanged": true,
+    "method": "Planar polygon closure at the measured source X cut; nesting retains the existing pierced channel"
+  },
+  "closedCloud": {
+    "finite": true,
+    "triangles": 356034,
+    "degenerate": 0,
+    "signedVolume": 0.05967880681671308,
+    "boundaryOrNonmanifoldEdges": 0,
+    "opposedEdgePairs": 0
+  },
+  "gable": {
+    "revision": 180,
+    "diaphragm": {
+      "bottom": 15.04,
+      "frontZ": 0,
+      "backZ": -0.38,
+      "thickness": 0.38
+    },
+    "tieSection": [
+      0.49,
+      0.8
+    ],
+    "kingPostSection": [
+      0.53,
+      0.71
+    ],
+    "sockets": [
+      {
+        "position": [
+          -0.57,
+          16.009999999999998,
+          0.45
+        ],
+        "scale": 1.1,
+        "mirrorX": true
+      },
+      {
+        "position": [
+          0.57,
+          16.009999999999998,
+          0.45
+        ],
+        "scale": 1.1,
+        "mirrorX": false
+      }
+    ],
+    "removed": "Exposed diagonal truss, separate synthetic foliate strut, pale broad apron and repeated procedural gold receiver stamps",
+    "weatherProfileChanged": false
+  },
+  "prototypes": [
+    {
+      "name": "scene03-closed-recessed-gable-diaphragm180",
+      "finite": true,
+      "triangles": 1376,
+      "degenerate": 0,
+      "signedVolume": 2.844842179382255,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 1.4645886934246402,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.4276015350111311,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 2.7477841061740413,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "closed-curve-swept-eave-rafter",
+      "finite": true,
+      "triangles": 2112,
+      "degenerate": 0,
+      "signedVolume": 0.7746628961036788,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    }
+  ],
+  "visualAccepted": false
+}

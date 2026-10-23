@@ -1,0 +1,424 @@
+{
+  "scene": "03",
+  "revision": "scene03-recessed-carved-gable-daylight180-r01",
+  "referencePhotographs": {
+    "usedByRuntime": false,
+    "comparisonInput": "references/hd/2-照片-3.jpg",
+    "copyright": "Retained by the original photograph owner. No source-photo RGB, projected texture, inferred depth, point cloud or Gaussian splat is used."
+  },
+  "copiedSource": [
+    {
+      "from": "reconstructions/scene-05/src/sculpted-joinery.js",
+      "to": "src/scene03-solid-joinery.js",
+      "sourceCommit": "d08f98b",
+      "sourceSha256": "cb2f250fe5451f8cb08e6f63f77263b1ba7289b9d880a56f1bacf38efc34951c",
+      "scope": "Closed author-built curved half-lapped timber parts and pierced end fitting. Ceramic masks and corner-only members are not emitted in scene03."
+    },
+    {
+      "from": "reconstructions/scene-06/src/restoration-buddha.js",
+      "to": "src/scene03-sanctuary-buddha.js",
+      "sourceCommit": "27fc1d31c73af0f1b9703c7578427dc137e2335e",
+      "sourceSha256": "90eb79e35fcb5b3cdb6db23cc0e327e64f0bd47a8f70418729fa0fbc21b1133b",
+      "scope": "Self-contained authored 3D sculpture module. Only the central seated icon is instantiated at scene03 local scale0.60; scene06 site, altar, camera, lights and appearance are not copied. The hidden exact scene03 iconography remains an interpretation."
+    }
+  ],
+  "retainedPBR": [
+    {
+      "source": "https://polyhaven.com/a/lacquered_cherry_wood",
+      "license": "CC0-1.0",
+      "provenance": "assets/timber/provenance.json",
+      "scope": "Local timber surface maps on independently built members; no scene RGB"
+    }
+  ],
+  "authoredGeometry": [
+    "Continuous closed curve-swept rounded-square roof rafters with caps",
+    "Main hall bearings fitted between actual supporting beam tops and the roof rafter underside",
+    "Closed 1–2.4 mm cupped lotus petals with curved ovate outline, rolled rims and fine geometric pleats",
+    "Closed 1.6–2.8 mm peltate lotus leaves with a depressed centre, uneven rim and 19 physical radial veins",
+    "Smooth closed ovoid five-lobed lotus bud",
+    "Two entrance beam faces receive eight instances of a shared closed 32,108-triangle carved-gilt/deep-wood prototype. The retained structural beams, columns, roofs and camera are unchanged.",
+    "Closed recessed upper gallery with seven principal three-step bearing stations, six intermediate stations, two flying rafter courses and connected curved girts",
+    "Six lower hall capitals reconstructed as three-step closed timber rather than vertically stretching a two-step prototype",
+    "Closed curved plank bridge girders and arch ribs, individual deck boards, supported stone landing caps and connected interlocking granite abutments",
+    "Closed soil bank bodies with perimeter and bottom faces, physically overlapping fractured stone and stemmed planting around the recessed hall masonry",
+    "Rebuilt closed cupped lotus leaves with 19 coherent radial folds, irregular rolled margins and rooted pond-bed stems",
+    "Pointed, twisted lotus petal ranks with reflexed outer tips and thin closed edges",
+    "Carved tapered granite toro shafts with recessed cartouches, open chambers, chamfered footstones and closed heavy hipped caps"
+  ],
+  "proceduralBotanicalMaps": "Locally generated petal/leaf pigments and fine venation; no photograph inputs",
+  "visualAccepted": false,
+  "roofConstructionReferences": [
+    {
+      "inspectedSource": "reconstructions/scene-07/src/physical-roofs.js",
+      "sourceRevision": "scene07-solid-curved-roof-67",
+      "sourceSha256": "a468cbf29be7e2b2c940e2ed9336d8718fbdf0116b37cdc23ee293006738b321",
+      "scope": "Reviewed closed pan/cover course construction, eave fascia separation and roof/support contacts. Scene03 keeps its own fixed site, camera and dimensions; no site transform was copied."
+    }
+  ],
+  "roofCorrections": [
+    "Retain the low physical reference camera. Main hall placement is x7.1163m, y1.25m, z-1.2975m, yaw-0.5942rad; the independent pagoda site counter-offset preserves its world location.",
+    "Upper hipped roof width13.6m, local eave14.6m and local ridge19.6m. Lower roof width17.4m, local eave10.5m and rise3.1m. Both carry closed short pan/cover ceramics and closed moulded fascia.",
+    "Front gable center local x0.10m, crown19.12m, frontz0.25m: closed dark wood diaphragm, a smaller recessed ochre upper field, connected truss, cambered tie and supported carving.",
+    "Upper hall body closes the former exposed open frame. Pale narrow frieze fields, carved pilasters, exterior balustrade and interlocking stepped bearings replace the four repeated free bracket ranks."
+  ],
+  "files": [
+    "reconstructions/camera-dolly.js",
+    "reconstructions/scene-03/tools/build-ranma-relief.py",
+    "reconstructions/scene-03/assets/ranma-frieze-v01/ranma-relief.blend",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/shrub-02/provider-files.json",
+    "assets/polyhaven/shrub-02/provider-info.json",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "reconstructions/scene-03/tools/solve-architecture106.py",
+    "reconstructions/scene-03/tools/solve-architecture106-bridge.py",
+    "qa/ten-reference/03/architecture106-fit/coupled-landmark-candidates.json",
+    "reconstructions/scene-03/src/scene03-fractured-stone107.js",
+    "reconstructions/scene-03/tools/local-three-loader107.mjs",
+    "reconstructions/scene-03/tools/audit-stone107.mjs",
+    "reconstructions/scene-03/src/scene03-lotus-stem107.js",
+    "reconstructions/scene-03/assets/daylight108/sky-2k.hdr",
+    "reconstructions/scene-03/src/vendor/THREE-LICENSE.txt",
+    "reconstructions/scene-03/assets/floral-scan109/ATTRIBUTION.md",
+    "lookdev/temple-carved-bearing176/components-r01/cloud-scroll/independent-validation.json",
+    "lookdev/temple-carved-bearing176/sources/1336fa1889cf4eba829594fa30edd6ff/source-original.glb"
+  ],
+  "carvedRanma": {
+    "scope": "Central portal crossbeams only: hall-local y=8.70 and 9.30m; x=-2.01,-0.67,0.67,2.01m; front datum z=0.330m.",
+    "prototype": "assets/ranma-frieze-v01/ranma-relief.glb",
+    "editableBlender": "assets/ranma-frieze-v01/ranma-relief.blend",
+    "builder": "tools/build-ranma-relief.py",
+    "buildReport": "assets/ranma-frieze-v01/build-report.json",
+    "heightStudy": "assets/ranma-frieze-v01/source-height-guide.png",
+    "originalHeightStudy": "lookdev/ranma-frieze-study/generated-height-guide-v02.png",
+    "originalStudySha256": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+    "copiedProvenance": "assets/ranma-frieze-v01/imagegen-provenance.json",
+    "referenceComparison": "references/hd/3-照片-4.jpg crop x=350,y=290,w=925,h=420; copyright retained by its owner.",
+    "studyRole": "Selected imagegen interpretation of floral carving; non-metric height/aperture guide only, not an exact historic replica.",
+    "runtimeLoadsStudyBitmap": false,
+    "visibleMaterialPolicy": "The exported GLB contains no images or textures. Gold uses independent uniform PBR; the separate wood backplate uses independent pigment with retained CC0 normal/roughness.",
+    "geometry": "True cutouts, closed sidewalls/back faces, raised leaf volumes up to 26mm above the 6mm leaf root, editable 0.8mm eased edges; separate 27mm wood backplate with 2mm edge easing. Three grid-pitch smoothing steps affect only solid heights; the aperture outline remains separate.",
+    "triangleBudget": {
+      "prototype": 32108,
+      "instances": 8,
+      "total": 256864
+    },
+    "visualAccepted": false,
+    "roundTwoCorrection": "Reduced high-frequency geometric height ridges and maximum height from34mm to26mm; retained the physical apertures and separate backplate. Uniform aged gold #c3a45f, roughness0.43, metalness0.86."
+  },
+  "entranceSanctuary": {
+    "scope": "Retained central portal only; remove accidental transom board/rails/stile inside the declared4.2m wide x4.08m tall aperture. Preserve both side fields and the transom above its lintel.",
+    "diagnosis": "No principal icon geometry existed in scene03. The old full-width panel at y7.55,z-0.72 plus y6.48/7.25 rails and x0 stile occluded the upper entry, while the sole inner object was a bowl on a tiny table.",
+    "newRoom": "Physical floorboards, two side return walls, rear wall at z-5.08, ceiling return, stepped plinth, closed lotus seat, complete seated gold icon, thick open arch and supported offering table with hollow vessel and candles.",
+    "figure": {
+      "localSeat": [
+        -0.18,
+        4.85,
+        -3.6
+      ],
+      "scale": 0.6,
+      "crownY": 7.004,
+      "kneeWidth": 1.74
+    },
+    "light": "Retained exterior lights/environment; two small physical candle point sources, 1cd each, inverse-square decay. No emissive icon, gold image, fake glow plane or exposure lift.",
+    "visualAccepted": false,
+    "roundTwoCorrection": "Observed the unchanged fore-hanging lantern covering half the face in mesh71a. Move only the icon and its supported lotus plinth0.53m left within the inner shrine (x+.35→-.18); retain exterior lights. Offering table becomes0.67m tall on matching shortened legs, x0, to expose more of the knees. Inner wood now uses explicit roughness0.55–0.83 without multiplying the dark scanned roughness channel; normal detail retained."
+  },
+  "entryStairStone": {
+    "scope": "Current106: twenty closed granite tread levels connect the fitted hall landing at world5.95624m to the retained2.15m rock terrace. The4.0m flight remains0.55m to local left and turned0.20rad, with a derived closed approach to the fitted deeper bridge landing.",
+    "geometry": "105closed authored tread/cap pieces at20 proportional levels. Actual rise follows the fitted hall elevation, while world stair bottom2.15m, width4.0m and physical run7.8m remain fixed. Closed cores, upper bearing wedge and derived soil/stone bridge approach remain grounded.",
+    "runtimePBR": "assets/granite-tile-04/granite-face-{diff,nor_gl,rough}.png; metric repeat0.3173828125m; each stone uses a deterministic UV offset/quarter turn. Independent neutral-gray pigment, preserving actual mineral variation and normal/roughness.",
+    "visualAccepted": false,
+    "roundTwoCorrection": "Pillow-shaped shading corrected through actual hard wall/end/bottom normals after indexed closed-topology validation. Only the physical millimetre arris/top field remains smooth. Material/roughness/exposure unchanged from72a. Partition only the old cap to preserve rear/side placement and material, replacing its central front pale strip with five closed same-granite caps at the original bounds.",
+    "currentPhysicalDimensions": {
+      "worldTopY": 5.956238087180958,
+      "worldBottomY": 2.15,
+      "height": 3.8062380871809585,
+      "rise": 0.19031190435904793,
+      "run": 0.39,
+      "count": 20,
+      "width": 4,
+      "centerX": -0.55,
+      "relativeYaw": 0.2
+    }
+  },
+  "copiedSurfaceAssets": [
+    {
+      "from": "reconstructions/scene-04/assets/granite-tile-04",
+      "to": "assets/granite-tile-04",
+      "sourceCommit": "d08f98be4347e0fabc76a5e8decc6650b7a79594",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "provider": "Poly Haven",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "provenance": "assets/granite-tile-04/provenance.json",
+      "sourceWidthMetres": 2,
+      "derivedCropXY": [
+        2100,
+        920
+      ],
+      "derivedCropSizePixels": [
+        650,
+        650
+      ],
+      "derivedRepeatMetres": 0.3173828125,
+      "scope": "Identical crop inside one real granite face, excluding source grout. No scene/reference-photo RGB. Copied local files remove any runtime dependency on scene04 or root lookdev.",
+      "sha256": {
+        "granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+        "granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+        "granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+        "provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b"
+      }
+    }
+  ],
+  "hallCarpentry104": {
+    "source": "src/scene03-hall-carpentry.js",
+    "construction": "Closed cambered solid hijiki, rounded-square flaring bearing cushions, three projecting physical levels, connected common girts and two eave rafter depths. Thin applied metal follows actual timber ends and some curved shoulders.",
+    "majorUpperStations": 7,
+    "intermediateUpperStations": 6,
+    "lowerCapitalStations": 6,
+    "upperGallery": "Closed deep timber wall/returns with a narrow pale frieze and carved pilasters; no open rectangular floor scaffold.",
+    "timberSurface": "Existing local Poly Haven CC0 surface-only maps, independently lit, with revised warm cedar pigment gains; no image plane or scene colour projection.",
+    "visualAccepted": false
+  },
+  "bridgeAndGarden104": {
+    "source": "src/scene03-arched-bridge.js and src/main.js",
+    "bridge": {
+      "position": [
+        -3.1,
+        0.55,
+        7.05
+      ],
+      "yaw": -0.28,
+      "span": 7.2,
+      "localDeckEndY": 1.13,
+      "localDeckCrownY": 2.23,
+      "closedGirderDepth": 0.42,
+      "supportedStoneAbutments": true
+    },
+    "garden": "Closed sloped bank soil from podium height to pond edge; connected fractured stone volumes, moss and stemmed azalea/iris planting. Main foundation and shaft footings remain real connected masonry behind the bank.",
+    "lotus": "One authored near bloom plus varied smaller taller blooms at the right bank, closed sculpted leaves/petals and planted stems. The central pond corridor is open for genuine Fresnel reflection and world-space wave normals.",
+    "foregroundToros": "Genuine stone housing, grid, paper core, curved cap and supported square shaft; large foreground and smaller stair-side positions corrected from wholeframe comparison.",
+    "visualAccepted": false
+  },
+  "tower104": {
+    "sitePositionUnchanged": true,
+    "finial": "Closed stem, seventeen thick gilt rings and intervening metal necks at local height27m; replacement for the visibly short wire-like finial.",
+    "upperBody": "Reduced pale wall height and added connected three-step timber bearings under the existing curved roof tiers; all walls/apertures remain real solids/openings.",
+    "visualAccepted": false
+  },
+  "remainingVisualLimits104": [
+    "Structural and compositional improvement is not photographic fidelity. Main hall joinery, metalwork and gable carving remain visibly simplified and regular compared with the reference.",
+    "Garden species, weathering, pond reflections and foreground optical response remain interpretations. Native ambient lighting is not a physical multi-bounce path trace.",
+    "The reused seated icon is still an interpretation of an obscured sanctuary; it should not be cited as exact historic iconography.",
+    "No finished film or photographic acceptance is claimed by native loading, linked shaders or nonempty pixels."
+  ],
+  "livingGarden105": {
+    "sourceModules": [
+      "src/scene03-garden-assets.js",
+      "src/scene03-living-banks.js",
+      "src/scene03-carved-toro.js"
+    ],
+    "geometry": "Original full-topology CC0 glTF shrub, periwinkle and moss rock variants placed on closed sloped soil or overlapping bearing stones. Provider display translations removed; provider rotations retained. No decimation. Understory only; not lotus/cherry/pine substitutes.",
+    "speciesLimit": "Understory scans are botanical stand-ins, not an assertion of the exact photographed garden species.",
+    "rooting": "All rebuilt slope shrubs and azalea branch roots use the same analytic surface as each real closed bank. Near iris and toro pockets have closed soil down to -0.55 m and interlocking stone. Lotus stems continue to the actual pond bed at -0.33 m.",
+    "visualAccepted": false,
+    "stairFootprintCorrection": "Direct source-left/native-right review showed the old full5.25m descent exposing a broad masonry wedge below the bridge. The physically shorter3.10m rise and separate0.20rad stair turn end on a raised stone terrace; all tread cores, upper landing wedge, planted slopes and bridge approach remain closed and grounded. The main hall, roofs, bridge span and bridge anchor positions are retained.",
+    "limits": "R105 r01 rejected for excess near-leaf occlusion, sparse dry understory and exposed inherited stair mass. R02 physically revises those shapes. Botanical species and exact historic geometry remain interpretations; native/physical loading does not establish photo fidelity.",
+    "outerShoulderCorrection": "R03 pose3.5 revealed square sidebank cutoff faces outside the first narrow apron. R04 widens the real closed apron to match the7.4m outer shoulders at the stair foot, then tapers to4.1m at the pond toe; new rooted azalea/groundcover and real boulders follow this surface."
+  },
+  "licensedGardenAssets105": [
+    {
+      "source": "https://polyhaven.com/a/shrub_02",
+      "author": "Rico Cilliers",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/shrub-02/provenance.json",
+      "role": "actual rooted understory shrub mesh"
+    },
+    {
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+      "role": "actual groundcover in stone and soil joints"
+    },
+    {
+      "source": "https://polyhaven.com/a/rock_moss_set_01",
+      "author": "Kless Gyzen",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/rock-moss-set-01/provenance.json",
+      "role": "actual bearing garden rock geometry"
+    }
+  ],
+  "lotus105": {
+    "geometry": "Closed19-fold peltate leaves with coherent veins, irregular cupped margins, pale underside and 1.6–2.8mm thickness; closed pointed/twisted lotus petals in three unequal ranks with reflexed outer tips.",
+    "foregroundAnchorCorrection": "Actual near leaf diameters reduced from2.10m to1.50m/0.70m, farther from the lens; source-led manual contour comparison determines the authored physical anchors. Main near bloom moved to0.50m base height and0.39 overall scale. Smaller bank leaves stand0.08–0.31m above the pond.",
+    "rooting": "All stems continue to -0.33m into the pond bed at -0.30m. The same continuous stem is split only by material at the actual -0.055m water level; submerged tissue uses a darker green pigment.",
+    "underwaterLimit": "Darker submerged tissue and mineral bed are a bounded appearance approximation. No volumetric absorption/scattering or solved caustics are claimed in native WebGL; Fresnel reflection remains real view-dependent scene reflection.",
+    "sourcePhotoUsedAsTexture": false,
+    "photographicAccepted": false
+  },
+  "toro105": {
+    "source": "src/scene03-carved-toro.js",
+    "geometry": "Closed chamfered footstones, tapered square shaft, shallow 4.2mm carved/eroded channels on closed inset panels, framed open light chamber, timber mullions, closed thick hipped granite cap, closed lathed bud finial and rooted micro moss sprays.",
+    "inscriptionPolicy": "R04 native close view rejected the repeated raised cross-like placeholder marks. R05 removes them and uses fragmentary actual shallow wear channels; no historic inscription transcription is claimed.",
+    "surface": "Retained independent Poly Haven granite_tile_04 diffuse/normal/roughness, local metric UVs, neutral cool mineral pigment, high roughness and subdued normal strength. Uniform material gains export as standard PBR; no photographed scene RGB or custom image projection.",
+    "placement": "Near toro base0.85m, scale1.83; stair-side base2.25m, scale0.82 on a connected boulder pocket.",
+    "visualAccepted": false
+  },
+  "architecture106": {
+    "source": "src/architecture-layout106.js",
+    "builder": "tools/solve-architecture106.py",
+    "reference": "references/hd/2-照片-3.jpg comparison only",
+    "method": "Own03bounded least-squares fit of manually observed image landmarks to analytical weather/corner/shaft/bridge anchors. Field names and metric dimensions are inferred and uncertain. No05code import, photo RGB projection or recovered depth.",
+    "camera": "Low0.661m physical view; source-fit camera-only candidate was retained and rejected as insufficient. Actual hall/tower/bridge geometry changes carry the coupled candidate.",
+    "rmsLimit": "Manual-landmark RMS measures only those declared point correspondences; it is not a photographic-match score.",
+    "support": "Raised tower rests on a newly closed real soil/rock hill under the original stone base. Stair top follows the raised hall; a derived closed bank/path reaches the changed real bridge landing, with longer bearing caps supporting the deeper bridge deck.",
+    "photographicAccepted": false,
+    "carvedReceivers": "src/scene03-carved-receivers106.js: actual closed beveled pierced foliate plates, cupped slotted leaves and cast bosses fit actual timber end faces and gable ties. Motif identity is an interpretation. No bitmap/reference RGB/height guide used in these new parts.",
+    "towerRoomCorrection": "Second-through-fifth storeys now use closed infill around real open lattice apertures; lower retained storey uses closed articulated timber shutter fields. New cast receivers follow all common bearing transforms.",
+    "columnNecks": "Actual closed7mm hollow bronze sleeve sectors follow the shaft radius. Capital-relative shorter pierced foliate front castings replace tall rectangular placeholder shields; cast bolts join them to the sleeves. All new prototype solids have positive signed volume and zero quantized nonmanifold edges.",
+    "uncertainAnchorSemantics": "The fitted column-head identifier is an inferred upper-shaft datum0.30m below nominal capitalTop; the shaft itself reaches capitalTop. Visible ceramic endpoints are weather-profile samples with10–18px uncertainty because adjacent tail/cap geometry overlaps. Field names are not survey observations.",
+    "sourceFieldUncertainty": "Manually named upper-shaft, weather-corner, bridge-ball and curtain features are inferred correspondences with9–23px uncertainty. New derived stair socket coordinates follow the exact turned/offset physical flight; historical pre106layout paragraphs remain provenance only.",
+    "bridgeBodyRefinement": {
+      "builder": "tools/solve-architecture106-bridge.py",
+      "observationData": "qa/ten-reference/03/architecture106-bridge-fit/coupled-landmark-candidates.json",
+      "method": "After the coupled whole layout, hold its actual hall/tower/camera/bridge-end anchors fixed and refine measured deck/girder contours and bulb-cap image radii. Field names/terminal-post identification remain uncertain. The alternative globally moved body-fit candidate was rejected because its uncertain far terminal became a large outlier.",
+      "geometry": "0.919248m deck rise, closed girder depth0.297931m at ends to0.478053m at crown, constant retained1.10m railing camber with actual varying baluster lengths, ranked closed lathed bulb caps, and closed solid arch ribs meeting the real cross-joist undersides. Existing deck-end level/position and stone supports remain; route is derived from the actual endpoints.",
+      "scoreLimit": "Extended point/contour/radius RMS12.64px vs15.33px before this local body pass. This is a different41-feature dataset from the first29-feature whole-layout fit and is not photographic fidelity.",
+      "photographicAccepted": false
+    }
+  },
+  "fracturedGarden107": {
+    "sourceModules": [
+      "src/scene03-fractured-stone107.js",
+      "src/scene03-living-banks.js",
+      "src/scene03-garden-assets.js"
+    ],
+    "geometry": "R01 broad cut-polygon bearing rejected after actual native close view. Current bridge bearings use four narrow closed keys under each original cap, plus three overlapping courses of full original UV-preserving scanned rock solids with level head/foot fields; the open rock04 provider variant is excluded from structural courses. Smaller original full-topology stones replace most visible slope/toe masses. Authored joint-plane rocks remain on the distant tower site and small held toro pocket only.",
+    "surface": "Preserved original moss-rock 4K diffuse/normal/roughness with a cool neutral material gain offsetting the original warm mineral pigment. No shared originals are mutated. Narrow authored keys and fixed bearing caps use independent local CC0 granite_tile_04 surface maps with standard PBR roughness, normal, lichen vertex pigment and damp mineral gains. Soil has fine procedural grain and actual micro-relief. No reference-scene RGB/projection. R03 actual native close still read too warm/dry. Current standard material pigment gain is cooler (#6e8ecb) to offset the preserved original warm mineral albedo; no source photograph recolouring/projection or shared asset edits.",
+    "rooting": "The existing closed bank solids and coupled106 stair-to-bridge route stay fixed. Armouring uses fewer smaller irregularly spaced stones; layered shrubs/azalea/groundcover remain rooted on those same soil surfaces. Smaller azalea leaves, muted groundcover, intermittent flowering patches replace the former uniformly white large-leaf surface. A shorter third layer of original periwinkle meshes uses3.5cm insertion in actual rough soil. Understory species remain stand-ins. New curved lotus stems are single capped closed tubes from the real pond bed to the neck; standard vertex pigment below the waterline remains an appearance approximation.",
+    "lotus": "Broader, lower and thinner-looking closed petal ranks; reduced regular rim frill in the actual leaf mesh; irregularly clustered leaf heights/leans replace the former six-wide near-bank rows. All stem roots remain at the real pond bed. R05 true native close exposed excessive overlapping spoon-like petals. Current repair uses narrower individual26-petal spiral whorls, unequal curl/lean/height, lower receptacle/stamens and pale ivory basal tissue grading to pink tips. Geometric thick rolled side ridge reduced; actual closed thin solids remain. The petal thin-tissue light approximation now uses the actual retained sun direction, not an unrelated fixed vector.",
+    "verification": "tools/audit-stone107.mjs imports the actual source geometry via the local vendor resolver and audits signed volume and quantized edge incidence. Native fidelity remains separately judged.",
+    "retainedArchitecture": "architecture-layout106.js, camera, hall/tower/roof transform hierarchy, bridge span/camber/deck route, stair footprint and cap planes are unchanged.",
+    "uncertainty": "Source stone contours, species and wetting are manually interpreted, not recovered survey geometry or a geological/species identification.",
+    "photographicAccepted": false,
+    "visualAccepted": false,
+    "nativeIteration": "R01 f4c84971d2be96c19f74d06e2174469b2fbed643ca8110bd274b0fc127ff0ba5 retained and rejected for broad flat polygon bearing and bare soil transitions. Current changes repair those observed native defects. R02 b90d4b6ed2ab650c401c47814cdc3d1421446113048dfca285c87e472044f7fd was cancelled while still queued, before GPU acquisition, to combine the bank-mass repair; zero R02frames claimed.",
+    "bankMassingCorrection": "R01/source comparison shows the real planted rock bank rising into the bridge foot, rather than an isolated tall pier. R03 rebuilt a real6thclosed shoulder but left too much smooth green soil exposed; its actual full/native close is retained and rejected. Current rock shoulder uses four large closed original full-UV scan solids over a lower closed root-soil body. Narrow closed keys and three keyed scan courses still bear the fixed106cap. Toe fragments, groundcover and iris soil bodies connect to this actual mass; the arch span and stair-to-bridge route remain open and fixed.",
+    "actualAboveCorrection": "R04 native above view reveals inherited flat sidebank shelves with vertical outer/end faces despite their prior narrow-apron repair. Current bankY physically descends across each4.6m shoulder to the surrounding ground at-0.15m; the closed bridge apron derives its start profile from the same lateral bank field. All armouring/roots use the revised analytical surface. No plants are used to hide unchanged floating/square ground. Original stair flight, landing route and coupled106anchors stay fixed. R05 lateral grading exposed tall upper foundation faces, showing missing coupled terrain beyond the narrow banks. Current source adds two actual closed outer hillside bodies: high near the upper plinth, descending across real slopes and at both longitudinal ends to surrounding ground. New rooted mineral/understory strata use the exact same surface; tower-local terrain height is bounded by the held tower site so the new hill does not bury its foundation. The hidden hill extent is inferred support geometry, not a surveyed reconstruction. All106architecture and route dimensions stay exact."
+  },
+  "rootedGarden108": {
+    "status": "native-render-review-required",
+    "comparisonInput": "references/hd/2-照片-3.jpg",
+    "retainedArchitectureCamera": "architecture-layout106.js unchanged",
+    "independentFloor": {
+      "asset": "forest_leaves_02",
+      "provider": "Poly Haven / Rob Tuytel",
+      "license": "CC0-1.0",
+      "provenance": "assets/forest-floor108/provenance.json",
+      "maps": "Unaltered provider2k diffuse/normal/roughness/displacement; no reference RGB",
+      "physicalTileMetres": 3,
+      "sampledReliefMetres": 0.052
+    },
+    "geometry": [
+      "Closed hillside receives the same sampled52mm relief field as the planting roots",
+      "Broad scan outcrops buried into the existing continuous upper/outer banks; no support geometry deleted",
+      "Low broader six-stone shoulder surrounds the retained closed bridge bearing cap and keyed abutment",
+      "Authored14–41mm moss stems and side fronds occupy soil/rock root contacts",
+      "Rooted curved maple tree with closed serrated folded palmate leaves replaces parallel bars and flat stars",
+      "Near lotus leaf lowered and flattened to reopen pond depth; remaining seeded pond placements preserved",
+      "Three bridge stone courses taper inside the actual cap; closed keys and spread footings remain continuous to pond bed",
+      "Lantern caps receive spatially coherent vertex-pigment moss patches and millimetre-scale true moss stems on their actual roof surfaces",
+      "Flooded base boxes retain closed3m metric dark-mineral soil rather than magnified terrestrial litter, verified by the real above-view review",
+      "Supported granite route retains all existing positions/contacts with a calibrated non-vertex-colour mineral material"
+    ],
+    "photographicAccepted": false,
+    "daylight": {
+      "asset": "kloofendal_48d_partly_cloudy_puresky",
+      "provenance": "assets/daylight108/provenance.json",
+      "source": "Independent CC0 sky only, not the temple photograph",
+      "purpose": "Isolated white cumulus and blue sky openings replace the low-resolution analytic gradient. One measured solar direction drives environment orientation, shadow key and leaf transmission."
+    }
+  },
+  "mainHall109": {
+    "status": "native-r05-full-and-hall-review-required",
+    "base": "Frozen108R06 at4701698d2542b678da85e9bd5ad872d11d039afc317ed5c0030e8ff903b5cca9",
+    "geometry": "109R03: six lofted, waisted and canted arm prototypes, lapped bearing seats, closed scalloped volute noses; thin curled pierced gable branches, exposed curved closed leaf relief with rebuilt post-warp bounds; half-metre closed lower cornice and full side returns; two selective uniformly scaled real floral-scan cassettes in the central structural header",
+    "sameFootprintAndCamera": true,
+    "sky": "Same licensed IBL and solar direction; a world-fixed3D cumulus field and pale atmospheric radiance replace the purple/empty background. No new HDR or scene photograph.",
+    "referenceImageProjection": false,
+    "photographicAccepted": false,
+    "visualAccepted": false,
+    "floralScan": {
+      "asset": "assets/floral-scan109/component.gltf",
+      "source": "Diana Liu / Thunk3D wood carving, Sketchfab93766a4c12eb4c278d23294582034e8c",
+      "license": "CC BY4.0",
+      "attribution": "assets/floral-scan109/ATTRIBUTION.md",
+      "provenance": "assets/floral-scan109/component-provenance.json",
+      "installation": "assets/floral-scan109/installation-provenance.json",
+      "method": "Exact selected original triangles and normals; rigid PCA and unverified uniform0.001 unit wrapper retained. Two uniform1.90 scene instances, face rotated180degrees, open crop edges embedded in separately authored solid timber carriers. No remeshing, anisotropic scaling, UV invention or photograph projection. Declared relief-depth raised-gilt/oiled-wood PBR finish is an artistic material hypothesis. Motif is a stand-in rather than an identified source-temple artifact.",
+      "prototypeTriangles": 1633989,
+      "instances": 2
+    }
+  },
+  "mainHall174": {
+    "visualAccepted": false,
+    "reference": "references/hd/2-照片-3.jpg comparison only",
+    "geometry": [
+      "Complementary closed half-lapped arms replace separate repeated end plaques; flared dou and two continuous raking tails connect post to forward receiver",
+      "Actual bearing height fits the held roof underside; closed cambered purlin seat remains within that physical gap",
+      "Gable barge/tie/strut sections deepen inward while original weather curve stays fixed",
+      "Discrete closed ceramic hip/ridge caps have side skirts and overlap along the actual corner seam",
+      "R02 native low-side repair: retained outer side plane becomes four real inward-recessed lattice/paper window bays with returned jambs/sills/heads; side wall core no longer spans their apertures",
+      "Actual new side and upper-return bearing sets align with retained shafts and local roof underside, evaluated at the forward receiver extent; legacy floating outer side kits replaced",
+      "Front projecting arms now have continuous lofted waisted bodies and rounded carved volute cap faces within the same closed mesh; no detached gold end plaques",
+      "R03: closed roof-following upper front/return and lower return attic bodies replace visible sky slots behind bearing kits; framed recessed blue-grey frieze pockets occupy those real timber diaphragms",
+      "R03: first projecting half-lapped arm receives the continuous closed sculpted nose body; raw rectangular nose is removed",
+      "R03: all five pagoda roofs now use closed separately lapped cover/pan ceramics and skirted sealed hip/ridge pieces; rafters follow their real curl",
+      "R03: pagoda upper-storey shafts end at the actual capital seats; duplicate legacy brackets removed, deeper new arms fit the real forward roof-receiver height"
+    ],
+    "preserved": "Exact106 camera/site/stair/bridge/roof weather profiles, lotus anchors and exact original floral-scan109 geometry/provenance",
+    "surfaces": "Retained independent CC0 cherry timber maps, anatomical side/end UVs, declared procedural fine cut-end growth rings and restrained physical lacquer; no reference projection",
+    "lighting": "Retained47.90039 degree sun and independent CC0 IBL; separated world-space volumetric cumulus lobes; R01 overly bright finite court radiance2.6 rejected, R02 reduced to0.75 without exposure change or native solved occluded GI",
+    "authorship": "New Node/JavaScript-authored closed timber and clay prototypes; no new external mesh or raster source",
+    "limitations": "Contacts are reconstruction hypotheses, not surveyed/engineered conservation details. Native light approximation does not establish photographic match."
+  },
+  "mainHall180": {
+    "status": "Actual geometry/material/daylight WIP; rendered review required; photographic fidelity remains unaccepted",
+    "scope": [
+      "Recessed closed gable diaphragm and individual timber planks under unchanged ceramic weather profile",
+      "Heavy cambered tie and housed kingpost replace exposed diagonal sticks and broad pale apron",
+      "Two selective actual SCANOLOGY_3D cloud-scroll scan components, original normalized position/normal/index buffers unchanged, uniform scale magnitude1.10 and one reflectedX instance",
+      "Five measured planar cut closures per source component; actual pierced channels remain open; closures audited with original source surface",
+      "Actual existing CC0 HDR background restores sky capture detail; procedural ellipsoid cumulus removed; captured solar direction retained",
+      "Lower broad hemispheric/IBL fill, stronger directional sun and finite court radiance; native solved diffuse GI remains false",
+      "Scanned CC0 timber finish applied to gable members with restrained lacquer values"
+    ],
+    "preserved": "Exact106 reference camera/site/bridge/stair/lotus anchors, actual174 roof envelope/closed ceramics and actual floral109 source bytes",
+    "sourcePackage": "lookdev/temple-carved-bearing176/handoff.json",
+    "limitations": [
+      "Source scan is a different artifact; culture/era/original architectural role unspecified by creator",
+      "Carpentry contacts and scale remain authored hypotheses, not surveyed structural conservation details",
+      "Native WebGL lighting includes finite LTC fill without solved occlusion/GI; not Cycles equivalence",
+      "No photographic acceptance claim"
+    ]
+  }
+}

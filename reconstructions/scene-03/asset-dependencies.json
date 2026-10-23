@@ -1,6 +1,6 @@
 {
   "scene": "03",
-  "revision": "scene03-deep-sculpted-mainhall109-garden108",
+  "revision": "scene03-recessed-carved-gable-daylight180-r05",
   "referencePhotographs": {
     "usedByRuntime": false,
     "comparisonInput": "references/hd/2-照片-3.jpg",
@@ -96,7 +96,10 @@
     "reconstructions/scene-03/src/scene03-lotus-stem107.js",
     "reconstructions/scene-03/assets/daylight108/sky-2k.hdr",
     "reconstructions/scene-03/src/vendor/THREE-LICENSE.txt",
-    "reconstructions/scene-03/assets/floral-scan109/ATTRIBUTION.md"
+    "reconstructions/scene-03/assets/floral-scan109/ATTRIBUTION.md",
+    "lookdev/temple-carved-bearing176/components-r01/cloud-scroll/independent-validation.json",
+    "lookdev/temple-carved-bearing176/sources/1336fa1889cf4eba829594fa30edd6ff/source-original.glb",
+    "reconstructions/scene-03/assets/daylight108/sky-4k.hdr"
   ],
   "carvedRanma": {
     "scope": "Central portal crossbeams only: hall-local y=8.70 and 9.30m; x=-2.01,-0.67,0.67,2.01m; front datum z=0.330m.",
@@ -376,5 +379,67 @@
       "prototypeTriangles": 1633989,
       "instances": 2
     }
+  },
+  "mainHall174": {
+    "visualAccepted": false,
+    "reference": "references/hd/2-照片-3.jpg comparison only",
+    "geometry": [
+      "Complementary closed half-lapped arms replace separate repeated end plaques; flared dou and two continuous raking tails connect post to forward receiver",
+      "Actual bearing height fits the held roof underside; closed cambered purlin seat remains within that physical gap",
+      "Gable barge/tie/strut sections deepen inward while original weather curve stays fixed",
+      "Discrete closed ceramic hip/ridge caps have side skirts and overlap along the actual corner seam",
+      "R02 native low-side repair: retained outer side plane becomes four real inward-recessed lattice/paper window bays with returned jambs/sills/heads; side wall core no longer spans their apertures",
+      "Actual new side and upper-return bearing sets align with retained shafts and local roof underside, evaluated at the forward receiver extent; legacy floating outer side kits replaced",
+      "Front projecting arms now have continuous lofted waisted bodies and rounded carved volute cap faces within the same closed mesh; no detached gold end plaques",
+      "R03: closed roof-following upper front/return and lower return attic bodies replace visible sky slots behind bearing kits; framed recessed blue-grey frieze pockets occupy those real timber diaphragms",
+      "R03: first projecting half-lapped arm receives the continuous closed sculpted nose body; raw rectangular nose is removed",
+      "R03: all five pagoda roofs now use closed separately lapped cover/pan ceramics and skirted sealed hip/ridge pieces; rafters follow their real curl",
+      "R03: pagoda upper-storey shafts end at the actual capital seats; duplicate legacy brackets removed, deeper new arms fit the real forward roof-receiver height"
+    ],
+    "preserved": "Exact106 camera/site/stair/bridge/roof weather profiles, lotus anchors and exact original floral-scan109 geometry/provenance",
+    "surfaces": "Retained independent CC0 cherry timber maps, anatomical side/end UVs, declared procedural fine cut-end growth rings and restrained physical lacquer; no reference projection",
+    "lighting": "Retained47.90039 degree sun and independent CC0 IBL; separated world-space volumetric cumulus lobes; R01 overly bright finite court radiance2.6 rejected, R02 reduced to0.75 without exposure change or native solved occluded GI",
+    "authorship": "New Node/JavaScript-authored closed timber and clay prototypes; no new external mesh or raster source",
+    "limitations": "Contacts are reconstruction hypotheses, not surveyed/engineered conservation details. Native light approximation does not establish photographic match."
+  },
+  "mainHall180": {
+    "status": "Actual geometry/material/daylight WIP; rendered review required; photographic fidelity remains unaccepted",
+    "scope": [
+      "Recessed closed gable diaphragm and individual timber planks under unchanged ceramic weather profile",
+      "Heavy cambered tie and housed kingpost replace exposed diagonal sticks and broad pale apron",
+      "Two selective actual SCANOLOGY_3D cloud-scroll scan components, original normalized position/normal/index buffers unchanged, uniform scale magnitude1.10 and one reflectedX instance",
+      "Five measured planar cut closures per source component; actual pierced channels remain open; closures audited with original source surface",
+      "Actual existing CC0 HDR background restores sky capture detail; procedural ellipsoid cumulus removed; sky/IBL/sun rotate together by0.24rad worldX",
+      "Lower broad hemispheric/IBL fill, stronger directional sun and finite court radiance; native solved diffuse GI remains false",
+      "Scanned CC0 timber finish applied to gable members with restrained lacquer values"
+    ],
+    "preserved": "Exact106 reference camera/site/bridge/stair/lotus anchors, actual174 roof envelope/closed ceramics and actual floral109 source bytes",
+    "sourcePackage": "lookdev/temple-carved-bearing176/handoff.json",
+    "limitations": [
+      "Source scan is a different artifact; culture/era/original architectural role unspecified by creator",
+      "Carpentry contacts and scale remain authored hypotheses, not surveyed structural conservation details",
+      "Native WebGL lighting includes finite LTC fill without solved occlusion/GI; not Cycles equivalence",
+      "No photographic acceptance claim"
+    ],
+    "r02": [
+      "Actual R01 probe identified pale tie/post/barge as sun-facing reference4_red; separate lower-pigment physical lacquer now covers these gable members",
+      "Seven repeated AI height-study barge ornaments removed; the two actual cloud scan shoulders remain",
+      "Independent pure-sky background, IBL and captured sun rotate together by0.24rad around worldX, bringing actual cumulus above low eaves. Authored rotation is not a new captured sky or supplied-reference projection",
+      "Existing photograph-led camera/site/bridge/stairs/roof weather profiles remain unchanged"
+    ],
+    "r03": [
+      "Further restrained gable pigment after actual R02 sunlit timber remained beige",
+      "Higher4K resolution of the exact same independent CC0 sky capture, matching provider bytes/MD5, replaces2K background/IBL sampling;2K retained",
+      "No new source scan or geometric rescaling"
+    ],
+    "r04": [
+      "Actual low3q R03 exposed inherited façade lantern rods ending below/ahead of eave",
+      "Four closed curved timber outriggers now seat through the existing lower girt, with folded bronze saddles, real hooks and continuous rods down to unchanged lantern-body tops",
+      "No lantern-body, camera, site, stair, bridge, roof weather profile or lotus-anchor movement"
+    ],
+    "r05": [
+      "R04 actual full/hero exposed new high outrigger tips projecting above the retained fascia",
+      "Tips lowered and continuously tapered, preserving the housed girt root/clamp and unchanged lamp bodies; hook and complete rods now hang beneath the eave"
+    ]
   }
 }

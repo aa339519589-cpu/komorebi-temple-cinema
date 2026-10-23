@@ -1,63 +1,34 @@
 import {createCurvedEaveRafter} from './scene03-curved-rafter.js';
 import {createCarvedReceivers106} from './scene03-carved-receivers106.js';
 import {createSculptedTimber109} from './scene03-sculpted-timber109.js';
+import {createBearing174} from './scene03-bearing174.js';
 
 //109 replaces thin separated ranks with an occupied, stepped bearing canopy.
 // All altered cross-sections, carved noses, cups, girts and returns are actual
 // closed wood; the retained outer roof surface and site/camera are not moved.
 export function buildHallCarpentry03(T,api){
  const {C,emit,box,grouped,role,mats,upper,lin,tube}=api,axes=[-5.70,-3.80,-1.90,0,1.90,3.80,5.70],wallZ=-1.10;
- const owned=new Set(),keep=g=>{owned.add(g);return g;},carvedReceivers=createCarvedReceivers106(T,{emit,keep}),carving=createSculptedTimber109(T,keep);let bearingSets=0,deepCarvedNoses=0;
+ const owned=new Set(),keep=g=>{owned.add(g);return g;},carvedReceivers=createCarvedReceivers106(T,{emit,keep}),carving=createSculptedTimber109(T,keep);
  const curved=(points,w,h,ma='cedar')=>emit(keep(createCurvedEaveRafter(points,w,h)),ma);
- function cushion(width,height){
-  const N=32,R=9,p=[],uv=[],ids=[];
-  for(let j=0;j<=R;j++){const t=j/R,r=width/2*(.60+.40*Math.sin(t*Math.PI/2));for(let i=0;i<N;i++){const a=i/N*Math.PI*2,ca=Math.cos(a),sa=Math.sin(a);p.push(r*Math.sign(ca)*Math.abs(ca)**.30,height*t,r*Math.sign(sa)*Math.abs(sa)**.30);uv.push(i/N,t);}}
-  for(let j=0;j<R;j++)for(let i=0;i<N;i++){const a=j*N+i,b=j*N+(i+1)%N;ids.push(a,b,a+N,b,b+N,a+N);}
-  const q=p.length/3;p.push(0,0,0,0,height,0);uv.push(.5,0,.5,1);for(let i=0;i<N;i++)ids.push(q,(i+1)%N,i,q+1,R*N+i,R*N+(i+1)%N);
-  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);g.computeVertexNormals();g.name='scene03-closed-deep-dou-bearing-cup109';return keep(g);
- }
- const arms=[[1.24,.42],[1.60,.39],[1.80,.42],[1.90,.39],[2.04,.42],[1.52,.36]].map(([l,d],rank)=>carving.cantileverArm(l,d,rank)),dou=[cushion(.76,.30),cushion(.43,.24),cushion(.38,.23),cushion(.34,.20)];
- function endNose(x,y,z,w,h,detail=true,seed=0){
-  emit(carving.bearingHead(seed%3),'endwood',x,y-.015,z,w*.96,h*.94,.38);deepCarvedNoses++;
-  // Gold survives as narrow worn edge/chased ribs on real carved timber.
-  if(detail)for(const sign of[-1,1])tube([[x+sign*w*.04,y-h*.20,z+.12],[x+sign*w*.28,y-h*.14,z+.135],[x+sign*w*.28,y+h*.12,z+.135],[x+sign*w*.10,y+h*.18,z+.12],[x+sign*w*.07,y,z+.14]],.0065,'oldgold',25);
- }
- function cluster(x,base,z,top,scale=1,major=true,depthScale=scale){
-  const sy=(top-base)/2.08;if(!(sy>0))throw Error('109 bearing canopy needs a positive load path');
-  grouped(x,base,z,0,()=>{
-   emit(dou[0],'red',0,0,0,scale,sy,depthScale);
-   emit(arms[0],'cedar',0,.39*sy,-.04*depthScale,scale,sy,depthScale);
-   emit(arms[0],'red',0,.40*sy,0,depthScale,sy,scale,Math.PI/2);
-   for(const sign of[-1,1]){
-    emit(dou[1],'red',sign*.34*scale,.47*sy,.02*depthScale,scale,sy,depthScale);
-    emit(arms[1],'cedar',sign*.34*scale,.75*sy,.18*depthScale,depthScale,sy,scale,Math.PI/2);
-   }
-   emit(arms[2],'red',0,1.04*sy,.46*depthScale,scale,sy,depthScale);
-   for(const sign of[-1,1]){
-    emit(dou[2],'cedar',sign*.48*scale,1.10*sy,.53*depthScale,scale,sy,depthScale);
-    emit(arms[3],'cedar',sign*.48*scale,1.37*sy,.53*depthScale,depthScale,sy,scale,Math.PI/2);
-   }
-   emit(arms[4],'red',0,1.64*sy,.95*depthScale,scale,sy,depthScale);
-   for(const sign of[-1,1]){
-    emit(dou[3],'cedar',sign*.59*scale,1.70*sy,1.03*depthScale,scale,sy,depthScale);
-    emit(arms[5],'cedar',sign*.59*scale,1.88*sy,.96*depthScale,depthScale,sy,scale,Math.PI/2);
-   }
-   curved([[-1.09*scale,1.98*sy,1.14*depthScale],[0,1.94*sy,1.14*depthScale],[1.09*scale,1.98*sy,1.14*depthScale]],.36*depthScale,.20*sy,'cedar');
-   // End grain is now a full curved carved volume instead of a gold square.
-   endNose(0,.39*sy,.675*depthScale,.39*scale,.36*sy,major,0);
-   for(const sign of[-1,1]){
-    endNose(sign*.34*scale,.75*sy,.995*depthScale,.38*scale,.34*sy,major,1);
-    endNose(sign*.48*scale,1.37*sy,1.50*depthScale,.36*scale,.32*sy,major,2);
-    if(major)endNose(sign*.59*scale,1.88*sy,1.745*depthScale,.32*scale,.28*sy,true,0);
-   }
-  });bearingSets++;
+ const bearing174=createBearing174(T,{emit,grouped,keep}),cluster=bearing174.cluster;
+ function atticPanel174(half,base,topAt,depth,material='darkwood'){
+  const shape=new T.Shape();shape.moveTo(-half,base);shape.lineTo(half,base);for(const u of lin(half,-half,80))shape.lineTo(u,topAt(u));shape.closePath();
+  const g=keep(new T.ExtrudeGeometry(shape,{depth,steps:1,bevelEnabled:true,bevelSize:.009,bevelThickness:.009,bevelSegments:2,curveSegments:24}));g.name='scene03-closed-roof-following-attic-diaphragm174';emit(g,material);
  }
  const seat=(x,z)=>{const t=(z-C.ridgeZ)/5.2,u=x/(api.upperWidth*(.275+.225*t));return upper.P(0,t,u)[1]-.30;},curveAt=(y,x,z)=>y+seat(x,z)-seat(0,z);
  function girt(y,z,half=6.03,w=.46,h=.31,ma='red'){curved(lin(-half,half,72).map(x=>[x,curveAt(y,x,z),z]),w,h,ma);}
  role('upper-compressed-deep-gallery109',()=>{
   // Short enclosed gallery and thick top rail carry the expanded capitals.
   box(0,11.66,wallZ-.20,12.02,1.18,.38,'darkwood');
-  for(const sign of[-1,1])box(sign*5.94,11.66,-4.50,.34,1.18,7.1,'darkwood');
+  for(const sign of[-1,1]){
+   for(const y of[11.10,12.16])box(sign*5.94,y,-4.5,.48,.26,7.3,'red');
+   for(const z of[-2.75,-4.95,-7.15])grouped(sign*5.94,0,z,sign*Math.PI/2,()=>{
+    box(0,11.66,-.16,2.18,.86,.22,'roofFrieze');
+    for(const edge of[-1,1]){box(edge*.98,11.70,.045,.14,1.05,.27,'red');box(0,11.70+edge*.46,.025,2.12,.12,.25,'cedar');}
+    for(let j=-4;j<=4;j++)box(j*.20,11.99,.015,.035,.30,.15,'cedar');
+    box(0,11.67,.14,.43,1.27,.47,'red');
+   });
+  }
   box(0,11.66,-8.0,12.02,1.18,.34,'darkwood');
   for(const[y,h]of[[11.14,.25],[11.96,.22],[12.22,.34]])girt(y,wallZ+.04,6.06,.49,h,'red');
   for(let i=0;i<axes.length-1;i++){
@@ -79,8 +50,14 @@ export function buildHallCarpentry03(T,api){
  role('upper-occupied-four-rank-bearing-canopy109',()=>{
   // Rear diaphragm, girts and the front/rear arm depths create one shadow
   // canopy. No new outer roof or camera contour is introduced.
-  for(let i=0;i<axes.length-1;i++)box((axes[i]+axes[i+1])/2,12.82,-1.48,1.72,1.38,.25,'darkwood');
-  for(const[y,z,w,h]of[[12.25,-.94,.58,.34],[12.90,-.54,.47,.33],[13.56,-.04,.43,.30],[14.12,.45,.39,.27]])girt(y,z,6.05,w,h,'red');
+  grouped(0,0,-1.72,0,()=>atticPanel174(5.98,12.22,x=>seat(x,-1.48)+.11,.40));
+  for(let i=0;i<axes.length-1;i++){
+   const x=(axes[i]+axes[i+1])/2,w=axes[i+1]-axes[i]-.39;
+   box(x,13.30,-1.285,w,.74,.11,'roofFrieze');
+   for(const edge of[-1,1]){box(x+edge*(w/2+.045),13.33,-1.18,.09,1.04,.20,'cedar');box(x,13.30+edge*.42,-1.18,w+.14,.10,.20,'red');}
+   for(let j=-3;j<=3;j++)box(x+j*w/8,13.90,-1.20,.042,.34,.16,'cedar');
+  }
+  for(const[y,z,w,h]of[[12.25,-.94,.58,.34],[13.04,-.86,.43,.32],[14.12,.45,.39,.27]])girt(y,z,6.05,w,h,'red');
   for(const x of axes)cluster(x,curveAt(12.25,x,-.95),-.95,seat(x,.64)-.13,1.05,true,1.03);
   for(let i=0;i<axes.length-1;i++){
    const x=(axes[i]+axes[i+1])/2;cluster(x,curveAt(12.94,x,-1.01),-1.01,seat(x,.56)-.16,.67,false,.88);
@@ -92,5 +69,22 @@ export function buildHallCarpentry03(T,api){
   }
   for(const t of[.51,.68,.84,1.0])curved(lin(-1,1,80).map(u=>{const p=upper.P(0,t,u);p[1]-=.39;return p;}),.35,.25,'cedar');
  });
- return{axes,get bearingSets(){return bearingSets;},get carvedReceiverFaces(){return carvedReceivers.count;},get deepCarvedNoses(){return deepCarvedNoses;},bearingCluster:cluster,wallClosed:true,construction:'109R02 four-rank lapped canopy: waisted variable-depth canted arms, rounded volute end bodies, swept top seats and occupied rear diaphragm',dispose(){for(const g of owned)g.dispose();}};
+ role('upper-return-occupied-bearing174',()=>{
+  const height=(x,z)=>{
+   const hw=api.upperWidth/2,rh=api.upperWidth*.275,hd=5.2,tx=Math.max(0,(Math.abs(x)-rh)/(hw-rh)),tz=Math.abs(z-C.ridgeZ)/hd,t=Math.max(tx,tz,.0001);
+   return tx>tz?upper.P(x>0?1:3,t,(z-C.ridgeZ)/(hd*t))[1]:upper.P(z>C.ridgeZ?0:2,t,x/(rh+(hw-rh)*t))[1];
+  };
+  for(const sign of[-1,1]){
+   grouped(sign*5.60,0,-4.50,sign*Math.PI/2,()=>atticPanel174(3.46,12.18,u=>height(sign*5.60,-4.50-sign*u)-.19,.42));
+   for(const z of[-2.75,-4.95,-7.15])grouped(sign*5.60,0,z,sign*Math.PI/2,()=>{
+    box(0,13.20,.44,1.74,.95,.10,'roofFrieze');
+    for(const edge of[-1,1]){box(edge*.93,13.27,.49,.12,1.29,.20,'cedar');box(0,13.20+edge*.54,.49,1.96,.12,.20,'red');}
+   });
+  }
+  for(const sign of[-1,1])for(const z of[-2.75,-4.95,-7.15]){
+   const x=sign*5.94,ds=.68,s=.87,top=Math.min(...lin(-1.12*s,1.12*s,16).map(a=>height(x+sign*1.43*ds,z+a)-.43));
+   grouped(x,0,z,sign*Math.PI/2,()=>cluster(0,12.25,0,top,s,true,ds));
+  }
+ });
+ return{axes,get bearingSets(){return bearing174.instances;},bearingSeats174:bearing174.seats,get carvedReceiverFaces(){return carvedReceivers.count;},get deepCarvedNoses(){return 0;},bearingCluster:cluster,wallClosed:true,construction:bearing174.construction,dispose(){for(const g of owned)g.dispose();}};
 }

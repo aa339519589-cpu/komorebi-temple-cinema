@@ -1,0 +1,65 @@
+{
+  "revision": "180R05",
+  "sourceHash": "15ff9e0f897a516c83bbdafe15ae8a38200d12f9f2b2c44d0d18763617168e0f",
+  "baseline174R03": "d8c284e33a701cd38c91818ab4160e52b808326f9989cd83b542fa3abbcf42a2",
+  "visualAccepted": false,
+  "technicalStatus": "Actual native full/hero/low3q1254 completed and viewed; topology audit passed",
+  "actualViewed": [
+    {
+      "path": "qa/ten-reference/03/iteration-scene03-finish180-r05-20261023/reference.png",
+      "sha256": "4b7aa1cc507d983dbe0ce5d9ab4151c9c63317cbfcdd03b4b766c077493d2b7a"
+    },
+    {
+      "path": "qa/ten-reference/03/iteration-scene03-finish180-r05-20261023/detail-native.png",
+      "sha256": "c378a82e13e8bf9be228f4aa54f9b7c7326b873398347ce8ea31e14f9ea9d471"
+    },
+    {
+      "path": "qa/ten-reference/03/iteration-scene03-finish180-r05-low-3q-20261023/inspection-view.png",
+      "sha256": "39bffb674249bc20c02caf78cc7ce8959be4eb688bc14a9f2ecfbe3eb8996e01"
+    }
+  ],
+  "actualNative": {
+    "reports": [
+      "qa/ten-reference/03/iteration-scene03-finish180-r05-20261023/report.json",
+      "qa/ten-reference/03/iteration-scene03-finish180-r05-low-3q-20261023/report.json"
+    ],
+    "sourceHashesEqual": true,
+    "errors": 0,
+    "frames": 3,
+    "referenceCameraUnchanged": true,
+    "renderer": {
+      "calls": 301,
+      "triangles": 43342429,
+      "compositeCalls": 1
+    }
+  },
+  "improved": [
+    "Closed recessed timber gable, deep cambered tie/post/barge replace exposed diagonal stick truss and pale apron",
+    "Two selectively fitted actual source cloud shoulders with separate measured cut closures; seven repeated procedural gable panels removed",
+    "Same independent sky capture at verified4K, whole sky/IBL/sun orientation gives actual cumulus and directional veranda/bridge cast shadows",
+    "Four inherited floating fixture rods repaired with seated tapered timber outriggers, folded bronze saddles, hooks and full suspension; lamp bodies unchanged",
+    "Actual low view shows continuous support to the fixtures and retained closed roof-following attic/side returns"
+  ],
+  "remainingLimits": [
+    "Photographic fidelity remains unaccepted; retained bearing repetitions/material nuance/garden rendering still differ from HD reference",
+    "Cloud scan is a different artifact; creator does not declare culture, era or original architectural role",
+    "Authored contacts are not engineering/conservation certification; native finite fill has no solved diffuse GI",
+    "No film or motion review is delivered by this lane"
+  ],
+  "sourceChangesFrom174R03": [
+    "reconstructions/scene-03/src/main.js",
+    "reconstructions/scene-03/src/ranma-relief.js",
+    "reconstructions/scene-03/src/reference4-architecture.js",
+    "reconstructions/scene-03/src/scanned-timber.js",
+    "reconstructions/scene-03/src/scene03-atmosphere109.js",
+    "reconstructions/scene-03/src/scene03-carved-mount180.js",
+    "reconstructions/scene-03/src/scene03-daylight108.js",
+    "reconstructions/scene-03/src/scene03-gable180.js",
+    "reconstructions/scene-03/src/scene03-lantern-support180.js"
+  ],
+  "sourceSnapshot": "lookdev/scene03-finish180/r05-source",
+  "sourceIdentity": "lookdev/scene03-finish180/source180-r05-identity.json",
+  "geometryAudit": "lookdev/scene03-finish180/geometry180-r05.json",
+  "ownership": "Only reconstructions/scene-03, lookdev/scene03-finish180 and new qa03 outputs written; no shared/other scene/Git/Blender edits",
+  "pendingOwnGpuWork": false
+}

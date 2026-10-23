@@ -11,9 +11,9 @@
   "retrieved": "2026-10-21",
   "role": "Independent sky-only equirectangular environment and outdoor light/reflections; no temple or supplied photo pixels",
   "referencePhotographUsed": false,
-  "file": "sky-2k.hdr",
-  "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
-  "nativeDirectSun": "Retained shadow-key azimuth, elevation derived from the48d HDR solar peak; same direction drives maple and lotus tissue transmission. HDR solar disc is capped in IBL to avoid counting it twice.",
+  "file": "sky-4k.hdr",
+  "sha256": "3061c00a16ecae748e84fd6c44c04804f539c118bb66325db858bad87b11bf88",
+  "nativeDirectSun": "Source capture solar peak drives the sun, IBL and foliage transmission together; a declared0.24rad worldX whole-sky rotation lifts its actual cumulus field into the low reference view. Solar disc remains capped in IBL to avoid double-counting the finite-shadow key.",
   "library": {
     "name": "Three.js HDRLoader",
     "revision": "r186",
@@ -22,5 +22,17 @@
     "localSource": "src/vendor/HDRLoader.js",
     "localLicense": "src/vendor/THREE-LICENSE.txt"
   },
-  "rejectedCandidate": "38d sky retained in lookdev/scene03-monumental-garden-v2; its dense cirrus sheet did not reproduce the observed clear blue openings and isolated white cumulus."
+  "rejectedCandidate": "38d sky retained in lookdev/scene03-monumental-garden-v2; its dense cirrus sheet did not reproduce the observed clear blue openings and isolated white cumulus.",
+  "original2K": {
+    "file": "sky-2k.hdr",
+    "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198",
+    "retained": true
+  },
+  "retrieved4K": "2026-10-23",
+  "provider4K": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/kloofendal_48d_partly_cloudy_puresky_4k.hdr",
+    "bytes": 20674857,
+    "md5": "816340c969d2e60d659051d13ac3c4dc",
+    "providerMetadata": "lookdev/scene03-monumental-garden-v2/sky-provider-files.json"
+  }
 }
