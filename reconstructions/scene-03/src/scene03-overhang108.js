@@ -56,27 +56,27 @@ export function buildOverhang108({emit,sweep,between,mat,bark,textures}){
  // Root and stem remain outside the left framing but join this actual tree.
  sweep([[-12.7,-.22,6.6],[-12.1,3.4,6.9],[-11.4,7.2,6.6],[-10.2,9.75,6.3],[-8.4,10.55,5.6]],.19,bark);
  const limbs=[
-  [[-10.2,9.75,6.3],[-8.7,10.7,5.9],[-5.8,11.5,5.2],[-2.7,12.7,4.6]],
-  [[-10.7,9.1,6.5],[-8.5,10.8,7.0],[-6.3,11.7,6.6],[-3.6,12.6,6.0]],
-  [[-10.1,9.8,6.2],[-8.9,11.2,5.2],[-6.4,12.6,4.1],[-3.0,13.8,3.6]],
-  [[-11.0,8.9,6.4],[-10.4,10.6,4.7],[-7.8,12.8,3.3],[-4.3,14.4,3.2]],
+  [[-10.2,9.75,6.3],[-8.1,10.6,6.5],[-4.9,10.6,7.1],[-1.45,11.4,7.5]],
+  [[-10.7,9.1,6.5],[-8.4,10.2,7.1],[-5.1,9.9,7.8],[-2.5,10.1,7.5]],
+  [[-10.1,9.8,6.2],[-8.0,10.4,6.4],[-6.1,9.6,7.3],[-4.7,9.1,7.5]],
+  [[-11.0,8.9,6.4],[-10.0,10.9,6.8],[-6.0,11.8,7.4],[-3.3,11.1,8.4]],
  ];
  for(let l=0;l<limbs.length;l++){
   const curve=new T.CatmullRomCurve3(limbs[l].map(p=>new T.Vector3(...p)));emit(taperedBranch108(limbs[l],.047-l*.005),bark);
   for(let j=0;j<17;j++){
    const t=.13+.85*j/16,start=curve.getPoint(t),direction=curve.getTangent(t),sign=j%2?1:-1,
-    end=start.clone().add(new T.Vector3(sign*range(.30,.78),range(.15,.49),range(-.70,.65))),mid=start.clone().lerp(end,.50).add(new T.Vector3(0,.08,0));
+    end=start.clone().add(new T.Vector3(sign*range(.30,.78),range(-.32,.12),range(-.70,.65))),mid=start.clone().lerp(end,.50).add(new T.Vector3(0,.08,0));
    emit(taperedBranch108([start.toArray(),mid.toArray(),end.toArray()],.009*range(.65,1)),bark);twigs++;
    for(let k=0;k<9;k++){
     const u=.17+.79*k/8,centre=start.clone().lerp(end,u).add(new T.Vector3(range(-.10,.10),.03,range(-.09,.09)));
     for(const s of[-1,1]){
      const p=centre.clone().add(new T.Vector3(s*range(.05,.16),range(-.03,.06),range(-.06,.08)));
-     if(p.x>-4.6&&p.x<-3.40&&p.z>3.3&&p.z<6.5)continue;
-     const scale=range(.70,1.12),yaw=Math.atan2(direction.x,direction.z)+s*range(.5,1.3),rot=[range(-.45,.50),yaw,range(-.5,.5)];
+     
+     const scale=range(.70,1.12),yaw=Math.atan2(direction.x,direction.z)+s*range(.5,1.3),rot=[range(-.85,.90),yaw,range(-.72,.72)];
      between(centre.toArray(),p.toArray(),.0016,bark);emit(geos[(k+l)%5],leaf,p.toArray(),[scale,scale,scale],rot,range(.79,1.23));leaves++;
     }
    }
   }
  }
- return{revision:108,rootedCurvedTree:true,closedPalmateLamina:true,leaves,twigs,referencePhotoUsed:false};
+ return{revision:'211-r14',rootedCurvedTree:true,closedPalmateLamina:true,rebuiltDroopingBranchLayout:true,arbitraryFramingGapRemoved:true,leaves,twigs,referencePhotoUsed:false};
 }

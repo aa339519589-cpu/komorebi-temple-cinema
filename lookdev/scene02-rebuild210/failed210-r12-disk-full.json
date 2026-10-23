@@ -1,0 +1,36 @@
+{
+  "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+  "cause": "ENOSPC on shared filesystem",
+  "attempts": [
+    {
+      "iteration": "scene02-rebuild210-r12-full-wet",
+      "session": 53467,
+      "pid": 3042,
+      "exitCode": 1,
+      "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r12-full-wet/report.json",
+      "pngBytes": 0,
+      "error": "ENOSPC write at render-one-reconstruction.mjs:105"
+    },
+    {
+      "iteration": "scene02-rebuild210-r12-low-veranda",
+      "session": 44799,
+      "pid": 3052,
+      "exitCode": 1,
+      "reportSaved": false,
+      "error": "ENOSPC opening report.json at render-one-reconstruction.mjs:128"
+    },
+    {
+      "iteration": "scene02-rebuild210-r12-bank-waterline",
+      "session": 69109,
+      "pid": 3062,
+      "exitCode": 1,
+      "reportSaved": false,
+      "error": "ENOSPC opening report.json at render-one-reconstruction.mjs:128"
+    }
+  ],
+  "savedValidFrames": 0,
+  "sourceIntact": true,
+  "r11NativeFramesPreserved": true,
+  "activeOwnJobs": [],
+  "visualAccepted": false
+}

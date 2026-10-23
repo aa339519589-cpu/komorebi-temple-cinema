@@ -10,19 +10,19 @@ export function installHallFinish161(B){
  const pixels=ctx.getImageData(0,0,N,N);
  for(let y=0;y<N;y++)for(let x=0;x<N;x++){
   const i=(y*N+x)*4,grain=(pixels.data[i]*.50+pixels.data[i+1]*.34+pixels.data[i+2]*.16)/255;
-  const broad=noise(x*.0018,y*.024,161),fine=noise(x*.005,y*.08,167),wear=.60+.12*(broad-.5);
+  const broad=noise(x*.0018,y*.024,161),fine=noise(x*.005,y*.08,167),wear=.43+.10*(broad-.5);
   const value=.98+.035*(fine-.5),wood=[pixels.data[i]*1.68,pixels.data[i+1]*1.42,pixels.data[i+2]*1.26];
-  for(let c=0;c<3;c++)pixels.data[i+c]=Math.round(([118,67,52][c]*(1-wear)+wood[c]*wear)*value);
+  for(let c=0;c<3;c++)pixels.data[i+c]=Math.round(([145,78,43][c]*(1-wear)+wood[c]*wear)*value);
  }
  ctx.putImageData(pixels,0,0);
  const paint=new T.CanvasTexture(canvas);paint.name='hall161-vermilion-paint-over-existing-CC0-timber';paint.colorSpace=T.SRGBColorSpace;paint.wrapS=paint.wrapT=T.RepeatWrapping;paint.anisotropy=8;
  for(const key of['red','redLight','wood','darkwood','endwood']){
   const original=B.m[key],mat=original.clone();saved[key]=original;mat.name='hall161-aged-'+key;
   mat.onBeforeCompile=shader=>{original.onBeforeCompile(shader);shader.fragmentShader=shader.fragmentShader.replace('diffuseColor.rgb*=.73+.40*age;','diffuseColor.rgb*=.90+.16*age;').replace('smoothstep(.72,.83,chip)*.16','smoothstep(.72,.83,chip)*.08');};
-  mat.customProgramCacheKey=()=>original.customProgramCacheKey()+'-hall163-subtle-member-weathering';
+  mat.customProgramCacheKey=()=>original.customProgramCacheKey()+'-hall219-warm-painted-cypress';
   if(key==='red'||key==='redLight'){mat.map=paint;mat.color.setRGB(...(key==='red'?[1,1,1]:[1.05,1.015,.96]));}
-  else mat.color.setRGB(...({wood:[3.1,2.05,1.55],darkwood:[1.15,.72,.44],endwood:[3.9,2.75,1.95]}[key]));
-  mat.roughness=key==='darkwood'?.90:.78;mat.clearcoat=.045;mat.clearcoatRoughness=.58;mat.specularIntensity=.38;mat.normalScale.set(.15,.15);
+  else mat.color.setRGB(...({wood:[4.0,2.65,1.65],darkwood:[1.60,.98,.49],endwood:[4.6,3.25,1.95]}[key]));
+  mat.roughness=key==='darkwood'?.87:.72;mat.clearcoat=.045;mat.clearcoatRoughness=.58;mat.specularIntensity=.38;mat.normalScale.set(.15,.15);
   B.m[key]=mat;B.m['hall161-'+key]=mat;
  }
  const plaster=new T.MeshStandardMaterial({name:'hall161-recessed-aged-lime',color:0xada08a,roughness:.96});B.m.hall161Plaster=plaster;

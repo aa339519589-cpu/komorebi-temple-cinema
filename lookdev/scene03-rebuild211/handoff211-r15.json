@@ -1,0 +1,73 @@
+{
+  "status": "continued R11-R15 reconstruction checkpoint ready for root visual review; no photographic completion claim",
+  "visualAccepted": false,
+  "activeSource": "5d8c529c74df128c1859e6b7bf325a4c6715d828898d9d910963b9183e7862d3",
+  "activeSnapshot": "lookdev/scene03-rebuild211/r15-source",
+  "fromSource": "32ca4cfc7da48bce8e932144ce56d021ea87c24602691581f4cf338f5681d4b0",
+  "changedFiles": [
+    "reconstructions/scene-03/src/lens03-coc101.js",
+    "reconstructions/scene-03/src/lotus-material.js",
+    "reconstructions/scene-03/src/main.js",
+    "reconstructions/scene-03/src/reference4-architecture.js",
+    "reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "reconstructions/scene-03/src/scanned-timber.js",
+    "reconstructions/scene-03/src/scene03-foreground211.js",
+    "reconstructions/scene-03/src/scene03-fractured-stone107.js",
+    "reconstructions/scene-03/src/scene03-hall-carpentry.js",
+    "reconstructions/scene-03/src/scene03-kumimono211-r11.js",
+    "reconstructions/scene-03/src/scene03-living-banks.js",
+    "reconstructions/scene-03/src/scene03-overhang108.js"
+  ],
+  "preservedCheckpoints": [
+    "r09-source",
+    "r10-source",
+    "r11-source",
+    "r12-source",
+    "r13-source",
+    "r14-source",
+    "r15-source"
+  ],
+  "latestFrames": [
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r15-20261024/reference.png",
+      "rgbaSha256": "aed0948bfeee99c5998e3d2edb057431609560a186bdfc0a112b0fb9d70286b9",
+      "viewed": true,
+      "valid": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r15-20261024/detail-native.png",
+      "rgbaSha256": "98c1cfc93ebc163b7273ac86b3173a9474437971e6c1c2482b991178587979d2",
+      "viewed": true,
+      "valid": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r15-low-front-20261024/inspection-view.png",
+      "rgbaSha256": "497edb9ce84c821a06527c3bd822ef8fb1617927648fe40105413045919f4dfb",
+      "viewed": true,
+      "valid": true
+    }
+  ],
+  "comparison": "lookdev/scene03-rebuild211/reference3-r15-side-by-side.jpg",
+  "beforeAfter": "lookdev/scene03-rebuild211/r09-r15-side-by-side.jpg",
+  "completedActualRebuilds": [
+    "R11 new lofted curved/canted small-section four-rank timber kit with real flat seats and half laps; no old rectangular gold-end emission; raised connected gallery/short posts/pierced shoulders/recessed panels",
+    "R12 bounded linear lacquer pigments and controlled scan grain/clearcoat; cubic curved petal tissue and shallow hero lamina",
+    "R13 incised rolled volutes with fine fitted copper lines; lower/narrower connected bridge shoulder and inset cap over retained three-course bearing; opened front/back petal whorls",
+    "R14 connected drooping maple branch hierarchy and leaf-pair layout; supported receptacle, five reused curved filament prototypes and ovoid anthers",
+    "R15 visible-sector asymmetric hero-leaf sculpt plus authored f/1.4 depth capture"
+  ],
+  "remainingVisualGaps": [
+    "Deep ornate wood/gilt carving remains materially less intricate than the reference",
+    "Rich incident/bounce response remains incomplete; native LTC bounce has no solved diffuse GI",
+    "Leaf/petal surface character remains synthetic at close inspection",
+    "Rock groups/shoreline microstructure and water opening still differ",
+    "HDR cloud arrangement and plant species/distribution remain different"
+  ],
+  "limits": [
+    "No reference photograph projected into scene materials or used as replacement native frame",
+    "No new external asset, Blender/export, shared source, Git or other-scene modification in this continuation",
+    "Disk-full interval caused no R15 source write; exact R14 source was preserved until root restored space"
+  ],
+  "renderJobsFinished": true,
+  "sourceReleased": true
+}

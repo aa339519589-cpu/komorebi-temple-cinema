@@ -7,9 +7,14 @@ export async function installScannedTimber(mats){
  const [albedo,normal,rough]=await Promise.all(['diffuse-2k.jpg','normal-gl-2k.png','roughness-2k.jpg'].map(x=>loader.loadAsync(directory+x)));
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of[albedo,normal,rough]){tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.anisotropy=8;}
- const gains={red:[4.15,2.46,1.55],cedar:[3.85,2.60,1.72],endwood:[4.25,3.05,1.95],gableTimber180:[.54,.22,.075],gableCarving:[.45,.18,.060],gableRecess:[.55,.28,.12],darkwood:[1.5,1.05,.73],bridge:[6.65,2.15,1.72],bridgeDark:[2.7,1.6,1.1],ceiling:[1.8,1.3,1.0]};
+ const gains={red:[4.15,2.46,1.55],cedar:[3.85,2.60,1.72],endwood:[4.25,3.05,1.95],gableTimber180:[3.0,1.6,.85],gableCarving:[2.5,1.3,.65],gableRecess:[.55,.28,.12],darkwood:[1.5,1.05,.73],bridge:[6.65,2.15,1.72],bridgeDark:[2.7,1.6,1.1],ceiling:[1.8,1.3,1.0]};
+ // Linear reflectance of the pigmented lacquer. A restrained scan-luminance
+ // modulation retains the independent grain without turning white scan
+ // knots or a broad clearcoat reflection into cream-painted timber faces.
+ const pigments={red:[.145,.045,.016],cedar:[.125,.055,.021],endwood:[.180,.100,.040],darkwood:[.045,.020,.009],bridge:[.190,.047,.022],bridgeDark:[.075,.030,.014],ceiling:[.060,.030,.013]};
  for(const [key,color] of Object.entries(gains)){
-  const m=mats[key];if(!m)continue;m.map=albedo;m.normalMap=normal;m.normalScale.set(.18,.18);m.bumpMap=null;m.roughnessMap=rough;m.roughness=.9;m.metalness=0;m.color.setRGB(...color);
+  const m=mats[key];if(!m)continue;const bounded=Boolean(pigments[key]);m.map=albedo;m.normalMap=normal;m.normalScale.set(.12,.12);m.bumpMap=null;m.roughnessMap=rough;m.roughness=.9;m.metalness=0;m.color.setRGB(...(pigments[key]??color));
+  if(bounded&&'clearcoat'in m){m.clearcoat=key==='red'||key==='bridge'?.070:.035;m.clearcoatRoughness=.72;m.specularIntensity=.35;}
   m.onBeforeCompile=shader=>{
    shader.vertexShader='attribute vec3 timberExtent;varying vec2 timberEndUv174;varying float timberEnd174;\n'+shader.vertexShader;
    shader.fragmentShader='varying vec2 timberEndUv174;varying float timberEnd174;\n'+shader.fragmentShader;
@@ -37,15 +42,21 @@ export async function installScannedTimber(mats){
      vRoughnessMapUv=metricUV;
     #endif`);
    shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
+    ${bounded?`#ifdef USE_MAP
+     float grain211=dot(sampledDiffuseColor.rgb,vec3(.2126,.7152,.0722));
+     float modulation211=clamp(1.+.45*(grain211/.0146-1.),.72,1.25);
+     diffuseColor.rgb=diffuse*modulation211;
+    #endif`:''}
     float cut174=smoothstep(.70,.96,timberEnd174);
     float growth174=.5+.5*cos(length(timberEndUv174*vec2(.93,1.)+vec2(.026,-.009))*490.+.4*sin(timberEndUv174.x*160.));
     diffuseColor.rgb*=mix(vec3(1.),vec3(.68,.72,.80)*(.96+.04*growth174),cut174);`);
    shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
     roughnessFactor=clamp(.36+roughnessFactor*.72,.42,.94);`);
   };
-  m.customProgramCacheKey=()=> 'scene03-cc0-member-timber-endgrain174-r02';m.needsUpdate=true;
+  if(key==='gableTimber180'||key==='gableCarving'){m.clearcoat=.025;m.clearcoatRoughness=.70;m.specularIntensity=.15;m.roughnessMap=null;m.roughness=1;}
+  m.customProgramCacheKey=()=> 'scene03-cc0-member-bounded-lacquer211-r12-'+bounded;m.needsUpdate=true;
  }
- return {materials:new Set(Object.values(mats)),dispose(){for(const t of[albedo,normal,rough])t.dispose();}};
+ return {materials:new Set(Object.values(mats)),info:{revision:'211-r12',boundedLinearPigments:pigments,scanMeanLinearLuminance:.0146,grainModulation:[.72,1.25],broadClearcoatReduced:true,independentScanRetained:true,photographicAccepted:false},dispose(){for(const t of[albedo,normal,rough])t.dispose();}};
 }
 export function addTimberExtent(g){
  if(g.hasAttribute('timberExtent'))return;

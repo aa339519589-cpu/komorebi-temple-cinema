@@ -20,8 +20,8 @@ export function createLotusPetalMaterials(){
  texture.anisotropy=4;texture.needsUpdate=true;
  const materials=['#ffffff','#fff7fb','#fffafd'].map((color,i)=>new T.MeshPhysicalMaterial({
   name:'curved lotus petal '+i,color,map:texture,bumpMap:texture,bumpScale:.00012,
-  roughness:.62,metalness:0,sheen:.10,sheenRoughness:.72,
-  sheenColor:new T.Color('#ffe5ed'),specularIntensity:.25,clearcoat:0,clearcoatRoughness:.68,side:T.FrontSide
+  roughness:.70,metalness:0,sheen:.08,sheenRoughness:.78,
+  sheenColor:new T.Color('#ffe5ed'),specularIntensity:.18,clearcoat:0,clearcoatRoughness:.68,side:T.FrontSide
  }));
  for(const material of materials){material.onBeforeCompile=shader=>{attachLeafSun108(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
   vec3 petalSun=normalize((viewMatrix*vec4(scene03SunDirection108,0.)).xyz);

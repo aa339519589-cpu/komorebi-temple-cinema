@@ -83,13 +83,14 @@ export function buildBridgeBearings107({at,emit,box,bridgeModel,material,capMate
     const [lo,hi]=levels[row],half=[.88,.76,.69][row],depth=[.76,.63,.62][row],z=(-half+k*half*2/3)*ratio,xx=x+.035*Math.sin(k*2.8+row);
     gardenAssets.plant('bearingRock',k+row*3,[xx,lo,z],[.94+(row===0?.14:0),hi-lo,depth*ratio],[0,(k-1.5)*.028+sign*.012,0],.84+.045*((row+k)%3));
    }
-   box([x,1.055,0],[.88,.15,2.15*ratio],capMaterial);
+   const capX=sign*(bridgeModel.span/2-.22);
+   box([capX,1.055,0],[.64,.15,2.15*ratio],capMaterial);
    for(let j=0;j<7;j++){
     const z=(-1.35+j*.44)*ratio,dx=sign*(.45+.16*Math.sin(j*1.9)),s=.46+.065*(j%3);
     gardenAssets.plant('rock',j,[x+dx,-.47,z],[s*1.55,s*1.26,s*1.22],[0,j*.91,0],.86+.04*(j%3));
     if(j%2===0)gardenAssets.plant('groundcover',j,[x+dx,-.13,z],[.65,.60,.70],[0,j*.8,0],.84);
    }
-   records.push({side:sign,capCentre:[x,1.055,0],capTop:1.13,coreBottom:bottom,coreNominalTop:top,courseHalfDepths:[1.26,1.075,1.0].map(v=>v*ratio),capHalfDepth:1.075*ratio,core:'closed angular keys; lower spread footing and tapered overlapping scan-stone courses contained by the cap at the top'});
+   records.push({side:sign,capCentre:[capX,1.055,0],capTop:1.13,coreBottom:bottom,coreNominalTop:top,courseHalfDepths:[1.26,1.075,1.0].map(v=>v*ratio),capHalfDepth:1.075*ratio,core:'closed angular keys; lower spread footing and tapered overlapping scan-stone courses contained by the cap at the top'});
   }
  });return{revision:108,bearings:records,bridgePoseChanged:false,photographicAccepted:false};
 }

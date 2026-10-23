@@ -1,0 +1,30 @@
+{
+  "status": "retained unaccepted refinement candidate",
+  "visualAccepted": false,
+  "frames": [
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r03-20261023/reference.png",
+      "rgbaSha256": "23cf5ce1f6e9ba28eeb3a7d81ac69a698c2c50fe8a7e5a5d21a12f45c49cde46",
+      "sourceHash": "b021295dcdf9b9d86b73e87cbaa77c8f860256a3159dbb8feaa0c9ddfad4baa3",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r03-20261023/detail-native.png",
+      "rgbaSha256": "c279a4448d16ad4b393213217ac73e5144107a9b2614bb4565f834e3245e258f",
+      "sourceHash": "b021295dcdf9b9d86b73e87cbaa77c8f860256a3159dbb8feaa0c9ddfad4baa3",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r03-low-3q-20261023/inspection-view.png",
+      "rgbaSha256": "824befb81627b7d24e238c83fda0ab486f4342cca238fdc1d004f428dccd903b",
+      "sourceHash": "b021295dcdf9b9d86b73e87cbaa77c8f860256a3159dbb8feaa0c9ddfad4baa3",
+      "viewed": true
+    }
+  ],
+  "observations": [
+    "Folded thin cloth and shallow conforming sixteen-petal crests replace the solid-board/bulb-petal appearance.",
+    "The gable pale sheen was correctly isolated as material specular response, but its low underlying scan gain made R03 too dark once the sheen was removed. R04 uses the original CC0 scan with a moderate lacquer albedo gain and retains the reduced specular response.",
+    "Geometry audit found the lantern hood lathe inverted despite closed edges; R04 reverses actual triangle winding, removes collapsed pole triangles and rechecks the complete177-prototype set.",
+    "All photographic fidelity remains unaccepted."
+  ]
+}

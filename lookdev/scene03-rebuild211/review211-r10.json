@@ -1,0 +1,37 @@
+{
+  "status": "retained experimental closed-moss candidate; coarse bright pads not photographically accepted",
+  "visualAccepted": false,
+  "sourceHash": "46c7b33f9e9973b53a1774c2d1a7e4a80aadd07d442cadbde4a76c3f0f4b8997",
+  "frames": [
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-20261024/reference.png",
+      "rgbaSha256": "ace87625c050ad85b318420126774a91358f8f42e113cc0d19518bdf143cbd2e",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-20261024/detail-native.png",
+      "rgbaSha256": "bcb2409646a5e7e8bcfc0709869798d8f2dd3b80c850ac907f3a386d07373a96",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-toro-low-20261024/inspection-view.png",
+      "rgbaSha256": "6960003df4d44a40763ea2dcee07328055410d1c5adbce499ce8db68573967bf",
+      "viewed": true
+    }
+  ],
+  "observations": [
+    "Actual R10 native pixels now show the closed cushion bodies on the finial and cap; the prior fine-frond-only deficit is resolved geometrically.",
+    "The new pads remain too bright, rounded and sparse-looking from this low camera compared with the reference thick fine moss. R10 is an experimental material/shape study, not an accepted fidelity improvement over R09.",
+    "R09 retains the preferred current baseline for the narrowed stone cap/short shaft/plinth and foreground composition when avoiding the bright cushion experiment. Its source remains complete in r09-source.",
+    "The complete low inspection shows continuous finial/cap/chamber/short shaft/plinth/ground assembly; exact hidden joints and terrain bearing remain reconstruction interpretations.",
+    "Scene03 overall remains conspicuously synthetic relative to HD: finer curved bearing carving, timber/gilt material response, richer directional/bounce light, denser natural overhead maple structure and garden species/sky composition still need work."
+  ],
+  "technicalChecks": {
+    "renderErrors": [],
+    "sourceMatchedAtEnd": true,
+    "closedCushionsPerCap": 45,
+    "closedFinialCushions": 9,
+    "separateFineFrondsOpen": true,
+    "notPhotographicAcceptance": true
+  }
+}

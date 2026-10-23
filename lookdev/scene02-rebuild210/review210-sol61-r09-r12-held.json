@@ -1,0 +1,326 @@
+{
+  "reference": "references/hd/1-照片-2.jpg",
+  "continuedFromR08": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+  "iterations": [
+    {
+      "iteration": "scene02-rebuild210-r09-full-wet",
+      "sourceHash": "971765c26243e9a5a61b3a0dd32b997a41b05f1389fed301f5d96613bde2d887",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r09-full-wet/reference.png",
+          "pngSha256": "3664c5b91b143fbaa02a0cad77541ca34b99be15b33201714782826925090b35",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "rgbaSha256": "cb87ad8e4735bd62f7f97feb179312b95089589d0449079bcba9588ba38e435c",
+          "valid": true
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r09-full-wet/detail-native.png",
+          "pngSha256": "8f4a5b74bb664ea292cc10293c50f5e7109b984c02181685b77e7956e343011a",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "rgbaSha256": "20d1c42b5e6bd221b27028fbd0197611f32ec774c25dac920ac03a8c92eeb8cc",
+          "valid": true
+        }
+      ],
+      "review": [
+        "Personally inspected full1254 and true wet-floor native subfrustum. New cooler diffuse sky makes blue roof response and real scene reflection appear.",
+        "Rejected as held appearance: overly white overcast cloud field, large glasslike board reflection, smooth bare brown approach mound.",
+        "Actual source review finds the board top had no cross-width interior vertices; R10 authors real cross sampling so cup and grain relief exist as surfaces, not only analytic normals."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r10-full-wet",
+      "sourceHash": "412d081269a61374514d81c1c4ec952e5de81f7b43ebdce357e8b07951b70da5",
+      "status": "rendered-review",
+      "geometry": {
+        "closedBoards": 225,
+        "boardTriangles": 1290020,
+        "castRailGeometries": 58,
+        "failed": 0,
+        "actualPostContacts": [
+          {
+            "postXZ": [
+              15.193872543879204,
+              23.368270846691118
+            ],
+            "postBottom": 1.688951594449816,
+            "actualBoardTop": 1.6913716134415409,
+            "postEmbedMetres": 0.002420018991724948
+          },
+          {
+            "postXZ": [
+              15.301670941934049,
+              22.03832476365354
+            ],
+            "postBottom": 1.757715138604973,
+            "actualBoardTop": 1.7595350255018438,
+            "postEmbedMetres": 0.0018198868968708481
+          },
+          {
+            "postXZ": [
+              15.586114982218282,
+              19.442761528529996
+            ],
+            "postBottom": 1.7334018838120357,
+            "actualBoardTop": 1.7369996118187774,
+            "postEmbedMetres": 0.0035977280067416295
+          }
+        ]
+      },
+      "visualAccepted": false,
+      "review": [
+        "Personally inspected1254 full, actual wet-board subfrustum, near-veranda low side and bridge waterline view. Cross-width sampled closed boards express actual cup relief.",
+        "Bridge waterline review exposes the larger old pond elevation error; R11 repairs the unified water level."
+      ]
+    },
+    {
+      "iteration": "scene02-rebuild210-r11-full-wet",
+      "sourceHash": "c2cfe7f0d2f3e17ee806d61e074588babca4850e8f6475d291a833b854d1b3a4",
+      "status": "rendered-review",
+      "review": [
+        "Personally inspected1254 full, true near-veranda low side and actual bridge waterline view. The single recovered pond level reduces exposed pier height and bare-wall extent; retain this actual layout repair.",
+        "Reject final optics: broad white reflection blobs, missing foreground pad groups and raised bank stems crossing the veranda; repair inR12."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r12-full-wet",
+      "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+      "status": "failed-disk-full",
+      "failureReceipt": "lookdev/scene02-rebuild210/failed210-r12-disk-full.json",
+      "savedValidFrames": 0,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r12b-full-wet",
+      "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+      "status": "rendered-review",
+      "native": [
+        {
+          "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/report.json",
+          "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+          "status": "rendered-review",
+          "errors": [],
+          "completedAt": "2026-10-23T20:35:05.122Z",
+          "inspectionView": null,
+          "frames": [
+            {
+              "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/reference.png",
+              "pngSha256": "708e0eb317c9e63abb1a042b70ee74dd18ef5cf6cb947a7896c89e6d2fd532b4",
+              "pngBytes": 3243203,
+              "rgbaSha256": "7e52c196087363d1a987a455f933919f98c006ec92339a3231ab7513ad05c0e2",
+              "nativeSize": [
+                1254,
+                1254
+              ],
+              "pose": {
+                "frame": 1,
+                "position": [
+                  16.2,
+                  2.72,
+                  25
+                ],
+                "fov": 52,
+                "width": 1254,
+                "height": 1254
+              },
+              "detailCrop": null,
+              "valid": true,
+              "glError": 0,
+              "contextLost": false,
+              "wetCapture": {
+                "revision": "scene02-actual-board-wet-varnish210-r09",
+                "capturePlaneY": 1.71,
+                "captures": 1,
+                "actualDeformedClosedBoards": true,
+                "proxyVisible": false,
+                "virtualCameraReflection": true,
+                "fresnelMixture": true,
+                "fullSubfrustumCapture": true,
+                "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+              },
+              "pondLevel": 1
+            },
+            {
+              "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/detail-native.png",
+              "pngSha256": "cf0cbc10431ef91ed12f2e00cdca7abe342f4408328e110e8460bfdc9a609309",
+              "pngBytes": 2458889,
+              "rgbaSha256": "08d4671de50f2b13e910469f5f43bfa046cea410db813b0e1011bff1ddee27df",
+              "nativeSize": [
+                1254,
+                1254
+              ],
+              "pose": {
+                "frame": 2,
+                "position": [
+                  16.2,
+                  2.72,
+                  25
+                ],
+                "fov": 52,
+                "width": 1254,
+                "height": 1254
+              },
+              "detailCrop": [
+                840,
+                880,
+                370,
+                1254
+              ],
+              "valid": true,
+              "glError": 0,
+              "contextLost": false,
+              "wetCapture": {
+                "revision": "scene02-actual-board-wet-varnish210-r09",
+                "capturePlaneY": 1.71,
+                "captures": 2,
+                "actualDeformedClosedBoards": true,
+                "proxyVisible": false,
+                "virtualCameraReflection": true,
+                "fresnelMixture": true,
+                "fullSubfrustumCapture": true,
+                "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+              },
+              "pondLevel": 1
+            }
+          ]
+        },
+        {
+          "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-low-veranda/report.json",
+          "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+          "status": "rendered-review",
+          "errors": [],
+          "completedAt": "2026-10-23T20:35:12.872Z",
+          "inspectionView": {
+            "position": [
+              18.2,
+              2.6,
+              22.8
+            ],
+            "target": [
+              14.6,
+              4.4,
+              18.6
+            ],
+            "fov": 62,
+            "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+          },
+          "frames": [
+            {
+              "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-low-veranda/inspection-view.png",
+              "pngSha256": "541f353bc3482f25d12ff815cd85073d3bb4e975b3ab1ab321202b42cec72109",
+              "pngBytes": 2868956,
+              "rgbaSha256": "86a1923faf70be94a68b708d36e636458f5ee85eff45c74685e6f5f1d0aa2216",
+              "nativeSize": [
+                1254,
+                1254
+              ],
+              "pose": {
+                "frame": 1,
+                "position": [
+                  18.2,
+                  2.6,
+                  22.8
+                ],
+                "fov": 62,
+                "width": 1254,
+                "height": 1254
+              },
+              "detailCrop": null,
+              "valid": true,
+              "glError": 0,
+              "contextLost": false,
+              "wetCapture": {
+                "revision": "scene02-actual-board-wet-varnish210-r09",
+                "capturePlaneY": 1.71,
+                "captures": 1,
+                "actualDeformedClosedBoards": true,
+                "proxyVisible": false,
+                "virtualCameraReflection": true,
+                "fresnelMixture": true,
+                "fullSubfrustumCapture": true,
+                "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+              },
+              "pondLevel": 1
+            }
+          ]
+        },
+        {
+          "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-bank-waterline/report.json",
+          "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+          "status": "rendered-review",
+          "errors": [],
+          "completedAt": "2026-10-23T20:35:20.246Z",
+          "inspectionView": {
+            "position": [
+              5,
+              1.8,
+              11.2
+            ],
+            "target": [
+              0.7,
+              2.1,
+              4.7
+            ],
+            "fov": 65,
+            "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+          },
+          "frames": [
+            {
+              "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-bank-waterline/inspection-view.png",
+              "pngSha256": "5da85f63ede8cae1c4e807187f9dfba01b50a01878063cb815676588abbfe87f",
+              "pngBytes": 2287441,
+              "rgbaSha256": "5f1d852432be80045853b7d0e25ae484b90a246bb56f24a09e6df535e2c304b9",
+              "nativeSize": [
+                1254,
+                1254
+              ],
+              "pose": {
+                "frame": 1,
+                "position": [
+                  5,
+                  1.8,
+                  11.2
+                ],
+                "fov": 65,
+                "width": 1254,
+                "height": 1254
+              },
+              "detailCrop": null,
+              "valid": true,
+              "glError": 0,
+              "contextLost": false,
+              "wetCapture": {
+                "revision": "scene02-actual-board-wet-varnish210-r09",
+                "capturePlaneY": 1.71,
+                "captures": 0,
+                "actualDeformedClosedBoards": true,
+                "proxyVisible": false,
+                "virtualCameraReflection": true,
+                "fresnelMixture": true,
+                "fullSubfrustumCapture": true,
+                "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+              },
+              "pondLevel": 1
+            }
+          ]
+        }
+      ],
+      "review": [
+        "Personally inspected all held1254 full, true native wet-board subfrustum, actual near-veranda low side and bridge waterline frames.",
+        "Retain smaller actual angular sun, cooler tile/soffit sky response, actual cross-cupped wet-board reflection, recovered single pond elevation and shortened exposed piers, reconnected soil/shore roots, finer dielectric water response and cleared veranda roots.",
+        "Photographic acceptance remains false: pale/regular procedural clouds and smooth orange illumination, overbroad floor reflection, angular repeated lotus petals/pads, simplified gilded carving and botanical grouping remain visible."
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "overallVisualAccepted": false
+}

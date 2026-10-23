@@ -1,3 +1,4 @@
+import {pondLevel210,insidePond210} from './pond-level210.js';
 import {T,V,mix,rand,Builder,gridGeometry} from './kernel.js';
 import {buildForegroundStoneLantern120,foregroundLanternFootprint120} from './foreground-stone-lantern120.js';
 import {loadScannedGardenStones} from './scanned-garden-stones.js';
@@ -6,20 +7,27 @@ import {createGardenPines145} from './garden-pines145.js';
 import {createBankEvergreen156} from './bank-evergreen156.js';
 import {loadScannedUnderstory146} from './scanned-understory146.js';
 import {buildPlantedShoulders147} from './planted-shoulders147.js';
+import {waterPassage210,buildGardenLantern210} from './bridge-site210.js';
 import {loadFirWoodland150,buildFirWoodland150} from './scanned-fir-woodland150.js';
 export async function buildGarden(mats,sharedScanned=null){
  const scanned=sharedScanned??await loadScannedGardenStones(),understory=await loadScannedUnderstory146(),firWoodland=await loadFirWoodland150(mats);let scannedRockPlacements=0;
  for(const [i,stone]of scanned.variants.entries()){mats['scannedGardenDry'+i]=stone.dry;mats['scannedGardenWet'+i]=stone.wet;}
  const b=new Builder(mats),lights=[],gardenPines=createGardenPines145(b,mats),bankEvergreen=createBankEvergreen156(b,mats);mats.rock=mats.stone.clone();mats.rock.color.setHex(0x77786f);mats.rock.roughness=.92;mats.rock.metalness=0;mats.rock.flatShading=true;mats.pondBed=mats.moss.clone();mats.pondBed.name='scene02-muted-pond-bed';mats.pondBed.color.setHex(0x3b4236);mats.pondBed.roughness=.98;
+ const waterClearance210={rocks:0,plants:0};
+ function keepDraws210(blocked,fn){if(!blocked)return fn();const put=b.put,line=b.line;b.put=()=>{};b.line=()=>{};try{return fn();}finally{b.put=put;b.line=line;}}
+ function rock(x,y,z,r=1){const blocked=waterPassage210(x,z,r*.60);if(blocked)waterClearance210.rocks++;return keepDraws210(blocked,()=>rockRaw210(x,y,z,r));}
+ function shrub(x,y,z,r=1,flower=false){const blocked=waterPassage210(x,z,r*.60)||(insidePond210(x,z)&&y<pondLevel210+.01);if(blocked)waterClearance210.plants++;return keepDraws210(blocked,()=>shrubRaw210(x,y,z,r,flower));}
+ function fern(x,y,z,s=.8){const blocked=waterPassage210(x,z,s*.35)||(insidePond210(x,z)&&y<pondLevel210+.01);if(blocked)waterClearance210.plants++;return keepDraws210(blocked,()=>fernRaw210(x,y,z,s));}
+ function shorelineShrub(x,z,r=.55){const blocked=waterPassage210(x,z,r*.45)||insidePond210(x,z);if(blocked)waterClearance210.plants++;return keepDraws210(blocked,()=>shorelineShrubRaw210(x,z,r));}
  const leafGeo=(()=>{let p=[0,0,0,-.5,.06,.3,-.36,.08,.75,0,.02,1,.36,.08,.75,.5,.06,.3],idx=[0,1,2,0,2,3,0,3,4,0,4,5];let g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(idx);g.computeVertexNormals();return g;})();mats.leaf.side=mats.leaflight.side=mats.pink.side=mats.pinkDark.side=T.DoubleSide;
  const petalGeo=(()=>{let rows=Array.from({length:9},(_,j)=>Array.from({length:7},(_,i)=>{let t=j/8,s=-1+2*i/6;return[s*Math.sin(Math.PI*t)*.38,.65*t*t+.13*Math.sin(Math.PI*t)*(1-s*s),t];}));return gridGeometry(rows);})();
- function rock(x,y,z,r=1){
+ function rockRaw210(x,y,z,r=1){
   // Retain the prior random-draw sequence and footprint, but place an actual
   // eroded scan on its lowest transformed point, partially embedded in soil.
   const sx=r*(.76+rand()*.53),sy=r*(.46+rand()*.30),sz=r*(.72+rand()*.55),rotation=[(rand()-.5)*.92,rand()*6.28,(rand()-.5)*.78],variant=Math.floor(rand()*7)%scanned.variants.length,stone=scanned.variants[variant],scale=[sx,sy/.62,sz],tint=.78+rand()*.34;
   const matrix=new T.Matrix4().compose(new T.Vector3(),new T.Quaternion().setFromEuler(new T.Euler(...rotation)),V(scale)),p=stone.geometry.attributes.position,v=new T.Vector3();let bottom=Infinity,top=-Infinity;
   for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i).applyMatrix4(matrix);bottom=Math.min(bottom,v.y);top=Math.max(top,v.y);}
-  const base=y-bottom-r*.065,material=y<.12?stone.wet:stone.dry;
+  const embed=y<.15?.39:.48,base=y-bottom-(top-bottom)*embed,material=y<.12?stone.wet:stone.dry;
   b.put(stone.geometry,material,[x,base,z],scale,rotation,tint);scannedRockPlacements++;
   // The scan already contains attached moss; consume the old cap's draws
   // without restoring an opaque floating polygon moss lid.
@@ -44,12 +52,12 @@ export async function buildGarden(mats,sharedScanned=null){
    }
   }
  }
- function shrub(x,y,z,r=1,flower=false){
+ function shrubRaw210(x,y,z,r=1,flower=false){
   const lobes=5+Math.floor(rand()*2);
   for(let j=0;j<lobes;j++){const a=j*6.283/lobes+rand()*.52,d=r*(.20+rand()*.32),cy=y+r*(.28+rand()*.30);leafCluster(x+Math.cos(a)*d,cy,z+Math.sin(a)*d,r*(.40+rand()*.16),r*(.34+rand()*.20),r*(.38+rand()*.18),36+Math.floor(rand()*20));}
   if(flower)for(let j=0;j<2+Math.floor(rand()*2);j++){const a=rand()*6.283,u=rand()*1.6-.8,f=Math.sqrt(1-u*u),q=Math.cbrt(rand()),p=[x+Math.cos(a)*f*r*.42*q,y+r*(.36+u*.24)*q,z+Math.sin(a)*f*r*.42*q];blossomCluster(p[0],p[1],p[2],r*.23,r*.22,r*.23,5+Math.floor(rand()*5));}
  }
- function shorelineShrub(x,z,r=.55){
+ function shorelineShrubRaw210(x,z,r=.55){
   // Two low, connected leaf masses meet the wet bank instead of hovering as a broad crown.
   for(let j=0;j<2;j++){
    const a=j*2.4+.35,ox=Math.cos(a)*r*.18,oz=Math.sin(a)*r*.18;
@@ -57,7 +65,8 @@ export async function buildGarden(mats,sharedScanned=null){
    leafCluster(x+ox,.43*r,z+oz,r*.42,r*.44,r*.42,36);
   }
  }
- function smallFlowerCluster(x,z,r=.5,count=4){
+ function smallFlowerCluster(x,z,r=.5,count=4){return keepDraws210(insidePond210(x,z),()=>smallFlowerClusterRaw210(x,z,r,count));}
+ function smallFlowerClusterRaw210(x,z,r=.5,count=4){
   const colors=['pink','petal','pinkDark'];
   for(let j=0;j<count;j++){
    const a=rand()*6.28,d=Math.sqrt(rand())*r*.58,px=x+Math.cos(a)*d,pz=z+Math.sin(a)*d;
@@ -66,7 +75,7 @@ export async function buildGarden(mats,sharedScanned=null){
    for(let k=0;k<petals;k++)b.put(petalGeo,material,[px,top,pz],[petal,petal,petal*1.25],[.24,k*6.28/petals+a*.12,0]);
   }
  }
- function fern(x,y,z,s=.8){
+ function fernRaw210(x,y,z,s=.8){
   const fronds=5+Math.floor(rand()*3);
   for(let j=0;j<fronds;j++){
    const a=j*6.283/fronds+rand()*.38,len=s*(.70+rand()*.52),tip=[x+Math.cos(a)*len*.43,y+len*(.56+rand()*.25),z+Math.sin(a)*len*.43];
@@ -84,7 +93,8 @@ export async function buildGarden(mats,sharedScanned=null){
   for(let j=0;j<8;j++){let a=j*2.4+(rand()-.5)*.4,y=h*(.45+j*.055),reach=r*(.7+rand()*.4),end=[x+Math.cos(a)*reach,y+.35+rand()*.35,z+Math.sin(a)*reach],start=[x+lean*.5,y-.5,z];branch(start,end,.055+j*.002);let last=end;for(let k=0;k<3;k++){let aa=a+(k-1)*.6,p=[end[0]+Math.cos(aa)*r*.35,end[1]+.35,end[2]+Math.sin(aa)*r*.35];branch(end,p,.02);last=p;leafCluster(p[0],p[1],p[2],r*.34,pine?.58:r*.30,r*.34,125);} }
   leafCluster(top[0],top[1],top[2],r*.52,pine?.58:r*.43,r*.52,190);
  }
- function prunedPine(x,z,h=2.5,r=1.25){
+ function prunedPine(x,z,h=2.5,r=1.25){const lift=insidePond210(x,z)?pondLevel210:0;return b.at([0,lift,0],0,()=>prunedPineRaw210(x,z,Math.max(1.0,h-lift),r));}
+ function prunedPineRaw210(x,z,h=2.5,r=1.25){
   b.put(b.lowSphere,'moss',[x,-.095,z],[Math.max(.32,r*.27),.16,Math.max(.32,r*.27)]);
   const lean=(rand()-.5)*.22;branch([x,.02,z],[x+lean*.45,h*.55,z],.085);branch([x+lean*.45,h*.55,z],[x+lean,h*.94,z+.04],.037);
   for(let tier=0;tier<4;tier++){
@@ -106,7 +116,8 @@ export async function buildGarden(mats,sharedScanned=null){
    }
   }
  }
- function cherry(x,z,h=5,r=3){
+ function cherry(x,z,h=5,r=3){const lift=insidePond210(x,z)?pondLevel210:0;return b.at([0,lift,0],0,()=>cherryRaw210(x,z,Math.max(1.4,h-lift),r));}
+ function cherryRaw210(x,z,h=5,r=3){
   b.put(b.lowSphere,'moss',[x,-.09,z],[Math.max(.42,r*.23),.18,Math.max(.42,r*.23)]);
   const trunkTop=[x+.22,h*.61,z+.08];branch([x,.05,z],trunkTop,.16);
   const limbs=9;
@@ -152,7 +163,7 @@ export async function buildGarden(mats,sharedScanned=null){
  }
 
  const islands=[[-5.8,0,9.3,.78],[8.3,0,5.5,1.25],[4.6,0,13.5,.55],[-9,0,1.8,1.1]];
- for(let [x,y,z,r]of islands){b.put(b.lowSphere,'moss',[x,-.05,z],[r*1.45,.35,r]);for(let i=0;i<7;i++){let a=rand()*6.28,rr=r*(.6+rand()*.55);rock(x+Math.cos(a)*rr,.05,z+Math.sin(a)*rr,.20+rand()*.38);}for(let i=0;i<3;i++)shrub(x+(rand()-.5)*r*1.2,.2,z+(rand()-.5)*r*1.1,r*.30+rand()*.25,i%2===0);}
+ for(let [x,y,z,r]of islands){b.put(b.lowSphere,'moss',[x,pondLevel210-.05,z],[r*1.45,.35,r]);for(let i=0;i<7;i++){let a=rand()*6.28,rr=r*(.6+rand()*.55);rock(x+Math.cos(a)*rr,pondLevel210+.05,z+Math.sin(a)*rr,.20+rand()*.38);}for(let i=0;i<3;i++)shrub(x+(rand()-.5)*r*1.2,pondLevel210+.2,z+(rand()-.5)*r*1.1,r*.30+rand()*.25,i%2===0);}
  // Garden height is deliberately varied: dense low flowers, articulated rocks, pruned pines and blossom canopies.
  tree(-20,-4,7,3.5,true);
  // The visible bridge/stair bank pines are now rooted on the continuous
@@ -170,12 +181,12 @@ export async function buildGarden(mats,sharedScanned=null){
  // Tiered rock-and-flower planting climbs the high terrace on both sides of the stair.
  for(let side of[-1,1])for(let j=0;j<18;j++){let z=-1+rand()*6,x=4+side*(3.8+rand()*3.0),y=2.8*(1-(z+1)/6);rock(x,y*.68,z,.38+rand()*.4);shrub(x,y,z,.4+rand()*.35,j%3===0);}
  const grass=gridGeometry(Array.from({length:7},(_,j)=>{let t=j/6;return[[-.5*Math.sin(Math.PI*t),t,.35*t*t],[.5*Math.sin(Math.PI*t),t,.35*t*t]];}));
- for(let j=0;j<90;j++){let z=rand()*17,x=9.6+rand()*.9;for(let k=0;k<18;k++){let a=rand()*6.28,r=rand()*.24;b.put(grass,k%4?'leaf':'leaflight',[x+Math.cos(a)*r,.24,z+Math.sin(a)*r],[.02+rand()*.025,.16+rand()*.25,.2+rand()*.15],[-.48+rand()*.96,a+(rand()-.5)*.36,(rand()-.5)*1.10]);}}
+ keepDraws210(true,()=>{for(let j=0;j<90;j++){let z=rand()*17,x=9.6+rand()*.9;for(let k=0;k<18;k++){let a=rand()*6.28,r=rand()*.24;b.put(grass,k%4?'leaf':'leaflight',[x+Math.cos(a)*r,.24,z+Math.sin(a)*r],[.02+rand()*.025,.16+rand()*.25,.2+rand()*.15],[-.48+rand()*.96,a+(rand()-.5)*.36,(rand()-.5)*1.10]);}}});
  // Connected mature framing tree is rooted in the same bank rather than
  // a long unbranched rod terminating in detached spherical leaf clumps.
  const rootedCanopy=buildRootedCanopy142(b,mats);tree(-28,-8,10,3.2,false);
- b.put(b.lowSphere,'moss',[-7.74,-.13,10.6],[2.1,.52,2.4]);
- for(let k=0;k<12;k++){const a=k*Math.PI/6;rock(-7.74+Math.cos(a)*1.65,.02,10.6+Math.sin(a)*1.85,.38+rand()*.20);}
+ b.put(b.lowSphere,'moss',[-7.74,pondLevel210-.13,10.6],[2.1,.52,2.4]);
+ for(let k=0;k<12;k++){const a=k*Math.PI/6;rock(-7.74+Math.cos(a)*1.65,pondLevel210+.02,10.6+Math.sin(a)*1.85,.38+rand()*.20);}
 
  // Broken azalea-and-fern pockets climb the stair shoulders without making a pink shelf.
  for(let s of[-1,1])for(let i=0;i<10;i++){
@@ -204,7 +215,7 @@ export async function buildGarden(mats,sharedScanned=null){
   });
   b.put(new T.CylinderGeometry(.14,.22,.13,8),'stone',[0,top+.53,0]);b.ball(0,top+.71,0,.12,.17,.12,'stone');b.ball(0,top+.87,0,.045,.09,.045,'stone');
  },s);const l=new T.PointLight(0xffaa42,9*s,7*s,2);l.position.set(x,(h*.64+.33)*s,z);lights.push(l);}
- const foregroundStoneLantern=buildForegroundStoneLantern120({b,mats});lights.push(foregroundStoneLantern.light);stoneLantern(10.4,5.9,3.0,.92);stoneLantern(-22,0,3.0,.8);
+ const foregroundStoneLantern=buildForegroundStoneLantern120({b,mats});lights.push(foregroundStoneLantern.light);const gardenLantern210=buildGardenLantern210({b,mats,lights});stoneLantern(-22,0,3.0,.8);
  // Lotus leaves are shallow ribbed basins with a radial slit, cupped rim and raised midribs.
  const lotusGeo=(()=>{let rings=7,N=36,rows=[];for(let j=0;j<=rings;j++){let t=.012+.988*j/rings;rows.push(Array.from({length:N+1},(_,i)=>{let a=.13+(Math.PI*2-.26)*i/N,r=t*(1+.035*Math.sin(a*7));return[Math.cos(a)*r,.045*Math.sin(a*7)*t*t+.14*Math.pow(t,5)-.055*(1-t),Math.sin(a)*r];}));}return gridGeometry(rows);})();
  const lotusMaterials=[0x53701e,0x688025,0x3b5b1a,0x87923a].map(c=>new T.MeshStandardMaterial({color:c,roughness:.40,side:T.DoubleSide}));
@@ -218,19 +229,23 @@ export async function buildGarden(mats,sharedScanned=null){
   // A second, looser bed continues along the broad left reach of the pond.
   lotusBeds.push({x:-5.8+(z-5.6)*.075,z,count:12,kind:station+16});
  }
+ // Recovered water elevation moves the visible foreground closer to this
+ // bank. These real floating pads fill the old bare mirror patch while the
+ // central reflected lane remains physically open.
+ lotusBeds.push({x:9.0,z:17.9,count:14,kind:24,rx:.90,rz:1.10,foreground:true},{x:10.8,z:20.1,count:12,kind:25,rx:.78,rz:1.00,foreground:true},{x:12.9,z:22.2,count:10,kind:26,rx:.70,rz:.90,foreground:true});
  for(let bedIndex=0;bedIndex<lotusBeds.length;bedIndex++){
   const bed=lotusBeds[bedIndex];
   for(let j=0;j<bed.count;j++){
    const a=rand()*6.28,rho=Math.sqrt(rand()),shape=.82+rand()*.30;
-   const x=bed.x+Math.cos(a)*.66*rho*shape,z=bed.z+Math.sin(a)*1.28*rho;
-   const s=.25+rand()*.21,y=.024+rand()*.025,yaw=rand()*6.28,aspect=.86+rand()*.28;
+   const x=bed.x+Math.cos(a)*(bed.rx??.66)*rho*shape,z=bed.z+Math.sin(a)*(bed.rz??1.28)*rho;
+   const s=.25+rand()*.21,y=pondLevel210+.024+rand()*.025,yaw=rand()*6.28,aspect=.86+rand()*.28;
    const channelCenter=.4+.22*(z-5),inOpenChannel=z>4&&z<24&&Math.abs(x-channelCenter)<corridorHalfWidth+s*.52;
    const underLantern=foregroundLanternFootprint120(x,z,s*.45),clear=!underLantern&&!inOpenChannel,bloomRoll=rand(),bloomHeight=rand();
    // Every candidate consumes the same draws before either rejection, keeping the seeded garden repeatable.
    if(clear){
     b.put(lotusGeo,lotusMaterials[(bed.kind+j)%4],[x,y,z],[s*aspect,s,s],[0,yaw,0]);plantedLotusPads++;
     if(j%4===0)b.at([x,y+.006,z],yaw,()=>{for(let k=0;k<8;k++){const aa=.22+k*.74;b.line([0,-.035,0],[Math.cos(aa)*s*.82,.06*s,Math.sin(aa)*s*.82],.0035,'leaflight');}});
-    if(bloomRoll<.075){const fy=y+.16+bloomHeight*.10;b.line([x,y,z],[x,fy,z],.010,'leaf');b.ball(x,fy,z,.036,.029,.036,'gold');for(let ring=0;ring<3;ring++){const N=ring===0?6:9;for(let k=0;k<N;k++)b.put(petalGeo,ring===2?'pinkDark':'petal',[x,fy,z],[.075+ring*.018,.16,.14+ring*.02],[.28+ring*.18,k*6.28/N+ring*.3,0]);}}
+    if(bloomRoll<(bed.foreground?.16:.075)){const fy=y+.16+bloomHeight*.10;b.line([x,y,z],[x,fy,z],.010,'leaf');b.ball(x,fy,z,.036,.029,.036,'gold');for(let ring=0;ring<3;ring++){const N=ring===0?6:9;for(let k=0;k<N;k++)b.put(petalGeo,ring===2?'pinkDark':'petal',[x,fy,z],[.075+ring*.018,.16,.14+ring*.02],[.28+ring*.18,k*6.28/N+ring*.3,0]);}}
    }else if(underLantern)culledPondPlantsForSolidFooting++;else if(inOpenChannel)culledPondPlantsForOpenChannel++;
   }
  }
@@ -254,7 +269,7 @@ export async function buildGarden(mats,sharedScanned=null){
  for(let i=0;i<360;i++){
   const z=i<220?4.5+rand()*20:8+rand()*17,center=.4+.22*(z-5),x=i<220?center+(rand()-.5)*5.2:-22+rand()*12;
   const length=.11+rand()*.34,width=.010+rand()*.020,yaw=flowYaw+(rand()-.5)*.34,brightness=.48+rand()*.43;
-  b.put(glintStrip,mats.pondGlint,[x,.022,z],[length,1,width],[0,yaw,0],brightness);
+  // Consume the historical placement draws; the actual reflected field now supplies the water highlights.
  }
  // Terrain silhouettes: true finite ridges, then several layers of distant woodland.
  const mountainMat=new T.MeshStandardMaterial({color:0x45533a,roughness:1,map:mats.stone.map,bumpMap:mats.stone.bumpMap,bumpScale:.16});
@@ -267,5 +282,5 @@ export async function buildGarden(mats,sharedScanned=null){
  const scannedWoodland=buildFirWoodland150({b,library:firWoodland,ridgeTop,mountainSurface}),mountainCanopyTrees=scannedWoodland.trees;
  const plantedShoulders=buildPlantedShoulders147({b,mats,scanned,understory,gardenPines,bankEvergreen});
  const matureGardenPines=gardenPines.finish();
- return {group:b.finish(),lights,dispose(){scanned.dispose();understory.dispose();firWoodland.dispose();},stats:{scannedGardenStones:{...scanned.info,placements:scannedRockPlacements,groundContact:"Actual transformed scan minima with a 6.5 percent radius soil embed; no image projection"},instances:b.count,buckets:b.buckets.size,rootedCanopy,matureGardenPines,bankEvergreen:bankEvergreen.stats,plantedShoulders,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,scannedWoodland,woodlandConstruction:'Original fine conifer meshes and4K botanical surfaces on the actual ridge terrain; no large authored triangular leaf masses or smooth crown spheres',openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
+ return {group:b.finish(),lights,dispose(){scanned.dispose();understory.dispose();firWoodland.dispose();},stats:{scannedGardenStones:{...scanned.info,placements:scannedRockPlacements,groundContact:"Actual transformed scan bounds,39percent waterline or48percent earth embed; no image projection"},instances:b.count,buckets:b.buckets.size,rootedCanopy,matureGardenPines,bankEvergreen:bankEvergreen.stats,plantedShoulders,waterClearance210,pondLevel210,legacyUnrootedGrassOmitted:true,gardenLantern210,foregroundStoneLantern:foregroundStoneLantern.stats,culledPondPlantsForSolidFooting,culledPondPlantsForOpenChannel,plantedLotusPads,lotusBedClusters:lotusBeds.length,mountainCanopyTrees,scannedWoodland,woodlandConstruction:'Original fine conifer meshes and4K botanical surfaces on the actual ridge terrain; no large authored triangular leaf masses or smooth crown spheres',openWaterCorridor:{centerline:'(0.4,5) to (4.6,24)',halfWidthMetres:corridorHalfWidth,geometry:'clear three-metre reflection channel reserved under the bridge and toward the foreground veranda'}}};
 }

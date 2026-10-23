@@ -1,0 +1,105 @@
+{
+  "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+  "scope": "Source parameter/projection calibration and unchanged-component proof; actual contacts, closed topology and native photographs are separate receipts. Not a surveyed measurement or visual approval.",
+  "pondLevelMetres": 1,
+  "physicalInterfaceY": 1.004,
+  "actualReflectionY": 1.016,
+  "lotusBaseRange": [
+    1.024,
+    1.049
+  ],
+  "westernLandingY": 1.25,
+  "originalReferenceCamera": {
+    "position": [
+      16.2,
+      2.72,
+      25
+    ],
+    "target": [
+      -1,
+      4.7,
+      -7
+    ],
+    "fov": 52,
+    "status": "retained after joint bridge-rail-canopy and architecture perspective measurement"
+  },
+  "piers": [
+    {
+      "localStation": -6.8,
+      "footXZ": [
+        -3.2335078943291404,
+        7.357619684047575
+      ],
+      "bearingTopWorldY": 0.8892428285836469,
+      "oldWaterlinePixel": [
+        168.1610860166126,
+        838.8275200095943
+      ],
+      "newWaterlinePixel": [
+        169.17567379962748,
+        786.2023655941272
+      ],
+      "exposedHeightAboveNewWater": 0
+    },
+    {
+      "localStation": -2.15,
+      "footXZ": [
+        -0.320631075889669,
+        6.391229679650828
+      ],
+      "bearingTopWorldY": 2.0519373088754254,
+      "oldWaterlinePixel": [
+        319.8357944923225,
+        841.9370598968187
+      ],
+      "newWaterlinePixel": [
+        320.529862493802,
+        788.153176680875
+      ],
+      "exposedHeightAboveNewWater": 1.0359373088754253
+    },
+    {
+      "localStation": 2.15,
+      "footXZ": [
+        2.372996949764036,
+        5.4975787078430844
+      ],
+      "bearingTopWorldY": 2.2640292071909833,
+      "oldWaterlinePixel": [
+        466.13817270797017,
+        844.936459633461
+      ],
+      "newWaterlinePixel": [
+        466.50916400110646,
+        790.0347105999102
+      ],
+      "exposedHeightAboveNewWater": 1.2480292071909833
+    },
+    {
+      "localStation": 6.8,
+      "footXZ": [
+        5.2858737682035075,
+        4.531188703446338
+      ],
+      "bearingTopWorldY": 1.5174644008094773,
+      "oldWaterlinePixel": [
+        631.3226719678677,
+        848.3229687908669
+      ],
+      "newWaterlinePixel": [
+        631.3124749342463,
+        792.1588680406448
+      ],
+      "exposedHeightAboveNewWater": 0.5014644008094773
+    }
+  ],
+  "components": {
+    "bridgeModuleMatchesR11": true,
+    "pondLevelModuleMatchesR11": true,
+    "closedBoardsModuleMatchesR10": true,
+    "guardModuleMatchesR10": true
+  },
+  "bridgeActualContactReceipt": "lookdev/scene02-rebuild210/contact210-r11.json",
+  "closedBoardReceipt": "lookdev/scene02-rebuild210/geometry-veranda210-r10.json",
+  "visualAccepted": false
+}

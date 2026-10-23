@@ -1,0 +1,44 @@
+{
+  "reports": {
+    "1": "qa/ten-reference/01/iteration-scene01-rebuild219-r07b-full-hero/report.json",
+    "2": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/report.json",
+    "3": "qa/ten-reference/03/iteration-scene03-rebuild211-r15-20261024/report.json",
+    "4": "qa/ten-reference/04/iteration-scene04-rebuild212-r05-toro-hero-personal-CC-BY-NC-SA4/report.json",
+    "5": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024/report.json",
+    "6": "qa/ten-reference/06/iteration-scene06-lotus222-r05-personal-nc/report.json",
+    "7": "qa/ten-reference/07/iteration-scene07-rebuild214-r11/report.json",
+    "8": "qa/ten-reference/08/iteration-scene08-rebuild213-r04/report.json",
+    "9": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/report.json",
+    "10": "qa/ten-reference/10/iteration-scene10-support207-r09-hero/report.json"
+  },
+  "notes": {
+    "status": "Every scene is still photographically unaccepted. Explicit root-reviewed native stills, not a new movie or unified source snapshot.",
+    "newRetained": "01/02/03/05/06/09 new retained modelling checkpoints;04/07/08/10 retain the earlier explicitly selected view until newer candidates are repaired/reviewed.",
+    "referenceCamera09": "Existing renderShot(-1330) calls renderReference at time0. The selected original report frame is shot--1330, camera[6,2.7,33] FOV52; no image alias or relabelled synthetic frame.",
+    "returned04": "New212R08 remains isolated and visually returned for naked banks/pale facade; it is not promoted to this board.",
+    "returned08": "New213R09 opens water too much and leaves composition materially unlike the reference; its source and evidence are retained but not silently selected here.",
+    "scene06": "Lotus222R05 is actual native geometry integrated over199J/205/198/201/200/195/189; physical218 and206movie still use their older pinned lotus. No new movie/physical equivalence claim."
+  },
+  "frameLicenses": {
+    "6": {
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "Scan-the-World / Sainsbury Centre Seated Amida, https://doi.org/10.5281/zenodo.21353739 . Prepared paired pose + sculpture199 continuous3D face/scalp/robe derivative; original raw source retained. CC BY-NC-SA4.0. Separate source176 SCANOLOGY and source157 DianaLiu carvings retain CC BY4.0; generated brocade201 is a material asset. peel-3d.com, Buddha Head, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0; actual donor173 face/ears/neck continuously fitted with source traces retained. Combined imagery retains NC-SA4 scope; no Japanese period attributed to donor. Lotus222: independently authored closed leaf sheets; continuous bearing derived from the retained NC hem contact. All source-specific terms retained.",
+      "personalNoncommercialUseOnly": true
+    },
+    "4": {
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "Scan-the-World, Sainsbury Centre Seated Amida; https://doi.org/10.5281/zenodo.21353739 . Original unpaired sculpture and plinth retained; positive uniform scene fit and separately authored shrine/pedestal. CC BY-NC-SA4.0; no endorsement implied.",
+      "personalNoncommercialUseOnly": true
+    }
+  },
+  "boardLicense": {
+    "license": "CC-BY-NC-SA-4.0",
+    "scope": "Review montage contains actual NC Amida-derived scene04 and scene06. Each individual input keeps its own license; project source is not blanket relicensed.",
+    "attribution": "Scene06 sculpture: Scan-the-World / Sainsbury Centre, https://doi.org/10.5281/zenodo.21353739; source geometry adapted under CC BY-NC-SA4.0. peel-3d.com, Buddha Head, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0; actual donor173 face/ears/neck continuously fitted with source traces retained. Combined imagery retains NC-SA4 scope; no Japanese period attributed to donor."
+  },
+  "referenceFrames": {
+    "9": "shot--1330"
+  }
+}

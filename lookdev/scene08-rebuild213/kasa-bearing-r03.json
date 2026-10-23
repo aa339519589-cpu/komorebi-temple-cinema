@@ -1,0 +1,65 @@
+{
+  "scope": "CPU rays against exact emitted cap and lintel buffers; support contact, not visual acceptance",
+  "revision": "r03",
+  "checks": [
+    {
+      "x": -0.4,
+      "z": -0.4,
+      "lintelTop": 2.4834671776441795,
+      "kasaUnderside": 2.5291504980028043,
+      "verticalGap": 0.04568332035862488
+    },
+    {
+      "x": 0.4,
+      "z": -0.4,
+      "lintelTop": 2.4884783836461537,
+      "kasaUnderside": 2.534944993835863,
+      "verticalGap": 0.0464666101897091
+    },
+    {
+      "x": -0.4,
+      "z": 0.4,
+      "lintelTop": 2.4798441638042052,
+      "kasaUnderside": 2.527887367150462,
+      "verticalGap": 0.04804320334625656
+    },
+    {
+      "x": 0.4,
+      "z": 0.4,
+      "lintelTop": 2.485775613087264,
+      "kasaUnderside": 2.5324402137537607,
+      "verticalGap": 0.0466646006664968
+    },
+    {
+      "x": 0,
+      "z": -0.4,
+      "lintelTop": 2.484552769314547,
+      "kasaUnderside": 2.5255399222454997,
+      "verticalGap": 0.040987152930952675
+    },
+    {
+      "x": 0,
+      "z": 0.4,
+      "lintelTop": 2.483539424141946,
+      "kasaUnderside": 2.526332461905436,
+      "verticalGap": 0.042793037763490194
+    },
+    {
+      "x": -0.44,
+      "z": 0,
+      "lintelTop": 2.4826117201522973,
+      "kasaUnderside": 2.51822633984782,
+      "verticalGap": 0.03561461969552271
+    },
+    {
+      "x": 0.44,
+      "z": 0,
+      "lintelTop": 2.4868583718942716,
+      "kasaUnderside": 2.5273741453497163,
+      "verticalGap": 0.04051577345544466
+    }
+  ],
+  "maxGap": 0.04804320334625656,
+  "requiresRepair": true,
+  "source": "ca61f18635894d3e62e089ab11cb742e805b7568ae6876f7bee1a5b60757929f"
+}

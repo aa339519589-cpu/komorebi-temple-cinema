@@ -1,0 +1,159 @@
+{
+  "revision": "scene08-solid-bearing-kasa-terraced-banks213-r04",
+  "reference": "references/hd/7-照片-8.jpg",
+  "source": "2627ddf97e4a84700b74242c6b1cd691072061709225e1d69ac29804bde75dd2",
+  "previousSource": "ca61f18635894d3e62e089ab11cb742e805b7568ae6876f7bee1a5b60757929f",
+  "initialInheritedSource": "0b049eed60473ec6b0284b40f7124ea8ef89a073a2664d7f306b8d69627e78de",
+  "status": "actual-native-reviewed-modelling-progress-photographic-match-rejected",
+  "personallyInspectedAll": true,
+  "actualViewed": [
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r04/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r04/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r04-low3q/inspection-view.png"
+  ],
+  "improvements": [
+    "The old continuous green cap covering is replaced by a smaller irregular set of closed moss colonies over exposed stone. R04 feathers the colony thickness into raised interior cushions rather than thick cut-out edges.",
+    "Stone kasa is an actual heavy solid with a flat chamber bearing soffit and a moulded inset underside. It contacts the held stone lintel; the old3.6–4.8cm air gap has been repaired.",
+    "The overly broad free earthen mound is reduced to the actual occupied hall footprint and a surrounding apron; roots and inserted rocks use the actual terrain triangles.",
+    "Upper and lower independent scan rock solids are embedded through the apron, improving the broken face in the low view. This is a material/geometry change with actual shadow response, not a screen overlay.",
+    "Inherited R02 squared dou solids, smaller shrub stems and191 full-depth rooms/portals remain."
+  ],
+  "unresolved": [
+    "The reference has a substantially different architectural roof silhouette, visible bracket morphology and arrangement; native left hall still reads too tall and heavy through its return.",
+    "The stone lantern chamber, shaft/collar wear and cap anatomy still look too regular and smooth. Authored moss geometry is an approximation.",
+    "The close central foreground boulder over-occupies the lower frame; the reference has a more varied stone/plant/stream opening.",
+    "Garden composition, canopy cluster morphology, flower placement and sunlight/shadow colour remain visibly short of the photograph.",
+    "Native one-bounce probes and thin-leaf lighting remain approximations. Technical checks do not establish photographic fidelity."
+  ],
+  "checks": {
+    "nativeReports": [
+      {
+        "dir": "qa/ten-reference/08/iteration-scene08-rebuild213-r04",
+        "source": "2627ddf97e4a84700b74242c6b1cd691072061709225e1d69ac29804bde75dd2",
+        "status": "rendered-review",
+        "size": 1254,
+        "renderSampling": {
+          "nativeWidth": 1254,
+          "nativeHeight": 1254,
+          "outputWidth": 1254,
+          "outputHeight": 1254,
+          "scale": 1,
+          "downsampling": "none"
+        },
+        "frames": [
+          {
+            "name": "reference",
+            "pose": {
+              "position": [
+                0,
+                1.78,
+                13
+              ],
+              "target": [
+                0,
+                6.1,
+                -9
+              ],
+              "time": 0,
+              "fov": 49
+            },
+            "rgbaSha256": "f84b1183d14b32f8178ef778242a9c0f2cc1df4b0a1c45237d744d2073b358dd",
+            "glError": 0,
+            "contextLost": false,
+            "valid": true
+          },
+          {
+            "name": "detail-native",
+            "pose": {
+              "position": [
+                0,
+                1.78,
+                13
+              ],
+              "target": [
+                0,
+                6.1,
+                -9
+              ],
+              "time": 0,
+              "fov": 49
+            },
+            "rgbaSha256": "1fe768a688367e4d78f1e2e282b646cd7fff0a931731e708bb655b3b7d8a609a",
+            "glError": 0,
+            "contextLost": false,
+            "valid": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "dir": "qa/ten-reference/08/iteration-scene08-rebuild213-r04-low3q",
+        "source": "2627ddf97e4a84700b74242c6b1cd691072061709225e1d69ac29804bde75dd2",
+        "status": "rendered-review",
+        "size": 1254,
+        "renderSampling": {
+          "nativeWidth": 1254,
+          "nativeHeight": 1254,
+          "outputWidth": 1254,
+          "outputHeight": 1254,
+          "scale": 1,
+          "downsampling": "none"
+        },
+        "frames": [
+          {
+            "name": "inspection-view",
+            "pose": {
+              "position": [
+                1.6,
+                2.2,
+                5.6
+              ],
+              "target": [
+                -3,
+                8.2,
+                -8
+              ],
+              "time": 0,
+              "fov": 51
+            },
+            "rgbaSha256": "1d2ebfc14e35edb68a6e1c64f2d6a52d7b0c20aff86971b7cae4ec1a201d8851",
+            "glError": 0,
+            "contextLost": false,
+            "valid": true
+          }
+        ],
+        "errors": []
+      }
+    ],
+    "closedAuthoredSolids": {
+      "pass": true,
+      "count": 16,
+      "allBoundaryEdgesZero": true,
+      "allNonManifoldEdgesZero": true,
+      "allInconsistentEdgesZero": true
+    },
+    "terrainRoots": {
+      "pass": true,
+      "samples": 81,
+      "maxErrorMetres": 3.848884593260493e-7
+    },
+    "kasaBearing": {
+      "requiresRepair": false,
+      "maxGapMetres": -0.012681471986329296,
+      "allEightPositionsOverlap": true
+    },
+    "bankEmbedding": {
+      "pass": true,
+      "count": 13,
+      "allSolidsIntersectActualTerrain": true
+    }
+  },
+  "noNewExternalAssets": true,
+  "comparisonPhotographPixelsUsed": false,
+  "exposureAndLightingHeld": true,
+  "referenceCameraHeld": true,
+  "original191OccupiedPortalsHeld": true,
+  "visualAccepted": false,
+  "sourceArchive": "lookdev/scene08-rebuild213/r04-source-scripts.tgz",
+  "sourceArchiveSha256": "703a4e3ac13bcbf972740dd8f4412164d26c745cf9ec7ecb9d3b65384455ebed"
+}

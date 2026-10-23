@@ -1,0 +1,57 @@
+{
+  "reference": "references/hd/1-\u7167\u7247-2.jpg",
+  "continuedFrom": "c6af6c4cf5a9c0bd3399501fdf7b43d4ea9bdb84ad8b9d00390cdf6c73016588",
+  "reusedPriorCaptures": true,
+  "priorNativeCapturesRerunForModelChange": false,
+  "iterations": [
+    {
+      "iteration": "scene02-rebuild210-r05-full-lamp",
+      "sourceHash": "3b107789fb3ae66a7c77137daa4ee60bcbfbf09ca55f9593be9ea67fa05db449",
+      "review": [
+        "Actual closed short six-sided lantern, perforated facets and curved roof replace the tall sparse paper lamp.",
+        "Rejected appearance: too many isolated flat discs in the rail finial and an overly opaque black pierced lamp plate."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r06-full-lamp",
+      "sourceHash": "f780b3c4ba4d2c68372ed956ce8f88d4a9faea338feb864cbc41f88d61cd7d8f",
+      "review": [
+        "Continuous rounded upper bulb and shorter-neck cast finial replace the R05 thin discs. Lamp lattice is more open and material uses the existing real local veranda probe.",
+        "Personally inspected full1254, actual native lamp subfrustum and true low side camera. Retained fixture design for R07; overall scene still visibly CG."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r07a",
+      "sourceHash": "0c220cbd146e83bf4ae4e4f22a801ed1ede7a3e889184c28bee86c9e1185a65d",
+      "rendered": false,
+      "review": [
+        "Common real platform lift .3258m and .64 lower-guard height put the middle post foot at y1111 instead of y1256, while holding every finial seat.",
+        "CPU actual triangle contact exposed inherited long-board under-sampling: middle post bottom was48.4mm above the actual board. Candidate repaired before capture."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r07b",
+      "sourceHash": "1352834957d4f0221f893f41aab1c348e80053dae1bebf6e5bbd327c33a62eeb",
+      "rendered": false,
+      "review": [
+        "Adaptive per-triangle longest-edge tessellation closed the post contact but introduced nonconforming edges before curved deformation. It was replaced by shared-index longitudinal swept solids."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r07-full-rail",
+      "sourceHash": "a8457ada900e9cba7cedede9568355beb100795170870b878675e32af7592095",
+      "status": "rendered-review",
+      "review": [
+        "Personally inspected full1254, genuine native rail subfrustum and actual low side view. Common raised deck/short guard improves the reference foot/floor placement and remains structurally joined.",
+        "Not accepted: R07 close view shows sparse angular leaf relief and the inherited .72m column sleeve is too tall after raising the deck; revised in R08."
+      ],
+      "visualAccepted": false,
+      "rendered": true
+    }
+  ],
+  "overallVisualAccepted": false
+}

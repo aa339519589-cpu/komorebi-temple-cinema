@@ -11,6 +11,7 @@ import {installHallFinish161,emitLowerWindow161} from './hall-facade161.js';
 import {createCeramicRoof161} from './roof-ceramic161.js';
 import {buildPagodaMass163} from './pagoda-mass163.js';
 import {createClosedRidge163} from './roof-ridge163.js';
+import {buildHallSanctuary219} from './hall-sanctuary219.js';
 export function architecture(B){
 const {m}=B;
 const hallJoinery=createHallCurvedJoinery();
@@ -163,20 +164,21 @@ B.label('great-hall-depth-enclosure',()=>{
 B.label('great-hall-gilded-open-portal',()=>{const center=.6;B.hallStructure185.portal(center);B.carvedSources185Info=B.carvedSources185.mount(B,center);
 // A real recessed coffer soffit closes the taller sanctuary opening. Beam
 // bottoms sit below the ceiling slab and cast shadows from the live lights.
-B.box(center,5.69,1.2,4.65,.18,6.8,'darkwood');
-for(const dx of[-1.6,-.8,0,.8,1.6])B.box(center+dx,5.52,1.2,.105,.19,6.8,'wood');
-for(const zz of[-1.8,-.6,.6,1.8,3.0,4.2])B.box(center,5.52,zz,4.65,.19,.105,'wood');
-B.box(center,3.275,-2.3,4.1,3.75,.14,'black');for(const x of[center-1.65,center+1.65]){B.box(x,3.175,-2.05,.17,3.35,.2,'gold');for(let k=0;k<9;k++)rosette(x,1.70+k*.36,-1.92,.10);}B.box(center,4.95,-2.05,3.55,.28,.30,'goldDark');for(let k=0;k<9;k++)ornament(center-1.5+k*.375,4.95,-1.88,.3,.16);
+B.box(center,5.69,2.50,4.65,.18,4.20,'darkwood');
+for(const dx of[-1.6,-.8,0,.8,1.6])B.box(center+dx,5.52,2.50,.105,.19,4.20,'wood');
+for(const zz of[.6,1.8,3.0,4.2])B.box(center,5.52,zz,4.65,.19,.105,'wood');
+B.box(center,3.275,-.20,4.1,3.75,.14,'black');for(const x of[center-1.65,center+1.65]){B.box(x,3.175,.05,.17,3.35,.2,'gold');for(let k=0;k<9;k++)rosette(x,1.70+k*.36,.18,.10);}B.box(center,4.95,.05,3.55,.28,.30,'goldDark');for(let k=0;k<9;k++)ornament(center-1.5+k*.375,4.95,.22,.3,.16);
 // The visible sanctuary is enclosed by recessed gilded panels, with real
 // cast relief and projecting frame members behind the freestanding sculpture.
 for(let bay=0;bay<3;bay++){
- const x=center+(bay-1)*1.24;B.box(x,3.15,-2.08,1.16,3.20,.10,'goldDark');B.box(x,3.15,-2.015,1.02,3.04,.027,'darkwood');
- for(const xx of[-.56,.56])B.box(x+xx,3.15,-1.94,.07,3.25,.11,'gold');for(const yy of[1.55,4.76])B.box(x,yy,-1.94,1.17,.08,.11,'gold');
- if(B.joineryKit)for(let row=0;row<7;row++)B.emit(B.joineryKit.relief,'gold',x,1.82+row*.44,-1.925,.81,.37,.19);
+ const x=center+(bay-1)*1.24;B.box(x,3.15,.02,1.16,3.20,.10,'goldDark');B.box(x,3.15,.085,1.02,3.04,.027,'darkwood');
+ for(const xx of[-.56,.56])B.box(x+xx,3.15,.16,.07,3.25,.11,'gold');for(const yy of[1.55,4.76])B.box(x,yy,.16,1.17,.08,.11,'gold');
+ if(B.joineryKit)for(let row=0;row<7;row++)B.emit(B.joineryKit.relief,'gold',x,1.82+row*.44,.175,.81,.37,.19);
 }
 // Reuse the detailed, independently modeled sanctuary sculpture and cast altar.
-const altar=buildRestorationAltar({materials:{gold:m.gold,oldgold:m.goldDark},hanging:false});altar.position.set(center,1.25,-1.40);altar.scale.setScalar(.65);altar.updateMatrixWorld(true);
-const figure=createRestoredBuddha({materials:{buddha:m.goldLight,oldgold:m.goldDark,gold:m.gold},x:center,y:3.20,z:-1.40,scale:.65*2.1/3.26});figure.updateMatrixWorld(true);
+const altar=buildRestorationAltar({materials:{gold:m.gold,oldgold:m.goldDark},hanging:false});altar.position.set(center,1.25,.70);altar.scale.setScalar(.65);altar.updateMatrixWorld(true);
+const figure=createRestoredBuddha({materials:{buddha:m.goldLight,oldgold:m.goldDark,gold:m.gold},x:center,y:3.20,z:.70,scale:.65*2.1/3.26});figure.updateMatrixWorld(true);
+B.sanctuary219=buildHallSanctuary219(B,B.hallSculpture149,center);
 for(const root of[altar,figure])root.traverse(o=>{if(!o.isMesh)return;if(o.isInstancedMesh){const matrix=new T.Matrix4();for(let i=0;i<o.count;i++){o.getMatrixAt(i,matrix);B.put(o.geometry,o.material,matrix.clone().premultiply(o.matrixWorld));}}else B.put(o.geometry,o.material,o.matrixWorld);});
 });
 roof({w:27.0,d:14.9,eave:L.hall.lowerEave,rise:2.65,curl:.56,zc:-.35,inner:.43,name:'great-hall-lower-monumental-roof',wallFootprint:[-7.975,11.275,-4.8,4.2],tilePitch:.19,tileRadius:.074,edgeCapRadius:.086});

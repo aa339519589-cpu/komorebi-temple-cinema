@@ -62,7 +62,7 @@ export const ARCHITECTURE106=Object.freeze({
     "deckDepth": 2.5678912675511314,
     "deckRise": 0.9192483154225188,
     "girderEndDepth": 0.29793104132973053,
-    "girderCrownDepth": 0.47805324559015466,
+    "girderCrownDepth": 0.397,
     "capBaseScale": 1.232456464387884,
     "capTaper": 0.4646167964169182
   }

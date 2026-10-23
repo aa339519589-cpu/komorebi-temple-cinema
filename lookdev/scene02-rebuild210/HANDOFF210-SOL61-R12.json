@@ -1,0 +1,458 @@
+{
+  "task": "Scene02 rebuild210 SOL61 R09–R12 continuation held R12 with successful r12b capture retry",
+  "writtenAt": "2026-10-23T20:44:25.409Z",
+  "status": "Held reviewable native3D draft; photographic acceptance false; all own jobs complete and ownership released to root",
+  "heldSourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+  "continuedFromR08": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+  "sourceIdentity": "lookdev/scene02-rebuild210/r12-source-identity.json",
+  "compactDeltaSnapshot": "lookdev/scene02-rebuild210/r12-source",
+  "snapshotBase": "lookdev/scene02-rebuild210/r08-source-identity.json",
+  "sourceProof": "lookdev/scene02-rebuild210/held210-r12-source-proof.json",
+  "runtimeProvenance": "reconstructions/scene-02/rebuild210-provenance.json",
+  "authoredModules": [
+    "reconstructions/scene-02/sky-wet210.js",
+    "reconstructions/scene-02/pond-level210.js"
+  ],
+  "changedRuntimeFiles": [
+    {
+      "path": "reconstructions/scene-02/bridge-site210.js",
+      "sha256": "a7321d7c1cce862c9c11152f03043036b90c6e3d13545026da46e86415103488"
+    },
+    {
+      "path": "reconstructions/scene-02/foreground-stone-lantern120.js",
+      "sha256": "4cad28d5864e13e083ed35932658d9f3ff1065a95a0adc67087c5b2268a45699"
+    },
+    {
+      "path": "reconstructions/scene-02/garden.js",
+      "sha256": "4b7098833e696b102207e0c866bc99182812040f249887378bbb56438a6efb21"
+    },
+    {
+      "path": "reconstructions/scene-02/main.js",
+      "sha256": "0d3d54919296ada4755a8eef70650a64b66083181522ba2b7b9bb1357d4d9e17"
+    },
+    {
+      "path": "reconstructions/scene-02/planted-shoulders147.js",
+      "sha256": "7e1f6dc30c9c5712e5af3742b35c8b0cb0587020855f7458a314bb18d2f1981f"
+    },
+    {
+      "path": "reconstructions/scene-02/pond-level210.js",
+      "sha256": "8d6ebced0abd0c1d6edf5a42728fa52b29f95c0ca74fd7a284010335a64d5aa2"
+    },
+    {
+      "path": "reconstructions/scene-02/rebuild210-provenance.json",
+      "sha256": "ae428e13ed64016f4857c8d776c15a37bce591e1273c40984cd5afa0907de728"
+    },
+    {
+      "path": "reconstructions/scene-02/rooted-canopy142.js",
+      "sha256": "69cb54495aaa3ada7f42b4d79047c89257828a66e3cb7fd442d6d7e1384c9ced"
+    },
+    {
+      "path": "reconstructions/scene-02/scanned-timber.js",
+      "sha256": "1bf26d7ac8b8559b8edba12f72747f2c662491f70c34d18ee22a1749e23be28b"
+    },
+    {
+      "path": "reconstructions/scene-02/sky-wet210.js",
+      "sha256": "14e82da7dd86ce546c9a5f642d5472d83ab8334241ab2a35e76f3543de9af6d1"
+    },
+    {
+      "path": "reconstructions/scene-02/veranda-boards.js",
+      "sha256": "b9fa9629a9256e5fd1419b0979b5b8fa198fa8e993b2c92b93e4908cce54c9fd"
+    },
+    {
+      "path": "reconstructions/scene-02/veranda-rail117.js",
+      "sha256": "9cb6461b03e616989f949733b6dc970b9eea0b499b240d9191c4a1ff3b587065"
+    }
+  ],
+  "reference": "references/hd/1-照片-2.jpg",
+  "visualAccepted": false,
+  "implemented": [
+    "Replace the oversized solar disc with an actual .00465rad angular core and world atmospheric aureole. Finer finite cloud density has golden illumination/blue self shadow. Cooler sky PMREM/hemisphere and reduced warm auxiliary sources recover blue ceramic and less black shadow response. Original exposure, physical reference camera and dolly remain; no frame filter/background photograph/false beam.",
+    "Wet varnish uses a genuine full-projection virtual-camera capture on the actual closed board meshes with Fresnel/coverage mixture. Its proxy is never added to or drawn in the world. Shared-index board top/back now sample <=14mm cross-width as well as <=60mm length, so the1.35mm cup, long bow and submillimetre grain relief are actual surfaces with derivative normals, not a normal above a flat span.",
+    "Four bridge bents replace the five-row exposed forest. Eight real jointed stone piers retain fitted cap/girder/joist contact; outer pairs integrate into graded closed bank volumes with embedded eroded rock and original rooted low growth.",
+    "Recover one pond levelY1.0 under the unchanged reference camera. Inner pier-foot projection moves from aroundy842/845 to aroundy788/790; exposed pier height decreases about1m. Pond interface/reflection, floating lotus and wet material zone use one level. Real western landing rises toY1.25 with three actual connected risers; upper bridge deck/camera remain held.",
+    "Closed stair/rear/east/near bank toes retie toY.88 below water while upper terrace crests remain. Submerged ordinary roots are omitted, actual bank plants follow evaluated soil, and crown clearance excludes the real veranda footprint. Framing tree roots gain a real raised island seat, small island tree upper targets remain, and the near stone lantern rises.25m onto an explicit bed-embedded submerged footing.",
+    "Four metric millimetre/submillimetre water-height derivatives supply actual optical normals, dielectricF0.0204 Schlick reflectance and genuine reflected-scene highlight breakup. Dark nonmetal water underlay replaces the broad brown mirror response. Three compact foreground floating-pad beds occupy recovered pond positions while preserving the central lane."
+  ],
+  "validation": {
+    "native": [
+      {
+        "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/report.json",
+        "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+        "status": "rendered-review",
+        "errors": [],
+        "completedAt": "2026-10-23T20:35:05.122Z",
+        "inspectionView": null,
+        "frames": [
+          {
+            "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/reference.png",
+            "pngSha256": "708e0eb317c9e63abb1a042b70ee74dd18ef5cf6cb947a7896c89e6d2fd532b4",
+            "pngBytes": 3243203,
+            "rgbaSha256": "7e52c196087363d1a987a455f933919f98c006ec92339a3231ab7513ad05c0e2",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "pose": {
+              "frame": 1,
+              "position": [
+                16.2,
+                2.72,
+                25
+              ],
+              "fov": 52,
+              "width": 1254,
+              "height": 1254
+            },
+            "detailCrop": null,
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "wetCapture": {
+              "revision": "scene02-actual-board-wet-varnish210-r09",
+              "capturePlaneY": 1.71,
+              "captures": 1,
+              "actualDeformedClosedBoards": true,
+              "proxyVisible": false,
+              "virtualCameraReflection": true,
+              "fresnelMixture": true,
+              "fullSubfrustumCapture": true,
+              "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+            },
+            "pondLevel": 1
+          },
+          {
+            "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/detail-native.png",
+            "pngSha256": "cf0cbc10431ef91ed12f2e00cdca7abe342f4408328e110e8460bfdc9a609309",
+            "pngBytes": 2458889,
+            "rgbaSha256": "08d4671de50f2b13e910469f5f43bfa046cea410db813b0e1011bff1ddee27df",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "pose": {
+              "frame": 2,
+              "position": [
+                16.2,
+                2.72,
+                25
+              ],
+              "fov": 52,
+              "width": 1254,
+              "height": 1254
+            },
+            "detailCrop": [
+              840,
+              880,
+              370,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "wetCapture": {
+              "revision": "scene02-actual-board-wet-varnish210-r09",
+              "capturePlaneY": 1.71,
+              "captures": 2,
+              "actualDeformedClosedBoards": true,
+              "proxyVisible": false,
+              "virtualCameraReflection": true,
+              "fresnelMixture": true,
+              "fullSubfrustumCapture": true,
+              "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+            },
+            "pondLevel": 1
+          }
+        ]
+      },
+      {
+        "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-low-veranda/report.json",
+        "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+        "status": "rendered-review",
+        "errors": [],
+        "completedAt": "2026-10-23T20:35:12.872Z",
+        "inspectionView": {
+          "position": [
+            18.2,
+            2.6,
+            22.8
+          ],
+          "target": [
+            14.6,
+            4.4,
+            18.6
+          ],
+          "fov": 62,
+          "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+        },
+        "frames": [
+          {
+            "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-low-veranda/inspection-view.png",
+            "pngSha256": "541f353bc3482f25d12ff815cd85073d3bb4e975b3ab1ab321202b42cec72109",
+            "pngBytes": 2868956,
+            "rgbaSha256": "86a1923faf70be94a68b708d36e636458f5ee85eff45c74685e6f5f1d0aa2216",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "pose": {
+              "frame": 1,
+              "position": [
+                18.2,
+                2.6,
+                22.8
+              ],
+              "fov": 62,
+              "width": 1254,
+              "height": 1254
+            },
+            "detailCrop": null,
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "wetCapture": {
+              "revision": "scene02-actual-board-wet-varnish210-r09",
+              "capturePlaneY": 1.71,
+              "captures": 1,
+              "actualDeformedClosedBoards": true,
+              "proxyVisible": false,
+              "virtualCameraReflection": true,
+              "fresnelMixture": true,
+              "fullSubfrustumCapture": true,
+              "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+            },
+            "pondLevel": 1
+          }
+        ]
+      },
+      {
+        "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-bank-waterline/report.json",
+        "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+        "status": "rendered-review",
+        "errors": [],
+        "completedAt": "2026-10-23T20:35:20.246Z",
+        "inspectionView": {
+          "position": [
+            5,
+            1.8,
+            11.2
+          ],
+          "target": [
+            0.7,
+            2.1,
+            4.7
+          ],
+          "fov": 65,
+          "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+        },
+        "frames": [
+          {
+            "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-bank-waterline/inspection-view.png",
+            "pngSha256": "5da85f63ede8cae1c4e807187f9dfba01b50a01878063cb815676588abbfe87f",
+            "pngBytes": 2287441,
+            "rgbaSha256": "5f1d852432be80045853b7d0e25ae484b90a246bb56f24a09e6df535e2c304b9",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "pose": {
+              "frame": 1,
+              "position": [
+                5,
+                1.8,
+                11.2
+              ],
+              "fov": 65,
+              "width": 1254,
+              "height": 1254
+            },
+            "detailCrop": null,
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "wetCapture": {
+              "revision": "scene02-actual-board-wet-varnish210-r09",
+              "capturePlaneY": 1.71,
+              "captures": 0,
+              "actualDeformedClosedBoards": true,
+              "proxyVisible": false,
+              "virtualCameraReflection": true,
+              "fresnelMixture": true,
+              "fullSubfrustumCapture": true,
+              "limits": "Native planar thin-coat approximation, not path-traced glossy transport; finite actual board curvature and source scene provide the visible reflection."
+            },
+            "pondLevel": 1
+          }
+        ]
+      }
+    ],
+    "bridge": {
+      "report": "lookdev/scene02-rebuild210/geometry210-r11.json",
+      "authoredGeometries": 331,
+      "failed": 0,
+      "contactReport": "lookdev/scene02-rebuild210/contact210-r11.json",
+      "actualTriangleContacts": 144,
+      "maxAbsGapMetres": 0.0000820927011560002,
+      "contactPass": true,
+      "componentHashStillMatchesHeld": true
+    },
+    "boardsAndCastwork": {
+      "report": "lookdev/scene02-rebuild210/geometry-veranda210-r10.json",
+      "closedBoards": 225,
+      "boardTriangles": 1290020,
+      "failedBoards": 0,
+      "authoredCastAndRailGeometries": 58,
+      "failed": 0,
+      "actualPostBoardContacts": [
+        {
+          "postXZ": [
+            15.193872543879204,
+            23.368270846691118
+          ],
+          "postBottom": 1.688951594449816,
+          "actualBoardTop": 1.6913716134415409,
+          "postEmbedMetres": 0.002420018991724948
+        },
+        {
+          "postXZ": [
+            15.301670941934049,
+            22.03832476365354
+          ],
+          "postBottom": 1.757715138604973,
+          "actualBoardTop": 1.7595350255018438,
+          "postEmbedMetres": 0.0018198868968708481
+        },
+        {
+          "postXZ": [
+            15.586114982218282,
+            19.442761528529996
+          ],
+          "postBottom": 1.7334018838120357,
+          "actualBoardTop": 1.7369996118187774,
+          "postEmbedMetres": 0.0035977280067416295
+        }
+      ],
+      "contactPass": true,
+      "boardModuleMatchesHeld": true,
+      "guardModuleMatchesHeld": true
+    },
+    "pondCalibration": "lookdev/scene02-rebuild210/pond-calibration210-r12.json",
+    "limits": "Topology, finite native buffers and sampled contacts do not establish photographic fidelity or engineering adequacy."
+  },
+  "observations": {
+    "full": "The excessive visible pier height and hard-wall exposure are reduced by the real water/shore recovery. Roof ceramic now has a visible cooler sky response; angular solar core is much smaller. Whole frame remains a CG draft.",
+    "hero": "Actual lamp/architecture reflection follows the closed cupped boards. Subtle curvature is present, but reflectance remains too broad and smooth versus the fine dark wet-lacquer streaks in HD02.",
+    "nearVerandaLow": "Real scene shows the coupled wet floor, shortened column cuff, rooted shore and linked hanging fixtures. Roots no longer visibly intrude through the floor in the held frame.",
+    "bankWaterline": "Actual independent camera above the recovered water exposes shorter wet stone piers, real timber bearing and graded planted bank volume. Lotus petals/pads still show conspicuously simplified repeated polygonal forms."
+  },
+  "remainingVisualGaps": [
+    "Photographic acceptance remains false. Procedural cloud radiance/placement, low-sun atmospheric contrast and still rather even orange architectural lighting differ from HD02.",
+    "Wet lacquer reflection is real and curved but too broad/soft/uniform compared with the source fine dark varnish highlight breakup. Native planar thin-coat reflection is an approximation, not path-traced glossy transport.",
+    "Lotus leaves/petals and some botanical assets are too angular, large or repeated in close views; flower/foliage groupings and bank aging still read as authored model construction.",
+    "Main hall/pagoda fine carving, hanging-lamp/rail filigree and stone-lantern surface/silhouette detail remain materially different from the reference.",
+    "Pond elevation and partly occluded shoreline are recovered photographic proportions, not surveyed dimensions. Water normal mapping/absorption underlay lacks solved volumetric/refraction transport."
+  ],
+  "reviewHistory": "lookdev/scene02-rebuild210/review210-sol61-r09-r12-held.json",
+  "failedDiskCapture": {
+    "report": "lookdev/scene02-rebuild210/failed210-r12-disk-full.json",
+    "preservedIterations": [
+      "scene02-rebuild210-r12-full-wet",
+      "scene02-rebuild210-r12-low-veranda",
+      "scene02-rebuild210-r12-bank-waterline"
+    ],
+    "successfulRetrySourceUnchanged": true,
+    "retryIterations": [
+      "scene02-rebuild210-r12b-full-wet",
+      "scene02-rebuild210-r12b-low-veranda",
+      "scene02-rebuild210-r12b-bank-waterline"
+    ]
+  },
+  "preservedPriorSources": [
+    "lookdev/scene02-rebuild210/r08-source-identity.json",
+    "lookdev/scene02-rebuild210/r09-source-identity.json",
+    "lookdev/scene02-rebuild210/r10-source-identity.json",
+    "lookdev/scene02-rebuild210/r11-source-identity.json"
+  ],
+  "protected": {
+    "baselineSourceHash": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+    "heldSourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+    "changedRuntimeFiles": [
+      {
+        "path": "reconstructions/scene-02/bridge-site210.js",
+        "sha256": "a7321d7c1cce862c9c11152f03043036b90c6e3d13545026da46e86415103488"
+      },
+      {
+        "path": "reconstructions/scene-02/foreground-stone-lantern120.js",
+        "sha256": "4cad28d5864e13e083ed35932658d9f3ff1065a95a0adc67087c5b2268a45699"
+      },
+      {
+        "path": "reconstructions/scene-02/garden.js",
+        "sha256": "4b7098833e696b102207e0c866bc99182812040f249887378bbb56438a6efb21"
+      },
+      {
+        "path": "reconstructions/scene-02/main.js",
+        "sha256": "0d3d54919296ada4755a8eef70650a64b66083181522ba2b7b9bb1357d4d9e17"
+      },
+      {
+        "path": "reconstructions/scene-02/planted-shoulders147.js",
+        "sha256": "7e1f6dc30c9c5712e5af3742b35c8b0cb0587020855f7458a314bb18d2f1981f"
+      },
+      {
+        "path": "reconstructions/scene-02/pond-level210.js",
+        "sha256": "8d6ebced0abd0c1d6edf5a42728fa52b29f95c0ca74fd7a284010335a64d5aa2"
+      },
+      {
+        "path": "reconstructions/scene-02/rebuild210-provenance.json",
+        "sha256": "ae428e13ed64016f4857c8d776c15a37bce591e1273c40984cd5afa0907de728"
+      },
+      {
+        "path": "reconstructions/scene-02/rooted-canopy142.js",
+        "sha256": "69cb54495aaa3ada7f42b4d79047c89257828a66e3cb7fd442d6d7e1384c9ced"
+      },
+      {
+        "path": "reconstructions/scene-02/scanned-timber.js",
+        "sha256": "1bf26d7ac8b8559b8edba12f72747f2c662491f70c34d18ee22a1749e23be28b"
+      },
+      {
+        "path": "reconstructions/scene-02/sky-wet210.js",
+        "sha256": "14e82da7dd86ce546c9a5f642d5472d83ab8334241ab2a35e76f3543de9af6d1"
+      },
+      {
+        "path": "reconstructions/scene-02/veranda-boards.js",
+        "sha256": "b9fa9629a9256e5fd1419b0979b5b8fa198fa8e993b2c92b93e4908cce54c9fd"
+      },
+      {
+        "path": "reconstructions/scene-02/veranda-rail117.js",
+        "sha256": "9cb6461b03e616989f949733b6dc970b9eea0b499b240d9191c4a1ff3b587065"
+      }
+    ],
+    "originalReferenceCameraAndLayoutByteExact": true,
+    "normalDollyConstructorByteExact": true,
+    "originalAssetsByteExact": true,
+    "assetsDeleted": [],
+    "newPhotoOrImagePlane": false,
+    "skyChangedAsActualWorldField": true,
+    "wetProxyNeverAddedOrDrawn": true,
+    "heldSourceMatchesAllSavedNativeFrames": true,
+    "visualAccepted": false
+  },
+  "activeOwnJobs": [],
+  "closedOwnSessions": [
+    74773,
+    46422,
+    48657,
+    39803,
+    82778,
+    40926,
+    49954,
+    53467,
+    44799,
+    69109,
+    13260,
+    7103,
+    32838
+  ],
+  "noGitSharedOrOtherSceneEdits": true,
+  "noChildren": true,
+  "noNewExternalMediaOrPhotoSurface": true,
+  "noExportBlendOrLargeAsset": true
+}

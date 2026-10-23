@@ -1,0 +1,16 @@
+{
+  "source": "d6a0bc72416a74b95e01c04fd82fe5fddb70d1d1702788c20400befaee43843f",
+  "actualViewed": [
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r08/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r08/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r08-low3q/inspection-view.png"
+  ],
+  "diagnostic": "qa/ten-reference/08/iteration-scene08-rebuild213-r08-pick/report.json",
+  "status": "rejected-visible-stream-head-termination",
+  "findings": [
+    "The east-bank transition changed but did not remove the central visible smooth earth face. It remains a failed visual candidate.",
+    "The first R07 ray(.755,.72) fell on a side-bank edge and was incomplete diagnosis. Rays placed using the actual detail-frustum coordinates(.66,.70)/(.68,.75) directly hit the central earth face atz=-14.46/-14.666.",
+    "The water/terrain path actually terminates and narrows atz=-15, making a visible transverse earth plug. R09 therefore extends the physical waterbed into a genuine through-arch in the rear support base, rather than concealing this plug with vegetation."
+  ],
+  "visualAccepted": false
+}

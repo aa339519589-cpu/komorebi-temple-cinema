@@ -6,7 +6,7 @@ const TAU=Math.PI*2,STONE_REPEAT=2*650/4096;
 // One ground-contact pose and one common vertical axis, recovered at the retained
 // reference camera. All levels below are connected physical dimensions in metres.
 export const foregroundLantern120={
- anchor:[.99884134,.15,13.20506184],yaw:-.15,
+ anchor:[.99884134,.40,13.20506184],yaw:-.15,
  height:4.09,roofHalfWidth:.68,roofEdgeY:3.38,roofCrownY:3.76,
  windowSide:.86,windowBottom:2.48,windowTop:3.28,
  stemBottom:.85,stemTop:1.95,stemBottomSide:.40,stemTopSide:.36,
@@ -121,6 +121,7 @@ export function buildForegroundStoneLantern120({b,mats}){
  function turn(profile,ma=granite,segments=48){put(revolveProfile(profile,segments,'closed-scene02-stone-turning'),ma);}
  function face(g,ma,x,y,z,yaw,rz=0){const m=new T.Matrix4().makeRotationY(yaw).multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationZ(rz));g.applyMatrix4(m);put(g,ma);}
  b.at(cfg.anchor,cfg.yaw,()=>{
+  box([.96,.65,.96],[0,-.325,0],rock,.015);
   put(bearingRock(),rock);
   for(const [x,y,z,sx,sy,sz]of cfg.footingRocks){
    const g=new T.IcosahedronGeometry(1,4),p=g.attributes.position;

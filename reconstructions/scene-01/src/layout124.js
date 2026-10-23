@@ -61,7 +61,7 @@ export const layout124 = {
       1,
       1
     ],
-    "mainRoofRise": 6.2,
+    "mainRoofRise": 5.25,
     "lowerEave": 6.6,
     "upperEave": 10.05,
     "frontAxes": [

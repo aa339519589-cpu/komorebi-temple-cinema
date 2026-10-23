@@ -1,0 +1,185 @@
+{
+  "revision": "scene08-through-arch-stream-inlet213-r09",
+  "source": "3e8b01a52ab98b25ca2a231b41e246160c62f6025d3e06576aa4314ed0ec305b",
+  "scope": "Continuation after personally reviewed R04, actual geometry/material/site reconstruction followed by R05/R06/R07/R08/R09 native checks. R04 exact boundary retained.",
+  "baselineSource": "2627ddf97e4a84700b74242c6b1cd691072061709225e1d69ac29804bde75dd2",
+  "reference": "references/hd/7-照片-8.jpg",
+  "status": "native-reviewed-modelling-progress-retained-photographic-match-unaccepted",
+  "visualAccepted": false,
+  "personallyViewedAll": true,
+  "actualViewed": [
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r09/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r09/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r09-low3q/inspection-view.png"
+  ],
+  "changesSinceR04": [
+    "Closed thin waisted timber with true lower half-laps replaces coarse head blocks.12 column heads plus12 smaller intercolumn heads, four fine projecting carrier stages, closely spaced real rafters/tails, and same-profile weathered cast end shoes produce a finer visible eave rhythm.",
+    "The left roof has a wider cambered actual ridge, a shorter lifted return, and slimmer pierced ceramic curls. Real roof triangles still determine28 bearing receivers.",
+    "The large near boulder and repeated continuous bank-rock wall are reduced/repositioned as separate low stone islands. Close high shrubs and repeated filler roots are pruned while the central stream physically bends toward the foreground.",
+    "Water and terrain share the same Catmull curve and changing width, with a384-grid actual planted terrain, low shore ledges and real outer slopes. Stone/fern/shrub roots use the same rendered terrain triangles.",
+    "Official pixel rays resolved an incorrectly near stream head atz=-15. The bed/water now continue into a genuine1.5m-wide through-arch in the rear hall5.1m-deep support base, with stone bearing piers, upper load-bearing wall,11 individual voussoir wedges and course-laid jambs. The green head-wall artifact disappears in the actual R09 detail."
+  ],
+  "diagnosisHistory": {
+    "R05": "Finer roof/wood and open stream exposed the legacy dense stone trench; retained rejected candidate.",
+    "R06": "Low rock islands revealed that soil excavation and water width were inconsistent.",
+    "R07": "Actual shoreline join repaired; smooth central head wall remained. First side-bank ray did not fully identify its centre.",
+    "R08": "Corrected rays at actual detail-frustum positions identify the nearer stream termination. East-bank refinement alone did not remove the head wall.",
+    "R09": "Actual native full/detail/low show continuous water and a physical masonry inlet replacing that near head wall."
+  },
+  "unresolved": [
+    "Photographic fidelity remains false. Roof/body proportions and individual ornate bracket/carving forms remain more regular and heavier than the supplied photograph.",
+    "The newly authored stone inlet is inferred physical infrastructure, not a verified matched feature of the photograph. Its visible specificity still requires judgement against the reference.",
+    "Garden soil still has broad bare areas and the foreground stream/floor/plant balance differs from the reference; canopy and shrub morphology remain too uniform.",
+    "The stone lantern, terrace weathering, flower colour/placement and architectural material ageing remain approximate.",
+    "Native one-bounce court radiance, leaf treatment, sun/shadow colour and defocus do not yet reproduce the photographic appearance."
+  ],
+  "checks": {
+    "native": [
+      {
+        "dir": "qa/ten-reference/08/iteration-scene08-rebuild213-r09",
+        "source": "3e8b01a52ab98b25ca2a231b41e246160c62f6025d3e06576aa4314ed0ec305b",
+        "status": "rendered-review",
+        "sampling": {
+          "nativeWidth": 1254,
+          "nativeHeight": 1254,
+          "outputWidth": 1254,
+          "outputHeight": 1254,
+          "scale": 1,
+          "downsampling": "none"
+        },
+        "frames": [
+          {
+            "name": "reference",
+            "pose": {
+              "position": [
+                0,
+                1.78,
+                13
+              ],
+              "target": [
+                0,
+                6.1,
+                -9
+              ],
+              "time": 0,
+              "fov": 49
+            },
+            "rgbaSha256": "92434d461bf558704e80f9d07cecac9741a387a9445fe69ea2f1ac3904aea682",
+            "glError": 0,
+            "valid": true,
+            "contextLost": false
+          },
+          {
+            "name": "detail-native",
+            "pose": {
+              "position": [
+                0,
+                1.78,
+                13
+              ],
+              "target": [
+                0,
+                6.1,
+                -9
+              ],
+              "time": 0,
+              "fov": 49
+            },
+            "rgbaSha256": "5fade50058ba88c5b912e32da1bcfa4e17b52fa32e08ce2a156337811aa1739b",
+            "glError": 0,
+            "valid": true,
+            "contextLost": false
+          }
+        ]
+      },
+      {
+        "dir": "qa/ten-reference/08/iteration-scene08-rebuild213-r09-low3q",
+        "source": "3e8b01a52ab98b25ca2a231b41e246160c62f6025d3e06576aa4314ed0ec305b",
+        "status": "rendered-review",
+        "sampling": {
+          "nativeWidth": 1254,
+          "nativeHeight": 1254,
+          "outputWidth": 1254,
+          "outputHeight": 1254,
+          "scale": 1,
+          "downsampling": "none"
+        },
+        "frames": [
+          {
+            "name": "inspection-view",
+            "pose": {
+              "position": [
+                1.6,
+                2.2,
+                5.6
+              ],
+              "target": [
+                -3,
+                8.2,
+                -8
+              ],
+              "time": 0,
+              "fov": 51
+            },
+            "rgbaSha256": "0e3be30773e5300de82cc461e293b222c4abebc3cb4eb7804916512c8eac0153",
+            "glError": 0,
+            "valid": true,
+            "contextLost": false
+          }
+        ]
+      }
+    ],
+    "coreFineGeometry": {
+      "receipt": "fine-hall-audit-r06.json",
+      "source": "85f4ac95242863412d3c6f33fd7c2bcbfe3b66f345be6f22716fe554f5ba644a",
+      "heldFineFiles": [
+        "reconstructions/scene-08/src/fine-hall213.js",
+        "reconstructions/scene-08/src/grand-bearing171.js",
+        "reconstructions/scene-08/src/garden-joinery213.js",
+        "reconstructions/scene-08/src/natural-joinery197.js"
+      ],
+      "hashesAllHeld": true,
+      "closedNewSolids": true,
+      "solidCount": 182,
+      "roofSharedEdgeMaxError": 0,
+      "finiteReceivers": true,
+      "primaryHeads": 12,
+      "secondaryHeads": 12,
+      "roofReceivers": 28
+    },
+    "currentShore": {
+      "receipt": "shore-section-r09.json",
+      "source": "3e8b01a52ab98b25ca2a231b41e246160c62f6025d3e06576aa4314ed0ec305b",
+      "finite": true,
+      "maxWaterEdgeTriangleHeightErrorMetres": 0.04529123094586207,
+      "maxRootTriangleErrorMetres": 9.195736594413972e-8
+    },
+    "currentInlet": {
+      "receipt": "inlet-audit-r09.json",
+      "source": "3e8b01a52ab98b25ca2a231b41e246160c62f6025d3e06576aa4314ed0ec305b",
+      "pass": true,
+      "bodyCount": 113,
+      "throughWaterRayHits": 0,
+      "leftPierBlocksRay": true,
+      "overheadStoneHit": [
+        4.8,
+        4.007999897003174,
+        -21
+      ]
+    }
+  },
+  "cameraHeld": true,
+  "exposureHeld": true,
+  "sunHeld": true,
+  "comparisonPixelsUsed": false,
+  "newExternalAssets": false,
+  "blenderOrExportsUsed": false,
+  "sourceArchive": "lookdev/scene08-rebuild213/r09-source-scripts.tgz",
+  "sourceArchiveSha256": "3b6a68eb009073e9dcc828c6268a14807e70141a779871e609735971ed0b5ae9",
+  "R04BoundaryPreserved": {
+    "identity": "lookdev/scene08-rebuild213/r04-source-identity.json",
+    "archive": "lookdev/scene08-rebuild213/r04-source-scripts.tgz",
+    "review": "lookdev/scene08-rebuild213/review213-r04.json",
+    "native": "qa/ten-reference/08/iteration-scene08-rebuild213-r04"
+  }
+}

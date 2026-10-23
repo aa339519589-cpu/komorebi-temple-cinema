@@ -12,6 +12,8 @@ The current root integration217 uses Sculpture199 R06J: the retained NC body is 
 
 Independent room/altar source and separately licensed attendant heads retain their own terms and provenance. Historical unused CC0/CC BY central candidates remain preserved; their licenses do not apply to the adopted NC source.
 
+Lotus222 R05 replaces the earlier shared bowl relief with independently authored, closed turned-leaf sheets in three overlapping rows. Its continuous concealed bearing still follows the retained actual NC hem-contact contour; the sculpture and its source coordinates are unchanged. The new leaf profiles, closed point fans and lower bearing are authored approximations, not recovered geometry from the reference artifact. Earlier failed R01–R04 shapes and native stills are retained in `lookdev/scene06-lotus222/`. Combined imagery continues under the same NC-SA terms; photographic likeness remains unaccepted.
+
 
 Altar198 isolated candidate adds CC BY4.0 actual carved wood by SCANOLOGY_3D: “Wood Carving of Dragon”, https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff . See assets/carving176-altar198-CC-BY-4.0/provenance.json and LICENSE-ATTRIBUTION.txt for source identities, exact geometry changes, authored cut closures and measured mounting. Creator supplies no Japanese cultural attribution or physical units. The actual Sainsbury Buddha and asset-specific CC BY-NC-SA4.0 scope remain unchanged; the combined scene and imagery retain personal noncommercial scope. This candidate is unaccepted.
 

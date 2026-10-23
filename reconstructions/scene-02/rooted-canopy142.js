@@ -1,12 +1,13 @@
 import {T,V} from './kernel.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {pondLevel210} from './pond-level210.js';
 
 // One rooted evergreen at the pond's left bank. Closed, tapered limbs divide
 // into successively smaller attached shoots; every leaf starts at a shoot.
 // No alpha cards, camera-facing crowns or photographic canopy surfaces.
 export function buildRootedCanopy142(b,mats){
  let state=0x1420cafe;const random=()=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state/4294967296;};
- const stats={root:[-7.74,.04,10.6],closedTaperedLimbs:0,terminalShoots:0,individualLeaves:0},limbGeometries=[];
+ const stats={root:[-7.74,pondLevel210+.04,10.6],closedTaperedLimbs:0,terminalShoots:0,individualLeaves:0},limbGeometries=[];
  const dark=mats.leaf.clone(),green=mats.leaf.clone(),light=mats.leaflight.clone();
  dark.name='scene02-mature-evergreen-shadow-leaf';dark.color.setHex(0x25381d);
  green.name='scene02-mature-evergreen-green-leaf';green.color.setHex(0x3c5026);
@@ -41,7 +42,7 @@ export function buildRootedCanopy142(b,mats){
  const trunk=limb([stats.root,[-8.0,1.55,10.35],[-8.45,4.1,10.10],[-8.8,6.8,9.9],[-8.3,9.3,10.0],[-7.3,11.3,10.2],[-5.8,13.2,10.6],[-4.5,14.6,10.9]],.43,.048);
  for(let j=0;j<7;j++){
   const a=j*Math.PI*2/7,len=.68+random()*.44;
-  limb([[root.x+Math.cos(a)*len,-.018,root.z+Math.sin(a)*len],[root.x+Math.cos(a)*.42,.10,root.z+Math.sin(a)*.42],[root.x,1.00,root.z]],.085,.17);
+  limb([[root.x+Math.cos(a)*len,pondLevel210-.018,root.z+Math.sin(a)*len],[root.x+Math.cos(a)*.42,pondLevel210+.10,root.z+Math.sin(a)*.42],[root.x,pondLevel210+1.00,root.z]],.085,.17);
  }
  const boughs=[
   {from:.34,points:[[-7.1,6.9,9.6],[-5.4,7.8,9.2],[-3.4,8.2,8.9],[-1.5,8.4,9.2]],radius:.20},

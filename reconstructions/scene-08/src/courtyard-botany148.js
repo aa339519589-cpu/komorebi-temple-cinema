@@ -64,7 +64,7 @@ export async function loadCourtyardBotany(){
  gc.putImageData(gi,0,0);const greenMap=new T.CanvasTexture(greenCanvas);greenMap.colorSpace=T.SRGBColorSpace;greenMap.flipY=map.flipY;greenMap.anisotropy=8;textures.add(greenMap);
  const leafMaterials={};
  for(const [kind,color]of Object.entries({leaf:'#ffffff',leaflight:'#e8edba',azalea:'#e3e4b5'})){
-  const m=sourcePart.material.clone();m.name='scene08-mature-'+kind+'-scanned-blade148';m.color.set(color);m.map=greenMap;m.roughness=.61;m.metalness=0;m.aoMapIntensity=.55;m.normalScale.set(.32,.32);m.onBeforeCompile=sourcePart.material.onBeforeCompile;m.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf';materials.add(m);leafMaterials[kind]=m;
+  const m=sourcePart.material.clone();m.name='scene08-mature-'+kind+'-scanned-blade148';m.color.set(color);m.map=greenMap;m.roughness=.76;m.metalness=0;m.aoMapIntensity=.55;m.normalScale.set(.32,.32);m.onBeforeCompile=sourcePart.material.onBeforeCompile;m.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf';materials.add(m);leafMaterials[kind]=m;
  }
  const redCanvas=document.createElement('canvas');redCanvas.width=canvas.width;redCanvas.height=canvas.height;
  const redContext=redCanvas.getContext('2d'),redImage=redContext.createImageData(redCanvas.width,redCanvas.height),pigment=new T.Color('#96391d');
@@ -75,25 +75,25 @@ export async function loadCourtyardBotany(){
  redContext.putImageData(redImage,0,0);const redMap=new T.CanvasTexture(redCanvas);redMap.colorSpace=T.SRGBColorSpace;redMap.flipY=map.flipY;redMap.anisotropy=8;textures.add(redMap);
  const redMaterial=sourcePart.material.clone();redMaterial.name='scene08-oxide-red-scanned-foliage148';redMaterial.map=redMap;redMaterial.vertexColors=false;redMaterial.color.set('#ffffff');redMaterial.roughness=.65;redMaterial.metalness=0;redMaterial.onBeforeCompile=sourcePart.material.onBeforeCompile;redMaterial.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf-red';materials.add(redMaterial);leafMaterials.maple=redMaterial;
  let plantNumber=0,leafNumber=0,seed=814815;const R=()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296),rr=(a,b)=>a+(b-a)*R();
- const stats={revision:'scene08-actual-shadowed-thin-leaf197-r04',transmissionUsesActualSunAndShadow:true,greenLinearGain:1.70,clonedThinLeafCallbackRestored:true,geometryAndPlacementUnchanged:true,shrubs:0,groundcover:0,scannedBlades:0,bladeVariants:leaves.length,bladeLengths:leaves.map(l=>l.length),bladeAttributes:Object.keys(source.attributes),variants:assets.map(a=>({asset:a.id,variants:a.variants.map(v=>({name:v.name,width:v.width,height:v.height}))})),construction:'Mature rooted multi-stem shrubs, physically forked lateral branches, clumped opposite/whorled scanned blades with measured physical length. Original source attributes retained; red foliage uses an independently pigmented original scan.',referenceSceneImageUsed:false};
+ const stats={revision:'scene08-fine-stems-dense-terminal-leaves213-r02',transmissionUsesActualSunAndShadow:true,greenLinearGain:1.70,clonedThinLeafCallbackRestored:true,geometryAndPlacementUnchanged:false,originalScannedBladeAttributesHeld:true,shrubs:0,groundcover:0,scannedBlades:0,bladeVariants:leaves.length,bladeLengths:leaves.map(l=>l.length),bladeAttributes:Object.keys(source.attributes),variants:assets.map(a=>({asset:a.id,variants:a.variants.map(v=>({name:v.name,width:v.width,height:v.height}))})),construction:'Mature rooted multi-stem shrubs, physically forked lateral branches, clumped opposite/whorled scanned blades with measured physical length. Original source attributes retained; red foliage uses an independently pigmented original scan.',referenceSceneImageUsed:false};
  function place({emit,height,x,z,width,flower=false,index=plantNumber++,yaw=rr(0,Math.PI*2),yOffset=0}){
   const choices=assets[flower?1:0].variants,variant=choices[index%choices.length],s=width/variant.width,y=height(x,z)+yOffset-.012;
   for(const part of variant.parts)emit(part.geometry,part.material,x,y,z,s,s,s,[0,yaw,0],rr(.92,1.05));stats[flower?'groundcover':'shrubs']++;
  }
- function foliage({emit,between,start,end,kind,leafLength}){
-  const branchRadius=Math.max(.0024,leafLength*.043);between(start,end,branchRadius,'bark',true);
+ function foliage({emit,between,start,end,kind,leafLength,nodes=8}){
+  const branchRadius=Math.max(.0014,leafLength*.027);between(start,end,branchRadius,'bark',true);
   const material=leafMaterials[kind]||leafMaterials.leaf;
-  for(let j=0;j<9;j++){
-   const t=(j+.35+rr(-.18,.18))/9,root=start.map((v,c)=>v+(end[c]-v)*t),a=j*2.399963+rr(-.40,.40),length=leafLength*rr(.68,1.28),reach=length*rr(.18,.42);
-   for(let n=0;n<3;n++){
-    const angle=a+n*2.0944+rr(-.28,.28),tip=[root[0]+Math.cos(angle)*reach,root[1]+rr(-.016,.028),root[2]+Math.sin(angle)*reach];between(root,tip,branchRadius*.31,'bark',true);
+  for(let j=0;j<nodes;j++){
+   const t=.25+.75*(j+.35+rr(-.18,.18))/nodes,root=start.map((v,c)=>v+(end[c]-v)*t),a=j*2.399963+rr(-.40,.40),length=leafLength*rr(.68,1.28),reach=length*rr(.15,.33);
+   for(let n=0;n<5;n++){
+    const angle=a+n*1.256637+rr(-.28,.28),tip=[root[0]+Math.cos(angle)*reach,root[1]+rr(-.016,.028),root[2]+Math.sin(angle)*reach];between(root,tip,branchRadius*.31,'bark',true);
     const blade=leaves[leafNumber++%leaves.length],s=length/blade.length,direction=new T.Vector3(Math.cos(angle),rr(-.17,.64),Math.sin(angle)).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),direction).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),rr(-.75,.75))),e=new T.Euler().setFromQuaternion(q);
     emit(blade.geometry,material,...tip,s*rr(.98,1.23),s,s,[e.x,e.y,e.z],rr(.69,1.16));stats.scannedBlades++;
    }
   }
  }
  function shrub({emit,between,height,x,z,r,h,kind='leaf'}){
-  const y=height(x,z),primary=h<.85?5:8,rootWidth=Math.min(.095,.028+h*.019),leafLength=h<.85?rr(.066,.086):rr(.105,.145);
+  const y=height(x,z),primary=h<.85?5:8,rootWidth=Math.min(.040,.006+h*.006),leafLength=(h<.85?rr(.055,.076):rr(.085,.120))*(z>7.5?.70:1);
   stats.shrubs++;
   // Limbs begin at the rooted crown, divide at several heights and keep their
   // lower lateral branches. No detached sphere or clipped leaf shell is used.
@@ -104,7 +104,7 @@ export async function loadCourtyardBotany(){
     const aa=a+(k-2)*.53+rr(-.16,.16),branchOrigin=elbow.map((v,c)=>v+(fork[c]-v)*(.15+k*.16)),tip=[fork[0]+Math.cos(aa)*r*rr(.28,.47),y+h*rr(.61,.98),fork[2]+Math.sin(aa)*r*rr(.28,.47)];between(branchOrigin,tip,rootWidth*.24,'bark',true);
     for(let n=0;n<5;n++){
      const f=.10+n*.205,start=branchOrigin.map((v,c)=>v+(tip[c]-v)*f),angle=aa+(n-2)*.65+rr(-.30,.30),reach=r*rr(.19,.36),end=[start[0]+Math.cos(angle)*reach,start[1]+h*rr(.035,.17),start[2]+Math.sin(angle)*reach];
-     foliage({emit,between,start,end,kind,leafLength:leafLength*rr(.82,1.14)});
+     foliage({emit,between,start,end,kind,leafLength:leafLength*rr(.82,1.14),nodes:z>7.5?14:8});
     }
    }
   }

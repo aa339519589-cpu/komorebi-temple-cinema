@@ -4,11 +4,39 @@ import {verandaEdge,verandaTangent} from './veranda-rail117.js';
 // Board ends and concealed framing are a structural interpretation: the
 // original photograph resolves only a narrow strip behind the foreground rail.
 const fract=x=>x-Math.floor(x),hash=(a,b=0)=>fract(Math.sin(a*127.17+b*311.71+73.12)*43758.5453);
+function closedBoardShell210(T,width,length,arris){
+ const thickness=.045,crossSamples=Math.ceil((width-2*arris)/.014),n=16+2*(crossSamples-1),p=[],uv=[],ix=[],rings=[];
+ // Shared-index rounded sections, including real end bevels. A conforming
+ // longitudinal strip avoids nonmatching T-junctions after path deformation.
+ const sample=[[-length/2,arris],[-length/2+arris*.293,arris*.293]];
+ const count=Math.ceil((length-2*arris)/.06);
+ for(let j=0;j<=count;j++)sample.push([-length/2+arris+(length-2*arris)*j/count,0]);
+ sample.push([length/2-arris*.293,arris*.293],[length/2,arris]);
+ for(const [z,inset]of sample){const first=p.length/3;rings.push(first);
+  const hw=width/2-inset,hh=thickness/2-inset,r=Math.min(arris,hw,hh);
+  for(let corner=0;corner<4;corner++){
+   for(let j=0;j<4;j++){
+    const a=corner*Math.PI/2+j*Math.PI/6,cx=(corner===0||corner===3?1:-1)*(hw-r),cy=(corner<2?1:-1)*(hh-r),x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
+    p.push(x,y,z);uv.push(x/width+.5,z/length+.5);
+   }
+   if(corner===0||corner===2)for(let j=1;j<crossSamples;j++){
+    const x=(corner===0?1:-1)*(hw-r)*(1-2*j/crossSamples),y=corner===0?hh:-hh;p.push(x,y,z);uv.push(x/width+.5,z/length+.5);
+   }
+  }
+ }
+ for(let j=0;j<rings.length-1;j++)for(let k=0;k<n;k++){const a=rings[j]+k,c=rings[j]+(k+1)%n,d=rings[j+1]+k,e=rings[j+1]+(k+1)%n;ix.push(a,c,d,c,e,d);}
+ for(const end of[0,1]){const centre=p.length/3,ring=rings[end?rings.length-1:0];p.push(0,0,end?length/2:-length/2);uv.push(.5,end);for(let j=0;j<n;j++){const a=ring+j,c=ring+(j+1)%n;end?ix.push(centre,a,c):ix.push(centre,c,a);}}
+ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.name='scene02-closed-swept-veranda-board210';return g;
+}
 
 function boardGeometry(T,width,length,index,worldX,worldZ){
- const thickness=.045,arris=.0015+.0007*hash(index,2),g=new RoundedBoxGeometry(width,thickness,length,3,arris),p=g.attributes.position,n=g.attributes.normal;
- const difference=.0024*(hash(index,5)-.5),bow=.0009*(hash(index,8)-.5),walk=Math.exp(-(((worldX-15.55)/.58)**4)),phase=hash(index,11)*Math.PI*2;
- const field=(x,z)=>{const u=x/(width/2),t=(z+length/2)/length;return difference-.00065*(1-u*u)+bow*Math.sin(Math.PI*t)**2-.00065*walk*(.5+.5*Math.sin((z+worldZ)*1.1+phase))**2;};
+ // RoundedBoxGeometry only rounds the ends of its long flat faces; its
+ // corner segment count does not sample the recovered curved bearing path.
+ // Sweep conforming closed sections before deformation, closing the inherited
+ // 48mm gap beneath the middle guard post without an overlaid floor plane.
+ const thickness=.045,arris=.0015+.0007*hash(index,2),g=closedBoardShell210(T,width,length,arris),p=g.attributes.position,n=g.attributes.normal;
+ const difference=.0024*(hash(index,5)-.5),bow=.0026*(hash(index,8)-.5),walk=Math.exp(-(((worldX-15.55)/.58)**4)),phase=hash(index,11)*Math.PI*2;
+ const field=(x,z)=>{const u=x/(width/2),t=(z+length/2)/length;return difference-.00135*(1-u*u)+bow*Math.sin(Math.PI*t)**2-.00065*walk*(.5+.5*Math.sin((z+worldZ)*1.1+phase))**2+.00025*(Math.sin(z*18.1+phase)+.35*Math.sin(z*45.7+phase*.7))*(1-u*u)+.00015*Math.sin((worldX+x)*145+phase*.31)*(.4+.6*Math.sin(z*9+phase))*(1-u*u);};
  const blendAt=y=>T.MathUtils.smoothstep(y,-thickness/2+.004,thickness/2-.008),e=.0002,edgeAtCentre=verandaEdge(worldZ);
  for(let i=0;i<p.count;i++){
   const x=p.getX(i),y=p.getY(i),z=p.getZ(i),blend=blendAt(y),f=field(x,z),dx=(field(x+e,z)-field(x-e,z))/(2*e)*blend,dz=(field(x,z+e)-field(x,z-e))/(2*e)*blend,dy=1+f*(blendAt(y+e)-blendAt(y-e))/(2*e);
@@ -21,7 +49,7 @@ function boardGeometry(T,width,length,index,worldX,worldZ){
  }
  g.computeBoundingBox();g.computeBoundingSphere();
  if(!Array.from(p.array).every(Number.isFinite))throw Error('Nonfinite closed veranda board');
- g.userData.verandaBoard={closedBackAndSides:true,arrisMetres:arris,topDifferenceMetres:difference,undersideY:-.0225,thicknessMetres:thickness,lengthMetres:length,widthMetres:width,normalPolicy:'Actual deformation inverse-transpose, not a flat shading normal or stretched unit bevel',referencePhotoUsed:false};
+ g.userData.verandaBoard={closedBackAndSides:true,bearingPathSampling210:'Shared-index closed volume: <=.06m longitudinal and <=.014m cross-width top/back samples, closed end bevels',actualCupDepthMetres:.00135,submillimetreGrainRelief:true,arrisMetres:arris,topDifferenceMetres:difference,undersideY:-.0225,thicknessMetres:thickness,lengthMetres:length,widthMetres:width,normalPolicy:'Actual deformation inverse-transpose, not a flat shading normal or stretched unit bevel',referencePhotoUsed:false};
  return g;
 }
 

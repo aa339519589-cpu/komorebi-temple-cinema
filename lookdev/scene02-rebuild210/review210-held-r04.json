@@ -1,0 +1,82 @@
+{
+  "reference": "references/hd/1-\u7167\u7247-2.jpg",
+  "baseline": "qa/ten-reference/02/iteration-scene02-spatial186-r05/reference.png",
+  "baselineSourceHash": "e54e30397b7263adac2e7b93e5265a82bb987d8be34a4e75126bb717807cbf4f",
+  "baselineRerendered": false,
+  "iterations": [
+    {
+      "iteration": "scene02-rebuild210-r01-full-bridge",
+      "sourceHash": "ff82600eae9de29032698168fd317865a07a0d7b3006e120018ecb6736734911",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r01-full-bridge/reference.png",
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r01-full-bridge/detail-native.png"
+      ],
+      "review": [
+        "Actual modeled water opening replaces bulky bridge-end cores; slender stone supports, three-girder timber structure and real approach risers are visible.",
+        "Rejected final appearance: regular dark pier courses, tall lantern finial and strong repetitive water stripes."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r02-full-bridge",
+      "sourceHash": "aed5990294597d3092bd6606ed6514f0ff1ccd3663c59d49f33f3611bec3332b",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r02-full-bridge/reference.png",
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r02-full-bridge/detail-native.png"
+      ],
+      "review": [
+        "Hewn pier courses and finite pond bounce improve support legibility; lantern upper envelope corrected against reference.",
+        "Genuine whole-view reflections improve after additive stripe/bump removal, but true close subfrustum still shows clamped reflection-texture bands."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r02-waterline",
+      "sourceHash": "aed5990294597d3092bd6606ed6514f0ff1ccd3663c59d49f33f3611bec3332b",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r02-waterline/inspection-view.png"
+      ],
+      "review": [
+        "Low physical camera confirms the fitted timber/stone load path and open water below the actual span; still visibly CG."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r03-full-bridge",
+      "sourceHash": "7ac501c30c1562fc9654b2eba592ec1dce245f6b4753f7c804ca5ca49908edbd",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r03-full-bridge/reference.png",
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r03-full-bridge/detail-native.png"
+      ],
+      "review": [
+        "Reflected scene now remains correct in the true native close subfrustum; no replacement photograph or resized color frame used.",
+        "BridgeX scale.687375to.66 andXshift-0.10m follow native/reference endpoint comparison.",
+        "Subsequent source review found the lower hall landing still needed a bearing after removing the old approach slab; low view exposed cloned lantern material losing metric-granite callback."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r04-full-bridge",
+      "sourceHash": "c6af6c4cf5a9c0bd3399501fdf7b43d4ea9bdb84ad8b9d00390cdf6c73016588",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r04-full-bridge/reference.png",
+        "qa/ten-reference/02/iteration-scene02-rebuild210-r04-full-bridge/detail-native.png"
+      ],
+      "review": [
+        "Held draft after closing the hall flight and lower landing bearings and explicitly preserving metric granite mapping on the new lantern.",
+        "Personally inspected held1254full, true native bridge hero, original186low3q and waterline view. Photographic fidelity remains unaccepted."
+      ],
+      "visualAccepted": false
+    }
+  ]
+}

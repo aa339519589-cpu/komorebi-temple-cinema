@@ -15,7 +15,7 @@ import {buildGableTimber180} from './scene03-gable180.js';
 
 // A new complete exterior reconstruction after the execution filesystem reset.
 // NOT a byte recovery of v3/371b. Original 4 and the actual v3 image are references.
-export const REFERENCE4_ARCHITECTURE_REVISION='scene03-recessed-carved-gable-daylight180-r05';
+export const REFERENCE4_ARCHITECTURE_REVISION='scene03-rebuilt-volute-kumimono211-r13';
 export function buildReference4Architecture(T,options={}) {
  const C={stairTopY:1.8,stairTopZ:0,stairBottomZ:8,stairWidth:5.6,columnAxes:[-6.88,-4.73,-2.86,2.86,4.73,6.88],capitalTop:7.15,ridgeY:13.2,ridgeZ:-5,lowerRoofWidth:18,upperRoofWidth:15.0,towerPosition:[-14.21,-.64,-12.0044],towerHeight:15.3,towerSceneScale:1.16,...options};
  Object.assign(C,{lowerEave:C.lowerEave??10.5,upperEave:C.upperEave??14.6,portalHeight:C.portalHeight??4.08,gablePeak:C.gablePeak??19.12,gableCenter:C.gableCenter??.10,towerYaw:C.towerYaw??Math.PI/4,towerPitch:C.towerPitch??2.55,towerWidthScale:C.towerWidthScale??1});
@@ -35,8 +35,9 @@ export function buildReference4Architecture(T,options={}) {
  function between(a,b,w,d,ma='cedar',round=false){a=V(a);b=V(b);const v=b.clone().sub(a);if(v.length()<1e-8)return;put(round?cyl:cube,mats[ma],new T.Matrix4().compose(a.clone().add(b).multiplyScalar(.5),new T.Quaternion().setFromUnitVectors(V([0,1,0]),v.clone().normalize()),V([w,v.length(),d])).premultiply(stack.at(-1)));}
  const legacyArch=createRestorationArchitecture({instance:emit,group:grouped,box,stack,columns:[],roofAudit:[]}),solidJoinery=createSculptedJoinery(),bearingBounds=new T.Box3();
  const bearingGilt=mats.gold.clone();bearingGilt.name='scene03-worn-edge-binding-gilt';bearingGilt.color.set('#af8b46');bearingGilt.roughness=.49;bearingGilt.metalness=.68;materials.push(bearingGilt);mats.bearingGilt=bearingGilt;
+ const bearingPatina211=new T.MeshStandardMaterial({name:'scene03-dark-patinated-copper-cut-ground211',color:'#694e2c',roughness:.76,metalness:.58});materials.push(bearingPatina211);mats.bearingPatina211=bearingPatina211;
  const roofCeramic=new T.MeshPhysicalMaterial({name:'scene03-blue-grey-fired-clay',color:'#52636e',map:mats.slate.map,bumpMap:mats.slate.bumpMap,bumpScale:.002,roughness:.56,metalness:.015,clearcoat:.16,clearcoatRoughness:.38,vertexColors:true});materials.push(roofCeramic);mats.roofCeramic=roofCeramic;
- const roofFrieze=mats.plaster.clone();roofFrieze.name='scene03-recessed-grey-frieze-panels';roofFrieze.color.set('#526675');roofFrieze.roughness=.93;materials.push(roofFrieze);mats.roofFrieze=roofFrieze;
+ const roofFrieze=mats.plaster.clone();roofFrieze.name='scene03-recessed-blue-grey-frieze-panels';roofFrieze.color.set('#66716e');roofFrieze.roughness=.86;materials.push(roofFrieze);mats.roofFrieze=roofFrieze;
  const gableRecess=mats.darkwood.clone();gableRecess.name='scene03-shadowed-gable-timber';gableRecess.color.set('#271a14');gableRecess.roughness=.89;gableRecess.bumpScale=.008;materials.push(gableRecess);mats.gableRecess=gableRecess;
  const gableInfill=new T.MeshStandardMaterial({name:'scene03-recessed-ochre-gable-infill',color:'#93815f',roughness:.88});materials.push(gableInfill);mats.gableInfill=gableInfill;
  const gableCarving=mats.cedar.clone();gableCarving.name='scene03-oiled-deep-openwork-gable-wood109-r02';gableCarving.color.set('#754322');gableCarving.roughness=.66;gableCarving.bumpScale=.004;materials.push(gableCarving);mats.gableCarving=gableCarving;
@@ -96,18 +97,18 @@ export function buildReference4Architecture(T,options={}) {
     if(connected&&side===0){const uu=Array.from(new Set([...lin(-1,1,64),...xs.map(x=>x/hw)].map(x=>x.toFixed(10)))).map(Number).sort((a,b)=>a-b);grid=ts.map(t=>uu.map(u=>P(side,t,u)));}
     emit(shell(grid,-.06,0,name+'-ceramic-layer'),'slate');emit(shell(grid,-.185,-.06,name+'-timber-deck'),'darkwood');
    }
-   const rows=Math.max(12,Math.round((side%2?d:w)/.205));
+   const rows=Math.max(12,Math.round((side%2?d:w)/(physical?.245:.205)));
    for(let i=0;i<=rows;i++){const u=-1+2*i/rows;if(side===0&&frontGap&&Math.abs(P(side,1,u)[0])<frontGap+.08)continue;
     const pieces=Math.max(6,Math.ceil(Math.hypot(side%2?hw-rh:hd,rise)*(1-inner)/.36));
     for(let j=0;j<pieces;j++){const t0=physicalCeramics?Math.max(.008,inner+(1-inner)*j/pieces):inner+(1-inner)*j/pieces,t1=inner+(1-inner)*(j+(physicalCeramics?1.025:.96))/pieces;if(physicalCeramics){tileParts.push(createClosedRoofTile(lin(t0,t1,4).map(t=>P(side,t,u)),physical?.145:.115,{cover:true,variant:i*1.31+j*.79+side*17}));if(i<rows)tileParts.push(createClosedRoofTile(lin(t0,t1,4).map(t=>P(side,t,u+1/rows)),physical?.18:.16,{cover:false,variant:i*1.71+j*.59+side*13}));}else{const p=P(side,t0,u),q=P(side,t1,u);tileBetween(p,q,.065,.94+.10*(.5+.5*Math.sin(i*11.3+j*4.7)));}}
     if(physical){const eaveCourses=[[.965,1.025],[1.02,1.06],[1.055,1.095],[1.09,1.13]];for(let k=0;k<eaveCourses.length;k++){const[aT,bT]=eaveCourses[k];tileParts.push(createClosedRoofTile(lin(aT,bT,4).map(t=>P(side,t,u)),.155,{cover:true,variant:i*1.77+side*19+k*3.1}));if(i<rows)tileParts.push(createClosedRoofTile(lin(aT,bT,4).map(t=>P(side,t,u+1/rows)),.18,{cover:false,variant:i*1.51+side*23+k*5.3}));}}
-    const end=P(side,physical?1.13:1,u);if(physical)end[1]+=.025;if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,physical?.092:.074,i%2===0);if(physical){const nn=V([Math.sin(side*Math.PI/2),0,Math.cos(side*Math.PI/2)]),mark=V(end).addScaledVector(nn,.023);emit(new T.TorusGeometry(.039,.008,6,16),'oldgold',mark.x,mark.y,mark.z,1,1,1,[0,side*Math.PI/2,0]);emit(sphere,'bearingGilt',mark.x+nn.x*.005,mark.y,mark.z+nn.z*.005,.019,.019,.009,[0,side*Math.PI/2,0]);}if(name.startsWith('main-')||name.startsWith('lower-')){if(side!==0||physical)curvedRafter(lin(.66,physical?1.12:1.012,9).map(t=>{const p=P(side,t,u);p[1]-=.285;return p;}),physical?.09:.105,physical?.14:.16);}else{curvedRafter(lin(.48,1.035,14).map(t=>{const p=P(side,t,u);p[1]-=.24;return p;}),.105,.16);}}
+    const end=P(side,physical?1.13:1,u);if(physical)end[1]+=.025;if(!(connected&&side===0&&Math.abs(end[0])<gHalf)){arch.tileEnd(V(end),side*Math.PI/2,physical?.092:.074,i%2===0);if(physical){const nn=V([Math.sin(side*Math.PI/2),0,Math.cos(side*Math.PI/2)]),mark=V(end).addScaledVector(nn,.023);emit(new T.TorusGeometry(.039,.008,6,16),'oldgold',mark.x,mark.y,mark.z,1,1,1,[0,side*Math.PI/2,0]);emit(sphere,'bearingGilt',mark.x+nn.x*.005,mark.y,mark.z+nn.z*.005,.019,.019,.009,[0,side*Math.PI/2,0]);}if(name.startsWith('main-')||name.startsWith('lower-')){if(physical&&side!==0){const endT=1.12,station=u*(side%2?endT:(.275+.225*endT)),lo=Math.max(.66,side%2?Math.abs(station)+.002:(Math.abs(station)-.275)/.225+.002);if(lo<endT)curvedRafter(lin(lo,endT,12).map(t=>{const uu=side%2?station/t:station/(.275+.225*t),p=P(side,t,uu);p[1]-=.285;return p;}),.09,.14);}else if(!physical&&side!==0)curvedRafter(lin(.66,1.012,9).map(t=>{const p=P(side,t,u);p[1]-=.285;return p;}),.105,.16);}else{curvedRafter(lin(.48,1.035,14).map(t=>{const p=P(side,t,u);p[1]-=.24;return p;}),.105,.16);}}
    }
    // The main eave has one deep closed fascia, so short rafters end behind
    // its moulded lower lip rather than appearing as isolated needle teeth.
    if(physical){
-    const curve=lin(-1,1,80).map(u=>{const p=P(side,1.08,u);p[1]-=.27;return p;});emit(createCurvedEaveRafter(curve,.43,.36),'darkwood');
-    const lip=lin(-1,1,80).map(u=>{const p=P(side,1.12,u);p[1]-=.39;return p;});emit(createCurvedEaveRafter(lip,.45,.13),'red');
+    const curve=lin(-1,1,80).map(u=>{const p=P(side,1.08,u);p[1]-=.27;return p;});emit(createCurvedEaveRafter(curve,.25,.22),'red');
+    const lip=lin(-1,1,80).map(u=>{const p=P(side,1.12,u);p[1]-=.39;return p;});emit(createCurvedEaveRafter(lip,.29,.11),'red');
     tube(lin(-1,1,80).map(u=>{const p=P(side,1.125,u);p[1]-=.24;return p;}),.022,'bearingGilt',96);
    }else for(let i=0;i<36;i++){const u=-1+2*i/36,v=-1+2*(i+1)/36,a=P(side,1,u),b=P(side,1,v);if(side===0&&(frontGap&&Math.min(Math.abs(a[0]),Math.abs(b[0]))<frontGap||connected&&Math.max(Math.abs(a[0]),Math.abs(b[0]))<gHalf))continue;a[1]-=.24;b[1]-=.24;between(a,b,.13,.23,'cedar');}
    if(side<2)for(const sign of[-1,1]){
@@ -189,7 +190,7 @@ export function buildReference4Architecture(T,options={}) {
  const lowerRoof174=roof({name:'lower-shoulder-roof',w:C.lowerRoofWidth,d:10.2,eave:C.lowerEave,rise:3.1,curl:.56,centerZ:-4.5,inner:.45,frontGap:0});
  role('lower-eave-complete-parallel-rafters',()=>{
   const P=(u,t)=>[u*(C.lowerRoofWidth*.275+C.lowerRoofWidth*.225*t),C.lowerEave+3.1*Math.pow(Math.max(0,1-t),1.48)+.56*Math.pow(Math.min(1,t),8)*(.22+.78*Math.pow(Math.abs(u),6))+Math.max(0,t-1)*(.16+.4*Math.pow(Math.abs(u),6))-.34,5.1*t-4.5];
-  for(let j=0;j<=68;j++){const u=-1+2*j/68;curvedRafter(lin(.45,1.012,12).map(t=>{const p=P(u,t);p[1]+=.055;return p;}));const p=P(u,1.012);arch.squareFitting(p[0],p[1]+.055,p[2]+.025,.095,.135,0,j%4===0);}
+  for(let j=1;j<68;j++){const u=-1+2*j/68,station=u*(.275+.225*1.012),lo=Math.max(.45,(Math.abs(station)-.275)/.225+.002);if(lo>=1.012)continue;curvedRafter(lin(lo,1.012,16).map(t=>{const p=P(station/(.275+.225*t),t);p[1]+=.055;return p;}));const p=P(u,1.012);arch.squareFitting(p[0],p[1]+.055,p[2]+.025,.095,.135,0,j%4===0);}
   for(const t of[.58,.77,.94])for(let k=0;k<44;k++){let a=P(-1+2*k/44,t),b=P(-1+2*(k+1)/44,t);a[1]-=.11;b[1]-=.11;between(a,b,.18,.25,'red');}
  });
  role('front-gable-thick-ceramics-and-recessed-carving',()=>grouped(C.gableCenter,0,0,0,()=>{

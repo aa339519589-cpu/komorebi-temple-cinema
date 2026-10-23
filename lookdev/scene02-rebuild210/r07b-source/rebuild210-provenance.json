@@ -1,0 +1,57 @@
+{
+  "revision": "scene02-recovered-veranda-platform-and-castwork210-r07",
+  "status": "Native reconstruction draft; photographic acceptance pending",
+  "visualAccepted": false,
+  "reference": "references/hd/1-\u7167\u7247-2.jpg",
+  "sourceModule": "reconstructions/scene-02/bridge-site210.js",
+  "scope": [
+    "New three-girder layered arched bridge,64closed transverse deck planks,17cross-joists,five fitted transverse caps and ten slender jointed stone piers.",
+    "Three-riser approaches replace the old inclined rectangular slab. New convex stone forecourt shares the actual existing hall stair lower landing and is cut around the bridge flight.",
+    "End soil/stone/plant shoulders shift outside the central water passage; under-bridge generic plant/rock groups are cleared with their historical random draws retained.",
+    "Right garden lantern becomes a real closed square stone roof, solid window piers, short octagonal shaft and embedded foundation, fitted to the reference location and envelope.",
+    "Pond uses genuine reflected scene radiance and multiscale metric wave perturbation; additive stripe geometry and regular synthetic water bump removed. A finite pond-bounce area source is an explicit native diffuse approximation.",
+    "Reflection captures the full physical projection for genuine close subfrusta and restores both main projection matrices afterward.",
+    "A continuous closed foundation reaches the retained hall stair core underside atY1.35, and a separate bearing reaches the lower landing underside atY1.59. Lantern granite explicitly preserves metric mapping on the curved stone roof and shaft.",
+    "Photo02 foreground metal rebuild: replace the single tall onion cap with a shorter closed turned giboshi, multiple convex courses and embedded cast lotus scales; retain every post and continuous rail joint.",
+    "Replace the tall sparse six-panel hanging lamp with a shorter deeply recessed chamber behind six actual diamond/flower perforated cast facets, closed curved hexagonal roof with six lifted corners, stepped crown, returned bowl and interlinked chain to the retained overhead anchor.",
+    "Fixed-camera projection exposes the oversized original 1.117m guard: middle post foot projected to y1256 instead of approximately y1110 in HD02. Recover a common .3258m higher deck and .64-height lower guard, holding every finial seat in world space. Boards, joists, bearers, posts, continuous rails and inset panels share the actual recovered support path.",
+    "Veranda column feet follow the recovered actual deck path with 8mm embedment while retaining their original roof/head world elevation. Sparse wire curls are replaced by closed cast stems and cupped chrysanthemum/acanthus leaf relief on the real wooden inset panels."
+  ],
+  "bridgePlacement": {
+    "position": [
+      0.7141701002288093,
+      0.5409749285582757,
+      5.003940245477229
+    ],
+    "scale": [
+      0.66,
+      1,
+      0.9908705507107833
+    ],
+    "reason": "Native-vs-HD comparison places the far bridge end too far right; shorten X scale about4percent and shift X-0.10m. The original camera and yaw remain."
+  },
+  "originalCameraAndDollyRetained": true,
+  "newExternalMedia": false,
+  "existingSources": "Existing CC0 granite/rock/plant/timber assets remain unchanged and retain their original provenance in scene02 asset-dependencies.json. All new architecture/lantern/bridge meshes are authored JavaScript. The supplied photograph is comparison-only.",
+  "transportLimits": "Native planar reflection, shadow maps, LTC area light and GTAO; this is not path-traced GI or a measured reference radiance field.",
+  "remainingGaps": [
+    "Overall architecture ornament, foliage grouping and daylight/cloud radiometry remain visibly different from HD02.",
+    "Foreground metalwork is a hand-authored proportion recovery, not a measured scan. Fine chased relief and aged optical response remain uncertain.",
+    "No technical mesh or GPU success establishes photographic fidelity."
+  ],
+  "continuedFrom": "c6af6c4cf5a9c0bd3399501fdf7b43d4ea9bdb84ad8b9d00390cdf6c73016588",
+  "sourceModules": [
+    "reconstructions/scene-02/bridge-site210.js",
+    "reconstructions/scene-02/veranda-metal210.js"
+  ],
+  "fixtureMaterialProbe": "New brass and aged lamp casting receive the existing true local veranda cubemap, with separately authored diffuse/metal/roughness response.",
+  "verandaFrame210": {
+    "deckLiftMetres": 0.3258,
+    "bodyScale": 0.64,
+    "guardHeightMetres": 0.7912,
+    "finialWorldSeatsRetained": true,
+    "roofAnchorRetained": true,
+    "cameraAndDollyRetained": true,
+    "measurementLimit": "Photographic foot positions and real guard height are proportion recovery, not an independent surveyed measurement."
+  }
+}

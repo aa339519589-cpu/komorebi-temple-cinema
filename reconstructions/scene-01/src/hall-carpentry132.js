@@ -22,7 +22,7 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
  const bayArch=(left,right,y,z)=>sculpture.arch(left,right,y,z);
  const lower=L.hall.frontAxes,upper=[-6.770258796240704,-4.361749389177344,-1.9692422182982536,2.0017996375181815,4.722704860993423,6.939714594097563,9.15,11.15];
  B.label('hall132-lower-posts-and-seated-capitals',()=>{
-  for(const z of[5.15,-.1,-5.1])for(const x of(z===5.15?lower:Array.from({length:7},(_,i)=>-7.95+i*3.18))){sculpture.column(x,z,1.35,5.54,.34);bracket(x,5.54,z,{scale:1.01,height:.76,depth:z===5.15?1.65:1,headFitting:false,corner:Math.abs(x)>9});}
+  for(const z of[5.15,-.1,-5.1])for(const x of(z===5.15?lower:Array.from({length:7},(_,i)=>-7.95+i*3.18))){sculpture.column(x,z,1.35,5.54,z===5.15?.295:.34);bracket(x,5.54,z,{scale:1.01,height:.76,depth:z===5.15?1.65:1,headFitting:false,corner:Math.abs(x)>9});}
   for(const [y,h,d,z]of[[5.84,.23,.40,5.15],[6.37,.21,.31,5.66]])B.box(1.45,y,z,19.75,h,d,'wood');
   for(let i=0;i<lower.length-1;i++){const major=lower[i+1]-lower[i]>4;if(!major){frieze(lower[i]+.15,lower[i+1]-.15,5.36,5.32,false);bayArch(lower[i],lower[i+1],5.83,5.22);}}
   //185 actual primary portal replaces the former duplicate rich strip.

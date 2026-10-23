@@ -32,7 +32,8 @@ export function createEntranceSanctuary(T,architecture){
  box('shrine-real-rear-wall',[0,floor+2.06,-5.08],[4.5,4.12,.16],timber,.005);
  for(let i=0;i<9;i++)box('shrine-rear-vertical-joint-'+i,[-2.18+i*.545,floor+2.06,-4.985],[.022,4.0,.035],lacquer,.002);
  box('shrine-ceiling-return',[0,floor+4.12,-3.07],[4.5,.12,4.12],timber,.006);
- const iconX=-.18,iconZ=-3.60,seat=floor+.85,iconScale=.60;
+ for(const m of[body,face,crease])m.envMapIntensity=.18;
+ const iconX=-.18,iconZ=-4.20,seat=floor+.85,iconScale=.52;
 
  // A compressed stepped pedestal actually reaches the floor. Nothing floats
  // behind a black door or is pasted onto a luminous gold rectangle.

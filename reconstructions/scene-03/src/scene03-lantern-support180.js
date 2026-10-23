@@ -25,8 +25,8 @@ export function buildLanternSupports180(T,{emit,box,between,gold,bronze,wood}){
   }
   const hookY=9.445;
   emit(new T.TorusGeometry(.045,.012,8,24),gold,[x,hookY,-.90]);
-  between([x,hookY,-.90],[x,7.70,-.90],.014,gold);
-  supports.push({fixtureX:x,hallLocalX:x-5,bodyCenter:[x,7.38,-.90],outriggerRootSection:[.19,.25],outriggerTipSection:[.1235,.1625],outriggerCenterline:points,retainedGirtCenter:[x-5,9.96,.12],retainedGirtSection:[.28,.37],clampCenter:[x,clampY,clampZ],hookCenter:[x,hookY,-.90],rodEndpoints:[[x,hookY,-.90],[x,7.70,-.90]],bodyMoved:false});
+  between([x,hookY,-.90],[x,8.191,-.90],.014,gold);
+  supports.push({fixtureX:x,hallLocalX:x-5,bodyCenter:[x,7.38,-.90],outriggerRootSection:[.19,.25],outriggerTipSection:[.1235,.1625],outriggerCenterline:points,retainedGirtCenter:[x-5,9.96,.12],retainedGirtSection:[.28,.37],clampCenter:[x,clampY,clampZ],hookCenter:[x,hookY,-.90],rodEndpoints:[[x,hookY,-.90],[x,8.191,-.90]],bodyMoved:false,changedUpperAttachment211:true,bodyTopY:8.191});
  }
  return{revision:180,coordinateSystem:'Retained hallFixtureMatrix; x-5/z+3 converts to the pre-turn architecture frame',supports,source:'Actual closed authored timber outriggers, folded bronze clamps, torus hooks and continuous rods',scope:'Visible support/contact repair; inferred carpentry, not engineering certification',visualAccepted:false};
 }

@@ -31,13 +31,17 @@ for relative in paths:
         number = int(report.get('reference', 0))
         if selection and selection['reports'].get(str(number)) != relative:
             continue
-        frame = next((f for f in report.get('frames', []) if f.get('name') == 'reference' and f.get('valid')), None)
-        if number not in range(1, 11) or report.get('status') != 'rendered-review' or frame is None or not (path.parent / 'reference.png').is_file():
+        frame_name = selection.get('referenceFrames', {}).get(str(number), 'reference') if selection else 'reference'
+        if not isinstance(frame_name, str) or Path(frame_name).name != frame_name:
+            raise RuntimeError('Reference frame selection must be a report frame name')
+        frame = next((f for f in report.get('frames', []) if f.get('name') == frame_name and f.get('valid')), None)
+        native_path = path.parent / (frame_name + '.png')
+        if number not in range(1, 11) or report.get('status') != 'rendered-review' or frame is None or not native_path.is_file():
             continue
         started = report.get('startedAt', '')
         if started > choices.get(number, {}).get('startedAt', ''):
             choices[number] = dict(reference=number, startedAt=started,
-                native=str((path.parent / 'reference.png').relative_to(root)), report=relative,
+                native=str(native_path.relative_to(root)), report=relative, nativeFrameName=frame_name,
                 sourceHash=report.get('source', {}).get('hash', report.get('sourceHash')),
                 nativeDimensions=[frame.get('width'), frame.get('height')], visualAccepted=False)
     except (ValueError, KeyError, TypeError):

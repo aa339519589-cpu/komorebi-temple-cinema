@@ -1,0 +1,1632 @@
+{
+  "source": {
+    "hash": "c6af6c4cf5a9c0bd3399501fdf7b43d4ea9bdb84ad8b9d00390cdf6c73016588",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+      "assets/polyhaven/periwinkle-plant/provenance.json": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+      "assets/polyhaven/periwinkle-plant/provider-files.json": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+      "assets/polyhaven/periwinkle-plant/provider-info.json": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "assets/polyhaven/shrub-02/provenance.json": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+      "assets/polyhaven/shrub-02/provider-files.json": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+      "assets/polyhaven/shrub-02/provider-info.json": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+      "assets/polyhaven/shrub-02/shrub_02.bin": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+      "assets/polyhaven/shrub-02/shrub_02_4k.gltf": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+      "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+      "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+      "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-02/altar-figure.js": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13",
+      "reconstructions/scene-02/architectural-finishes160.js": "2be5c9286791a91473103803bece87da8b7e4700c88a9e40290762af1ef23126",
+      "reconstructions/scene-02/architecture.js": "65b536c4d4bf45c700ddf0a120e906f3266ecab7c895b3319a3272b5671e5955",
+      "reconstructions/scene-02/asset-dependencies.json": "43a59984efe9c8f341ba45da2f170135dcf90c34d935eaef18a0c9350b40840d",
+      "reconstructions/scene-02/assets/carved-gable186/ATTRIBUTION.txt": "3cb60aff88595ed3864ccc74bf48b0a38613b68a0dcddb70f4b77457a47beb62",
+      "reconstructions/scene-02/assets/carved-gable186/cloud-scroll.glb": "0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee",
+      "reconstructions/scene-02/assets/carved-gable186/source-component-manifest.json": "59e96e5476f98d4e5b36b34265e51cd6566448d05405e8a27e163f84c672e196",
+      "reconstructions/scene-02/assets/fir-sapling/fetch-original.py": "defa06e13b1d1c9665354f933b1d8c515aac6994ca955fd972b881228e422034",
+      "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin": "efdebfae6ee4b3ea20c7a85eb9f798ff4953259a3616bcff0b7e580b00f34f40",
+      "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf": "b9e79991ac418a68da4e48fac0cf7e427835ff339369fc41f26232033bede433",
+      "reconstructions/scene-02/assets/fir-sapling/provenance.json": "89756dd583836588701aa6256a20c37c156730483df9d36afc591ac84ef8095b",
+      "reconstructions/scene-02/assets/fir-sapling/provider-files.json": "4a87921ef6b878af2d0789ea9b9da4855c76f98a5c8ad6ca68bf263fee4e89c6",
+      "reconstructions/scene-02/assets/fir-sapling/provider-info.json": "56c9ec5614688ba0eb8b628918fe49d05875d9ae70fc7ee5a4a8449607775617",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg": "58d613a7612205159ab605bc4f17dfc848ab79551b0bab5680a65f409a90c8c9",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg": "d5a11f7e16189426018a1d3123e30108a09648f569d3b54dd2ed44d063807f69",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg": "9fc044399e69277a5585da98e4836783ff2a4e4346b5743964dc8ce4a9326002",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg": "4612704ed3f6f39bea681468964c9ee844ea607a5a6e9418a3c82ba7e2815058",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg": "14b17f44ea87c75dcf9055293ad1975dcbeabe30748dda0775d48aab8ad2bd3c",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg": "77fa92733acc4e658408b02f47e41c089e90e888e1e359a4cba4af940bc200cf",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-02/assets/foreground-lantern120/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-02/bank-evergreen156.js": "9600f93f0eb3aaf5e2721ee1d43a3846eb2ab131743e9f699b3bc6dd478cbd92",
+      "reconstructions/scene-02/bridge-site210.js": "f0d85ddda539d3da11cf7383141b3fab022f319231f5653a3317bebdc319ff43",
+      "reconstructions/scene-02/carved-rosette170.js": "d7aa33c14cc51c836c113e37a4a0774e7bf97f31f87db46f0c710bd365b28547",
+      "reconstructions/scene-02/carved-timber157.js": "bccb34e68c836f67fa04fc2563113afae450ee21f44627b5fbb158fb29413762",
+      "reconstructions/scene-02/corner-receiver158.js": "1ea4dbb551c7a9af51a2e62152c0136b05c4cb822d2e9b4af8b3b7287f43573d",
+      "reconstructions/scene-02/embedded-bridge-bearings146.js": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7",
+      "reconstructions/scene-02/foreground-stone-lantern120.js": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899",
+      "reconstructions/scene-02/gable-source186.js": "0d94eda7ab9248c2d6cc45401cc25acb8165b95ff0b7b1eec6a46defd6ca83f7",
+      "reconstructions/scene-02/gable170.js": "1c9fb0889bb519e027a7538e08af84182e5f0fd8549ffa0d0f6abe2f7e619120",
+      "reconstructions/scene-02/gallery-footings162.js": "3d86fdbc5e0272fb8c66cf95c24ecc4eef0da13a45474c65a85e3324c7505803",
+      "reconstructions/scene-02/garden-pines145.js": "7906cb512520298811faf0f2933d708c32afee80b17e164be808e4b060eff658",
+      "reconstructions/scene-02/garden.js": "4ae40a779b35e71341c42bd71e9277b0cbc5fb44fdf426addd45a6cb3af55ca4",
+      "reconstructions/scene-02/hall-carpentry141.js": "f0b95867c68176df1a3f8d7b15de35cd385da69ee7dfecc6b0aced5a6af9097a",
+      "reconstructions/scene-02/hall-entry.js": "7e3017df21dc051d4ec990ee6abd174f3543cf4d40b9f53cc0f3877d65095292",
+      "reconstructions/scene-02/hall-roof154.js": "f6393ecda67ca200e8347d2cd8b0a4e608ab8af602ca0b4a6c9a35d15ad2bd3c",
+      "reconstructions/scene-02/hall-terrace144.js": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "f0e2bdffabed6fff7a0d5f710295b96108c8b6ccf26c9e60989dd07b01933335",
+      "reconstructions/scene-02/layout117.js": "a9d67acc1a77e25796bbe8b3bb9fed978cabecf1a6be855174d140e3a82e3251",
+      "reconstructions/scene-02/main.js": "869a00dc2eeb62c935096ddb661b5d5f2bbe9f860222ecfe98ac64edfece318f",
+      "reconstructions/scene-02/mass170-provenance.json": "11ec724ce2bda1ebf98f3e6efd0142ff45e2993ca9d2af5c2e46333ef5440e02",
+      "reconstructions/scene-02/pagoda-ensemble160.js": "f0af0d1945d18438ab4df2019efadef83b5fa898d512e5c3b5c83fa366fbb61c",
+      "reconstructions/scene-02/pagoda-ground.js": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6",
+      "reconstructions/scene-02/planted-shoulders147.js": "e31c77ded7a84bc9fa27330e6c96a57743e2ab017534e1b873d2bc91497e70ea",
+      "reconstructions/scene-02/rebuild210-provenance.json": "673e26e035dbbd8031455cdca7af1e5d0106828ab07e5c6b6826f1ab070d2cbc",
+      "reconstructions/scene-02/roof-seat170.js": "7583de07f3553f45ff7a9babd857d5a5b6f48163c518e53ca862d5278079e344",
+      "reconstructions/scene-02/rooted-canopy142.js": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42",
+      "reconstructions/scene-02/scanned-fir-woodland150.js": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e",
+      "reconstructions/scene-02/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-02/scanned-timber.js": "948b3abee231f904607e0218d02b0c6aa6bc49b6ecf03155e4caadcd1dbd1c28",
+      "reconstructions/scene-02/scanned-understory146.js": "d883a6c1176ef8177a941d89050b6532a26fd77b4e9e63bd345fbbe1e7ad2192",
+      "reconstructions/scene-02/sorin-solids.js": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c",
+      "reconstructions/scene-02/spatial186-provenance.json": "9a06e430f75c0c11528252ca6f1a52d2149b997d8ac3f48d3424ff98c76661c1",
+      "reconstructions/scene-02/spatial186.js": "1e796ee820523928009083b319796b51136faf5707bbc1d60e621ad90fc0a6ac",
+      "reconstructions/scene-02/veranda-boards.js": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2",
+      "reconstructions/scene-02/veranda-carvings143.js": "65267311b1c82f5876678fdb4423a3bd2af0415c476a1c71e16a8ee0dbe7fb1b",
+      "reconstructions/scene-02/veranda-rail117.js": "47ab4f36da0c6843ea17028a539936c15094a659a95f5e2015f10f9627712c98",
+      "reconstructions/scene-02/woodland-terminal148.js": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1"
+    }
+  },
+  "iteration": "r04",
+  "scope": "Ray intersections with actual emitted bridge triangles, at girder/cap, joist/girder and deck/joist contacts. This does not prove engineering adequacy or photographic fidelity.",
+  "samples": [
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -7.28,
+        -1.18
+      ],
+      "surfaceA": 1.0162589113120308,
+      "surfaceB": 1.0162556623586365,
+      "gapMetres": 0.0000032489533943191873
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -7.28,
+        0
+      ],
+      "surfaceA": 1.016258911312029,
+      "surfaceB": 1.0162556623586365,
+      "gapMetres": 0.0000032489533925428304
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -7.28,
+        1.18
+      ],
+      "surfaceA": 1.0162589113120308,
+      "surfaceB": 1.0162556623586365,
+      "gapMetres": 0.0000032489533943191873
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -7.12,
+        -1.18
+      ],
+      "surfaceA": 1.073840462387011,
+      "surfaceB": 1.07385352484693,
+      "gapMetres": -0.000013062459919055414
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -7.12,
+        0
+      ],
+      "surfaceA": 1.0738404623870093,
+      "surfaceB": 1.07385352484693,
+      "gapMetres": -0.00001306245992083177
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -7.12,
+        1.18
+      ],
+      "surfaceA": 1.073840462387011,
+      "surfaceB": 1.07385352484693,
+      "gapMetres": -0.000013062459919055414
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -6.96,
+        -1.18
+      ],
+      "surfaceA": 1.1301921812895994,
+      "surfaceB": 1.1302009730220437,
+      "gapMetres": -0.000008791732444279887
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -6.96,
+        0
+      ],
+      "surfaceA": 1.1301921812895994,
+      "surfaceB": 1.1302009730220437,
+      "gapMetres": -0.000008791732444279887
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -6.96,
+        1.18
+      ],
+      "surfaceA": 1.1301921812895994,
+      "surfaceB": 1.1302009730220437,
+      "gapMetres": -0.000008791732444279887
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.7600000000000002,
+        -1.18
+      ],
+      "surfaceA": 2.0234255329970576,
+      "surfaceB": 2.023385043190677,
+      "gapMetres": 0.00004048980638060584
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.7600000000000002,
+        0
+      ],
+      "surfaceA": 2.0234255329970594,
+      "surfaceB": 2.0233850431906752,
+      "gapMetres": 0.000040489806384158555
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.7600000000000002,
+        1.18
+      ],
+      "surfaceA": 2.023425532997056,
+      "surfaceB": 2.0233850431906752,
+      "gapMetres": 0.00004048980638060584
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.6,
+        -1.18
+      ],
+      "surfaceA": 2.0563014761809537,
+      "surfaceB": 2.056356126052197,
+      "gapMetres": -0.00005464987124348397
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.6,
+        0
+      ],
+      "surfaceA": 2.0563014761809573,
+      "surfaceB": 2.056356126052197,
+      "gapMetres": -0.00005464987123993126
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.6,
+        1.18
+      ],
+      "surfaceA": 2.0563014761809573,
+      "surfaceB": 2.056356126052197,
+      "gapMetres": -0.00005464987123993126
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.44,
+        -1.18
+      ],
+      "surfaceA": 2.088056980789112,
+      "surfaceB": 2.088076719130756,
+      "gapMetres": -0.000019738341643815716
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.44,
+        0
+      ],
+      "surfaceA": 2.0880569807891103,
+      "surfaceB": 2.088076719130756,
+      "gapMetres": -0.000019738341645592072
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -3.44,
+        1.18
+      ],
+      "surfaceA": 2.0880569807891103,
+      "surfaceB": 2.088076719130756,
+      "gapMetres": -0.000019738341645592072
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -0.16,
+        -1.18
+      ],
+      "surfaceA": 2.492999602973864,
+      "surfaceB": 2.4930028887703255,
+      "gapMetres": -0.0000032857964615828905
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -0.16,
+        0
+      ],
+      "surfaceA": 2.492999602973864,
+      "surfaceB": 2.4930028887703237,
+      "gapMetres": -0.0000032857964598065337
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        -0.16,
+        1.18
+      ],
+      "surfaceA": 2.492999602973864,
+      "surfaceB": 2.4930028887703255,
+      "gapMetres": -0.0000032857964615828905
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        0,
+        -1.18
+      ],
+      "surfaceA": 2.500787450492785,
+      "surfaceB": 2.500787450492785,
+      "gapMetres": 0
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        0,
+        0
+      ],
+      "surfaceA": 2.500787450492785,
+      "surfaceB": 2.500787450492785,
+      "gapMetres": 0
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        0,
+        1.18
+      ],
+      "surfaceA": 2.500787450492785,
+      "surfaceB": 2.5007874504927834,
+      "gapMetres": 1.7763568394002505e-15
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        0.16,
+        -1.18
+      ],
+      "surfaceA": 2.507318078697132,
+      "surfaceB": 2.507321355034435,
+      "gapMetres": -0.0000032763373027933085
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        0.16,
+        0
+      ],
+      "surfaceA": 2.507318078697132,
+      "surfaceB": 2.507321355034433,
+      "gapMetres": -0.0000032763373010169516
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        0.16,
+        1.18
+      ],
+      "surfaceA": 2.507318078697132,
+      "surfaceB": 2.507321355034435,
+      "gapMetres": -0.0000032763373027933085
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.44,
+        -1.18
+      ],
+      "surfaceA": 2.3959034363631453,
+      "surfaceB": 2.395923140973874,
+      "gapMetres": -0.000019704610728865646
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.44,
+        0
+      ],
+      "surfaceA": 2.395903436363147,
+      "surfaceB": 2.395923140973874,
+      "gapMetres": -0.00001970461072708929
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.44,
+        1.18
+      ],
+      "surfaceA": 2.395903436363147,
+      "surfaceB": 2.395923140973876,
+      "gapMetres": -0.000019704610728865646
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.6,
+        -1.18
+      ],
+      "surfaceA": 2.3784664170150016,
+      "surfaceB": 2.378521027736989,
+      "gapMetres": -0.00005461072198720274
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.6,
+        0
+      ],
+      "surfaceA": 2.3784664170150016,
+      "surfaceB": 2.378521027736987,
+      "gapMetres": -0.00005461072198542638
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.6,
+        1.18
+      ],
+      "surfaceA": 2.3784664170150016,
+      "surfaceB": 2.378521027736987,
+      "gapMetres": -0.00005461072198542638
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.7600000000000002,
+        -1.18
+      ],
+      "surfaceA": 2.3599088971022812,
+      "surfaceB": 2.359868403380977,
+      "gapMetres": 0.00004049372130410234
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.7600000000000002,
+        0
+      ],
+      "surfaceA": 2.3599088971022812,
+      "surfaceB": 2.359868403380977,
+      "gapMetres": 0.00004049372130410234
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        3.7600000000000002,
+        1.18
+      ],
+      "surfaceA": 2.3599088971022812,
+      "surfaceB": 2.359868403380977,
+      "gapMetres": 0.00004049372130410234
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        6.96,
+        -1.18
+      ],
+      "surfaceA": 1.7530442873839611,
+      "surfaceB": 1.7530530775027664,
+      "gapMetres": -0.00000879011880527969
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        6.96,
+        0
+      ],
+      "surfaceA": 1.7530442873839611,
+      "surfaceB": 1.7530530775027646,
+      "gapMetres": -0.000008790118803503333
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        6.96,
+        1.18
+      ],
+      "surfaceA": 1.7530442873839593,
+      "surfaceB": 1.7530530775027646,
+      "gapMetres": -0.00000879011880527969
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        7.12,
+        -1.18
+      ],
+      "surfaceA": 1.7110110155944085,
+      "surfaceB": 1.7110240882956802,
+      "gapMetres": -0.00001307270127171023
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        7.12,
+        0
+      ],
+      "surfaceA": 1.7110110155944085,
+      "surfaceB": 1.7110240882956802,
+      "gapMetres": -0.00001307270127171023
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        7.12,
+        1.18
+      ],
+      "surfaceA": 1.7110110155944085,
+      "surfaceB": 1.7110240882956802,
+      "gapMetres": -0.00001307270127171023
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        7.28,
+        -1.18
+      ],
+      "surfaceA": 1.6677479760054812,
+      "surfaceB": 1.6677446881611306,
+      "gapMetres": 0.0000032878443505524046
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        7.28,
+        0
+      ],
+      "surfaceA": 1.6677479760054794,
+      "surfaceB": 1.6677446881611324,
+      "gapMetres": 0.000003287844346999691
+    },
+    {
+      "kind": "girder-to-curved-transverse-cap",
+      "bridgeLocalXZ": [
+        7.28,
+        1.18
+      ],
+      "surfaceA": 1.6677479760054812,
+      "surfaceB": 1.6677446881611324,
+      "gapMetres": 0.000003287844348776048
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -7.34,
+        -1.18
+      ],
+      "surfaceA": 1.374458084183404,
+      "surfaceB": 1.3743891326789122,
+      "gapMetres": 0.00006895150449182097
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -7.31,
+        -1.18
+      ],
+      "surfaceA": 1.4653950701053056,
+      "surfaceB": 1.465406765305124,
+      "gapMetres": -0.000011695199818362312
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -7.34,
+        0
+      ],
+      "surfaceA": 1.3744580841834022,
+      "surfaceB": 1.3743891326789122,
+      "gapMetres": 0.00006895150449004461
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -7.31,
+        0
+      ],
+      "surfaceA": 1.4653950701053073,
+      "surfaceB": 1.465406765305124,
+      "gapMetres": -0.000011695199816585955
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -7.34,
+        1.18
+      ],
+      "surfaceA": 1.3744580841834022,
+      "surfaceB": 1.3743891326789104,
+      "gapMetres": 0.00006895150449182097
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -7.31,
+        1.18
+      ],
+      "surfaceA": 1.4653950701053073,
+      "surfaceB": 1.4654067653051221,
+      "gapMetres": -0.000011695199814809598
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -6.422499999999999,
+        -1.18
+      ],
+      "surfaceA": 1.6915820809983249,
+      "surfaceB": 1.691501506984638,
+      "gapMetres": 0.00008057401368688488
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -6.392499999999999,
+        -1.18
+      ],
+      "surfaceA": 1.781324764847069,
+      "surfaceB": 1.7813271767172463,
+      "gapMetres": -0.000002411870177354558
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -6.422499999999999,
+        0
+      ],
+      "surfaceA": 1.6915820809983266,
+      "surfaceB": 1.691501506984638,
+      "gapMetres": 0.00008057401368866124
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -6.392499999999999,
+        0
+      ],
+      "surfaceA": 1.7813247648470707,
+      "surfaceB": 1.7813271767172463,
+      "gapMetres": -0.0000024118701755782013
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -6.422499999999999,
+        1.18
+      ],
+      "surfaceA": 1.6915820809983249,
+      "surfaceB": 1.6915015069846362,
+      "gapMetres": 0.00008057401368866124
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -6.392499999999999,
+        1.18
+      ],
+      "surfaceA": 1.7813247648470707,
+      "surfaceB": 1.781327176717248,
+      "gapMetres": -0.000002411870177354558
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -5.505,
+        -1.18
+      ],
+      "surfaceA": 1.971896634916389,
+      "surfaceB": 1.9718835417632317,
+      "gapMetres": 0.000013093153157228699
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -5.475,
+        -1.18
+      ],
+      "surfaceA": 2.060423375330558,
+      "surfaceB": 2.0604382188608614,
+      "gapMetres": -0.000014843530303565444
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -5.505,
+        0
+      ],
+      "surfaceA": 1.9718966349163871,
+      "surfaceB": 1.9718835417632317,
+      "gapMetres": 0.000013093153155452342
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -5.475,
+        0
+      ],
+      "surfaceA": 2.060423375330556,
+      "surfaceB": 2.060438218860863,
+      "gapMetres": -0.000014843530307118158
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -5.505,
+        1.18
+      ],
+      "surfaceA": 1.971896634916389,
+      "surfaceB": 1.9718835417632334,
+      "gapMetres": 0.000013093153155452342
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -5.475,
+        1.18
+      ],
+      "surfaceA": 2.060423375330556,
+      "surfaceB": 2.0604382188608614,
+      "gapMetres": -0.000014843530305341801
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -4.5875,
+        -1.18
+      ],
+      "surfaceA": 2.215401865146612,
+      "surfaceB": 2.215330149352953,
+      "gapMetres": 0.00007171579365916614
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -4.5575,
+        -1.18
+      ],
+      "surfaceA": 2.3027300504771926,
+      "surfaceB": 2.302739818107481,
+      "gapMetres": -0.000009767630288592954
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -4.5875,
+        0
+      ],
+      "surfaceA": 2.2154018651466103,
+      "surfaceB": 2.215330149352953,
+      "gapMetres": 0.00007171579365738978
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -4.5575,
+        0
+      ],
+      "surfaceA": 2.302730050477191,
+      "surfaceB": 2.302739818107481,
+      "gapMetres": -0.000009767630290369311
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -4.5875,
+        1.18
+      ],
+      "surfaceA": 2.215401865146612,
+      "surfaceB": 2.215330149352953,
+      "gapMetres": 0.00007171579365916614
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -4.5575,
+        1.18
+      ],
+      "surfaceA": 2.3027300504771926,
+      "surfaceB": 2.302739818107483,
+      "gapMetres": -0.000009767630290369311
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -3.67,
+        -1.18
+      ],
+      "surfaceA": 2.4220977716886196,
+      "surfaceB": 2.422019020736622,
+      "gapMetres": 0.0000787509519977192
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -3.64,
+        -1.18
+      ],
+      "surfaceA": 2.5082268717409377,
+      "surfaceB": 2.5082321558354597,
+      "gapMetres": -0.000005284094521940119
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -3.67,
+        0
+      ],
+      "surfaceA": 2.4220977716886196,
+      "surfaceB": 2.42201902073662,
+      "gapMetres": 0.00007875095199949556
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -3.64,
+        0
+      ],
+      "surfaceA": 2.508226871740936,
+      "surfaceB": 2.5082321558354614,
+      "gapMetres": -0.000005284094525492833
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -3.67,
+        1.18
+      ],
+      "surfaceA": 2.4220977716886196,
+      "surfaceB": 2.42201902073662,
+      "gapMetres": 0.00007875095199949556
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -3.64,
+        1.18
+      ],
+      "surfaceA": 2.508226871740936,
+      "surfaceB": 2.5082321558354597,
+      "gapMetres": -0.000005284094523716476
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -2.7524999999999995,
+        -1.18
+      ],
+      "surfaceA": 2.591984354542877,
+      "surfaceB": 2.591977492988512,
+      "gapMetres": 0.000006861554364689937
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -2.7224999999999997,
+        -1.18
+      ],
+      "surfaceA": 2.676899923471513,
+      "surfaceB": 2.6769151021219333,
+      "gapMetres": -0.00001517865042011124
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -2.7524999999999995,
+        0
+      ],
+      "surfaceA": 2.591984354542875,
+      "surfaceB": 2.591977492988512,
+      "gapMetres": 0.00000686155436291358
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -2.7224999999999997,
+        0
+      ],
+      "surfaceA": 2.676899923471513,
+      "surfaceB": 2.6769151021219333,
+      "gapMetres": -0.00001517865042011124
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -2.7524999999999995,
+        1.18
+      ],
+      "surfaceA": 2.591984354542875,
+      "surfaceB": 2.591977492988512,
+      "gapMetres": 0.00000686155436291358
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -2.7224999999999997,
+        1.18
+      ],
+      "surfaceA": 2.676899923471515,
+      "surfaceB": 2.6769151021219315,
+      "gapMetres": -0.000015178650416558526
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -1.835,
+        -1.18
+      ],
+      "surfaceA": 2.725061256082233,
+      "surfaceB": 2.724986988723682,
+      "gapMetres": 0.00007426735855098343
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -1.805,
+        -1.18
+      ],
+      "surfaceA": 2.8087809313266927,
+      "surfaceB": 2.808788527419713,
+      "gapMetres": -0.000007596093020367789
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -1.835,
+        0
+      ],
+      "surfaceA": 2.725061256082231,
+      "surfaceB": 2.72498698872368,
+      "gapMetres": 0.00007426735855098343
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -1.805,
+        0
+      ],
+      "surfaceA": 2.8087809313266927,
+      "surfaceB": 2.8087885274197113,
+      "gapMetres": -0.000007596093018591432
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -1.835,
+        1.18
+      ],
+      "surfaceA": 2.725061256082233,
+      "surfaceB": 2.724986988723682,
+      "gapMetres": 0.00007426735855098343
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -1.805,
+        1.18
+      ],
+      "surfaceA": 2.8087809313266927,
+      "surfaceB": 2.8087885274197113,
+      "gapMetres": -0.000007596093018591432
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -0.9175000000000004,
+        -1.18
+      ],
+      "surfaceA": 2.821328953142599,
+      "surfaceB": 2.821252495468066,
+      "gapMetres": 0.00007645767453290375
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -0.8875000000000004,
+        -1.18
+      ],
+      "surfaceA": 2.9038450096047264,
+      "surfaceB": 2.903852702901604,
+      "gapMetres": -0.000007693296877775424
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -0.9175000000000004,
+        0
+      ],
+      "surfaceA": 2.821328953142599,
+      "surfaceB": 2.821252495468066,
+      "gapMetres": 0.00007645767453290375
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -0.8875000000000004,
+        0
+      ],
+      "surfaceA": 2.9038450096047246,
+      "surfaceB": 2.903852702901604,
+      "gapMetres": -0.000007693296879551781
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        -0.9175000000000004,
+        1.18
+      ],
+      "surfaceA": 2.8213289531426007,
+      "surfaceB": 2.821252495468066,
+      "gapMetres": 0.00007645767453468011
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        -0.8875000000000004,
+        1.18
+      ],
+      "surfaceA": 2.9038450096047264,
+      "surfaceB": 2.903852702901604,
+      "gapMetres": -0.000007693296877775424
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        0,
+        -1.18
+      ],
+      "surfaceA": 2.8807874457244136,
+      "surfaceB": 2.880787445724412,
+      "gapMetres": 1.7763568394002505e-15
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        0.03,
+        -1.18
+      ],
+      "surfaceA": 2.962092266038198,
+      "surfaceB": 2.9621074369327243,
+      "gapMetres": -0.000015170894526406187
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        0,
+        0
+      ],
+      "surfaceA": 2.8807874457244136,
+      "surfaceB": 2.8807874457244136,
+      "gapMetres": 0
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        0.03,
+        0
+      ],
+      "surfaceA": 2.962092266038198,
+      "surfaceB": 2.9621074369327243,
+      "gapMetres": -0.000015170894526406187
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        0,
+        1.18
+      ],
+      "surfaceA": 2.8807874457244136,
+      "surfaceB": 2.8807874457244136,
+      "gapMetres": 0
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        0.03,
+        1.18
+      ],
+      "surfaceA": 2.962092266038198,
+      "surfaceB": 2.962107436932726,
+      "gapMetres": -0.000015170894528182544
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        0.9175000000000004,
+        -1.18
+      ],
+      "surfaceA": 2.9034364953808733,
+      "surfaceB": 2.903359672248767,
+      "gapMetres": 0.00007682313210644054
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        0.9475000000000005,
+        -1.18
+      ],
+      "surfaceA": 2.983547913170458,
+      "surfaceB": 2.9835527534275528,
+      "gapMetres": -0.00000484025709468483
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        0.9175000000000004,
+        0
+      ],
+      "surfaceA": 2.9034364953808733,
+      "surfaceB": 2.903359672248765,
+      "gapMetres": 0.0000768231321082169
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        0.9475000000000005,
+        0
+      ],
+      "surfaceA": 2.9835479131704563,
+      "surfaceB": 2.983552753427551,
+      "gapMetres": -0.00000484025709468483
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        0.9175000000000004,
+        1.18
+      ],
+      "surfaceA": 2.9034364953808733,
+      "surfaceB": 2.903359672248767,
+      "gapMetres": 0.00007682313210644054
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        0.9475000000000005,
+        1.18
+      ],
+      "surfaceA": 2.983547913170458,
+      "surfaceB": 2.9835527534275528,
+      "gapMetres": -0.00000484025709468483
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        1.8350000000000009,
+        -1.18
+      ],
+      "surfaceA": 2.8892758637218883,
+      "surfaceB": 2.8892016569976064,
+      "gapMetres": 0.00007420672428182229
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        1.8650000000000009,
+        -1.18
+      ],
+      "surfaceA": 2.968183812774452,
+      "surfaceB": 2.968188834620962,
+      "gapMetres": -0.000005021846510189221
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        1.8350000000000009,
+        0
+      ],
+      "surfaceA": 2.8892758637218865,
+      "surfaceB": 2.8892016569976064,
+      "gapMetres": 0.00007420672428004593
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        1.8650000000000009,
+        0
+      ],
+      "surfaceA": 2.968183812774452,
+      "surfaceB": 2.9681888346209604,
+      "gapMetres": -0.000005021846508412864
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        1.8350000000000009,
+        1.18
+      ],
+      "surfaceA": 2.8892758637218865,
+      "surfaceB": 2.8892016569976064,
+      "gapMetres": 0.00007420672428004593
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        1.8650000000000009,
+        1.18
+      ],
+      "surfaceA": 2.968183812774452,
+      "surfaceB": 2.968188834620962,
+      "gapMetres": -0.000005021846510189221
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        2.7524999999999995,
+        -1.18
+      ],
+      "surfaceA": 2.838306266002375,
+      "surfaceB": 2.838299500167773,
+      "gapMetres": 0.000006765834601907272
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        2.7824999999999993,
+        -1.18
+      ],
+      "surfaceA": 2.9160004048646133,
+      "surfaceB": 2.9160154727132976,
+      "gapMetres": -0.000015067848684324758
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        2.7524999999999995,
+        0
+      ],
+      "surfaceA": 2.838306266002377,
+      "surfaceB": 2.838299500167773,
+      "gapMetres": 0.000006765834603683629
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        2.7824999999999993,
+        0
+      ],
+      "surfaceA": 2.9160004048646133,
+      "surfaceB": 2.9160154727132994,
+      "gapMetres": -0.000015067848686101115
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        2.7524999999999995,
+        1.18
+      ],
+      "surfaceA": 2.838306266002377,
+      "surfaceB": 2.838299500167775,
+      "gapMetres": 0.000006765834601907272
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        2.7824999999999993,
+        1.18
+      ],
+      "surfaceA": 2.9160004048646133,
+      "surfaceB": 2.9160154727132994,
+      "gapMetres": -0.000015067848686101115
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        3.67,
+        -1.18
+      ],
+      "surfaceA": 2.750526986967955,
+      "surfaceB": 2.7504482809905273,
+      "gapMetres": 0.00007870597742787311
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        3.6999999999999997,
+        -1.18
+      ],
+      "surfaceA": 2.8270249572827364,
+      "surfaceB": 2.82703266790851,
+      "gapMetres": -0.000007710625773427182
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        3.67,
+        0
+      ],
+      "surfaceA": 2.750526986967955,
+      "surfaceB": 2.7504482809905273,
+      "gapMetres": 0.00007870597742787311
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        3.6999999999999997,
+        0
+      ],
+      "surfaceA": 2.8270249572827364,
+      "surfaceB": 2.82703266790851,
+      "gapMetres": -0.000007710625773427182
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        3.67,
+        1.18
+      ],
+      "surfaceA": 2.7505269869679534,
+      "surfaceB": 2.750448280990529,
+      "gapMetres": 0.0000787059774243204
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        3.6999999999999997,
+        1.18
+      ],
+      "surfaceA": 2.827024957282738,
+      "surfaceB": 2.82703266790851,
+      "gapMetres": -0.000007710625771650825
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        4.5875,
+        -1.18
+      ],
+      "surfaceA": 2.6259385034546767,
+      "surfaceB": 2.6258667485121947,
+      "gapMetres": 0.0000717549424820163
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        4.617500000000001,
+        -1.18
+      ],
+      "surfaceA": 2.701233004115096,
+      "surfaceB": 2.7012406586251707,
+      "gapMetres": -0.000007654510074672771
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        4.5875,
+        0
+      ],
+      "surfaceA": 2.6259385034546767,
+      "surfaceB": 2.625866748512193,
+      "gapMetres": 0.00007175494248379266
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        4.617500000000001,
+        0
+      ],
+      "surfaceA": 2.701233004115096,
+      "surfaceB": 2.7012406586251707,
+      "gapMetres": -0.000007654510074672771
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        4.5875,
+        1.18
+      ],
+      "surfaceA": 2.625938503454675,
+      "surfaceB": 2.6258667485121947,
+      "gapMetres": 0.00007175494248023995
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        4.617500000000001,
+        1.18
+      ],
+      "surfaceA": 2.701233004115096,
+      "surfaceB": 2.7012406586251707,
+      "gapMetres": -0.000007654510074672771
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        5.504999999999999,
+        -1.18
+      ],
+      "surfaceA": 2.464540457835721,
+      "surfaceB": 2.4645273177031726,
+      "gapMetres": 0.000013140132548272732
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        5.534999999999999,
+        -1.18
+      ],
+      "surfaceA": 2.538623972940851,
+      "surfaceB": 2.5386391012601894,
+      "gapMetres": -0.000015128319338586493
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        5.504999999999999,
+        0
+      ],
+      "surfaceA": 2.464540457835719,
+      "surfaceB": 2.4645273177031726,
+      "gapMetres": 0.000013140132546496375
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        5.534999999999999,
+        0
+      ],
+      "surfaceA": 2.538623972940851,
+      "surfaceB": 2.538639101260191,
+      "gapMetres": -0.00001512831934036285
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        5.504999999999999,
+        1.18
+      ],
+      "surfaceA": 2.464540457835721,
+      "surfaceB": 2.4645273177031743,
+      "gapMetres": 0.000013140132546496375
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        5.534999999999999,
+        1.18
+      ],
+      "surfaceA": 2.538623972940851,
+      "surfaceB": 2.5386391012601894,
+      "gapMetres": -0.000015128319338586493
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        6.422499999999999,
+        -1.18
+      ],
+      "surfaceA": 2.2663332077375475,
+      "surfaceB": 2.2662526981238607,
+      "gapMetres": 0.00008050961368688547
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        6.4525,
+        -1.18
+      ],
+      "surfaceA": 2.3392229740013715,
+      "surfaceB": 2.3392282061826624,
+      "gapMetres": -0.000005232181290892868
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        6.422499999999999,
+        0
+      ],
+      "surfaceA": 2.2663332077375458,
+      "surfaceB": 2.266252698123857,
+      "gapMetres": 0.00008050961368866183
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        6.4525,
+        0
+      ],
+      "surfaceA": 2.3392229740013697,
+      "surfaceB": 2.3392282061826606,
+      "gapMetres": -0.000005232181290892868
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        6.422499999999999,
+        1.18
+      ],
+      "surfaceA": 2.2663332077375475,
+      "surfaceB": 2.266252698123859,
+      "gapMetres": 0.00008050961368866183
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        6.4525,
+        1.18
+      ],
+      "surfaceA": 2.3392229740013715,
+      "surfaceB": 2.3392282061826624,
+      "gapMetres": -0.000005232181290892868
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        7.34,
+        -1.18
+      ],
+      "surfaceA": 2.0313165147422456,
+      "surfaceB": 2.03124759358208,
+      "gapMetres": 0.00006892116016565808
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        7.37,
+        -1.18
+      ],
+      "surfaceA": 2.1029981724708353,
+      "surfaceB": 2.103007882232914,
+      "gapMetres": -0.000009709762078813355
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        7.34,
+        0
+      ],
+      "surfaceA": 2.0313165147422474,
+      "surfaceB": 2.03124759358208,
+      "gapMetres": 0.00006892116016743444
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        7.37,
+        0
+      ],
+      "surfaceA": 2.1029981724708318,
+      "surfaceB": 2.103007882232916,
+      "gapMetres": -0.000009709762084142426
+    },
+    {
+      "kind": "joist-on-upper-girder",
+      "bridgeLocalXZ": [
+        7.34,
+        1.18
+      ],
+      "surfaceA": 2.0313165147422474,
+      "surfaceB": 2.03124759358208,
+      "gapMetres": 0.00006892116016743444
+    },
+    {
+      "kind": "deck-on-cross-joist",
+      "bridgeLocalXZ": [
+        7.37,
+        1.18
+      ],
+      "surfaceA": 2.1029981724708335,
+      "surfaceB": 2.103007882232914,
+      "gapMetres": -0.000009709762080589712
+    },
+    {
+      "kind": "retained-hall-flight-on-new-foundation",
+      "bridgeLocalXZ": [
+        8.684891504366723,
+        -2.2227088976878653
+      ],
+      "surfaceA": 1.3500000000000014,
+      "surfaceB": 1.3500000238418561,
+      "gapMetres": -2.384185471271394e-8
+    },
+    {
+      "kind": "retained-hall-flight-on-new-foundation",
+      "bridgeLocalXZ": [
+        8.480437408337398,
+        -4.277230728028686
+      ],
+      "surfaceA": 1.3500000000000014,
+      "surfaceB": 1.3500000238418561,
+      "gapMetres": -2.384185471271394e-8
+    },
+    {
+      "kind": "retained-hall-flight-on-new-foundation",
+      "bridgeLocalXZ": [
+        8.173756264293413,
+        -7.359013473539916
+      ],
+      "surfaceA": 1.3499999999999996,
+      "surfaceB": 1.350000023841858,
+      "gapMetres": -2.3841858265427618e-8
+    },
+    {
+      "kind": "retained-hall-flight-on-new-foundation",
+      "bridgeLocalXZ": [
+        7.918188644256755,
+        -9.927165761465941
+      ],
+      "surfaceA": 1.3499999999999996,
+      "surfaceB": 1.3500000238418561,
+      "gapMetres": -2.384185648907078e-8
+    },
+    {
+      "kind": "retained-hall-flight-on-new-foundation",
+      "bridgeLocalXZ": [
+        7.71373454822743,
+        -11.981687591806761
+      ],
+      "surfaceA": 1.3499999999999979,
+      "surfaceB": 1.3500000238418561,
+      "gapMetres": -2.3841858265427618e-8
+    },
+    {
+      "kind": "retained-lower-hall-landing-on-new-bearing",
+      "bridgeLocalXZ": [
+        8.745522177914776,
+        -1.6134423444030732
+      ],
+      "surfaceA": null,
+      "surfaceB": 1.590000033378601,
+      "gapMetres": null
+    }
+  ],
+  "maxAbsGapMetres": null,
+  "pass": false,
+  "visualAccepted": false
+}

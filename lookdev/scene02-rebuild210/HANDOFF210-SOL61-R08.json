@@ -1,0 +1,296 @@
+{
+  "task": "Scene02 rebuild210 SOL61 continuation R08 genuine3D reconstruction handoff",
+  "writtenAt": "2026-10-23T18:33:49.448616+00:00",
+  "status": "Held reviewable draft; own native jobs all completed; ownership released to root; photographic acceptance false",
+  "heldSourceHash": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+  "continuedFrom": "c6af6c4cf5a9c0bd3399501fdf7b43d4ea9bdb84ad8b9d00390cdf6c73016588",
+  "sourceIdentity": "lookdev/scene02-rebuild210/r08-source-identity.json",
+  "compactDeltaSnapshot": "lookdev/scene02-rebuild210/r08-source",
+  "snapshotBase": "lookdev/scene02-rebuild210/r04-source-identity.json",
+  "sourceProof": "lookdev/scene02-rebuild210/held210-r08-source-proof.json",
+  "runtimeProvenance": "reconstructions/scene-02/rebuild210-provenance.json",
+  "changedRuntimeFiles": [
+    {
+      "path": "reconstructions/scene-02/architecture.js",
+      "sha256": "9176e1b64f956cc599f4b3c0774172bc7a8a3060392b7a7e65435a5879e88c51"
+    },
+    {
+      "path": "reconstructions/scene-02/main.js",
+      "sha256": "a0bc168cf8d432a76b70129ccaab071e2ff8af36f88fc33b4507ed6dc708c7b7"
+    },
+    {
+      "path": "reconstructions/scene-02/rebuild210-provenance.json",
+      "sha256": "0f8d6574fa7fb2b428d74d1d3a5b50560c8aa735e10ef016f203403635871d9a"
+    },
+    {
+      "path": "reconstructions/scene-02/veranda-boards.js",
+      "sha256": "5c6a097177479bc288f5a660cd270028d7365595631595593cacb2cf06552930"
+    },
+    {
+      "path": "reconstructions/scene-02/veranda-carvings143.js",
+      "sha256": "66b68272356baa51f0e7a036395b89befeeb8641320b38fe0a9bbf380f9d9ca6"
+    },
+    {
+      "path": "reconstructions/scene-02/veranda-metal210.js",
+      "sha256": "424fb316471813227d89d52b6fc51c19b43c21a6877e2c249fc362e92e9799e9"
+    },
+    {
+      "path": "reconstructions/scene-02/veranda-rail117.js",
+      "sha256": "16e3a87a4c2caf7f8f0bc236878f9694ff6fa3d9cbdbd3b22a224e9cc5085d3a"
+    }
+  ],
+  "visualAccepted": false,
+  "actualReference": "references/hd/1-\u7167\u7247-2.jpg",
+  "implemented": [
+    "Replace the tall single-onion foreground giboshi with a shorter continuous rounded cast body, short neck, stepped courses and embedded lotus scales on the original world-space finial seats.",
+    "Rebuild hanging fixtures with shorter deeply recessed six-face emitting chambers, actual diamond/flower through-hole cast facets, returned solid curved hexagonal roofs with six lifted corners, stepped crown/bowl and linked chain reaching the held ceiling anchor. Materials receive the existing real local veranda probe.",
+    "Recover the oversized guard/platform: lift the common actual deck/board/joist/bearer path .3258m and reduce the lower guard to .64 height, giving total guard height .7912m while preserving every finial seat. Middle foot projection changes y1255.64 to1111.44, near the approximate HD02 foot around1110.",
+    "Inherited long rounded boards failed to sample the tight deck curve, leaving48mm under the middle post. Replace225 boards with conforming shared-index closed swept solids at <=60mm longitudinal spacing, retaining widths, joints and actual millimetre cup/wear field.",
+    "Column feet use the common actual deck path with nominal8mm embedment while upper roof/head elevations remain held. Shorten the inherited .72m foot metal sleeve to .3942m while retaining the .30m black base.",
+    "Replace sparse broad wire infill with closed inner/outer foliate stems and smoothly cupped cast leaf/chrysanthemum relief embedded in real wooden backing, with thin fitted borders."
+  ],
+  "validation": {
+    "native": [
+      {
+        "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r08-full-rail/report.json",
+        "sourceHash": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+        "status": "rendered-review",
+        "errors": [],
+        "completedAt": "2026-10-23T18:30:38.268Z",
+        "inspectionView": null,
+        "frames": [
+          {
+            "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r08-full-rail/reference.png",
+            "pngSha256": "d52ffb41ff05fb63356258006e9bab8b78b2c3d2b25912a39388bc373f911fe1",
+            "rgbaSha256": "265febebb3b15887133eeedcfee74286899c78c59c263d34c0c0a8d1374f3919",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "pose": {
+              "frame": 1,
+              "position": [
+                16.2,
+                2.72,
+                25
+              ],
+              "fov": 52,
+              "width": 1254,
+              "height": 1254
+            },
+            "detailCrop": null,
+            "valid": true,
+            "glError": 0,
+            "contextLost": false
+          },
+          {
+            "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r08-full-rail/detail-native.png",
+            "pngSha256": "1bc12cbdf8ab35d3e8a53f49ac0c4f130f32fa051030b1503bd9ac83d51fb9ee",
+            "rgbaSha256": "1a3dc5ef91c61de0a3ad545c5312b1153e6926390c841e15c828375358a25801",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "pose": {
+              "frame": 2,
+              "position": [
+                16.2,
+                2.72,
+                25
+              ],
+              "fov": 52,
+              "width": 1254,
+              "height": 1254
+            },
+            "detailCrop": [
+              630,
+              880,
+              370,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false
+          }
+        ]
+      },
+      {
+        "report": "qa/ten-reference/02/iteration-scene02-rebuild210-r08-low-side/report.json",
+        "sourceHash": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+        "status": "rendered-review",
+        "errors": [],
+        "completedAt": "2026-10-23T18:30:45.416Z",
+        "inspectionView": {
+          "position": [
+            18.2,
+            2.6,
+            22.8
+          ],
+          "target": [
+            14.6,
+            4.4,
+            18.6
+          ],
+          "fov": 62,
+          "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+        },
+        "frames": [
+          {
+            "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r08-low-side/inspection-view.png",
+            "pngSha256": "1577c21e3cd6db5acef35d62302f5b79a891a3cd1183c1664604b2cf0b89a993",
+            "rgbaSha256": "2fcb52c8ec5d0bd1c7f0543a437fa300673abcd1e1aecb3c3bcbcf8bef730ab3",
+            "nativeSize": [
+              1254,
+              1254
+            ],
+            "pose": {
+              "frame": 1,
+              "position": [
+                18.2,
+                2.6,
+                22.8
+              ],
+              "fov": 62,
+              "width": 1254,
+              "height": 1254
+            },
+            "detailCrop": null,
+            "valid": true,
+            "glError": 0,
+            "contextLost": false
+          }
+        ]
+      }
+    ],
+    "geometry": {
+      "report": "lookdev/scene02-rebuild210/geometry-veranda210-r08.json",
+      "authoredCastAndRailGeometries": 58,
+      "failed": 0,
+      "closedBoardsAudited": 225,
+      "failedBoards": 0,
+      "boardTriangles": 436000,
+      "actualPostBoardTriangleContacts": [
+        {
+          "postXZ": [
+            15.193872543879204,
+            23.368270846691118
+          ],
+          "postBottom": 1.690951594449816,
+          "actualBoardTop": 1.6925377942895232,
+          "postEmbedMetres": 0.001586199839707314
+        },
+        {
+          "postXZ": [
+            15.301670941934049,
+            22.03832476365354
+          ],
+          "postBottom": 1.759715138604973,
+          "actualBoardTop": 1.760758097689808,
+          "postEmbedMetres": 0.0010429590848350934
+        },
+        {
+          "postXZ": [
+            15.586114982218282,
+            19.442761528529996
+          ],
+          "postBottom": 1.7354018838120358,
+          "actualBoardTop": 1.7380570003734244,
+          "postEmbedMetres": 0.002655116561388615
+        }
+      ],
+      "contactPass": true,
+      "limits": "Closed topology, finite transforms, triangle contacts and valid native pixels do not establish photographic fidelity or engineering adequacy."
+    }
+  },
+  "personalReview": "Inspected supplied HD02 and reused existing R04 full/bridge/low captures; personally inspected R05 full/lamp hero, R06 full/lamp hero/low, R07 full/rail hero/low and all held R08 frames. No old capture was repeated because of the model transfer.",
+  "observations": {
+    "full": "Foreground foot/panel/floor heights now better follow the reference; finial and shorter hanging-fixture silhouettes are more appropriate. Whole composition still reads as a CG draft.",
+    "hero": "True subfrustum shows fitted wood frame/backing, curved closed boards and rounded cast leaf thickness. Relief remains too regular/simplified versus the fine chased HD reference.",
+    "lowSide": "Actual low camera exposes fixture depth, linked chain, column metal sleeve/black base and floor/guard joints. Cuff proportion improves versus R07; support/depth is actual3D."
+  },
+  "remainingVisualGaps": [
+    "Overall photographic fidelity remains unaccepted: cloud field, sunset radiometry, architectural carving and foliage grouping still differ substantially from HD02.",
+    "Wet deck response remains much flatter than the source sunset reflection streaks; wood/metal microstructure and cast aging need further physical look development.",
+    "New lamp lattice and rail rosettes remain simplified and regular compared with reference fine filigree/chasing; recovered hidden fixture construction is inferred.",
+    "Main hall/pagoda fine ornament, large left stone-lantern silhouette, bank stone integration and lotus/pond ripple response retain visible earlier mismatches.",
+    "Guard height/platform curve is a photographic proportion recovery with uncertain partly occluded feet; it is not a surveyed dimension."
+  ],
+  "reviewHistory": "lookdev/scene02-rebuild210/review210-sol61-r05-r08.json",
+  "preservedCandidates": {
+    "r05": "lookdev/scene02-rebuild210/r05-source-identity.json",
+    "r06": "lookdev/scene02-rebuild210/r06-source-identity.json",
+    "r07a": "lookdev/scene02-rebuild210/r07a-source-identity.json",
+    "r07aFailedContact": "lookdev/scene02-rebuild210/geometry-veranda210-r07.json",
+    "r07b": "lookdev/scene02-rebuild210/r07b-source-identity.json",
+    "r07bRejectedTessellation": "lookdev/scene02-rebuild210/rejected210-r07b-tessellation.json",
+    "r07Native": "lookdev/scene02-rebuild210/r07-source-identity.json"
+  },
+  "protected": {
+    "baselineHash": "c6af6c4cf5a9c0bd3399501fdf7b43d4ea9bdb84ad8b9d00390cdf6c73016588",
+    "heldSourceHash": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+    "changed": [
+      {
+        "path": "reconstructions/scene-02/architecture.js",
+        "sha256": "9176e1b64f956cc599f4b3c0774172bc7a8a3060392b7a7e65435a5879e88c51"
+      },
+      {
+        "path": "reconstructions/scene-02/main.js",
+        "sha256": "a0bc168cf8d432a76b70129ccaab071e2ff8af36f88fc33b4507ed6dc708c7b7"
+      },
+      {
+        "path": "reconstructions/scene-02/rebuild210-provenance.json",
+        "sha256": "0f8d6574fa7fb2b428d74d1d3a5b50560c8aa735e10ef016f203403635871d9a"
+      },
+      {
+        "path": "reconstructions/scene-02/veranda-boards.js",
+        "sha256": "5c6a097177479bc288f5a660cd270028d7365595631595593cacb2cf06552930"
+      },
+      {
+        "path": "reconstructions/scene-02/veranda-carvings143.js",
+        "sha256": "66b68272356baa51f0e7a036395b89befeeb8641320b38fe0a9bbf380f9d9ca6"
+      },
+      {
+        "path": "reconstructions/scene-02/veranda-metal210.js",
+        "sha256": "424fb316471813227d89d52b6fc51c19b43c21a6877e2c249fc362e92e9799e9"
+      },
+      {
+        "path": "reconstructions/scene-02/veranda-rail117.js",
+        "sha256": "16e3a87a4c2caf7f8f0bc236878f9694ff6fa3d9cbdbd3b22a224e9cc5085d3a"
+      }
+    ],
+    "originalCameraAndLayoutByteExact": true,
+    "bridgeCodeByteExact": true,
+    "gardenCodeByteExact": true,
+    "visibleSkyByteExact": true,
+    "normalDollyConstructorByteExact": true,
+    "assetsByteExact": true,
+    "assetsDeleted": [],
+    "verandaChanges": {
+      "platformLiftMetres": 0.3258,
+      "guardHeightMetres": 0.7912,
+      "finialWorldSeatsRetained": true,
+      "woodBackingReal": true,
+      "closedBoardCount": 225,
+      "boardTriangles": 436000,
+      "columnBlackBaseHeight": 0.3,
+      "columnMetalSleeveHeight": 0.3942,
+      "columnTopWorldElevationPreserved": true
+    },
+    "geometricLimits": "Closed meshes, true contacts and unchanged camera are not photographic acceptance.",
+    "visualAccepted": false
+  },
+  "activeOwnJobs": [],
+  "closedOwnSessions": [
+    57329,
+    60023,
+    84621,
+    74712,
+    36926,
+    74153,
+    80915
+  ],
+  "noGitSharedOrOtherSceneEdits": true,
+  "noChildren": true,
+  "noNewExternalMediaOrPhotographSurface": true,
+  "noLargeExportsBlendOrRepoClones": true
+}

@@ -156,7 +156,7 @@ export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,
  // the wrong mass even after changing its surface. This real closed rock
  // shoulder meets the pond bed and the retained approach/iris soil bodies.
  // It is derived from the same actual bridge endpoint as the walkable route.
- const shoulderCentre=[bridgeEndWorld.x+Math.sin(bridgeModel.yaw)*.18,bridgeEndWorld.z+Math.cos(bridgeModel.yaw)*.18],shoulderY=mound(...shoulderCentre,2.05,1.55,.95,'scene03-closed-coupled-bridge-foot-rock-shoulder108'),bridgeMatrix=new T.Matrix4().makeTranslation(...bridgeModel.position).multiply(new T.Matrix4().makeRotationY(bridgeModel.yaw)),inverseBridge=bridgeMatrix.clone().invert(),r=bridgeModel.deckDepth/1.94,heroes=[];
+ const shoulderCentre=[bridgeEndWorld.x+Math.sin(bridgeModel.yaw)*.18,bridgeEndWorld.z+Math.cos(bridgeModel.yaw)*.18],shoulderY=mound(...shoulderCentre,1.70,1.12,.55,'scene03-closed-coupled-bridge-foot-rock-shoulder108'),bridgeMatrix=new T.Matrix4().makeTranslation(...bridgeModel.position).multiply(new T.Matrix4().makeRotationY(bridgeModel.yaw)),inverseBridge=bridgeMatrix.clone().invert(),r=bridgeModel.deckDepth/1.94,heroes=[];
  // The exposed crest is actual full-UV mineral scan geometry. Broad green
  // soil above the joint stones was rejected in r03. The lower soil now
  // connects root pockets, and these closed boulders supply the rock shoulder.
@@ -164,7 +164,7 @@ export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,
   [2,.24,.73,-.28,1.43,1.00,1.06,.12],
   [4,.79,.28,-.31,1.65,.95,1.36,-.28],
   [0,-.27,.88,-.31,1.31,.55,1.04,.45],
-  [1,.10,.36,.58,1.20,.84,1.20,-.19],
+  [1,.10,.36,.20,1.20,.50,1.15,-.19],
   [3,.86,.89,-.25,1.16,.49,.86,.53],
   [0,1.32,.48,-.28,1.22,.46,.96,-.16],
  ]){
@@ -172,7 +172,7 @@ export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,
   gardenAssets.plant('rockSolid',index,p.toArray(),[width,height,depth],[0,bridgeModel.yaw+yaw,0],.92);heroes.push({x:p.x,z:p.z,radius:.46*Math.min(width,depth)});
  }
  for(let j=0;j<47;j++){
-  const a=j*2.399963,t=range(.38,1.00),x=shoulderCentre[0]+Math.cos(a)*2.03*t,z=shoulderCentre[1]+Math.sin(a)*1.53*t,local=new T.Vector3(x,0,z).applyMatrix4(inverseBridge),underCap=Math.abs(local.x-bridgeModel.span/2)<.62&&Math.abs(local.z)<bridgeModel.deckDepth*.56;
+  const a=j*2.399963,t=range(.38,1.00),x=shoulderCentre[0]+Math.cos(a)*1.68*t,z=shoulderCentre[1]+Math.sin(a)*1.10*t,local=new T.Vector3(x,0,z).applyMatrix4(inverseBridge),underCap=Math.abs(local.x-bridgeModel.span/2)<.62&&Math.abs(local.z)<bridgeModel.deckDepth*.56;
   if(underCap||heroes.some(p=>(x-p.x)**2+(z-p.z)**2<p.radius*p.radius))continue;
   const y=shoulderY(x,z),s=range(.55,.92);
   gardenAssets.plant('rock',j,[x,y-.21,z],[s*1.1,s*.83,s*1.0],[range(-.12,.12),range(0,6.28),range(-.10,.10)],range(.84,1.03));
@@ -196,5 +196,5 @@ export function buildLivingBanks03({emit,at,between,box,mat,bankEarth,bankStone,
  // leaves around a shaft whose bottom had no bearing surface.
  gardenAssets.plant('rock',2,[6.25,.32,8.0],[2.0,.73,1.8],[0,.2,0],1.03);
  emit(rocks[3],bankStone,[4.216,1.77,4.369],[.72,.72,.72],[0,.35,0],1.06);
- return{info(){return{revision:'living-garden108-root-contact-strata-route106',closedSoilBodies:soilBodies,route:{bridgeWorld:bridgeEndWorld.toArray(),bridgeInStairFrame:bridgeEndLocal.toArray(),length:routeLength},rootedShrubs:plantedShrubs,rootedAzaleaSprigs:azaleaSprigs,rootedIrisFans:irises,mossTufts108,embeddedOutcrops108,scannedAssets:gardenAssets.info(),stairOpeningPreserved:true,photographicAccepted:false};}};
+ return{info(){return{revision:'living-garden211-r13-low-bridge-shoulder',closedSoilBodies:soilBodies,route:{bridgeWorld:bridgeEndWorld.toArray(),bridgeInStairFrame:bridgeEndLocal.toArray(),length:routeLength},rootedShrubs:plantedShrubs,rootedAzaleaSprigs:azaleaSprigs,rootedIrisFans:irises,mossTufts108,embeddedOutcrops108,scannedAssets:gardenAssets.info(),stairOpeningPreserved:true,photographicAccepted:false};}};
 }

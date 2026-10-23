@@ -2,12 +2,12 @@ import {T,V,mix,Builder,gridGeometry} from './kernel.js';
 import {buildHallEntry} from './hall-entry.js';
 import {buildTurnedSorin} from './sorin-solids.js';
 import {buildVerandaBoards} from './veranda-boards.js';
-import {buildVerandaRail} from './veranda-rail117.js';
+import {buildVerandaRail,verandaFrame210,verandaEdge} from './veranda-rail117.js';
 import {layout} from './layout117.js';
 import {createHallCarpentry141} from './hall-carpentry141.js';
 import {buildVerandaCarvings143} from './veranda-carvings143.js';
 import {installHallTerraceMaterials144,buildHallStair144} from './hall-terrace144.js';
-import {buildEmbeddedBridgeBearings146} from './embedded-bridge-bearings146.js';
+import {buildBridge210,buildBridgeApproaches210} from './bridge-site210.js';
 import {ensureBankSoil147} from './planted-shoulders147.js';
 import {buildHallRoof154} from './hall-roof154.js';
 import {buildPagodaEnsemble160} from './pagoda-ensemble160.js';
@@ -32,7 +32,7 @@ export function buildArchitecture(mats,scanned,sculpture186=null){
   const cy=(yy,rr,hh,ma)=>b.put(r>.4?closeCylinder:b.cylinderGeo,ma,[x,yy,z],[rr*columnXComp,hh,rr*columnZComp]);
   cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,shaftMaterial);
   for(let y of[base+.4,base+h-.05]){cy(y,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}
-  if(r>.4){cy(base+.72,r*1.015,.72,'oldgold');for(let yy of[base+.36,base+1.08])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*.63,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.put(reliefLeaf,k%2?'oldgold':'gold',[x+Math.cos(aa)*r*1.04,base+.46+k*.15,z+Math.sin(aa)*r*1.04],[.65,.65,.65],[0,Math.PI/2-aa,(k%2?1:-1)*.6]);}}}
+  if(r>.4){const gildHeight=.72-verandaFrame210.deckLift,run=gildHeight-.09,ys=run/.63;cy(base+.36+gildHeight/2,r*1.015,gildHeight,'oldgold');for(let yy of[base+.36,base+.36+gildHeight])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*run,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.put(reliefLeaf,k%2?'oldgold':'gold',[x+Math.cos(aa)*r*1.04,base+.40+(.06+k*.15)*ys,z+Math.sin(aa)*r*1.04],[.65,.65*ys,.65],[0,Math.PI/2-aa,(k%2?1:-1)*.6]);}}}
  }
  const armShape=new T.Shape();armShape.moveTo(-.5,0);armShape.lineTo(-.5,.14);armShape.quadraticCurveTo(-.35,.20,-.27,.11);armShape.lineTo(.27,.11);armShape.quadraticCurveTo(.35,.20,.5,.14);armShape.lineTo(.5,0);armShape.closePath();const bracketArm=new T.ExtrudeGeometry(armShape,{depth:1,bevelEnabled:false,curveSegments:6});bracketArm.translate(0,0,-.5);
  function bracket(x,y,z,s=1){b.at([x,y,z],0,()=>{
@@ -77,10 +77,7 @@ export function buildArchitecture(mats,scanned,sculpture186=null){
  const hallMatrix=new T.Matrix4().compose(V(layout.hall.position),new T.Quaternion().setFromAxisAngle(V([0,1,0]),layout.hall.yaw),V(layout.hall.scale));
  const stairTop=V([0,2.2,6.15]).applyMatrix4(hallMatrix),stairBottom=V([5.55722966,1.7,1.34483218]),stairDirection=stairTop.clone().sub(stairBottom),stairRun=Math.hypot(stairDirection.x,stairDirection.z),stairYaw=Math.atan2(stairDirection.x,stairDirection.z),stairWidth=2.85;
  const hallStair=buildHallStair144({b,top:stairTop,bottom:stairBottom,width:stairWidth});
- // A shallow stone approach bears on a graded planted bank, not a tall
- // exposed retaining block across the pond.
- b.box(5.9,1.48,.55,5.4,.36,2.1,'stone');b.box(5.9,1.68,.55,5.5,.08,2.2,'lightstone');
- const bridgeApproachA=V([5.71,2.10,3.38]),bridgeApproachB=V([5.75,1.63,1.4]);b.line(bridgeApproachA.toArray(),bridgeApproachB.toArray(),2.30,'stone',true,.18);
+ const bridgeApproaches210=buildBridgeApproaches210({b,stairTop,stairBottom,stairWidth});
  const bankRows=Array.from({length:25},(_,j)=>Array.from({length:33},(_,i)=>{const x=.3+i*11.9/32,z=-4.4+j*7.2/24,q=Math.max(Math.abs(x-5.9)/4.8,Math.abs(z+.8)/3.6);return[x,1.35*(1-T.MathUtils.smoothstep(q,.55,1))-.05,z];})),bank=gridGeometry(bankRows),bp=Array.from(bank.attributes.position.array),bi=Array.from(bank.index.array),ring=[];
  for(let i=0;i<33;i++)ring.push(i);for(let j=1;j<25;j++)ring.push(j*33+32);for(let i=31;i>=0;i--)ring.push(24*33+i);for(let j=23;j>0;j--)ring.push(j*33);
  const lower=ring.map(i=>{const n=bp.length/3;bp.push(bp[i*3],-.3,bp[i*3+2]);return n;}),bottom=bp.length/3;bp.push(5.9,-.3,1.2);
@@ -92,38 +89,14 @@ export function buildArchitecture(mats,scanned,sculpture186=null){
  // Enclosing low galleries anchor the far pond edge and continue behind the main hall.
  function gallery(pos,length,yaw=0,wing=false){b.at(pos,yaw,()=>{galleryFootings.push(buildGalleryFooting162({b,position:pos,length}));for(let x=-length/2+.6;x<length/2;x+=2){column(x,1.2,.7,3.6,.14);if(wing)hallCarpentry.head(x,4.0,1.2,.39,'side');else bracket(x,4.4,1.2,.55);windowPanel(x,2.35,-1.1,1.7,2.5,wing?'hallPlaster':'paper');}b.box(0,4.35,1.2,length+.5,.28,.3,'red');roof({w:length+1.5,d:5.5,eave:4.8,rise:1.6,curl:.4});b.at([0,.7,1.6],0,()=>rail(length));});}
  gallery([-14,.65,-6],15);gallery([16,3.3,-11],12,0,true);gallery([-22,1.1,0],10,Math.PI/2);
- // One continuous cambered fascia rib on each side carries the plank deck.
- // Its lower edge stays visible between the arch feet, instead of being broken
- // up by repeated supports in the pond.
- b.at(layout.bridge.position,layout.bridge.yaw,()=>{const arch=x=>1.2+layout.bridge.archRise*(1-(x/7.5)**2)+layout.bridge.slope*x/7.5,archSlope=x=>-2*layout.bridge.archRise*x/56.25+layout.bridge.slope/7.5;
-  for(let i=0;i<60;i++){let x=-7.5+15*(i+.5)/60,dy=archSlope(x);b.box(x,arch(x),0,.27,.22,2.9,'bridgeCedar161',[0,0,Math.atan(dy)]);}
-  const ribZ=[-1.20,1.20],ribStart=-7.5,ribEnd=7.5,ribSteps=96,ribDepth=.34;
-  for(let z of ribZ){
-   const side=new T.Shape(),topY=x=>arch(x)-.075,bottomY=x=>arch(x)-.57;
-   side.moveTo(ribStart,topY(ribStart));
-   for(let i=1;i<=ribSteps;i++){const x=ribStart+(ribEnd-ribStart)*i/ribSteps;side.lineTo(x,topY(x));}
-   for(let i=ribSteps;i>=0;i--){const x=ribStart+(ribEnd-ribStart)*i/ribSteps;side.lineTo(x,bottomY(x));}
-   side.closePath();const web=new T.ExtrudeGeometry(side,{depth:ribDepth,bevelEnabled:false,curveSegments:1});web.translate(0,0,z-ribDepth/2);b.put(web,'bridgeRed161');
-   // Dark lower edging and diagonal braces meet the continuous rib at its face.
-   const outerZ=Math.sign(z)*1.39;
-   b.tube(Array.from({length:97},(_,i)=>{const x=ribStart+(ribEnd-ribStart)*i/96;return[x,bottomY(x)+.035,outerZ];}),.035,'bridgeCedar161',192);
-   for(let i=0;i<10;i++){const xa=-6.9+1.38*i,xb=xa+1.38,ya=bottomY(xa)+.06,yb=bottomY(xb)+.06,yt=arch((xa+xb)/2)-.14;if(i%2===0)b.line([xa,ya,outerZ],[xb,yt,outerZ],.047,'darkwood',true,.07);else b.line([xa,yt,outerZ],[xb,yb,outerZ],.047,'darkwood',true,.07);}
-  }
-  // Keep all three guard rails clear of the deck surface and tie them together
-  // with posts that land just above the plank edge.
-  for(let z of[-1.5,1.5]){
-   for(const [h,r] of[[-.34,.085],[.25,.075],[.65,.09]])b.tube(Array.from({length:65},(_,i)=>{const x=-7.5+15*i/64;return[x,arch(x)+h,z];}),r,'bridgeRed161',128);
-   for(let i=0;i<=10;i++){const x=-7.5+i*1.5,y=arch(x);b.box(x,y+.36,z,.22,.70,.22,'bridgeRed161');b.cyl(x,y+.73,z,.16,.10,'gold');b.ball(x,y+.87,z,.13,.14,.13);if(i%2===0)fitting(x,y-.06,z+.16,.38,.38);}
-   for(let i=0;i<40;i++){const x=-7.3+i*.375;b.box(x,arch(x)+.34,z,.075,.37,.075,'bridgeRed161');}
-  }
-  bridgeBearings=buildEmbeddedBridgeBearings146({b,mats,scanned,arch});
- },layout.bridge.scale);
+ // Layered load-bearing bridge with slender stone piers and connected approaches.
+ bridgeBearings=buildBridge210({b,mats,fitting});
  // Foreground veranda is constructed at human scale around the low camera.
- const deck={x:15.5,y:1.35,z:25};
+ const deck={x:15.5,y:1.35+verandaFrame210.deckLift,z:25};
  const verandaBoards=buildVerandaBoards(T,b);
  const canopy=layout.canopy,edgeX=z=>canopy.entryWorld[0]+(z-canopy.entryWorld[2])*(canopy.farWorld[0]-canopy.entryWorld[0])/(canopy.farWorld[2]-canopy.entryWorld[2]);
  const verandaCarvings=buildVerandaCarvings143({b,mats,canopy});
- for(let z of[2,10,18,26,34,40]){column(canopy.columnX,z,1.36,7.6,.48,'verandaRed');bracket(canopy.columnX,8.7,z,1.35);}
+ for(let z of[2,10,18,26,34,40]){const base=verandaEdge(z)[1]-.008;column(canopy.columnX,z,base,8.96-base,.48,'verandaRed');bracket(canopy.columnX,8.7,z,1.35);}
  for(let z of[2,10,18,26,34,40]){const outside=edgeX(z),span=20.5-outside;b.box(outside+span/2,9.0,z,span,.45,.52,'cedar');for(let x=outside+.6;x<20;x+=.9)fitting(x,9.0,z+.28,.34,.34);}
  // Closed deck strips and real rafter ends follow the measured outer envelope.
  // The former short horizontal fascia is replaced by one continuing canopy.
@@ -133,5 +106,5 @@ export function buildArchitecture(mats,scanned,sculpture186=null){
  // Faceted bronze lamps have actual perforated cast panels and warm paper
  // recessed behind them. Each link joins the fixture to the beam overhead.
  for(const lamp of layout.hangingLamps)lights.push(verandaCarvings.lantern(...lamp.position,lamp.scale,9.3));lights.push(verandaCarvings.lantern(18,7.8,7,.5,9.3));
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,pagodaEnsemble,galleryFootings,bridgeBearings,hallRoof,hallCarpentry:hallCarpentry.stats,hallEntry186,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'joint fixed-contact perspective and common five-bay roof/bearing-grid recovery',source:'qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py',visualAccepted:false}},deck};
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,pagodaEnsemble,galleryFootings,bridgeBearings,bridgeApproaches210,hallRoof,hallCarpentry:hallCarpentry.stats,hallEntry186,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'joint fixed-contact perspective and common five-bay roof/bearing-grid recovery',source:'qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py',visualAccepted:false}},deck};
 }

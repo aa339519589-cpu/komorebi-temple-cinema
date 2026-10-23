@@ -1,0 +1,104 @@
+{
+  "reference": "references/hd/1-照片-2.jpg",
+  "continuedFromR08": "bb5cdcb75633ca65bc0ee5cfc0446b5ec9666b401164c10590a3461328ddda70",
+  "iterations": [
+    {
+      "iteration": "scene02-rebuild210-r09-full-wet",
+      "sourceHash": "971765c26243e9a5a61b3a0dd32b997a41b05f1389fed301f5d96613bde2d887",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r09-full-wet/reference.png",
+          "pngSha256": "3664c5b91b143fbaa02a0cad77541ca34b99be15b33201714782826925090b35",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "rgbaSha256": "cb87ad8e4735bd62f7f97feb179312b95089589d0449079bcba9588ba38e435c",
+          "valid": true
+        },
+        {
+          "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r09-full-wet/detail-native.png",
+          "pngSha256": "8f4a5b74bb664ea292cc10293c50f5e7109b984c02181685b77e7956e343011a",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "rgbaSha256": "20d1c42b5e6bd221b27028fbd0197611f32ec774c25dac920ac03a8c92eeb8cc",
+          "valid": true
+        }
+      ],
+      "review": [
+        "Personally inspected full1254 and true wet-floor native subfrustum. New cooler diffuse sky makes blue roof response and real scene reflection appear.",
+        "Rejected as held appearance: overly white overcast cloud field, large glasslike board reflection, smooth bare brown approach mound.",
+        "Actual source review finds the board top had no cross-width interior vertices; R10 authors real cross sampling so cup and grain relief exist as surfaces, not only analytic normals."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r10-full-wet",
+      "sourceHash": "412d081269a61374514d81c1c4ec952e5de81f7b43ebdce357e8b07951b70da5",
+      "status": "rendered-review",
+      "geometry": {
+        "closedBoards": 225,
+        "boardTriangles": 1290020,
+        "castRailGeometries": 58,
+        "failed": 0,
+        "actualPostContacts": [
+          {
+            "postXZ": [
+              15.193872543879204,
+              23.368270846691118
+            ],
+            "postBottom": 1.688951594449816,
+            "actualBoardTop": 1.6913716134415409,
+            "postEmbedMetres": 0.002420018991724948
+          },
+          {
+            "postXZ": [
+              15.301670941934049,
+              22.03832476365354
+            ],
+            "postBottom": 1.757715138604973,
+            "actualBoardTop": 1.7595350255018438,
+            "postEmbedMetres": 0.0018198868968708481
+          },
+          {
+            "postXZ": [
+              15.586114982218282,
+              19.442761528529996
+            ],
+            "postBottom": 1.7334018838120357,
+            "actualBoardTop": 1.7369996118187774,
+            "postEmbedMetres": 0.0035977280067416295
+          }
+        ]
+      },
+      "visualAccepted": false,
+      "review": [
+        "Personally inspected1254 full, actual wet-board subfrustum, near-veranda low side and bridge waterline view. Cross-width sampled closed boards express actual cup relief.",
+        "Bridge waterline review exposes the larger old pond elevation error; R11 repairs the unified water level."
+      ]
+    },
+    {
+      "iteration": "scene02-rebuild210-r11-full-wet",
+      "sourceHash": "c2cfe7f0d2f3e17ee806d61e074588babca4850e8f6475d291a833b854d1b3a4",
+      "status": "rendered-review",
+      "review": [
+        "Personally inspected1254 full, true near-veranda low side and actual bridge waterline view. The single recovered pond level reduces exposed pier height and bare-wall extent; retain this actual layout repair.",
+        "Reject final optics: broad white reflection blobs, missing foreground pad groups and raised bank stems crossing the veranda; repair inR12."
+      ],
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene02-rebuild210-r12-full-wet",
+      "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+      "status": "failed-disk-full",
+      "failureReceipt": "lookdev/scene02-rebuild210/failed210-r12-disk-full.json",
+      "savedValidFrames": 0,
+      "visualAccepted": false
+    }
+  ],
+  "overallVisualAccepted": false
+}

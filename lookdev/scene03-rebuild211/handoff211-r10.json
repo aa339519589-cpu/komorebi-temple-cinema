@@ -1,0 +1,72 @@
+{
+  "status": "scene checkpoint handed to root; photographic fidelity still unaccepted",
+  "visualAccepted": false,
+  "latestSnapshot": "lookdev/scene03-rebuild211/r10-source",
+  "preferredVisualBaseline": {
+    "source": "32ca4cfc7da48bce8e932144ce56d021ea87c24602691581f4cf338f5681d4b0",
+    "snapshot": "lookdev/scene03-rebuild211/r09-source",
+    "reason": "R09 retains the geometric improvements without R10 bright coarse cushion patches",
+    "restoreFromR09Files": [
+      "reconstructions/scene-03/src/main.js",
+      "reconstructions/scene-03/src/scene03-carved-toro.js",
+      "reconstructions/scene-03/src/scene03-stone-lantern211.js"
+    ]
+  },
+  "ownerScope": "Only scene03 source, lookdev/scene03-rebuild211 and new QA03; no Git/shared/other scenes",
+  "changedFiles": [
+    "reconstructions/scene-03/src/main.js",
+    "reconstructions/scene-03/src/reference4-architecture.js",
+    "reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "reconstructions/scene-03/src/scene03-bearing211.js",
+    "reconstructions/scene-03/src/scene03-carved-toro.js",
+    "reconstructions/scene-03/src/scene03-foreground211.js",
+    "reconstructions/scene-03/src/scene03-hall-carpentry.js",
+    "reconstructions/scene-03/src/scene03-stone-lantern211.js"
+  ],
+  "completedRealWork": [
+    "R06 flat-seated coved/canted hijiki, six major upper post axes, five actual pierced intercolumn struts with continuous head girt",
+    "R07 formerly off-screen foreground lamina placed at actual water position, closed correlated pleats on two hero leaves",
+    "R08 near stone lantern short shaft (.915m), raised connected .85m stone plinth, curved/chipped closed kasa, resized shaft cartouches; broad ovate lotus petals and corrected .46 main flower size",
+    "R09 near kasa horizontal span reduced from2.635m to2.108m, complete dedicated low camera for assembly evidence",
+    "R10 closed surface-conforming moss tissue with buried lower face, retained as experimental coarse bright study"
+  ],
+  "reference": "references/hd/2-照片-3.jpg",
+  "nativeFrames": [
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-20261024/reference.png",
+      "rgbaSha256": "ace87625c050ad85b318420126774a91358f8f42e113cc0d19518bdf143cbd2e",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-20261024/detail-native.png",
+      "rgbaSha256": "bcb2409646a5e7e8bcfc0709869798d8f2dd3b80c850ac907f3a386d07373a96",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-toro-low-20261024/inspection-view.png",
+      "rgbaSha256": "6960003df4d44a40763ea2dcee07328055410d1c5adbce499ce8db68573967bf",
+      "viewed": true
+    }
+  ],
+  "tests": [
+    "lookdev/scene03-rebuild211/geometry211-r06.json",
+    "lookdev/scene03-rebuild211/geometry211-r08.json",
+    "lookdev/scene03-rebuild211/geometry211-r10.json"
+  ],
+  "remaining": [
+    "Photographic acceptance of all Scene03 elements remains open",
+    "Curved bearing/carving fidelity and color/light under both main eaves",
+    "Natural maple canopy and sky/garden species/density",
+    "Stone/timber/gilt microstructure and incident/bounce response; native renderer has no solved diffuse GI",
+    "R10 moss pads need lower, finer, less saturated clinging tissue if retained"
+  ],
+  "renderJobsFinished": true,
+  "noBlenderOrNewLargeAssets": true,
+  "activeSource": "32ca4cfc7da48bce8e932144ce56d021ea87c24602691581f4cf338f5681d4b0",
+  "activeSnapshot": "lookdev/scene03-rebuild211/r09-source",
+  "latestExperimentalSource": "46c7b33f9e9973b53a1774c2d1a7e4a80aadd07d442cadbde4a76c3f0f4b8997",
+  "activeSourceRestoredAfterR10Review": true,
+  "activeSourceHasExistingNativeEvidence": true,
+  "replayR10TestUsesFrozenR10Snapshot": true,
+  "sourceReleased": true
+}

@@ -1,0 +1,4798 @@
+{
+  "source": {
+    "hash": "415d1fc85b81b2a7d1b17754e1bc0f838a43df949d61ba3c489f68ca97fecdf6",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf": "c9543a112e5bc02081df40205c72b74432d9335ba63ba4d698fd6342c2d4180f",
+      "assets/polyhaven/periwinkle-plant/provenance.json": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+      "assets/polyhaven/periwinkle-plant/provider-files.json": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+      "assets/polyhaven/periwinkle-plant/provider-info.json": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "assets/polyhaven/shrub-02/provenance.json": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+      "assets/polyhaven/shrub-02/provider-files.json": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+      "assets/polyhaven/shrub-02/provider-info.json": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+      "assets/polyhaven/shrub-02/shrub_02.bin": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+      "assets/polyhaven/shrub-02/shrub_02_4k.gltf": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+      "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+      "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+      "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-02/altar-figure.js": "4d48ca67a3cdca14dae764fd4b882f577a95339986a6376791349b430b6d5e13",
+      "reconstructions/scene-02/architectural-finishes160.js": "2be5c9286791a91473103803bece87da8b7e4700c88a9e40290762af1ef23126",
+      "reconstructions/scene-02/architecture.js": "65b536c4d4bf45c700ddf0a120e906f3266ecab7c895b3319a3272b5671e5955",
+      "reconstructions/scene-02/asset-dependencies.json": "43a59984efe9c8f341ba45da2f170135dcf90c34d935eaef18a0c9350b40840d",
+      "reconstructions/scene-02/assets/carved-gable186/ATTRIBUTION.txt": "3cb60aff88595ed3864ccc74bf48b0a38613b68a0dcddb70f4b77457a47beb62",
+      "reconstructions/scene-02/assets/carved-gable186/cloud-scroll.glb": "0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee",
+      "reconstructions/scene-02/assets/carved-gable186/source-component-manifest.json": "59e96e5476f98d4e5b36b34265e51cd6566448d05405e8a27e163f84c672e196",
+      "reconstructions/scene-02/assets/fir-sapling/fetch-original.py": "defa06e13b1d1c9665354f933b1d8c515aac6994ca955fd972b881228e422034",
+      "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin": "efdebfae6ee4b3ea20c7a85eb9f798ff4953259a3616bcff0b7e580b00f34f40",
+      "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf": "b9e79991ac418a68da4e48fac0cf7e427835ff339369fc41f26232033bede433",
+      "reconstructions/scene-02/assets/fir-sapling/provenance.json": "89756dd583836588701aa6256a20c37c156730483df9d36afc591ac84ef8095b",
+      "reconstructions/scene-02/assets/fir-sapling/provider-files.json": "4a87921ef6b878af2d0789ea9b9da4855c76f98a5c8ad6ca68bf263fee4e89c6",
+      "reconstructions/scene-02/assets/fir-sapling/provider-info.json": "56c9ec5614688ba0eb8b628918fe49d05875d9ae70fc7ee5a4a8449607775617",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg": "58d613a7612205159ab605bc4f17dfc848ab79551b0bab5680a65f409a90c8c9",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg": "d5a11f7e16189426018a1d3123e30108a09648f569d3b54dd2ed44d063807f69",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg": "9fc044399e69277a5585da98e4836783ff2a4e4346b5743964dc8ce4a9326002",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg": "4612704ed3f6f39bea681468964c9ee844ea607a5a6e9418a3c82ba7e2815058",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg": "14b17f44ea87c75dcf9055293ad1975dcbeabe30748dda0775d48aab8ad2bd3c",
+      "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg": "77fa92733acc4e658408b02f47e41c089e90e888e1e359a4cba4af940bc200cf",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-02/assets/foreground-lantern120/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-02/assets/foreground-lantern120/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-02/bank-evergreen156.js": "9600f93f0eb3aaf5e2721ee1d43a3846eb2ab131743e9f699b3bc6dd478cbd92",
+      "reconstructions/scene-02/bridge-site210.js": "d8db499e3eccc12f0e21873eab84564a445bec4f5e13fa31afc3e837fffd66ac",
+      "reconstructions/scene-02/carved-rosette170.js": "d7aa33c14cc51c836c113e37a4a0774e7bf97f31f87db46f0c710bd365b28547",
+      "reconstructions/scene-02/carved-timber157.js": "bccb34e68c836f67fa04fc2563113afae450ee21f44627b5fbb158fb29413762",
+      "reconstructions/scene-02/corner-receiver158.js": "1ea4dbb551c7a9af51a2e62152c0136b05c4cb822d2e9b4af8b3b7287f43573d",
+      "reconstructions/scene-02/embedded-bridge-bearings146.js": "c7ba29d52bf5f50b310852f1dac9e4c883ea25f70768e5485c6fd606979ec8f7",
+      "reconstructions/scene-02/foreground-stone-lantern120.js": "a42b8965dc6f2dfa5043de7d135a6717b1ad5ecf69aae433a4353522ded88899",
+      "reconstructions/scene-02/gable-source186.js": "0d94eda7ab9248c2d6cc45401cc25acb8165b95ff0b7b1eec6a46defd6ca83f7",
+      "reconstructions/scene-02/gable170.js": "1c9fb0889bb519e027a7538e08af84182e5f0fd8549ffa0d0f6abe2f7e619120",
+      "reconstructions/scene-02/gallery-footings162.js": "3d86fdbc5e0272fb8c66cf95c24ecc4eef0da13a45474c65a85e3324c7505803",
+      "reconstructions/scene-02/garden-pines145.js": "7906cb512520298811faf0f2933d708c32afee80b17e164be808e4b060eff658",
+      "reconstructions/scene-02/garden.js": "b23604ba1c9d26dea365d72b04c21af44a6f79404eaeac2df51cd0fdffd927d2",
+      "reconstructions/scene-02/hall-carpentry141.js": "f0b95867c68176df1a3f8d7b15de35cd385da69ee7dfecc6b0aced5a6af9097a",
+      "reconstructions/scene-02/hall-entry.js": "7e3017df21dc051d4ec990ee6abd174f3543cf4d40b9f53cc0f3877d65095292",
+      "reconstructions/scene-02/hall-roof154.js": "f6393ecda67ca200e8347d2cd8b0a4e608ab8af602ca0b4a6c9a35d15ad2bd3c",
+      "reconstructions/scene-02/hall-terrace144.js": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6",
+      "reconstructions/scene-02/index.html": "7f3e37d5570290303815dfd82484d007d7c8311a3848c775339ba615e8d33743",
+      "reconstructions/scene-02/kernel.js": "f0e2bdffabed6fff7a0d5f710295b96108c8b6ccf26c9e60989dd07b01933335",
+      "reconstructions/scene-02/layout117.js": "b2b2eb170691ec8e1f0046a8bfff6f0be76f5eb0e4c589c95093d8fea328c693",
+      "reconstructions/scene-02/main.js": "339a377d15c7d084c9f64c543bac6ca12438b5478044611271f4a1fd72a04f34",
+      "reconstructions/scene-02/mass170-provenance.json": "11ec724ce2bda1ebf98f3e6efd0142ff45e2993ca9d2af5c2e46333ef5440e02",
+      "reconstructions/scene-02/pagoda-ensemble160.js": "f0af0d1945d18438ab4df2019efadef83b5fa898d512e5c3b5c83fa366fbb61c",
+      "reconstructions/scene-02/pagoda-ground.js": "14479f1cc1e397674ed984b557ea6eaec17c7e20158bc1fb0a98cdf2fcd185c6",
+      "reconstructions/scene-02/planted-shoulders147.js": "e31c77ded7a84bc9fa27330e6c96a57743e2ab017534e1b873d2bc91497e70ea",
+      "reconstructions/scene-02/roof-seat170.js": "7583de07f3553f45ff7a9babd857d5a5b6f48163c518e53ca862d5278079e344",
+      "reconstructions/scene-02/rooted-canopy142.js": "080a2c3a5b63c7d819cff373c3f9da2dfd1174a46244cb59f4ba82457e96ce42",
+      "reconstructions/scene-02/scanned-fir-woodland150.js": "cba464f553ffadad7e094c4461547296b00a9c912d6b5e5849fc48b05413aa2e",
+      "reconstructions/scene-02/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-02/scanned-timber.js": "948b3abee231f904607e0218d02b0c6aa6bc49b6ecf03155e4caadcd1dbd1c28",
+      "reconstructions/scene-02/scanned-understory146.js": "d883a6c1176ef8177a941d89050b6532a26fd77b4e9e63bd345fbbe1e7ad2192",
+      "reconstructions/scene-02/sorin-solids.js": "8727f15d8e7f892698c24e4989e3f6faef9003ee601d4b4b928a76017ed1100c",
+      "reconstructions/scene-02/spatial186-provenance.json": "9a06e430f75c0c11528252ca6f1a52d2149b997d8ac3f48d3424ff98c76661c1",
+      "reconstructions/scene-02/spatial186.js": "1e796ee820523928009083b319796b51136faf5707bbc1d60e621ad90fc0a6ac",
+      "reconstructions/scene-02/veranda-boards.js": "b608bec680cf832126b58c13232b0d6b3f3069ad17b24072a5189a9a19f5d5f2",
+      "reconstructions/scene-02/veranda-carvings143.js": "65267311b1c82f5876678fdb4423a3bd2af0415c476a1c71e16a8ee0dbe7fb1b",
+      "reconstructions/scene-02/veranda-rail117.js": "47ab4f36da0c6843ea17028a539936c15094a659a95f5e2015f10f9627712c98",
+      "reconstructions/scene-02/woodland-terminal148.js": "1baeaa866a3f6f1a5f699fcb54e922cab53e65019b1c6bdbdc984837a1b848a1"
+    }
+  },
+  "iteration": "r01",
+  "scope": "Actual authored bridge, supporting pier and approach meshes plus stone garden lantern topology. Existing unchanged decorative fittings omitted from this CPU fixture. Technical success is not photographic acceptance.",
+  "bridge": {
+    "revision": 210,
+    "piers": [
+      {
+        "localCenter": [
+          -7.12,
+          -1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 0.774458000085168,
+        "rows": 2
+      },
+      {
+        "localCenter": [
+          -7.12,
+          1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 0.774458000085168,
+        "rows": 2
+      },
+      {
+        "localCenter": [
+          -3.6,
+          -1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 1.7908225299105984,
+        "rows": 5
+      },
+      {
+        "localCenter": [
+          -3.6,
+          1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 1.7908225299105984,
+        "rows": 5
+      },
+      {
+        "localCenter": [
+          0,
+          -1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 2.2698853004424966,
+        "rows": 6
+      },
+      {
+        "localCenter": [
+          0,
+          1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 2.2698853004424966,
+        "rows": 6
+      },
+      {
+        "localCenter": [
+          3.6,
+          -1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 2.1326752942841987,
+        "rows": 6
+      },
+      {
+        "localCenter": [
+          3.6,
+          1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 2.1326752942841987,
+        "rows": 6
+      },
+      {
+        "localCenter": [
+          7.12,
+          -1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 1.4313164530962212,
+        "rows": 4
+      },
+      {
+        "localCenter": [
+          7.12,
+          1
+        ],
+        "worldBaseY": 0.08,
+        "worldTopY": 1.4313164530962212,
+        "rows": 4
+      }
+    ],
+    "bents": [
+      {
+        "localX": -7.12,
+        "girderSoffitLocalY": 0.5328786344470534,
+        "capBottomLocalY": 0.2334830715268923,
+        "curvedBearing": true
+      },
+      {
+        "localX": -3.6,
+        "girderSoffitLocalY": 1.5153812340195314,
+        "capBottomLocalY": 1.2498476013523228,
+        "curvedBearing": true
+      },
+      {
+        "localX": 0,
+        "girderSoffitLocalY": 1.9598124849745462,
+        "capBottomLocalY": 1.728910371884221,
+        "curvedBearing": true
+      },
+      {
+        "localX": 3.6,
+        "girderSoffitLocalY": 1.8375461428532907,
+        "capBottomLocalY": 1.591700365725923,
+        "curvedBearing": true
+      },
+      {
+        "localX": 7.12,
+        "girderSoffitLocalY": 1.1700492319182656,
+        "capBottomLocalY": 0.8903415245379456,
+        "curvedBearing": true
+      }
+    ],
+    "closedDeckPlanks": 64,
+    "archGirders": 3,
+    "referenceCameraChanged": false,
+    "visualAccepted": false
+  },
+  "approaches": {
+    "revision": 210,
+    "bridgeEndY": [
+      1.5153864818564433,
+      2.186563375260108
+    ],
+    "eastRisers": 3,
+    "westRisers": 3,
+    "forecourtY": 1.7,
+    "courtPolygon": [
+      [
+        4.5050108147836205,
+        2.539637813469942
+      ],
+      [
+        6.62486424954252,
+        1.5623871474424864
+      ],
+      [
+        7.355560738505618,
+        1.3199677705873953
+      ],
+      [
+        8.260397964959903,
+        4.047313220569604
+      ],
+      [
+        7.529701475996805,
+        4.289732597424695
+      ]
+    ],
+    "subtractedBridgeFlight": [
+      [
+        5.254808332736708,
+        2.016923479045782
+      ],
+      [
+        6.62486424954252,
+        1.5623871474424864
+      ],
+      [
+        7.529701475996805,
+        4.289732597424695
+      ],
+      [
+        6.159645559190993,
+        4.744268929027991
+      ]
+    ],
+    "stairLowerLandingFront": [
+      [
+        4.5050108147836205,
+        1.7,
+        2.539637813469942
+      ],
+      [
+        7.144750030856942,
+        1.7,
+        1.4652650331350108
+      ]
+    ],
+    "connectedPhysicalPlans": true,
+    "visualAccepted": false
+  },
+  "lantern": {
+    "revision": 210,
+    "position": [
+      11.55,
+      0.14,
+      5.9
+    ],
+    "closedStoneRoof": true,
+    "solidWindowPiers": true,
+    "overallHeight": 3.84,
+    "visualAccepted": false
+  },
+  "geometries": [
+    {
+      "name": "structure210-upper-arched-girder",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.7830002164915211,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lower-arched-girder",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.8700002421066153,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-upper-arched-girder",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.7829999750927108,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lower-arched-girder",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.869999973885712,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-upper-arched-girder",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.7830002164915202,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lower-arched-girder",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.8700002421066162,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643360880708,
+      "degenerate": 18,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643079166206,
+      "degenerate": 38,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246436049924674,
+      "degenerate": 36,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643304532955,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246379457761326,
+      "degenerate": 6,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246389410914856,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246402401687914,
+      "degenerate": 60,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246392150390145,
+      "degenerate": 44,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246395022581335,
+      "degenerate": 96,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024638989689821,
+      "degenerate": 92,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024640803570516,
+      "degenerate": 58,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246383025844537,
+      "degenerate": 30,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246381147878487,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246433796418472,
+      "degenerate": 30,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246432482287807,
+      "degenerate": 36,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643379626383,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643266977964,
+      "degenerate": 34,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655182848507,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395219741,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655525867229,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460531849,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460539859,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460540317,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395194949,
+      "degenerate": 6,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789265523183023,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395187217,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655199186302,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460539463,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655329859129,
+      "degenerate": 6,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655329858864,
+      "degenerate": 14,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.078926555258601,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892647024755964,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638850357522,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263930775264,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892637739632728,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639111727809,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639569105353,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638327667022,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639961139623,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638523659766,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638458347798,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640026459578,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639895782905,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892637935612715,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639111717019,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639111712985,
+      "degenerate": 34,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263981499152,
+      "degenerate": 30,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640591327493,
+      "degenerate": 18,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640089541576,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892641461654397,
+      "degenerate": 28,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640460657029,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638573558432,
+      "degenerate": 36,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638654358963,
+      "degenerate": 44,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640091792082,
+      "degenerate": 40,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639569089611,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638196986804,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263871968499,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638523671767,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638981046628,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638458364452,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638131666778,
+      "degenerate": 32,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639242375427,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263878502943,
+      "degenerate": 28,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892637870256064,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638785003915,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638588979545,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892645521992235,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892656832634631,
+      "degenerate": 28,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655199161523,
+      "degenerate": 34,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655918008812,
+      "degenerate": 32,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892656571289344,
+      "degenerate": 38,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655787221922,
+      "degenerate": 42,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655297223755,
+      "degenerate": 46,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655754577026,
+      "degenerate": 38,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655003154422,
+      "degenerate": 32,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655329851633,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789265539520556,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655525869322,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655591213346,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789265546053364,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395204588,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-curved-guard-rail",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.21562501415610427,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-curved-guard-rail",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.16499985083936863,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-curved-guard-rail",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.1814998341202667,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-deck-edge-fascia",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.09899991361796068,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-curved-guard-rail",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.21562501415610427,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-curved-guard-rail",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.16499985083936863,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-curved-guard-rail",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.1814998341202667,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-deck-edge-fascia",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.09899991361796101,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02124799862289432,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-short-guard-infill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0012600000272691239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-guard-post",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.043907000710129734,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-fitted-transverse-pier-cap",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.36315754530881256,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09899825797496002,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09132519052173216,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09899825797496002,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09132519052173216,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-fitted-transverse-pier-cap",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.3220354315745572,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1026416110385329,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09942221953860338,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0026391148437340567,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09625245238465123,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0025528321036443666,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0931322775853098,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0024679347924377072,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09006173681000647,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1026416110385329,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09942221953860338,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0026391148437340567,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09625245238465123,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0025528321036443666,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0931322775853098,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0024679347924377072,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09006173681000647,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-fitted-transverse-pier-cap",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.2799791611951191,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.110495008436458,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10760320679915708,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002653630205756733,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10474848312733769,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0025814387265922743,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10193086124517747,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002510210049623635,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09915032914584217,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0024399438707777385,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09640688682933186,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.110495008436458,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10760320679915708,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002653630205756733,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10474848312733769,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0025814387265922743,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10193086124517747,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002510210049623635,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09915032914584217,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0024399438707777385,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09640688682933186,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-fitted-transverse-pier-cap",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.2981266332180655,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10320915686110027,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10050803567002843,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002653630205756733,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09784154758690981,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0025814387265922743,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09520971486499663,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002510210049623635,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09261252628916472,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0024399438707777385,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09004998185941408,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10320915686110027,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10050803567002843,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002653630205756733,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09784154758690981,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0025814387265922743,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09520971486499663,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002510210049623635,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09261252628916472,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0024399438707777385,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09004998185941408,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-fitted-transverse-pier-cap",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.3392486323394329,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10038420804500596,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09645606081076268,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0026174142914170717,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09260371962708847,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002510210049623635,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.08882720494090351,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-submerged-stone-pier-foot",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1561559979264735,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.10038420804500596,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002726783883888239,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09645606081076268,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0026174142914170717,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09260371962708847,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-mortar-bed",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.002510210049623635,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-granite-pier-course",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.08882720494090351,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-foot-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0013337998769223727,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-pier-cap-bedding",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0011699999067187328,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-stone-pier-bearing-pad",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.02466749887630344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-approach-stair-bearing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 1.8945626818650039,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-bridge-approach-tread",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.13826327766228663,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-approach-stair-bearing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 1.610945216179929,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-bridge-approach-tread",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.13826329943874244,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-approach-stair-bearing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 1.327327287278691,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-bridge-approach-tread",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.13826321702741393,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-west-shore-landing-footing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 2.167967804616961,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-west-shore-level-landing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.22122112113231424,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-approach-stair-bearing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 2.881925235798775,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-bridge-approach-tread",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1382634343695984,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-approach-stair-bearing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 2.6576791651802614,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-bridge-approach-tread",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.13826310739554684,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-continuous-approach-stair-bearing",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 2.4334330388840226,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-bridge-approach-tread",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1382632722181699,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-forecourt-foundation-cut-around-bridge-flight",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 3.937736757345582,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-forecourt-foundation-cut-around-bridge-flight",
+      "vertices": 24,
+      "triangles": 8,
+      "finite": true,
+      "signedVolume": 0.8464920394464057,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0025277647523586078,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 60,
+      "triangles": 20,
+      "finite": true,
+      "signedVolume": 0.031297659502085344,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 24,
+      "triangles": 8,
+      "finite": true,
+      "signedVolume": 0.0001047349545212049,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 24,
+      "triangles": 8,
+      "finite": true,
+      "signedVolume": 0.005191138500027052,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0020615908258796375,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 24,
+      "triangles": 8,
+      "finite": true,
+      "signedVolume": 0.00006929863648450407,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 48,
+      "triangles": 16,
+      "finite": true,
+      "signedVolume": 0.03667182053016625,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.006439813263825998,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 60,
+      "triangles": 20,
+      "finite": true,
+      "signedVolume": 0.023169585952238184,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.011866433704006574,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.026967406028999743,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.01629323803558526,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.003558251489970757,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.017113994131845254,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.026146649932739782,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.007260569360086068,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 60,
+      "triangles": 20,
+      "finite": true,
+      "signedVolume": 0.035929863148313264,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 24,
+      "triangles": 8,
+      "finite": true,
+      "signedVolume": 2.507241019612588e-8,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 24,
+      "triangles": 8,
+      "finite": true,
+      "signedVolume": 0.0002603219138489683,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-jointed-forecourt-flag-sharing-stair-foot",
+      "vertices": 36,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.007315749380681254,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-founded-base",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.2080799953186512,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-founded-base",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.09413599875855443,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-octagonal-stone-shaft",
+      "vertices": 99,
+      "triangles": 160,
+      "finite": true,
+      "signedVolume": 0.39216046211469274,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 18,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-sill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1694000080645085,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-sill",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.1694000080645085,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-solid-corner-pier",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.021708002265930254,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-solid-corner-pier",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.021708002265930254,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-solid-corner-pier",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.021708002265930254,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-solid-corner-pier",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.021708002265930254,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-recessed-luminous-window",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.01056000034093856,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-recessed-luminous-window",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.01056000034093856,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-recessed-luminous-window",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.01056000034093856,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-recessed-luminous-window",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.01056000034093856,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.0014079999294281016,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-window-bar",
+      "vertices": 24,
+      "triangles": 12,
+      "finite": true,
+      "signedVolume": 0.001270500049009919,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-curved-square-stone-lantern-roof",
+      "vertices": 1950,
+      "triangles": 3840,
+      "finite": true,
+      "signedVolume": 0.4101011763051186,
+      "degenerate": 0,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-lotus-finial",
+      "vertices": 297,
+      "triangles": 512,
+      "finite": true,
+      "signedVolume": 0.04296226991292296,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    }
+  ],
+  "failed": [
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643360880708,
+      "degenerate": 18,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643079166206,
+      "degenerate": 38,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246436049924674,
+      "degenerate": 36,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643304532955,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246379457761326,
+      "degenerate": 6,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246389410914856,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246402401687914,
+      "degenerate": 60,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246392150390145,
+      "degenerate": 44,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246395022581335,
+      "degenerate": 96,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024638989689821,
+      "degenerate": 92,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024640803570516,
+      "degenerate": 58,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246383025844537,
+      "degenerate": 30,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246381147878487,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246433796418472,
+      "degenerate": 30,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.030246432482287807,
+      "degenerate": 36,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643379626383,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-cross-joist-bearing-on-girders",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.03024643266977964,
+      "degenerate": 34,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655182848507,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395219741,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655525867229,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460531849,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460539859,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460540317,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395194949,
+      "degenerate": 6,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789265523183023,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395187217,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655199186302,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655460539463,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655329859129,
+      "degenerate": 6,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655329858864,
+      "degenerate": 14,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.078926555258601,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892647024755964,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638850357522,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263930775264,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892637739632728,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639111727809,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639569105353,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638327667022,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639961139623,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638523659766,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638458347798,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640026459578,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639895782905,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892637935612715,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639111717019,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639111712985,
+      "degenerate": 34,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263981499152,
+      "degenerate": 30,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640591327493,
+      "degenerate": 18,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640089541576,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892641461654397,
+      "degenerate": 28,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640460657029,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638573558432,
+      "degenerate": 36,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638654358963,
+      "degenerate": 44,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892640091792082,
+      "degenerate": 40,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639569089611,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638196986804,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263871968499,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638523671767,
+      "degenerate": 12,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638981046628,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638458364452,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638131666778,
+      "degenerate": 32,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892639242375427,
+      "degenerate": 24,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789263878502943,
+      "degenerate": 28,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892637870256064,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638785003915,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892638588979545,
+      "degenerate": 22,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892645521992235,
+      "degenerate": 26,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892656832634631,
+      "degenerate": 28,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655199161523,
+      "degenerate": 34,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655918008812,
+      "degenerate": 32,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892656571289344,
+      "degenerate": 38,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655787221922,
+      "degenerate": 42,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655297223755,
+      "degenerate": 46,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655754577026,
+      "degenerate": 38,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655003154422,
+      "degenerate": 32,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655329851633,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789265539520556,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655525869322,
+      "degenerate": 10,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.0789265546053364,
+      "degenerate": 8,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-closed-transverse-deck-plank",
+      "vertices": 2892,
+      "triangles": 964,
+      "finite": true,
+      "signedVolume": 0.07892655395204588,
+      "degenerate": 4,
+      "boundaryOrNonmanifoldEdges": 0,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-small-bronze-giboshi",
+      "vertices": 330,
+      "triangles": 576,
+      "finite": true,
+      "signedVolume": 0.011054087845531652,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-octagonal-stone-shaft",
+      "vertices": 99,
+      "triangles": 160,
+      "finite": true,
+      "signedVolume": 0.39216046211469274,
+      "degenerate": 16,
+      "boundaryOrNonmanifoldEdges": 18,
+      "opposedEdgePairs": 0
+    },
+    {
+      "name": "structure210-lantern-stone-lotus-finial",
+      "vertices": 297,
+      "triangles": 512,
+      "finite": true,
+      "signedVolume": 0.04296226991292296,
+      "degenerate": 64,
+      "boundaryOrNonmanifoldEdges": 66,
+      "opposedEdgePairs": 0
+    }
+  ],
+  "visualAccepted": false
+}

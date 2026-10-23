@@ -1,0 +1,27 @@
+{
+  "sourceHash": "1352834957d4f0221f893f41aab1c348e80053dae1bebf6e5bbd327c33a62eeb",
+  "snapshot": "lookdev/scene02-rebuild210/r07b-source",
+  "status": "Rejected before GPU capture",
+  "rendered": false,
+  "reason": "Adaptive per-triangle longest-edge tessellation closed the post contact but introduced nonconforming edges before curved deformation. It was replaced by shared-index longitudinal swept solids.",
+  "samples": [
+    {
+      "boardBucketIndex": 0,
+      "vertices": 24192,
+      "boundaryOrNonmanifoldWeldedEdges": 3384
+    },
+    {
+      "boardBucketIndex": 4,
+      "vertices": 24192,
+      "boundaryOrNonmanifoldWeldedEdges": 3384
+    },
+    {
+      "boardBucketIndex": 8,
+      "vertices": 15432,
+      "boundaryOrNonmanifoldWeldedEdges": 0
+    }
+  ],
+  "candidateDeckTriangles": 1754776,
+  "heldReplacementDeckTriangles": 436000,
+  "visualAccepted": false
+}

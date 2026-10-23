@@ -1,0 +1,293 @@
+{
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "visualAccepted": false,
+  "personallyReviewedFinalNative": [
+    {
+      "iteration": "scene01-rebuild219-r07b-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r07b-full-hero/report.json",
+      "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+      "sourceCommit": "aad96ec33e8cb20c6735ee99bc2753a8ce0410d2",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-23T20:34:27.812Z",
+      "personallyReviewed": true,
+      "frames": [
+        {
+          "name": "reference",
+          "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r07b-full-hero/reference.png",
+          "pngSha256": "c47aaabb827376f6bc121ef704b2ce836675333b10b010ecc342fd4d2ae794b7",
+          "rgbaSha256": "87c9223da20d36e2e7d42060db89bc8409dbed0ff2c85b6701a7c33e8644e5a1",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "camera": {
+            "position": [
+              0,
+              3.2,
+              17
+            ],
+            "fov": 59
+          },
+          "triangles": 414086682,
+          "calls": 16420,
+          "detailCrop": null
+        },
+        {
+          "name": "detail-native",
+          "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r07b-full-hero/detail-native.png",
+          "pngSha256": "c63e03d9c1153a66753c1bd0ed85609c576ba5060e862de8f4f5a11d46908a3c",
+          "rgbaSha256": "3d0122a51c40c1d7729617863a96d8fe2effe7a6ec365d3c30e5ab82625fd7d1",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "camera": {
+            "position": [
+              0,
+              3.2,
+              17
+            ],
+            "fov": 59
+          },
+          "triangles": 403567830,
+          "calls": 13970,
+          "detailCrop": [
+            630,
+            420,
+            620,
+            1254
+          ]
+        }
+      ],
+      "sourceSceneTriangles": 67746049
+    },
+    {
+      "iteration": "scene01-rebuild219-r07-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-low/report.json",
+      "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+      "sourceCommit": "aad96ec33e8cb20c6735ee99bc2753a8ce0410d2",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-23T20:36:19.538Z",
+      "personallyReviewed": true,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-low/inspection-view.png",
+          "pngSha256": "25e3378c66c14cb0443efaaea5b89e880283d1efdaa8dc45fa221d53f5dca42a",
+          "rgbaSha256": "28471389a02fa7c827ee629a226d506037db598084a9866af913838e64b06e2c",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "camera": {
+            "position": [
+              -2.5,
+              1,
+              6.2
+            ],
+            "fov": 60
+          },
+          "triangles": 371072102,
+          "calls": 12422,
+          "detailCrop": null
+        }
+      ],
+      "sourceSceneTriangles": 67746049
+    },
+    {
+      "iteration": "scene01-rebuild219-r07-lantern-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-lantern-low/report.json",
+      "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+      "sourceCommit": "aad96ec33e8cb20c6735ee99bc2753a8ce0410d2",
+      "status": "rendered-review",
+      "errors": [],
+      "completedAt": "2026-10-23T20:36:29.101Z",
+      "personallyReviewed": true,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-lantern-low/inspection-view.png",
+          "pngSha256": "4d5455835816bf71fe328986a6a68c600947cc262e7f110517b3a93d4b988a80",
+          "rgbaSha256": "8ae7b277b22f2420456113af3074afc0e981504845a33a710f8186c02fba80a4",
+          "nativeSize": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "camera": {
+            "position": [
+              1.5,
+              1.1,
+              12
+            ],
+            "fov": 60
+          },
+          "triangles": 367342238,
+          "calls": 9428,
+          "detailCrop": null
+        }
+      ],
+      "sourceSceneTriangles": 67746049
+    }
+  ],
+  "remainingVisualFailures": [
+    "The scene remains conspicuously CG versus HD01: native GI, sunset radiance/backscatter, cool roof/sky contrast and warm metal response do not reproduce the photograph.",
+    "Main hall facade/roof/carpentry correspondence remains approximate. Reused peony and dragon source artifacts are different from the reference and do not establish historical/cultural equivalence.",
+    "The stone lantern still has simplified, regular carving, clean window geometry and synthetic mineral/moss appearance. The improved curved relief is visible but does not match the detailed reference carving.",
+    "Maple and middle-ground foliage remain too regularly clustered; several inherited shrubs still read as horizontal layers. Ground planting, leaf translucency and rock weathering need more natural variation.",
+    "True bridge-low view exposes dark inherited bank/retaining transitions. New root and foliage placement is real3D, but complete walking/headroom clearance is unverified.",
+    "Water is no longer an emissive checkerboard; it is darker and lacks the reference intensity/shape of warm reflected glints.",
+    "No motion or Cycles job was rendered by219. Custom native mineral, thin-leaf/corolla and water shaders have not been verified against the current physical exporter."
+  ],
+  "renderHistory": [
+    {
+      "iteration": "scene01-rebuild219-r01-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r01-full-hero/report.json",
+      "sourceHash": "cc2b176761bb114b689c3052ee2c50432ed5a46774a6b61edbb2c0ecd25ad337",
+      "status": "failed",
+      "validFrames": 0,
+      "error": "Error: THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: lantern219-fine-weathered-granite\nMaterial Type: MeshStandardMaterial\n\nProgram Info Log: Fragment shader is not compiled.\n\u0000\n\nFRAGMENT\n\nERROR: 0:71: '#' : invalid character\nERROR: 0:71: 'define' : syntax error\n\u0000\n\n  66: \tconst vec3 weights = vec3( 0.2126, 0.7152, 0.0722 );\n  67: \treturn dot( weights, rgb );\n  68: }\n  69: \n  70: varying vec3 vGranite219;\n> 71: float gh(vec3 p){p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z);}float gn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(gh(i),gh(i+vec3(1,0,0)),f.x),mix(gh(i+vec3(0,1,0)),gh(i+vec3(1,1,0)),f.x),f.y),mix(mix(gh(i+vec3(0,0,1)),gh(i+vec3(1,0,1)),f.x),mix(gh(i+vec3(0,1,1)),gh(i+vec3(1,1,1)),f.x),f.y),f.z);}#define STANDARD\n  72: #ifdef PHYSICAL\n  73: \t#define IOR\n  74: \t#define USE_SPECULAR\n  75: #endif\n  76: uniform vec3 diffuse;\n  77: uniform vec3 emissive;\n    at _Page.<anonymous> (file:///Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:49:81)\n    at _Page._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at _Page.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Proxy.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:61846:17)\n    at Proxy._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at Proxy.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Connection.dispatch (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63525:25)\n    at Immediate.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63586:85)\n    at process.processImmediate (node:internal/timers:534:21)",
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r01-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r01-low/report.json",
+      "sourceHash": "cc2b176761bb114b689c3052ee2c50432ed5a46774a6b61edbb2c0ecd25ad337",
+      "status": "failed",
+      "validFrames": 0,
+      "error": "Error: THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: lantern219-fine-weathered-granite\nMaterial Type: MeshStandardMaterial\n\nProgram Info Log: Fragment shader is not compiled.\n\u0000\n\nFRAGMENT\n\nERROR: 0:71: '#' : invalid character\nERROR: 0:71: 'define' : syntax error\n\u0000\n\n  66: \tconst vec3 weights = vec3( 0.2126, 0.7152, 0.0722 );\n  67: \treturn dot( weights, rgb );\n  68: }\n  69: \n  70: varying vec3 vGranite219;\n> 71: float gh(vec3 p){p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z);}float gn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(gh(i),gh(i+vec3(1,0,0)),f.x),mix(gh(i+vec3(0,1,0)),gh(i+vec3(1,1,0)),f.x),f.y),mix(mix(gh(i+vec3(0,0,1)),gh(i+vec3(1,0,1)),f.x),mix(gh(i+vec3(0,1,1)),gh(i+vec3(1,1,1)),f.x),f.y),f.z);}#define STANDARD\n  72: #ifdef PHYSICAL\n  73: \t#define IOR\n  74: \t#define USE_SPECULAR\n  75: #endif\n  76: uniform vec3 diffuse;\n  77: uniform vec3 emissive;\n    at _Page.<anonymous> (file:///Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:49:81)\n    at _Page._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at _Page.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Proxy.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:61846:17)\n    at Proxy._callHandler (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10746:33)\n    at Proxy.emit (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:10736:16)\n    at Connection.dispatch (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63525:25)\n    at Immediate.<anonymous> (/Users/mima1234/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js:63586:85)\n    at process.processImmediate (node:internal/timers:534:21)",
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r02-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r02-full-hero/report.json",
+      "sourceHash": "117d7679e3f9ff68811849e128993c97a3f4e82e342e5d06ba04e2ecc25a81a1",
+      "status": "rendered-review",
+      "validFrames": 2,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r02-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r02-low/report.json",
+      "sourceHash": "117d7679e3f9ff68811849e128993c97a3f4e82e342e5d06ba04e2ecc25a81a1",
+      "status": "rendered-review",
+      "validFrames": 1,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r03-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r03-full-hero/report.json",
+      "sourceHash": "15bbfcecbcbd899a250be37f1701db804557d09d7dbf9f5a3f329ba4a03c4fdf",
+      "status": "rendered-review",
+      "validFrames": 2,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r03-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r03-low/report.json",
+      "sourceHash": "15bbfcecbcbd899a250be37f1701db804557d09d7dbf9f5a3f329ba4a03c4fdf",
+      "status": "rendered-review",
+      "validFrames": 1,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r04-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r04-full-hero/report.json",
+      "sourceHash": "b3765928f7d804298fc9e1cf5545d55c0122d7d64f061dfb7275bbdc0a424e7b",
+      "status": "rendered-review",
+      "validFrames": 2,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r04-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r04-low/report.json",
+      "sourceHash": "b3765928f7d804298fc9e1cf5545d55c0122d7d64f061dfb7275bbdc0a424e7b",
+      "status": "rendered-review",
+      "validFrames": 1,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r05-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r05-full-hero/report.json",
+      "sourceHash": "cd28c82845efe998ce15cacaec34c79917b1b8376aec66f6a03add9a64f261a6",
+      "status": "rendered-review",
+      "validFrames": 2,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r06-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r06-full-hero/report.json",
+      "sourceHash": "f7fb4d1f86e7de7198b6c3b6c0d0b910bac29c17ddf4fedac7e5d372d609b1f2",
+      "status": "rendered-review",
+      "validFrames": 2,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r06-lantern-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r06-lantern-low/report.json",
+      "sourceHash": "f7fb4d1f86e7de7198b6c3b6c0d0b910bac29c17ddf4fedac7e5d372d609b1f2",
+      "status": "rendered-review",
+      "validFrames": 1,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r06-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r06-low/report.json",
+      "sourceHash": "f7fb4d1f86e7de7198b6c3b6c0d0b910bac29c17ddf4fedac7e5d372d609b1f2",
+      "status": "rendered-review",
+      "validFrames": 1,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r07-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-full-hero/report.json",
+      "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+      "status": "failed",
+      "validFrames": 0,
+      "error": "Error: ENOSPC: no space left on device, write\n    at async write (node:internal/fs/promises:802:8)\n    at async writeFileHandle (node:internal/fs/promises:505:7)\n    at async file:///Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:105:24",
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r07-lantern-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-lantern-low/report.json",
+      "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+      "status": "rendered-review",
+      "validFrames": 1,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r07-low",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-low/report.json",
+      "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+      "status": "rendered-review",
+      "validFrames": 1,
+      "error": null,
+      "visualAccepted": false
+    },
+    {
+      "iteration": "scene01-rebuild219-r07b-full-hero",
+      "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r07b-full-hero/report.json",
+      "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+      "status": "rendered-review",
+      "validFrames": 2,
+      "error": null,
+      "visualAccepted": false
+    }
+  ]
+}

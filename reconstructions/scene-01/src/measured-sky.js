@@ -10,7 +10,7 @@ export async function loadMeasuredSky(sunDirection){
  const linear=c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4;
  for(let y=0;y<height;y++)for(let x=0;x<width;x++){
   const a=((height-1-y)*width+x)*4,b=(y*width+x)*4;
-  const r=linear(rgba[a]/255),g=linear(rgba[a+1]/255),blue=linear(rgba[a+2]/255),luma=.2126*r+.7152*g+.0722*blue;data[b]=(r*.90+luma*.10)*gain*.97;data[b+1]=(g*.90+luma*.10)*gain;data[b+2]=(blue*.90+luma*.10)*gain*1.08;data[b+3]=1;
+  const r=linear(rgba[a]/255),g=linear(rgba[a+1]/255),blue=linear(rgba[a+2]/255),luma=.2126*r+.7152*g+.0722*blue,altitude=Math.sin((y/(height-1)-.5)*Math.PI),skyMix=T.MathUtils.smoothstep(altitude,.08,.46);data[b]=(r*.90+luma*.10)*gain*.97*(1.10-.34*skyMix);data[b+1]=(g*.90+luma*.10)*gain*(.91+.04*skyMix);data[b+2]=(blue*.90+luma*.10)*gain*1.08*(.68+.66*skyMix);data[b+3]=1;
  }
  source.dispose();
  const texture=new T.DataTexture(data,width,height,T.RGBAFormat,T.FloatType);texture.colorSpace=T.LinearSRGBColorSpace;texture.mapping=T.EquirectangularReflectionMapping;texture.minFilter=texture.magFilter=T.LinearFilter;texture.needsUpdate=true;
@@ -25,11 +25,11 @@ export async function loadMeasuredSky(sunDirection){
   fragmentShader:`varying vec3 vRay;uniform sampler2D radiance;uniform mat3 worldToSky;uniform vec3 sunDirection;uniform float skyIntensity;
    void main(){vec3 ray=normalize(vRay),d=normalize(worldToSky*ray);vec2 uv=vec2(atan(d.z,d.x)/6.28318530718+.5,asin(clamp(d.y,-1.,1.))/3.14159265359+.5);
    vec3 color=texture2D(radiance,uv).rgb*skyIntensity;
-   float facing=max(0.,dot(ray,sunDirection));color+=vec3(.75,.22,.025)*pow(facing,190.);
+   float facing=max(0.,dot(ray,sunDirection));color+=vec3(3.1,1.35,.12)*pow(facing,155.);
    color+=vec3(40.,23.,8.)*smoothstep(.999960,.999972,facing);gl_FragColor=vec4(color,1.);
    #include <tonemapping_fragment>
    #include <colorspace_fragment>
    }`});
  const mesh=new T.Mesh(new T.SphereGeometry(180,48,28),material);mesh.name='independently-authored-sky-only-environment';mesh.renderOrder=-100;
- return{mesh,texture,rotation:new T.Euler().setFromQuaternion(orientation),info:{provider:'OpenAI built-in imagegen',asset:'generated-golden-sky-v01',generated:true,referencePhotographUsed:false,scope:'Sky-only spherical environment and reflected radiance. All architecture, sculpture and plants remain independently modeled meshes.',radianceConversion:'sRGB decode, 10% luminance mixing, linear gains [.97,1,1.08], authored gain3.5; not a measured HDRI',sourceGlowElevationDegrees:3.6,targetSunDirection:sunDirection.toArray()},dispose(){texture.dispose();material.dispose();mesh.geometry.dispose();}};
+ return{mesh,texture,rotation:new T.Euler().setFromQuaternion(orientation),info:{provider:'OpenAI built-in imagegen',asset:'generated-golden-sky-v01',generated:true,referencePhotographUsed:false,scope:'Sky-only spherical environment and reflected radiance. All architecture, sculpture and plants remain independently modeled meshes.',radianceConversion:'sRGB decode, 10% luminance mixing, linear gains [.97,1,1.08], authored gain3.5 plus altitude-dependent warm horizon / cool upper-sky spectral gains, shared by displayed sky and PMREM environment; not a measured HDRI',sourceGlowElevationDegrees:3.6,targetSunDirection:sunDirection.toArray()},dispose(){texture.dispose();material.dispose();mesh.geometry.dispose();}};
 }
