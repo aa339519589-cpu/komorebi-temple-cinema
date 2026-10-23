@@ -1,0 +1,37 @@
+{
+  "geometryRevision": "r06",
+  "physicalSourceHash": "d4ebd5c9b2855de36771c9b4f24821594cde9d78230c39843869773f04d5cad6",
+  "status": "actual-physical-render-reviewed-not-accepted-as-film",
+  "actualPhysicalPng": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-nc-adoption179/cycles-r06-physical-full/scene06-nc-adoption179-r06-cycles-full-CC-BY-NC-SA-4.0.png",
+  "actualComparison": "Viewed actual PNG against native R06 and supplied reference.",
+  "improved": [
+    "Occluded timber and column lacquer have more coherent actual indirect illumination.",
+    "Gold highlight gradients and light admitted through real apertures feel more natural than the native room-cube approximation.",
+    "Room reflection and sun shafts come from actual geometry/ray transport rather than native screen-space hooks."
+  ],
+  "remaining": [
+    "Floor mirror reflection is substantially weaker than the reference/native calibrated custom varnish.",
+    "Denoised fine ornaments are soft at128samples; actual carved patterns/coffers/flowers/anatomy remain unlike reference.",
+    "R06 lotus black gaps and flat leaf crown remained visible; the subsequent R07 geometry addresses them and is not represented by this physical image."
+  ],
+  "sourceFloorParameters": {
+    "color": [
+      3.0027862178352764,
+      2.9626106409643147,
+      3.7079128132050148
+    ],
+    "roughness": 0.9290908038883472,
+    "metalness": 0,
+    "clearcoat": 0.72,
+    "clearcoatRoughness": 0.17,
+    "textures": {
+      "map": "9ddc31e7-69e2-421a-b4cc-08e7ec344e8b",
+      "roughnessMap": "bc0d5ed3-03d4-4e04-b061-944fca5c172e"
+    }
+  },
+  "floorMaterialCount": 193,
+  "rendererDifference": "Native floor-varnish.js replaces clearcoatSpecularIndirect by a custom capture-sampled radiance blend at .96. That GLSL hook is not exported. Cycles uses actual Principled clearcoat and source albedo/roughness instead; .17 coat roughness/.72 coat weight were retained. Weak physical reflection is therefore an actual calibration limitation, not native pixel parity.",
+  "futureCalibrationNotApplied": "A future physical-gloss calibration requires actual re-rendering with source-bound reflective clearcoat/albedo choices after geometry acceptance; no image editing or automatic film replacement was performed.",
+  "nativePixelEquivalence": false,
+  "visualAccepted": false
+}

@@ -1,0 +1,58 @@
+{
+  "status": "actual-3D-candidate-awaiting-native-review",
+  "visualAccepted": false,
+  "heldIncomingSourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+  "builder": "reconstructions/scene-06/modeling/sculpture165-r04/build.py",
+  "geometry": "reconstructions/scene-06/modeling/sculpture165-r04/anatomy.py",
+  "builderSha256": "e5dd61344d0563759d60ff931589e1234fca9942a26183d7bf8572ba9723fee3",
+  "geometrySha256": "305c09f0d861e9ba8eca610b7feb910030111fc2e77cc0ce4a592e1b5ae77187",
+  "additionalHelperHashes": {
+    "anatomy.py": "305c09f0d861e9ba8eca610b7feb910030111fc2e77cc0ce4a592e1b5ae77187",
+    "priorReviewedHandGeometry": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3"
+  },
+  "exactBuildSource": "lookdev/scene06-sculpture165/r04",
+  "sourceAttribution": "Seated figure of Buddha by Daniel Pett, CC0-1.0; Chinese Tang dynasty marble, different artifact from Japanese reference06. Main head/ears/arms/hands and local bridges newly authored. No unchanged scanned face is claimed.",
+  "sourceLicense": "CC0-1.0 + newly authored anatomy",
+  "sourceURL": "https://sketchfab.com/3d-models/seated-figure-of-buddha-a4d22eb6d3c44848bd49b89fb4c28759",
+  "sourceLimit": "Different Chinese Tang marble sculpture, source real dimensions undocumented. Viewing-unit normalization and all affine fits declared. Surface erosion remains; no photographic acceptance.",
+  "sourceRetarget": {
+    "method": "MeasuredCC0 cloth under declared affine fit; coincident seams welded within3e-6 viewing metres before connected orientation anchored to retained source triangles. Exact original boundary vertices retained in local waist/neck zipper bridges; source shoulder cowls are joined before actual torso waist trim. Newly authored continuous3D skull/ears with smooth nasal tissue and intrinsic eyelid/labial clefts. No donor-face projection, separate incision floor or DoubleSide mask.",
+    "retainedMeasuredPointMaxDelta": 3.205991647391149e-16,
+    "measuredClothGlobalSmoothing": false,
+    "mountTopology": {
+      "vertices": 410721,
+      "faces": 457419,
+      "boundaryEdges": 11,
+      "nonmanifoldEdges": 0,
+      "components": [
+        {
+          "faces": 457406,
+          "sourceOrientationAnchors": 80689,
+          "sourceDisagreements": 0,
+          "componentFlippedToSource": false
+        },
+        {
+          "faces": 13,
+          "sourceOrientationAnchors": 2,
+          "sourceDisagreements": 0,
+          "componentFlippedToSource": true
+        }
+      ]
+    },
+    "erosionRestoration": "None in this topology/anatomy repair; visible damage remains for local native gold inspection."
+  },
+  "authoredChanges": [
+    "Genuine CC0 DanielPett Tang knee/hip and torso cloth surfaces provide weighted anatomy and unequal original folds, under an explicitly recorded affine fit.",
+    "MeasuredCC0 cloth under declared affine fit; coincident seams welded within3e-6 viewing metres before connected orientation anchored to retained source triangles. Exact original boundary vertices retained in local waist/neck zipper bridges; source shoulder cowls are joined before actual torso waist trim. Newly authored continuous3D skull/ears with smooth nasal tissue and intrinsic eyelid/labial clefts. No donor-face projection, separate incision floor or DoubleSide mask.",
+    "Main head/ears are fully authored3D anatomical volumes, with intrinsic downcast eyelids/lip cleft and nasal tissue; no projected donor face or separate incision floors.",
+    "Authored arm/hand geometry receives its own local CPU union; no such modifier touches measured cloth.",
+    "Source stone erosion and ragged hem remain for bounded local native gold review.",
+    "Source preservation, orientation checks and successful mesh creation do not establish likeness."
+  ],
+  "noNoncommercialGeometry": true,
+  "noPhotoOrGeneratedFrame": true,
+  "limits": [
+    "CC0 Tang cloth is a different Chinese artifact; main head is newly authored and still requires anatomical/likeness review.",
+    "Topology and valid rendering do not establish photographic fidelity."
+  ]
+}

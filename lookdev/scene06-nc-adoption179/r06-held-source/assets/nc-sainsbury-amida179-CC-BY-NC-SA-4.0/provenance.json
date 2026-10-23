@@ -1,0 +1,107 @@
+{
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "isolatedNoncommercialOnly": false,
+  "productionIntegrated": true,
+  "visualAccepted": false,
+  "sourceAndProductionLicenseDecisionPending": false,
+  "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0, https://creativecommons.org/licenses/by-nc-sa/4.0/ . Modifications: previously curated paired-arm/robe/knee reflection with narrowly stitched retopology, native index curl and local fingertip contact; plinth separation; positive uniform viewing normalization; uniform gold PBR. Source face retained. Adoption179 keeps the prepared source anatomy, positions, normals and triangle indices unchanged; only a positive uniform scene scale and translation seat it on separately authored lotus geometry. No endorsement implied.",
+  "source": {
+    "file": "paired-source-arms-CC-BY-NC-SA-4.0.glb",
+    "bytes": 10121816,
+    "sha256": "50d2e0248d6d269a5f751dc27d791b503580d2de0bb344c0d380186622586dd7",
+    "originalSha256": "96e474a19a4108d0e2e331172d0601fe74518157dca35d61bfef566d7618e3ec",
+    "sourceUrl": "https://zenodo.org/records/21353739"
+  },
+  "conversion": {
+    "format": "SC07 positions/normals/neutral UV/indices",
+    "inputCoordinateSystem": "+Y up +Z front",
+    "operations": [
+      "Subtract actual minimum Y from all Y positions",
+      "Uniform positive scale to contact-to-crown height 3.26",
+      "Pack original source normals and triangle indices byte-exact",
+      "Neutral UV buffer only; no maps or captured pixels"
+    ],
+    "minimumY": 0.006470128893852234,
+    "height": 1.8193249255418777,
+    "uniformScale": 1.7918734329597685,
+    "outputBounds": [
+      [
+        -1.2409568257280694,
+        0,
+        -0.777867587292944
+      ],
+      [
+        1.2409568257280694,
+        3.26,
+        0.8428356469649826
+      ]
+    ],
+    "sourceNormalSha256": "c36c2582b0698ec9c7b8ed42ac24750c5849f49ee4bd023802fe76c67a257eb7",
+    "packedNormalSha256": "c36c2582b0698ec9c7b8ed42ac24750c5849f49ee4bd023802fe76c67a257eb7",
+    "sourceIndicesSha256": "6e22eb16289d42069974188cb40e340a60bb706a40f7c010a68069b03cad5e94",
+    "packedIndicesSha256": "6e22eb16289d42069974188cb40e340a60bb706a40f7c010a68069b03cad5e94",
+    "sourceBodyGeometryNonrigidDelta": 0
+  },
+  "output": {
+    "material": "central",
+    "file": "central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+    "vertices": 210766,
+    "triangles": 421536,
+    "bytes": 11802964,
+    "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "topology": {
+      "sourceNormalsByteExact": true,
+      "sourceIndicesByteExact": true,
+      "nonrigidDeformation": false,
+      "sourceFacePreserved": true
+    }
+  },
+  "builder": {
+    "file": "convert-r09-CC-BY-NC-SA-4.0.mjs",
+    "sha256": "19fe03759a8b8afee607228b5ab38d15270fa4431b5894376981f104470b23ed"
+  },
+  "historicalStudyProvenance": true,
+  "adoption179": {
+    "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0, https://creativecommons.org/licenses/by-nc-sa/4.0/ . Modifications: previously curated paired-arm/robe/knee reflection with narrowly stitched retopology, native index curl and local fingertip contact; plinth separation; positive uniform viewing normalization; uniform gold PBR. Source face retained. Adoption179 keeps the prepared source anatomy, positions, normals and triangle indices unchanged; only a positive uniform scene scale and translation seat it on separately authored lotus geometry. No endorsement implied.",
+    "date": "2026-10-23",
+    "personalNoncommercialUseOnly": true,
+    "productionIntegrated": true,
+    "sourceAndProductionLicenseDecisionPending": false,
+    "sourceGeometryBytesUnchanged": true,
+    "sourceGeometrySha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "uniformWorldHeight": 2.5,
+    "worldScale": 0.7668711656441718,
+    "sourceBodyNonrigidDelta": 0,
+    "sourceFaceNonrigidDelta": 0,
+    "sourceNormalsOrIndicesEdited": false,
+    "uniformMaterial": {
+      "baseColorLinear": [
+        0.5647115111351013,
+        0.3613067865371704,
+        0.08865558356046677,
+        1
+      ],
+      "metalness": 0.88,
+      "roughness": 0.47
+    },
+    "derivedImageryLicense": "CC-BY-NC-SA-4.0",
+    "historicalStudyFields": "Top-level isolated/pending fields describe the original immutable conversion study, superseded for adoption by this entry and manifest.",
+    "revision": "r06",
+    "newSourceAnatomyChanges": false,
+    "originalPreparedSourceBodySha256Unchanged": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "mountCorrection": "Actual source contact envelope inset10percent, dark support below/intersecting only concealed underside. No front gold ledge. All three independently authored lotus seats now use thin closed plates with concave roots and monotonic outward flared points, returned margins and unequal staggered rings.",
+    "haloGold": "Dedicated satin aged gold leaves, not changed statue geometry.",
+    "lensHighlightScatterStrength": 0.1,
+    "roomRepair": "Deep structural lacquer timber, separate shadowed rear framing and worn black beam facings/coffer frames. Native ray picks prove the pale bands were glossy black lacquer facings, not reference-painted cream beams.",
+    "sourceBodyAndFaceLocalDeformation": false,
+    "rawGeometryBytesStillUnchanged": true
+  },
+  "historicalConversionStudyState": {
+    "isolatedNoncommercialOnly": true,
+    "productionIntegrated": false,
+    "sourceAndProductionLicenseDecisionPending": true,
+    "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739. CC BY-NC-SA 4.0. Modified for an isolated noncommercial paired-arm study: rigid normalization, plinth separation, reflected actual outer arm/robe/knee surface with narrow stitched retopology, native index curl and locally stitched real finger-tip contact, uniform physical gold. Source face retained."
+  },
+  "personalNoncommercialUseOnly": true
+}

@@ -1,0 +1,694 @@
+{
+  "status": "R06-native-reviewed-WIP-physical-comparison-complete",
+  "currentRevision": "r06",
+  "visualAccepted": false,
+  "currentNativeSourceHash": "d4ebd5c9b2855de36771c9b4f24821594cde9d78230c39843869773f04d5cad6",
+  "allNativeJobsUsedOfficialFIFO": true,
+  "nativeGPUJobs": 16,
+  "currentNative1254Views": [
+    "full",
+    "hero-low-front",
+    "low3q"
+  ],
+  "referenceCameraUnchanged": true,
+  "currentLowHero": {
+    "position": [
+      0,
+      1.05,
+      3.1
+    ],
+    "target": [
+      0,
+      4.85,
+      -2.3
+    ],
+    "quaternion": [
+      0.3018224483858295,
+      0,
+      0,
+      0.9533641537473407
+    ],
+    "fov": 38
+  },
+  "sourceLicense": "CC-BY-NC-SA-4.0",
+  "derivedImageryLicense": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0, https://creativecommons.org/licenses/by-nc-sa/4.0/ . Modifications: previously curated paired-arm/robe/knee reflection with narrowly stitched retopology, native index curl and local fingertip contact; plinth separation; positive uniform viewing normalization; uniform gold PBR. Source face retained. Adoption179 keeps the prepared source anatomy, positions, normals and triangle indices unchanged; only a positive uniform scene scale and translation seat it on separately authored lotus geometry. No endorsement implied.",
+  "authorization": {
+    "date": "2026-10-23",
+    "text": "\u4ec5\u4e2a\u4eba\u6b23\u8d4f\uff0c\u5141\u8bb8\u4f7f\u7528\u975e\u5546\u7528\u96d5\u50cf\u7d20\u6750",
+    "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+  },
+  "sourceAndRuntimePreserved": "preservation-proof.json",
+  "preservedCanonicalFiles": 189,
+  "historicalCandidateReplayMaps": [
+    "r01-adopted-source/exact-replay-map.json",
+    "r02-source/exact-replay-map.json",
+    "r03-source/exact-replay-map.json",
+    "r04-source/exact-replay-map.json",
+    "r05-source/exact-replay-map.json",
+    "r06-held-source/exact-replay-map.json"
+  ],
+  "actualSourceAudit": "actual-source-buffer-audit179.json",
+  "remainingPhotographicDifferences": [
+    "The actual source is a different Japanese Amida: smooth fire-damaged scalp, youthful face, shallow U-fold chest and prepared symmetric pose differ from reference. These actual source anatomy surfaces remain unchanged.",
+    "The new lotus is thinner and more layered, but its pointed plates are still more regular/angular than the photographed hand-carved lotus.",
+    "The still-curated bilateral medial fold seam and raw source hem remain visible close up.",
+    "Attendant anatomy, some floral/coffer/openwork patterns, furniture proportions and overall room construction remain different.",
+    "Native room cube captures, bounce proxies, GTAO and planar varnish are still approximations; native gold/shadow response remains visibly CG.",
+    "A physical Cycles image is a cross-renderer diagnostic with actual GI and its own calibrated exterior boundary/AgX; it is not automatic native/movie replacement or WebGL pixel equivalence."
+  ],
+  "evidence": [
+    {
+      "revision": "r01",
+      "view": "full",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-full/reference.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-full/report.json",
+      "pngSha256": "32021f732410457f3f6b38d5c440bc679828ca6155827b370e857717877d7624",
+      "receiptSha256": "1ed725c6741d41e518c6ae9d214f9b83ef9f6a3e6623c3d59fcf3f39b084ec2d",
+      "sourceHash": "35d0ed1c4d314d58c3d68626c6b9cc387703fed7ec41a46f103004e64127d106",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r01",
+      "view": "hero",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-hero/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-hero/report.json",
+      "pngSha256": "d5a0a07cca32772a4a84c770199525f3a4f9f91daa260aa1e896201d5ac6741f",
+      "receiptSha256": "ffe61c340922f3f5778487df95568c9f7d4fc1fb0614490bc53a48730cb86b68",
+      "sourceHash": "35d0ed1c4d314d58c3d68626c6b9cc387703fed7ec41a46f103004e64127d106",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          4.3,
+          2.2
+        ],
+        "target": [
+          0,
+          4.3,
+          -2.3
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fov": 43
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r01",
+      "view": "low3q",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-low3q/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-low3q/report.json",
+      "pngSha256": "9f0df4598c7dbc96430492c151a431719f53835ab455619e286b80e65c9e8ccb",
+      "receiptSha256": "188e21a0b8c93db3390ae88038d1be408c2a34584d5a0e8e7025c948b4a76cc1",
+      "sourceHash": "35d0ed1c4d314d58c3d68626c6b9cc387703fed7ec41a46f103004e64127d106",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          2.9,
+          3.35,
+          1.45
+        ],
+        "target": [
+          0,
+          4.3,
+          -2.3
+        ],
+        "quaternion": [
+          0.0934295005504693,
+          0.32164446354729237,
+          -0.03191154983852849,
+          0.9416992197528716
+        ],
+        "fov": 43
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r02",
+      "view": "hero",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r02-hero/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r02-hero/report.json",
+      "pngSha256": "4e97672ae18f5ed97dbbb0496e0f4abc9c98f45e4a457a67f4d53ba9c7aa85c1",
+      "receiptSha256": "e6da63701970ee4f52b8ebb1b2db57ac3c5cc14518cbd1587b9b7e3028ae0e56",
+      "sourceHash": "43d10f82877d5cb8a39485b24396aa78fb5d5438e5efe0bd5bb0cb6d3d14aa55",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          4.3,
+          2.2
+        ],
+        "target": [
+          0,
+          4.3,
+          -2.3
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fov": 43
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r03",
+      "view": "full",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-full/reference.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-full/report.json",
+      "pngSha256": "c54ec155f97f0de59cd926415629b47b94445a16f13f363100d0d2886547a6f2",
+      "receiptSha256": "8fe63a12c53a57d2ad46128885febe85a6089c148253255e86f8628d03f4ff22",
+      "sourceHash": "a993bdab0c6a4491b2792f29bf7b9bc1261919f1ee91d21519915d96d014025b",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r03",
+      "view": "hero",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-hero/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-hero/report.json",
+      "pngSha256": "01f44dbd1a77d7567eeb2be1772a484f6454f5f8a541c747fb2478a826e443e2",
+      "receiptSha256": "9c19a0df82c992ce78e9f12fa68a54d997ca502cd932fefe5f86c22256f4aee5",
+      "sourceHash": "a993bdab0c6a4491b2792f29bf7b9bc1261919f1ee91d21519915d96d014025b",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          4.3,
+          2.2
+        ],
+        "target": [
+          0,
+          4.3,
+          -2.3
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fov": 43
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r03",
+      "view": "low3q",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-low3q/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-low3q/report.json",
+      "pngSha256": "6ea6dc7c1763bb5c0c9ef1a8d9eac093037ccdba57f004aff5b01015337aa4e1",
+      "receiptSha256": "e736a41d5bb68031475d485fb7a5df11b7f8d2d715542ab5ca5777dca27cbbc0",
+      "sourceHash": "a993bdab0c6a4491b2792f29bf7b9bc1261919f1ee91d21519915d96d014025b",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          2.9,
+          3.35,
+          1.45
+        ],
+        "target": [
+          0,
+          4.3,
+          -2.3
+        ],
+        "quaternion": [
+          0.0934295005504693,
+          0.32164446354729237,
+          -0.03191154983852849,
+          0.9416992197528716
+        ],
+        "fov": 43
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r03",
+      "view": "material-inspection",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-material-inspection/reference.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-material-inspection/report.json",
+      "pngSha256": "98dbc3c4c3bb5448d53d62bb7e53e1cc3edc923ea8e0338fa31c5874ed7c129a",
+      "receiptSha256": "5e7314f77757edfb287c47d368465de4a718c369d9deff625fc978d863293015",
+      "sourceHash": "a993bdab0c6a4491b2792f29bf7b9bc1261919f1ee91d21519915d96d014025b",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r04",
+      "view": "full",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r04-full/reference.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r04-full/report.json",
+      "pngSha256": "95c9e032c61ebb02b4d7333f03d42632a329abb8f0f0e5a245d40f7d2154db32",
+      "receiptSha256": "861170ddb3f5c2425dd9eb36f6b9c14070ce3dcf701eb6021d174192315cd2a3",
+      "sourceHash": "00abb435d40ab475c6d060158251efdfc394fbba6e30ff1cb1f2f1ad8ccc862f",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r04",
+      "view": "low-front",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r04-low-front/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r04-low-front/report.json",
+      "pngSha256": "eff695e6e5182206b32482c4c61215d63bc4354c60ca9b9ea383ef5da7f401d8",
+      "receiptSha256": "311ee64b61693d534008c0e57cb0a9ea04aea12f19ad4ca1c5aefb6315fa4fbf",
+      "sourceHash": "00abb435d40ab475c6d060158251efdfc394fbba6e30ff1cb1f2f1ad8ccc862f",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          1.05,
+          3.9
+        ],
+        "target": [
+          0,
+          4.62,
+          -2.3
+        ],
+        "quaternion": [
+          0.2582594229029585,
+          0,
+          0,
+          0.9660756028809705
+        ],
+        "fov": 48
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r05",
+      "view": "faceplate-inspection",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-faceplate-inspection/reference.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-faceplate-inspection/report.json",
+      "pngSha256": "8915b89bba17746ad7fbef0898b295792b40e3d40fd53fe97c390f8a6a5f0b06",
+      "receiptSha256": "6e51f1893f75e9e61b1fc5013d607f67959594995849862bb5707605c05277f1",
+      "sourceHash": "2d025d899c83961acec745c446584ecd4fa3c5a629371a1dd7eee4883cddcf4a",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r05",
+      "view": "full",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-full/reference.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-full/report.json",
+      "pngSha256": "b41a99c821a6e76a5c4f3c41d9b0eb0396e713be1678c9d5b729b78efd08ab92",
+      "receiptSha256": "7472fbf6f9365ff649c4e3c1598593ed89abcaf6475631aba278b2199c96d62b",
+      "sourceHash": "2d025d899c83961acec745c446584ecd4fa3c5a629371a1dd7eee4883cddcf4a",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r05",
+      "view": "low-front",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-low-front/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-low-front/report.json",
+      "pngSha256": "dd3ac12d3c602491f780c239c1c636847755a37d8f37ddb5d746b194b305638c",
+      "receiptSha256": "901d8d3a309a43a29607df37d04abdd31c5be08da9d909ffdc245a089c321b9c",
+      "sourceHash": "2d025d899c83961acec745c446584ecd4fa3c5a629371a1dd7eee4883cddcf4a",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          1.05,
+          3.9
+        ],
+        "target": [
+          0,
+          4.62,
+          -2.3
+        ],
+        "quaternion": [
+          0.2582594229029585,
+          0,
+          0,
+          0.9660756028809705
+        ],
+        "fov": 48
+      },
+      "status": "preserved-superseded-candidate"
+    },
+    {
+      "revision": "r06",
+      "view": "full",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-full/reference.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-full/report.json",
+      "pngSha256": "7c912bf26b76627b9832c9fbe36414d95367ecd84c1b998d7c9e087201299409",
+      "receiptSha256": "662a418b777ed80fe68284b4509b3b87dc8f32aafc96adfc80904a83b7f2edbc",
+      "sourceHash": "d4ebd5c9b2855de36771c9b4f24821594cde9d78230c39843869773f04d5cad6",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "status": "current-native-reviewed-WIP"
+    },
+    {
+      "revision": "r06",
+      "view": "hero-low-front",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-hero-low-front/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-hero-low-front/report.json",
+      "pngSha256": "cf8eb5ebfcba9b161acf91d98b7b5f47446fdbe61db8a8b803d38896444b2f6a",
+      "receiptSha256": "9bade5882c958ccabf25d855fbf228297249ba609377bba23459f1780f928951",
+      "sourceHash": "d4ebd5c9b2855de36771c9b4f24821594cde9d78230c39843869773f04d5cad6",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          0,
+          1.05,
+          3.1
+        ],
+        "target": [
+          0,
+          4.85,
+          -2.3
+        ],
+        "quaternion": [
+          0.3018224483858295,
+          0,
+          0,
+          0.9533641537473407
+        ],
+        "fov": 38
+      },
+      "status": "current-native-reviewed-WIP"
+    },
+    {
+      "revision": "r06",
+      "view": "low3q",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-low3q/inspection-view.png",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-low3q/report.json",
+      "pngSha256": "5fec52096a1032ddd31b8c12b3881e2f336476e4b22617bbdbe36be848830b09",
+      "receiptSha256": "5f401a994322c424e6ea9cc95559dbe82eb1419b6928fc2b60897834fea3e92b",
+      "sourceHash": "d4ebd5c9b2855de36771c9b4f24821594cde9d78230c39843869773f04d5cad6",
+      "officialDriver": "tools/render-one-reconstruction.mjs",
+      "nativeWidth": 1254,
+      "nativeHeight": 1254,
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "personalNoncommercialUseOnly": true,
+      "visualAccepted": false,
+      "pixelEditing": false,
+      "camera": {
+        "position": [
+          2.8,
+          1.35,
+          2.2
+        ],
+        "target": [
+          0,
+          4.75,
+          -2.3
+        ],
+        "quaternion": [
+          0.270516451719248,
+          0.2636245244601078,
+          -0.077290414776928,
+          0.9226858356103773
+        ],
+        "fov": 43
+      },
+      "status": "current-native-reviewed-WIP"
+    }
+  ],
+  "physicalComparison": {
+    "status": "path-traced-review",
+    "sourceHash": "d4ebd5c9b2855de36771c9b4f24821594cde9d78230c39843869773f04d5cad6",
+    "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-nc-adoption179/cycles-r06-physical-full/scene06-nc-adoption179-r06-cycles-full-CC-BY-NC-SA-4.0.png",
+    "pngSha256": "afe2ecd889cf8e0dd8189306efc37ab97f861e4563c78b73da312627f9e84fa2",
+    "receipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-nc-adoption179/cycles-r06-physical-full/report.json",
+    "receiptSha256": "6f215fb106bb69cc443be1d0dd49ffe36eb5489495d5caa2e917cedaa54c5431",
+    "renderScript": {
+      "file": "render-scene06-cycles179-r06.py",
+      "sha256": "7d7549a7f415525cf56d4998b1ba9a423faeac99e43f0f96786be212351310ed"
+    },
+    "officialDriver": "tools/run-blender-queued.mjs",
+    "size": [
+      1254,
+      1254
+    ],
+    "samples": 128,
+    "elapsedSeconds": 178.17935299873352,
+    "triangleCount": 17749309,
+    "sourceRenderableTrianglesPreserved": true,
+    "nativePixelParity": false,
+    "license": "CC-BY-NC-SA-4.0",
+    "visualAccepted": false,
+    "blendsSaved": false
+  },
+  "physicalExportDiskProof": "cycles-r06-export-disk-proof.json",
+  "physicalExportAttributeAudit": "cycles-r06-export-attribute-audit.json",
+  "fullFilmRendered": false,
+  "blenderAuthoring": false,
+  "blenderSceneExports": "One source-buffer package through official FIFO; no .blend saved.",
+  "noGitWrites": true,
+  "childrenSpawned": 0,
+  "currentPublicSourceKeptOpen": true,
+  "blanketPermissiveRelicense": false,
+  "pendingOwnGPUJobs": 0,
+  "currentScenePath": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06",
+  "findingsPath": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-nc-adoption179/review-findings179-CC-BY-NC-SA-4.0.json",
+  "comparisonHtml": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-nc-adoption179/compare179-CC-BY-NC-SA-4.0.html",
+  "rootIntegrationAndGitRequired": true
+}
