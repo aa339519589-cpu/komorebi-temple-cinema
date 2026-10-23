@@ -1,0 +1,56 @@
+{
+  "status": "R02-crisp-face-camera-held-for-root-review",
+  "sourceHash": "b4dc71cecbd2e35d7b037614d7810963414ca418b7c0c393b8021eaed3fd0910",
+  "cameraRevision": "scene06-low-statue-retreat189-r02-crisp-face",
+  "actualFivePositionsViewed": true,
+  "actualFocusComparisonTimes": [
+    0,
+    1.75,
+    3.5
+  ],
+  "actualFocusComparison": "R02 eyes/lid borders, lip line, robe edges and actual source surface detail are visibly better resolved than the soft R01 f/4 result. No post sharpening/image substitution; DOF pass is disabled throughout. Perspective/low-path framing is identical.",
+  "mainFigureDofEnabled": false,
+  "constantFocusStrength": 0,
+  "reportedAperture": 11,
+  "actualFacePoint": "actual-face-focus-point189-r02.json",
+  "nativeComparisons": "focus-comparison189.html",
+  "inspectionCropComparison": "analysis-focus-face-comparison189-r01-r02.png",
+  "inspectionCropCaveat": "Labeled nearest-neighbor magnifications of original native PNGs for inspection; they are not replacement render outputs.",
+  "observations": [
+    {
+      "seconds": 0,
+      "actualView": "Actual central face, both raised hands, robe, crossed legs and lotus dominate the low right-front frame. Censer body/glass are outside the principal view; nearby flowers remain only at the lower edge. No table/column/altar clipping observed."
+    },
+    {
+      "seconds": 1.75,
+      "actualView": "Retreat retains central figure/lotus dominance while revealing attendants. Glass chimney appears only at far lower-left edge and does not cross the central body/face."
+    },
+    {
+      "seconds": 3.5,
+      "actualView": "Triad and upper altar are revealed. Censer is a smaller lower-frame context; chimney stays below the main body/lotus. No giant foreground object obscures the statue."
+    },
+    {
+      "seconds": 5.25,
+      "actualView": "Complete altar furniture and low prayer table/cushion enter as camera lowers. Table, lamps and columns do not clip the camera at this sampled pose; central triad remains clear."
+    },
+    {
+      "seconds": 7,
+      "actualView": "Exact original reference camera position/target/quaternion/FOV and no-DOF mode restored; original composition retained. Cross-run pixel identity is not claimed."
+    }
+  ],
+  "pathAndLensUnchangedToR01": "r01-r02-path-and-focus-comparison189.json",
+  "all199ProtectedR08FilesByteExact": true,
+  "endingPoseExact": true,
+  "endingPixelComparison": "ending-pixel-comparison189.json",
+  "cameraStaticReviewAcceptedProvisionally": true,
+  "continuousMotionReviewed": false,
+  "geometryAndScalpChanged": false,
+  "materialsAndLightingChanged": false,
+  "sourceFaceAnatomyAcceptance": false,
+  "overallPhotographicAcceptance": false,
+  "pendingOwnGPUJobs": 0,
+  "noMovie": true,
+  "noGitWrites": true,
+  "noExports": true,
+  "children": 0
+}

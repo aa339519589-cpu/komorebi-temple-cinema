@@ -1,0 +1,56 @@
+{
+  "purpose": "Actual face/eye-bridge camera focal-plane anchor, read-only source-mesh point. No head/face/scalp/body edits.",
+  "source": "reconstructions/scene-06/assets/nc-sainsbury-amida179-CC-BY-NC-SA-4.0/central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+  "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+  "vertexIndex": 40685,
+  "modelPosition": [
+    0.10062408447265625,
+    2.561319351196289,
+    0.04703081026673317
+  ],
+  "sourceNormal": [
+    0.75371253490448,
+    -0.061601024121046066,
+    0.6543108820915222
+  ],
+  "positiveUniformWorldScale": 0.7668711656441718,
+  "worldPoint": [
+    0.07716570895142351,
+    5.389201956438872,
+    -2.2639334277095604
+  ],
+  "selectedFromActualNativeR01Opening": {
+    "sourceHash": "70d7f31c137975a54859684ccf2296401cab291606f926dc7e31d2fd313ba7b7",
+    "png": "qa/ten-reference/06/iteration-scene06-low-shot189-r01-five-poses/shot-0.png",
+    "eyeBridgePixelWitness": [
+      645,
+      468
+    ],
+    "projectedActualSourceVertexPixel": [
+      645.27184668453,
+      467.8518975792215
+    ],
+    "pixelDistance": 0.30957219986689233,
+    "camera": {
+      "position": [
+        1.05,
+        1.3,
+        1.95
+      ],
+      "target": [
+        -0.00876540499062517,
+        4.72838321616012,
+        -2.3354790202001467
+      ],
+      "quaternion": [
+        0.32182893054060613,
+        0.11428330335393252,
+        -0.0391665281188015,
+        0.9390588102545664
+      ],
+      "fov": 42
+    }
+  },
+  "sourceDataUsed": "Actual indexed3D mesh positions/normals; existing rendered frame only identifies anatomical point. No photograph pixels or geometry projection used.",
+  "license": "CC-BY-NC-SA-4.0"
+}

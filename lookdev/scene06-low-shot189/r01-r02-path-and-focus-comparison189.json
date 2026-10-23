@@ -1,0 +1,74 @@
+{
+  "sourceHashR01": "70d7f31c137975a54859684ccf2296401cab291606f926dc7e31d2fd313ba7b7",
+  "sourceHashR02": "b4dc71cecbd2e35d7b037614d7810963414ca418b7c0c393b8021eaed3fd0910",
+  "actualFivePosePathAndLensUnchanged": true,
+  "endingReferenceCameraExact": true,
+  "mainFigureDofDisabledAtEverySample": true,
+  "focusSnap": "Constant zero DOF strength throughout source path, no animated blur transition.",
+  "faceSourcePoint": "actual-face-focus-point189-r02.json",
+  "samples": [
+    {
+      "seconds": 0,
+      "positionQuaternionFovByteExactToR01": true,
+      "focusPassEnabled": false,
+      "focusStrength": 0,
+      "fNumberReported": 11,
+      "focusPoint": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ]
+    },
+    {
+      "seconds": 1.75,
+      "positionQuaternionFovByteExactToR01": true,
+      "focusPassEnabled": false,
+      "focusStrength": 0,
+      "fNumberReported": 11,
+      "focusPoint": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ]
+    },
+    {
+      "seconds": 3.5,
+      "positionQuaternionFovByteExactToR01": true,
+      "focusPassEnabled": false,
+      "focusStrength": 0,
+      "fNumberReported": 11,
+      "focusPoint": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ]
+    },
+    {
+      "seconds": 5.25,
+      "positionQuaternionFovByteExactToR01": true,
+      "focusPassEnabled": false,
+      "focusStrength": 0,
+      "fNumberReported": 11,
+      "focusPoint": [
+        0.07442680261518472,
+        5.283103738849221,
+        -2.2652135683927086
+      ]
+    },
+    {
+      "seconds": 7,
+      "positionQuaternionFovByteExactToR01": true,
+      "focusPassEnabled": false,
+      "focusStrength": 0,
+      "fNumberReported": 2.8,
+      "focusPoint": [
+        5.551115123125783e-17,
+        2.4000000000000017,
+        -2.3
+      ]
+    }
+  ],
+  "all199OtherR08SceneFilesByteExact": true,
+  "onlySourceEdit": "src/reference6-camera-shot.js focus anchor/DOF settings and descriptive revision metadata",
+  "targetWitnessSemantics": "Non-ending pose.target is the existing API optical-axis witness on the focus plane, so its distance changes with face focus. Actual camera position/quaternion/FOV/forward path are identical; ending target is exact."
+}

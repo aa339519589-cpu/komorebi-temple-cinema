@@ -1,0 +1,6116 @@
+{
+  "status": "camera-path-held-after-actual-five-position-review",
+  "revision": "scene06-low-statue-retreat189-r02-crisp-face",
+  "sourceHash": "b4dc71cecbd2e35d7b037614d7810963414ca418b7c0c393b8021eaed3fd0910",
+  "sourceCommit": "a5ce93158d7eb15cce67523aabbc1dba933f75cd",
+  "cameraFile": "reconstructions/scene-06/src/reference6-camera-shot.js",
+  "cameraSha256": "1a523ba662e994ff012985f32701b6e85132ad889101075fbb4683467cb4cf48",
+  "heldCamera": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-low-shot189/r02-held-camera.js",
+  "protectedR08Files": 199,
+  "allProtectedR08FilesByteExact": true,
+  "onlyChangedSceneFile": "src/reference6-camera-shot.js",
+  "endingReferencePoseExact": true,
+  "endingRgbaByteExactToR08Reference": false,
+  "originalCameraPreserved": "preserved-r08-camera/reference6-camera-shot.js",
+  "officialDriver": "tools/render-one-reconstruction.mjs",
+  "nativeFiveTimes": [
+    0,
+    1.75,
+    3.5,
+    5.25,
+    7
+  ],
+  "report": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-low-shot189-r02-five-poses/report.json",
+  "reportSha256": "e5f8e1dd984f755f1fde0c383dc60485f0d3131c2f5246433df05ff30133d277",
+  "frames": [
+    {
+      "seconds": 0,
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-low-shot189-r02-five-poses/shot-0.png",
+      "pngSha256": "54bdd34618ce602b31aaf0812814be1f41313e0fc199028611ed83cb058e58d2",
+      "rgbaSha256": "a82ead5d7986a1eddb427adbb8243b424502f99b43f7b53ca629dd3cc17b0647",
+      "camera": {
+        "position": [
+          1.05,
+          1.3,
+          1.95
+        ],
+        "target": [
+          -0.07207253739696529,
+          4.9333777401425545,
+          -2.59172217517819
+        ],
+        "quaternion": [
+          0.32182893054060613,
+          0.11428330335393252,
+          -0.0391665281188015,
+          0.9390588102545664
+        ],
+        "fov": 42
+      },
+      "focus": {
+        "enabled": false,
+        "focusDistance": 5.923488912646768,
+        "fNumber": 11,
+        "strength": 0,
+        "focalLengthMm": 45.58905863214153,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "shot": {
+        "seconds": 0,
+        "railProgress": 0,
+        "orientation": "quaternion-slerp",
+        "focusPoint": [
+          0.07716570895142351,
+          5.389201956438872,
+          -2.2639334277095604
+        ],
+        "focusDistance": 5.923488912646768,
+        "exactReferenceEndpoint": false
+      },
+      "picked": [
+        {
+          "pixel": [
+            0.5,
+            0.5
+          ],
+          "hits": [
+            {
+              "distance": 5.715574427005326,
+              "point": [
+                -0.03268778663509659,
+                4.805846166246985,
+                -2.4323077078087265
+              ],
+              "name": "",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-nc-sainsbury-amida179-r01:central-ordinary-PBR",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.9516539749192314,
+                  3.425,
+                  -2.896524244802861
+                ],
+                [
+                  0.9516539749192314,
+                  5.924999992686546,
+                  -1.6536536313273422
+                ]
+              ]
+            },
+            {
+              "distance": 6.596186193066913,
+              "point": [
+                -0.19949999703642113,
+                5.345999990403656,
+                -3.107499988004564
+              ],
+              "name": "restoration-altar:haloLacquer",
+              "instanceId": 0,
+              "geometry": "CylinderGeometry",
+              "parameters": {
+                "radiusTop": 1,
+                "radiusBottom": 1,
+                "height": 1,
+                "radialSegments": 96,
+                "heightSegments": 1,
+                "openEnded": false,
+                "thetaStart": 0,
+                "thetaLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "scene06-deep-blue-black-solid-nimbus",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.6561725735664368,
+                  4.854716880321503,
+                  -3.1424999881535767
+                ],
+                [
+                  0.6561725735664368,
+                  6.167062027454376,
+                  -3.107499988004565
+                ]
+              ]
+            },
+            {
+              "distance": 8.934033713317497,
+              "point": [
+                -0.642352940256103,
+                6.77999999701977,
+                -4.899999996274705
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.4,
+                "depth": 0.3,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "scene06-r04-deep-red-lacquer-structural-timber",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                },
+                {
+                  "name": "scene06-r04-deep-red-lacquer-structural-timber",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                },
+                {
+                  "name": "scene06-r04-deep-red-lacquer-structural-timber",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                },
+                {
+                  "name": "scene06-r05-deep-umber-lacquer-beam-underside",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                },
+                {
+                  "name": "scene06-r04-deep-red-lacquer-structural-timber",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                },
+                {
+                  "name": "scene06-r04-deep-red-lacquer-structural-timber",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  6.779999997019768,
+                  -4.950000005960464
+                ],
+                [
+                  6.900000095367432,
+                  7.180000002980233,
+                  -4.649999994039535
+                ]
+              ]
+            },
+            {
+              "distance": 9.476107844203158,
+              "point": [
+                -0.745036764682871,
+                7.112499999925495,
+                -5.315624999906861
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.245,
+                "height": 0.035,
+                "depth": 16,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-central-timber-ceiling",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.7475000023841858,
+                  7.112499999925494,
+                  -5.9
+                ],
+                [
+                  -0.5024999976158142,
+                  7.147500000074506,
+                  10.1
+                ]
+              ]
+            },
+            {
+              "distance": 9.515506703062451,
+              "point": [
+                -0.7524999976158147,
+                7.136666658946456,
+                -5.3458333236830615
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.245,
+                "height": 0.035,
+                "depth": 16,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-central-timber-ceiling",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.9975000023841858,
+                  7.112499999925494,
+                  -5.9
+                ],
+                [
+                  -0.7524999976158142,
+                  7.147500000074506,
+                  10.1
+                ]
+              ]
+            },
+            {
+              "distance": 9.569849989355724,
+              "point": [
+                -0.7627941181992761,
+                7.17000000178814,
+                -5.387500002235168
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 14.2,
+                "height": 0.16,
+                "depth": 16.4,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -7.099999904632568,
+                  7.170000001788139,
+                  -6.099999809265137
+                ],
+                [
+                  7.099999904632568,
+                  7.329999998211861,
+                  10.299999809265136
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.7
+          ],
+          "hits": [
+            {
+              "distance": 4.1793309625455,
+              "point": [
+                0.1741746812818432,
+                3.332894723466545,
+                -1.595007242430629
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 4.210621837471384,
+              "point": [
+                0.167617330176957,
+                3.3481151152229183,
+                -1.6215489016646922
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 4.254331835102546,
+              "point": [
+                0.1584574136856426,
+                3.369376370754833,
+                -1.6586247541295367
+              ],
+              "name": "restoration-altar:lotusCore",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-continuous-carved-gilt-bowl",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0897570848464966,
+                  2.785000009536743,
+                  -3.084593546573063
+                ],
+                [
+                  1.0835381746292114,
+                  3.482344968318939,
+                  -1.519826390736358
+                ]
+              ]
+            },
+            {
+              "distance": 4.403168027315026,
+              "point": [
+                0.1272671330762558,
+                3.4417727213959215,
+                -1.7848711280246732
+              ],
+              "name": "",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-nc-sainsbury-amida179-r01:central-ordinary-PBR",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.9516539749192314,
+                  3.425,
+                  -2.896524244802861
+                ],
+                [
+                  0.9516539749192314,
+                  5.924999992686546,
+                  -1.6536536313273422
+                ]
+              ]
+            },
+            {
+              "distance": 8.889165326158619,
+              "point": [
+                -0.8128235295774335,
+                5.623834950980601,
+                -5.5900000006705515
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6249999761581426,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -0.07500002384185844,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            },
+            {
+              "distance": 8.98348008245247,
+              "point": [
+                -0.832588236472189,
+                5.669711186228078,
+                -5.6700000047683705
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.85
+          ],
+          "hits": [
+            {
+              "distance": 4.0886002287164604,
+              "point": [
+                0.14594619399899733,
+                2.88401869942037,
+                -1.7092654052421494
+              ],
+              "name": "restoration-altar:lotusGiltSoft",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-soft-warm-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0985565185546875,
+                  2.8010000102967023,
+                  -3.074360983147659
+                ],
+                [
+                  1.1265350580215454,
+                  3.46887193441391,
+                  -1.4850709686704873
+                ]
+              ]
+            },
+            {
+              "distance": 4.102096141488744,
+              "point": [
+                0.14296203545457764,
+                2.8892473295140864,
+                -1.7213441422076574
+              ],
+              "name": "restoration-altar:lotusCore",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-continuous-carved-gilt-bowl",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0897570848464966,
+                  2.785000009536743,
+                  -3.084593546573063
+                ],
+                [
+                  1.0835381746292114,
+                  3.482344968318939,
+                  -1.519826390736358
+                ]
+              ]
+            },
+            {
+              "distance": 5.410796603458965,
+              "point": [
+                -0.14641221670381266,
+                3.39626828723479,
+                -2.892620877134474
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 8.424654216963996,
+              "point": [
+                -0.8128235295774329,
+                4.5639067331879986,
+                -5.590000000670553
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6249999761581426,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -0.07500002384185844,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            },
+            {
+              "distance": 8.514040473173528,
+              "point": [
+                -0.8325882364721879,
+                4.598537045125228,
+                -5.6700000047683705
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.2,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 6.149224733563764,
+              "point": [
+                -1.5630156880590573,
+                3.822830589478919,
+                -3.011898795281806
+              ],
+              "name": "restoration-altar:haloGold",
+              "instanceId": 74,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-aged-cast-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6008592297337363,
+                  3.771942238757996,
+                  -3.0708703879225236
+                ],
+                [
+                  -1.5327738100165207,
+                  3.876010335180604,
+                  -3.0008416527630484
+                ]
+              ]
+            },
+            {
+              "distance": 6.156839434939604,
+              "point": [
+                -1.566251434842932,
+                3.8259546583482607,
+                -3.0180432084753885
+              ],
+              "name": "restoration-altar:haloGold",
+              "instanceId": 716,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-aged-cast-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6083981315383955,
+                  3.802911364291822,
+                  -3.052157385045976
+                ],
+                [
+                  -1.509924825061307,
+                  3.9085209794555182,
+                  -2.975125773739221
+                ]
+              ]
+            },
+            {
+              "distance": 6.335229557187077,
+              "point": [
+                -1.6420554927891564,
+                3.8991424302653206,
+                -3.1619887904019297
+              ],
+              "name": "restoration-altar:merged-haloGold",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-aged-cast-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.9932241439819336,
+                  2.2825671863555907,
+                  -3.2234993457794188
+                ],
+                [
+                  2.9932544231414795,
+                  7.221285266876221,
+                  -2.9295185089111326
+                ]
+              ]
+            },
+            {
+              "distance": 9.3442362305499,
+              "point": [
+                -2.920685236154336,
+                5.133641803506875,
+                -5.590000000670552
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -3.3249999761581424,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -1.7750000238418582,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            },
+            {
+              "distance": 9.443379325598771,
+              "point": [
+                -2.962814524633812,
+                5.174317050186297,
+                -5.6700000047683705
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.8,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 4.339367331508788,
+              "point": [
+                1.051170887261029,
+                3.0803038784974275,
+                -2.007350826878473
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 4.389233301543854,
+              "point": [
+                1.05118434254716,
+                3.100762293993587,
+                -2.0528268427756466
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 4.525066306470867,
+              "point": [
+                1.0512209942345943,
+                3.156490239342578,
+                -2.1767017796730492
+              ],
+              "name": "restoration-altar:lotusCore",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-continuous-carved-gilt-bowl",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0897570848464966,
+                  2.785000009536743,
+                  -3.084593546573063
+                ],
+                [
+                  1.0835381746292114,
+                  3.482344968318939,
+                  -1.519826390736358
+                ]
+              ]
+            },
+            {
+              "distance": 4.7040882089519815,
+              "point": [
+                1.0512692995401944,
+                3.229937210519434,
+                -2.3399634765266013
+              ],
+              "name": "restoration-altar:lotusGiltSoft",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-soft-warm-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0985565185546875,
+                  2.8010000102967023,
+                  -3.074360983147659
+                ],
+                [
+                  1.1265350580215454,
+                  3.46887193441391,
+                  -1.4850709686704873
+                ]
+              ]
+            },
+            {
+              "distance": 4.704181205530637,
+              "point": [
+                1.0512693246333706,
+                3.2299753640466697,
+                -2.3400482861449916
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 4.754738763700284,
+              "point": [
+                1.0512829665300545,
+                3.2507175160749666,
+                -2.38615500616725
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "native1254": true,
+      "pixelEditing": false,
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "seconds": 1.75,
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-low-shot189-r02-five-poses/shot-1p75.png",
+      "pngSha256": "4ca31d4c4b2922e63e4fd6dcdd5a5fcfb0cd97f2f2e97225073e6613c6e789d9",
+      "rgbaSha256": "b5767873e839165bee8a68466e8cf4251690985196f8dbfa6fc9bd2e473a85f3",
+      "camera": {
+        "position": [
+          1.0997032083570957,
+          1.3107180039584638,
+          2.5668078918009996
+        ],
+        "target": [
+          -0.009872253288948363,
+          4.965437935898188,
+          -2.547855091727683
+        ],
+        "quaternion": [
+          0.2983889189697393,
+          0.10169793829458283,
+          -0.031994152426985584,
+          0.9484713789003759
+        ],
+        "fov": 44.27734375
+      },
+      "focus": {
+        "enabled": false,
+        "focusDistance": 6.383409192671504,
+        "fNumber": 11,
+        "strength": 0,
+        "focalLengthMm": 43.01399318710656,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "shot": {
+        "seconds": 1.75,
+        "railProgress": 0.103515625,
+        "orientation": "quaternion-slerp",
+        "focusPoint": [
+          0.07716570895142351,
+          5.389201956438872,
+          -2.2639334277095604
+        ],
+        "focusDistance": 6.383409192671504,
+        "exactReferenceEndpoint": false
+      },
+      "picked": [
+        {
+          "pixel": [
+            0.5,
+            0.5
+          ],
+          "hits": [
+            {
+              "distance": 6.268562331008145,
+              "point": [
+                0.010090631073066764,
+                4.899684182414281,
+                -2.455834828825161
+              ],
+              "name": "",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-nc-sainsbury-amida179-r01:central-ordinary-PBR",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.9516539749192314,
+                  3.425,
+                  -2.896524244802861
+                ],
+                [
+                  0.9516539749192314,
+                  5.924999992686546,
+                  -1.6536536313273422
+                ]
+              ]
+            },
+            {
+              "distance": 7.081879920269834,
+              "point": [
+                -0.13128166895211923,
+                5.36533629944986,
+                -3.107499988004566
+              ],
+              "name": "restoration-altar:haloLacquer",
+              "instanceId": 0,
+              "geometry": "CylinderGeometry",
+              "parameters": {
+                "radiusTop": 1,
+                "radiusBottom": 1,
+                "height": 1,
+                "radialSegments": 96,
+                "heightSegments": 1,
+                "openEnded": false,
+                "thetaStart": 0,
+                "thetaLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "scene06-deep-blue-black-solid-nimbus",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.6561725735664368,
+                  4.854716880321503,
+                  -3.1424999881535767
+                ],
+                [
+                  0.6561725735664368,
+                  6.167062027454376,
+                  -3.107499988004565
+                ]
+              ]
+            },
+            {
+              "distance": 10.133512065663476,
+              "point": [
+                -0.6617217589257314,
+                7.112499999925493,
+                -5.5525993858796046
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.245,
+                "height": 0.035,
+                "depth": 16,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-central-timber-ceiling",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.7475000023841858,
+                  7.112499999925494,
+                  -5.9
+                ],
+                [
+                  -0.5024999976158142,
+                  7.147500000074506,
+                  10.1
+                ]
+              ]
+            },
+            {
+              "distance": 10.233942754554551,
+              "point": [
+                -0.679178798671465,
+                7.17000000178814,
+                -5.633068788886261
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 14.2,
+                "height": 0.16,
+                "depth": 16.4,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -7.099999904632568,
+                  7.170000001788139,
+                  -6.099999809265137
+                ],
+                [
+                  7.099999904632568,
+                  7.329999998211861,
+                  10.299999809265136
+                ]
+              ]
+            },
+            {
+              "distance": 10.280035148856504,
+              "point": [
+                -0.6871906600675155,
+                7.196389472850024,
+                -5.670000004768371
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.7
+          ],
+          "hits": [
+            {
+              "distance": 4.775002430689968,
+              "point": [
+                0.18738285385640208,
+                3.38023767631867,
+                -1.6385943612032168
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 4.784317493973593,
+              "point": [
+                0.18560310149805936,
+                3.3842748903294613,
+                -1.6467982498270326
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 4.808184929009235,
+              "point": [
+                0.18104294742299798,
+                3.3946192047150565,
+                -1.6678185878329792
+              ],
+              "name": "restoration-altar:lotusCore",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-continuous-carved-gilt-bowl",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0897570848464966,
+                  2.785000009536743,
+                  -3.084593546573063
+                ],
+                [
+                  1.0835381746292114,
+                  3.482344968318939,
+                  -1.519826390736358
+                ]
+              ]
+            },
+            {
+              "distance": 4.917617233672583,
+              "point": [
+                0.1601346190119757,
+                3.442047936025627,
+                -1.7641969388940895
+              ],
+              "name": "",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-nc-sainsbury-amida179-r01:central-ordinary-PBR",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.9516539749192314,
+                  3.425,
+                  -2.896524244802861
+                ],
+                [
+                  0.9516539749192314,
+                  5.924999992686546,
+                  -1.6536536313273422
+                ]
+              ]
+            },
+            {
+              "distance": 6.487066644895515,
+              "point": [
+                -0.1397271431549001,
+                4.122258360720778,
+                -3.146429971386884
+              ],
+              "name": "restoration-altar:merged-haloShadow",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-shadowed-carved-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.7839255332946777,
+                  2.219478054046631,
+                  -3.3236755609512327
+                ],
+                [
+                  2.7839255332946777,
+                  7.24531213760376,
+                  -2.927677798271179
+                ]
+              ]
+            },
+            {
+              "distance": 9.261605708561865,
+              "point": [
+                -0.6698354517645666,
+                5.324763125343418,
+                -5.590000000670552
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6249999761581426,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -0.07500002384185844,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.85
+          ],
+          "hits": [
+            {
+              "distance": 4.702840791956144,
+              "point": [
+                0.15715475891752595,
+                2.8441919070186836,
+                -1.7779328051312135
+              ],
+              "name": "restoration-altar:lotusCore",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-continuous-carved-gilt-bowl",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0897570848464966,
+                  2.785000009536743,
+                  -3.084593546573063
+                ],
+                [
+                  1.0835381746292114,
+                  3.482344968318939,
+                  -1.519826390736358
+                ]
+              ]
+            },
+            {
+              "distance": 6.0501146460465725,
+              "point": [
+                -0.11286732737453486,
+                3.283502822892508,
+                -3.022617837588928
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 6.05020835811095,
+              "point": [
+                -0.11288610924806197,
+                3.283533379956096,
+                -3.022704413902672
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 8.82910432743451,
+              "point": [
+                -0.6698354517645713,
+                4.189658982924765,
+                -5.590000000670552
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6249999761581426,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -0.07500002384185844,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            },
+            {
+              "distance": 8.915698052784688,
+              "point": [
+                -0.6871906600675199,
+                4.217894941543731,
+                -5.670000004768371
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.2,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 6.644429320711592,
+              "point": [
+                -1.6764284805988598,
+                3.649626878241261,
+                -2.998355099640279
+              ],
+              "name": "restoration-altar:haloGold",
+              "instanceId": 617,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-aged-cast-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.7480762446904707,
+                  3.598932632740835,
+                  -3.0668168289642237
+                ],
+                [
+                  -1.6249203158259014,
+                  3.70221879095183,
+                  -2.976619814184448
+                ]
+              ]
+            },
+            {
+              "distance": 6.664436515949958,
+              "point": [
+                -1.6847877551170207,
+                3.6566696210012224,
+                -3.015112491002097
+              ],
+              "name": "restoration-altar:haloGold",
+              "instanceId": 17,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-aged-cast-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.7463018591453816,
+                  3.6064476997833568,
+                  -3.0773168336153915
+                ],
+                [
+                  -1.6062184832368192,
+                  3.801815432035231,
+                  -2.9652708547288995
+                ]
+              ]
+            },
+            {
+              "distance": 6.669610302436548,
+              "point": [
+                -1.6869494325048067,
+                3.658490848159048,
+                -3.0194458902589805
+              ],
+              "name": "restoration-altar:haloGold",
+              "instanceId": 618,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-aged-cast-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.7660114472383763,
+                  3.600963712370429,
+                  -3.0686186807134694
+                ],
+                [
+                  -1.6619858853763083,
+                  3.699696243346991,
+                  -2.9686176445901666
+                ]
+              ]
+            },
+            {
+              "distance": 6.737993695067714,
+              "point": [
+                -1.715520931142008,
+                3.6825625202558574,
+                -3.0767216482708677
+              ],
+              "name": "restoration-altar:haloGold",
+              "instanceId": 70,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-aged-cast-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.7660775047741244,
+                  3.650114315391893,
+                  -3.116870391737221
+                ],
+                [
+                  -1.6978385579933835,
+                  3.754603005144441,
+                  -3.0468416565777456
+                ]
+              ]
+            },
+            {
+              "distance": 9.738678562963985,
+              "point": [
+                -2.9692473157949064,
+                4.738835095023355,
+                -5.590000000670552
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -3.3249999761581424,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -1.7750000238418582,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            },
+            {
+              "distance": 9.834193172994649,
+              "point": [
+                -3.0091546009605183,
+                4.772457240469016,
+                -5.670000004768371
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.8,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 4.654761433693057,
+              "point": [
+                1.254166167710788,
+                2.949242894425361,
+                -1.7872914848903951
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 35,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.1609415191562498,
+                  2.8449575713520123,
+                  -1.977247325218306
+                ],
+                [
+                  1.3403953260416195,
+                  3.0659750682115554,
+                  -1.7553971831285031
+                ]
+              ]
+            },
+            {
+              "distance": 4.661862787526802,
+              "point": [
+                1.2544018180538197,
+                2.9517426455250373,
+                -1.7939341454738915
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 30,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.2065990639558706,
+                  2.8449575713520123,
+                  -1.8771310019316672
+                ],
+                [
+                  1.4114009665617075,
+                  3.0659750682115554,
+                  -1.7881580266828805
+                ]
+              ]
+            },
+            {
+              "distance": 4.734259775487688,
+              "point": [
+                1.256804229685013,
+                2.9772271453127366,
+                -1.8616548406470337
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 24,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.2107885182699607,
+                  2.8456999492645263,
+                  -1.9464548931131385
+                ],
+                [
+                  1.3348795909382465,
+                  3.1129999589920043,
+                  -1.8003446909431313
+                ]
+              ]
+            },
+            {
+              "distance": 4.806151060769587,
+              "point": [
+                1.2591898601484781,
+                3.0025336324485536,
+                -1.9289024976740259
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 23,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.2110267254181368,
+                  2.8456999492645263,
+                  -1.9995276977651515
+                ],
+                [
+                  1.334024970874719,
+                  3.1129999589920043,
+                  -1.8528241272756953
+                ]
+              ]
+            },
+            {
+              "distance": 4.856655748290222,
+              "point": [
+                1.2608658007110176,
+                3.020311812655344,
+                -1.9761449679028633
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 22,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.2451457589540134,
+                  2.8456999492645263,
+                  -1.9867009923717716
+                ],
+                [
+                  1.4001014645360508,
+                  3.1129999589920043,
+                  -1.8988546333111533
+                ]
+              ]
+            },
+            {
+              "distance": 4.873703616140987,
+              "point": [
+                1.2614315147989277,
+                3.0263128411077744,
+                -1.992091673623514
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 33,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.2065990639558706,
+                  2.8449575713520123,
+                  -2.01184196139619
+                ],
+                [
+                  1.4114009665617075,
+                  3.0659750682115554,
+                  -1.9228689861474035
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "native1254": true,
+      "pixelEditing": false,
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "seconds": 3.5,
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-low-shot189-r02-five-poses/shot-3p5.png",
+      "pngSha256": "2f24fc6bc7766b1109b1a2d6be61043a6948571ac32cace2f224959d28c54484",
+      "rgbaSha256": "fe79ae2a4f844daf64106b97c312c22f9621ac2297d65c6a71bc16e26b9b3888",
+      "camera": {
+        "position": [
+          0.8625,
+          1.1875,
+          5.23125
+        ],
+        "target": [
+          -0.035926996029607694,
+          4.645765009802267,
+          -2.580064156897814
+        ],
+        "quaternion": [
+          0.2053642786070177,
+          0.05600141472318905,
+          -0.011771298732841691,
+          0.9770111520076742
+        ],
+        "fov": 53
+      },
+      "focus": {
+        "enabled": false,
+        "focusDistance": 8.589726235624141,
+        "fNumber": 11,
+        "strength": 0,
+        "focalLengthMm": 35.09956989453285,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "shot": {
+        "seconds": 3.5,
+        "railProgress": 0.5,
+        "orientation": "quaternion-slerp",
+        "focusPoint": [
+          0.07716570895142351,
+          5.389201956438872,
+          -2.2639334277095604
+        ],
+        "focusDistance": 8.589726235624141,
+        "exactReferenceEndpoint": false
+      },
+      "picked": [
+        {
+          "pixel": [
+            0.5,
+            0.5
+          ],
+          "hits": [
+            {
+              "distance": 8.399392399386523,
+              "point": [
+                -0.016019370100324833,
+                4.569135693804721,
+                -2.4069786185748896
+              ],
+              "name": "",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-nc-sainsbury-amida179-r01:central-ordinary-PBR",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.9516539749192314,
+                  3.425,
+                  -2.896524244802861
+                ],
+                [
+                  0.9516539749192314,
+                  5.924999992686546,
+                  -1.6536536313273422
+                ]
+              ]
+            },
+            {
+              "distance": 9.169722034674823,
+              "point": [
+                -0.09659061546951603,
+                4.879274102253975,
+                -3.107499988004566
+              ],
+              "name": "restoration-altar:haloLacquer",
+              "instanceId": 0,
+              "geometry": "CylinderGeometry",
+              "parameters": {
+                "radiusTop": 1,
+                "radiusBottom": 1,
+                "height": 1,
+                "radialSegments": 96,
+                "heightSegments": 1,
+                "openEnded": false,
+                "thetaStart": 0,
+                "thetaLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "scene06-deep-blue-black-solid-nimbus",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.6561725735664368,
+                  4.854716880321503,
+                  -3.1424999881535767
+                ],
+                [
+                  0.6561725735664368,
+                  6.167062027454376,
+                  -3.107499988004565
+                ]
+              ]
+            },
+            {
+              "distance": 11.89960782091017,
+              "point": [
+                -0.38211811880945645,
+                5.978339222180729,
+                -5.590000000670552
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6249999761581426,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -0.07500002384185844,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            },
+            {
+              "distance": 11.98757997517851,
+              "point": [
+                -0.39131940836461965,
+                6.013757233721235,
+                -5.670000004768373
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.7
+          ],
+          "hits": [
+            {
+              "distance": 7.128107413519128,
+              "point": [
+                0.06721333134738981,
+                2.7257432030502002,
+                -1.6833173951158829
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 0,
+              "geometry": "LatheGeometry",
+              "parameters": {
+                "points": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0.79,
+                    "y": 0
+                  },
+                  {
+                    "x": 0.82,
+                    "y": 0.035
+                  },
+                  {
+                    "x": 0.82,
+                    "y": 0.075
+                  },
+                  {
+                    "x": 0.72,
+                    "y": 0.105
+                  },
+                  {
+                    "x": 0.7,
+                    "y": 0.3099999999999999
+                  },
+                  {
+                    "x": 0.78,
+                    "y": 0.3399999999999999
+                  },
+                  {
+                    "x": 0.78,
+                    "y": 0.3799999999999999
+                  },
+                  {
+                    "x": 0,
+                    "y": 0.3799999999999999
+                  }
+                ],
+                "segments": 64,
+                "phiStart": 0,
+                "phiLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.967599948549271,
+                  2.404999895095825,
+                  -2.9966720079212186
+                ],
+                [
+                  0.967599948549271,
+                  2.7849998903274535,
+                  -1.603327992078781
+                ]
+              ]
+            },
+            {
+              "distance": 7.402699156086644,
+              "point": [
+                0.036576987151473284,
+                2.785000009536743,
+                -1.9496830655495763
+              ],
+              "name": "restoration-altar:lotusCore",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-continuous-carved-gilt-bowl",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0897570848464966,
+                  2.785000009536743,
+                  -3.084593546573063
+                ],
+                [
+                  1.0835381746292114,
+                  3.482344968318939,
+                  -1.519826390736358
+                ]
+              ]
+            },
+            {
+              "distance": 8.49305870519761,
+              "point": [
+                -0.08507499746949265,
+                3.020299236666764,
+                -3.0073782081531832
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 8.49306495345781,
+              "point": [
+                -0.08507569459114805,
+                3.020300585039232,
+                -3.007384269231356
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 10.938953295817269,
+              "point": [
+                -0.35796473495578773,
+                3.548122473766451,
+                -5.380000000596045
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.67,
+                "height": 0.12,
+                "depth": 0.22,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "scene06-r04-shadowed-rear-lacquer-framing",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6849999785423284,
+                  3.4400000013411045,
+                  -5.599999999403954
+                ],
+                [
+                  -0.015000021457672652,
+                  3.5599999986588955,
+                  -5.380000000596047
+                ]
+              ]
+            },
+            {
+              "distance": 11.155438647948978,
+              "point": [
+                -0.3821181188094569,
+                3.5948399405718683,
+                -5.590000000670549
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6249999761581426,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -0.07500002384185844,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.85
+          ],
+          "hits": [
+            {
+              "distance": 4.4098982832278955,
+              "point": [
+                0.36016711390361544,
+                1.5336322250343604,
+                0.8637499115334668
+              ],
+              "name": "restoration-altar:merged-gold",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -4.6993865966796875,
+                  0.012596422880887984,
+                  -1.9347189545631407
+                ],
+                [
+                  4.699135780334473,
+                  2.819547576904297,
+                  3.08923978805542
+                ]
+              ]
+            },
+            {
+              "distance": 6.254854200953665,
+              "point": [
+                0.15000761104237997,
+                1.6784425258346087,
+                -0.9634680006189393
+              ],
+              "name": "restoration-altar:oldgold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-deep-carved-aged-gilt-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.21347326040267972,
+                  1.6021267753839492,
+                  -1.045848029735498
+                ],
+                [
+                  0.227360129356384,
+                  1.7677339223027229,
+                  -0.9294781267642973
+                ]
+              ]
+            },
+            {
+              "distance": 6.343235887909207,
+              "point": [
+                0.13994002557101015,
+                1.6853795905906281,
+                -1.0509999573230755
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 103,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.2582481205463412,
+                  1.5739999842643737,
+                  -1.138999956846237
+                ],
+                [
+                  0.25824812054634066,
+                  1.7959999871253967,
+                  -1.0509999573230742
+                ]
+              ]
+            },
+            {
+              "distance": 6.392711558068745,
+              "point": [
+                0.13430423658301505,
+                1.689262928186536,
+                -1.099999952316284
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 80,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.375,
+                  1.5499999803304672,
+                  -3.5000000476837156
+                ],
+                [
+                  2.375,
+                  1.8199999910593032,
+                  -1.099999952316284
+                ]
+              ]
+            },
+            {
+              "distance": 8.243105155572731,
+              "point": [
+                -0.07647467407432494,
+                1.834500031620264,
+                -2.9326032646269518
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 85,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.424999952316284,
+                  1.834500031620264,
+                  -3.5799999713897703
+                ],
+                [
+                  2.424999952316284,
+                  1.8895000313222408,
+                  -1.0200000286102293
+                ]
+              ]
+            },
+            {
+              "distance": 10.926298988832313,
+              "point": [
+                -0.38211811880945423,
+                2.0451034950236893,
+                -5.590000000670551
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.55,
+                "height": 5.5,
+                "depth": 0.06,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-rough-shadowed-rear-wood",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6249999761581426,
+                  0.6000000000000001,
+                  -5.649999999329448
+                ],
+                [
+                  -0.07500002384185844,
+                  6.1,
+                  -5.590000000670552
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.2,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 6.526707663763805,
+              "point": [
+                -1.6353050245278014,
+                1.961535979123889,
+                -0.748695759845868
+              ],
+              "name": "restoration-altar:trim",
+              "instanceId": 44,
+              "geometry": "SphereGeometry",
+              "parameters": {
+                "radius": 1,
+                "widthSegments": 12,
+                "heightSegments": 8,
+                "phiStart": 0,
+                "phiLength": 6.283185307179586,
+                "thetaStart": 0,
+                "thetaLength": 3.141592653589793
+              },
+              "material": [
+                {
+                  "name": "scene06-aged-gilt-structural-bead",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.7279999479651451,
+                  1.890999963581562,
+                  -0.7880000576376913
+                ],
+                [
+                  -1.63199994713068,
+                  2.0189999696612357,
+                  -0.6920000568032263
+                ]
+              ]
+            },
+            {
+              "distance": 7.163023186347039,
+              "point": [
+                -1.8788262899764931,
+                2.0369999241828918,
+                -1.3317052199327293
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 132,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.3499999046325684,
+                  2.0369999241828918,
+                  -1.4230000182986258
+                ],
+                [
+                  2.3499999046325684,
+                  2.2129999232292175,
+                  -1.3130000188946722
+                ]
+              ]
+            },
+            {
+              "distance": 7.409462991742413,
+              "point": [
+                -1.9731400873567235,
+                2.0662264938243307,
+                -1.5575000226497648
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 141,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -3.2190001010894775,
+                  2.0284999479353427,
+                  -1.622500020265579
+                ],
+                [
+                  -1.180999994277954,
+                  2.069499949067831,
+                  -1.5575000226497648
+                ]
+              ]
+            },
+            {
+              "distance": 7.449300256144129,
+              "point": [
+                -1.9883860159798952,
+                2.0709510008109078,
+                -1.5939999997615812
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 139,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -3.199000060558319,
+                  2.031499950289726,
+                  -1.681999999284744
+                ],
+                [
+                  -1.2010000348091125,
+                  2.158499954342842,
+                  -1.5939999997615812
+                ]
+              ]
+            },
+            {
+              "distance": 7.483134686081267,
+              "point": [
+                -2.001334628581043,
+                2.0749636006474073,
+                -1.6250000178813933
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 138,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -3.265000104904175,
+                  2.0149999541044235,
+                  -3.1549999892711638
+                ],
+                [
+                  -1.1349999904632568,
+                  2.1749999505281448,
+                  -1.6250000178813933
+                ]
+              ]
+            },
+            {
+              "distance": 7.778562285515055,
+              "point": [
+                -2.114396309947105,
+                2.109999885857105,
+                -1.8956787599957199
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 125,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.4000000953674316,
+                  2.109999885857105,
+                  -3.239999997615814
+                ],
+                [
+                  2.4000000953674316,
+                  2.2199998852610587,
+                  -1.3600000023841856
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.8,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 6.549130167876061,
+              "point": [
+                1.9411547324229554,
+                1.9641951797222696,
+                -1.1815773422728353
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 1,
+              "geometry": "LatheGeometry",
+              "parameters": {
+                "points": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0.38,
+                    "y": 0
+                  },
+                  {
+                    "x": 0.4,
+                    "y": 0.01
+                  },
+                  {
+                    "x": 0.44,
+                    "y": 0.055
+                  },
+                  {
+                    "x": 0.43,
+                    "y": 0.11
+                  },
+                  {
+                    "x": 0.34,
+                    "y": 0.14
+                  },
+                  {
+                    "x": 0.3,
+                    "y": 0.17
+                  },
+                  {
+                    "x": 0.4,
+                    "y": 0.21
+                  },
+                  {
+                    "x": 0.46,
+                    "y": 0.3
+                  },
+                  {
+                    "x": 0.45,
+                    "y": 0.38
+                  },
+                  {
+                    "x": 0.38,
+                    "y": 0.44
+                  },
+                  {
+                    "x": 0.26,
+                    "y": 0.47
+                  },
+                  {
+                    "x": 0.25,
+                    "y": 0.52
+                  },
+                  {
+                    "x": 0.22,
+                    "y": 0.57
+                  },
+                  {
+                    "x": 0.2,
+                    "y": 0.69
+                  },
+                  {
+                    "x": 0.16,
+                    "y": 0.87
+                  },
+                  {
+                    "x": 0.21,
+                    "y": 1.01
+                  },
+                  {
+                    "x": 0.28,
+                    "y": 1.04
+                  },
+                  {
+                    "x": 0.38,
+                    "y": 1.08
+                  },
+                  {
+                    "x": 0.41,
+                    "y": 1.17
+                  },
+                  {
+                    "x": 0.36,
+                    "y": 1.25
+                  },
+                  {
+                    "x": 0.25,
+                    "y": 1.29
+                  },
+                  {
+                    "x": 0.27,
+                    "y": 1.32
+                  },
+                  {
+                    "x": 0.32,
+                    "y": 1.35
+                  },
+                  {
+                    "x": 0.31,
+                    "y": 1.38
+                  }
+                ],
+                "segments": 48,
+                "phiStart": 0,
+                "phiLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.8873999677062034,
+                  1.8744999599456786,
+                  -1.43260001322031
+                ],
+                [
+                  2.1725999750733376,
+                  2.30229996175766,
+                  -1.147400005853176
+                ]
+              ]
+            },
+            {
+              "distance": 6.5756233182071595,
+              "point": [
+                1.9455182068461094,
+                1.9673371392848926,
+                -1.2075191077395784
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 1,
+              "geometry": "LatheGeometry",
+              "parameters": {
+                "points": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0.16,
+                    "y": 0
+                  },
+                  {
+                    "x": 0.17,
+                    "y": 0.036449999999999996
+                  },
+                  {
+                    "x": 0.11,
+                    "y": 0.0648
+                  },
+                  {
+                    "x": 0.07,
+                    "y": 0.1377
+                  },
+                  {
+                    "x": 0.045,
+                    "y": 0.21059999999999998
+                  },
+                  {
+                    "x": 0.045,
+                    "y": 1.0189000000000001
+                  },
+                  {
+                    "x": 0.085,
+                    "y": 1.0594000000000001
+                  },
+                  {
+                    "x": 0.08,
+                    "y": 1.0918
+                  },
+                  {
+                    "x": 0.14,
+                    "y": 1.1161
+                  },
+                  {
+                    "x": 0.13,
+                    "y": 1.1404
+                  },
+                  {
+                    "x": 0,
+                    "y": 1.1404
+                  }
+                ],
+                "segments": 20,
+                "phiStart": 0,
+                "phiLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.832300026756525,
+                  1.8744999599456786,
+                  -1.4177000209271906
+                ],
+                [
+                  2.107700030463934,
+                  3.0149000120162963,
+                  -1.1423000172197817
+                ]
+              ]
+            },
+            {
+              "distance": 6.724557713240796,
+              "point": [
+                1.9700479972008003,
+                1.9850000385940074,
+                -1.353353827190011
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 131,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.4000000953674316,
+                  1.9850000385940074,
+                  -1.5300000190734862
+                ],
+                [
+                  2.4000000953674316,
+                  2.0250000376999377,
+                  -1.2800000190734862
+                ]
+              ]
+            },
+            {
+              "distance": 6.86410828968318,
+              "point": [
+                1.993032254015587,
+                2.0015500623791374,
+                -1.4900000274181373
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 129,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.2900000214576721,
+                  1.873500024974346,
+                  -3.409999984502792
+                ],
+                [
+                  2.400000035762787,
+                  2.025000026524067,
+                  -1.4900000274181364
+                ]
+              ]
+            },
+            {
+              "distance": 7.001977666639234,
+              "point": [
+                2.0157396139393975,
+                2.0179007040320283,
+                -1.6250000178813946
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 157,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.1349999904632568,
+                  2.0149999541044235,
+                  -3.1549999892711638
+                ],
+                [
+                  3.265000104904175,
+                  2.1749999505281448,
+                  -1.6250000178813933
+                ]
+              ]
+            },
+            {
+              "distance": 7.778562285515065,
+              "point": [
+                2.143644641447647,
+                2.109999885857105,
+                -2.38542208155379
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 125,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.4000000953674316,
+                  2.109999885857105,
+                  -3.239999997615814
+                ],
+                [
+                  2.4000000953674316,
+                  2.2199998852610587,
+                  -1.3600000023841856
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "native1254": true,
+      "pixelEditing": false,
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "seconds": 5.25,
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-low-shot189-r02-five-poses/shot-5p25.png",
+      "pngSha256": "00f556e32bd12a6456bde9dfff8a4b3a4a5269f815f7ec9328167983ab1d8ac0",
+      "rgbaSha256": "d9efe89c1788a0290578480909e6b04338b2789a7066683a9177e110dd194263",
+      "camera": {
+        "position": [
+          0.2008571706712246,
+          0.7530262739956378,
+          7.824952171370388
+        ],
+        "target": [
+          -0.04736606874927815,
+          3.1089990655980935,
+          -2.746862173730417
+        ],
+        "quaternion": [
+          0.10937941867760288,
+          0.01166700025313506,
+          -0.0012839221241595002,
+          0.9939307699326055
+        ],
+        "fov": 61.72265625
+      },
+      "focus": {
+        "enabled": false,
+        "focusDistance": 10.833996544149285,
+        "fNumber": 11,
+        "strength": 0,
+        "focalLengthMm": 29.285207677989803,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "shot": {
+        "seconds": 5.25,
+        "railProgress": 0.896484375,
+        "orientation": "quaternion-slerp",
+        "focusPoint": [
+          0.07442680261518472,
+          5.283103738849221,
+          -2.2652135683927086
+        ],
+        "focusDistance": 10.833996544149285,
+        "exactReferenceEndpoint": false
+      },
+      "picked": [
+        {
+          "pixel": [
+            0.5,
+            0.5
+          ],
+          "hits": [
+            {
+              "distance": 9.76458501920892,
+              "point": [
+                -0.022864234000432165,
+                2.876443660441884,
+                -1.7033303566295448
+              ],
+              "name": "restoration-altar:lotusGiltSoft",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-soft-warm-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0985565185546875,
+                  2.8010000102967023,
+                  -3.074360983147659
+                ],
+                [
+                  1.1265350580215454,
+                  3.46887193441391,
+                  -1.4850709686704873
+                ]
+              ]
+            },
+            {
+              "distance": 9.781542446538127,
+              "point": [
+                -0.023252754296404304,
+                2.8801312412197055,
+                -1.7198774150270977
+              ],
+              "name": "restoration-altar:lotusCore",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-continuous-carved-gilt-bowl",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.0897570848464966,
+                  2.785000009536743,
+                  -3.084593546573063
+                ],
+                [
+                  1.0835381746292114,
+                  3.482344968318939,
+                  -1.519826390736358
+                ]
+              ]
+            },
+            {
+              "distance": 11.164691207141704,
+              "point": [
+                -0.054942783415241614,
+                3.180912290340537,
+                -3.0695540416689875
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 11.164727465846356,
+              "point": [
+                -0.05494361415698029,
+                3.1809201751982874,
+                -3.0695894229147176
+              ],
+              "name": "restoration-altar:lotusGold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-lotus179-satin-gold-leaf",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.1500059366226196,
+                  2.8010000102967023,
+                  -3.1315122076476483
+                ],
+                [
+                  1.1262954473495483,
+                  3.4842603039741515,
+                  -1.4847900448159406
+                ]
+              ]
+            },
+            {
+              "distance": 11.208480564007088,
+              "point": [
+                -0.055946063780799415,
+                3.19043477199504,
+                -3.112283698189155
+              ],
+              "name": "restoration-altar:merged-haloShadow",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-shadowed-carved-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.7839255332946777,
+                  2.219478054046631,
+                  -3.3236755609512327
+                ],
+                [
+                  2.7839255332946777,
+                  7.24531213760376,
+                  -2.927677798271179
+                ]
+              ]
+            },
+            {
+              "distance": 11.287374849521411,
+              "point": [
+                -0.05775365113255165,
+                3.207591210002678,
+                -3.1892687457612103
+              ],
+              "name": "restoration-altar:merged-haloShadow",
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-halo179-shadowed-carved-gilt",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.7839255332946777,
+                  2.219478054046631,
+                  -3.3236755609512327
+                ],
+                [
+                  2.7839255332946777,
+                  7.24531213760376,
+                  -2.927677798271179
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.7
+          ],
+          "hits": [
+            {
+              "distance": 6.7676204870149546,
+              "point": [
+                0.04201799078763437,
+                0.6487166777316049,
+                1.060000088810921
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 250,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.15960000455379486,
+                  1.3113021835042815e-08,
+                  0.6400001019239427
+                ],
+                [
+                  0.15960000455379486,
+                  0.7550000083446502,
+                  1.060000088810921
+                ]
+              ]
+            },
+            {
+              "distance": 8.90096173536861,
+              "point": [
+                -0.008052514044972139,
+                0.6158354065763825,
+                -1.072500004619359
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 9,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.5679999589920044,
+                  0.10000000715255736,
+                  -1.142500004917383
+                ],
+                [
+                  1.5679999589920044,
+                  0.7499999833106994,
+                  -1.0725000046193598
+                ]
+              ]
+            },
+            {
+              "distance": 8.968488374298904,
+              "point": [
+                -0.009637395462091053,
+                0.6147946158793566,
+                -1.1400000184774384
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 0,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.5679999589920044,
+                  -1.6689300552652497e-08,
+                  -3.939999970793724
+                ],
+                [
+                  1.5679999589920044,
+                  0.8049999904632568,
+                  -1.1400000184774397
+                ]
+              ]
+            },
+            {
+              "distance": 13.210160805047664,
+              "point": [
+                -0.10919140732308152,
+                0.549417554682647,
+                -5.380000000596045
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1.67,
+                "height": 0.12,
+                "depth": 0.22,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "scene06-r04-shadowed-rear-lacquer-framing",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.6849999785423284,
+                  0.5000000013411046,
+                  -5.599999999403954
+                ],
+                [
+                  -0.015000021457672652,
+                  0.6199999986588955,
+                  -5.380000000596047
+                ]
+              ]
+            },
+            {
+              "distance": 13.210160805047666,
+              "point": [
+                -0.10919140732308147,
+                0.549417554682647,
+                -5.380000000596047
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.11,
+                "height": 5.68,
+                "depth": 0.22,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "scene06-r04-shadowed-rear-lacquer-framing",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.12499999970197728,
+                  0.5100000858306886,
+                  -5.599999999403954
+                ],
+                [
+                  -0.01500000029802373,
+                  6.189999914169311,
+                  -5.380000000596047
+                ]
+              ]
+            },
+            {
+              "distance": 13.500275198397295,
+              "point": [
+                -0.11600052618553797,
+                0.5449460103194919,
+                -5.670000004768371
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 7.2,
+                "depth": 0.26,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  9.536743172944284e-08,
+                  -5.929999995231628
+                ],
+                [
+                  6.900000095367432,
+                  7.199999904632568,
+                  -5.670000004768371
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.85
+          ],
+          "hits": [
+            {
+              "distance": 4.047057941393638,
+              "point": [
+                0.1073432633505894,
+                0.0405534010162414,
+                3.842199915027618
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 0,
+              "geometry": "ExtrudeGeometry",
+              "parameters": {
+                "shapes": {
+                  "type": "Shape",
+                  "arcLengthDivisions": 200,
+                  "needsUpdate": false,
+                  "cacheArcLengths": null,
+                  "curves": [
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -1.35,
+                        "y": 3.81
+                      },
+                      "v2": {
+                        "x": 1.35,
+                        "y": 3.81
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 1.35,
+                        "y": 3.81
+                      },
+                      "v2": {
+                        "x": 1.35,
+                        "y": 2.75
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 1.35,
+                        "y": 2.75
+                      },
+                      "v2": {
+                        "x": 1.24,
+                        "y": 2.75
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 1.24,
+                        "y": 2.75
+                      },
+                      "v2": {
+                        "x": 1.24,
+                        "y": 3.015
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 1.24,
+                        "y": 3.015
+                      },
+                      "v2": {
+                        "x": 0.91,
+                        "y": 3.015
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.91,
+                        "y": 3.015
+                      },
+                      "v2": {
+                        "x": 0.91,
+                        "y": 2.75
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.91,
+                        "y": 2.75
+                      },
+                      "v2": {
+                        "x": -0.91,
+                        "y": 2.75
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.91,
+                        "y": 2.75
+                      },
+                      "v2": {
+                        "x": -0.91,
+                        "y": 3.015
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.91,
+                        "y": 3.015
+                      },
+                      "v2": {
+                        "x": -1.24,
+                        "y": 3.015
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -1.24,
+                        "y": 3.015
+                      },
+                      "v2": {
+                        "x": -1.24,
+                        "y": 2.75
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -1.24,
+                        "y": 2.75
+                      },
+                      "v2": {
+                        "x": -1.35,
+                        "y": 2.75
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -1.35,
+                        "y": 2.75
+                      },
+                      "v2": {
+                        "x": -1.35,
+                        "y": 3.81
+                      }
+                    }
+                  ],
+                  "autoClose": false,
+                  "currentPoint": {
+                    "x": -1.35,
+                    "y": 2.75
+                  },
+                  "uuid": "a8ed39a5-06ba-4d86-a67a-205005e3b554",
+                  "holes": []
+                },
+                "options": {
+                  "depth": 0.14200000000000002,
+                  "bevelEnabled": false,
+                  "steps": 1,
+                  "curveSegments": 1
+                }
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.8391599773550027,
+                  -3.6060811420268735e-09,
+                  3.0577999472618105
+                ],
+                [
+                  0.8391599773550027,
+                  0.08520000480413444,
+                  3.842199915027618
+                ]
+              ]
+            },
+            {
+              "distance": 4.277413325226475,
+              "point": [
+                0.10202052462865863,
+                3.7252891743611016e-10,
+                3.615504760669386
+              ],
+              "name": "scene06-jointed-polished-floorboard",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.7193,
+                "height": 0.05,
+                "depth": 0.9992000000000009,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.35964998602867126,
+                  -0.05000000037252903,
+                  2.800400006771087
+                ],
+                [
+                  0.35964998602867126,
+                  3.725290284584126e-10,
+                  3.7995999932289117
+                ]
+              ]
+            },
+            {
+              "distance": 4.277413327342553,
+              "point": [
+                0.10202052457976317,
+                -4.475319578449559e-16,
+                3.615504758586932
+              ],
+              "name": "reference6-room-reflection-capture-only",
+              "geometry": "PlaneGeometry",
+              "parameters": {
+                "width": 13.4,
+                "height": 15.8,
+                "widthSegments": 1,
+                "heightSegments": 1
+              },
+              "material": [
+                {
+                  "name": "ReflectorShader",
+                  "type": "ShaderMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.699999809265137,
+                  -1.754152400083571e-15,
+                  -5.800000095367432
+                ],
+                [
+                  6.699999809265137,
+                  1.754152400083571e-15,
+                  10.000000095367431
+                ]
+              ]
+            },
+            {
+              "distance": 4.561428221942738,
+              "point": [
+                0.09545789490755842,
+                -0.050000002682208916,
+                3.336002715699372
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.24,
+                "depth": 16.2,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  -0.289999997317791,
+                  -6.000000381469727
+                ],
+                [
+                  6.900000095367432,
+                  -0.05000000268220903,
+                  10.200000381469726
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.2,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 6.37199749041944,
+              "point": [
+                -1.9768473885287592,
+                3.7252925050301755e-10,
+                1.884168864264788
+              ],
+              "name": "scene06-jointed-polished-floorboard",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.7193,
+                "height": 0.05,
+                "depth": 1.7391999999999994,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.5196499860286714,
+                  -0.05000000037252903,
+                  1.0604000020027153
+                ],
+                [
+                  -1.8003500139713289,
+                  3.725290284584126e-10,
+                  2.799599997997283
+                ]
+              ]
+            },
+            {
+              "distance": 6.371997493571727,
+              "point": [
+                -1.9768473896060905,
+                4.792413991742642e-17,
+                1.884168861325827
+              ],
+              "name": "reference6-room-reflection-capture-only",
+              "geometry": "PlaneGeometry",
+              "parameters": {
+                "width": 13.4,
+                "height": 15.8,
+                "widthSegments": 1,
+                "heightSegments": 1
+              },
+              "material": [
+                {
+                  "name": "ReflectorShader",
+                  "type": "ShaderMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.699999809265137,
+                  -1.754152400083571e-15,
+                  -5.800000095367432
+                ],
+                [
+                  6.699999809265137,
+                  1.754152400083571e-15,
+                  10.000000095367431
+                ]
+              ]
+            },
+            {
+              "distance": 6.795090156831789,
+              "point": [
+                -2.121444248460919,
+                -0.05000000268220914,
+                1.489708280474472
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.24,
+                "depth": 16.2,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  -0.289999997317791,
+                  -6.000000381469727
+                ],
+                [
+                  6.900000095367432,
+                  -0.05000000268220903,
+                  10.200000381469726
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.8,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 6.37199749041944,
+              "point": [
+                2.0973397858959726,
+                3.725290284584126e-10,
+                1.7885080906805624
+              ],
+              "name": "scene06-jointed-polished-floorboard",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.7193,
+                "height": 0.05,
+                "depth": 1.7391999999999994,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.8003500139713289,
+                  -0.05000000037252903,
+                  1.0604000020027153
+                ],
+                [
+                  2.5196499860286714,
+                  3.725290284584126e-10,
+                  2.799599997997283
+                ]
+              ]
+            },
+            {
+              "distance": 6.371997493571724,
+              "point": [
+                2.09733978683418,
+                6.91650986052663e-17,
+                1.7885080876942792
+              ],
+              "name": "reference6-room-reflection-capture-only",
+              "geometry": "PlaneGeometry",
+              "parameters": {
+                "width": 13.4,
+                "height": 15.8,
+                "widthSegments": 1,
+                "heightSegments": 1
+              },
+              "material": [
+                {
+                  "name": "ReflectorShader",
+                  "type": "ShaderMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.699999809265137,
+                  -1.754152400083571e-15,
+                  -5.800000095367432
+                ],
+                [
+                  6.699999809265137,
+                  1.754152400083571e-15,
+                  10.000000095367431
+                ]
+              ]
+            },
+            {
+              "distance": 6.795090156831787,
+              "point": [
+                2.223263860361872,
+                -0.05000000268220903,
+                1.387695751129567
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.24,
+                "depth": 16.2,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  -0.289999997317791,
+                  -6.000000381469727
+                ],
+                [
+                  6.900000095367432,
+                  -0.05000000268220903,
+                  10.200000381469726
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "native1254": true,
+      "pixelEditing": false,
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "seconds": 7,
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/06/iteration-scene06-low-shot189-r02-five-poses/shot-7.png",
+      "pngSha256": "3118e6fb5b6f1413f61e3aa2b4f7da67dabb17ee07adbe9b313ff24724c3c669",
+      "rgbaSha256": "5bd4654d1eac1ea46fb3fce3f26edba1b0e5cf7052cf7a010fe9981099f1543e",
+      "camera": {
+        "position": [
+          0,
+          0.58,
+          8.4
+        ],
+        "target": [
+          0,
+          2.4,
+          -2.3
+        ],
+        "quaternion": [
+          0.08414089476065134,
+          0,
+          0,
+          0.996453867386181
+        ],
+        "fov": 64
+      },
+      "focus": {
+        "enabled": false,
+        "focusDistance": 10.853681403100055,
+        "fNumber": 2.8,
+        "strength": 0,
+        "focalLengthMm": 28.005854258218385,
+        "maxRadiusPixels": 6,
+        "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+        "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+        "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+      },
+      "shot": {
+        "seconds": 7,
+        "railProgress": 1,
+        "orientation": "quaternion-slerp",
+        "focusPoint": [
+          5.551115123125783e-17,
+          2.4000000000000017,
+          -2.3
+        ],
+        "focusDistance": 10.853681403100055,
+        "exactReferenceEndpoint": true
+      },
+      "picked": [
+        {
+          "pixel": [
+            0.5,
+            0.5
+          ],
+          "hits": [
+            {
+              "distance": 7.546105899171691,
+              "point": [
+                0,
+                1.8453690693896534,
+                0.9607422843575479
+              ],
+              "name": "restoration-altar:ritualGlass",
+              "instanceId": 0,
+              "geometry": "LatheGeometry",
+              "parameters": {
+                "points": [
+                  {
+                    "x": 0.125,
+                    "y": 1.575
+                  },
+                  {
+                    "x": 0.125,
+                    "y": 2.0595
+                  },
+                  {
+                    "x": 0.1245,
+                    "y": 2.06
+                  },
+                  {
+                    "x": 0.123,
+                    "y": 2.06
+                  },
+                  {
+                    "x": 0.1225,
+                    "y": 2.0595
+                  },
+                  {
+                    "x": 0.1225,
+                    "y": 1.575
+                  },
+                  {
+                    "x": 0.125,
+                    "y": 1.575
+                  }
+                ],
+                "segments": 64,
+                "phiStart": 0,
+                "phiLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "restoration-clear-ritual-chimney",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.10499999672174454,
+                  1.6200000476837157,
+                  0.7392579063773157
+                ],
+                [
+                  0.10499999672174454,
+                  2.104999942779541,
+                  0.9607422843575479
+                ]
+              ]
+            },
+            {
+              "distance": 7.768524748568251,
+              "point": [
+                0,
+                1.8826653830428364,
+                0.7414727480448784
+              ],
+              "name": "restoration-altar:ritualGlass",
+              "instanceId": 0,
+              "geometry": "LatheGeometry",
+              "parameters": {
+                "points": [
+                  {
+                    "x": 0.125,
+                    "y": 1.575
+                  },
+                  {
+                    "x": 0.125,
+                    "y": 2.0595
+                  },
+                  {
+                    "x": 0.1245,
+                    "y": 2.06
+                  },
+                  {
+                    "x": 0.123,
+                    "y": 2.06
+                  },
+                  {
+                    "x": 0.1225,
+                    "y": 2.0595
+                  },
+                  {
+                    "x": 0.1225,
+                    "y": 1.575
+                  },
+                  {
+                    "x": 0.125,
+                    "y": 1.575
+                  }
+                ],
+                "segments": 64,
+                "phiStart": 0,
+                "phiLength": 6.283185307179586
+              },
+              "material": [
+                {
+                  "name": "restoration-clear-ritual-chimney",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.10499999672174454,
+                  1.6200000476837157,
+                  0.7392579063773157
+                ],
+                [
+                  0.10499999672174454,
+                  2.104999942779541,
+                  0.9607422843575479
+                ]
+              ]
+            },
+            {
+              "distance": 9.784253245039503,
+              "point": [
+                0,
+                2.22067289656077,
+                -1.2457142819781324
+              ],
+              "name": "restoration-altar:gold",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scene06-r04-aged-gilt-furnishing-and-architectural-mounts",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.019099247608136416,
+                  2.135559959411621,
+                  -1.265399965545535
+                ],
+                [
+                  0.020341666041330253,
+                  2.223559958934784,
+                  -1.2376712082100387
+                ]
+              ]
+            },
+            {
+              "distance": 9.84185454448305,
+              "point": [
+                0,
+                2.2303317727608136,
+                -1.3024999827146517
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 127,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.4549999237060547,
+                  2.170999990850687,
+                  -1.3834999829530714
+                ],
+                [
+                  2.4549999237060547,
+                  2.234999993890524,
+                  -1.3024999827146528
+                ]
+              ]
+            },
+            {
+              "distance": 9.851490979887057,
+              "point": [
+                0,
+                2.2319476588167912,
+                -1.3119999721646307
+              ],
+              "name": "restoration-altar:trim",
+              "instanceId": 124,
+              "geometry": "RoundedBoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "segments": 2,
+                "radius": 0.055
+              },
+              "material": [
+                {
+                  "name": "scene06-aged-gilt-structural-bead",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2.4000000953674316,
+                  2.2260001088306307,
+                  -1.34799997061491
+                ],
+                [
+                  2.4000000953674316,
+                  2.2360001086071133,
+                  -1.3119999721646307
+                ]
+              ]
+            },
+            {
+              "distance": 10.082765739444467,
+              "point": [
+                0,
+                2.2707289761193485,
+                -1.5400000244379042
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 135,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.2200000286102295,
+                  2.242200112044811,
+                  -3.2199999719858168
+                ],
+                [
+                  1.2200000286102295,
+                  2.3125001099705695,
+                  -1.5400000244379042
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.7
+          ],
+          "hits": [
+            {
+              "distance": 4.623692607299349,
+              "point": [
+                0,
+                0.22686989303712524,
+                3.7898121020558144
+              ],
+              "name": "restoration-altar:textile",
+              "instanceId": 0,
+              "geometry": "SphereGeometry",
+              "parameters": {
+                "radius": 1,
+                "widthSegments": 48,
+                "heightSegments": 24,
+                "phiStart": 0,
+                "phiLength": 6.283185307179586,
+                "thetaStart": 0,
+                "thetaLength": 3.141592653589793
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brocade",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.6340320110321045,
+                  0.0851999892489777,
+                  3.1022000133991243
+                ],
+                [
+                  0.6340320110321045,
+                  0.29699999660253523,
+                  3.797799986600876
+                ]
+              ]
+            },
+            {
+              "distance": 7.336427870821341,
+              "point": [
+                0,
+                0.019687328119815422,
+                1.0850000947713854
+              ],
+              "name": "restoration-altar:oldgold",
+              "instanceId": 169,
+              "geometry": "RoundedBoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "segments": 2,
+                "radius": 0.055
+              },
+              "material": [
+                {
+                  "name": "scene06-r04-deep-carved-aged-gilt-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.1889999955892563,
+                  0.007500000372529028,
+                  0.6150000959634783
+                ],
+                [
+                  0.1889999955892563,
+                  0.04250000052154064,
+                  1.0850000947713854
+                ]
+              ]
+            },
+            {
+              "distance": 7.36150110976533,
+              "point": [
+                0,
+                0.017772383442001327,
+                1.060000088810921
+              ],
+              "name": "restoration-altar:lacquer",
+              "instanceId": 250,
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "restoration-black-brown-lacquer",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.15960000455379486,
+                  1.3113021835042815e-08,
+                  0.6400001019239427
+                ],
+                [
+                  0.15960000455379486,
+                  0.7550000083446502,
+                  1.060000088810921
+                ]
+              ]
+            },
+            {
+              "distance": 7.59420297967712,
+              "point": [
+                0,
+                3.7252891743611016e-10,
+                0.8279778858637119
+              ],
+              "name": "scene06-jointed-polished-floorboard",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 0.7193,
+                "height": 0.05,
+                "depth": 1.7392000000000003,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.35964998602867126,
+                  -0.05000000037252903,
+                  -0.6795999979972844
+                ],
+                [
+                  0.35964998602867126,
+                  3.725290284584126e-10,
+                  1.0595999979972834
+                ]
+              ]
+            },
+            {
+              "distance": 7.594202984554807,
+              "point": [
+                0,
+                2.824456488691958e-16,
+                0.827977881000272
+              ],
+              "name": "reference6-room-reflection-capture-only",
+              "geometry": "PlaneGeometry",
+              "parameters": {
+                "width": 13.4,
+                "height": 15.8,
+                "widthSegments": 1,
+                "heightSegments": 1
+              },
+              "material": [
+                {
+                  "name": "ReflectorShader",
+                  "type": "ShaderMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.699999809265137,
+                  -1.754152400083571e-15,
+                  -5.800000095367432
+                ],
+                [
+                  6.699999809265137,
+                  1.754152400083571e-15,
+                  10.000000095367431
+                ]
+              ]
+            },
+            {
+              "distance": 8.2488756907565,
+              "point": [
+                0,
+                -0.05000000268220903,
+                0.1752173184834871
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.24,
+                "depth": 16.2,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  -0.289999997317791,
+                  -6.000000381469727
+                ],
+                [
+                  6.900000095367432,
+                  -0.05000000268220903,
+                  10.200000381469726
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.5,
+            0.85
+          ],
+          "hits": [
+            {
+              "distance": 2.4022221345509647,
+              "point": [
+                0,
+                1.4245510326915678e-09,
+                6.0688476700612055
+              ],
+              "name": "scene06-observed-foreground-thick-wood-panel",
+              "geometry": "ExtrudeGeometry",
+              "parameters": {
+                "shapes": {
+                  "type": "Shape",
+                  "arcLengthDivisions": 200,
+                  "needsUpdate": false,
+                  "cacheArcLengths": null,
+                  "curves": [
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6038949171926256,
+                        "y": -0.308188450830744
+                      },
+                      "v2": {
+                        "x": 0.6038949171926256,
+                        "y": -0.308188450830744
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6038949171926256,
+                        "y": -0.308188450830744
+                      },
+                      "v2": {
+                        "x": 0.6038949171926256,
+                        "y": 0.308188450830744
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6038949171926256,
+                        "y": 0.308188450830744
+                      },
+                      "v2": {
+                        "x": -0.6038949171926256,
+                        "y": 0.308188450830744
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6038949171926256,
+                        "y": 0.308188450830744
+                      },
+                      "v2": {
+                        "x": -0.6038949171926256,
+                        "y": -0.308188450830744
+                      }
+                    }
+                  ],
+                  "autoClose": false,
+                  "currentPoint": {
+                    "x": -0.6038949171926256,
+                    "y": 0.308188450830744
+                  },
+                  "uuid": "d9bdc021-b8bc-4e40-8203-4fc05a658e2d",
+                  "holes": []
+                },
+                "options": {
+                  "depth": 0.0492,
+                  "steps": 1,
+                  "bevelEnabled": true,
+                  "bevelSize": 0.0004,
+                  "bevelThickness": 0.0004,
+                  "bevelSegments": 1,
+                  "curveSegments": 1
+                }
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.6422072052955627,
+                  -0.05000000074505806,
+                  5.9563117027282715
+                ],
+                [
+                  0.5663825869560242,
+                  1.4245510326915678e-09,
+                  6.573488235473633
+                ]
+              ]
+            },
+            {
+              "distance": 2.4022221404511193,
+              "point": [
+                0,
+                -8.81261211635033e-16,
+                6.068847664335607
+              ],
+              "name": "reference6-room-reflection-capture-only",
+              "geometry": "PlaneGeometry",
+              "parameters": {
+                "width": 13.4,
+                "height": 15.8,
+                "widthSegments": 1,
+                "heightSegments": 1
+              },
+              "material": [
+                {
+                  "name": "ReflectorShader",
+                  "type": "ShaderMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.699999809265137,
+                  -1.754152400083571e-15,
+                  -5.800000095367432
+                ],
+                [
+                  6.699999809265137,
+                  1.754152400083571e-15,
+                  10.000000095367431
+                ]
+              ]
+            },
+            {
+              "distance": 2.5191166991873923,
+              "point": [
+                0,
+                -0.028223386557542862,
+                5.955411434173584
+              ],
+              "name": "scene06-observed-foreground-thick-wood-panel",
+              "geometry": "ExtrudeGeometry",
+              "parameters": {
+                "shapes": {
+                  "type": "Shape",
+                  "arcLengthDivisions": 200,
+                  "needsUpdate": false,
+                  "cacheArcLengths": null,
+                  "curves": [
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6038949171926256,
+                        "y": -0.37932758103210173
+                      },
+                      "v2": {
+                        "x": 0.6038949171926256,
+                        "y": -0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6038949171926256,
+                        "y": -0.37932758103210173
+                      },
+                      "v2": {
+                        "x": 0.6038949171926256,
+                        "y": 0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6038949171926256,
+                        "y": 0.37932758103210173
+                      },
+                      "v2": {
+                        "x": -0.6038949171926256,
+                        "y": 0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6038949171926256,
+                        "y": 0.37932758103210173
+                      },
+                      "v2": {
+                        "x": -0.6038949171926256,
+                        "y": -0.37932758103210173
+                      }
+                    }
+                  ],
+                  "autoClose": false,
+                  "currentPoint": {
+                    "x": -0.6038949171926256,
+                    "y": 0.37932758103210173
+                  },
+                  "uuid": "b1cd45c6-01fe-4e89-8d06-ef69c0abd400",
+                  "holes": []
+                },
+                "options": {
+                  "depth": 0.0492,
+                  "steps": 1,
+                  "bevelEnabled": true,
+                  "bevelSize": 0.0004,
+                  "bevelThickness": 0.0004,
+                  "bevelSegments": 1,
+                  "curveSegments": 1
+                }
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -0.6422072052955627,
+                  -0.05000000074505806,
+                  5.195956230163574
+                ],
+                [
+                  0.5663825869560242,
+                  1.4245510326915678e-09,
+                  5.955411434173584
+                ]
+              ]
+            },
+            {
+              "distance": 2.6093102671163186,
+              "point": [
+                0,
+                -0.05000000268220903,
+                5.86788624530827
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.24,
+                "depth": 16.2,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  -0.289999997317791,
+                  -6.000000381469727
+                ],
+                [
+                  6.900000095367432,
+                  -0.05000000268220903,
+                  10.200000381469726
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.2,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 3.071717078854484,
+              "point": [
+                -1.0174771733458128,
+                0.03200000075995911,
+                5.553970833761634
+              ],
+              "name": "reference6-woven-prayer-mat",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 4,
+                "height": 0.032,
+                "depth": 0.84,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-woven-straw",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2,
+                  -7.599592205531636e-10,
+                  4.780000013113022
+                ],
+                [
+                  2,
+                  0.03200000075995922,
+                  5.619999986886978
+                ]
+              ]
+            },
+            {
+              "distance": 3.2510874157490446,
+              "point": [
+                -1.0768918976451043,
+                1.4245510326915678e-09,
+                5.387779352822804
+              ],
+              "name": "scene06-observed-foreground-thick-wood-panel",
+              "geometry": "ExtrudeGeometry",
+              "parameters": {
+                "shapes": {
+                  "type": "Shape",
+                  "arcLengthDivisions": 200,
+                  "needsUpdate": false,
+                  "cacheArcLengths": null,
+                  "curves": [
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.577821395027985,
+                        "y": -0.37932758103210173
+                      },
+                      "v2": {
+                        "x": 0.577821395027985,
+                        "y": -0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.577821395027985,
+                        "y": -0.37932758103210173
+                      },
+                      "v2": {
+                        "x": 0.577821395027985,
+                        "y": 0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.577821395027985,
+                        "y": 0.37932758103210173
+                      },
+                      "v2": {
+                        "x": -0.577821395027985,
+                        "y": 0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.577821395027985,
+                        "y": 0.37932758103210173
+                      },
+                      "v2": {
+                        "x": -0.577821395027985,
+                        "y": -0.37932758103210173
+                      }
+                    }
+                  ],
+                  "autoClose": false,
+                  "currentPoint": {
+                    "x": -0.577821395027985,
+                    "y": 0.37932758103210173
+                  },
+                  "uuid": "bde09566-f576-42e3-b487-3a5f97f8a3f0",
+                  "holes": []
+                },
+                "options": {
+                  "depth": 0.0492,
+                  "steps": 1,
+                  "bevelEnabled": true,
+                  "bevelSize": 0.0004,
+                  "bevelThickness": 0.0004,
+                  "bevelSegments": 1,
+                  "curveSegments": 1
+                }
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.79954993724823,
+                  -0.05000000074505806,
+                  5.195956230163574
+                ],
+                [
+                  -0.6431072354316711,
+                  1.4245510326915678e-09,
+                  5.955411434173584
+                ]
+              ]
+            },
+            {
+              "distance": 3.251087423734118,
+              "point": [
+                -1.0768919002900843,
+                -7.300336658354427e-16,
+                5.387779345424417
+              ],
+              "name": "reference6-room-reflection-capture-only",
+              "geometry": "PlaneGeometry",
+              "parameters": {
+                "width": 13.4,
+                "height": 15.8,
+                "widthSegments": 1,
+                "heightSegments": 1
+              },
+              "material": [
+                {
+                  "name": "ReflectorShader",
+                  "type": "ShaderMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.699999809265137,
+                  -1.754152400083571e-15,
+                  -5.800000095367432
+                ],
+                [
+                  6.699999809265137,
+                  1.754152400083571e-15,
+                  10.000000095367431
+                ]
+              ]
+            },
+            {
+              "distance": 3.4590931082416985,
+              "point": [
+                -1.145791812124269,
+                -0.03710859822890622,
+                5.195056438446045
+              ],
+              "name": "scene06-observed-foreground-thick-wood-panel",
+              "geometry": "ExtrudeGeometry",
+              "parameters": {
+                "shapes": {
+                  "type": "Shape",
+                  "arcLengthDivisions": 200,
+                  "needsUpdate": false,
+                  "cacheArcLengths": null,
+                  "curves": [
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.577821395027985,
+                        "y": -0.6969031896335606
+                      },
+                      "v2": {
+                        "x": 0.577821395027985,
+                        "y": -0.6969031896335606
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.577821395027985,
+                        "y": -0.6969031896335606
+                      },
+                      "v2": {
+                        "x": 0.577821395027985,
+                        "y": 0.6969031896335606
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.577821395027985,
+                        "y": 0.6969031896335606
+                      },
+                      "v2": {
+                        "x": -0.577821395027985,
+                        "y": 0.6969031896335606
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.577821395027985,
+                        "y": 0.6969031896335606
+                      },
+                      "v2": {
+                        "x": -0.577821395027985,
+                        "y": -0.6969031896335606
+                      }
+                    }
+                  ],
+                  "autoClose": false,
+                  "currentPoint": {
+                    "x": -0.577821395027985,
+                    "y": 0.6969031896335606
+                  },
+                  "uuid": "f0d0e5cf-0c95-409c-b6f8-38287c06f48a",
+                  "holes": []
+                },
+                "options": {
+                  "depth": 0.0492,
+                  "steps": 1,
+                  "bevelEnabled": true,
+                  "bevelSize": 0.0004,
+                  "bevelThickness": 0.0004,
+                  "bevelSegments": 1,
+                  "curveSegments": 1
+                }
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -1.79954993724823,
+                  -0.05000000074505806,
+                  3.800450086593628
+                ],
+                [
+                  -0.6431072354316711,
+                  1.4245510326915678e-09,
+                  5.195056438446045
+                ]
+              ]
+            },
+            {
+              "distance": 3.5313535959872184,
+              "point": [
+                -1.169727413915864,
+                -0.050000002682208805,
+                5.128105137134449
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.24,
+                "depth": 16.2,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  -0.289999997317791,
+                  -6.000000381469727
+                ],
+                [
+                  6.900000095367432,
+                  -0.05000000268220903,
+                  10.200000381469726
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.8,
+            0.8
+          ],
+          "hits": [
+            {
+              "distance": 3.071717078854484,
+              "point": [
+                1.017477173345813,
+                0.03200000075995911,
+                5.553970833761634
+              ],
+              "name": "reference6-woven-prayer-mat",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 4,
+                "height": 0.032,
+                "depth": 0.84,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-woven-straw",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -2,
+                  -7.599592205531636e-10,
+                  4.780000013113022
+                ],
+                [
+                  2,
+                  0.03200000075995922,
+                  5.619999986886978
+                ]
+              ]
+            },
+            {
+              "distance": 3.251087415749046,
+              "point": [
+                1.0768918976451047,
+                1.4245509216692653e-09,
+                5.387779352822803
+              ],
+              "name": "scene06-observed-foreground-thick-wood-panel",
+              "geometry": "ExtrudeGeometry",
+              "parameters": {
+                "shapes": {
+                  "type": "Shape",
+                  "arcLengthDivisions": 200,
+                  "needsUpdate": false,
+                  "cacheArcLengths": null,
+                  "curves": [
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6157336877793897,
+                        "y": -0.37932758103210173
+                      },
+                      "v2": {
+                        "x": 0.6157336877793897,
+                        "y": -0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6157336877793897,
+                        "y": -0.37932758103210173
+                      },
+                      "v2": {
+                        "x": 0.6157336877793897,
+                        "y": 0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6157336877793897,
+                        "y": 0.37932758103210173
+                      },
+                      "v2": {
+                        "x": -0.6157336877793897,
+                        "y": 0.37932758103210173
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6157336877793897,
+                        "y": 0.37932758103210173
+                      },
+                      "v2": {
+                        "x": -0.6157336877793897,
+                        "y": -0.37932758103210173
+                      }
+                    }
+                  ],
+                  "autoClose": false,
+                  "currentPoint": {
+                    "x": -0.6157336877793897,
+                    "y": 0.37932758103210173
+                  },
+                  "uuid": "76dad3e9-e7ab-49e6-9f5c-90200e421cc1",
+                  "holes": []
+                },
+                "options": {
+                  "depth": 0.0492,
+                  "steps": 1,
+                  "bevelEnabled": true,
+                  "bevelSize": 0.0004,
+                  "bevelThickness": 0.0004,
+                  "bevelSegments": 1,
+                  "curveSegments": 1
+                }
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  0.5672826170921326,
+                  -0.05000000074505806,
+                  5.195956230163574
+                ],
+                [
+                  1.7995500564575195,
+                  1.4245510326915678e-09,
+                  5.955411434173584
+                ]
+              ]
+            },
+            {
+              "distance": 3.251087423734119,
+              "point": [
+                1.0768919002900845,
+                -8.410559682979583e-16,
+                5.387779345424416
+              ],
+              "name": "reference6-room-reflection-capture-only",
+              "geometry": "PlaneGeometry",
+              "parameters": {
+                "width": 13.4,
+                "height": 15.8,
+                "widthSegments": 1,
+                "heightSegments": 1
+              },
+              "material": [
+                {
+                  "name": "ReflectorShader",
+                  "type": "ShaderMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.699999809265137,
+                  -1.754152400083571e-15,
+                  -5.800000095367432
+                ],
+                [
+                  6.699999809265137,
+                  1.754152400083571e-15,
+                  10.000000095367431
+                ]
+              ]
+            },
+            {
+              "distance": 3.4590931082416985,
+              "point": [
+                1.1457918121242692,
+                -0.03710859822890622,
+                5.195056438446045
+              ],
+              "name": "scene06-observed-foreground-thick-wood-panel",
+              "geometry": "ExtrudeGeometry",
+              "parameters": {
+                "shapes": {
+                  "type": "Shape",
+                  "arcLengthDivisions": 200,
+                  "needsUpdate": false,
+                  "cacheArcLengths": null,
+                  "curves": [
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6157336877793897,
+                        "y": -0.6969031896335606
+                      },
+                      "v2": {
+                        "x": 0.6157336877793897,
+                        "y": -0.6969031896335606
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6157336877793897,
+                        "y": -0.6969031896335606
+                      },
+                      "v2": {
+                        "x": 0.6157336877793897,
+                        "y": 0.6969031896335606
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": 0.6157336877793897,
+                        "y": 0.6969031896335606
+                      },
+                      "v2": {
+                        "x": -0.6157336877793897,
+                        "y": 0.6969031896335606
+                      }
+                    },
+                    {
+                      "type": "LineCurve",
+                      "arcLengthDivisions": 200,
+                      "needsUpdate": false,
+                      "cacheArcLengths": null,
+                      "isLineCurve": true,
+                      "v1": {
+                        "x": -0.6157336877793897,
+                        "y": 0.6969031896335606
+                      },
+                      "v2": {
+                        "x": -0.6157336877793897,
+                        "y": -0.6969031896335606
+                      }
+                    }
+                  ],
+                  "autoClose": false,
+                  "currentPoint": {
+                    "x": -0.6157336877793897,
+                    "y": 0.6969031896335606
+                  },
+                  "uuid": "785abcee-25a1-436f-b796-f7bde92cbea7",
+                  "holes": []
+                },
+                "options": {
+                  "depth": 0.0492,
+                  "steps": 1,
+                  "bevelEnabled": true,
+                  "bevelSize": 0.0004,
+                  "bevelThickness": 0.0004,
+                  "bevelSegments": 1,
+                  "curveSegments": 1
+                }
+              },
+              "material": [
+                {
+                  "name": "reference6-varnished-red-brown-floor-body",
+                  "type": "MeshPhysicalMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  0.5672826170921326,
+                  -0.05000000074505806,
+                  3.800450086593628
+                ],
+                [
+                  1.7995500564575195,
+                  1.4245510326915678e-09,
+                  5.195056438446045
+                ]
+              ]
+            },
+            {
+              "distance": 3.531353595987219,
+              "point": [
+                1.1697274139158642,
+                -0.050000002682208805,
+                5.128105137134449
+              ],
+              "name": "",
+              "geometry": "BoxGeometry",
+              "parameters": {
+                "width": 13.8,
+                "height": 0.24,
+                "depth": 16.2,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+              },
+              "material": [
+                {
+                  "name": "reference6-deep-brown-recess",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -6.900000095367432,
+                  -0.289999997317791,
+                  -6.000000381469727
+                ],
+                [
+                  6.900000095367432,
+                  -0.05000000268220903,
+                  10.200000381469726
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "native1254": true,
+      "pixelEditing": false,
+      "license": "CC-BY-NC-SA-4.0"
+    }
+  ],
+  "actualPointSource": "actual-face-focus-point189-r02.json",
+  "cameraInfo": {
+    "revision": "scene06-low-statue-retreat189-r02-crisp-face",
+    "duration": 7,
+    "subject": {
+      "label": "Actual central Amida eye-bridge/face surface; main figure DOF disabled for fine detail",
+      "point": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ],
+      "source": "Unchanged SC07 actual face vertex40685, uniform scale2.50/3.26 and existing seat/altar translation; no model edits",
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    "legacyCenserLocator": {
+      "label": "Existing central six-lobed gilt censer/cartouche and curled handles",
+      "point": [
+        0,
+        1.4709999999999999,
+        1.1922373832605224
+      ],
+      "altarLocalPoint": [
+        0,
+        1.426,
+        3.4922373832605222
+      ],
+      "mesh": "restoration-altar:merged-gold",
+      "instanceId": null,
+      "source": "Raycast against retained altar geometry at local Y1.426; no model edits",
+      "usedForThisPath": false
+    },
+    "controls": [
+      [
+        1.05,
+        1.3,
+        1.95
+      ],
+      [
+        1.3,
+        1.36,
+        3.85
+      ],
+      [
+        0.65,
+        1.18,
+        6.65
+      ],
+      [
+        0,
+        0.58,
+        8.4
+      ]
+    ],
+    "start": {
+      "position": [
+        1.05,
+        1.3,
+        1.95
+      ],
+      "target": [
+        0,
+        4.7,
+        -2.3
+      ],
+      "quaternion": [
+        0.321828930540606,
+        0.11428330335393246,
+        -0.03916652811880147,
+        0.9390588102545664
+      ],
+      "fov": 42
+    },
+    "end": {
+      "position": [
+        0,
+        0.58,
+        8.4
+      ],
+      "target": [
+        0,
+        2.4,
+        -2.3
+      ],
+      "quaternion": [
+        0.08414089476065134,
+        0,
+        0,
+        0.996453867386181
+      ],
+      "fov": 64
+    },
+    "orientation": "Shortest quaternion slerp independent of cubic rail, with world-up roll correction; exact original ending quaternion",
+    "timeCurve": "quintic smootherstep; zero first/second derivatives at endpoints",
+    "lens": "Actual perspective FOV42 to unchanged reference FOV, smoothly widened with rail progress; no image scaling",
+    "focus": {
+      "enabled": false,
+      "focusDistance": 5.923488912646768,
+      "fNumber": 11,
+      "strength": 0,
+      "focalLengthMm": 45.58905863214153,
+      "maxRadiusPixels": 6,
+      "method": "Physical circle-of-confusion diameter with bounded24-tap depth-aware gather",
+      "depth": "Existing actual opaque geometry depth; glass and hidden backgrounds are approximations",
+      "referenceUnchanged": "Pass disabled for original reference/view and exact7s endpoint"
+    },
+    "current": {
+      "seconds": 0,
+      "railProgress": 0,
+      "orientation": "quaternion-slerp",
+      "focusPoint": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ],
+      "focusDistance": 5.923488912646768,
+      "exactReferenceEndpoint": false
+    }
+  },
+  "renderedMovie": false,
+  "continuousMotionReviewed": false,
+  "photographicAcceptance": false,
+  "geometryAndScalpEdited": false,
+  "materialsAndLightingEdited": false,
+  "sharedSourcesEdited": false,
+  "gitWrites": false,
+  "exports": false,
+  "children": 0,
+  "pendingOwnGPUJobs": 0,
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "limits": [
+    "Five actual sampled poses reviewed; continuous seven-second cadence is still not captured.",
+    "R08 face/scalp/carving/room differences remain frozen and unaccepted.",
+    "No DOF on the main figure or foreground in this path; full native detail prioritized."
+  ],
+  "actualReviewFindings": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-low-shot189/actual-review-findings189.json",
+  "focusComparison": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-low-shot189/focus-comparison189.html",
+  "pathAndLensUnchangedToR01": true,
+  "actualPathFocusComparison": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-low-shot189/r01-r02-path-and-focus-comparison189.json",
+  "mainFigureDofDisabledThroughout": true,
+  "actualFocusComparisonTimes": [
+    0,
+    1.75,
+    3.5
+  ],
+  "cameraStaticReviewAcceptedProvisionally": true,
+  "endingPixelComparison": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-low-shot189/ending-pixel-comparison189.json"
+}

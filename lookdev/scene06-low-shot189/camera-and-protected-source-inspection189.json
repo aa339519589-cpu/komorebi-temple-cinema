@@ -1,0 +1,280 @@
+{
+  "cameraRevision": "scene06-low-statue-retreat189-r02-crisp-face",
+  "protectedR08FileCount": 199,
+  "protectedR08FilesAllByteExact": true,
+  "onlyChangedSceneFile": "src/reference6-camera-shot.js",
+  "cameraModuleSha256": "1a523ba662e994ff012985f32701b6e85132ad889101075fbb4683467cb4cf48",
+  "originalReferenceEnding": {
+    "positionExact": true,
+    "fovExact": true,
+    "maxQuaternionError": 0,
+    "focusPassRestored": true
+  },
+  "info": {
+    "revision": "scene06-low-statue-retreat189-r02-crisp-face",
+    "duration": 7,
+    "subject": {
+      "label": "Actual central Amida eye-bridge/face surface; main figure DOF disabled for fine detail",
+      "point": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ],
+      "source": "Unchanged SC07 actual face vertex40685, uniform scale2.50/3.26 and existing seat/altar translation; no model edits",
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    "legacyCenserLocator": {
+      "label": "Original censer input preserved for provenance only",
+      "point": [
+        0,
+        1.471,
+        1.19224
+      ],
+      "usedForThisPath": false
+    },
+    "controls": [
+      [
+        1.05,
+        1.3,
+        1.95
+      ],
+      [
+        1.3,
+        1.36,
+        3.85
+      ],
+      [
+        0.65,
+        1.18,
+        6.65
+      ],
+      [
+        0,
+        0.58,
+        8.4
+      ]
+    ],
+    "start": {
+      "position": [
+        1.05,
+        1.3,
+        1.95
+      ],
+      "target": [
+        0,
+        4.7,
+        -2.3
+      ],
+      "quaternion": [
+        0.321828930540606,
+        0.11428330335393246,
+        -0.03916652811880147,
+        0.9390588102545664
+      ],
+      "fov": 42
+    },
+    "end": {
+      "position": [
+        0,
+        0.58,
+        8.4
+      ],
+      "target": [
+        0,
+        2.4,
+        -2.3
+      ],
+      "quaternion": [
+        0.08414089476065134,
+        0,
+        0,
+        0.996453867386181
+      ],
+      "fov": 64
+    },
+    "orientation": "Shortest quaternion slerp independent of cubic rail, with world-up roll correction; exact original ending quaternion",
+    "timeCurve": "quintic smootherstep; zero first/second derivatives at endpoints",
+    "lens": "Actual perspective FOV42 to unchanged reference FOV, smoothly widened with rail progress; no image scaling",
+    "focus": {
+      "mode": "DOF disabled for every pose; face/eyes/lips/robe retain native detail, with no focus snap",
+      "firstPullSeconds": 4.9,
+      "lastPullSeconds": 7,
+      "fNumber": 11,
+      "referenceFocusDistance": 10.853681403100055,
+      "referenceMode": "Original no-DOF reference mode restored exactly at7s"
+    }
+  },
+  "samples": [
+    {
+      "seconds": 0,
+      "position": [
+        1.05,
+        1.3,
+        1.95
+      ],
+      "quaternion": [
+        0.32182893054060613,
+        0.11428330335393252,
+        -0.0391665281188015,
+        0.9390588102545664
+      ],
+      "forward": [
+        -0.18942764204408621,
+        0.6133847456665649,
+        -0.7667309320832055
+      ],
+      "targetWitness": [
+        -0.07207253739696529,
+        4.9333777401425545,
+        -2.59172217517819
+      ],
+      "focusPoint": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ],
+      "focusDistance": 5.923488912646768,
+      "fNumber": 11,
+      "focusStrength": 0,
+      "fov": 42,
+      "atEnd": false
+    },
+    {
+      "seconds": 1.75,
+      "position": [
+        1.0997032083570957,
+        1.3107180039584638,
+        2.5668078918009996
+      ],
+      "quaternion": [
+        0.2983889189697393,
+        0.10169793829458283,
+        -0.031994152426985584,
+        0.9484713789003759
+      ],
+      "forward": [
+        -0.17382176641909408,
+        0.5725341775262565,
+        -0.8012431647654031
+      ],
+      "targetWitness": [
+        -0.009872253288948363,
+        4.965437935898188,
+        -2.547855091727683
+      ],
+      "focusPoint": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ],
+      "focusDistance": 6.383409192671504,
+      "fNumber": 11,
+      "focusStrength": 0,
+      "fov": 44.27734375,
+      "atEnd": false
+    },
+    {
+      "seconds": 3.5,
+      "position": [
+        0.8625,
+        1.1875,
+        5.23125
+      ],
+      "quaternion": [
+        0.2053642786070177,
+        0.05600141472318905,
+        -0.011771298732841691,
+        0.9770111520076742
+      ],
+      "forward": [
+        -0.10459320488044946,
+        0.4026047996104715,
+        -0.9093787092424411
+      ],
+      "targetWitness": [
+        -0.035926996029607694,
+        4.645765009802267,
+        -2.580064156897814
+      ],
+      "focusPoint": [
+        0.07716570895142351,
+        5.389201956438872,
+        -2.2639334277095604
+      ],
+      "focusDistance": 8.589726235624141,
+      "fNumber": 11,
+      "focusStrength": 0,
+      "fov": 53,
+      "atEnd": false
+    },
+    {
+      "seconds": 5.25,
+      "position": [
+        0.2008571706712246,
+        0.7530262739956378,
+        7.824952171370388
+      ],
+      "quaternion": [
+        0.10937941867760288,
+        0.01166700025313506,
+        -0.0012839221241595002,
+        0.9939307699326055
+      ],
+      "forward": [
+        -0.02291151177766911,
+        0.21746109868151645,
+        -0.975800047749686
+      ],
+      "targetWitness": [
+        -0.04736606874927815,
+        3.1089990655980935,
+        -2.746862173730417
+      ],
+      "focusPoint": [
+        0.07442680261518472,
+        5.283103738849221,
+        -2.2652135683927086
+      ],
+      "focusDistance": 10.833996544149285,
+      "fNumber": 11,
+      "focusStrength": 0,
+      "fov": 61.72265625,
+      "atEnd": false
+    },
+    {
+      "seconds": 7,
+      "position": [
+        0,
+        0.58,
+        8.4
+      ],
+      "quaternion": [
+        0.08414089476065134,
+        0,
+        0,
+        0.996453867386181
+      ],
+      "forward": [
+        0,
+        0.16768503997916936,
+        -0.985840619657754
+      ],
+      "targetWitness": [
+        0,
+        2.4,
+        -2.3
+      ],
+      "focusPoint": [
+        5.551115123125783e-17,
+        2.4000000000000017,
+        -2.3
+      ],
+      "focusDistance": 10.853681403100055,
+      "fNumber": 11,
+      "focusStrength": 0,
+      "fov": 64,
+      "atEnd": true
+    }
+  ],
+  "scope": "Read-only pure camera/source check. This is not a native render, obstacle proof, continuous-motion acceptance, or fidelity judgment; actual five native poses are required."
+}

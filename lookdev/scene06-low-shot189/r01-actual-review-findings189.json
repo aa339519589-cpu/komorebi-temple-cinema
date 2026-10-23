@@ -1,0 +1,43 @@
+{
+  "status": "actual-five-position-camera-review-ready-for-root",
+  "sourceHash": "70d7f31c137975a54859684ccf2296401cab291606f926dc7e31d2fd313ba7b7",
+  "cameraRevision": "scene06-low-statue-retreat189-r01",
+  "actualFivePositionsViewed": true,
+  "observations": [
+    {
+      "seconds": 0,
+      "actualView": "Actual central face, both raised hands, robe, crossed legs and lotus dominate the low right-front frame. Censer body/glass are outside the principal view; nearby flowers remain only at the lower edge. No table/column/altar clipping observed."
+    },
+    {
+      "seconds": 1.75,
+      "actualView": "Retreat retains central figure/lotus dominance while revealing attendants. Glass chimney appears only at far lower-left edge and does not cross the central body/face."
+    },
+    {
+      "seconds": 3.5,
+      "actualView": "Triad and upper altar are revealed. Censer is a smaller lower-frame context; chimney stays below the main body/lotus. No giant foreground object obscures the statue."
+    },
+    {
+      "seconds": 5.25,
+      "actualView": "Complete altar furniture and low prayer table/cushion enter as camera lowers. Table, lamps and columns do not clip the camera at this sampled pose; central triad remains clear."
+    },
+    {
+      "seconds": 7,
+      "actualView": "Original reference position/target/quaternion/FOV and no-DOF mode are exactly restored. The frame visually matches the original composition; cross-run RGBA is not byte-exact (small measured renderer variation)."
+    }
+  ],
+  "repairsImplemented": "Replaced old censer macro with actual low figure/robe/lotus opening; lateral censer clearance, early rail above foreground table, upright orientation, late return to original kneeling reference ending; focus on exact retained source robe vertex.",
+  "unchangedProtectedR08Files": 199,
+  "protectedFilesByteExact": true,
+  "endingPoseExact": true,
+  "endingRgbaByteExact": false,
+  "endingPixelComparison": "ending-pixel-comparison189.json",
+  "endingPixelInterpretation": "Pose and all199 other scene files are exact; actual cross-run pixel difference is small (mean0.158 byte units/channel). The existing GTAOPass Poisson denoiser constructs an unseeded SimplexNoise texture, one known source of cross-run rendering variation. No renderer/material/lighting edits made; no pixel-parity claim.",
+  "knownLimits": [
+    "Only five static samples inspected; no full continuous seven-second cadence review or encoded motion in this phase.",
+    "R08 source face/scalp/carving and wider room mismatches remain frozen/unaccepted.",
+    "Depth-aware DOF has existing glass/hidden-background approximations."
+  ],
+  "cameraStaticReviewAcceptedProvisionally": true,
+  "wholeScenePhotographicAcceptance": false,
+  "scalpWorkStarted": false
+}
