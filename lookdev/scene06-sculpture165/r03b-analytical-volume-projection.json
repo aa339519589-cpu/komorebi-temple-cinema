@@ -1,0 +1,82 @@
+{
+  "scope": "Analytical projection of actual R03b mesh coordinates and exact current runtime seat/scale/camera. Not a native rendering and not a photographic/occlusion acceptance test.",
+  "sourceHash": "8dd961d5c5a03b7f4d730e6289a332b03016aa9356ec3478cd089257490826d4",
+  "camera": [
+    0,
+    0.58,
+    8.4
+  ],
+  "target": [
+    0,
+    2.4,
+    -2.3
+  ],
+  "fov": 64,
+  "imageSize": [
+    1254,
+    1254
+  ],
+  "mainSeatWorld": [
+    0,
+    3.425,
+    -2.3
+  ],
+  "mainScale": [
+    0.7241717791411044,
+    0.6963190184049081,
+    0.7102453987730062
+  ],
+  "bounds": {
+    "whole": {
+      "projectedBounds": [
+        523.03,
+        346.93,
+        713.2,
+        555.34
+      ],
+      "width": 190.16,
+      "height": 208.42
+    },
+    "kneeMass": {
+      "projectedBounds": [
+        523.03,
+        479.95,
+        713.2,
+        555.34
+      ],
+      "width": 190.16,
+      "height": 75.39
+    },
+    "torsoAndCowls": {
+      "projectedBounds": [
+        551.15,
+        396.46,
+        691.21,
+        505.85
+      ],
+      "width": 140.06,
+      "height": 109.4
+    },
+    "faceAndEars": {
+      "projectedBounds": [
+        603.38,
+        353.8,
+        650.62,
+        407.6
+      ],
+      "width": 47.24,
+      "height": 53.8
+    },
+    "headAndHair": {
+      "projectedBounds": [
+        603.38,
+        346.93,
+        650.62,
+        407.6
+      ],
+      "width": 47.24,
+      "height": 60.67
+    }
+  },
+  "visualAccepted": false
+}

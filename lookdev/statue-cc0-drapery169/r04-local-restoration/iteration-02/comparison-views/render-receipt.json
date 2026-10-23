@@ -1,0 +1,377 @@
+{
+  "renderer": "Blender Cycles Metal via official FIFO",
+  "samples": 64,
+  "resolution": [
+    1200,
+    1050
+  ],
+  "inputComponents": [
+    {
+      "revision": "before-r03",
+      "component": "crossed-knees-hips",
+      "file": "r03/crossed-knees-hips.glb",
+      "sha256": "981be03187ca5c59a9d1f001566ee70e7276465284e1a162eb15d4fd3a65b105"
+    },
+    {
+      "revision": "before-r03",
+      "component": "torso-cloak-core",
+      "file": "r03/torso-cloak-core.glb",
+      "sha256": "848dfcbfabc37113154c9edbed1796f18e2ea5efb8f6d89c1e5149f2651e918d"
+    },
+    {
+      "revision": "after-r04",
+      "component": "crossed-knees-hips",
+      "file": "r04-local-restoration/iteration-02/crossed-knees-hips.glb",
+      "sha256": "1ccf1a897fc31d03cce69259bfa12851ba14d586d1debd7261d1669f8e191380"
+    },
+    {
+      "revision": "after-r04",
+      "component": "torso-cloak-core",
+      "file": "r04-local-restoration/iteration-02/torso-cloak-core.glb",
+      "sha256": "023a1cb963fec36ceea69bd581c78f7fe05f64d96a39827d63454acb7caf1ad7"
+    }
+  ],
+  "renderScriptSha256": "8dc31c01bd8c644dd77d6c80997d544e950e71f09c835a57bf1ff31cb9c7e716",
+  "restorationBuilderSha256": "0aebaae6ce90199e9e5e950dbe079aca2278bcef69dd70f1cb602c4bc013fb55",
+  "views": [
+    {
+      "file": "knees-front-clay-before-r03.png",
+      "sha256": "6fdab1407ad490961e55d97ecf004e01ed0a104d872dfa93cc89b4e30d48a050",
+      "revision": "before-r03",
+      "component": "crossed-knees-hips",
+      "material": "clay",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.3700000047683716
+      ],
+      "targetBlender": [
+        2.8839591323048808e-05,
+        -0.6719934940338135,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-front-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "knees-front-clay-after-r04.png",
+      "sha256": "e588e51822fd39e15219a68d7f4340c3618dee4baa373a29a048b513876c6b01",
+      "revision": "after-r04",
+      "component": "crossed-knees-hips",
+      "material": "clay",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.3700000047683716
+      ],
+      "targetBlender": [
+        2.8839591323048808e-05,
+        -0.6719934940338135,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-front-close-clay.png",
+      "reusedActualFIFOFrame": false
+    },
+    {
+      "file": "knees-front-aged-gold-before-r03.png",
+      "sha256": "d75cb98def05762e64d76b01ee77fcf08bd96cb6e7fa7af667f265b46b57e188",
+      "revision": "before-r03",
+      "component": "crossed-knees-hips",
+      "material": "aged-gold",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.3700000047683716
+      ],
+      "targetBlender": [
+        2.8839591323048808e-05,
+        -0.6719934940338135,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-front-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "knees-front-aged-gold-after-r04.png",
+      "sha256": "762f1ff588c9b366730da76501338a7829ef2aca52cab184a935eaab80549b54",
+      "revision": "after-r04",
+      "component": "crossed-knees-hips",
+      "material": "aged-gold",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.3700000047683716
+      ],
+      "targetBlender": [
+        2.8839591323048808e-05,
+        -0.6719934940338135,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-front-close-clay.png",
+      "reusedActualFIFOFrame": false
+    },
+    {
+      "file": "knees-three-quarter-clay-before-r03.png",
+      "sha256": "4f547575faf0edcf99814bd745aa25e64c373afc5b0f41e36c2c37f8982f34a9",
+      "revision": "before-r03",
+      "component": "crossed-knees-hips",
+      "material": "clay",
+      "cameraBlender": [
+        -2.599971055984497,
+        -3.9319934844970703,
+        1.100000023841858
+      ],
+      "targetBlender": [
+        -0.039971157908439636,
+        -0.6819934844970703,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "knees-three-quarter-clay-after-r04.png",
+      "sha256": "49e5a9d7f1af6a835ad24c5d4fcf7c4de2d747e50e4cccea96e512b5ad0238c2",
+      "revision": "after-r04",
+      "component": "crossed-knees-hips",
+      "material": "clay",
+      "cameraBlender": [
+        -2.599971055984497,
+        -3.9319934844970703,
+        1.100000023841858
+      ],
+      "targetBlender": [
+        -0.039971157908439636,
+        -0.6819934844970703,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": false
+    },
+    {
+      "file": "knees-three-quarter-aged-gold-before-r03.png",
+      "sha256": "e73d7919bdf912195a6ee45b8054a277edc2b3dbe5726e90add1d7bccd94e49b",
+      "revision": "before-r03",
+      "component": "crossed-knees-hips",
+      "material": "aged-gold",
+      "cameraBlender": [
+        -2.599971055984497,
+        -3.9319934844970703,
+        1.100000023841858
+      ],
+      "targetBlender": [
+        -0.039971157908439636,
+        -0.6819934844970703,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "knees-three-quarter-aged-gold-after-r04.png",
+      "sha256": "3acec2c636c41465d4c00072aee52f663d6f192eab3ad2351ff3d5b70643091a",
+      "revision": "after-r04",
+      "component": "crossed-knees-hips",
+      "material": "aged-gold",
+      "cameraBlender": [
+        -2.599971055984497,
+        -3.9319934844970703,
+        1.100000023841858
+      ],
+      "targetBlender": [
+        -0.039971157908439636,
+        -0.6819934844970703,
+        0.11999999731779099
+      ],
+      "orthographicScale": 1.4800000190734863,
+      "matchingR03Camera": "knees-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": false
+    },
+    {
+      "file": "torso-front-clay-before-r03.png",
+      "sha256": "00ce0b58eaccee53864a34a6caf9af0fc52646d54151d5710eea7698a9a28f54",
+      "revision": "before-r03",
+      "component": "torso-cloak-core",
+      "material": "clay",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.6899999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-front-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "torso-front-clay-after-r04.png",
+      "sha256": "50e3600a2be597daddc81a32371a22fcc574a3a2fb52268140a8be13e9074c04",
+      "revision": "after-r04",
+      "component": "torso-cloak-core",
+      "material": "clay",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.6899999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-front-close-clay.png",
+      "reusedActualFIFOFrame": false
+    },
+    {
+      "file": "torso-front-aged-gold-before-r03.png",
+      "sha256": "7463fca95ebe19d8b4e486bb577cf932ef4e91a09e76221c56a6beb03a30c015",
+      "revision": "before-r03",
+      "component": "torso-cloak-core",
+      "material": "aged-gold",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.6899999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-front-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "torso-front-aged-gold-after-r04.png",
+      "sha256": "7934d9f64697ab37f2fa2e6499c999c867aab267793327d36899ef8f288d4d72",
+      "revision": "after-r04",
+      "component": "torso-cloak-core",
+      "material": "aged-gold",
+      "cameraBlender": [
+        2.8839591323048808e-05,
+        -4.43199348449707,
+        0.6899999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-front-close-clay.png",
+      "reusedActualFIFOFrame": false
+    },
+    {
+      "file": "torso-three-quarter-clay-before-r03.png",
+      "sha256": "89381b8937d58ce5015e05335daa91937d21c57b0917671c335430ce0416eebe",
+      "revision": "before-r03",
+      "component": "torso-cloak-core",
+      "material": "clay",
+      "cameraBlender": [
+        2.700028896331787,
+        -3.9319934844970703,
+        1.149999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "torso-three-quarter-clay-after-r04.png",
+      "sha256": "21b590605b90e5560c8b06f1d5e123f819176e586aff02b4e700ba1be0b07e3f",
+      "revision": "after-r04",
+      "component": "torso-cloak-core",
+      "material": "clay",
+      "cameraBlender": [
+        2.700028896331787,
+        -3.9319934844970703,
+        1.149999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": false
+    },
+    {
+      "file": "torso-three-quarter-aged-gold-before-r03.png",
+      "sha256": "6ddc5e73d885f29fd7f673ef7583af35228598d31f1daf17a4539513530af55b",
+      "revision": "before-r03",
+      "component": "torso-cloak-core",
+      "material": "aged-gold",
+      "cameraBlender": [
+        2.700028896331787,
+        -3.9319934844970703,
+        1.149999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": true
+    },
+    {
+      "file": "torso-three-quarter-aged-gold-after-r04.png",
+      "sha256": "3ec2d8015c188e9340528ef921388ff7df98fb8d826f17808aece23009df32c8",
+      "revision": "after-r04",
+      "component": "torso-cloak-core",
+      "material": "aged-gold",
+      "cameraBlender": [
+        2.700028896331787,
+        -3.9319934844970703,
+        1.149999976158142
+      ],
+      "targetBlender": [
+        0.025028839707374573,
+        -0.1819935142993927,
+        0.5699999928474426
+      ],
+      "orthographicScale": 1.0499999523162842,
+      "matchingR03Camera": "torso-three-quarter-close-clay.png",
+      "reusedActualFIFOFrame": false
+    }
+  ],
+  "sameCameraForBeforeAfter": true,
+  "sameMaterialsForBeforeAfter": true,
+  "samePhysicalLightsForBeforeAfter": true,
+  "noPhotographs": true,
+  "noSourceTextures": true,
+  "noNormalMaps": true,
+  "noDisplacementShader": true,
+  "goldMaterial": {
+    "baseColor": [
+      0.58,
+      0.325,
+      0.075
+    ],
+    "metallic": 0.92,
+    "roughness": 0.34,
+    "texture": "None"
+  },
+  "visualAccepted": false,
+  "limit": "A derived/restored Chinese Tang surface donor, different artifact from Japanese reference06. Macro-fold preservation and finish require actual visual evaluation."
+}

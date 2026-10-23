@@ -1,0 +1,58 @@
+{
+  "revision": "calm-buddha-head173-component-r01",
+  "sourceGlbSha256": "2192f22ca28f89b950f3e5d7685137e402c04b1d59f431ba19c54533f1fcc4fa",
+  "builderSha256": "b655a034bf3a2d9fee023095c3549e05f21ec845a81348c23f6257a3f553d59a",
+  "renderScriptSha256": "8c41fc17cb77559f26f6fbd5b1c4d3cc91c828e56981751f0e48c84cb991ed8a",
+  "sourceLicense": "CC-BY-4.0",
+  "coordinateSystem": "+Y-up/+Z-front GLB imported by Blender to +Z-up",
+  "renderBackend": "Cycles Metal through tools/run-blender-queued.mjs official FIFO",
+  "material": "Neutral gray clay; no source textures, photo maps, normal maps or displacement",
+  "views": [
+    {
+      "file": "front-clay.png",
+      "cameraLocation": [
+        0.0,
+        -3.4000000953674316,
+        0.5199999809265137
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "sha256": "4591730d406a6dac0fafe4d0ac89ccae89cde4305fe5945d9894adc32db0475e"
+    },
+    {
+      "file": "three-quarter-clay.png",
+      "cameraLocation": [
+        1.8017255067825317,
+        -2.8833634853363037,
+        0.5199999809265137
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "sha256": "e9886130e04581c8cc4b2c88b1761f5c52a4c4c05e4b196b975cb75e29bbf7d8"
+    },
+    {
+      "file": "profile-clay.png",
+      "cameraLocation": [
+        3.4000000953674316,
+        -2.0818995170458873e-16,
+        0.5199999809265137
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "sha256": "3c8b0c776e8ccd0424f15f8c7605299827b70f8a70d62b763323933b03a763d0"
+    }
+  ],
+  "vertices": 166523,
+  "triangles": 330147,
+  "openMountBoundaries": "One source-preserving neck loop and one crown loop; exact ring coordinates in measured-rings.json. Donor side hair remains.",
+  "visualAccepted": false
+}

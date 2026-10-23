@@ -1,0 +1,59 @@
+{
+  "status": "PASS: bounded local deltas, locked mounts/features, exact topology and actual matched render identities verified",
+  "variant": "iteration-02",
+  "r03AllFilesByteUnchanged": true,
+  "components": [
+    {
+      "component": "crossed-knees-hips",
+      "unchangedTopology": true,
+      "exactMountAndCapGeometry": true,
+      "exactLockedFeaturePositionsAndNormals": true,
+      "exactUnchangedPositionsOutsideMask": true,
+      "deltaReconstructionVerified": true,
+      "nativeSC07Exact": true,
+      "renderedGLBIdentityExact": true,
+      "movedVertices": 3025,
+      "movedFaces": 5573,
+      "normalChangedFaces": 6122,
+      "maxMovementMetres": 0.006195700286197575,
+      "macro75mmMeanDeltaMaxMetres": 0.0005350834765250309,
+      "areaRatioPercentiles": [
+        0.08206124603748322,
+        0.8868177849054336,
+        1.0,
+        1.0087390637397764,
+        6.062503814697266
+      ],
+      "remainingFaceFlips": 0,
+      "primaryAcceptance": "Actual paired physical clay and gold frames; these numerical checks do not accept the finish."
+    },
+    {
+      "component": "torso-cloak-core",
+      "unchangedTopology": true,
+      "exactMountAndCapGeometry": true,
+      "exactLockedFeaturePositionsAndNormals": true,
+      "exactUnchangedPositionsOutsideMask": true,
+      "deltaReconstructionVerified": true,
+      "nativeSC07Exact": true,
+      "renderedGLBIdentityExact": true,
+      "movedVertices": 3775,
+      "movedFaces": 6601,
+      "normalChangedFaces": 7417,
+      "maxMovementMetres": 0.002117867837155636,
+      "macro75mmMeanDeltaMaxMetres": 6.73370088192554e-05,
+      "areaRatioPercentiles": [
+        0.10397768765687943,
+        0.9758780074119567,
+        1.0,
+        1.0008509826660157,
+        1.0175431966781616
+      ],
+      "remainingFaceFlips": 0,
+      "primaryAcceptance": "Actual paired physical clay and gold frames; these numerical checks do not accept the finish."
+    }
+  ],
+  "pairedPhysicalFrames": 16,
+  "sourceCulture": "Explicitly restored derived Chinese Tang CC0 donor; different artifact from Japanese reference06",
+  "visualAccepted": false,
+  "validationScriptSha256": "369dfd11000cfc721d66a0b4810c4accfc558bc8d83bb8a4fc056bc8f8d3632e"
+}

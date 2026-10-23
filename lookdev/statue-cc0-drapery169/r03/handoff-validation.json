@@ -1,0 +1,98 @@
+{
+  "status": "PASS: source geometry, native buffers, mount loops, anchors and rendered asset identities agree",
+  "sourceSha256": "5834c2c7fc67c92b3bb258dc0aa5393bd79fd529358bfd33360bfeebae3335e7",
+  "builderSha256": "3da049e91549c51a98593501c6623ba091f0ab6e2eed00ea83588d97fce33af2",
+  "validationScriptSha256": "8e88d3caaafe0554271d7ba3228a9f99b292318272ad0c4c20a5299a6f706e6f",
+  "components": [
+    {
+      "component": "crossed-knees-hips",
+      "sourceGLBAndEditableBufferExact": true,
+      "nativeSC07Exact": true,
+      "renderedGLBIdentityExact": true,
+      "originalSurfaceTraceMaxPositionError": 7.573811415654622e-08,
+      "originalSurfaceTraceMaxNormalError": 4.8108878234672223e-08,
+      "mountLoopToBufferMaxPositionError": 5.9310913750399726e-08,
+      "originalWholeTriangles": 46884,
+      "boundaryFragments": 2914,
+      "texturesAndImages": false
+    },
+    {
+      "component": "torso-cloak-core",
+      "sourceGLBAndEditableBufferExact": true,
+      "nativeSC07Exact": true,
+      "renderedGLBIdentityExact": true,
+      "originalSurfaceTraceMaxPositionError": 7.400514192059313e-08,
+      "originalSurfaceTraceMaxNormalError": 4.9219844755375105e-08,
+      "mountLoopToBufferMaxPositionError": 3.316802126539674e-08,
+      "originalWholeTriangles": 31300,
+      "boundaryFragments": 1953,
+      "texturesAndImages": false
+    }
+  ],
+  "anchors": [
+    {
+      "anchor": "seat_rear_surface",
+      "retainedBy": [
+        "crossed-knees-hips"
+      ],
+      "sourceTriangleReconstructionError": 0.0
+    },
+    {
+      "anchor": "seat_front_surface",
+      "retainedBy": [
+        "crossed-knees-hips"
+      ],
+      "sourceTriangleReconstructionError": 1.1102230246251565e-16
+    },
+    {
+      "anchor": "waist_front_surface",
+      "retainedBy": [
+        "crossed-knees-hips",
+        "torso-cloak-core"
+      ],
+      "sourceTriangleReconstructionError": 0.0
+    },
+    {
+      "anchor": "waist_back_surface",
+      "retainedBy": [
+        "crossed-knees-hips",
+        "torso-cloak-core"
+      ],
+      "sourceTriangleReconstructionError": 1.1107649934270853e-16
+    },
+    {
+      "anchor": "neck_front_surface",
+      "retainedBy": [
+        "torso-cloak-core"
+      ],
+      "sourceTriangleReconstructionError": 5.551115123125783e-17
+    },
+    {
+      "anchor": "neck_back_surface",
+      "retainedBy": [
+        "torso-cloak-core"
+      ],
+      "sourceTriangleReconstructionError": 1.3877787807814457e-17
+    },
+    {
+      "anchor": "left_knee_front_surface",
+      "retainedBy": [
+        "crossed-knees-hips"
+      ],
+      "sourceTriangleReconstructionError": 5.551115123125783e-17
+    },
+    {
+      "anchor": "right_knee_front_surface",
+      "retainedBy": [
+        "crossed-knees-hips"
+      ],
+      "sourceTriangleReconstructionError": 5.551115123125783e-17
+    }
+  ],
+  "renderedAssetBytesUnchangedBySC07AndAnchorHandoff": true,
+  "renderReceiptBuilderSha256": "566dd5f56698b3108a3a5af6f13551c5938c42a505dfcb819d61d3718e9d539f",
+  "currentBuilderSha256": "3da049e91549c51a98593501c6623ba091f0ab6e2eed00ea83588d97fce33af2",
+  "builderDifference": "Later CPU handoff metadata, source pinning and native buffers changed the builder source; both GLBs remain byte-identical to the rendered assets.",
+  "visualAcceptance": false,
+  "limit": "This validation proves identity and source traceability, not photographic fidelity, clean manufacture, or an integrated statue."
+}

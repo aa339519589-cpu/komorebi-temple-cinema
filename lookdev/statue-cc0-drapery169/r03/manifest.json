@@ -1,0 +1,1339 @@
+{
+  "revision": "r03",
+  "status": "reviewable source-scoped donor with actual clay evaluation; integration and finish pending",
+  "visualAccepted": false,
+  "productionIntegrated": false,
+  "coordinateSystem": "+Y-up/+Z-front/+X viewer right",
+  "sourceFile": "lookdev/buddha-fullscan-source-v1/sources/pett-tang-seated-buddha-cc0/source-objaverse.glb",
+  "sourceSha256": "5834c2c7fc67c92b3bb258dc0aa5393bd79fd529358bfd33360bfeebae3335e7",
+  "sourceBytes": 11193208,
+  "normalizationInputFile": "lookdev/buddha-fullscan-source-v1/pett-tang-seated-buddha-study/fullscan-axis-clean-y-up.glb",
+  "normalizationInputSha256": "dde35900b90c88af03aeca617c712fc12af71867d957253f8e3ec92ad45c640b",
+  "sourceLicense": "CC0-1.0",
+  "sourceAuthor": "Daniel Pett",
+  "sourceCulture": "Chinese Tang dynasty, not Japanese",
+  "physicalUnits": "Source real dimensions undocumented; prior full-height2.0 normalization is retained. Treat output units as inferred viewing metres.",
+  "originalToNormalizedTransforms": [
+    {
+      "mesh": 0,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "mesh": 1,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "mesh": 2,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "mesh": 3,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sourceNormalizedToComponentTranslation": [
+    -0.01997116040799883,
+    -0.555,
+    0.5319935117031228
+  ],
+  "originSurfaceAnchor": {
+    "name": "Actual rear seat-cut surface intersection",
+    "point": [
+      0.01997116040799883,
+      0.555,
+      -0.5319935117031228
+    ],
+    "sourceMesh": 2,
+    "sourceTriangle": 22163,
+    "barycentric": [
+      0.23970729610203542,
+      0.6306990494677329,
+      0.12959365443023171
+    ],
+    "distance": 0.0019937202994789174
+  },
+  "mountingUse": "Use the surface-only GLBs for joining; each hidden_mount_cap node is a removable closure at a declared crop. No cap represents original cloth.",
+  "surfaceAnchors": "surface-anchors.json",
+  "uniformFitExample": {
+    "purpose": "Optional scale to existing owner165 model neck attachment height2.25; no geometry deformation.",
+    "scale": 2.4064171122994655,
+    "aboveSeatNeckHeight": 2.25,
+    "kneeSpan": 3.1124896447122867,
+    "caveat": "This is only a uniform Y-height fit. Actual torso setback and asymmetric neck/leg centers remain; fit the head and sleeves to the measured loops."
+  },
+  "nonrigidRestoration": "None. Original vertices/normals retained; boundary intersections interpolate within original triangle planes.",
+  "components": [
+    {
+      "name": "crossed-knees-hips",
+      "glb": "crossed-knees-hips.glb",
+      "glbBytes": 1435952,
+      "glbSha256": "981be03187ca5c59a9d1f001566ee70e7276465284e1a162eb15d4fd3a65b105",
+      "bounds": [
+        [
+          -0.6956288013652316,
+          -1.1102230246251565e-16,
+          -0.020230958954003175
+        ],
+        [
+          0.5977835621040962,
+          0.2550000000000001,
+          1.1200620580693121
+        ]
+      ],
+      "sourceNormalizedAnchor": [
+        0.01997116040799883,
+        0.555,
+        -0.5319935117031228
+      ],
+      "retainedScanVertices": 31733,
+      "retainedWholeTriangles": 46884,
+      "boundaryClippedTriangles": 2914,
+      "mountTriangles": 1940,
+      "sourceCounts": [
+        {
+          "sourceMesh": 0,
+          "retainedWholeTriangles": 11454,
+          "boundaryClippedTriangles": 981
+        },
+        {
+          "sourceMesh": 1,
+          "retainedWholeTriangles": 25359,
+          "boundaryClippedTriangles": 1161
+        },
+        {
+          "sourceMesh": 2,
+          "retainedWholeTriangles": 8125,
+          "boundaryClippedTriangles": 546
+        },
+        {
+          "sourceMesh": 3,
+          "retainedWholeTriangles": 2062,
+          "boundaryClippedTriangles": 236
+        }
+      ],
+      "cutPlanes": [
+        {
+          "name": "seat_mount",
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "distance": -0.555
+        },
+        {
+          "name": "waist_mount",
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "distance": 0.81
+        },
+        {
+          "name": "rear_right_sleeve_exclusion",
+          "normal": [
+            1,
+            1,
+            -0.5
+          ],
+          "distance": 1.2
+        }
+      ],
+      "mountCaps": [
+        {
+          "plane": "seat_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 1218,
+          "triangles": 1216,
+          "visibleSurfaceRepair": false,
+          "startVertex": 0,
+          "startTriangle": 0,
+          "node": "hidden_mount_cap_seat_mount_0"
+        },
+        {
+          "plane": "waist_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 378,
+          "triangles": 376,
+          "visibleSurfaceRepair": false,
+          "startVertex": 1218,
+          "startTriangle": 1216,
+          "node": "hidden_mount_cap_waist_mount_0"
+        },
+        {
+          "plane": "waist_mount",
+          "loop": 1,
+          "status": "separate planar mounting cap",
+          "vertices": 3,
+          "triangles": 1,
+          "visibleSurfaceRepair": false,
+          "startVertex": 1596,
+          "startTriangle": 1592,
+          "node": "hidden_mount_cap_waist_mount_1"
+        },
+        {
+          "plane": "waist_mount",
+          "loop": 2,
+          "status": "separate planar mounting cap",
+          "vertices": 15,
+          "triangles": 13,
+          "visibleSurfaceRepair": false,
+          "startVertex": 1599,
+          "startTriangle": 1593,
+          "node": "hidden_mount_cap_waist_mount_2"
+        },
+        {
+          "plane": "waist_mount",
+          "loop": 3,
+          "status": "separate planar mounting cap",
+          "vertices": 82,
+          "triangles": 80,
+          "visibleSurfaceRepair": false,
+          "startVertex": 1614,
+          "startTriangle": 1606,
+          "node": "hidden_mount_cap_waist_mount_3"
+        },
+        {
+          "plane": "rear_right_sleeve_exclusion",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 256,
+          "triangles": 254,
+          "visibleSurfaceRepair": false,
+          "startVertex": 1696,
+          "startTriangle": 1686,
+          "node": "hidden_mount_cap_rear_right_sleeve_exclusion_0"
+        }
+      ],
+      "fragmentRemoval": {
+        "method": "Largest connected source surface by area; coordinate keys only, no weld/deformation.",
+        "main": {
+          "label": 31845,
+          "triangles": 49798,
+          "area": 1.3548317364146807,
+          "bounds": [
+            [
+              -0.6956288013652316,
+              -1.1102230246251565e-16,
+              -0.020230958954003175
+            ],
+            [
+              0.5977835621040962,
+              0.2550000000000001,
+              1.1200620580693121
+            ]
+          ]
+        },
+        "removed": [
+          {
+            "label": 23324,
+            "triangles": 8,
+            "area": 9.11914253724527e-06,
+            "bounds": [
+              [
+                0.30002851847899814,
+                0.19835953443628807,
+                0.451693669737541
+              ],
+              [
+                0.3029214738467596,
+                0.2014808796814126,
+                0.4558952081115758
+              ]
+            ]
+          },
+          {
+            "label": 23150,
+            "triangles": 14,
+            "area": 7.082838433550237e-06,
+            "bounds": [
+              [
+                -0.02658741783320194,
+                0.1674549816022608,
+                0.5758487697914639
+              ],
+              [
+                -0.0240663296687431,
+                0.16866706653710561,
+                0.5780500018299229
+              ]
+            ]
+          },
+          {
+            "label": 23096,
+            "triangles": 4,
+            "area": 4.652630644340739e-06,
+            "bounds": [
+              [
+                0.1954915217454517,
+                0.20002374629617425,
+                0.32625744367738096
+              ],
+              [
+                0.1985846547240413,
+                0.2014025107383033,
+                0.32735084017593363
+              ]
+            ]
+          },
+          {
+            "label": 20039,
+            "triangles": 10,
+            "area": 4.334207540082939e-06,
+            "bounds": [
+              [
+                -0.5782336459454719,
+                -1.1102230246251565e-16,
+                0.3048320845632941
+              ],
+              [
+                -0.5757319108003851,
+                0.0004037456786779581,
+                0.3076791788144412
+              ]
+            ]
+          },
+          {
+            "label": 23201,
+            "triangles": 14,
+            "area": 2.425303552883669e-06,
+            "bounds": [
+              [
+                -0.038153136508762994,
+                0.180433107992376,
+                0.5933092697679555
+              ],
+              [
+                -0.03781941971492951,
+                0.18333062119582055,
+                0.5944898282891148
+              ]
+            ]
+          },
+          {
+            "label": 23231,
+            "triangles": 4,
+            "area": 2.305134301192501e-06,
+            "bounds": [
+              [
+                -0.5153384022128933,
+                0.25010357672504613,
+                0.8677763798726262
+              ],
+              [
+                -0.5134790059400246,
+                0.2523858802016824,
+                0.8691693060730968
+              ]
+            ]
+          },
+          {
+            "label": 23277,
+            "triangles": 4,
+            "area": 1.0409393191589316e-06,
+            "bounds": [
+              [
+                0.22023293737388194,
+                0.06460051148746049,
+                0.8086694214036317
+              ],
+              [
+                0.2214399841075308,
+                0.06580904604863891,
+                0.8094495310595752
+              ]
+            ]
+          },
+          {
+            "label": 23114,
+            "triangles": 4,
+            "area": 6.487018241295125e-07,
+            "bounds": [
+              [
+                0.15322872405402083,
+                0.2532506383451476,
+                0.3516663186079686
+              ],
+              [
+                0.154260532053468,
+                0.2538953193018497,
+                0.3521900757704345
+              ]
+            ]
+          },
+          {
+            "label": 23270,
+            "triangles": 4,
+            "area": 4.157846836326986e-07,
+            "bounds": [
+              [
+                0.217675690139091,
+                0.11617530037312784,
+                0.4205213902727899
+              ],
+              [
+                0.21853434392899962,
+                0.11651456397743198,
+                0.42168055703833607
+              ]
+            ]
+          },
+          {
+            "label": 23164,
+            "triangles": 4,
+            "area": 2.2248695580475732e-07,
+            "bounds": [
+              [
+                -0.027582002522887325,
+                0.17120064844417893,
+                0.5710283978984031
+              ],
+              [
+                -0.027166193651366674,
+                0.1714923528554444,
+                0.5715561076438201
+              ]
+            ]
+          },
+          {
+            "label": 23315,
+            "triangles": 4,
+            "area": 2.063480339315634e-07,
+            "bounds": [
+              [
+                0.2684949346249831,
+                0.24788941788291663,
+                0.4758939780535417
+              ],
+              [
+                0.2689040779582174,
+                0.24812581997284022,
+                0.4764529249568453
+              ]
+            ]
+          },
+          {
+            "label": 23246,
+            "triangles": 4,
+            "area": 1.6543849308616098e-07,
+            "bounds": [
+              [
+                -0.44856576551929084,
+                0.0752151811876477,
+                0.9410788443765944
+              ],
+              [
+                -0.44833807021310645,
+                0.0755745627760448,
+                0.9416797258517967
+              ]
+            ]
+          },
+          {
+            "label": 23107,
+            "triangles": 4,
+            "area": 9.744598997921912e-08,
+            "bounds": [
+              [
+                0.1720929363325256,
+                0.22669198041158545,
+                0.35795881188880185
+              ],
+              [
+                0.17242939055314738,
+                0.22679378003443706,
+                0.35826427932535265
+              ]
+            ]
+          },
+          {
+            "label": 23303,
+            "triangles": 4,
+            "area": 9.536736062263655e-08,
+            "bounds": [
+              [
+                0.2642299727888676,
+                0.2504078700863671,
+                0.48011826073562414
+              ],
+              [
+                0.26453230901304314,
+                0.2507723877190503,
+                0.4804093110429809
+              ]
+            ]
+          },
+          {
+            "label": 23335,
+            "triangles": 4,
+            "area": 4.7427557406487386e-08,
+            "bounds": [
+              [
+                0.32931290035854566,
+                0.2081319545216035,
+                0.3666983601419659
+              ],
+              [
+                0.32943792136382666,
+                0.20826227716005352,
+                0.3669847134797489
+              ]
+            ]
+          },
+          {
+            "label": 23294,
+            "triangles": 4,
+            "area": 4.305490158687462e-08,
+            "bounds": [
+              [
+                0.2558148468609772,
+                0.21310572978735476,
+                0.30528671378049077
+              ],
+              [
+                0.25600525472870245,
+                0.21338871302996365,
+                0.3054344887670165
+              ]
+            ]
+          },
+          {
+            "label": 23218,
+            "triangles": 4,
+            "area": 3.3651441490086785e-09,
+            "bounds": [
+              [
+                -0.4769677333746869,
+                0.010079107165140155,
+                0.42155396790965305
+              ],
+              [
+                -0.4768382119298946,
+                0.010327171415173919,
+                0.42158788058321395
+              ]
+            ]
+          },
+          {
+            "label": 23256,
+            "triangles": 4,
+            "area": 2.8510623460300916e-09,
+            "bounds": [
+              [
+                -0.34405278474616763,
+                0.24090625055261772,
+                0.38589251307002426
+              ],
+              [
+                -0.34378617091048125,
+                0.2412184978338826,
+                0.3859225995870442
+              ]
+            ]
+          },
+          {
+            "label": 23255,
+            "triangles": 4,
+            "area": 4.867462960806332e-10,
+            "bounds": [
+              [
+                -0.4212348834755626,
+                0.06354988861326649,
+                0.9280673580598634
+              ],
+              [
+                -0.4212165502476606,
+                0.06355685969553915,
+                0.9281213947365446
+              ]
+            ]
+          },
+          {
+            "label": 23121,
+            "triangles": 4,
+            "area": 2.0374768035197765e-10,
+            "bounds": [
+              [
+                -0.017820337076662626,
+                0.18854581051928854,
+                0.5877815841181139
+              ],
+              [
+                -0.017799651366175548,
+                0.1885639261857276,
+                0.5878214155528333
+              ]
+            ]
+          },
+          {
+            "label": 23171,
+            "triangles": 4,
+            "area": 1.1601125883071959e-10,
+            "bounds": [
+              [
+                -0.03486963920190282,
+                0.1860704408430316,
+                0.5891756523959207
+              ],
+              [
+                -0.03483468084791051,
+                0.18609664458968234,
+                0.5892027583410496
+              ]
+            ]
+          },
+          {
+            "label": 23209,
+            "triangles": 4,
+            "area": 7.03956825653581e-11,
+            "bounds": [
+              [
+                -0.1158711362604226,
+                0.012054952526722729,
+                1.097162679711134
+              ],
+              [
+                -0.11586816714589059,
+                0.012067765241468575,
+                1.0971771788993157
+              ]
+            ]
+          },
+          {
+            "label": 23285,
+            "triangles": 4,
+            "area": 3.854752129293656e-11,
+            "bounds": [
+              [
+                0.23970128648842226,
+                0.19286812262957864,
+                0.3221123053894329
+              ],
+              [
+                0.2397066730964777,
+                0.192873072321757,
+                0.32211523989490665
+              ]
+            ]
+          },
+          {
+            "label": 23238,
+            "triangles": 4,
+            "area": 1.6925793889294837e-13,
+            "bounds": [
+              [
+                -0.6199338438180879,
+                0.033023572023838654,
+                0.5217603875722822
+              ],
+              [
+                -0.6199334714707899,
+                0.03302394552295507,
+                0.5217605539262297
+              ]
+            ]
+          }
+        ],
+        "removedTriangles": 126
+      },
+      "sourceSurfaceValidation": {
+        "positionMaxError": 2.9339625146522952e-08,
+        "normalMaxError": 1.3280207505534552e-08,
+        "barycentricSumMaxError": 2.9802322387695312e-08,
+        "wholeSourceTrianglesRetained": 46884,
+        "outputVertexPrecision": "float32 GLB, computed in float64",
+        "method": "Every retained vertex checked against barycentric position and interpolated transformed normal on its original source face.",
+        "sourceNormalizedTransformIsRigidUniform": true,
+        "nonrigidDisplacement": 0
+      },
+      "nativeSC07": {
+        "file": "crossed-knees-hips-source-surface.sc07.bin",
+        "vertices": 31733,
+        "triangles": 49798,
+        "bytes": 1613052,
+        "sha256": "9a25055d4ff1fce066c6d4341afbfc95e39900b40e084317181363ffc627a4c3",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.695628821849823,
+            -1.1102230246251565e-16,
+            -0.020230958238244057
+          ],
+          [
+            0.5977835655212402,
+            0.2549999952316284,
+            1.1200621128082275
+          ]
+        ],
+        "sourceNormalsPreserved": true,
+        "uv": "Neutral zero UVs; no scan texture data."
+      },
+      "sourceBoundaryEdgesBeforeMounting": 1948,
+      "nonmanifoldEdgesBeforeMounting": 0,
+      "loopFile": "crossed-knees-hips-mount-loops.json",
+      "sourceTrace": "crossed-knees-hips-source-trace.npz",
+      "editableMesh": "crossed-knees-hips-editable-mesh.npz",
+      "unchangedOriginalSourceVertices": 29682,
+      "interpolatedBoundaryVertices": 2051
+    },
+    {
+      "name": "torso-cloak-core",
+      "glb": "torso-cloak-core.glb",
+      "glbBytes": 951864,
+      "glbSha256": "848dfcbfabc37113154c9edbed1796f18e2ea5efb8f6d89c1e5149f2651e918d",
+      "bounds": [
+        [
+          -0.3484082595465213,
+          0.22499999999999987,
+          -0.11840427890894667
+        ],
+        [
+          0.3526381244981328,
+          0.9350000000000002,
+          0.4642376180090044
+        ]
+      ],
+      "sourceNormalizedAnchor": [
+        0.01997116040799883,
+        0.555,
+        -0.5319935117031228
+      ],
+      "retainedScanVertices": 20857,
+      "retainedWholeTriangles": 31300,
+      "boundaryClippedTriangles": 1953,
+      "mountTriangles": 1305,
+      "sourceCounts": [
+        {
+          "sourceMesh": 0,
+          "retainedWholeTriangles": 940,
+          "boundaryClippedTriangles": 124
+        },
+        {
+          "sourceMesh": 1,
+          "retainedWholeTriangles": 21109,
+          "boundaryClippedTriangles": 1377
+        },
+        {
+          "sourceMesh": 2,
+          "retainedWholeTriangles": 10644,
+          "boundaryClippedTriangles": 946
+        },
+        {
+          "sourceMesh": 3,
+          "retainedWholeTriangles": 107,
+          "boundaryClippedTriangles": 39
+        }
+      ],
+      "cutPlanes": [
+        {
+          "name": "waist_overlap",
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "distance": -0.78
+        },
+        {
+          "name": "neck_mount",
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "distance": 1.49
+        },
+        {
+          "name": "right_arm_mount",
+          "normal": [
+            1,
+            -0.2142857142857143,
+            0
+          ],
+          "distance": 0.0792857142857143
+        },
+        {
+          "name": "left_arm_mount",
+          "normal": [
+            -1,
+            -0.14285714285714285,
+            0
+          ],
+          "distance": 0.13285714285714287
+        }
+      ],
+      "mountCaps": [
+        {
+          "plane": "waist_overlap",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 343,
+          "triangles": 341,
+          "visibleSurfaceRepair": false,
+          "startVertex": 0,
+          "startTriangle": 0,
+          "node": "hidden_mount_cap_waist_overlap_0"
+        },
+        {
+          "plane": "neck_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 187,
+          "triangles": 185,
+          "visibleSurfaceRepair": false,
+          "startVertex": 343,
+          "startTriangle": 341,
+          "node": "hidden_mount_cap_neck_mount_0"
+        },
+        {
+          "plane": "right_arm_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 348,
+          "triangles": 346,
+          "visibleSurfaceRepair": false,
+          "startVertex": 530,
+          "startTriangle": 526,
+          "node": "hidden_mount_cap_right_arm_mount_0"
+        },
+        {
+          "plane": "left_arm_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 435,
+          "triangles": 433,
+          "visibleSurfaceRepair": false,
+          "startVertex": 878,
+          "startTriangle": 872,
+          "node": "hidden_mount_cap_left_arm_mount_0"
+        }
+      ],
+      "fragmentRemoval": {
+        "method": "Largest connected source surface by area; coordinate keys only, no weld/deformation.",
+        "main": {
+          "label": 22389,
+          "triangles": 33253,
+          "area": 1.0714698956990492,
+          "bounds": [
+            [
+              -0.3484082595465213,
+              0.22499999999999987,
+              -0.11840427890894667
+            ],
+            [
+              0.3526381244981328,
+              0.9350000000000002,
+              0.4642376180090044
+            ]
+          ]
+        },
+        "removed": [
+          {
+            "label": 14724,
+            "triangles": 1028,
+            "area": 0.032001489504530044,
+            "bounds": [
+              [
+                -0.2678749407414759,
+                0.22499999999999987,
+                0.5888781897153281
+              ],
+              [
+                0.0035409271695174653,
+                0.2558186828829204,
+                0.749804462055204
+              ]
+            ]
+          },
+          {
+            "label": 22071,
+            "triangles": 911,
+            "area": 0.010827285540704366,
+            "bounds": [
+              [
+                0.22647743248942126,
+                0.3116966401364304,
+                0.4145840925525939
+              ],
+              [
+                0.270372558051232,
+                0.4299373528097439,
+                0.524401874249367
+              ]
+            ]
+          },
+          {
+            "label": 14161,
+            "triangles": 10,
+            "area": 1.3681865530474922e-05,
+            "bounds": [
+              [
+                -0.2994468575194027,
+                0.6612336579279013,
+                0.22837131007857614
+              ],
+              [
+                -0.29714097335681855,
+                0.6652929379674916,
+                0.23211107834261602
+              ]
+            ]
+          },
+          {
+            "label": 14245,
+            "triangles": 16,
+            "area": 8.864478395272724e-06,
+            "bounds": [
+              [
+                0.24148772047087946,
+                0.3510856978719168,
+                0.3327594101397232
+              ],
+              [
+                0.24408924241369145,
+                0.3541164851232895,
+                0.3339094591231383
+              ]
+            ]
+          },
+          {
+            "label": 14063,
+            "triangles": 4,
+            "area": 6.487018241295125e-07,
+            "bounds": [
+              [
+                0.15322872405402083,
+                0.2532506383451476,
+                0.3516663186079686
+              ],
+              [
+                0.154260532053468,
+                0.2538953193018497,
+                0.3521900757704345
+              ]
+            ]
+          },
+          {
+            "label": 14219,
+            "triangles": 4,
+            "area": 1.97196730348323e-07,
+            "bounds": [
+              [
+                -0.22437537648275818,
+                0.3972560431810761,
+                0.3290953587659263
+              ],
+              [
+                -0.22420594466778998,
+                0.39762906431848233,
+                0.3295546472501577
+              ]
+            ]
+          },
+          {
+            "label": 14056,
+            "triangles": 4,
+            "area": 9.744598997921912e-08,
+            "bounds": [
+              [
+                0.1720929363325256,
+                0.22669198041158545,
+                0.35795881188880185
+              ],
+              [
+                0.17242939055314738,
+                0.22679378003443706,
+                0.35826427932535265
+              ]
+            ]
+          },
+          {
+            "label": 14137,
+            "triangles": 4,
+            "area": 6.56769212048381e-08,
+            "bounds": [
+              [
+                -0.19546895400740422,
+                0.3713158482377904,
+                0.3483725567159043
+              ],
+              [
+                -0.19529332141043992,
+                0.3715181209052567,
+                0.34856823333087295
+              ]
+            ]
+          },
+          {
+            "label": 14115,
+            "triangles": 4,
+            "area": 5.574964408622434e-08,
+            "bounds": [
+              [
+                -0.05350761864343544,
+                0.9075972499866568,
+                0.04316728143364512
+              ],
+              [
+                -0.05297367360900922,
+                0.9080043803944101,
+                0.04366518242621964
+              ]
+            ]
+          },
+          {
+            "label": 14094,
+            "triangles": 4,
+            "area": 4.4194574876072244e-08,
+            "bounds": [
+              [
+                0.003759817243774513,
+                0.44975912959979747,
+                0.38737353424115006
+              ],
+              [
+                0.004109755185340694,
+                0.4498586968048005,
+                0.3874789508376296
+              ]
+            ]
+          },
+          {
+            "label": 14200,
+            "triangles": 4,
+            "area": 1.4643147359009167e-08,
+            "bounds": [
+              [
+                -0.2782657132980827,
+                0.4065467375887646,
+                0.30829614290396934
+              ],
+              [
+                -0.27817954495370434,
+                0.4066849990539453,
+                0.30837439138882095
+              ]
+            ]
+          },
+          {
+            "label": 14191,
+            "triangles": 4,
+            "area": 3.771343442890797e-09,
+            "bounds": [
+              [
+                -0.2699027159837978,
+                0.6378074972807827,
+                0.21561627246148019
+              ],
+              [
+                -0.269832019500558,
+                0.6378978507289766,
+                0.2156383163230461
+              ]
+            ]
+          },
+          {
+            "label": 14260,
+            "triangles": 4,
+            "area": 4.288745705248874e-10,
+            "bounds": [
+              [
+                0.3403061192224214,
+                0.8190911874425789,
+                0.08004546377843214
+              ],
+              [
+                0.3403456951096213,
+                0.8191199491506952,
+                0.08006023199276979
+              ]
+            ]
+          },
+          {
+            "label": 14106,
+            "triangles": 4,
+            "area": 8.262347261396608e-11,
+            "bounds": [
+              [
+                -0.011433879051896509,
+                0.43200649470397623,
+                0.38990826747445817
+              ],
+              [
+                -0.011416042454230377,
+                0.4320184416847489,
+                0.3899122828524314
+              ]
+            ]
+          },
+          {
+            "label": 14143,
+            "triangles": 4,
+            "area": 8.253869230289125e-11,
+            "bounds": [
+              [
+                -0.307033449164837,
+                0.5338428862303531,
+                0.11062420127471284
+              ],
+              [
+                -0.3070222731951763,
+                0.5338620968982005,
+                0.1106285703322033
+              ]
+            ]
+          },
+          {
+            "label": 14210,
+            "triangles": 4,
+            "area": 6.233339075298286e-11,
+            "bounds": [
+              [
+                -0.2396526838451114,
+                0.36199092996957316,
+                0.35328765051939415
+              ],
+              [
+                -0.23964812804103008,
+                0.362004331232207,
+                0.353299041058062
+              ]
+            ]
+          },
+          {
+            "label": 14084,
+            "triangles": 4,
+            "area": 1.306971885799485e-12,
+            "bounds": [
+              [
+                0.058520728630567356,
+                0.3863882585482553,
+                0.3926288661329508
+              ],
+              [
+                0.05852116975015549,
+                0.38639266220489743,
+                0.3926331491139562
+              ]
+            ]
+          },
+          {
+            "label": 14066,
+            "triangles": 4,
+            "area": 1.0122671287743553e-12,
+            "bounds": [
+              [
+                0.17791765042397323,
+                0.9009964764452053,
+                0.039833249388318115
+              ],
+              [
+                0.17792161554671515,
+                0.9009978528521917,
+                0.03983771065915531
+              ]
+            ]
+          },
+          {
+            "label": 14126,
+            "triangles": 4,
+            "area": 6.839947935806149e-13,
+            "bounds": [
+              [
+                -0.0878732974016763,
+                0.5648586175619595,
+                0.36397104577372674
+              ],
+              [
+                -0.08786231374258856,
+                0.5648659216074493,
+                0.36397299942203476
+              ]
+            ]
+          },
+          {
+            "label": 14174,
+            "triangles": 4,
+            "area": 3.401496380018048e-13,
+            "bounds": [
+              [
+                -0.30277555617592,
+                0.5492482045599468,
+                0.08991869230869509
+              ],
+              [
+                -0.302775132834583,
+                0.5492485701877167,
+                0.08991917832715213
+              ]
+            ]
+          },
+          {
+            "label": 14186,
+            "triangles": 4,
+            "area": 1.2823167534569044e-13,
+            "bounds": [
+              [
+                -0.29677046944118246,
+                0.6019708659282555,
+                0.2241925068526659
+              ],
+              [
+                -0.29677009630048967,
+                0.6019710284294865,
+                0.22419275811402872
+              ]
+            ]
+          }
+        ],
+        "removedTriangles": 2033
+      },
+      "sourceSurfaceValidation": {
+        "positionMaxError": 4.770314005118945e-08,
+        "normalMaxError": 8.596345508773682e-09,
+        "barycentricSumMaxError": 2.9802322387695312e-08,
+        "wholeSourceTrianglesRetained": 31300,
+        "outputVertexPrecision": "float32 GLB, computed in float64",
+        "method": "Every retained vertex checked against barycentric position and interpolated transformed normal on its original source face.",
+        "sourceNormalizedTransformIsRigidUniform": true,
+        "nonrigidDisplacement": 0
+      },
+      "nativeSC07": {
+        "file": "torso-cloak-core-source-surface.sc07.bin",
+        "vertices": 20857,
+        "triangles": 33253,
+        "bytes": 1066480,
+        "sha256": "362ece0f98baf4e7b47a5403b4b485d4cb7b209c46701fc87119eb6f1c8d649e",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.3484082520008087,
+            0.22499999403953552,
+            -0.11840427666902542
+          ],
+          [
+            0.3526381254196167,
+            0.9350000023841858,
+            0.46423763036727905
+          ]
+        ],
+        "sourceNormalsPreserved": true,
+        "uv": "Neutral zero UVs; no scan texture data."
+      },
+      "sourceBoundaryEdgesBeforeMounting": 1309,
+      "nonmanifoldEdgesBeforeMounting": 0,
+      "loopFile": "torso-cloak-core-mount-loops.json",
+      "sourceTrace": "torso-cloak-core-source-trace.npz",
+      "editableMesh": "torso-cloak-core-editable-mesh.npz",
+      "unchangedOriginalSourceVertices": 19491,
+      "interpolatedBoundaryVertices": 1366
+    }
+  ],
+  "builderSha256": "3da049e91549c51a98593501c6623ba091f0ab6e2eed00ea83588d97fce33af2",
+  "clayEvaluation": "clay-views/evaluation.json",
+  "renderReceipt": "clay-views/render-receipt.json",
+  "handoffValidation": "handoff-validation.json"
+}

@@ -1,0 +1,41 @@
+{
+  "status": "frozen-awaiting-primary-exact-source-review",
+  "visualAccepted": false,
+  "builder": "reconstructions/scene-06/modeling/sculpture165-r06/build.py",
+  "files": {
+    "reconstructions/scene-06/modeling/sculpture165-r06/build.py": "10a9b08e3ee616204b7c1cf28ef27d8d233157e5f33eb65472cd039794c98c39",
+    "reconstructions/scene-06/modeling/sculpture165-r06/anatomy.py": "f550f1695cf3c91d734486796d58b80d4b3aa2513ab97d990ac4b0738767842a",
+    "reconstructions/scene-06/modeling/sculpture165/geometry.py": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-source-surface.sc07.bin": "9a25055d4ff1fce066c6d4341afbfc95e39900b40e084317181363ffc627a4c3",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-source-surface.sc07.bin": "362ece0f98baf4e7b47a5403b4b485d4cb7b209c46701fc87119eb6f1c8d649e",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-mount-loops.json": "6ad3f4363bbebec7ab7f9e3e529a738551cac0d3d4cd120ed9e8baa7df00f6fc",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-mount-loops.json": "1c3aa2ea9b5f251b73081589689f60d579acd417b0dd4eaa0d0c1ff08aaa721c",
+    "lookdev/statue-cc0-drapery169/r03/surface-anchors.json": "c54bd379a6369bf2ebd9252b4501fd9baf5072b371c351ecb1fa03b7d1b22c56",
+    "lookdev/statue-cc0-drapery169/r03/native-manifest.json": "ca2ed43b9fbeec90c894ba8a99bd8ba1b8745183fc6b4094c425d5f0fd554de7",
+    "lookdev/statue-cc0-drapery169/r03/manifest.json": "21028ca5a34c1453757e484b81b47e37f6f981ec26e3a9807b4f1da025d50807",
+    "lookdev/statue-cc0-drapery169/r03/handoff-validation.json": "ad15bce469ecd1facf059f228b673b9ed6151d9e04244c238097c781a52d2542",
+    "lookdev/statue-cc0-drapery169/r04-local-restoration/iteration-02/crossed-knees-hips-restored-surface.sc07.bin": "5e0831cf02b0be64b44450e537d0f1b1891c11a00629abf1d0bfd0abb535c9ce",
+    "lookdev/statue-cc0-drapery169/r04-local-restoration/iteration-02/torso-cloak-core-restored-surface.sc07.bin": "c6253f7ce9084c3d0f689074846d547aa1ad99d1777970f1ce65cabc0a11d9d4",
+    "lookdev/statue-cc0-drapery169/r04-local-restoration/iteration-02/restoration-validation.json": "0656ddc9f036be005aa3e9c341797cac0647a96a70f5f5e7f9e2e9dfddb98d96",
+    "lookdev/calm-buddha-head173/component-r01/actual-face-ears-neck-sc07.bin": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8",
+    "lookdev/calm-buddha-head173/component-r01/measured-rings.json": "f9ad3cd57d6ef3daaa5d9daa44e018d6560fe5c803478d5737021b25e56b4b4a",
+    "lookdev/calm-buddha-head173/component-r01/manifest.json": "c37a3a8b207cf42b0c9cf4f16800a88d1871c3a2404569bbdac3d0977437a859",
+    "lookdev/calm-buddha-head173/component-r01/source-vertex-barycentric-trace.bin": "4f015fabdcb086d69e34eace47184ccd76d4ffe9082b5d71cef2ceaafeeceaa5",
+    "lookdev/calm-buddha-head173/component-r01/source-triangle-trace.bin": "9514f9531cc1de3ccb23cc01fe8b481714a672f4ad81ccd347ea0e32b4283e06",
+    "lookdev/calm-buddha-head173/LICENSE-ATTRIBUTION.txt": "a158e56f903c45f23f12daab882950284a3863dbde70d9bd2b49a027521ada85",
+    "lookdev/calm-buddha-head173/sources/fb17c123ad9c4c0fb6baf723b3fffd79/provenance.json": "b93cf1a2a33d86ddeeb53682770d36decf21e6b907111a720f2042bdab7d1ac6",
+    "lookdev/calm-buddha-head173/sources/fb17c123ad9c4c0fb6baf723b3fffd79/creator-primary-metadata.json": "b2dc138b701708325d14bbb0118d588933599f08121512356d5e170a6c257cb2"
+  },
+  "changes": [
+    "Unexecuted R05 body return/waist closure/bounded169R04 restoration copied unchanged. Source shoulder cowls relax only authored rows/have higher resolution; no measured body global remesh.",
+    "Replace analytic main head completely with actual immutable173 CC BY peel-3d face/ears/jaw/neck. Source triangles and all166523 positions receive uniform.650 scale only plus measured neck translation; original normals retained exactly on export. Source330147 face triangles and166523 output face vertices enforced. No facial displacement/projection/remesh/smoothing.",
+    "Measured neck1310/crown1589 loops snap to actual SC07 boundary vertices, preserving their original coordinates. New exact-boundary neck bridge and scalp close only those cuts. Original body seams weld3e-6 before head integration; final source-head assembly welds exact coincident1e-10 only. Source direction, boundary0 and nonmanifold0 enforced.",
+    "Uniform head neck plane is.130 above actual cloth neckring; authored scalp height.230. Nominal crown remains model body-neckY+1.01; halo/camera/lotus mounts remain from actual R04 runtime for comparison.",
+    "No formula facial tissue helper remains. Authoring helper contains ring/bridge/cowl/underleg/scalp functions only. Head173 culture/era unknown; wave hair and chatter retained as explicit limits."
+  ],
+  "scope": "CPU-only source mesh assembly, coincident welding, exact-boundary authoring and original-source orientation audit; prior authored arms/hands only receive local voxel unions. Compact SC07 writes. No render, image sampling/projection, scene export, UV bake, viewport or GPU.",
+  "headAttribution": "https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79",
+  "headCultureLimit": "Creator does not specify culture/era. Crowned decorative sculpture scan; period and culture unspecified by creator. This adaptation is not verified Japanese/Amida.",
+  "newInputCount": 8,
+  "totalPinnedFiles": 22
+}

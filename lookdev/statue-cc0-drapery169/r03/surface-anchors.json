@@ -1,0 +1,174 @@
+{
+  "coordinateSystem": "+Y up/+Z front",
+  "origin": "Actual rear seat-cut scan surface point, not a bbox center.",
+  "anchors": {
+    "seat_rear_surface": {
+      "sourceMesh": 2,
+      "sourceTriangle": 22163,
+      "barycentric": [
+        0.23970729610203542,
+        0.6306990494677329,
+        0.12959365443023171
+      ],
+      "distance": 0.0019937202994789174,
+      "sourceNormalizedPoint": [
+        0.01997116040799883,
+        0.555,
+        -0.5319935117031228
+      ],
+      "componentPoint": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    },
+    "seat_front_surface": {
+      "sourceMesh": 0,
+      "sourceTriangle": 96554,
+      "barycentric": [
+        0.0,
+        0.589630793182689,
+        0.41036920681731104
+      ],
+      "distance": 0.013038517262668055,
+      "sourceNormalizedPoint": [
+        0.01790747468474911,
+        0.555,
+        0.5671304906770332
+      ],
+      "componentPoint": [
+        -0.0020636857232497197,
+        0.0,
+        1.099124002380156
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    },
+    "waist_front_surface": {
+      "sourceMesh": 1,
+      "sourceTriangle": 24202,
+      "barycentric": [
+        0.11046786929384898,
+        0.20662488965679715,
+        0.6829072410493539
+      ],
+      "distance": 0.033656542507706146,
+      "sourceNormalizedPoint": [
+        0.020001583837183277,
+        0.81,
+        -0.07634345752956061
+      ],
+      "componentPoint": [
+        3.042342918444657e-05,
+        0.255,
+        0.4556500541735622
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    },
+    "waist_back_surface": {
+      "sourceMesh": 1,
+      "sourceTriangle": 4067,
+      "barycentric": [
+        0.4813705466590876,
+        0.09266452860427432,
+        0.42596492473663805
+      ],
+      "distance": 0.0019320426037487094,
+      "sourceNormalizedPoint": [
+        0.020065402589293818,
+        0.81,
+        -0.5480690647022716
+      ],
+      "componentPoint": [
+        9.424218129498729e-05,
+        0.255,
+        -0.016075552999148757
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    },
+    "neck_front_surface": {
+      "sourceMesh": 1,
+      "sourceTriangle": 779,
+      "barycentric": [
+        0.6916566242057567,
+        0.30834337579424326,
+        0.0
+      ],
+      "distance": 0.030585252355222373,
+      "sourceNormalizedPoint": [
+        0.09268231913548063,
+        1.49,
+        -0.35969695621436115
+      ],
+      "componentPoint": [
+        0.0727111587274818,
+        0.9349999999999999,
+        0.17229655548876166
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    },
+    "neck_back_surface": {
+      "sourceMesh": 2,
+      "sourceTriangle": 24448,
+      "barycentric": [
+        0.2432781444266318,
+        0.0,
+        0.7567218555733682
+      ],
+      "distance": 0.013457340968689202,
+      "sourceNormalizedPoint": [
+        0.09955926129791628,
+        1.49,
+        -0.5765498782405494
+      ],
+      "componentPoint": [
+        0.07958810088991745,
+        0.9349999999999999,
+        -0.04455636653742656
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    },
+    "left_knee_front_surface": {
+      "sourceMesh": 1,
+      "sourceTriangle": 9389,
+      "barycentric": [
+        0.0,
+        0.7678542393287795,
+        0.2321457606712205
+      ],
+      "distance": 0.01603646050356318,
+      "sourceNormalizedPoint": [
+        -0.44978367879579884,
+        0.64,
+        0.3839649985775194
+      ],
+      "componentPoint": [
+        -0.4697548392037977,
+        0.08499999999999996,
+        0.9159585102806422
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    },
+    "right_knee_front_surface": {
+      "sourceMesh": 0,
+      "sourceTriangle": 88473,
+      "barycentric": [
+        0.0,
+        0.5277738571616295,
+        0.47222614283837044
+      ],
+      "distance": 0.11797592219289645,
+      "sourceNormalizedPoint": [
+        0.4689021625740083,
+        0.61,
+        0.33354817963084427
+      ],
+      "componentPoint": [
+        0.44893100216600945,
+        0.05499999999999994,
+        0.8655416913339671
+      ],
+      "pointIsOnActualRetainedSourcePlane": true
+    }
+  }
+}

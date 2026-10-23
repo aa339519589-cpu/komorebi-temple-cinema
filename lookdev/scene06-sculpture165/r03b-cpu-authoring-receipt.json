@@ -1,0 +1,25 @@
+{
+  "recipe": "scene06-sculpture165-r03b",
+  "startedAt": "2026-10-21T21:48:25.078Z",
+  "status": "cpu-authored-mesh-written-awaiting-native-review",
+  "files": {
+    "reconstructions/scene-06/modeling/sculpture165-r03/build.py": "118fbd06eae9619405f529fd0f210a4d644b91e6515cd97806100b5d4637eab9",
+    "reconstructions/scene-06/modeling/sculpture165-r03/anatomy.py": "11992ae1a9cffbec2bfc967323af19d288e5462a28c9425721516fd5d062dea6",
+    "reconstructions/scene-06/modeling/sculpture165/geometry.py": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-source-surface.sc07.bin": "9a25055d4ff1fce066c6d4341afbfc95e39900b40e084317181363ffc627a4c3",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-source-surface.sc07.bin": "362ece0f98baf4e7b47a5403b4b485d4cb7b209c46701fc87119eb6f1c8d649e",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-mount-loops.json": "6ad3f4363bbebec7ab7f9e3e529a738551cac0d3d4cd120ed9e8baa7df00f6fc",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-mount-loops.json": "1c3aa2ea9b5f251b73081589689f60d579acd417b0dd4eaa0d0c1ff08aaa721c",
+    "lookdev/statue-cc0-drapery169/r03/surface-anchors.json": "c54bd379a6369bf2ebd9252b4501fd9baf5072b371c351ecb1fa03b7d1b22c56",
+    "lookdev/statue-cc0-drapery169/r03/native-manifest.json": "ca2ed43b9fbeec90c894ba8a99bd8ba1b8745183fc6b4094c425d5f0fd554de7",
+    "lookdev/statue-cc0-drapery169/r03/manifest.json": "21028ca5a34c1453757e484b81b47e37f6f981ec26e3a9807b4f1da025d50807",
+    "lookdev/statue-cc0-drapery169/r03/handoff-validation.json": "ad15bce469ecd1facf059f228b673b9ed6151d9e04244c238097c781a52d2542"
+  },
+  "threads": 4,
+  "scope": "Root read complete new integrated builder and anatomy module and reviewed reused hash-pinned CPU hand helper. CPU-only CC0 source mesh import, explicit local cloth mounts/bridges, newly authored closed anatomical head/ears and local authored unions. No native/physical render, scene export, viewport, image sampling, UV bake or GPU compute. Actual native/face/three-quarter review remains required; photographic fidelity unaccepted. Root reviewed the exact cap API repair: accepts indexed or vector triangulation results, asserts valid source indices, and writes a distinct r03b output. All anatomy, donor input hashes and operations unchanged.",
+  "gpuFifoAcquired": false,
+  "visualAccepted": false,
+  "childPid": 86991,
+  "exitCode": 0,
+  "completedAt": "2026-10-21T21:48:42.649Z"
+}

@@ -1,0 +1,30 @@
+{
+  "status": "frozen-awaiting-primary-exact-source-review",
+  "visualAccepted": false,
+  "builder": "reconstructions/scene-06/modeling/sculpture165-r05/build.py",
+  "files": {
+    "reconstructions/scene-06/modeling/sculpture165-r05/build.py": "03ca47100191556251a11af8a3813f832834938bd86ccdbad85a4c36482dac3e",
+    "reconstructions/scene-06/modeling/sculpture165-r05/anatomy.py": "3b19e02e22bc5f49aff77c98ed50839fd83d8ce042f0b991d46955de1b455032",
+    "reconstructions/scene-06/modeling/sculpture165/geometry.py": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-source-surface.sc07.bin": "9a25055d4ff1fce066c6d4341afbfc95e39900b40e084317181363ffc627a4c3",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-source-surface.sc07.bin": "362ece0f98baf4e7b47a5403b4b485d4cb7b209c46701fc87119eb6f1c8d649e",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-mount-loops.json": "6ad3f4363bbebec7ab7f9e3e529a738551cac0d3d4cd120ed9e8baa7df00f6fc",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-mount-loops.json": "1c3aa2ea9b5f251b73081589689f60d579acd417b0dd4eaa0d0c1ff08aaa721c",
+    "lookdev/statue-cc0-drapery169/r03/surface-anchors.json": "c54bd379a6369bf2ebd9252b4501fd9baf5072b371c351ecb1fa03b7d1b22c56",
+    "lookdev/statue-cc0-drapery169/r03/native-manifest.json": "ca2ed43b9fbeec90c894ba8a99bd8ba1b8745183fc6b4094c425d5f0fd554de7",
+    "lookdev/statue-cc0-drapery169/r03/manifest.json": "21028ca5a34c1453757e484b81b47e37f6f981ec26e3a9807b4f1da025d50807",
+    "lookdev/statue-cc0-drapery169/r03/handoff-validation.json": "ad15bce469ecd1facf059f228b673b9ed6151d9e04244c238097c781a52d2542",
+    "lookdev/statue-cc0-drapery169/r04-local-restoration/iteration-02/crossed-knees-hips-restored-surface.sc07.bin": "5e0831cf02b0be64b44450e537d0f1b1891c11a00629abf1d0bfd0abb535c9ce",
+    "lookdev/statue-cc0-drapery169/r04-local-restoration/iteration-02/torso-cloak-core-restored-surface.sc07.bin": "c6253f7ce9084c3d0f689074846d547aa1ad99d1777970f1ce65cabc0a11d9d4",
+    "lookdev/statue-cc0-drapery169/r04-local-restoration/iteration-02/restoration-validation.json": "0656ddc9f036be005aa3e9c341797cac0647a96a70f5f5e7f9e2e9dfddb98d96"
+  },
+  "changes": [
+    "R04 actualhero/low3q planar underside plate is replaced by an authored rounded inward/downward under-leg return. Original source cut vertices stay fixed; compact bearing disk atlocalY-.220 sits inside the existing closed lotus core. No analytic upper-knee replacement.",
+    "Explicit local closure accepts only residual coplanar waist loops with maximum20mm extent; preserves original tiny secondary source component. Any other open boundary, nonmanifold edge or original surface-direction disagreement fails the build.",
+    "Select separately viewed169R04 iteration02 bounded local restoration alternate: original topology/mount indices retained, source knee/torso displacement bounds.00621/.00213 viewing units enforced. Original169R03 surfaces remain pinned and original-vs-restored deltas are recorded. Deeper weathered stone appearance is still unresolved.",
+    "C2 skull/jaw/throat meridian curvature plus smooth Gaussian nasal/root/muzzle tissue remove hard vertical nasal endpoints and chin highlight bands; intrinsic pinna concha/tragus/fossa relief, shallow arched closed lids/lips.",
+    "Authored cowls retain source attachment boundary and relax only new rows, with112 meridian samples instead of36 to remove jagged edge extrusion/curvature stepping.",
+    "Cloth roughness.53, face.43, hand.42 ordinary PBR; room lights/camera held for comparison."
+  ],
+  "scope": "CPU-only mesh joins, coincident welding, exact-boundary local authoring, original-direction consistency, local authored-head/hand voxel unions and compact SC07 writing. No rendering, scene export, image sampling, projection, UV bake or GPU."
+}

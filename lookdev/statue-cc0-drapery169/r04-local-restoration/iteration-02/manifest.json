@@ -1,0 +1,268 @@
+{
+  "revision": "r04-local-restoration-iteration-02",
+  "status": "reviewable local restoration alternate; actual clay and aged-gold views evaluated",
+  "visualAccepted": false,
+  "productionIntegrated": false,
+  "sourceAuthor": "Daniel Pett",
+  "sourceLicense": "CC0-1.0",
+  "sourceSha256": "5834c2c7fc67c92b3bb258dc0aa5393bd79fd529358bfd33360bfeebae3335e7",
+  "sourceCulture": "Derived/restored Chinese Tang donor; different artifact from Japanese reference06",
+  "parentManifest": "../../r03/manifest.json",
+  "parentManifestSha256": "21028ca5a34c1453757e484b81b47e37f6f981ec26e3a9807b4f1da025d50807",
+  "coordinateSystem": "+Y up/+Z front/+X viewer right",
+  "originSurfaceAnchor": {
+    "name": "Actual rear seat-cut surface intersection",
+    "point": [
+      0.01997116040799883,
+      0.555,
+      -0.5319935117031228
+    ],
+    "sourceMesh": 2,
+    "sourceTriangle": 22163,
+    "barycentric": [
+      0.23970729610203542,
+      0.6306990494677329,
+      0.12959365443023171
+    ],
+    "distance": 0.0019937202994789174
+  },
+  "units": "Inferred viewing metres: original full scan normalized to2.0. Actual artifact dimensions undocumented. Movement caps are in this declared viewing scale, not measured conservation dimensions.",
+  "deformationCaps": {
+    "kneeOutwardMetres": 0.01,
+    "kneeInwardMetres": 0.003,
+    "torsoBothDirectionsMetres": 0.003,
+    "comparisonModelScale": 2.4064171122994655,
+    "equivalentKneeMaxAtOwnerModelMetres": 0.024064171122994655
+  },
+  "components": [
+    {
+      "name": "crossed-knees-hips",
+      "glb": "crossed-knees-hips.glb",
+      "glbBytes": 1435792,
+      "glbSha256": "1ccf1a897fc31d03cce69259bfa12851ba14d586d1debd7261d1669f8e191380",
+      "nativeSC07": {
+        "file": "crossed-knees-hips-restored-surface.sc07.bin",
+        "vertices": 31733,
+        "triangles": 49798,
+        "bytes": 1613052,
+        "sha256": "5e0831cf02b0be64b44450e537d0f1b1891c11a00629abf1d0bfd0abb535c9ce",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.695628821849823,
+            -1.1102230246251565e-16,
+            -0.020230958238244057
+          ],
+          [
+            0.5977835655212402,
+            0.2549999952316284,
+            1.1200621128082275
+          ]
+        ],
+        "sourceNormalsPreserved": false,
+        "uv": "Neutral zero UVs; no scan texture data.",
+        "normalChange": "Recomputed on moved-face neighborhoods only; mount/coherent sharp-edge normals preserved."
+      },
+      "parentGLB": "../../r03/crossed-knees-hips.glb",
+      "parentGLBSha256": "981be03187ca5c59a9d1f001566ee70e7276465284e1a162eb15d4fd3a65b105",
+      "parentOriginalSourceTrace": "../../r03/crossed-knees-hips-source-trace.npz",
+      "parentSourceTraceSha256": "f812d610e7f6b85f609f0897384a255a4398328e82be0b098e39b25262593e44",
+      "originalMesh": "../../r03/crossed-knees-hips-editable-mesh.npz",
+      "restoredMesh": "crossed-knees-hips-editable-mesh.npz",
+      "deltaFile": "crossed-knees-hips-restoration-deltas.npz",
+      "mountLoops": "../../r03/crossed-knees-hips-mount-loops.json",
+      "mountLoopSha256": "6ad3f4363bbebec7ab7f9e3e529a738551cac0d3d4cd120ed9e8baa7df00f6fc",
+      "sourceNormalizedAnchor": [
+        0.01997116040799883,
+        0.555,
+        -0.5319935117031228
+      ],
+      "bounds": [
+        [
+          -0.695628821849823,
+          -1.1102230246251565e-16,
+          -0.020230958238244057
+        ],
+        [
+          0.5977835655212402,
+          0.2549999952316284,
+          1.1200621128082275
+        ]
+      ],
+      "method": "Robust local quadratic surface projection with explicit spatial masks, directional crease protection and mount buffer; no topology change.",
+      "patches": [
+        {
+          "name": "left_front_knee_erosion",
+          "center": [
+            -0.39,
+            0.632,
+            0.355
+          ],
+          "radii": [
+            0.225,
+            0.08,
+            0.215
+          ]
+        },
+        {
+          "name": "right_front_knee_erosion",
+          "center": [
+            0.37,
+            0.601,
+            0.385
+          ],
+          "radii": [
+            0.25,
+            0.065,
+            0.215
+          ]
+        }
+      ],
+      "settings": {
+        "radius": 0.055,
+        "maxOutward": 0.01,
+        "maxInward": 0.003,
+        "quantile": 0.72,
+        "mode": "local erosion fill"
+      },
+      "vertices": 31733,
+      "triangles": 49798,
+      "changedVertices": 3025,
+      "affectedFaces": 5573,
+      "exactUnchangedVertices": 28708,
+      "maxMovement": 0.006195700286197575,
+      "movementPercentiles": [
+        0.00040868326319011035,
+        0.0021768290800412812,
+        0.00416197824264962,
+        0.006195700286197575
+      ],
+      "maxNormalDelta": 1.4039849563331162,
+      "lockedMountVertices": 1948,
+      "mountVertexMaxMovement": 0.0,
+      "coherentSharpEdgeGroupsLocked": 64,
+      "coherentFoldGroupsLocked": 604,
+      "topologyIdentical": true,
+      "sourceFaceFlipsRemaining": 0,
+      "capGeometryChanged": false,
+      "visualAccepted": false
+    },
+    {
+      "name": "torso-cloak-core",
+      "glb": "torso-cloak-core.glb",
+      "glbBytes": 951704,
+      "glbSha256": "023a1cb963fec36ceea69bd581c78f7fe05f64d96a39827d63454acb7caf1ad7",
+      "nativeSC07": {
+        "file": "torso-cloak-core-restored-surface.sc07.bin",
+        "vertices": 20857,
+        "triangles": 33253,
+        "bytes": 1066480,
+        "sha256": "c6253f7ce9084c3d0f689074846d547aa1ad99d1777970f1ce65cabc0a11d9d4",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.3484082520008087,
+            0.22499999403953552,
+            -0.11840427666902542
+          ],
+          [
+            0.3526381254196167,
+            0.9350000023841858,
+            0.46423763036727905
+          ]
+        ],
+        "sourceNormalsPreserved": false,
+        "uv": "Neutral zero UVs; no scan texture data.",
+        "normalChange": "Recomputed on moved-face neighborhoods only; mount/coherent sharp-edge normals preserved."
+      },
+      "parentGLB": "../../r03/torso-cloak-core.glb",
+      "parentGLBSha256": "848dfcbfabc37113154c9edbed1796f18e2ea5efb8f6d89c1e5149f2651e918d",
+      "parentOriginalSourceTrace": "../../r03/torso-cloak-core-source-trace.npz",
+      "parentSourceTraceSha256": "4432737c938bc3ae436edd23dd9bdaa5ab91c1c1cd6ca65a29d2d83127748301",
+      "originalMesh": "../../r03/torso-cloak-core-editable-mesh.npz",
+      "restoredMesh": "torso-cloak-core-editable-mesh.npz",
+      "deltaFile": "torso-cloak-core-restoration-deltas.npz",
+      "mountLoops": "../../r03/torso-cloak-core-mount-loops.json",
+      "mountLoopSha256": "1c3aa2ea9b5f251b73081589689f60d579acd417b0dd4eaa0d0c1ff08aaa721c",
+      "sourceNormalizedAnchor": [
+        0.01997116040799883,
+        0.555,
+        -0.5319935117031228
+      ],
+      "bounds": [
+        [
+          -0.3484082520008087,
+          0.22499999403953552,
+          -0.11840427666902542
+        ],
+        [
+          0.3526381254196167,
+          0.9350000023841858,
+          0.46423763036727905
+        ]
+      ],
+      "method": "Robust local quadratic surface projection with explicit spatial masks, directional crease protection and mount buffer; no topology change.",
+      "patches": [
+        {
+          "name": "front_chest_chatter",
+          "center": [
+            0.035,
+            1.235,
+            -0.325
+          ],
+          "radii": [
+            0.285,
+            0.19,
+            0.13
+          ]
+        },
+        {
+          "name": "lower_front_cloak_chatter",
+          "center": [
+            0.015,
+            1.02,
+            -0.185
+          ],
+          "radii": [
+            0.255,
+            0.225,
+            0.125
+          ]
+        }
+      ],
+      "settings": {
+        "radius": 0.028,
+        "maxOutward": 0.003,
+        "maxInward": 0.003,
+        "quantile": 0.5,
+        "mode": "local chatter attenuation"
+      },
+      "vertices": 20857,
+      "triangles": 33253,
+      "changedVertices": 3775,
+      "affectedFaces": 6601,
+      "exactUnchangedVertices": 17082,
+      "maxMovement": 0.002117867837155636,
+      "movementPercentiles": [
+        4.81166063147596e-05,
+        0.0004104766689377611,
+        0.001153213395735819,
+        0.002117867837155636
+      ],
+      "maxNormalDelta": 1.4026914377523347,
+      "lockedMountVertices": 1309,
+      "mountVertexMaxMovement": 0.0,
+      "coherentSharpEdgeGroupsLocked": 37,
+      "coherentFoldGroupsLocked": 385,
+      "topologyIdentical": true,
+      "sourceFaceFlipsRemaining": 0,
+      "capGeometryChanged": false,
+      "visualAccepted": false
+    }
+  ],
+  "builderSha256": "0aebaae6ce90199e9e5e950dbe079aca2278bcef69dd70f1cb602c4bc013fb55",
+  "exportHelperSha256": "3da049e91549c51a98593501c6623ba091f0ab6e2eed00ea83588d97fce33af2",
+  "r03AllFilesUnchanged": true,
+  "visualEvaluation": "comparison-views/evaluation.json",
+  "validation": "restoration-validation.json"
+}

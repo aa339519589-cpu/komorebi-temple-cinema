@@ -1,0 +1,7 @@
+These CPU sculpture candidates are retained reconstruction studies, not accepted likenesses or final models.
+
+The R02–R07 scripts retain the failed approaches and subsequent source-based work: formula anatomy, mesh-boundary and winding repairs, actual CC0 Tang drapery, and an actual CC BY head. Their original sources, bounded restoration deltas, component traces and measured mount loops are preserved in `lookdev/statue-cc0-drapery169` and `lookdev/calm-buddha-head173`. The Tang donor is Chinese; the separate head creator does not identify its culture or period. Neither is claimed to be the Japanese Amida in the reference.
+
+`tools/run-reviewed-cpu-authoring.mjs` records exact reviewed script/input hashes and a distinct receipt per attempted recipe. Historical failed recipe hashes intentionally fail against a subsequently repaired script; use the corresponding preserved candidate source when studying that failure. Existing receipts must never be overwritten to make a rerun appear original. Actual image renders always use the official graphics FIFO.
+
+The user subsequently authorized the real Japanese CC BY-NC-SA sculpture for a personal, noncommercial video. Its current integration and explicit license are separate in `lookdev/scene06-nc-adoption179` and the scene's asset-specific attribution. No permissive project license overrides third-party asset terms. Both the earlier source studies and the current integration remain photographically unaccepted.

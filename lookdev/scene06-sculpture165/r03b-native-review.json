@@ -1,0 +1,24 @@
+{
+  "visualAccepted": false,
+  "status": "actual-native-rejected",
+  "sourceHash": "8dd961d5c5a03b7f4d730e6289a332b03016aa9356ec3478cd089257490826d4",
+  "evidence": {
+    "full": "qa/ten-reference/06/iteration-scene06-sculpture165-r03b-hero-native/reference.png",
+    "hero": "qa/ten-reference/06/iteration-scene06-sculpture165-r03b-hero-native/detail-native.png",
+    "face": "qa/ten-reference/06/iteration-scene06-sculpture165-r03b-face-native/detail-native.png",
+    "bodyThreeQuarter": "qa/ten-reference/06/iteration-scene06-sculpture165-r03b-low-three-quarter-native/inspection-view.png",
+    "faceThreeQuarter": "qa/ten-reference/06/iteration-scene06-sculpture165-r03b-face-three-quarter-native/inspection-view.png"
+  },
+  "failures": [
+    "Large real backface-culled regions in measured torso/knees and neck mount. Import recalculation reversed many disconnected split-vertex source patches; numerical source-point preservation did not prevent winding failure.",
+    "Waist/seat continuity and cowl integration remain unaccepted.",
+    "Authored nose is an abrupt rectangular blade; closed eyelid/lip relief is graphic and ears read as thin rods.",
+    "Source stone erosion remains conspicuous under native gold lighting."
+  ],
+  "nextRepair": [
+    "Join only coincident scan seams, retain/recover source face direction and close actual mounting boundaries.",
+    "Use exact original boundary vertices for bridges rather than independently resampling both boundaries.",
+    "Refine intrinsic nasal tissue and orbital/labial transitions, broaden upper pinnae while retaining narrow long lobules."
+  ],
+  "windingAudit": "lookdev/scene06-sculpture165/r03b-winding-audit.json"
+}

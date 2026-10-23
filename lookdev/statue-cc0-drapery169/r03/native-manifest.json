@@ -1,0 +1,61 @@
+{
+  "revision": "cc0-tang-cloth169-r03",
+  "format": "SC07:20-byte header, float32 position/normal/neutral UV, uint32 triangle indices",
+  "coordinateSystem": "+Y up/+Z front",
+  "sourceSurfaceOrigin": [
+    0.01997116040799883,
+    0.555,
+    -0.5319935117031228
+  ],
+  "variants": {
+    "central": [
+      {
+        "file": "crossed-knees-hips-source-surface.sc07.bin",
+        "vertices": 31733,
+        "triangles": 49798,
+        "bytes": 1613052,
+        "sha256": "9a25055d4ff1fce066c6d4341afbfc95e39900b40e084317181363ffc627a4c3",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.695628821849823,
+            -1.1102230246251565e-16,
+            -0.020230958238244057
+          ],
+          [
+            0.5977835655212402,
+            0.2549999952316284,
+            1.1200621128082275
+          ]
+        ],
+        "sourceNormalsPreserved": true,
+        "uv": "Neutral zero UVs; no scan texture data."
+      },
+      {
+        "file": "torso-cloak-core-source-surface.sc07.bin",
+        "vertices": 20857,
+        "triangles": 33253,
+        "bytes": 1066480,
+        "sha256": "362ece0f98baf4e7b47a5403b4b485d4cb7b209c46701fc87119eb6f1c8d649e",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.3484082520008087,
+            0.22499999403953552,
+            -0.11840427666902542
+          ],
+          [
+            0.3526381254196167,
+            0.9350000023841858,
+            0.46423763036727905
+          ]
+        ],
+        "sourceNormalsPreserved": true,
+        "uv": "Neutral zero UVs; no scan texture data."
+      }
+    ]
+  },
+  "sourceAttribution": "Seated figure of Buddha by Daniel Pett, CC0-1.0. Chinese Tang dynasty; scoped cloth surface donor only, different artifact from Japanese reference06.",
+  "sourceSha256": "5834c2c7fc67c92b3bb258dc0aa5393bd79fd529358bfd33360bfeebae3335e7",
+  "visualAccepted": false
+}

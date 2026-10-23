@@ -1,0 +1,419 @@
+{
+  "revision": "r01",
+  "status": "source-preserving scoped geometry candidate; actual clay evaluation pending",
+  "visualAccepted": false,
+  "productionIntegrated": false,
+  "coordinateSystem": "+Y-up/+Z-front/+X viewer right",
+  "sourceFile": "lookdev/buddha-fullscan-source-v1/sources/pett-tang-seated-buddha-cc0/source-objaverse.glb",
+  "sourceSha256": "5834c2c7fc67c92b3bb258dc0aa5393bd79fd529358bfd33360bfeebae3335e7",
+  "sourceBytes": 11193208,
+  "sourceLicense": "CC0-1.0",
+  "sourceAuthor": "Daniel Pett",
+  "sourceCulture": "Chinese Tang dynasty, not Japanese",
+  "physicalUnits": "Source real dimensions undocumented; prior full-height2.0 normalization is retained. Treat output units as inferred viewing metres.",
+  "originalToNormalizedTransforms": [
+    {
+      "mesh": 0,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "mesh": 1,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "mesh": 2,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "mesh": 3,
+      "matrix": [
+        [
+          0.18412535297694974,
+          -0.02631959538307811,
+          0.02087880879422986,
+          0.29287721538279143
+        ],
+        [
+          -0.02955306668440537,
+          -0.07157503991427369,
+          0.1703948908017002,
+          1.5844570818053416
+        ],
+        [
+          -0.01597692351144129,
+          -0.1709242034443396,
+          -0.07456839216434384,
+          2.273282372712268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "sourceNormalizedToComponentTranslation": [
+    -0.02,
+    -0.555,
+    0.1
+  ],
+  "nonrigidRestoration": "None. Original vertices/normals retained; boundary intersections interpolate within original triangle planes.",
+  "components": [
+    {
+      "name": "crossed-knees-hips",
+      "glb": "crossed-knees-hips.glb",
+      "glbBytes": 1631008,
+      "glbSha256": "a2d186a72df38666e665708d718590710343ea5ce4f6bc7a345f0dd932028543",
+      "bounds": [
+        [
+          -0.6956576409572328,
+          -1.1102230246251565e-16,
+          -0.452224470657126
+        ],
+        [
+          0.597754722512095,
+          0.2550000000000001,
+          0.6880685463661893
+        ]
+      ],
+      "sourceNormalizedAnchor": [
+        0.02,
+        0.555,
+        -0.1
+      ],
+      "retainedScanVertices": 36773,
+      "retainedWholeTriangles": 52900,
+      "boundaryClippedTriangles": 3083,
+      "mountTriangles": 2047,
+      "sourceCounts": [
+        {
+          "sourceMesh": 0,
+          "retainedWholeTriangles": 15347,
+          "boundaryClippedTriangles": 1188
+        },
+        {
+          "sourceMesh": 1,
+          "retainedWholeTriangles": 25574,
+          "boundaryClippedTriangles": 1161
+        },
+        {
+          "sourceMesh": 2,
+          "retainedWholeTriangles": 8527,
+          "boundaryClippedTriangles": 525
+        },
+        {
+          "sourceMesh": 3,
+          "retainedWholeTriangles": 3452,
+          "boundaryClippedTriangles": 209
+        }
+      ],
+      "cutPlanes": [
+        {
+          "name": "seat_mount",
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "distance": -0.555
+        },
+        {
+          "name": "waist_mount",
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "distance": 0.81
+        }
+      ],
+      "mountCaps": [
+        {
+          "plane": "seat_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 1218,
+          "triangles": 1216,
+          "visibleSurfaceRepair": false
+        },
+        {
+          "plane": "seat_mount",
+          "loop": 1,
+          "status": "separate planar mounting cap",
+          "vertices": 8,
+          "triangles": 6,
+          "visibleSurfaceRepair": false
+        },
+        {
+          "plane": "waist_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 813,
+          "triangles": 811,
+          "visibleSurfaceRepair": false
+        },
+        {
+          "plane": "waist_mount",
+          "loop": 1,
+          "status": "separate planar mounting cap",
+          "vertices": 3,
+          "triangles": 1,
+          "visibleSurfaceRepair": false
+        },
+        {
+          "plane": "waist_mount",
+          "loop": 2,
+          "status": "separate planar mounting cap",
+          "vertices": 15,
+          "triangles": 13,
+          "visibleSurfaceRepair": false
+        }
+      ],
+      "sourceBoundaryEdgesBeforeMounting": 2057,
+      "nonmanifoldEdgesBeforeMounting": 4,
+      "loopFile": "crossed-knees-hips-mount-loops.json",
+      "sourceTrace": "crossed-knees-hips-source-trace.npz",
+      "editableMesh": "crossed-knees-hips-editable-mesh.npz",
+      "unchangedOriginalSourceVertices": 34614,
+      "interpolatedBoundaryVertices": 2159
+    },
+    {
+      "name": "torso-cloak-core",
+      "glb": "torso-cloak-core.glb",
+      "glbBytes": 1036284,
+      "glbSha256": "abf47215321cab2f26d4fd37603150b317f408bd8186ccd49a8fb96cf07022b4",
+      "bounds": [
+        [
+          -0.3484370991385225,
+          0.19999999999999984,
+          -0.5503977906120695
+        ],
+        [
+          0.35260928490613164,
+          0.9350000000000002,
+          0.3283145099502507
+        ]
+      ],
+      "sourceNormalizedAnchor": [
+        0.02,
+        0.555,
+        -0.1
+      ],
+      "retainedScanVertices": 23792,
+      "retainedWholeTriangles": 34728,
+      "boundaryClippedTriangles": 2721,
+      "mountTriangles": 362,
+      "sourceCounts": [
+        {
+          "sourceMesh": 0,
+          "retainedWholeTriangles": 940,
+          "boundaryClippedTriangles": 124
+        },
+        {
+          "sourceMesh": 1,
+          "retainedWholeTriangles": 22292,
+          "boundaryClippedTriangles": 1620
+        },
+        {
+          "sourceMesh": 2,
+          "retainedWholeTriangles": 11389,
+          "boundaryClippedTriangles": 938
+        },
+        {
+          "sourceMesh": 3,
+          "retainedWholeTriangles": 107,
+          "boundaryClippedTriangles": 39
+        }
+      ],
+      "cutPlanes": [
+        {
+          "name": "waist_overlap",
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "distance": -0.755
+        },
+        {
+          "name": "neck_mount",
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "distance": 1.49
+        },
+        {
+          "name": "right_arm_mount",
+          "normal": [
+            1,
+            -0.2142857142857143,
+            0
+          ],
+          "distance": 0.0792857142857143
+        },
+        {
+          "name": "left_arm_mount",
+          "normal": [
+            -1,
+            -0.14285714285714285,
+            0
+          ],
+          "distance": 0.13285714285714287
+        }
+      ],
+      "mountCaps": [
+        {
+          "plane": "waist_overlap",
+          "loop": 0,
+          "status": "open chain left unfilled"
+        },
+        {
+          "plane": "waist_overlap",
+          "loop": 1,
+          "status": "open chain left unfilled"
+        },
+        {
+          "plane": "waist_overlap",
+          "loop": 2,
+          "status": "open chain left unfilled"
+        },
+        {
+          "plane": "waist_overlap",
+          "loop": 3,
+          "status": "separate planar mounting cap",
+          "vertices": 6,
+          "triangles": 4,
+          "visibleSurfaceRepair": false
+        },
+        {
+          "plane": "neck_mount",
+          "loop": 0,
+          "status": "separate planar mounting cap",
+          "vertices": 187,
+          "triangles": 185,
+          "visibleSurfaceRepair": false
+        },
+        {
+          "plane": "right_arm_mount",
+          "loop": 0,
+          "status": "open chain left unfilled"
+        },
+        {
+          "plane": "right_arm_mount",
+          "loop": 1,
+          "status": "separate planar mounting cap",
+          "vertices": 175,
+          "triangles": 173,
+          "visibleSurfaceRepair": false
+        },
+        {
+          "plane": "left_arm_mount",
+          "loop": 0,
+          "status": "open chain left unfilled"
+        },
+        {
+          "plane": "left_arm_mount",
+          "loop": 1,
+          "status": "open chain left unfilled"
+        },
+        {
+          "plane": "left_arm_mount",
+          "loop": 2,
+          "status": "open chain left unfilled"
+        },
+        {
+          "plane": "left_arm_mount",
+          "loop": 3,
+          "status": "open chain left unfilled"
+        }
+      ],
+      "sourceBoundaryEdgesBeforeMounting": 1821,
+      "nonmanifoldEdgesBeforeMounting": 0,
+      "loopFile": "torso-cloak-core-mount-loops.json",
+      "sourceTrace": "torso-cloak-core-source-trace.npz",
+      "editableMesh": "torso-cloak-core-editable-mesh.npz",
+      "unchangedOriginalSourceVertices": 21911,
+      "interpolatedBoundaryVertices": 1881
+    }
+  ],
+  "builderSha256": "9a61188164f99ef33f7a50520b654a0d1782e0f5866e7f7e72e44e0fd85e5299"
+}

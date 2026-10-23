@@ -1,0 +1,156 @@
+{
+  "revision": "calm-buddha-head173-component-r01",
+  "status": "Actual source candidate ready for visual review; no canonical integration or photographic acceptance.",
+  "visualAccepted": false,
+  "sourceLicense": "CC-BY-4.0",
+  "sourceURL": "https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79",
+  "sourceCultureAndPeriod": "Creator does not specify culture/era. Crowned decorative sculpture scan; period and culture unspecified by creator. This adaptation is not verified Japanese/Amida.",
+  "author": "peel-3d.com",
+  "geometry": "Actual scanner-captured face/ears/jaw/neck, uniformly normalized and clipped at two documented mount planes; no remesh/projection/field/smoothing.",
+  "component": {
+    "glb": "component-r01/actual-face-ears-neck-y-up-z-front.glb",
+    "sc07": "component-r01/actual-face-ears-neck-sc07.bin",
+    "editableBlend": "component-r01/actual-source-component-editable.blend",
+    "builder": "build-component.mjs",
+    "manifest": "component-r01/manifest.json",
+    "coordinateSystem": "+Y-up/+Z-front",
+    "vertices": 166523,
+    "triangles": 330147,
+    "neckAnchor": [
+      0,
+      0,
+      0
+    ],
+    "crownCutY": 1,
+    "mountRings": "component-r01/measured-rings.json"
+  },
+  "review": {
+    "html": "review.html",
+    "front": "evidence/component-r01/front-clay.png",
+    "threeQuarter": "evidence/component-r01/three-quarter-clay.png",
+    "profile": "evidence/component-r01/profile-clay.png",
+    "actualQueueLog": "evidence/component-r01-queue.log",
+    "report": "evidence/component-r01/report.json",
+    "material": "Untextured neutral clay, no photo/scan textures or shader displacement",
+    "observations": [
+      "Actual closed/downcast eyelid volume, nasal bridge/nostrils, small closed lips, cheek/jaw anatomy and elongated lobes.",
+      "Broader and softer than reference; side wave hair, asymmetric mouth corners and scan chatter remain.",
+      "Two intended open mounts require integration to locally authored crown/neck bearing geometry. Face/ears must remain the actual measured source surface."
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "sourceAndLicenseVerified": true,
+    "sc07Float32Vertices": 166523,
+    "triangles": 330147,
+    "connectedComponents": 1,
+    "eulerCharacteristic": 0,
+    "openMountBoundaryEdges": 2899,
+    "nonmanifoldEdges": 0,
+    "degenerateTriangles": 0,
+    "sourceNormalOpposedTriangles": 0,
+    "publishedFloat32SourcePositionMaxError": 4.6605595546383527e-08,
+    "publishedFloat32SourceNormalMaxError": 5.0541697032131443e-08,
+    "renderImageHashesVerified": true,
+    "visualAccepted": false
+  },
+  "rejectedAlternate": {
+    "uid": "739d2c82ee564863a2dfa579910f8369",
+    "reason": "Actual clay renders reveal missing opposite ear, rear skull and top; not selected or mirrored.",
+    "raw": "sources/739d2c82ee564863a2dfa579910f8369/source-original.glb",
+    "evidence": "evidence/triage-739d2c82ee564863a2dfa579910f8369/"
+  },
+  "sourceSearchScope": "Primary creator/provider/museum pages and metadata only. No paid purchase, account access, protected viewer payload, NC geometry or rejected beachmouse source.",
+  "reproduction": [
+    "python3 lookdev/calm-buddha-head173/fetch-source.py fb17c123ad9c4c0fb6baf723b3fffd79",
+    "node lookdev/calm-buddha-head173/build-component.mjs",
+    "node tools/run-blender-queued.mjs lookdev/calm-buddha-head173/render-component-queued.py",
+    "python3 lookdev/calm-buddha-head173/verify-component.py"
+  ],
+  "files": {
+    "fetch-source.py": {
+      "bytes": 2204,
+      "sha256": "6b6ffabe7f914cafab1e1e2e33d087b12ce5f51d2368ae42fa9a1163884c939a"
+    },
+    "build-component.mjs": {
+      "bytes": 13267,
+      "sha256": "b655a034bf3a2d9fee023095c3549e05f21ec845a81348c23f6257a3f553d59a"
+    },
+    "render-component-queued.py": {
+      "bytes": 4296,
+      "sha256": "8c41fc17cb77559f26f6fbd5b1c4d3cc91c828e56981751f0e48c84cb991ed8a"
+    },
+    "verify-component.py": {
+      "bytes": 5075,
+      "sha256": "8a08933da7445f5fe3679a17bd7caed6254bf0f826b0446b43a59f612ab8d431"
+    },
+    "component-r01/manifest.json": {
+      "bytes": 5557,
+      "sha256": "c37a3a8b207cf42b0c9cf4f16800a88d1871c3a2404569bbdac3d0977437a859"
+    },
+    "component-r01/actual-face-ears-neck-y-up-z-front.glb": {
+      "bytes": 9292180,
+      "sha256": "2192f22ca28f89b950f3e5d7685137e402c04b1d59f431ba19c54533f1fcc4fa"
+    },
+    "component-r01/actual-face-ears-neck-sc07.bin": {
+      "bytes": 9290520,
+      "sha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8"
+    },
+    "component-r01/actual-source-component-editable.blend": {
+      "bytes": 10277591,
+      "sha256": "f71381449e44f42674921ff9ab935459dff98c0ef4eb755df41f58f529907b4e"
+    },
+    "component-r01/source-vertex-barycentric-trace.bin": {
+      "bytes": 2664368,
+      "sha256": "4f015fabdcb086d69e34eace47184ccd76d4ffe9082b5d71cef2ceaafeeceaa5"
+    },
+    "component-r01/source-triangle-trace.bin": {
+      "bytes": 1320588,
+      "sha256": "9514f9531cc1de3ccb23cc01fe8b481714a672f4ad81ccd347ea0e32b4283e06"
+    },
+    "component-r01/measured-rings.json": {
+      "bytes": 226530,
+      "sha256": "f9ad3cd57d6ef3daaa5d9daa44e018d6560fe5c803478d5737021b25e56b4b4a"
+    },
+    "component-r01/independent-validation.json": {
+      "bytes": 489,
+      "sha256": "103f8c350420af48692a9af2b647903737f6a0f6e88cd7e246f6188ee3876b46"
+    },
+    "evidence/component-r01/report.json": {
+      "bytes": 1784,
+      "sha256": "38afc42f348a8458e4095cd62d7ce5eb77b56a5541b9b66c6e8fd634ea625aa4"
+    },
+    "evidence/component-r01-queue.log": {
+      "bytes": 3205,
+      "sha256": "ee564eabd7827c0e07ca03c9440bd64ca1c8afc78714596ce71d181e225cb4af"
+    },
+    "evidence/component-r01/front-clay.png": {
+      "bytes": 733534,
+      "sha256": "4591730d406a6dac0fafe4d0ac89ccae89cde4305fe5945d9894adc32db0475e"
+    },
+    "evidence/component-r01/three-quarter-clay.png": {
+      "bytes": 729611,
+      "sha256": "e9886130e04581c8cc4b2c88b1761f5c52a4c4c05e4b196b975cb75e29bbf7d8"
+    },
+    "evidence/component-r01/profile-clay.png": {
+      "bytes": 718618,
+      "sha256": "3c8b0c776e8ccd0424f15f8c7605299827b70f8a70d62b763323933b03a763d0"
+    },
+    "sources/fb17c123ad9c4c0fb6baf723b3fffd79/creator-primary-metadata.json": {
+      "bytes": 5637,
+      "sha256": "b2dc138b701708325d14bbb0118d588933599f08121512356d5e170a6c257cb2"
+    },
+    "sources/fb17c123ad9c4c0fb6baf723b3fffd79/provenance.json": {
+      "bytes": 1610,
+      "sha256": "b93cf1a2a33d86ddeeb53682770d36decf21e6b907111a720f2042bdab7d1ac6"
+    },
+    "sources/fb17c123ad9c4c0fb6baf723b3fffd79/source-original.glb": {
+      "bytes": 21193152,
+      "sha256": "41d8c094ada94bcf265b92ac72e4737f60710532dd5719f871cacd144f305d9d"
+    },
+    "LICENSE-ATTRIBUTION.txt": {
+      "bytes": 977,
+      "sha256": "a158e56f903c45f23f12daab882950284a3863dbde70d9bd2b49a027521ada85"
+    }
+  }
+}

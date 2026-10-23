@@ -1,0 +1,28 @@
+{
+  "status": "prepared-frozen-awaiting-primary-agent-CPU-source-review",
+  "visualAccepted": false,
+  "builder": "reconstructions/scene-06/modeling/sculpture165-r03/build.py",
+  "files": {
+    "reconstructions/scene-06/modeling/sculpture165-r03/build.py": "118fbd06eae9619405f529fd0f210a4d644b91e6515cd97806100b5d4637eab9",
+    "reconstructions/scene-06/modeling/sculpture165-r03/anatomy.py": "11992ae1a9cffbec2bfc967323af19d288e5462a28c9425721516fd5d062dea6",
+    "reconstructions/scene-06/modeling/sculpture165/geometry.py": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-source-surface.sc07.bin": "9a25055d4ff1fce066c6d4341afbfc95e39900b40e084317181363ffc627a4c3",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-source-surface.sc07.bin": "362ece0f98baf4e7b47a5403b4b485d4cb7b209c46701fc87119eb6f1c8d649e",
+    "lookdev/statue-cc0-drapery169/r03/crossed-knees-hips-mount-loops.json": "6ad3f4363bbebec7ab7f9e3e529a738551cac0d3d4cd120ed9e8baa7df00f6fc",
+    "lookdev/statue-cc0-drapery169/r03/torso-cloak-core-mount-loops.json": "1c3aa2ea9b5f251b73081589689f60d579acd417b0dd4eaa0d0c1ff08aaa721c",
+    "lookdev/statue-cc0-drapery169/r03/surface-anchors.json": "c54bd379a6369bf2ebd9252b4501fd9baf5072b371c351ecb1fa03b7d1b22c56",
+    "lookdev/statue-cc0-drapery169/r03/native-manifest.json": "ca2ed43b9fbeec90c894ba8a99bd8ba1b8745183fc6b4094c425d5f0fd554de7",
+    "lookdev/statue-cc0-drapery169/r03/manifest.json": "21028ca5a34c1453757e484b81b47e37f6f981ec26e3a9807b4f1da025d50807",
+    "lookdev/statue-cc0-drapery169/r03/handoff-validation.json": "ad15bce469ecd1facf059f228b673b9ed6151d9e04244c238097c781a52d2542"
+  },
+  "scope": "Pure CPU source-preserving cloth mount/bridge and authored clean closed head/ears/hands; no render/scene export/image sampling/UV bake/GPU compute.",
+  "sourceMethod": "CC0 measured raw leg surface unchanged, torso hidden overlap trimmed at componentY.265, local waist/shoulder/neck bridges and named caps. No global measured-cloth remesh or smoothing.",
+  "headMethod": "New full closed quad-meridian 3D skull/jaw/throat plus authored conchae/lobules, intrinsic downcast lids/lip cleft and long straight nasal planes. No donor-face projection or separate black slit floors.",
+  "fit": "Base2.4064171123; transverse gain.90; upright gain1.20; depth retains fullbase scale. Small rigid yaw from actual paired knee/neck ring orientation; traced seat front/rear surfaces define depth contact mount. Fully declared affinefit, not unchanged original artifact dimensions.",
+  "reviewRisks": [
+    "Source stone erosion remains, deferred for bounded native gold review.",
+    "Waist trim/explicit caps/cowls and head-to-neck transition need actual full/3q visual fit.",
+    "New anatomy must be judged from genuine face3q/profile; no likeness claim from closure."
+  ],
+  "repair": "R03b preserves failedR03 attempt; cap triangulation accepts current Blender5.2 indices or prior vector API; no geometry method change."
+}

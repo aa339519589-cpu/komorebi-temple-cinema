@@ -1,0 +1,133 @@
+{
+  "revision": "r01",
+  "renderer": "Blender Cycles Metal via tools/run-blender-queued.mjs",
+  "samples": 48,
+  "builderSha256": "9a61188164f99ef33f7a50520b654a0d1782e0f5866e7f7e72e44e0fd85e5299",
+  "renderScriptSha256": "ddba6786fa469b2100e5fa87686be7b6909332b522d79914e248226d49b1554f",
+  "componentIdentities": [
+    {
+      "file": "crossed-knees-hips.glb",
+      "sha256": "a2d186a72df38666e665708d718590710343ea5ce4f6bc7a345f0dd932028543"
+    },
+    {
+      "file": "torso-cloak-core.glb",
+      "sha256": "abf47215321cab2f26d4fd37603150b317f408bd8186ccd49a8fb96cf07022b4"
+    }
+  ],
+  "sourceSha256": "5834c2c7fc67c92b3bb258dc0aa5393bd79fd529358bfd33360bfeebae3335e7",
+  "sourceLicense": "CC0-1.0",
+  "sourceCulture": "Chinese Tang dynasty, not Japanese",
+  "sourceTextureUsed": false,
+  "sourcePhotoUsed": false,
+  "geometricDisplacementUsed": false,
+  "normalMapUsed": false,
+  "views": [
+    {
+      "file": "assembly-front-clay.png",
+      "cameraBlender": [
+        0,
+        -4.0,
+        0.66
+      ],
+      "targetBlender": [
+        0,
+        0,
+        0.46
+      ],
+      "orthographicScale": 1.63,
+      "component": "both retained components"
+    },
+    {
+      "file": "assembly-three-quarter-clay.png",
+      "cameraBlender": [
+        2.5,
+        -3.5,
+        1.1
+      ],
+      "targetBlender": [
+        0,
+        0,
+        0.44
+      ],
+      "orthographicScale": 1.63,
+      "component": "both retained components"
+    },
+    {
+      "file": "knees-front-close-clay.png",
+      "cameraBlender": [
+        0,
+        -4,
+        0.37
+      ],
+      "targetBlender": [
+        0,
+        -0.24,
+        0.12
+      ],
+      "orthographicScale": 1.48,
+      "component": "crossed-knees-hips"
+    },
+    {
+      "file": "knees-three-quarter-close-clay.png",
+      "cameraBlender": [
+        -2.6,
+        -3.5,
+        1.1
+      ],
+      "targetBlender": [
+        -0.04,
+        -0.25,
+        0.12
+      ],
+      "orthographicScale": 1.48,
+      "component": "crossed-knees-hips"
+    },
+    {
+      "file": "torso-front-close-clay.png",
+      "cameraBlender": [
+        0,
+        -4,
+        0.69
+      ],
+      "targetBlender": [
+        0.025,
+        0.25,
+        0.57
+      ],
+      "orthographicScale": 1.05,
+      "component": "torso-cloak-core"
+    },
+    {
+      "file": "torso-three-quarter-close-clay.png",
+      "cameraBlender": [
+        2.7,
+        -3.5,
+        1.15
+      ],
+      "targetBlender": [
+        0.025,
+        0.25,
+        0.57
+      ],
+      "orthographicScale": 1.05,
+      "component": "torso-cloak-core"
+    },
+    {
+      "file": "assembly-side-mount-check.png",
+      "cameraBlender": [
+        3.6,
+        -1.6,
+        1.0
+      ],
+      "targetBlender": [
+        0,
+        0,
+        0.44
+      ],
+      "orthographicScale": 1.63,
+      "component": "both retained components"
+    }
+  ],
+  "visualAccepted": false,
+  "limit": "This demonstrates actual retained source geometry and declared mount cuts. Chinese Tang source is a different artifact, with stone damage and different pose, from Japanese reference06."
+}

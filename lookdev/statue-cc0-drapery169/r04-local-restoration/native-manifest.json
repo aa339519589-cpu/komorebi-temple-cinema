@@ -1,0 +1,57 @@
+{
+  "revision": "cc0-tang-cloth169-r04-local-restoration",
+  "format": "SC07:20-byte header, float32 position/normal/neutral UV, uint32 triangle indices",
+  "coordinateSystem": "+Y up/+Z front",
+  "variants": {
+    "central": [
+      {
+        "file": "crossed-knees-hips-restored-surface.sc07.bin",
+        "vertices": 31733,
+        "triangles": 49798,
+        "bytes": 1613052,
+        "sha256": "8886405f08c5466b45303bccfc4e6da83d4ad7bfd0785ea346f6675b3405677f",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.695628821849823,
+            -1.1102230246251565e-16,
+            -0.020230958238244057
+          ],
+          [
+            0.5977835655212402,
+            0.2549999952316284,
+            1.1200621128082275
+          ]
+        ],
+        "sourceNormalsPreserved": false,
+        "uv": "Neutral zero UVs; no scan texture data.",
+        "normalChange": "Recomputed on moved-face neighborhoods only; mount/coherent sharp-edge normals preserved."
+      },
+      {
+        "file": "torso-cloak-core-restored-surface.sc07.bin",
+        "vertices": 20857,
+        "triangles": 33253,
+        "bytes": 1066480,
+        "sha256": "5d0334855a55d493e9c278368a2039d7531bb46de3b8baabe1337ed5847695a8",
+        "material": "cloth",
+        "bounds": [
+          [
+            -0.3484082520008087,
+            0.22499999403953552,
+            -0.11840427666902542
+          ],
+          [
+            0.3526381254196167,
+            0.9350000023841858,
+            0.46423763036727905
+          ]
+        ],
+        "sourceNormalsPreserved": false,
+        "uv": "Neutral zero UVs; no scan texture data.",
+        "normalChange": "Recomputed on moved-face neighborhoods only; mount/coherent sharp-edge normals preserved."
+      }
+    ]
+  },
+  "sourceAttribution": "Daniel Pett, CC0-1.0. Locally restored derived Chinese Tang cloth donor; different artifact from reference06.",
+  "visualAccepted": false
+}

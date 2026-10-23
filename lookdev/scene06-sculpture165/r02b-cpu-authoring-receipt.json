@@ -1,0 +1,16 @@
+{
+  "recipe": "scene06-sculpture165-r02b",
+  "startedAt": "2026-10-21T20:55:45.181Z",
+  "status": "cpu-authored-mesh-written-awaiting-native-review",
+  "files": {
+    "reconstructions/scene-06/modeling/sculpture165-r02/build.py": "d6eadd4c661f21fca2adc9e48bd083fd2daa3abe4e75abdfaa008881a34e3c4e",
+    "reconstructions/scene-06/modeling/sculpture165-r02/geometry.py": "f2dc8dd36421522538a79ff86623cb5320b06c132fae099c4c87148fcb897ee2"
+  },
+  "threads": 4,
+  "scope": "Root reviewed complete R01 sources and R02 differences: CPU facial tissue/sculpted closed incisions, cloak and feet construction, same CPU voxel/remesh/subdivision and local CC BY head import. Writes authored mesh buffers and text only. R01 knees retained pending independent CC0 donor. No render, scene export, viewport, UV bake or GPU compute. Root reviewed the exact failed-R02 repair: fixed output identity r02b and renamed the facial crease material to avoid a numeric variable shadow. Operators and geometry algorithms unchanged.",
+  "gpuFifoAcquired": false,
+  "visualAccepted": false,
+  "childPid": 83065,
+  "exitCode": 0,
+  "completedAt": "2026-10-21T20:56:06.718Z"
+}
