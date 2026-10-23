@@ -5,16 +5,18 @@ import {createRanmaRelief138} from './ranma-relief138.js';
 import {createRainCeramicField141} from './rain-ceramic141.js';
 import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
 import {clipRestorationRoofOpening,clipRestorationSolidRoofOpening} from './architecture.js';
+import {createCarpentryMass183} from './carpentry-mass183.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
-export const HALL132_REVISION='scene10-monumental-rain142-r07-20261021';
+export const HALL132_REVISION='scene10-mass183-supported-carved-eave-course-r03';
 export function createHall132Palette(original){
-  const specs={red:['#7d3627',.69,'wood'],cedar:['#59331f',.82,'wood'],darkwood:['#1d1813',.88,'wood'],endwood:['#67492e',.81,'wood'],gold:['#b38d50',.47,'gold'],oldgold:['#806238',.64,'gold']};
+  const specs={red:['#7d3627',.69,'wood'],cedar:['#59331f',.82,'wood'],darkwood:['#1d1813',.88,'wood'],endwood:['#67492e',.81,'wood'],gold:['#b08a4c',.49,'gold'],oldgold:['#8e703f',.61,'gold']};
   const palette={};
   for(const [key,[color,roughness,kind]]of Object.entries(specs)){
-    const mat=original[key].clone();mat.name='hall132-'+key;mat.color.set(color);mat.roughness=roughness;
-    if(kind==='gold')mat.metalness=key==='gold'?.86:.78;
+    const source=original[key],mat=key==='red'?new T.MeshPhysicalMaterial({map:source.map,normalMap:source.normalMap,normalScale:source.normalScale.clone().multiplyScalar(1.8),roughnessMap:source.roughnessMap,roughness:.48,metalness:0,clearcoat:.55,clearcoatRoughness:.16}):source.clone();
+    mat.name='hall183-'+key;mat.color.set(color);mat.roughness=key==='red'?.48:roughness;
+    if(kind==='gold')mat.metalness=key==='gold'?.70:.53;
     installSurfaceDetail(mat,kind);palette[key]=mat;
   }
   const recessedStone=original.stone.clone();recessedStone.name='hall132-shadowed-shoreline-foundation';recessedStone.color.set('#59605d');recessedStone.roughness=.91;installSurfaceDetail(recessedStone,'stone');palette.recessedStone=recessedStone;
@@ -79,7 +81,7 @@ function bilateralCloudBracketGeometry(){
 }
 
 export function buildHall132(api,L){
-  const {emit,box,group,between,tube,arch,lantern,R,scene,stack,emitRestoredBuddha}=api;
+  const {emit,box,group,between,tube,arch,lantern,R,scene,stack,emitRestoredBuddha,carvedCloud183}=api;
   RectAreaLightUniformsLib.init();
   const records={revision:HALL132_REVISION,scope:'Hall front and roof underside; full foundation footprint retained as side wings, sill and bearing lintel around a single shoreline underpass.',roofs:[],bearingRows:[],columns:[],eaveSupports:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
   const ranmaRelief=createRanmaRelief138();records.ornament.reliefPanels=0;records.ornament.reliefGeometry={triangles:ranmaRelief.userData.triangles,closedSolid:true,bitmapInMaterial:false,nonMetricGuide:true};
@@ -123,7 +125,10 @@ export function buildHall132(api,L){
       draw(new T.TubeGeometry(new T.CatmullRomCurve3(curve(face,1,0).map(V)),96,.12,7,false),'slate');
       for(const sign of[-1,1])draw(new T.TubeGeometry(new T.CatmullRomCurve3(Array.from({length:20},(_,i)=>V(at(face,i/19,sign)))),57,.095,7,false),'slate');
       draw(timber(curve(face,1,-.20),.18,.16),'red');draw(timber(curve(face,1.009,-.29),.15,.065),'darkwood');draw(timber(curve(face,1.012,-.22),.022,.025),'oldgold');
-      for(const t of[.53,.72,.88])draw(timber(curve(face,t,-.43,32),.20,.26),'darkwood');
+      // The front's three full bearing purlins are emitted by frame() on
+      // measured rafter undersides. Rear and hip faces retain their own
+      // roof-local receivers. There is no second crossed front girt grid.
+      if(face!==0)for(const t of[.53,.72,.88])draw(timber(curve(face,t,-.43,32),.20,.26),'darkwood');
       const n=Math.ceil((face%2?d:w)/.205);
       for(let i=0;i<=n;i++){
         const u=-1+2*i/n,main=Array.from({length:17},(_,j)=>at(face,.40+.615*j/16,u,-.24)),flying=Array.from({length:10},(_,j)=>at(face,.76+.277*j/9,u,-.14));
@@ -155,77 +160,101 @@ export function buildHall132(api,L){
   // One definition drives weather skin, bearing heights and all rafter seats.
   const roofDefinitions=[{w:23,d:13.6,e:6.05,rise:3.45,curl:1.1},{w:21.5,d:12.9,e:10.00,rise:6.50,curl:.85}];
   const profile=level=>{const r=roofDefinitions[level];return surface(r.w,r.d,r.e,r.rise,r.curl);};
-  const rows=[{z:4.50,s:.72,pitch:1.025},{z:5.28,s:.48,pitch:.6833},{z:6.02,s:.42,pitch:.6833},{z:6.52,s:.34,pitch:.62}];
-  function rowBase(surf,x,row){return surf.heightAt(x,row.z-.2)-.51-.97*row.s;}
+  const carpentry=createCarpentryMass183({emit,box,group,carvedCloud:carvedCloud183,parentScale:L.hall.scale});
+  records.mass183={revision:carpentry.revision,roofBearingPlane:'Front purlin top is the actual main-rafter underside, roof surface minus 0.303m; 0.24m closed purlin is carried by the post capital and paired cantilevers.',bayDepth:1.40,interior:'Hollow room with rear and side walls, fully supported upper floor, shrine and occupied side bays; the former shrine-occluding solid volume is removed.'};
   function frame(level){
-    const base=level===1?6.65:1.3,surf=profile(level),first=rows[0],headerY=rowBase(surf,0,first)-.07,top=level===1?9.88:base+4.1;
-    for(let i=0;i<9;i++){
-      const x=-8.2+i*2.05,columnTop=rowBase(surf,x,first)-.07;
-      if(!(level===0&&(i===2||i===3))){arch.footColumn(x,4.3,base,columnTop-base-.3,.22);box(x,base+.15,4.3,.51,.26,.51,'black');records.columns.push({level,x,bottom:base+.3,shaftTop:columnTop,bearingBeamCenter:columnTop});
-        for(const sign of[-1,1]){box(x+sign*.238,columnTop-.13,4.3,.018,.22,.47,'oldgold');box(x,columnTop-.13,4.3+sign*.238,.47,.22,.018,'oldgold');}foliate(x,columnTop-.13,4.55,.35);
-        const supportScale=level===0?1:.84;
-        emit(eaveArm,'cedar',x,columnTop-.60*supportScale,4.43,.53,.82*supportScale,1.55*supportScale);
-        box(x,columnTop-.19*supportScale,4.48,.40*supportScale,.09*supportScale,.22,'darkwood');
-        emit(eaveArm,'red',x,columnTop-.39*supportScale,4.53,.42*supportScale,.59*supportScale,1.15*supportScale);
-        for(const sign of[-1,1])emit(boss,'oldgold',x+sign*.44*supportScale,columnTop-.33*supportScale,4.72,.030,.024,.022);
-        // Four stepped closed elbows grow out of the post cap. They fill the
-        // deep, shadowed capital mass rather than forming one scalloped band.
-        for(let rank=0;rank<4;rank++){
-          const zz=4.45+rank*.29,yy=columnTop-.28+rank*.17;
-          box(x,yy,zz,.46-rank*.045,.22,.52,'cedar');
-          for(const sign of[-1,1])box(x+sign*(.29-rank*.022),yy+.09,zz,.20,.17,.38,'red');
-          foliate(x,yy,zz+.269,.24);
+    const base=level===1?6.65:1.3,surf=profile(level),primaryZ=4.30,capitalHeight=.60,capitalTopOffset=1.3195*capitalHeight;
+    const roofY=(x,z)=>surf.heightAt(x,z-.2),purlinTop=(x,z)=>roofY(x,z)-.303,headAt=x=>purlinTop(x,primaryZ)-.24-capitalTopOffset;
+    const headerY=headAt(0)-.04,frontAxes=Array.from({length:9},(_,i)=>-8.2+i*2.05);
+    for(let i=0;i<frontAxes.length;i++){
+      const x=frontAxes[i],columnTop=headAt(x),openColumn=level===0&&(i===2||i===3);
+      if(!openColumn){
+        carpentry.column(x,primaryZ,base,columnTop,level===0?.285:.255);
+        const capitalTop=carpentry.capital(x,columnTop,primaryZ,{width:level===0?1.00:.94,height:capitalHeight,depth:1.10,scan:level===0?[4,6,8].includes(i):[2,5,8].includes(i)});
+        records.columns.push({level,x,bottom:base+.30,shaftTop:columnTop,radius:level===0?.285:.255,bearingBeamCenter:columnTop,round:true});
+        // Two full-section lever timbers grow out of the crossed capital.
+        // Their outer ends bear directly under the outer purlin, whose curve
+        // is sampled from the same roof as the ceramic and rafters.
+        for(const side of[-1,1]){
+          const xx=x+side*.33,outerZ=6.02,outerBottom=roofY(xx,outerZ)-1.0922;
+          carpentry.strut([xx,capitalTop-.18,4.54],[xx,outerBottom-.10,outerZ],.19,.22,'cedar',outerBottom);
+          carpentry.strut([xx,columnTop-.15,4.30],[xx,purlinTop(xx,5.25)-.35,5.25],.17,.22,'cedar',purlinTop(xx,5.25)-.24);
+
         }
-        records.eaveSupports.push({level,columnX:x,frontZ:4.43,projectionWidth:2.20*supportScale,primaryScale:[1,.82*supportScale,supportScale],secondaryScale:[.80*supportScale,.59*supportScale,.80*supportScale],bearing:'stacked-on-post-cap-darkwood-shoe',giltPins:2});
+        records.eaveSupports.push({level,columnX:x,shaftTop:columnTop,capitalTop,innerZ:primaryZ,outerZ:6.02,pairedCantilevers:2,pairedKneeBraces:2,loadPath:'Round shaft > broad daito > housed crossed arms > receiving timbers > paired full-depth cantilevers > purlins > rafters'});
       }
-      for(const z of[-4,0]){arch.footColumn(x,z,base,level===1?2.93:4,.20);arch.brackets(x,top,z,.7,{detail:true});}
-      if(i===8)continue;
-      const xx=x+1.025,open=level===0&&(i===2||i===3),windowTop=base+(level===1?2.8:3.50),friezeY=headerY-.48;
+      // Interior columns carry the upper floor and the upper roof's inner
+      // frame, with real depth behind the visible front gallery.
+      for(const z of[-3.8,.15]){
+        const innerHead=level===0?5.485:9.72;
+        carpentry.column(x,z,base,innerHead,level===0?.25:.23);
+        carpentry.capital(x,innerHead,z,{width:.79,height:.60,depth:.86,pendantFace:false});
+      }
+      if(i===frontAxes.length-1)continue;
+      const xx=x+1.025,open=level===0&&(i===2||i===3),windowHeight=level===1?1.90:3.10,windowCentre=base+.40+windowHeight/2,windowTop=base+.40+windowHeight,friezeY=headerY-.48;
       if(!open){
-        const material=level===1?'window0':'window'+([1,2,1,0,0,3,4,2][i]),windowHeight=level===1?1.55:3.1,windowCentre=base+.40+windowHeight/2;
-        box(xx,windowCentre,3.28,1.62,windowHeight,.10,material);box(xx,base+.35,3.45,1.75,.65,.16,'red');
-        for(let j=0;j<9;j++)box(xx-.8+j*.2,windowCentre,3.52,.032,windowHeight,.045,'darkwood');
-        for(let j=0;j<Math.ceil(windowHeight/.225);j++)box(xx,base+.43+j*.225,3.55,1.7,.028,.045,'darkwood');
-        if(level===1){box(xx,base+2.31,3.32,1.74,.65,.18,'plaster');for(const yy of[base+1.99,base+2.63])box(xx,yy,3.49,1.8,.09,.18,'red');}
-        if(friezeY-.34>windowTop)box(xx,(windowTop+friezeY-.34)/2,3.37,1.76,friezeY-.34-windowTop,.16,'darkwood');
+        const material=level===1?'window0':'window'+([1,2,1,0,0,3,4,2][i]);
+        // The window wall is a metre and a half behind the column face.
+        // Closed jamb returns and deep sill sections reveal that distance.
+        box(xx,windowCentre,2.84,1.62,windowHeight,.10,material);
+        box(xx,base+.32,2.97,1.76,.56,.28,'red');
+        for(const sign of[-1,1]){box(xx+sign*.84,windowCentre,2.98,.12,windowHeight+.16,.38,'cedar');box(xx+sign*.77,windowCentre,3.182,.025,windowHeight,.027,'oldgold');}
+        for(const yy of[base+.40,windowTop])box(xx,yy,2.99,1.76,.11,.40,'red');
+        for(let j=0;j<9;j++)box(xx-.8+j*.2,windowCentre,3.085,.032,windowHeight,.055,'darkwood');
+        for(let j=0;j<Math.ceil(windowHeight/.225);j++)box(xx,base+.43+j*.225,3.115,1.64,.028,.055,'darkwood');
+        if(friezeY-.20>windowTop){box(xx,(windowTop+friezeY-.20)/2,2.90,1.72,friezeY-.20-windowTop,.20,level===1?'plaster':'darkwood');}
       }
-      // Deep carved beam band, moulded timber frame, and raised metal leaves.
-      box(xx,friezeY,3.43,1.78,.64,.24,'darkwood');
-      for(const sy of[-1,1]){box(xx,friezeY+sy*.32,3.50,1.84,.075,.23,'red');box(xx,friezeY+sy*.252,3.57,1.60,.025,.018,'oldgold');}
-      for(const sx of[-1,1]){box(xx+sx*.875,friezeY,3.50,.085,.64,.23,'red');box(xx+sx*.81,friezeY,3.52,.025,.57,.12,'oldgold');}
-      emit(ranmaRelief,'gold',xx,friezeY,3.554,1.62,.48,.56);records.ornament.reliefPanels++;
-      for(const sx of[-1,1])box(xx+sx*.72,friezeY-.12,3.585,.030,.23,.022,'gold');
-      // Short genuine posts tie the recessed carved band into the head beam.
-      for(const sx of[-.75,0,.75])box(xx+sx,headerY-.22,3.48,.10,.28,.19,'red');
+      const wallTop=level===0?6.435:roofY(xx,2.72)-.30,wallBottom=friezeY+.17;
+      if(wallTop>wallBottom)box(xx,(wallTop+wallBottom)/2,2.72,1.76,wallTop-wallBottom,.22,'darkwood');
+      carpentry.frieze(xx,friezeY,2.99,1.76,.34,{wood:level===1});
+      // A separate deep curved transom stands on the column-side gallery.
+      // Its carved underside is timber, with sparse fitted metal leaves.
+      carpentry.arch(xx,headerY-.13,4.23,1.78,.43);
+      for(const sx of[-.72,0,.72])box(xx+sx,headerY-.14,3.00,.10,.28,.26,'red');
+      for(const sx of[-.70,.70])carpentry.strut([xx+sx,headerY+.02,3.04],[xx+sx,headerY+.20,4.15],.13,.19,'cedar');
     }
-    for(const yy of[base+.25,headerY])box(0,yy,4.3,18.5,.22,.34,'red');
-    rows.forEach((row,index)=>{
-      const limit=index===0?9.15:index===1?9.48:index===2?9.9:10.15,n=Math.floor(limit*2/row.pitch),points=[];
-      for(let i=0;i<=n;i++){
-        const x=-limit+2*limit*i/n,baseY=rowBase(surf,x,row),seat=baseY+.15*row.s,roofY=surf.heightAt(x,row.z-.2);
-        arch.brackets(x,seat,row.z,row.s,{detail:true,interlocked:true,material:index%2?'cedar':'red'});
-        const girtDepth=index===0?.14:.105;points.push([x,baseY-girtDepth/2,row.z]);
-        // Receiver over the capital shares the rafter/purlin bearing plane.
-        const receiverWidth=row.s*.90,receiverY=roofY-.42;
-        box(x,receiverY,row.z,receiverWidth,.24,.23,'cedar');
-        // A returned metal border follows the actual receiver end. Its open
-        // timber centre and raised boss remain visible under the thin girts.
-        const fz=row.z+.122;
-        for(const sign of[-1,1]){box(x+sign*(receiverWidth/2-.009),receiverY,fz,.018,.18,.012,'oldgold');box(x,receiverY+sign*.083,fz,receiverWidth,.014,.012,'oldgold');box(x+sign*(receiverWidth/2+.003),receiverY,row.z+.075,.012,.18,.105,'oldgold');}
-        emit(boss,'gold',x,receiverY,fz+.012,.025,.025,.014);
-        records.ornament.giltWraps++;
+    box(0,headerY+.06,primaryZ,18.50,.28,.50,'red');
+    box(0,base+.15,primaryZ,18.50,.22,.43,'darkwood');
+    // Three curved purlins follow the physical roof underside. Their width
+    // runs across the hall; all projection arms terminate under these solids.
+    for(const [index,z]of[4.30,5.25,6.02].entries()){
+      const limit=index===0?9.15:index===1?9.55:10.05,points=Array.from({length:65},(_,i)=>{const x=-limit+2*limit*i/64;return[x,purlinTop(x,z)-.12,z];});
+      emit(timber(points,index===0?.32:.26,.24),'darkwood');
+      records.bearingRows.push({level,index,z,topOffsetFromRoof:-.303,depth:.24,kind:'full-depth-continuous-roof-purlin',postAxes:frontAxes.filter((_,i)=>!(level===0&&(i===2||i===3)))});
+    }
+    // One secondary bearing course fills the depth below the outer purlin.
+    // Every small daito stands on this closed curved girt. The primary
+    // full-section cantilevers terminate under the girt, so the course has a
+    // continuous load path back to the large column capitals.
+    const outerZ=6.02,secondaryScale=.36,outerLimit=10.05,secondaryCount=Math.round(outerLimit*2/.6833),girtPoints=[];
+    for(let j=0;j<=secondaryCount;j++){
+      const x=-outerLimit+outerLimit*2*j/secondaryCount,roofHeight=roofY(x,outerZ),centre=roofHeight-.543-.82*secondaryScale;
+      arch.brackets(x,centre,outerZ,secondaryScale,{interlocked:true,detail:true,material:'cedar'});
+    }
+    for(let j=0;j<=64;j++){const x=-outerLimit+outerLimit*2*j/64;girtPoints.push([x,roofY(x,outerZ)-.9922,outerZ]);}
+    emit(timber(girtPoints,.32,.20),'cedar');
+    for(const side of[-1,1])carpentry.strut([side*8.2,headAt(side*8.2)+.58,4.58],[side*9.95,roofY(side*9.95,outerZ)-1.2022,outerZ],.24,.22,'cedar',roofY(side*9.95,outerZ)-1.0922);
+    records.bearingRows.push({level,index:3,z:outerZ,sets:secondaryCount+1,scale:secondaryScale,kind:'single-supported-secondary-capital-course',daitoBottomOffset:-.8922,girtBottomOffset:-1.0922,girtTopOffset:-.8922,purlinBottomOffset:-.543});
+    // The large doorway span has a closed transfer girder over its actual
+    // pair of jamb supports. Intermediate eave levers sit on that girder.
+    if(level===0){
+      const transferCentre=L.hall.entranceX,transferY=headerY-.08;
+      box(transferCentre,transferY,4.13,4.48,.42,.62,'cedar');
+      carpentry.frieze(transferCentre,transferY,4.46,4.37,.34);
+      for(const xx of[transferCentre-1.80,transferCentre+1.80]){
+        const jambTop=transferY-.21;carpentry.column(xx,4.07,base,jambTop,.215);
+        carpentry.arch(xx,jambTop+.02,4.08,1.0,.48);
       }
-      emit(timber(points,index===0?.34:.18,index===0?.14:.105),'darkwood');
-      if(index>0)for(let i=0;i<=16;i++){
-        const x=-8.2+i*1.025,inner=rows[index-1],a=[x,rowBase(surf,x,inner)-.05,inner.z],b=[x,rowBase(surf,x,row)-.05,row.z];between(a,b,.12,'cedar',true);
+      for(const xx of[-4.10,-2.05])for(const side of[-1,1]){
+        const x=xx+side*.28;carpentry.strut([x,transferY+.20,4.24],[x,roofY(x,6.02)-1.2022,6.02],.18,.22,'cedar',roofY(x,6.02)-1.0922);
       }
-      records.bearingRows.push({level,index,z:row.z,sets:n+1,scale:row.s,capitalPrototype:{bottom:-.15,top:.82},receiverOffset:-.42,girtDepth:index===0?.14:.105});
-    });
+    }
     if(level===1){
       box(0,base-.12,.2,18.5,.24,8.6,'darkwood');box(0,base-.05,4.83,18.5,.14,1.06,'darkwood');
-      for(const x of[-8.2,-6.15,-4.1,-2.05,0,2.05,4.1,6.15,8.2])box(x,base-.20,4.80,.22,.30,1.45,'cedar');
+      for(const x of frontAxes)box(x,base-.20,4.80,.24,.30,1.45,'cedar');
       railUpper(base);
     }
+    for(const z of[-3.8,.15])box(0,level===0?6.405:10.64,z,18.50,.25,.34,'darkwood');
     const r=roofDefinitions[level];group(0,0,.2,0,()=>roof(r.w,r.d,r.e,r.rise,r.curl,level?'upper':'lower'));
   }
   function railUpper(base){for(let i=0;i<=17;i++){const x=-9+18*i/17;box(x,base+.73,5.05,.11,.86,.11,'red');emit(boss,'oldgold',x,base+1.21,5.05,.10,.09,.10);}for(const h of[.25,.65,.88])box(0,base+.3+h*.86,5.05,18,.075,.075,'red');}
@@ -244,9 +273,36 @@ export function buildHall132(api,L){
     // Preserve the exact 323 random draws while removing only stone courses
     // that physically intersect the new open passage.
     for(let j=0;j<17;j++)for(let k=0;k<19;k++){const x=-9.6+k*1.06+(j%2)*.45,y=-3.64+j*.30,tint=R(.72,1.20),inside=x+.505>opening.minX&&x-.505<opening.maxX&&y+.14>opening.minY&&y-.14<opening.maxY;if(!inside)box(x,y,6.025,1.01,.28,.18,'granite',0,tint);}
-    box(0,4.1,-2,18.1,5.4,5.8,'darkwood');frame(0);frame(1);
+    // A hollow, occupied room replaces the old 18.1 x 5.4 x 5.8 solid box,
+    // whose front face hid the Buddha and filled the entire entrance view.
+    box(0,3.98,-4.72,18.30,5.36,.24,'darkwood');
+    for(const side of[-1,1])box(side*9.08,3.98,-.90,.24,5.36,7.40,'darkwood');
+    box(0,1.40,-.75,18.30,.20,9.60,'darkwood');
+    for(const side of[-1,1])box(side*9.08,8.13,-.72,.24,2.96,7.76,'darkwood');
+    box(0,8.13,-4.72,18.30,2.96,.24,'darkwood');
+    // A coffered ceiling is borne by the two deep interior column rows.
+    box(0,6.485,-.48,18.32,.10,8.48,'darkwood');
+    for(let j=0;j<12;j++)box(-8.6+j*1.56,6.34,-.48,.14,.20,8.40,'cedar');
+    for(let j=0;j<6;j++)box(0,6.34,-4.0+j*1.40,18.30,.20,.14,'cedar');
+    frame(0);frame(1);
     group(L.hall.entranceX,0,0,0,()=>{
       box(0,3.8,-1.40,3.5,4.5,.18,'darkwood');box(0,1.58,-1.1,3.3,.22,4.2,'darkwood');
+      // Tangible side cabinets, altar tables, and finite lamps occupy the
+      // depth beyond the doors. Their feet bear on the continuous hall floor.
+      for(const side of[-1,1]){
+        const x=side*2.52;
+        box(x,2.58,-.30,1.42,2.34,.48,'darkwood');
+        for(const xx of[-.61,.61])box(x+xx,2.58,-.035,.10,2.38,.10,'cedar');
+        for(const yy of[1.46,3.70])box(x,yy,-.035,1.44,.11,.12,'oldgold');
+        for(const yy of[2.15,2.93])carpentry.frieze(x,yy,-.024,1.20,.29,{wood:true});
+        box(side*.94,2.24,1.14,.61,.13,.52,'cedar');
+        for(const dx of[-.23,.23])for(const dz of[-.18,.18])box(side*.94+dx,1.80,1.14+dz,.085,.75,.085,'darkwood');
+        lantern(side*.94,2.62,1.14,.32,false);
+      }
+      const burner=new T.LatheGeometry([[0,0],[.26,0],[.35,.10],[.39,.29],[.42,.33],[.42,.37],[.35,.38],[.34,.31],[.31,.16],[0,.12]].map(p=>new T.Vector2(...p)),36);
+      emit(burner,'oldgold',0,1.72,1.95);
+      for(let k=0;k<3;k++){const a=k*Math.PI*2/3;box(Math.cos(a)*.25,1.51,1.95+Math.sin(a)*.25,.10,.42,.10,'oldgold');}
+      for(const x of[-.10,0,.10])between([x,2.02,1.95],[x+.015,2.48,1.95],.008,'endwood');
       // A stepped closed pedestal carries the lotus from the real hall floor.
       // Its top meets the lotus's y=2.02 underside; the figure sits at y=2.25.
       box(0,1.39,-.07,1.80,.18,1.65,'darkwood');
@@ -288,16 +344,23 @@ export function buildHall132(api,L){
       tube([[-2.0,5.36,4.23],[-1.25,5.75,4.23],[0,5.90,4.23],[1.25,5.75,4.23],[2.0,5.36,4.23]],.055,'oldgold');
       for(const sign of[-1,1])for(let k=0;k<5;k++){emit(leaf,'gold',sign*(.23+k*.27),5.79-k*.045,4.25,.32,.34,.30,[0,0,sign*(.40+k*.15)]);records.ornament.volumetricLeaves++;}
     });
-    for(const x of[-7,-3,5,8])lantern(x,3.5,4.9,.62,true);
+    for(const x of[-7,-3,5,8]){
+      lantern(x,3.5,4.9,.62,true);
+      // Existing lantern chain now reaches an actual eave receiving timber.
+      const upperAnchor=profile(0).heightAt(x,4.70)-.58;
+      between([x,4.58,4.9],[x,upperAnchor,4.9],.012,'black');
+      box(x,upperAnchor,4.9,.16,.055,.24,'black');
+    }
+    records.mass183.parts=carpentry.parts;
     // Luminance originates on existing paper bays. These finite warm aperture
     // sources supply the room bounce absent from WebGL's one-bounce shading.
     // They point outward and remain on the real recessed glazing plane.
     records.windowApertureLights142=[];
     for(const [xx,intensity]of[[-5.125,3.2],[5.125,2.4]]){
-      const aperture=new T.RectAreaLight('#ffca86',intensity,1.60,3.00);aperture.name='scene10-existing-paper-bay-finite-area-emission';aperture.position.set(xx,3.25,3.345);aperture.rotation.y=Math.PI;aperture.applyMatrix4(stack.at(-1));scene.add(aperture);records.windowApertureLights142.push({localCentre:[xx,3.25,3.345],width:1.60,height:3,intensity,source:'Existing paper bay; finite outward room radiance, no camera fill'});
+      const aperture=new T.RectAreaLight('#ffca86',intensity,1.60,3.00);aperture.name='scene10-existing-paper-bay-finite-area-emission';aperture.position.set(xx,3.25,2.905);aperture.rotation.y=Math.PI;aperture.applyMatrix4(stack.at(-1));scene.add(aperture);records.windowApertureLights142.push({localCentre:[xx,3.25,2.905],width:1.60,height:3,intensity,source:'Existing paper bay; finite outward room radiance, no camera fill'});
     }
 
-    const light=new T.PointLight('#ffbd75',38,22,2);light.name='scene10-shadowed-recessed-shrine-inverse-square-source';light.position.set(L.hall.entranceX,3,1.1).applyMatrix4(stack.at(-1));light.castShadow=true;light.shadow.mapSize.set(1024,1024);light.shadow.camera.near=.10;light.shadow.camera.far=45;light.shadow.bias=-.000025;light.shadow.normalBias=.005;scene.add(light);
+    const light=new T.PointLight('#ffbd75',10,22,2);light.name='scene10-shadowed-recessed-shrine-inverse-square-source';light.position.set(L.hall.entranceX,3,1.1).applyMatrix4(stack.at(-1));light.castShadow=true;light.shadow.mapSize.set(1024,1024);light.shadow.camera.near=.10;light.shadow.camera.far=45;light.shadow.bias=-.000025;light.shadow.normalBias=.005;scene.add(light);
   },L.hall.scale);
   return records;
 }

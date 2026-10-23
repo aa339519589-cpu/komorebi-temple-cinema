@@ -2445,7 +2445,8 @@ export function createRestorationArchitecture(ctx) {
 
   function pagodaStoreyFrame({w,d=w,y=0,level=0,scale=1-level*.115,
     roofWidth=w+3.3*scale,roofDepth=d+3.3*scale,roofRise=2.18*scale,
-    roofY=y+3.55,windowMaterial='darkwood',detail=level<2}={}) {
+    roofY=y+3.55,windowMaterial='darkwood',detail=level<2,recessDepth=0}={}) {
+    if(!Number.isFinite(recessDepth)||recessDepth<0||recessDepth>.75*scale)throw new RangeError('Pagoda bay recess must remain inside its actual timber core.');
     const shaftRadius=.235*scale,bracketScale=.72*scale;
     // The purlin bears against the underside of the main rafters, not through
     // the ceramic shell. Respect the existing hipRoof equation and soffit.
@@ -2495,22 +2496,23 @@ export function createRestorationArchitecture(ctx) {
           const xx=(k-1)*bay,bayMaterial=windowMaterial==='pagodaPaper'?'pagodaWindow'+[2,4,3,1,2][(level+face+k)%5]:windowMaterial==='paper'?(k===1?'window3':'window1'):windowMaterial;
           // A closed lower spandrel and shallow recessed window, not a whole
           // plaster cube shining through between unrelated skinny posts.
-          box(xx,y+.59,-.032,clear,.24,.11,'red');
-          box(xx,y+.59,.030,Math.max(.08,clear-.10*scale),.15,.018,'darkwood');
-          box(xx,y+.84,-.075,clear,.30,.16,'darkwood');
-          box(xx,y+2.30,-.075,clear,.35,.16,'darkwood');
-          box(xx,windowY,-.125,clear,windowHeight,.05,bayMaterial);
-          for(const yy of [windowBottom,windowTop])box(xx,yy,.022,clear+.06*scale,.075*scale,.095*scale,'red');
-          for(const side of [-1,1])box(xx+side*clear/2,windowY,.022,.065*scale,windowHeight,.095*scale,'red');
+          box(xx,y+.59,-.032-recessDepth,clear,.24,.11,'red');
+          box(xx,y+.59,.030-recessDepth,Math.max(.08,clear-.10*scale),.15,.018,'darkwood');
+          box(xx,y+.84,-.075-recessDepth,clear,.30,.16,'darkwood');
+          box(xx,y+2.30,-.075-recessDepth,clear,.35,.16,'darkwood');
+          box(xx,windowY,-.125-recessDepth,clear,windowHeight,.05,bayMaterial);
+          for(const yy of [windowBottom,windowTop])box(xx,yy,.022-recessDepth,clear+.06*scale,.075*scale,.095*scale,'red');
+          for(const side of [-1,1])box(xx+side*clear/2,windowY,.022-recessDepth,.065*scale,windowHeight,.095*scale,'red');
           const bars=Math.max(6,Math.round(clear/(.18*scale)));
-          for(let j=1;j<bars;j++)box(xx-clear/2+j*clear/bars,windowY,.020,
+          for(let j=1;j<bars;j++)box(xx-clear/2+j*clear/bars,windowY,.020-recessDepth,
             .040*scale,windowHeight-.055*scale,.055*scale,'darkwood');
-          for(const f of [.32,.69])box(xx,windowBottom+windowHeight*f,.057,
+          for(const f of [.32,.69])box(xx,windowBottom+windowHeight*f,.057-recessDepth,
             clear,.028*scale,.035*scale,'endwood');
           // Only a small nailed joint strap occurs at each actual window end.
           if(detail)for(const side of [-1,1])squareFitting(xx+side*(clear*.5-.045*scale),
             y+2.57,.131*scale,.07*scale,.12*scale,0,false);
-          const local=v([xx,windowY,-.092]);
+          if(recessDepth>0)for(const side of[-1,1])box(xx+side*(clear/2+.028*scale),windowY,-recessDepth/2,.075*scale,windowHeight+.15*scale,recessDepth+.16*scale,'cedar');
+          const local=v([xx,windowY,-.092-recessDepth]);
           const matrix=stack?.[stack.length-1];
           const worldCenter=matrix?local.clone().applyMatrix4(matrix):local.clone();
           const worldNormal=matrix?v([0,0,1]).transformDirection(matrix):v([0,0,1]);
@@ -2521,7 +2523,7 @@ export function createRestorationArchitecture(ctx) {
           // The legacy centre is the outward-biased sampling point. Expose
           // the actual paper front separately so light emitters are measured
           // on the real surface, not on an arbitrary volume inside the tower.
-          const surfaceLocal=v([xx,windowY,-.100]);
+          const surfaceLocal=v([xx,windowY,-.100-recessDepth]);
           const surfaceWorld=matrix?surfaceLocal.clone().applyMatrix4(matrix):surfaceLocal.clone();
           const surfaceStorey=surfaceLocal.clone().applyMatrix4(faceLocal);
           const emitterWorldOffset=worldCenter.clone().sub(surfaceWorld).dot(worldNormal);
@@ -2536,7 +2538,7 @@ export function createRestorationArchitecture(ctx) {
       });
     }
     return {posts,windows,purlinTop,shaftTop,shaftHeight,bracketY,
-      columnsPerFace:4,distinctColumns:posts.length,roofWidth,roofDepth,requiresPyramidRoof:true};
+      columnsPerFace:4,distinctColumns:posts.length,roofWidth,roofDepth,recessDepth,requiresPyramidRoof:true};
   }
 
   /** Four equal roof faces converge at the pagoda centre. The old hall hipRoof

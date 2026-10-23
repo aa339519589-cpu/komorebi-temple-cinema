@@ -1,0 +1,222 @@
+{
+  "status": "source-edited-rendered-and-reviewed-unaccepted",
+  "visualAccepted": false,
+  "reference": 10,
+  "sourceHash": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07",
+  "baselineSourceHash": "7c4dd0afb6c113fdebec07b57b566283666110a026e794b8e49f17579c66567d",
+  "sourceIdentityFile": "lookdev/scene10-mass183/source183-r03-final-identity.json",
+  "sourceSnapshot": "lookdev/scene10-mass183/source-snapshots/mass183-r03-final.tgz",
+  "editedRuntimeFiles": [
+    "reconstructions/scene-10/assets/cloud-scroll176/component-y-up-z-front.glb",
+    "reconstructions/scene-10/assets/cloud-scroll176/measured-mount-loops.json",
+    "reconstructions/scene-10/assets/cloud-scroll176/provenance.json",
+    "reconstructions/scene-10/src/architecture.js",
+    "reconstructions/scene-10/src/carpentry-mass183.js",
+    "reconstructions/scene-10/src/hall-front132.js",
+    "reconstructions/scene-10/src/licensed-cloud183.js",
+    "reconstructions/scene-10/src/main.js",
+    "reconstructions/scene-10/src/tower-mass183.js"
+  ],
+  "additionalHumanFiles": [
+    "reconstructions/scene-10/README.md",
+    "reconstructions/scene-10/assets/cloud-scroll176/ATTRIBUTION.txt"
+  ],
+  "actual1254Frames": [
+    {
+      "file": "qa/ten-reference/10/iteration-scene10-mass183-r03-hall/reference.png",
+      "report": "qa/ten-reference/10/iteration-scene10-mass183-r03-hall/report.json",
+      "name": "reference",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "54c01f278ceee29a06e5e7a5a575671abf6761d5525cfc39c537992ae725c84d",
+      "rawRgbaSha256": "8b6b1043c6c2599e2bad4db568dd7cb7bf58f06f02d0500b1750988dc5dfb560",
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": null,
+      "sourceHash": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07"
+    },
+    {
+      "file": "qa/ten-reference/10/iteration-scene10-mass183-r03-hall/detail-native.png",
+      "report": "qa/ten-reference/10/iteration-scene10-mass183-r03-hall/report.json",
+      "name": "detail-native",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "ced8e459cb554906dc8696bd800a978ed22d5512559b321546fcb2eb01b9de3c",
+      "rawRgbaSha256": "750860662fe2526ed397d2535e631b702c72ffff5072482c309b29da95fd47b9",
+      "pose": {
+        "position": [
+          0,
+          1,
+          14
+        ],
+        "target": [
+          0,
+          4.65,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": [
+        588,
+        132,
+        660,
+        1254
+      ],
+      "sourceHash": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07"
+    },
+    {
+      "file": "qa/ten-reference/10/iteration-scene10-mass183-r03-low3q/inspection-view.png",
+      "report": "qa/ten-reference/10/iteration-scene10-mass183-r03-low3q/report.json",
+      "name": "inspection-view",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "5cd947a19ea249a3b3e3ce91db45fa73aed69738bd674f61d786fe590dd921bd",
+      "rawRgbaSha256": "ee520fa03daba2277b249bcb07d9c158075f2ef753faef08cd407fcf8e0e4271",
+      "pose": {
+        "position": [
+          -4,
+          2.1,
+          2.5
+        ],
+        "target": [
+          8,
+          6.2,
+          -14
+        ],
+        "time": 0,
+        "fov": 60,
+        "width": 1254,
+        "height": 1254
+      },
+      "detailCrop": null,
+      "sourceHash": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07"
+    }
+  ],
+  "fullImage": "qa/ten-reference/10/iteration-scene10-mass183-r03-hall/reference.png",
+  "heroImage": "qa/ten-reference/10/iteration-scene10-mass183-r03-hall/detail-native.png",
+  "low3qImage": "qa/ten-reference/10/iteration-scene10-mass183-r03-low3q/inspection-view.png",
+  "unscaledComparison": "lookdev/scene10-mass183/reference-baseline-r03-native-unscaled.png",
+  "unscaledArchitectureCrops": "lookdev/scene10-mass183/reference-baseline-r03-hall-crops-unscaled.png",
+  "comparisonPanelOrder": [
+    "SuppliedHD10",
+    "HeldR142R07Actual1254",
+    "Mass183R03Actual1254"
+  ],
+  "constructionChanges": [
+    "Round entasis main shafts, actual crossed saddle cuts in broad daito, housed crossed arms, paired full-section projection arms and knee braces, three continuous roof-driven purlins.",
+    "One secondary capital course stands on a curved full-section timber girt; main projection arms and corner ties carry the girt. Actual inclined section end heights meet bearing heights to floating-point tolerance.",
+    "Removed the solid18.1x5.4x5.8 room volume that physically hid the shrine. Built hollow rear/side walls, real floor and supported coffered ceiling, recessed casements with returned jambs, doorway transfer/jamb bearing, occupied side cabinets/altar tables/incense burner and finite modeled votive lamps.",
+    "Moved paper aperture sources onto the new physical glazing plane; reduced shrine source from38 to10 after R01 pixels showed excessive figure radiance. Physical wet-red timber film retains declared normal/roughness map bytes.",
+    "Four annular intermediate tower roofs around next actual floor and balcony, capped cut boarding and real bearing collars. Five closed balcony slabs each have12 fitted blind column-foot sockets; joists and rail feet share contact datum, corner posts are unique.",
+    "Tower casements, real returns and actual paper sources recessed0.34xstoreyScale. Original complete tower position/scale/pitch/roof outline retained. Finial has supported solid base,19 thinner disks and actual wire stays.",
+    "Six selected capital locations use paired actual CC-BY source176 cloud surfaces at uniform0.93 WORLD scale with parent-scale compensation. Original surface triangles/normals remain unchanged; reflection has corrected winding. Five disjoint deliberate cut loops have separate source-matching caps; no source piercing was filled."
+  ],
+  "verification": {
+    "nativeR03Frames": 3,
+    "nativeDimensions": [
+      1254,
+      1254
+    ],
+    "allValid": true,
+    "runtimeReferencePhotoRequests": 0,
+    "renderQueue": "tools/render-one-reconstruction.mjs, official shared FIFO only",
+    "validationFile": "lookdev/scene10-mass183/validation183-r03.json",
+    "cpuGeometryFile": "lookdev/scene10-mass183/geometry183-r02.json",
+    "mountedSourceOpenEdges": 0,
+    "mountedSourceNonmanifoldEdges": 0,
+    "mountedSourceExactlyDegenerateTriangles": 0,
+    "mountedSourceTinyFiniteTrianglesBelowSquaredCross1eMinus20": 14,
+    "mountedSourceNestedCutLoops": 0,
+    "modeledBearingEndpoints": {
+      "checked": 72,
+      "maxYGap": 9.020562075079397e-16,
+      "scope": "Analytic true section endpoint in actual runtime receipt; not full collision or structural engineering certification."
+    },
+    "protectedRuntimePlacementsIdentical": {
+      "nearStoneRecords": true,
+      "fallenLeaves142": true,
+      "towerHillPlantings142": true,
+      "bridgeHallPlan": true,
+      "bridgeEndSupports125": true,
+      "bridgeAbutment125": true,
+      "hallShoreline125": true,
+      "solmaxRockBank141": true,
+      "mapleCanopy136": true,
+      "licensedForest141.placements": true,
+      "licensedGroundcover142.placements": true
+    },
+    "protectedFilesByteIdentical": {
+      "layout125.js": true,
+      "near-rain-stones.js": true,
+      "near-surface-reflection.js": true,
+      "paving-mask.js": true,
+      "maple-canopy136.js": true,
+      "rain-frame-maple142.js": true,
+      "licensed-pine141.js": true,
+      "licensed-groundcover142.js": true,
+      "water-film-ripples135.js": true,
+      "stone-lantern.js": true,
+      "solid-receiver142.js": true,
+      "stair-embankment137.js": true
+    }
+  },
+  "remainingDominantMismatches": [
+    "Main hall still has overly regular, simplified roof/capital/board profiles and wall-to-eave proportions compared with HD10; monumental photographic fidelity is not achieved.",
+    "The single secondary bearing course now has support but its repeated front girt and small identical sets remain orderly. Selected scan details do not replace the complete reference-specific carved facade.",
+    "Distant pines remain sparse and needle-like; broad exposed hillside and garden planting transitions retain a miniature impression.",
+    "Stone lantern silhouettes and smooth/angular carriers, wet-stone/reflection/rain-highlight scale and warm/cool bounce differ from the reference.",
+    "Buddha is now physically visible but its form and illumination are not an artifact match. No new full motion or Cycles evidence was generated."
+  ],
+  "preservedCandidates": [
+    "baseline-r142-r07",
+    "mass183-r01",
+    "mass183-r02",
+    "mass183-r03-pre-bearing-endpoint-correction"
+  ],
+  "assetSource": {
+    "title": "Wood Carving of  Dragon",
+    "author": "SCANOLOGY_3D",
+    "source": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+    "license": "CC-BY-4.0",
+    "provenance": "reconstructions/scene-10/assets/cloud-scroll176/provenance.json",
+    "cultureEraAndMetricScale": "Not verified; not asserted to be Japanese or the reference artifact."
+  },
+  "noReferencePhotoOrAiReplacementWorld": true,
+  "noAdHocGpuJobs": true,
+  "noBlenderAuthoringNeeded": true,
+  "noChildren": true,
+  "noGitMutation": true,
+  "noFilmOrPhysicalExports": true,
+  "noPendingGpuWork": true,
+  "ownership": [
+    "reconstructions/scene-10",
+    "lookdev/scene10-mass183",
+    "qa/ten-reference/10/iteration-scene10-mass183-*"
+  ]
+}
