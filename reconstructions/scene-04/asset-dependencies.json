@@ -1,10 +1,10 @@
 {
   "scene": "04",
-  "revision": "scene04-mass164-r04",
+  "revision": "scene04-spatial188-r03-personal-NC-Amida",
   "referencePhotographs": {
     "usedByRuntime": false,
     "scope": "Comparison evidence only; original photo copyright remains with its owner.",
-    "reference": "3-照片-4.jpg"
+    "reference": "3-\u7167\u7247-4.jpg"
   },
   "newExternalAssets": [
     {
@@ -71,6 +71,43 @@
         "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
       ],
       "adaptation": "Existing frozen repository scan, no global edits. Diffuse chroma removed and scalar luma normalized for the authored warm cedar palette. Original GL tangent normal at scale 0.30. Source roughness remapped to 0.70+0.26*source for worn exterior coating. Metric per-member UV grain orientation retained; authored anisotropic repeat 1.45m along grain and 0.38m across grain."
+    },
+    {
+      "name": "wood carving \u2014 floral source157",
+      "author": "Diana Liu",
+      "license": "CC-BY-4.0",
+      "source": "https://sketchfab.com/3d-models/wood-carving-93766a4c12eb4c278d23294582034e8c",
+      "provenance": "reconstructions/scene-04/assets/spatial188/provenance.json",
+      "runtimeFiles": [
+        "reconstructions/scene-04/assets/spatial188/floral157-component.gltf",
+        "reconstructions/scene-04/assets/spatial188/component.bin"
+      ],
+      "adaptation": "Exact source157 component copied; rigid alignment and uniform fitting only; source positions/normals/triangles and intrinsic relief depth retained. No source images."
+    },
+    {
+      "name": "Wood Carving of Dragon \u2014 source176 cloud component",
+      "author": "SCANOLOGY_3D",
+      "license": "CC-BY-4.0",
+      "source": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+      "provenance": "reconstructions/scene-04/assets/spatial188/provenance.json",
+      "runtimeFiles": [
+        "reconstructions/scene-04/assets/spatial188/cloud176.glb",
+        "reconstructions/scene-04/assets/spatial188/cloud176-mount-loops.json"
+      ],
+      "adaptation": "Exact source176 component copied; uniform fitting, separate mount-cut caps and corrected-winding reflection. Original sculptural channels and relief retained."
+    },
+    {
+      "name": "Seated Amida at the Sainsbury Centre for Visual Arts, Norwich",
+      "author": "Scan-the-World",
+      "license": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "derivedImageryLicense": "CC-BY-NC-SA-4.0",
+      "source": "https://doi.org/10.5281/zenodo.21353739",
+      "provenance": "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/provenance.json",
+      "runtimeFiles": [
+        "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/original-source-CC-BY-NC-SA-4.0.glb"
+      ],
+      "adaptation": "Untouched original compact GLB decoded locally; original +Y-up/+Z-front axes, unpaired hand pose, plinth, anatomy, source normals and triangle indices retained. Positive uniform scale and translation only to seat original source plinth on actual altar. Uniform aged gold PBR; no texture/image. Not asserted to be exact reference artifact."
     }
   ],
   "newSharedAssetsCopied": [],
@@ -91,7 +128,11 @@
     "Taller forked flowering cherry canopies with preserved roots and preserved unrelated random stream",
     "Rounded higher-detail distant tree crowns at a nearer physical hill depth",
     "Nine smaller real 3D crown clusters per distant tree instead of three large blobs",
-    "Asymmetric cherry bough elevations across the photographed canopy envelope"
+    "Asymmetric cherry bough elevations across the photographed canopy envelope",
+    "Four routed closed-timber carving seats retain whole source157 ornament geometry at positive uniform scale",
+    "Four full-depth shoulder knees have genuine bearing faces sampled from the actual transverse carrier mesh grid",
+    "Real solid lacquer/gilt collar and continuous supported cornice around the unchanged original source Amida plinth",
+    "120 actual small metal lattice rings seat on the two suspended lantern bodies; suspension rods meet the measured curved eave"
   ],
   "retainedUnusedHistoricalAsset": "assets/monastery-stone-floor retains its original CC0 source and provenance; runtime paving now loads Granite Tile 04.",
   "excludedRepresentations": [
@@ -130,7 +171,8 @@
     "assets/polyhaven/lacquered-cherry-wood/provenance.json",
     "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
     "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
-    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg"
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/draco_decoder.wasm"
   ],
   "sceneLocalStoneLoader": {
     "source": "src/scene04-scanned-garden-stones.js",
@@ -181,5 +223,13 @@
     "scope": "Deep coupled main bearing hierarchy, genuine lapped ceramics, recessed upper-wall structure, continuous sanctuary reveal, corrected shrine proportions and asymmetric courtyard roof masses. Frozen CC0 timber scan used only as physical PBR surface detail.",
     "referenceRGBUsed": false,
     "visualAccepted": false
+  },
+  "spatial188": {
+    "scope": "Reference-fitted hafu/ridge/paired transfer geometry with source157 carving in four real routed timber seats; source-preserving returned portal panels and selected single176 cloud shoulders; actual original unpaired Japanese Amida179 seated on a real grounded altar, source plinth retained inside a separately authored lacquer/gilt cornice; exact seated shoulder knees from the actual transverse-carrier grid; ornate suspended lantern metal lattices; real oil-flame shadows and an actual local room reflection capture. Protected camera/stair/site/garden/path unchanged.",
+    "provenance": "assets/spatial188/provenance.json",
+    "referenceRGBUsed": false,
+    "visualAccepted": false,
+    "personalNoncommercialUseOnly": true,
+    "derivedImageryLicense": "CC-BY-NC-SA-4.0"
   }
 }

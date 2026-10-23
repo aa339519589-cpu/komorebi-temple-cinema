@@ -1,0 +1,370 @@
+{
+  "status": "source-edited-rendered-reviewed-personal-noncommercial-unaccepted",
+  "visualAccepted": false,
+  "reference": 4,
+  "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+  "baselineSourceHash": "6c7873b890baf77edb1434e723bd8a2de0ec92a3f38f0aa18bd52961fa6c9be7",
+  "sourceIdentityFile": "lookdev/scene04-spatial188/source188-r03-identity.json",
+  "sourceSnapshot": "lookdev/scene04-spatial188/source-snapshots/spatial188-r03-final-scripts.tgz",
+  "runtimeChangedFiles": [
+    "reconstructions/scene-04/asset-dependencies.json",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/draco_decoder.wasm",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/draco_wasm_wrapper.js",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/provenance.json",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/original-source-CC-BY-NC-SA-4.0.glb",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/primary-zenodo-record.json",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/provenance.json",
+    "reconstructions/scene-04/assets/spatial188/cloud176-mount-loops.json",
+    "reconstructions/scene-04/assets/spatial188/cloud176.glb",
+    "reconstructions/scene-04/assets/spatial188/component.bin",
+    "reconstructions/scene-04/assets/spatial188/floral157-attribute-validation.json",
+    "reconstructions/scene-04/assets/spatial188/floral157-component-provenance.json",
+    "reconstructions/scene-04/assets/spatial188/floral157-component.gltf",
+    "reconstructions/scene-04/assets/spatial188/provenance.json",
+    "reconstructions/scene-04/src/licensed-carving188.js",
+    "reconstructions/scene-04/src/licensed-cloud188.js",
+    "reconstructions/scene-04/src/original-amida188.js",
+    "reconstructions/scene-04/src/reference4-architecture.js",
+    "reconstructions/scene-04/src/reference4-config.js",
+    "reconstructions/scene-04/src/reference4-main.js",
+    "reconstructions/scene-04/src/reference4-sanctuary.js",
+    "reconstructions/scene-04/src/reference4-scene.js",
+    "reconstructions/scene-04/src/room-light188.js",
+    "reconstructions/scene-04/src/scene04-hall-profile132.js",
+    "reconstructions/scene-04/src/scene04-mass-frame164.js",
+    "reconstructions/scene-04/src/scene04-porch-sculpture135.js",
+    "reconstructions/scene-04/src/scene04-portal164.js"
+  ],
+  "additionalHumanFiles": [
+    "reconstructions/scene-04/README.md",
+    "reconstructions/scene-04/ATTRIBUTION.md",
+    "reconstructions/scene-04/assets/spatial188/ATTRIBUTION.txt",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/ATTRIBUTION-CC-BY-NC-SA-4.0.txt",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/LICENSE-CC-BY-NC-SA-4.0.txt"
+  ],
+  "fullImage": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/reference.png",
+  "truePortalHero": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/detail-native.png",
+  "lowOblique": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/inspection-view.png",
+  "actual1254Frames": [
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/reference.png",
+      "report": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/report.json",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "25d2e00012281eeb880061d10482d44d461eda31660a4962a1b44db5a58c990e",
+      "rawRgbaSha256": "170b944391af6cacb712e3ebc63c8dfe2fb5012ba13cd81b0d848934a0f41ac5",
+      "pose": {
+        "reference": 4,
+        "revision": "scene04-spatial188-r03-personal-NC-Amida",
+        "width": 1254,
+        "height": 1254,
+        "frame": 1,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241
+        }
+      },
+      "detailCrop": null,
+      "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+      "derivedImageLicense": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "imageAttribution": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/IMAGE-ATTRIBUTION-CC-BY-NC-SA-4.0.txt"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/detail-native.png",
+      "report": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/report.json",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "787e4aa02f2df0a76604da611ac83ec78f6def030b5b754519f0e7249e145731",
+      "rawRgbaSha256": "e86fceae9e0fe7f8b56d36e5128a5f7b3a6c8b5625790bfdbd03febc7c181719",
+      "pose": {
+        "reference": 4,
+        "revision": "scene04-spatial188-r03-personal-NC-Amida",
+        "width": 1254,
+        "height": 1254,
+        "frame": 2,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241
+        }
+      },
+      "detailCrop": [
+        275,
+        120,
+        710,
+        1254
+      ],
+      "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+      "derivedImageLicense": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "imageAttribution": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/IMAGE-ATTRIBUTION-CC-BY-NC-SA-4.0.txt"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/inspection-view.png",
+      "report": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/report.json",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "3d78b66fe17454aa71ea728c30a1d337650e96b0ccc064990b3c0e66cf8c0f89",
+      "rawRgbaSha256": "e32a1a721fa626f101dc88c3f1c0071cdfdd70de38b57be71f8a6d6b090833d4",
+      "pose": {
+        "reference": 4,
+        "revision": "scene04-spatial188-r03-personal-NC-Amida",
+        "width": 1254,
+        "height": 1254,
+        "frame": 1,
+        "camera": {
+          "position": [
+            8,
+            3.2,
+            18
+          ],
+          "fov": 58
+        }
+      },
+      "detailCrop": null,
+      "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+      "derivedImageLicense": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "imageAttribution": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/IMAGE-ATTRIBUTION-CC-BY-NC-SA-4.0.txt"
+    }
+  ],
+  "unscaledComparison": "lookdev/scene04-spatial188/reference-baseline-r03-native-unscaled-personal-CC-BY-NC-SA4.png",
+  "unscaledPortalCrops": "lookdev/scene04-spatial188/reference-baseline-r03-portal-crops-unscaled-personal-CC-BY-NC-SA4.png",
+  "comparisonOrder": [
+    "Supplied HD4 reference",
+    "Held mass164 R04 actual native1254",
+    "Spatial188 R03 actual native1254"
+  ],
+  "comparisonRights": "Reference photograph retains separate owner rights. Scene188 render panel is CC BY-NC-SA4.0 for personal noncommercial use.",
+  "constructionChanges": [
+    "Shared hafu crown raised0.17m and shoulders0.52m, main ridge raised0.22m, lower transfer raised0.18m. Roof, board, fascia, rafters and bearing geometry rebuild from the common profile; no camera/global-group stretch.",
+    "Mass164 round columns, deep0.80m main transfers and rear bearing assemblies retained. Four new full-depth cloud knees have real seated top faces on the actual transverse-carrier grid, rather than tilted box-end approximations.",
+    "Largest repeated generated gilt slabs and blade-like reveal leaves replaced by whole exact source157 peony and source176 cloud geometry. Source157 original normals, triangles and intrinsic sculptural depth retained; only rigid orientation/recentering and uniform fitting. Four actual routed depressions in the solid transfer timber receive source floral fields. Closed returned carrier/rim geometry remains at stile/reveal locations that require it.",
+    "Repeated mirrored triangular crowns from R01 reduced to selected single carved shoulders. Main door stiles have deep recessed fields and edge returns; actual complete source floral fields occupy the two full-depth reveal walls and the inner shrine back.",
+    "Generic authored Buddha replaced by compact ORIGINAL unpaired Scan-the-World Japanese Amida179, including its original rectangular plinth. No paired-arm derivative, fingertip edits, plinth separation, anatomy deformation, normal recomputation or source-index changes. Original +Y-up/+Z-front axes retained; positive uniform1.60m scene fitting only.",
+    "Closed shrine pedestal fills old0.55m unsupported gap; cabinet posts and ritual table feet reach actual hall floor. Original scan plinth seats on local altarY1.065 inside1.80x1.13m core; a separate supported lacquer/gilt cornice encloses its pale slab without altering source anatomy/plinth.",
+    "Shrine receded0.9m. Six modeled oil flames feed two real shadowed clustered lamps; unmatched extra fill points removed. Doorway solid angle limits only indirect sky. A separate actual256px room probe supplies local metal reflection and skips a second specular sky mask. Exterior lantern materials are separated from shrine materials.",
+    "Suspended lamps raised0.15m to reference height, with120 actual pierced metal lattice rings and ray-measured supports. Tower whole position/scale/tiers/roof silhouette held; nineteen slender closed finial discs replace the wide wire spring."
+  ],
+  "actualReviewHistory": [
+    {
+      "revision": "R01",
+      "sourceHash": "709a4eaee11007ab816c74c2050d089efc01b3f426ded0f28b26c065409d5030",
+      "native": "qa/ten-reference/04/iteration-scene04-spatial188-r01-portal",
+      "status": "Preserved visual rejection: too-dark shrine, repeated mirrored cloud crowns and applied/unsupported-looking carving faces."
+    },
+    {
+      "revision": "R02",
+      "sourceHash": "b03aba8a84e32c8a5e2a757f4cd3738804042995337a97f91b87bc0c284aaa57",
+      "native": "qa/ten-reference/04/iteration-scene04-spatial188-r02-portal-personal-CC-BY-NC-SA4",
+      "oblique": "qa/ten-reference/04/iteration-scene04-spatial188-r02-oblique-personal-CC-BY-NC-SA4",
+      "status": "Preserved unaccepted: calmer authentic source figure and restored warm room; applied rectangular rims and pale original plinth face remain visible."
+    },
+    {
+      "revision": "R03",
+      "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+      "status": "Three real1254 views reviewed. Routed/carrier seats, source plinth collar, exact knee seats, lantern grille and slender finial repaired. Photography still unaccepted."
+    }
+  ],
+  "verification": {
+    "file": "lookdev/scene04-spatial188/validation188-r03.json",
+    "allThreeNativeFramesValid": true,
+    "runtimeErrors": [],
+    "referencePhotoRuntimeRequests": 0,
+    "officialGpuFifoOnly": true,
+    "sourceStable": true,
+    "protectedSourceFilesByteIdentical": {
+      "reference4-garden.js": true,
+      "reference4-distant-forest.js": true,
+      "reference4-stair-plan.js": true,
+      "scene04-stair-block131.js": true,
+      "traced-paving04.js": true,
+      "traced-stone-material04.js": true,
+      "scene04-surfaces.js": true,
+      "paving-canopy04.js": true,
+      "scene04-understory131.js": true,
+      "scene04-lanterns.js": true,
+      "scene04-scanned-garden-stones.js": true,
+      "scene04-scanned-stone.js": true,
+      "scene04-timber-precision134.js": true,
+      "reference4-materials.js": true
+    },
+    "protectedRuntimePlacementsIdentical": {
+      "camera": true,
+      "stair": true,
+      "gardenExceptGeneratedMaterialUuid": true,
+      "understory": true,
+      "forest": true,
+      "sunAndShadowCanopy": true
+    },
+    "volatileRuntimeUuidException": {
+      "actual": "357a769b-02e4-4034-9c70-fba1c8a65df1",
+      "baseline": "91dd196b-0db9-4594-9126-0096bdb8095d",
+      "scope": "Only generated material.uuid on the same unchanged stone-lantern material; all placement and material values remain compared."
+    },
+    "bearingSeats": [
+      {
+        "x": -5.3500000000000005,
+        "closedSolid": true,
+        "width": 0.23,
+        "seatZ": [
+          0.57,
+          0.73
+        ],
+        "sampledActualCarrierGrid": true,
+        "seatVertices": 10,
+        "maxFloat32CarrierYGap": 5.246832177618899e-07,
+        "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+      },
+      {
+        "x": -4.95,
+        "closedSolid": true,
+        "width": 0.23,
+        "seatZ": [
+          0.57,
+          0.73
+        ],
+        "sampledActualCarrierGrid": true,
+        "seatVertices": 8,
+        "maxFloat32CarrierYGap": 2.7710968808492e-07,
+        "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+      },
+      {
+        "x": 4.95,
+        "closedSolid": true,
+        "width": 0.23,
+        "seatZ": [
+          0.57,
+          0.73
+        ],
+        "sampledActualCarrierGrid": true,
+        "seatVertices": 8,
+        "maxFloat32CarrierYGap": 2.771096898612768e-07,
+        "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+      },
+      {
+        "x": 5.3500000000000005,
+        "closedSolid": true,
+        "width": 0.23,
+        "seatZ": [
+          0.57,
+          0.73
+        ],
+        "sampledActualCarrierGrid": true,
+        "seatVertices": 10,
+        "maxFloat32CarrierYGap": 5.246832177618899e-07,
+        "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+      }
+    ],
+    "sourceSculpture": {
+      "title": "Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich",
+      "author": "Scan-the-World",
+      "source": "https://doi.org/10.5281/zenodo.21353739",
+      "license": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "derivedImageryLicense": "CC-BY-NC-SA-4.0",
+      "sourceSha256": "96e474a19a4108d0e2e331172d0601fe74518157dca35d61bfef566d7618e3ec",
+      "vertices": 1136684,
+      "triangles": 379122,
+      "rawBounds": [
+        [
+          0.00069427490234375,
+          0.00845840573310852,
+          -80.34832763671875
+        ],
+        [
+          106.57457733154297,
+          125.00845336914062,
+          -0.0059051513671875
+        ]
+      ],
+      "mounts": [
+        {
+          "scale": 0.012800000515747091,
+          "topY": 1.065,
+          "worldSourceBottom": 1.065,
+          "worldSourceCrown": 2.665,
+          "sourcePlinthWidth": 1.3641457580901701,
+          "sourcePlinthDepth": 1.0283830492488708,
+          "position": [
+            -0.6820817657641932,
+            1.0648917324022538,
+            0.554267110564981
+          ],
+          "orientation": "+Y up / +Z front, original axes unchanged",
+          "anatomyPoseNormalsAndIndicesUnmodified": true
+        }
+      ],
+      "originalUnpairedPose": true,
+      "originalRectangularPlinthRetained": true,
+      "sourceFaceGeometryUnchanged": true,
+      "positiveUniformFittingOnly": true,
+      "exactReferenceArtifact": false,
+      "visualAccepted": false
+    },
+    "cpuSourceContactFile": "lookdev/scene04-spatial188/shrine188-r03-cpu-validation.json",
+    "geometryInstanceTriangleSum": 78430091,
+    "rendererTriangleDrawsAcrossPasses": 628851169,
+    "scope": "Native source/dimensions/shaders/pixels, protected spatial data, original source identity and scoped geometric seat checks; not global Boolean union, engineering certification, motion throughput or photographic acceptance."
+  },
+  "remainingDominantMismatches": [
+    "Hall timber/ceramic and carved bearing profiles remain visibly orderly/stylized, with a flatter material/daylight response than the photograph. Broad red beams and source floral fields still differ from the varied reference motifs.",
+    "Portal source carving is genuine licensed geometry but is not an exact surveyed reference artifact. Some routed fields still read as regular panels; hafu crest and ceramic end details remain simplified.",
+    "The original Japanese Amida is a better calm sculptural foundation but has a different original hand pose, body/plinth and detail from the supplied reference. Its relative exposure and shrine illumination remain an inferred approximation.",
+    "Reference canopy, hillside, cherry/pine and stone-lantern silhouettes and the integrated garden/stone material response remain different. Those protected source/layout systems were retained.",
+    "The local room probe, doorway visibility and two clustered shadow sources are explicit WebGL approximations, not full multi-bounce GI. No new Cycles study or motion evidence is claimed."
+  ],
+  "sourceLicenses": {
+    "amida": {
+      "author": "Scan-the-World",
+      "source": "https://doi.org/10.5281/zenodo.21353739",
+      "license": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "derivedImageryLicense": "CC-BY-NC-SA-4.0",
+      "sourceFile": "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/original-source-CC-BY-NC-SA-4.0.glb",
+      "sourceSha256": "96e474a19a4108d0e2e331172d0601fe74518157dca35d61bfef566d7618e3ec",
+      "attribution": "reconstructions/scene-04/ATTRIBUTION.md"
+    },
+    "floral157": {
+      "author": "Diana Liu",
+      "license": "CC-BY-4.0",
+      "source": "https://sketchfab.com/3d-models/wood-carving-93766a4c12eb4c278d23294582034e8c"
+    },
+    "cloud176": {
+      "author": "SCANOLOGY_3D",
+      "license": "CC-BY-4.0",
+      "source": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff"
+    },
+    "DracoDecoder": "Apache2.0, local official Three r180 Google Draco build with frozen hashes and license."
+  },
+  "noPhotoOrAiReplacementWorld": true,
+  "noAdHocGpu": true,
+  "noBlenderNeeded": true,
+  "noLargeSceneExports": true,
+  "noFilmIntegration": true,
+  "noGitMutation": true,
+  "noChildren": true,
+  "noPendingGpuWork": true,
+  "scope": [
+    "reconstructions/scene-04",
+    "lookdev/scene04-spatial188",
+    "qa/ten-reference/04/iteration-scene04-spatial188-*"
+  ]
+}

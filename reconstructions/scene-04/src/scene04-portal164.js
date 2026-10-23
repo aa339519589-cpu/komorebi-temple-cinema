@@ -2,10 +2,12 @@ import * as T from 'three';
 import {createSanctuaryCarving164} from './scene04-porch-sculpture135.js';
 // A closed carved reveal and a curved timber canopy occupy real depth behind
 // the exterior threshold. No rendered reference image or facing proxy exists.
-export function buildPortalDepth164({emit,box,tube,rosette,mats,materials,floorY=3.5}){
+export function buildPortalDepth164({emit,box,tube,rosette,mats,materials,floorY=3.5,spatial188=null}){
  const top=4.38,revealFront=-.79,revealBack=-2.40;
  const gilt=mats.oldgold.clone();gilt.name='scene04-164-worn-sanctuary-reveal-gilt';gilt.color.setHex(0x9e7838);gilt.roughness=.52;materials.push(gilt);mats.portal164gilt=gilt;
  const pap=new T.MeshStandardMaterial({name:'scene04-164-oil-lantern-paper',color:0xc4a675,emissive:0xffb65e,emissiveIntensity:.20,roughness:.86});materials.push(pap);mats.portal164paper=pap;
+ const sourceMaterial=spatial188?spatial188.gilded.clone():null;
+ if(sourceMaterial){sourceMaterial.name='spatial188-true-carved-inner-portal-return';sourceMaterial.onBeforeCompile=spatial188.gilded.onBeforeCompile;sourceMaterial.customProgramCacheKey=spatial188.gilded.customProgramCacheKey;materials.push(sourceMaterial);mats.portal188Carving=sourceMaterial;}
  const leaf=new T.Shape();leaf.moveTo(0,0);leaf.bezierCurveTo(-.11,.05,-.12,.22,-.025,.37);leaf.bezierCurveTo(.015,.28,.15,.18,.095,.08);leaf.bezierCurveTo(.065,.025,.025,.025,0,0);leaf.closePath();
  const leafG=new T.ExtrudeGeometry(leaf,{depth:.052,steps:1,bevelEnabled:true,bevelSize:.012,bevelThickness:.009,bevelSegments:2,curveSegments:12});
  const lp=leafG.attributes.position;for(let i=0;i<lp.count;i++){const x=lp.getX(i),y=lp.getY(i),z=lp.getZ(i),v=Math.max(0,Math.min(1,y/.37));lp.setZ(i,z+.062*Math.sin(Math.PI*v)+.018*(x/.12)**2*Math.sin(Math.PI*v)-.012*x/.12*v);}lp.needsUpdate=true;leafG.computeVertexNormals();
@@ -17,7 +19,9 @@ export function buildPortalDepth164({emit,box,tube,rosette,mats,materials,floorY
   box(side*2.085,floorY+top/2,z,.065,top-.06,1.58,'cedar');
   box(side*2.047,floorY+top/2,revealFront+.025,.040,top-.09,.075,'portal164gilt');
   for(const [y,h,w,d]of[[.19,.32,.28,1.63],[3.92,.25,.32,1.64],[4.14,.19,.40,1.58]])box(side*2.12,floorY+y,z,w,h,d,'cedar');
-  for(let row=0;row<11;row++)for(let depth=0;depth<5;depth++){
+  if(spatial188){
+   spatial188.panel(emit,{x:side*2.043,y:floorY+2.18,z,width:1.38,height:3.82,vertical:true,rotation:[0,-side*Math.PI/2,Math.PI/2],material:sourceMaterial,label:'deep-portal-return-'+side});
+  }else for(let row=0;row<11;row++)for(let depth=0;depth<5;depth++){
    const yy=floorY+.43+row*.303,zz=-.94-depth*.28;
    emit(leafG,(row+depth)%4?'portal164gilt':'oldgold',side*2.043,yy,zz,1,1,1,[0,-side*Math.PI/2,side*(row%2?.63:-.63)]);
   }
@@ -34,9 +38,10 @@ export function buildPortalDepth164({emit,box,tube,rosette,mats,materials,floorY
  for(const offset of[.018,.24]){
   const pts=[];for(let j=0;j<=30;j++){const x=-2.00+4*j/30;pts.push([x,floorY+lower(x)+offset,-.735]);}tube(pts,offset<.1?.018:.012,'portal164gilt',50);
  }
- for(const skin of[false,true]){
-  const g=createSanctuaryCarving164({width:3.88,height:.25,nx:580,ny:54,depth:.078,back:.025,uRepeat:2,skin,warp:(x,y,z)=>[x,floorY+lower(x)+.18+y,z-.735]});
-  emit(g,skin?'portal164gilt':'cedar');
+ if(spatial188){
+  for(const x of[-1.20,0,1.20])spatial188.panel(emit,{x,y:floorY+lower(x)+.18,z:-.719,width:1.05,height:.29,label:'deep-rainbow-lintel-'+x});
+ }else for(const skin of[false,true]){
+  const g=createSanctuaryCarving164({width:3.88,height:.25,nx:580,ny:54,depth:.078,back:.025,uRepeat:2,skin,warp:(x,y,z)=>[x,floorY+lower(x)+.18+y,z-.735]});emit(g,skin?'portal164gilt':'cedar');
  }
  // Real dark ceiling coffers and sparse worn fillets; the broad timber faces
  // remain legible under the front canopy instead of a bright wire grid.
@@ -62,5 +67,5 @@ export function buildPortalDepth164({emit,box,tube,rosette,mats,materials,floorY
   for(let j=0;j<8;j++){const a=j*Math.PI/4;box(x+Math.cos(a)*.103,y,z+Math.sin(a)*.103,.014,.33,.014,'oldgold');}
   lights.push([x,y,z]);
  }
- return{revision:'scene04-164-r03-curved-leaf-and-carved-reveal',clearHeight:top,revealDepth:revealFront-revealBack,carvedSideLeaves:110,continuousCarvedLintel:true,coffers:12,hangingDrops:11,lights,visualAccepted:false};
+ return{revision:'scene04-spatial188-deep-source-carved-reveal',clearHeight:top,revealDepth:revealFront-revealBack,carvedSideLeaves:spatial188?0:110,sourceCarvedReturnPanels:spatial188?2:0,continuousCarvedLintel:true,coffers:12,hangingDrops:11,lights,visualAccepted:false};
 }

@@ -1,0 +1,1144 @@
+{
+  "status": "actual-native-full-portal-oblique-valid-photography-unaccepted",
+  "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+  "baselineSourceHash": "6c7873b890baf77edb1434e723bd8a2de0ec92a3f38f0aa18bd52961fa6c9be7",
+  "visualAccepted": false,
+  "nativeFrames": [
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/reference.png",
+      "report": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/report.json",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "25d2e00012281eeb880061d10482d44d461eda31660a4962a1b44db5a58c990e",
+      "rawRgbaSha256": "170b944391af6cacb712e3ebc63c8dfe2fb5012ba13cd81b0d848934a0f41ac5",
+      "pose": {
+        "reference": 4,
+        "revision": "scene04-spatial188-r03-personal-NC-Amida",
+        "width": 1254,
+        "height": 1254,
+        "frame": 1,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241
+        }
+      },
+      "detailCrop": null,
+      "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+      "derivedImageLicense": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "imageAttribution": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/IMAGE-ATTRIBUTION-CC-BY-NC-SA-4.0.txt"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/detail-native.png",
+      "report": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/report.json",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "787e4aa02f2df0a76604da611ac83ec78f6def030b5b754519f0e7249e145731",
+      "rawRgbaSha256": "e86fceae9e0fe7f8b56d36e5128a5f7b3a6c8b5625790bfdbd03febc7c181719",
+      "pose": {
+        "reference": 4,
+        "revision": "scene04-spatial188-r03-personal-NC-Amida",
+        "width": 1254,
+        "height": 1254,
+        "frame": 2,
+        "camera": {
+          "position": [
+            0,
+            1.35,
+            23.34
+          ],
+          "fov": 64.1754241
+        }
+      },
+      "detailCrop": [
+        275,
+        120,
+        710,
+        1254
+      ],
+      "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+      "derivedImageLicense": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "imageAttribution": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/IMAGE-ATTRIBUTION-CC-BY-NC-SA-4.0.txt"
+    },
+    {
+      "file": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/inspection-view.png",
+      "report": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/report.json",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "pngSha256": "3d78b66fe17454aa71ea728c30a1d337650e96b0ccc064990b3c0e66cf8c0f89",
+      "rawRgbaSha256": "e32a1a721fa626f101dc88c3f1c0071cdfdd70de38b57be71f8a6d6b090833d4",
+      "pose": {
+        "reference": 4,
+        "revision": "scene04-spatial188-r03-personal-NC-Amida",
+        "width": 1254,
+        "height": 1254,
+        "frame": 1,
+        "camera": {
+          "position": [
+            8,
+            3.2,
+            18
+          ],
+          "fov": 58
+        }
+      },
+      "detailCrop": null,
+      "sourceHash": "8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c",
+      "derivedImageLicense": "CC-BY-NC-SA-4.0",
+      "personalNoncommercialUseOnly": true,
+      "imageAttribution": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/IMAGE-ATTRIBUTION-CC-BY-NC-SA-4.0.txt"
+    }
+  ],
+  "allValid": true,
+  "referencePhotoRuntimeRequests": 0,
+  "protectedSourceFilesByteIdentical": {
+    "reference4-garden.js": true,
+    "reference4-distant-forest.js": true,
+    "reference4-stair-plan.js": true,
+    "scene04-stair-block131.js": true,
+    "traced-paving04.js": true,
+    "traced-stone-material04.js": true,
+    "scene04-surfaces.js": true,
+    "paving-canopy04.js": true,
+    "scene04-understory131.js": true,
+    "scene04-lanterns.js": true,
+    "scene04-scanned-garden-stones.js": true,
+    "scene04-scanned-stone.js": true,
+    "scene04-timber-precision134.js": true,
+    "reference4-materials.js": true
+  },
+  "protectedRuntimePlacementsIdentical": {
+    "camera": true,
+    "stair": true,
+    "gardenExceptGeneratedMaterialUuid": true,
+    "understory": true,
+    "forest": true,
+    "sunAndShadowCanopy": true
+  },
+  "ignoredVolatileMaterialUuid": {
+    "actual": "357a769b-02e4-4034-9c70-fba1c8a65df1",
+    "baseline": "91dd196b-0db9-4594-9126-0096bdb8095d",
+    "scope": "Only generated material.uuid on the same unchanged stone-lantern material; all placement and material values remain compared."
+  },
+  "sourceSculpture": {
+    "title": "Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich",
+    "author": "Scan-the-World",
+    "source": "https://doi.org/10.5281/zenodo.21353739",
+    "license": "CC-BY-NC-SA-4.0",
+    "personalNoncommercialUseOnly": true,
+    "derivedImageryLicense": "CC-BY-NC-SA-4.0",
+    "sourceSha256": "96e474a19a4108d0e2e331172d0601fe74518157dca35d61bfef566d7618e3ec",
+    "vertices": 1136684,
+    "triangles": 379122,
+    "rawBounds": [
+      [
+        0.00069427490234375,
+        0.00845840573310852,
+        -80.34832763671875
+      ],
+      [
+        106.57457733154297,
+        125.00845336914062,
+        -0.0059051513671875
+      ]
+    ],
+    "mounts": [
+      {
+        "scale": 0.012800000515747091,
+        "topY": 1.065,
+        "worldSourceBottom": 1.065,
+        "worldSourceCrown": 2.665,
+        "sourcePlinthWidth": 1.3641457580901701,
+        "sourcePlinthDepth": 1.0283830492488708,
+        "position": [
+          -0.6820817657641932,
+          1.0648917324022538,
+          0.554267110564981
+        ],
+        "orientation": "+Y up / +Z front, original axes unchanged",
+        "anatomyPoseNormalsAndIndicesUnmodified": true
+      }
+    ],
+    "originalUnpairedPose": true,
+    "originalRectangularPlinthRetained": true,
+    "sourceFaceGeometryUnchanged": true,
+    "positiveUniformFittingOnly": true,
+    "exactReferenceArtifact": false,
+    "visualAccepted": false
+  },
+  "actualShoulderBearingSeats": [
+    {
+      "x": -5.3500000000000005,
+      "closedSolid": true,
+      "width": 0.23,
+      "seatZ": [
+        0.57,
+        0.73
+      ],
+      "sampledActualCarrierGrid": true,
+      "seatVertices": 10,
+      "maxFloat32CarrierYGap": 5.246832177618899e-07,
+      "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+    },
+    {
+      "x": -4.95,
+      "closedSolid": true,
+      "width": 0.23,
+      "seatZ": [
+        0.57,
+        0.73
+      ],
+      "sampledActualCarrierGrid": true,
+      "seatVertices": 8,
+      "maxFloat32CarrierYGap": 2.7710968808492e-07,
+      "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+    },
+    {
+      "x": 4.95,
+      "closedSolid": true,
+      "width": 0.23,
+      "seatZ": [
+        0.57,
+        0.73
+      ],
+      "sampledActualCarrierGrid": true,
+      "seatVertices": 8,
+      "maxFloat32CarrierYGap": 2.771096898612768e-07,
+      "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+    },
+    {
+      "x": 5.3500000000000005,
+      "closedSolid": true,
+      "width": 0.23,
+      "seatZ": [
+        0.57,
+        0.73
+      ],
+      "sampledActualCarrierGrid": true,
+      "seatVertices": 10,
+      "maxFloat32CarrierYGap": 5.246832177618899e-07,
+      "source": "Actual same authored transverse-carrier grid, not a photo/depth surface"
+    }
+  ],
+  "sourceCarvingMounts": [
+    {
+      "kind": "actual-source157-floral",
+      "label": "front-portal-bearing-stile--1-0.98",
+      "position": [
+        -2.31,
+        4.48,
+        -0.335
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        0.29,
+        0.96
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "front-portal-bearing-stile--1-2.18",
+      "position": [
+        -2.31,
+        5.68,
+        -0.335
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        0.29,
+        0.96
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "front-portal-bearing-stile--1-3.38",
+      "position": [
+        -2.31,
+        6.88,
+        -0.335
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        0.29,
+        0.96
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "front-portal-bearing-stile-1-0.98",
+      "position": [
+        2.31,
+        4.48,
+        -0.335
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        0.29,
+        0.96
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "front-portal-bearing-stile-1-2.18",
+      "position": [
+        2.31,
+        5.68,
+        -0.335
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        0.29,
+        0.96
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "front-portal-bearing-stile-1-3.38",
+      "position": [
+        2.31,
+        6.88,
+        -0.335
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        0.29,
+        0.96
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "upper-structural-transfer--2.45",
+      "position": [
+        -2.45,
+        9.258000000000001,
+        0.8771770636420919
+      ],
+      "uniformScale": 1.5412209892696356,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.86,
+      "sourceHeight": 0.3221139901839893,
+      "sourceDepth": 0.03270229516003477,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.86,
+        0.42
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "upper-structural-transfer-0",
+      "position": [
+        0,
+        9.258000000000001,
+        0.9149999999999999
+      ],
+      "uniformScale": 2.0095768430408945,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 1.121342167701828,
+      "sourceHeight": 0.41999999999999993,
+      "sourceDepth": 0.042640072725091155,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        1.28,
+        0.42
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "upper-structural-transfer-2.45",
+      "position": [
+        2.45,
+        9.258000000000001,
+        0.8771770636420919
+      ],
+      "uniformScale": 1.5412209892696356,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.86,
+      "sourceHeight": 0.3221139901839893,
+      "sourceDepth": 0.03270229516003477,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.86,
+        0.42
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "lower-structural-transfer-centre",
+      "position": [
+        0,
+        8.355,
+        0.305
+      ],
+      "uniformScale": 1.7224944368921953,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.9611504294587099,
+      "sourceHeight": 0.36,
+      "sourceDepth": 0.03654863376436385,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        1.28,
+        0.36
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "fitted-real-ranma-field--1.6",
+      "position": [
+        -1.6,
+        8.81395,
+        0.11
+      ],
+      "uniformScale": 0.9090942861375476,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.5072738377698747,
+      "sourceHeight": 0.19,
+      "sourceDepth": 0.019289556708969813,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.75,
+        0.19
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "fitted-real-ranma-field--0.53",
+      "position": [
+        -0.53,
+        8.81395,
+        0.11
+      ],
+      "uniformScale": 0.9090942861375476,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.5072738377698747,
+      "sourceHeight": 0.19,
+      "sourceDepth": 0.019289556708969813,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.75,
+        0.19
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "fitted-real-ranma-field-0.53",
+      "position": [
+        0.53,
+        8.81395,
+        0.11
+      ],
+      "uniformScale": 0.9090942861375476,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.5072738377698747,
+      "sourceHeight": 0.19,
+      "sourceDepth": 0.019289556708969813,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.75,
+        0.19
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "fitted-real-ranma-field-1.6",
+      "position": [
+        1.6,
+        8.81395,
+        0.11
+      ],
+      "uniformScale": 0.9090942861375476,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.5072738377698747,
+      "sourceHeight": 0.19,
+      "sourceDepth": 0.019289556708969813,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.75,
+        0.19
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "deep-gable-panel--1",
+      "position": [
+        -1.22,
+        10.030000000000001,
+        -0.19
+      ],
+      "uniformScale": 2.3445063168810436,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 1.3082325289854662,
+      "sourceHeight": 0.48999999999999994,
+      "sourceDepth": 0.04974675151260635,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        1.7,
+        0.49
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "deep-gable-panel-1",
+      "position": [
+        1.22,
+        10.030000000000001,
+        -0.19
+      ],
+      "uniformScale": 2.3445063168810436,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 1.3082325289854662,
+      "sourceHeight": 0.48999999999999994,
+      "sourceDepth": 0.04974675151260635,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        1.7,
+        0.49
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source176-cloud-pair",
+      "label": "main-hafu-carved-crown-pendant",
+      "position": [
+        0,
+        11.01,
+        1.6800000000000002
+      ],
+      "uniformScale": 0.52,
+      "width": 1.04,
+      "height": 0.451476896,
+      "depth": 0.14709177599999998,
+      "mountCaps": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "rigid-seated-hafu-clamp--5.25",
+      "position": [
+        -5.25,
+        9.318309696554646,
+        1.67
+      ],
+      "uniformScale": 1.148329624594797,
+      "rotation": [
+        0,
+        0,
+        0.3671283072209294
+      ],
+      "sourceWidth": 0.6407669529724733,
+      "sourceHeight": 0.24,
+      "sourceDepth": 0.024365755842909235,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.66,
+        0.24
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "rigid-seated-hafu-clamp--2.95",
+      "position": [
+        -2.95,
+        10.531734805107117,
+        1.67
+      ],
+      "uniformScale": 1.148329624594797,
+      "rotation": [
+        0,
+        0,
+        0.5058617151718363
+      ],
+      "sourceWidth": 0.6407669529724733,
+      "sourceHeight": 0.24,
+      "sourceDepth": 0.024365755842909235,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.66,
+        0.24
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "rigid-seated-hafu-clamp-2.95",
+      "position": [
+        2.95,
+        10.531734805107117,
+        1.67
+      ],
+      "uniformScale": 1.148329624594797,
+      "rotation": [
+        0,
+        0,
+        -0.5058617151718363
+      ],
+      "sourceWidth": 0.6407669529724733,
+      "sourceHeight": 0.24,
+      "sourceDepth": 0.024365755842909235,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.66,
+        0.24
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "rigid-seated-hafu-clamp-5.25",
+      "position": [
+        5.25,
+        9.318309696554646,
+        1.67
+      ],
+      "uniformScale": 1.148329624594797,
+      "rotation": [
+        0,
+        0,
+        -0.3671283072209294
+      ],
+      "sourceWidth": 0.6407669529724733,
+      "sourceHeight": 0.24,
+      "sourceDepth": 0.024365755842909235,
+      "closedTimberCarrier": false,
+      "existingArchitecturalTimberCarrier": true,
+      "returnedCropBoundaryRim": false,
+      "carrierOpening": [
+        0.66,
+        0.24
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source176-single-carved-shoulder",
+      "label": "single-seated-main-column-shoulder--7.05",
+      "position": [
+        -7.05,
+        7.38,
+        0.37
+      ],
+      "uniformScale": 0.53,
+      "sourceMountPlaneOnPostAxis": true,
+      "material": "spatial188-actual-cloud-carved-aged-timber"
+    },
+    {
+      "kind": "actual-source176-single-carved-shoulder",
+      "label": "single-seated-main-column-shoulder--5.15",
+      "position": [
+        -5.15,
+        7.7,
+        0.37
+      ],
+      "uniformScale": 0.53,
+      "sourceMountPlaneOnPostAxis": true,
+      "material": "spatial188-actual-cloud-carved-aged-timber"
+    },
+    {
+      "kind": "actual-source176-single-carved-shoulder",
+      "label": "single-seated-main-column-shoulder--2.99",
+      "position": [
+        -2.99,
+        8.58,
+        0.37
+      ],
+      "uniformScale": 0.53,
+      "sourceMountPlaneOnPostAxis": true,
+      "material": "spatial188-real-carved-cloud-aged-bronze"
+    },
+    {
+      "kind": "actual-source176-single-carved-shoulder",
+      "label": "single-seated-main-column-shoulder-2.99",
+      "position": [
+        2.99,
+        8.58,
+        0.37
+      ],
+      "uniformScale": 0.53,
+      "sourceMountPlaneOnPostAxis": true,
+      "material": "spatial188-real-carved-cloud-aged-bronze"
+    },
+    {
+      "kind": "actual-source176-single-carved-shoulder",
+      "label": "single-seated-main-column-shoulder-5.15",
+      "position": [
+        5.15,
+        7.7,
+        0.37
+      ],
+      "uniformScale": 0.53,
+      "sourceMountPlaneOnPostAxis": true,
+      "material": "spatial188-actual-cloud-carved-aged-timber"
+    },
+    {
+      "kind": "actual-source176-single-carved-shoulder",
+      "label": "single-seated-main-column-shoulder-7.05",
+      "position": [
+        7.05,
+        7.38,
+        0.37
+      ],
+      "uniformScale": 0.53,
+      "sourceMountPlaneOnPostAxis": true,
+      "material": "spatial188-actual-cloud-carved-aged-timber"
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "front-real-door-lintel",
+      "position": [
+        0,
+        8.11,
+        -0.318
+      ],
+      "uniformScale": 1.6268003015092958,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.9077531833776705,
+      "sourceHeight": 0.34,
+      "sourceDepth": 0.03451815411078808,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        1.4,
+        0.34
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source176-cloud-pair",
+      "label": "front-door-lintel-end--1",
+      "position": [
+        -1.7,
+        7.94,
+        -0.318
+      ],
+      "uniformScale": 0.23,
+      "width": 0.46,
+      "height": 0.19969170400000003,
+      "depth": 0.065059824,
+      "mountCaps": true
+    },
+    {
+      "kind": "actual-source176-cloud-pair",
+      "label": "front-door-lintel-end-1",
+      "position": [
+        1.7,
+        7.94,
+        -0.318
+      ],
+      "uniformScale": 0.23,
+      "width": 0.46,
+      "height": 0.19969170400000003,
+      "depth": 0.065059824,
+      "mountCaps": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "deep-portal-return--1",
+      "position": [
+        -2.043,
+        5.68,
+        -1.595
+      ],
+      "uniformScale": 6.602895341420082,
+      "rotation": [
+        0,
+        1.5707963267948966,
+        1.5707963267948966
+      ],
+      "sourceWidth": 3.684409979591721,
+      "sourceHeight": 1.38,
+      "sourceDepth": 0.14010309609672808,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        1.38,
+        3.82
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "deep-portal-return-1",
+      "position": [
+        2.043,
+        5.68,
+        -1.595
+      ],
+      "uniformScale": 6.602895341420082,
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "sourceWidth": 3.684409979591721,
+      "sourceHeight": 1.38,
+      "sourceDepth": 0.14010309609672808,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        1.38,
+        3.82
+      ],
+      "vertical": true
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "deep-rainbow-lintel--1.2",
+      "position": [
+        -1.2,
+        7.7044718763310085,
+        -0.719
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        1.05,
+        0.29
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "deep-rainbow-lintel-0",
+      "position": [
+        0,
+        7.619999999999999,
+        -0.719
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        1.05,
+        0.29
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "deep-rainbow-lintel-1.2",
+      "position": [
+        1.2,
+        7.7044718763310085,
+        -0.719
+      ],
+      "uniformScale": 1.3875649630520461,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 0.7742600681750718,
+      "sourceHeight": 0.29,
+      "sourceDepth": 0.029441954976848657,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        1.05,
+        0.29
+      ],
+      "vertical": false
+    },
+    {
+      "kind": "actual-source157-floral",
+      "label": "recessed-real-carved-shrine-back",
+      "position": [
+        0,
+        3.05,
+        -0.985
+      ],
+      "uniformScale": 5.5502598522081845,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "sourceWidth": 3.097040272700287,
+      "sourceHeight": 1.16,
+      "sourceDepth": 0.11776781990739463,
+      "closedTimberCarrier": true,
+      "existingArchitecturalTimberCarrier": false,
+      "returnedCropBoundaryRim": true,
+      "carrierOpening": [
+        3.15,
+        1.16
+      ],
+      "vertical": false
+    }
+  ],
+  "localRoomReflection": {
+    "finiteDoorwaySkyVisibility": true,
+    "actualShadowedOilLamps": 2,
+    "visibleOilFlames": 6,
+    "indirectOnly": true,
+    "bakedImage": false,
+    "actualLocalRoomEnvironment": true,
+    "roomProbe": [
+      0.12,
+      5.6,
+      -3.5
+    ],
+    "probePixels": 256,
+    "scope": "Real one-bounce scene environment approximation, not full GI"
+  },
+  "suspendedLampContacts": [
+    {
+      "body": [
+        -5.43,
+        7.65,
+        1.5999999999999999
+      ],
+      "lampScale": 0.8,
+      "realPiercedMetalLatticeRings": 60,
+      "supportContact": [
+        -5.43,
+        9.054426940868545,
+        1.4
+      ],
+      "supportObject": "scene04-135-main-flowing-hafu-actual-lamp-support",
+      "armTop": 9.064426940868545,
+      "armBottom": 8.989426940868546,
+      "rodBottom": 8.162
+    },
+    {
+      "body": [
+        5.67,
+        7.65,
+        1.5999999999999999
+      ],
+      "lampScale": 0.8,
+      "realPiercedMetalLatticeRings": 60,
+      "supportContact": [
+        5.67,
+        9.054426880807569,
+        1.4
+      ],
+      "supportObject": "scene04-135-main-flowing-hafu-actual-lamp-support",
+      "armTop": 9.064426880807568,
+      "armBottom": 8.989426880807569,
+      "rodBottom": 8.162
+    }
+  ],
+  "geometryInstanceTriangleSum": 78430091,
+  "rendererTriangleDrawsAcrossPasses": 628851169,
+  "triangleCountScope": "Instance geometry sum and multi-pass renderer draws are separate; neither is a photographic acceptance measure.",
+  "changedSceneIdentityFiles": [
+    "reconstructions/scene-04/asset-dependencies.json",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/draco_decoder.wasm",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/draco_wasm_wrapper.js",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/provenance.json",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/original-source-CC-BY-NC-SA-4.0.glb",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/primary-zenodo-record.json",
+    "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/provenance.json",
+    "reconstructions/scene-04/assets/spatial188/cloud176-mount-loops.json",
+    "reconstructions/scene-04/assets/spatial188/cloud176.glb",
+    "reconstructions/scene-04/assets/spatial188/component.bin",
+    "reconstructions/scene-04/assets/spatial188/floral157-attribute-validation.json",
+    "reconstructions/scene-04/assets/spatial188/floral157-component-provenance.json",
+    "reconstructions/scene-04/assets/spatial188/floral157-component.gltf",
+    "reconstructions/scene-04/assets/spatial188/provenance.json",
+    "reconstructions/scene-04/src/licensed-carving188.js",
+    "reconstructions/scene-04/src/licensed-cloud188.js",
+    "reconstructions/scene-04/src/original-amida188.js",
+    "reconstructions/scene-04/src/reference4-architecture.js",
+    "reconstructions/scene-04/src/reference4-config.js",
+    "reconstructions/scene-04/src/reference4-main.js",
+    "reconstructions/scene-04/src/reference4-sanctuary.js",
+    "reconstructions/scene-04/src/reference4-scene.js",
+    "reconstructions/scene-04/src/room-light188.js",
+    "reconstructions/scene-04/src/scene04-hall-profile132.js",
+    "reconstructions/scene-04/src/scene04-mass-frame164.js",
+    "reconstructions/scene-04/src/scene04-porch-sculpture135.js",
+    "reconstructions/scene-04/src/scene04-portal164.js"
+  ],
+  "personalNoncommercialUseOnly": true,
+  "derivedImageryLicense": "CC-BY-NC-SA-4.0",
+  "noFilmOrLargeSceneExports": true,
+  "noPendingGpuWork": true
+}

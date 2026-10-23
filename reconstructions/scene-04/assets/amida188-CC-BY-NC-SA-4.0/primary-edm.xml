@@ -1,0 +1,142 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:edm="http://www.europeana.eu/schemas/edm/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:svcs="http://rdfs.org/sioc/services#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="https://schema.org/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
+
+  
+  
+
+  <edm:ProvidedCHO rdf:about="https://doi.org/10.5281/zenodo.20217283">
+    <dc:title xml:lang="en">Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich</dc:title>
+
+    
+    <dc:description xml:lang="en">Amida, the Buddha of Infinite Light, is one of the most popularly worshipped deities in the Far East. According to sacred scripture, Amida created a paradise, known as the Pure Land (Jo do), where the souls of sentient beings could strive toward enlightenment without the pain and suffering associated with life on earth. In Japan, the worship of Amida became widespread during the Fujiwara period (894-1185), and high ranking aristocrats constructed temple buildings and commissioned paintings that represented Amida's glorious paradise.  The famous sculptor Jo_cho_ created an image of Amida (still remaining at Byo do-in temple in Uji, Japan) of unprecedented elegance and grace. With a round, youthful face, drowsy eyes and shallowly carved drapery, the sculpture conveyed meditative serenity and reassuring calm. The Institute’s Amida closely follows Jo_cho_’s prototype. Its surface, now damaged by fire, would have shimmered with a layer of gold. His hands are held in symbolic gestures (mudra): the raised right hand disperses fear and the lowered left hand is open in the gesture of giving or wish granting. 12th Century.     This object is part of Scan The World. Scan the World is a non-profit initiative introduced by MyMiniFactory, through which we are creating a digital archive of fully 3D printable sculptures, artworks and landmarks from across the globe for the public to access for free. Scan the World is an open source, community effort, if you have interesting items around you and would like to contribute, email stw@myminifactory.com to find out how you can help.</dc:description>
+    
+
+    
+    <dc:creator rdf:resource="#agent_scan-the-world"/>
+    
+
+    
+
+    
+    <dc:identifier>997d89d00e765d8622c8ac15816a4cb8</dc:identifier>
+    
+    <dc:identifier>10.5281/zenodo.20217283</dc:identifier>
+    <dc:identifier>20217283</dc:identifier>
+
+    <dc:type>3D model</dc:type>
+    
+    <dc:type>Physical object</dc:type>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <edm:type>3D</edm:type>
+    
+  </edm:ProvidedCHO>
+
+  <!-- 2. WebResources -->
+
+  <!-- Landing Page -->
+  <edm:WebResource rdf:about="https://zenodo.org/records/20217283">
+     <dc:format>text/html</dc:format>
+     <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+  </edm:WebResource>
+
+  <!-- Digital Object (3D Model) -->
+  
+  <edm:WebResource rdf:about="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5.glb/content">
+    <dc:format>model/gltf-binary</dc:format>
+    
+
+    <dc:type rdf:resource="http://data.europeana.eu/vocabulary/modelType/3DMesh"/>
+  <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+    
+    
+    
+    
+    <edm:type>3D</edm:type>
+    
+
+    
+
+    
+
+    </edm:WebResource>
+
+  
+
+  
+  
+
+  <!-- Thumbnail -->
+  
+  
+
+  <!-- 3. Agents -->
+  
+  <edm:Agent rdf:about="#agent_scan-the-world">
+    <skos:prefLabel xml:lang="en">Scan-the-World</skos:prefLabel>
+    
+    
+  </edm:Agent>
+  
+
+  <!-- 4. Places -->
+  
+
+  <!-- 5. Aggregation -->
+  <ore:Aggregation rdf:about="https://doi.org/10.5281/zenodo.20217283#aggregation">
+    <edm:aggregatedCHO rdf:resource="https://doi.org/10.5281/zenodo.20217283"/>
+    <edm:dataProvider>3DBigDataSpace</edm:dataProvider>
+    <edm:isShownAt rdf:resource="https://zenodo.org/records/20217283"/>
+
+    
+    <edm:hasView rdf:resource="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5.glb/content"/>
+    
+    
+
+    
+
+    
+
+    <edm:provider>3DBigDataSpace</edm:provider>
+    <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+  
+    <edm:hasView rdf:resource="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r000.png/content"/>
+    <edm:hasView rdf:resource="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r090.png/content"/>
+    <edm:hasView rdf:resource="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r180.png/content"/>
+    <edm:hasView rdf:resource="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r270.png/content"/>
+    <edm:hasView rdf:resource="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_top.png/content"/>
+  </ore:Aggregation>
+
+
+  <edm:WebResource rdf:about="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r000.png/content">
+    <dc:format>image/png</dc:format>
+    <dc:title>a0044f43bef4d53b7248c6c798ad01d5_r000.png</dc:title>
+  </edm:WebResource>
+
+  <edm:WebResource rdf:about="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r090.png/content">
+    <dc:format>image/png</dc:format>
+    <dc:title>a0044f43bef4d53b7248c6c798ad01d5_r090.png</dc:title>
+  </edm:WebResource>
+
+  <edm:WebResource rdf:about="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r180.png/content">
+    <dc:format>image/png</dc:format>
+    <dc:title>a0044f43bef4d53b7248c6c798ad01d5_r180.png</dc:title>
+  </edm:WebResource>
+
+  <edm:WebResource rdf:about="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_r270.png/content">
+    <dc:format>image/png</dc:format>
+    <dc:title>a0044f43bef4d53b7248c6c798ad01d5_r270.png</dc:title>
+  </edm:WebResource>
+
+  <edm:WebResource rdf:about="https://zenodo.org/api/records/20217283/files/a0044f43bef4d53b7248c6c798ad01d5_top.png/content">
+    <dc:format>image/png</dc:format>
+    <dc:title>a0044f43bef4d53b7248c6c798ad01d5_top.png</dc:title>
+  </edm:WebResource>
+</rdf:RDF>

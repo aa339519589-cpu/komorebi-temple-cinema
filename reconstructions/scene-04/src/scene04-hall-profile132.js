@@ -3,7 +3,7 @@ import {setTurnedShaftTimberUV04} from './scene04-timber-precision134.js';
 // Numeric observations never become image UVs, albedo or scene radiance.
 export function createHallProfile132(C){
  const origin=C.hallOrigin??[.12,0,-.10],half=6.4,front=1.55,back=-2.4,ridgeHalf=C.upperRoofWidth*(C.upperRidgeHalfRatio??.312),fullHalf=C.upperRoofWidth/2,neckPower=3.25,pitchPower=1.87,
- contour=[[0,11.48],[.10,11.46],[.25,11.20],[.45,10.46],[.65,9.58],[.80,9.04],[.92,8.76],[1,8.68]],lerp=(a,b,t)=>a+(b-a)*t,clamp=t=>Math.max(0,Math.min(1,t));
+ contour=[[0,11.65],[.10,11.62],[.25,11.38],[.45,10.75],[.65,10.00],[.80,9.55],[.92,9.29],[1,9.20]],lerp=(a,b,t)=>a+(b-a)*t,clamp=t=>Math.max(0,Math.min(1,t));
  function arch(x){const u=clamp(Math.abs(x)/half);let i=0;while(i<contour.length-2&&u>contour[i+1][0])i++;const a=contour[i],b=contour[i+1],before=contour[Math.max(0,i-1)],after=contour[Math.min(contour.length-1,i+2)],h=b[0]-a[0],t=(u-a[0])/h,ma=i===0?0:(b[1]-before[1])/(b[0]-before[0]),mb=(after[1]-a[1])/(after[0]-a[0]);return(2*t*t*t-3*t*t+1)*a[1]+(t*t*t-2*t*t+t)*h*ma+(-2*t*t*t+3*t*t)*b[1]+(t*t*t-t*t)*h*mb;}
  const span=t=>ridgeHalf+(fullHalf-ridgeHalf)*Math.pow(clamp(t),neckPower)+Math.max(0,t-1)*(fullHalf-ridgeHalf)*.75,height=(t,u)=>C.upperEaveY+(C.ridgeY-C.upperEaveY)*Math.pow(Math.max(0,1-t),pitchPower)+C.upperRoofCurl*Math.pow(clamp(t),8)*(.22+.78*Math.pow(Math.abs(u),6))+Math.max(0,t-1)*1.2,canopy=(x,z)=>arch(x)+.35*(front-z)/(front-back);
  function mainPoint(side,t,u){let x,z;const s=span(t);if(side===0||side===2){x=u*s;z=(side===0?1:-1)*4.5*t;}else{x=(side===1?1:-1)*s;z=u*4.5*t;}return[x+lerp(C.upperRidgeOffsetX,C.upperEaveOffsetX,t),height(t,u),C.ridgeZ+z];}

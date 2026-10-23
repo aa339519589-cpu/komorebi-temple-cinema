@@ -1,0 +1,26 @@
+{
+  "purpose": "CPU-only Draco decoder for the untouched compact original sculpture GLB; no GPU or rendering in decoder.",
+  "upstream": "Three.js r180 distribution of Google Draco glTF WASM decoder",
+  "files": {
+    "draco_wasm_wrapper.js": {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/jsm/libs/draco/gltf/draco_wasm_wrapper.js",
+      "bytes": 58456,
+      "sha256": "8bb2952d2ba7d67e1414f8df819410cb0434a666be53f671fff75f68843d76f6"
+    },
+    "draco_decoder.wasm": {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/jsm/libs/draco/gltf/draco_decoder.wasm",
+      "bytes": 192420,
+      "sha256": "a680d927bed9cb864ddbd63521868891af2bfbe755092761b4837487618df8ac"
+    },
+    "README-upstream.md": {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/jsm/libs/draco/README.md",
+      "bytes": 1489,
+      "sha256": "8b9d277bf5743f4ce8d85d63c16690071b53f81796e877d4d395af943bde02a0"
+    },
+    "LICENSE-Apache-2.0.txt": {
+      "url": "https://raw.githubusercontent.com/google/draco/main/LICENSE",
+      "bytes": 13898,
+      "sha256": "d3709b0fb4b8a94bbb1d02b8a2e484f258b0d9c5c5a01f940391f3fe662cd1a4"
+    }
+  }
+}
