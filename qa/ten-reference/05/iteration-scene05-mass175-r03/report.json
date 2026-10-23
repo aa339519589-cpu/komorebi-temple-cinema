@@ -1,0 +1,1287 @@
+{
+  "reference": 5,
+  "entry": "reconstructions/scene-05/index.html",
+  "worktree": "/Users/mima1234/temple-cinema-live-sync",
+  "size": 1254,
+  "startedAt": "2026-10-21T23:12:53.818Z",
+  "source": {
+    "hash": "c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/qwantani-sunset-puresky/provenance.json": "45e7d0d3a2746dcb4a5798c8dceca1322fe5dfc8389572f2814b6264936597ef",
+      "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+      "assets/temple-joinery-v01/temple-joinery-v01.glb": "b984ebc15df7251c376c95f71cc0c9fe3e4706e3a1abaa1bd3a7bfd492e597bd",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-05/asset-dependencies.json": "6a982d1054c73443906e23a04e80c4a49eeb9fc6f7480534ecc238ddecadb1fa",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/files.json": "a7cbb453c0269ac0996e43edaa7995d52b72f89830f4c7d7f813569f6647832c",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/info.json": "c166c22f748ddcfe4b22071cc284aef9bdfd60e25f9c2471a5789c298830226c",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/provenance.json": "fcf63af8904ab89aae49f721ce46f13e2bbc73e54821b775d84a5937b7852ca8",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr": "e56997073870b6c1afec424cbc7f9fc307dd96ac70b975defacac091926a03e6",
+      "reconstructions/scene-05/cycles/hdri-provenance.json": "45e7d0d3a2746dcb4a5798c8dceca1322fe5dfc8389572f2814b6264936597ef",
+      "reconstructions/scene-05/cycles/physical03-settings.json": "2cb6f17b9c2a936b0f4fb40ddf6ce636e022695f4d2cf5c642378f9db83004b8",
+      "reconstructions/scene-05/cycles/physical04-settings.json": "bcf816e291f68e5f822c4f4b5063cc00d7e741731a998c92e46ea45a84c6dbe9",
+      "reconstructions/scene-05/cycles/physical05-settings.json": "9a984df1911fe44c750d8335d31e78d73205c612df36b1ad5a5a9cd25ddd046d",
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/aged-pier.js": "273ad6a10f31888c48421204804849c34e611c7f0d2004783e50b85ddc1f5d0c",
+      "reconstructions/scene-05/src/architecture.js": "be73ef01abb0fa86aa04d631281a2fd35d84d0713d40e099be507927935b8919",
+      "reconstructions/scene-05/src/blender-joinery.js": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "reconstructions/scene-05/src/foliage.js": "d1403ed263b71046ee1f79a0ee750e8be85e9fbe1f4a44ff6ebfa91a2c12f762",
+      "reconstructions/scene-05/src/handlaid-ceramics.js": "fa3f0ef521b38e196ab1a754ef7efc70fe76c1cea27937864f2e916af99de1e2",
+      "reconstructions/scene-05/src/main.js": "36388e3b12dccef9b3d7c957236d6c185e11fe0dff71f9681d2f74515358b2f5",
+      "reconstructions/scene-05/src/materials.js": "53e5cf330ee6c5b3adf7a0bd99bcd9bbefe585a3cedac1e7c6c0b6a2721b1a0a",
+      "reconstructions/scene-05/src/measured-sky.js": "46890d9cb7c150d7ef0cb9f96a602f74c227d3c044a96e626e5f21b8e36d6135",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/rafter-end-copper.js": "b5eb735f95e233b730c6f756474ddd2c21a8893b7b8c21c0c94acdcf8069ded7",
+      "reconstructions/scene-05/src/scanned-timber.js": "2f159e5ffea9c0283a0d8556ed217ad68e2576919066efc891684cab27f27969",
+      "reconstructions/scene-05/src/scene.js": "534c724e9196bf7ffae4e31ef49354d9bb1a7f754447442a10bef50dbb41a1e2",
+      "reconstructions/scene-05/src/sculpted-joinery.js": "154f6827a654885b9e0d6fc37392f0e8ff5d63f4074be621eef189d2af0a5a4c",
+      "reconstructions/scene-05/src/tier-layout.js": "48b61d98a8b3c29da19c3bae00676bf559a5708c593d354925eb82210030412c",
+      "reconstructions/scene-05/src/timber-path-uv.js": "c14071bc308cefe76c44611531eb3d95fa1292aa3574cb31d6f8e6c6e0387ba6"
+    }
+  },
+  "sourceCommit": "60da2a9da74a5a89a4f716ee07c6f3241e2f2ebc",
+  "status": "rendered-review",
+  "visualAccepted": false,
+  "errors": [],
+  "requests": [
+    "/reconstructions/scene-05/index.html",
+    "/reconstructions/scene-05/src/main.js",
+    "/reconstructions/camera-dolly.js",
+    "/vendor/build/three.module.js",
+    "/vendor/examples/jsm/postprocessing/EffectComposer.js",
+    "/vendor/examples/jsm/postprocessing/RenderPass.js",
+    "/vendor/examples/jsm/postprocessing/GTAOPass.js",
+    "/vendor/examples/jsm/postprocessing/OutputPass.js",
+    "/reconstructions/scene-05/src/scene.js",
+    "/reconstructions/scene-05/src/tier-layout.js",
+    "/vendor/examples/jsm/shaders/CopyShader.js",
+    "/vendor/examples/jsm/postprocessing/ShaderPass.js",
+    "/vendor/examples/jsm/postprocessing/MaskPass.js",
+    "/vendor/examples/jsm/postprocessing/Pass.js",
+    "/vendor/examples/jsm/shaders/GTAOShader.js",
+    "/vendor/examples/jsm/shaders/PoissonDenoiseShader.js",
+    "/vendor/examples/jsm/math/SimplexNoise.js",
+    "/vendor/examples/jsm/shaders/OutputShader.js",
+    "/vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+    "/vendor/examples/jsm/utils/BufferGeometryUtils.js",
+    "/reconstructions/scene-05/src/architecture.js",
+    "/reconstructions/scene-05/src/materials.js",
+    "/reconstructions/scene-05/src/foliage.js",
+    "/reconstructions/scene-05/src/blender-joinery.js",
+    "/reconstructions/scene-05/src/sculpted-joinery.js",
+    "/reconstructions/scene-05/src/rafter-end-copper.js",
+    "/reconstructions/scene-05/src/handlaid-ceramics.js",
+    "/reconstructions/scene-05/src/aged-pier.js",
+    "/reconstructions/scene-05/src/timber-path-uv.js",
+    "/reconstructions/scene-05/src/scanned-timber.js",
+    "/reconstructions/scene-05/src/measured-sky.js",
+    "/vendor/build/three.core.js",
+    "/vendor/examples/jsm/loaders/GLTFLoader.js",
+    "/reconstructions/scene-05/src/natural-forms.js",
+    "/vendor/examples/jsm/loaders/EXRLoader.js",
+    "/vendor/examples/jsm/utils/SkeletonUtils.js",
+    "/vendor/examples/jsm/libs/fflate.module.js",
+    "/assets/temple-joinery-v01/temple-joinery-v01.glb",
+    "/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "/assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr"
+  ],
+  "renderDriver": {
+    "path": "tools/render-one-reconstruction.mjs",
+    "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+  },
+  "renderSampling": {
+    "nativeWidth": 1254,
+    "nativeHeight": 1254,
+    "outputWidth": 1254,
+    "outputHeight": 1254,
+    "scale": 1,
+    "downsampling": "none"
+  },
+  "detailCrop": {
+    "pixels": [
+      600,
+      285,
+      650,
+      1254
+    ],
+    "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+  },
+  "backend": "metal",
+  "frames": [
+    {
+      "pose": {
+        "camera": [
+          12.38431455,
+          0.8,
+          14.60021708
+        ],
+        "fov": 38.94129879,
+        "triangles": 165029573,
+        "calls": 2316
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 5,
+        "revision": "scene05-mass175-r03",
+        "levels": [
+          {
+            "level": 0,
+            "y": -0.9,
+            "scale": 1,
+            "width": 8.8,
+            "shaftTop": 3.9444908400000007,
+            "roofY": 3.7500000000000004,
+            "roofWidth": 14.67173815,
+            "upperFloor": {
+              "width": 8.8,
+              "bottomY": 4.36459084
+            }
+          },
+          {
+            "level": 1,
+            "y": 4.36459084,
+            "scale": 0.90258765,
+            "width": 7.94277132,
+            "shaftTop": 6.974492740483195,
+            "roofY": 8.053747143946879,
+            "roofWidth": 13.242529658223846,
+            "upperFloor": {
+              "width": 7.94277132,
+              "bottomY": 11.44746026
+            }
+          },
+          {
+            "level": 2,
+            "y": 11.44746026,
+            "scale": 0.64193827,
+            "width": 5.649056776000001,
+            "shaftTop": 13.303674347203492,
+            "roofY": 14.071261522420611,
+            "roofWidth": 9.418350205904,
+            "upperFloor": {
+              "width": 5.649056776000001,
+              "bottomY": 16.49041769
+            }
+          },
+          {
+            "level": 3,
+            "y": 16.49041769,
+            "scale": 0.53004841,
+            "width": 4.664426008,
+            "shaftTop": 18.023093605305398,
+            "roofY": 18.656890312518733,
+            "roofWidth": 7.776731478343842,
+            "upperFloor": {
+              "width": 4.664426008,
+              "bottomY": 20.65511826
+            }
+          },
+          {
+            "level": 4,
+            "y": 20.65511826,
+            "scale": 0.43994018,
+            "width": 3.8714735840000003,
+            "shaftTop": 21.927239268836004,
+            "roofY": 22.453290535464355,
+            "roofWidth": 6.454687122623867,
+            "upperFloor": null
+          }
+        ],
+        "tierSpec": {
+          "width": 8.8,
+          "roofAddition": 5.87173815,
+          "roofHeight": 4.08731086,
+          "roofRise": 3.83660786,
+          "bearingVerticalScale": 1.62954148,
+          "bearingHorizontalScale": 1.18,
+          "baseY": 0.35,
+          "tailCutHeight": 2.5,
+          "tailReach": 0.75,
+          "lanternHeight": 2.73535574
+        },
+        "landmarkWorlds": {
+          "0": {
+            "hipNear": [
+              7.460869075,
+              4.5874,
+              7.460869075
+            ],
+            "hipLeft": [
+              -7.460869075,
+              4.5874,
+              7.460869075
+            ],
+            "postHead": [
+              4.4,
+              3.9444908400000007,
+              4.4
+            ],
+            "waistNear": [
+              4.69,
+              -0.32000000000000006,
+              4.69
+            ],
+            "lanternNear": [
+              7.519265801874999,
+              0.09999999999999998,
+              7.519265801874999
+            ],
+            "lanternLeft": [
+              -7.519265801874999,
+              0.09999999999999998,
+              7.519265801874999
+            ],
+            "tailSeat": [
+              6.2454034185714296,
+              3.7388211449562534,
+              6.2454034185714296
+            ],
+            "tailCut": [
+              6.60190180625,
+              -0.25,
+              6.60190180625
+            ]
+          },
+          "1": {
+            "hipNear": [
+              6.734088285361923,
+              8.809574042056878,
+              6.734088285361923
+            ],
+            "hipLeft": [
+              -6.734088285361923,
+              8.809574042056878,
+              6.734088285361923
+            ],
+            "postHead": [
+              3.97138566,
+              6.974492740483195,
+              3.97138566
+            ],
+            "waistNear": [
+              4.436103506,
+              4.888091677,
+              4.436103506
+            ],
+            "lanternNear": [
+              6.786796449839721,
+              6.833489149280611,
+              6.786796449839721
+            ],
+            "lanternLeft": [
+              -6.786796449839721,
+              6.833489149280611,
+              6.786796449839721
+            ],
+            "tailSeat": [
+              5.637023994870352,
+              8.07833306154173,
+              5.637023994870352
+            ],
+            "tailCut": [
+              5.958795036833942,
+              6.621059965,
+              5.958795036833942
+            ]
+          },
+          "2": {
+            "hipNear": [
+              4.7894173867020005,
+              14.608820629718611,
+              4.7894173867020005
+            ],
+            "hipLeft": [
+              -4.7894173867020005,
+              14.608820629718611,
+              4.7894173867020005
+            ],
+            "postHead": [
+              2.8245283880000005,
+              13.303674347203492,
+              2.8245283880000005
+            ],
+            "waistNear": [
+              3.9970631908,
+              11.819784456599999,
+              3.9970631908
+            ],
+            "lanternNear": [
+              4.8269044805258,
+              13.203389791570169,
+              4.8269044805258
+            ],
+            "lanternLeft": [
+              -4.8269044805258,
+              13.203389791570169,
+              4.8269044805258
+            ],
+            "tailSeat": [
+              4.00916346596983,
+              14.088747515506382,
+              4.00916346596983
+            ],
+            "tailCut": [
+              4.238013424214,
+              13.052305935,
+              4.238013424214
+            ]
+          },
+          "3": {
+            "hipNear": [
+              3.9546217904219207,
+              19.100752851052732,
+              3.9546217904219207
+            ],
+            "hipLeft": [
+              -3.9546217904219207,
+              19.100752851052732,
+              3.9546217904219207
+            ],
+            "postHead": [
+              2.332213004,
+              18.023093605305398,
+              2.332213004
+            ],
+            "waistNear": [
+              2.8457303244000007,
+              16.797845767800002,
+              2.8457303244000007
+            ],
+            "lanternNear": [
+              3.9855748826512185,
+              17.940288650771375,
+              3.9855748826512185
+            ],
+            "lanternLeft": [
+              -3.9855748826512185,
+              17.940288650771375,
+              3.9855748826512185
+            ],
+            "tailSeat": [
+              3.310366151822351,
+              18.671328496477425,
+              3.310366151822351
+            ],
+            "tailCut": [
+              3.4993275553789407,
+              17.815538715000002,
+              3.4993275553789407
+            ]
+          },
+          "4": {
+            "hipNear": [
+              3.2823360838119333,
+              22.82169644219635,
+              3.2823360838119333
+            ],
+            "hipLeft": [
+              -3.2823360838119333,
+              22.82169644219635,
+              3.2823360838119333
+            ],
+            "postHead": [
+              1.9357367920000002,
+              21.927239268836004,
+              1.9357367920000002
+            ],
+            "waistNear": [
+              2.3498106112,
+              20.910283564399997,
+              2.3498106112
+            ],
+            "lanternNear": [
+              3.3080271503447314,
+              21.85851115661963,
+              3.3080271503447314
+            ],
+            "lanternLeft": [
+              -3.3080271503447314,
+              21.85851115661963,
+              3.3080271503447314
+            ],
+            "tailSeat": [
+              2.74760390413893,
+              22.465274228141894,
+              2.74760390413893
+            ],
+            "tailCut": [
+              2.90444186898395,
+              21.75496871,
+              2.90444186898395
+            ]
+          }
+        },
+        "triangles": 33164435,
+        "parts": 32114,
+        "geometry": "Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum",
+        "joineryKit": {
+          "source": "Scene05 mass175: arrised double-ogee half-lapped timber courses, concave-neck receivers sampled to real undersides, closed cast cheek clouds, pierced acanthus collars and layered ceramic faces",
+          "cornerFan": {
+            "levels": 3,
+            "arms": 10,
+            "receivers": 16,
+            "footprintM": [
+              1.08,
+              1.52,
+              2.04
+            ],
+            "construction": "Closed shallow-web/downturned-nose curved arms with inset3.5mm arrises; first orthogonal half lap and two paired courses spreading in plan and length; concave-neck support blocks retain the previous seat bounds and sampled curved-underside contacts; four final flat seats meet the common purlin datum"
+          },
+          "waistGallery": {
+            "courses": 1,
+            "headToPurlin": 0.3868,
+            "arms": 2,
+            "receivers": 4
+          },
+          "bearingCorrection": "Authored closed 3D timber retains the established complementary slots, course offsets and flat seats; copper end cups fit each actual section; broad closed cloud leaves follow the timber cheeks. Concealed historic joints and exact wear remain interpreted.",
+          "guideRole": "Authored 3D curves and solids; no image-plane or displacement-guide replacement",
+          "endFitting": {
+            "source": "Scene05 mass175 closed repousse sleeve: twelve folded outer chrysanthemum petals, overlapping raised inner whorl, convex boss, deep volutes, lower oxidised ground and sixteen solid return leaves",
+            "detail": "full",
+            "photoTexture": false,
+            "normalizedReturnDepth": 0.19,
+            "normalizedFaceThickness": 0.022,
+            "normalizedFlowerDepth": 0.122,
+            "preservesTimberCutXY": true
+          }
+        },
+        "timber": {
+          "provider": "Poly Haven",
+          "asset": "lacquered_cherry_wood",
+          "license": "CC0-1.0",
+          "physicalTileMetres": 1,
+          "grain": "Member-aligned metric UV, subdued scanned normals, longitudinal aged tissue and bounded fine checks",
+          "pigments": {
+            "red": "#b4673c",
+            "cedar": "#ae7144",
+            "endwood": "#be925b",
+            "darkwood": "#784b31"
+          },
+          "pigmentCoverage": "CC0 scan luminance .36–.98 and10% source chroma under warm red-brown stain; broad rub-through to natural timber; scene photograph unused",
+          "sourceMeanLinearLuma": 0.015213019170802358
+        },
+        "lighting": {
+          "sunPosition": [
+            -18,
+            36,
+            30
+          ],
+          "sunIntensity": 5.3,
+          "sunColor": "#ffdfaa",
+          "courtyardBounce": 0.64,
+          "courtyardBounceCastsShadows": true,
+          "hemisphere": 0.24,
+          "environmentIntensity": 0.42,
+          "measuredSky": {
+            "provider": "Poly Haven",
+            "asset": "kloofendal_48d_partly_cloudy_puresky",
+            "license": "CC0-1.0",
+            "path": "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+            "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+            "authors": [
+              "Greg Zaal",
+              "Jarod Guest"
+            ],
+            "sourceSunPixel": [
+              1218,
+              784
+            ],
+            "maximumLuma": 72870.25335625,
+            "meanLuma": 0.6762980197300532,
+            "sourceDirectionYUp": [
+              0.5545620062863689,
+              0.741980411720831,
+              0.37673073913104493
+            ],
+            "targetDirectionYUp": [
+              -0.40730653998127836,
+              0.6109598099719176,
+              0.6788442333021306
+            ],
+            "rotationXYZ": [
+              1.1181197707635133,
+              -1.4594669702652538,
+              0.9673187755123099,
+              "XYZ"
+            ],
+            "nativeEnvironmentIntensity": 0.42,
+            "solarSeparation": {
+              "coneDegrees": 2.3,
+              "fillRadianceCeiling": 3,
+              "pixels": 803
+            },
+            "scope": "Original measured CC0 sky is the background. Native IBL solar disk is separated into the shadow-casting directional key; courtyard-bounce proxy and sky occlusion remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh."
+          },
+          "limits": "Measured CC0 sky/metal radiance with inferred native directional key and shadow-casting courtyard-bounce proxy; not measured GI"
+        },
+        "canopy": {
+          "leaves": 16848,
+          "leafPrototypes": 3,
+          "rootedTrees": 4,
+          "closedLamina": true,
+          "pairedPetioles": true,
+          "twigSegments": 21060,
+          "photoTextures": false
+        },
+        "cameraHeightRange": [
+          0.72,
+          0.8
+        ],
+        "renderer": {
+          "frame": 36,
+          "calls": 2316,
+          "triangles": 165029573,
+          "points": 0,
+          "lines": 0
+        },
+        "referencePose": {
+          "position": [
+            12.38431455,
+            0.8,
+            14.60021708
+          ],
+          "target": [
+            -17.09887615,
+            15,
+            -5.55294464
+          ],
+          "fov": 38.94129879,
+          "principal": [
+            0.3030303,
+            0.77495212
+          ]
+        }
+      },
+      "name": "reference",
+      "localTime": null,
+      "detailCrop": null,
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9999262328650392,
+      "opaqueFraction": 1,
+      "rgbaSha256": "292588699af14a8a2209c36aca63f90993c1916255a47de610e327b1ad75b6c8"
+    },
+    {
+      "pose": {
+        "camera": [
+          12.38431455,
+          0.8,
+          14.60021708
+        ],
+        "fov": 38.94129879,
+        "triangles": 82268535,
+        "calls": 113
+      },
+      "width": 1254,
+      "height": 1254,
+      "glError": 0,
+      "programs": [
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        },
+        {
+          "linked": true,
+          "log": ""
+        }
+      ],
+      "contextLost": false,
+      "info": {
+        "reference": 5,
+        "revision": "scene05-mass175-r03",
+        "levels": [
+          {
+            "level": 0,
+            "y": -0.9,
+            "scale": 1,
+            "width": 8.8,
+            "shaftTop": 3.9444908400000007,
+            "roofY": 3.7500000000000004,
+            "roofWidth": 14.67173815,
+            "upperFloor": {
+              "width": 8.8,
+              "bottomY": 4.36459084
+            }
+          },
+          {
+            "level": 1,
+            "y": 4.36459084,
+            "scale": 0.90258765,
+            "width": 7.94277132,
+            "shaftTop": 6.974492740483195,
+            "roofY": 8.053747143946879,
+            "roofWidth": 13.242529658223846,
+            "upperFloor": {
+              "width": 7.94277132,
+              "bottomY": 11.44746026
+            }
+          },
+          {
+            "level": 2,
+            "y": 11.44746026,
+            "scale": 0.64193827,
+            "width": 5.649056776000001,
+            "shaftTop": 13.303674347203492,
+            "roofY": 14.071261522420611,
+            "roofWidth": 9.418350205904,
+            "upperFloor": {
+              "width": 5.649056776000001,
+              "bottomY": 16.49041769
+            }
+          },
+          {
+            "level": 3,
+            "y": 16.49041769,
+            "scale": 0.53004841,
+            "width": 4.664426008,
+            "shaftTop": 18.023093605305398,
+            "roofY": 18.656890312518733,
+            "roofWidth": 7.776731478343842,
+            "upperFloor": {
+              "width": 4.664426008,
+              "bottomY": 20.65511826
+            }
+          },
+          {
+            "level": 4,
+            "y": 20.65511826,
+            "scale": 0.43994018,
+            "width": 3.8714735840000003,
+            "shaftTop": 21.927239268836004,
+            "roofY": 22.453290535464355,
+            "roofWidth": 6.454687122623867,
+            "upperFloor": null
+          }
+        ],
+        "tierSpec": {
+          "width": 8.8,
+          "roofAddition": 5.87173815,
+          "roofHeight": 4.08731086,
+          "roofRise": 3.83660786,
+          "bearingVerticalScale": 1.62954148,
+          "bearingHorizontalScale": 1.18,
+          "baseY": 0.35,
+          "tailCutHeight": 2.5,
+          "tailReach": 0.75,
+          "lanternHeight": 2.73535574
+        },
+        "landmarkWorlds": {
+          "0": {
+            "hipNear": [
+              7.460869075,
+              4.5874,
+              7.460869075
+            ],
+            "hipLeft": [
+              -7.460869075,
+              4.5874,
+              7.460869075
+            ],
+            "postHead": [
+              4.4,
+              3.9444908400000007,
+              4.4
+            ],
+            "waistNear": [
+              4.69,
+              -0.32000000000000006,
+              4.69
+            ],
+            "lanternNear": [
+              7.519265801874999,
+              0.09999999999999998,
+              7.519265801874999
+            ],
+            "lanternLeft": [
+              -7.519265801874999,
+              0.09999999999999998,
+              7.519265801874999
+            ],
+            "tailSeat": [
+              6.2454034185714296,
+              3.7388211449562534,
+              6.2454034185714296
+            ],
+            "tailCut": [
+              6.60190180625,
+              -0.25,
+              6.60190180625
+            ]
+          },
+          "1": {
+            "hipNear": [
+              6.734088285361923,
+              8.809574042056878,
+              6.734088285361923
+            ],
+            "hipLeft": [
+              -6.734088285361923,
+              8.809574042056878,
+              6.734088285361923
+            ],
+            "postHead": [
+              3.97138566,
+              6.974492740483195,
+              3.97138566
+            ],
+            "waistNear": [
+              4.436103506,
+              4.888091677,
+              4.436103506
+            ],
+            "lanternNear": [
+              6.786796449839721,
+              6.833489149280611,
+              6.786796449839721
+            ],
+            "lanternLeft": [
+              -6.786796449839721,
+              6.833489149280611,
+              6.786796449839721
+            ],
+            "tailSeat": [
+              5.637023994870352,
+              8.07833306154173,
+              5.637023994870352
+            ],
+            "tailCut": [
+              5.958795036833942,
+              6.621059965,
+              5.958795036833942
+            ]
+          },
+          "2": {
+            "hipNear": [
+              4.7894173867020005,
+              14.608820629718611,
+              4.7894173867020005
+            ],
+            "hipLeft": [
+              -4.7894173867020005,
+              14.608820629718611,
+              4.7894173867020005
+            ],
+            "postHead": [
+              2.8245283880000005,
+              13.303674347203492,
+              2.8245283880000005
+            ],
+            "waistNear": [
+              3.9970631908,
+              11.819784456599999,
+              3.9970631908
+            ],
+            "lanternNear": [
+              4.8269044805258,
+              13.203389791570169,
+              4.8269044805258
+            ],
+            "lanternLeft": [
+              -4.8269044805258,
+              13.203389791570169,
+              4.8269044805258
+            ],
+            "tailSeat": [
+              4.00916346596983,
+              14.088747515506382,
+              4.00916346596983
+            ],
+            "tailCut": [
+              4.238013424214,
+              13.052305935,
+              4.238013424214
+            ]
+          },
+          "3": {
+            "hipNear": [
+              3.9546217904219207,
+              19.100752851052732,
+              3.9546217904219207
+            ],
+            "hipLeft": [
+              -3.9546217904219207,
+              19.100752851052732,
+              3.9546217904219207
+            ],
+            "postHead": [
+              2.332213004,
+              18.023093605305398,
+              2.332213004
+            ],
+            "waistNear": [
+              2.8457303244000007,
+              16.797845767800002,
+              2.8457303244000007
+            ],
+            "lanternNear": [
+              3.9855748826512185,
+              17.940288650771375,
+              3.9855748826512185
+            ],
+            "lanternLeft": [
+              -3.9855748826512185,
+              17.940288650771375,
+              3.9855748826512185
+            ],
+            "tailSeat": [
+              3.310366151822351,
+              18.671328496477425,
+              3.310366151822351
+            ],
+            "tailCut": [
+              3.4993275553789407,
+              17.815538715000002,
+              3.4993275553789407
+            ]
+          },
+          "4": {
+            "hipNear": [
+              3.2823360838119333,
+              22.82169644219635,
+              3.2823360838119333
+            ],
+            "hipLeft": [
+              -3.2823360838119333,
+              22.82169644219635,
+              3.2823360838119333
+            ],
+            "postHead": [
+              1.9357367920000002,
+              21.927239268836004,
+              1.9357367920000002
+            ],
+            "waistNear": [
+              2.3498106112,
+              20.910283564399997,
+              2.3498106112
+            ],
+            "lanternNear": [
+              3.3080271503447314,
+              21.85851115661963,
+              3.3080271503447314
+            ],
+            "lanternLeft": [
+              -3.3080271503447314,
+              21.85851115661963,
+              3.3080271503447314
+            ],
+            "tailSeat": [
+              2.74760390413893,
+              22.465274228141894,
+              2.74760390413893
+            ],
+            "tailCut": [
+              2.90444186898395,
+              21.75496871,
+              2.90444186898395
+            ]
+          }
+        },
+        "triangles": 33164435,
+        "parts": 32114,
+        "geometry": "Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum",
+        "joineryKit": {
+          "source": "Scene05 mass175: arrised double-ogee half-lapped timber courses, concave-neck receivers sampled to real undersides, closed cast cheek clouds, pierced acanthus collars and layered ceramic faces",
+          "cornerFan": {
+            "levels": 3,
+            "arms": 10,
+            "receivers": 16,
+            "footprintM": [
+              1.08,
+              1.52,
+              2.04
+            ],
+            "construction": "Closed shallow-web/downturned-nose curved arms with inset3.5mm arrises; first orthogonal half lap and two paired courses spreading in plan and length; concave-neck support blocks retain the previous seat bounds and sampled curved-underside contacts; four final flat seats meet the common purlin datum"
+          },
+          "waistGallery": {
+            "courses": 1,
+            "headToPurlin": 0.3868,
+            "arms": 2,
+            "receivers": 4
+          },
+          "bearingCorrection": "Authored closed 3D timber retains the established complementary slots, course offsets and flat seats; copper end cups fit each actual section; broad closed cloud leaves follow the timber cheeks. Concealed historic joints and exact wear remain interpreted.",
+          "guideRole": "Authored 3D curves and solids; no image-plane or displacement-guide replacement",
+          "endFitting": {
+            "source": "Scene05 mass175 closed repousse sleeve: twelve folded outer chrysanthemum petals, overlapping raised inner whorl, convex boss, deep volutes, lower oxidised ground and sixteen solid return leaves",
+            "detail": "full",
+            "photoTexture": false,
+            "normalizedReturnDepth": 0.19,
+            "normalizedFaceThickness": 0.022,
+            "normalizedFlowerDepth": 0.122,
+            "preservesTimberCutXY": true
+          }
+        },
+        "timber": {
+          "provider": "Poly Haven",
+          "asset": "lacquered_cherry_wood",
+          "license": "CC0-1.0",
+          "physicalTileMetres": 1,
+          "grain": "Member-aligned metric UV, subdued scanned normals, longitudinal aged tissue and bounded fine checks",
+          "pigments": {
+            "red": "#b4673c",
+            "cedar": "#ae7144",
+            "endwood": "#be925b",
+            "darkwood": "#784b31"
+          },
+          "pigmentCoverage": "CC0 scan luminance .36–.98 and10% source chroma under warm red-brown stain; broad rub-through to natural timber; scene photograph unused",
+          "sourceMeanLinearLuma": 0.015213019170802358
+        },
+        "lighting": {
+          "sunPosition": [
+            -18,
+            36,
+            30
+          ],
+          "sunIntensity": 5.3,
+          "sunColor": "#ffdfaa",
+          "courtyardBounce": 0.64,
+          "courtyardBounceCastsShadows": true,
+          "hemisphere": 0.24,
+          "environmentIntensity": 0.42,
+          "measuredSky": {
+            "provider": "Poly Haven",
+            "asset": "kloofendal_48d_partly_cloudy_puresky",
+            "license": "CC0-1.0",
+            "path": "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+            "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+            "authors": [
+              "Greg Zaal",
+              "Jarod Guest"
+            ],
+            "sourceSunPixel": [
+              1218,
+              784
+            ],
+            "maximumLuma": 72870.25335625,
+            "meanLuma": 0.6762980197300532,
+            "sourceDirectionYUp": [
+              0.5545620062863689,
+              0.741980411720831,
+              0.37673073913104493
+            ],
+            "targetDirectionYUp": [
+              -0.40730653998127836,
+              0.6109598099719176,
+              0.6788442333021306
+            ],
+            "rotationXYZ": [
+              1.1181197707635133,
+              -1.4594669702652538,
+              0.9673187755123099,
+              "XYZ"
+            ],
+            "nativeEnvironmentIntensity": 0.42,
+            "solarSeparation": {
+              "coneDegrees": 2.3,
+              "fillRadianceCeiling": 3,
+              "pixels": 803
+            },
+            "scope": "Original measured CC0 sky is the background. Native IBL solar disk is separated into the shadow-casting directional key; courtyard-bounce proxy and sky occlusion remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh."
+          },
+          "limits": "Measured CC0 sky/metal radiance with inferred native directional key and shadow-casting courtyard-bounce proxy; not measured GI"
+        },
+        "canopy": {
+          "leaves": 16848,
+          "leafPrototypes": 3,
+          "rootedTrees": 4,
+          "closedLamina": true,
+          "pairedPetioles": true,
+          "twigSegments": 21060,
+          "photoTextures": false
+        },
+        "cameraHeightRange": [
+          0.72,
+          0.8
+        ],
+        "renderer": {
+          "frame": 43,
+          "calls": 113,
+          "triangles": 82268535,
+          "points": 0,
+          "lines": 0
+        },
+        "referencePose": {
+          "position": [
+            12.38431455,
+            0.8,
+            14.60021708
+          ],
+          "target": [
+            -17.09887615,
+            15,
+            -5.55294464
+          ],
+          "fov": 38.94129879,
+          "principal": [
+            0.3030303,
+            0.77495212
+          ]
+        }
+      },
+      "name": "detail-native",
+      "localTime": null,
+      "detailCrop": [
+        600,
+        285,
+        650,
+        1254
+      ],
+      "valid": true,
+      "pngSaved": true,
+      "nonblackFraction": 0.9999065192341445,
+      "opaqueFraction": 1,
+      "rgbaSha256": "fcad171a3233135a8115db2ea0225c004acd08b1f26dfd4752ed675b94114446"
+    }
+  ],
+  "completedAt": "2026-10-21T23:13:08.749Z"
+}

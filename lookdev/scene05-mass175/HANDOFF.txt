@@ -1,0 +1,29 @@
+Scene05 mass175 — frozen R03, visualAccepted:false
+Source c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815
+Baseline ea165b5b9dae5e184b4e60af5989ce1396d4ded4bc17d389704836a2a4765ed2
+
+Canonical changed files:
+reconstructions/scene-05/src/aged-pier.js
+reconstructions/scene-05/src/rafter-end-copper.js
+reconstructions/scene-05/src/scanned-timber.js
+reconstructions/scene-05/src/scene.js
+reconstructions/scene-05/src/sculpted-joinery.js
+reconstructions/scene-05/src/timber-path-uv.js
+
+Actual final native images (all1254x1254):
+qa/ten-reference/05/iteration-scene05-mass175-r03/reference.png
+qa/ten-reference/05/iteration-scene05-mass175-r03/detail-native.png
+qa/ten-reference/05/iteration-scene05-mass175-r03-low-oblique/inspection-view.png
+qa/ten-reference/05/iteration-scene05-mass175-r03-three-poses/shot-0.png
+qa/ten-reference/05/iteration-scene05-mass175-r03-three-poses/shot-3p5.png
+qa/ten-reference/05/iteration-scene05-mass175-r03-three-poses/shot-7.png
+
+All final six images were actually viewed. Three modeling rounds, eight official GPU FIFO jobs, fifteen actual1254 buffers; reports, logs, intermediate sources and baseline preserved. R03 source/frames agree. No new path occlusion seen. Native load/GPU validity is not photo fidelity.
+
+Model changes: folded closed chrysanthemum copper caps, deeper worked returns, finite closed cloud cheeks, inset arm arrises, concave-neck receiver blocks retaining flat contacts, narrow pierced acanthus collars, real shallow checks in closed square piers, raked-hip arrises and curve-arclength grain; warm scanned worn wood and neutral charcoal ceramics; reduced upward fill and contact-shadow bias.
+
+R08 tier-layout, architecture, main/camera/path, handlaid ceramics, foliage and measured-sky files byte-preserved. Compact .3868 waist and roof/tail anchor layout kept. Copper168 instancing branch is byte-identical. No new external assets or huge exports/Blends. Only owned05 canonical and this lookdev/newQA05 written. No Git/other scene/shared/tool changes.
+
+Construction check:69 structural/copper/collar/pier parts finite, closed and positive-volume; original flat bearing heights kept. This is a geometry audit, not acceptance.
+
+Still fails photographic fidelity: overly regular bearing vocabulary, stylized mask/lantern and fittings, pale blank directly-lit hip face, foliage/sky and inherited imperfect composition. Keep visualAccepted false. review.json contains complete receipts/provenance and round-specific findings. Source frozen for root visual review/commit; no jobs remain active.

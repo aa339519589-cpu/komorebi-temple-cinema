@@ -8,6 +8,8 @@ import {loadBlenderJoinery} from './blender-joinery.js';
 import {createSculptedJoinery} from './sculpted-joinery.js';
 import {createRafterEndCopper} from './rafter-end-copper.js';
 import {createClayTile05} from './handlaid-ceramics.js';
+import {createAgedPier05} from './aged-pier.js';
+import {assignTimberPathUV05} from './timber-path-uv.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
 import {installMeasuredSky} from './measured-sky.js';
 import {POSE,TIER_SPEC,tierPlacement,tierWorldPoint} from './tier-layout.js';
@@ -21,15 +23,20 @@ export async function buildScene(){
  mats.gold.roughness=.33;mats.oldgold.roughness=.42;
  mats.lanternPaper=mats.paper.clone();mats.lanternPaper.name='scene05-lantern-paper';mats.lanternPaper.color.set('#f2e5bb');mats.lanternPaper.emissive.set('#f7d792');mats.lanternPaper.emissiveIntensity=.12;
  // Private cap surfaces keep the glazed ceramic recess distinct from the roof.
- mats.tileEndCeramic=mats.slate.clone();mats.tileEndCeramic.name='scene05-dark-inset-tile-cap';mats.tileEndCeramic.color.set('#3e4b53');mats.tileEndCeramic.roughness=.62;
+ mats.tileEndCeramic=mats.slate.clone();mats.tileEndCeramic.name='scene05-dark-inset-tile-cap';mats.tileEndCeramic.color.set('#515650');mats.tileEndCeramic.roughness=.65;
  mats.tileEndRelief=mats.slate.clone();mats.tileEndRelief.name='scene05-worn-ceramic-floral-relief';mats.tileEndRelief.color.set('#b49b64');mats.tileEndRelief.roughness=.66;mats.tileEndRelief.metalness=.28;
- mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#35424a');mats.cornerCeramic.roughness=.70;mats.cornerCeramic.bumpScale=.0025;
+ mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#464b45');mats.cornerCeramic.roughness=.68;mats.cornerCeramic.bumpScale=.0018;
 
  const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createRafterEndCopper(),endCopperSmall=createRafterEndCopper({detail:'small'});
  const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,waistBearing:sculptedJoinery.waistBearing,waistFittings:sculptedJoinery.waistFittings,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,cornerMask:sculptedJoinery.cornerMask,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();}};Object.assign(mats,joineryKit.materials);
- mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-thin-cast-copper-end-cup',color:'#d0aa5d',metalness:.88,roughness:.34,envMapIntensity:1.45});
- mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-shallow-cast-floral-copper',color:'#e4c583',metalness:.88,roughness:.30,envMapIntensity:1.60});
- mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-lower-patinated-copper-grooves',color:'#4a381c',metalness:.62,roughness:.78,envMapIntensity:.40});
+ const copperPixels=new Uint8Array(128*128*4);for(let y=0;y<128;y++)for(let x=0;x<128;x++){
+   const hash=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
+   const q=Math.round(255*(.83+.09*Math.sin(x*.20+Math.sin(y*.11))+.06*(hash(x,y)-.5)-.09*(hash(x>>2,y>>2)>.92?1:0))),i=(y*128+x)*4;copperPixels[i]=copperPixels[i+1]=copperPixels[i+2]=q;copperPixels[i+3]=255;
+ }
+ const copperFinish=new T.DataTexture(copperPixels,128,128);copperFinish.wrapS=copperFinish.wrapT=T.RepeatWrapping;copperFinish.minFilter=T.LinearMipmapLinearFilter;copperFinish.magFilter=T.LinearFilter;copperFinish.generateMipmaps=true;copperFinish.needsUpdate=true;
+ mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-worked-copper-wrapped-end-cup',color:'#bc944e',metalness:.86,roughness:.46,envMapIntensity:1.30,bumpMap:copperFinish,bumpScale:.00025,roughnessMap:copperFinish});
+ mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-folded-chrysanthemum-copper',color:'#dab86f',metalness:.90,roughness:.39,envMapIntensity:1.45,bumpMap:copperFinish,bumpScale:.00018,roughnessMap:copperFinish});
+ mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-lower-patinated-copper-grooves',color:'#5c4325',metalness:.65,roughness:.80,envMapIntensity:.45});
  // Solid code-built geometry and the user-authorized image-assisted relief.
  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
  const primitive={box:new T.BoxGeometry(1,1,1),sphere:new T.SphereGeometry(1,16,10),cone:new T.ConeGeometry(1,1,16)};
@@ -42,13 +49,18 @@ export async function buildScene(){
  }
  function group(x,y,z,angle,fn){stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationY(angle)));try{fn();}finally{stack.pop();}}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){
+   if(ma==='postwood'){
+     const key='checked-pier:'+w.toFixed(5)+':'+h.toFixed(5)+':'+d.toFixed(5);
+     if(!geometryCache.has(key))geometryCache.set(key,createAgedPier05(w,h,d));
+     instance(geometryCache.get(key),ma,x,y,z,1,1,1,[0,rot,0],tint);return;
+   }
    if(['red','cedar','endwood','darkwood','architecture_red','architecture_cedar','architecture_endwood','windowBars','postwood'].includes(ma)&&Math.min(w,h,d)>.045){
      const key=[w,h,d].map(n=>n.toFixed(5)).join(':');
      if(!geometryCache.has(key))geometryCache.set(key,new RoundedBoxGeometry(w,h,d,1,Math.min(.014,Math.min(w,h,d)*.10)));
      instance(geometryCache.get(key),ma,x,y,z,1,1,1,[0,rot,0],tint);
    }else instance('box',ma,x,y,z,w,h,d,[0,rot,0],tint);
  }
- mats.handformedClay=new T.MeshPhysicalMaterial({name:'scene05-handformed-grey-fired-clay',color:'#47545e',roughness:.59,metalness:.015,clearcoat:.12,clearcoatRoughness:.46,vertexColors:true});
+ mats.handformedClay=new T.MeshPhysicalMaterial({name:'scene05-handformed-grey-fired-clay',color:'#555951',roughness:.63,metalness:.015,clearcoat:.10,clearcoatRoughness:.49,vertexColors:true});
  const arch=createRestorationArchitecture({instance,group,box,materials:mats,columns,stack,joineryKit,handlaidCeramics:true,tierCollarMaterial:'red',pagodaPostMaterial:'postwood',cornerCeramicScale:.82});
  mats.architecture_red.color.set('#b35c34');mats.architecture_cedar.color.set('#a9653d');mats.architecture_endwood.color.set('#b47538');mats.architecture_slate.color.set('#293b48');mats.architecture_slate.roughness=.48;mats.architecture_tileEdge.color.set('#a9aca4');mats.architecture_gold.color.set('#e8b84f');mats.architecture_oldgold.color.set('#c99c4e');mats.architecture_darkwood.color.set('#565d50');
  mats.windowBars=mats.architecture_darkwood.clone();mats.windowBars.name='scene05-weathered-gray-window-bars';mats.windowBars.color.set('#526053');mats.windowBars.roughnessMap=null;mats.windowBars.roughness=.87;mats.windowBars.envMapIntensity=.25;
@@ -74,7 +86,8 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  }
  mats.lanternBronze=new T.MeshStandardMaterial({name:'scene05-lantern-aged-bronze',color:'#654322',metalness:.82,roughness:.46,envMapIntensity:.88});
  const scannedTimber=await installScannedTimber(mats);
- mats.postwood=mats.architecture_red.clone();mats.postwood.name='scene05-square-weathered-structural-pier';mats.postwood.color.set('#985538');mats.postwood.roughness=1;mats.postwood.clearcoat=.035;mats.postwood.onBeforeCompile=mats.architecture_red.onBeforeCompile;mats.postwood.customProgramCacheKey=mats.architecture_red.customProgramCacheKey;mats.postwood.userData.metricTimberGrain=true;
+ mats.hipwood=mats.red.clone();mats.hipwood.name='scene05-aged-raked-hip-timber';mats.hipwood.color.set('#92532f');mats.hipwood.roughness=.96;mats.hipwood.clearcoat=.045;mats.hipwood.onBeforeCompile=mats.red.onBeforeCompile;mats.hipwood.customProgramCacheKey=mats.red.customProgramCacheKey;mats.hipwood.userData.metricTimberGrain=true;
+ mats.postwood=mats.architecture_red.clone();mats.postwood.name='scene05-square-weathered-structural-pier';mats.postwood.color.set('#926645');mats.postwood.roughness=.93;mats.postwood.clearcoat=.045;mats.postwood.onBeforeCompile=mats.architecture_red.onBeforeCompile;mats.postwood.customProgramCacheKey=mats.architecture_red.customProgramCacheKey;mats.postwood.userData.metricTimberGrain=true;
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
  mats.carvingGround=new T.MeshStandardMaterial({name:'scene05-dark-carved-ground',color:'#2b2116',roughness:.9});
  const leafShape=new T.Shape();leafShape.moveTo(-.5,0);leafShape.bezierCurveTo(-.15,.23,.29,.28,.5,0);leafShape.bezierCurveTo(.15,-.19,-.2,-.13,-.5,0);
@@ -142,8 +155,8 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    for(const sx of [-1,1])for(const sz of [-1,1]){
      const path=tailPath(w,y,s,sx,sz,placement),end=path.getPoint(1);
      // Rectangular curved timber with real depth, connected to the crossing capital.
-     const rim=new T.Shape();rim.moveTo(-.125*s,-.17*s);rim.lineTo(.125*s,-.17*s);rim.lineTo(.125*s,.17*s);rim.lineTo(-.125*s,.17*s);rim.closePath();
-     const geometry=new T.ExtrudeGeometry(rim,{steps:20,bevelEnabled:false,extrudePath:path});instance(geometry,'red');
+     const rim=new T.Shape(),a=.006*s;rim.moveTo(-.125*s+a,-.17*s);rim.lineTo(.125*s-a,-.17*s);rim.lineTo(.125*s,-.17*s+a);rim.lineTo(.125*s,.17*s-a);rim.lineTo(.125*s-a,.17*s);rim.lineTo(-.125*s+a,.17*s);rim.lineTo(-.125*s,.17*s-a);rim.lineTo(-.125*s,-.17*s+a);rim.closePath();
+     const geometry=new T.ExtrudeGeometry(rim,{steps:20,bevelEnabled:false,extrudePath:path});assignTimberPathUV05(geometry,path);instance(geometry,'hipwood');
      const normal=path.getTangent(1).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
      const goldEnd=end.clone().addScaledVector(normal,.008);
      // The sleeve and its flower follow the real downward cut-plane normal.
@@ -280,13 +293,13 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      for(let k=0;k<6;k++){const a=k*Math.PI/3;wire([[Math.sin(a)*.025,-.95,Math.cos(a)*.025],[Math.sin(a)*.060,-.88,Math.cos(a)*.060],[Math.sin(a)*.025,-.83,Math.cos(a)*.025]],.0045,bronze);}
    });
  }
- const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.30);scene.add(hemi);
+ const hemi=new T.HemisphereLight('#cce5ff','#a3784c',.24);scene.add(hemi);
  const sun=new T.DirectionalLight('#ffdfaa',5.3);sun.position.set(-18,36,30);sun.target.position.set(0,9,0);sun.castShadow=true;
- sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000025;sun.shadow.normalBias=.006;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
+ sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000012;sun.shadow.normalBias=.002;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
  // Bounded first-bounce courtyard proxy. Its own actual shadows preserve
  // the separate eave layers; it is not a screen exposure or flat ambient lift.
- const groundBounce=new T.DirectionalLight('#ffc77c',1.0);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
- groundBounce.shadow.mapSize.set(2048,2048);Object.assign(groundBounce.shadow.camera,{left:-18,right:18,top:25,bottom:-12,near:1,far:85});groundBounce.shadow.bias=-.000025;groundBounce.shadow.normalBias=.004;groundBounce.shadow.autoUpdate=false;groundBounce.shadow.needsUpdate=true;scene.add(groundBounce,groundBounce.target);
+ const groundBounce=new T.DirectionalLight('#ffc77c',.64);groundBounce.position.set(2,.35,15);groundBounce.target.position.set(0,12,0);groundBounce.castShadow=true;
+ groundBounce.shadow.mapSize.set(2048,2048);Object.assign(groundBounce.shadow.camera,{left:-18,right:18,top:25,bottom:-12,near:1,far:85});groundBounce.shadow.bias=-.000012;groundBounce.shadow.normalBias=.0015;groundBounce.shadow.autoUpdate=false;groundBounce.shadow.needsUpdate=true;scene.add(groundBounce,groundBounce.target);
  const measuredSky=await installMeasuredSky(scene,sun.position.clone().sub(sun.target.position));
  const canopy=buildMapleCanopy(scene);
  // Flatten static geometry by material: dense joinery remains real 3D but submission cost stays bounded.
@@ -318,5 +331,5 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-monumental-coupled-storeys-v3-r08',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,geometry:'Individually coupled concentric storeys; square structural piers; double-ogee downturned half-lapped timber courses and measured receivers; decorated closed waist ceramics with actual corner sculpture and timber end bearings; cropped-sensor physical low frustum shared by all poses',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:1.0,courtyardBounceCastsShadows:true,hemisphere:.30,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native directional key and shadow-casting courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();}};
+ return {scene,info:()=>({reference:5,revision:'scene05-mass175-r03',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,geometry:'Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#ffdfaa',courtyardBounce:groundBounce.intensity,courtyardBounceCastsShadows:true,hemisphere:hemi.intensity,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native directional key and shadow-casting courtyard-bounce proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();copperFinish.dispose();}};
 }

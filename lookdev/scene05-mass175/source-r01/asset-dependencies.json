@@ -1,0 +1,166 @@
+{
+  "files": [
+    "assets/temple-joinery-v01/temple-joinery-v01.glb",
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "reconstructions/camera-dolly.js",
+    "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "assets/polyhaven/qwantani-sunset-puresky/provenance.json",
+    "reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr"
+  ],
+  "sourceBuilder": "tools/build-temple-joinery-kit.py",
+  "provenance": "lookdev/gilded-kiku-v01/README.md",
+  "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
+  "revision": "scene05-monumental-coupled-storeys-v3-r08",
+  "bearingBlockCorrection": {
+    "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
+    "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5\u7167\u72476 has flatter bearing planes and sharper tapered sides.",
+    "construction": "Closed clipped-square tapered blocks with short foot/upper bands and actual~2mm arrises. Render cap, cheek and bottom vertices split for hard planar normals. Existing nominal radii/heights, bottom seatY/top bearingY and all assembly transforms retained.",
+    "referencePhotoUse": "Visible silhouette comparison only. No reference RGB, image projection or inferred whole-photo depth. Fine corner wear/metric bevel details remain interpreted.",
+    "visualAccepted": false,
+    "historicalStatus": "Previous mesh74a bearing block note, superseded for complete bracket assembly by solmax06; original closed planar cushion generator remains in use."
+  },
+  "visualAccepted": false,
+  "expandingBearing06": {
+    "source": "src/sculpted-joinery.js",
+    "architectureIntegration": "src/architecture.js",
+    "construction": "Three expanding courses fit the retained shaft-head/purlin interval. A first orthogonal half lap carries four real receivers; two paired courses sit directly on those seats, with complementary lap slots at their crossings and four final roof bearing shims. Corner part translations now scale consistently with the timber kit.",
+    "cornerArmLengthsM": [
+      1.06,
+      1.54,
+      2.05
+    ],
+    "intermediateArmLengthsM": [
+      1.0,
+      1.34,
+      1.7
+    ],
+    "armsPerSet": 10,
+    "receiversPerSet": 12,
+    "metalEndFaces": "Closed thin cast copper cup, raised chrysanthemum/scrolls and recessed patinated field at the actual cut plane, outside timber edge easing. Smaller arm cuts replace the previous broad blank/U-bound faces.",
+    "photoUse": "Visible geometry and mass comparison only. No source RGB, projection or inferred photograph depth.",
+    "visualAccepted": false
+  },
+  "handlaidCeramics06": {
+    "source": "src/handlaid-ceramics.js",
+    "construction": "Short closed19mm clay cylindrical cover and concave pan pieces, overlapped along roof slope with bounded roll/colour variations. Native outer tile-end rows align with real barrels instead of being buried behind their closed end walls. Roof underlay, timber deck and waist eaves have lower faces and perimeter thickness.",
+    "pitchM": 0.26,
+    "material": "Independent grey fired-clay PBR; geometric variation and vertex pigment only, no scene photographs.",
+    "visualAccepted": false
+  },
+  "hipAndLantern06": {
+    "source": "src/scene.js",
+    "hipTail": "Closed raked timber starts inside the real roof support and extends outward. Copper end cup is oriented to its actual angled cut-plane normal.",
+    "lantern": "Closed six-face hood/bowl chassis, real pierced petals and crown, pierced chased apron, sloping hood ribs, recessed paper and joined cast grille. A forged braced mount now connects the chain to the actual raked beam.",
+    "visualAccepted": false
+  },
+  "rootedCanopy06": {
+    "source": "src/foliage.js",
+    "construction": "Four closed tapered trunk/branch systems continue to ground outside the crop. Fine branches and paired petioles carry closed thin seven-lobed, serrated, compound-fold laminae. No tree cards/alpha sprites or detached leaf-cloud bitmap.",
+    "surface": "Authored pigment, geometric veins/folds and a bounded native thin-tissue lighting approximation.",
+    "visualAccepted": false
+  },
+  "timber06": {
+    "source": "src/scanned-timber.js",
+    "licensedAsset": "Retained Poly Haven lacquered_cherry_wood CC0 normal, roughness and bounded neutral luminance.",
+    "material": "Member-aligned metric UV retains real scan variation under revised opaque warm timber pigment. Filtered longitudinal fibres and broad low-amplitude wear modulate reflectance, without reference photograph colour.",
+    "visualAccepted": false
+  },
+  "camera06": {
+    "position": [
+      10.8,
+      0.8,
+      13.7
+    ],
+    "target": [
+      -1.7,
+      15,
+      0
+    ],
+    "fov": 35.5,
+    "changedByThisLane": false,
+    "dolly": "Retained root-03 physical path and aim.",
+    "historicalStatus": "R07 pose retained by the previous modeling phase. Superseded by wholeFrameCalibration10, with R07 source and actual motion retained unchanged."
+  },
+  "remainingVisualLimits06": [
+    "Joinery/ornament remains more regular and less historically specific than the supplied photograph.",
+    "The source corner framing and tier perspective remain a reconstruction hypothesis; this lane preserves the root camera/path.",
+    "Native analytical environment and courtyard-bounce proxy are not a physical GI measurement; leaf scattering and material ageing remain approximate.",
+    "Native full, detail and inspection renders are 3D evidence only and do not establish photographic acceptance."
+  ],
+  "wholeFrameCalibration10": {
+    "source": [
+      "src/tier-layout.js",
+      "tools/solve-perspective.py",
+      "tools/solve-canonical-tiers.py"
+    ],
+    "comparisonInput": "references/hd/5-\u7167\u7247-6.jpg",
+    "measurements": "qa/ten-reference/05/perspective-fit-solmax-20261021",
+    "method": "Explicit manually observed hip/eave endpoints, corner/inner post heads, hip-tail cut faces and near/far lantern centres; bounded common-camera and coherent common-tier fits. Measurements include10\u201318px uncertainty and ambiguous cropped/ornamented features.",
+    "heightMetres": 0.8,
+    "pose": {
+      "position": [
+        14.82335137,
+        0.8,
+        14.62564576
+      ],
+      "target": [
+        -4.93362536,
+        15,
+        -0.40723472
+      ],
+      "verticalFov": 27.8228581
+    },
+    "unifiedTier": {
+      "canonicalWidth": 8.8,
+      "canonicalPitch": 5.7,
+      "uniformRatio": 0.83656108,
+      "roofWidthAddition": 4.38973926,
+      "roofHeight": 3.85697332,
+      "roofRise": 3.5,
+      "bearingVerticalScale": 1.65313409,
+      "bearingHorizontalScale": 1.12,
+      "baseY": 0.35,
+      "hipTailCutHeight": 1.92
+    },
+    "construction": "Each complete canonical roof/body/bearing/gallery/fixture assembly receives one positive uniform tier transform. Closed capped roof/deck openings and supported timber collars carry the next deck; the former complete pyramid no longer runs through its upper room. Closed transom boarding ties the bearing field to the real posts. All receivers, complementary laps, applied fitting normals and member UVs transform with their members.",
+    "refinement": "Both source tail-cut landmarks supported a longer common raked hip-tail member. Its end cut uses the actual spline tangent. Two forged fixture braces now mount to sampled physical points on that same timber.",
+    "dolly": "Continuous low Bezier endpoint and attitude refitted to the measured reference pose; start[10.2,.72,11.4], controls[11.2,.76,12.2] and[13.8,.80,13.8], calibrated reference endpoint. Initial aim is the actual near tier1 lantern; y.72..80m; shared camera-dolly code unchanged.",
+    "predictedLandmarkRMSPixels": {
+      "R07baseline": 141.33,
+      "cameraOnly": 55.43,
+      "coupledBeforeCommonTailLengthRefinement": 47.23
+    },
+    "limits": "These manually assigned feature correspondences and a lower RMS do not establish photographic fidelity or a recovered physical source camera. Native full/detail/oblique and0/3.5/7pose views are required for actual review.",
+    "visualAccepted": false,
+    "poseReviewRepair": "Actual R10 pose0 was dominated by the foreground lower soffit because the inherited post-head aim was occluded. The revised start/near-lantern aim is a common physical low trajectory, not a separate screen-space camera deformation. R10 full/three-pose/oblique evidence remains retained.",
+    "runtimeMetricsEvidence": "qa/ten-reference/05/iteration-scene05-coherent-tier-closure-r10-20261021/runtime-landmark-measurements.json",
+    "runtimeMeasuredRMSPixels": 44.9731094,
+    "mainLeftEaveChordSlope": {
+      "source": -0.71670429,
+      "R07": -0.57318732,
+      "refit": -0.6873758
+    }
+  },
+  "material10": {
+    "source": "src/scanned-timber.js and src/scene.js",
+    "pigment": "Brighter warm honeyed cedar/copper-red stained timber; retained CC0 scan luminance/normal/roughness and filtered longitudinal fibres. Positive uniform tier scales use correctly transformed normals and metric member-aligned UV.",
+    "light": "Retain the same shadow-casting key/analytical environment, increase the existing shadow-casting warm courtyard bounce to.80.",
+    "dataCorrection": "Preserve actual ceramic vertex pigments and intended per-member tint during geometry merge; they were previously stripped/ignored. Closed structures and real cast shadows remain the occlusion source.",
+    "visualAccepted": false
+  },
+  "monumentalTowerV3": {
+    "scope": "Whole concentric measured storeys, corrected main-story waist correspondence, shared physical sensor-crop frustum, square structural piers, real downturned ogee half-lapped bearings and measured receivers, compact waist bearings, closed decorated waist ceramics and cropped lower occupied frame.",
+    "cameraHypothesis": "One low perspective camera with an asymmetric sensor crop. The source optical centre and metre scale are inferred; no image-space geometry warp.",
+    "sky": "Poly Haven CC0 kloofendal_48d_partly_cloudy_puresky source EXR/provenance under assets/kloofendal-48d-sky. Shadowed direct solar key is separated from unshadowed native IBL; no source photograph or scene plate.",
+    "proof": "qa/ten-reference/05/iteration-scene05-monumental-tower-v3-r08-native-20261022",
+    "previousR01R02R03": "Failed/intermediate candidates retained with receipts; no photo acceptance.",
+    "visualAccepted": false,
+    "tailBeam": "The actual shorter inner raked beam ends at .75 of the wall-to-roof overhang and canonical2.50m cut height; both source near cut-plane observations improve under one common physical member change. Forged lantern braces still mount to actual spline samples.",
+    "nativeLightingCalibration": "A measured sky without its unshadowed solar disk plus shadow-casting directional sun at37.66degrees, shadow-casting warm courtyard proxy1.0, native exposure1.35, camera-sky gain1.35. These are reconstructed look values, not recovered measurements.",
+    "copperSubmission": "Closed end-fitting templates, all normals/UVs and placement matrices are shared through actual InstancedMesh batches; no loss of sculptural geometry. Native R05/R06 equivalence evidence is retained. R07 adds twelve outer petals and an interleaved inner whorl plus pierced square-pillar collars.",
+    "tailSeat": "The brace begins at the analytical diagonal hip centre from the same roof sampler and .365m hip offset; its earlier fixed+.40 start penetrated the ceramic shell. Native actual reference/detail and three physical poses are retained."
+  }
+}

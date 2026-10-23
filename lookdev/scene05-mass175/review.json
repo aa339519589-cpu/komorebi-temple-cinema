@@ -1,0 +1,320 @@
+{
+  "scene": 5,
+  "lane": "scene05-mass175",
+  "status": "held-for-root-review-unaccepted",
+  "source": {
+    "hash": "c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815",
+    "files": {
+      "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "assets/polyhaven/lacquered-cherry-wood/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "assets/polyhaven/qwantani-sunset-puresky/provenance.json": "45e7d0d3a2746dcb4a5798c8dceca1322fe5dfc8389572f2814b6264936597ef",
+      "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr": "f738ddd35a5e1a291eb45b30eea73b4d296dc4a05a412ae2f187ef5e95dc076a",
+      "assets/temple-joinery-v01/temple-joinery-v01.glb": "b984ebc15df7251c376c95f71cc0c9fe3e4706e3a1abaa1bd3a7bfd492e597bd",
+      "reconstructions/camera-dolly.js": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "reconstructions/scene-05/asset-dependencies.json": "6a982d1054c73443906e23a04e80c4a49eeb9fc6f7480534ecc238ddecadb1fa",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/files.json": "a7cbb453c0269ac0996e43edaa7995d52b72f89830f4c7d7f813569f6647832c",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/info.json": "c166c22f748ddcfe4b22071cc284aef9bdfd60e25f9c2471a5789c298830226c",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/provenance.json": "fcf63af8904ab89aae49f721ce46f13e2bbc73e54821b775d84a5937b7852ca8",
+      "reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr": "e56997073870b6c1afec424cbc7f9fc307dd96ac70b975defacac091926a03e6",
+      "reconstructions/scene-05/cycles/hdri-provenance.json": "45e7d0d3a2746dcb4a5798c8dceca1322fe5dfc8389572f2814b6264936597ef",
+      "reconstructions/scene-05/cycles/physical03-settings.json": "2cb6f17b9c2a936b0f4fb40ddf6ce636e022695f4d2cf5c642378f9db83004b8",
+      "reconstructions/scene-05/cycles/physical04-settings.json": "bcf816e291f68e5f822c4f4b5063cc00d7e741731a998c92e46ea45a84c6dbe9",
+      "reconstructions/scene-05/cycles/physical05-settings.json": "9a984df1911fe44c750d8335d31e78d73205c612df36b1ad5a5a9cd25ddd046d",
+      "reconstructions/scene-05/index.html": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "reconstructions/scene-05/src/aged-pier.js": "273ad6a10f31888c48421204804849c34e611c7f0d2004783e50b85ddc1f5d0c",
+      "reconstructions/scene-05/src/architecture.js": "be73ef01abb0fa86aa04d631281a2fd35d84d0713d40e099be507927935b8919",
+      "reconstructions/scene-05/src/blender-joinery.js": "472b1d1ec008ce03fbc070c476936d86c2a0f1e8acd66b3e9c07e3a5d3760f58",
+      "reconstructions/scene-05/src/foliage.js": "d1403ed263b71046ee1f79a0ee750e8be85e9fbe1f4a44ff6ebfa91a2c12f762",
+      "reconstructions/scene-05/src/handlaid-ceramics.js": "fa3f0ef521b38e196ab1a754ef7efc70fe76c1cea27937864f2e916af99de1e2",
+      "reconstructions/scene-05/src/main.js": "36388e3b12dccef9b3d7c957236d6c185e11fe0dff71f9681d2f74515358b2f5",
+      "reconstructions/scene-05/src/materials.js": "53e5cf330ee6c5b3adf7a0bd99bcd9bbefe585a3cedac1e7c6c0b6a2721b1a0a",
+      "reconstructions/scene-05/src/measured-sky.js": "46890d9cb7c150d7ef0cb9f96a602f74c227d3c044a96e626e5f21b8e36d6135",
+      "reconstructions/scene-05/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-05/src/rafter-end-copper.js": "b5eb735f95e233b730c6f756474ddd2c21a8893b7b8c21c0c94acdcf8069ded7",
+      "reconstructions/scene-05/src/scanned-timber.js": "2f159e5ffea9c0283a0d8556ed217ad68e2576919066efc891684cab27f27969",
+      "reconstructions/scene-05/src/scene.js": "534c724e9196bf7ffae4e31ef49354d9bb1a7f754447442a10bef50dbb41a1e2",
+      "reconstructions/scene-05/src/sculpted-joinery.js": "154f6827a654885b9e0d6fc37392f0e8ff5d63f4074be621eef189d2af0a5a4c",
+      "reconstructions/scene-05/src/tier-layout.js": "48b61d98a8b3c29da19c3bae00676bf559a5708c593d354925eb82210030412c",
+      "reconstructions/scene-05/src/timber-path-uv.js": "c14071bc308cefe76c44611531eb3d95fa1292aa3574cb31d6f8e6c6e0387ba6"
+    }
+  },
+  "baseline": "ea165b5b9dae5e184b4e60af5989ce1396d4ded4bc17d389704836a2a4765ed2",
+  "changedCanonicalFiles": [
+    "reconstructions/scene-05/src/aged-pier.js",
+    "reconstructions/scene-05/src/rafter-end-copper.js",
+    "reconstructions/scene-05/src/scanned-timber.js",
+    "reconstructions/scene-05/src/scene.js",
+    "reconstructions/scene-05/src/sculpted-joinery.js",
+    "reconstructions/scene-05/src/timber-path-uv.js"
+  ],
+  "visualAccepted": false,
+  "reference": "references/hd/5-照片-6.jpg",
+  "viewedReferenceDetail": "qa/ten-reference/05/iteration-scene05-monumental-tower-v3-r08-native-20261022/source-true-corner-crop.png",
+  "actualEvidence": [
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r01/report.json",
+      "source": "d412e5ddf3a500f713d4936b7dc217d33d2071fc58f9d8e04e5357729c537a30",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r01/reference.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "5959fe6e7f2fe807ab145f78da9b7534abcd93b74707f088a2450b89ee2043d0"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r01/detail-native.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "7824e0cb05c15a7a2f83a8c1bbaa018a935606425dc14a2b4c80f54cffa486bf"
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r01-low-oblique/report.json",
+      "source": "d412e5ddf3a500f713d4936b7dc217d33d2071fc58f9d8e04e5357729c537a30",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r01-low-oblique/inspection-view.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "1b2c84461d12904373b61eff03fa753d3e9aadbf99d571c2b3f5be071192fc1f"
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r02/report.json",
+      "source": "743a17aa7b191de9fb471d0d2df9ecfe8aa77cacb7f85b986560a0caefec55c3",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r02/reference.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "d6242eaa8be407230f1a809701426b60c20835efe27b59bd64b4dbed7e9b0234"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r02/detail-native.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "831555d34b6acc77a706ca6e67e0f5d680d721cdcd5e93f36765f3409b47783b"
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r02-low-oblique/report.json",
+      "source": "743a17aa7b191de9fb471d0d2df9ecfe8aa77cacb7f85b986560a0caefec55c3",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r02-low-oblique/inspection-view.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "a28e6bd337be5f81ed712c0b4c6742c5eca17bb03728d7ce9d98307308fd06d3"
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r02-three-poses/report.json",
+      "source": "743a17aa7b191de9fb471d0d2df9ecfe8aa77cacb7f85b986560a0caefec55c3",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r02-three-poses/shot-0.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "b4068cf97e5569bf5201ab11a0cdfa06abfe8d08b04fae592bb3d370de898d6a"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r02-three-poses/shot-3p5.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "68adc4ee9a744e1ca1937c7b258b390c3f48e1c65094508200d3481ab68b37b9"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r02-three-poses/shot-7.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "15bd1b05aa6f808d64880b07bcc180fb6551051a9cf70d30d6bc6e895d3ef4d5"
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r03/report.json",
+      "source": "c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r03/reference.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "292588699af14a8a2209c36aca63f90993c1916255a47de610e327b1ad75b6c8"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r03/detail-native.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "fcad171a3233135a8115db2ea0225c004acd08b1f26dfd4752ed675b94114446"
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r03-low-oblique/report.json",
+      "source": "c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r03-low-oblique/inspection-view.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "78d5d59889cfcd0782a6f84668a657c1bedf51c2218d1f61acfdf2ef254080cf"
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "report": "qa/ten-reference/05/iteration-scene05-mass175-r03-three-poses/report.json",
+      "source": "c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815",
+      "status": "rendered-review",
+      "buffers": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r03-three-poses/shot-0.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "875c3f4a03714677da38cf08c07eeaa99f14eefd875f2218a5cdcd0ae5a16a5f"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r03-three-poses/shot-3p5.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "fd1b614a108d7899f0c853e2d5522e480a80df36aa8f2bb3d3e66d365ea60d01"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-mass175-r03-three-poses/shot-7.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "sha256": "6b7e443c72b316d523327eaf8515e536b9bc52f118d2c597f43de5ceca094468"
+        }
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "actualNativeBuffers": 15,
+  "officialGpuJobs": 8,
+  "rounds": [
+    {
+      "round": "R01",
+      "source": "d412e5ddf3a500f713d4936b7dc217d33d2071fc58f9d8e04e5357729c537a30",
+      "changes": "Closed folded outer/inner copper chrysanthemum whorls, convex boss,19% returned sleeves and16 solid acanthus return leaves; broad closed cheek clouds;3.5mm inset arm arrises; warmer scanned worn timber and neutral charcoal ceramic finish.",
+      "observedFailure": "Full/detail/oblique showed a still-pale blank hip face, generic stretched pillar collar and regular straight receiver cheeks.",
+      "visualAccepted": false
+    },
+    {
+      "round": "R02",
+      "source": "743a17aa7b191de9fb471d0d2df9ecfe8aa77cacb7f85b986560a0caefec55c3",
+      "changes": "Closed three-paired-frond acanthus pillar collars; shallow checks cut into actual closed square piers; bounded courtyard bounce .64 and hemisphere .24; smaller shadow normal offsets for close contact.",
+      "observedFailure": "All six views retained coherent occupied waist and path. Bounce reduction did not resolve the directly lit pale hip face; receiver flanks remained straight tapered boxes.",
+      "visualAccepted": false
+    },
+    {
+      "round": "R03",
+      "source": "c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815",
+      "changes": "Concave-neck receiver cheeks within previous nominal bounds and flat contact planes;6mm raked-hip cut arrises; dark aged raked-hip finish and real3D centreline arclength UV.",
+      "observedFailure": "Receivers and metal have more actual relief, but the photographed joinery is less regular, ceramic mask and lantern specificity remain deficient, the hip face remains too blank/bright, and foliage/sky and inherited correspondence remain approximate.",
+      "visualAccepted": false
+    }
+  ],
+  "invariants": {
+    "bytePreservedFromR08": [
+      "tier-layout.js",
+      "architecture.js",
+      "main.js",
+      "handlaid-ceramics.js",
+      "foliage.js",
+      "measured-sky.js"
+    ],
+    "mainStoryWaist": "Same occupied story with shallow pent roof; compact .3868 head-to-purlin retained.",
+    "camera": "R08 low physical cropped-sensor frustum/path unchanged; reference height .8m and path .72–.80m.",
+    "roofAndTail": "Tier layout, sampled roof, ceramic courses, actual tail centreline/seat/cut anchors retained; tail section arrises only.",
+    "copperSubmission": "Copper168 InstancedMesh batching branch byte-identical; shared real closed templates retained; no duplicate buffer export.",
+    "canonicalFilesWrittenOnly": "reconstructions/scene-05",
+    "noOtherScenesSharedToolsOrGitWrites": true
+  },
+  "constructionCheck": {
+    "receipt": "lookdev/scene05-mass175/templates-r03.json",
+    "parts": 69,
+    "finite": true,
+    "closed": true,
+    "positiveVolumes": true,
+    "bearingDatumsMetres": [
+      0.02,
+      0.1568,
+      0.3052,
+      0.442,
+      0.5852,
+      0.722,
+      0.82
+    ],
+    "waistHeadToPurlinMetres": 0.3868,
+    "scope": "Authored template construction only; not photographic acceptance."
+  },
+  "runtime": {
+    "sceneTriangles": 33164435,
+    "sceneParts": 32114,
+    "fullRenderCalls": 2316,
+    "programsLinked": true,
+    "glError": 0
+  },
+  "provenance": {
+    "newExternalAssets": [],
+    "newSurfaces": "CPU-authored closed solids and neutral worked-copper microfinish; no reference-photo/AI colour or inferred-photo-depth replacement.",
+    "existingSources": "Existing Poly Haven CC0 lacquered cherry normal/roughness/albedo and local Kloofendal sky/provenance retained byte-identical; existing Blender kit metadata retained.",
+    "physicalRenderScope": "All actual images use official native GPU FIFO. No new Blender export/render or CPU Blender process. Native lighting remains a measured-sky plus directional/bounce approximation, not recovered physical GI."
+  },
+  "remaining": [
+    "Repeated bearing arrays and timber morphology remain more regular than the HD photograph.",
+    "Ceramic mask/lantern sculpture and copper vocabulary are still approximations.",
+    "Bright raked-hip face remains too blank; local material refinement did not fully resolve it.",
+    "Foliage translucency and branch distribution, sky clouds and photograph-wide colour/light remain unlike the reference.",
+    "Earlier calibrated correspondence remains approximate; this lane does not claim a new camera or landmark fit."
+  ]
+}
