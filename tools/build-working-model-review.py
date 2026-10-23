@@ -13,11 +13,15 @@ from PIL import Image, ImageDraw
 
 parser = argparse.ArgumentParser()
 parser.add_argument('output')
+parser.add_argument('--selection', help='Explicit ten retained native report paths and review notes; returned candidates remain separately preserved')
 args = parser.parse_args()
 root = Path.cwd()
 out = root / args.output
 out.mkdir(parents=True, exist_ok=False)
 scenes = json.loads((root / 'reconstructions/ten-scenes.json').read_text())['scenes']
+selection = json.loads((root / args.selection).read_text()) if args.selection else None
+if selection and set(selection['reports']) != {str(i) for i in range(1, 11)}:
+    raise RuntimeError('Explicit selection must cover all ten references')
 paths = subprocess.check_output(['rg', '--files', 'qa/ten-reference', '-g', 'report.json'], text=True).splitlines()
 choices = {}
 for relative in paths:
@@ -25,6 +29,8 @@ for relative in paths:
         path = root / relative
         report = json.loads(path.read_text())
         number = int(report.get('reference', 0))
+        if selection and selection['reports'].get(str(number)) != relative:
+            continue
         frame = next((f for f in report.get('frames', []) if f.get('name') == 'reference' and f.get('valid')), None)
         if number not in range(1, 11) or report.get('status') != 'rendered-review' or frame is None or not (path.parent / 'reference.png').is_file():
             continue
@@ -38,6 +44,9 @@ for relative in paths:
         continue
 if len(choices) != 10:
     raise RuntimeError('All ten genuine source-camera frames are required')
+if selection:
+    for number, metadata in selection.get('frameLicenses', {}).items():
+        choices[int(number)].update(metadata)
 board = Image.new('RGB', (1440, 1980), (18, 20, 16))
 draw = ImageDraw.Draw(board)
 for index, scene in enumerate(scenes):
@@ -52,5 +61,9 @@ manifest = dict(status='in-progress-not-photographically-accepted',
     createdAt=datetime.datetime.now(datetime.timezone.utc).isoformat(),
     scope='Latest completed native reference-camera still per scene; independent source identities, not a newly rendered movie or unified source snapshot',
     frames=[choices[i] for i in range(1, 11)])
+if selection:
+    manifest.update(scope='Explicit retained native reference-camera frames after visual review; returned candidates remain preserved separately. Independent source identities, not a new movie or unified source snapshot', selectionFile=args.selection, reviewNotes=selection.get('notes', {}))
+    if selection.get('boardLicense'):
+        manifest['boardLicense'] = selection['boardLicense']
 (out / 'frames.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
 print(out)

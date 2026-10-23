@@ -1,6 +1,6 @@
 {
-  "status": "in-progress-not-photographically-accepted",
-  "updatedAt": "2026-10-21T19:59:42.828Z",
+  "status": "returned-for-model-rebuild",
+  "updatedAt": "2026-10-21T20:29:55.479Z",
   "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
   "snapshot": "/Users/mima1234/temple-cinema-film-f-f538de7-r02",
   "completedShots": 8,
@@ -162,15 +162,44 @@
     },
     {
       "reference": 9,
-      "status": "capturing-actual-native-frames",
-      "pid": 76551,
-      "startedAt": "2026-10-21T19:44:09.274Z",
-      "capturedFrames": 48,
-      "expectedFrames": 168
+      "status": "partial-returned-for-model-rebuild",
+      "lastPrintedCheckpoint": 120,
+      "nativeFramesInTerminalReceipt": 134,
+      "expectedFrames": 168,
+      "nativeReceiptStatus": "failed",
+      "nativeReceiptError": "page.evaluate: Target page, context or browser has been closed\n    at /Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:76:41",
+      "receipt": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/09/iteration-native-rebuild-review-20261022-f/report.json",
+      "sourceHash": "a969e48caa15ffcc8d7d3485a22ff87d04ac6683a17d1a9c8d7d2f49e19f2c84",
+      "classification": "deliberate visual/source-priority rejection",
+      "observedGpuErrors": [],
+      "terminalMedia": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "134"
+          }
+        ],
+        "format": {
+          "duration": "5.583333"
+        }
+      },
+      "terminalDecodeExitCode": 0
     },
     {
       "reference": 10,
-      "status": "not-submitted"
+      "status": "not-submitted-by-root-direction"
     }
-  ]
+  ],
+  "rejection": {
+    "reason": "Unresolved thin eave/bearing mass, tubular cloth and excessively hard gold/paper lighting. The frozen source omits the new scene01/04/06 mass rebuilds; continuing obsolete output blocks prioritized model iteration.",
+    "classification": "deliberate visual/source-priority rejection",
+    "record": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/root-review-rejection.json",
+    "assemblyStatus": "cancelled-before-start",
+    "publicationStatus": "not-published"
+  }
 }

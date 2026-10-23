@@ -1,0 +1,893 @@
+{
+  "status": "returned-for-model-rebuild",
+  "recordedAt": "2026-10-21T20:29:21.005640+00:00",
+  "decision": "Root rejected Film F as the next delivery/build and directed return to model rebuilds.",
+  "reason": "Unresolved thin eave/bearing mass, tubular cloth and excessively hard gold/paper lighting. The frozen source omits the new scene01/04/06 mass rebuilds; continuing obsolete output blocks prioritized model iteration.",
+  "classification": "deliberate visual/source-priority rejection",
+  "timeoutOrSlownessFailure": false,
+  "gpuErrorObserved": false,
+  "visualAccepted": false,
+  "completeRequestedFidelity": false,
+  "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+  "snapshot": "/Users/mima1234/temple-cinema-film-f-f538de7-r02",
+  "assemblyStatus": "cancelled-before-start",
+  "publicationStatus": "not-published",
+  "scene10Status": "not-submitted-by-root-direction",
+  "lastPrintedPartialCheckpointBeforeClosure": 120,
+  "completedClips": [
+    {
+      "reference": 1,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "78cb125098c56e38cd5027ec5d38e9453ed9f01ba52dee2b8ea7359c340ac3f8",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/01/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-01/motion-review.mp4",
+          "sha256": "f80ad67a7d4961a9d2908c0faefee2d6c3e07bc0b4ffe64bff99e32b6b44055a",
+          "bytes": 10105462,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/01/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-01/report.json",
+          "sha256": "5a0a65c9402d4fd70ff9adcdc8fe384cd1749e9057e941ef45b6a96790c238a5",
+          "bytes": 2530350,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/01/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-01/frame-0000.png",
+          "sha256": "d6452cc801b88babdd35bd26f992744b5a308ed952cb1400191322219da86bd1",
+          "bytes": 4381516,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/01/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-01/frame-0084.png",
+          "sha256": "30455652aad003e32812995faeba9c65f670765e743a8bc62bf8f141175473bd",
+          "bytes": 4466547,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/01/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-01/frame-0167.png",
+          "sha256": "303e3b85a78f27a222de58e6ba1abc9cd83060263a76217d5e7539b9b1a36308",
+          "bytes": 4822433,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "reference": 2,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "8af0995aa25c3ea835b32cec4ee1a3a67e9a0c6c1f5fe5a28dc212fc2c2e2eb6",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/02/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-02/motion-review.mp4",
+          "sha256": "f9e1cb3cc7aad9f5c8dea8fc313968f2b0ff3edbcfc75a2e00589444d89d90ae",
+          "bytes": 15910119,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/02/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-02/report.json",
+          "sha256": "31cbb82a81046b349941fecd7c9f72607da2f2ca94e915fc97a8f85704289f17",
+          "bytes": 14752590,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/02/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-02/frame-0000.png",
+          "sha256": "985430d4ad863bbab2044d2faa099ce043c51d3929fb430ecd906f361c127db0",
+          "bytes": 4225849,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/02/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-02/frame-0084.png",
+          "sha256": "740368bd0ca6aa0319eb649a425e2b84405ae879af6973dad7209d658cf07398",
+          "bytes": 4754332,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/02/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-02/frame-0167.png",
+          "sha256": "29c2cbcf70b53990fc0dbe5068465bb0e9be40b5a8cfce477ae66cca95dea8dd",
+          "bytes": 5075018,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "reference": 3,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "c2e9eed2836667f77c52c31434758a31a68b3d61cf9dde53ff447ac5ff657853",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/03/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-03/motion-review.mp4",
+          "sha256": "1444f22ed726693aa11c76ef496626363acf70cd8791d079415bfbf30367fc27",
+          "bytes": 11205496,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/03/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-03/report.json",
+          "sha256": "8c83d669582ac23578158d04ccaf7cfe7433399412a052bef8b18c31992ea296",
+          "bytes": 3956424,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/03/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-03/frame-0000.png",
+          "sha256": "4b7058b582b9270fbff408ed4fc2c4dc2944f03771e15eb70e4157e0754f8815",
+          "bytes": 4559841,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/03/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-03/frame-0084.png",
+          "sha256": "add13d8229cc5eb9fc75cd9574dcd74926b82d4b5a5ceab368127f32604e4e2d",
+          "bytes": 5346321,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/03/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-03/frame-0167.png",
+          "sha256": "df5ff9c9b4a2c00aa41b0574064ce2ffe383fed113e85d944dd76ed52c646c73",
+          "bytes": 5484323,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "reference": 4,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "5f30b45c9d034ebb32100e9d3588621cc30e85dd9b57210b8cfb8cd66578f477",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/04/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-04/motion-review.mp4",
+          "sha256": "7032316773f2fbcaf6485259e351a52404e8558d055b26cb5c9e0ab42a0e3feb",
+          "bytes": 19952062,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/04/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-04/report.json",
+          "sha256": "bf2b2f9522c68eb257087b227a883f9f61948eeb1e8f1dfa6a732542f8daac38",
+          "bytes": 26822889,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/04/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-04/frame-0000.png",
+          "sha256": "d703adc1ef63a9ccec9611c868d8ac37dab4efced12833d1e6837ed0fd8f5fcc",
+          "bytes": 6637221,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/04/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-04/frame-0084.png",
+          "sha256": "6971fbe3b1569e1ef05020be5ae7c9aa210175f890ac95b9ee973d39001cab85",
+          "bytes": 6345968,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/04/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-04/frame-0167.png",
+          "sha256": "1e62fbb41ff3f88a81ee678a276b5e9268cd1f16b087fad159c7e3bc11163f20",
+          "bytes": 5638436,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "reference": 5,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "ea165b5b9dae5e184b4e60af5989ce1396d4ded4bc17d389704836a2a4765ed2",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/05/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-05/motion-review.mp4",
+          "sha256": "df9f46cb8abe2c2e9124118ef4ed3ac4dcd5ca1e6cd501c78d47b86829bb2c58",
+          "bytes": 12593466,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/05/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-05/report.json",
+          "sha256": "ad1fe2a4d816724ac2ca2c8e0432b689cbc9c8d9734f406f8d0a925e1f6e70d0",
+          "bytes": 2733497,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/05/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-05/frame-0000.png",
+          "sha256": "397d5948a5c883246b12d090f440b97c0893ce5a19cec9a5350908548b19c23d",
+          "bytes": 4873506,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/05/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-05/frame-0084.png",
+          "sha256": "d9e66a2d6f37323f881329d8c971eb7adc6a75aefdd6290cd299d9971884495b",
+          "bytes": 4901873,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/05/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-05/frame-0167.png",
+          "sha256": "e256e0bfe6daf1b3364a7e3db45ca6dce2ddd1d060542ed9dd79b8818329b607",
+          "bytes": 4907227,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "reference": 6,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/06/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-06/motion-review.mp4",
+          "sha256": "143662db5888e5042323c9058ee5c71ba11fd3ed531226dc804b921972e0f944",
+          "bytes": 12839527,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/06/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-06/report.json",
+          "sha256": "3fc28d299e3e07933434c891bdd652286af59803bfb9a4906f8bbd2f7b5f5900",
+          "bytes": 1984952,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/06/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-06/frame-0000.png",
+          "sha256": "01cb09903bca93e46b9155bb97a825632734496125960911addbfb95dc13527a",
+          "bytes": 4480899,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/06/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-06/frame-0084.png",
+          "sha256": "7b3ee8f84355de845bd6dd71d1da0f32c99a81fabf7f55eb44b3ca9f5d4b5294",
+          "bytes": 4877257,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/06/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-06/frame-0167.png",
+          "sha256": "f67be358aeea77d65ff3ac99a8fe70b58bffd88536afcf4f50c29bdf741798e9",
+          "bytes": 5105723,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "reference": 7,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "ef53f606be8cc69c099bd441892e7cb83d870cceac4b742a97882cc06a815729",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/07/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-07/motion-review.mp4",
+          "sha256": "82877d9a119c2a134583f2991f162291377fc7cb07e2f1def42b7afeeda67237",
+          "bytes": 17962475,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/07/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-07/report.json",
+          "sha256": "64bbed5a8f24c8d4c9c99010ceac64690199114787c91bc433c0e95dc5e11c62",
+          "bytes": 123193971,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/07/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-07/frame-0000.png",
+          "sha256": "a03538ed7293bc6142617b41ccd5fcf36c0f319a799ff80493a61e1be59ba354",
+          "bytes": 5320213,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/07/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-07/frame-0084.png",
+          "sha256": "221cdcaafb075528adbd4d252ef2fa0b752ca9034a9c3f88589087c00f08a4cb",
+          "bytes": 5214643,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/07/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-07/frame-0167.png",
+          "sha256": "d759ab9dec53e1973eea3d414f51594d4202a6f36b10e1758e51cff0029429d3",
+          "bytes": 5633572,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "reference": 8,
+      "status": "motion-review-rendered",
+      "frames": 168,
+      "duration": 7,
+      "sourceHash": "4823d9265316fcf5cd30aaa72f7ea5609edc0914beb1c768c226e1eb0790b9aa",
+      "sourceCommit": "f538de7f43141c8ce4a6d8eb3e48d09dea9fd5d6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "nativeReceiptDecodeErrors": 0,
+      "nativeProbe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1080,
+            "height": 1080,
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "168"
+          }
+        ],
+        "format": {
+          "duration": "7.000000"
+        }
+      },
+      "retainedFiles": [
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/08/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-08/motion-review.mp4",
+          "sha256": "44facbf177a18df2e0a4170d1220fe9da7a894eff896e60be704194d9efdebd6",
+          "bytes": 13769201,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/08/iteration-native-rebuild-review-20261022-f/report.json",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-08/report.json",
+          "sha256": "cad4a83f26175993fbb87d6cb70578e25e2fd450667515640045c33d7cb8a48f",
+          "bytes": 1774138,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/08/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-08/frame-0000.png",
+          "sha256": "7cb17030a32fce9e8947bd4702493115d3d07187df946a5bb658dee79535ffb1",
+          "bytes": 3912675,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/08/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-08/frame-0084.png",
+          "sha256": "042113271453db68f5d683901099bfcd1999b4de08ab5f1219ef85b4021b2272",
+          "bytes": 5014683,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        },
+        {
+          "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/08/iteration-native-rebuild-review-20261022-f/frame-0167.png",
+          "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/retained-completed-clips/scene-08/frame-0167.png",
+          "sha256": "9c255cb56e370c75cf8ec08e58e8e3652ddb87114e2d8a06b5ee39db4ce9f11b",
+          "bytes": 6268037,
+          "independentInode": true,
+          "method": "successful-native-clonefile(2)",
+          "originalRetained": true
+        }
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "partialScene09": {
+    "reference": 9,
+    "status": "partial-returned-for-model-rebuild",
+    "lastPrintedCheckpoint": 120,
+    "nativeFramesInTerminalReceipt": 134,
+    "allRetainedNativeFramesValid": true,
+    "expectedFrames": 168,
+    "nativeReceiptStatus": "failed",
+    "nativeReceiptError": "page.evaluate: Target page, context or browser has been closed\n    at /Users/mima1234/temple-cinema-live-sync/tools/render-one-reconstruction.mjs:76:41",
+    "nativeGpuErrors": [],
+    "sourceHash": "a969e48caa15ffcc8d7d3485a22ff87d04ac6683a17d1a9c8d7d2f49e19f2c84",
+    "completedAt": "2026-10-21T20:26:32.285Z",
+    "renderSampling": {
+      "nativeWidth": 1620,
+      "nativeHeight": 1620,
+      "outputWidth": 1080,
+      "outputHeight": 1080,
+      "scale": 1.5,
+      "downsampling": "Lanczos from genuine higher-resolution native frames",
+      "requestedNativeWidth": 1620,
+      "requestedNativeHeight": 1620
+    },
+    "retainedFiles": [
+      {
+        "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/09/iteration-native-rebuild-review-20261022-f/motion-review.mp4",
+        "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/terminal-motion-review.mp4",
+        "sha256": "02f78a2ff16fffe63c7ea5a48d16f3bb61f2559cfe32452b386eaaaa9783f2a7",
+        "bytes": 11235826,
+        "independentInode": true,
+        "method": "successful-native-clonefile(2)",
+        "originalRetained": true
+      },
+      {
+        "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/09/iteration-native-rebuild-review-20261022-f/report.json",
+        "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/terminal-report.json",
+        "sha256": "dbbf9e88f3f0579027d37fcf70281e823dc444d77012d2fef08b9c8c2b5e44d1",
+        "bytes": 14869313,
+        "independentInode": true,
+        "method": "successful-native-clonefile(2)",
+        "originalRetained": true
+      },
+      {
+        "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/09/iteration-native-rebuild-review-20261022-f/frame-0000.png",
+        "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/terminal-frame-0000.png",
+        "sha256": "984cb4ef1e1112bf6cdc2026ad6f609117ae7c65a64e0255d2c8e8a5dc739c79",
+        "bytes": 3765574,
+        "independentInode": true,
+        "method": "successful-native-clonefile(2)",
+        "originalRetained": true
+      },
+      {
+        "original": "/Users/mima1234/temple-cinema-film-f-f538de7-r02/qa/ten-reference/09/iteration-native-rebuild-review-20261022-f/frame-0084.png",
+        "retained": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/terminal-frame-0084.png",
+        "sha256": "052c49cba7a27f59b2b49cfb1a64d66b56e9feb4fc951fecd6423a207eb74b06",
+        "bytes": 4346685,
+        "independentInode": true,
+        "method": "successful-native-clonefile(2)",
+        "originalRetained": true
+      }
+    ],
+    "terminalProbe": {
+      "command": [
+        "ffprobe",
+        "-v",
+        "error",
+        "-count_frames",
+        "-show_entries",
+        "stream=codec_name,width,height,r_frame_rate,nb_read_frames:format=duration",
+        "-of",
+        "json",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/terminal-motion-review.mp4"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"programs\": [\n\n    ],\n    \"stream_groups\": [\n\n    ],\n    \"streams\": [\n        {\n            \"codec_name\": \"h264\",\n            \"width\": 1080,\n            \"height\": 1080,\n            \"r_frame_rate\": \"24/1\",\n            \"nb_read_frames\": \"134\"\n        }\n    ],\n    \"format\": {\n        \"duration\": \"5.583333\"\n    }\n}\n",
+      "stderr": ""
+    },
+    "terminalFullDecode": {
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/terminal-motion-review.mp4",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "preClosePrefixProbe": {
+      "command": [
+        "ffprobe",
+        "-v",
+        "error",
+        "-show_entries",
+        "format=duration",
+        "-of",
+        "json",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/pre-close-motion-review.mp4"
+      ],
+      "exitCode": 1,
+      "stdout": "{\n\n}\n",
+      "stderr": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x793050000] moov atom not found\n/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/abandoned-scene-09/pre-close-motion-review.mp4: Invalid data found when processing input\n"
+    },
+    "scope": "Deliberately stopped partial capture. Native captured frame count, last printed checkpoint and encoded frame count are separate facts; this is not a seven-second completed clip.",
+    "terminalMedia": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1080,
+          "height": 1080,
+          "r_frame_rate": "24/1",
+          "nb_read_frames": "134"
+        }
+      ],
+      "format": {
+        "duration": "5.583333"
+      }
+    }
+  },
+  "processTermination": {
+    "checkedAt": "2026-10-21T20:27:32.400Z",
+    "originalOwnedPids": [
+      76551,
+      76557,
+      76558,
+      76577,
+      76578,
+      76579,
+      76581,
+      76582,
+      76647
+    ],
+    "processState": [
+      {
+        "pid": 76551,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76557,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76558,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76577,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76578,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76579,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76581,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76582,
+        "alive": false,
+        "reason": "ESRCH"
+      },
+      {
+        "pid": 76647,
+        "alive": false,
+        "reason": "ESRCH"
+      }
+    ],
+    "ownerAfter": {
+      "pid": 76650,
+      "nonce": "e65b8837-c958-438a-b3d5-5477e3c8e6b9",
+      "label": "blender-render-pine158.py",
+      "startedAt": "2026-10-21T19:44:41.770Z"
+    },
+    "ownedGpuSlotReleased": true,
+    "signalSentOnlyTo": 76558
+  },
+  "completedClipsCount": 8,
+  "completedDecodedSourceFrames": 1344,
+  "originalSnapshotAndReceiptPathsRetained": true,
+  "postAbandonSourceProof": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/film-f-20261022/post-abandon-scene09-source-proof.json",
+    "sha256": "d242fb8ebcbe16d67d29618e5c4fd2a6ce627846545da0d347ca01bd6f47f0a0",
+    "sourceHash": "a969e48caa15ffcc8d7d3485a22ff87d04ac6683a17d1a9c8d7d2f49e19f2c84",
+    "match": true
+  }
+}

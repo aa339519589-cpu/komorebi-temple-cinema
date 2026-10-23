@@ -7,6 +7,8 @@ import {resolve} from 'node:path';
 
 const root=process.cwd(),commit=process.env.FILM_SOURCE_COMMIT||'c6841ad';
 const iteration=process.env.FILM_ITERATION||'native-rebuild-review-20261021-b';
+const size=Number(process.env.FILM_SIZE||960);
+if(![960,1080].includes(size))throw Error('FILM_SIZE must be 960 or 1080; default 960 preserves historical assemblies.');
 if(!/^[a-z0-9_-]+$/i.test(iteration)||!/^[a-f0-9]{7,40}$/i.test(commit))throw Error('Invalid snapshot or output');
 const snapshot=execFileSync('git',['rev-parse',commit],{encoding:'utf8'}).trim();
 const requestedCommits=process.env.FILM_SHOT_COMMITS?.split(',')||Array(10).fill(snapshot);
@@ -16,7 +18,7 @@ const defaultVersions=['native-rebuild-review-20261021-a','native-rebuild-review
 const versions=process.env.FILM_SHOT_ITERATIONS?.split(',')||defaultVersions;
 if(versions.length!==10||versions.some(v=>!/^[a-z0-9-]+$/i.test(v)))throw Error('FILM_SHOT_ITERATIONS requires exactly ten native iteration names, in reference order.');
 const out=resolve(root,'output',iteration);await mkdir(out,{recursive:true});
-const report={status:'assembling-preserved-native-shots',startedAt:new Date().toISOString(),sourceCommit:snapshot,sourceCommits:shotCommits,sourceIterations:versions,size:[960,960],fps:24,visualAccepted:false,completeRequestedFidelity:false,scope:'An immutable production checkpoint with individually verified public Git revisions for each shot; later ongoing model revisions are not included.',shots:[]};
+const report={status:'assembling-preserved-native-shots',startedAt:new Date().toISOString(),sourceCommit:snapshot,sourceCommits:shotCommits,sourceIterations:versions,size:[size,size],fps:24,visualAccepted:false,completeRequestedFidelity:false,scope:'An immutable production checkpoint with individually verified public Git revisions for each shot; later ongoing model revisions are not included.',shots:[]};
 const save=()=>writeFile(resolve(out,'film-build.json'),JSON.stringify(report,null,2)+'\n');
 const cache=new Map(),sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 function gitBytes(file,revision){const key=revision+':'+file;if(!cache.has(key))cache.set(key,execFileSync('git',['show',key],{maxBuffer:256*1024*1024}));return cache.get(key);}
@@ -26,7 +28,7 @@ try{
  for(let reference=1;reference<=10;reference++){
   const id=String(reference).padStart(2,'0'),revision=shotCommits[reference-1],receiptFile=resolve(root,'qa/ten-reference',id,'iteration-'+versions[reference-1],'report.json');
   const receipt=JSON.parse(await readFile(receiptFile,'utf8'));
-  if(receipt.status!=='motion-review-rendered'||receipt.size!==960||receipt.motion?.fps!==24||receipt.motion.expectedFrames!==168)throw Error('Invalid native source clip '+id);
+  if(receipt.status!=='motion-review-rendered'||receipt.size!==size||receipt.motion?.fps!==24||receipt.motion.expectedFrames!==168)throw Error('Invalid native source clip '+id);
   const names=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','reconstructions/scene-'+id],{encoding:'utf8'}).trim().split('\n').filter(f=>/\.(?:m?js|html|json|glb|gltf|bin|png|jpe?g|webp)$/.test(f));
   const dependencies=JSON.parse(gitBytes('reconstructions/scene-'+id+'/asset-dependencies.json',revision).toString());names.push(...dependencies.files);
   const unique=[...new Set(names)].sort(),h=createHash('sha256');
