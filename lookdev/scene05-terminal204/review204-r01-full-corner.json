@@ -1,0 +1,14 @@
+{
+  "sourceHash": "0bc61202942919cd5d817835e484fdfda335a472b6b3a447e243827bb4f11838",
+  "visualAccepted": false,
+  "actualFramesViewed": [
+    "qa/ten-reference/05/iteration-scene05-terminal204-r01-20261023/reference.png",
+    "qa/ten-reference/05/iteration-scene05-terminal204-r01-20261023/detail-native.png"
+  ],
+  "findings": [
+    "Shared volumetric face appears black although separate ceramic returns shade normally: missing white vertex-color attribute on the new indexed prototype while the shared material receives vertexColors from other merged pieces",
+    "New lower return is too broad/plain and reads as a horizontal bar; source photograph has three narrower stepped ceramic ledges and downturned returns",
+    "New face-back/old-carrier interface needs a positive seated rear neck; keep the exact old mounting solid/offset and bridge to the new ceramic instead of shifting anchors"
+  ],
+  "next": "Same-source low3q, then repair white prototype vertex colours, thinner stepped dished returns, and fitted hidden ceramic rear receiver neck; new actual frames required"
+}

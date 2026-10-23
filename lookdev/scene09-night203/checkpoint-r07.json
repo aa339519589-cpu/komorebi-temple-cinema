@@ -1,0 +1,143 @@
+{
+  "revision": "scene09-spatial-twilight-practical-night203-r07",
+  "source": "966a2eb35f039eb47b3b895fda6f62e6ad6b0206da0096f0a5e52f086705596a",
+  "inputs": 82,
+  "status": "Checkpointed for parent-requested Astra Max replacement; ownership released, unaccepted work in progress",
+  "visualAccepted": false,
+  "snapshots": [
+    "lookdev/scene09-night203/r07-source-identity.json",
+    "lookdev/scene09-night203/r07-source-scripts.tgz"
+  ],
+  "checks": {
+    "sameFrozenSource": true,
+    "allNative1254": true,
+    "validLinkedNoGlError": true,
+    "noErrors": true,
+    "referenceCameraUnchanged": true,
+    "exposureHeld": true,
+    "protectedCalls": true,
+    "retainedNative": true,
+    "legacyInputsUnchanged": true
+  },
+  "protectedCalls": [
+    {
+      "name": "181/158 architecture, bridge, toros and garden calls",
+      "unchanged": true
+    },
+    {
+      "name": "site continuation and pond footprint",
+      "unchanged": true
+    },
+    {
+      "name": "closed veranda foundation/slab topology",
+      "unchanged": true
+    },
+    {
+      "name": "wet footprint/reflection camera",
+      "unchanged": true
+    }
+  ],
+  "retainedNative": {
+    "instances": true,
+    "gable181": true,
+    "bearingMount181": true,
+    "stoneLantern158": true,
+    "substrate158": true,
+    "naturalBanks158": true,
+    "nightSky145": true,
+    "rootedGarden145": true,
+    "sitePerimeter144": true,
+    "shot144": true,
+    "circulation": true,
+    "hallFrame139": true,
+    "pagodaBank139": true,
+    "mainRoof123": true,
+    "heroHangingLantern": true,
+    "pagodaFinial": true,
+    "bridgeCoating": true,
+    "scannedMaterials": true
+  },
+  "files": [
+    {
+      "path": "reconstructions/scene-09/src/main.js",
+      "sha256": "6cdb6e1957e303b65292151317a3f1731e62cc712d14e40ec841b03afc58395c"
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-practicals203.js",
+      "sha256": "703569944ee38cd95a70639db43d042a9ab436764339fe3910f2e7bd49a2c144"
+    },
+    {
+      "path": "reconstructions/scene-09/src/pond-radiance203.js",
+      "sha256": "74be1a2d948527074edc1814434a297d13af619902c0fee793bd11fd7cf547e2"
+    },
+    {
+      "path": "reconstructions/scene-09/src/spatial-radiance203.js",
+      "sha256": "b5d1a1f03d45b516593f6db7adaca9fe2bc2bfe7c3daee355a0acd008ec82e34"
+    },
+    {
+      "path": "reconstructions/scene-09/assets/night203-provenance.json",
+      "sha256": "1c3a55d846de8823127ff7da5a32fb3a995b9159e8590c0a1d9e9710df359f3f"
+    },
+    {
+      "path": "reconstructions/scene-09/asset-dependencies.json",
+      "sha256": "c5c88836b8fe537c8e213ca3fed5e9ac2d546854594774856fa8c159a6bad925"
+    }
+  ],
+  "documentation": [
+    "reconstructions/scene-09/README.md",
+    "lookdev/scene09-night203/checkpoint-r07.json",
+    "lookdev/scene09-night203/checkpoint-r07.html"
+  ],
+  "officialEvidence": [
+    "qa/ten-reference/09/iteration-scene09-night203-r07/reference.png",
+    "qa/ten-reference/09/iteration-scene09-night203-r07/detail-native.png",
+    "qa/ten-reference/09/iteration-scene09-night203-r07-low3q/inspection-view.png"
+  ],
+  "jobs": [
+    {
+      "pid": 63377,
+      "execSession": 85570,
+      "iteration": "scene09-night203-r07",
+      "log": "lookdev/scene09-night203/r07-full-hero.log",
+      "status": "completed; personally viewed full and true hero"
+    },
+    {
+      "pid": 63376,
+      "execSession": 62704,
+      "iteration": "scene09-night203-r07-low3q",
+      "log": "lookdev/scene09-night203/r07-low3q.log",
+      "status": "completed; personally viewed low3q"
+    }
+  ],
+  "remainingJobs": [],
+  "changes": [
+    "Seven actual fixed SH radiance cells, integrated from native HalfFloat cube pixels and smoothly interpolated in world space, replace diffuse PMREM for nonemissive surfaces; local actual PMREM retained for specular.",
+    "Same authored twofold cobalt-sky gain is visible and used in native captures. Sky diffuse startup gain3.2, final local-cell gain2.2 are inferred calibration; renderer exposure remains0.95.",
+    "Existing ground lantern output and finite reach increased; two158 cases receive geometry shadows. Original .40 underbridge case had no source; now28cd finite7m centre bulb with actual bent/deck occlusion.",
+    "Upper isolated hood pools reduced and kept local; geometry-shadow slots reassigned to outdoor cool key/158/underbridge. Total10; no LTC facade wash or unmodeled garden graze is restored.",
+    "R06 useful geometry-mounted fixtures, near case separation, bounded same-scan wet granite and no-luminance-stripe water optics retained."
+  ],
+  "personalFindings": [
+    "Full: red bridge and planted-bank details are substantially more readable than rejected R06, but still too dark/sparse/waxy versus HD. It is not photographic acceptance.",
+    "Warm field still insufficient/coarse: main timber and Buddha are darker than reference; strongest wall/ceiling pools remain too isolated. Upper window band and long eave members are still bright regular parallel shapes.",
+    "Garden pools now reach actual stone/moss; local warmth remains uneven and not the rich natural dense moss response of the photograph.",
+    "Cobalt background is brighter/readable; texture distribution/color are still not precise to the HD reference.",
+    "Pond retains too much mirror structure and regular kinked/zigzag reflection breakup; the photograph has smaller warm broken clusters. No brightness stripe may be reintroduced.",
+    "Wet granite foreground has readable cool gray source grain, but lacks the reference warm grazing reflected highlights and fine material response.",
+    "Near two lantern panes retain dark flower fret silhouettes, but metal/endcap highlights and158 pane highlights are still too bright relative to nearby surroundings."
+  ],
+  "limitations": [
+    "SH3 cells approximate spatial visibility and one-bounce transport, with interpolation leakage; not exact GI.",
+    "Inferred finite fixture outputs/point exits are not surveyed reference radiometry.",
+    "Small upper and secondary lamps have short finite cones/ranges without full geometry shadows under native sampler limit.",
+    "No R07 pose job was requested after checkpoint; R06 actual187 poses are old evidence, not R07 pixels. Current full camera and original187 source module remain identical to baseline."
+  ],
+  "priorRejected": {
+    "r06": {
+      "source": "6c6b724b86a451773ce7e59f265b7f416963c17523c25b3a4fc03c04f2046974",
+      "status": "Root rejected: bridge/garden lost in black, isolated hot facade pools and dark upper loft; not promoted",
+      "evidence": "lookdev/scene09-night203/rejected-r06.json"
+    }
+  },
+  "nextWork": "Astra worker should inspect these existing finished images first, then repair the actual source. Do not redo R07 captures or revert181/158/187 geometry/camera/site. No geometry/asset/reference/card substitute; preserve every failed snapshot."
+}

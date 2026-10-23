@@ -1,0 +1,305 @@
+{
+  "status": "HELD R06 after actual geometry repair and native review; this worker releases source ownership with no running jobs. Photographic fidelity remains unaccepted.",
+  "worker": "astra_scene10_207",
+  "sourceHash": "c4fbd7afd7b098cf8a570632f0d2dbeef6d4d2dba996f82976ca3bde997e3421",
+  "sourceSnapshot": "lookdev/scene10-support207/r06-source",
+  "reference": "references/hd/9-照片-10.jpg",
+  "inheritedSourceHash": "1bd51900ab7f4fce52724dc0bf62538ac9010ecf9feaa539ea63dbe4e4a9bc3f",
+  "baseline193Source": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+  "changedOrNewSceneFiles": {
+    "reconstructions/scene-10/asset-dependencies.json": "6587ed0dd6d9da4ec2011ed23c222a53d8c38c37fde26591faf130951465cf7c",
+    "reconstructions/scene-10/natural193-provenance.json": "a7abad0c5476deaeccf4c59ffd9d698d26cc17b2194f9adfa7ea2b4e71da6305",
+    "reconstructions/scene-10/src/hall-front132.js": "a4fdffb269cecab6c6c8148a1f6619f394df1aace246ef6cb51eadb5a19fb640",
+    "reconstructions/scene-10/src/main.js": "670bb82c20fe49f1bfd047c3cfaea351df32e9d8ecdf90b4dfeb40fe12c2926e",
+    "reconstructions/scene-10/src/natural193.js": "46a09d6fcaf34c5db2b8c123fab89795dbd64507e8c2c75ec55b0405368a8a4f",
+    "reconstructions/scene-10/src/support-route207.js": "edd59b3a38cb05bbbf9b03c76a6707388e275a4e6806ecd8b3e75e2bf4b05fc3",
+    "reconstructions/scene-10/support207-provenance.json": "785e2057247f72d62002b526bd553c8d747e04a0768bfba8d3498db22772aa4d",
+    "reconstructions/scene-10/README.md": "9f52527a7d5ec56c7bc03f7eb0bf73a4817f5384de318a4048346ab47a3129c5"
+  },
+  "nativeViews": {
+    "full": "qa/ten-reference/10/iteration-scene10-support207-r06-bank/reference.png",
+    "trueBank": "qa/ten-reference/10/iteration-scene10-support207-r06-bank/detail-native.png",
+    "subfrustum": [
+      650,
+      570,
+      560,
+      1254
+    ],
+    "low": "qa/ten-reference/10/iteration-scene10-support207-r06-low/inspection-view.png",
+    "overhead": "qa/ten-reference/10/iteration-scene10-support207-r06-overhead/inspection-view.png",
+    "allViewed": true,
+    "allSourceMatched": true,
+    "allNativeSize": [
+      1254,
+      1254
+    ],
+    "reports": [
+      {
+        "view": "bank",
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r06-bank/report.json",
+        "status": "rendered-review",
+        "sourceHash": "c4fbd7afd7b098cf8a570632f0d2dbeef6d4d2dba996f82976ca3bde997e3421",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "reference",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "f484defb87a91b89853ecbdc25b06e65c515bd8ce72746cb271dc6395305e33b"
+          },
+          {
+            "name": "detail-native",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "57348d4838127cc762acb0a3ce5138ac80588d8464e3cb91dc13af0ec646484f"
+          }
+        ]
+      },
+      {
+        "view": "low",
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r06-low/report.json",
+        "status": "rendered-review",
+        "sourceHash": "c4fbd7afd7b098cf8a570632f0d2dbeef6d4d2dba996f82976ca3bde997e3421",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "3ed3b1e47cb85f2babc2939c435e521d8f193ef4fd365bad2a56a6b6d2a649e0"
+          }
+        ]
+      },
+      {
+        "view": "overhead",
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r06-overhead/report.json",
+        "status": "rendered-review",
+        "sourceHash": "c4fbd7afd7b098cf8a570632f0d2dbeef6d4d2dba996f82976ca3bde997e3421",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "465b63df6bee416fe21992c6fba2a91eac11b8a18eb1f6347743936a48027115"
+          }
+        ]
+      }
+    ]
+  },
+  "concreteRepairs": [
+    "R03 raised terrain triangles intruded across the wet right curb and around the veranda footstone. The circulation reservation now extends beyond actual slabs/curb/footstone/rail apron by more than a .25m grid diagonal. Actual adjoining cell vertices remain at y=-.22. The outside creek rise blends over .62m instead of making an abrupt raised lip.",
+    "R03 deep hall undercroft and 22 near-identical tall rock pedestals retired. A closed battered retaining terrace with six bonded courses, 129 individually sized face stones, full cap, short stone bearings, continuous timber joists and nine actual embedded diagonal gallery brackets now supports the hall. R04 flush heavy frontage was rendered, rejected and retained; R05/R06 setback gives real depth beneath the gallery.",
+    "Four hall stair bearings now sit on closed .94m pads from worldY-.24 to+.04, joined to actual piers, crossheads, inclined stringers and tread bed. Low approach cheek stones are exactly cut where the slope intersects a course, eliminating the previous omitted triangular start. Bridge lower trim is seated on the actual carrying rib.",
+    "Finite creek reflection uses the actual irregular basin outline and real scene geometry at water level. R05 genuine bank crop exposed a clamped false bright patch. R06 mirrors horizontal off-axis projection on private reflection source cameras for both scene-local horizontal reflection layers and synchronizes inverse projection. Physical cameras unchanged; recursive capture prevented."
+  ],
+  "beforeAfterDatums": {
+    "hallRetainingFrontLocalZ": {
+      "r03": -0.7,
+      "r04": 5.42,
+      "r06": 3.8
+    },
+    "hallRetainingToeLocalZ": 4.5,
+    "hallCapWorldY": 3.05,
+    "hallRetainingBaseWorldY": -0.24,
+    "hallPierWorldHeight": {
+      "r03": 2.329,
+      "r06": 0.329
+    },
+    "repeatedTallRockFeet": {
+      "r03": 22,
+      "r06": 0
+    },
+    "hallPierRowsLocalZ": [
+      2.1,
+      3.55
+    ],
+    "closedGalleryBrackets": 9,
+    "galleryFloor": {
+      "boundsZ": [
+        3.8,
+        6.15
+      ],
+      "bottom": 1.12,
+      "top": 1.3,
+      "projectionBeyondCap": 2.18,
+      "bracketBearingZ": 5.6,
+      "overhangBeyondBracket": 0.55
+    },
+    "circulation": {
+      "gridStep": 0.25,
+      "otherPavingBuffer": 0.45,
+      "rightCurbBuffer": 0.65,
+      "verandaHalfExtents": [
+        1.22,
+        1.16
+      ],
+      "railApronBounds": [
+        0.55,
+        10.95,
+        5.05,
+        20.45
+      ],
+      "reservedVertexY": -0.22,
+      "checkedBoundarySamples": 2999,
+      "adjoiningCellsWithUnreservedVertices": {
+        "r03": 2999,
+        "r06": 0
+      },
+      "scope": "Boundary-cell protection test, not a claim of 2999 individually measured visible collisions or a full scene collision audit."
+    },
+    "hallFlight": {
+      "count": 8,
+      "riser": 0.17937499999999995,
+      "tread": 0.26378402498652354,
+      "footPadTop": 0.04,
+      "pierBottom": 0.04
+    },
+    "nearRouteStillInherited": {
+      "nearDeckY": 1.32,
+      "farDeckY": 2.4,
+      "span": 9.65,
+      "count": 9,
+      "riser": 0.13922222222222225,
+      "tread": 0.28,
+      "start": [
+        -4.6195166236941425,
+        0.067,
+        -4.559620304831787
+      ],
+      "end": [
+        -2.1176388613423986,
+        1.32,
+        -4.861295067199864
+      ],
+      "whyHeld": "Endpoint projection is already close to HD10; an arbitrary endpoint shift would damage that alignment. A coherent replacement of flight/turn/lantern-island relationship remains necessary."
+    }
+  },
+  "verification": {
+    "passed": true,
+    "path": "lookdev/scene10-support207/validation207-r06.json",
+    "structural": {
+      "path": "lookdev/scene10-support207/geometry-audit-r06.json",
+      "summary": {
+        "meshes": 445,
+        "nonfinite": 0,
+        "exactOrSubNanometreDegenerates": 0,
+        "unclosedEdges": 0,
+        "windingEdges": 0,
+        "nonpositiveVolumeMeshes": 0,
+        "circulationUncoveredBefore": 2999,
+        "circulationUncoveredAfter": 0
+      },
+      "scope": "CPU inspection of actual authored structural buffers and circulation triangle constraints. Excludes botanical mesh closure, rail tube end caps, full-scene collision and engineering certification. Not photographic acceptance."
+    },
+    "heldRuntime": {
+      "fallenLeaves142": true,
+      "nearStoneRecords": true,
+      "pathCurbRecords125": true,
+      "waterRipples135": true,
+      "mapleCanopy136": true,
+      "carvedCloud183": true,
+      "pagodaSources141": true,
+      "towerMass183": true,
+      "camera": true,
+      "forest56": true,
+      "hallWorld": true,
+      "pagodaWorld": true,
+      "hallUpper": true
+    },
+    "checkpointIntegrity": "lookdev/scene10-support207/checkpoint-integrity-r06.json",
+    "reflectionMath": "lookdev/scene10-support207/reflection-frustum-audit207.json",
+    "reflectionPixels": "lookdev/scene10-support207/reflection-native-comparison-r06.json",
+    "reflectionPixelFinding": "Three actual identical water rays changed from full↔crop mean RGB absolute differences 120/116/121.33 in R05 to3/2.67/.67 inR06.",
+    "centeredViewRGBAEqualityR05ToR06": {
+      "full": true,
+      "low": true,
+      "overhead": true
+    }
+  },
+  "visualReview": {
+    "corrected": "Full and bank views show the right wet curb and veranda footing free of the R03 green wedges. Low view exposes real terrace depth, short bearings and connected gallery brackets. R06 native crop water shows the same actual reflected scene as full frame, without the R05 white patch. Overhead shows continuous finite creek and the existing joined route.",
+    "firstRemainingFailure": "Near approach flight still runs long and left behind the stone lantern. HD10 reads as a short flight adjacent to the lantern island. Rebuild the route, turning area, island/lantern support and appropriate near-end guard as one coherent plan; do not preserve the old183/R03 path solely because of earlier partitioning.",
+    "nextFailures": [
+      "Recessed terrace and stair bearing stone still look regular and plainly CG; the photographic foundation/bank relationships are not matched.",
+      "The old causeway/large lower turn remains visually broad in overhead. Its physical continuity is established, not its photographic correctness.",
+      "Tower-side mineral bank remains conspicuously bare/green and overly sloped; no new concealment plants were added.",
+      "Bridge rails/joints, hall and pagoda ceramic/timber rhythms, generic shrine figure, forest species/palette and overall lighting remain unaccepted."
+    ],
+    "implementationNote": "The scene unique-geometry merge does not bake per-emit tint into a unique mesh. Several stone emit tint arguments therefore do not independently vary final unique faces; inspect that path before relying on tint for stone weathering. Existing per-vertex coloredStone variation does render.",
+    "constraints": "445-mesh closure/contact checks exclude rail tube end caps, complete-scene collisions, botanical closure and engineering certification. No GL errors or a closed mesh is photographic proof."
+  },
+  "preservedEvidence": [
+    "lookdev/scene10-support207/checkpoint-r03-source",
+    "lookdev/scene10-support207/before-r08b",
+    "lookdev/scene10-natural193/r08b-held-source",
+    "lookdev/scene10-support207/r04-source",
+    "lookdev/scene10-support207/r05-source",
+    "qa/ten-reference/10/iteration-scene10-support207-r04-bank",
+    "qa/ten-reference/10/iteration-scene10-support207-r04-low",
+    "qa/ten-reference/10/iteration-scene10-support207-r05-bank",
+    "qa/ten-reference/10/iteration-scene10-support207-r05-low",
+    "qa/ten-reference/10/iteration-scene10-support207-r05-overhead"
+  ],
+  "jobHandoff": {
+    "allComplete": true,
+    "noOwnActiveJobs": true,
+    "officialFifoOnly": true,
+    "completedR06": [
+      {
+        "view": "bank/full",
+        "pid": 71445,
+        "session": 23895
+      },
+      {
+        "view": "low",
+        "pid": 71480,
+        "session": 13615
+      },
+      {
+        "view": "overhead",
+        "pid": 71491,
+        "session": 73957
+      }
+    ],
+    "noCompletedJobRedoneForModelChange": true
+  },
+  "publicMetadata": [
+    "reconstructions/scene-10/README.md",
+    "reconstructions/scene-10/support207-provenance.json",
+    "reconstructions/scene-10/natural193-provenance.json",
+    "reconstructions/scene-10/asset-dependencies.json"
+  ],
+  "constraints": {
+    "noGitMutations": true,
+    "noOtherSceneOrSharedSourceEdits": true,
+    "noChildren": true,
+    "noNewDownloads": true,
+    "noBlenderOrHeavyExports": true,
+    "compactSourceAndNativePNGOnly": true,
+    "photographicAccepted": false
+  }
+}

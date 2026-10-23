@@ -1,0 +1,191 @@
+{
+  "revision": "scene09-matte-cedar-practical-pools-night203-r14",
+  "baselineSource": "232c3db59b90fcbae95131119806cae0b8e50b3450028926cafd14c88642a347",
+  "reference": "references/hd/8-照片-9.jpg",
+  "observations": [
+    "Broad five-source LTC facade washes plus long unshadowed fixture reach make repeated eave bands similarly bright.",
+    "Actual pond shader explicitly multiplied scene reflection by a repeating world-Z stripe and boosted selected warm pixels.",
+    "Courtyard-only global IBL warms roof/body equally; paper transoms and garden emission flatten the practical hierarchy."
+  ],
+  "implementation": [
+    "Retire facade LTC/warm directional/unmodeled garden graze lights; retain real modeled fixture anchors and assign smooth finite inverse-square pools. Dominant practicals receive geometry shadows under the native sampler budget.",
+    "Independent native sky-only capture supplies ceramic/outdoor cobalt radiance; restrained actual courtyard capture serves metal and timber reflections. No painted radiance field.",
+    "Room/transom paper is below visible lantern chambers in radiance; non-luminous opaque garden/architectural emission is removed. No exposure or geometry change.",
+    "Pond keeps its genuine native planar scene capture and physical IOR1.333 Fresnel response, with smaller nonparallel slope distortion and no brightness stripe or warm-pixel gain."
+  ],
+  "preserved": [
+    "181 occupied hall/pagoda/gable/roof support geometry and original licensed carving",
+    "158 toros/substrate, bridge, site, source assets, garden geometry/RNG and187 reference/shot cameras",
+    "Existing albedo/normal/roughness source maps, actual wet-paving and pond footprints",
+    "All legacy architecture/bridge/toro/garden/camera geometry coordinates preserved; two actual votive assemblies added. Fascia material assignment is the only change in the181 roof helper."
+  ],
+  "limitations": [
+    "Static native one-bounce SH radiance interpolation has approximate spatial visibility and finite resolution; it is not full path-traced GI.",
+    "Fixture flux and sky calibration are inferred artistic values tied to the actual geometry.",
+    "Photographic acceptance remains false."
+  ],
+  "newExternalAssets": false,
+  "referenceRGBUsedInScene": false,
+  "visualAccepted": false,
+  "r01Source": "988c205d9ca3ae5f3146260992caa8086e0ff64832aa58bd9a00219fa9e618a5",
+  "r01Findings": [
+    "Actual1254 full/true hall hero/low3q inspected; broad LTC stripes and artificial pond luminance modulation are removed.",
+    "First native trial is too dark: point bulbs inside opaque case caps block downward flux and project enlarged fret silhouettes. R02 moves dominant aggregate proxies to the modeled paper exits, retains finite geometry shadows and infers stronger fixture flux by role.",
+    "Single pond-centre court capture cannot describe main-hall and pagoda reflected radiance. R02 separates their unchanged finish maps into fixed building-local actual native captures; ceramic remains on the cobalt exterior field.",
+    "Pond wave gradients now drive both Fresnel normals and smaller projective distortion. No luminance stripe or warm-pixel gain is restored."
+  ],
+  "r02Approximation": "Paper-exit aggregate point proxies, PCF soft shadows and fixed one-bounce building environments approximate native transport. They are not exact distributed paper emitters or path-traced GI.",
+  "lightFixtureAnchors": "All modeled fixture/chamber geometry remains fixed. Dominant light proxies shift only to their corresponding paper-exit plane, recorded alongside original chamber anchors.",
+  "r02Source": "9e27184ccee34ce0237e72d31674a47c83b19703743ca77ddccb1ebcbabf338c",
+  "r02Findings": [
+    "Actual1254 full/true hall hero/low3q inspected. Paper-exit proxies remove dominant enlarged fret projections from hall walls, but the scene remains underlit and near panes self-illuminate white.",
+    "R03 defined paper exitance excludes the aggregate proxy incident term from the pane shader; its unchanged fibre emission map remains three-dimensional actual lamp geometry. Dominant near proxies move beyond the measured case fret plane.",
+    "Five small inferred hooded downlight assemblies now mount below existing gallery-floor/receiver beams: two unequal main-entry cones and three tier-specific pagoda cones. Closed bronze hood/stem and opal aperture geometry accompany each finite inverse-square shadowed source.",
+    "Shadow budget moves from the hall/pagoda point proxies and cool/shrine keys to these actual downlights. No broad LTC facade or unoccluded warm upward wash is restored."
+  ],
+  "newLightingHardware": {
+    "scope": "Seven small actual hood/closed-opal fixtures; original181 geometry/site/assets/camera preserved",
+    "mainEntryCandela": [
+      180,
+      145
+    ],
+    "mainUpperCandela": [
+      105,
+      85
+    ],
+    "pagodaTiers": [
+      1,
+      3,
+      5
+    ],
+    "pagodaCandela": [
+      140,
+      110,
+      85
+    ],
+    "anchorSource": "Exact181 lower ceiling joists x±4.8,y7.68,h.43; upper shafts x±5.57,z5.20; pagoda front header underside floor+1.505",
+    "secondaryTransport": "Upper pagoda cones are confined to2.6m and unshadowed within native budget; broader primary cones retain geometry shadows",
+    "placements": "Inferred lighting hardware and flux; not surveyed reference fixtures"
+  },
+  "r03Source": "1dbd8130493255fe4ccff8b6b254081427ba4fcd4061ee61bb03d10c10b5c430",
+  "r03Findings": [
+    "Actual1254 full/true hall hero/low3q inspected. Hooded fixtures recover local occupied-bay depth; paper radiance is stable, but near exterior proxies directly illuminate their fret metal and make white flowers.",
+    "R04 restores the two visible near centre bulbs and uses the existing modeled behind-observer lantern as a backward paper-exit source with inferred145cd for the main wet-paving pool; all three near sources have geometry shadows.",
+    "Pagoda hooded heads move below their actual beam underside, with shorter seated stems. Finial and all hooded source shadows remain; ten shadow sources fit the native budget to be verified.",
+    "Veranda granite uses a fixed local actual radiance capture. Pond capillary wave gradients and narrower wet-film sampling replace the remaining broad periodic reflection smear, without adding luminance stripes."
+  ],
+  "r04Source": "0a463298d8fb6d11cf7037eb40221b0bd3b180c622e6d562a2c2ea0beb202142",
+  "r04Findings": [
+    "Actual1254 full/true hall hero/low3q inspected. Visible near lantern metal/paper separation is restored; new local pools and actual reflection captures retain the dark-blue roof/warmer occupied bays.",
+    "Wet veranda remains too dark. CPU decoding of the immutable CC0 face albedo measured effective mean luminance0.00356..0.00673 after the extra dark palette multiply. R05 authors bounded neutral wet-gray body reflectances using only normalized source grain, retaining normal/roughness/metric UV transforms.",
+    "Periodic small wave trains still make marker reflections similarly kinked. R05 uses a smooth nonuniform height field and numerical gradients for both Fresnel normals and actual-capture distortion; no luminance modulation or reference pixels."
+  ],
+  "wetGranite203": {
+    "source": "Existing CC0 Granite Tile04 face albedo",
+    "inputAudit": "lookdev/scene09-night203/wet-granite-input-audit.json",
+    "authoredBodyTargets": [
+      [
+        0.032,
+        0.036,
+        0.04
+      ],
+      [
+        0.027,
+        0.031,
+        0.034
+      ],
+      [
+        0.043,
+        0.047,
+        0.05
+      ],
+      [
+        0.033,
+        0.037,
+        0.04
+      ]
+    ],
+    "formula": "targetRGB * clamp((sourceLinearLuminance / sourceMean)^0.5,0.55,1.55)",
+    "scope": "Only four near wet-veranda slab albedos; original normal/roughness maps and metric transforms retained",
+    "notMeasuredReferenceReflectance": true
+  },
+  "r05Source": "215b88dcdd96d59991888322e78cae08ad6f3a829187948f283a94f3b28db8f0",
+  "r05Findings": [
+    "Actual1254 full/true hall hero/low3q inspected. Same-scan bounded wet-granite body improves the near stone; near metal/paper and stochastic physical-gradient pond response remain stable.",
+    "Main upper occupied gallery is still too dark after retiring broad facade washes. R06 adds two unequal inward/downward post-mounted hooded sources, tied to existing181 upper-shaft coordinates, rather than restoring a strip wash.",
+    "All seven hooded fixtures now have explicit source-fitted joist/post/beam anchor arms. Smaller upper pagoda downlights are confined to2.6m cones and release their shadow slots for the broader upper-gallery sources. Original scanned finish maps remain unchanged; ten primary shadow sources remain."
+  ],
+  "r06Source": "6c6b724b86a451773ce7e59f265b7f416963c17523c25b3a4fc03c04f2046974",
+  "r06Status": "Rejected by root after actual full/hero/low comparison; not promoted",
+  "r06Findings": [
+    "Bridge and planted garden disappear into black; occupied timber reads as isolated hot pools. Useful stripe removal, case fixes and water optics remain, but this is a major photographic regression.",
+    "R07 calibrates the same visible/incident cobalt sky together, strengthens existing case output and useful reach, gives two actual158 chambers and the original underbridge case geometry shadows, and interpolates seven native SH radiance cells through world space.",
+    "Upper isolated hood pools are reduced and bounded; shadow budget moves to the outdoor environment/garden. Paper exitance is lowered relative to the recovered environment."
+  ],
+  "r07Source": "966a2eb35f039eb47b3b895fda6f62e6ad6b0206da0096f0a5e52f086705596a",
+  "r08Changes": [
+    "Finite paper-footprint irradiance removes the aggregate point near-field singularity at original actual lamp cases; native shadow source order matches the pinned local runtime. This is a finite-area approximation, not exact distributed emission.",
+    "Actual visible paper exitance increases relative to the dark bronze case; near-centre bulb output decreases. Original paper fibre maps and closed case geometry are retained.",
+    "The two long closed roof fascia members now use the existing aged cedar material, while rafter geometry/materials and all bearing coordinates remain intact.",
+    "Two authored solid standing oil lamps with closed turned bases, bowls, oil, wick and flame occupy the central sanctuary bay; their finite 4.8m sources are local unshadowed approximations. Hall Buddha now uses the actual hall radiance cell instead of the bridge cell.",
+    "Water reflection uses a nonperiodic multiscale travelling height field and energy-conserving taps; wet-film distortion uses the independent CC0 granite normal/roughness maps. No luminance mask, warm-pixel gain or exposure change."
+  ],
+  "r08Status": "Native shader compilation rejected; no valid PNG. Per-light locals redefined after runtime loop unroll; correction moved finite falloff into a scoped helper function in r08b.",
+  "r08Source": "0b18dd0f56d7c536373def920530cd70c143513edfcda7fedff625a9b518ed29",
+  "r08bSource": "68497d561a160c9a0ffed6231a009564110135d6eab0c839cd95ca5b2c5ea17d",
+  "r08bFindings": [
+    "Actual1254 full/true hero viewed. Near paper/fret/bronze separation and sanctuary depth improve, and zigzag reflection artifact is removed. Water breakup remains too isotropic/fine, lower long purlins too bright, wet paving still lacks warm reflection.",
+    "Actual source inspection found wet Reflector plane geometry baked to horizontal while its object normal remained vertical. R09 moves the identical Rx rotation to the object after world yaw: world footprint unchanged, actual mirror normal corrected to+Y."
+  ],
+  "r09Changes": [
+    "Fix wet Reflector orientation with algebraically equivalent world geometry; the local+Z mirror normal is now horizontal +Y. Adjust local shader UVs to preserve metric x/z material coordinates.",
+    "All long fascia/purlin members use a distinct existing-scan dark cedar finish; original geometry sections and bearing coordinates are unchanged.",
+    "Retain energy-conserving genuine pond capture; elongate capillary height packets across the wind and reduce the smallest subpixel component to avoid isotropic sparkle noise."
+  ],
+  "r09Source": "17e7b07380aeb185e305de946ded04d62ecdd038a95437a59e06c17ecce3113b",
+  "r09Findings": [
+    "All native1254 full/hero/low views personally inspected; linked programs and original geometry/camera/footprint checks pass. Correct horizontal wet-film capture reveals real architecture on stone.",
+    "Warm grazing glints remain too weak: inherited clearcoat normal strength was0.232, while the source granite tangent slopes have median0.0546,90th0.1041,99th0.1644; this suppresses most off-axis glints. R10 restores a near-unit source normal response and broader physically shaded clearcoat lobe.",
+    "Original three near mounted lanterns remain the sources. Their finite output is adjusted with retained geometry shadows; no unmodeled wash or exposure is added."
+  ],
+  "r10Changes": [
+    "Clearcoat normal scale1.2 and roughness.28 on the four existing scan-based slabs; original diffuse albedo, normals, roughness image files and slab mesh retained.",
+    "Near primary lantern output multiplier1.35; existing behind-observer paper-exit proxy145cd. Finite emitting footprint keeps near-case response bounded."
+  ],
+  "r10Source": "74dd4a40fe60c058fb876fe29fea17e29f7ac3514eed31963bd907fca01ec628",
+  "r10Findings": [
+    "Actual1254 full/true hero inspected. Wet source-normal microfacets now show fine warm glints and grain, but their dynamic range remains lower than the reference.",
+    "Official native ray hits identify the bright lower carry member as scene09-203-hall-wood rather than the separated fascia. R11 retains its mesh and calibrates that scanned cedar multiply to a darker warm timber response.",
+    "The bridge still lacks the reference landing-post cases: prior bridge has only small brass finials at those actual post caps. R11 adds two complete small square lanterns on closed bronze saddles around the original untouched finials."
+  ],
+  "r11Changes": [
+    "Two reference-led actual bridge cases with four paper panes, bronze mullions, closed cap/crown and four-legged saddles; fixed original end-post coordinates and bridge geometry retained. Their local finite 4.5m sources are unshadowed secondary approximations within the native sampler budget.",
+    "Only cloned main-hall wood RGB multiplier changes to2.40,1.65,.95; original cherry albedo/normal/roughness maps, occupied geometry and exposure remain."
+  ],
+  "r11Source": "ac5874743f81b285645bd35b37551f8ac2988ad47b0b5ceece80992949a62c4b",
+  "r11Findings": [
+    "Native1254 full/hero/low personally reviewed, all source/native checks pass. Real bridge cases improve warm rail/moss pools and sanctuary lamps recover Buddha depth.",
+    "West bridge case sits too high relative to the nearer, lower side-hung reference lamp. R12 lowers only this new case by1m and offsets it.35m outboard, changing its four supports to closed cantilever straps tied to the unchanged post saddle. East case and all original geometry retained.",
+    "Fidelity still not accepted: repetitive bright eave members, sparse/dark garden, coarse limited-dynamic-range wet highlights and independent-sky mismatch remain."
+  ],
+  "r12Changes": [
+    "Reference-led asymmetric west side-hung/east standing bridge fixture mounts; original bridge posts, finials, rail/deck geometry and original camera untouched."
+  ],
+  "r12Source": "c572581baba5354c2765037f2182f1a202f32e8d5b37f75dc4fdea2d6ee0ade2",
+  "r12Findings": [
+    "Actual1254 full/hero/low reviewed. Corrected west hanging height matches the nearer reference role better, but its now-short distance overheats the adjacent rail.",
+    "Exact official low-camera ray hits identify the remaining pale continuous lower bands as the separate dark-cedar fascia, not the wood cantilever below it."
+  ],
+  "r13Changes": [
+    "West side-hung case8cd after moving closer to rail; east standing20cd case retained. This is fixture-local inverse-square exposure, not a screen/scene gain.",
+    "Confirmed dedicated fascia/purlin material multiplier .38,.24,.12 retains existing CC0 cherry scan and roughness/normal maps; geometry, other timbers, world radiance cells and renderer exposure are held."
+  ],
+  "r13Source": "9832347df03cef3c021aba0a6d67ddc98a94543cf9a264d4d023b7e34ea6d9e2",
+  "r13Findings": [
+    "All native1254 full/hero/low reviewed and protected-source proof passes. West side-hung pool is restrained and separate cedar body darker.",
+    "Dedicated cedar members still have a pale continuous specular lobe. Their inherited .53–.70 effective roughness is too glossy for the aged underside."
+  ],
+  "r14Changes": [
+    "Only the7 independently tagged roof fascia/purlin materials use roughness=.90+.08*originalEffectiveScanRoughness; original maps and physical color stay, no extra texture sampler, no exposure/illumination/geometry change."
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "baselineHash": "116237412503ed50dc2832d15c969056fea0f3c43c66f5ea3168ad9873c8beef",
+  "heldHash": "23f41a1e21ffc22d26d4f0eaeeb356d7ba10708848638d95786cf52ee11694dd",
+  "changedFiles": [
+    {
+      "path": "reconstructions/scene-01/src/bridge-court208.js",
+      "baselineSha256": null,
+      "heldSha256": "7dfa2d94b234749d30dde29af18c6ce223b00e1b4cf5ef4600e682cff10a9c85",
+      "bytes": 19988
+    },
+    {
+      "path": "reconstructions/scene-01/src/garden.js",
+      "baselineSha256": "aeb0b1a67cd98064badfd889859f2b56c5b1c471fd8b0988cf8462217bbcdb0d",
+      "heldSha256": "e6fadcb98390ef5481327fd8ac1a099d85965f2e9f273db4f9b2e6e5b1170e96",
+      "bytes": 38062
+    },
+    {
+      "path": "reconstructions/scene-01/src/layout124.js",
+      "baselineSha256": "6fe2911e45846118edca69810d1b4fc187f9e4d6a68394968e4e17dc7af2c296",
+      "heldSha256": "91556cf93eb6fac73aa29bf42277bcc84a4c9947c50a5cd60c88f135a977f271",
+      "bytes": 2538
+    },
+    {
+      "path": "reconstructions/scene-01/src/main.js",
+      "baselineSha256": "ee2589d0547f8dcea27c5f592caba2ecbbfa60b437969f3513c8cca033171b66",
+      "heldSha256": "0b5df1b1366bbe4c1d11741d543035a07c0ada1fd50227fce078d46c7177b7a8",
+      "bytes": 4346
+    },
+    {
+      "path": "reconstructions/scene-01/src/scene.js",
+      "baselineSha256": "a1d859b1f2f49447cef87fa659cd863c5b6b9cdac1a507493ef9f069d68d7f99",
+      "heldSha256": "800f2c73efbbd58c098dd497c3997df47289f59ae9b91d4d73a3d9c4ad4b455f",
+      "bytes": 19881
+    }
+  ],
+  "protectedAllDependencyFilesUnchanged": true,
+  "normalDollyConstructorByteExact": true,
+  "physicalReferenceCameraByteExact": true,
+  "sceneBuildLightingMaterialsAndEnvironmentPrefixByteExact": true,
+  "unchangedOtherLayoutGroups": [
+    "camera",
+    "pagoda",
+    "hall",
+    "foreground",
+    "stair",
+    "waterfall"
+  ],
+  "oldBridge": {
+    "position": [
+      -3.48,
+      0.8154070995563524,
+      -0.8749234412477128
+    ],
+    "scale": [
+      1.13,
+      1,
+      0.9640178975813055
+    ],
+    "yaw": 0.0022982230380711767,
+    "archRise": 0.5812719180670933,
+    "slope": -0.14123056188443456,
+    "deckBaseline": 2.35,
+    "halfSpan": 3.36
+  },
+  "heldBridge": {
+    "position": [
+      -3.96,
+      0.5954070995563524,
+      -0.8749234412477128
+    ],
+    "scale": [
+      1.1,
+      1,
+      0.9640178975813055
+    ],
+    "yaw": 0.0022982230380711767,
+    "archRise": 0.5812719180670933,
+    "slope": -0.14123056188443456,
+    "deckBaseline": 2.35,
+    "halfSpan": 3.36
+  },
+  "visualAccepted": false
+}

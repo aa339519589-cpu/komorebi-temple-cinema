@@ -1,0 +1,100 @@
+{
+  "status": "Research complete; no third-party onigawara geometry integrated",
+  "runtimeExternalScanUsed": false,
+  "candidates": [
+    {
+      "uid": "0087302e7b0849209b7e3b11eed94a0e",
+      "creator": "basilspider",
+      "primary": "https://sketchfab.com/3d-models/onigawara-0087302e7b0849209b7e3b11eed94a0e",
+      "license": "CC BY4.0",
+      "primaryAdditionalTag": "NoAI",
+      "sourceBytes": 2348532,
+      "adopted": false,
+      "reason": "Horned open-mouth terminal variant differs from the exact HD05 face; NoAI tag retained, not a runtime source"
+    },
+    {
+      "uid": "820e2c93c989449cbd29a0e141fce22d",
+      "creator": "basilspider",
+      "primary": "https://sketchfab.com/3d-models/onigawara-on-a-shrine-roof-820e2c93c989449cbd29a0e141fce22d",
+      "license": "CC BY4.0",
+      "primaryAdditionalTag": "NoAI",
+      "sourceBytes": 9143692,
+      "adopted": false,
+      "reason": "Large horned grimacing terminal with roof context differs from exact target; NoAI tag retained, not a runtime source"
+    },
+    {
+      "uid": "231517b23b4a4c299f06731b553f6e82",
+      "creator": "Koto3D Stephane Vogley",
+      "downloadable": false,
+      "primaryLicense": null,
+      "adopted": false,
+      "reason": "No primary model reuse licence/download access"
+    },
+    {
+      "uid": "e647312c330f442a9662e97b386ea14f",
+      "creator": "areong",
+      "existingLibrary": "lookdev/architectural-scan-library157/sources/ccby-areong-rinzai-gate",
+      "license": "CC BY4.0",
+      "adopted": false,
+      "reason": "Creator documents a Japanese-style Rinzai sanmon in Taipei; retained inspection-r02 complete-building scan is too coarse at terminal feature scale"
+    },
+    {
+      "uid": "8656368334aa4ceb8b37e4ab65e34e51",
+      "creator": "jishtk",
+      "license": "CC BY4.0",
+      "adopted": false,
+      "reason": "Authored empty crest housing, no matching face; no compact public Objaverse source path"
+    },
+    {
+      "uid": "bda711ba510a4dd2abe4fd337e9680f3",
+      "creator": "jishtk",
+      "license": "CC BY4.0",
+      "adopted": false,
+      "reason": "Authored empty crest housing, no matching face; no compact public Objaverse source path"
+    }
+  ],
+  "fallback": "Actual authored closed volumetric face/nostril/orbital/mandible and true return geometry; provided reference remains a visible shape comparison, never a runtime image or depth field",
+  "additionalJapanesePrimaryPass": {
+    "queries": [
+      "\u9b3c\u74e6",
+      "\u9b3c\u9762\u74e6"
+    ],
+    "primarySearchRecords": [
+      "search/primary-onigawara-ja.json",
+      "search/primary-demon-tile-ja.json"
+    ],
+    "actualCompactSource": {
+      "uid": "56bfb625b3fe409096d50afabc1c042d",
+      "creator": "seirogan",
+      "primary": "https://sketchfab.com/3d-models/3232-56bfb625b3fe409096d50afabc1c042d",
+      "licence": "CC BY-NC-SA4.0",
+      "primaryNoAITagObserved": false,
+      "sourceBytes": 9073336,
+      "sourceSha256": "2046646a6b07b760a086c9b63c5cdc92579de06f78f9a665e77d27cec2e1d964",
+      "sourceFolder": "sources/56bfb625b3fe409096d50afabc1c042d",
+      "adopted": false,
+      "reason": "Original compact source available and acquired, but two-horned open fanged face/long beard is a different variant from exactHD05; no forcing an unrelated artifact into the frame"
+    },
+    "otherCandidates": [
+      {
+        "uid": "7e29c1a50340427abcf67e89e57a095a",
+        "licence": "CC BY-NC-SA4.0",
+        "adopted": false,
+        "reason": "Horned small face on broad red base, different design; no public pre-existing Objaverse mirror located"
+      },
+      {
+        "uid": "3e2fbc0f70a34783b409ff40f5fba144",
+        "licenceInPrimaryAPI": "CC BY4.0",
+        "additionalTermsLinkInDescription": "https://onl.tw/Awjnnnr",
+        "adopted": false,
+        "reason": "Incomplete archaeological relief with missing face, different subject/section; no raw download"
+      },
+      {
+        "uid": "ce6c129f8ae74effafddd8879904952a",
+        "licenceInPrimaryAPI": "CC BY4.0",
+        "adopted": false,
+        "reason": "Late9th-century partial demon tile with ring eyes, different face/style; no raw download"
+      }
+    ]
+  }
+}

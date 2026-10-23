@@ -1,0 +1,40 @@
+{
+  "status": "authored-volume-for-native-review",
+  "spec": {
+    "bounds": [
+      [
+        -0.279,
+        -0.08,
+        -0.119
+      ],
+      [
+        0.279,
+        0.49,
+        0.168
+      ]
+    ],
+    "gridStep": 0.0026,
+    "origin": "Explicit authored curved3D brow/fan/mouth sections from visible HD05 features; hidden depth interpreted",
+    "photographPixelsUsed": false,
+    "externalScanUsed": false
+  },
+  "removedNumericalSpeckTriangles": [],
+  "mesher": "Marching cubes with ten-micron Euclidean numerical weld; finite authored implicit volume",
+  "grid": [
+    216,
+    221,
+    112
+  ],
+  "samples": 5346432,
+  "boundaryMinimum": 0.012375681171735244,
+  "vertices": 134859,
+  "triangles": 269718,
+  "bytes": 6473252,
+  "sha256": "e819b53816e2eb42f8302517acb6b7187fde6788398864ee6f0f137607d62aee",
+  "sourceFieldSha256": "9d43154505df67531efcf8d3747588d730440e0b71ec85c3a3932d577b1f8442",
+  "recipeSha256": "8229e81991d2ae75f3b7beb089ac7df2479724be31fa1a2d8fd7686b9111225c",
+  "cpuSeconds": 4.028,
+  "photoPixelsUsed": false,
+  "externalScanUsed": false,
+  "visualAccepted": false
+}

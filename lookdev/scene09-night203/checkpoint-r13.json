@@ -1,0 +1,124 @@
+{
+  "revision": "scene09-bounded-cedar-warm-pools-night203-r13",
+  "source": "9832347df03cef3c021aba0a6d67ddc98a94543cf9a264d4d023b7e34ea6d9e2",
+  "inputs": 85,
+  "status": "Actual full/detail/low reviewed; unaccepted candidate for parent integration review",
+  "visualAccepted": false,
+  "supersedesCheckpoint": "checkpoint-r07.json",
+  "snapshots": [
+    "r13-source-identity.json",
+    "r13-source-scripts.tgz"
+  ],
+  "officialEvidence": [
+    "qa/ten-reference/09/iteration-scene09-night203-r13/reference.png",
+    "qa/ten-reference/09/iteration-scene09-night203-r13/detail-native.png",
+    "qa/ten-reference/09/iteration-scene09-night203-r13-low3q/inspection-view.png"
+  ],
+  "changes": [
+    "Bounded finite paper-emitter footprint, brighter warm paper and darker bronze; unchanged actual lantern cases.",
+    "Hall-local Buddha radiance and two complete solid oil offerings in the occupied altar bay.",
+    "Separate darker cedar fascia/purlins plus corrected main-hall wood response; all181 construction coordinates retained.",
+    "Critical wet Reflector normal repair: bake-to-object rotation transfer preserves every world footprint vertex while correcting actual mirror capture to+Y.",
+    "Near wet granite uses original CC0 normal/roughness images for film distortion and microfacet clearcoat glints; no warm mask or exposure gain.",
+    "Pond uses actual captured scene with nonperiodic travelling capillary normals and energy-conserving filtering.",
+    "Two small square bridge-post cases with real pane/mullion/cap and closed saddle assemblies mounted to unchanged original post caps; nearer west lamp is side-hung on four inclined straps, east lamp is raised on four posts."
+  ],
+  "checks": {
+    "sourcePinned": true,
+    "legacyMainConstructionHeld": true,
+    "roofCoordinatesHeldMaterialSplitOnly": true,
+    "legacyInputsHeld": true,
+    "expectedPartAndMaterialSplitCount": true,
+    "linkedNative1254": true,
+    "noErrors": true,
+    "exposureHeld": true,
+    "retainedNative": true,
+    "wetWorldFootprintEquivalent": true,
+    "horizontalMirrorNormal": true
+  },
+  "geometry": {
+    "original181158187InputsHeld": true,
+    "actualWetWorldVertexMaxError": 9.155133597044475e-16,
+    "actualMirrorNormal": [
+      4.163336342344337e-17,
+      1,
+      1.5612511283791264e-16
+    ],
+    "addedVotiveSolids": 10,
+    "addedBridgeLampSolids": 100,
+    "roofMaterialBatches": 7
+  },
+  "files": [
+    {
+      "path": "reconstructions/scene-09/assets/night203-provenance.json",
+      "sha256": "e3389ddd8f8c77fe4a8b6be7a807f08f389b281bebefdab126725c1e2d7034ee",
+      "newInput": false
+    },
+    {
+      "path": "reconstructions/scene-09/src/bridge-practicals203.js",
+      "sha256": "93b72256036528bb600822364c23e00faed47740b674f22da2245dc0533dcd04",
+      "newInput": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/finite-practicals203.js",
+      "sha256": "0300faaee845e71a4bbfa8cd6fe08ddb0c8ec06ac6678b0698fd54bd6bfa06af",
+      "newInput": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/main.js",
+      "sha256": "5c4791e9f31fe258d03c9c4b4e5a25c69f2b42c3d55ba746e1a37e3f7c0bd0ce",
+      "newInput": false
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-main-roofs123.js",
+      "sha256": "47f8c83bf3b739afbe10199e3c9a53450775eaad4bdddfa6ddb12d348efc714e",
+      "newInput": false
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-practicals203.js",
+      "sha256": "4c137af3309c350242144fd91684975ff1cbe67cafd65e7a024a9c813736fe00",
+      "newInput": false
+    },
+    {
+      "path": "reconstructions/scene-09/src/pond-radiance203.js",
+      "sha256": "0794aad417a4f85623cd773d22c8c86b01c698b5489a710d7c3b6fb2b23b9088",
+      "newInput": false
+    },
+    {
+      "path": "reconstructions/scene-09/src/sanctuary-details203.js",
+      "sha256": "b3381e986c72156703f297934575861c20b6de5aae725ec767d8bf0f5468aa24",
+      "newInput": true
+    }
+  ],
+  "review": {
+    "source": "9832347df03cef3c021aba0a6d67ddc98a94543cf9a264d4d023b7e34ea6d9e2",
+    "fullViewed": true,
+    "heroViewed": true,
+    "lowViewed": true,
+    "findings": [
+      "West side-hung case output is now bounded at8cd; near rail hot patch is reduced while the physical case retains warm paper.",
+      "Dedicated cedar diffuse body is darker and warmer. All1254 native views and protected checks pass."
+    ],
+    "remaining": [
+      "Long cedar members still carry a continuous pale specular lobe; source roughness map effective values near.53–.70 remain too glossy for the visibly aged underside.",
+      "Garden density/readability, detailed architectural specificity, independent sky clouds and warm wet-highlight dynamic range remain unlike HD; no photographic acceptance."
+    ],
+    "visualAccepted": false
+  },
+  "remainingJobs": [],
+  "historicalProvenanceNote": "Initial implementation entries in night203-provenance describe the earlier203 baseline; r08 through r13 fields record current additions and corrections.",
+  "priorEvidencePreserved": [
+    "r12 full/hero/low and exact fascia ray-hit diagnosis",
+    "r11 full/hero/low review and protected proof, followed by west case-height repair",
+    "r08 native compile failure with source/report; no valid PNG",
+    "r08b genuine full and hero comparison",
+    "r09 full/hero/low and protected proof",
+    "r10 full/hero with native ray-hit material diagnostics"
+  ],
+  "limitations": [
+    "Native SH3 spatial radiance is a fixed one-bounce approximation, not exact visibility or path-traced GI.",
+    "Finite paper-source falloff is a regularized point approximation; secondary local sources, including new small bridge cases and oil offerings, do not have complete geometry shadows under the native sampler limit.",
+    "Fixture output, cedar/stone material calibration and added fixture dimensions are inferred from comparison, not surveyed radiometry/geometry.",
+    "Current187 camera source is unchanged; no new motion capture was requested for this checkpoint."
+  ]
+}

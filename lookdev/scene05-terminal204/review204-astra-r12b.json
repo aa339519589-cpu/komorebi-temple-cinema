@@ -1,0 +1,30 @@
+{
+  "status": "retained failed refinement candidate",
+  "visualAccepted": false,
+  "actualFramesViewed": [
+    {
+      "file": "qa/ten-reference/05/iteration-scene05-astra204-r12b-20261023/reference.png",
+      "rgbaSha256": "05a8f58325d110379d2a1a457c7b89e898db449ce2eb70eb30c645f64478363f",
+      "sourceHash": "b9a8be390b7d926acf3d3b7a3be83486be5f537287bfe74b20530abf1b88ae59",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/05/iteration-scene05-astra204-r12b-20261023/detail-native.png",
+      "rgbaSha256": "56bbbf951d2c975d8e38dd254ed3119bccd909fb91a3d8bc6781a92e7910eba4",
+      "sourceHash": "b9a8be390b7d926acf3d3b7a3be83486be5f537287bfe74b20530abf1b88ae59",
+      "viewed": true
+    },
+    {
+      "file": "qa/ten-reference/05/iteration-scene05-astra204-r12b-sideclose-20261023/inspection-view.png",
+      "rgbaSha256": "74425ac2d4dfb696479a2885093066428a4b5863c8769a28a2d50bd4529a233e",
+      "sourceHash": "b9a8be390b7d926acf3d3b7a3be83486be5f537287bfe74b20530abf1b88ae59",
+      "viewed": true
+    }
+  ],
+  "observations": [
+    "Square pier and window head changes now have actual full-frame evidence; site/camera/roof anchors remain fixed.",
+    "Front-depth and continuous-radius revisions reduce projection but the authored face is still too stylized and smooth for photographic acceptance.",
+    "Side/tight review showed the new petal geometry reading flat; CPU inspection confirmed inward signed volume. R12c corrects winding, explicitly closes petal endpoint sections and removes collapsed cap triangles.",
+    "The housing and contact corrections are geometric hypotheses; no measured historic identity or photographic acceptance is claimed."
+  ]
+}

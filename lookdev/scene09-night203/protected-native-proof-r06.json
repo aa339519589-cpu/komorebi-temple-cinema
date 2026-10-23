@@ -1,0 +1,403 @@
+{
+  "revision": "scene09-night203-r06",
+  "sourceHash": "6c6b724b86a451773ce7e59f265b7f416963c17523c25b3a4fc03c04f2046974",
+  "baselineSourceHash": "232c3db59b90fcbae95131119806cae0b8e50b3450028926cafd14c88642a347",
+  "scope": "Source/geometry/camera/native evidence only; not photographic acceptance",
+  "renderChecks": {
+    "sameFrozenSource": true,
+    "validNativePixels": true,
+    "emptyErrors": true,
+    "fullHeroLowNative1254": true,
+    "threeNativePoses768": true,
+    "exposureHeld": true
+  },
+  "unchangedAssets": true,
+  "unchangedLegacyJS": [
+    {
+      "path": "reconstructions/scene-09/src/arched-garden-bridge.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/bearing-scan181.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/botany.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/bridge-coating.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/carved-joinery.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/garden-ferns.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/hall-circulation133.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/hall-envelope143.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/hero-hanging-lantern.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/highlight-scatter.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/lantern-substrate158.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/licensed-crown145.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/lotus-leaf.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/lotus-petal.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-finishes145.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-hall-frame139.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-main-roofs123.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-mass181.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-radiance181.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/night-sky145.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/pagoda-bank139.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/pagoda-finial09.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/pagoda-frame143.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/physical-night-fixtures.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/pine-needles.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/restoration-altar.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/restoration-buddha.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/restoration-pruned-pines-v1.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/rooted-garden145.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/site-perimeter144.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/site-shot144.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/square-stone-lantern158.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/veranda-apron139.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/washi-tissue103.js",
+      "unchanged": true
+    },
+    {
+      "path": "reconstructions/scene-09/src/weathered-boulder.js",
+      "unchanged": true
+    }
+  ],
+  "protectedCalls": [
+    {
+      "name": "181/158 architecture, bridge, toros and garden calls",
+      "unchanged": true,
+      "baseline": "b1402f9fd5e6d892ff6ea8ef1dbc6e3731c1fcc37e9209082550f47a60b2de86",
+      "held": "b1402f9fd5e6d892ff6ea8ef1dbc6e3731c1fcc37e9209082550f47a60b2de86",
+      "scope": "Original construction calls; new small lighting hardware is separately declared"
+    },
+    {
+      "name": "site continuation and water footprint",
+      "unchanged": true,
+      "baseline": "26008d6a57be4d7f8c603e172bc8fffdc3c9e627dc3e6c8d8864b85d289a3ba1",
+      "held": "26008d6a57be4d7f8c603e172bc8fffdc3c9e627dc3e6c8d8864b85d289a3ba1",
+      "scope": "Original construction calls; new small lighting hardware is separately declared"
+    },
+    {
+      "name": "closed veranda foundation and slab topology",
+      "unchanged": true,
+      "baseline": "814d29a13a262ff0be914b3c4cae64323e5211a16ca06c8d2ee38efe112f5b7d",
+      "held": "814d29a13a262ff0be914b3c4cae64323e5211a16ca06c8d2ee38efe112f5b7d",
+      "scope": "Original construction calls; new small lighting hardware is separately declared"
+    },
+    {
+      "name": "wet-film footprint and full-frustum capture cameras",
+      "unchanged": true,
+      "baseline": "98341699be552f2f170d77d35b72bf9b0d72a4bed4c01ec41a36261629b4f7ec",
+      "held": "98341699be552f2f170d77d35b72bf9b0d72a4bed4c01ec41a36261629b4f7ec",
+      "scope": "Original construction calls; new small lighting hardware is separately declared"
+    }
+  ],
+  "retainedNative": {
+    "instances": true,
+    "gable181": true,
+    "bearingMount181": true,
+    "stoneLantern158": true,
+    "substrate158": true,
+    "naturalBanks158": true,
+    "nightSky145": true,
+    "rootedGarden145": true,
+    "sitePerimeter144": true,
+    "shot144": true,
+    "circulation": true,
+    "hallFrame139": true,
+    "pagodaBank139": true,
+    "mainRoof123": true,
+    "heroHangingLantern": true,
+    "pagodaFinial": true,
+    "bridgeCoating": true,
+    "scannedMaterials": true,
+    "veranda:slabs": true,
+    "veranda:footprint": true,
+    "veranda:pondWaterlineWorld": true,
+    "veranda:copingStones": true,
+    "veranda:occupiedFloorUnderCamera": true,
+    "veranda:foundationBottomY": true
+  },
+  "poseChecks": [
+    {
+      "time": 0,
+      "cameraUnchanged": true,
+      "valid": true
+    },
+    {
+      "time": 3.5,
+      "cameraUnchanged": true,
+      "valid": true
+    },
+    {
+      "time": 7,
+      "cameraUnchanged": true,
+      "valid": true
+    }
+  ],
+  "newHardware": [
+    {
+      "label": "scene09-203-west-entry-hooded-practical",
+      "position": [
+        0.6010938455056261,
+        8.540999999999999,
+        -13.675144017013839
+      ],
+      "target": [
+        3.0044970038321166,
+        5.616,
+        -15.563570149682588
+      ],
+      "mountAnchor": [
+        1.1625608760246315,
+        8.73405,
+        -13.257107208060164
+      ],
+      "candela": 180,
+      "reach": 9,
+      "coneAngle": 0.7,
+      "geometryShadow": true,
+      "mount": "Closed bronze arm from actual181 joist/post/beam anchor to hood body and closed opal aperture",
+      "inferredPhotographicPlacement": true
+    },
+    {
+      "label": "scene09-203-east-entry-hooded-practical",
+      "position": [
+        9.293587802724108,
+        8.540999999999999,
+        -7.2655380381942205
+      ],
+      "target": [
+        10.404268008019798,
+        5.733,
+        -9.929442969223913
+      ],
+      "mountAnchor": [
+        8.89253992378196,
+        8.73405,
+        -7.564135758875416
+      ],
+      "candela": 145,
+      "reach": 8.5,
+      "coneAngle": 0.67,
+      "geometryShadow": true,
+      "mount": "Closed bronze arm from actual181 joist/post/beam anchor to hood body and closed opal aperture",
+      "inferredPhotographicPlacement": true
+    },
+    {
+      "label": "scene09-203-west-upper-post-practical",
+      "position": [
+        0.42046303299696763,
+        11.1735,
+        -12.712505710289832
+      ],
+      "target": [
+        2.351083119974148,
+        10.705499999999999,
+        -13.681270944884997
+      ],
+      "mountAnchor": [
+        0.26326661234038085,
+        11.3724,
+        -13.053957442358595
+      ],
+      "candela": 105,
+      "reach": 5.6,
+      "coneAngle": 0.72,
+      "geometryShadow": true,
+      "mount": "Closed bronze arm from actual181 joist/post/beam anchor to hood body and closed opal aperture",
+      "inferredPhotographicPlacement": true
+    },
+    {
+      "label": "scene09-203-east-upper-post-practical",
+      "position": [
+        8.553714017943694,
+        11.1735,
+        -6.656943934875178
+      ],
+      "target": [
+        9.04858269830799,
+        10.6236,
+        -8.694689009509025
+      ],
+      "mountAnchor": [
+        8.925900797490742,
+        11.3724,
+        -6.604246675644761
+      ],
+      "candela": 85,
+      "reach": 5.4,
+      "coneAngle": 0.7,
+      "geometryShadow": true,
+      "mount": "Closed bronze arm from actual181 joist/post/beam anchor to hood body and closed opal aperture",
+      "inferredPhotographicPlacement": true
+    },
+    {
+      "label": "scene09-203-tier-1-gallery-practical",
+      "position": [
+        -10.686389603257462,
+        8.2368,
+        -15.414738641416958
+      ],
+      "target": [
+        -11.42335237572214,
+        7.5528,
+        -15.83747500370577
+      ],
+      "mountAnchor": [
+        -10.686389603257462,
+        8.3964,
+        -15.414738641416958
+      ],
+      "candela": 140,
+      "reach": 5.4,
+      "coneAngle": 0.76,
+      "geometryShadow": true,
+      "mount": "Closed bronze arm from actual181 joist/post/beam anchor to hood body and closed opal aperture",
+      "inferredPhotographicPlacement": true
+    },
+    {
+      "label": "scene09-203-tier-3-gallery-practical",
+      "position": [
+        -11.095813365737838,
+        15.145199999999999,
+        -15.649592176021853
+      ],
+      "target": [
+        -11.832776138202515,
+        14.4612,
+        -16.072328538310664
+      ],
+      "mountAnchor": [
+        -11.095813365737838,
+        15.3048,
+        -15.649592176021853
+      ],
+      "candela": 110,
+      "reach": 2.6,
+      "coneAngle": 0.76,
+      "geometryShadow": false,
+      "mount": "Closed bronze arm from actual181 joist/post/beam anchor to hood body and closed opal aperture",
+      "inferredPhotographicPlacement": true
+    },
+    {
+      "label": "scene09-203-tier-5-gallery-practical",
+      "position": [
+        -11.464294751970176,
+        22.053599999999996,
+        -15.86096035716626
+      ],
+      "target": [
+        -12.201257524434853,
+        21.3696,
+        -16.28369671945507
+      ],
+      "mountAnchor": [
+        -11.464294751970176,
+        22.213199999999997,
+        -15.86096035716626
+      ],
+      "candela": 85,
+      "reach": 2.6,
+      "coneAngle": 0.76,
+      "geometryShadow": false,
+      "mount": "Closed bronze arm from actual181 joist/post/beam anchor to hood body and closed opal aperture",
+      "inferredPhotographicPlacement": true
+    }
+  ],
+  "legacyInfoNote": "foregroundVeranda.lightFalloff is an inherited historical description; actual bounded source distances/shadow flags are in night203.practicals and night203.downlights.",
+  "visualAccepted": false,
+  "pass": true
+}

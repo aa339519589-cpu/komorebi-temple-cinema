@@ -1,0 +1,125 @@
+{
+  "status": "actual modeled improvement held for root visual review; photographic fidelity unaccepted",
+  "baselineHash": "dcf7c2e7000547a6e383fd82316494a9d694ad37eb263bea17aff06f29e6b822",
+  "sourceHash": "98da3d941845046fb7e5cef2675213f93a1f6556b58e6fea97ed9ef77bed1ceb",
+  "snapshot": "lookdev/scene05-terminal204/astra-r12c-source",
+  "identity": "lookdev/scene05-terminal204/source204-astra-r12c-identity.json",
+  "changedFiles": "lookdev/scene05-terminal204/changed-files204-astra-r12c.json",
+  "canonicalWorkingTreeExact": true,
+  "heldSnapshotExact": true,
+  "visualAccepted": false,
+  "rendered": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-astra204-r12c-20261023",
+      "status": "rendered-review",
+      "sourceHash": "98da3d941845046fb7e5cef2675213f93a1f6556b58e6fea97ed9ef77bed1ceb",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-astra204-r12c-20261023/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "ff7661788a684dd9ee87daf15065e3c0a2ed0cb1c822b40cdd07a771db0c1311",
+          "viewed": true,
+          "glError": 0,
+          "valid": true
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-astra204-r12c-20261023/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "37ed0e5988302759fa8a676d5b590209a109e6bc7ff12c83210ce7c5710fb748",
+          "viewed": true,
+          "glError": 0,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-astra204-r12c-sideclose-20261023",
+      "status": "rendered-review",
+      "sourceHash": "98da3d941845046fb7e5cef2675213f93a1f6556b58e6fea97ed9ef77bed1ceb",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-astra204-r12c-sideclose-20261023/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "3b6b9a098865599768ebc55f29d6aec3223db39ae50eb375abe40428a23d2760",
+          "viewed": true,
+          "glError": 0,
+          "valid": true
+        }
+      ]
+    }
+  ],
+  "review": "lookdev/scene05-terminal204/review204-astra-r12c.json",
+  "implementation": [
+    "New compact closed authored ceramic face with curved brows, almond sockets, alar tissue, shallow carved cheek planes, short curved lip, subtly deformed rim and continuous relief radii. Forward relief depth reduced25%.",
+    "Finite3mm lobed nose inlay projects to the actual authored ceramic field, with1.5mm embedded/raised thickness; pupil and forehead mounts follow the shallower face.",
+    "Rear housing rebuilt with a flatter arched lower section and shorter taper; actual frieze raised8mm and hidden keel upper bearing raised25mm for positive overlap.",
+    "Rafter pitch .125 to .196m; main/flying timber sections .100/.074m; true end cups remounted +20/+10mm to the generated cut centres. Flying timber uses red stain.",
+    "Real pan/cover lane spacing .26 to .315m, corresponding cover/pan widths adjusted, and16 closed convex chrysanthemum petals replace flat12-loop caps.",
+    "Square nominal piers .47 to .56m about retained axes; roofed-room window heads follow shaftTop-.21m; battens .040 to .065m with rear transverse rail; inherited occupied-lower-room head datum retained.",
+    "Shallow finite cloud curls added to actual secondary copper end sleeves, and localized bracket stain replaces the overly tan joinery response."
+  ],
+  "changedMounts": [
+    {
+      "part": "ceramic frieze",
+      "localYShiftM": 0.008
+    },
+    {
+      "part": "ridge keel upper seat",
+      "beforeM": 0.03,
+      "afterM": 0.055
+    },
+    {
+      "part": "main rafter cap centre",
+      "localYShiftM": 0.02
+    },
+    {
+      "part": "flying rafter cut centre",
+      "localYShiftM": 0.01
+    },
+    {
+      "part": "square piers",
+      "nominalWidthBeforeM": 0.47,
+      "nominalWidthAfterM": 0.56,
+      "axesUnchanged": true
+    },
+    {
+      "part": "roofed-room window head",
+      "datum": "shaftTop-.21*scale"
+    }
+  ],
+  "geometryChecks": [
+    "lookdev/scene05-terminal204/geometry204-astra-r12b.json",
+    "lookdev/scene05-terminal204/contact204-astra-r12.json",
+    "lookdev/scene05-terminal204/housing-contacts204-astra-r11.json",
+    "lookdev/scene05-terminal204/geometry-eave204-astra-r12c-caps-repaired.json"
+  ],
+  "failureEvidence": [
+    "lookdev/scene05-terminal204/review204-astra-r10.json",
+    "lookdev/scene05-terminal204/review204-astra-r11.json",
+    "lookdev/scene05-terminal204/review204-astra-r12b.json",
+    "lookdev/scene05-terminal204/contact204-astra-r10.json",
+    "lookdev/scene05-terminal204/contact204-astra-r10-updated-witness.json",
+    "lookdev/scene05-terminal204/geometry204-astra-r11.json",
+    "lookdev/scene05-terminal204/geometry204-astra-r12.json",
+    "lookdev/scene05-terminal204/geometry-eave204-astra-r12c.json"
+  ],
+  "authorRecipe": "lookdev/scene05-terminal204/author-volume204-astra-r12b.mjs",
+  "meshProvenance": "reconstructions/scene-05/assets/terminal204-authored/provenance204.json",
+  "remaining": [
+    "Authored onigawara is still too geometrically regular and satin-smooth: brow termination, cheek/flute carving, short mouth and subtle kiln irregularity remain unlike the photographed ceramic. Current face is not accepted.",
+    "Arched rear ridge housing, flat lower wall and three transverse returns are bounded reconstruction hypotheses, not recovered measurements of the photographed artifact.",
+    "Whole-tower bracket silhouettes still read too heavy and repetitive; lighting, foliage/canopy, sky colour and timber finish remain visibly different from HD05. Photographic fidelity is unaccepted.",
+    "The lower-stage cut-face cloud curls and 16-petal tile flowers are explicit modeled approximations of visible motifs, not a historic pattern attribution."
+  ],
+  "externalScanUsed": false,
+  "referencePhotographRuntimeUse": false,
+  "cameraSiteAndLightAnchorsUnchanged": true,
+  "noOwnLiveJobs": true,
+  "noGitMutation": true,
+  "noSharedOrOtherSceneEdits": true,
+  "noBlenderExport": true,
+  "preservePriorFailures": true
+}

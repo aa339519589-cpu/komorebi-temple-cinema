@@ -1,0 +1,61 @@
+{
+  "task": "Scene01 structure208 Astra handoff",
+  "status": "paused-for-explicit-model-switch-handoff; authoring/new native jobs stopped",
+  "currentOwnedRuntimeChanges": [
+    {
+      "path": "reconstructions/scene-01/src/bridge-court208.js",
+      "sha256": "2cf1f36ed1c7262f00aeba52d462218c7f475986daace42d9c921fa2fc0af0a1",
+      "bytes": 14894,
+      "state": "new unreferenced prototype only; not imported/wired/rendered; syntax not yet checked"
+    }
+  ],
+  "baseline185SourceHash": "116237412503ed50dc2832d15c969056fea0f3c43c66f5ea3168ad9873c8beef",
+  "baselineCodeSnapshot": "lookdev/scene01-structure208/r00-source",
+  "prototypeSnapshot": "lookdev/scene01-structure208/handoff-source/bridge-court208.js",
+  "actualReference": "references/hd/0-\u7167\u7247-1.jpg",
+  "actual185Full": "qa/ten-reference/01/iteration-scene01-spatial185-r04-20261023/reference.png",
+  "comparisonCrops": [
+    "lookdev/scene01-structure208/reference-bridge.png",
+    "lookdev/scene01-structure208/actual185-bridge.png"
+  ],
+  "actual208BaselineViews": [
+    {
+      "iteration": "scene01-structure208-baseline-overhead",
+      "report": "qa/ten-reference/01/iteration-scene01-structure208-baseline-overhead/report.json",
+      "PNG": "qa/ten-reference/01/iteration-scene01-structure208-baseline-overhead/inspection-view.png",
+      "sourceHash": "116237412503ed50dc2832d15c969056fea0f3c43c66f5ea3168ad9873c8beef",
+      "status": "rendered-review",
+      "completedAt": "2026-10-23T11:45:55.805Z",
+      "oldPID": 61390,
+      "closedExecSession": 99647,
+      "pending": false,
+      "errors": []
+    },
+    {
+      "iteration": "scene01-structure208-baseline-low",
+      "report": "qa/ten-reference/01/iteration-scene01-structure208-baseline-low/report.json",
+      "PNG": "qa/ten-reference/01/iteration-scene01-structure208-baseline-low/inspection-view.png",
+      "sourceHash": "116237412503ed50dc2832d15c969056fea0f3c43c66f5ea3168ad9873c8beef",
+      "status": "rendered-review",
+      "completedAt": "2026-10-23T11:45:46.345Z",
+      "oldPID": 61389,
+      "closedExecSession": 93591,
+      "pending": false,
+      "errors": []
+    }
+  ],
+  "activeOwnJobs": [],
+  "doNotKillOrCancelAnything": true,
+  "ownership": "Only reconstructions/scene-01 and newlookdev208/newQA01. R06b scene06 is frozen/adopted by root; do not touch it. No shared tools/Git/children/Blender/export/full-repo clone. Disk was1.2GiB at task start.",
+  "lowCameraAndDollyChanged": false,
+  "geometryProgress": "Read and personally compared original and actual185 fulls/crops; inspected genuine baseline low/overhead. New bridge-court208.js implements a structural hypothesis but remains unwired and unrendered; no improved208 frame is claimed.",
+  "primaryFinding": "Old bridge has thick blank arch/fascia, long checker-like exposed joist ends and oversized finials. Existing narrow garden path has abrupt turns and ends short of stair forecourt. End abutments stand as tall isolated plugs because bridgeSupport124 is imported but unused. Real overhead is occluded by canopy and cannot establish ground contact.",
+  "nextConcreteRepair": "Review/repair the new bridge/court prototype, then wire it into garden.js/main.js/scene.js. Rebuild actual bridge bearing/notch interfaces, raised end shoulders, six-riser east route with a real corner landing, west garden stair and oblique forecourt sharing the actual hall stair foot. Add explicit source-instance structural plan/side inspection; complete full/hero/low native FIFO comparisons and iterate.",
+  "knownPrototypeCautions": [
+    "bronzeTie208 rotates the profile with +Y pi/2; its Z sign is reversed. Correct the transform or emitted Z reflection before use.",
+    "End sleeper blocks currently intrude into the proposed full masonry landing. Cut actual timber pockets or adjust the masonry bearing geometry; do not hide that intersection.",
+    "Prototype and bank height have not been rendered or validated. Treat closed flags as authoring intent, not proof.",
+    "Do not blindly enable bank208 for all plants without a coherent clearance/pruning pass. Preserve RNG consumption so existing framing trees do not randomly change.",
+    "New route footprint and turns must be inspected in actual plan and low side views, with raw full views retained alongside explicit plant/roof-omitted structural inspections."
+  ]
+}

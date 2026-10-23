@@ -24,15 +24,15 @@ export function createClayTile05(points,width=.17,{cover=true,variant=0}={}){
 export function createHandlaidRoof05(sample,w,d,opening=null){
  const pieces=[],mix=(a,b,t)=>a+(b-a)*t;
  for(let face=0;face<4;face++){
-  const width=face<2?w:d,depth=face<2?d:w,lanes=Math.max(8,Math.round(width/.26));
+  const width=face<2?w:d,depth=face<2?d:w,lanes=Math.max(8,Math.round(width/.315));
   for(let i=0;i<=lanes;i++){
    const u=-1+2*i/lanes,x=u*width/2,insideAcross=opening&&(face<2?x>opening.minX-.12&&x<opening.maxX+.12:x>opening.minZ-.12&&x<opening.maxZ+.12),inner=opening?(face<2?(face===0?opening.maxZ:-opening.minZ):(face===2?opening.maxX:-opening.minX)):0,lo=Math.max(.04,Math.abs(u)+.004,insideAcross?(inner-.022)/(depth/2):0),hi=1.025;
    const courses=Math.max(1,Math.ceil((hi-lo)*Math.hypot(depth/2,2)/.34));
    const P=(t,uu)=>sample(face,t,Math.max(-1,Math.min(1,uu/t)),.004);
    for(let j=0;j<courses;j++){
     const a=mix(lo,hi,j/courses),b=mix(lo,hi,Math.min(1,(j+1.045)/courses)),ts=Array.from({length:5},(_,k)=>mix(a,b,k/4));
-    pieces.push(createClayTile05(ts.map(t=>P(t,u)),.163,{cover:true,variant:i*1.37+j*.71+face*19}));
-    if(i<lanes){const uu=u+1/lanes;if(Math.abs(uu)<a+.02)pieces.push(createClayTile05(ts.map(t=>P(t,uu)),.213,{cover:false,variant:i*.93+j*1.27+face*11}));}
+    pieces.push(createClayTile05(ts.map(t=>P(t,u)),.182,{cover:true,variant:i*1.37+j*.71+face*19}));
+    if(i<lanes){const uu=u+1/lanes;if(Math.abs(uu)<a+.02)pieces.push(createClayTile05(ts.map(t=>P(t,uu)),.270,{cover:false,variant:i*.93+j*1.27+face*11}));}
    }
   }
  }

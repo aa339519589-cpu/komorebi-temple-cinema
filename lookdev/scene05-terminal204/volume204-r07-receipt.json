@@ -1,0 +1,39 @@
+{
+  "status": "authored-volume-for-native-review",
+  "spec": {
+    "bounds": [
+      [
+        -0.279,
+        -0.08,
+        -0.119
+      ],
+      [
+        0.279,
+        0.49,
+        0.168
+      ]
+    ],
+    "gridStep": 0.0034,
+    "origin": "Explicit authored volumetric primitive/crease construction from visible HD05 features; hidden depth interpreted",
+    "photographPixelsUsed": false,
+    "externalScanUsed": false
+  },
+  "mesher": "Marching cubes with ten-micron Euclidean numerical weld; finite authored implicit volume",
+  "grid": [
+    166,
+    169,
+    86
+  ],
+  "samples": 2412644,
+  "boundaryMinimum": 0.012374575690913395,
+  "vertices": 81123,
+  "triangles": 162262,
+  "bytes": 3894116,
+  "sha256": "335d8101f08c2f99bcc75b865957d0a852903ed213438c5063bb337dbc4400c1",
+  "sourceFieldSha256": "5094c9cc6b467dfdd71030f3d6d142542f67b6c985f15be3a86ff349dd5c47e3",
+  "recipeSha256": "5696bb4b78bc3afd29cd39bc170223f56c4b10852b369f48ce76307e649fc045",
+  "cpuSeconds": 2.12,
+  "photoPixelsUsed": false,
+  "externalScanUsed": false,
+  "visualAccepted": false
+}

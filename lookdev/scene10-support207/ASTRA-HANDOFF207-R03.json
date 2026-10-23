@@ -1,0 +1,1305 @@
+{
+  "status": "FROZEN for user-requested Astra Max exclusive replacement; no further authoring/jobs from previous worker",
+  "sourceHash": "1bd51900ab7f4fce52724dc0bf62538ac9010ecf9feaa539ea63dbe4e4a9bc3f",
+  "baseline193Source": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+  "sourceSnapshot": "lookdev/scene10-support207/checkpoint-r03-source",
+  "immutable193Snapshots": [
+    "lookdev/scene10-support207/before-r08b/",
+    "lookdev/scene10-natural193/r08b-held-source/"
+  ],
+  "changedOrNewSceneFiles": {
+    "reconstructions/scene-10/ecology193-held207.json": "30eda51ce3ed9ecece1611a932aa8507a331772e106124ede4f248d88f962f9b",
+    "reconstructions/scene-10/src/hall-front132.js": "4fdb640e0b202665e0bf66213102b25927d12a2178e4758eabe71f03c9ea9dd8",
+    "reconstructions/scene-10/src/layout125.js": "47c84832f858f08a4dad4dea18d27f6518fd6b77ee39ed225c9d484a88bbe367",
+    "reconstructions/scene-10/src/main.js": "feb5766a2cbfb64f429e9713fd323542c5b557bf2358f859e1a557f5f0cac1f0",
+    "reconstructions/scene-10/src/natural193.js": "a2359b1466edcaf8be0ca7e75d1902ef38d49ed9c1e07b72812e15e074072969",
+    "reconstructions/scene-10/src/support-route207.js": "3f5e89122236860beee64ffd9f3b8d556c16e83cfa0d04bd5fbfdffdf38faf13"
+  },
+  "sourceNote": "asset-dependencies.json/natural193-provenance.json/README are copied for checkpoint integrity but still describe193R08b.207 provenance/README and final validation have NOT been authored yet.",
+  "scopeAuthorization": "Root expressly expanded207 scope: old183 landing/stair/foundation preservation was partitioning, not user demand. Wrong grey cones/platform/stair routing may be rebuilt. Keep hall/pagoda upper mass, camera/rain/wet-paving and193 ecology where possible. No more shrub concealment.",
+  "nativeViews": {
+    "full": "qa/ten-reference/10/iteration-scene10-support207-r03-bank/reference.png",
+    "trueBank": "qa/ten-reference/10/iteration-scene10-support207-r03-bank/detail-native.png",
+    "subfrustum": [
+      650,
+      570,
+      560,
+      1254
+    ],
+    "low": "qa/ten-reference/10/iteration-scene10-support207-r03-low/inspection-view.png",
+    "overhead": "qa/ten-reference/10/iteration-scene10-support207-r03-overhead/inspection-view.png",
+    "allViewed": true,
+    "sourceMatched": true,
+    "reports": [
+      {
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r03-bank/report.json",
+        "status": "rendered-review",
+        "sourceHash": "1bd51900ab7f4fce52724dc0bf62538ac9010ecf9feaa539ea63dbe4e4a9bc3f",
+        "errors": [],
+        "frames": [
+          {
+            "name": "reference",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0
+          },
+          {
+            "name": "detail-native",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0
+          }
+        ]
+      },
+      {
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r03-low/report.json",
+        "status": "rendered-review",
+        "sourceHash": "1bd51900ab7f4fce52724dc0bf62538ac9010ecf9feaa539ea63dbe4e4a9bc3f",
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0
+          }
+        ]
+      },
+      {
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r03-overhead/report.json",
+        "status": "rendered-review",
+        "sourceHash": "1bd51900ab7f4fce52724dc0bf62538ac9010ecf9feaa539ea63dbe4e4a9bc3f",
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0
+          }
+        ]
+      }
+    ]
+  },
+  "jobHandoff": {
+    "allComplete": true,
+    "noOwnActiveJobs": true,
+    "alreadyQueuedPreserved": [
+      {
+        "label": "207R03low",
+        "pid": 64032,
+        "session": 88957,
+        "status": "completed normally, not killed",
+        "report": "qa/ten-reference/10/iteration-scene10-support207-r03-low/report.json"
+      },
+      {
+        "label": "207R03overhead",
+        "pid": 64072,
+        "session": 66735,
+        "status": "completed normally afterFIFOwait90.823s, not killed",
+        "report": "qa/ten-reference/10/iteration-scene10-support207-r03-overhead/report.json"
+      }
+    ],
+    "logs": "No separate persistent.log file. Tool stdout completion captured in the listed exec sessions; official report.json files are durable receipts. Do not rerun completed jobs for latency."
+  },
+  "implemented": [
+    "Removed old full-height-to-water step columns and7.1m smooth soil cone. support-route207.js creates actual closed wedge treads, sloping beds, real risers/nosings and compact closed foot/head landings.",
+    "Near approach now9treads at0.139222m rise/0.28m going/1.8m width, with a1.52m-wide continuous low closed stone causeway from forecourt and a1.52m-deep foot turn.",
+    "Hall flight now8treads at0.179375m rise/0.263784m going/2.2m width. Full-height cheek/core walls removed; actual timber stringers, crossheads and4stone bearings carry the closed stone bed/treads.",
+    "Old3.5m-square high turn replaced by compact convex landing carried on actual capped piers. Bridge guard endpoints now match the original bridge rail heights/lateral endpoints.",
+    "Hall front20×12m foundation cube removed; rear retaining body set to localfrontZ-.70, gallery carried on two rows of tapered monolithic stone piers and real wood beams/floor. Upper183roof/carpentry/massing and hall/pagoda world transforms remain fixed.",
+    "22original CC0 tall bedrock pieces, positive uniform scale/yaw, actual centre-ray contacts atworldY1.05. Lower rock surface stays buried at/below-.18. These carry hall/stair pier feet; originals unchanged.",
+    "Water45×37m box replaced with closed irregular Catmull-Rom creek outline and low interrupted real stone courses; dielectricwaterIOR1.333/metalness0 and cloned micro-normal.",
+    "193mature+young forest placement/growth datums frozen in ecology193-held207.json, all56tree records retained exactly. Foot-route/landing masks govern roots. Generic concealment shrubs below the old landing are suppressed."
+  ],
+  "beforeAfterDatums": {
+    "before": {
+      "nearDeckY": 1.47,
+      "farDeckY": 2,
+      "span": 10.3,
+      "turningArea": 12.25,
+      "hallStairWidth": 2.9,
+      "hallStepCount": 12,
+      "hallTread": 0.20168934999,
+      "oldStepBottom": -0.18,
+      "oldBankWidth": 7.1
+    },
+    "after": {
+      "nearDeckY": 1.32,
+      "farDeckY": 2.4000000000000004,
+      "span": 9.65,
+      "turningOutline": [
+        [
+          6.26083582006832,
+          -7.233475836343705
+        ],
+        [
+          8.453660470688472,
+          -7.411014709925257
+        ],
+        [
+          8.450506463869901,
+          -4.926902880708877
+        ],
+        [
+          7.606619123394115,
+          -4.825147504513295
+        ]
+      ],
+      "hallStairWidth": 2.2,
+      "hallRiser": 0.17937499999999995,
+      "hallTread": 0.26378402498652354,
+      "nearRiser": 0.13922222222222225,
+      "nearTread": 0.28
+    },
+    "bridge": {
+      "old": {
+        "position": [
+          2.35,
+          1.22,
+          -5.4
+        ],
+        "span": 10.3,
+        "nearDeckY": 1.47,
+        "farDeckY": 2
+      },
+      "new": {
+        "position": [
+          2.6726628066525064,
+          1.07,
+          -5.438906467368899
+        ],
+        "span": 9.65,
+        "nearDeckY": 1.32,
+        "farDeckY": 2.4000000000000004
+      },
+      "why": "Keeps far bridge x/z and building datums; shortens near end0.65m, lowers near deck0.15m, raises far deck0.40m for actual stair rise/going and closer near-end photographic projection."
+    },
+    "hallStair": {
+      "revision": "scene10-207-connected-stair-plan-r03",
+      "bridgeEnd": [
+        7.4629644746474115,
+        2.4000000000000004,
+        -6.016517867537935
+      ],
+      "hallLanding": [
+        7.186950259324159,
+        3.835,
+        -9.425634772880848
+      ],
+      "start": [
+        7.357248145378397,
+        2.4000000000000004,
+        -7.322245273134481
+      ],
+      "width": 2.2,
+      "count": 8,
+      "run": 2.1102721998921883,
+      "rise": 1.4349999999999996,
+      "unit": [
+        -0.0806994879916145,
+        -0.9967384775546148
+      ],
+      "steps": [
+        {
+          "index": 0,
+          "top": 2.579375,
+          "bottom": 2.16,
+          "undersideFront": 2.16,
+          "undersideBack": 2.3393750000000004,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.26083582006832,
+              -7.233475836343705
+            ],
+            [
+              6.239548584311541,
+              -7.496399523812001
+            ],
+            [
+              8.432373234931694,
+              -7.673938397393553
+            ],
+            [
+              8.453660470688472,
+              -7.411014709925257
+            ]
+          ]
+        },
+        {
+          "index": 1,
+          "top": 2.75875,
+          "bottom": 2.3393750000000004,
+          "undersideFront": 2.3393750000000004,
+          "undersideBack": 2.51875,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.239548584311541,
+              -7.496399523812001
+            ],
+            [
+              6.218261348554761,
+              -7.759323211280297
+            ],
+            [
+              8.411085999174913,
+              -7.936862084861849
+            ],
+            [
+              8.432373234931694,
+              -7.673938397393553
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "top": 2.9381250000000003,
+          "bottom": 2.51875,
+          "undersideFront": 2.51875,
+          "undersideBack": 2.698125,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.218261348554761,
+              -7.759323211280297
+            ],
+            [
+              6.196974112797981,
+              -8.022246898748593
+            ],
+            [
+              8.389798763418133,
+              -8.199785772330143
+            ],
+            [
+              8.411085999174913,
+              -7.936862084861849
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "top": 3.1175,
+          "bottom": 2.698125,
+          "undersideFront": 2.698125,
+          "undersideBack": 2.8775000000000004,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.196974112797981,
+              -8.022246898748593
+            ],
+            [
+              6.175686877041201,
+              -8.28517058621689
+            ],
+            [
+              8.368511527661354,
+              -8.46270945979844
+            ],
+            [
+              8.389798763418133,
+              -8.199785772330143
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "top": 3.296875,
+          "bottom": 2.8775000000000004,
+          "undersideFront": 2.8775000000000004,
+          "undersideBack": 3.056875,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.175686877041201,
+              -8.28517058621689
+            ],
+            [
+              6.154399641284422,
+              -8.548094273685185
+            ],
+            [
+              8.347224291904574,
+              -8.725633147266736
+            ],
+            [
+              8.368511527661354,
+              -8.46270945979844
+            ]
+          ]
+        },
+        {
+          "index": 5,
+          "top": 3.4762500000000003,
+          "bottom": 3.056875,
+          "undersideFront": 3.056875,
+          "undersideBack": 3.23625,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.154399641284422,
+              -8.548094273685185
+            ],
+            [
+              6.133112405527642,
+              -8.811017961153482
+            ],
+            [
+              8.325937056147795,
+              -8.988556834735032
+            ],
+            [
+              8.347224291904574,
+              -8.725633147266736
+            ]
+          ]
+        },
+        {
+          "index": 6,
+          "top": 3.655625,
+          "bottom": 3.23625,
+          "undersideFront": 3.23625,
+          "undersideBack": 3.4156250000000004,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.133112405527642,
+              -8.811017961153482
+            ],
+            [
+              6.111825169770862,
+              -9.073941648621778
+            ],
+            [
+              8.304649820391015,
+              -9.251480522203329
+            ],
+            [
+              8.325937056147795,
+              -8.988556834735032
+            ]
+          ]
+        },
+        {
+          "index": 7,
+          "top": 3.835,
+          "bottom": 3.4156250000000004,
+          "undersideFront": 3.4156250000000004,
+          "undersideBack": 3.5949999999999998,
+          "riser": 0.17937499999999995,
+          "tread": 0.26378402498652354,
+          "outline": [
+            [
+              6.111825169770862,
+              -9.073941648621778
+            ],
+            [
+              6.090537934014082,
+              -9.336865336090073
+            ],
+            [
+              8.283362584634235,
+              -9.514404209671623
+            ],
+            [
+              8.304649820391015,
+              -9.251480522203329
+            ]
+          ]
+        }
+      ],
+      "upperLanding": {
+        "outline": [
+          [
+            6.090537934014082,
+            -9.336865336090073
+          ],
+          [
+            8.283362584634235,
+            -9.514404209671623
+          ],
+          [
+            9.435356476136425,
+            -9.894059242993109
+          ],
+          [
+            6.718525789211897,
+            -11.674040989693111
+          ]
+        ],
+        "top": 3.835,
+        "bottom": 3.5949999999999998,
+        "scope": "Full slanted stair edge meets one closed wedge reaching into the hall floor"
+      },
+      "turningLanding": {
+        "center": [
+          7.4629644746474115,
+          2.4000000000000004,
+          -6.016517867537935
+        ],
+        "halfWidth": 1.35,
+        "outline": [
+          [
+            6.26083582006832,
+            -7.233475836343705
+          ],
+          [
+            8.453660470688472,
+            -7.411014709925257
+          ],
+          [
+            8.450506463869901,
+            -4.926902880708877
+          ],
+          [
+            7.606619123394115,
+            -4.825147504513295
+          ]
+        ],
+        "top": 2.4000000000000004,
+        "bottom": 2.22
+      },
+      "bearing": {
+        "type": "closed wedge treads on narrow coursed stone cheeks, supported foot/head landings",
+        "riser": 0.17937499999999995,
+        "tread": 0.26378402498652354,
+        "bedThickness": 0.24
+      }
+    },
+    "nearApproach": {
+      "revision": "scene10-207-real-stone-route-r03",
+      "start": [
+        -4.6195166236941425,
+        0.067,
+        -4.559620304831787
+      ],
+      "end": [
+        -2.1176388613423986,
+        1.32,
+        -4.861295067199864
+      ],
+      "axis": [
+        0.9928086358538663,
+        -0.11971220728891936
+      ],
+      "run": 2.5200000000000005,
+      "width": 1.8,
+      "count": 9,
+      "rise": 1.2530000000000001,
+      "riser": 0.13922222222222225,
+      "tread": 0.28,
+      "steps": [
+        {
+          "index": 0,
+          "along": [
+            0,
+            0.28
+          ],
+          "top": 0.20622222222222225,
+          "undersideFront": -0.153,
+          "undersideBack": -0.01377777777777775,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 1,
+          "along": [
+            0.28,
+            0.56
+          ],
+          "top": 0.3454444444444445,
+          "undersideFront": -0.01377777777777775,
+          "undersideBack": 0.1254444444444445,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 2,
+          "along": [
+            0.56,
+            0.8400000000000002
+          ],
+          "top": 0.4846666666666667,
+          "undersideFront": 0.1254444444444445,
+          "undersideBack": 0.2646666666666667,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 3,
+          "along": [
+            0.8400000000000002,
+            1.12
+          ],
+          "top": 0.6238888888888889,
+          "undersideFront": 0.2646666666666667,
+          "undersideBack": 0.40388888888888896,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 4,
+          "along": [
+            1.12,
+            1.4000000000000001
+          ],
+          "top": 0.7631111111111111,
+          "undersideFront": 0.40388888888888896,
+          "undersideBack": 0.5431111111111111,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 5,
+          "along": [
+            1.4000000000000001,
+            1.6800000000000004
+          ],
+          "top": 0.9023333333333334,
+          "undersideFront": 0.5431111111111111,
+          "undersideBack": 0.6823333333333335,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 6,
+          "along": [
+            1.6800000000000004,
+            1.9600000000000004
+          ],
+          "top": 1.0415555555555556,
+          "undersideFront": 0.6823333333333335,
+          "undersideBack": 0.8215555555555556,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 7,
+          "along": [
+            1.9600000000000004,
+            2.24
+          ],
+          "top": 1.180777777777778,
+          "undersideFront": 0.8215555555555556,
+          "undersideBack": 0.960777777777778,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 8,
+          "along": [
+            2.24,
+            2.5200000000000005
+          ],
+          "top": 1.32,
+          "undersideFront": 0.960777777777778,
+          "undersideBack": 1.1,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        }
+      ],
+      "bottomLanding": {
+        "center": [
+          -5.374051186943081,
+          0.067,
+          -4.468639027292208
+        ],
+        "along": [
+          -1.52,
+          0
+        ],
+        "width": 1.84,
+        "top": 0.067
+      },
+      "route": {
+        "points": [
+          [
+            -3.72,
+            -1.78
+          ],
+          [
+            -4.18,
+            -2.64
+          ],
+          [
+            -4.58,
+            -3.56
+          ],
+          [
+            -5.374051186943081,
+            -4.468639027292208
+          ]
+        ],
+        "outline": [
+          [
+            -4.390151946018871,
+            -1.421536097707006
+          ],
+          [
+            -4.434933939111877,
+            -1.50450852209958
+          ],
+          [
+            -4.4811204944512975,
+            -1.5889115183273252
+          ],
+          [
+            -4.5285199005197665,
+            -1.674870902238613
+          ],
+          [
+            -4.576920132492127,
+            -1.762508270594065
+          ],
+          [
+            -4.626093136565051,
+            -1.8519476844878937
+          ],
+          [
+            -4.6757944728416785,
+            -1.9433132408754281
+          ],
+          [
+            -4.7257629909571115,
+            -2.0367260246003926
+          ],
+          [
+            -4.775720811031947,
+            -2.132300663349273
+          ],
+          [
+            -4.825373184211652,
+            -2.2301403360553866
+          ],
+          [
+            -4.876437436095641,
+            -2.3347554855241928
+          ],
+          [
+            -4.929389543344037,
+            -2.453295499744144
+          ],
+          [
+            -4.974844734500457,
+            -2.5650310102668454
+          ],
+          [
+            -5.014578265856935,
+            -2.669085086294162
+          ],
+          [
+            -5.0501339808267645,
+            -2.7649158243497096
+          ],
+          [
+            -5.0827589268071565,
+            -2.8521802217797836
+          ],
+          [
+            -5.113387616106128,
+            -2.9306653058443644
+          ],
+          [
+            -5.1426587349581805,
+            -3.0002928544256053
+          ],
+          [
+            -5.170968174832828,
+            -3.0611964705169252
+          ],
+          [
+            -5.1985596534528415,
+            -3.1138197799832508
+          ],
+          [
+            -5.226123967920708,
+            -3.1597298228949855
+          ],
+          [
+            -5.260504116157774,
+            -3.210192582508763
+          ],
+          [
+            -5.301377338300631,
+            -3.2646408462938106
+          ],
+          [
+            -5.348189049834404,
+            -3.322393488254579
+          ],
+          [
+            -5.400318442021399,
+            -3.3829661108814064
+          ],
+          [
+            -5.457164891104009,
+            -3.446084482098942
+          ],
+          [
+            -5.518163527173241,
+            -3.511640366029653
+          ],
+          [
+            -5.582813514039432,
+            -3.579687985463578
+          ],
+          [
+            -5.6506626834574805,
+            -3.6504130187080954
+          ],
+          [
+            -5.72130918500571,
+            -3.7241368138363704
+          ],
+          [
+            -5.794379409436361,
+            -3.8013099984421292
+          ],
+          [
+            -5.8695140474965575,
+            -3.8825289352437284
+          ],
+          [
+            -5.946302276270664,
+            -3.968510353085865
+          ],
+          [
+            -4.801800097615496,
+            -4.968767701498549
+          ],
+          [
+            -4.7458384544380925,
+            -4.906127079812537
+          ],
+          [
+            -4.6856321731547315,
+            -4.841059759700985
+          ],
+          [
+            -4.62168108088497,
+            -4.773526175621512
+          ],
+          [
+            -4.5544425355740605,
+            -4.703361919355441
+          ],
+          [
+            -4.484329275578713,
+            -4.630274668157289
+          ],
+          [
+            -4.411716773458373,
+            -4.553837843091381
+          ],
+          [
+            -4.336970676216014,
+            -4.473491373710765
+          ],
+          [
+            -4.2604615653221,
+            -4.38851387237328
+          ],
+          [
+            -4.182622094849722,
+            -4.2980233737376645
+          ],
+          [
+            -4.103981705930721,
+            -4.200933375144417
+          ],
+          [
+            -4.025278758181919,
+            -4.095979416353915
+          ],
+          [
+            -3.947549545964538,
+            -3.981707588725331
+          ],
+          [
+            -3.8725204532126667,
+            -3.8568002907817487
+          ],
+          [
+            -3.807486801684764,
+            -3.7329989303801434
+          ],
+          [
+            -3.751722834464214,
+            -3.6132343856641413
+          ],
+          [
+            -3.7037107149897723,
+            -3.4991818266764243
+          ],
+          [
+            -3.6618572954538484,
+            -3.3920307140621464
+          ],
+          [
+            -3.624681549153708,
+            -3.29263295031529
+          ],
+          [
+            -3.5909191843501778,
+            -3.2016213006902703
+          ],
+          [
+            -3.5595811771001644,
+            -3.119493870244563
+          ],
+          [
+            -3.5299757437074106,
+            -3.0466259451003377
+          ],
+          [
+            -3.501694514656529,
+            -2.9832012426643377
+          ],
+          [
+            -3.4652725176665315,
+            -2.9087611262346442
+          ],
+          [
+            -3.424735579010345,
+            -2.828891578348556
+          ],
+          [
+            -3.3823730905473037,
+            -2.7478544064534356
+          ],
+          [
+            -3.3383405244658433,
+            -2.665543769151469
+          ],
+          [
+            -3.2928100023538556,
+            -2.5818491052482404
+          ],
+          [
+            -3.2459700158641325,
+            -2.496655249780064
+          ],
+          [
+            -3.19802497906156,
+            -2.4098425098357508
+          ],
+          [
+            -3.1491951902687765,
+            -2.3212877768709093
+          ],
+          [
+            -3.099717106581667,
+            -2.2308665675069355
+          ],
+          [
+            -3.0498480539811297,
+            -2.138463902292994
+          ]
+        ],
+        "samples": [
+          [
+            -3.72,
+            0.067,
+            -1.78
+          ],
+          [
+            -3.767325522846772,
+            0.067,
+            -1.8676875448032577
+          ],
+          [
+            -3.815157842360037,
+            0.067,
+            -1.9550996475991171
+          ],
+          [
+            -3.8632724397906633,
+            0.067,
+            -2.042356706037182
+          ],
+          [
+            -3.91144507417813,
+            0.067,
+            -2.1295817601870644
+          ],
+          [
+            -3.959451569459453,
+            0.067,
+            -2.216898394868067
+          ],
+          [
+            -4.007067498653761,
+            0.067,
+            -2.3044285050134485
+          ],
+          [
+            -4.054068040752208,
+            0.067,
+            -2.392290215526914
+          ],
+          [
+            -4.100228195021146,
+            0.067,
+            -2.4805961208489147
+          ],
+          [
+            -4.145322850939092,
+            0.067,
+            -2.5694507311450154
+          ],
+          [
+            -4.189065975376085,
+            0.067,
+            -2.6589783640942652
+          ],
+          [
+            -4.229682643525724,
+            0.067,
+            -2.749960722422241
+          ],
+          [
+            -4.267212955800311,
+            0.067,
+            -2.842262440255704
+          ],
+          [
+            -4.302748725103556,
+            0.067,
+            -2.935353193492216
+          ],
+          [
+            -4.337407764990236,
+            0.067,
+            -3.0287743873324997
+          ],
+          [
+            -4.372308111130502,
+            0.067,
+            -3.122105467920965
+          ],
+          [
+            -4.40854916554795,
+            0.067,
+            -3.2149235662603943
+          ],
+          [
+            -4.447190784711197,
+            0.067,
+            -3.3067636200448733
+          ],
+          [
+            -4.489227488258796,
+            0.067,
+            -3.3970977004485343
+          ],
+          [
+            -4.535540053332754,
+            0.067,
+            -3.4853100353824997
+          ],
+          [
+            -4.586836756942623,
+            0.067,
+            -3.570718705810158
+          ],
+          [
+            -4.642891437169847,
+            0.067,
+            -3.653085999431339
+          ],
+          [
+            -4.702679522115676,
+            0.067,
+            -3.7327871107191135
+          ],
+          [
+            -4.765405572342063,
+            0.067,
+            -3.8102084309961217
+          ],
+          [
+            -4.8303900036717495,
+            0.067,
+            -3.885739991627343
+          ],
+          [
+            -4.897067783660011,
+            0.067,
+            -3.9597879279048533
+          ],
+          [
+            -4.964940150315807,
+            0.067,
+            -4.032739104560517
+          ],
+          [
+            -5.033571394809073,
+            0.067,
+            -4.104981326810433
+          ],
+          [
+            -5.1025526095157705,
+            0.067,
+            -4.176887469031768
+          ],
+          [
+            -5.17149513294534,
+            0.067,
+            -4.248831494728941
+          ],
+          [
+            -5.2400057912955464,
+            0.067,
+            -4.3211848790715575
+          ],
+          [
+            -5.307676250967325,
+            0.067,
+            -4.394328007528133
+          ],
+          [
+            -5.37405118694308,
+            0.067,
+            -4.468639027292207
+          ]
+        ],
+        "width": 1.52,
+        "top": 0.067,
+        "source": "Continuous closed low stone causeway from the existing forecourt to the bridge stair foot; no water gap"
+      }
+    },
+    "hallFoundation": {
+      "revision": "scene10-207-real-stone-route-r03",
+      "top": 1.3,
+      "rearRetainingFront": -0.7,
+      "pierRows": [
+        2.1,
+        5.35
+      ],
+      "beamBottom": 0.82,
+      "beamTop": 1.12,
+      "galleryFloor": {
+        "boundsZ": [
+          3.8,
+          6.15
+        ],
+        "bottom": 1.12,
+        "top": 1.3
+      },
+      "frontPiers": [
+        {
+          "x": -8.2,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": -8.2,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": -6.1499999999999995,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": -6.1499999999999995,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": -4.1,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": -4.1,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": -2.05,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": -2.05,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 0,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 0,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 2.0500000000000007,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 2.0500000000000007,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 4.1,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 4.1,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 6.149999999999999,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 6.149999999999999,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 8.2,
+          "z": 2.1,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        },
+        {
+          "x": 8.2,
+          "z": 5.35,
+          "bottom": -1.6315789473684212,
+          "top": 0.82,
+          "monolithic": true,
+          "rockBearingWorldY": 1.05
+        }
+      ],
+      "source": "Deep setback closed rear retaining body; two actual pier rows and timber bearing beams carry the unchanged occupied hall/gallery. Front is real depth, not a5m-high flat facade.",
+      "oldFront20x12mCubeRemoved": true
+    }
+  },
+  "preservedRuntimeChecks": {
+    "fallenLeaves142": true,
+    "nearStoneRecords": true,
+    "pathCurbRecords125": true,
+    "waterRipples135": true,
+    "mapleCanopy136": true,
+    "carvedCloud183": true,
+    "pagodaSources141": true,
+    "towerMass183": true,
+    "forestEcology": true,
+    "camera": true,
+    "hall": true,
+    "pagoda": true
+  },
+  "knownIssuesAndNextWork": [
+    "URGENT visible R03 regression: extending natural193 terrain fromz7to20 plus outside-pond raised land makes green jagged triangles intrude along wet forecourt right curb and around veranda foot. Do not change protected paving. Fix natural193.rawHeight/terrain reservation buffer: circulationReserved125 currently uses leftPathEdge+.10/rightPathEdge-.10, i.e.inside margin; new outer terrain can rise above curb. Consider expanding/buffering the mask, lowering adjacent terrain/apron, and protecting the veranda footing rectangle. This fix was PLANNED ONLY, NOT APPLIED before freeze.",
+    "R03 remains stronglyCG. Plain/repetitive stone piers and rear retaining masonry still visible in low view; original uniformly fitted rock feet are genuine but can look repetitive/too large. Assess exactHD10 relationships rather than merely hiding with new leaves.",
+    "Inspect actual R03low/overhead stair-stringer/head/foot contacts, guard turns and causeway continuity. Geometry now carries the route, but no complete independent collision/manifold/engineering audit has been performed. Native validity is not photographic or construction acceptance.",
+    "Near causeway foot pad was enlarged to1.52m inR03; retain or improve actual turning width. R01/R02used an undersized.67m pad.",
+    "emitFlight low approach cheek courses skip an entire block if its near-end top clips below row bottom; a small triangular bearing gap may remain at a rising course boundary. The continuous bed spans it, but a more exact cut stone could be authored if visible/needed. No fix applied.",
+    "Hall upper mass/camera remain stable; generic shrine figure, overly regular roof/carpentry rhythms and global lighting still differ from HD10 and remain unaccepted.",
+    "Public README/natural193-provenance still claim193R08b preservedsite; update207source/provenance/changed datums honestly after final candidate. No new license assets were downloaded; all new rock/stone textures reuse declaredCC0, existing carving176CCBY untouched.",
+    "The attempted readonly preserved-runtime one-liner had a parenthesis syntax error; it changed no source. A corrected readonly comparison passed all12listed checks at freeze. No207final validation/count gate should be claimed complete."
+  ],
+  "earlierEvidence": [
+    "qa/ten-reference/10/iteration-scene10-support207-r01-bank/",
+    "qa/ten-reference/10/iteration-scene10-support207-r02-bank/",
+    "qa/ten-reference/10/iteration-scene10-support207-r02-low/",
+    "qa/ten-reference/10/iteration-scene10-support207-r02-overhead/"
+  ],
+  "earlierSourceSnapshots": [
+    "lookdev/scene10-support207/r01-source/",
+    "lookdev/scene10-support207/r02-source/"
+  ],
+  "constraints": {
+    "noGitMutations": true,
+    "noOtherSceneOrSharedSourceEdits": true,
+    "noBlenderOrPhysicalExports": true,
+    "noNewRootDependencies": true,
+    "noChildren": true,
+    "officialFifoOnly": true,
+    "photographicAccepted": false
+  },
+  "reference": "references/hd/9-照片-10.jpg"
+}

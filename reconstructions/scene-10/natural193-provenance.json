@@ -1,10 +1,10 @@
 {
-  "revision": "scene10-natural193-r08b",
+  "revision": "scene10-natural193-with-support207-r05",
   "status": "Actual geometry/material reconstruction checkpoint; photographic fidelity unaccepted",
-  "reference": "references/hd/9-\u7167\u7247-10.jpg comparison-only; no image/depth/background sampling",
+  "reference": "references/hd/9-照片-10.jpg comparison-only; no image/depth/background sampling",
   "baselineSource": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07",
   "authored": [
-    "src/natural193.js connected eroded/mineral terrain, rooted whole plants, actual cupped leaves, frond/pinna ferns, evergreen bushes and below-deck self-supporting woody understory. Added natural fill below the already independently supported bridge-head landing is lowered to waterline; all granite deck/piers/stair geometry stays unchanged. Mature stream-bank shrubs use bent rooted stems, laterals, tertiary short shoots and individually cupped textured leaves, fitted by exact bounds forward of the unchanged pier/deck envelope.",
+    "src/natural193.js retains authored mature/young woodland and botanical anatomy, with 56 forest growth/placement records held in ecology193-held207.json. Support207 replaces the old broad mineral stair embankment with a submerged footing, rebuilds the actual stair/landing/foundation, retires the under-landing concealment shrubs and repeated rock-per-pier supports, extends the real terrain to z=20, reserves all adjacent grid cells around paving/curb/footstone/rail apron, and blends the outer creek bank rise. Roots still use actual terrain triangles or transformed rock hits. Other garden placements can change with physical reservations; their original positions are not claimed frozen.",
     "src/pine-shoot193.js local geometry-only copy of the project-authored pine158 study, preserving its closed paired needles and retained individually ribbed fascicle packets; no scene07 runtime dependency"
   ],
   "externalAssets": [
@@ -56,5 +56,7 @@
     "The terrain is a modeled physical reconstruction, not a measured scan of the supplied site.",
     "No new NC asset is used by this natural193 pass. Existing architectural CC BY source176 stays attributed separately."
   ],
-  "visualAccepted": false
+  "visualAccepted": false,
+  "baselineNatural193Revision": "scene10-natural193-r08b",
+  "support207": "support207-provenance.json"
 }

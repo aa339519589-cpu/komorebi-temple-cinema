@@ -1,0 +1,116 @@
+{
+  "status": "Held for root visual review; photographic fidelity unaccepted",
+  "sourceHash": "dcf7c2e7000547a6e383fd82316494a9d694ad37eb263bea17aff06f29e6b822",
+  "snapshot": "lookdev/scene05-terminal204/r09-source",
+  "identity": "lookdev/scene05-terminal204/source204-r09-identity.json",
+  "changedFiles": "lookdev/scene05-terminal204/changed-files204-r09.json",
+  "canonicalWorkingTreeExact": true,
+  "visualAccepted": false,
+  "rendered": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-terminal204-r09-20261023",
+      "status": "rendered-review",
+      "sourceHash": "dcf7c2e7000547a6e383fd82316494a9d694ad37eb263bea17aff06f29e6b822",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-terminal204-r09-20261023/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "8c3e7a4eb6d9703f3af4252e30a1b90116e8e43b479ae6851b44194a96b86373",
+          "viewed": true
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-terminal204-r09-20261023/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "8ef3041ead3018d2865b483f73d20486e48fb0052eecbcfae78aacb27370a55e",
+          "viewed": true
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-terminal204-r09-low3q-20261023",
+      "status": "rendered-review",
+      "sourceHash": "dcf7c2e7000547a6e383fd82316494a9d694ad37eb263bea17aff06f29e6b822",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-terminal204-r09-low3q-20261023/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "d2195be8774f4a3504de5022c9aa024d67d667fc31621e6ccfe8ffe7a0cea078",
+          "viewed": true
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-terminal204-r09-terminalclose-20261023",
+      "status": "rendered-review",
+      "sourceHash": "dcf7c2e7000547a6e383fd82316494a9d694ad37eb263bea17aff06f29e6b822",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-terminal204-r09-terminalclose-20261023/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "9a2e8b500b85ccba011b970363033e590f1f100b10b1d8a71e9998bffeecd569",
+          "viewed": true
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-terminal204-r09-terminalclose-20261023/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "0e5107d87a7f29e00000ef3165dcdec85327d6c133b272e33531a00430aab96b",
+          "viewed": true
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-terminal204-r09-sideclose-20261023",
+      "status": "rendered-review",
+      "sourceHash": "dcf7c2e7000547a6e383fd82316494a9d694ad37eb263bea17aff06f29e6b822",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-terminal204-r09-sideclose-20261023/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "rgbaSha256": "ed1b557810a88cdd1e9e881da6fa30a4510227cf5376b8139b6ce2bbb8f7650e",
+          "viewed": true
+        }
+      ]
+    }
+  ],
+  "actualFramesViewed": [
+    "qa/ten-reference/05/iteration-scene05-terminal204-r09-20261023/reference.png",
+    "qa/ten-reference/05/iteration-scene05-terminal204-r09-20261023/detail-native.png",
+    "qa/ten-reference/05/iteration-scene05-terminal204-r09-low3q-20261023/inspection-view.png",
+    "qa/ten-reference/05/iteration-scene05-terminal204-r09-terminalclose-20261023/detail-native.png",
+    "qa/ten-reference/05/iteration-scene05-terminal204-r09-sideclose-20261023/inspection-view.png"
+  ],
+  "implementation": [
+    "Authored compact binary volumetric ceramic face, with orbital/nostril cavities and curved depth-varying sculptural features; shared actual indexed prototype at existing placements",
+    "Real thick-walled tapered ridge vault, transverse returns and seated hidden keel; exact original mounting solid/matrices retained",
+    "No external scan, photograph pixels, inferred photograph depth, image plane or generated replacement frame enters model/runtime"
+  ],
+  "geometryChecks": [
+    "lookdev/scene05-terminal204/geometry204-r10.json",
+    "lookdev/scene05-terminal204/contact204-r09.json",
+    "lookdev/scene05-terminal204/housing-contacts204-r09.json"
+  ],
+  "authorRecipe": "lookdev/scene05-terminal204/author-volume204-r13.mjs",
+  "meshProvenance": "reconstructions/scene-05/assets/terminal204-authored/provenance204.json",
+  "research": {
+    "selection": "lookdev/scene05-terminal204/research-selection204.json",
+    "attribution": "lookdev/scene05-terminal204/ATTRIBUTION204.md",
+    "compactJapaneseOriginal": "lookdev/scene05-terminal204/sources/56bfb625b3fe409096d50afabc1c042d/source-objaverse.glb",
+    "license": "CC BY-NC-SA4.0, seirogan, Tokyo Enshoji; retained intact with creator/license/acquisition records; different horn/open-mouth variant and not integrated"
+  },
+  "remaining": [
+    "The authored face remains too simplified and mechanically regular relative to the photographed ceramic: brow/eye contours, nose/short-mouth carving and cheek fan transitions are still unaccepted",
+    "The rear ridge vault adds actual missing depth, but its hidden section/taper and band dimensions are an explicit reconstruction hypothesis, not a recovered measured artifact",
+    "Existing complete tower material/light/carpentry/foliage differences remain visible; this component lane preserves the175/196 site/roof/camera/light anchors and does not certify any scene as photo matched"
+  ],
+  "noOwnLiveJobs": true,
+  "noGitMutation": true,
+  "noSharedOrOtherSceneEdits": true,
+  "noBlenderExport": true,
+  "preservePriorFailures": true
+}

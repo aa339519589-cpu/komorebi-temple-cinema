@@ -13,10 +13,10 @@
   "sourceBuilder": "tools/build-temple-joinery-kit.py",
   "provenance": "lookdev/gilded-kiku-v01/README.md",
   "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
-  "revision": "scene05-sunlit-bearing-light196-r04",
+  "revision": "scene05-volumetric-terminal204-r09",
   "bearingBlockCorrection": {
     "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
-    "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5\u7167\u72476 has flatter bearing planes and sharper tapered sides.",
+    "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5照片6 has flatter bearing planes and sharper tapered sides.",
     "construction": "Closed clipped-square tapered blocks with short foot/upper bands and actual~2mm arrises. Render cap, cheek and bottom vertices split for hard planar normals. Existing nominal radii/heights, bottom seatY/top bearingY and all assembly transforms retained.",
     "referencePhotoUse": "Visible silhouette comparison only. No reference RGB, image projection or inferred whole-photo depth. Fine corner wear/metric bevel details remain interpreted.",
     "visualAccepted": false,
@@ -33,7 +33,7 @@
       2.05
     ],
     "intermediateArmLengthsM": [
-      1.0,
+      1,
       1.34,
       1.7
     ],
@@ -96,9 +96,9 @@
       "tools/solve-perspective.py",
       "tools/solve-canonical-tiers.py"
     ],
-    "comparisonInput": "references/hd/5-\u7167\u7247-6.jpg",
+    "comparisonInput": "references/hd/5-照片-6.jpg",
     "measurements": "qa/ten-reference/05/perspective-fit-solmax-20261021",
-    "method": "Explicit manually observed hip/eave endpoints, corner/inner post heads, hip-tail cut faces and near/far lantern centres; bounded common-camera and coherent common-tier fits. Measurements include10\u201318px uncertainty and ambiguous cropped/ornamented features.",
+    "method": "Explicit manually observed hip/eave endpoints, corner/inner post heads, hip-tail cut faces and near/far lantern centres; bounded common-camera and coherent common-tier fits. Measurements include10–18px uncertainty and ambiguous cropped/ornamented features.",
     "heightMetres": 0.8,
     "pose": {
       "position": [
@@ -165,7 +165,7 @@
   },
   "detail190": {
     "status": "Actual geometry/finish candidate for native review; photographic fidelity remains unaccepted",
-    "reference": "references/hd/5-\u7167\u7247-6.jpg",
+    "reference": "references/hd/5-照片-6.jpg",
     "construction": [
       "Exposed timber cheeks neck in real depth beyond the protected half-lap/bearing footprints, while originalY seats, cut sections and course offsets remain unchanged",
       "Closed waisted/faceted hip timber follows exact retained tail paths with original start/end cut planes; selective copper surface fittings on the two principal photographed hip ranks",
@@ -205,7 +205,7 @@
   "light196": {
     "status": "Actual native-review candidate; photographic fidelity unaccepted",
     "baseline": "190R04 0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
-    "reference": "references/hd/5-\u7167\u7247-6.jpg",
+    "reference": "references/hd/5-照片-6.jpg",
     "construction": [
       "Only exposed nose sections beyond the original protected half-lap/receiver spans change: under-tip rises50mm, upper face remains fixed, lower-foot width becomes76% of upper width",
       "Closed primary and secondary copper fittings follow the actual narrower-foot cut profile and updated finite cut height; retained independent roof/tail fittings stay unchanged"
@@ -228,7 +228,7 @@
     "referencePhotographRuntimeUse": false,
     "visualAccepted": false,
     "r02": [
-      "ActualR01 full/truecorner/low3q are preserved dark/dull failures: finite courtyard irradiance was insufficient at the retained13\u201325m source distances",
+      "ActualR01 full/truecorner/low3q are preserved dark/dull failures: finite courtyard irradiance was insufficient at the retained13–25m source distances",
       "Raise only the existing finite inverse-square shadow-casting courtyard source from115 to600 and broaden its shadow penumbra; retain measured sky/residual hemisphere/direct key and all source directions",
       "No equal fill, painted-black recesses, image-plane patches or regular light stripes"
     ],
@@ -242,6 +242,79 @@
       "ActualR03 full/truecorner/low3q resolveR02 stippling but show overly broad orange soffit wash",
       "Reduce only the finite front/side court patches to320/110, retain stronger direct sun, low measured-sky/residual hemisphere and all perspective-shadow repairs",
       "Protected seats/laps, tier/roof/hip/camera/scene anchors remain unchanged; no native still constitutes photographic acceptance"
+    ]
+  },
+  "terminal204": {
+    "status": "Actual authored geometry candidate; photographic fidelity remains unaccepted",
+    "reference": "references/hd/5-照片-6.jpg",
+    "sourceField": "src/terminal-volume204.js",
+    "runtimeAssembly": "src/terminal204.js",
+    "mesh": "assets/terminal204-authored/face204.bin",
+    "provenance": "assets/terminal204-authored/provenance204.json",
+    "recipe": "lookdev/scene05-terminal204/author-volume204-r13.mjs",
+    "research": "lookdev/scene05-terminal204/research-selection204.json",
+    "externalScanUsed": false,
+    "referencePhotoRuntimeUse": false,
+    "construction": [
+      "A single closed3D ceramic face ground with asymmetric projecting brow roots, actual orbital recesses, nose bridge/bulb and two real nostril cavities; carved mandibular and whisker folds",
+      "Finite-depth outer return band intersects face volume, with a small inner arris; separate thick dished ledge and three real wrapped/lipped returns bend backward in plan",
+      "Original190 closed mount solid, local[0,.145,.23] offset and terminal scale retained exactly; independent lantern/hip/tier/camera/site/light/contact anchors untouched",
+      "The same actual indexed face prototype is shared through InstancedMesh at original placements, avoiding duplicate expanded vertex buffers",
+      "A closed20mm tapered ceramic ridge-vault housing with three finite transverse returns extends behind the face; a closed hidden keel overlaps the retained rear neck and lower shell wall without moving any original mount/roof/site/camera/light datum"
+    ],
+    "preserved": "196R04 source/evidence snapshots;175tier/camera/roof/site/hip/contact anchors;196 physical sun, measured sky and finite bounce hierarchy; all original raw assets",
+    "limits": [
+      "Visible-feature craft hypothesis, not a recovered historic artifact or source scan",
+      "Retained dedicated scans depict different horn/open-mouth forms. Two Basilspider assets carry NoAI tags; the compact seirogan Tokyo NC-SA scan is available but depicts a different terminal variant. None is a runtime/modeling input.",
+      "Closed geometry and valid renders do not establish photographic acceptance"
+    ],
+    "visualAccepted": false,
+    "r02": [
+      "ActualR01 full/truecorner/low3q show a black shared face because the material expects vertex colour but the new indexed prototype omitted its white colour attribute; supply the same neutral white vertex colour used on other ceramic pieces",
+      "The broad lower bar is replaced by a thinner more dished stepped body and three narrow fitted returns, with their real backing/contact depth retained",
+      "A finite hidden rear ceramic receiver neck overlaps the exact retained mount and the new thick face; original mount/offset/site/hip/camera/light anchors stay fixed"
+    ],
+    "r03": [
+      "AllR02 actualfull/truecorner/low3q remain too soft and cheek-heavy. Remove positive cheek balloons, reduce forehead bulge and nose width/projection",
+      "Integrate closed angular brow and mandibular planes into the implicit ceramic volume with small physical arrises, retaining asymmetric eye pockets, real nostril cavities and finite rear wall",
+      "Move gilded nose/forehead/eye details onto the actual revised surfaces; maintain the fitted rear neck, old mount, stepped returns and all175/196 scene/light anchors"
+    ],
+    "r04": [
+      "ActualR03 full/truecorner/low3q overshoot into visor-like broad planes; retain carved form but restore continuous ceramic curvature between features",
+      "Round/taper the asymmetrical brows in depth with real small arrises, replace lower flat mandibular panels by narrower integral jaw folds and a carved central plume",
+      "Keep reduced nose and true nostrils/orbital recesses; no invented smile slit, no added generic flowers; seat small gilt details on the actual revised surfaces",
+      "Five/ten-micron numerical coincidence cleanup only at the generated isosurface; all resolved millimetre-scale carved geometry retained. No source photograph pixels or scan bytes are used"
+    ],
+    "r05": [
+      "ActualR04 full/truecorner/low3q show sparse beard grooves and a teardrop-like central plume",
+      "Six narrow raised fan folds emerge from the actual nasal ceramic and merge back into the facial/mandibular ground; a small integral fork replaces the single oval central plume",
+      "Retain true orbital/nostril cavities, curved/asymmetric carved brows, finite-depth rim, thinner dished returns, hidden positive rear receiver and exact original mount/offset; scene and light anchors remain unchanged"
+    ],
+    "r06": [
+      "ActualR05 full/truecorner/low3q raised folds read partly as applied wires; seat each sampled fold centreline1.5mm inside the actual authored3D ceramic ground and union a finite raised section into that ground",
+      "Preserve real nostril openings after relief joins; no RGB, image-derived depth or external mesh projection is involved",
+      "Discard only an unresolved8-triangle numerical speck after connected-component validation; a larger detached component aborts generation",
+      "All original mount/offset and175/196 scene/site/camera/hip/roof/light/contact anchors retained; no photographic acceptance claim"
+    ],
+    "r07": [
+      "ActualR06 native tight terminal close-up and low3q confirm planar visor-like brow strips, excessively narrow/long fan relief and undersized flat gilt nose",
+      "Replace planar brow prisms by actual depth-varying asymmetric curved volumes, with tapered roots descending into the bridge; shallower carved orbital pockets and fitted inset eyes",
+      "Broader fan planes embed5mm into actual authored ceramic ground, shortening the central beard into an integral mouth/mandible fold; rounded domed nose inlay overlaps its actual ceramic seat",
+      "Finer2.6mm authoring lattice retains closed curved sections with one connected component and no numerical specks; this is not a photographic fidelity criterion",
+      "Exact original mounting geometry/offset, lower stepped return assembly and175/196 site/tier/roof/hip/camera/lighting/raw assets remain unchanged"
+    ],
+    "r08": [
+      "ActualR07 native full/corner/low and terminal close-up show rounded capsule brows and two mouth/chin lumps despite improved relief seating",
+      "Replace round brows with depth-varying bent wedges and small physical arrises, following the asymmetric sharp descending brow silhouette observed in HD05",
+      "Replace mouth/chin ellipsoids by one short bevelled keystone with a small integral lip crease; taper outer fan ends into the face",
+      "Reduce real nostril bores and fit a broader domed gilt nose cap into the actual ceramic bulb, retaining recessed orbital eyes",
+      "No other scene/camera/roof/site/lighting/raw-asset or old mount/offset changes;R07 source and all actual images remain preserved"
+    ],
+    "r09": [
+      "ActualR08 physical side close-up exposes the missing deep rear ridge casing; source/photos show a housed terminal rather than a separate circular plaque",
+      "Add a real tapered thick-walled closed ceramic vault behind the face, three seated transverse bands and a hidden closed support keel connecting shell to original neck/mount",
+      "Lower the inner brow wedge ends into the observed sharpV, thin the gilt nose cap on its actual bulb and reduce mouth relief projection",
+      "All original mount matrices/geometry,175tier/roof/site/camera/hip and196 physical-light/raw-sky anchors remain unchanged; actualR08 and every earlier failure source/frame is preserved"
     ]
   }
 }

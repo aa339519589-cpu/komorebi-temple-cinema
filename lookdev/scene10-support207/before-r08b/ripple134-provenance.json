@@ -1,0 +1,14 @@
+{
+  "revision": "scene10-ripple134-a-water-depth-and-reflection-response",
+  "status": "Independent unaccepted candidate; awaiting actual render review.",
+  "baseCommit": "180e540997d635451baf5fe910a5b297d8b5e0ab",
+  "beforeActualSourceCommit": "52e9e01556fd1ac3f9d64882e42582b6f764fcdb",
+  "beforeActual": "qa/ten-reference/10/iteration-hall132-b/shot--1250.png",
+  "reference": "references/hd/9-照片-10.jpg",
+  "diagnosis": "The before scene draws 110 complete unlit torus rings at y=0.070/0.0702m with 38% pale opacity. Every impact has an identical 0.72-radius secondary ring. Neither ring tests actual stone height, water depth, paving contact, wetness or reflected illumination.",
+  "change": "Remove the torus overlay and apply transient sub-millimetre capillary wave height gradients only to the existing optical water coat and existing scene-reflection film. Water depth from the real stone atlas gates near waves; coverage, wetness and water-film patches gate far waves. Crest size, duration and attenuation vary per retained impact. Footprint filtering and physical Fresnel/light/view response determine visible arcs and colour.",
+  "preserved": ["hall132-b source", "layout125-d and open bridge/stair route", "all authored/scanned geometry except removed ripple torus overlays", "reference camera and dolly", "global exposure and atmosphere", "existing stone albedo/grain", "existing water-film plane height, alpha and real-stone ray exclusion", "all original global RNG calls and their order"],
+  "randomness": "The exact original 55x4 impact RNG draws remain in main.js before unchanged falling-rain generation. The new shader derives event variants from those values and the event index; it performs no new JS random draw or RNG state write.",
+  "assets": "Original project-authored procedural material code. No new bitmap, external resource, AI replacement frame, or sampled reference photograph.",
+  "renderBudget": "At most two actual wrapper frames: established full reference pose plus one genuine native subfrustum detail. No browser/suite rendering outside the shared wrapper."
+}

@@ -1,0 +1,25 @@
+import{readFile,writeFile}from'node:fs/promises';
+const base='reconstructions/scene-09/';
+function sub(s,a,b){if(!s.includes(a))throw Error('Missing exact edit: '+a);return s.replace(a,b);}
+let s=await readFile(base+'src/main.js','utf8');
+s=sub(s,"import{pondFragment203,wetVerandaFragment203}from'./pond-radiance203.js';","import{pondFragment203,wetVerandaFragment203}from'./pond-radiance203.js';\nimport{buildSanctuaryDetails203}from'./sanctuary-details203.js';");
+s=sub(s,'deck:M.dark,red:M.red,dark:M.eaveDark,gold:M.gold,wood:M.wood','deck:M.dark,red:M.red,dark:M.eaveDark,fascia:M.eaveDark,gold:M.gold,wood:M.wood');
+s=sub(s,'l.userData.source203={assemblyScale:scale,requestedIntensity:intensity,','l.userData.source203={kind:options.kind||\'lantern\',assemblyScale:scale,requestedIntensity:intensity,');
+s=sub(s,'function coveredWing(',"const sanctuaryDetails203=buildSanctuaryDetails203({...fixtureApi,materials:M},materials);\nfunction coveredWing(");
+s=sub(s,'uniforms:{roughMap:{value:roughTex},color:{value:new T.Color(0x30261d)}','uniforms:{roughMap:{value:M.routeGranite139.roughnessMap},normalMap203:{value:M.routeGranite139.normalMap},color:{value:new T.Color(0x30261d)}');
+s=sub(s,'night203,wetGranite203,timberFinish181','night203,sanctuaryDetails203,wetGranite203,timberFinish181');
+await writeFile(base+'src/main.js',s);
+s=await readFile(base+'src/night-practicals203.js','utf8');
+s=sub(s,"import{integrateNativeCell203,installSpatialIrradiance203}from'./spatial-radiance203.js';","import{integrateNativeCell203,installSpatialIrradiance203}from'./spatial-radiance203.js';\nimport{installFinitePracticals203}from'./finite-practicals203.js';");
+s=sub(s,"scene09-spatial-twilight-practical-night203-r07","scene09-finite-paper-wet-stone-night203-r08");
+s=sub(s,"'darkGilt','sanctuaryGilt'","'darkGilt','sanctuaryGilt','buddha','altarGold'");
+s=sub(s,'m.map=map;m.color.setRGB(1,1,1);m.needsUpdate=true;','m.map=map;m.color.setRGB(1,1,1);m.clearcoat=1;m.clearcoatRoughness=.14;m.clearcoatNormalMap=m.normalMap;m.clearcoatNormalScale.copy(m.normalScale).multiplyScalar(.66);m.needsUpdate=true;');
+s=sub(s,"const records=[],chosen=new Set();","for(const m of materials){if(m.name==='scene09-hero-aged-cast-bronze')m.color.setHex(0x48351e);if(m.name==='scene09-hero-rubbed-fine-brass-moulding')m.color.setHex(0x75582d);if(m.name==='scene09-203-hall-ivory')m.color.setHex(0xb3aa96);if(m.name==='scene09-203-hall-sanctuaryGilt'){m.color.setHex(0xb08842);m.roughness=.44;}if(m.name==='scene09-203-hall-buddha')m.color.setHex(0x654d2e);}\n const records=[],chosen=new Set();");
+s=sub(s,'l.intensity*=near?.90:hero||east?4.0:','l.intensity*=near?.48:hero||east?4.0:');
+s=sub(s,'l.intensity=145;','l.intensity=85;');
+s=sub(s,"if(!primary&&!near)l.intensity*=ground?2.5:1.2;","if(!primary&&!near)l.intensity*=ground?2.5:1.2;\n  if(source.kind==='sanctuary-votive203'){l.intensity=source.requestedIntensity;l.distance=4.8;}");
+s=sub(s,'M.paper.emissiveIntensity=.82;M.windowPaper.emissiveIntensity=.62;M.pagodaPaper.emissiveIntensity=.76;M.stonePaper.emissiveIntensity=.82;','M.paper.emissiveIntensity=4.5;M.windowPaper.emissiveIntensity=.95;M.pagodaPaper.emissiveIntensity=1.25;M.stonePaper.emissiveIntensity=3.8;');
+s=sub(s,'m.emissive.setRGB(1,.53,.20);','m.emissive.setRGB(1,.46,.105);');
+s=sub(s,'else if(m!==M.glow)m.emissiveIntensity=0;','else if(m!==M.glow&&!m.userData.physicalEmitter203)m.emissiveIntensity=0;');
+s=sub(s,'return{revision:NIGHT203_REVISION,practicals:records,downlights,','const finiteFootprint=installFinitePracticals203(scene,materials);\n return{revision:NIGHT203_REVISION,practicals:records,downlights,finiteFootprint,');
+await writeFile(base+'src/night-practicals203.js',s);

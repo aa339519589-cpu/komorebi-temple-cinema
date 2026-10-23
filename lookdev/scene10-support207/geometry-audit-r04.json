@@ -1,0 +1,7213 @@
+{
+  "source": {
+    "hash": "415bd575b09ea93b3c4f4019d9c7fa26fae54561fe709f6e510658eb0ad21fb4",
+    "files": {
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+      "assets/polyhaven/periwinkle-plant/provenance.json": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+      "assets/polyhaven/periwinkle-plant/provider-files.json": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+      "assets/polyhaven/periwinkle-plant/provider-info.json": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "assets/polyhaven/shrub-02/provenance.json": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+      "assets/polyhaven/shrub-02/provider-files.json": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+      "assets/polyhaven/shrub-02/provider-info.json": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+      "assets/polyhaven/shrub-02/shrub_02.bin": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+      "assets/polyhaven/shrub-02/shrub_02_4k.gltf": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+      "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+      "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+      "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+      "assets/ranma-relief-v01/build-report.json": "d614300e8ce66c3ab99b3109392e00463bd9eea936eeb38607fda67a80bafb14",
+      "assets/ranma-relief-v01/generated-height-guide.png": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+      "assets/ranma-relief-v01/height-field.json": "eb99049722946d08eb21fcf5d331a8aa66365d45ff228b1ca69c7f0c08c8940a",
+      "assets/ranma-relief-v01/provenance.json": "727c5c561493e0a0dd72719a5998b07d795fb91efee343c50a141328723ccd6b",
+      "reconstructions/scene-03/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-03/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-03/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-04/assets/granite-tile-04/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-10/asset-dependencies.json": "fde48d2295750c8cd223231ecf33859c406e30f7d7a7ef7639fe286ca04598c0",
+      "reconstructions/scene-10/assets/cloud-scroll176/component-y-up-z-front.glb": "0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee",
+      "reconstructions/scene-10/assets/cloud-scroll176/measured-mount-loops.json": "0788e0fdc7bd398ace5e93cd63a8de490ba490c45f0123272f7da90a18d843b0",
+      "reconstructions/scene-10/assets/cloud-scroll176/provenance.json": "19cc2d45a226d7fcf31963117fdc25e77fe738936d6708e3c831b42409531244",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/pine_sapling_small.bin": "b4d2fc73d53f1d8717eb5ef9a2c66957d2a53152787e543aace88fcd6fca94ef",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/pine_sapling_small_1k.gltf": "f358c01926861dd082f32dba60f7c9fba232b585a985cf38c0d2229eecf4bc48",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/provenance.json": "10461a2d9cb48515bc5cc3ee6063f3e6feb9ad74966df810163bf3830beb56be",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_bark_arm_1k.jpg": "336a4680cd571b6076b67afee2310b290b8900d9d126eb39ec1ae92e95be2ea9",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_bark_diff_1k.jpg": "5c76836b01c3536fa0e24207b67bf4f3315b53ebe2b4ecc6f08dfcf3f8d74929",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_bark_nor_gl_1k.jpg": "05c46455531781b6cf18cae0648cf627f60ee942adaa8bcbfd1592fc2506a9e0",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_twig_arm_1k.jpg": "2eb0aa44124b5a4ae9401e00b23b3c916f4c3f421616ce1bb932f248fc061288",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_twig_diff_1k.jpg": "54af7d6fb664b5a38bcb118b557bc50e01e86ec54d6f1a573c3e32c649a53362",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_twig_nor_gl_1k.jpg": "76af87821d7ff00e25768d5d97a449394fe64a21ae55d099da7f5ed46d9098c8",
+      "reconstructions/scene-10/ecology193-held207.json": "30eda51ce3ed9ecece1611a932aa8507a331772e106124ede4f248d88f962f9b",
+      "reconstructions/scene-10/hall132-provenance.json": "877a9427f3244757126e4696eaa225312a42702906a8ba04199f52edd7ba3a35",
+      "reconstructions/scene-10/index.html": "72276586699e97b2d8e826ae4e05105cd61b2b233c9079077f455793963f45a1",
+      "reconstructions/scene-10/natural193-provenance.json": "77eed04e20edbcade9a8ac76ebb7b1ece7cd37529e7e3230f9225308782c3de9",
+      "reconstructions/scene-10/ripple134-provenance.json": "a77b12ece7aec73a36920d9d6a41465e6fdff0783e418282d7f01bcd3aee8984",
+      "reconstructions/scene-10/src/architecture.js": "bcda54a3db2ee130882e10619a8da88d2d06486f6781a1654ba6bc25f8e0ed68",
+      "reconstructions/scene-10/src/buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-10/src/carpentry-mass183.js": "848176ab8940b7a2d5e0f5e4617650cf1a3a05c829cbc08e2bdf3e3e93916421",
+      "reconstructions/scene-10/src/dolly-path.js": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c",
+      "reconstructions/scene-10/src/hall-front132.js": "b564be450061d6d35dcbb0f737f68d7745837f8da376d5311d9ad711e931ce58",
+      "reconstructions/scene-10/src/layout125.js": "47c84832f858f08a4dad4dea18d27f6518fd6b77ee39ed225c9d484a88bbe367",
+      "reconstructions/scene-10/src/licensed-cloud183.js": "2099c5c19bfbcce09498ce6977f9e9c2858008529c0cce49a5c8bde890df5d9e",
+      "reconstructions/scene-10/src/licensed-groundcover142.js": "b55897210140428b3685c2e3c864ca0d634da13970682c9060d7d588b96be004",
+      "reconstructions/scene-10/src/licensed-pine141.js": "0e73964668f79425705cffbee980f5428a92a4ac0badf597eb4d56ab818de877",
+      "reconstructions/scene-10/src/main.js": "76ff1b21de271dc2738fadad6b33db685252ec742f2b5e73cd5a9ff7641537d8",
+      "reconstructions/scene-10/src/maple-canopy136.js": "4b47b2c7088607ebbc8fa87dd66b8ae74e0db7721b3a270581d2c74fbf28f077",
+      "reconstructions/scene-10/src/materials.js": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5",
+      "reconstructions/scene-10/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-10/src/natural193.js": "02d3c8bd12069ffa7d8de3b9854f36b8a16baa4800bd419fce2447cae6706fb3",
+      "reconstructions/scene-10/src/near-bank-outcrop.js": "4a5167de2665496d83f39e4c2dd34442855c10c35d3257308b42257e59edaf6e",
+      "reconstructions/scene-10/src/near-rain-stones.js": "be9fa43c4aaa81eb95dfcd3ce05ed2edf674f6b23a329ecfe95bac4e29c31049",
+      "reconstructions/scene-10/src/near-surface-reflection.js": "15ec00bd988ad7142c619491d8a68a101f57804a887b1bc58beb6a5c2c254e63",
+      "reconstructions/scene-10/src/optics.js": "dbb3a20d30005c67f8796111e33edf29b329069c7d99d54c7ee3b684a7d73299",
+      "reconstructions/scene-10/src/paving-mask.js": "b71bb0778f4b13e06264f8cf9a2b457a23adf931134e391dce015b41e49538a9",
+      "reconstructions/scene-10/src/pine-shoot193.js": "32af9778efec7edc2f91345c66bb0b34102f6030dd005962d712065680e887e1",
+      "reconstructions/scene-10/src/rain-ceramic141.js": "69293565d4acacee8da1309fd0b0ddb752c2144f8516699f843ecea4a1cd6892",
+      "reconstructions/scene-10/src/rain-frame-maple142.js": "83174f08ec35401cc587990f09e00f7d9816735e8277aef7e927986f0d3eb054",
+      "reconstructions/scene-10/src/ranma-relief138.js": "19d503da6ee3b649a739ab1ee4a1e16f3bdf6d2ca5aaf9fb25c94ad7c88bd062",
+      "reconstructions/scene-10/src/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-10/src/solid-receiver142.js": "f192a6c51ed3eacd638ed05860d7c567149b2e19a35333cf864ecd384bd54555",
+      "reconstructions/scene-10/src/stair-embankment137.js": "e528b0a33b5a724a6ab6a68dd7f50661d6f5746b1ccae5537b0ae6d13e2dff73",
+      "reconstructions/scene-10/src/stone-lantern.js": "33dd1c2105585121304d67ed689d6c374f1aab60d7c889f4a544c734a6147931",
+      "reconstructions/scene-10/src/support-route207.js": "565b099e033356524ad95e38451e098fa40fd6ada3316c8da33d14169e7b710a",
+      "reconstructions/scene-10/src/surface-detail.js": "1ebddc3f28b536f1f1c6182996799538480cfdc9ea7c01d1b2ebcc8c6a0cd406",
+      "reconstructions/scene-10/src/tower-mass183.js": "f745d03c3c6e668371db5a6c100e8c40cceea93b816621149d3333f28f02d1cf",
+      "reconstructions/scene-10/src/water-film-ripples134.js": "669c1ee65901de17aa654a057d9634f9373cbb9e474fba050c22db5437b7c21a",
+      "reconstructions/scene-10/src/water-film-ripples135.js": "0d7d6b6650ed368a2c839558007714349b8dcc76993ec882f268ac8392a6f45e",
+      "reconstructions/scene-10/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-10/src/worn-flagstone.js": "1b2c65b7e50424807c9088dcb320afa123ee90512fa1c1a03e1964611da51982",
+      "reconstructions/scene-10/tools/fetch-pine141.mjs": "40f6a4194b6178bcc8938cf146dfd3e50d7ac91e1edbd1b7b5681fbb2a2e888e",
+      "tools/build-ranma-relief-field.py": "757e28f6543205b0427e009549fc65f817df75f797901add6df53f547c12c529"
+    }
+  },
+  "scope": "CPU inspection of actual authored structural buffers and circulation triangle constraints. Excludes botanical mesh closure, rail tube end caps, full-scene collision and engineering certification. Not photographic acceptance.",
+  "meshes": [
+    {
+      "name": "207-closed-battered-hall-retaining-core",
+      "material": "supportCore207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 718.6976861172811
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-0",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3206638066871889
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-1",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3383373746305348
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-2",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3233192620417972
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-3",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3223630722201079
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-4",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.36416920138615794
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-5",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.36468220929472517
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-6",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26569428247503313
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-7",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3442816438085454
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-8",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.35078590131648474
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-9",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.24680246529912978
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-10",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2169165221232354
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-11",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.36359239222639944
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-12",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.28035811195782356
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-13",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.33196869390986294
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-0-14",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3020502399032782
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208301",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26094258992080316
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208302",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26098709707748025
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208303",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.262042349685222
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208304",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2616246620880236
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208305",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2610191224495983
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208306",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2614819706114135
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208307",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2610156265346945
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208308",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2612798822356071
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208309",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2618460468294142
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208310",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26149867467348203
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208327",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26215387683396923
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208328",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2613887257151377
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208329",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26132596351444215
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208330",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2611093321931754
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208331",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2614923258594792
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208332",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26162198445672563
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208333",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26110052844338066
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208334",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26237653426971874
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208335",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2617886249241288
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208336",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26159029056924393
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-0",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32648703290407055
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-1",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3265614146721306
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-2",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4210891327274916
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-3",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4087176755294341
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-4",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4140765102973854
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-5",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4456696796569166
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-6",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.29746203889233913
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-7",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.39748638927177266
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-8",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.31162606671252907
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-9",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.44947113769882774
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-10",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4308308899955547
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-11",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3384374006498912
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-12",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.28661733395755806
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-13",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3068169447283394
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-14",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3805162382155327
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-1-15",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27521493548376674
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208342",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32673861427975465
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208343",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3273410277674188
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208344",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32699758330366824
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208345",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32709920522106795
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208346",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3263034508948018
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208347",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32673309217598134
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208348",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32715567845898647
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208349",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3268182528675996
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208350",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3266426004981986
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208351",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32708025368924737
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208368",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32669279655584216
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208369",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32641779478701716
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208370",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32583123669604647
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208371",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3257620267274734
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208372",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3265139818166684
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208373",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32697262808647254
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208374",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3267176829008567
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208375",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32696702868384625
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208376",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32759444486164807
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208377",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32674271464668964
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-0",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3590339453636829
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-1",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.33964907247311366
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-2",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.31806181501165226
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-3",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.29136999863447627
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-4",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3593359486202922
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-5",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3731322153258538
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-6",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.392680847086108
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-7",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3177753285703278
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-8",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3165389112498563
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-9",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3303198840030714
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-10",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3196478394179193
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-11",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32955552724544623
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-12",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.28912852610198464
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-13",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.30725668213652957
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-2-14",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3021356767268192
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208383",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27102379219794986
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208384",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27087481998794344
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208385",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27077293824260656
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208386",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27141195884099206
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208387",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27200268403240907
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208388",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27117580998337104
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208389",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2713342412697147
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208390",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2719913257518047
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208391",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27155833735218876
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208392",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27199357628916615
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208409",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27147103463053396
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208410",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27245162668521217
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208411",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2728115180841859
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208412",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2717839592584447
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208413",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27146963289826
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208414",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2711868038118968
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208415",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27188770173829585
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208416",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2716071776005598
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208417",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27201105426067235
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208418",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2719528622700049
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-0",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.36560407553516466
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-1",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.398409593600718
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-2",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3096578682829687
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-3",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.44889414960614354
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-4",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.29288213798762314
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-5",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.451096728875968
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-6",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3116615872835874
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-7",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.34236298649388414
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-8",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.42825765608537947
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-9",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.46367019686439404
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-10",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.33198091826961434
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-11",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.31100350595878157
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-12",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.48844629770587866
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-13",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.295231550724559
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-14",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3652378790305187
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-3-15",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3530917800700598
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208424",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3257746107334619
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208425",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32557815870679163
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208426",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3263055018904244
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208427",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32600436215926143
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208428",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.325753562802977
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208429",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3262224716629705
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208430",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32604039773184695
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208431",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3261003999218268
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208432",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3258250424273384
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208433",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3259737773101378
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208450",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32609705711328546
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208451",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3263988404499849
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208452",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32634437104148256
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208453",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32624624078068665
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208454",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3256082949900367
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208455",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3257898311164084
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208456",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3257918908857846
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208457",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3259931608789267
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208458",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3260506507282668
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208459",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32705504850670164
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-0",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3717594876351193
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-1",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.30043493843852603
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-2",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2837840252539105
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-3",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4028690332928462
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-4",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2541688118419223
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-5",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4022657128672884
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-6",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.40565724475514436
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-7",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.26924293480222167
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-8",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3472525406586835
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-9",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.29482446114494126
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-10",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3793426274760733
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-11",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3330457916056345
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-12",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.24624199809912148
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-13",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3200134006489402
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-4-14",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.43372782851821357
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208465",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2717417932484018
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208466",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27170295963685387
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208467",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27264501990923495
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208468",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27272283770172584
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208469",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2716611791770224
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208470",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2722723698523887
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208471",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27230144086851227
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208472",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2729427193969695
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208473",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2717157929367206
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208474",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27126588227666465
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208491",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2717814889618965
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208492",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2723416782350861
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208493",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2713326631032241
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208494",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2718658292661428
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208495",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.27277983199935507
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208496",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2717369093449782
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208497",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2721698329225807
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208498",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2724289126442364
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208499",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2714760663217761
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208500",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2715725746689405
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-0",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4309888677602141
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-1",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.34675624614520834
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-2",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.48828492804752954
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-3",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.41115876341189256
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-4",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4161898892785745
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-5",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.36907671247767754
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-6",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.28524042802400046
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-7",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3602880616894201
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-8",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.37636306781745954
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-9",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4112815947748343
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-10",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3245066771505731
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-11",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3820411221926577
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-12",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3296092655313497
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-13",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.4374677173164711
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-14",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2903555708175844
+    },
+    {
+      "name": "207-bonded-battered-terrace-course-5-15",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.402518697632453
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208506",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3253499356448767
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208507",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32480527970880346
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208508",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32533551902791447
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208509",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3259942990583624
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208510",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32618089063019057
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208511",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3248150256589323
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208512",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3259994183767516
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208513",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3250754109240397
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208514",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32491668732445617
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208515",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3249124915572406
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208532",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3247684155543651
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208533",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32527945256327934
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208534",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32636260104792036
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208535",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32602658089489966
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208536",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32554648513845175
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208537",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.325103748212471
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208538",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3259181845873707
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208539",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.3261082212891028
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208540",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.32469593748618153
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-208541",
+      "material": "supportRecess207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.324355225966949
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209001",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20176816762039698
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209002",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2019974773213353
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209003",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.203137892832379
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209004",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2024577415289911
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209005",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2018268027937021
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209006",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.202210456697181
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209007",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20237686472947347
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209008",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20262573714351462
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209009",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20295428416385378
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209010",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20280372727588716
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209011",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20213783237246657
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209012",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20201596529449067
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209013",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2025911682592942
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209014",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20189825922899224
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-209015",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20294162723395825
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "supportCore207",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 37.29168151754373
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209411",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13581384255135773
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209726",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1359322352918756
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209442",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13580433384758353
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209757",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13527275001506425
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209473",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13568405581265905
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209788",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13569932255966574
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209504",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13540770052776652
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209819",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1352234694379101
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209535",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13555033337807404
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209850",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1358060446449434
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209566",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1356721085855724
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209881",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13545143351541944
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209597",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13528954625288173
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209912",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13559241072994618
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209628",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13576852011428045
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209943",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1357157974868783
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209659",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13583036148736788
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-209974",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1356421982936133
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5796000335097318
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 1.4040000042915324
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "darkwood",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 8.036999993205058
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-0",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.15534738672499637
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20711",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013608635694933266
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-1",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1553473901668737
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20712",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013609678931648463
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-2",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1553473082277167
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20713",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013564992164356986
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-3",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1553474011777367
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20714",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013585080302773174
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-4",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.15534740461960356
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20715",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013594140545947797
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-5",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.15534736829442813
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20716",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01359539009169515
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-6",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.15534738708176682
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20717",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013601478823537004
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-7",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1553474046196037
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20718",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01358849013032282
+    },
+    {
+      "name": "207-near-bridge-approach-closed-riser-tread-8",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.15534740272960373
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20719",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01360847136048604
+    },
+    {
+      "name": "207-near-bridge-approach-closed-sloping-bearing-bed",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.5927039880916459
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-0",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.0076719765153703615
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-1",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.035432615849647395
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-2",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.04271492242802781
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-3",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.04271492711707116
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-1",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.0006644228399269852
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-2",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.025940375684357593
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-3",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.042714843482737665
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-4",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.023479026599664332
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-2-2",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013574137266113569
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-2-3",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.03987336917638064
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-3-3",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.0029915017980544113
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-3-4",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016699554823210103
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-0",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.007671978419829254
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-1",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.03543258893233965
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-2",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.04271489425478002
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-0-3",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.04271488354040182
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-1",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.0006644246133939106
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-2",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.02594040430354693
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-3",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.04271484817178104
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-1-4",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.023479024022247212
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-2-2",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.013574131149784154
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-2-3",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.03987332849859526
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-3-3",
+      "material": "supportStone207",
+      "vertices": 24,
+      "triangles": 8,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.0029915021264481263
+    },
+    {
+      "name": "207-near-bridge-approach-closed-battered-cheek-course-3-4",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016699552990011444
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-0",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2043812833724905
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20711",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016563391338373756
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-1",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20438125398913765
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20712",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016555405436001324
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-2",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20438160757533863
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20713",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016561077898212803
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-3",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20438135727322448
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20714",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01657292463058133
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-4",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20438201698241687
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20715",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016555155831296697
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-5",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2043812539891363
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20716",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016494554031374214
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-6",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.20438137204384454
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20717",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016542382209104478
+    },
+    {
+      "name": "207-hall-flight-closed-riser-tread-7",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.2043812833724885
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-20718",
+      "material": "routeStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.016571689824436252
+    },
+    {
+      "name": "207-hall-flight-closed-sloping-bearing-bed",
+      "material": "supportStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.6145114639443845
+    },
+    {
+      "name": "207-actual-hall-stair-bearing-stringer",
+      "material": "darkwood",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.11142223315993768
+    },
+    {
+      "name": "207-actual-hall-stair-bearing-stringer",
+      "material": "darkwood",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.11142251215538315
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207511",
+      "material": "darkwood",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.08311320281715263
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-207580",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.6071629740929927
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207600",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.24464503509202182
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-207582",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.6097645054328017
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207602",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.24416215125304075
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207722",
+      "material": "darkwood",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.0830576346291461
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-207791",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 1.1518647592081823
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207811",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.24384926500317106
+    },
+    {
+      "name": "207-closed-tapered-monolithic-bearing-pier-207793",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 1.1511781270608263
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207813",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.24460919920075924
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.6854364489681173
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.9714610474940282
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207200",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13805401824186986
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207201",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.13151728708473018
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207202",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1248519701932529
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207203",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.11867176642574857
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207204",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.11277062183438083
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207205",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10650046854524707
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207206",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10108621986272913
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207207",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.09504797223546821
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207208",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.08967735259637384
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207291",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1102270375966792
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207258",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1381944956318565
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207259",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1314798966635979
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207260",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.12492236325129286
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207261",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.11860260600495195
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207262",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.11263686210118838
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207263",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1067774400466071
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207264",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10094485749082749
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207265",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.09531399539060477
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207266",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.08942236655747927
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207349",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10980253588262931
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207271",
+      "material": "darkwood",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.23520286107112376
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207401",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.15101253699689413
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207402",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1351329167193872
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207403",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.11959115145225152
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207404",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10490554865574463
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207492",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10987316677012315
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207463",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.15099151457014418
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207464",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1344910344584107
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207465",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.1191169645555212
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207466",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10471330223775481
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207554",
+      "material": "supportStone207",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.10978940771515125
+    },
+    {
+      "name": "207-closed-worn-bearing-stone-207491",
+      "material": "darkwood",
+      "vertices": 900,
+      "triangles": 300,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.16718227818893094
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.698318471245139
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "supportCore207",
+      "vertices": 780,
+      "triangles": 260,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 1.003150561113969
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532313263083303
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532305360153947
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532297511226167
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532328559930351
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532309080778648
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532307598210439
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532262112542582
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532243675031762
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532221496039149
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01053222543816897
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010531632334062888
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010531951632830926
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532243773873075
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532284573494869
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01053226530046838
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532198641443375
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010531775112987267
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010531531282363931
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010530948106687428
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010530816904229107
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010531068668589461
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01053127584187639
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532195229381302
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010531862363873429
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01053241339264787
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532158864816727
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.01053252515955975
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532366355822009
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532427022640458
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010532287845502806
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.0105325480652304
+    },
+    {
+      "name": "ExtrudeGeometry",
+      "material": "routeStone207",
+      "vertices": 36,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.010531765497580815
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    },
+    {
+      "name": "BoxGeometry",
+      "material": "red",
+      "vertices": 24,
+      "triangles": 12,
+      "nonfinite": 0,
+      "degenerate": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "signedVolume": 0.017575998065948558
+    }
+  ],
+  "circulation": {
+    "r03": {
+      "sampledHardSurfaceBoundaryPoints": 2999,
+      "adjacentGridCellsWithUnreservedVertices": 2999,
+      "examples": [
+        {
+          "kind": "right-curb",
+          "p": [
+            3.9,
+            -2
+          ]
+        },
+        {
+          "kind": "right-curb",
+          "p": [
+            4.01,
+            -2
+          ]
+        },
+        {
+          "kind": "right-curb",
+          "p": [
+            4.12,
+            -2
+          ]
+        },
+        {
+          "kind": "right-curb",
+          "p": [
+            3.9,
+            -1.975
+          ]
+        },
+        {
+          "kind": "right-curb",
+          "p": [
+            4.01,
+            -1.975
+          ]
+        },
+        {
+          "kind": "right-curb",
+          "p": [
+            4.12,
+            -1.975
+          ]
+        },
+        {
+          "kind": "right-curb",
+          "p": [
+            3.9,
+            -1.9500000000000002
+          ]
+        },
+        {
+          "kind": "right-curb",
+          "p": [
+            4.01,
+            -1.9500000000000002
+          ]
+        }
+      ]
+    },
+    "r04": {
+      "sampledHardSurfaceBoundaryPoints": 2999,
+      "adjacentGridCellsWithUnreservedVertices": 0,
+      "examples": []
+    }
+  },
+  "contacts": {
+    "hallCapToPier": [
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      },
+      {
+        "gap": 0,
+        "localTop": 0.82
+      }
+    ],
+    "hallPierToBeamGap": 0,
+    "hallBeamToFloorGap": 0,
+    "hallLastTreadToGalleryGap": 0,
+    "nearLastTreadToBridgeGap": 0,
+    "hallFootingPadTop": 0.04,
+    "hallStairPierBottom": 0.04,
+    "hallStringerToCrossheadGap": 0,
+    "hallBedToStringerGap": 0,
+    "scope": "Analytic shared bearing planes of the generated solids; rounded edge relief and the complete assembly are reviewed in native views."
+  },
+  "visualAccepted": false,
+  "datums": {
+    "hall": {
+      "revision": "scene10-207-bonded-terrace-and-clear-circulation-r04",
+      "top": 1.3,
+      "worldBase": -0.24,
+      "worldCap": 3.05,
+      "retainingFront": {
+        "top": 5.42,
+        "toe": 6.12,
+        "batter": 0.7000000000000002
+      },
+      "pierRows": [
+        2.1,
+        5.25
+      ],
+      "beamBottom": 0.82,
+      "beamTop": 1.12,
+      "galleryFloor": {
+        "boundsZ": [
+          3.8,
+          6.15
+        ],
+        "bottom": 1.12,
+        "top": 1.3,
+        "cantileverBeyondCap": 0.56
+      },
+      "frontPiers": [
+        {
+          "x": -8.2,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": -8.2,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": -6.1499999999999995,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": -6.1499999999999995,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": -4.1,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": -4.1,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": -2.05,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": -2.05,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 0,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 0,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 2.0500000000000007,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 2.0500000000000007,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 4.1,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 4.1,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 6.149999999999999,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 6.149999999999999,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 8.2,
+          "z": 2.1,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        },
+        {
+          "x": 8.2,
+          "z": 5.25,
+          "bottom": 0.47368421052631554,
+          "top": 0.82,
+          "worldBottom": 3.05,
+          "worldTop": 3.379,
+          "bearing": "Full dressed terrace cap; no individual rock pedestal"
+        }
+      ],
+      "stoneCourses": [
+        {
+          "row": 0,
+          "x": [
+            -9.55,
+            -8.13323407473734
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5014275679545062,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            -8.13323407473734,
+            -6.670244622013066
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5113788342005137,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            -6.670244622013066,
+            -5.231643155521827
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.49783723731368806,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            -5.231643155521827,
+            -3.9602899994578453
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.562564261569496,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            -3.9602899994578453,
+            -2.557123271649618
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5751218776083988,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            -2.557123271649618,
+            -1.0990650938492295
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5542712915965603,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            -1.0990650938492295,
+            0.04714170050041311
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.514528922508398,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            0.04714170050041311,
+            1.3383281448591102
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5900053760321315,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            1.3383281448591102,
+            2.6680466676765264
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5830196103404159,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            2.6680466676765264,
+            3.5749444576304668
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.6064013592905303,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            3.5749444576304668,
+            4.541214942497876
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5005699656579964,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            4.541214942497876,
+            5.86566581304287
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.6081842718147528,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            5.86566581304287,
+            7.010336566442556
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5434841727848106,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            7.010336566442556,
+            8.278167284981583
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.579494171856204,
+          "closed": true
+        },
+        {
+          "row": 0,
+          "x": [
+            8.278167284981583,
+            9.549999999999999
+          ],
+          "y": [
+            -2.9894736842105263,
+            -2.5188877192982457
+          ],
+          "front": [
+            6.12,
+            6.019666666666666
+          ],
+          "depth": 0.5247150342295208,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -9.55,
+            -8.395879999093314
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.4974888785952498,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -8.395879999093314,
+            -7.416948104201767
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5907076811204024,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -7.416948104201767,
+            -5.9842282049253175
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5138970760658412,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -5.9842282049253175,
+            -4.6713966336020265
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5463672644221514,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -4.6713966336020265,
+            -3.3378018762073403
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5465372731490424,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -3.3378018762073403,
+            -1.9070805998601512
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.548278990660765,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -1.9070805998601512,
+            -0.9197584697480805
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5312999899212445,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            -0.9197584697480805,
+            0.48586017290795525
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.496271306393246,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            0.48586017290795525,
+            1.5143583244406789
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.532242116710222,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            1.5143583244406789,
+            2.8561017013509398
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5912211803285027,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            2.8561017013509398,
+            4.275141502502094
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5316614687753463,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            4.275141502502094,
+            5.362126329920227
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5473727905514897,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            5.362126329920227,
+            6.281479445087377
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5495182555000793,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            6.281479445087377,
+            7.268387738879493
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5477355311690553,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            7.268387738879493,
+            8.658202723097066
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.4822067986073671,
+          "closed": true
+        },
+        {
+          "row": 1,
+          "x": [
+            8.658202723097066,
+            9.55
+          ],
+          "y": [
+            -2.5188877192982457,
+            -1.9279192982456141
+          ],
+          "front": [
+            6.019666666666666,
+            5.893666666666666
+          ],
+          "depth": 0.5448491307136555,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -9.55,
+            -8.285649376634213
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5938264138979866,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -8.285649376634213,
+            -6.914438981157702
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5187357955049811,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -6.914438981157702,
+            -5.54140236809252
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.4846665210988794,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -5.54140236809252,
+            -4.2882587453456775
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.4872199123795872,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -4.2882587453456775,
+            -3.020823282149884
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5928678504020718,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -3.020823282149884,
+            -1.629699730334943
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5610954357014271,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -1.629699730334943,
+            -0.13754396763009757
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5506681240156104,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            -0.13754396763009757,
+            1.148230134870497
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5161170107085491,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            1.148230134870497,
+            2.393598995946731
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5324537037190942,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            2.393598995946731,
+            3.737603983029366
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5146684009156888,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            3.737603983029366,
+            5.116894107404757
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.4844066362994817,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            5.116894107404757,
+            6.2726583716141135
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5969579254891141,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            6.2726583716141135,
+            7.337902577411175
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5694705494392838,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            7.337902577411175,
+            8.419773937089959
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5952177789363486,
+          "closed": true
+        },
+        {
+          "row": 2,
+          "x": [
+            8.419773937089959,
+            9.55
+          ],
+          "y": [
+            -1.9279192982456141,
+            -1.4299736842105264
+          ],
+          "front": [
+            5.893666666666666,
+            5.7875
+          ],
+          "depth": 0.5613924461353236,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -9.55,
+            -8.472183416071523
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5832065043509647,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -8.472183416071523,
+            -7.158023397831604
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5225190417999943,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -7.158023397831604,
+            -6.100616209784093
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.507266060537222,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -6.100616209784093,
+            -4.624650534631646
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5235612295083775,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -4.624650534631646,
+            -3.623056890885077
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5071375172903209,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -3.623056890885077,
+            -2.2878762662712493
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5809785465165987,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -2.2878762662712493,
+            -1.2584592216090293
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5230427373632119,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -1.2584592216090293,
+            -0.13594973130541388
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5281699110211412,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            -0.13594973130541388,
+            1.2328953675991148
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5400356834533522,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            1.2328953675991148,
+            2.739848901158137
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.529524147846314,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            2.739848901158137,
+            3.858455643163338
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5148269207540216,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            3.858455643163338,
+            4.856423140772704
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5411603012326668,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            4.856423140772704,
+            6.309530028310217
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5789772922656539,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            6.309530028310217,
+            7.271169075205137
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5324382989476726,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            7.271169075205137,
+            8.380289264159503
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5694718887001363,
+          "closed": true
+        },
+        {
+          "row": 3,
+          "x": [
+            8.380289264159503,
+            9.550000000000002
+          ],
+          "y": [
+            -1.4299736842105264,
+            -0.828061403508772
+          ],
+          "front": [
+            5.7875,
+            5.659166666666667
+          ],
+          "depth": 0.5205271123268176,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -9.55,
+            -8.119776195060577
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5293258501208402,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -8.119776195060577,
+            -7.107394284723603
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.609295248831113,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -7.107394284723603,
+            -5.971941460126708
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5126596184956724,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -5.971941460126708,
+            -4.392282474829919
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5204929431013079,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -4.392282474829919,
+            -3.3360936490475464
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.49451040369458493,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -3.3360936490475464,
+            -1.770952040438591
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.524839476817524,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -1.770952040438591,
+            -0.31720536856132653
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5684454383973935,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            -0.31720536856132653,
+            0.6924539643493581
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5470702310323986,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            0.6924539643493581,
+            2.0140418529091413
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.537884130375096,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            2.0140418529091413,
+            3.0289407315870296
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5944142739144445,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            3.0289407315870296,
+            4.52830597111512
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.517770121343201,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            4.52830597111512,
+            5.698497486661461
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5823334005598735,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            5.698497486661461,
+            6.713477475995537
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.4986250155211746,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            6.713477475995537,
+            7.977414393260825
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5174045217670209,
+          "closed": true
+        },
+        {
+          "row": 4,
+          "x": [
+            7.977414393260825,
+            9.550000000000006
+          ],
+          "y": [
+            -0.828061403508772,
+            -0.31917192982456144
+          ],
+          "front": [
+            5.659166666666667,
+            5.550666666666666
+          ],
+          "depth": 0.5623365643041325,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -9.55,
+            -8.095193448082217
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5018841380133199,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -8.095193448082217,
+            -7.01518601775159
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5452532989626343,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -7.01518601775159,
+            -5.4845495635313934
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5406904492007197,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -5.4845495635313934,
+            -4.1857878691311345
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5366681891227199,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -4.1857878691311345,
+            -2.7434509770424222
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.4863525685706554,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -2.7434509770424222,
+            -1.699692831732468
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.6007575135652587,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -1.699692831732468,
+            -0.6901380047231211
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.48144637061992396,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            -0.6901380047231211,
+            0.36844313535086304
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5774818513311766,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            0.36844313535086304,
+            1.4408966922951454
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.595219545676664,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            1.4408966922951454,
+            2.801951054051613
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5108438247064623,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            2.801951054051613,
+            3.7871229630663814
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5593493569265411,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            3.7871229630663814,
+            4.9360864707413405
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5630067683045581,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            4.9360864707413405,
+            6.022838848180669
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.514554311213651,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            6.022838848180669,
+            7.401369631461701
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.5377303671293521,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            7.401369631461701,
+            8.422870304120497
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.4804605697051738,
+          "closed": true
+        },
+        {
+          "row": 5,
+          "x": [
+            8.422870304120497,
+            9.55
+          ],
+          "y": [
+            -0.31917192982456144,
+            0.29368421052631577
+          ],
+          "front": [
+            5.550666666666666,
+            5.42
+          ],
+          "depth": 0.6047202600491801,
+          "closed": true
+        }
+      ],
+      "source": "Closed battered terrace, six independently jointed bonded stone courses, continuous cap, short stone bearings and actual timber beams/floor. R03 tall repeated piers and 22 identical rock feet retired.",
+      "oldFront20x12mCubeRemoved": true
+    },
+    "route": {
+      "before": {
+        "nearDeckY": 1.47,
+        "farDeckY": 2,
+        "span": 10.3,
+        "turningArea": 12.25,
+        "hallStairWidth": 2.9,
+        "hallStepCount": 12,
+        "hallTread": 0.20168934999,
+        "oldStepBottom": -0.18,
+        "oldBankWidth": 7.1
+      },
+      "after": {
+        "nearDeckY": 1.32,
+        "farDeckY": 2.4000000000000004,
+        "span": 9.65,
+        "turningOutline": [
+          [
+            6.26083582006832,
+            -7.233475836343705
+          ],
+          [
+            8.453660470688472,
+            -7.411014709925257
+          ],
+          [
+            8.450506463869901,
+            -4.926902880708877
+          ],
+          [
+            7.606619123394115,
+            -4.825147504513295
+          ]
+        ],
+        "hallStairWidth": 2.2,
+        "hallRiser": 0.17937499999999995,
+        "hallTread": 0.26378402498652354,
+        "nearRiser": 0.13922222222222225,
+        "nearTread": 0.28
+      }
+    },
+    "nearApproach": {
+      "revision": "scene10-207-bonded-terrace-and-clear-circulation-r04",
+      "start": [
+        -4.6195166236941425,
+        0.067,
+        -4.559620304831787
+      ],
+      "end": [
+        -2.1176388613423986,
+        1.32,
+        -4.861295067199864
+      ],
+      "axis": [
+        0.9928086358538663,
+        -0.11971220728891936
+      ],
+      "run": 2.5200000000000005,
+      "width": 1.8,
+      "count": 9,
+      "rise": 1.2530000000000001,
+      "riser": 0.13922222222222225,
+      "tread": 0.28,
+      "steps": [
+        {
+          "index": 0,
+          "along": [
+            0,
+            0.28
+          ],
+          "top": 0.20622222222222225,
+          "undersideFront": -0.153,
+          "undersideBack": -0.01377777777777775,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 1,
+          "along": [
+            0.28,
+            0.56
+          ],
+          "top": 0.3454444444444445,
+          "undersideFront": -0.01377777777777775,
+          "undersideBack": 0.1254444444444445,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 2,
+          "along": [
+            0.56,
+            0.8400000000000002
+          ],
+          "top": 0.4846666666666667,
+          "undersideFront": 0.1254444444444445,
+          "undersideBack": 0.2646666666666667,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 3,
+          "along": [
+            0.8400000000000002,
+            1.12
+          ],
+          "top": 0.6238888888888889,
+          "undersideFront": 0.2646666666666667,
+          "undersideBack": 0.40388888888888896,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 4,
+          "along": [
+            1.12,
+            1.4000000000000001
+          ],
+          "top": 0.7631111111111111,
+          "undersideFront": 0.40388888888888896,
+          "undersideBack": 0.5431111111111111,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 5,
+          "along": [
+            1.4000000000000001,
+            1.6800000000000004
+          ],
+          "top": 0.9023333333333334,
+          "undersideFront": 0.5431111111111111,
+          "undersideBack": 0.6823333333333335,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 6,
+          "along": [
+            1.6800000000000004,
+            1.9600000000000004
+          ],
+          "top": 1.0415555555555556,
+          "undersideFront": 0.6823333333333335,
+          "undersideBack": 0.8215555555555556,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 7,
+          "along": [
+            1.9600000000000004,
+            2.24
+          ],
+          "top": 1.180777777777778,
+          "undersideFront": 0.8215555555555556,
+          "undersideBack": 0.960777777777778,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        },
+        {
+          "index": 8,
+          "along": [
+            2.24,
+            2.5200000000000005
+          ],
+          "top": 1.32,
+          "undersideFront": 0.960777777777778,
+          "undersideBack": 1.1,
+          "riser": 0.13922222222222225,
+          "tread": 0.28
+        }
+      ],
+      "bottomLanding": {
+        "center": [
+          -5.374051186943081,
+          0.067,
+          -4.468639027292208
+        ],
+        "along": [
+          -1.52,
+          0
+        ],
+        "width": 1.84,
+        "top": 0.067
+      },
+      "route": {
+        "points": [
+          [
+            -3.72,
+            -1.78
+          ],
+          [
+            -4.18,
+            -2.64
+          ],
+          [
+            -4.58,
+            -3.56
+          ],
+          [
+            -5.374051186943081,
+            -4.468639027292208
+          ]
+        ],
+        "outline": [
+          [
+            -4.390151946018871,
+            -1.421536097707006
+          ],
+          [
+            -4.434933939111877,
+            -1.50450852209958
+          ],
+          [
+            -4.4811204944512975,
+            -1.5889115183273252
+          ],
+          [
+            -4.5285199005197665,
+            -1.674870902238613
+          ],
+          [
+            -4.576920132492127,
+            -1.762508270594065
+          ],
+          [
+            -4.626093136565051,
+            -1.8519476844878937
+          ],
+          [
+            -4.6757944728416785,
+            -1.9433132408754281
+          ],
+          [
+            -4.7257629909571115,
+            -2.0367260246003926
+          ],
+          [
+            -4.775720811031947,
+            -2.132300663349273
+          ],
+          [
+            -4.825373184211652,
+            -2.2301403360553866
+          ],
+          [
+            -4.876437436095641,
+            -2.3347554855241928
+          ],
+          [
+            -4.929389543344037,
+            -2.453295499744144
+          ],
+          [
+            -4.974844734500457,
+            -2.5650310102668454
+          ],
+          [
+            -5.014578265856935,
+            -2.669085086294162
+          ],
+          [
+            -5.0501339808267645,
+            -2.7649158243497096
+          ],
+          [
+            -5.0827589268071565,
+            -2.8521802217797836
+          ],
+          [
+            -5.113387616106128,
+            -2.9306653058443644
+          ],
+          [
+            -5.1426587349581805,
+            -3.0002928544256053
+          ],
+          [
+            -5.170968174832828,
+            -3.0611964705169252
+          ],
+          [
+            -5.1985596534528415,
+            -3.1138197799832508
+          ],
+          [
+            -5.226123967920708,
+            -3.1597298228949855
+          ],
+          [
+            -5.260504116157774,
+            -3.210192582508763
+          ],
+          [
+            -5.301377338300631,
+            -3.2646408462938106
+          ],
+          [
+            -5.348189049834404,
+            -3.322393488254579
+          ],
+          [
+            -5.400318442021399,
+            -3.3829661108814064
+          ],
+          [
+            -5.457164891104009,
+            -3.446084482098942
+          ],
+          [
+            -5.518163527173241,
+            -3.511640366029653
+          ],
+          [
+            -5.582813514039432,
+            -3.579687985463578
+          ],
+          [
+            -5.6506626834574805,
+            -3.6504130187080954
+          ],
+          [
+            -5.72130918500571,
+            -3.7241368138363704
+          ],
+          [
+            -5.794379409436361,
+            -3.8013099984421292
+          ],
+          [
+            -5.8695140474965575,
+            -3.8825289352437284
+          ],
+          [
+            -5.946302276270664,
+            -3.968510353085865
+          ],
+          [
+            -4.801800097615496,
+            -4.968767701498549
+          ],
+          [
+            -4.7458384544380925,
+            -4.906127079812537
+          ],
+          [
+            -4.6856321731547315,
+            -4.841059759700985
+          ],
+          [
+            -4.62168108088497,
+            -4.773526175621512
+          ],
+          [
+            -4.5544425355740605,
+            -4.703361919355441
+          ],
+          [
+            -4.484329275578713,
+            -4.630274668157289
+          ],
+          [
+            -4.411716773458373,
+            -4.553837843091381
+          ],
+          [
+            -4.336970676216014,
+            -4.473491373710765
+          ],
+          [
+            -4.2604615653221,
+            -4.38851387237328
+          ],
+          [
+            -4.182622094849722,
+            -4.2980233737376645
+          ],
+          [
+            -4.103981705930721,
+            -4.200933375144417
+          ],
+          [
+            -4.025278758181919,
+            -4.095979416353915
+          ],
+          [
+            -3.947549545964538,
+            -3.981707588725331
+          ],
+          [
+            -3.8725204532126667,
+            -3.8568002907817487
+          ],
+          [
+            -3.807486801684764,
+            -3.7329989303801434
+          ],
+          [
+            -3.751722834464214,
+            -3.6132343856641413
+          ],
+          [
+            -3.7037107149897723,
+            -3.4991818266764243
+          ],
+          [
+            -3.6618572954538484,
+            -3.3920307140621464
+          ],
+          [
+            -3.624681549153708,
+            -3.29263295031529
+          ],
+          [
+            -3.5909191843501778,
+            -3.2016213006902703
+          ],
+          [
+            -3.5595811771001644,
+            -3.119493870244563
+          ],
+          [
+            -3.5299757437074106,
+            -3.0466259451003377
+          ],
+          [
+            -3.501694514656529,
+            -2.9832012426643377
+          ],
+          [
+            -3.4652725176665315,
+            -2.9087611262346442
+          ],
+          [
+            -3.424735579010345,
+            -2.828891578348556
+          ],
+          [
+            -3.3823730905473037,
+            -2.7478544064534356
+          ],
+          [
+            -3.3383405244658433,
+            -2.665543769151469
+          ],
+          [
+            -3.2928100023538556,
+            -2.5818491052482404
+          ],
+          [
+            -3.2459700158641325,
+            -2.496655249780064
+          ],
+          [
+            -3.19802497906156,
+            -2.4098425098357508
+          ],
+          [
+            -3.1491951902687765,
+            -2.3212877768709093
+          ],
+          [
+            -3.099717106581667,
+            -2.2308665675069355
+          ],
+          [
+            -3.0498480539811297,
+            -2.138463902292994
+          ]
+        ],
+        "samples": [
+          [
+            -3.72,
+            0.067,
+            -1.78
+          ],
+          [
+            -3.767325522846772,
+            0.067,
+            -1.8676875448032577
+          ],
+          [
+            -3.815157842360037,
+            0.067,
+            -1.9550996475991171
+          ],
+          [
+            -3.8632724397906633,
+            0.067,
+            -2.042356706037182
+          ],
+          [
+            -3.91144507417813,
+            0.067,
+            -2.1295817601870644
+          ],
+          [
+            -3.959451569459453,
+            0.067,
+            -2.216898394868067
+          ],
+          [
+            -4.007067498653761,
+            0.067,
+            -2.3044285050134485
+          ],
+          [
+            -4.054068040752208,
+            0.067,
+            -2.392290215526914
+          ],
+          [
+            -4.100228195021146,
+            0.067,
+            -2.4805961208489147
+          ],
+          [
+            -4.145322850939092,
+            0.067,
+            -2.5694507311450154
+          ],
+          [
+            -4.189065975376085,
+            0.067,
+            -2.6589783640942652
+          ],
+          [
+            -4.229682643525724,
+            0.067,
+            -2.749960722422241
+          ],
+          [
+            -4.267212955800311,
+            0.067,
+            -2.842262440255704
+          ],
+          [
+            -4.302748725103556,
+            0.067,
+            -2.935353193492216
+          ],
+          [
+            -4.337407764990236,
+            0.067,
+            -3.0287743873324997
+          ],
+          [
+            -4.372308111130502,
+            0.067,
+            -3.122105467920965
+          ],
+          [
+            -4.40854916554795,
+            0.067,
+            -3.2149235662603943
+          ],
+          [
+            -4.447190784711197,
+            0.067,
+            -3.3067636200448733
+          ],
+          [
+            -4.489227488258796,
+            0.067,
+            -3.3970977004485343
+          ],
+          [
+            -4.535540053332754,
+            0.067,
+            -3.4853100353824997
+          ],
+          [
+            -4.586836756942623,
+            0.067,
+            -3.570718705810158
+          ],
+          [
+            -4.642891437169847,
+            0.067,
+            -3.653085999431339
+          ],
+          [
+            -4.702679522115676,
+            0.067,
+            -3.7327871107191135
+          ],
+          [
+            -4.765405572342063,
+            0.067,
+            -3.8102084309961217
+          ],
+          [
+            -4.8303900036717495,
+            0.067,
+            -3.885739991627343
+          ],
+          [
+            -4.897067783660011,
+            0.067,
+            -3.9597879279048533
+          ],
+          [
+            -4.964940150315807,
+            0.067,
+            -4.032739104560517
+          ],
+          [
+            -5.033571394809073,
+            0.067,
+            -4.104981326810433
+          ],
+          [
+            -5.1025526095157705,
+            0.067,
+            -4.176887469031768
+          ],
+          [
+            -5.17149513294534,
+            0.067,
+            -4.248831494728941
+          ],
+          [
+            -5.2400057912955464,
+            0.067,
+            -4.3211848790715575
+          ],
+          [
+            -5.307676250967325,
+            0.067,
+            -4.394328007528133
+          ],
+          [
+            -5.37405118694308,
+            0.067,
+            -4.468639027292207
+          ]
+        ],
+        "width": 1.52,
+        "top": 0.067,
+        "source": "Continuous closed low stone causeway from the existing forecourt to the bridge stair foot; no water gap"
+      }
+    }
+  },
+  "summary": {
+    "meshes": 412,
+    "nonfinite": 0,
+    "exactOrSubNanometreDegenerates": 0,
+    "unclosedEdges": 0,
+    "windingEdges": 0,
+    "nonpositiveVolumeMeshes": 0,
+    "circulationUncoveredBefore": 2999,
+    "circulationUncoveredAfter": 0
+  }
+}

@@ -1,0 +1,13 @@
+import {registerHooks} from 'node:module';
+import {readFile,writeFile} from 'node:fs/promises';
+registerHooks({resolve(s,c,next){if(s==='three')return{url:new URL('../../vendor/build/three.module.js',import.meta.url).href,shortCircuit:true};return next(s,c);}});
+const T=await import('../../vendor/build/three.module.js'),{createTempleTerminal204}=await import('../../reconstructions/scene-05/src/terminal204.js');
+globalThis.fetch=async url=>{if(url!=='/reconstructions/scene-05/assets/terminal204-authored/face204.bin')throw Error('Unexpected local asset');const b=await readFile('reconstructions/scene-05/assets/terminal204-authored/face204.bin');return{arrayBuffer:async()=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)};};
+const kit=await createTempleTerminal204(),records=[];
+for(const[part,{geometry:g}]of [...kit.parts,...kit.mountParts].entries()){
+ const p=g.attributes.position,ix=g.index?.array??Uint32Array.from({length:p.count},(_,i)=>i),edges=new Map(),vertices=new Map(),remap=new Uint32Array(p.count);let finite=true,volume=0,degenerate=0;
+ for(let i=0;i<p.count;i++){const v=[p.getX(i),p.getY(i),p.getZ(i)];finite&&=v.every(Number.isFinite);const key=v.map(x=>Math.round(x*1e7)).join(',');if(!vertices.has(key))vertices.set(key,vertices.size);remap[i]=vertices.get(key);}
+ for(let i=0;i<ix.length;i+=3){const a=new T.Vector3().fromBufferAttribute(p,ix[i]),b=new T.Vector3().fromBufferAttribute(p,ix[i+1]),c=new T.Vector3().fromBufferAttribute(p,ix[i+2]),cross=b.clone().sub(a).cross(c.clone().sub(a));if(cross.lengthSq()<1e-24){degenerate++;continue;}volume+=a.dot(b.clone().cross(c))/6;for(const[u,v]of[[remap[ix[i]],remap[ix[i+1]]],[remap[ix[i+1]],remap[ix[i+2]]],[remap[ix[i+2]],remap[ix[i]]]]){const lo=Math.min(u,v),hi=Math.max(u,v),key=lo*vertices.size+hi,e=edges.get(key)??{count:0,balance:0};e.count++;e.balance+=u<v?1:-1;edges.set(key,e);}}
+ const row={part,name:g.name,vertices:p.count,triangles:ix.length/3,finite,degenerate,signedVolume:volume,nonTwoEdges:[...edges.values()].filter(e=>e.count!==2).length,opposedEdges:[...edges.values()].filter(e=>e.count===2&&e.balance!==0).length};records.push(row);
+}
+const iteration=process.env.ITERATION??'r01',d={scope:'CPU finite-volume/template check, not photographic acceptance',visualAccepted:false,records,info:kit.info};await writeFile('lookdev/scene05-terminal204/geometry204-'+iteration+'.json',JSON.stringify(d,null,2)+'\n',{flag:'wx'});const failed=records.filter(r=>!r.finite||r.degenerate||r.signedVolume<=0||r.nonTwoEdges||r.opposedEdges);console.log(JSON.stringify({parts:records.length,failed}));if(failed.length)process.exitCode=1;

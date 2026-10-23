@@ -1,3 +1,49 @@
+# Scene09 — night203 R14 native candidate, unaccepted
+
+Current frozen source: `c85fb3bbda541b3229ffb867bcd95a96132d5a1c54f2089f8c9a4c31005fb737` (85 inputs). Actual1254 full, true hall subfrustum and low three-quarter views were personally reviewed. [Current comparison page](../../lookdev/scene09-night203/checkpoint-r14.html), [exact checkpoint](../../lookdev/scene09-night203/checkpoint-r14.json) and [held-source/native proof](../../lookdev/scene09-night203/protected-native-proof-r14.json) describe this candidate. Photographic fidelity remains **unaccepted**.
+
+The wet-veranda Reflector had baked its plane geometry to horizontal while its object mirror normal remained vertical. Moving the equivalent rotation to the object corrects the actual capture normal to+Y; every world footprint vertex is preserved within floating-point precision. Original granite normal/roughness images now drive the wet-film distortion and a clearer microfacet finish. The pond uses nonperiodic travelling capillary heights with energy-conserving sampling of the true planar scene capture.
+
+Finite paper-emitter footprints bound near-case point-light response. Brighter warm paper and darker bronze recover the visible near flower masks. The main hall Buddha uses actual hall radiance, and two closed turned oil lamps occupy the altar bay. Two small modeled bridge cases are physically carried from the existing post caps: a west side-hung8cd lamp and an east standing20cd lamp. Their mounting geometry and all110 added lamp solids are explicit source; the original bridge,181 architecture,158 toros/substrate, garden and187 cameras remain.
+
+Roof fascia/purlins have a separate matte aged-cedar response, while the original roof coordinates and sections are held. Official native ray hits locate these surfaces and the lower wood carriers. All source geometry comparisons and three-view native shader/pixel checks pass; renderer exposure stays0.95. No new external asset was acquired.
+
+The scene still differs substantially from HD: garden density and warm readability, repeated carpentry, exact ornament and material specificity, cloud structure, lamp highlight balance and wet-surface highlight range remain open. Static SH radiance, finite source footprints and local unshadowed secondary lights are approximations. No photographic completion or new motion-film acceptance is claimed. The R08 compile failure and every subsequent source snapshot/render comparison remain preserved under `lookdev/scene09-night203` and the corresponding new09 QA folders. Earlier records below describe historical source identities.
+
+---
+
+## Historical: night203 R06 rejected practical-light candidate
+
+Root rejected R06 after actual full/hero/low comparison: bridge and planted garden are lost in black, facade is isolated hot pools, and the occupied upper loft is too dark. It is a major lighting regression and is not promoted. Photographic acceptance remains false. Source SHA-256: 6c6b724b86a451773ce7e59f265b7f416963c17523c25b3a4fc03c04f2046974. [Actual full/hero/low/pose comparisons](../../lookdev/scene09-night203/review.html), [source/evidence ledger](../../lookdev/scene09-night203/review203-r06.json) and [protected construction/camera proof](../../lookdev/scene09-night203/protected-native-proof-r06.json) describe this candidate.
+
+Five broad LTC facade washes, the warm directional proxy and unmodeled garden grazes are retired. Existing modeled lantern positions retain bounded inverse-square pools; primary pools and hooded fixtures have actual geometry shadows.
+
+Seven small closed bronze/opal lighting assemblies have explicit anchors on existing181 lower joists, upper shafts and pagoda headers. Unequal inward/downward cones recover occupied bays without adding an upward facade strip wash.
+
+Visible near bulbs stay inside their cases, while the existing lamp behind the observer supplies a backward paper-exit pool. Defined paper exitance preserves fibre texture and prevents the aggregate proxies from self-illuminating the paper.
+
+Separate genuine native sky/court/hall/pagoda/veranda captures supply cobalt exterior and local reflected radiance. They are fixed in the modeled world; no scene photograph or painted lighting plate is used.
+
+The pond retains its actual planar scene capture, with Fresnel and smooth nonuniform height-gradient optics. Explicit repeating luminance stripes, warm-pixel gain and broad periodic reflection smear are removed.
+
+The four wet-veranda slab albedos are derived from existing CC0 granite grain around bounded authored wet-gray reflectances. CPU input audit measured0.00356..0.00673 effective old mean after the dark multiply; normal/roughness maps and metric UVs remain.
+
+All pre-existing scene09 modules/assets except main.js and asset-dependencies.json are byte-identical. Original181/158 geometry/contact records,187 camera poses, bridge/site/garden calls and original instance placements pass the protected checks.
+
+Photographic fidelity remains unaccepted. The main roof, garden and occupied mass remain darker and less richly bounced than the HD reference, and architecture/ornament/stone/plant specificity is still visibly CG.
+
+Fixed local environments, aggregate point exits, PCF shadows and finite spot proxies approximate transport. They are not complete distributed paper-emitter GI or a physical-render equivalence. Smaller upper pagoda cones and secondary fixtures have bounded ranges without geometry shadows.
+
+The seven fixture placements, optical response and powers are inferred construction. Granite body values are authored material targets, not surveyed reference reflectance.
+
+The three camera-path frames are actual still-pose checks. No new movie, Blender job, scene export or photographic acceptance is claimed.
+
+All native images use the shared official FIFO. R01–R05 failures, exact source scripts and identities remain in lookdev/scene09-night203 and qa/ten-reference/09/iteration-scene09-night203-*. Existing CC0/CC BY provenance remains; no new external scan or source image was acquired. foregroundVeranda.lightFalloff is an inherited historical description; actual bounded source distances/shadow flags are in night203.practicals and night203.downlights.
+
+---
+
+Historical checkpoint records follow.
+
 # Reference 09 night temple reconstruction
 
 **Current mass181 R04 remains a reconstruction draft; `visualAccepted: false`.** Held source SHA-256: `61b811768614423f28ce67ecc99a2904ce1eadff39cefae1328fc561894c4fe1` (78 declared inputs). The [actual native1254 full](../../qa/ten-reference/09/iteration-scene09-mass181-r04/reference.png), [true hall hero](../../qa/ten-reference/09/iteration-scene09-mass181-r04/detail-native.png), [true tower hero](../../qa/ten-reference/09/iteration-scene09-mass181-r04-tower-hero/detail-native.png) and [low three-quarter](../../qa/ten-reference/09/iteration-scene09-mass181-r04-low3q/inspection-view.png) all passed the official shared FIFO capture. [Review with comparisons](../../lookdev/scene09-mass181/review.html) and [exact evidence/limitations](../../lookdev/scene09-mass181/review181-r04.json) preserve the review status.

@@ -6,6 +6,7 @@ import {createRainCeramicField141} from './rain-ceramic141.js';
 import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
 import {clipRestorationRoofOpening,clipRestorationSolidRoofOpening} from './architecture.js';
 import {createCarpentryMass183} from './carpentry-mass183.js';
+import {buildHallFoundation207} from './support-route207.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
@@ -83,7 +84,7 @@ function bilateralCloudBracketGeometry(){
 export function buildHall132(api,L){
   const {emit,box,group,between,tube,arch,lantern,R,scene,stack,emitRestoredBuddha,carvedCloud183}=api;
   RectAreaLightUniformsLib.init();
-  const records={revision:HALL132_REVISION,scope:'Hall front and roof underside; full foundation footprint retained as side wings, sill and bearing lintel around a single shoreline underpass.',roofs:[],bearingRows:[],columns:[],eaveSupports:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
+  const records={revision:HALL132_REVISION,scope:'Upper183 carpentry and roof retained;207 R05 replaces the deep open scaffold with a recessed bonded stone terrace, short bearings and an actual bracket-supported gallery.',roofs:[],bearingRows:[],columns:[],eaveSupports:[],ornament:{giltWraps:0,volumetricLeaves:0,rosettes:0},photographSampled:false};
   const ranmaRelief=createRanmaRelief138();records.ornament.reliefPanels=0;records.ornament.reliefGeometry={triangles:ranmaRelief.userData.triangles,closedSolid:true,bitmapInMaterial:false,nonMetricGuide:true};
   const leaf=leafGeometry(),rosette=new T.TorusGeometry(.13,.022,7,20),boss=new T.SphereGeometry(1,12,8),eaveArm=bilateralCloudBracketGeometry();
   const foliate=(x,y,z,s=1)=>{
@@ -259,20 +260,8 @@ export function buildHall132(api,L){
   }
   function railUpper(base){for(let i=0;i<=17;i++){const x=-9+18*i/17;box(x,base+.73,5.05,.11,.86,.11,'red');emit(boss,'oldgold',x,base+1.21,5.05,.10,.09,.10);}for(const h of[.25,.65,.88])box(0,base+.3+h*.86,5.05,18,.075,.075,'red');}
   group(...L.hall.position,L.hall.yaw,()=>{
-    // Keep the foundation's 20×12 m plan and full-depth side wings. At the
-    // entrance/shoreline, the broad face steps back into one shallow recessed
-    // support bay; its back wall remains intact beneath the bearing lintel.
-    const foundation={minX:-10,maxX:10,minY:-3.79,maxY:1.30,minZ:-6,maxZ:6};
-    const opening={minX:L.hall.entranceX-6.0,maxX:L.hall.entranceX+2.55,minY:-2.65,maxY:.65,minZ:4.70,maxZ:6};
-    box((foundation.minX+opening.minX)/2,(foundation.minY+foundation.maxY)/2,0,opening.minX-foundation.minX,foundation.maxY-foundation.minY,12,'stone');
-    box((opening.maxX+foundation.maxX)/2,(foundation.minY+foundation.maxY)/2,0,foundation.maxX-opening.maxX,foundation.maxY-foundation.minY,12,'stone');
-    box((opening.minX+opening.maxX)/2,(foundation.minY+foundation.maxY)/2,(foundation.minZ+opening.minZ)/2,opening.maxX-opening.minX,foundation.maxY-foundation.minY,opening.minZ-foundation.minZ,'recessedStone');
-    box((opening.minX+opening.maxX)/2,(foundation.minY+opening.minY)/2,(opening.minZ+opening.maxZ)/2,opening.maxX-opening.minX,opening.minY-foundation.minY,opening.maxZ-opening.minZ,'stone');
-    box((opening.minX+opening.maxX)/2,(opening.maxY+foundation.maxY)/2,(opening.minZ+opening.maxZ)/2,opening.maxX-opening.minX,foundation.maxY-opening.maxY,opening.maxZ-opening.minZ,'stone');
-    records.foundationOpening={foundationFootprint:[20,12],opening:{centerX:(opening.minX+opening.maxX)/2,width:opening.maxX-opening.minX,bottom:opening.minY,top:opening.maxY,recessDepth:opening.maxZ-opening.minZ,backWallLocalZ:opening.minZ,through:false},bearing:'full-depth side wings and back wall, 0.65 m front lintel above a continuous sill under the hall floor',position:'Asymmetric recessed shoreline bay covers the bridge-side face while retaining the original hall foundation footprint and stair terrace'};
-    // Preserve the exact 323 random draws while removing only stone courses
-    // that physically intersect the new open passage.
-    for(let j=0;j<17;j++)for(let k=0;k<19;k++){const x=-9.6+k*1.06+(j%2)*.45,y=-3.64+j*.30,tint=R(.72,1.20),inside=x+.505>opening.minX&&x-.505<opening.maxX&&y+.14>opening.minY&&y-.14<opening.maxY;if(!inside)box(x,y,6.025,1.01,.28,.18,'granite',0,tint);}
+    records.foundation207=buildHallFoundation207({emit,box},L);
+    for(let i=0;i<323;i++)R(.72,1.20); // Exact legacy replay protects later paving/rain.
     // A hollow, occupied room replaces the old 18.1 x 5.4 x 5.8 solid box,
     // whose front face hid the Buddha and filled the entire entrance view.
     box(0,3.98,-4.72,18.30,5.36,.24,'darkwood');

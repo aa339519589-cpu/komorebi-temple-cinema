@@ -123,12 +123,12 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
 
     // Heavy curved fascia + compression moulding: the eave is a closed
     // layered assembly, with the rafter tips seated behind its lower lip.
-    draw(timber(curve(face,1,-.20),.34,.41),'wood');
-    draw(timber(curve(face,.985,-.48),.38,.27),'wood');
+    draw(timber(curve(face,1,-.20),.34,.41),materials.fascia||'wood');
+    draw(timber(curve(face,.985,-.48),.38,.27),materials.fascia||'wood');
     draw(timber(curve(face,1.008,-.43),.29,.14),'dark');
     draw(timber(curve(face,1.012,-.22),.032,.034),'gold');if(api.ornament){const n=Math.ceil((face%2?hd+bd:w)/.40);for(let i=0;i<=n;i++){const p=at(face,1,-1+2*i/n,-.18);api.ornament(p,face,.070);}}
     for(const t of[.58,.78,.92]){
-      if(t<t0)continue;draw(timber(curve(face,t,-.48,32),.32,.28),'wood');
+      if(t<t0)continue;draw(timber(curve(face,t,-.48,32),.32,.28),materials.fascia||'wood');
     }
     const rafters=Math.ceil((face%2?hd+bd:w)/.22);
     for(let i=0;i<=rafters;i++){

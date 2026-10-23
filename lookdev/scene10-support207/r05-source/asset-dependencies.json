@@ -1,0 +1,84 @@
+{
+  "files": [
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "assets/ranma-relief-v01/build-report.json",
+    "assets/ranma-relief-v01/generated-height-guide.png",
+    "assets/ranma-relief-v01/height-field.json",
+    "assets/ranma-relief-v01/provenance.json",
+    "reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png",
+    "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png",
+    "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png",
+    "reconstructions/scene-04/assets/granite-tile-04/provenance.json",
+    "tools/build-ranma-relief-field.py",
+    "reconstructions/scene-03/assets/timber/normal-gl-2k.png",
+    "reconstructions/scene-03/assets/timber/roughness-2k.jpg",
+    "reconstructions/scene-03/assets/timber/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/shrub-02/provider-info.json",
+    "assets/polyhaven/shrub-02/provider-files.json",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+  ],
+  "materialUse141": {
+    "timber": "Existing Poly Haven Lacquered Cherry Wood CC0 normal and bounded roughness on authored painted carpentry; no color-photo projection.",
+    "roughnessRange": [
+      0.68,
+      0.98
+    ],
+    "granite": "Existing CC0 granite scan, on new closed staggered/eroded flagstone geometry.",
+    "visualAccepted": false
+  },
+  "runtimeModels": [
+    "reconstructions/scene-10/assets/pine-sapling-cc0-141/pine_sapling_small_1k.gltf",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf"
+  ],
+  "modelUse141": {
+    "source": "https://polyhaven.com/a/pine_sapling_small",
+    "license": "CC0-1.0",
+    "provenance": "reconstructions/scene-10/assets/pine-sapling-cc0-141/provenance.json",
+    "construction": "Original whole CC0 saplings, rigid uniform scale, rooted on actual natural193 terrain. The former nonuniform mature-crown stacks and their historical placement records are suppressed in natural193.",
+    "photographSampled": false,
+    "botanicalMatchAccepted": false
+  },
+  "modelUse142": {
+    "source": "https://polyhaven.com/a/periwinkle_plant",
+    "author": "Amal Kumar",
+    "license": "CC0-1.0",
+    "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+    "use": "Whole source 3D plants and four complete connected, cupped green leaf components (55 source vertices, 80 triangles each), with source normals/topology/atlas UVs retained on authored bushes and trees. Parent surfaces supply rooted plant contacts. No supplied scene photograph is used as backdrop, texture or depth field.",
+    "photographSampled": false,
+    "visualAccepted": false
+  },
+  "natural193": {
+    "use": "Original complete CC0 Shrub02 and Periwinkle plants; source green leaf PBR atlas on authored cupped leaves; source RockMossSet geometry rigidly and uniformly seated on actual connected terrain or mineral bank. Local geometry-only adaptation of authored pine158 supplies complete branching mature pines and closed retained needle packets. Terrain, fractured bank, ferns, bush/creeper anatomy and placements are purposeful actual geometry. No reference scene image, billboard, crown hull, or depth card.",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/shrub_02",
+    "author": "Rico Cilliers",
+    "visualAccepted": false
+  },
+  "support207": {
+    "revision": "scene10-207-recessed-bearing-terrace-and-creek-r05",
+    "source": "src/support-route207.js",
+    "provenance": "support207-provenance.json",
+    "newDownloadedAssets": false,
+    "photographSampled": false,
+    "visualAccepted": false,
+    "use": "CPU-authored closed structural solids, triangle-safe circulation reservation, bounded creek geometry and an actual scene planar reflection. Existing declared CC0 granite/timber maps and natural193 botanical sources retained; original CC BY carving untouched."
+  }
+}

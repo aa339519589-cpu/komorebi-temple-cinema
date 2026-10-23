@@ -43,7 +43,7 @@ export async function installScannedTimber(mats){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
   const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.11:.075,kind==='endwood'?.11:.075);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=.80;
-  if(painted)mat.color.set(pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
+  if(painted)mat.color.set(key==='kit_cedar'?'#a55737':key==='kit_endwood'?'#ad7144':pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
   if(mat.isMeshPhysicalMaterial){mat.clearcoat=.17;mat.clearcoatRoughness=.34;mat.specularIntensity=.55;}
   mat.onBeforeCompile=shader=>{
    shader.vertexShader='attribute float woodCut190;attribute vec2 woodEndUv190;varying float vWoodCut190;varying vec2 vWoodEndUv190;\n'+shader.vertexShader;
