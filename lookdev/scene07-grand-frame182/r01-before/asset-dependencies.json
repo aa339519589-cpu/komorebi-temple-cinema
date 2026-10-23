@@ -1,0 +1,238 @@
+{
+  "use": "User-authorized CC0 PBR timber and actual scanned moss-stone geometry; original reference is comparison-only.",
+  "files": [
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf",
+    "assets/polyhaven/periwinkle-plant/provenance.json",
+    "assets/polyhaven/periwinkle-plant/provider-files.json",
+    "assets/polyhaven/periwinkle-plant/provider-info.json",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg",
+    "assets/polyhaven/qwantani-sunset-puresky/provenance.json",
+    "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "assets/polyhaven/shrub-02/provenance.json",
+    "assets/polyhaven/shrub-02/provider-files.json",
+    "assets/polyhaven/shrub-02/provider-info.json",
+    "assets/polyhaven/shrub-02/shrub_02.bin",
+    "assets/polyhaven/shrub-02/shrub_02_4k.gltf",
+    "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "reconstructions/camera-dolly.js",
+    "vendor/examples/jsm/lights/RectAreaLightTexturesLib.js",
+    "vendor/examples/jsm/lights/RectAreaLightUniformsLib.js"
+  ],
+  "foregroundRoof": {
+    "source": "src/foreground-gallery-roof.js",
+    "provenance": "assets/foreground-roof-provenance.json",
+    "scope": "Only the separate low near-gallery roof: whole footprint/profile/pose rebuild119 from measured hip and eave edge families. The main hall/pagoda physical-roofs.js, camera, light, bridge and rail are untouched.",
+    "newExternalAssets": [],
+    "photoTextureOrProjection": false
+  },
+  "revision": "garden130",
+  "islandLantern": {
+    "scope": "Only the nearest water-island stone lantern, replacing the single original lantern(4.8,14.2,5.8,.2) call. Other4lanterns, islands/garden RNG, existing camera/light/roof/rail geometry stay.",
+    "anchor": "Local4.8,.2,14.2 scaled5.8/3.7, under the exact retained garden transform T(0,0,-3)*S(1,1,.6), world anchor4.8,.2,5.52.",
+    "envelope": "Old local full lamp bounds x/z±1.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
+    "geometry": "Thick closed curved/fluted kasa with a small actual rolled/upturned lip, original-height rounded-neck finial, short recessed firebag,7vertical+5horizontal fine bars per face, smaller closed warm core, closed carved-stone panels/petals, substantial shaft/base and11surface-rooted closed moss pads plus132small closed moss fibres.",
+    "light": "The original mats.glow material/emissive intensity is borrowed unchanged; luminous centrelocalY2.84 retained. No point/area lights added or moved.",
+    "inspectedConstruction": "scene04/src/scene04-lanterns.js reviewed for closed cap/cavity/relief/moss construction only. Scene04 proportions, scale and lights are not copied.",
+    "surfaceSource": {
+      "from": "reconstructions/scene-04/assets/granite-tile-04",
+      "to": "assets/island-lantern-granite",
+      "source": "https://polyhaven.com/a/granite_tile_04",
+      "license": "CC0-1.0",
+      "provenance": "assets/island-lantern-granite/provenance.json",
+      "repeatMetres": 0.3173828125,
+      "scope": "Existing single-face crop, no source grout or reference scene RGB. Local copies avoid runtime cross-scene dependency.",
+      "sha256": {
+        "granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+        "granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+        "granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+        "provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b"
+      }
+    },
+    "visualAccepted": false,
+    "roundTwoCorrection": "75a actual was too dark/brown from multiplying the source granite albedo, with leaf-like roof moss and the old conical finial.75b uses independent neutral-gray body/damp-cap pigments times normalized CC0 mineral luminance (measured linear mean0.153180782734, exponent0.55, clamp0.68..1.36), preserving normal/roughness. Only this lamp gets smaller irregular moss cushions/fibres, a rounded-neck crown and a26mm-local eave curl. Original entire AABB/anchor/matrix/glow and all scene lights retained.",
+    "materialStatistics": "The fresh worktree Python lacks Pillow; the source PNG mean was read through a standard-library zlib/PNG-filter decoder.75a source was restored into retained-source and verified against every report file hash before further editing."
+  },
+  "layout118": {
+    "source": "src/reference-layout118.js",
+    "data": "src/layout118-data.js",
+    "measurementTool": "tools/fit-layout07-118.mjs",
+    "scope": "Whole foreground railing, bridge/right flight, main stone stair/shared landing and island placement reconstructed as actual3D geometry. Old independently overlapping stairs and landing removed.",
+    "camera": "Reference camera unchanged; physical heights and hidden depths inferred, not survey data.",
+    "status": "Superseded by layout130-connected-garden; old observed landmarks retained as evidence, hidden depths revised.",
+    "referencesUsedAsTexture": false
+  },
+  "garden130": {
+    "source": [
+      "src/garden-terrain.js",
+      "src/garden-accents.js",
+      "src/reference-layout118.js",
+      "src/natural-details.js",
+      "src/main.js",
+      "src/veranda-bell.js"
+    ],
+    "provenance": "assets/garden130-provenance.json",
+    "newExternalAssets": [],
+    "referenceAsTexture": false,
+    "visualAccepted": false
+  },
+  "planting144": {
+    "source": "src/scanned-planting144.js",
+    "skySource": "src/sky-radiance144.js",
+    "license": "Independent Poly Haven CC0 models/HDRI, original bytes and publisher checksums/provenance retained.",
+    "referencePhotoUsedAsSceneAsset": false,
+    "visualAccepted": false
+  },
+  "sky145": {
+    "source": "src/sky-radiance144.js",
+    "asset": "assets/sky145/sky-cloud-cap-generated-r04.png",
+    "provenance": "assets/sky145/provenance.json",
+    "scope": "Independent atmosphere/cloud-only70x35degree cap retains original world azimuth. Superseding sky146 aligns actual direct sun, visible disk and CC0 environment solar centroid.",
+    "referencePhotoUsedAsSceneAsset": false,
+    "measuredHDRCameraSky": false,
+    "visualAccepted": false,
+    "revision": "scene07-golden-cloud-sky145-r04"
+  },
+  "sky146": {
+    "revision": "scene07-aligned-physical-sun146-r01",
+    "previousDirection": [
+      -0.8328681569952676,
+      0.2327131615133836,
+      -0.5021705064236173
+    ],
+    "newDirection": [
+      -0.5818283592293452,
+      0.03511033202246049,
+      -0.8125533982340857
+    ],
+    "reason": "Unify the previously inconsistent low visible sky sun, direct illumination and measured HDR solar centroid. Preserve generated cloud cap world heading.",
+    "shadowMap": {
+      "type": "fixed orthographic PCF",
+      "size": 4096,
+      "autoUpdate": false,
+      "initialNeedsUpdate": true,
+      "near": 1,
+      "far": 225
+    },
+    "referenceAsScenePlate": false,
+    "visualAccepted": false
+  },
+  "heroPines148": {
+    "source": "src/hero-pines148.js",
+    "revision": "scene07-aged-shelf-pines148-r01",
+    "scope": "Eight retained rooted garden origins, aged trunks/connected forks/long exposed boughs and separate shallow feathered needle shelves. Original downstream cherry/grass random placement retained through explicit legacy random-stream advancement.",
+    "newExternalAssets": [],
+    "referencePhotoAsTexture": false,
+    "visualAccepted": false
+  },
+  "forest146": {
+    "source": "src/natural-details.js",
+    "scope": "Closed irregular far-forest canopy interiors beneath retained actual cupped exterior leaf geometry. Reduces sparse see-through subpixel crowns. No image assets."
+  },
+  "forest150": {
+    "source": "src/forest150.js",
+    "provenance": "assets/forest150/provenance.json",
+    "originalSourceImageUsedAsTexture": false,
+    "scope": "Actual CC0 scanned conifers rooted on modeled ridge, original material attributes and topology retained; warm golden-hour atmospheric haze.",
+    "visualAccepted": false
+  },
+  "momiji151": {
+    "revision": "scene07-mature-cupped-momiji151-r02",
+    "source": "src/momiji-framing151.js",
+    "construction": "Fixed world-space mature branch/forks, 442 closed serrated cupped 5/7-lobed leaves, petioles and actual raised veins; authored code, no raster scene assets.",
+    "comparison": "references/hd/6-照片-7.jpg",
+    "survey": "Manual observed framing; inferred 4.3-7.3m depth permits natural 6-12cm leaf size. Existing 30m-away flat-star leaf framing removed.",
+    "cameraFollowing": false,
+    "referenceUsedAsSceneTexture": false,
+    "visualAccepted": false
+  },
+  "occupiedHall152": {
+    "revision": "scene07-solid-upper-room-and-outer-gallery152-r02",
+    "source": "src/occupied-hall152.js",
+    "roofSource": "src/physical-roofs.js",
+    "construction": "Closed upper room with front/return/rear walls, opaque lime spandrels, recessed shutters, joisted boarded gallery, ceiling and continuous frames. Lower roof cut at real upper-room footprint and seated in fitted closed timber curb. Broader lower columns.",
+    "referenceAsTexture": false,
+    "visualAccepted": false,
+    "additionalChanges": [
+      "Matched physical1.4cm maximum timber bevels, coherent warm vermilion reflectance and warmer lower fill",
+      "Shortened physically joined left wing to remove roof through sanctuary, retaining downstream garden seed",
+      "Broad maple151R02 blades/poses"
+    ]
+  },
+  "hallCorbels153": {
+    "source": "src/hall-corbels153.js",
+    "revision": "scene07-crossed-timber-eave-bearings153-r01",
+    "construction": "Closed carved crossing arms, splayed blocks, separate brass end bosses; column-head height and outer bearing interval fit actual roof equation including corner hips.",
+    "newRasterAssets": false,
+    "visualAccepted": false
+  },
+  "carving154": {
+    "source": "src/carved-friezes154.js",
+    "provenance": "assets/carving154/provenance.json",
+    "scope": "Authored scalar relief guide converted into genuinely modeled closed pierced frieze geometry. Not a bitmap image material or scene replacement.",
+    "visualAccepted": false,
+    "revision": "scene07-closed-hosoge-frieze154-r02",
+    "refinement": "Actual pierced cells threshold21percent separates floral relief from dark backing and suppresses uniform gold plate glare."
+  },
+  "forest155": {
+    "source": "src/natural-details.js",
+    "scope": "Welded original displaced core and geometric leaf attachment vertices before smooth normals. Removed broad flat lighting facets; actual silhouette retained and four-layer canopy pigment corrected.",
+    "visualAccepted": false
+  },
+  "toro156": {
+    "source": "src/island-stone-lantern156.js",
+    "contract": "assets/toro156/asset156.json",
+    "construction": "Reference-controlled solid carved lantern, captured3D surface weather residuals by3dlunaticCCBY4; unchanged prior anchors/scales and granite pixels.",
+    "visualAccepted": false,
+    "nativeAdaptation": "Warm neutral granite tint and patina contrast compressed to.72+.28*source vertex RGB; source GLB geometry and original granite image bytes unchanged."
+  },
+  "floral157": {
+    "source": "src/scanned-frieze157.js",
+    "provenance": "assets/floral157/component-provenance.json",
+    "attribution": "assets/floral157/ATTRIBUTION.md",
+    "scope": "Actual scanned peony wood-relief geometry mounted selectively on the portal header and near veranda lower cassettes, with uniform world scale and declared authored gilt over dark timber. Distinct caller host-scale compensation; original topology retained, exact photographed motif unaccepted.",
+    "visualAccepted": false,
+    "revision": "source-scanned-portal-and-veranda157-r03",
+    "finish": "Actual relief-depth attributes select coherent raised gilt over dark timber; precise world-vertex bounds; host Y compensation preserves uniform world scaling."
+  },
+  "heroPines158": {
+    "source": "src/hero-pines158.js",
+    "provenance": "lookdev/scene07-pine158/handoff158-r05.json",
+    "scope": "Eight rooted connected aged pines; closed retained-fascicle interior packets and finer outer paired needles, branch-fan canopy overlap. Original roots/yaws/seeds and legacy RNG replay retained; close radial tuft repetition remains unaccepted.",
+    "visualAccepted": false,
+    "revision": "scene07-aged-cloud-pines158-r05",
+    "sourceSha256": "bfec2d03ac236a06242fabf78f2c68347961139fc007b46cf507bf1bb07f51ff"
+  },
+  "veranda166": {
+    "source": "src/reference-layout118.js",
+    "revision": "scene07-recessed-scanned-floral-cassettes166-r01",
+    "scope": "Recessed complete natural-aspect 3D peony cassettes, real retaining fasteners, warmer lacquer pigment and hand-polished rail crest. Existing post/rail geometry anchors unchanged.",
+    "visualAccepted": false
+  },
+  "courtyardBounce167": {
+    "source": "src/courtyard-bounce167.js",
+    "scope": "Finite world-fixed low courtyard radiance source approximates warm indirect underside light; reduced existing point practicals. No change to direct sun/HDR pixels/exposure. Not a calibrated global illumination solution.",
+    "visualAccepted": false
+  },
+  "ceramicEnds168": {
+    "source": "src/foreground-gallery-roof.js",
+    "revision": "scene07-formed-closed-ceramic-eave-ends168-r02",
+    "scope": "Close formerly black open alternate cover-tile eaves with full rounded ceramic end seals, shallow real ceramic relief and actual connecting sockets. Existing gold-medallion anchors, materials and variants retained; new unadorned seals are authored inferred construction.",
+    "visualAccepted": false,
+    "r02": "New fully rounded plain ceramic face sits at the existing adorned face depth, closing intersections exposed in the R01 actual close. Existing gold anchors unchanged."
+  }
+}
