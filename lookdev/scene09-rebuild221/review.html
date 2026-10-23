@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scene09 · rebuild221 · native review</title>
+<style>
+*{box-sizing:border-box}body{max-width:1700px;margin:28px auto;padding:0 20px;background:#111821;color:#e7ebee;font:16px/1.5 system-ui}h1{font-size:26px}h2{font-size:20px;margin-top:30px}a{color:#8dc9ed}code{overflow-wrap:anywhere}.pair,.triple{display:grid;gap:16px}.pair{grid-template-columns:repeat(2,minmax(0,1fr))}.triple{grid-template-columns:repeat(3,minmax(0,1fr))}figure{margin:0}img{width:100%;display:block}figcaption{margin:7px 0 10px}.status{padding:14px 18px;border:1px solid #5e4b32;background:#241f18}.status strong{color:#edc790}li{margin:.45em 0}@media(max-width:800px){.triple{grid-template-columns:1fr}.pair{grid-template-columns:1fr}}
+</style>
+<h1>Scene09 · 石拱桥、殿内悬灯与低机位重建</h1>
+<p class="status"><strong>摄影验收 false。</strong> R04 最终源五张官方1254原生机位已全部实看；R14、R01、R02、R03 的原始渲染与失败记录均保留。仍有明确参考差距，摄影验收保持 false。</p>
+<p>R04 源码 <code>0897885a14832b746ae6de829ccbcc1386f6eaff0269466ed9a4750b524915f8</code> · 87 inputs · 曝光仍为 .95。参考照片仅用于比较，未作为模型表面或替代帧。</p>
+<h2>高清参考与接手时 R14</h2>
+<div class="pair">
+<figure><a href="../../references/hd/8-照片-9.jpg"><img src="../../references/hd/8-照片-9.jpg" alt="高清参考照片" loading="lazy"></a><figcaption>左：HD 8-照片-9.jpg</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-night203-r14/reference.png"><img src="../../qa/ten-reference/09/iteration-scene09-night203-r14/reference.png" alt="继承的 R14 实际渲染" loading="lazy"></a><figcaption>右：R14 / c85fb3bb…，桥岸黑块与檐下条带问题。</figcaption></figure>
+</div>
+<h2>三轮实际全图</h2>
+<div class="triple">
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r01/reference.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r01/reference.png" alt="R01 actual native full" loading="lazy"></a><figcaption>R01 / 71414c9e…：开放石拱、桥灯与庭院光池。石拱仍像白色齿条，未通过。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r02/reference.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r02/reference.png" alt="R02 actual native full" loading="lazy"></a><figcaption>R02 / 8595b7e7…：放射石缝、减薄檐口、真实殿内悬灯。UV 与近机位问题仍未通过。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03/reference.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03/reference.png" alt="R03 actual native full" loading="lazy"></a><figcaption>R03 / ff2a772c…：独立石面 UV 与硬法线、佛后悬灯、打开水道。已实看，摄影仍未通过。</figcaption></figure>
+</div>
+<h2>原生局部细看</h2>
+<div class="pair">
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r02/detail-native.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r02/detail-native.png" alt="R02 genuine native subfrustum" loading="lazy"></a><figcaption>R02：石面 UV 压成单轴的条纹，以及过于正面的佛像受光。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03/detail-native.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03/detail-native.png" alt="R03 genuine native subfrustum" loading="lazy"></a><figcaption>R03：相同实际子视锥复查，已实看，摄影仍未通过。</figcaption></figure>
+</div>
+<h2>保留的低机位失败候选</h2>
+<div class="pair">
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r01-low/inspection-view.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r01-low/inspection-view.png" alt="R01 low view, rejected" loading="lazy"></a><figcaption>R01：1.65m 视点进入植物丛，前景枝叶挡镜头。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r02-low/inspection-view.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r02-low/inspection-view.png" alt="R02 low view, rejected" loading="lazy"></a><figcaption>R02：1.45m 视点仍使近石灯遮殿，未作为完成机位。</figcaption></figure>
+</div>
+<h2>R03 实际镜头样本</h2>
+<div class="triple">
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-0.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-0.png" alt="R03 source shot at zero seconds" loading="lazy"></a><figcaption>0s：实际桥面上约 1.10m 眼高。已实看；退桥路径的未采样处另查到柱帽交叠。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-3p5.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-3p5.png" alt="R03 source shot at3.5 seconds" loading="lazy"></a><figcaption>3.5s：后退展开建筑与庭院。已实看；退桥路径的未采样处另查到柱帽交叠。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-7.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-7.png" alt="R03 source shot at seven seconds" loading="lazy"></a><figcaption>7s：回到原比较机位，水面随真实时间改变。已实看；退桥路径的未采样处另查到柱帽交叠。</figcaption></figure>
+</div>
+<h2>R04 最终源五张官方原生机位</h2>
+<p>本轮使用同一官方 FIFO 任务输出。比较全图调用已有 renderShot(-1330) → renderReference API，其余为实际镜头时间；全为1254原生图。五张已实际审图，原生完整性通过，摄影验收仍为 false。</p>
+<div class="pair">
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot--1330.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot--1330.png" alt="R04 unchanged comparison camera" loading="lazy"></a><figcaption>R04 比较全图：原参考机位，time=0。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-0.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-0.png" alt="R04 low bridge-deck opening" loading="lazy"></a><figcaption>R04 0s：桥面上约1.10m眼高的近建筑开场。</figcaption></figure>
+</div>
+<div class="triple">
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-1p23.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-1p23.png" alt="R04 near bridge-rail crossing" loading="lazy"></a><figcaption>1.23s：关键退桥位置，源路径净空检查约16.1cm。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-3p5.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-3p5.png" alt="R04 middle source shot" loading="lazy"></a><figcaption>3.5s：实际后退中段。</figcaption></figure>
+<figure><a href="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-7.png"><img src="../../qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-7.png" alt="R04 final source shot" loading="lazy"></a><figcaption>7s：原比较构图终点，真实时间水面。</figcaption></figure>
+</div>
+<p><a href="r04-source-identity.json">R04 完整输入身份</a> · <a href="r04-source-scripts.tgz">R04 源码快照</a> · <a href="r04-bridge-geometry-proof.json">R04 几何与面 UV</a> · <a href="r04-shot-clearance.json">R04 关键越栏源路径净空</a> · <a href="r03-shot-clearance.json">保留的 R03 穿柱帽证据</a></p>
+<h2>证据与边界</h2><p><a href="checkpoint-r04.json">R04 最终实看记录与未达标处</a> · <a href="native-source-proof-r04.json">R04 精确源码／像素／几何边界</a></p>
+<p><a href="r03-source-identity.json">R03 完整输入身份</a> · <a href="r03-source-scripts.tgz">R03 紧凑源码快照</a> · <a href="r03-bridge-geometry-proof.json">封闭几何与 UV 检查</a> · <a href="r02-material-diagnosis-bridge-geometry-proof.json">R02 的 5,872 个退化 UV 三角形</a> · <a href="r01-reviewed.json">R01 实看记录</a> · <a href="r02-reviewed.json">R02 实看记录</a></p>
+<p>新增部件均为真实三维实体。灯光保留有限原生近似：纸窗锥形光源与有限点光脚印近似面发光；部分次级灯没有完整几何阴影；固定 SH 场近似一次间接光。上述离散原生机位不等于完整七秒视频或摄影匹配验收。</p>
+</html>

@@ -1,0 +1,22 @@
+{
+  "status": "aborted-before-gpu-acquisition",
+  "reason": "Camera target was transcribed incorrectly after CPU projection solve; not a time or queue cancellation.",
+  "position": [
+    9,
+    4.8,
+    10.5
+  ],
+  "incorrectTarget": [
+    4.627,
+    6.088,
+    3.482
+  ],
+  "correctTarget": [
+    3.15496893896233,
+    6.357362771322012,
+    4.6152233015964885
+  ],
+  "fov": 34,
+  "gpuAcquired": false,
+  "log": "lookdev/scene05-rebuild220/render220-r01-sideclose.log"
+}

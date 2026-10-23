@@ -1,0 +1,35 @@
+{
+  "sourceHash": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+  "baselineHash": "98da3d941845046fb7e5cef2675213f93a1f6556b58e6fea97ed9ef77bed1ceb",
+  "changedSources": [
+    "reconstructions/scene-05/src/architecture.js",
+    "reconstructions/scene-05/src/daylight196.js",
+    "reconstructions/scene-05/src/natural-forms.js",
+    "reconstructions/scene-05/src/roof-stack220.js",
+    "reconstructions/scene-05/src/scanned-timber.js",
+    "reconstructions/scene-05/src/scene.js",
+    "reconstructions/scene-05/src/sculpted-joinery.js",
+    "reconstructions/scene-05/src/secondary-copper220.js",
+    "reconstructions/scene-05/src/tier-layout.js"
+  ],
+  "newOrChangedRasterOrMeshAssets": false,
+  "allInheritedSceneAssetsAndDeclaredDependenciesByteIdentical": true,
+  "existingExternalDependencyFiles": [
+    "assets/temple-joinery-v01/temple-joinery-v01.glb",
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "reconstructions/camera-dolly.js",
+    "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "assets/polyhaven/qwantani-sunset-puresky/provenance.json",
+    "reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr"
+  ],
+  "referencePhotographRuntimeUse": false,
+  "newExternalBuildingScanUsed": false,
+  "BasilSpiderNoAITaggedScanUsed": false,
+  "seiroganResearchVariantUsed": false,
+  "newGeometryMethod": "CPU source-authored explicit closed solids; no Blender export, bake, viewport, GPU compute or AI replacement frame used by this patch",
+  "nativePipeline": "tools/render-one-reconstruction.mjs, shared GPU FIFO",
+  "status": "All final native frames actually viewed; held for root visual review, photographic fidelity unaccepted"
+}

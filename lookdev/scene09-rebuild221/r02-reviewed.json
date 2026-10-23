@@ -1,0 +1,21 @@
+{
+  "revision": "scene09-rebuild221-r02",
+  "source": "8595b7e7f707a8624eb42aad647d96199be06b061a8a75452bdd89101bc3638c",
+  "inputs": 87,
+  "actualImagesViewed": [
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r02/reference.png",
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r02/detail-native.png",
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r02-low/inspection-view.png"
+  ],
+  "nativeStatus": "Official 1254 full, genuine native subfrustum and independent low view succeeded with linked shaders and no GL/page errors",
+  "findings": [
+    "Thinner fascia and separate matte roof timber reduce the deep black slab around the eaves. Actual tile tips are now exposed around the complete roof perimeter.",
+    "Two complete sanctuary lanterns reveal the Buddha and golden rear furnishings, but their frontal placement makes the statue too evenly bright.",
+    "The true native crop reveals the masonry normal map stretching into glossy tooth stripes. Pure CPU diagnosis corroborates 5872 collapsed UV triangles on the arch's front/back faces.",
+    "The1.45m pond-corridor near view is still occluded: a nearby stone lantern becomes the largest foreground object and blocks the main hall entrance.",
+    "The old small stone lantern at [-1, 10] stands without a credible bank in the central reflection channel. This should be removed instead of preserving the legacy anchor."
+  ],
+  "decision": "Preserve this failed candidate; continue to R03 with separate stone face charts and cut normals, rear sanctuary lamps on the actual inner beam, removal of the ungrounded central pond lamp, and a low bridge-deck opening",
+  "visualAccepted": false,
+  "photographicAcceptance": false
+}

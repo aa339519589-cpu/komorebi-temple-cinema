@@ -38,13 +38,13 @@ export async function installScannedTimber(mats){
  // supplied scan is a very dark table: measured linear maxima .0666/.0452/
  // .0222. These gains keep every sampled albedo channel below one.
  const colors={red:[6.0,3.8,3.0],cedar:[6.8,4.6,3.5],endwood:[7.6,5.8,4.2],darkwood:[2.2,1.9,1.65]};
- const pigments={red:'#b4673c',cedar:'#ae7144',endwood:'#be925b',darkwood:'#784b31'};
+ const pigments={red:'#b75e31',cedar:'#b46c39',endwood:'#bd854a',darkwood:'#754529'};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.11:.075,kind==='endwood'?.11:.075);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=.80;
-  if(painted)mat.color.set(key==='kit_cedar'?'#a55737':key==='kit_endwood'?'#ad7144':pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=.17;mat.clearcoatRoughness=.34;mat.specularIntensity=.55;}
+  const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.095:.055,kind==='endwood'?.095:.055);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=kind==='darkwood'?.81:.70;
+  if(painted)mat.color.set(key==='kit_cedar'?'#ad542c':key==='kit_endwood'?'#b47843':pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=.12;mat.clearcoatRoughness=.39;mat.specularIntensity=.48;}
   mat.onBeforeCompile=shader=>{
    shader.vertexShader='attribute float woodCut190;attribute vec2 woodEndUv190;varying float vWoodCut190;varying vec2 vWoodEndUv190;\n'+shader.vertexShader;
    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\n vWoodCut190=woodCut190;vWoodEndUv190=woodEndUv190;');
@@ -61,12 +61,12 @@ export async function installScannedTimber(mats){
      float checkFilter=1.-smoothstep(.55,1.8,fwidth(checkPhase));
      float check=pow(max(0.,sin(checkPhase)),46.)*smoothstep(.12,.80,sin(woodUv.x*8.1+woodUv.y*3.))*checkFilter;
      diffuseColor.rgb*=.97+longitudinal+age-check*.15;
-     diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.245,.178,.116)*(.72+.28*texture2D(map,woodUv).r),worn*.34);
+     diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.245,.178,.116)*(.72+.28*texture2D(map,woodUv).r),worn*.12);
      float phase190=length(vWoodEndUv190*vec2(1.,.94)+vec2(.018,-.024))*1250.+sin(vWoodEndUv190.x*31.)*.7;
      float filtered190=1.-smoothstep(.7,2.5,fwidth(phase190)),growth190=.5+.5*cos(phase190)*filtered190;
      diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.230,.125,.055)*(.94+.06*growth190),smoothstep(.75,.98,vWoodCut190)*.70);
     #endif`);
-  };mat.customProgramCacheKey=()=> 'scene05-light196-subdued-grain-varnish-cut-response';
+  };mat.customProgramCacheKey=()=> 'scene05-carpentered220-warm-thin-varnish-cut-response';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=painted?.70:.7;mat.needsUpdate=true;
  }
  return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV, subdued scanned normals, longitudinal aged tissue and bounded fine checks',pigments,pigmentCoverage:'CC0 scan luminance .36–.98 and10% source chroma under warm red-brown stain; broad rub-through to natural timber; scene photograph unused',sourceMeanLinearLuma:meanLuma},

@@ -2,8 +2,8 @@
 // retreat reveals the bridge, tower and water before the fixed reference pose.
 export const SCENE09_REFERENCE144={position:[6,2.7,33],target:[0,5.5,-10],fov:52};
 export const SCENE09_SHOT144={
- points:[[10.8,4.5,7.5],[11.2,4.1,14],[8.8,3.25,25],[6,2.7,33]],
+ points:[[3.8,2.85,1.75],[4.8,3.3,12],[7.8,2.2,25],[6,2.7,33]],
  nearTarget:[6.3,10.8,-14],
- intent:'Low close architectural view of the complete main eave/column structure; continuous backward reveal of the tower, bridge and pond, ending at the unchanged photographic reference camera. Actual intermediate obstruction review remains required.',
- revision:'scene09-low-architecture-reveal187-r02'
+ intent:'Low architectural opening from the actual bridge deck, approximately1.10m above its tread. The close temple fills the view while the bridge rail passes below, followed by a retreat revealing the tower and water, ending at the unchanged photographic comparison camera. Native pose review is required.',
+ revision:'scene09-low-bridge-deck-reveal221-r04'
 };

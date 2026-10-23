@@ -11,6 +11,7 @@ export function installFinitePracticals203(scene,materials){
  const radii=lights.map(l=>{
   const s=l.userData.source203;if(!s)return l.name.includes('underbridge')?.13:.06;
   if(s.kind==='sanctuary-votive203')return .035;
+  if(s.kind==='sanctuary-hanging221')return .18;
   const scale=s.assemblyScale||1;
   return s.requestedIntensity===7.2?.44*scale:s.requestedIntensity>=38?.47*scale:.32*Math.sqrt(s.requestedIntensity/24.5)*scale;
  });

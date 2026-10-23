@@ -3,7 +3,7 @@
 // single geometric progression fitted to that mistaken anchor displaced the
 // complete upper corner axis. Each complete real storey now has its own
 // positive scale/base; roof, frame, fixtures and galleries move together.
-export const TIER_SPEC=Object.freeze({width:8.8,roofAddition:5.87173815,roofHeight:4.08731086,roofRise:3.83660786,bearingVerticalScale:1.62954148,bearingHorizontalScale:1.18,baseY:.35,tailCutHeight:2.50,tailReach:.75,lanternHeight:2.73535574});
+export const TIER_SPEC=Object.freeze({width:8.8,roofAddition:5.87173815,roofHeight:4.08731086,roofRise:3.83660786,bearingVerticalScale:1.38,bearingHorizontalScale:1.18,baseY:.35,tailCutHeight:2.50,tailReach:.75,lanternHeight:2.73535574});
 export const STORIES=Object.freeze([
  {scale:1,baseY:-.90,roofHeight:4.65,roofRise:3.25,bearingVerticalScale:.75,tailCutHeight:.65,lanternHeight:1.0,lowerOccupiedFrame:true},
  {scale:.90258765,baseY:4.36459084},

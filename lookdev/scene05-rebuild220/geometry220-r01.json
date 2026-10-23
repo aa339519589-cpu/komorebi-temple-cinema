@@ -1,0 +1,77 @@
+{
+  "status": "cpu-geometry-inspected",
+  "scope": "CPU buffer inspection only, no renderer/export/GPU",
+  "sourceHash": "9d3d84b3ada2f407cebfa992d0c5b020ad853831b819939d31aa66348d62876c",
+  "sets": {
+    "bracket": {
+      "parts": 87,
+      "uniqueGeometries": 87,
+      "triangles": 36200,
+      "degenerateTriangles": 0,
+      "bounds": [
+        [
+          -0.8100000023841858,
+          -0.15000000596046448,
+          -0.8100000023841858
+        ],
+        [
+          0.8100000023841858,
+          0.8199999928474426,
+          0.8100000023841858
+        ]
+      ],
+      "finite": true,
+      "issues": []
+    },
+    "corner": {
+      "parts": 90,
+      "uniqueGeometries": 90,
+      "triangles": 37092,
+      "degenerateTriangles": 0,
+      "bounds": [
+        [
+          -0.8799999952316284,
+          -0.15,
+          -0.8799999952316284
+        ],
+        [
+          0.8799999952316284,
+          0.8199999973177909,
+          0.8799999952316284
+        ]
+      ],
+      "finite": true,
+      "issues": []
+    },
+    "waist": {
+      "parts": 7,
+      "uniqueGeometries": 7,
+      "triangles": 1784,
+      "degenerateTriangles": 0,
+      "bounds": [
+        [
+          -0.5249999761581421,
+          -0.15,
+          -0.5249999761581421
+        ],
+        [
+          0.5249999761581421,
+          0.23679999821186065,
+          0.5249999761581421
+        ]
+      ],
+      "finite": true,
+      "issues": []
+    }
+  },
+  "contacts": {
+    "postHeadBottom": -0.15,
+    "receivingPurlinTop": 0.82,
+    "firstArmUnderside": 0.020000000000000004,
+    "firstDaitoTop": 0.020000000000000018,
+    "diagonalLowerSeat": 0.1435,
+    "diagonalCrossingSeatTop": 0.2915
+  },
+  "limits": "Bounding planes and finite geometry do not establish photographic fidelity or verify all concealed historic joints.",
+  "valid": true
+}

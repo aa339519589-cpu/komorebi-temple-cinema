@@ -1,0 +1,61 @@
+{
+  "status": "reviewed-first-geometry-candidate-needs-repair",
+  "visualAccepted": false,
+  "sourceHash": "9d3d84b3ada2f407cebfa992d0c5b020ad853831b819939d31aa66348d62876c",
+  "renders": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r01-20261024",
+      "status": "rendered-review",
+      "sourceHash": "9d3d84b3ada2f407cebfa992d0c5b020ad853831b819939d31aa66348d62876c",
+      "frames": [
+        {
+          "name": "reference",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "5e22577c29fbce607948c27f80272e0427cc331b9cd8551f16044f4998ce39e7"
+        },
+        {
+          "name": "detail-native",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "508abff1defeb7a03b59b8bafa9beb86701fe940ba09d23273061da8ddc6ce66"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r01-bearingclose-20261024",
+      "status": "rendered-review",
+      "sourceHash": "9d3d84b3ada2f407cebfa992d0c5b020ad853831b819939d31aa66348d62876c",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "a6a7289f46837eb43af1947c9e2c65c934e825144bc13eaf728b3b390ea832d8"
+        }
+      ]
+    }
+  ],
+  "viewedAll": true,
+  "findings": [
+    "Smaller actual timber sections make the three courses more readable and the diagonal corner brace is visible under the hip member.",
+    "Warm wood and lifted window-bar reflectance improve material separation, but the full facade is still too uniformly orange and the smooth constant profiles remain synthetic.",
+    "The original tall bearing transform leaves the new narrow dou too upright; the large recessed plank head remains prominent and the ranks need more compact spacing.",
+    "Repeated secondary infinity-like metal scrolls remain a visibly schematic motif, unlike the reference varied worked metal faces.",
+    "The low side render shows real joinery and roof relationships rather than only the ceramic terminal; exposed rafter cuts still flash pale and the continuous eave members are too uniformly square."
+  ],
+  "next": [
+    "Rebuild compact receiver spacing and reduce only the capital height around retained roof/purlin contact; repair overall profile, not just an exposure scalar.",
+    "Replace schematic cloud ribbons with closed domed cast leaves and incised return details, and add shallow geometry molding to continuous timbers."
+  ],
+  "limits": "This is draft image review, not acceptance. Sky/canopy/camera-wide alignment are still visibly different."
+}

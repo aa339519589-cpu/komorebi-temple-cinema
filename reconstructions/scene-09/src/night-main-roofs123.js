@@ -3,7 +3,7 @@ import * as T from 'three';
 // Authored construction geometry. The photograph is never sampled here.
 // Dimensions are in the unscaled building coordinates; roof and frame share
 // the same analytical surface so that the visible bearing members meet it.
-export const PHYSICAL_ROOF_REVISION='scene09-deep-seated-chamfered-eaves181-r04';
+export const PHYSICAL_ROOF_REVISION='scene09-thinner-seated-cedar-eaves221-r02';
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const a=Math.sin(x*127.1+y*311.7+97.3)*43758.5453;return a-Math.floor(a);};
 
@@ -123,9 +123,9 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
 
     // Heavy curved fascia + compression moulding: the eave is a closed
     // layered assembly, with the rafter tips seated behind its lower lip.
-    draw(timber(curve(face,1,-.20),.34,.41),materials.fascia||'wood');
-    draw(timber(curve(face,.985,-.48),.38,.27),materials.fascia||'wood');
-    draw(timber(curve(face,1.008,-.43),.29,.14),'dark');
+    draw(timber(curve(face,1,-.20),.23,.23),materials.fascia||'wood');
+    draw(timber(curve(face,.985,-.39),.26,.15),materials.fascia||'wood');
+    draw(timber(curve(face,1.008,-.37),.22,.10),'dark');
     draw(timber(curve(face,1.012,-.22),.032,.034),'gold');if(api.ornament){const n=Math.ceil((face%2?hd+bd:w)/.40);for(let i=0;i<=n;i++){const p=at(face,1,-1+2*i/n,-.18);api.ornament(p,face,.070);}}
     for(const t of[.58,.78,.92]){
       if(t<t0)continue;draw(timber(curve(face,t,-.48,32),.32,.28),materials.fascia||'wood');

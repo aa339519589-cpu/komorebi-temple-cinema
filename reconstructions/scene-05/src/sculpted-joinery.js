@@ -48,7 +48,7 @@ export function createSculptedJoinery(){
   const inSlot=x=>notchCentres.some(c=>Math.abs(x-c)<halfSlot-1e-8);
   for(let i=0;i<xs.length-1;i++){const yy=notch==='top'&&inSlot((xs[i]+xs[i+1])/2)?-.015:.1;i?s.lineTo(xs[i],yy):s.moveTo(xs[i],yy);s.lineTo(xs[i+1],yy);}
   for(let i=xs.length-2;i>=0;i--){const slot=notch==='bottom'&&inSlot((xs[i]+xs[i+1])/2),a=slot?-.015:bottom(xs[i+1]),b=slot?-.015:bottom(xs[i]);s.lineTo(xs[i+1],a);s.lineTo(xs[i],b);}s.closePath();
-  const g=arrisedProfile(s,width),p=g.attributes.position,protectedX=length>1.7?.65:length>1.3?.60:.44;
+  const g=arrisedProfile(s,width),p=g.attributes.position,protectedX=Math.max(0,...notchCentres.map(Math.abs))+width/2+.025;
   //190: the exposed cheek necks in three dimensions, beyond all lap and
   // bearing footprints. FlatY seats, slot widths and true cut ends stay fixed.
   const protectedVertices196=[];
@@ -105,37 +105,57 @@ export function createSculptedJoinery(){
  // .82 purlin datum used by the frame, without a stretched column capital.
  const bracketFittings=[],cornerFan=[],cornerFanFittings=[];
  function buildCourses(corner=false){
-  const lengths=corner?[1.08,1.52,2.04]:[1.00,1.38,1.82],armY=.72,ys=[.0848,.370,.650],spreads=[0,.305,.470],fit=corner?cornerFanFittings:bracketFittings;
-  const add=(g,pos=[0,0,0],rot=0,material='kit_cedar',role='bearing')=>{
+  // The photographed capital is a carpentered field of small sections,
+  // rather than three equal chunky crosses. These are new closed timber
+  // profiles and bearing footprints, while the post/purlin datums stay put.
+  const lengths=corner?[.98,1.34,1.76]:[.90,1.24,1.62],widths=[.178,.168,.158],armY=.65,ys=[.0785,.350,.635],spreads=[0,.265,.420],fit=corner?cornerFanFittings:bracketFittings;
+  const add=(g,pos=[0,0,0],rot=0,material='kit_cedar',role='bearing',cornerAxis=false)=>{
    g.userData.architectureJoint='scene05-three-step-'+role;
-   if(corner)cornerFan.push({geometry:g,material,position:pos,rotation:rot,role});else part(g,material,pos,rot,false);
+   if(corner)cornerFan.push({geometry:g,material,position:pos,rotation:rot,role,cornerAxis});else part(g,material,pos,rot,false);
   };
-  add(cushion(.31,.17),[0,-.15,0],0,'kit_cedar','post-head-daito');
+  add(cushion(.252,.17),[0,-.15,0],0,'kit_cedar','post-head-daito');
   for(let stage=0;stage<3;stage++){
-   const length=lengths[stage],yy=ys[stage],off=spreads[stage],offsets=stage===0?[0]:[-off,off],slots=offsets;
+   const length=lengths[stage],width=widths[stage],yy=ys[stage],off=spreads[stage],offsets=stage===0?[0]:[-off,off],slots=offsets;
    for(let axis=0;axis<2;axis++)for(const offset of offsets){
-    const g=curvedArm(length,axis===0?'top':'bottom',slots),pos=axis===0?[0,yy,offset]:[offset,yy,0],rot=axis*Math.PI/2;g.scale(1,armY,1);g.computeVertexNormals();
+    const g=curvedArm(length,axis===0?'top':'bottom',slots,width),pos=axis===0?[0,yy,offset]:[offset,yy,0],rot=axis*Math.PI/2;g.scale(1,armY,1);g.computeVertexNormals();
     add(g,pos,rot,'kit_cedar','half-lapped-ogee-hijiki');
     const tipBottom=armUnderside(length/2,length)+.050,tipCentre=(.1+tipBottom)/2,tipHeight=.1-tipBottom;
-    for(const sign of[-1,1])fit.push({position:axis===0?[sign*(length/2+.006),yy+tipCentre*armY,offset]:[offset,yy+tipCentre*armY,sign*(length/2+.006)],yaw:axis===0?sign*Math.PI/2:(sign<0?Math.PI:0),width:.221,height:tipHeight*armY,stage,profile196:true});
+    for(const sign of[-1,1])fit.push({position:axis===0?[sign*(length/2+.004),yy+tipCentre*armY,offset]:[offset,yy+tipCentre*armY,sign*(length/2+.004)],yaw:axis===0?sign*Math.PI/2:(sign<0?Math.PI:0),width:width+.001,height:tipHeight*armY,stage,profile196:true});
     // Closed broad curled leaves replace the wire-like cheek decoration.
     // They sit on the true timber sides, with a finite worked copper return.
     for(const sign of[-1,1])for(const cheek of[-1,1]){
      const leaf=new T.Shape();leaf.moveTo(-.070,-.025);leaf.bezierCurveTo(-.022,-.031,-.008,.018,.022,.020);leaf.bezierCurveTo(.064,.024,.073,-.024,.033,-.031);leaf.bezierCurveTo(.011,-.033,.009,-.009,.027,-.006);leaf.bezierCurveTo(.030,-.019,.048,-.015,.045,-.003);leaf.bezierCurveTo(.036,.014,.010,.002,-.006,-.006);leaf.bezierCurveTo(-.033,-.020,-.041,-.004,-.070,-.025);leaf.closePath();
-     const scroll=extrude(leaf,.008,.0015);scroll.scale(1,armY,1);if(sign<0)scroll.rotateZ(Math.PI);if(cheek<0)scroll.rotateY(Math.PI);scroll.translate(sign*length*.31,-.055*armY,.113*cheek);add(scroll,pos,rot,'kit_gilt','closed-cast-cloud-cheek');
+     const scroll=extrude(leaf,.005,.001);scroll.scale(.85,armY*.85,1);if(sign<0)scroll.rotateZ(Math.PI);if(cheek<0)scroll.rotateY(Math.PI);scroll.translate(sign*length*.31,-.055*armY,(width/2+.0025)*cheek);add(scroll,pos,rot,'kit_gilt','closed-cast-cloud-cheek');
     }
+    // A real short hardwood drawbore dowel passes through the cheeks at
+    // each bearing shoulder. Its small cut face breaks the repeated plates.
+    for(const sign of[-1,1]){const pin=keep(new T.CylinderGeometry(.007,.007,width+.003,8));pin.rotateX(Math.PI/2);pin.translate(sign*(Math.max(...slots.map(Math.abs))+width*.60),-.012,0);add(pin,pos,rot,'kit_endwood','drawbored-bearing-shoulder');}
    }
    const base=yy+.100*armY;
    if(stage<2){
     const next=spreads[stage+1],old=spreads[stage],height=ys[stage+1]+armUnderside(old,lengths[stage+1])*armY-base;
     for(const sign of[-1,1])for(const side of(stage?[-1,1]:[0])){
-     add(cushion(.135,height),[sign*next,base,side*old],0,'kit_cedar','measured-curved-underside-receiver');
-     add(cushion(.135,height),[side*old,base,sign*next],0,'kit_cedar','measured-curved-underside-receiver');
+     add(cushion(.105,height),[sign*next,base,side*old],0,'kit_cedar','measured-curved-underside-receiver');
+     add(cushion(.105,height),[side*old,base,sign*next],0,'kit_cedar','measured-curved-underside-receiver');
     }
    }else for(const sign of[-1,1]){
-    add(cushion(.155,.820-base),[sign*off,base,0],0,'kit_cedar','direct-roof-purlin-seat');
-    add(cushion(.155,.820-base),[0,base,sign*off],0,'kit_cedar','direct-roof-purlin-seat');
+    add(cushion(.118,.820-base),[sign*off,base,0],0,'kit_cedar','direct-roof-purlin-seat');
+    add(cushion(.118,.820-base),[0,base,sign*off],0,'kit_cedar','direct-roof-purlin-seat');
    }
+  }
+  if(corner){
+   // One diagonal sumigi receiver is specific to a corner. The two small
+   // seats land at the true +/- .265 orthogonal upper-arm crossings; they
+   // are not another superposed whole capital. The architectural caller
+   // rotates this diagonal toward each corner's actual hip beam.
+   const diagonalY=.1435+.09*.56,diagonalLength=1.46,diagonalWidth=.150,
+     diagonal=curvedArm(diagonalLength,'none',[],diagonalWidth);
+   diagonal.scale(1,.56,1);diagonal.computeVertexNormals();
+   add(diagonal,[0,diagonalY,0],0,'kit_cedar','diagonal-hip-kneeler',true);
+   const bearingBase=diagonalY+.10*.56,bearingTop=ys[1]+armUnderside(spreads[1],lengths[1])*armY;
+   for(const sign of[-1,1])add(cushion(.082,bearingTop-bearingBase),[sign*spreads[1]*Math.SQRT2,bearingBase,0],0,'kit_cedar','diagonal-to-crossing-seat',true);
+   const tipBottom=armUnderside(diagonalLength/2,diagonalLength)+.050;
+   for(const sign of[-1,1])fit.push({position:[sign*(diagonalLength/2+.004),diagonalY+(.1+tipBottom)/2*.56,0],yaw:sign*Math.PI/2,width:diagonalWidth+.001,height:(.1-tipBottom)*.56,stage:0,profile196:true,cornerAxis:true});
   }
  }
  buildCourses(false);buildCourses(true);
@@ -196,5 +216,5 @@ export function createSculptedJoinery(){
  }
  tube([[-.17,-.086,.185],[-.090,-.116,.210],[0,-.126,.222],[.090,-.116,.210],[.17,-.086,.185]],.011);
  for(const xx of[-.07,-.026,.026,.07]){const tooth=keep(new T.ConeGeometry(.009,.030,6));tooth.rotateZ(Math.PI);tooth.translate(xx,.056,.145);mask.push({geometry:tooth,material:'slate'});}
- return {bracket:parts,bracketFittings,cornerFan,cornerFanFittings,waistBearing,waistFittings,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 light196: narrow-foot free noses and waisted cheeks beyond retained slots/seats, arrised double-ogee half-lapped timber courses, concave-neck receivers sampled to real undersides, closed cast cheek clouds, pierced acanthus collars and layered ceramic faces',cornerFan:{levels:3,arms:10,receivers:16,footprintM:[1.08,1.52,2.04],construction:'Closed shallow-web/downturned-nose curved arms with inset3.5mm arrises; first orthogonal half lap and two paired courses spreading in plan and length; concave-neck support blocks retain the previous seat bounds and sampled curved-underside contacts; four final flat seats meet the common purlin datum'},waistGallery:{courses:1,headToPurlin:.3868,arms:2,receivers:4},bearingCorrection:'Authored closed3D timber retains the established complementary slots, course offsets and flat seats; only free nose under-tips and lower feet change beyond protected spans, with refitted copper cut profiles; broad closed cloud leaves follow the timber cheeks. Concealed historic joints and exact wear remain interpreted.',guideRole:'Authored 3D curves and solids; no image-plane or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
+ return {bracket:parts,bracketFittings,cornerFan,cornerFanFittings,waistBearing,waistFittings,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 carpentered220: newly sectioned three-jump closed timbers with true complementary half laps, smaller concave-neck dou, diagonal corner hip kneeler and matched endpoint copper',cornerFan:{levels:3,orthogonalArms:10,diagonalKneelers:1,receivers:18,footprintM:[.98,1.34,1.76],sectionWidthsM:[.178,.168,.158],armVerticalFactor:.65,construction:'Independent closed small-section bowed arms; restrained shoulders derive from actual lap bounds, not a length heuristic. Corner-specific diagonal and two small seated crossings follow the real hip yaw. Upper flat seats retain the .820 purlin datum.'},waistGallery:{courses:1,headToPurlin:.3868,arms:2,receivers:4},bearingCorrection:'Old broad courses are preserved in the baseline receipt. New main capital dimensions and contacts are reconstruction hypotheses, not recovered historic joinery. Copper is remounted on the new free cuts; closed cloud leaves and hardwood drawbore pegs follow the actual cheek planes.',guideRole:'Authored 3D curves and closed solids; no scene photograph, AI frame or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
 }

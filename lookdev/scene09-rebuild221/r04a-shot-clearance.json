@@ -1,0 +1,102 @@
+{
+  "scope": "Pure CPU evaluation of the exact source dolly and actual bridge rail/cap dimensions. Not a full scene collision test or native motion acceptance.",
+  "revision": "scene09-low-bridge-deck-reveal221-r04",
+  "sourceSha256": "0239e65cb86da5c7346a89d9e7349f3d27e4dacdc0c53b8ee9c8cc5c859c05a1",
+  "opening": {
+    "position": [
+      3.8,
+      2.85,
+      1.75
+    ],
+    "bridgeTread": 1.7466663139409813,
+    "eyeAboveBridgeTread": 1.1033336860590188
+  },
+  "nearRailCrossing": {
+    "time": 1.229811621143274,
+    "camera": [
+      3.9332691993705833,
+      2.7900195704156805,
+      3.029999999999999
+    ],
+    "nearestPostX": 4.2,
+    "postXDistance": 0.2667308006294169,
+    "cap": {
+      "xHalfWidth": 0.11159999999999999,
+      "zHalfWidth": 0.155,
+      "loY": 2.707850490765926,
+      "hiY": 2.8078504907659263
+    },
+    "capCollision": false,
+    "railTop": 2.7367805106049246,
+    "eyeAboveRail": 0.05323905981075594
+  },
+  "samplePoses": [
+    {
+      "time": 0,
+      "position": [
+        3.8,
+        2.85,
+        1.75
+      ],
+      "target": [
+        6.3,
+        10.8,
+        -13.999999999999998
+      ],
+      "focusDistance": 17.818950586384148,
+      "fov": 52,
+      "phase": 0
+    },
+    {
+      "time": 1.5,
+      "position": [
+        4.034857047649442,
+        2.7510459513106933,
+        3.921465331040371
+      ],
+      "target": [
+        6.30774569654955,
+        10.58079688042839,
+        -12.775553389374858
+      ],
+      "focusDistance": 18.581212462382936,
+      "fov": 52,
+      "phase": 0.06947997858035342
+    },
+    {
+      "time": 3.5,
+      "position": [
+        5.844509200501564,
+        2.406959873538511,
+        17.342593299944912
+      ],
+      "target": [
+        5.976213903011951,
+        8.98981019459328,
+        -7.067899076960174
+      ],
+      "focusDistance": 25.28286776773979,
+      "fov": 52,
+      "phase": 0.5
+    },
+    {
+      "time": 7,
+      "position": [
+        6,
+        2.7,
+        33
+      ],
+      "target": [
+        1.7763568394002505e-15,
+        5.499999999999999,
+        -10
+      ],
+      "focusDistance": 43.50678108065454,
+      "fov": 52,
+      "phase": 1
+    }
+  ],
+  "nativeReviewRequired": true,
+  "visualAccepted": false,
+  "bridgeRailClearancePassed": false
+}

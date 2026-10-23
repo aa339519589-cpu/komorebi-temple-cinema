@@ -1,0 +1,129 @@
+{
+  "revision": "scene09-rebuild221-r04",
+  "status": "Four actual modeling/render/review rounds complete; reviewed candidate released to parent for integration, photographic fidelity unaccepted",
+  "source": "0897885a14832b746ae6de829ccbcc1386f6eaff0269466ed9a4750b524915f8",
+  "inputs": 87,
+  "sourceSnapshot": "r04-source-scripts.tgz",
+  "sourceIdentity": "r04-source-identity.json",
+  "proof": "native-source-proof-r04.json",
+  "review": "review.html",
+  "officialReport": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/report.json",
+  "actualFrames": [
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot--1330.png",
+      "width": 1254,
+      "height": 1254,
+      "time": -1330,
+      "rgbaSha256": "41a9fce5d3322e8f16382a3078e97b36821d9c2584c6c601ba5c6e85c6d528d7",
+      "pngSha256": "837a1a5fcf34972ccf62217826dd665900948ca1f5e760d9ed97eef42f9fc18e",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-0.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 0,
+      "rgbaSha256": "ccfd7c945abc037df9287eeb9cd6f2c2b2b24796105ec89ba1eab01e98af90f7",
+      "pngSha256": "328f8c4a605609be9483d9fdbe338ffa1083ed04e320fef82ebda2bbe794d7ab",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          3.8,
+          2.85,
+          1.75
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-1p23.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 1.23,
+      "rgbaSha256": "667f45e038c08f92586835f83ddde5cfd545172893a720cfa99f0525d14ab420",
+      "pngSha256": "e0f46926664d0b49d8f2c244d6fc2120f883d7debdbedc0d193e7ca5136399bf",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          3.933362190585732,
+          2.897962283030118,
+          3.0308437004296978
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-3p5.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 3.5,
+      "rgbaSha256": "40a0e37f58df6b9551eca19fd9016ba60e02070fbb5fc7506928f5aa9a2d1a17",
+      "pngSha256": "6ffbd99e0eece46343b499115728fd6b6f0fdd7f9f58c53e7e387fbc9b47ac6f",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          5.844697408412982,
+          2.7808897132676633,
+          17.34412159651807
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-7.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 7,
+      "rgbaSha256": "db87cb1631e720f2fba70d5d0431d26e0909e7929b32e685112a2736cd36112b",
+      "pngSha256": "270f8cdf30b2e2a446adc08c51c84b2a6166172a2c2ee78e6e68d973e6096c54",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "fov": 52
+      }
+    }
+  ],
+  "personallyViewedAllFive": true,
+  "geometry": "367 closed radial arch stones with independent face charts and cut normals, 24 abutment blocks, timber tread and mortised red rails; central pier removed",
+  "lights": "Existing stone cases emit geometry-shadowed courtyard pools; west bridge case receives shadows; two complete rear sanctuary lanterns are mounted to actual inner beams, with26/22cd warm output; real hood and its stem physically re-aimed",
+  "camera": "Low bridge-deck eye1.103m, actual near-rail clearance0.161m at the known crossing; comparison camera retained",
+  "retainedCandidates": [
+    "baseline-r14",
+    "r01",
+    "r02",
+    "r03",
+    "r04a-cpu-only"
+  ],
+  "scope": {
+    "authoredScene": 9,
+    "originalAssetFilesHeld": true,
+    "newExternalAssets": false,
+    "referencePhotoSampled": false,
+    "sharedExporterChanged": false,
+    "gitMutated": false,
+    "otherScenesEdited": false,
+    "depthFieldDirtyFileEdited": false
+  },
+  "remaining": [
+    "Photographic fidelity is unaccepted. The carpentry/flower relief still repeats mechanically, some near rafters and plaster fields remain too evenly pale, and gilded/bronze responses lack HD specificity.",
+    "The garden still has simplified branch/leaf grouping and dark gaps; its fine density and irregular layering do not match HD.",
+    "The independent sky and glazed roof response differ from HD; pond planar reflection and near wet paving lack the reference grazing highlight range.",
+    "Only five final native still poses and a source-level check of one known bridge obstacle were reviewed. No complete seven-second motion capture, full scene collision sweep or path-traced equivalence is claimed."
+  ],
+  "remainingScene09Jobs": [],
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "fullMotionAccepted": false
+}

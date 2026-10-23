@@ -1,0 +1,166 @@
+{
+  "status": "actual native full/detail/groundside reviewed; concrete candidate held for root visual review",
+  "reference": "references/hd/5-照片-6.jpg",
+  "baselineHash": "98da3d941845046fb7e5cef2675213f93a1f6556b58e6fea97ed9ef77bed1ceb",
+  "sourceHash": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+  "identity": "lookdev/scene05-rebuild220/source220-r04-identity.json",
+  "changedFilesReceipt": "lookdev/scene05-rebuild220/source220-r04-changes.json",
+  "changedFiles": [
+    "reconstructions/scene-05/src/architecture.js",
+    "reconstructions/scene-05/src/daylight196.js",
+    "reconstructions/scene-05/src/natural-forms.js",
+    "reconstructions/scene-05/src/roof-stack220.js",
+    "reconstructions/scene-05/src/scanned-timber.js",
+    "reconstructions/scene-05/src/scene.js",
+    "reconstructions/scene-05/src/sculpted-joinery.js",
+    "reconstructions/scene-05/src/secondary-copper220.js",
+    "reconstructions/scene-05/src/tier-layout.js"
+  ],
+  "snapshot": "lookdev/scene05-rebuild220/r04-source",
+  "snapshotScope": "Nine changed source files only. All inherited scene/declared dependency assets remain byte-identical to baseline. Restore any older candidate from baseline plus its corresponding changed-source overlay; do not leave later newly added source files in an older identity.",
+  "canonicalWorkingTreeExact": true,
+  "heldChangedSourceSnapshotExact": true,
+  "visualAccepted": false,
+  "rendered": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024",
+      "status": "rendered-review",
+      "sourceHash": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+      "sourceCommitReported": "3cc481fe2442d27456d242941727a933c5e95ad2",
+      "completedAt": "2026-10-23T20:05:46.084Z",
+      "inspectionView": null,
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "8b8d763f20d61c18b153e331a59e022b5ded0a0b973bf1cf3325f901d4b6afd8",
+          "pngSha256": "4a5f18420392a2bf2d1e6dadd912de3617a2af9dc4de5f3d8e8196c62e1dba9a"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "c961e228ff89c08fb1ad70bd6530db6d99da69204745c23c4c63f3215082652d",
+          "pngSha256": "7751e0ad66ed13a63d240dd5ae94ccbca89b5b3e6ec0407b0bcc6891ee2f394a"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-groundside-20261024",
+      "status": "rendered-review",
+      "sourceHash": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+      "sourceCommitReported": "3cc481fe2442d27456d242941727a933c5e95ad2",
+      "completedAt": "2026-10-23T20:06:04.754Z",
+      "inspectionView": {
+        "position": [
+          7.8,
+          0.9,
+          9.2
+        ],
+        "target": [
+          3.0661131395308274,
+          5.982164935397807,
+          4.6487831047877854
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-groundside-20261024/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "b4667e64d9fc1c8a76f217398bc371abf33adc4350e19380de615d320c9476b3",
+          "pngSha256": "9ee3e2002c95da1ce1158198a33a043d0da0bcf073887038052b5b46fa8024e8"
+        }
+      ]
+    }
+  ],
+  "review": "lookdev/scene05-rebuild220/review220-r04.json",
+  "provenance": "lookdev/scene05-rebuild220/provenance220-r04.json",
+  "cpuChecks": [
+    "lookdev/scene05-rebuild220/geometry220-r01.json",
+    "lookdev/scene05-rebuild220/geometry220-r02.json",
+    "lookdev/scene05-rebuild220/roof-stack220-cpu-candidate.json",
+    "lookdev/scene05-rebuild220/roof-stack220-old-new-witness.json",
+    "lookdev/scene05-rebuild220/geometry220-r03-built-roof.json",
+    "lookdev/scene05-rebuild220/geometry220-r04-purlin-beds.json"
+  ],
+  "maximumSampledRingBedErrorMetres": 0.000599420613226255,
+  "retainedFailures": [
+    {
+      "sourceHash": "9d3d84b3ada2f407cebfa992d0c5b020ad853831b819939d31aa66348d62876c",
+      "snapshot": "lookdev/scene05-rebuild220/r01-source",
+      "review": "lookdev/scene05-rebuild220/review220-r01.json"
+    },
+    {
+      "sourceHash": "80f96a3e82cee7c6c09c946ab342f2b56c4343e32c879e43f47d86e1c031fb00",
+      "snapshot": "lookdev/scene05-rebuild220/r02-source",
+      "review": "lookdev/scene05-rebuild220/review220-r02.json",
+      "regression": "Hard-coded frieze did not follow window-header height; fixed in r03/r04."
+    },
+    {
+      "sourceHash": "04db8b13e1e6ebcd57296d2f5de8f3f2ed7213aa214dfb0cdd606728fd0a3a1d",
+      "snapshot": "lookdev/scene05-rebuild220/r03-source",
+      "review": "lookdev/scene05-rebuild220/review220-r03.json"
+    },
+    {
+      "receipt": "lookdev/scene05-rebuild220/wrong-camera-request220-r01.json",
+      "status": "Wrong target transcription aborted before GPU acquisition; empty named output directory retained. No valid queued job cancelled due time or waiting."
+    }
+  ],
+  "retainedAnchors": [
+    "Reference camera/dolly matrices, tier base/scale transforms, roof outline, main wall purlin datum, hip-tail/lantern/ceramic terminal placement",
+    "Direct sunlight position/intensity and courtyard patch positions"
+  ],
+  "changedDatums": [
+    "Capital horizontal/vertical sections and small receiver positions",
+    "World post/window heads as derived from compact bearing below the retained main wall purlin",
+    "Upper narrow rafter and27mm board section planes",
+    "Continuous subsidiary ring-girder centres move to actual main-rafter lower contact planes",
+    "Applied frieze face/height and center window insert follow the real frame"
+  ],
+  "lightingChange": {
+    "frontCourtyardPower": [
+      320,
+      440
+    ],
+    "sideCourtyardPower": [
+      110,
+      180
+    ],
+    "scope": "Finite existing native shadow-casting patch proxies, not recovered physical GI"
+  },
+  "newExternalBuildingScanUsed": false,
+  "BasilSpiderNoAITaggedScanUsed": false,
+  "seiroganResearchVariantUsed": false,
+  "referencePhotographRuntimeUse": false,
+  "newRasterOrMeshAsset": false,
+  "noOwnLiveJobs": true,
+  "noGitMutation": true,
+  "noSharedOrOtherSceneEdits": true,
+  "noDepthFieldAssetsJsonEdit": true,
+  "noLargeBlenderExportOrBlendWritten": true,
+  "preservePriorFailures": true,
+  "remaining": [
+    "Whole-frame photographic fidelity remains unaccepted: sky colour/cloud placement and the large regular green canopy still differ strongly from HD05.",
+    "The new three-jump field is finer and explicitly seated, but its small-section profiles, repetitive colour, generic carved leaves and cast motifs do not reproduce the photographed dense irregular carving.",
+    "Large hip tails, window/timber finish and repeated plated ends still look smoother and more uniform than the old warm red/brown photographed wood; some highlights remain pale.",
+    "The inherited r12c onigawara/ceramic terminal was deliberately retained. Its face, housing and roof ceramics remain visibly synthetic and historically unverified.",
+    "Native measured-sky IBL, GTAO and finite unequal courtyard bounce lights are approximations, not traced GI. No Cycles frame or seven-second motion was produced by this pass.",
+    "CPU sampled contact/watertightness checks cover the new authored template sections and recorded witnesses; every concealed joint and complete finite contact footprint remains unverified."
+  ]
+}

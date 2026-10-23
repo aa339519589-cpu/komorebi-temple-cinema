@@ -1,0 +1,9 @@
+{
+  "status": "Failed CPU-only camera control candidate; no GPU capture claimed",
+  "sourceCamera": "r04a-site-shot144.js",
+  "evidence": "r04a-shot-clearance.json",
+  "firstControl": [4.8, 2.35, 12],
+  "finding": "The control clears the post cap horizontally but leaves only5.32cm above the continuous rail, below the7cm review margin.",
+  "repair": "Raise the first retreat control to [4.8, 3.3, 12]; opening and final camera remain unchanged.",
+  "visualAccepted": false
+}

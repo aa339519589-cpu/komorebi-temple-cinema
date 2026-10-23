@@ -3,6 +3,7 @@ import * as T from 'three';
 import {timberSweep} from './natural-forms.js';
 import {shapeSeatedHip190,finishSolid190} from './detail190-solids.js';
 import {assignTimberPathUV05} from './timber-path-uv.js';
+import {createSoffitBoard220,seatedPurlinPoints220} from './roof-stack220.js';
 
 /*
  * Reconstruction details read from references 4, 5 and 6. All dimensions are
@@ -286,7 +287,7 @@ function rafterSectionSweep(frames,width,height,{capEnd=false,capStart=false,bev
     p.push(...point.toArray());n.push(...normal.toArray());uv.push(k/8,j/segments);
   };
   for(let j=0;j<segments;j++)for(let k=0;k<8;k++) {
-    const next=(k+1)%8,a=rim[k],b=rim[next],nn=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+    const next=(k+1)%8,a=rim[k],b=rim[next],nn=[b[1]-a[1],a[0]-b[0]];
     for(const [jj,kk] of [[j,k],[j,next],[j+1,next],[j,k],[j+1,next],[j+1,k]])emit(jj,kk,nn);
   }
   // Only the exposed main-rafter outer cut needs a wood cap. Its inner
@@ -1304,8 +1305,11 @@ export function createRestorationArchitecture(ctx) {
         if(options.waist&&ctx.joineryKit.waistBearing){
           for(const part of ctx.joineryKit.waistBearing)draw(part.geometry,part.material,part.position.map((v,i)=>v*(i===1?s:hs)),[hs,s,hs],[0,part.rotation,0]);
         }else if(options.corner&&ctx.joineryKit.cornerFan){
-          for(const part of ctx.joineryKit.cornerFan)
-            draw(part.geometry,part.material,part.position.map((v,i)=>v*(i===1?s:hs)),[hs,s,hs],[0,part.rotation,0]);
+          for(const part of ctx.joineryKit.cornerFan){
+            const turn=part.cornerAxis?(options.cornerYaw??PI/4)-PI/2:0,
+              position=v(part.position).applyAxisAngle(v([0,1,0]),turn).toArray();
+            draw(part.geometry,part.material,position.map((q,i)=>q*(i===1?s:hs)),[hs,s,hs],[0,part.rotation+turn,0]);
+          }
         }else{
           for(const part of ctx.joineryKit.bracket){if(part.cornerOnly&&!options.corner)continue;draw(part.geometry,part.material,[0,0,0],[hs,s,hs],part.cornerAxis?[0,(options.cornerYaw??0)-PI/2,0]:null);}
           if(!ctx.joineryKit.bracketFittings)for(let axis=0;axis<2;axis++)group(0,0,0,axis*PI/2,()=>{
@@ -1318,10 +1322,12 @@ export function createRestorationArchitecture(ctx) {
         }
         const fittings=options.waist?ctx.joineryKit.waistFittings:options.corner?ctx.joineryKit.cornerFanFittings:ctx.joineryKit.bracketFittings;
         if(fittings)for(const f of fittings){
-          const shaped=f.profile196&&(f.stage===2?ctx.joineryKit.primaryBearingFitting196:ctx.joineryKit.secondaryBearingFitting196);
-          if(shaped)group(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.yaw,()=>{for(const p of shaped)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
-          else if(ctx.joineryKit.secondaryFittingParts&&f.stage!==2)group(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.yaw,()=>{for(const p of ctx.joineryKit.secondaryFittingParts)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
-          else squareFitting(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.width*hs,f.height*s,f.yaw,true);
+          const turn=f.cornerAxis?(options.cornerYaw??PI/4)-PI/2:0,
+            position=v(f.position).applyAxisAngle(v([0,1,0]),turn).toArray(),yaw=f.yaw+turn;
+          const shaped=f.profile196&&(f.stage===2?ctx.joineryKit.primaryBearingFitting196:ctx.joineryKit.secondaryBearingFitting220?.[f.stage]??ctx.joineryKit.secondaryBearingFitting196);
+          if(shaped)group(position[0]*hs,position[1]*s,position[2]*hs,yaw,()=>{for(const p of shaped)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
+          else if(ctx.joineryKit.secondaryFittingParts&&f.stage!==2)group(position[0]*hs,position[1]*s,position[2]*hs,yaw,()=>{for(const p of ctx.joineryKit.secondaryFittingParts)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
+          else squareFitting(position[0]*hs,position[1]*s,position[2]*hs,f.width*hs,f.height*s,yaw,true);
         }
       });
       return;
@@ -1617,7 +1623,8 @@ export function createRestorationArchitecture(ctx) {
         // they do not point radially at the roof apex.
         const sample=(t,extra=0)=>evalP(face,t,Math.max(-1,Math.min(1,u/t)),extra);
         const makeRafter=(main)=>{
-          const lo=Math.max(separateTiers?(main?.30:.63):(main?.705:.875),Math.abs(u)+.022),hi=main?.993:1.024;
+          const tierStart=ctx.carpenteredBearing220?.30:(main?.30:.63),
+            lo=Math.max(separateTiers?tierStart:(main?.705:.875),Math.abs(u)+.022),hi=main?.993:1.024;
           if(lo>=hi)return null;
           const frames=[];
           for(let j=0;j<=12;j++){
@@ -1625,28 +1632,41 @@ export function createRestorationArchitecture(ctx) {
             const tangent=sample(t+.0001).sub(sample(t-.0001)).normalize();
             const side=new T.Vector3(tangent.z,0,-tangent.x).normalize();
             const up=new T.Vector3().crossVectors(tangent,side).normalize();
-            const centre=sample(t);centre.y-=main?.34:.195;
+            const centre=sample(t);
+            if(ctx.carpenteredBearing220){centre.y-=.340;if(!main)centre.addScaledVector(up,.130);}
+            else centre.y-=main?.34:.195;
             frames.push({centre,tangent,side,up});
           }
-          return rafterSectionSweep(frames,main?.100:.074,main?.170:.090,{capStart:true,capEnd:true,bevel:.003});
+          let geometry=rafterSectionSweep(frames,main?.100:.074,main?.170:.090,{capStart:true,capEnd:true,bevel:.003});
+          if(ctx.carpenteredBearing220&&main&&hipSeat){
+            const direction=face<2?v([0,0,face===0?1:-1]):v([face===2?1:-1,0,0]),
+              half=(face<2?hipSeat.depth:hipSeat.width)/2,seatInner=half-hipSeat.purlinWidth/2,seatOuter=half+hipSeat.purlinWidth/2;
+            let minimum=Infinity,maximum=-Infinity;const positions=geometry.attributes.position;
+            for(let k=0;k<positions.count;k++){const distance=v([positions.getX(k),positions.getY(k),positions.getZ(k)]).dot(direction);minimum=Math.min(minimum,distance);maximum=Math.max(maximum,distance);}
+            if(minimum<seatOuter&&maximum>seatInner){geometry=hipBirdsmouth(geometry,direction,seatInner,seatOuter,hipSeat.top,true);geometry.userData.actualPurlinSeat220={top:hipSeat.top,inner:seatInner,outer:seatOuter};}
+          }
+          return geometry;
         };
         for(const main of [true,false]){const geo=makeRafter(main);if(geo){wood(geo,main?'cedar':'red');stats.rafters++;}}
-        const tip=sample(1.024);tip.y-=.195;
         const tangent=sample(1.0241).sub(sample(1.0239)).normalize();
         const side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize();
+        const tip=sample(1.024);tip.y-=ctx.carpenteredBearing220?.340:.195;if(ctx.carpenteredBearing220)tip.addScaledVector(up,.130);
         const q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
         // The photograph's dense little rafter cuts are stained wood. Only
         // the large projecting bracket arms have gilded square end plates.
-        draw('box','red',tip.toArray(),[.074,.090,.006],q,.89);
+        draw('box',ctx.carpenteredBearing220?'rafterCut220':'red',tip.toArray(),[.074,.090,.006],q,.89);
         const mainEnd=sample(.993);mainEnd.y-=.34;
         draw('box','endwood',mainEnd.toArray(),[.100,.170,.006],q,.91);
-        if(separateTiers&&ctx.joineryKit?.fittingPartsSmall)for(const part of ctx.joineryKit.fittingPartsSmall)draw(part.geometry,part.material,mainEnd.clone().addScaledVector(tangent,.004).toArray(),[.100,.170,.070],q,.93);
+        if(separateTiers&&ctx.joineryKit?.fittingPartsSmall)for(const part of ctx.joineryKit.fittingPartsSmall){
+          const material=ctx.carpenteredBearing220?({fittingCopper:'rafterCopper220',fittingEdge:'rafterEdge220',fittingPatina:'rafterPatina220'}[part.material]??part.material):part.material;
+          draw(part.geometry,material,mainEnd.clone().addScaledVector(tangent,.004).toArray(),[.100,.170,.070],q,.93);
+        }
       }
       // Continuous thick ring purlins take the short rafters, leaving small real
       // rectangular voids between wood members rather than a broad fan cavity.
       for(const t of [.55,.755,.895]){
-        const points=[];
-        for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=t===.55?.37:.48;points.push(p.toArray());}
+        const points=ctx.carpenteredBearing220&&separateTiers?seatedPurlinPoints220(evalP,face,t,t===.55?.17:.23):[];
+        if(!points.length)for(let j=0;j<=24;j++){const p=evalP(face,t,-1+2*j/24);p.y-=t===.55?.37:.48;points.push(p.toArray());}
         wood(eaveSweep(points,t===.55?.145:.19,t===.55?.17:.23),'cedar');
       }
       // Broad, square-section fascia follows the reference's sweep. Thin gold
@@ -2576,9 +2596,25 @@ export function createRestorationArchitecture(ctx) {
           // Recessed overlapping head boarding is behind the bearing field.
           // Individual grain directions and narrow real seams keep this from
           // reading as a broad flat gray plug between the capitals.
-          const boards=Math.max(3,Math.ceil(transomHeight/(.44*scale))),h=transomHeight/boards;
+          const boards=Math.max(3,Math.ceil(transomHeight/((ctx.carpenteredBearing220?.23:.44)*scale))),h=transomHeight/boards;
           for(let course=0;course<boards;course++)box(0,transomBottom+(course+.5)*h,-.23*scale,span-.20*scale,h-.006*scale,.105*scale,course%3?'red':'cedar',0,.88+.035*(course%4));
           for(const xx of[-span/3,0,span/3])box(xx,(transomTop+transomBottom)/2,-.165*scale,.065*scale,transomHeight,.06*scale,'red');
+        }
+        if(ctx.carpenteredBearing220&&floorBearingY===null){
+          // Closed bay girts connect the capital field behind the outward
+          // noses. Every length stops at the real small bearing-block cheek;
+          // there are no floating rods or full beams crossing solid blocks.
+          const hs=bracketHorizontalScale*scale*1.04,postAxes=[-span/2,-span/6,span/6,span/2];
+          for(const [height,spread]of [[.2175,.265],[.500,.420]]){
+            const gaps=postAxes.flatMap(xx=>[-1,1].map(sign=>[xx+sign*spread*hs-.105*hs,xx+sign*spread*hs+.105*hs])).sort((a,b)=>a[0]-b[0]);
+            let start=-span/2;
+            for(const [lo,hi]of gaps){
+              const end=Math.min(span/2,lo);
+              if(end-start>.025*scale)box((start+end)/2,bracketY+height*bracketScale,-.14*scale,end-start,.09*bracketScale,.12*scale,'cedar',0,.96);
+              start=Math.max(start,hi);
+            }
+            if(span/2-start>.025*scale)box((start+span/2)/2,bracketY+height*bracketScale,-.14*scale,span/2-start,.09*bracketScale,.12*scale,'cedar',0,.96);
+          }
         }
         box(0,y+.49,0,span+.12*scale,.14*scale,.24*scale,'darkwood');
         const bay=span/3,clear=bay-shaftRadius*2-.10*scale;
@@ -2595,9 +2631,12 @@ export function createRestorationArchitecture(ctx) {
           for(const side of [-1,1])box(xx+side*clear/2,windowY,.022,.065*scale,windowHeight,.095*scale,'red');
           const bars=Math.max(6,Math.round(clear/(.21*scale)));
           for(let j=1;j<bars;j++){
-            const barX=xx-clear/2+j*clear/bars;
-            if(k===1&&Math.abs(barX)<.45*scale)continue;
-            box(barX,windowY,.020,.065*scale,windowHeight-.055*scale,.080*scale,'windowBars');
+            const barX=xx-clear/2+j*clear/bars,barTint=ctx.carpenteredBearing220?.95+.055*Math.sin(j*2.17+k*.61+face*.43):1;
+            if(ctx.carpenteredBearing220&&k===1&&Math.abs(barX)<.45*scale){
+              const low=windowY-.385*scale,high=windowY+.385*scale;
+              if(low-windowBottom>.055*scale)box(barX,(windowBottom+low)/2,.020,.065*scale,low-windowBottom-.025*scale,.080*scale,'windowBars',0,barTint);
+              if(windowTop-high>.055*scale)box(barX,(windowTop+high)/2,.020,.065*scale,windowTop-high-.025*scale,.080*scale,'windowBars',0,barTint);
+            }else if(!(k===1&&Math.abs(barX)<.45*scale))box(barX,windowY,.020,.065*scale,windowHeight-.055*scale,.080*scale,'windowBars',0,barTint);
           }
           for(const f of [.32])box(xx,windowBottom+windowHeight*f,-.012,
             clear,.035*scale,.038*scale,'windowBars');
@@ -2629,7 +2668,7 @@ export function createRestorationArchitecture(ctx) {
         }
       });
     }
-    return {posts,windows,purlinTop,shaftTop,shaftHeight,bracketY,
+    return {posts,windows,purlinTop,shaftTop,shaftHeight,bracketY,windowHeadY,windowHeaderY:windowHeadY+.16*scale,windowCenterY:(y+.71+Math.min(windowHeadY,shaftTop-.14*scale))/2,
       columnsPerFace:4,distinctColumns:posts.length,roofWidth,roofDepth,requiresPyramidRoof:true};
   }
 
@@ -2725,6 +2764,21 @@ export function createRestorationArchitecture(ctx) {
         }
         // Real continuous tile underlay and timber boarding seal the roof.
         for(const [offset,material] of [[-.035,'slate'],[-.18,soffitMaterial]]) {
+          if(ctx.carpenteredBearing220&&material===soffitMaterial){
+            // Individual 27mm closed boards sit on the actual upper narrow
+            // rafter plane. The old .065m sheet intersected the upper rafters.
+            const radius=(face<2?d:w)/2,boards=Math.max(8,Math.round(radius/.22)),gap=.0018/radius;
+            for(let row=0;row<boards;row++){
+              const lo=Math.max(.002,row/boards+gap/2),hi=(row+1)/boards-gap/2;
+              if(hi<=lo)continue;
+              const board=createSoffitBoard220(evalP,face,lo,hi,face<2?w:d,row);
+              for(const piece of roofTimberOutsideOpening(board,roofOpening)){
+                piece.userData={...piece.userData,metricPathUV:true,architectureMember:'closed-soffit-plank220'};
+                draw(piece,'cedar',[0,0,0],[1,1,1],null,.86+.035*Math.sin(row*3.17+face));
+              }
+            }
+            continue;
+          }
           const pos=[],ids=[];
           for(let j=0;j<=20;j++)for(let k=0;k<=40;k++) {
             pos.push(...evalP(face,Math.max(.001,j/20),-1+k/20,offset).toArray());

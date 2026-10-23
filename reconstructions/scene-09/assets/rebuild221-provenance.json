@@ -1,0 +1,29 @@
+{
+  "revision": "scene09-hard-cut-masonry-and-warm-sanctuary221-r04",
+  "status": "Native review candidate; photographic fidelity remains unaccepted",
+  "visualAccepted": false,
+  "authoredSource": "reconstructions/scene-09/src/court-rebuild221.js",
+  "geometry": {
+    "bridge": "367 complete radially jointed granite arch stones with independent per-face metric UV charts and cut normals, 24 abutment blocks, closed timber decking and eight mortised arch rails; no central pier",
+    "sanctuary": "Two complete bronze/washi cases behind the Buddha, on interlinked chains and bronze couplings mounted to the existing inner ceiling crossbeam",
+    "eaves": "Reduced closed fascia section from .34 x .41m to .23 x .23m, lower moulding from .38 x .27m to .26 x .15m; existing ceramic shell and bearings retained"
+  },
+  "materialInputs": [
+    "Existing declared Poly Haven lacquered-cherry timber maps and bridge roughness remap",
+    "Existing declared rock_moss_set_01 mineral maps and granite-face maps",
+    "Existing declared periwinkle_plant real curved leaf meshes and material maps",
+    "Original existing mathematical washi tissue substrate"
+  ],
+  "newExternalAssets": false,
+  "referenceImageUse": "Comparison only. No photograph sampling, photo surface, depth card, AI replacement frame or image-to-video.",
+  "lighting": "Existing paper cases and closed hood practicals plus two modeled sanctuary cases. Shadow allocation moves the two primary stone-case pools to outgoing paper-face cones and the underbridge shadow to the west bridge case. Exposure remains .95. R04 rear sanctuary cases are 26cd/22cd at linear RGB [1,.52,.18], reducing the preceding white wall wash.",
+  "camera": "Comparison camera retained. Opening position [3.8,2.85,1.75] is approximately 1.10m above the actual bridge deck; source shot poses remain subject to native review. R04 first retreat control point x=4.8 clears the near bridge post cap; R03 x=7.2 intersected it. Source CPU and genuine near-crossing capture are required separately from full motion acceptance. Final R04 first control is [4.8,3.3,12], lifting the lens above the continuous rail as well as clearing the cap; the earlier R04a low-clearance control is preserved in lookdev.",
+  "limitations": [
+    "Source dimensions, material calibration and light output are inferred, not surveyed.",
+    "Paper-face cones and finite point footprints approximate area transport in native WebGL.",
+    "Secondary lamps have incomplete geometry shadows; fixed SH cells approximate one bounce.",
+    "Native captures and planar reflections do not establish path-traced or photographic equivalence."
+  ],
+  "priorCandidates": "R14, R01, R02 and R03 source archives and actual native frames remain in lookdev/scene09-rebuild221 and qa/ten-reference/09.",
+  "layout": "Removed the ungrounded legacy small stone lamp at [-1, 10] from the central water reflection channel; its previous source and images remain archived."
+}

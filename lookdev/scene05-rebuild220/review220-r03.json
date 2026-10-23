@@ -1,0 +1,105 @@
+{
+  "status": "native full/detail/side/ground reviewed; repair stage retained",
+  "sourceHash": "04db8b13e1e6ebcd57296d2f5de8f3f2ed7213aa214dfb0cdd606728fd0a3a1d",
+  "visualAccepted": false,
+  "renders": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r03-20261024",
+      "status": "rendered-review",
+      "sourceHash": "04db8b13e1e6ebcd57296d2f5de8f3f2ed7213aa214dfb0cdd606728fd0a3a1d",
+      "inspectionView": null,
+      "frames": [
+        {
+          "name": "reference",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "ccc5bb98424b3dbcd2c7d60f0f94e9227cd8f3b236d39ef7738f10c14eafb962"
+        },
+        {
+          "name": "detail-native",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "2e4c75b86d5b7a43a64af14834d7db579522f315261501b88e40d5e804565c94"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r03-bearingclose-20261024",
+      "status": "rendered-review",
+      "sourceHash": "04db8b13e1e6ebcd57296d2f5de8f3f2ed7213aa214dfb0cdd606728fd0a3a1d",
+      "inspectionView": {
+        "position": [
+          9,
+          4.8,
+          10.5
+        ],
+        "target": [
+          3.15496893896233,
+          6.357362771322012,
+          4.6152233015964885
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "frames": [
+        {
+          "name": "inspection-view",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "e3ccebec6dfd025d9b6dc907b57678815cbeb89ded8491f3de7c0450a752a673"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r03-groundside-20261024",
+      "status": "rendered-review",
+      "sourceHash": "04db8b13e1e6ebcd57296d2f5de8f3f2ed7213aa214dfb0cdd606728fd0a3a1d",
+      "inspectionView": {
+        "position": [
+          7.8,
+          0.9,
+          9.2
+        ],
+        "target": [
+          3.0661131395308274,
+          5.982164935397807,
+          4.6487831047877854
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "frames": [
+        {
+          "name": "inspection-view",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "b197a9074ec93e7b16d93afb31c28a89b846fcfe362d2cf2cc8bc60e1293c29c"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "The actual header-bound frieze removes r02 black-strip regression, and the center carved window insert now has real bars above and below it.",
+    "The original main rafters remain anchored; new narrow upper rafters and actual individual closed boarding read as a layered eave from the0.90m ground camera.",
+    "Full photographic match remains far away: generic wood carving, regular capital repetition, constant straight post/window tissue, sky/canopy tone and arrangement still differ strongly from HD05.",
+    "The exposed small upper cut flashes almost white, and the gray window grill is still too uniformly smooth against a nearly black recess.",
+    "Inherited continuous outer ring purlins still penetrate main rafter undersides by54–58mm. Separate CPU bed-profile diagnostic predicts under0.60mm contact error with true section-based placement."
+  ],
+  "next": [
+    "Repair outer ring-purlin support heights using actual main-rafter lower planes, not arbitrary y offsets.",
+    "Use a private matte warm cut material for small upper rafter ends; give gray window bars metric scanned tissue and reduce the absolute-black window gap."
+  ],
+  "limits": "Geometry diagnostics, valid native frames and visual improvement do not establish final photographic acceptance."
+}

@@ -1,0 +1,97 @@
+{
+  "status": "actual native full/detail/groundside reviewed; concrete candidate held for root visual review",
+  "sourceHash": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+  "baselineHash": "98da3d941845046fb7e5cef2675213f93a1f6556b58e6fea97ed9ef77bed1ceb",
+  "visualAccepted": false,
+  "viewedReference": "references/hd/5-照片-6.jpg",
+  "rendered": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024",
+      "status": "rendered-review",
+      "sourceHash": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+      "sourceCommitReported": "3cc481fe2442d27456d242941727a933c5e95ad2",
+      "completedAt": "2026-10-23T20:05:46.084Z",
+      "inspectionView": null,
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "8b8d763f20d61c18b153e331a59e022b5ded0a0b973bf1cf3325f901d4b6afd8",
+          "pngSha256": "4a5f18420392a2bf2d1e6dadd912de3617a2af9dc4de5f3d8e8196c62e1dba9a"
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "c961e228ff89c08fb1ad70bd6530db6d99da69204745c23c4c63f3215082652d",
+          "pngSha256": "7751e0ad66ed13a63d240dd5ae94ccbca89b5b3e6ec0407b0bcc6891ee2f394a"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-groundside-20261024",
+      "status": "rendered-review",
+      "sourceHash": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+      "sourceCommitReported": "3cc481fe2442d27456d242941727a933c5e95ad2",
+      "completedAt": "2026-10-23T20:06:04.754Z",
+      "inspectionView": {
+        "position": [
+          7.8,
+          0.9,
+          9.2
+        ],
+        "target": [
+          3.0661131395308274,
+          5.982164935397807,
+          4.6487831047877854
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-groundside-20261024/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "b4667e64d9fc1c8a76f217398bc371abf33adc4350e19380de615d320c9476b3",
+          "pngSha256": "9ee3e2002c95da1ce1158198a33a043d0da0bcf073887038052b5b46fa8024e8"
+        }
+      ]
+    }
+  ],
+  "improvements": [
+    "New fine-section three-jump arms and small concave-neck dou, contact-derived shoulder protection, drawbore dowels, corner-specific diagonal hip kneeler and two actual upper crossing seats.",
+    "Two closed small bay-girt ranks and finer transom boarding make a connected facade support field; main capital vertical transform1.62954148 to1.38 with real shaft/window heads recomputed below unchanged main wall purlin.",
+    "Closed full-depth ring-girder sections with exact edge normals, shallow physical molding chases and metric curve UV; all ring centres now follow actual main-rafter beds.",
+    "Upper narrow rafters and individual closed27mm boards share actual section planes, while main rafters retain their centres and receive shallow real wall-purlin birdsmouth cuts.",
+    "Course-specific convex cast scroll/palmette fittings replace repeated flat paired-S end glyphs. Small cut faces, worked metal, gray-green window tissue and warm thin wood stain have independent finishes.",
+    "r02 hard-coded frieze-height regression repaired by using returned real windowHeaderY; center carved panel and split bars share actual windowCenterY."
+  ],
+  "remaining": [
+    "Whole-frame photographic fidelity remains unaccepted: sky colour/cloud placement and the large regular green canopy still differ strongly from HD05.",
+    "The new three-jump field is finer and explicitly seated, but its small-section profiles, repetitive colour, generic carved leaves and cast motifs do not reproduce the photographed dense irregular carving.",
+    "Large hip tails, window/timber finish and repeated plated ends still look smoother and more uniform than the old warm red/brown photographed wood; some highlights remain pale.",
+    "The inherited r12c onigawara/ceramic terminal was deliberately retained. Its face, housing and roof ceramics remain visibly synthetic and historically unverified.",
+    "Native measured-sky IBL, GTAO and finite unequal courtyard bounce lights are approximations, not traced GI. No Cycles frame or seven-second motion was produced by this pass.",
+    "CPU sampled contact/watertightness checks cover the new authored template sections and recorded witnesses; every concealed joint and complete finite contact footprint remains unverified."
+  ],
+  "comparisonImages": [
+    "lookdev/scene05-rebuild220/compare220-r04-full.jpg",
+    "lookdev/scene05-rebuild220/compare220-r04-corner.jpg"
+  ],
+  "comparisonScope": "Side-by-side comparison only; crop/JPEG files do not replace unmodified native1254px PNG evidence.",
+  "acceptance": "No render, mesh or photorealism acceptance claimed."
+}

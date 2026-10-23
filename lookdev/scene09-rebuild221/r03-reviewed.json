@@ -1,0 +1,25 @@
+{
+  "revision": "scene09-rebuild221-r03",
+  "source": "ff2a772cfaffc0e9f18e68b5682fdf046416a33fc43dba9b33b01fab9f79cd29",
+  "inputs": 87,
+  "actualImagesViewed": [
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r03/reference.png",
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r03/detail-native.png",
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-0.png",
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-3p5.png",
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/shot-7.png"
+  ],
+  "nativeStatus": "Both official1254 jobs succeeded; all five retained native frames personally viewed; shader linking and GL/page integrity pass",
+  "findings": [
+    "Independent per-face mineral UV charts and cut normals remove the polished tooth stripes. Arch stones now show cut-face grain and real radial seams under the bridge cases.",
+    "Removing the ungrounded central pond lamp opens the actual water reflection channel without adding a view mask or replacing the reflected scene.",
+    "The bridge-deck opening gives a much larger near architectural view: seated capitals, open upper gallery, tile tips, deep column row and actual Buddha/altar furnishings fill the frame.",
+    "Rear sanctuary cases separate the statue from its illuminated rear furnishings; the warm field remains too pale/strong in the crop.",
+    "The three source shot samples do not prove a clear continuous path. Independent exact-source CPU checking finds the camera intersects a near bridge post cap at1.2465s."
+  ],
+  "cameraFailureEvidence": "r03-shot-clearance.json",
+  "decision": "Keep the improved masonry/eave/lighting model. Continue to R04 with a corrected first retreat control, explicit capture at the critical near-rail crossing and lower/warmer rear case outputs. Retain R03 as an unaccepted motion candidate.",
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "fullMotionAccepted": false
+}

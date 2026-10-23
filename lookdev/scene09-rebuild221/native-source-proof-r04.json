@@ -1,0 +1,161 @@
+{
+  "source": "0897885a14832b746ae6de829ccbcc1386f6eaff0269466ed9a4750b524915f8",
+  "inputs": 87,
+  "baseline": "c85fb3bbda541b3229ffb867bcd95a96132d5a1c54f2089f8c9a4c31005fb737",
+  "checks": {
+    "sourcePinned": true,
+    "reportRendered": true,
+    "fiveActualNativeFrames": true,
+    "noNativeErrors": true,
+    "geometryClosed": true,
+    "stoneUVNoncollapsed": true,
+    "geometrySourceHashMatches": true,
+    "cameraSourceHashMatches": true,
+    "knownBridgeCapCollisionRepaired": true,
+    "actualCriticalCrossingCaptured": true,
+    "originalComparisonCameraHeld": true,
+    "exposureHeld": true,
+    "originalAssetInputsHeld": true
+  },
+  "frames": [
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot--1330.png",
+      "width": 1254,
+      "height": 1254,
+      "time": -1330,
+      "rgbaSha256": "41a9fce5d3322e8f16382a3078e97b36821d9c2584c6c601ba5c6e85c6d528d7",
+      "pngSha256": "837a1a5fcf34972ccf62217826dd665900948ca1f5e760d9ed97eef42f9fc18e",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-0.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 0,
+      "rgbaSha256": "ccfd7c945abc037df9287eeb9cd6f2c2b2b24796105ec89ba1eab01e98af90f7",
+      "pngSha256": "328f8c4a605609be9483d9fdbe338ffa1083ed04e320fef82ebda2bbe794d7ab",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          3.8,
+          2.85,
+          1.75
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-1p23.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 1.23,
+      "rgbaSha256": "667f45e038c08f92586835f83ddde5cfd545172893a720cfa99f0525d14ab420",
+      "pngSha256": "e0f46926664d0b49d8f2c244d6fc2120f883d7debdbedc0d193e7ca5136399bf",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          3.933362190585732,
+          2.897962283030118,
+          3.0308437004296978
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-3p5.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 3.5,
+      "rgbaSha256": "40a0e37f58df6b9551eca19fd9016ba60e02070fbb5fc7506928f5aa9a2d1a17",
+      "pngSha256": "6ffbd99e0eece46343b499115728fd6b6f0fdd7f9f58c53e7e387fbc9b47ac6f",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          5.844697408412982,
+          2.7808897132676633,
+          17.34412159651807
+        ],
+        "fov": 52
+      }
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/shot-7.png",
+      "width": 1254,
+      "height": 1254,
+      "time": 7,
+      "rgbaSha256": "db87cb1631e720f2fba70d5d0431d26e0909e7929b32e685112a2736cd36112b",
+      "pngSha256": "270f8cdf30b2e2a446adc08c51c84b2a6166172a2c2ee78e6e68d973e6096c54",
+      "personallyViewed": true,
+      "camera": {
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "fov": 52
+      }
+    }
+  ],
+  "bridge": {
+    "stones": 367,
+    "drawBuffers": 1,
+    "centrePier": false,
+    "intradosCrown": 2.05,
+    "collapsedUVTriangles": 0
+  },
+  "camera": {
+    "eyeAboveBridgeTread": 1.1033336860590188,
+    "nearRailCrossing": {
+      "time": 1.2296995520085456,
+      "camera": [
+        3.9332691993705833,
+        2.897935865901911,
+        3.03
+      ],
+      "nearestPostX": 4.2,
+      "postXDistance": 0.2667308006294169,
+      "cap": {
+        "xHalfWidth": 0.11159999999999999,
+        "zHalfWidth": 0.155,
+        "loY": 2.707850490765926,
+        "hiY": 2.8078504907659263
+      },
+      "capCollision": false,
+      "railTop": 2.7367805106049246,
+      "eyeAboveRail": 0.16115535529698644
+    },
+    "fullSceneCollisionProven": false
+  },
+  "renderer": {
+    "backend": "metal",
+    "shadowSources": 10,
+    "pointLights": 83,
+    "driver": {
+      "path": "tools/render-one-reconstruction.mjs",
+      "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+    }
+  },
+  "changed": [
+    "reconstructions/scene-09/src/bridge-practicals203.js",
+    "reconstructions/scene-09/src/finite-practicals203.js",
+    "reconstructions/scene-09/src/main.js",
+    "reconstructions/scene-09/src/night-main-roofs123.js",
+    "reconstructions/scene-09/src/night-practicals203.js",
+    "reconstructions/scene-09/src/site-shot144.js"
+  ],
+  "added": [
+    "reconstructions/scene-09/assets/rebuild221-provenance.json",
+    "reconstructions/scene-09/src/court-rebuild221.js"
+  ],
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "fullMotionAccepted": false
+}

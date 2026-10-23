@@ -1,0 +1,141 @@
+{
+  "status": "cpu-inspected-not-visual-acceptance",
+  "sourceHash": "80f96a3e82cee7c6c09c946ab342f2b56c4343e32c879e43f47d86e1c031fb00",
+  "sweep": {
+    "triangles": 696,
+    "finite": true,
+    "degenerateTriangles": 0,
+    "signedVolume": 0.08715028940890782,
+    "edgeIncidence": {
+      "2": 1044
+    },
+    "bounds": [
+      [
+        -1.003448486328125,
+        -0.11494828760623932,
+        -0.0949999988079071
+      ],
+      [
+        1.003448486328125,
+        0.1749482899904251,
+        0.0949999988079071
+      ]
+    ]
+  },
+  "variants": [
+    {
+      "variant": 0,
+      "parts": [
+        {
+          "material": "fittingCopper",
+          "triangles": 2516,
+          "finite": true,
+          "degenerateTriangles": 0,
+          "signedVolume": 0.01570618003259465,
+          "edgeIncidence": {
+            "2": 3774
+          },
+          "bounds": [
+            [
+              -0.5223366022109985,
+              -0.5223366022109985,
+              -0.14800000190734863
+            ],
+            [
+              0.5223366022109985,
+              0.5223366022109985,
+              0.02786153368651867
+            ]
+          ]
+        },
+        {
+          "material": "fittingEdge",
+          "triangles": 1720,
+          "finite": true,
+          "degenerateTriangles": 0,
+          "signedVolume": 0.0005728921950011362,
+          "edgeIncidence": {
+            "2": 2580
+          },
+          "bounds": [
+            [
+              -0.45899999141693115,
+              -0.45899999141693115,
+              0.0013426040532067418
+            ],
+            [
+              0.45899999141693115,
+              0.45899999141693115,
+              0.035336684435606
+            ]
+          ]
+        }
+      ],
+      "info": {
+        "revision": 220,
+        "variant": 0,
+        "construction": "Finite folded sleeve, convex oval scrolls, domed leaves with a sculpted shallow center chase, return leaves and four small rivets. Course-specific variants replace the repeated flat paired-S motif; timber remains visible around the metalwork.",
+        "photoTexture": false,
+        "historicalPatternRecovered": false
+      }
+    },
+    {
+      "variant": 1,
+      "parts": [
+        {
+          "material": "fittingCopper",
+          "triangles": 4692,
+          "finite": true,
+          "degenerateTriangles": 0,
+          "signedVolume": 0.015561375006281061,
+          "edgeIncidence": {
+            "2": 7038
+          },
+          "bounds": [
+            [
+              -0.5223366022109985,
+              -0.5223366022109985,
+              -0.14800000190734863
+            ],
+            [
+              0.5223366022109985,
+              0.5223366022109985,
+              0.04069913551211357
+            ]
+          ]
+        },
+        {
+          "material": "fittingEdge",
+          "triangles": 2160,
+          "finite": true,
+          "degenerateTriangles": 0,
+          "signedVolume": 0.0008686125214642536,
+          "edgeIncidence": {
+            "2": 3240
+          },
+          "bounds": [
+            [
+              -0.45899999141693115,
+              -0.45899999141693115,
+              0.0013426040532067418
+            ],
+            [
+              0.45899999141693115,
+              0.45899999141693115,
+              0.03433668613433838
+            ]
+          ]
+        }
+      ],
+      "info": {
+        "revision": 220,
+        "variant": 1,
+        "construction": "Finite folded sleeve, convex oval scrolls, domed leaves with a sculpted shallow center chase, return leaves and four small rivets. Course-specific variants replace the repeated flat paired-S motif; timber remains visible around the metalwork.",
+        "photoTexture": false,
+        "historicalPatternRecovered": false
+      }
+    }
+  ],
+  "valid": true,
+  "scope": "Actual authored buffers inspected without rendering, export or GPU. Edge counts at exact coincident decorative overlaps are reported, not suppressed."
+}

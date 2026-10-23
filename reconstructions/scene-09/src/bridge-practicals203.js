@@ -11,7 +11,7 @@ export function buildBridgePracticals203(api){
  const cap=new T.CylinderGeometry(.105,.32,.14,4,1,false),crown=new T.LatheGeometry([[0,0],[.046,0],[.058,.025],[.043,.055],[.059,.085],[.039,.13],[0,.19]].map(p=>new T.Vector2(...p)),20),records=[];
  group(-.6,0,0,0,()=>{
   for(const[x,cd]of[[-8,8],[8,20]]){
-   const deck=1.25,z=3.03,drop=x<0?-1:0,outboard=x<0?.35:0;
+   const deck=1.25,z=3.03,drop=x<0?-.34:0,outboard=x<0?.35:0;
    group(x,deck,z,0,()=>{
     emit(saddle,M.lanternMetal,0,1.18,0);
     for(const a of[-1,1])for(const b of[-1,1]){

@@ -1,0 +1,60 @@
+{
+  "status": "actual-render-reviewed-regression-retained-for-repair",
+  "sourceHash": "80f96a3e82cee7c6c09c946ab342f2b56c4343e32c879e43f47d86e1c031fb00",
+  "visualAccepted": false,
+  "renders": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r02-20261024",
+      "status": "rendered-review",
+      "sourceHash": "80f96a3e82cee7c6c09c946ab342f2b56c4343e32c879e43f47d86e1c031fb00",
+      "frames": [
+        {
+          "name": "reference",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "1e006d0a8bd5e36f1e6017a25afaf2bee7b98097289aa472d353ff5ecf7f51c9"
+        },
+        {
+          "name": "detail-native",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "795ccdf06f69c0fd669c9d65751e8b670a5ee174f1e408e723559dfc3221e446"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r02-bearingclose-20261024",
+      "status": "rendered-review",
+      "sourceHash": "80f96a3e82cee7c6c09c946ab342f2b56c4343e32c879e43f47d86e1c031fb00",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "6e77f700d97c72b5982efefb0be4d6fab9f08d231897c2f5b09343f12d4df26e"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Three-jump field is more compact and the corner diagonal is readable. Two actual convex lower-course fitting variants replace the repeated flat paired-S end glyph.",
+    "Visible regression: scene.js hard-coded y=2.65 ornamental ties did not follow the recomputed real window head, leaving an extra strip of exposed black window-bar background above them. Repair must bind the actual header and its face ornaments, not hide the gap with a flat patch.",
+    "Continuous eave girders now have closed end volumes, section-correct normals and shallow physical chases.",
+    "Still synthetic: timber width/grain uniformity, large smooth hip tail, sparse repeated exposed ornament, pale highlighted rafter ends, sky/canopy and wall-head rhythm.",
+    "Source inspection and CPU witnesses show existing flying rafters penetrate the old thick backing by55.6–60.0mm across12 sampled locations. Native image validity is not physical-contact validation."
+  ],
+  "next": [
+    "Move applied header frieze to actual returned frame.windowHeaderY and repair central window bars above/below actual carved panel.",
+    "Use common real main/flying/boarding section planes, individual closed27mm boards, correct rafter face normals and shallow actual purlin birdsmouths while preserving roof/tier/camera anchors."
+  ],
+  "limits": "Full source and failed candidate retained. Photographic fidelity unaccepted."
+}

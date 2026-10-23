@@ -1,0 +1,873 @@
+{
+  "scope": "Pure CPU evaluation of the exact authored bridge source. No renderer, scene capture, export or GPU.",
+  "source": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-09/src/court-rebuild221.js",
+  "geometry": {
+    "revision": "scene09-hard-cut-masonry-and-warm-sanctuary221-r04",
+    "structure": "Open masonry barrel arch with radial voussoir joints carrying timber deck and mortised vermilion rails",
+    "barrelStoneCount": 367,
+    "barrelDrawBuffers": 1,
+    "stoneCharts": "Independent per-triangle metric planar charts with cut face normals; no collapsed front UV",
+    "abutmentBlocks": 24,
+    "intradosCrown": 2.05,
+    "deckCrown": 2.6100000000000003,
+    "centrePier": false,
+    "closedGeometry": true,
+    "dimensionsInferred": true,
+    "referencePixelsSampled": false,
+    "visualAccepted": false
+  },
+  "stoneMeshes": 1,
+  "railMeshes": 8,
+  "allFinite": true,
+  "allStoneManifold": true,
+  "allRailsClosed": true,
+  "centralMasonryPierBoxes": 0,
+  "stoneMinimumY": 0.10175500065088272,
+  "nativeRenderRequired": true,
+  "visualAccepted": false,
+  "sourceSha256": "4151af1a5596d79f55c5d52748074daef1598ded15e48069ba59c48c7fee65e2",
+  "stoneCollapsedUVTriangles": 0,
+  "stoneChartsNoncollapsed": true,
+  "records": [
+    {
+      "geometry": "scene09-221-closed-masonry-arch-voussoirs-merged",
+      "solidParts": 367,
+      "material": "scene09-221-wet-cut-granite-arch",
+      "vertices": 39636,
+      "triangles": 13212,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.349996566772461,
+          0.10175500065088272,
+          -0.019999999552965164
+        ],
+        [
+          8.349996566772461,
+          2.494999885559082,
+          3.2079999446868896
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeRed",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.013999938964844,
+          2.0996057987213135,
+          0.04600000008940697
+        ],
+        [
+          8.013999938964844,
+          3.6490001678466797,
+          0.2939999997615814
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeRed",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.008000373840332,
+          1.7512032985687256,
+          0.08699999749660492
+        ],
+        [
+          8.008000373840332,
+          3.2280001640319824,
+          0.25300002098083496
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeRed",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.008000373840332,
+          1.4112032651901245,
+          0.07699999958276749
+        ],
+        [
+          8.008000373840332,
+          2.8980000019073486,
+          0.2630000114440918
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeTimber",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.003000259399414,
+          2.0837011337280273,
+          0.06449999660253525
+        ],
+        [
+          8.003000259399414,
+          3.4779999256134033,
+          0.27549999952316284
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeRed",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.013999938964844,
+          2.0996057987213135,
+          2.9059998989105225
+        ],
+        [
+          8.013999938964844,
+          3.6490001678466797,
+          3.1540000438690186
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeRed",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.008000373840332,
+          1.7512032985687256,
+          2.947000026702881
+        ],
+        [
+          8.008000373840332,
+          3.2280001640319824,
+          3.11299991607666
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeRed",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.008000373840332,
+          1.4112032651901245,
+          2.937000036239624
+        ],
+        [
+          8.008000373840332,
+          2.8980000019073486,
+          3.122999906539917
+        ]
+      ]
+    },
+    {
+      "geometry": "scene09-221-closed-arched-vermilion-rail",
+      "solidParts": 1,
+      "material": "bridgeTimber",
+      "vertices": 5820,
+      "triangles": 1940,
+      "finite": true,
+      "zeroArea": 0,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "bounds": [
+        [
+          -8.003000259399414,
+          2.0837011337280273,
+          2.924499988555908
+        ],
+        [
+          8.003000259399414,
+          3.4779999256134033,
+          3.135499954223633
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    },
+    {
+      "geometry": "",
+      "solidParts": 1,
+      "material": "gold",
+      "vertices": 225,
+      "triangles": 384,
+      "finite": true,
+      "zeroArea": 48,
+      "collapsedUVTriangles": 0,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 50,
+      "bounds": [
+        [
+          -0.12999999523162842,
+          0,
+          -0.12999999523162842
+        ],
+        [
+          0.12999999523162842,
+          0.38999998569488525,
+          0.12999999523162842
+        ]
+      ]
+    }
+  ]
+}
