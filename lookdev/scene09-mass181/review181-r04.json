@@ -1,0 +1,247 @@
+{
+  "heldRevision": "scene09-occupied-hall-and-carried-pagoda181-r04",
+  "sourceHash": "61b811768614423f28ce67ecc99a2904ce1eadff39cefae1328fc561894c4fe1",
+  "sourceInputFiles": 78,
+  "baselineSourceHash": "aa85a1ee2ebc79a2fa127803b8923d77c09919fddf93414f76a54f34ab2ecb6e",
+  "status": "Canonical scene09 frozen for root integration; official full, true hall/tower heroes and low3q rendered and visually inspected. Photographic fidelity remains unaccepted.",
+  "visualAccepted": false,
+  "reviewed": [
+    "HD09 and public actual1254 baseline",
+    "R01 failed official native and CPU closed-solid audit",
+    "R02 actual1254 full, hall hero and low3q",
+    "R03b actual1254 full, hall hero, tower hero and clean low3q",
+    "R04 actual1254 full, hall hero, tower hero and clean low3q"
+  ],
+  "actualSourceWork": [
+    "Rebuilt complete occupied hall with taller independent entasis shafts, full return colonnades, deep carved portals, open folding leaves, independent gallery floor/joists/plaster/rail/wall planes and a closed boarded gable loft.",
+    "Heavy carved transfers, crossed dou/hijiki and paired closed shaped cantilevers end in queried underside receivers from the common actual roof equation. Lower/upper eave datums and all receiving frame relations were rebuilt together; original building/site transforms and camera retained.",
+    "Pagoda has fuller independent occupied chambers and upper roof widths, substantial open galleries, stepped carrying tails and closed framed tier necks. Existing ground pose, pitch and top-roof/finial summit remain fixed.",
+    "Retained licensed metric timber albedo/normals; existing CC0-derived bounded numeric roughness prevents point-like lacquer highlights. Original145 material objects explicitly retained for bridge coating clones.",
+    "Eight exact source176 CC BY cloud-scroll components mounted with uniform .95/.85m width fit on closed timber cores/top receivers/left cheeks; donor positions/normals/indices unchanged. No claim of Japanese artifact identity.",
+    "Five finite native LTC sources approximate local lantern interreflection, tuned after actual native inspection. Exposure/sky/practical strengths unchanged. Eight geometric shadow sources fit the native16-sampler budget."
+  ],
+  "measuredChanges": {
+    "lowerShaftLengthLocalMetres": {
+      "before": 3.16,
+      "after": 3.71
+    },
+    "upperShaftLengthLocalMetres": {
+      "before": 0.76,
+      "after": 1.04
+    },
+    "lowerShaftRadiusLocalMetres": {
+      "before": 0.29,
+      "after": 0.315
+    },
+    "upperShaftRadiusLocalMetres": {
+      "before": 0.18,
+      "after": 0.225
+    },
+    "lowerTransferSectionMetres": {
+      "before": [
+        0.38,
+        0.27
+      ],
+      "after": [
+        0.68,
+        0.44
+      ]
+    },
+    "hallLowerEaveLocalY": {
+      "before": 7.25,
+      "after": 7.85
+    },
+    "hallUpperEaveLocalY": {
+      "before": 9.8,
+      "after": 10.65
+    },
+    "hallUpperRoofPeakLocalY": {
+      "before": 15.95,
+      "after": 16.2
+    },
+    "pagodaBodyWidthsLocalMetres": {
+      "before": [
+        4.466,
+        4.0832,
+        3.7004,
+        3.3176,
+        2.9348
+      ],
+      "after": [
+        4.92,
+        4.52,
+        4.12,
+        3.75,
+        3.4
+      ]
+    },
+    "pagodaTopRoofSummitLocalY": {
+      "before": 17.06,
+      "after": 17.06
+    }
+  },
+  "validation": {
+    "nativeBuffers": [
+      1254,
+      1254
+    ],
+    "nativeScale": 1,
+    "sourceStable": true,
+    "runtimeErrors": [],
+    "programLinkErrors": [],
+    "newPrimitiveAudit": "primitive-topology-r04.json: finite, positive-volume and closed manifold sweeps and shaped carriers after spatial seam weld; this does not certify an architectural union.",
+    "source176Proof": "source176-copy-proof.json; exact0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee GLB bytes retained; donor deliberate mount cuts are embedded, not described as a closed independent component.",
+    "syntaxAndWhitespace": "Changed JavaScript syntax and git diff --check passed. No broad unrelated tests.",
+    "fullAndHallHero": "One actual full reference plus second native3D subfrustum [475,250,740,1254]; not an upscaled screenshot.",
+    "towerHero": "Second native3D subfrustum [160,140,510,1254] through same unchanged reference camera.",
+    "low3q": {
+      "position": [
+        10.8,
+        4.5,
+        7.5
+      ],
+      "target": [
+        6.3,
+        10.8,
+        -14
+      ],
+      "fov": 62
+    }
+  },
+  "preserved": [
+    "11 exact protected modules, including site/camera/bridge/158 toro/bank substrate/waterline and garden/sky sources; see protected-modules.json.",
+    "Original hall/pagoda world positions, yaw and object scale, bridge span/contacts, stone lantern world anchors, site stair/bank/perimeter and wet reflection algorithms.",
+    "All historical failed candidates, source identity files and source-script archives. No Git mutation, film edit/render, scene export, Blender job or ad-hoc GPU capture."
+  ],
+  "remainingVisualGaps": [
+    "The scene remains visibly CG; native validity is not photographic acceptance.",
+    "Fine carpentry, broad fascia, repeated authored floral carving and pagoda infill remain more schematic/regular than the original; donor cloud sculpture is a different artifact and its culture/period are unspecified.",
+    "Night radiometry, indirect transport and the warm/cobalt balance remain approximate; finite LTC has no path-traced shadow/transport equivalence.",
+    "Existing garden grouping, sky structure, stone/vegetation fine surfaces, sculpture pose and reflected-water distribution still differ from HD09. These broader source domains were held within the architectural scope."
+  ],
+  "archives": {
+    "baseline": "baseline-source-scripts.tgz plus baseline-source-identity.json",
+    "rounds": [
+      "r01-source-scripts.tgz",
+      "r02-source-scripts.tgz",
+      "r03-source-scripts.tgz",
+      "r03b-source-scripts.tgz",
+      "r04-source-scripts.tgz"
+    ],
+    "scope": "Script/declaration archives omit unchanged original assets. Exact verified176 GLB copy is retained in canonical scene09/assets/carving176; all media bytes identified by source identity. R03 was prepared but never rendered; R03b explicitly isolates bridge material inheritance."
+  },
+  "reports": [
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r04/report.json",
+      "sourceHash": "61b811768614423f28ce67ecc99a2904ce1eadff39cefae1328fc561894c4fe1",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "file": "qa/ten-reference/09/iteration-scene09-mass181-r04/reference.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "78b7418fcb7c0be852181d9b8a56168855042181eb9a49c3878ce99d80dd308c",
+          "trianglesAcrossPasses": 415521400,
+          "drawCallsAcrossPasses": 10790,
+          "shadowLights": 8
+        },
+        {
+          "name": "detail-native",
+          "file": "qa/ten-reference/09/iteration-scene09-mass181-r04/detail-native.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "b90aada748deee3545b65b9eb3aae7b982813635fc52244883ab12fe26595d41",
+          "trianglesAcrossPasses": 412499800,
+          "drawCallsAcrossPasses": 10778,
+          "shadowLights": 8
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r04-low3q/report.json",
+      "sourceHash": "61b811768614423f28ce67ecc99a2904ce1eadff39cefae1328fc561894c4fe1",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "file": "qa/ten-reference/09/iteration-scene09-mass181-r04-low3q/inspection-view.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "65b83b10fd1d0b1eae5b9546a061b537a0faee630e375267c3a9eb7fbe2cda49",
+          "trianglesAcrossPasses": 287251226,
+          "drawCallsAcrossPasses": 8052,
+          "shadowLights": 8
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r04-tower-hero/report.json",
+      "sourceHash": "61b811768614423f28ce67ecc99a2904ce1eadff39cefae1328fc561894c4fe1",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "file": "qa/ten-reference/09/iteration-scene09-mass181-r04-tower-hero/reference.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "ab18be93970aa8ee16a32e9e7518941cbb52144cd6c57af10cdbf106d3633325",
+          "trianglesAcrossPasses": 415521400,
+          "drawCallsAcrossPasses": 10790,
+          "shadowLights": 8
+        },
+        {
+          "name": "detail-native",
+          "file": "qa/ten-reference/09/iteration-scene09-mass181-r04-tower-hero/detail-native.png",
+          "native": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "0076d49b18d3e1b4aea9a650f0abaff438b3edd05d51a9ff904e4a250d4f0593",
+          "trianglesAcrossPasses": 411550492,
+          "drawCallsAcrossPasses": 10764,
+          "shadowLights": 8
+        }
+      ]
+    }
+  ],
+  "comparisonBoard": {
+    "scope": "627px comparison derivatives only, CPU ffmpeg scale/crop/hstack. Actual native1254 full/hero buffers remain separately preserved. No comparison photograph or derivative is a scene asset.",
+    "order": [
+      "Original supplied HD photograph",
+      "Public actual1254 Toro158 R04 baseline",
+      "Actual1254 mass181 R04 native draft"
+    ],
+    "fullBoard": "comparison-reference-baseline-r04.jpg",
+    "hallBoard": "comparison-hall-reference-baseline-r04.jpg",
+    "hallBoardCrop": [
+      475,
+      250,
+      740,
+      1254
+    ],
+    "sources": [
+      "references/hd/8-照片-9.jpg",
+      "qa/ten-reference/09/iteration-scene09-square-toro158-r04/reference.png",
+      "qa/ten-reference/09/iteration-scene09-mass181-r04/reference.png"
+    ]
+  },
+  "changedFiles": "changed-files-r04.json",
+  "ownership": "Only canonical scene09, lookdev/scene09-mass181 and new scene09 native QA directories written."
+}

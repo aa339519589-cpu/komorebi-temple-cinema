@@ -3,7 +3,7 @@ import * as T from 'three';
 // Authored construction geometry. The photograph is never sampled here.
 // Dimensions are in the unscaled building coordinates; roof and frame share
 // the same analytical surface so that the visible bearing members meet it.
-export const PHYSICAL_ROOF_REVISION='scene09-deep-chamfered-eaves145';
+export const PHYSICAL_ROOF_REVISION='scene09-deep-seated-chamfered-eaves181-r04';
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const a=Math.sin(x*127.1+y*311.7+97.3)*43758.5453;return a-Math.floor(a);};
 
@@ -123,17 +123,17 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
 
     // Heavy curved fascia + compression moulding: the eave is a closed
     // layered assembly, with the rafter tips seated behind its lower lip.
-    draw(timber(curve(face,1,-.18),.28,.31),'wood');
-    draw(timber(curve(face,.985,-.43),.30,.20),'wood');
-    draw(timber(curve(face,1.008,-.36),.25,.12),'dark');
+    draw(timber(curve(face,1,-.20),.34,.41),'wood');
+    draw(timber(curve(face,.985,-.48),.38,.27),'wood');
+    draw(timber(curve(face,1.008,-.43),.29,.14),'dark');
     draw(timber(curve(face,1.012,-.22),.032,.034),'gold');if(api.ornament){const n=Math.ceil((face%2?hd+bd:w)/.40);for(let i=0;i<=n;i++){const p=at(face,1,-1+2*i/n,-.18);api.ornament(p,face,.070);}}
     for(const t of[.58,.78,.92]){
-      if(t<t0)continue;draw(timber(curve(face,t,-.46,32),.27,.24),'wood');
+      if(t<t0)continue;draw(timber(curve(face,t,-.48,32),.32,.28),'wood');
     }
     const rafters=Math.ceil((face%2?hd+bd:w)/.22);
     for(let i=0;i<=rafters;i++){
       const u=-1+2*i/rafters,start=Math.max(t0,.50),main=Array.from({length:15},(_,j)=>at(face,start+(1.014-start)*j/14,u,-.275));
-      draw(timber(main,.145,.18),'wood');
+      draw(timber(main,.16,.21),'wood');
       const flying=Array.from({length:9},(_,j)=>at(face,.79+.223*j/8,u,-.245));draw(timber(flying,.105,.125),'wood');
       const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.108,.128),i%4===0?'gold':'wood');
     }

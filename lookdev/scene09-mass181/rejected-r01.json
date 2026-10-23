@@ -1,0 +1,11 @@
+{
+  "revision": "scene09-mass181-r01",
+  "sourceHash": "85c8cf14f017dd67d203c30f7b87d0ed1f361dcd8bd9a2b9467948d408c48cbc",
+  "status": "Failed native capture and primitive audit; retained",
+  "visualAccepted": false,
+  "nativeReport": "qa/ten-reference/09/iteration-scene09-mass181-r01/report.json",
+  "cause": "17 shader variants exceed native MAX_TEXTURE_IMAGE_UNITS(16) after LTC samplers were added. Source also contained a consistently inward-wound new continuous timber primitive; CPU audit found signed volume -0.21452 with no boundary/nonmanifold edges.",
+  "repair": "Release two redundant shadow samplers, retaining key practical/geometry shadows; reverse all new timber primitive faces. Geometry dimensions, site and camera remain unchanged.",
+  "sourceArchive": "r01-source-scripts.tgz",
+  "cpuAudit": "primitive-topology-r01.json"
+}
