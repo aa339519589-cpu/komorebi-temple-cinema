@@ -151,7 +151,7 @@ if(inner===0&&ridge<=.05){B.cyl(0,eave+rise+.10,zc,.18,.17,'tileEdge');B.cyl(0,e
 function railing(w,y,z,ma='red',h=.85){for(const yy of[y+.23,y+h])B.box(0,yy,z,w,.13,.15,ma);for(let i=0;i<=Math.ceil(w/.75);i++){const x=-w/2+w*i/Math.ceil(w/.75);B.box(x,y+h*.56,z,.11,h,.11,ma);}for(const x of[-w/2,w/2]){B.box(x,y+h*.55,z,.20,h+.25,.2,ma);B.sphere(x,y+h+.18,z,.14,.17,.14,'goldDark');}}
 function hangingLantern(x,y,z,s=1,bright=true){B.with(x,y,z,0,()=>{const r=.30,h=.72;for(let k=0;k<6;k++){const a=k*TAU/6,b=(k+1)*TAU/6;const xx=Math.sin((a+b)/2)*r*.87,zz=Math.cos((a+b)/2)*r*.87;B.box(xx,0,zz,r, h,.016,bright?'paperGlow':'paper',[(0),(a+b)/2,0]);B.between([Math.sin(a)*r,-h/2,Math.cos(a)*r],[Math.sin(a)*r,h/2,Math.cos(a)*r],.04,.04,'goldDark');for(const yy of[-.27,0,.27])B.between([Math.sin(a)*r,yy,Math.cos(a)*r],[Math.sin(b)*r,yy,Math.cos(b)*r],.022,.022,'goldDark');}for(const yy of[-.40,.40])B.cyl(0,yy,0,.39,.06,'goldDark');B.emit(B.coneG,'goldDark',0,.49,0,.47,.15,.47);B.sphere(0,.63,0,.15,.15,.15,'gold');B.cyl(0,.84,0,.025,.30,'goldDark');B.sphere(0,-.54,0,.17,.09,.17,'gold');B.sphere(0,-.69,0,.06,.12,.06,'goldDark');},s);}
 function hall(){const restoreHallMaterials=installHallFinish161(B);B.with(...L.hall.position,L.hall.yaw,()=>{
-B.label('great-hall-stone-platform',()=>{B.box(1.45,-.525,0,21.1,3.55,11.8,'stone');emitHallCap124(B);for(let x=-8.5;x<12;x+=1.2)for(let z=-5.4;z<6;z+=1.3)B.box(x,1.285,z,1.18,.08,1.28,'stoneLight',0,.89+.13*Math.abs(Math.sin(x*7+z)));});
+B.label('great-hall-stone-platform',()=>{B.box(1.45,-.525,0,21.1,3.55,11.8,'stone');emitHallCap124(B);for(let x=-8.5;x<12;x+=1.2)for(let z=-5.4;z<6;z+=1.3){if(!(x>-.6-1.65&&x<.6+2.25&&z>2.8))B.box(x,1.285,z,1.18,.08,1.28,'stoneLight',0,.89+.13*Math.abs(Math.sin(x*7+z)));}});
 buildHallCarpentry132(B,{column,carvedFitting,rosette});
 B.label('great-hall-depth-enclosure',()=>{
  B.box(1.45,3.65,-5.4,19.1,4.80,.25,'darkwood');B.box(-8.20,3.60,0,.3,4.70,10.5,'red');B.box(11.2,3.60,0,.3,4.70,10.5,'red');
@@ -160,7 +160,7 @@ B.label('great-hall-depth-enclosure',()=>{
   B.label('hall161-recessed-lower-sliding-screens-and-transoms',()=>emitLowerWindow161(B,B.hallSculpture149,a,b));
  }
 });
-B.label('great-hall-gilded-open-portal',()=>{const center=.6;B.hallSculpture149.portal(center);
+B.label('great-hall-gilded-open-portal',()=>{const center=.6;B.hallStructure185.portal(center);B.carvedSources185Info=B.carvedSources185.mount(B,center);
 // A real recessed coffer soffit closes the taller sanctuary opening. Beam
 // bottoms sit below the ceiling slab and cast shadows from the live lights.
 B.box(center,5.69,1.2,4.65,.18,6.8,'darkwood');
@@ -182,7 +182,7 @@ for(const root of[altar,figure])root.traverse(o=>{if(!o.isMesh)return;if(o.isIns
 roof({w:27.0,d:14.9,eave:L.hall.lowerEave,rise:2.65,curl:.56,zc:-.35,inner:.43,name:'great-hall-lower-monumental-roof',wallFootprint:[-7.975,11.275,-4.8,4.2],tilePitch:.19,tileRadius:.074,edgeCapRadius:.086});
 roof({w:25.5,d:13.6,eave:L.hall.upperEave,rise:L.hall.mainRoofRise,curl:.59,zc:-.35,name:'great-hall-main-monumental-roof',irimoya:true,tilePitch:.19,tileRadius:.074,edgeCapRadius:.086});
 B.label('great-hall-platform-edge-balustrades',()=>{for(const a of[[-7.5,5.7],[5.5,7.1]])B.with(a[0],0,a[1],0,()=>railing(5.5,1.28,0,'red',.95));});
-for(const x of[-9.5,-5.8,3.5,7.4])hangingLantern(x,3.7,5.63,.72,true);
+for(const x of[-9.5,-5.8,3.5,7.4]){hangingLantern(x,3.7,5.63,.72,true);B.hallStructure185.lanternSupport(x,3.7,5.63,.72);}
 });restoreHallMaterials();}
 function veranda(){
 // The canonical reference frames the courtyard from the left gallery.

@@ -12,10 +12,8 @@ export function buildOccupiedHallEave150(B,sculpture,axes){
    sculpture.arch(axes[bay],axes[bay+1],9.66,5.13);
    sculpture.frieze(axes[bay]+.12,axes[bay+1]-.12,9.83,5.28,.21,{rich:false,wooden:true});
   }
-  for(const x of axes){
-   const top=mainHallUnderside148(x,z)-.12,scale=Math.min(.66,(top-spring)/1.23);
-   if(scale>.10)sculpture.capital(x,spring,z,{scale,depth:1.38,headFitting:false});
-  }
+  //185: primary front stacks now run continuously from the actual post
+  // head to a fitted roof saddle; the duplicate shallow upper stack is gone.
   // Crossed timber windows occupy the spaces between the primary stacks.
   // Open cells preserve depth and admit real oblique light beneath the roof.
   for(let bay=0;bay<axes.length-1;bay++){

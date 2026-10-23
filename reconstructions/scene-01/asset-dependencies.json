@@ -19,7 +19,9 @@
     "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
     "assets/polyhaven/kloppenheim-06-puresky/provenance.json",
     "assets/generated-golden-sky-v01/sky-equirectangular.png",
-    "assets/generated-golden-sky-v01/provenance.json"
+    "assets/generated-golden-sky-v01/provenance.json",
+    "lookdev/temple-carved-bearing176/sources/1336fa1889cf4eba829594fa30edd6ff/creator-primary-metadata.json",
+    "lookdev/architectural-scan-library157/sources/ccby-diana-liu-floral-panel/creator-primary-metadata.json"
   ],
   "architecture148": {
     "source": [
@@ -74,5 +76,34 @@
     "newExternalImages": false,
     "referenceScenePixelsUsed": false,
     "visualAccepted": false
+  },
+  "spatial185": {
+    "revision": "scene01-spatial-carved-court185-r04",
+    "status": "Actual geometry/material/light source candidate; actual native review required; photographic fidelity remains unaccepted",
+    "construction": [
+      "Closed waisted complementary half-lapped arms/flared dou/raking tails replace the thin front capital prototypes; roof-following solid saddles seat all18 primary front stacks",
+      "Six deep return stacks and two closed roof-following attic returns replace long unsupported-looking side sticks/cavity",
+      "Deep forward portal with returned reveals, one actual176 dragon/cloud frieze and two selective actual157 peony jamb cassettes in solid carriers",
+      "Cut-stone threshold and coursed terrace retaining faces join the retained stair landing opening"
+    ],
+    "materialAndLight": "Existing CC0 timber and physical gilt finish; finite warm stone-court radiance and reduced column lamp hotspots, retained sun direction/exposure",
+    "preserved": "Exact163 camera/site/bridge/pagoda/foreground-column/stair anchors; roof weather profiles and garden geometry source",
+    "sourceCarving": "assets/carved185/provenance.json",
+    "limitations": [
+      "Different source artifacts; culture/era/original role or physical scale unverified",
+      "Authored contacts are not surveyed/conservation structural details",
+      "Native finite light approximation has no solved diffuse GI"
+    ],
+    "r02": [
+      "Actual R01 full/hero shows old central rich strip partly masks the new full-source carving; duplicate strip removed",
+      "Crossed second/third-rank housings now occur at the actual offset crossings with matching waist widths; packing keys close receiver contact gaps",
+      "Finite courtyard radiance moves to the retained stair terrace side and uses a smaller area, so the bridge/garden stays behind its emitting hemisphere"
+    ],
+    "r03": "Fix the misplaced inline-comment/closing brace in R02; actual failed native receipt is preserved, no R02 frames exist. Geometry/material/light intent otherwise unchanged.",
+    "r04": [
+      "Actual R03 low3q exposes four inherited façade lamp stems stopping in air",
+      "Three bronze saddles wrap the retained lower girt, and the outer lamp has a closed roof-following hanger seat, washer and fastener",
+      "Real hooks and continuous rods meet the unchanged fixture stem tops; lamp bodies, foreground131 lantern and all site anchors unchanged"
+    ]
   }
 }

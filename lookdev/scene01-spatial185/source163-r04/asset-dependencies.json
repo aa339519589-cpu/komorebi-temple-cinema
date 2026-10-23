@@ -1,0 +1,78 @@
+{
+  "files": [
+    "assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/normal-gl-2k.png",
+    "assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+    "assets/polyhaven/lacquered-cherry-wood/provenance.json",
+    "assets/temple-joinery-v01/temple-joinery-v01.glb",
+    "assets/temple-joinery-v01/build-report.json",
+    "assets/polyhaven/rock-moss-set-01/provenance.json",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin",
+    "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg",
+    "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg",
+    "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+    "assets/polyhaven/qwantani-sunset-puresky/provenance.json",
+    "vendor/examples/jsm/loaders/EXRLoader.js",
+    "vendor/examples/jsm/libs/fflate.module.js",
+    "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+    "assets/polyhaven/kloppenheim-06-puresky/provenance.json",
+    "assets/generated-golden-sky-v01/sky-equirectangular.png",
+    "assets/generated-golden-sky-v01/provenance.json"
+  ],
+  "architecture148": {
+    "source": [
+      "src/architecture.js",
+      "src/hall-carpentry132.js",
+      "src/layout-components124.js",
+      "src/layout124.js"
+    ],
+    "provenance": "layout148-provenance.json",
+    "scope": "Coupled inset hall frame, irimoya halfhip/closedgable and connected return bearings; current camera, rootedbanks/stream, bridgebearinggeometry and originalsky/light preserved.",
+    "referenceScenePixelsUsed": false,
+    "visualAccepted": false
+  },
+  "sculpture149": {
+    "source": [
+      "src/hall-sculpture149.js",
+      "src/hall-carpentry132.js",
+      "src/architecture.js"
+    ],
+    "provenance": "sculpture149-provenance.json",
+    "scope": "Seated solid main-hall capitals, curved shoulder carving, continuous raised foliage friezes and portal moldings within the held148 layout and roof envelope.",
+    "newImageAssets": false,
+    "referenceScenePixelsUsed": false,
+    "visualAccepted": false
+  },
+  "finish150": {
+    "source": [
+      "src/hall-eave150.js",
+      "src/architecture.js",
+      "src/hall-carpentry132.js",
+      "src/hall-sculpture149.js",
+      "src/scanned-timber.js",
+      "src/kernel.js",
+      "src/scene.js"
+    ],
+    "provenance": "material150-provenance.json",
+    "scope": "Physical deep eave bearing/return courses, opaque aged sapwood ends, restored cloned-member weathering and rough clearcoated ceramic roofs; warmer directional sunlight with reduced broad fill.",
+    "newImageAssets": false,
+    "referenceScenePixelsUsed": false,
+    "visualAccepted": false
+  },
+  "facade161": {
+    "source": [
+      "src/hall-facade161.js",
+      "src/roof-ceramic161.js",
+      "src/hall-carpentry132.js",
+      "src/architecture.js",
+      "src/scene.js"
+    ],
+    "provenance": "facade161-provenance.json",
+    "scope": "Replace continuous pale enclosure bands with recessed timber windows, narrow framed lime cells and deeper beam/jamb hierarchy; actual concave ceramic pans, overlapped cover joints and fired end profiles on the held roof geometry.",
+    "newExternalImages": false,
+    "referenceScenePixelsUsed": false,
+    "visualAccepted": false
+  }
+}

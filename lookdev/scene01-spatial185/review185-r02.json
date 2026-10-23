@@ -1,0 +1,10 @@
+{
+  "sourceHash": "ccb2cd7d016eaac1577e00c52608670413b1c424f79605f6e4ad64d24166f63c",
+  "visualAccepted": false,
+  "status": "Actual native job failed before rendering",
+  "error": "SyntaxError: Unexpected token ')'",
+  "cause": "A trailing inline comment hid the loop closing brace while removing the duplicate central frieze",
+  "actualFrames": 0,
+  "report": "qa/ten-reference/01/iteration-scene01-spatial185-r02-20261023/report.json",
+  "repair": "Separate the closing loop brace and comment; require all changed-module syntax checks before R03 capture"
+}

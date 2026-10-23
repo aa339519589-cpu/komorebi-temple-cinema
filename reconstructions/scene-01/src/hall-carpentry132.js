@@ -5,6 +5,7 @@ import {mainHallUnderside148} from './hall-envelope148.js';
 import {createHallSculpture149} from './hall-sculpture149.js';
 import {buildOccupiedHallEave150} from './hall-eave150.js';
 import {emitUpperBay161,makeRafterEnd161} from './hall-facade161.js';
+import {createHallStructure185} from './hall-structure185.js';
 
 // Recovered visible construction of HD01. All relief, infill and bearing
 // members below are closed solids. The photo is only a measurement input.
@@ -14,7 +15,8 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
  const sap=makeRafterEnd161();
  const gild=B.m.gold.clone();gild.name='hall132-aged-gold-leaf';gild.color.setHex(0xd8ae58);gild.metalness=.58;gild.roughness=.43;B.m.hallInfill132=cream;B.m.hallSap132=sap;B.m.hallGilt132=gild;
  const sculpture=createHallSculpture149(B);B.hallSculpture149=sculpture;
- const bracket=(x,y,z,options)=>sculpture.capital(x,y,z,options);
+ const structure185=createHallStructure185(B);B.hallStructure185=structure185;
+ const bracket=(x,y,z,options)=>{if(z===5.15)structure185.front(x,y,z,false);else if(z>4.9&&z<5.4)structure185.front(x,y,z,true);else sculpture.capital(x,y,z,options);};
  const giltFace=(x,y,z,w,h)=>sculpture.fitting(x,y,z,w,h);
  const frieze=(left,right,y,z,rich=true)=>sculpture.frieze(left,right,y,z,.25,{rich,wooden:!rich,phase:left*.13});
  const bayArch=(left,right,y,z)=>sculpture.arch(left,right,y,z);
@@ -22,7 +24,8 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
  B.label('hall132-lower-posts-and-seated-capitals',()=>{
   for(const z of[5.15,-.1,-5.1])for(const x of(z===5.15?lower:Array.from({length:7},(_,i)=>-7.95+i*3.18))){sculpture.column(x,z,1.35,5.54,.34);bracket(x,5.54,z,{scale:1.01,height:.76,depth:z===5.15?1.65:1,headFitting:false,corner:Math.abs(x)>9});}
   for(const [y,h,d,z]of[[5.84,.23,.40,5.15],[6.37,.21,.31,5.66]])B.box(1.45,y,z,19.75,h,d,'wood');
-  for(let i=0;i<lower.length-1;i++){const major=lower[i+1]-lower[i]>4;frieze(lower[i]+.15,lower[i+1]-.15,major?5.92:5.36,major?5.47:5.32,major);if(!major)bayArch(lower[i],lower[i+1],5.83,5.22);}
+  for(let i=0;i<lower.length-1;i++){const major=lower[i+1]-lower[i]>4;if(!major){frieze(lower[i]+.15,lower[i+1]-.15,5.36,5.32,false);bayArch(lower[i],lower[i+1],5.83,5.22);}}
+  //185 actual primary portal replaces the former duplicate rich strip.
   // A single continuous bearing course is carried by the capitals, with fine
   // shadowed mortises between the ends rather than a floating gold strip.
   for(let k=0;k<67;k++){const x=-8.55+k*.30;B.box(x,6.32,6.35,.15,.17,.63,'darkwood');B.box(x,6.32,6.68,.12,.12,.055,'hallSap132');}
@@ -66,16 +69,7 @@ export function buildHallCarpentry132(B,{column,carvedFitting,rosette}){
    for(let k=0;k<7;k++){const x=-7.95+k*3.18,base=10.35,top=mainHallUnderside148(x,z)-.27,h=top-base;if(h>.08)B.box(x,base+h/2,z,.25,h,.30,'wood');}
   }
  });
- B.label('hall148-connected-left-return-bearings',()=>{
-  // The measured inset end frame carries the long roof overhang through
-  // paired continuous cantilevers and diagonal timber seats, not a wall slab.
-  for(const z of[5.18,-4.67]){
-   const start=[-7.35,9.70,z],mid=[-9.30,10.02,z*.94],end=[-11.80,10.25,z*1.08];
-   B.between(start,mid,.28,.34,'wood');B.between(mid,end,.25,.31,'wood');
-   B.between([-7.35,9.20,z],mid,.17,.23,'wood');B.box(-9.30,10.12,z*.94,.48,.20,.49,'wood');
-  }
-  B.between([-11.80,10.25,-5.04],[-11.80,10.25,5.59],.22,.30,'wood');
- });
+ structure185.returns();
  buildOccupiedHallEave150(B,sculpture,upper);
  return {revision:'hall149-solid-carving-and-housed-cross-receivers',resources:own.size};
 }

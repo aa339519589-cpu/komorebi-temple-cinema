@@ -1,0 +1,6 @@
+{
+  "scope": "Preserved initial CPU test-fixture issue, not a failed native candidate",
+  "error": "CPU-only fixture did not create the pre-existing hall149OldGilt material before calling the new portal builder",
+  "actualBrowserSetup": "buildHallCarpentry132 creates149 materials before185; no source change was needed",
+  "repair": "CPU fixture aliases its dummy goldDark material to hall149OldGilt; geometry audit then passes all36 closed prototypes"
+}

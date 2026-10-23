@@ -1,0 +1,77 @@
+{
+  "revision": "scene01-spatial-carved-court185-r04",
+  "sourceHash": "116237412503ed50dc2832d15c969056fea0f3c43c66f5ea3168ad9873c8beef",
+  "baseline163R04": "b714da0c19a0cdb38fd6afd3602c6c3c956a08a70f42ce1d5e34df97c88fbfca",
+  "visualAccepted": false,
+  "status": "Actual source/model/material candidate ready for root visual review; all final native views completed and viewed",
+  "actualViewed": [
+    {
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r04-20261023/reference.png",
+      "sha256": "1e31b59d24961e36fb1651af60689be1eb667ddf439d1ec34e5b5d9e70fbe291"
+    },
+    {
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r04-20261023/detail-native.png",
+      "sha256": "f3738ac3a54f56238a3742d1796c5c4753cf4759f79c7bb0f75e5e79924ecfdf"
+    },
+    {
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r04-low3q-20261023/inspection-view.png",
+      "sha256": "f806c13768eccc8971642bdb2e8570bb05e3e288be25da4fa4a8f5a8542694a5"
+    }
+  ],
+  "nativeReports": [
+    "qa/ten-reference/01/iteration-scene01-spatial185-r04-20261023/report.json",
+    "qa/ten-reference/01/iteration-scene01-spatial185-r04-low3q-20261023/report.json"
+  ],
+  "nativeErrors": 0,
+  "actualNativeFrames": 3,
+  "scope": [
+    "24 coherent three-rank bearing sets:18 primary front stacks and6 deep returns; closed waisted half-lapped arms/flared dou/raking tails, matching offset housings and receiver packing keys",
+    "Roof-following solid saddles meet the retained roof underside; two closed3D return-attic bodies and continuous wall-head beams replace open-looking side cavities/long sticks",
+    "Deep portal at the same lateral center with0.72m forward frame shift, returned reveals and one full actual176 dragon/cloud transom; old duplicated decorative rich strip removed",
+    "Two selective actual157 peony jamb cassettes, exact source buffers with uniform1.55 install scale and separately modeled solid carriers/rims",
+    "Fine cut-stone threshold and coursed retaining faces connect the existing stair terrace opening",
+    "Finite warm terrace-side court radiance and reduced orange point hotspots; sun, exposure, original sky and fixed camera retained",
+    "Four inherited hanging fixture stems gain real girt clamps/roof hanger seat/hooks/continuous rods; bodies and foreground131 lantern unchanged"
+  ],
+  "actualSourceGeometry": {
+    "dragonPrototypeTriangles": 2233900,
+    "dragonInstances": 1,
+    "floralPrototypeTriangles": 1633989,
+    "floralInstances": 2,
+    "sourceCopyProof": "lookdev/scene01-spatial185/source-geometry-copy-proof.json",
+    "provenance": "reconstructions/scene-01/assets/carved185/provenance.json",
+    "sourceAttributeBuffersChanged": false,
+    "photographOrGeneratedSceneProjection": false
+  },
+  "verification": {
+    "closedAuthoredGeometries": 41,
+    "bearingSeats": 24,
+    "geometryAudit": "lookdev/scene01-spatial185/geometry185-r04.json",
+    "syntaxCheckedModules": 6,
+    "referenceNativeAnchorsUnchanged": {
+      "camera": true,
+      "sunDirection": true,
+      "layout": true
+    },
+    "protectedOriginalFilesUnchanged": 28,
+    "previousCandidatesAndFailuresPreserved": true
+  },
+  "remainingLimits": [
+    "Photographic fidelity remains unaccepted; overall garden, roof/carpentry shape correspondence and fine lighting/material response still differ from HD01",
+    "Actual carvings are different artifacts; culture/era/original architectural role or metric interpretation is unverified",
+    "Authored contact hypotheses are not surveyed conservation/structural certification; finite native radiance has no solved diffuse GI",
+    "No film, motion or large Blender/export deliverable in this lane"
+  ],
+  "sourceChanges": [
+    "reconstructions/scene-01/src/architecture.js",
+    "reconstructions/scene-01/src/carved-sources185.js",
+    "reconstructions/scene-01/src/hall-carpentry132.js",
+    "reconstructions/scene-01/src/hall-eave150.js",
+    "reconstructions/scene-01/src/hall-structure185.js",
+    "reconstructions/scene-01/src/scene.js"
+  ],
+  "sourceSnapshot": "lookdev/scene01-spatial185/r04-source",
+  "sourceIdentity": "lookdev/scene01-spatial185/source185-r04-identity.json",
+  "ownership": "Only scene01, lookdev/scene01-spatial185 and new qa01 outputs written; scene03 frozen; no shared/other-scene/Git/children/Blender work",
+  "pendingOwnGpuWork": false
+}
