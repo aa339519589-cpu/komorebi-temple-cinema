@@ -1,0 +1,39 @@
+{
+  "status": "returned-for-camera-rebuild",
+  "recordedAt": "2026-10-23T04:01:03.501308+00:00",
+  "reason": "Root inspected actual native 0/3.5/7s poses. Giant smooth near finials obscure the main facade and visually miniaturize the temple; opening does not satisfy user monumental architecture requirement. Return to a low architectural close followed by pullback, preserving photographic endpoint.",
+  "visualAccepted": false,
+  "timeoutOrSlownessFailure": false,
+  "gpuFailureObserved": false,
+  "ownerPid": 18853,
+  "ownedBrowserPid": 18869,
+  "ownedBrowserPpidVerified": 18853,
+  "scope": "Only this owned Chromium is terminated. Official render driver catches browser closure, preserves final native report and releases shared GPU FIFO. Other jobs/processes remain untouched.",
+  "posesReviewed": [
+    "qa/ten-reference/09/iteration-scene09-carried-hall-motion187-poses/shot-0.png",
+    "qa/ten-reference/09/iteration-scene09-carried-hall-motion187-poses/shot-3p5.png",
+    "qa/ten-reference/09/iteration-scene09-carried-hall-motion187-poses/shot-7.png"
+  ],
+  "officialTerminalStatus": "failed",
+  "completedValidNativeFrames": 95,
+  "originalSourceHash": "61b811768614423f28ce67ecc99a2904ce1eadff39cefae1328fc561894c4fe1",
+  "officialClosureReport": "qa/ten-reference/09/iteration-scene09-carried-hall-motion187-r01/report.json",
+  "partialVideoProbe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 1080,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "nb_read_frames": "95"
+      }
+    ],
+    "format": {
+      "duration": "3.958333"
+    }
+  },
+  "partialVideoSha256": "fb971edb9eff92a6390f6a4f2ee63f642dc136af1c6f7d0515988357efe11efc",
+  "partialDecodeErrors": 0,
+  "ownedBrowserStillExists": false
+}
