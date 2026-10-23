@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {buildLayeredSourceLotus179} from './lotus-throne179.js';
 import {buildMonumentalMandorla,buildMonumentalAltarAccents,buildMonumentalFlowers,sculptedDragonRelief} from './monumental-altar-v3.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
@@ -41,15 +42,18 @@ export function buildRestorationAltar(options = {}) {
   root.name = 'restoration-reference6-altar';
   if (options.terraces !== false) {buildTerraces(b,layout);buildMonumentalAltarAccents(b,layout);}
   if (options.mandorlas !== false) {
-    buildMandorla(b, 0, 1.40, -.79, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],layout.mainSeatY-layout.mainThroneHeight,true);
+    const mainZ=layout.mainMandorlaZ??-.79;
+    buildMandorla(b, 0, 1.40, mainZ, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],layout.mainSeatY-layout.mainThroneHeight,true);
+    if(mainZ<-.90)b.box(0,layout.mainSeatY-layout.mainThroneHeight-.025,(mainZ-.82)/2,.16,.06,Math.abs(mainZ+.82)+.10,'lacquer');
     for (const side of [-1, 1]) buildMandorla(b, side * layout.sideFigureX, 1.80, -.87, .52,layout.headHaloCenters[1],layout.mandorlaApexY[1],layout.mandorlaWidthScales[1],2.175);
   }
   if (options.lotusThrones !== false) {
-    buildThronePedestal(b,0,0,layout.throneRadii[0],2.36,layout.mainSeatY-layout.mainThroneHeight,layout.throneDepthAspect);
-    buildLotusThrone(b,0,layout.mainSeatY,0,layout.throneRadii[0],layout.mainThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+    const mainDepth=layout.mainThroneDepthAspect??layout.throneDepthAspect;
+    buildThronePedestal(b,0,0,layout.throneRadii[0],2.36,layout.mainSeatY-layout.mainThroneHeight,mainDepth);
+    buildLotusThrone(b,0,layout.mainSeatY,0,layout.throneRadii[0],layout.mainThroneHeight,layout.throneCompensation,mainDepth,layout.mainSourceBearing);
     for(const side of [-1,1]){
       buildThronePedestal(b,side*layout.sideFigureX,-.08,layout.throneRadii[1],2.39,layout.sideSeatY-layout.sideThroneHeight,layout.throneDepthAspect);
-      buildLotusThrone(b,side*layout.sideFigureX,layout.sideSeatY,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect);
+      buildLotusThrone(b,side*layout.sideFigureX,layout.sideSeatY,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect,layout.sideSourceBearings?.[side<0?0:1]);
     }
   }
   if (options.ritualObjects !== false) {buildRitualObjects(b,layout);buildMonumentalFlowers(b,layout);}
@@ -128,6 +132,13 @@ class FurnishingBuilder {
     this.materials = {
       gold: supplied.gold || new T.MeshStandardMaterial({name:'restoration-polished-gilt',color:0xc59b49,metalness:.86,roughness:.31}),
       trim: new T.MeshStandardMaterial({name:'scene06-aged-gilt-structural-bead',color:'#856026',metalness:.78,roughness:.52}),
+      lotusCore: new T.MeshStandardMaterial({name:'scene06-lotus179-continuous-carved-gilt-bowl',color:'#b98c3d',metalness:.85,roughness:.43}),
+      lotusGold: new T.MeshStandardMaterial({name:'scene06-lotus179-satin-gold-leaf',color:'#c39646',metalness:.86,roughness:.40}),
+      lotusGiltSoft: new T.MeshStandardMaterial({name:'scene06-lotus179-soft-warm-gold-leaf',color:'#a97c35',metalness:.84,roughness:.46}),
+      lotusShadow: new T.MeshStandardMaterial({name:'scene06-lotus179-aged-carved-recess',color:'#664219',metalness:.78,roughness:.52}),
+      lotusEdge: new T.MeshStandardMaterial({name:'scene06-lotus179-rounded-gilt-edge',color:'#d0a556',metalness:.88,roughness:.38}),
+      haloGold: new T.MeshStandardMaterial({name:'scene06-halo179-aged-cast-gilt',color:'#bd9142',metalness:.84,roughness:.43}),
+      haloShadow: new T.MeshStandardMaterial({name:'scene06-halo179-shadowed-carved-gilt',color:'#885c25',metalness:.79,roughness:.51}),
       oldgold: supplied.oldgold || new T.MeshStandardMaterial({name:'restoration-carved-gilt-shadow',color:0x86602b,metalness:.77,roughness:.43}),
       lacquer: new T.MeshPhysicalMaterial({name:'restoration-black-brown-lacquer',color:0x030201,metalness:0,roughness:.32,reflectivity:.24,clearcoat:.20,clearcoatRoughness:.30}),
       haloLacquer: new T.MeshPhysicalMaterial({name:'scene06-deep-blue-black-solid-nimbus',color:'#090d12',metalness:.15,roughness:.39,clearcoat:.32,clearcoatRoughness:.27}),
@@ -159,6 +170,7 @@ class FurnishingBuilder {
   }
   add(g, material, x=0,y=0,z=0,sx=1,sy=1,sz=1,rx=0,ry=0,rz=0) {
     this.dummy.position.set(x,y,z); this.dummy.rotation.set(rx,ry,rz); this.dummy.scale.set(sx,sy,sz); this.dummy.updateMatrix();
+    material=this.materialAliases?.[material]??material;
     const key = g.uuid + ':' + material;
     if (!this.buckets.has(key)) this.buckets.set(key,{g,material,matrices:[]});
     this.buckets.get(key).matrices.push(this.stack.at(-1).clone().multiply(this.dummy.matrix));
@@ -956,7 +968,9 @@ function ref6TracedCarvingGeometry() {}
 function buildMandorla(b,x,y,z,s,headCenterY,apexY,widthScale=1,supportY,chasedHeadWheel=false) {
   const rootY=Number.isFinite(supportY)?supportY:y+1.40*s,unit=s/.75;
   b.withTransform(x,rootY,z,1,()=>{
-    buildMonumentalMandorla(b,{height:apexY-rootY,halfWidth:chasedHeadWheel?1.43*unit*widthScale/1.16:.69*(unit/(.52/.75))*widthScale/1.02,headCenter:headCenterY-rootY,isMain:chasedHeadWheel});
+    const previousAliases=b.materialAliases;b.materialAliases={gold:'haloGold',oldgold:'haloShadow'};
+    try{buildMonumentalMandorla(b,{height:apexY-rootY,halfWidth:chasedHeadWheel?1.43*unit*widthScale/1.16:.69*(unit/(.52/.75))*widthScale/1.02,headCenter:headCenterY-rootY,isMain:chasedHeadWheel});}
+    finally{b.materialAliases=previousAliases;}
     b.box(0,.13,-.10,.19*unit,.26,.22*unit,'oldgold');
   });
 }
@@ -973,8 +987,9 @@ function buildThronePedestal(b,x,z,radius,bottom,top,depthAspect){
 }
 
 function smooth01R10(x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);}
-function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],depthAspect=.68) {
+function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],depthAspect=.68,sourceBearing=null) {
   b.withTransform(x,seatY-height,z,[radialCompensation[0],1,radialCompensation[1]*depthAspect],()=>{
+    if(radius>0){buildLayeredSourceLotus179(b,{radius,height,depthAspect,sourceBearing});return;}
     // The photographed cast lotus has broad overlapping, convex lobes.
     // Its belly projects out beyond the tips, which turn back toward the seat.
     // A narrow fan of straight upward triangles reads as a thorn crown.
@@ -1012,7 +1027,10 @@ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],dep
     }
     b.lathe('r6r14-upper-petal-root-rebate',[[.45,0],[.525,0],[.525,.018],[.45,.018],[.45,0]],0,height*.25-.007,0,radius,1,'oldgold',48);
     b.torus(0,height*.025,0,radius*.56,.013,'gold',Math.PI/2);
-    b.lathe('r9-concealed-lotus-seat',[[0,0],[.40,0],[.41,.015],[0,.015]],0,height-.015,0,radius,1,'oldgold',48);
+    // A broad concealed bearing follows the actual scanned hem footprint;
+    // the source body is unchanged and is not suspended over a tiny seat cap.
+    const seatProfile=radius>1?[[0,-.012],[.76,-.012],[.81,-.006],[.81,.010],[.76,.018],[0,.018]]:[[0,0],[.40,0],[.41,.015],[0,.015]];
+    b.lathe('r179-concealed-source-lotus-bearing',seatProfile,0,height-.015,0,radius,1,'oldgold',radius>1?64:48);
   });
 }
 

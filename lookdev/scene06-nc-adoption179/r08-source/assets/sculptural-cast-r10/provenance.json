@@ -1,0 +1,249 @@
+{
+  "asset": "scene06-sculptural-cast-r10",
+  "createdUtc": "2026-10-21T10:51:52Z",
+  "method": "R10 source-led face/orbital/lip/jaw/submental-return mesh sculpture, higher flared clavicular bearing and hierarchical nonrepeating drapery. Editable procedural body/cloth and signed-distance hands with genuine CC0 structured-light head anatomy retargeted and actually sculpted toward the reference cheeks, jaw, forehead and downcast lids. The full-figure museum pose is not substituted. Each closed neckline, head, body, robe and newly cupped hands are physically voxel-unioned, gently relaxed, and decimated. No image projection, depth photograph mesh, AI frame, image plane, photographic texture, or source RGB used.",
+  "reference": "references/hd/4-\u7167\u7247-5.jpg, visual proportion/pose comparison only",
+  "anatomicalBase": "assets/cc0-fralin-buddha-head/provenance.json",
+  "referenceLandmarkGuide": "reconstructions/scene-06/modeling/scene06-r10-sculpture-landmarks.json",
+  "referenceLandmarkGuideSha256": "f4778d9965c1a47bcc00ee3631902e7a3b2af680c7671a487d63f4d4c41e49ae",
+  "source": "reconstructions/scene-06/src/restoration-buddha.js",
+  "sourceSha256": "f31986c1b3f846eedcd444f56a044f67043ab9e1ee1dc655d6ca4c9470f6cfce",
+  "generator": "reconstructions/scene-06/modeling/build-sculptural-cast-r10.mjs",
+  "fuser": "reconstructions/scene-06/modeling/fuse-sculptural-cast-r10.py",
+  "fuserSha256": "76750cbbb248d593095253d0fb9e94b7244ee282921b3820b16a2cbaee7a9116",
+  "blenderVersion": "5.2.1 LTS",
+  "headMeshSculpture": [
+    {
+      "variant": "central",
+      "method": "Broad C1 skull/soft-tissue/rounded-jaw/narrow-throat profile sculpture and normal-directed clay volumes, retaining actual measured 3D orbital/nasal/labial/concha relief along new surface normals. No raster/RGB/face plate.",
+      "profileRowsYRxRzCz": [
+        [
+          2.34,
+          0.145,
+          0.145,
+          -0.015
+        ],
+        [
+          2.44,
+          0.16,
+          0.17,
+          -0.015
+        ],
+        [
+          2.52,
+          0.185,
+          0.23,
+          -0.015
+        ],
+        [
+          2.6,
+          0.242,
+          0.34,
+          -0.018
+        ],
+        [
+          2.72,
+          0.315,
+          0.352,
+          -0.02
+        ],
+        [
+          2.86,
+          0.349,
+          0.356,
+          -0.025
+        ],
+        [
+          3.0,
+          0.343,
+          0.351,
+          -0.028
+        ],
+        [
+          3.14,
+          0.326,
+          0.355,
+          -0.03
+        ],
+        [
+          3.26,
+          0.294,
+          0.339,
+          -0.03
+        ],
+        [
+          3.32,
+          0.254,
+          0.3,
+          -0.03
+        ]
+      ],
+      "measuredReliefVertexCount": 800090,
+      "retargetedMeasuredLipReliefVertices": 52512,
+      "sourceMouthDetailWidthFactor": 0.76,
+      "sourceMouthDetailYShift": -0.028,
+      "headPlacementY": -0.18,
+      "jawCornerRaiseModelUnits": 0.06,
+      "temporaryBaseSmoothIterations": 80,
+      "temporaryBaseIsNotFinalSurface": true
+    },
+    {
+      "variant": "left",
+      "method": "Broad C1 skull/soft-tissue/rounded-jaw/narrow-throat profile sculpture and normal-directed clay volumes, retaining actual measured 3D orbital/nasal/labial/concha relief along new surface normals. No raster/RGB/face plate.",
+      "profileRowsYRxRzCz": [
+        [
+          2.34,
+          0.145,
+          0.145,
+          -0.015
+        ],
+        [
+          2.44,
+          0.16,
+          0.17,
+          -0.015
+        ],
+        [
+          2.52,
+          0.185,
+          0.23,
+          -0.015
+        ],
+        [
+          2.6,
+          0.242,
+          0.34,
+          -0.018
+        ],
+        [
+          2.72,
+          0.315,
+          0.352,
+          -0.02
+        ],
+        [
+          2.86,
+          0.349,
+          0.356,
+          -0.025
+        ],
+        [
+          3.0,
+          0.343,
+          0.351,
+          -0.028
+        ],
+        [
+          3.14,
+          0.326,
+          0.355,
+          -0.03
+        ],
+        [
+          3.26,
+          0.294,
+          0.339,
+          -0.03
+        ],
+        [
+          3.32,
+          0.254,
+          0.3,
+          -0.03
+        ]
+      ],
+      "measuredReliefVertexCount": 800090,
+      "retargetedMeasuredLipReliefVertices": 52512,
+      "sourceMouthDetailWidthFactor": 0.76,
+      "sourceMouthDetailYShift": -0.028,
+      "headPlacementY": -0.18,
+      "jawCornerRaiseModelUnits": 0.06,
+      "temporaryBaseSmoothIterations": 80,
+      "temporaryBaseIsNotFinalSurface": true
+    },
+    {
+      "variant": "right",
+      "method": "Broad C1 skull/soft-tissue/rounded-jaw/narrow-throat profile sculpture and normal-directed clay volumes, retaining actual measured 3D orbital/nasal/labial/concha relief along new surface normals. No raster/RGB/face plate.",
+      "profileRowsYRxRzCz": [
+        [
+          2.34,
+          0.145,
+          0.145,
+          -0.015
+        ],
+        [
+          2.44,
+          0.16,
+          0.17,
+          -0.015
+        ],
+        [
+          2.52,
+          0.185,
+          0.23,
+          -0.015
+        ],
+        [
+          2.6,
+          0.242,
+          0.34,
+          -0.018
+        ],
+        [
+          2.72,
+          0.315,
+          0.352,
+          -0.02
+        ],
+        [
+          2.86,
+          0.349,
+          0.356,
+          -0.025
+        ],
+        [
+          3.0,
+          0.343,
+          0.351,
+          -0.028
+        ],
+        [
+          3.14,
+          0.326,
+          0.355,
+          -0.03
+        ],
+        [
+          3.26,
+          0.294,
+          0.339,
+          -0.03
+        ],
+        [
+          3.32,
+          0.254,
+          0.3,
+          -0.03
+        ]
+      ],
+      "measuredReliefVertexCount": 800090,
+      "retargetedMeasuredLipReliefVertices": 52512,
+      "sourceMouthDetailWidthFactor": 0.76,
+      "sourceMouthDetailYShift": -0.028,
+      "headPlacementY": -0.18,
+      "jawCornerRaiseModelUnits": 0.06,
+      "temporaryBaseSmoothIterations": 80,
+      "temporaryBaseIsNotFinalSurface": true
+    }
+  ],
+  "voxelSizeModelUnits": 0.0045,
+  "decimateRatio": 0.36,
+  "elapsedSeconds": 143.22639989852905,
+  "visualAccepted": false,
+  "limits": [
+    "A valid connected cast mesh does not establish a photo match.",
+    "The anatomical source is a different historical artifact, retargeted as a real 3D modeling base; it is not claimed as a scan of the photographed statue.",
+    "Voxel union may soften features finer than 4.5mm in pre-conversion model units.",
+    "The indoor light field and carved mandorlas remain separate reconstruction candidates."
+  ]
+}

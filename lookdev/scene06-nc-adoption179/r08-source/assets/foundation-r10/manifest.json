@@ -1,0 +1,294 @@
+{
+  "revision": "scene06-foundation-r10",
+  "format": "SC07:20-byte header, float32 position/normal/neutral UV, uint32 triangle indices",
+  "coordinateSystem": "+Y-up,+Z-front",
+  "seatAnchor": [
+    0,
+    0,
+    0
+  ],
+  "nominalAboveSeatHeight": 3.26,
+  "bodyBounds": {
+    "blenderZUp": [
+      [
+        -1.558590054512024,
+        -0.7673966884613037,
+        -0.10311733186244965
+      ],
+      [
+        1.5585893392562866,
+        0.7980000972747803,
+        3.260000228881836
+      ]
+    ],
+    "threeYUp": [
+      [
+        -1.558590054512024,
+        -0.10311733186244965,
+        -0.7980000972747803
+      ],
+      [
+        1.5585893392562866,
+        3.260000228881836,
+        0.7673966884613037
+      ]
+    ]
+  },
+  "assemblyBounds": {
+    "blenderZUp": [
+      [
+        -1.558590054512024,
+        -1.5089706182479858,
+        -0.7000000476837158
+      ],
+      [
+        1.5585893392562866,
+        1.508460521697998,
+        3.260000228881836
+      ]
+    ],
+    "threeYUp": [
+      [
+        -1.558590054512024,
+        -0.7000000476837158,
+        -1.508460521697998
+      ],
+      [
+        1.5585893392562866,
+        3.260000228881836,
+        1.5089706182479858
+      ]
+    ]
+  },
+  "bodyOnly": [
+    {
+      "material": "cloth",
+      "file": "central-body-cloth-79e62aec65dcda25.bin",
+      "vertices": 870060,
+      "triangles": 1738376,
+      "bytes": 48702452,
+      "sha256": "79e62aec65dcda2570fb0d52de38b3952eab5b7e437b8739176edd85efc584fc"
+    },
+    {
+      "material": "face",
+      "file": "central-body-face-b81154e5677968fb.bin",
+      "vertices": 101580,
+      "triangles": 201612,
+      "bytes": 5669924,
+      "sha256": "b81154e5677968fbff822a916e9ca82a71bd879e6a4b886cf91b0c5c4d0839e7"
+    },
+    {
+      "material": "hand",
+      "file": "central-body-hand-2c2f962a8e75184b.bin",
+      "vertices": 58410,
+      "triangles": 115538,
+      "bytes": 3255596,
+      "sha256": "2c2f962a8e75184bc58a169e96c81d4f7e076ce635f6c34468917179fa3c1818"
+    },
+    {
+      "material": "hair",
+      "file": "central-body-hair-7152b767f3cf7a34.bin",
+      "vertices": 83397,
+      "triangles": 161476,
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "material": "gold",
+      "file": "central-body-gold-168902d117a0595d.bin",
+      "vertices": 55200,
+      "triangles": 109792,
+      "bytes": 3083924,
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f"
+    }
+  ],
+  "lotusOnly": [
+    {
+      "material": "oldgold",
+      "file": "central-lotus-oldgold-71ea1626698e0f89.bin",
+      "vertices": 37330,
+      "triangles": 74596,
+      "bytes": 2089732,
+      "sha256": "71ea1626698e0f89a630d3e2f02de5a7b4afc86fc902b77279b06984ab15a4cf"
+    },
+    {
+      "material": "gold",
+      "file": "central-lotus-gold-e4cd12be3858b058.bin",
+      "vertices": 27076,
+      "triangles": 54096,
+      "bytes": 1515604,
+      "sha256": "e4cd12be3858b0586cc45e0c16558188c723820a2f687ae1152d9e83781b96d8"
+    },
+    {
+      "material": "cloth",
+      "file": "central-lotus-cloth-cb6e59f6b40b75ca.bin",
+      "vertices": 25142,
+      "triangles": 50232,
+      "bytes": 1407348,
+      "sha256": "cb6e59f6b40b75ca1a223877c54f51e9ce6f5b46ca7dca358e52bb0989187b50"
+    }
+  ],
+  "faceCore": {
+    "parts": [
+      {
+        "material": "face",
+        "file": "central-head-core-face-0d3b92469ec91f3f.bin",
+        "vertices": 101580,
+        "triangles": 201612,
+        "bytes": 5669924,
+        "sha256": "0d3b92469ec91f3f12b00dd370444aeb5dd59582c4f48fc1c90b550b818fa147"
+      }
+    ],
+    "bounds": {
+      "blenderZUp": [
+        [
+          -0.4221254885196686,
+          -0.4460238218307495,
+          2.25
+        ],
+        [
+          0.42065519094467163,
+          0.48827338218688965,
+          2.9850006103515625
+        ]
+      ],
+      "threeYUp": [
+        [
+          -0.4221254885196686,
+          2.25,
+          -0.48827338218688965
+        ],
+        [
+          0.42065519094467163,
+          2.9850006103515625,
+          0.4460238218307495
+        ]
+      ]
+    },
+    "neckAnchor": [
+      0,
+      2.25,
+      0
+    ],
+    "scalpCutY": 2.985,
+    "includesHairOrCrown": false
+  },
+  "variants": {
+    "central": [
+      {
+        "material": "cloth",
+        "file": "central-body-cloth-79e62aec65dcda25.bin",
+        "vertices": 870060,
+        "triangles": 1738376,
+        "bytes": 48702452,
+        "sha256": "79e62aec65dcda2570fb0d52de38b3952eab5b7e437b8739176edd85efc584fc"
+      },
+      {
+        "material": "face",
+        "file": "central-body-face-b81154e5677968fb.bin",
+        "vertices": 101580,
+        "triangles": 201612,
+        "bytes": 5669924,
+        "sha256": "b81154e5677968fbff822a916e9ca82a71bd879e6a4b886cf91b0c5c4d0839e7"
+      },
+      {
+        "material": "hand",
+        "file": "central-body-hand-2c2f962a8e75184b.bin",
+        "vertices": 58410,
+        "triangles": 115538,
+        "bytes": 3255596,
+        "sha256": "2c2f962a8e75184bc58a169e96c81d4f7e076ce635f6c34468917179fa3c1818"
+      },
+      {
+        "material": "hair",
+        "file": "central-body-hair-7152b767f3cf7a34.bin",
+        "vertices": 83397,
+        "triangles": 161476,
+        "bytes": 4606436,
+        "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+      },
+      {
+        "material": "gold",
+        "file": "central-body-gold-168902d117a0595d.bin",
+        "vertices": 55200,
+        "triangles": 109792,
+        "bytes": 3083924,
+        "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f"
+      }
+    ]
+  },
+  "materials": {
+    "cloth": {
+      "baseColorLinear": [
+        0.5583403706550598,
+        0.35153260827064514,
+        0.07227185368537903,
+        1.0
+      ],
+      "metalness": 0.9200000166893005,
+      "roughness": 0.4399999976158142
+    },
+    "face": {
+      "baseColorLinear": [
+        0.6239603757858276,
+        0.3967552185058594,
+        0.08437620848417282,
+        1.0
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.3400000035762787
+    },
+    "hand": {
+      "baseColorLinear": [
+        0.5972017645835876,
+        0.38132601976394653,
+        0.0802198201417923,
+        1.0
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.3499999940395355
+    },
+    "hair": {
+      "baseColorLinear": [
+        0.015208514407277107,
+        0.011612244881689548,
+        0.007499032188206911,
+        1.0
+      ],
+      "metalness": 0.23000000417232513,
+      "roughness": 0.49000000953674316
+    },
+    "gold": {
+      "baseColorLinear": [
+        0.6653872728347778,
+        0.43965718150138855,
+        0.10702310502529144,
+        1.0
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.41999998688697815
+    },
+    "oldgold": {
+      "baseColorLinear": [
+        0.43965718150138855,
+        0.2622506618499756,
+        0.04817182570695877,
+        1.0
+      ],
+      "metalness": 0.9300000071525574,
+      "roughness": 0.4300000071525574
+    },
+    "burnished_detail": {
+      "baseColorLinear": [
+        0.68668532371521,
+        0.4793201684951782,
+        0.1384316086769104,
+        1.0
+      ],
+      "metalness": 0.949999988079071,
+      "roughness": 0.3100000023841858
+    }
+  },
+  "visualAccepted": false,
+  "sourceAttribution": "Buddha Head by beachmouse, CC BY 4.0, via Sketchfab and Objaverse; rigidly cropped/placed and subdivided. New body, neck bridge and fine hair geometry authored for this reconstruction."
+}

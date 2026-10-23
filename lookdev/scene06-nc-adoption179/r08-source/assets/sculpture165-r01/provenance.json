@@ -1,0 +1,29 @@
+{
+  "status": "actual-3D-candidate-awaiting-native-review",
+  "visualAccepted": false,
+  "heldIncomingSourceHash": "a13508d8bd925ad42347e677676d5b3878436bab1fd878d8b8925f02df4383d4",
+  "builder": "reconstructions/scene-06/modeling/sculpture165/build.py",
+  "geometry": "reconstructions/scene-06/modeling/sculpture165/geometry.py",
+  "exactBuildSource": "lookdev/scene06-sculpture165/r01",
+  "sourceAttribution": "Buddha Head by beachmouse, CC BY 4.0, via Sketchfab and Objaverse; cropped, proportionally sculpted in actual 3D, fitted and subdivided. New broad knee volumes, asymmetrical drapery, body, neck bridge and fine hair geometry authored for this reconstruction.",
+  "sourceLicense": "CC-BY-4.0",
+  "sourceURL": "https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab",
+  "sourceLimit": "Creator records Japanese tea garden in California; maker, date, manufacturing origin undocumented. Different statue than supplied reference.",
+  "sourceRetarget": {
+    "facialGeometryReshaped": true,
+    "maxSourceCageDelta": 0.05842970413693615,
+    "operation": "Height-dependent transverse narrowing, depth compaction, broad lip-projection reduction, outer orbital settling. Actual CC BY surface triangles remain; no image displacement or projected reference."
+  },
+  "authoredChanges": [
+    "Closed broad variable-section thigh/knee/shin masses replace inflated returning leg tubes.",
+    "Unequal broad robe turns, short tributary creases and a gathered side stole displace the continuous torso skin.",
+    "Long sleeve load paths gather at the elbow; wider cast cloth planes replace repeating narrow ribs.",
+    "Connected raised loop hands, actual joined throat and fine cap curls retained."
+  ],
+  "noNoncommercialGeometry": true,
+  "noPhotoOrGeneratedFrame": true,
+  "limits": [
+    "CC BY donor is a different sculpture; facial identity still differs.",
+    "Topology and valid rendering do not establish photographic fidelity."
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "revision": "scene06-sculpture165-r07",
+  "format": "SC07:20-byte header, float32 position/normal/neutral UV, uint32 triangle indices",
+  "coordinateSystem": "+Y-up/+Z-front",
+  "seatAnchor": [
+    0,
+    0,
+    0
+  ],
+  "seatAnchorType": "Original donor cut-plane runtime locator; authored rounded underside reaches localY-.220 into the existing closed lotus core.",
+  "authoredLowerBearingPoint": [
+    0,
+    -0.22,
+    0
+  ],
+  "nominalAboveSeatHeight": 3.7100050544738767,
+  "bodyBounds": {
+    "threeYUp": [
+      [
+        -1.572635531425476,
+        -0.2199999988079071,
+        -1.6206631660461426
+      ],
+      [
+        1.2744255065917969,
+        3.713501453399658,
+        1.4298726320266724
+      ]
+    ]
+  },
+  "bodyOnly": [
+    {
+      "file": "central-body-cloth-64fc2fd2d2a2b66e.bin",
+      "material": "cloth",
+      "vertices": 494154,
+      "triangles": 986466,
+      "bytes": 27650540,
+      "sha256": "64fc2fd2d2a2b66e83d330f7fd6ef85c92109652dfcc69cb8a6b26c37cd97b44"
+    },
+    {
+      "file": "central-body-face-9ee67c38dddc3b6d.bin",
+      "material": "face",
+      "vertices": 166523,
+      "triangles": 330147,
+      "bytes": 9290520,
+      "sha256": "9ee67c38dddc3b6d084c12950908bd692f572d511ac3efc061d85e053637396d"
+    },
+    {
+      "file": "central-body-hair-3b67e7b5337b4bc8.bin",
+      "material": "hair",
+      "vertices": 139527,
+      "triangles": 276347,
+      "bytes": 7781048,
+      "sha256": "3b67e7b5337b4bc873c83bf42cc218337ab3d08ff0d167b17f6b993522bd0ce0"
+    },
+    {
+      "file": "central-body-hand-b79983bab42ddbb2.bin",
+      "material": "hand",
+      "vertices": 51445,
+      "triangles": 102320,
+      "bytes": 2874100,
+      "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+    }
+  ],
+  "variants": {
+    "central": [
+      {
+        "file": "central-body-cloth-64fc2fd2d2a2b66e.bin",
+        "material": "cloth",
+        "vertices": 494154,
+        "triangles": 986466,
+        "bytes": 27650540,
+        "sha256": "64fc2fd2d2a2b66e83d330f7fd6ef85c92109652dfcc69cb8a6b26c37cd97b44"
+      },
+      {
+        "file": "central-body-face-9ee67c38dddc3b6d.bin",
+        "material": "face",
+        "vertices": 166523,
+        "triangles": 330147,
+        "bytes": 9290520,
+        "sha256": "9ee67c38dddc3b6d084c12950908bd692f572d511ac3efc061d85e053637396d"
+      },
+      {
+        "file": "central-body-hair-3b67e7b5337b4bc8.bin",
+        "material": "hair",
+        "vertices": 139527,
+        "triangles": 276347,
+        "bytes": 7781048,
+        "sha256": "3b67e7b5337b4bc873c83bf42cc218337ab3d08ff0d167b17f6b993522bd0ce0"
+      },
+      {
+        "file": "central-body-hand-b79983bab42ddbb2.bin",
+        "material": "hand",
+        "vertices": 51445,
+        "triangles": 102320,
+        "bytes": 2874100,
+        "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+      }
+    ]
+  },
+  "materials": {
+    "cloth": {
+      "baseColorLinear": [
+        0.5583403706550598,
+        0.37123769521713257,
+        0.08865558356046677,
+        1
+      ],
+      "metalness": 0.8999999761581421,
+      "roughness": 0.5299999713897705
+    },
+    "face": {
+      "baseColorLinear": [
+        0.6239603757858276,
+        0.41788506507873535,
+        0.10702310502529144,
+        1
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.4300000071525574
+    },
+    "hand": {
+      "baseColorLinear": [
+        0.5972017645835876,
+        0.4019777774810791,
+        0.09758734703063965,
+        1
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.41999998688697815
+    },
+    "hair": {
+      "baseColorLinear": [
+        0.016807375475764275,
+        0.012983032502233982,
+        0.008568125776946545,
+        1
+      ],
+      "metalness": 0.23999999463558197,
+      "roughness": 0.5299999713897705
+    },
+    "gold": {
+      "baseColorLinear": [
+        0.6795424818992615,
+        0.4677838087081909,
+        0.1441284716129303,
+        1
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.3499999940395355
+    }
+  },
+  "visualAccepted": false,
+  "sourceAttribution": "CC0-1.0 measured Tang cloth by Daniel Pett plus Buddha head by peel-3d.com, CC BY4.0. Head source face/ears/jaw/neck retained under declared uniform fit; crown cut/scalp, neck/waist/under-leg mounts and hands authored. Both artifacts differ from Japanese reference06.",
+  "sourceURL": "https://sketchfab.com/3d-models/seated-figure-of-buddha-a4d22eb6d3c44848bd49b89fb4c28759",
+  "sourceLicense": "CC0-1.0 + CC-BY-4.0 + authored mounts",
+  "sourceLimit": "Different Chinese Tang cloth artifact and decorative source head of undocumented culture/era, not verified Japanese/Amida. Source real dimensions undocumented; viewing normalization, body affine and uniform head fit declared. Stone erosion and wave hair remain; no photographic acceptance.",
+  "additionalSourceAttributions": [
+    {
+      "title": "Buddha head",
+      "creator": "peel-3d.com",
+      "license": "CC-BY-4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceURL": "https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79",
+      "originalSourceSha256": "41d8c094ada94bcf265b92ac72e4737f60710532dd5719f871cacd144f305d9d",
+      "componentInputSha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8",
+      "changes": "Source173 clipped crown/neck and neutralized colors. This recipe applies only positive uniform fit, authors scalp/neck bridges, and retains original face geometry/normals. Source RGB/textures unused.",
+      "cultureAndPeriod": "Undocumented by creator; not a verified Japanese/Amida artifact."
+    }
+  ],
+  "actualHeadPreservation": {
+    "inputVertices": 166523,
+    "outputFaceVertices": 166523,
+    "inputTriangles": 330147,
+    "outputFaceTriangles": 330147,
+    "maxLocalPositionDeltaAfterDeclaredUniformFit": 0,
+    "normalMethod": "Exact original SC07 normal vectors exported at every source head vertex; positive uniform scale does not rotate normal directions.",
+    "sourceFaceRemeshed": false,
+    "sourceFaceSmoothed": false,
+    "sourceFaceLocallyDeformed": false
+  },
+  "headUniformFit": {
+    "scale": 0.65,
+    "translation": [
+      -0.0016903987852856517,
+      2.830005168914795,
+      -1.1531648635864258
+    ],
+    "neckRiseAboveActualClothRing": 0.13,
+    "scalpHeight": 0.23,
+    "sourceOriginalVertices": 166523,
+    "sourceOriginalTriangles": 330147,
+    "sourceFaceLocalDeformation": false,
+    "sourceFaceRemeshOrSmoothing": false,
+    "sourceNormals": "Original SC07 vectors unchanged under positive uniform scale; exact original per-position normals override assembly recomputation on export.",
+    "sourceCulture": "Unknown culture and period; not a verified Japanese/Amida artifact."
+  },
+  "localClothNeckTrim": {
+    "originalCutY": 2.700005054473877,
+    "newCutY": 2.660005054473877,
+    "removedBandHeight": 0.04,
+    "reason": "Actual R06 cloth neck x-span.4469 vs source head.5915 created a flared collar. Actual lower section x.5869/z.5310 matches unchanged head x.5915/z.5452. Only this upper cloth-neck band is trimmed; source face/head/fit/normals remain fixed.",
+    "bridge": "Cubic strips tangent to actual lower cloth and original upper source-head normal planes, with exact original boundary vertices."
+  },
+  "sourceRetarget": {
+    "method": "MeasuredCC0 cloth under declared affine fit; only the upper.040 model-unit neck band is trimmed to a measured diameter match and exact-boundary cubic neck strips follow actual endpoint tangent planes. Source face/head position/scale/normals remain fixed; coincident seams welded within3e-6 viewing metres before connected orientation anchored to retained source triangles. Exact original boundary vertices retained in local waist/neck zipper bridges; source shoulder cowls are joined before actual torso waist trim. Actual CC BY head face/ears/jaw/neck under declared uniform fit, with exact original normals exported; measured neck/crown rings connect authored neck/scalp closure. No local facial displacement, source-head remesh/smoothing, donor-face projection, incision floor or DoubleSide mask.",
+    "retainedMeasuredPointMaxDelta": 3.205991647391149e-16,
+    "retainedPointAuditBasis": "Separately bounded-restored169R04 surface; original169R03 buffers and all restoration deltas remain retained.",
+    "boundedLocalRestoration": {
+      "kneesSourceViewingUnits": 0.006195700174469931,
+      "torsoSourceViewingUnits": 0.0021178678028657594,
+      "kneesAfterDeclaredAffine": 0.014931831446946008,
+      "torsoAfterDeclaredAffine": 0.005074195830458512
+    },
+    "measuredClothGlobalSmoothing": false,
+    "mountTopology": {
+      "vertices": 435022,
+      "faces": 655640,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "components": [
+        {
+          "faces": 655618,
+          "sourceOrientationAnchors": 409923,
+          "sourceDisagreements": 0,
+          "componentFlippedToSource": false
+        },
+        {
+          "faces": 22,
+          "sourceOrientationAnchors": 2,
+          "sourceDisagreements": 0,
+          "componentFlippedToSource": true
+        }
+      ]
+    },
+    "erosionRestoration": "Separately viewed169R04 iteration02 alternate only: bounded front-knee erosion and torso chatter masks, topology/mount rings locked. Max source viewing-unit deltas recorded; deeper damage remains."
+  },
+  "modelHeadAxis": [
+    4.271134912414709e-8,
+    2.700005054473877,
+    -1.152508020401001
+  ],
+  "recommendedCentralMandorlaZ": -1.15,
+  "recommendedCentralHaloCenterModelY": 3.2500050544738768,
+  "recommendedMainLotusDepthAspect": 0.82,
+  "canonicalPackageScope": "Body-only SC07. Existing independently authored lotus and altar retained; actual full/head-core study files remain in lookdev."
+}

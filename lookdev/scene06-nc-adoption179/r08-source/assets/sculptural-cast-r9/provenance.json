@@ -1,0 +1,23 @@
+{
+  "asset": "scene06-sculptural-cast-r9",
+  "createdUtc": "2026-10-21T06:57:43Z",
+  "method": "Editable procedural body/cloth and signed-distance hands with genuine CC0 structured-light head anatomy retargeted and actually sculpted toward the reference cheeks, jaw, forehead and downcast lids. The full-figure museum pose is not substituted. Each closed neckline, head, body, robe and newly cupped hands are physically voxel-unioned, gently relaxed, and decimated. No image projection, depth photograph mesh, AI frame, image plane, photographic texture, or source RGB used.",
+  "reference": "references/hd/4-\u7167\u7247-5.jpg, visual proportion/pose comparison only",
+  "anatomicalBase": "assets/cc0-fralin-buddha-head/provenance.json",
+  "source": "reconstructions/scene-06/src/restoration-buddha.js",
+  "sourceSha256": "ecfe70a6cf8f32dfdb8914379702f6f532229a4aef8095161378e732d4fe5318",
+  "generator": "reconstructions/scene-06/modeling/build-sculptural-cast-r9.mjs",
+  "fuser": "reconstructions/scene-06/modeling/fuse-sculptural-cast-r9.py",
+  "fuserSha256": "467b87a0c17a86ad2675e5121948d53958910bd52defadffeb9c834e76958636",
+  "blenderVersion": "5.2.1 LTS",
+  "voxelSizeModelUnits": 0.0045,
+  "decimateRatio": 0.36,
+  "elapsedSeconds": 110.58573985099792,
+  "visualAccepted": false,
+  "limits": [
+    "A valid connected cast mesh does not establish a photo match.",
+    "The anatomical source is a different historical artifact, retargeted as a real 3D modeling base; it is not claimed as a scan of the photographed statue.",
+    "Voxel union may soften features finer than 4.5mm in pre-conversion model units.",
+    "The indoor light field and carved mandorlas remain separate reconstruction candidates."
+  ]
+}

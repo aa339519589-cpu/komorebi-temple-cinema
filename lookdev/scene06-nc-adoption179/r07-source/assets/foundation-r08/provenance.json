@@ -1,0 +1,102 @@
+{
+  "status": "provisional-native-integration-unaccepted",
+  "visualAccepted": false,
+  "input": "lookdev/scene06-statue-foundation-v2/r08-coherent-sculpture/sc07/manifest.json",
+  "sourceAttribution": "Buddha Head by beachmouse, CC BY 4.0, via Sketchfab and Objaverse; rigidly cropped/placed and subdivided. New body, neck bridge and fine hair geometry authored for this reconstruction.",
+  "sourceLicense": "CC-BY-4.0",
+  "sourceURL": "https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab",
+  "sourceProvenanceLimit": "Creator records Japanese tea garden in California. Maker, date and manufacturing origin undocumented. Different statue from sanctuary reference.",
+  "bodyOnly": [
+    {
+      "material": "cloth",
+      "file": "central-body-cloth-fd1dfbe6a0197c6f.bin",
+      "vertices": 710445,
+      "triangles": 1419600,
+      "bytes": 39769460,
+      "sha256": "fd1dfbe6a0197c6f55ecdd32cc038198296b0ac8d625966185c43c6a89b8e4b5"
+    },
+    {
+      "material": "face",
+      "file": "central-body-face-dfd315d2a473668f.bin",
+      "vertices": 101532,
+      "triangles": 201564,
+      "bytes": 5667812,
+      "sha256": "dfd315d2a473668fcd0e3d8869e1bcbc3a4398c025e6775eb61a4b73b122acbf"
+    },
+    {
+      "material": "hand",
+      "file": "central-body-hand-5e506666f7a5977e.bin",
+      "vertices": 45862,
+      "triangles": 90834,
+      "bytes": 2557612,
+      "sha256": "5e506666f7a5977edc794b5f21c2ba2778cc8f2214a2f3c9c93edad09cc44920"
+    },
+    {
+      "material": "hair",
+      "file": "central-body-hair-7152b767f3cf7a34.bin",
+      "vertices": 83397,
+      "triangles": 161476,
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "material": "gold",
+      "file": "central-body-gold-480d94ebed390c64.bin",
+      "vertices": 55200,
+      "triangles": 109792,
+      "bytes": 3083924,
+      "sha256": "480d94ebed390c649b39457b209790d519750c0edf4ce5d1836338002a2f99e0"
+    }
+  ],
+  "faceCore": {
+    "parts": [
+      {
+        "material": "face",
+        "file": "central-head-core-face-6b4dd6aea10dee19.bin",
+        "vertices": 101532,
+        "triangles": 201564,
+        "bytes": 5667812,
+        "sha256": "6b4dd6aea10dee191ddbbe4453dc5627730bca3dd4a74e2811b9378d697c2df4"
+      }
+    ],
+    "bounds": {
+      "blenderZUp": [
+        [
+          -0.4221254885196686,
+          -0.4460238218307495,
+          2.070000171661377
+        ],
+        [
+          0.42065519094467163,
+          0.48827338218688965,
+          2.9850006103515625
+        ]
+      ],
+      "threeYUp": [
+        [
+          -0.4221254885196686,
+          2.070000171661377,
+          -0.48827338218688965
+        ],
+        [
+          0.42065519094467163,
+          2.9850006103515625,
+          0.4460238218307495
+        ]
+      ]
+    },
+    "neckAnchor": [
+      0,
+      2.07,
+      0
+    ],
+    "scalpCutY": 2.985,
+    "includesHairOrCrown": false
+  },
+  "retainedFromR11": "Left/right figures remain legacy R11. Altar owns separate lotus thrones.",
+  "limits": [
+    "Provisional actual mesh integration; no fidelity acceptance.",
+    "Irregular drapery remains too shallow; knee and sleeve volumes remain different from supplied photograph.",
+    "Body-only export consumes actual positions/normals/UVs/indices; source scan image maps absent."
+  ]
+}

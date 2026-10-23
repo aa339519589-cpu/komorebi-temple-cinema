@@ -1,0 +1,167 @@
+{
+  "revision": "scene06-sculpture165-r03b",
+  "format": "SC07:20-byte header, float32 position/normal/neutral UV, uint32 triangle indices",
+  "coordinateSystem": "+Y-up/+Z-front",
+  "seatAnchor": [
+    0,
+    0,
+    0
+  ],
+  "nominalAboveSeatHeight": 3.7100050544738767,
+  "bodyBounds": {
+    "threeYUp": [
+      [
+        -1.572635531425476,
+        -3.205991647391149e-16,
+        -1.6206631660461426
+      ],
+      [
+        1.2744255065917969,
+        3.709270477294922,
+        1.4298726320266724
+      ]
+    ]
+  },
+  "bodyOnly": [
+    {
+      "file": "central-body-cloth-19a2d40cc86df492.bin",
+      "material": "cloth",
+      "vertices": 393427,
+      "triangles": 760782,
+      "bytes": 21719068,
+      "sha256": "19a2d40cc86df492ca3a29b8125e27f279fd76c9a30510f1187047314ef14db6"
+    },
+    {
+      "file": "central-body-face-ae677a504a593c76.bin",
+      "material": "face",
+      "vertices": 288344,
+      "triangles": 575198,
+      "bytes": 16129404,
+      "sha256": "ae677a504a593c76b68295879c982e389c8c8929e6e31f1cbaf749f62e9a5936"
+    },
+    {
+      "file": "central-body-hair-df8155e7741e4484.bin",
+      "material": "hair",
+      "vertices": 115490,
+      "triangles": 229320,
+      "bytes": 6447540,
+      "sha256": "df8155e7741e4484e4e5c2fe133959399161ed4d445dd7e9a6e6570a392ceb22"
+    },
+    {
+      "file": "central-body-hand-b79983bab42ddbb2.bin",
+      "material": "hand",
+      "vertices": 51445,
+      "triangles": 102320,
+      "bytes": 2874100,
+      "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+    }
+  ],
+  "variants": {
+    "central": [
+      {
+        "file": "central-body-cloth-19a2d40cc86df492.bin",
+        "material": "cloth",
+        "vertices": 393427,
+        "triangles": 760782,
+        "bytes": 21719068,
+        "sha256": "19a2d40cc86df492ca3a29b8125e27f279fd76c9a30510f1187047314ef14db6"
+      },
+      {
+        "file": "central-body-face-ae677a504a593c76.bin",
+        "material": "face",
+        "vertices": 288344,
+        "triangles": 575198,
+        "bytes": 16129404,
+        "sha256": "ae677a504a593c76b68295879c982e389c8c8929e6e31f1cbaf749f62e9a5936"
+      },
+      {
+        "file": "central-body-hair-df8155e7741e4484.bin",
+        "material": "hair",
+        "vertices": 115490,
+        "triangles": 229320,
+        "bytes": 6447540,
+        "sha256": "df8155e7741e4484e4e5c2fe133959399161ed4d445dd7e9a6e6570a392ceb22"
+      },
+      {
+        "file": "central-body-hand-b79983bab42ddbb2.bin",
+        "material": "hand",
+        "vertices": 51445,
+        "triangles": 102320,
+        "bytes": 2874100,
+        "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+      }
+    ]
+  },
+  "materials": {
+    "cloth": {
+      "baseColorLinear": [
+        0.5583403706550598,
+        0.37123769521713257,
+        0.08865558356046677,
+        1
+      ],
+      "metalness": 0.9100000262260437,
+      "roughness": 0.4699999988079071
+    },
+    "face": {
+      "baseColorLinear": [
+        0.6239603757858276,
+        0.41788506507873535,
+        0.10702310502529144,
+        1
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.4000000059604645
+    },
+    "hand": {
+      "baseColorLinear": [
+        0.5972017645835876,
+        0.4019777774810791,
+        0.09758734703063965,
+        1
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.38999998569488525
+    },
+    "hair": {
+      "baseColorLinear": [
+        0.016807375475764275,
+        0.012983032502233982,
+        0.008568125776946545,
+        1
+      ],
+      "metalness": 0.23999999463558197,
+      "roughness": 0.5299999713897705
+    },
+    "gold": {
+      "baseColorLinear": [
+        0.6795424818992615,
+        0.4677838087081909,
+        0.1441284716129303,
+        1
+      ],
+      "metalness": 0.9399999976158142,
+      "roughness": 0.3499999940395355
+    }
+  },
+  "visualAccepted": false,
+  "sourceAttribution": "Seated figure of Buddha by Daniel Pett, CC0-1.0; Chinese Tang dynasty marble, different artifact from Japanese reference06. Main head/ears/arms/hands and local bridges newly authored. No unchanged scanned face is claimed.",
+  "sourceURL": "https://sketchfab.com/3d-models/seated-figure-of-buddha-a4d22eb6d3c44848bd49b89fb4c28759",
+  "sourceLicense": "CC0-1.0 + newly authored anatomy",
+  "sourceLimit": "Different Chinese Tang marble sculpture, source real dimensions undocumented. Viewing-unit normalization and all affine fits declared. Surface erosion remains; no photographic acceptance.",
+  "sourceRetarget": {
+    "method": "MeasuredCC0 cloth under declared affine fit with local mount trim/bridges; fully authored clean closed head/ears with intrinsic eyelid/labial clefts. No donor face projection or separate incision floor.",
+    "retainedMeasuredPointMaxDelta": 0,
+    "measuredClothGlobalSmoothing": false,
+    "erosionRestoration": "None in initial integrated candidate; visible damage remains for local native gold inspection."
+  },
+  "modelHeadAxis": [
+    4.271134912414709e-8,
+    2.700005054473877,
+    -1.152508020401001
+  ],
+  "recommendedCentralMandorlaZ": -1.15,
+  "recommendedCentralHaloCenterModelY": 3.2500050544738768,
+  "recommendedMainLotusDepthAspect": 0.82,
+  "canonicalPackageScope": "Body-only SC07. Existing independently authored lotus and altar retained; actual full/head-core study files remain in lookdev."
+}

@@ -1,0 +1,52 @@
+{
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "isolatedNoncommercialOnly": false,
+  "productionIntegrated": true,
+  "visualAccepted": false,
+  "sourceAndProductionLicenseDecisionPending": false,
+  "attribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0, https://creativecommons.org/licenses/by-nc-sa/4.0/ . Modifications: previously curated paired-arm/robe/knee reflection with narrowly stitched retopology, native index curl and local fingertip contact; plinth separation; positive uniform viewing normalization; uniform gold PBR. Source face retained. Adoption179 keeps the prepared source anatomy, positions, normals and triangle indices unchanged; only a positive uniform scene scale and translation seat it on separately authored lotus geometry. No endorsement implied.",
+  "revision": "scene06-nc-sainsbury-amida179-r01",
+  "variants": {
+    "central": [
+      {
+        "material": "central",
+        "file": "central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+        "vertices": 210766,
+        "triangles": 421536,
+        "bytes": 11802964,
+        "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+        "topology": {
+          "sourceNormalsByteExact": true,
+          "sourceIndicesByteExact": true,
+          "nonrigidDeformation": false,
+          "sourceFacePreserved": true
+        }
+      }
+    ]
+  },
+  "materials": {
+    "central": {
+      "baseColorLinear": [
+        0.5647115111351013,
+        0.3613067865371704,
+        0.08865558356046677,
+        1
+      ],
+      "metalness": 0.88,
+      "roughness": 0.47
+    }
+  },
+  "canonicalPackageScope": "Actual source body SC07, original source and curated R09 GLB. These files and adaptations remain CC BY-NC-SA 4.0. Independently authored room/altar and separately licensed attendant assets keep their individual terms. The repository permissive license does not relicense this NC asset. Derived scene06 still/video imagery is marked CC BY-NC-SA 4.0.",
+  "nativeMaterialStudyChange": "Adoption179 R01 uses uniform gold PBR metalness .88, roughness .47; no part masks, donor face replacement, image projection, or photo pixels. Actual source face/anatomy unchanged.",
+  "personalNoncommercialUseOnly": true,
+  "userAuthorization": {
+    "date": "2026-10-23",
+    "text": "\u4ec5\u4e2a\u4eba\u6b23\u8d4f\uff0c\u5141\u8bb8\u4f7f\u7528\u975e\u5546\u7528\u96d5\u50cf\u7d20\u6750",
+    "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+  },
+  "recommendedCentralHaloCenterModelY": 2.72,
+  "recommendedCentralMandorlaZ": -0.79,
+  "recommendedMainLotusDepthAspect": 0.72,
+  "recommendedUniformWorldHeight": 2.5
+}

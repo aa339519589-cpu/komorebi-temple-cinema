@@ -1,0 +1,959 @@
+{
+  "createdAt": "2026-10-23T02:23:52.209017+00:00",
+  "status": "complete-exact-source-and-runtime-preserved",
+  "copyMethod": "macOS cp -cR APFS copy-on-write; not hardlinks",
+  "liveSource": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06",
+  "preservedSource": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-nc-adoption179/preserved-canonical165-r07-before-adoption",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 24375,
+      "sha256": "e02f314c5b1ea6f7ba8ac5e992c46e5c364a134a62a403ad63fb4f768452faab"
+    },
+    {
+      "path": "asset-dependencies.json",
+      "bytes": 8946,
+      "sha256": "4c55244d3a10ca064433486bf3ed0894e590dad27efeae4d2730a32ca5e1c3c8"
+    },
+    {
+      "path": "assets/attendant-bearing-v4/left-buddha-bc977f603fa29131.bin",
+      "bytes": 20000068,
+      "sha256": "bc977f603fa29131dae628e018fb0415bb3ab4dcef21ea45f5a034e696094c94"
+    },
+    {
+      "path": "assets/attendant-bearing-v4/manifest.json",
+      "bytes": 5627,
+      "sha256": "ddd9c616fd0145148e32dfe7f2d0d11f9a6b6afb94272a6a656e78a2a559824b"
+    },
+    {
+      "path": "assets/attendant-bearing-v4/provenance.json",
+      "bytes": 746,
+      "sha256": "cb28f6c76444c5bbf4392e3bf4713cb5d1396cef3f9962fce2f6dcbb95a3e392"
+    },
+    {
+      "path": "assets/attendant-bearing-v4/right-buddha-50241a098469ee60.bin",
+      "bytes": 19953036,
+      "sha256": "50241a098469ee60ecd10b038c8adddedb5683043742a5629938bde4262f19af"
+    },
+    {
+      "path": "assets/attendant-faces-v3/left-buddha-5904dc757ce34b29.bin",
+      "bytes": 20000068,
+      "sha256": "5904dc757ce34b29ca6db5edccc33fc33df63d0e07c11aed70a423fe3f872ab0"
+    },
+    {
+      "path": "assets/attendant-faces-v3/left-face-6f87029c1daa3b09.bin",
+      "bytes": 5685764,
+      "sha256": "6f87029c1daa3b09e53f9cd344584a43793c5031b7584f17f905cfdcbd1f3ad9"
+    },
+    {
+      "path": "assets/attendant-faces-v3/manifest.json",
+      "bytes": 5565,
+      "sha256": "d396170f520676a0aa4ae165d6b4485351f149160beceb3ebec3d7b423216884"
+    },
+    {
+      "path": "assets/attendant-faces-v3/provenance.json",
+      "bytes": 854,
+      "sha256": "042b90068d5c63992b432220d02e1b5035b9841d58e585e3a340b22ddb441e06"
+    },
+    {
+      "path": "assets/attendant-faces-v3/right-buddha-25097730965892c5.bin",
+      "bytes": 19953036,
+      "sha256": "25097730965892c5b61e1ba2cf32d4df91b44d535ee07dca8be8bd8b25e5aec5"
+    },
+    {
+      "path": "assets/attendant-faces-v3/right-face-9e3ad1107e3b7a04.bin",
+      "bytes": 5685764,
+      "sha256": "9e3ad1107e3b7a04fadd30d6df82d6267030dff4dc2ec48ede732b6949024dcd"
+    },
+    {
+      "path": "assets/cc0-fralin-buddha-head/BuddhaHead_surfmerg_remesh.ply",
+      "bytes": 71561082,
+      "sha256": "0977e11edb982c15c68acc67e33c00a16d134590da184c46c8fd3325c1b7ad56"
+    },
+    {
+      "path": "assets/cc0-fralin-buddha-head/LICENSE.md",
+      "bytes": 1107,
+      "sha256": "7b12130f0ded16d4686b69dc256217095b1519fc4699cb034f4734bf7cb2ec6a"
+    },
+    {
+      "path": "assets/cc0-fralin-buddha-head/dataset-primary-metadata.json",
+      "bytes": 13976,
+      "sha256": "4db95f43166d7bb9700aeb4f630ef3ed9f1b586d5f83c52f985b60d0b9adaa8e"
+    },
+    {
+      "path": "assets/cc0-fralin-buddha-head/provenance.json",
+      "bytes": 3324,
+      "sha256": "69037be2e235ada4479b3a3209216e1c1131c2eade6bc9829242d977bdd55026"
+    },
+    {
+      "path": "assets/ccby-beachmouse-japanese-head/LICENSE.md",
+      "bytes": 888,
+      "sha256": "aa84a610c34f6087d094d31e0be95b007de760e0048b6fd9241de305db4d6ebb"
+    },
+    {
+      "path": "assets/ccby-beachmouse-japanese-head/creator-primary-metadata.json",
+      "bytes": 5345,
+      "sha256": "99aa767448bd253ba0f21f281e4bda5c49b2cb5634994e69beac915241de4fd0"
+    },
+    {
+      "path": "assets/ccby-beachmouse-japanese-head/provenance.json",
+      "bytes": 1507,
+      "sha256": "3c43a752084c9a9871452202a70e91f47fb729c84b12e364e8c9cbbe51bb5597"
+    },
+    {
+      "path": "assets/ccby-beachmouse-japanese-head/source-objaverse.glb",
+      "bytes": 2327248,
+      "sha256": "f5d0a1ea3f6bd79e4bfce4904b089ba48e693acb3bfa6e3851cc15f08fe52302"
+    },
+    {
+      "path": "assets/floor-scan106/material.json",
+      "bytes": 1322,
+      "sha256": "b88ab910bccd70ca94be82949c804d3bfccf2cbb72042f97c2c381b27e803d3c"
+    },
+    {
+      "path": "assets/foundation-r08/central-body-cloth-fd1dfbe6a0197c6f.bin",
+      "bytes": 39769460,
+      "sha256": "fd1dfbe6a0197c6f55ecdd32cc038198296b0ac8d625966185c43c6a89b8e4b5"
+    },
+    {
+      "path": "assets/foundation-r08/central-body-face-dfd315d2a473668f.bin",
+      "bytes": 5667812,
+      "sha256": "dfd315d2a473668fcd0e3d8869e1bcbc3a4398c025e6775eb61a4b73b122acbf"
+    },
+    {
+      "path": "assets/foundation-r08/central-body-gold-480d94ebed390c64.bin",
+      "bytes": 3083924,
+      "sha256": "480d94ebed390c649b39457b209790d519750c0edf4ce5d1836338002a2f99e0"
+    },
+    {
+      "path": "assets/foundation-r08/central-body-hair-7152b767f3cf7a34.bin",
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "path": "assets/foundation-r08/central-body-hand-5e506666f7a5977e.bin",
+      "bytes": 2557612,
+      "sha256": "5e506666f7a5977edc794b5f21c2ba2778cc8f2214a2f3c9c93edad09cc44920"
+    },
+    {
+      "path": "assets/foundation-r08/central-head-core-face-6b4dd6aea10dee19.bin",
+      "bytes": 5667812,
+      "sha256": "6b4dd6aea10dee191ddbbe4453dc5627730bca3dd4a74e2811b9378d697c2df4"
+    },
+    {
+      "path": "assets/foundation-r08/manifest.json",
+      "bytes": 7548,
+      "sha256": "50a85d21c50b42b2c53514503f4301f5106efc9421ca4fe94c903723924c7b6e"
+    },
+    {
+      "path": "assets/foundation-r08/provenance.json",
+      "bytes": 3342,
+      "sha256": "f02b36bd3ea27b2020260dc6a8907bc67f483f4912282e02427b95f8262e27c6"
+    },
+    {
+      "path": "assets/foundation-r10/central-body-cloth-79e62aec65dcda25.bin",
+      "bytes": 48702452,
+      "sha256": "79e62aec65dcda2570fb0d52de38b3952eab5b7e437b8739176edd85efc584fc"
+    },
+    {
+      "path": "assets/foundation-r10/central-body-face-b81154e5677968fb.bin",
+      "bytes": 5669924,
+      "sha256": "b81154e5677968fbff822a916e9ca82a71bd879e6a4b886cf91b0c5c4d0839e7"
+    },
+    {
+      "path": "assets/foundation-r10/central-body-gold-168902d117a0595d.bin",
+      "bytes": 3083924,
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f"
+    },
+    {
+      "path": "assets/foundation-r10/central-body-hair-7152b767f3cf7a34.bin",
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "path": "assets/foundation-r10/central-body-hand-2c2f962a8e75184b.bin",
+      "bytes": 3255596,
+      "sha256": "2c2f962a8e75184bc58a169e96c81d4f7e076ce635f6c34468917179fa3c1818"
+    },
+    {
+      "path": "assets/foundation-r10/manifest.json",
+      "bytes": 7523,
+      "sha256": "a7fdca2cf4834dbae1547e50093f6dfd962cde8ede9b0c27b61d08ed9a96db37"
+    },
+    {
+      "path": "assets/foundation-r10/provenance.json",
+      "bytes": 1148,
+      "sha256": "d11cb772ebf1317e6c0ab207ae240c9882e9fe1521aeb511c7fee9fcb7f1f975"
+    },
+    {
+      "path": "assets/foundation-r11/central-body-cloth-4fdf4eecb89f07c9.bin",
+      "bytes": 42956660,
+      "sha256": "4fdf4eecb89f07c9230ad8d4482b7479c0f8096b82415030fde262824cf4befa"
+    },
+    {
+      "path": "assets/foundation-r11/central-body-face-c99cbce10e4b5d48.bin",
+      "bytes": 5669924,
+      "sha256": "c99cbce10e4b5d48b81882bb66e4d5ece3bfdb6afa799c700f23e089dab366e1"
+    },
+    {
+      "path": "assets/foundation-r11/central-body-gold-168902d117a0595d.bin",
+      "bytes": 3083924,
+      "sha256": "168902d117a0595d92377d94bbb2e94341afb2725b6f64f1423ba3dd81103c5f"
+    },
+    {
+      "path": "assets/foundation-r11/central-body-hair-7152b767f3cf7a34.bin",
+      "bytes": 4606436,
+      "sha256": "7152b767f3cf7a342f7a8c8c67e1ba31f03eda1b49bf724d4adae0d3f6fbd0cb"
+    },
+    {
+      "path": "assets/foundation-r11/central-body-hand-dfd83a0d548811f6.bin",
+      "bytes": 3258556,
+      "sha256": "dfd83a0d548811f69268aac4e479d964e8fb7b9a29f57eeeda28c065b344f3d0"
+    },
+    {
+      "path": "assets/foundation-r11/manifest.json",
+      "bytes": 5589,
+      "sha256": "a87c3aa3a29fa7998f328afbbdd4f784d1fdc2712154f5e664043135fb3a8041"
+    },
+    {
+      "path": "assets/foundation-r11/provenance.json",
+      "bytes": 1371,
+      "sha256": "19c1cadc18f370a563ab613b425197408991274c5abd7e603b4e44cc508ff166"
+    },
+    {
+      "path": "assets/generated-wood-texture-20261020/provenance.json",
+      "bytes": 1531,
+      "sha256": "63212bef9228424c2b6b2522171076557d831bd5f7e3563a38f0a02d1ba5c55e"
+    },
+    {
+      "path": "assets/generated-wood-texture-20261020/temple-hinoki-albedo.png",
+      "bytes": 2809110,
+      "sha256": "8ca9dcb84a48aefada8716636b26778c861108daaa9c118c8d3ad17118b76d36"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/central-central-9e8ffd264d07f83c.bin",
+      "bytes": 30540108,
+      "sha256": "9e8ffd264d07f83c66ee4ee24257873216531aa9139bba768e7733719cb385fe"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/central-gold-257c13dc781a8904.bin",
+      "bytes": 4762188,
+      "sha256": "257c13dc781a89042bc8d2caa7be227cc91b7ab7006ebbc6c7af08b850f19181"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/central-oldgold-34a404be88622dd5.bin",
+      "bytes": 1983188,
+      "sha256": "34a404be88622dd53e9b345a4e0dfd3f03f6d6e57f040a779260b61fd7202047"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/left-buddha-5c574d5842bf2c74.bin",
+      "bytes": 23251508,
+      "sha256": "5c574d5842bf2c74058107875d0674f261ce2fcfbc6d39df190dd1261bca8f73"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/left-gold-958e482f90b080d3.bin",
+      "bytes": 509796,
+      "sha256": "958e482f90b080d3a845c9e5a5643656e9e7e625170332f2fa479953e1af2b76"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/left-oldgold-c8d8709002a66038.bin",
+      "bytes": 128212,
+      "sha256": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/manifest.json",
+      "bytes": 5718,
+      "sha256": "750be8ca92726a791cf3ebebdde6d055fcb089d5efafcb531eb3ec82c99e78a8"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/provenance.json",
+      "bytes": 6671,
+      "sha256": "a278262d85a1f7e9b584e0468704fb3a70f27acdd381c0fa6132e7d6a87ce0bc"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/right-buddha-9de14ba15695e8a8.bin",
+      "bytes": 23226868,
+      "sha256": "9de14ba15695e8a8586b58d3fe4c88f97f5c437925f923f3008c5730507fc96f"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/right-gold-958e482f90b080d3.bin",
+      "bytes": 509796,
+      "sha256": "958e482f90b080d3a845c9e5a5643656e9e7e625170332f2fa479953e1af2b76"
+    },
+    {
+      "path": "assets/sculptural-cast-r10/right-oldgold-c8d8709002a66038.bin",
+      "bytes": 128212,
+      "sha256": "c8d8709002a66038803f28654fa6fb3966036eaa928b14f0e185892f294b74c5"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/central-central-3281b91d45a39a9a.bin",
+      "bytes": 30757532,
+      "sha256": "3281b91d45a39a9a8528b7fd7f0a973544fb4bd18ea3c5643b212d1aa45df721"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/central-central-ebdfed606f975049.bin",
+      "bytes": 30739556,
+      "sha256": "ebdfed606f9750491702bb69f66aaffd40d35ea2e741fc3b0d07648d0bbefb7b"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/central-gold-7ae34f3b265ecef8.bin",
+      "bytes": 4762356,
+      "sha256": "7ae34f3b265ecef8d20b6f6a5458c6c3fc8f2eb722ad24866c3c219bef0b26ca"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/left-buddha-21afd76390de4764.bin",
+      "bytes": 22901820,
+      "sha256": "21afd76390de476494ff5e953add011da503f9439a1255f79657f24e671ce418"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/left-buddha-81698a31efab0d52.bin",
+      "bytes": 22912124,
+      "sha256": "81698a31efab0d524f246b869986880f971f365a7e50bd976ee796abf2da502a"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/left-gold-293e079a1dab2086.bin",
+      "bytes": 509796,
+      "sha256": "293e079a1dab20863dd83297bce7660cf2b0df686f988fdf1aa2666fc59d6f58"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/manifest.json",
+      "bytes": 5786,
+      "sha256": "eab6a15573ddb8051f71158c1cc45f28fce3b5c41f1e6b4f032871fa3eb53b56"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/provenance.json",
+      "bytes": 9137,
+      "sha256": "a947d022ae53f8a5eeff4e7c1733d0962741c7790e1b528deb9f9458424494fb"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/right-buddha-0fce72e1148d7441.bin",
+      "bytes": 22849748,
+      "sha256": "0fce72e1148d74416fcc981a5a05d27e53ff9ba64f3fe429c0a410cedf0630e9"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/right-buddha-27a5cabaf3a64e53.bin",
+      "bytes": 22860668,
+      "sha256": "27a5cabaf3a64e530028ab24c02e785e7c7778a55fa28d1188f3add8b205655d"
+    },
+    {
+      "path": "assets/sculptural-cast-r11/right-gold-293e079a1dab2086.bin",
+      "bytes": 509796,
+      "sha256": "293e079a1dab20863dd83297bce7660cf2b0df686f988fdf1aa2666fc59d6f58"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/central-central.bin",
+      "bytes": 31455492,
+      "sha256": "f9e1b58c9124ef3b5823a8296ba0aa1b8777a8788eda0e3952d9886b6212b724"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/central-gold.bin",
+      "bytes": 6968876,
+      "sha256": "6703c264d4d98d6ca8315f8306eda49764dff77c1f9d21b62ac67da250123fd5"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/central-oldgold.bin",
+      "bytes": 1983188,
+      "sha256": "2d3113006333a3b962e5ad3b759e1a009c4315067f25ac7c330fd684d97c11b0"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/left-buddha.bin",
+      "bytes": 23185092,
+      "sha256": "257321f59987dd332ea9c3a6a6b278b75d8e8e43a301f763a3ed0120c48da902"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/left-crease.bin",
+      "bytes": 69372,
+      "sha256": "66f033ffbe6b0e9d30f7dbe842be8bc026420f4d982c4c3e6cae31b9448c710f"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/left-gold.bin",
+      "bytes": 509796,
+      "sha256": "c672ee117d448670a729a544c7c5c6fb42f8b787873a233a89053dd7bf0cfddc"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/left-oldgold.bin",
+      "bytes": 128212,
+      "sha256": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/manifest.json",
+      "bytes": 6438,
+      "sha256": "f853f224d0d2db98a01ded175598013c044ffbb208efd50c035ac5d6e2bfb2dc"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/provenance.json",
+      "bytes": 1506,
+      "sha256": "7f2ddf0dd64a1bde68a6ea014071d8777f105ca5d8e0d083e6d88927dce323d5"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/right-buddha.bin",
+      "bytes": 23165220,
+      "sha256": "f73457f53ba089e190dca1eaf59a9d0688db216e37b7f95744783009427bf49a"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/right-crease.bin",
+      "bytes": 69372,
+      "sha256": "66f033ffbe6b0e9d30f7dbe842be8bc026420f4d982c4c3e6cae31b9448c710f"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/right-gold.bin",
+      "bytes": 509796,
+      "sha256": "c672ee117d448670a729a544c7c5c6fb42f8b787873a233a89053dd7bf0cfddc"
+    },
+    {
+      "path": "assets/sculptural-cast-r8/right-oldgold.bin",
+      "bytes": 128212,
+      "sha256": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/central-central-6c26b5d923d1412b.bin",
+      "bytes": 31367572,
+      "sha256": "6c26b5d923d1412bc4d2d946408ea01d0788fd5ccf1beff0714e662123815598"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/central-gold-43ace3ebb1ccffb6.bin",
+      "bytes": 6968876,
+      "sha256": "43ace3ebb1ccffb686574061c0c61e0b7d5bd79018f6328f8580162c6f685019"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/central-oldgold-2d3113006333a3b9.bin",
+      "bytes": 1983188,
+      "sha256": "2d3113006333a3b962e5ad3b759e1a009c4315067f25ac7c330fd684d97c11b0"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/left-buddha-0072eaba512c0284.bin",
+      "bytes": 23726108,
+      "sha256": "0072eaba512c028447f2542b9efff7539816e492dd4abacad0626935bf11969a"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/left-gold-84c767c1e2ffa914.bin",
+      "bytes": 509796,
+      "sha256": "84c767c1e2ffa914f3ebe27a2275d566abb4ef80e0c2d58e8ee5ac420f16af73"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/left-oldgold-7f0205861ee13a4f.bin",
+      "bytes": 128212,
+      "sha256": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/manifest.json",
+      "bytes": 5689,
+      "sha256": "a38cd41e6cb75cdb2eeed06a9aee71c1b10c8c7aa24989672481c580bae7f72b"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/provenance.json",
+      "bytes": 1718,
+      "sha256": "60722fa7d2211415ec03b8c93936026bd1b8c54960d2aaa55e9e619ef0226063"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/right-buddha-1e88312505db8df7.bin",
+      "bytes": 23709308,
+      "sha256": "1e88312505db8df7233b0bea377fd2c62d8b8faef37163e30097f306295c5a08"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/right-gold-84c767c1e2ffa914.bin",
+      "bytes": 509796,
+      "sha256": "84c767c1e2ffa914f3ebe27a2275d566abb4ef80e0c2d58e8ee5ac420f16af73"
+    },
+    {
+      "path": "assets/sculptural-cast-r9/right-oldgold-7f0205861ee13a4f.bin",
+      "bytes": 128212,
+      "sha256": "7f0205861ee13a4f215f86a5a956ee6ba07fd9ed039fae080d9abea72f1981fb"
+    },
+    {
+      "path": "assets/sculpture165-r01/central-body-cloth-7d0bf53fa5d8838f.bin",
+      "bytes": 27655768,
+      "sha256": "7d0bf53fa5d8838f306ea4ff2841be9d76b3ce9f68892d7ced471e404beeb625"
+    },
+    {
+      "path": "assets/sculpture165-r01/central-body-face-0d6bccf8e1db46b1.bin",
+      "bytes": 5665040,
+      "sha256": "0d6bccf8e1db46b1679175ca27356c570f6a39b4f269b44b067bc75bf4492456"
+    },
+    {
+      "path": "assets/sculpture165-r01/central-body-gold-a206fe254077914c.bin",
+      "bytes": 3083924,
+      "sha256": "a206fe254077914ce9ee553a74beb13873f5c437b0801840b4aa0b9dd0836a70"
+    },
+    {
+      "path": "assets/sculpture165-r01/central-body-hair-accacb98aa8e9bd0.bin",
+      "bytes": 4346996,
+      "sha256": "accacb98aa8e9bd0a039eea9024255015ebd63631e775569aea010d46813372a"
+    },
+    {
+      "path": "assets/sculpture165-r01/central-body-hand-8f850c9cbea63fea.bin",
+      "bytes": 2099860,
+      "sha256": "8f850c9cbea63fea13fe6beadd95ee1e21f79ad86a3096dbbc2acac87f6bc6b1"
+    },
+    {
+      "path": "assets/sculpture165-r01/manifest.json",
+      "bytes": 6157,
+      "sha256": "3b1ab7cad20994aff40b82c209da69d11711a564cdb031a25f5d0d0180163cb4"
+    },
+    {
+      "path": "assets/sculpture165-r01/provenance.json",
+      "bytes": 1964,
+      "sha256": "b3941cef82f0bfc335713b0b2e67b2421d3af086cc29ebbd0b3aee66425d9042"
+    },
+    {
+      "path": "assets/sculpture165-r02b/central-body-cloth-310df40891b38639.bin",
+      "bytes": 29682904,
+      "sha256": "310df40891b386398e7d0a680c381c2e03e2e5c7bb416fa04f320d1bf6d27d42"
+    },
+    {
+      "path": "assets/sculpture165-r02b/central-body-crease-40b2bad4da600d9d.bin",
+      "bytes": 209876,
+      "sha256": "40b2bad4da600d9d5a373a3e6796b8eddabaf5c44d47d9ef00854a5e2eb6d3a3"
+    },
+    {
+      "path": "assets/sculpture165-r02b/central-body-face-50f50896bdef765f.bin",
+      "bytes": 5665040,
+      "sha256": "50f50896bdef765fa8040ac76ad9060321e870d1246af364c0fc734f3cef2732"
+    },
+    {
+      "path": "assets/sculpture165-r02b/central-body-gold-a206fe254077914c.bin",
+      "bytes": 3083924,
+      "sha256": "a206fe254077914ce9ee553a74beb13873f5c437b0801840b4aa0b9dd0836a70"
+    },
+    {
+      "path": "assets/sculpture165-r02b/central-body-hair-d679e7bf763800d5.bin",
+      "bytes": 4786916,
+      "sha256": "d679e7bf763800d5601f6e67df1eb3e1d3caed455cd0430d559df402ee16115e"
+    },
+    {
+      "path": "assets/sculpture165-r02b/central-body-hand-53d788b61d810f60.bin",
+      "bytes": 2082276,
+      "sha256": "53d788b61d810f6023d033fba604322eed864ee988997aae938ac6e2a03b8ce3"
+    },
+    {
+      "path": "assets/sculpture165-r02b/manifest.json",
+      "bytes": 7490,
+      "sha256": "50ce344cb34c759151c452fa33f19378437f1012a9eca88c2511fe149382203b"
+    },
+    {
+      "path": "assets/sculpture165-r02b/provenance.json",
+      "bytes": 2986,
+      "sha256": "adc13c11e3d6728efb32421895d066d127fbe666a124ae129b2b099bd77761ec"
+    },
+    {
+      "path": "assets/sculpture165-r03b/central-body-cloth-19a2d40cc86df492.bin",
+      "bytes": 21719068,
+      "sha256": "19a2d40cc86df492ca3a29b8125e27f279fd76c9a30510f1187047314ef14db6"
+    },
+    {
+      "path": "assets/sculpture165-r03b/central-body-face-ae677a504a593c76.bin",
+      "bytes": 16129404,
+      "sha256": "ae677a504a593c76b68295879c982e389c8c8929e6e31f1cbaf749f62e9a5936"
+    },
+    {
+      "path": "assets/sculpture165-r03b/central-body-hair-df8155e7741e4484.bin",
+      "bytes": 6447540,
+      "sha256": "df8155e7741e4484e4e5c2fe133959399161ed4d445dd7e9a6e6570a392ceb22"
+    },
+    {
+      "path": "assets/sculpture165-r03b/central-body-hand-b79983bab42ddbb2.bin",
+      "bytes": 2874100,
+      "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+    },
+    {
+      "path": "assets/sculpture165-r03b/manifest.json",
+      "bytes": 5366,
+      "sha256": "8f3703fe4b29a31c8b7441c661ced25a7b2e406c4fb4e371314e9e67be6bfce7"
+    },
+    {
+      "path": "assets/sculpture165-r03b/provenance.json",
+      "bytes": 3015,
+      "sha256": "6f60670a21b5cf26ec667eb2f6c75bd7276487a1446c9aadad0f5fdf62ea1dbc"
+    },
+    {
+      "path": "assets/sculpture165-r04/central-body-cloth-4884c1ed751c4f09.bin",
+      "bytes": 21220544,
+      "sha256": "4884c1ed751c4f094f48a96e25ae0d6ef9392377f9d8bc58825b8865d78f8c8d"
+    },
+    {
+      "path": "assets/sculpture165-r04/central-body-face-157b1c7c2b6862e0.bin",
+      "bytes": 15121124,
+      "sha256": "157b1c7c2b6862e004cd1530a59a2bf1d169ca59dc7e86d65f97bbe685a08553"
+    },
+    {
+      "path": "assets/sculpture165-r04/central-body-hair-e75a22193b168aa0.bin",
+      "bytes": 6416964,
+      "sha256": "e75a22193b168aa05d66fad6bbe101e0367aa97950e14d60d8d37572bb6ff6b5"
+    },
+    {
+      "path": "assets/sculpture165-r04/central-body-hand-b79983bab42ddbb2.bin",
+      "bytes": 2874100,
+      "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+    },
+    {
+      "path": "assets/sculpture165-r04/manifest.json",
+      "bytes": 6160,
+      "sha256": "c43bc1564371cd0ab1abd107a3656d76c88261edf5eb039a39058749a2715210"
+    },
+    {
+      "path": "assets/sculpture165-r04/provenance.json",
+      "bytes": 4100,
+      "sha256": "9e95cdef3a51ea820803f099ad0f95156e4a5a0898b93eeca8aaf708575bf3f1"
+    },
+    {
+      "path": "assets/sculpture165-r06/central-body-cloth-c3900cc65c626564.bin",
+      "bytes": 27320980,
+      "sha256": "c3900cc65c626564ae7ef4118553007a9bd94a23f75d1fa823972285703f3c6e"
+    },
+    {
+      "path": "assets/sculpture165-r06/central-body-face-9ee67c38dddc3b6d.bin",
+      "bytes": 9290520,
+      "sha256": "9ee67c38dddc3b6d084c12950908bd692f572d511ac3efc061d85e053637396d"
+    },
+    {
+      "path": "assets/sculpture165-r06/central-body-hair-3b67e7b5337b4bc8.bin",
+      "bytes": 7781048,
+      "sha256": "3b67e7b5337b4bc873c83bf42cc218337ab3d08ff0d167b17f6b993522bd0ce0"
+    },
+    {
+      "path": "assets/sculpture165-r06/central-body-hand-b79983bab42ddbb2.bin",
+      "bytes": 2874100,
+      "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+    },
+    {
+      "path": "assets/sculpture165-r06/manifest.json",
+      "bytes": 9076,
+      "sha256": "6afc53d269eaf879844cbdc6e02bebc7c5212bf81dd87548af95578a555ca33b"
+    },
+    {
+      "path": "assets/sculpture165-r06/provenance.json",
+      "bytes": 6956,
+      "sha256": "64531266de68357c3fe5530d3a40049b0df303e12fbfe56fdd5fc1d9926468f8"
+    },
+    {
+      "path": "assets/sculpture165-r07/central-body-cloth-64fc2fd2d2a2b66e.bin",
+      "bytes": 27650540,
+      "sha256": "64fc2fd2d2a2b66e83d330f7fd6ef85c92109652dfcc69cb8a6b26c37cd97b44"
+    },
+    {
+      "path": "assets/sculpture165-r07/central-body-face-9ee67c38dddc3b6d.bin",
+      "bytes": 9290520,
+      "sha256": "9ee67c38dddc3b6d084c12950908bd692f572d511ac3efc061d85e053637396d"
+    },
+    {
+      "path": "assets/sculpture165-r07/central-body-hair-3b67e7b5337b4bc8.bin",
+      "bytes": 7781048,
+      "sha256": "3b67e7b5337b4bc873c83bf42cc218337ab3d08ff0d167b17f6b993522bd0ce0"
+    },
+    {
+      "path": "assets/sculpture165-r07/central-body-hand-b79983bab42ddbb2.bin",
+      "bytes": 2874100,
+      "sha256": "b79983bab42ddbb214b74b01e08fea9fae24b88d09bd91c792c5b7ad5f937dfa"
+    },
+    {
+      "path": "assets/sculpture165-r07/manifest.json",
+      "bytes": 9821,
+      "sha256": "2b337e8a8c09d8f8afd5c0c98cb4b8a263afaf275910bd114e575e2dcd011c14"
+    },
+    {
+      "path": "assets/sculpture165-r07/provenance.json",
+      "bytes": 7376,
+      "sha256": "3c4615768ed69bd2a44b7b63de04c3b71ed3a9cd9076ede397c50e7734b804cc"
+    },
+    {
+      "path": "index.html",
+      "bytes": 570,
+      "sha256": "f54c086e03b4b272ffa47983ff78d2075c065b9d1b96949b270f46aaea0eb6f8"
+    },
+    {
+      "path": "modeling/__pycache__/fuse-sculptural-cast-r11.cpython-314.pyc",
+      "bytes": 56290,
+      "sha256": "88048e74cffb798024bbb99c140cf7ff7de462cd8cd94537561794aa0cbb7c06"
+    },
+    {
+      "path": "modeling/build-attendant-bearing-v4.py",
+      "bytes": 5301,
+      "sha256": "7688e5dd759698dd73199638c68ba6bf67a8774fe53553902422ef6012644400"
+    },
+    {
+      "path": "modeling/build-attendant-faces-v3.py",
+      "bytes": 6706,
+      "sha256": "395a51d9577242154b3161f4b6f0fa17127da344b1c35f3bd932b8335b1ffd91"
+    },
+    {
+      "path": "modeling/build-sculptural-cast-r10.mjs",
+      "bytes": 2214,
+      "sha256": "d8fe6200cb528337b50bb4af7f9a7addacab728ebdfbea434c25296172b394b5"
+    },
+    {
+      "path": "modeling/build-sculptural-cast-r11.mjs",
+      "bytes": 2214,
+      "sha256": "2146b3ca0967cb21129ae5ffec5400d9f013b86171e3290f2a7ea618a23268cf"
+    },
+    {
+      "path": "modeling/build-sculptural-cast-r9.mjs",
+      "bytes": 2196,
+      "sha256": "9b571a8d4377c605a5a979335694e1a0d9731daada46e5ac8c4ea4483fe8d591"
+    },
+    {
+      "path": "modeling/build-sculptural-cast.mjs",
+      "bytes": 2196,
+      "sha256": "0b6ae6c99c05573857943b1750481d651d95bc76d7af2691e76cc2f9577d4c5a"
+    },
+    {
+      "path": "modeling/fuse-sculptural-cast-r10.py",
+      "bytes": 20882,
+      "sha256": "76750cbbb248d593095253d0fb9e94b7244ee282921b3820b16a2cbaee7a9116"
+    },
+    {
+      "path": "modeling/fuse-sculptural-cast-r11.py",
+      "bytes": 27328,
+      "sha256": "b2a2c541800e961a9a4752b44914237e95ac8302135fc48b422c54be275ea40c"
+    },
+    {
+      "path": "modeling/fuse-sculptural-cast-r9.py",
+      "bytes": 16174,
+      "sha256": "467b87a0c17a86ad2675e5121948d53958910bd52defadffeb9c834e76958636"
+    },
+    {
+      "path": "modeling/fuse-sculptural-cast.py",
+      "bytes": 12728,
+      "sha256": "de0c6c863f0d54ae6421e72fa6023da4440cd4cc39f9bf8a2caeffb6da4f0f95"
+    },
+    {
+      "path": "modeling/scene06-r10-sculpture-landmarks.json",
+      "bytes": 3312,
+      "sha256": "f4778d9965c1a47bcc00ee3631902e7a3b2af680c7671a487d63f4d4c41e49ae"
+    },
+    {
+      "path": "modeling/scene06-r11-sculpture-landmarks.json",
+      "bytes": 4568,
+      "sha256": "ba456630ec0d2aa9345302381631506fa4e1253dcbc485fc2b98e3ac43c4149a"
+    },
+    {
+      "path": "modeling/sculpture165/__pycache__/build.cpython-314.pyc",
+      "bytes": 61136,
+      "sha256": "35a8d8a892d15c839fb9909198c743eca03af05cebefb41d70b37cbcbe26edc0"
+    },
+    {
+      "path": "modeling/sculpture165/__pycache__/geometry.cpython-313.pyc",
+      "bytes": 53896,
+      "sha256": "612d1b271a77c49e65f2f0b42bb6b88a69c25d97e49551bef707338c721804e8"
+    },
+    {
+      "path": "modeling/sculpture165/__pycache__/geometry.cpython-314.pyc",
+      "bytes": 61945,
+      "sha256": "ec123a821878cc4519f271ef78e1e04d60639909f15c84c6a870cfc33da8a875"
+    },
+    {
+      "path": "modeling/sculpture165/build.py",
+      "bytes": 25830,
+      "sha256": "4b323f51b16397b7b1ddf79d2eff4654e5b54a743550b5b6cdf31e1aef62be32"
+    },
+    {
+      "path": "modeling/sculpture165/geometry.py",
+      "bytes": 25340,
+      "sha256": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3"
+    },
+    {
+      "path": "modeling/sculpture165-r02/__pycache__/build.cpython-314.pyc",
+      "bytes": 64058,
+      "sha256": "7ed884cf8d1cd37df859f70f2ac8ff449ab95b6f20e44537ff164dfc96533a9d"
+    },
+    {
+      "path": "modeling/sculpture165-r02/__pycache__/geometry.cpython-313.pyc",
+      "bytes": 62753,
+      "sha256": "d93c120742fe36031c6fee9b753d01e65f23c6ca31bbbc040b775c18bb2fef3e"
+    },
+    {
+      "path": "modeling/sculpture165-r02/__pycache__/geometry.cpython-314.pyc",
+      "bytes": 72485,
+      "sha256": "05cb98479d6c38257c595e13ffdfbbb2c652473bafd1da80a091f000dfdda486"
+    },
+    {
+      "path": "modeling/sculpture165-r02/build.py",
+      "bytes": 27526,
+      "sha256": "d6eadd4c661f21fca2adc9e48bd083fd2daa3abe4e75abdfaa008881a34e3c4e"
+    },
+    {
+      "path": "modeling/sculpture165-r02/geometry.py",
+      "bytes": 30210,
+      "sha256": "f2dc8dd36421522538a79ff86623cb5320b06c132fae099c4c87148fcb897ee2"
+    },
+    {
+      "path": "modeling/sculpture165-r03/__pycache__/anatomy.cpython-313.pyc",
+      "bytes": 17522,
+      "sha256": "76a9fb80f76ae0e834854b6b54f95d54c9068c3ef0191523f4ccd2ef262b1f05"
+    },
+    {
+      "path": "modeling/sculpture165-r03/__pycache__/anatomy.cpython-314.pyc",
+      "bytes": 20336,
+      "sha256": "8bfc8a55f7716e3656efe4de57d2a0a2d7d21c395c56aa5779e87a0f63b28089"
+    },
+    {
+      "path": "modeling/sculpture165-r03/__pycache__/build.cpython-314.pyc",
+      "bytes": 41851,
+      "sha256": "422598b42e4ba0b2a87b35279865f8b0575591ccaa06e38b721ff0434ebe0e75"
+    },
+    {
+      "path": "modeling/sculpture165-r03/anatomy.py",
+      "bytes": 6758,
+      "sha256": "11992ae1a9cffbec2bfc967323af19d288e5462a28c9425721516fd5d062dea6"
+    },
+    {
+      "path": "modeling/sculpture165-r03/build.py",
+      "bytes": 17697,
+      "sha256": "118fbd06eae9619405f529fd0f210a4d644b91e6515cd97806100b5d4637eab9"
+    },
+    {
+      "path": "modeling/sculpture165-r04/__pycache__/anatomy.cpython-313.pyc",
+      "bytes": 17696,
+      "sha256": "6cf1feb0e04181ffcaa4560fa58d88ffe1b34efcbdc21f4b6ed52bba48296241"
+    },
+    {
+      "path": "modeling/sculpture165-r04/anatomy.py",
+      "bytes": 7061,
+      "sha256": "305c09f0d861e9ba8eca610b7feb910030111fc2e77cc0ce4a592e1b5ae77187"
+    },
+    {
+      "path": "modeling/sculpture165-r04/build.py",
+      "bytes": 23702,
+      "sha256": "e5dd61344d0563759d60ff931589e1234fca9942a26183d7bf8572ba9723fee3"
+    },
+    {
+      "path": "modeling/sculpture165-r05/anatomy.py",
+      "bytes": 9512,
+      "sha256": "3b19e02e22bc5f49aff77c98ed50839fd83d8ce042f0b991d46955de1b455032"
+    },
+    {
+      "path": "modeling/sculpture165-r05/build.py",
+      "bytes": 27330,
+      "sha256": "03ca47100191556251a11af8a3813f832834938bd86ccdbad85a4c36482dac3e"
+    },
+    {
+      "path": "modeling/sculpture165-r06/__pycache__/anatomy.cpython-313.pyc",
+      "bytes": 14289,
+      "sha256": "94d1a12ef8b40bb038dfc6aa6b463bcfefb60eefcebd72e9a82aef909454fa42"
+    },
+    {
+      "path": "modeling/sculpture165-r06/anatomy.py",
+      "bytes": 5507,
+      "sha256": "f550f1695cf3c91d734486796d58b80d4b3aa2513ab97d990ac4b0738767842a"
+    },
+    {
+      "path": "modeling/sculpture165-r06/build.py",
+      "bytes": 32997,
+      "sha256": "10a9b08e3ee616204b7c1cf28ef27d8d233157e5f33eb65472cd039794c98c39"
+    },
+    {
+      "path": "modeling/sculpture165-r07/__pycache__/anatomy.cpython-313.pyc",
+      "bytes": 14289,
+      "sha256": "cfbd342d852ccc736ce3c67af03e32731703a1d2a39bbc9f9d7c8deef2897391"
+    },
+    {
+      "path": "modeling/sculpture165-r07/anatomy.py",
+      "bytes": 5507,
+      "sha256": "f550f1695cf3c91d734486796d58b80d4b3aa2513ab97d990ac4b0738767842a"
+    },
+    {
+      "path": "modeling/sculpture165-r07/build.py",
+      "bytes": 34554,
+      "sha256": "a4aefdc3deb8e70c2850806d2b591726544c712c976bfe6fa0e48ec0a3b1bc1d"
+    },
+    {
+      "path": "src/floor-scan106.js",
+      "bytes": 1940,
+      "sha256": "a6544e43dfa578bde1a1a40d6bab8a6cb0b0c409f963f6cb516bd798bd2995dd"
+    },
+    {
+      "path": "src/floor-varnish.js",
+      "bytes": 5336,
+      "sha256": "7634a499ab95223b92f484bc07a83954b7088e316b5bf5a049613bbe96cdf8a6"
+    },
+    {
+      "path": "src/foreground-floor-panels.js",
+      "bytes": 1272,
+      "sha256": "6cbeb9718391342601fe21878b41f296d37d730908dab2763d67f4cf87463780"
+    },
+    {
+      "path": "src/lens-bloom.js",
+      "bytes": 1093,
+      "sha256": "e21b284cc1a3301149a42a0ba8a303ab4bf26ec30031e424f56a53c4769a07d8"
+    },
+    {
+      "path": "src/mandorla-botanical-cast-r10.js",
+      "bytes": 9329,
+      "sha256": "1e5dbb89a084aa84735f2fef0e293f1fda5ee1d7a14b588eb5d8fdbccaedc8d9"
+    },
+    {
+      "path": "src/mandorla-botanical-cast-r9.js",
+      "bytes": 8176,
+      "sha256": "df1685d3cdab508c139d6053e3eebadaa3a28102bce9560371a8768b08f8c802"
+    },
+    {
+      "path": "src/monumental-altar-v3.js",
+      "bytes": 17082,
+      "sha256": "25a95aeb0563f60b50ac31ab56be25a8205cb3623050f1f8a5e3e66f787b91b1"
+    },
+    {
+      "path": "src/reference6-camera-shot.js",
+      "bytes": 2808,
+      "sha256": "3ab675085727ee8a6fbabaa622e4d9acee212287349e5114d109248e7d497423"
+    },
+    {
+      "path": "src/reference6-chandelier.js",
+      "bytes": 9964,
+      "sha256": "be83cbfdf8cbfe5a5568c70b25ee4305a169209c3a36c4d1773c284316e8a887"
+    },
+    {
+      "path": "src/reference6-coffer-relief.js",
+      "bytes": 2732,
+      "sha256": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53"
+    },
+    {
+      "path": "src/reference6-column-collar.js",
+      "bytes": 1926,
+      "sha256": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94"
+    },
+    {
+      "path": "src/reference6-main.js",
+      "bytes": 13268,
+      "sha256": "ea53f36dd4c9e5c852fa8aa328c27dfef6ba8c3397339392bc912bf440a4d93d"
+    },
+    {
+      "path": "src/reference6-scene.js",
+      "bytes": 26929,
+      "sha256": "8342e8dbb60cc8b96e664a710195a560b0711fadfa098158976b20ccea083845"
+    },
+    {
+      "path": "src/restoration-altar.js",
+      "bytes": 1054453,
+      "sha256": "d3135a659c49446dc25f0d09f13d04c1baffc8103ca2fdb177b4c8ea525e9735"
+    },
+    {
+      "path": "src/restoration-buddha.js",
+      "bytes": 57948,
+      "sha256": "91a3d04500fc0d49bc96d9a44abb3a4a7518f49c0d55118cafdef4e5f5c4e31d"
+    },
+    {
+      "path": "src/restoration-lighting.js",
+      "bytes": 157369,
+      "sha256": "05388e9b9ed8f70c043da6677853680c5a6eb58964921a3d459637d9d655c0c4"
+    },
+    {
+      "path": "src/restoration-render-diagnostics.js",
+      "bytes": 3920,
+      "sha256": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25"
+    },
+    {
+      "path": "src/sculptural-cast-assets.js",
+      "bytes": 3633,
+      "sha256": "6d421e9fbd58ce3c820b33ea00a32bcd2eace93356faf22205c1f9ad2435df0b"
+    },
+    {
+      "path": "src/shot-focus.js",
+      "bytes": 3465,
+      "sha256": "3101c18d1285ec0b96745ef2d7c9c5e40783e7e4a9b138a8bf3966b7aa533079"
+    }
+  ],
+  "totalBytes": 1053839129,
+  "count": 189,
+  "allBytesVerified": true,
+  "visualAccepted": false,
+  "purpose": "Preserve historical canonical sculpture165 R07 and the entire source/runtime before adoption. Root integration controls Git."
+}
