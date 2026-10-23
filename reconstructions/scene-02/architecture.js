@@ -12,7 +12,7 @@ import {ensureBankSoil147} from './planted-shoulders147.js';
 import {buildHallRoof154} from './hall-roof154.js';
 import {buildPagodaEnsemble160} from './pagoda-ensemble160.js';
 import {buildGalleryFooting162} from './gallery-footings162.js';
-export function buildArchitecture(mats,scanned){
+export function buildArchitecture(mats,scanned,sculpture186=null){
  installHallTerraceMaterials144(mats);ensureBankSoil147(mats);
  mats.bridgeRed161=mats.red.clone();mats.bridgeRed161.name='scene02-bridge-weathered-vermilion161';mats.bridgeRed161.color.setHex(0x8d3823);mats.bridgeRed161.clearcoat=.22;mats.bridgeRed161.clearcoatRoughness=.32;
  mats.bridgeCedar161=mats.cedar.clone();mats.bridgeCedar161.name='scene02-bridge-worn-tread-timber161';mats.bridgeCedar161.color.setHex(0x764124);mats.bridgeCedar161.clearcoat=.12;mats.bridgeCedar161.clearcoatRoughness=.38;
@@ -22,8 +22,8 @@ export function buildArchitecture(mats,scanned){
  mats.sorinBronze=mats.oldgold.clone();mats.sorinBronze.name='scene02-exposed-sorin-bronze';mats.sorinBronze.color.set('#a47d3d');mats.sorinBronze.roughness=.42;mats.sorinBronze.envMap=null;
  mats.railRed170=mats.red.clone();mats.railRed170.name='scene02-veranda-rubbed-top-rail170';mats.railRed170.clearcoat=.22;mats.railRed170.clearcoatRoughness=.28;
  mats.sorinSeat170=mats.sorinBronze.clone();mats.sorinSeat170.name='scene02-roof-fitted-aged-bronze-boot-skirt170';mats.sorinSeat170.color.setHex(0xa47a39);mats.sorinSeat170.roughness=.48;mats.sorinSeat170.metalness=.78;
- const b=new Builder(mats),lights=[];let sorinStats=null,bridgeBearings=null,hallRoof=null;const galleryFootings=[];const torus=new T.TorusGeometry(1,.075,6,20);
- const hallCarpentry=createHallCarpentry141({b,mats});
+ const b=new Builder(mats),lights=[];let sorinStats=null,bridgeBearings=null,hallRoof=null,hallEntry186=null;const galleryFootings=[];const torus=new T.TorusGeometry(1,.075,6,20);
+ const hallCarpentry=createHallCarpentry141({b,mats,sculpture186});
  function rosette(x,y,z,r=.2){for(let i=0;i<8;i++){let a=i*Math.PI/4;b.put(b.sphere,'gold',[x+Math.cos(a)*r*.55,y+Math.sin(a)*r*.55,z],[r*.36,r*.18,r*.075],[0,0,a]);}b.ball(x,y,z+.02,r*.23,r*.23,r*.1);}
  function fitting(x,y,z,w,h){b.box(x,y,z,w,h,.035,'darkwood');for(let s of[-1,1]){b.box(x+s*w*.46,y,z+.025,w*.07,h,.025,'gold');b.box(x,y+s*h*.44,z+.025,w,h*.07,.025,'gold');}rosette(x,y,z+.04,Math.min(w,h)*.38);}
  const leafShape=new T.Shape();leafShape.moveTo(0,-.06);leafShape.bezierCurveTo(-.04,-.035,-.055,.025,0,.075);leafShape.bezierCurveTo(.045,.025,.035,-.025,0,-.06);const reliefLeaf=new T.ExtrudeGeometry(leafShape,{depth:.016,bevelEnabled:true,bevelSize:.006,bevelThickness:.004,bevelSegments:1,steps:1,curveSegments:4});
@@ -66,7 +66,7 @@ export function buildArchitecture(mats,scanned){
   b.box(hallCentre,(foundationBottom+foundationTop)/2,-.8,18.4,foundationTop-foundationBottom,13.5,'terraceBody');for(let row=0;row<11;row++){const yy=foundationBottom+.25+row*.50;for(let j=0;j<17;j++){let x=hallCentre-8.8+j*1.1+(row%2)*.5;b.box(x,yy,6.02,1.075,.475,.13,'terraceBody',0,.82+.22*(.5+.5*Math.sin(j*9+row*4)));}for(let j=0;j<12;j++)b.box(hallCentre+9.24,yy,-7.1+j*1.1,.13,.475,1.075,'terraceBody',0,.85+.18*Math.sin(j*6+row));}b.box(hallCentre,2.05,-.8,19,.32,13.8,'terraceTread');
   for(const [a,c]of[[layout.hall.bearingGrid.axes[0]-.5,-2.65],[2.65,layout.hall.bearingGrid.axes.at(-1)+.5]])b.at([(a+c)/2,2.2,6.15],0,()=>rail(c-a));
   const axes=layout.hall.bearingGrid.axes;
-  buildHallEntry({b,mats,lights,column,carpentry:hallCarpentry,fitting,rosette,scroll,frame:layout.hall.bearingGrid});
+  hallEntry186=buildHallEntry({b,mats,lights,column,carpentry:hallCarpentry,fitting,rosette,scroll,frame:layout.hall.bearingGrid});
   // The roof, gable and lower hip aprons share one bearing-centred ridge.
   hallRoof=buildHallRoof154({b,mats,roof:layout.hall});
   hallCarpentry.gable(layout.hall);
@@ -133,5 +133,5 @@ export function buildArchitecture(mats,scanned){
  // Faceted bronze lamps have actual perforated cast panels and warm paper
  // recessed behind them. Each link joins the fixture to the beam overhead.
  for(const lamp of layout.hangingLamps)lights.push(verandaCarvings.lantern(...lamp.position,lamp.scale,9.3));lights.push(verandaCarvings.lantern(18,7.8,7,.5,9.3));
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,pagodaEnsemble,galleryFootings,bridgeBearings,hallRoof,hallCarpentry:hallCarpentry.stats,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'joint fixed-contact perspective and common five-bay roof/bearing-grid recovery',source:'qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py',visualAccepted:false}},deck};
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,pagodaEnsemble,galleryFootings,bridgeBearings,hallRoof,hallCarpentry:hallCarpentry.stats,hallEntry186,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'joint fixed-contact perspective and common five-bay roof/bearing-grid recovery',source:'qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py',visualAccepted:false}},deck};
 }

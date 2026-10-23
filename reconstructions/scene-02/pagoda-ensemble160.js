@@ -7,7 +7,7 @@ import {createSorinRoofSeat170} from './roof-seat170.js';
 // tower envelope, while the wall, balcony, bracket cage and roof are separate
 // connected depths. Roof units, cut faces and curved eave boards are closed.
 export function buildPagodaEnsemble160({b,mats,column,carpentry}){
- const merged=new Map(),stats={revision:'scene02-deep-five-storey-pagoda160',storeys:5,roofUnits:0,bracketHeads:0,wallPanels:0,bells:0,photographicPixels:false};
+ const merged=new Map(),stats={enclosureSetbackFromHeldColumnLocal:.58,formerSetbackLocal:.23,revision:'scene02-recessed-occupied-five-storey-pagoda186-r01',storeys:5,roofUnits:0,bracketHeads:0,wallPanels:0,bells:0,photographicPixels:false};
  function shell(rows,thickness,material){
   const src=gridGeometry(rows),p=Array.from(src.attributes.position.array),uv=Array.from(src.attributes.uv.array),ids=Array.from(src.index.array),N=p.length/3,nx=rows[0].length,ny=rows.length;
   let meanY=0;for(let i=0;i<src.attributes.normal.count;i++)meanY+=src.attributes.normal.getY(i);if(meanY<0)for(let i=0;i<ids.length;i+=3)[ids[i+1],ids[i+2]]=[ids[i+2],ids[i+1]];
@@ -24,10 +24,10 @@ export function buildPagodaEnsemble160({b,mats,column,carpentry}){
    const P=(side,t,u)=>{let x,z;if(side<2){x=u*h*t;z=(side===0?1:-1)*h*t;}else{x=(side===2?1:-1)*h*t;z=u*h*t;}return[x,eave+rise*Math.pow(Math.max(0,1-t),1.46)+curl*Math.pow(t,7)*(.18+.82*Math.pow(Math.abs(u),8)),z];};
    // The porch is open in front of a recessed, opaque timber storey. Narrow
    // cream infill belongs inside the frame, never across a window or column.
-   b.box(0,floor+.79,0,body-.72,1.69,body-.72,'pagodaShadow160');
+   b.box(0,floor+.79,0,body-1.42,1.69,body-1.42,'pagodaShadow160');
    b.box(0,floor+.04,0,body+1.18,.24,body+1.18,'hallBearing');b.box(0,floor+.19,0,body+1.26,.075,body+1.26,'pagodaRed160');
    for(let side=0;side<4;side++)b.at([0,0,0],side*Math.PI/2,()=>{
-    const wall=body/2-.13,balcony=body/2+.59;
+    const wall=body/2-.48,columnPlane=body/2+.10,balcony=body/2+.59;
     for(let bay=0;bay<4;bay++){
      const pitch=body*.235,x=(bay-1.5)*pitch,panelW=pitch-.14;
      b.box(x,floor+.91,wall-.16,panelW,1.34,.10,'pagodaShadow160');
@@ -39,15 +39,15 @@ export function buildPagodaEnsemble160({b,mats,column,carpentry}){
     }
     for(let i=0;i<5;i++){
      const x=(i-2)*body*.235;
-     column(x,wall+.23,floor+.12,1.62,.145,'pagodaRed160');
-     carpentry.head(x,floor+1.64,wall+.22,.32,'tower');stats.bracketHeads++;
+     column(x,columnPlane,floor+.12,1.62,.145,'pagodaRed160');
+     carpentry.head(x,floor+1.64,columnPlane-.01,.32,'tower');stats.bracketHeads++;
      // Housed fan levers receive the cantilevered eave purlin.
-     b.line([x,floor+1.85,wall+.24],[x,floor+2.03,h-.55],.105,'hallBearing',true,.145);
-     b.line([x,floor+2.13,wall+.35],[x,floor+2.16,h-.68],.095,'pagodaRed160',true,.11);
+     b.line([x,floor+1.85,columnPlane+.01],[x,floor+2.03,h-.55],.105,'hallBearing',true,.145);
+     b.line([x,floor+2.13,columnPlane+.12],[x,floor+2.16,h-.68],.095,'pagodaRed160',true,.11);
      b.box(x,floor+2.16,h-.68,.24,.17,.27,'hallBearing');
-     carpentry.facePlate(x,floor+1.83,wall+.40,.20,.15);
+     carpentry.facePlate(x,floor+1.83,columnPlane+.17,.20,.15);
     }
-    for(const [yy,dd]of[[1.55,.28],[1.79,.32],[2.08,.26]])b.box(0,floor+yy,wall+.27,body+.43,.13,dd,'hallBearing');
+    for(const [yy,dd]of[[1.55,.28],[1.79,.32],[2.08,.26]])b.box(0,floor+yy,columnPlane+.04,body+.43,.13,dd,'hallBearing');
     for(const yy of[.39,.67])b.box(0,floor+yy,balcony,body+1,.062,.085,'pagodaRed160');
     for(let i=0;i<=10;i++){const x=-(body+1)/2+(body+1)*i/10;b.box(x,floor+.48,balcony,.058,.52,.062,'pagodaRed160');b.box(x,floor+.755,balcony,.10,.043,.10,'oldgold');}
     for(let i=0;i<10;i++){const x=-(body+1)/2+(body+1)*(i+.5)/10;b.box(x,floor+.45,balcony-.025,(body+1)/10-.09,.08,.035,'pagodaRed160');}

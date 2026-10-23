@@ -1,9 +1,10 @@
 import {T} from './kernel.js';
+import {buildGableCarrying186} from './spatial186.js';
 
 // A real recessed gable loft, held to the recovered ridge and rake contour.
 // Strong curved timbers stand in front of an opaque boarded volume. Motifs
 // are closed sculpted meshes from the existing authored157 vocabulary.
-export function buildMonumentalGable170({b,mats,carved:C,roof}){
+export function buildMonumentalGable170({b,mats,carved:C,roof,sculpture186=null}){
  const {gableWidth:w,gableEave:e,gableRise:r,gableFront:z,gableBack:back,gableCenterX:cx}=roof;
  const stats={revision:'scene02-deep-carried-gable170-r05',closedLoft:true,curvedTrusses:4,bargeboardDepth:.58,referencePixelsSampled:false};
  const profile=t=>e+r*Math.pow(Math.max(0,1-t),1.28)+.38*Math.pow(t,8);
@@ -65,7 +66,7 @@ export function buildMonumentalGable170({b,mats,carved:C,roof}){
   // the curved truss and king post, not embossed floral stickers.
   for(const sign of[-1,1]){
    const x=sign*w*.103,py=e+r*.435,pw=w*.115,ph=r*.24;
-   b.box(x,py,z-.43,pw,ph,.13,'hallPlaster');
+   b.box(x,py,z-.43,pw,ph,.13,'carvingRecess157');
    for(const side of[-1,1]){b.box(x+side*pw/2,py,z-.06,.14,ph+.12,.45,'hallBearing');b.box(x,py+side*ph/2,z-.06,pw+.12,.12,.45,'hallOxide');}
    for(let j=0;j<9;j++)b.box(x+(j-4)*pw/9,py,z-.18,.041,ph,.19,'hallBearing');
    C.rosette([x,py-ph*.47,z+.05],.40);
@@ -88,5 +89,5 @@ export function buildMonumentalGable170({b,mats,carved:C,roof}){
   const p=[cx+sign*roof.roofWidth/2,roof.roofEave+roof.roofCurl,roof.roofFront];
   b.at(p,0,()=>{b.put(sign<0?left:nose,'hallTile1542',[0,.30,0],[.80,1.25,1.25],[0,0,sign*.12]);b.put(sign<0?left:nose,'hallTile1542',[-sign*.12,.64,-.15],[.44,.74,.80],[0,0,-sign*.35]);C.scroll([-sign*.03,.29,.20],.70,0,sign<0?Math.PI:0,'carvingBronze157');C.leaf([-sign*.21,.09,.25],.45,.61,0,-sign*.35,'carvingBronze157',.7);});
  }
- C.stats.gableBuilt=true;return stats;
+ stats.spatial186=buildGableCarrying186({b,C,roof,sculpture186});C.stats.gableBuilt=true;return stats;
 }

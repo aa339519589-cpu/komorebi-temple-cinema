@@ -1,0 +1,29 @@
+{
+  "file": "assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr",
+  "width": 2048,
+  "height": 1024,
+  "peakLuminance": 33.07556504898071,
+  "meanSolidAngleLuminance": 0.7197038106608538,
+  "peak": {
+    "x": 1255,
+    "y": 538,
+    "u": 0.613037109375,
+    "v": 0.52587890625,
+    "latitude": 0.08130098175793898,
+    "longitude": 0.7102331047910518,
+    "direction": [
+      0.7557054630227001,
+      0.08121144680959244,
+      0.6498568719839308
+    ]
+  },
+  "equirectangularConvention": "u=atan2(z,x)/(2pi)+.5;v=asin(y)/pi+.5; parsed EXR flipYfalse",
+  "source": "Existing verified CC0 Greg Zaal/Jarod Guest Poly Haven sky; no temple/reference scene",
+  "brightRegionDirection": [
+    0.7672240827535061,
+    0.1203199248362971,
+    0.6299923194217762
+  ],
+  "sunWeight": 286.1253328289829,
+  "scope": "CPU scalar HDR inspection only, no scene or GPU capture. No source radiance bytes modified."
+}

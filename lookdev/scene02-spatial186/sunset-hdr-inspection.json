@@ -1,0 +1,29 @@
+{
+  "file": "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
+  "width": 2048,
+  "height": 1024,
+  "peakLuminance": 58971.479726513666,
+  "meanSolidAngleLuminance": 1.1274873827233707,
+  "peak": {
+    "x": 1228,
+    "y": 546,
+    "u": 0.599853515625,
+    "v": 0.53369140625,
+    "latitude": 0.10584467436410924,
+    "longitude": 0.6273981422452273,
+    "direction": [
+      0.8050270988254071,
+      0.10564715371341062,
+      0.5837551276597089
+    ]
+  },
+  "equirectangularConvention": "u=atan2(z,x)/(2pi)+.5;v=asin(y)/pi+.5; parsed EXR flipYfalse",
+  "source": "Existing verified CC0 Greg Zaal/Jarod Guest Poly Haven qwantani_sunset_puresky; no temple/reference scene",
+  "brightRegionDirection": [
+    0.8042040926065609,
+    0.10598626753580362,
+    0.5848270586495523
+  ],
+  "sunWeight": 363472.60623668414,
+  "scope": "CPU scalar HDR inspection only, no scene or GPU capture. No source radiance bytes modified."
+}

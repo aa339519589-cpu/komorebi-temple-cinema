@@ -1,0 +1,79 @@
+{
+  "revision": "scene02-deep-return-gallery-and-gable186-r05",
+  "baselineSource": "d09b2d777ed73c8ea1fd74b7e0f017cbccea2a9cf77336f3bed1e381125456ee",
+  "reference": "references/hd/1-照片-2.jpg",
+  "dominantObservations": [
+    "Existing roof, column and camera contours already broadly correspond. Right/left side enclosure sits only .26 local metres behind outer columns, flattening the occupied hall into a decorated box.",
+    "The central gable reads as sparse rectangular/slatted timber rather than the dense deep carried vernacular structure in the photograph.",
+    "Tower wall planes sit close to outer posts, reducing the shadowed occupied bay depth."
+  ],
+  "construction": [
+    "Replace both flush hall side enclosures with complete2.30local-metre return galleries: independent closed floorboards, framed inset windows/plaster, ceiling ties, curved knees, continuous headers and open guard rails. R02 targets about.90world metre clear walking strip after held shaft and reveal projections.",
+    "A new original closed pierced frog-leg timber cradle, full-depth bearing feet and curved inner cheek struts join the retained mass170 gable collar/kingpost/rake/coffer/crest system.",
+    "Tower enclosure/core recess deeper behind the same held post, balcony, roof-bearing and roof contours. No tower eave/crown/finial changes.",
+    "R02 gable cradle is.90local metre deep and moves forward by.26local metre; one actual verified176 cloud-scroll component uniformly fitted at.92world metre width occupies its plain front, with two closed timber cheeks embedding measured open cut loops."
+  ],
+  "materials": "Existing CC0 metric timber and original mass170 pigments/roughness remain. Ceramic gets a separate dielectric clearcoat.42/roughness.22 after actual native inspection; one actual176 component uses a uniform aged-gilt PBR material. No architecture emission added.",
+  "preserved": [
+    "layout117.js exact camera, scene/building transforms and bridge/veranda anchors",
+    "Original main roof contours, mass170 outer shaft and receiving-capital coordinates, gable rake/kingpost/coffer/crest progress",
+    "All garden/bridge/foreveranda geometry and original direct/finite practical light controls; only declared sky/world radiance and ceramic finish are refined. No other scenes/shared tools touched."
+  ],
+  "uncertainty": "Authored structural inference from a single comparison image; no reference RGB, depth or projected plate sampled. Valid topology and native pixels do not establish photographic fidelity.",
+  "visualAccepted": false,
+  "r01Source": "0ebb47647c00be3bc03d82fdb06e13bd242ffc53025aab4f49275e9e6e86bef6",
+  "r01Findings": [
+    "Actual1254 full/hall hero/low3q/tower-bays all valid; gallery and tower enclosure depth improved, while the new gable cradle reads as broad plain timber.",
+    "After source-scale/shaft/reveal clearances,1.65local return depth has only~.55world-metre clear walking space. It remains too narrow.",
+    "Flat synthetic cloud/neutral world lighting and low-glaze ceramic still read schematic against the reference warm sky/roof response."
+  ],
+  "sculpture186": {
+    "title": "Wood Carving of Dragon",
+    "creator": "SCANOLOGY_3D / 3dscantech",
+    "url": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+    "license": "CC-BY-4.0",
+    "componentSha256": "0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee",
+    "use": "ONE exact previously verified176 cloud component, unchanged vertices/normals/triangles, uniformly fitted at.92world-metre width by canceling held hall scale. Four small recessed closed mounting pads follow the measured Y/Z ranges of all five LEFT-plane cuts; tiny fifth loop lies inside first pad. No right frame is added.",
+    "culture": "Unspecified by creator; not identified as a Japanese reference artifact."
+  },
+  "r02Source": "081d6e8b61a392fa5264fceb211e8274439bfb667a297331083f240e552bdf70",
+  "r02Findings": [
+    "Actual1254 full/hall hero/low3q/tower-bays valid. Wider gallery and uniformly fitted actual donor retain physical space and sculpture depth.",
+    "Sky orientation rejected: minimal rotation between nearly opposite sun vectors rotates around a horizontal axis and inverts the source hemisphere. It exposes blurred lower HDR half, producing a blank cream sky and wrong reflection field."
+  ],
+  "r03Source": "18563ebbc41907a5d96700d8bb3972b3e479a4cd2eecf79f6e6c75fd176155a7",
+  "r03Findings": [
+    "Actual1254 full/hero/low3q/tower-bays confirm upright source clouds, wider usable gallery and sculpture depth.",
+    "Independent sky remains too neutral and its cloud-obscured source sun lacks the reference sunset disk; warm/cool light balance still differs.",
+    "The two tall rectangular sculpture cheeks read as a frame. Source manifest confirms every deliberate cut is on the LEFT plane, so the right cheek is unnecessary."
+  ],
+  "r04Source": "a06c79282ca57e654c59900e27f2c83d518311e3f6a9a83a3ddf528034162e12",
+  "r04Findings": [
+    "Actual1254 full/hall hero/low3q/tower-bays valid; measured mounting pads remove the unnecessary frame and retain actual source sculpture relief.",
+    "Final reference/baseline/current board rejects the independent HDR cloud field for correspondence: its large broad neutral clouds depart further from HD than the held original procedural cloud rhythm.",
+    "Structural/mount/ceramic improvements remain; final R05 compares original visible cloud field while replacing the old flat-neutral environment by that same live spherical sky."
+  ],
+  "rejectedHDRSky186": {
+    "source": "Poly Haven Kloppenheim06 PureSky by Greg Zaal/Jarod Guest, CC0-1.0",
+    "sourceUrl": "https://polyhaven.com/a/kloppenheim_06_puresky",
+    "sha256": "5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063",
+    "processing": "Original HDR bytes unchanged; upright level yaw plus small elevation fit. R04 warm conversion mix[1.06,.98,.92]to[2.80,1.12,.22], horizon weight.88, radiance gain.45; warm lower hemisphere approximation unchanged. Inferred0.266degree-radius solar disk with linear[60,35,9] is shared by visible/world/reflection sky at the held sun direction. This is an authored radiance reconstruction, not measured sunset radiometry.",
+    "worldEnvironmentIntensity": 0.55,
+    "sunIntensityHeld": 8.5,
+    "exposureHeld": 0.94,
+    "limitations": "Independent color-adapted HDR sky, not measured sunset radiometry or the reference cloud field. Native LTC/GTAO is not path-traced light-transport parity.",
+    "sunColorAuthored": "#ffcd8a"
+  },
+  "sky186": {
+    "source": "Original mass170 procedural cloud/sun spherical shader restored byte-for-byte",
+    "visibleSkyGain": 1,
+    "worldPMREMSkyGain": 0.45,
+    "worldEnvironmentIntensity": 0.38,
+    "worldRadiance": "Actual same spherical shader evaluated for visible view, world PMREM and local native probes; no flat-gray replacement sky for reflection/lighting.",
+    "sunIntensityHeld": 8.5,
+    "sunDirectionHeld": true,
+    "sunColorAuthored": "#ffcd8a",
+    "exposureHeld": 0.94,
+    "limits": "Authored procedural atmosphere and native LTC/GTAO/PMREM, not measured sunset radiometry or path-traced transport parity."
+  }
+}

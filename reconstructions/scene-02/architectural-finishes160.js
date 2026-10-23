@@ -14,11 +14,11 @@ export function installArchitecturalFinishes160(mats){
  function texture(data,color=false){const t=new T.DataTexture(data,n,n);t.needsUpdate=true;t.wrapS=t.wrapT=T.RepeatWrapping;t.generateMipmaps=true;t.minFilter=T.LinearMipmapLinearFilter;t.anisotropy=8;t.colorSpace=color?T.SRGBColorSpace:T.NoColorSpace;return t;}
  const map=texture(albedo,true),bump=texture(height),roughness=texture(rough),tileColors=[0x405167,0x475c73,0x384b60,0x51637a,0x3b5068,0x4a596b];
  for(let i=0;i<tileColors.length;i++){
-  const m=new T.MeshPhysicalMaterial({name:`scene02-ceramic-fired-unit160-${i}`,color:tileColors[i],roughness:.80,metalness:0,map,bumpMap:bump,bumpScale:.0035,roughnessMap:roughness,clearcoat:.12,clearcoatRoughness:.32});
+  const m=new T.MeshPhysicalMaterial({name:`scene02-ceramic-fired-unit160-${i}`,color:tileColors[i],roughness:.80,metalness:0,map,bumpMap:bump,bumpScale:.0035,roughnessMap:roughness,clearcoat:.42,clearcoatRoughness:.22});
   mats[`ceramic160${i}`]=m;
  }
  mats.pagodaPlaster160=new T.MeshStandardMaterial({name:'scene02-pagoda-recessed-aged-lime160',color:0xb4a585,roughness:.92});
  mats.pagodaShadow160=mats.darkwood.clone();mats.pagodaShadow160.name='scene02-pagoda-deep-wall-and-soffit160';mats.pagodaShadow160.color.setHex(0x302018);mats.pagodaShadow160.roughness=.84;
  mats.pagodaRed160=mats.red.clone();mats.pagodaRed160.name='scene02-pagoda-worn-vermilion160';mats.pagodaRed160.color.setHex(0x6f291c);mats.pagodaRed160.roughness=.57;
- return{textures:[map,bump,roughness],info:{revision:'scene02-fitted-ceramic-and-lime160',construction:'Authored deterministic fired-ceramic microstructure on physical closed tiles; aged lime sits behind real timber frames',photographicPixels:false}};
+ return{textures:[map,bump,roughness],info:{revision:'scene02-fitted-ceramic-and-lime160-physical-glaze186-r05',construction:'Authored deterministic fired-ceramic microstructure on physical closed tiles; aged lime sits behind real timber frames',photographicPixels:false}};
 }

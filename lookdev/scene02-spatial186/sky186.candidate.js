@@ -1,0 +1,14 @@
+import {T,V} from './kernel.js';
+import {EXRLoader} from 'three/addons/loaders/EXRLoader.js';
+// Draft for a later actual native lighting comparison. Existing independent
+// CC0 sky radiance, never a temple/reference panorama or scene-facing plate.
+// The warm conversion is authored and is not measured sunset radiometry.
+export async function createSunsetSky186(sunDirection){
+ const texture=await new EXRLoader().loadAsync('/assets/polyhaven/kloppenheim-06-puresky/sky-2k.exr');texture.name='scene02-186-cc0-kloppenheim06-linear-hdr';texture.colorSpace=T.LinearSRGBColorSpace;
+ const sourceSun=V([.7557054630227001,.08121144680959244,.6498568719839308]).normalize(),rotation=new T.Quaternion().setFromUnitVectors(sourceSun,sunDirection.clone().normalize()),inverse=new T.Matrix3().setFromMatrix4(new T.Matrix4().makeRotationFromQuaternion(rotation.clone().invert()));
+ const material=new T.ShaderMaterial({name:'scene02-186-independent-sky-radiance',side:T.BackSide,depthWrite:false,uniforms:{radiance:{value:texture},worldToSky:{value:inverse},radianceGain:{value:.60}},vertexShader:'varying vec3 vWorld;void main(){vWorld=(modelMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*viewMatrix*vec4(vWorld,1.);}',fragmentShader:`varying vec3 vWorld;uniform sampler2D radiance;uniform mat3 worldToSky;uniform float radianceGain;void main(){vec3 ray=normalize(vWorld-cameraPosition),d=worldToSky*ray;vec2 uv=vec2(atan(d.z,d.x)/6.28318530718+.5,asin(clamp(d.y,-1.,1.))/3.14159265359+.5);vec3 source=texture2D(radiance,uv).rgb;float horizon=1.-smoothstep(.03,.48,max(ray.y,0.));vec3 conversion=mix(vec3(1.04,1.,.96),vec3(1.85,1.02,.40),horizon*.78);vec3 color=source*conversion*radianceGain;float ground=smoothstep(-.07,-.015,ray.y);color=mix(vec3(.10,.064,.031),color,ground);gl_FragColor=vec4(color,1.);
+#include <tonemapping_fragment>
+#include <colorspace_fragment>}`});
+ const mesh=new T.Mesh(new T.SphereGeometry(220,48,32),material);mesh.name='scene02-186-spherical-independent-cc0-sky';
+ return{mesh,material,texture,info:{revision:'scene02-186-independent-cc0-sky-radiance-candidate',source:'Poly Haven Kloppenheim06 PureSky, Greg Zaal and Jarod Guest, CC0-1.0',sourceUrl:'https://polyhaven.com/a/kloppenheim_06_puresky',sourceSha256:'5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063',sourcePeakDirection:sourceSun.toArray(),targetSunDirection:sunDirection.toArray(),rotation:rotation.toArray(),authoredLinearWarmConversion:'Horizon field mix [1.04,1,.96] to[1.85,1.02,.40] with0.78weight below.48worldY; radiance gain.60, lower hemispheric warm-ground approximation[.10,.064,.031].',scope:'Same spherical sky field for actual direct scene view, diffuse/glossy world PMREM and local reflection capture. Existing shadowed sun remains separately declared. This is a color-adapted independent HDR source, not measured sunset radiometry or reference-scene reconstruction.',referencePixelsSampled:false,visualAccepted:false}};
+}

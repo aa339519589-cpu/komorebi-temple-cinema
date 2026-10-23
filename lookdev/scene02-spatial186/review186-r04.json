@@ -1,0 +1,197 @@
+{
+  "heldRevision": "scene02-deep-return-gallery-and-gable186-r04",
+  "sourceHash": "a06c79282ca57e654c59900e27f2c83d518311e3f6a9a83a3ddf528034162e12",
+  "sourceFiles": 89,
+  "baselineHash": "d09b2d777ed73c8ea1fd74b7e0f017cbccea2a9cf77336f3bed1e381125456ee",
+  "status": "Canonical scene02 held for root review/integration after four actual native rounds; photographic fidelity remains unaccepted.",
+  "visualAccepted": false,
+  "reviewed": [
+    "HD02 full and mass170R07 full/gable-column hero/tower hero/low3q",
+    "Spatial186R01 actual1254 full/hall hero/low3q/tower-bay hero",
+    "Spatial186R02 same native views, rejected sky hemisphere inversion retained",
+    "Spatial186R03 same native views, upright sky repair and remaining mount/finish issues reviewed",
+    "Spatial186R04 actual1254 full/hall hero/low3q/tower-bays, all inspected"
+  ],
+  "dominantOriginalProblems": [
+    "Hall side enclosure sat only.26local/.14world metres behind the outside column plane, flattening the returning architecture into a decorated box.",
+    "Sparse rectangular gable/slat field and plain bearing surfaces lacked the dense deep carried vernacular structure in HD.",
+    "Tower enclosure planes sat close to posts; native synthetic cloud/flat-neutral lighting and low-glaze roof response remained schematic."
+  ],
+  "actualSourceWork": [
+    "Whole independent occupied return galleries replace both flush side enclosures:2.30local-metre column-to-wall depth, floorboards, inner framed windows/lime, continuous headers, curved knees, ceiling ties and open rails. Held outer shaft/roof/stair axes retain mass170 progress.",
+    "New closed pierced full-depth gable cradle with seated feet, chased arris and curved inner cheek struts joins the retained170 collar/kingpost/rake/coffer/crest system. Actual new geometry, no image relief or scene-facing card.",
+    "Tower opaque core/windows move behind the held exterior post/roof/rail/finial envelope to expose occupied bay depth; outer tower contours and crown/sorin remain unchanged.",
+    "ONE exact verified176 actual cloud sculpture fits the new gable carrier. World-width fit.92m is uniform despite the retained nonuniform hall transform; original donor positions/normals/indices remain unchanged. Four small recessed closed pads cover all five measured LEFT cut loops; the right carved end remains free.",
+    "Existing CC0 Kloppenheim06 PureSky is rigidly oriented by upright yaw plus small elevation alignment. Declared linear warm conversion and inferred finite solar disk supply the same visible/world/local-reflection sky field. Ceramic receives a separate dielectric glaze. Existing direct sun strength/direction, exposure and finite/practical source strengths remain; sun color is explicitly warmer."
+  ],
+  "geometryAndSourceValidation": {
+    "cradle": "cradle-topology-r04.json:21660vertices7220triangles, finite positive3.007884local-volume,0boundary/nonmanifold/inconsistent edges after spatial seam weld. Not an architectural-union proof.",
+    "galleryClearance": {
+      "heldHallScaleX": 0.5520987933515367,
+      "heldShaftRadiusWorld": 0.255,
+      "wallDepthLocal": 2.3,
+      "columnToWallWorld": 1.2698272247085343,
+      "estimatedClearWalkWorld": 0.9044074660382271,
+      "priorR01ClearWalkWorld": 0.5455432503597282
+    },
+    "donorCopy": "source176-copy-proof.json exact GLB0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee unchanged",
+    "mountCuts": "source-cut-mount-proof-r04.json all five actual cut-loop bounds covered by four closed left mount pads",
+    "skyOrientation": "sky-orientation-r03.json mapped upY.9926766 and source-to-target sun error3.19e-16; same R04 orientation",
+    "native": {
+      "buffers": [
+        1254,
+        1254
+      ],
+      "scale": 1,
+      "sourceStable": true,
+      "runtimeErrors": [],
+      "allProgramsLinked": true,
+      "glError": 0,
+      "hallHero": "Second genuine3D native subfrustum[570,210,560,1254], not an upscaled screenshot",
+      "towerBayHero": "Second genuine3D native subfrustum[245,215,375,1254]",
+      "low3q": {
+        "position": [
+          10.5,
+          2.6,
+          12
+        ],
+        "target": [
+          2,
+          9,
+          -11
+        ],
+        "fov": 58
+      }
+    },
+    "syntaxWhitespace": "Changed JavaScript node --check and git diff --check passed; no broad unrelated tests."
+  },
+  "lightingAndMaterialLimits": {
+    "exposure": 0.94,
+    "sunIntensity": 8.5,
+    "sunColorAuthored": "#ffcd8a",
+    "worldIntensity": 0.55,
+    "skySource": "CC0 Kloppenheim06 PureSky, Greg Zaal/Jarod Guest, unchanged source SHA5c294abec27d49c33f784182bf1e92f4a1a4b4895b51cdbac50b07dde47de063",
+    "skyConversion": "Horizon-dependent linear[1.06,.98,.92]to[2.80,1.12,.22] with.88weight and.45gain. Warm lower hemispheric approximation and inferred.266degree solar disk[60,35,9]. Independent adapted source, not measured sunset radiometry.",
+    "ceramicGlaze": {
+      "clearcoat": 0.42,
+      "clearcoatRoughness": 0.22
+    },
+    "transport": "Native LTC area/GTAO/shadowed sun and world PMREM are not path-traced GI or physical-render pixel equivalence. Existing custom metric painted-timber shader has its original cross-renderer limitations."
+  },
+  "preserved": [
+    "23protected source modules exact, including camera/layout, main roof/finial contours, original157/170 sculpture vocabulary, stair/bridge bearings, fore-veranda geometry and all garden source modules; see protected-modules.json.",
+    "Mass170 outer columns/capitals, gable rake/kingpost/coffers/crest, bridge/garden/reference camera/fore-veranda anchors and existing original media bytes.",
+    "No Scene09/other-scene/shared-tool writes in this task. No Git mutation, child agents, film render, Blender job, scene export or ad-hoc GPU capture."
+  ],
+  "remainingVisualGaps": [
+    "Still visibly CG; valid native buffers do not establish photographic fidelity.",
+    "Whole-view composition has the existing broad garden/bridge/water/sky differences. Captured cloud forms are different from HD; golden light and reflected-water distribution remain approximations.",
+    "Fine gable/capital ornament and regular tower infill remain schematic. The actual cloud donor is a different artifact with unspecified culture/period, not an identified Japanese reference carving.",
+    "Existing stone-lantern silhouettes, foliage grouping, hill contours and fine surfaces remain inconsistent with HD; those geometry domains were held.",
+    "Some relative gable/side-bay proportions and large smooth planes remain simplified despite the new occupied spatial depth."
+  ],
+  "archives": {
+    "baseline": "baseline-source-scripts.tgz plus baseline-source-identity.json",
+    "rounds": [
+      "r01-source-scripts.tgz",
+      "r02-source-scripts.tgz",
+      "r03-source-scripts.tgz",
+      "r04-source-scripts.tgz"
+    ],
+    "scope": "Script/declaration snapshots omit unchanged original assets. Exact source176 GLB retained in canonical assets/carved-gable186; existing HDR remains declared global dependency. Failed source, official native receipts and explicit rejection JSONs retained.",
+    "unrenderedDrafts": "sky186.candidate.js plus CPU sky inspection previews are design drafts only, never claimed actual scene renders."
+  },
+  "reports": [
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r04/report.json",
+      "sourceHash": "a06c79282ca57e654c59900e27f2c83d518311e3f6a9a83a3ddf528034162e12",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "file": "qa/ten-reference/02/iteration-scene02-spatial186-r04/reference.png",
+          "nativeBuffer": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "ce1af294e03954b96d6a79597192f8317a33b8bb3f4f45e3ba9160626b124db3"
+        },
+        {
+          "name": "detail-native",
+          "file": "qa/ten-reference/02/iteration-scene02-spatial186-r04/detail-native.png",
+          "nativeBuffer": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "611c4266e3e485b708b495f3fbe30d70213dcbefd35cba536c1f6c0e6922875e"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r04-low3q/report.json",
+      "sourceHash": "a06c79282ca57e654c59900e27f2c83d518311e3f6a9a83a3ddf528034162e12",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "file": "qa/ten-reference/02/iteration-scene02-spatial186-r04-low3q/inspection-view.png",
+          "nativeBuffer": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "7acb8e13f20995acbeb60da619d4457b9245cce236098f519416949a135ec588"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r04-tower-bays/report.json",
+      "sourceHash": "a06c79282ca57e654c59900e27f2c83d518311e3f6a9a83a3ddf528034162e12",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "file": "qa/ten-reference/02/iteration-scene02-spatial186-r04-tower-bays/reference.png",
+          "nativeBuffer": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "ce1af294e03954b96d6a79597192f8317a33b8bb3f4f45e3ba9160626b124db3"
+        },
+        {
+          "name": "detail-native",
+          "file": "qa/ten-reference/02/iteration-scene02-spatial186-r04-tower-bays/detail-native.png",
+          "nativeBuffer": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "rgbaSha256": "57e54e1a41903a1c6880e623ff47af718d42dea40903fca6f8c9551a3bffb477"
+        }
+      ]
+    }
+  ],
+  "comparison": {
+    "scope": "627px CPU ffmpeg comparison derivatives only. Actual1254 full/3D subfrustum images remain separately preserved; neither reference nor board enters scene assets.",
+    "order": [
+      "Original supplied HD02 photograph",
+      "Public mass170R07 actual1254 baseline",
+      "Current spatial186R04 actual1254 native draft"
+    ],
+    "fullBoard": "comparison-reference-baseline-r04.jpg",
+    "hallBoard": "comparison-hall-reference-baseline-r04.jpg",
+    "hallCrop": [
+      570,
+      210,
+      560,
+      1254
+    ]
+  },
+  "changedFiles": "changed-files-r04.json"
+}

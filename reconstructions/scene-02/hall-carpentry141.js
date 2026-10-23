@@ -6,7 +6,7 @@ import {buildMonumentalGable170} from './gable170.js';
 // Authored solid timber and cast fittings, in the hall's structural coordinates.
 // The heads follow column -> abacus -> arms -> bearing blocks -> purlins.
 // Gold belongs to exposed metal faces; the load-bearing surfaces remain wood.
-export function createHallCarpentry141({b,mats}){
+export function createHallCarpentry141({b,mats,sculpture186=null}){
  const counts={primaryHeads:0,intermediateHeads:0,sideHeads:0,bearingBlocks:0,carvedBeamEnds:0,transomBays:0};
  mats.hallBearing=mats.cedar.clone();mats.hallBearing.name='scene02-hall-aged-bearing-timber';mats.hallBearing.color.setHex(0x492816);mats.hallBearing.roughness=.65;
  mats.hallOxide=mats.red.clone();mats.hallOxide.name='scene02-hall-recessed-oxide-lacquer';mats.hallOxide.color.setHex(0x612c19);mats.hallOxide.roughness=.47;
@@ -90,5 +90,5 @@ export function createHallCarpentry141({b,mats}){
    b.ball(x,5.55,-5.15,.14,.14,.07,'gold');
   }
  }
- return{head,transomBay,facePlate,cloudEnd,frontEave,sanctuaryBackdrop,gable:roof=>{counts.gableMass170=buildMonumentalGable170({b,mats,carved,roof});return counts.gableMass170;},tail:carved.tail,stats:Object.assign(counts,{carved:carved.stats})};
+ return{head,transomBay,facePlate,cloudEnd,frontEave,sanctuaryBackdrop,carved186:carved,gable:roof=>{counts.gableMass170=buildMonumentalGable170({b,mats,carved,roof,sculpture186});return counts.gableMass170;},tail:carved.tail,stats:Object.assign(counts,{carved:carved.stats})};
 }

@@ -1,0 +1,12 @@
+{
+  "revision": "scene02-spatial186-r02",
+  "sourceHash": "081d6e8b61a392fa5264fceb211e8274439bfb667a297331083f240e552bdf70",
+  "status": "Actual1254 full/hall hero/low3q/tower-bays valid but sky visually rejected",
+  "visualAccepted": false,
+  "findings": [
+    "Actual1254 full/hall hero/low3q/tower-bays valid. Wider gallery and uniformly fitted actual donor retain physical space and sculpture depth.",
+    "Sky orientation rejected: minimal rotation between nearly opposite sun vectors rotates around a horizontal axis and inverts the source hemisphere. It exposes blurred lower HDR half, producing a blank cream sky and wrong reflection field."
+  ],
+  "repair": "Replace minimal antiparallel source-sun rotation with level yaw followed by small elevation correction; verify mapped up>0.99 and direction fit. Keep geometry/material/direct sun/exposure unchanged.",
+  "sourceArchive": "r02-source-scripts.tgz"
+}

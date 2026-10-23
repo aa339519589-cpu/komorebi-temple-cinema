@@ -1,5 +1,6 @@
 import {T,V} from './kernel.js';
 import {emitRestoredBuddha} from './altar-figure.js';
+import {buildSpatialGallery186} from './spatial186.js';
 
 // Solid frames and occlusion layers, in the unchanged hall's local space.
 // The outside column row, inner portico and sanctuary are different depths.
@@ -33,10 +34,7 @@ export function buildHallEntry({b,mats,lights,column,carpentry,fitting,rosette,s
  b.box(cx,2.25,-.8,span+1.1,.08,11.8,'darkwood');
  b.box(cx,5.40,-5.95,span+.2,6.42,.30,'darkwood');
  for(let x=left-.2;x<=right+.21;x+=.46)b.box(x,5.42,-5.76,.075,6.32,.10,'cedar');
- for(const [x,sign]of[[left+.26,-1],[right-.26,1]]){
-  b.box(x,5.405,-1.25,.26,6.29,9.2,'darkwood');
-  for(const z of[-4.5,-2.1,.3,2.7])b.at([x+sign*.14,0,z],sign*Math.PI/2,()=>{b.box(0,3.05,0,2.15,1.55,.18,'hallOxide');lattice(0,5.255,.04,2.05,2.79,'cedar',true);b.box(0,6.99,.015,2.10,.43,.12,'hallPlaster');for(const q of[-1,1])b.box(0,6.99+q*.25,.12,2.22,.095,.21,'hallBearing');carpentry.transomBay(0,6.99,.15,2.05);});
- }
+ const spatialGallery186=buildSpatialGallery186({b,mats,frame,carpentry});
  for(const z of[4.7,-6.3])for(const x of axes){column(x,z,floor,5.80,z===4.7?.255:.225,'hallColumnRed');seatedBracket(x,8.05,z,z===4.7?1.04:.88);}
  for(const x of inner){column(x,1.2,floor+.03,5.43,.215,'hallColumnRed');seatedBracket(x,7.69,1.2,.82);}
  for(const x of[left,right])for(const z of[-3.2,.8]){column(x,z,floor,5.65,.225,'hallColumnRed');carpentry.head(x,7.90,z,.88,'side',x===left?-Math.PI/2:Math.PI/2);}
@@ -87,5 +85,5 @@ export function buildHallEntry({b,mats,lights,column,carpentry,fitting,rosette,s
   b.put(new T.CylinderGeometry(.23,.40,.23,8),'black',[x,6.20,-2.15]);b.cyl(x,6.075,-2.15,.40,.035,'oldgold');b.line([x,6.32,-2.15],[x,7.92,-2.15],.014,'oldgold');
   const light=new T.PointLight(0xffae49,45,12,2);light.position.copy(V([x,5.55,-2.20]).applyMatrix4(b.stack.at(-1)));lights.push(light);
  }
- return {outsideRowZ:4.7,innerRowZ:1.2,portalZ:.88,sanctuaryScreenZ:-1.56,altarZ:-3.72,solidHallWindows:false,rightInnerBayOpen:true,bearingGrid:frame,portalBays:3,outerPorchColumns:6};
+ return {outsideRowZ:4.7,innerRowZ:1.2,portalZ:.88,sanctuaryScreenZ:-1.56,altarZ:-3.72,solidHallWindows:false,rightInnerBayOpen:true,bearingGrid:frame,portalBays:3,outerPorchColumns:6,spatialGallery186};
 }
