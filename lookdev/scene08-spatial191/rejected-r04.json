@@ -1,0 +1,23 @@
+{
+  "revision": "scene08-spatial191-r04",
+  "sourceHash": "41a6b6a126223937f0fce6291f061ce37e16ddc224cee5bbebd7c50c030ac260",
+  "status": "Actual1254 full/hero/low3q valid and inspected; cast end finish needs correction",
+  "visualAccepted": false,
+  "findings": [
+    "Actual1254 full/true hall hero/low3q inspected. Closed profile-fitted skins follow the curved source end and reveal the layered arm direction without moving structural geometry.",
+    "The reused aged-shoe alloy makes larger end skins pale/greenish under the measured sky. R05 assigns only these new cast skins a bounded worn cast-gilt reflectance and smoother microfacet finish, leaving original hardware and direct/sky light untouched."
+  ],
+  "sourceArchive": "r04-source-scripts.tgz",
+  "nextRepair": {
+    "linearReflectance": [
+      0.83,
+      0.45,
+      0.08
+    ],
+    "metalness": 0.94,
+    "roughness": 0.34,
+    "emissive": 0,
+    "scope": "Only new actual-profile cast end skins",
+    "physicalStatus": "Authored ordinary PBR finish, no measured spectrum claimed"
+  }
+}

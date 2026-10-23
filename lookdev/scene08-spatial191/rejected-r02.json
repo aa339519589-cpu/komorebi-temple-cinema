@@ -1,0 +1,25 @@
+{
+  "revision": "scene08-spatial191-r02",
+  "sourceHash": "c26f3b6e0eb6136adf03da44c489ee1a73b3e77c05fabdaecc584f036c5beba3",
+  "status": "Actual full/hero/low3q valid and inspected; close reflected entry-metal context still absent",
+  "visualAccepted": false,
+  "findings": [
+    "Actual1254 full/true hall hero/low3q rendered and inspected. Bounded metal and lacquer improve the cast/rim hierarchy without new light sources or architecture emission.",
+    "Near foreground finial still reads pale under the outdoor environment because the close entry metal has no reflected court. R03 uses a single128 actual native scene cube capture for only foreground-veranda metal; exposed tower metal keeps the held outdoor sky."
+  ],
+  "sourceArchive": "r02-source-scripts.tgz",
+  "nextRepair": {
+    "source": "Actual linear native modeled entry court and held measured sky/light, captured by CubeCamera128 during official FIFO buildScene only",
+    "position": [
+      -0.65,
+      3,
+      7.05
+    ],
+    "scope": "Only foreground-veranda metal aliases. Main/tower material response and global outdoor environment unchanged.",
+    "gain": 0.82,
+    "streamMirrorHiddenOnlyDuringCapture": true,
+    "noReferenceRGB": true,
+    "noStoredRasterBake": true,
+    "visualAccepted": false
+  }
+}

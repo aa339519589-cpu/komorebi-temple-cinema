@@ -1,0 +1,30 @@
+{
+  "revision": "scene08-spatial191-r03",
+  "sourceHash": "eee822070fedb55b4f4484220efa5506d91cf42d362941faa5cd09e48e4a2afc",
+  "status": "Actual1254 full/hero/low3q valid and inspected; retained spatial/probe progress requires profile-fitted carpentry finish repair",
+  "visualAccepted": false,
+  "findings": [
+    "Actual1254 full/true hall hero/low3q inspected with no native errors; entry court probe makes the near finial less sky-pale while all exposed courtyard/tower materials retain the original outdoor environment.",
+    "Broad repeated bracket ends remain plain cut blocks in actual hero/low3q. R04 fits closed metal end sleeves to the exact existing curved/bevelled arm solids and cantilevers, preserving original wood members and contact datums."
+  ],
+  "sourceArchive": "r03-source-scripts.tgz",
+  "nextRepair": {
+    "source": "Original closed metal fitting solids derived by geometric halfspace clipping of the existing actual curved/bevelled arm meshes, not a raster or scan count change",
+    "kitArmIndices": [
+      1,
+      2,
+      7,
+      8,
+      9,
+      10
+    ],
+    "scope": "Held grand-hall crossed arms/cantilever ends and upper/lower gallery kits; right hall and pagoda geometry unchanged",
+    "radialAllowance": 1.025,
+    "endAllowanceMetres": 0.003,
+    "cutLengthMetres": 0.145,
+    "originalWoodMembersAndContactsUnchanged": true,
+    "closedPrimitiveAudit": "lookdev/scene08-spatial191/primitive-audit-r04.json",
+    "newExternalAssets": false,
+    "visualAccepted": false
+  }
+}

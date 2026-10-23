@@ -1,0 +1,736 @@
+{
+  "status": "exported-attribute-audit",
+  "sourceCommit": "4ad53ba6a6ad5d044b53e72c9ca002d8c7701f04",
+  "sourceHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "geometryCount": 1687,
+  "verifiedBufferHashes": 6748,
+  "uniqueVertices": 7286962,
+  "uniqueTriangles": 7281323,
+  "renderedSourceTriangleCount": 18294517,
+  "nonfiniteAttributeValues": 0,
+  "unitNormalOutliersTolerance1e4": 1196,
+  "zeroNormals": 4,
+  "sourceDegenerateTrianglesBelowDoubledArea1e14": 34724,
+  "sourceDegenerateTrianglesIncludingInstances": 96168,
+  "opposedAverageVertexNormals": 313,
+  "coreAnatomicalSurfaces": [
+    {
+      "id": "00b2472d-c160-4243-8ed1-13a917aeebe6",
+      "consumers": [
+        "source-object-1933"
+      ],
+      "vertices": 210766,
+      "triangles": 421536,
+      "normalMinLength": 0.9999999067126516,
+      "normalMaxLength": 1.0000001471090287,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 116,
+      "minFaceNormalCosine": -0.992393141909703
+    }
+  ],
+  "sourceNormalProblemGeometryCount": 43,
+  "sourceNormalProblems": [
+    {
+      "id": "00b2472d-c160-4243-8ed1-13a917aeebe6",
+      "consumers": [
+        "source-object-1933"
+      ],
+      "vertices": 210766,
+      "triangles": 421536,
+      "normalMinLength": 0.9999999067126516,
+      "normalMaxLength": 1.0000001471090287,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 116,
+      "minFaceNormalCosine": -0.992393141909703
+    },
+    {
+      "id": "1a3b9c2c-6477-4f0b-af6c-305f10deb25c",
+      "consumers": [
+        "restoration-altar:lotusGold"
+      ],
+      "vertices": 145162,
+      "triangles": 270928,
+      "normalMinLength": 0.999999953517606,
+      "normalMaxLength": 1.0000000493738657,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 6888,
+      "opposedAverageVertexNormals": 46,
+      "minFaceNormalCosine": -0.9453874735832074
+    },
+    {
+      "id": "dc3459e9-7268-4460-92cc-28800087b260",
+      "consumers": [
+        "restoration-altar:lotusGold"
+      ],
+      "vertices": 145163,
+      "triangles": 270928,
+      "normalMinLength": 0.999999953517606,
+      "normalMaxLength": 1.0000000493738657,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 6888,
+      "opposedAverageVertexNormals": 46,
+      "minFaceNormalCosine": -0.9453874735832074
+    },
+    {
+      "id": "624170fb-5ea2-44dd-aa90-b933bed815b1",
+      "consumers": [
+        "reference6-instanced-small-crown-bead-warm-gilt",
+        "reference6-instanced-small-crown-bead-shadow-gilt"
+      ],
+      "vertices": 189,
+      "triangles": 320,
+      "normalMinLength": 0.027202940957032167,
+      "normalMaxLength": 1.000000030076737,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 21,
+      "zeroNormals": 0,
+      "degenerateTriangles": 40,
+      "opposedAverageVertexNormals": 40,
+      "minFaceNormalCosine": -0.06429914302783178
+    },
+    {
+      "id": "31cb0be4-e0ad-4723-b017-3c7f77187767",
+      "consumers": [
+        "restoration-altar:lotusGold"
+      ],
+      "vertices": 145403,
+      "triangles": 270928,
+      "normalMinLength": 0.9999999527297561,
+      "normalMaxLength": 1.0000000482397862,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 6888,
+      "opposedAverageVertexNormals": 27,
+      "minFaceNormalCosine": -0.9624865064958893
+    },
+    {
+      "id": "b67962d8-eeb1-4373-8bd8-c18d5f9457ce",
+      "consumers": [
+        "restoration-altar:lotusGiltSoft"
+      ],
+      "vertices": 35373,
+      "triangles": 66080,
+      "normalMinLength": 0.999999957394397,
+      "normalMaxLength": 1.0000000419925508,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 1680,
+      "opposedAverageVertexNormals": 14,
+      "minFaceNormalCosine": -0.944942173269417
+    },
+    {
+      "id": "43fd2441-2c46-4d37-8f9d-219ede5cf4c6",
+      "consumers": [
+        "restoration-altar:lotusGiltSoft"
+      ],
+      "vertices": 35373,
+      "triangles": 66080,
+      "normalMinLength": 0.999999957394397,
+      "normalMaxLength": 1.0000000430944551,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 1680,
+      "opposedAverageVertexNormals": 14,
+      "minFaceNormalCosine": -0.944942173269417
+    },
+    {
+      "id": "54f05432-c90c-4a30-b8ea-4b3e25e6f21c",
+      "consumers": [
+        "restoration-altar:lotusGiltSoft"
+      ],
+      "vertices": 35411,
+      "triangles": 66080,
+      "normalMinLength": 0.9999999550763378,
+      "normalMaxLength": 1.0000000488055167,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 1680,
+      "opposedAverageVertexNormals": 7,
+      "minFaceNormalCosine": -0.9594345604497627
+    },
+    {
+      "id": "8f6beeaa-9279-4dc9-a430-d53182cc36b9",
+      "consumers": [
+        "source-object-1934"
+      ],
+      "vertices": 357136,
+      "triangles": 714308,
+      "normalMinLength": 0.999999867736543,
+      "normalMaxLength": 1.0000001288027116,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 2,
+      "minFaceNormalCosine": -0.6258023296153606
+    },
+    {
+      "id": "62b15777-788b-42e1-a973-f663148d2f08",
+      "consumers": [
+        "restoration-altar:brocadeThread"
+      ],
+      "vertices": 249201,
+      "triangles": 83051,
+      "normalMinLength": 0.9999999589855878,
+      "normalMaxLength": 1.000000041214599,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 0,
+      "zeroNormals": 0,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 1,
+      "minFaceNormalCosine": -0.2352077668127016
+    },
+    {
+      "id": "e252594e-04c3-4db6-b520-96e3b8478b89",
+      "consumers": [
+        "reference6-instanced-leaf-bead-warm-gilt",
+        "reference6-instanced-leaf-bead-shadow-gilt"
+      ],
+      "vertices": 165,
+      "triangles": 252,
+      "normalMinLength": 0,
+      "normalMaxLength": 1.0000000397170485,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 2,
+      "zeroNormals": 2,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.9811097633519626
+    },
+    {
+      "id": "d8742bee-52fd-41f6-8ecb-90bf759f50f2",
+      "consumers": [
+        "reference6-instanced-terminal-bell-warm-gilt",
+        "reference6-instanced-terminal-bell-shadow-gilt"
+      ],
+      "vertices": 189,
+      "triangles": 320,
+      "normalMinLength": 0.012000000104308128,
+      "normalMaxLength": 1.000000024011216,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 21,
+      "zeroNormals": 0,
+      "degenerateTriangles": 40,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8694831303478323
+    },
+    {
+      "id": "e4e9b100-8bdb-4e58-bdb7-b1a7b7d73b24",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 136,
+      "triangles": 224,
+      "normalMinLength": 0.04220189671424936,
+      "normalMaxLength": 1.000000043812956,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 17,
+      "zeroNormals": 0,
+      "degenerateTriangles": 32,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7750712664445326
+    },
+    {
+      "id": "0fd10b81-54a2-4a74-8468-6df7d78fca6f",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 585,
+      "triangles": 1024,
+      "normalMinLength": 0.7799999713897705,
+      "normalMaxLength": 1.0000000296627518,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 65,
+      "zeroNormals": 0,
+      "degenerateTriangles": 128,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.5209762828043119
+    },
+    {
+      "id": "00d0d022-8676-4a7d-b25c-ec4689b748fe",
+      "consumers": [
+        "restoration-altar:lotusShadow"
+      ],
+      "vertices": 455,
+      "triangles": 768,
+      "normalMinLength": 0.05000999739091607,
+      "normalMaxLength": 1.0000000186473217,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 65,
+      "zeroNormals": 0,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7366674048017969
+    },
+    {
+      "id": "f52e7a91-780b-4d6b-9a42-fad761f5c00c",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 585,
+      "triangles": 1024,
+      "normalMinLength": 0.7799999713897705,
+      "normalMaxLength": 1.0000000345104507,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 65,
+      "zeroNormals": 0,
+      "degenerateTriangles": 128,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.5209762828043119
+    },
+    {
+      "id": "526d3fea-af0b-42fc-b4b0-190c69a68cc4",
+      "consumers": [
+        "restoration-altar:lotusShadow"
+      ],
+      "vertices": 455,
+      "triangles": 768,
+      "normalMinLength": 0.05000999739091607,
+      "normalMaxLength": 1.0000000186473217,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 65,
+      "zeroNormals": 0,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7366674048017969
+    },
+    {
+      "id": "c0bd0fb8-88f9-4eba-9bf0-c34f03e2cef7",
+      "consumers": [
+        "restoration-altar:lotusShadow"
+      ],
+      "vertices": 455,
+      "triangles": 768,
+      "normalMinLength": 0.05000999739091607,
+      "normalMaxLength": 1.0000000186473217,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 65,
+      "zeroNormals": 0,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7366674048017969
+    },
+    {
+      "id": "deecf336-413d-401f-8173-6ec8d7e058bc",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 264,
+      "triangles": 448,
+      "normalMinLength": 0.06499999761581421,
+      "normalMaxLength": 1.0000000262435687,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 33,
+      "zeroNormals": 0,
+      "degenerateTriangles": 64,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7504528284702594
+    },
+    {
+      "id": "4ac6b1b6-b9f0-4ba6-b997-e1edff6bbf4b",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 1369,
+      "triangles": 2304,
+      "normalMinLength": 0.0316227756827904,
+      "normalMaxLength": 1.0000000397077056,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 49,
+      "zeroNormals": 0,
+      "degenerateTriangles": 48,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.5409386202387402
+    },
+    {
+      "id": "dd2faa53-fbfb-4288-979b-d5108383ba59",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 231,
+      "triangles": 384,
+      "normalMinLength": 0.10100000351667404,
+      "normalMaxLength": 1.0000000262435687,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 33,
+      "zeroNormals": 0,
+      "degenerateTriangles": 64,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8925013589046402
+    },
+    {
+      "id": "754c4272-c649-4ec8-ad53-114d3e0f371a",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 984,
+      "triangles": 1840,
+      "normalMinLength": 0.15524175238252594,
+      "normalMaxLength": 1.0000000402484048,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 41,
+      "zeroNormals": 0,
+      "degenerateTriangles": 80,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7403476109158884
+    },
+    {
+      "id": "6127069e-15b4-4d49-a64d-a944eadd68f8",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 1225,
+      "triangles": 2304,
+      "normalMinLength": 0.061188232718919607,
+      "normalMaxLength": 1.000000038290627,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 49,
+      "zeroNormals": 0,
+      "degenerateTriangles": 96,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8498083768740802
+    },
+    {
+      "id": "5305868e-c407-4d4b-bc84-f7bb2e27a367",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 105,
+      "triangles": 160,
+      "normalMinLength": 0.032999999821186066,
+      "normalMaxLength": 1.000000023286322,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 21,
+      "zeroNormals": 0,
+      "degenerateTriangles": 40,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.819846854935693
+    },
+    {
+      "id": "c4ceb569-a458-4c4f-b61f-5add95e204d9",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 1235,
+      "triangles": 2304,
+      "normalMinLength": 0.26499998569488525,
+      "normalMaxLength": 1.000000038709412,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 65,
+      "zeroNormals": 0,
+      "degenerateTriangles": 128,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8056849441787246
+    },
+    {
+      "id": "3bcb789a-5445-40e9-8dbd-9f95e30a7c0d",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 715,
+      "triangles": 1280,
+      "normalMinLength": 0.0949999988079071,
+      "normalMaxLength": 1.0000000256448445,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 65,
+      "zeroNormals": 0,
+      "degenerateTriangles": 128,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7448806418477737
+    },
+    {
+      "id": "bbcd588f-6b5c-4081-ae40-dd5993669e91",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 231,
+      "triangles": 384,
+      "normalMinLength": 0.047707440955820406,
+      "normalMaxLength": 1.0000000285993464,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 33,
+      "zeroNormals": 0,
+      "degenerateTriangles": 64,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7323296998952277
+    },
+    {
+      "id": "d48b5fac-84b2-4683-9349-16e52a8e5473",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 252,
+      "triangles": 440,
+      "normalMinLength": 0.12999999523162842,
+      "normalMaxLength": 1.0000000379395273,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 21,
+      "zeroNormals": 0,
+      "degenerateTriangles": 40,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.4985234700849047
+    },
+    {
+      "id": "ebbb6b44-9470-476e-8a50-bc6f18e0930d",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 252,
+      "triangles": 440,
+      "normalMinLength": 0.12999999523162842,
+      "normalMaxLength": 1.0000000278337242,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 21,
+      "zeroNormals": 0,
+      "degenerateTriangles": 40,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.6811837481452907
+    },
+    {
+      "id": "3cfb3675-ae47-434d-bde2-db6621e79dba",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 203,
+      "triangles": 336,
+      "normalMinLength": 0.06499999761581421,
+      "normalMaxLength": 1.0000000350373306,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 29,
+      "zeroNormals": 0,
+      "degenerateTriangles": 56,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7535324836342018
+    },
+    {
+      "id": "e666d3c3-1057-49e4-92e8-d36e96490241",
+      "consumers": [
+        "restoration-altar:oldgold"
+      ],
+      "vertices": 150,
+      "triangles": 240,
+      "normalMinLength": 0.054999999701976776,
+      "normalMaxLength": 1.0000000380131857,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 25,
+      "zeroNormals": 0,
+      "degenerateTriangles": 48,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.9587375417753622
+    },
+    {
+      "id": "52b9bc86-3df6-42d8-8503-63fd026af324",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 231,
+      "triangles": 384,
+      "normalMinLength": 0.07433034301939158,
+      "normalMaxLength": 1.0000000387097143,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 33,
+      "zeroNormals": 0,
+      "degenerateTriangles": 64,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.9797741557915629
+    },
+    {
+      "id": "3787ad79-6ba8-4fcd-b805-4468fc84d7db",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 249,
+      "triangles": 320,
+      "normalMinLength": 0.14000000059604645,
+      "normalMaxLength": 1.0000000273439884,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 21,
+      "zeroNormals": 0,
+      "degenerateTriangles": 40,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.9117823514036713
+    },
+    {
+      "id": "c84dfd57-3f85-4513-91fc-ea2c5fbb2b8f",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 838,
+      "triangles": 1400,
+      "normalMinLength": 0.1899999976158142,
+      "normalMaxLength": 1.0000000334968029,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 29,
+      "zeroNormals": 0,
+      "degenerateTriangles": 56,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8319391921581626
+    },
+    {
+      "id": "0c6863ed-3ebf-4631-bdef-a1020535b7b0",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 406,
+      "triangles": 728,
+      "normalMinLength": 0.1302459165052904,
+      "normalMaxLength": 1.0000000361181685,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 29,
+      "zeroNormals": 0,
+      "degenerateTriangles": 56,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.5536978541490217
+    },
+    {
+      "id": "e9306af0-f35e-4724-ae7c-57c3702a27df",
+      "consumers": [
+        "restoration-altar:foliage"
+      ],
+      "vertices": 362,
+      "triangles": 600,
+      "normalMinLength": 0,
+      "normalMaxLength": 1.000000031800935,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 2,
+      "zeroNormals": 2,
+      "degenerateTriangles": 0,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.5479672765145513
+    },
+    {
+      "id": "54e0bd1e-336e-48f9-afdd-9b10081b196d",
+      "consumers": [
+        "restoration-altar:red"
+      ],
+      "vertices": 275,
+      "triangles": 480,
+      "normalMinLength": 0.09219544792122172,
+      "normalMaxLength": 1.0000000355554355,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 25,
+      "zeroNormals": 0,
+      "degenerateTriangles": 48,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.7088268685313357
+    },
+    {
+      "id": "0d644445-c1fe-4a25-a3a1-44d29d5b8539",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 319,
+      "triangles": 560,
+      "normalMinLength": 0.09552486466377226,
+      "normalMaxLength": 1.000000030005701,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 29,
+      "zeroNormals": 0,
+      "degenerateTriangles": 56,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8031544186255691
+    },
+    {
+      "id": "83d50c2a-4f0c-4e34-bab8-0923150cdc1d",
+      "consumers": [
+        "restoration-altar:red"
+      ],
+      "vertices": 175,
+      "triangles": 288,
+      "normalMinLength": 0.06609840901453723,
+      "normalMaxLength": 1.0000000304603043,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 25,
+      "zeroNormals": 0,
+      "degenerateTriangles": 48,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.6681178979359932
+    },
+    {
+      "id": "dc293215-5ce3-4db1-9639-f92fb941a942",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 545,
+      "triangles": 672,
+      "normalMinLength": 0.20000000298023224,
+      "normalMaxLength": 1.0000000330994965,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 29,
+      "zeroNormals": 0,
+      "degenerateTriangles": 56,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.6937373368260871
+    },
+    {
+      "id": "45287a4f-2cf2-42c2-8aea-3188f0e962b2",
+      "consumers": [
+        "restoration-altar:gold"
+      ],
+      "vertices": 126,
+      "triangles": 200,
+      "normalMinLength": 0.013000000053300308,
+      "normalMaxLength": 1.0000000281665906,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 21,
+      "zeroNormals": 0,
+      "degenerateTriangles": 40,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8332305495076525
+    },
+    {
+      "id": "928957bf-dca1-4d7b-a481-6936cc7f97ab",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 1369,
+      "triangles": 2304,
+      "normalMinLength": 0.0316227756827904,
+      "normalMaxLength": 1.0000000397077056,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 49,
+      "zeroNormals": 0,
+      "degenerateTriangles": 48,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.5409386202387402
+    },
+    {
+      "id": "6b95bf46-c3f4-4012-87be-84578990e401",
+      "consumers": [
+        "restoration-altar:lacquer"
+      ],
+      "vertices": 231,
+      "triangles": 384,
+      "normalMinLength": 0.10100000351667404,
+      "normalMaxLength": 1.0000000262435687,
+      "nonfiniteAttributes": 0,
+      "unitNormalOutliers": 33,
+      "zeroNormals": 0,
+      "degenerateTriangles": 64,
+      "opposedAverageVertexNormals": 0,
+      "minFaceNormalCosine": 0.8925013589046402
+    }
+  ],
+  "limits": [
+    "Checks exported positions, normals, UV/color counts, finite values, index range and immutable buffer hashes.",
+    "Normal/winding angular agreement is a diagnostic on supplied source data; curved folds, repeated poles and separate back faces can need interpretation.",
+    "Source buffer triangle counts retain generated pole/degenerate faces; they are not a claim that every source index triple has positive area.",
+    "This is not a manifold, self-intersection, anatomy or photographic likeness proof.",
+    "Imported shears use inverse-transpose normal transformation and winding correction as declared in the actual render reports."
+  ],
+  "visualAccepted": false
+}

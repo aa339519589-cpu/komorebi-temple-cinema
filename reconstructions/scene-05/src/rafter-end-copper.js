@@ -13,11 +13,11 @@ export function createRafterEndCopper({detail='full'}={}){
  function ring(w,h,border,depth,bevel){const s=rect(w,h,.035),inner=rect(w-border*2,h-border*2,.023);s.holes.push(new T.Path(inner.getPoints(fine?12:6).reverse()));return cast(s,depth,bevel);}
  add(ring(1,1,.030,.19,.004),'fittingCopper',[0,0,-.090]);
  add(cast(rect(1.012,1.012,.040),.022,.005),'fittingCopper',[0,0,.009]);
- add(cast(rect(.864,.864,.035),.008,.002),'fittingPatina',[0,0,.017]);
- add(ring(.985,.985,.052,.020,.005),'fittingEdge',[0,0,.028]);
+ add(cast(rect(.93,.93,.025),.008,.002),'fittingPatina',[0,0,.017]);
+ add(ring(.985,.985,.027,.016,.003),'fittingEdge',[0,0,.028]);
  // Each leaf has a domed cross-section, a raised midrib, and a bent tip.
  // The staggered inner whorl overlaps the roots, leaving deep radial pockets.
- function petal(length=.307,width=.064,thickness=.028,lift=.030,curl=.016){
+ function petal(length=.307,width=.036,thickness=.010,lift=.008,curl=.004){
   const p=[0,0,0],uv=[.5,0],ix=[],N=fine?14:8,M=fine?12:8;
   for(let j=1;j<N;j++)for(let i=0;i<M;i++){
    const t=j/N,a=i/M*Math.PI*2,f=Math.sin(Math.PI*t),w=width*f**.66*(.86+.14*t),d=thickness*f**.70;
@@ -30,9 +30,9 @@ export function createRafterEndCopper({detail='full'}={}){
   const end=1+(N-2)*M;for(let i=0;i<M;i++)ix.push(tip,end+i,end+(i+1)%M);
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return g;
  }
- for(let k=0;k<12;k++){const a=k*Math.PI/6;add(petal(),'fittingEdge',[-Math.sin(a)*.041,Math.cos(a)*.041,.028],a);}
- for(let k=0;k<(fine?12:8);k++){const a=(k+.5)*Math.PI*2/(fine?12:8);add(petal(.177,.042,.023,.025,.011),'fittingCopper',[-Math.sin(a)*.026,Math.cos(a)*.026,.062],a);}
- const boss=new T.SphereGeometry(1,fine?20:12,fine?10:6);boss.scale(.073,.073,.030);add(boss,'fittingEdge',[0,0,.092]);
+ for(let k=0;k<16;k++){const a=k*Math.PI/8;add(petal(),'fittingEdge',[-Math.sin(a)*.041,Math.cos(a)*.041,.021],a);}
+ for(let k=0;k<(fine?16:8);k++){const a=(k+.5)*Math.PI*2/(fine?16:8);add(petal(.177,.026,.010,.007,.004),'fittingCopper',[-Math.sin(a)*.026,Math.cos(a)*.026,.036],a);}
+ const boss=new T.SphereGeometry(1,fine?20:12,fine?10:6);boss.scale(.058,.058,.008);add(boss,'fittingEdge',[0,0,.048]);
  // Four finite-width cast scrolls, with rounded closed tips. The spaces beside
  // them expose the lower dark metal field and form actual shallow grooves.
  function volute(){
@@ -58,5 +58,5 @@ export function createRafterEndCopper({detail='full'}={}){
   const clean=geometries.map(g=>{const q=g.index?g.toNonIndexed():g.clone();for(const k of Object.keys(q.attributes))if(!['position','normal','uv'].includes(k))q.deleteAttribute(k);if(!q.attributes.uv)q.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(q.attributes.position.count*2),2));return q;});
   const geometry=keep(mergeGeometries(clean,false));clean.forEach(g=>g.dispose());parts.push({geometry,material});
  }
- return {parts,info:{source:'Scene05 mass175 closed repousse sleeve: twelve folded outer chrysanthemum petals, overlapping raised inner whorl, convex boss, deep volutes, lower oxidised ground and sixteen solid return leaves',detail,photoTexture:false,normalizedReturnDepth:.19,normalizedFaceThickness:.022,normalizedFlowerDepth:.122,preservesTimberCutXY:true},dispose(){for(const g of owned)g.dispose();}};
+ return {parts,info:{source:'Scene05 mass175 closed repousse sleeve: sixteen shallow folded outer chrysanthemum petals190, overlapping raised inner whorl, convex boss, deep volutes, lower oxidised ground and sixteen solid return leaves',detail,photoTexture:false,normalizedReturnDepth:.19,normalizedFaceThickness:.022,normalizedFlowerDepth:.060,preservesTimberCutXY:true},dispose(){for(const g of owned)g.dispose();}};
 }

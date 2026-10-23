@@ -1,0 +1,183 @@
+{
+  "revision": "scene08-spatial191-r06",
+  "sourceHash": "b5e6804330c4406c557a13a0d4fe4b7a44f51b18a29c1de1855867df3d942fe2",
+  "sourceInputs": 77,
+  "baselineSource": "2be4ee7025a9d889e26a5913c4c2bf64a4c72f1b91b8c8528f30638a04a89a51",
+  "status": "Actual native checkpoint held for parent review; photographic fidelity unaccepted",
+  "visualAccepted": false,
+  "reference": "references/hd/7-照片-8.jpg",
+  "reviewPage": "lookdev/scene08-spatial191/review.html",
+  "nativeImages": [
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-spatial191-r06/reference.png",
+      "sha256": "bef060c3b1a8d21b4dd8bff0080d882c433831e2201cd6f3d141bfcffc603579",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeRGBA": "9be12ada89c6d5e682f7b579a7723cf6848c3f6c2f8d612565e3ff0e5056a076",
+      "valid": true,
+      "sourceHash": "b5e6804330c4406c557a13a0d4fe4b7a44f51b18a29c1de1855867df3d942fe2",
+      "pose": {
+        "position": [
+          0,
+          1.78,
+          13
+        ],
+        "target": [
+          0,
+          6.1,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "subfrustum": null,
+      "visualAccepted": false
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-spatial191-r06/detail-native.png",
+      "sha256": "1e24b07c41c7ad5b67002284da32c551b8fdd626fd4fabdc5a291e5fca7065ce",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeRGBA": "6d27eaa73384da3a50b9dab972c1ef7424da0f3fcafb71218efdbbd8139ca67e",
+      "valid": true,
+      "sourceHash": "b5e6804330c4406c557a13a0d4fe4b7a44f51b18a29c1de1855867df3d942fe2",
+      "pose": {
+        "position": [
+          0,
+          1.78,
+          13
+        ],
+        "target": [
+          0,
+          6.1,
+          -9
+        ],
+        "time": 0,
+        "fov": 49
+      },
+      "subfrustum": [
+        180,
+        110,
+        730,
+        1254
+      ],
+      "visualAccepted": false
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-spatial191-r06-low3q/inspection-view.png",
+      "sha256": "8a31f7ce2c3cda71d677555ff331a2b6672cdc898511208f85fc94fc83ae718a",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeRGBA": "77c547b03da5085892f30c39cd52b6d473c2f3a4954e0f1cf1d17bcbcf46329f",
+      "valid": true,
+      "sourceHash": "b5e6804330c4406c557a13a0d4fe4b7a44f51b18a29c1de1855867df3d942fe2",
+      "pose": {
+        "position": [
+          1.6,
+          2.2,
+          5.6
+        ],
+        "target": [
+          -3,
+          8.2,
+          -8
+        ],
+        "time": 0,
+        "fov": 51
+      },
+      "subfrustum": null,
+      "visualAccepted": false
+    }
+  ],
+  "sourceRounds": [
+    {
+      "round": "baseline",
+      "sourceHash": "2be4ee7025a9d889e26a5913c4c2bf64a4c72f1b91b8c8528f30638a04a89a51",
+      "inputs": 73,
+      "sourceScripts": "baseline-source-scripts.tgz",
+      "archiveSha256": "934edab0f8878d68e1bc58bd91c5b9cdf25f6f1782fd8ddb8276fcf0a22a9612",
+      "status": "Parent-held171 R06 reference baseline",
+      "visualAccepted": false
+    },
+    {
+      "round": "r01",
+      "sourceHash": "311dd9f415140819edde563bc67a56e16d54b78b2b851983ecebde6a99a06d6a",
+      "inputs": 75,
+      "sourceScripts": "r01-source-scripts.tgz",
+      "archiveSha256": "16ad6916670ff07a083d8fe3c09bc931b798387fec7a46a4815938e8047dba41",
+      "status": "Intermediate native review, preserved with failed-candidate findings",
+      "visualAccepted": false
+    },
+    {
+      "round": "r02",
+      "sourceHash": "c26f3b6e0eb6136adf03da44c489ee1a73b3e77c05fabdaecc584f036c5beba3",
+      "inputs": 76,
+      "sourceScripts": "r02-source-scripts.tgz",
+      "archiveSha256": "afc8e425f901d59cdd17737c68aebde03187e91b11c9b4008d738aa374642985",
+      "status": "Intermediate native review, preserved with failed-candidate findings",
+      "visualAccepted": false
+    },
+    {
+      "round": "r03",
+      "sourceHash": "eee822070fedb55b4f4484220efa5506d91cf42d362941faa5cd09e48e4a2afc",
+      "inputs": 76,
+      "sourceScripts": "r03-source-scripts.tgz",
+      "archiveSha256": "50126e79407933f191160ab38d86e25ef5fba11deeca4ffd94a24af66ee2435e",
+      "status": "Intermediate native review, preserved with failed-candidate findings",
+      "visualAccepted": false
+    },
+    {
+      "round": "r04",
+      "sourceHash": "41a6b6a126223937f0fce6291f061ce37e16ddc224cee5bbebd7c50c030ac260",
+      "inputs": 77,
+      "sourceScripts": "r04-source-scripts.tgz",
+      "archiveSha256": "7ef20aa97d7e6daa4993f859448a6b503df391538900fdb5e95bef447bbaefc2",
+      "status": "Intermediate native review, preserved with failed-candidate findings",
+      "visualAccepted": false
+    },
+    {
+      "round": "r05",
+      "sourceHash": "f0915b28e31ee0e99ad0bf25f1f8cd3b4daae22eaf531702dcf7a315461fa3fc",
+      "inputs": 77,
+      "sourceScripts": "r05-source-scripts.tgz",
+      "archiveSha256": "77758e5d6b8417b9a312c1fcfdbaa9faf289bacc251215bde2e8f643cb250c9b",
+      "status": "Intermediate native review, preserved with failed-candidate findings",
+      "visualAccepted": false
+    },
+    {
+      "round": "r06",
+      "sourceHash": "b5e6804330c4406c557a13a0d4fe4b7a44f51b18a29c1de1855867df3d942fe2",
+      "inputs": 77,
+      "sourceScripts": "r06-source-scripts.tgz",
+      "archiveSha256": "8c815aa9dc30d1a3114d5a8eb95a4998aec703592c5cb94a4b74da12bbf6ce61",
+      "status": "Worker-held actual checkpoint; parent photographic review pending",
+      "visualAccepted": false
+    }
+  ],
+  "findings": [
+    "The six full-depth grand-hall/gallery portal openings expose actual folded doors, floors, joists and occupied room layers in full, true hero and low3q views.",
+    "Four new front-gallery supports meet receivers queried from the held actual roof triangles; the uncovered fifth requested support is skipped.",
+    "Profile-fitted closed capital/end skins, bounded metal/lacquer response and restored mature thin-leaf callback improve the material hierarchy. The near finial restores the useful171 exact gold finish after native trials exposed a pale regression.",
+    "Original171 full grandMass171/roof receiver arrays, peony source/mount info, sky controls, camera, garden/RNG, bridge/site/foreground/right-hall/pagoda geometry are retained by exact source blocks and native info comparisons."
+  ],
+  "limitations": [
+    "Roof/corner silhouette and broad bracket profiles remain less precise and less sculpturally specific than the supplied photograph.",
+    "The stone-lantern/finial profile and erosion, garden leaf morphology/scale and photographic warm indirect-light transport remain visibly different.",
+    "The actual fitted metal skins are plain compared with the photograph carving; no exact historical or source motif match is claimed.",
+    "Hidden rooms and carpentry are single-view construction inferences; no claim of surveyed dimensions, complete film or photographic acceptance."
+  ],
+  "protectedProof": "lookdev/scene08-spatial191/protected-native-proof-r06.json",
+  "closedPrimitiveAudit": "lookdev/scene08-spatial191/primitive-audit-r04.json",
+  "externalAssetsAdded": false,
+  "newScanInstances": 0,
+  "referenceRGBUsedInScene": false,
+  "renderQueue": "Official tools/render-one-reconstruction.mjs shared FIFO only",
+  "newFilm": false,
+  "newBlenderOrPhysicalExport": false
+}

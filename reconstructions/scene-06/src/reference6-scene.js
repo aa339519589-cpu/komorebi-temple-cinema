@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {buildWindowCanopy195} from './window-canopy195.js';
 import {createReference6ColumnCollar} from './reference6-column-collar.js';
 import {createReference6CofferRelief} from './reference6-coffer-relief.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
@@ -126,6 +127,7 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
   box([x,3.6,9.40],[.24,7.2,1.40],materials.beam);
   box([x,3.6,-5.80],[.24,7.2,.20],materials.beam);
  }
+ const daylightCanopy195=buildWindowCanopy195(scene);
  // Complete ceiling and red cross frames. No unrelated exterior roofs participate.
  box([0,7.25,2.1],[14.2,.16,16.4],materials.dark);
  for(const z of [-4.8,-2.6,1.6,4.8,8.0])box([0,6.98,z],[13.8,.40,.30],structuralBeamFaces);

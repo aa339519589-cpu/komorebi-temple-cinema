@@ -1,0 +1,142 @@
+{
+  "revision": "scene08-spatial191-r05",
+  "sourceHash": "f0915b28e31ee0e99ad0bf25f1f8cd3b4daae22eaf531702dcf7a315461fa3fc",
+  "scope": "Source/anchor/native evidence verification only; no GPU render or scene export",
+  "renderChecks": {
+    "sourceMatchesPinAndBothJobs": true,
+    "native1254": true,
+    "validPixelsAndShaders": true,
+    "emptyErrorLists": true,
+    "cameraSourceExceptRevisionUnchanged": true
+  },
+  "protectedSourceBlocks": [
+    {
+      "name": "foreground gate/column/rail geometry",
+      "unchanged": true,
+      "baselineSha256": "5a679a2cbffa552f3e20c34a78548c92123df4c6b91bf3a8539804303d65928c",
+      "heldSha256": "5a679a2cbffa552f3e20c34a78548c92123df4c6b91bf3a8539804303d65928c"
+    },
+    {
+      "name": "bridge and its landing",
+      "unchanged": true,
+      "baselineSha256": "f29032c199b30dbaf5b3f740efbc44e466861924fc8a0a541653ad125bafcb62",
+      "heldSha256": "f29032c199b30dbaf5b3f740efbc44e466861924fc8a0a541653ad125bafcb62"
+    },
+    {
+      "name": "corrected whole right-hall frame and shrine",
+      "unchanged": true,
+      "baselineSha256": "464df31c2b0a71a6e50a8e0497c6e1511897640b582756d3f205d0a83696d319",
+      "heldSha256": "464df31c2b0a71a6e50a8e0497c6e1511897640b582756d3f205d0a83696d319"
+    },
+    {
+      "name": "pagoda frame and roof",
+      "unchanged": true,
+      "baselineSha256": "5e1bcabf4f51b320b267b3d2af092de06c68d479d6fd3d025941bd6cbdf0be01",
+      "heldSha256": "5e1bcabf4f51b320b267b3d2af092de06c68d479d6fd3d025941bd6cbdf0be01"
+    },
+    {
+      "name": "garden geometry and complete RNG placement",
+      "unchanged": true,
+      "baselineSha256": "06cc37aba65f8dea02fdfbd983555a5287cc9d101033a8ee744e222e6c02ab05",
+      "heldSha256": "06cc37aba65f8dea02fdfbd983555a5287cc9d101033a8ee744e222e6c02ab05"
+    },
+    {
+      "name": "actual terrain/stream/stone contacts",
+      "unchanged": true,
+      "baselineSha256": "b2d65b3c5ea04437e33e7da8af85f379575e125097ef6625daf6d646a988d473",
+      "heldSha256": "b2d65b3c5ea04437e33e7da8af85f379575e125097ef6625daf6d646a988d473"
+    }
+  ],
+  "nativeRetained": {
+    "camera": true,
+    "grandFrame": true,
+    "grandMass171": true,
+    "scannedPeony": true,
+    "rightHall171": true,
+    "pine171": true,
+    "rngFinalState": true,
+    "measuredSky": true,
+    "scannedStones": true,
+    "role:foreground-veranda": true,
+    "role:arched-stream-bridge": true,
+    "role:five-tier-pagoda": true,
+    "role:right-court-hall171": true,
+    "role:branching-garden-trees": true,
+    "role:dense-layered-shrubs": true,
+    "role:scanned-bank-understory": true,
+    "botany:shrubs": true,
+    "botany:groundcover": true,
+    "botany:scannedBlades": true,
+    "botany:bladeVariants": true,
+    "botany:bladeLengths": true,
+    "botany:bladeAttributes": true,
+    "botany:variants": true
+  },
+  "spatial": {
+    "portals": 6,
+    "claddingKits": 38,
+    "cantileverEndSkins": 48,
+    "newGalleryReceivers": [
+      {
+        "label": "upper-court-queried-front-0",
+        "axis": [
+          -2.2885358288652595,
+          0.84
+        ],
+        "floor": 4.3759999999999994,
+        "shaftTop": 10.092238811300351,
+        "roofReceiver": 10.757238811300352,
+        "weatherY": 11.122238811300353,
+        "actualRoofQueried": true
+      },
+      {
+        "label": "upper-court-queried-front-1",
+        "axis": [
+          -1.1442679144326298,
+          0.84
+        ],
+        "floor": 4.2379999999999995,
+        "shaftTop": 9.055536576825414,
+        "roofReceiver": 9.720536576825415,
+        "weatherY": 10.085536576825415,
+        "actualRoofQueried": true
+      },
+      {
+        "label": "upper-court-queried-front-2",
+        "axis": [
+          0,
+          0.84
+        ],
+        "floor": 4.1,
+        "shaftTop": 8.141821670838457,
+        "roofReceiver": 8.806821670838458,
+        "weatherY": 9.171821670838458,
+        "actualRoofQueried": true
+      },
+      {
+        "label": "upper-court-queried-front-3",
+        "axis": [
+          1.1442679144326298,
+          0.84
+        ],
+        "floor": 3.9619999999999997,
+        "shaftTop": 7.3892329844169495,
+        "roofReceiver": 8.05423298441695,
+        "weatherY": 8.41923298441695,
+        "actualRoofQueried": true
+      }
+    ],
+    "skipped": [
+      {
+        "label": "upper-court-queried-front-4",
+        "axis": [
+          2.2885358288652595,
+          0.84
+        ],
+        "reason": "Outside actual roof coverage; no forced post emitted"
+      }
+    ]
+  },
+  "visualAccepted": false,
+  "pass": true
+}

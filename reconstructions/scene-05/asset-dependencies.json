@@ -13,7 +13,7 @@
   "sourceBuilder": "tools/build-temple-joinery-kit.py",
   "provenance": "lookdev/gilded-kiku-v01/README.md",
   "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
-  "revision": "scene05-monumental-coupled-storeys-v3-r08",
+  "revision": "scene05-worked-corner-detail190-r04",
   "bearingBlockCorrection": {
     "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
     "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5\u7167\u72476 has flatter bearing planes and sharper tapered sides.",
@@ -162,5 +162,44 @@
     "nativeLightingCalibration": "A measured sky without its unshadowed solar disk plus shadow-casting directional sun at37.66degrees, shadow-casting warm courtyard proxy1.0, native exposure1.35, camera-sky gain1.35. These are reconstructed look values, not recovered measurements.",
     "copperSubmission": "Closed end-fitting templates, all normals/UVs and placement matrices are shared through actual InstancedMesh batches; no loss of sculptural geometry. Native R05/R06 equivalence evidence is retained. R07 adds twelve outer petals and an interleaved inner whorl plus pierced square-pillar collars.",
     "tailSeat": "The brace begins at the analytical diagonal hip centre from the same roof sampler and .365m hip offset; its earlier fixed+.40 start penetrated the ceramic shell. Native actual reference/detail and three physical poses are retained."
+  },
+  "detail190": {
+    "status": "Actual geometry/finish candidate for native review; photographic fidelity remains unaccepted",
+    "reference": "references/hd/5-\u7167\u7247-6.jpg",
+    "construction": [
+      "Exposed timber cheeks neck in real depth beyond the protected half-lap/bearing footprints, while originalY seats, cut sections and course offsets remain unchanged",
+      "Closed waisted/faceted hip timber follows exact retained tail paths with original start/end cut planes; selective copper surface fittings on the two principal photographed hip ranks",
+      "Thin primary16-petal repousse cap flowers and open secondary forged end sleeves create a hierarchy; actual cut wood remains visible behind secondary chases",
+      "Long grid-framed six-sided lantern light chamber, broad open cast floral crown, domed cap, shallow pitched hood and small fitted eave pendants; retained actual beam-anchor bridles",
+      "Continuous closed rimmed ceramic medallion relief, angular brows, recessed orbital ground, fine radiating whiskers and a layered curved lower tile with turned side rolls"
+    ],
+    "finish": "RetainedCC0 scanned timber; deeper dark-amber hip pigment and restrained lacquer specular, charcoal-grey ceramics, fine worked copper",
+    "preserved": "175 tier proportions, compact same-story waist, window/pier/purlin bearing datums, all tail paths and end/camera/dolly/lantern-body anchors, measured sky and direct-sun anchor, handlaid ceramic geometry",
+    "newExternalAssets": false,
+    "referencePhotographRuntimeUse": false,
+    "limits": [
+      "Authored visible-section and ornament hypotheses, not surveyed conservation/structural details",
+      "No actual historic artifact identity is claimed for authored patterns",
+      "Native render validity and closed topology do not establish photographic fidelity"
+    ],
+    "r02": [
+      "OfficialR01 ray probe identifies upper bright hip as actual architecture_cedar seated roof hip and lower face as raked hipwood; both now use the dedicated hip finish, with broad rub-through reduced",
+      "Actual birdsmouth, seat interval, allY and end planes retained on seated roof hips while their exposed cheeks neck in3D",
+      "OfficialR01 frames show end-tile medallions masking the new ceramic face. A closed ceramic support moves only the mask to[0,.145,.23] at the actual extended1.03 terminal row",
+      "Remove repeated secondary lozenge logos, narrow forged sleeves, deepen protected exposed-cheek necking",
+      "Warmer diffuse aged-bronze lantern finish and bounded paper glow; physical light/sky/camera anchors unchanged"
+    ],
+    "r03": [
+      "ActualR02 corner frame clears the mask from neighboring medallions but reveals buried/flat orbital/cheek relief; sculptural depth reset with convex orbital masses, nostrils, cheek/muzzle/chin, raised brows and exposed small teeth",
+      "Natural procedural fine growth-ring response is limited to the actual geometric cut-end planes, using centered metric end UV; source furniture weave remains on long timber faces. No source-photo map or geometry depth is used",
+      "All retained physical light and site/tier/camera anchors stay fixed"
+    ],
+    "r04": [
+      "All three officialR03 full/truecorner/low3q frames viewed and retained; the enlarged separate cheek/chin volumes still read as cartoon features, and the narrow perforated neck did not match the broad open crown in the supplied photo",
+      "Rebuild the ceramic face as one closed integrated height-field relief with depressed orbital hollows, narrow concentric rims, angular brows and a round gilded nose; seated radiating ridges, layered curved tile base and turned side rolls replace detached cheek/chin/mouth forms",
+      "Lantern crown grows to almost chamber width through a real open floral cast lattice with closed stems/petals, domed lid, fine chamber grid bars and hanging corner eave fittings",
+      "Retain authored metricPathUV metadata when indexed loft geometry is expanded by Three.toNonIndexed, which otherwise drops userData and overwrites arclength grain with generic member-axis UVs",
+      "Camera/tier geometry/beam centrelines/birdsmouth seats/lantern-body and suspension anchors/measured sky/direct sun are retained; all original scan bytes remain unchanged"
+    ]
   }
 }

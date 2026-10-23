@@ -1,0 +1,16 @@
+{
+  "sourceHash": "dfca53fed4c258388a07bca8c4710b232220783c0d9365f7d5d623f596c28198",
+  "actualFramesViewed": [
+    "qa/ten-reference/05/iteration-scene05-detail190-r03-20261023/reference.png",
+    "qa/ten-reference/05/iteration-scene05-detail190-r03-20261023/detail-native.png",
+    "qa/ten-reference/05/iteration-scene05-detail190-r03-low3q-20261023/inspection-view.png"
+  ],
+  "visualAccepted": false,
+  "visibleFindings": [
+    "Round R03 cheeks, chin and layered brows remain cartoon-like; the supplied mask is a compact rimmed round medallion with angular brows, radiating whisker ridges and a curved layered lower tile ledge",
+    "R03 narrow pierced lantern neck still reads as a generic perforated stalk; reference has a broader open floral cast crown over a grid-framed chamber",
+    "Native low3q preserves tier/waist/hip contacts, but regular blank cut fields and repeated framing remain more schematic than reference"
+  ],
+  "sourceFinding": "Verified vendor BufferGeometry.toNonIndexed creates a fresh BufferGeometry without copying userData. New indexed tail loft loses metricPathUV marker before generic timberUV assignment; preserve source metadata to retain actual arclength UV.",
+  "next": "R04 focused actual ceramic/copper relief reconstruction and indexed metadata retention; no tier, camera, sun, beam centreline or source scan changes"
+}

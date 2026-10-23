@@ -60,11 +60,11 @@ export async function loadCourtyardBotany(){
  // A derived red albedo is a surface-pigment variant of the independent CC0
  // blade scan. It contains no reference-scene pixels and survives PBR export.
  const greenCanvas=document.createElement('canvas');greenCanvas.width=canvas.width;greenCanvas.height=canvas.height;const gc=greenCanvas.getContext('2d'),gi=gc.createImageData(greenCanvas.width,greenCanvas.height);
- for(let k=0;k<pixels.length;k+=4){for(let c=0;c<3;c++){const q=pixels[k+c]/255,v=q<=.04045?q/12.92:Math.pow((q+.055)/1.055,2.4),p=Math.min(.78,v*2.0);gi.data[k+c]=Math.round((p<=.0031308?p*12.92:1.055*Math.pow(p,1/2.4)-.055)*255);}gi.data[k+3]=255;}
+ for(let k=0;k<pixels.length;k+=4){for(let c=0;c<3;c++){const q=pixels[k+c]/255,v=q<=.04045?q/12.92:Math.pow((q+.055)/1.055,2.4),p=Math.min(.78,v*1.70);gi.data[k+c]=Math.round((p<=.0031308?p*12.92:1.055*Math.pow(p,1/2.4)-.055)*255);}gi.data[k+3]=255;}
  gc.putImageData(gi,0,0);const greenMap=new T.CanvasTexture(greenCanvas);greenMap.colorSpace=T.SRGBColorSpace;greenMap.flipY=map.flipY;greenMap.anisotropy=8;textures.add(greenMap);
  const leafMaterials={};
  for(const [kind,color]of Object.entries({leaf:'#ffffff',leaflight:'#e8edba',azalea:'#e3e4b5'})){
-  const m=sourcePart.material.clone();m.name='scene08-mature-'+kind+'-scanned-blade148';m.color.set(color);m.map=greenMap;m.roughness=.61;m.metalness=0;m.aoMapIntensity=.55;m.normalScale.set(.32,.32);materials.add(m);leafMaterials[kind]=m;
+  const m=sourcePart.material.clone();m.name='scene08-mature-'+kind+'-scanned-blade148';m.color.set(color);m.map=greenMap;m.roughness=.61;m.metalness=0;m.aoMapIntensity=.55;m.normalScale.set(.32,.32);m.onBeforeCompile=sourcePart.material.onBeforeCompile;m.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf';materials.add(m);leafMaterials[kind]=m;
  }
  const redCanvas=document.createElement('canvas');redCanvas.width=canvas.width;redCanvas.height=canvas.height;
  const redContext=redCanvas.getContext('2d'),redImage=redContext.createImageData(redCanvas.width,redCanvas.height),pigment=new T.Color('#96391d');
@@ -73,9 +73,9 @@ export async function loadCourtyardBotany(){
   for(let c=0;c<3;c++)redImage.data[k+c]=Math.round(((v)=>v<=.0031308?v*12.92:1.055*Math.pow(v,1/2.4)-.055)(Math.min(.95,[pigment.r,pigment.g,pigment.b][c]*grain))*255);redImage.data[k+3]=255;
  }
  redContext.putImageData(redImage,0,0);const redMap=new T.CanvasTexture(redCanvas);redMap.colorSpace=T.SRGBColorSpace;redMap.flipY=map.flipY;redMap.anisotropy=8;textures.add(redMap);
- const redMaterial=sourcePart.material.clone();redMaterial.name='scene08-oxide-red-scanned-foliage148';redMaterial.map=redMap;redMaterial.vertexColors=false;redMaterial.color.set('#ffffff');redMaterial.roughness=.65;redMaterial.metalness=0;materials.add(redMaterial);leafMaterials.maple=redMaterial;
+ const redMaterial=sourcePart.material.clone();redMaterial.name='scene08-oxide-red-scanned-foliage148';redMaterial.map=redMap;redMaterial.vertexColors=false;redMaterial.color.set('#ffffff');redMaterial.roughness=.65;redMaterial.metalness=0;redMaterial.onBeforeCompile=sourcePart.material.onBeforeCompile;redMaterial.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf-red';materials.add(redMaterial);leafMaterials.maple=redMaterial;
  let plantNumber=0,leafNumber=0,seed=814815;const R=()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296),rr=(a,b)=>a+(b-a)*R();
- const stats={revision:'scene08-mature-physical-albedo-crown148-v2-r05',shrubs:0,groundcover:0,scannedBlades:0,bladeVariants:leaves.length,bladeLengths:leaves.map(l=>l.length),bladeAttributes:Object.keys(source.attributes),variants:assets.map(a=>({asset:a.id,variants:a.variants.map(v=>({name:v.name,width:v.width,height:v.height}))})),construction:'Mature rooted multi-stem shrubs, physically forked lateral branches, clumped opposite/whorled scanned blades with measured physical length. Original source attributes retained; red foliage uses an independently pigmented original scan.',referenceSceneImageUsed:false};
+ const stats={revision:'scene08-held-crown-physical-leaf191-r02',greenLinearGain:1.70,clonedThinLeafCallbackRestored:true,geometryAndPlacementUnchanged:true,shrubs:0,groundcover:0,scannedBlades:0,bladeVariants:leaves.length,bladeLengths:leaves.map(l=>l.length),bladeAttributes:Object.keys(source.attributes),variants:assets.map(a=>({asset:a.id,variants:a.variants.map(v=>({name:v.name,width:v.width,height:v.height}))})),construction:'Mature rooted multi-stem shrubs, physically forked lateral branches, clumped opposite/whorled scanned blades with measured physical length. Original source attributes retained; red foliage uses an independently pigmented original scan.',referenceSceneImageUsed:false};
  function place({emit,height,x,z,width,flower=false,index=plantNumber++,yaw=rr(0,Math.PI*2),yOffset=0}){
   const choices=assets[flower?1:0].variants,variant=choices[index%choices.length],s=width/variant.width,y=height(x,z)+yOffset-.012;
   for(const part of variant.parts)emit(part.geometry,part.material,x,y,z,s,s,s,[0,yaw,0],rr(.92,1.05));stats[flower?'groundcover':'shrubs']++;

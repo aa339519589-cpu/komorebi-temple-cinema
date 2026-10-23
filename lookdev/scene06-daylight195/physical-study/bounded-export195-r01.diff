@@ -1,0 +1,33 @@
+--- reviewed179/bounded-export179.py
++++ physical-study/bounded-export195-r01.py
+@@ -6,17 +6,19 @@
+ from pathlib import Path
+ ROOT=Path('/Users/mima1234/temple-cinema-live-sync')
+ HERE=Path(__file__).resolve().parent
+-OUT=HERE/'cycles-r06-export'
++OUT=HERE/'cycles-195-r01-export'
+ GIB=1024**3
+ MAX_EXPORT_BYTES=int(3.75*GIB)
+ MIN_FREE_BYTES=int(3.5*GIB)
+ expected=os.environ['EXPECTED_SCENE_HASH']
+-if len(expected)!=64:raise ValueError('Expected pinned scene hash required')
++if expected!='e4eb8927001e1b396435ca086e9365718a5c1f45f6a4f0df265fb5a2f1aae6b7':raise ValueError('Exact reviewed native195 R01 source pin required')
+ if OUT.exists():raise ValueError('Fresh export path required; preserve earlier evidence')
+ if shutil.disk_usage(ROOT).free<7*GIB:raise RuntimeError('Less than7GiB free; defer bounded physical study')
++live_source=subprocess.check_output(['node','--input-type=module','-e',"import {reconstructionSourceIdentity} from './tools/reconstruction-source-identity.mjs'; console.log((await reconstructionSourceIdentity(process.cwd(),'06')).hash);"],cwd=ROOT,text=True).strip()
++if live_source!=expected:raise RuntimeError('Live source differs from reviewed195 pin; do not export')
+ OUT.mkdir()
+-env=os.environ.copy();env.update({'REFERENCE':'6','SCENE_EXPORT':str(OUT),'EXPORT_PORT':'4626'})
+-log=HERE/'cycles-r06-export.log'
++env=os.environ.copy();env.update({'REFERENCE':'6','SCENE_EXPORT':str(OUT),'EXPORT_PORT':'4636'})
++log=HERE/'cycles-195-r01-export.log'
+ started=time.time();reason=None;peak=0;proc=None
+ with log.open('w')as stream:
+  proc=subprocess.Popen(['node','tools/export-reconstructed-scene.mjs'],cwd=ROOT,env=env,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True)
+@@ -47,5 +49,5 @@
+ except Exception as exc:
+  receipt['failure']=str(exc);receipt['status']='export-failed';raise
+ finally:
+- (HERE/'cycles-r06-export-disk-proof.json').write_text(json.dumps(receipt,indent=2)+'\n')
++ (HERE/'cycles-195-r01-export-disk-proof.json').write_text(json.dumps(receipt,indent=2)+'\n')
+  print(json.dumps(receipt,indent=2),flush=True)

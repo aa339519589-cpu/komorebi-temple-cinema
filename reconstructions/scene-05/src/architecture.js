@@ -1,6 +1,8 @@
 import {createHandlaidRoof05} from './handlaid-ceramics.js';
 import * as T from 'three';
 import {timberSweep} from './natural-forms.js';
+import {shapeSeatedHip190} from './detail190-solids.js';
+import {assignTimberPathUV05} from './timber-path-uv.js';
 
 /*
  * Reconstruction details read from references 4, 5 and 6. All dimensions are
@@ -1315,7 +1317,10 @@ export function createRestorationArchitecture(ctx) {
           });
         }
         const fittings=options.waist?ctx.joineryKit.waistFittings:options.corner?ctx.joineryKit.cornerFanFittings:ctx.joineryKit.bracketFittings;
-        if(fittings)for(const f of fittings)squareFitting(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.width*hs,f.height*s,f.yaw,true);
+        if(fittings)for(const f of fittings){
+          if(ctx.joineryKit.secondaryFittingParts&&f.stage!==2)group(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.yaw,()=>{for(const p of ctx.joineryKit.secondaryFittingParts)draw(p.geometry,p.material,[0,0,.001],[f.width*hs,f.height*s,Math.min(f.width*hs,f.height*s)]);});
+          else squareFitting(f.position[0]*hs,f.position[1]*s,f.position[2]*hs,f.width*hs,f.height*s,f.yaw,true);
+        }
       });
       return;
     }
@@ -1671,8 +1676,9 @@ export function createRestorationArchitecture(ctx) {
         const half=hipSeat.purlinWidth/Math.SQRT2+.11;
         hip=opening?.tierCollar?tierHipBirdsmouth(hip,direction,centre-half,centre+half,hipSeat.top):hipBirdsmouth(hip,direction,centre-half,centre+half,hipSeat.top);
         hip.userData.architectureMember='seated-hip';
+        if(ctx.hipMaterial190){shapeSeatedHip190(hip,curve,direction,centre,half);assignTimberPathUV05(hip,curve);}
       }
-      wood(hip,'cedar');
+      wood(hip,ctx.hipMaterial190??'cedar');
       const end=v(pts[pts.length-1]),tangent=end.clone().sub(v(pts[pts.length-2])).normalize();
       const q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),tangent);
       if(hipSeat) {
@@ -2750,7 +2756,9 @@ export function createRestorationArchitecture(ctx) {
           corner.clone().addScaledVector(outward,.19).add(v([0,.30,0]))];
         group(corner.x,corner.y,corner.z,Math.atan2(outward.x,outward.z),()=>{
           if(ctx.joineryKit?.cornerMask){
-            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material==='oldgold'?'oldgold':'cornerCeramic',[0,.005,.012],[ctx.cornerCeramicScale??.62,ctx.cornerCeramicScale??.62,ctx.cornerCeramicScale??.62]);
+            const cs=ctx.cornerCeramicScale??.62,mount=ctx.handlaidCeramics&&ctx.joineryKit.cornerMaskMount190;
+            if(mount)for(const part of mount)draw(part.geometry,'cornerCeramic',[0,0,0],[cs,cs,cs]);
+            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material==='oldgold'?'oldgold':'cornerCeramic',mount?[0,.145,.23]:[0,.005,.012],[cs,cs,cs]);
           }else{
             const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
             draw(crest,'slate',[0,.005,0],[.78,.78,.82]);draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);

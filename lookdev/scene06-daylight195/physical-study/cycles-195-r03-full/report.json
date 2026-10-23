@@ -1,0 +1,608 @@
+{
+  "sourceCommit": "4ad53ba6a6ad5d044b53e72c9ca002d8c7701f04",
+  "sourceHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "exportSceneSha256": "f81b85c61fc0f364749f1c16fd7a36c02dbc94431d18f0108eaf6abf25d65a17",
+  "renderScript": {
+    "file": "render-scene06-cycles195-r03.py",
+    "sha256": "bc7dc7dea1be451a2d7429874e5ed4f34915713adc02a6492b6e313481c9d484"
+  },
+  "sourceStatistics": {
+    "meshes": 1942,
+    "geometries": 1687,
+    "materials": 242,
+    "textures": 391,
+    "instances": 25774,
+    "triangles": 18294517
+  },
+  "lightingMode": "source-sun-physical-apertures",
+  "blender": "5.2.1 LTS",
+  "scope": {
+    "reference": 6,
+    "geometry": "All currently visible geometry and exact instance matrices; no photograph or replacement geometry"
+  },
+  "geometryRebuilt": false,
+  "excluded": [
+    {
+      "name": "reference6-room-reflection-capture-only",
+      "type": "Reflector",
+      "material": "ReflectorShader",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "warnings": [],
+  "status": "path-traced-review",
+  "started": 1792742605.996578,
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "personalNoncommercialUseOnly": true,
+  "sourceURL": "https://zenodo.org/records/21353739",
+  "sourceAttribution": "Scan-the-World, Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich. Zenodo 21353739, https://doi.org/10.5281/zenodo.21353739 . CC BY-NC-SA 4.0, https://creativecommons.org/licenses/by-nc-sa/4.0/ . Modifications: previously curated paired-arm/robe/knee reflection with narrowly stitched retopology, native index curl and local fingertip contact; plinth separation; positive uniform viewing normalization; uniform gold PBR. Source face retained. Adoption179 keeps the prepared source anatomy, positions, normals and triangle indices unchanged; only a positive uniform scene scale and translation seat it on separately authored lotus geometry. No endorsement implied.",
+  "noBlendSaved": true,
+  "renderPurpose": "Single actual full-frame physical GI comparison; not a native WebGL pixel-equivalence or film claim.",
+  "excludedCollapsedInstances": [
+    {
+      "name": "restoration-altar:lacquer",
+      "count": 2,
+      "reason": "Singular source transform has no invertible normal matrix; excluded only because it has zero or near-zero area."
+    }
+  ],
+  "affinePreservation": {
+    "parentMatrices": "Retained as full source object matrices, including current R08 bowl and actual exterior canopy; no parent matrix decomposition.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 23951,
+    "bakedShearedInstances": 104,
+    "bakedShearedTriangles": 49136,
+    "bakedShearedVertices": 35916,
+    "maxLinkedTRSMatrixResidual": 4.800385795533657e-07,
+    "maxBakedShearResidual": 0.24709351360797882,
+    "flattenedOnlyForShearedTransforms": true,
+    "geometryDecimated": false
+  },
+  "actualCanopyGeometry": {
+    "sourceModule": "reconstructions/scene-06/src/window-canopy195.js",
+    "heldNativeRevision": "195R03",
+    "sourceModuleSha256": "aab4b4c66a5de202fe21f38943aea80119434830dddce2c68da9ad6efe43f80e",
+    "leafInstances": 750,
+    "leafGroups": [
+      {
+        "name": "",
+        "geometry": "69ee9753-07fe-4057-8df0-6a227447c7cf",
+        "instances": 250,
+        "centerBoundsYUp": [
+          [
+            -10.476110458374023,
+            5.912635326385498,
+            -5.53366756439209
+          ],
+          [
+            -8.180418968200684,
+            7.7997260093688965,
+            3.953448534011841
+          ]
+        ]
+      },
+      {
+        "name": "",
+        "geometry": "69ee9753-07fe-4057-8df0-6a227447c7cf",
+        "instances": 250,
+        "centerBoundsYUp": [
+          [
+            -10.44987964630127,
+            5.878336429595947,
+            -5.524749279022217
+          ],
+          [
+            -8.08051586151123,
+            7.792202472686768,
+            3.965548038482666
+          ]
+        ]
+      },
+      {
+        "name": "",
+        "geometry": "69ee9753-07fe-4057-8df0-6a227447c7cf",
+        "instances": 250,
+        "centerBoundsYUp": [
+          [
+            -10.456072807312012,
+            5.876199245452881,
+            -5.573592662811279
+          ],
+          [
+            -8.10689926147461,
+            7.817777633666992,
+            3.990647315979004
+          ]
+        ]
+      }
+    ],
+    "mergedWood": [
+      {
+        "name": "",
+        "geometry": "5cc38d99-d115-4136-ba0c-6392f48c8ade",
+        "vertices": 241362,
+        "boundsYUp": [
+          [
+            -11.942797660827637,
+            -0.38999998569488525,
+            -6.742797374725342
+          ],
+          [
+            -8.05949878692627,
+            8.020000457763672,
+            3.992785930633545
+          ]
+        ]
+      }
+    ],
+    "soil": [
+      {
+        "name": "",
+        "geometry": "eeb8512d-349a-41ad-8400-e9e29fe7ac9f",
+        "vertices": 24,
+        "boundsYUp": [
+          [
+            -13.2,
+            -0.5500000029802322,
+            -9.0
+          ],
+          [
+            -7.199999999999999,
+            -0.14999999701976774,
+            7.0
+          ]
+        ]
+      }
+    ],
+    "allImportedAsActualOpaqueGeometry": true,
+    "referenceImageOrBeamMaskUsed": false,
+    "sourceGeometryEdited": false,
+    "petioleTrunkIntersectionProof": false,
+    "scope": "Exact inferred exterior R03 source geometry and attributes retained; this presence/bounds audit is not contact, topology or visual acceptance."
+  },
+  "omittedNativeLightProxies": [
+    {
+      "name": "reference6-side-window-diffuse-sky-proxy",
+      "type": "RectAreaLight",
+      "intensity": 1.1,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-side-window-diffuse-sky-proxy",
+      "type": "RectAreaLight",
+      "intensity": 1.1,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-side-window-diffuse-sky-proxy",
+      "type": "RectAreaLight",
+      "intensity": 0.12,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-side-window-diffuse-sky-proxy",
+      "type": "RectAreaLight",
+      "intensity": 0.12,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-shadowed-front-window-field",
+      "type": "SpotLight",
+      "intensity": 28,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-shadowed-front-window-field",
+      "type": "SpotLight",
+      "intensity": 28,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-shadowed-front-window-field",
+      "type": "SpotLight",
+      "intensity": 28,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-shadowed-front-window-field",
+      "type": "SpotLight",
+      "intensity": 28,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-shadowed-front-window-field",
+      "type": "SpotLight",
+      "intensity": 28,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-shadowed-front-window-field",
+      "type": "SpotLight",
+      "intensity": 28,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "scene06-warm-diffuse-room-return",
+      "type": "HemisphereLight",
+      "intensity": 0.3,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "scene06-tall-entrance-window-field",
+      "type": "RectAreaLight",
+      "intensity": 3.4,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "scene06-tall-entrance-window-field",
+      "type": "RectAreaLight",
+      "intensity": 1.05,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "scene06-entrance-warm-head-field",
+      "type": "RectAreaLight",
+      "intensity": 2.2,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    },
+    {
+      "name": "reference6-sunlit-floor-bounce-proxy",
+      "type": "RectAreaLight",
+      "intensity": 1.1,
+      "reason": "Native unoccluded indirect/finite-window approximation replaced by shadowed exterior sky and actual multi-bounce transport."
+    }
+  ],
+  "worldCoordinateConversion": "All source mesh objects, source lights, linked-instance parents and source camera jointly rotated +90 degrees about X: Y-up to Z-up, no deformation.",
+  "physicalLights": [
+    {
+      "name": "reference6-physical-left-window-daylight",
+      "type": "SUN",
+      "colorLinear": [
+        1.0,
+        0.7454041838645935,
+        0.38642942905426025
+      ],
+      "energy": 90.0,
+      "positionYUp": [
+        -28.81729507446289,
+        24.01201057434082,
+        -19.411529541015625
+      ],
+      "solarDiscDiameterDegrees": 0.5300000012305109
+    },
+    {
+      "name": "reference6-floor-lantern-source",
+      "type": "POINT",
+      "colorLinear": [
+        1.0,
+        0.5583403706550598,
+        0.18447498977184296
+      ],
+      "energy": 17.592918395996094,
+      "positionYUp": [
+        -3.2249999046325684,
+        1.350000023841858,
+        -0.11999999731779099
+      ]
+    },
+    {
+      "name": "reference6-floor-lantern-source.001",
+      "type": "POINT",
+      "colorLinear": [
+        1.0,
+        0.5583403706550598,
+        0.18447498977184296
+      ],
+      "energy": 17.592918395996094,
+      "positionYUp": [
+        3.174999952316284,
+        1.350000023841858,
+        -0.11999999731779099
+      ]
+    }
+  ],
+  "actualApertureAudit": {
+    "method": "Cycles scene.ray_cast against imported opaque geometry, after exact instance/affine import and coordinate conversion; no volume shell during audit.",
+    "sourceSunDirectionYUp": [
+      -0.7204324007034302,
+      0.5003002882003784,
+      -0.48028823733329773
+    ],
+    "keyRays": [
+      {
+        "sample": "central-face",
+        "originYUp": [
+          0,
+          5.13,
+          -1.78
+        ],
+        "directionToSunYUp": [
+          -0.7204324007034302,
+          0.5003002882003784,
+          -0.48028823733329773
+        ],
+        "geometryRay": {
+          "clearToExterior": false,
+          "firstOccluder": "source-object-1014",
+          "hitYUp": [
+            -2.8115992546081543,
+            7.082499980926514,
+            -3.6543993949890137
+          ]
+        }
+      },
+      {
+        "sample": "main-raised-hand",
+        "originYUp": [
+          -0.36,
+          4.68,
+          -1.89
+        ],
+        "directionToSunYUp": [
+          -0.7204324007034302,
+          0.5003002882003784,
+          -0.48028823733329773
+        ],
+        "geometryRay": {
+          "clearToExterior": false,
+          "firstOccluder": "restoration-altar:gold source geometry.086",
+          "hitYUp": [
+            -2.762576103210449,
+            6.34845495223999,
+            -3.4917171001434326
+          ]
+        }
+      },
+      {
+        "sample": "legacy-aperture-target",
+        "originYUp": [
+          0,
+          4.4,
+          -1.4
+        ],
+        "directionToSunYUp": [
+          -0.7204324007034302,
+          0.5003002882003784,
+          -0.48028823733329773
+        ],
+        "geometryRay": {
+          "clearToExterior": false,
+          "firstOccluder": "source-object-937",
+          "hitYUp": [
+            -3.862799882888794,
+            7.082499980926514,
+            -3.9751996994018555
+          ]
+        }
+      },
+      {
+        "sample": "foreground-floor",
+        "originYUp": [
+          0,
+          0.035,
+          3.5
+        ],
+        "directionToSunYUp": [
+          -0.7204324007034302,
+          0.5003002882003784,
+          -0.48028823733329773
+        ],
+        "geometryRay": {
+          "clearToExterior": false,
+          "firstOccluder": "restoration-altar:textile source geometry",
+          "hitYUp": [
+            -0.07228796929121017,
+            0.0851999819278717,
+            3.451807975769043
+          ]
+        }
+      },
+      {
+        "sample": "front-left-floor",
+        "originYUp": [
+          -3,
+          0.035,
+          4
+        ],
+        "directionToSunYUp": [
+          -0.7204324007034302,
+          0.5003002882003784,
+          -0.48028823733329773
+        ],
+        "geometryRay": {
+          "clearToExterior": false,
+          "firstOccluder": "source-object-350",
+          "hitYUp": [
+            -6.680000305175781,
+            2.5905561447143555,
+            1.5466663837432861
+          ]
+        }
+      }
+    ],
+    "floorGridClearSunRaysYUp": [
+      [
+        -4,
+        0.035,
+        2
+      ],
+      [
+        -4,
+        0.035,
+        4
+      ],
+      [
+        -3,
+        0.035,
+        3
+      ],
+      [
+        -2,
+        0.035,
+        3
+      ]
+    ],
+    "testedFloorGridSamples": 81,
+    "legacyUpperWindowCandidate": {
+      "targetYUp": [
+        0,
+        4.4,
+        -1.4
+      ],
+      "apertureYUp": [
+        -6.8,
+        5.18,
+        -4.5
+      ],
+      "ray": {
+        "clearToExterior": false,
+        "firstOccluder": "source-object-1935",
+        "hitYUp": [
+          -2.0841073989868164,
+          4.639059066772461,
+          -2.3501079082489014
+        ]
+      },
+      "applied": false
+    }
+  },
+  "exteriorSkyBoundary": {
+    "type": "Uniform exterior sky radiance, visible only through actual room openings and shared by camera/diffuse/glossy paths",
+    "linearColor": [
+      1,
+      0.94,
+      0.82
+    ],
+    "strength": 6.0,
+    "sourcePixelTextureUsed": false,
+    "nativeCubeEnvironmentImported": false,
+    "nativeHemisphereImported": false
+  },
+  "participatingMedium": {
+    "type": "Actual volume scatter plus absorption",
+    "boundsYUp": {
+      "x": [
+        -6.79,
+        6.79
+      ],
+      "y": [
+        0.02,
+        7.18
+      ],
+      "z": [
+        -5.79,
+        9.99
+      ]
+    },
+    "scatteringDensityPerMetre": 0.002,
+    "absorptionDensityPerMetre": 0.00016,
+    "anisotropy": 0.2,
+    "emission": 0,
+    "nativeDisplayVolumePlanesImported": false,
+    "requiresActualApertureLightVisibility": true
+  },
+  "device": {
+    "type": "METAL",
+    "names": [
+      "Apple M1 Pro (GPU - 16 cores)"
+    ]
+  },
+  "materialAttributeParity": {
+    "linkedInstances": "Instancer attribute plus explicit Geometry Nodes Store Named Attribute",
+    "bakedShearAndDirect": "Geometry-domain material variants, direct white instanceColor fallback and actual RGB for baked shear",
+    "vertexColors": "sourceColor multiplied only when source vertexColors is true",
+    "uvTransform": "Exact Three.js rotation, repeat, center, offset and flipY",
+    "deduplicatedImageBuffers": 7,
+    "textureCoordinatesAndPixelsPreserved": true
+  },
+  "importedTriangles": 18294493,
+  "sourceTriangleCount": 18294517,
+  "geometryTriangleCountPreserved": false,
+  "excludedCollapsedTriangles": 24,
+  "noncollapsedSourceTriangleCount": 18294493,
+  "renderableTriangleCountPreserved": true,
+  "excludedCollapsedInstanceCount": 2,
+  "physicalVarnishCalibration": {
+    "sourceClearcoatRoughness": 0.17,
+    "cyclesClearcoatRoughness": 0.095,
+    "sourceClearcoatWeight": 0.72,
+    "sourceBaseAlbedoAndRoughnessMapKept": true,
+    "reason": "Native floor GLSL samples room-reflection radiance with a custom small image footprint; Cycles instead uses actual ray-traced clearcoat with an explicitly calibrated physical lobe. This is not native pixel parity."
+  },
+  "materialTransfer": "Exported linear PBR colors, all source map/bump/roughness textures, metallic, roughness, transmission and clearcoat parameters. Cycles Principled BSDF is a physical cross-renderer approximation; native GLSL hooks, PMREM cube environment, tone mapping and screen-space reflector are not ported. Actual imported floor reflects actual room geometry through its physical clearcoat.",
+  "lightCalibration": {
+    "sunDirection": "Exact exported source direction unless a separately declared verified-upper-window experiment is selected",
+    "sunEnergyWPerSquareMetre": 90.0,
+    "sunEnergyNotPhotometricEquivalence": true,
+    "nativeIndirectProxiesRemoved": true,
+    "actualMultiBounceGI": true,
+    "maxBounces": 12,
+    "diffuseBounces": 6,
+    "glossyBounces": 6,
+    "volumeBounces": 2,
+    "practicals": "Point source source intensity * 4pi physical power calibration; actual lamp positions retained",
+    "exteriorRadianceCalibration": "Exterior daylight strength is an explicitly calibrated boundary, not a measured HDR environment",
+    "exposureEV": 0.44999998807907104,
+    "toneMap": "AgX Medium High Contrast; Three ACESFilmic differs",
+    "nativeWebglPixelEquivalence": false
+  },
+  "camera": {
+    "sourcePositionYUp": [
+      0,
+      0.58,
+      8.4
+    ],
+    "sourceFovDegrees": 64,
+    "sourceMatrix": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.985840619657754,
+      0.16768503997916936,
+      0,
+      0,
+      -0.16768503997916936,
+      0.985840619657754,
+      0,
+      0,
+      0.58,
+      8.4,
+      1
+    ],
+    "depthOfField": false
+  },
+  "scopeLimits": [
+    "Same actual native195 R03 source: 179R08 source statue and continuous carved bowl, 189R02 camera, repaired room and actual exterior maple geometry. Exact source geometry, matrices, UVs, colors and full low reference camera retained; no192 hair candidate.",
+    "Actual Scan-the-World Sainsbury Japanese Amida central source under CC BY-NC-SA4.0; raw source face/anatomy retained under positive uniform runtime fit. Different artifact from reference; independent CC BY attendant heads retained.",
+    "Exact face likeness, ornament pattern, proportions and photographic fidelity remain unaccepted.",
+    "Exported source-frame.rgba is provenance evidence only and is never loaded as a texture or background."
+  ],
+  "daylight195PhysicalHypothesis": {
+    "sourcePin": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+    "sourceGeometryAndTexturePixelsUnchanged": true,
+    "actualSolarDiscDiameterDegrees": 0.53,
+    "actualWindowsAndCanopyCastShadows": true,
+    "nativeScatteringShaderImported": false,
+    "physicalAirReplacesNativeGLSL": true,
+    "nativeRectAreaSpotHemisphereProxiesImported": false,
+    "floorCoatRoughnessHypothesis": 0.095,
+    "previousPhysicalR06CoatRoughness": 0.17,
+    "fixedSamples": 256,
+    "adaptiveSampling": false,
+    "purpose": "Test finite solar penumbrae and broken leaf/window light under actual GI plus calibrated floor gloss; a renderer comparison, not native pixel equivalence or final film acceptance."
+  },
+  "blendSaved": false,
+  "output": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r03-full/scene06-daylight195-r03-cycles-full-CC-BY-NC-SA-4.0.png",
+  "sha256": "953ae537951b390eb87baa43e00588184806b5d17015102a1107099e9d2e8fde",
+  "elapsedSeconds": 238.85378408432007,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 256,
+  "finished": 1792742844.850454
+}

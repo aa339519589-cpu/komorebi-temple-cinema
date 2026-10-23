@@ -46,6 +46,9 @@ export async function installScannedTimber(mats){
   if(painted)mat.color.set(pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
   if(mat.isMeshPhysicalMaterial){mat.clearcoat=.085;mat.clearcoatRoughness=.43;mat.specularIntensity=.62;}
   mat.onBeforeCompile=shader=>{
+   shader.vertexShader='attribute float woodCut190;attribute vec2 woodEndUv190;varying float vWoodCut190;varying vec2 vWoodEndUv190;\n'+shader.vertexShader;
+   shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\n vWoodCut190=woodCut190;vWoodEndUv190=woodEndUv190;');
+   shader.fragmentShader='varying float vWoodCut190;varying vec2 vWoodEndUv190;\n'+shader.fragmentShader;
    shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
     #ifdef USE_MAP
      vec2 woodUv=vMapUv;
@@ -59,8 +62,11 @@ export async function installScannedTimber(mats){
      float check=pow(max(0.,sin(checkPhase)),46.)*smoothstep(.12,.80,sin(woodUv.x*8.1+woodUv.y*3.))*checkFilter;
      diffuseColor.rgb*=.97+longitudinal+age-check*.15;
      diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.245,.178,.116)*(.72+.28*texture2D(map,woodUv).r),worn*.34);
+     float phase190=length(vWoodEndUv190*vec2(1.,.94)+vec2(.018,-.024))*1250.+sin(vWoodEndUv190.x*31.)*.7;
+     float filtered190=1.-smoothstep(.7,2.5,fwidth(phase190)),growth190=.5+.5*cos(phase190)*filtered190;
+     diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.230,.125,.055)*(.94+.06*growth190),smoothstep(.75,.98,vWoodCut190)*.70);
     #endif`);
-  };mat.customProgramCacheKey=()=> 'scene05-mass175-scanned-worn-copper-cedar-r01';
+  };mat.customProgramCacheKey=()=> 'scene05-detail190-scanned-wood-natural-cut-response';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=painted?.70:.7;mat.needsUpdate=true;
  }
  return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV, subdued scanned normals, longitudinal aged tissue and bounded fine checks',pigments,pigmentCoverage:'CC0 scan luminance .36–.98 and10% source chroma under warm red-brown stain; broad rub-through to natural timber; scene photograph unused',sourceMeanLinearLuma:meanLuma},
@@ -69,20 +75,22 @@ export async function installScannedTimber(mats){
 
 export function assignMetricTimberUV(geometry,matrix){
  if(geometry.userData.metricPathUV){
+  geometry.setAttribute('woodCut190',new T.Float32BufferAttribute(new Float32Array(geometry.attributes.position.count),1));geometry.setAttribute('woodEndUv190',new T.Float32BufferAttribute(new Float32Array(geometry.attributes.position.count*2),2));
   const s=new T.Vector3().setFromMatrixScale(matrix),gain=(s.x+s.y+s.z)/3,uv=geometry.attributes.uv,
    seed=Math.sin(matrix.elements[12]*12.713+matrix.elements[13]*4.13+matrix.elements[14]*5.71)*43758.5453,offset=seed-Math.floor(seed);
   for(let i=0;i<uv.count;i++)uv.setXY(i,uv.getX(i)*gain+offset,uv.getY(i)*gain+offset*.37);return;
  }
  geometry.computeBoundingBox();const size=geometry.boundingBox.getSize(new T.Vector3()),scale=new T.Vector3().setFromMatrixScale(matrix);
  const lengths=[size.x*scale.x,size.y*scale.y,size.z*scale.z],long=lengths.indexOf(Math.max(...lengths)),s=[scale.x,scale.y,scale.z];
- const position=geometry.attributes.position,normal=geometry.attributes.normal,uv=new Float32Array(position.count*2);
+ const position=geometry.attributes.position,normal=geometry.attributes.normal,uv=new Float32Array(position.count*2),cut=new Float32Array(position.count),endUv=new Float32Array(position.count*2),centre=geometry.boundingBox.getCenter(new T.Vector3()).toArray();
  const seed=Math.sin(matrix.elements[12]*12.713+matrix.elements[13]*4.13+matrix.elements[14]*5.71)*43758.5453,offset=seed-Math.floor(seed);
  for(let i=0;i<position.count;i++){
   const p=[position.getX(i),position.getY(i),position.getZ(i)],n=[Math.abs(normal.getX(i)),Math.abs(normal.getY(i)),Math.abs(normal.getZ(i))];
   const perpendicular=[0,1,2].filter(a=>a!==long);
   const cross=perpendicular[0]===n.indexOf(Math.max(...n))?perpendicular[1]:perpendicular[0];
+  cut[i]=n[long];endUv[i*2]=(p[perpendicular[0]]-centre[perpendicular[0]])*s[perpendicular[0]];endUv[i*2+1]=(p[perpendicular[1]]-centre[perpendicular[1]])*s[perpendicular[1]];
   if(n[long]>.85){uv[i*2]=p[perpendicular[0]]*s[perpendicular[0]]+offset;uv[i*2+1]=p[perpendicular[1]]*s[perpendicular[1]]+offset*.37;}
   else{uv[i*2]=p[long]*s[long]+offset;uv[i*2+1]=p[cross]*s[cross]+offset*.37;}
  }
- geometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
+ geometry.setAttribute('uv',new T.Float32BufferAttribute(uv,2));geometry.setAttribute('woodCut190',new T.Float32BufferAttribute(cut,1));geometry.setAttribute('woodEndUv190',new T.Float32BufferAttribute(endUv,2));
 }

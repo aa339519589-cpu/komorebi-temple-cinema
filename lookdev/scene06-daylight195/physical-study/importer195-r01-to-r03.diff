@@ -1,0 +1,90 @@
+--- draftR01/render-scene06-cycles195-r01.py
++++ physical-study/render-scene06-cycles195-r03.py
+@@ -1,4 +1,4 @@
+-"""Scene06 daylight195 R01 physical Cycles comparison, imported from frozen native geometry.
++"""Scene06 daylight195 R03 physical Cycles comparison, imported from frozen native geometry.
+ 
+ Owns only this lookdev directory. No photograph pixels, camera plate, AI frame,
+ mesh replacement, scene source mutation, or native screen-space volume planes.
+@@ -10,15 +10,15 @@
+ import numpy as np
+ from mathutils import Matrix,Vector,Quaternion
+ HERE=Path(__file__).resolve().parent
+-ROOT=Path(os.environ.get('SCENE_PACKAGE',str(HERE/'cycles-195-r01-export'))).resolve()
+-OUT=Path(os.environ.get('CYCLES_OUTPUT',str(HERE/'cycles-195-r01-full'))).resolve();OUT.mkdir(parents=True,exist_ok=True)
++ROOT=Path(os.environ.get('SCENE_PACKAGE',str(HERE/'cycles-195-r03-export'))).resolve()
++OUT=Path(os.environ.get('CYCLES_OUTPUT',str(HERE/'cycles-195-r03-full'))).resolve();OUT.mkdir(parents=True,exist_ok=True)
+ MODE='source-sun-physical-apertures'
+ scene_data=json.loads((ROOT/'scene.json').read_text());source_export=json.loads((ROOT/'export-report.json').read_text())
+ assert source_export['status']=='exported-existing-geometry'
+-assert source_export['sourceHash']=='e4eb8927001e1b396435ca086e9365718a5c1f45f6a4f0df265fb5a2f1aae6b7'
++assert source_export['sourceHash']=='c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118'
+ assert scene_data['view']['reference']==6
+ report={'sourceCommit':source_export['sourceCommit'],'sourceHash':source_export['sourceHash'],'exportSceneSha256':hashlib.sha256((ROOT/'scene.json').read_bytes()).hexdigest(),'renderScript':{'file':Path(__file__).name,'sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},'sourceStatistics':scene_data['statistics'],'lightingMode':MODE,'blender':bpy.app.version_string,'scope':scene_data['renderingScope'],'geometryRebuilt':False,'excluded':scene_data['excluded'],'warnings':[],'status':'importing','started':time.time(),'visualAccepted':False,'photographicAcceptance':False}
+-report.update({'license':'CC-BY-NC-SA-4.0','licenseUrl':'https://creativecommons.org/licenses/by-nc-sa/4.0/','personalNoncommercialUseOnly':True,'sourceURL':'https://zenodo.org/records/21353739','sourceAttribution':json.loads((HERE/'license-and-physical195.json').read_text())['attribution'],'noBlendSaved':True,'renderPurpose':'Single actual full-frame physical GI comparison; not a native WebGL pixel-equivalence or film claim.'})
++report.update({'license':'CC-BY-NC-SA-4.0','licenseUrl':'https://creativecommons.org/licenses/by-nc-sa/4.0/','personalNoncommercialUseOnly':True,'sourceURL':'https://zenodo.org/records/21353739','sourceAttribution':json.loads((HERE/'license-and-physical195-r03.json').read_text())['attribution'],'noBlendSaved':True,'renderPurpose':'Single actual full-frame physical GI comparison; not a native WebGL pixel-equivalence or film claim.'})
+ (OUT/'report.json').write_text(json.dumps(report,indent=2))
+ bpy.ops.wm.read_factory_settings(use_empty=True);scene=bpy.context.scene
+ def binary(record):
+@@ -235,24 +235,33 @@
+ report['affinePreservation']={'parentMatrices':'Retained as full source object matrices, including current R08 bowl and actual exterior canopy; no parent matrix decomposition.','linkedLocalMatrices':'Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.','linkedInstances':linked_instance_count,'bakedShearedInstances':sheared_instance_count,'bakedShearedTriangles':sheared_triangle_count,'bakedShearedVertices':sheared_vertex_count,'maxLinkedTRSMatrixResidual':max_trs_residual,'maxBakedShearResidual':max_shear_residual,'flattenedOnlyForShearedTransforms':True,'geometryDecimated':False}
+ 
+ 
+-# Source195's actual canopy lies beyond the left wall and must survive export.
+-# Empty mesh names do not provide ancestry, so measure the exact exported world
+-# transforms and opaque vertex positions. This is an audit, never new geometry.
+-canopy_leaf_groups=[];canopy_boughs=[]
++# Source195 R03 has the exact rooted, merged wood plus soil already authored
++# by the primary agent. This audits exported presence/transforms only: it does
++# not alter source geometry or establish true petiole/trunk intersections.
++canopy_leaf_groups=[];canopy_wood=[];canopy_soil=[]
++soil_min=np.asarray([-13.2,-.55,-9.0]);soil_max=np.asarray([-7.2,-.15,7.0])
+ for record in scene_data['meshes']:
+     world=np.asarray(record['matrix'],dtype=np.float64).reshape(4,4).T
+     if 'instanceMatrices' in record and record['instances']==250:
+         raw=binary(record['instanceMatrices']).reshape(250,4,4).transpose(0,2,1)
+         centers=raw[:,:3,3]@world[:3,:3].T+world[:3,3]
+         if np.all(centers[:,0]<-7.5) and np.all(centers[:,1]>5):
+-            canopy_leaf_groups.append({'name':record['name'],'instances':250,'centerBoundsYUp':[centers.min(axis=0).tolist(),centers.max(axis=0).tolist()]})
++            assert record['castShadow'] and record['receiveShadow']
++            canopy_leaf_groups.append({'name':record['name'],'geometry':record['geometry'],'instances':250,'centerBoundsYUp':[centers.min(axis=0).tolist(),centers.max(axis=0).tolist()]})
+     elif 'instanceMatrices' not in record:
+         vertices=load_geometry(geo[record['geometry']])['position'];points=vertices@world[:3,:3].T+world[:3,3]
+-        if len(points) and np.all(points[:,0]<-7.5):
+-            canopy_boughs.append({'name':record['name'],'vertices':len(points),'boundsYUp':[points.min(axis=0).tolist(),points.max(axis=0).tolist()]})
+-assert sum(x['instances'] for x in canopy_leaf_groups)==750,'195 canopy leaves absent or unexpected source layout'
+-assert len(canopy_boughs)==6,'195 canopy boughs absent or unexpected source layout'
+-report['actualCanopyGeometry']={'sourceModule':'reconstructions/scene-06/src/window-canopy195.js','leafInstances':750,'leafGroups':canopy_leaf_groups,'boughs':canopy_boughs,'allImportedAsActualOpaqueGeometry':True,'referenceImageOrBeamMaskUsed':False,'scope':'Inferred exterior maple geometry from exact native195 source; presence alone is not visual acceptance.'}
++        if not len(points):continue
++        lo=points.min(axis=0);hi=points.max(axis=0)
++        if np.all(points[:,0]<-7.5):
++            assert record['castShadow'] and record['receiveShadow']
++            canopy_wood.append({'name':record['name'],'geometry':record['geometry'],'vertices':len(points),'boundsYUp':[lo.tolist(),hi.tolist()]})
++        if np.allclose(lo,soil_min,rtol=0,atol=1e-4) and np.allclose(hi,soil_max,rtol=0,atol=1e-4):
++            assert record['castShadow'] and record['receiveShadow']
++            canopy_soil.append({'name':record['name'],'geometry':record['geometry'],'vertices':len(points),'boundsYUp':[lo.tolist(),hi.tolist()]})
++assert sum(x['instances'] for x in canopy_leaf_groups)==750,'195 R03 canopy leaves absent or unexpected source layout'
++assert len(canopy_wood)==1,'195 R03 merged wood absent or unexpected source layout'
++assert len(canopy_soil)==1,'195 R03 actual soil block absent or unexpected source bounds'
++report['actualCanopyGeometry']={'sourceModule':'reconstructions/scene-06/src/window-canopy195.js','heldNativeRevision':'195R03','sourceModuleSha256':'aab4b4c66a5de202fe21f38943aea80119434830dddce2c68da9ad6efe43f80e','leafInstances':750,'leafGroups':canopy_leaf_groups,'mergedWood':canopy_wood,'soil':canopy_soil,'allImportedAsActualOpaqueGeometry':True,'referenceImageOrBeamMaskUsed':False,'sourceGeometryEdited':False,'petioleTrunkIntersectionProof':False,'scope':'Exact inferred exterior R03 source geometry and attributes retained; this presence/bounds audit is not contact, topology or visual acceptance.'}
+ 
+ 
+ # Physical incident-light boundary: sky outside the real room plus the source sun.
+@@ -362,7 +371,7 @@
+     cam_data.shift_x=float((desired[0]-initial[0])/dx);cam_data.shift_y=float((desired[2]-initial[2])/dy)
+     actual=frame_bounds();error=float(np.max(np.abs(actual-desired)));assert error<2e-6,(actual,desired,error)
+     report['trueSubfrustum']={'cropInFullSourcePixels':[x,y,size,full],'outputResolution':scene.render.resolution_x,'sourceCameraMatrixUnchanged':True,'lensMm':cam_data.lens,'shift':[cam_data.shift_x,cam_data.shift_y],'desiredCameraLocalRaySlopes':desired.tolist(),'actualCameraLocalRaySlopes':actual.tolist(),'maxAbsoluteRaySlopeError':error,'upsampledScreenshot':False}
+-render_name='scene06-daylight195-r01-cycles-full-CC-BY-NC-SA-4.0.png';assert Path(render_name).name==render_name;scene.render.filepath=str(OUT/render_name)
++render_name='scene06-daylight195-r03-cycles-full-CC-BY-NC-SA-4.0.png';assert Path(render_name).name==render_name;scene.render.filepath=str(OUT/render_name)
+ report['materialAttributeParity']={'linkedInstances':'Instancer attribute plus explicit Geometry Nodes Store Named Attribute','bakedShearAndDirect':'Geometry-domain material variants, direct white instanceColor fallback and actual RGB for baked shear','vertexColors':'sourceColor multiplied only when source vertexColors is true','uvTransform':'Exact Three.js rotation, repeat, center, offset and flipY','deduplicatedImageBuffers':len(image_cache),'textureCoordinatesAndPixelsPreserved':True}
+ report['importedTriangles']=imported_triangles;report['sourceTriangleCount']=scene_data['statistics']['triangles'];report['geometryTriangleCountPreserved']=imported_triangles==scene_data['statistics']['triangles'];report['excludedCollapsedTriangles']=collapsed_triangle_count;report['noncollapsedSourceTriangleCount']=scene_data['statistics']['triangles']-collapsed_triangle_count;report['renderableTriangleCountPreserved']=imported_triangles==report['noncollapsedSourceTriangleCount'];assert report['renderableTriangleCountPreserved']
+ report['excludedCollapsedInstanceCount']=collapsed_instance_count
+@@ -370,7 +379,7 @@
+ report['materialTransfer']='Exported linear PBR colors, all source map/bump/roughness textures, metallic, roughness, transmission and clearcoat parameters. Cycles Principled BSDF is a physical cross-renderer approximation; native GLSL hooks, PMREM cube environment, tone mapping and screen-space reflector are not ported. Actual imported floor reflects actual room geometry through its physical clearcoat.'
+ report['lightCalibration']={'sunDirection':'Exact exported source direction unless a separately declared verified-upper-window experiment is selected','sunEnergyWPerSquareMetre':float(os.environ.get('CYCLES_SUN_ENERGY','90')),'sunEnergyNotPhotometricEquivalence':True,'nativeIndirectProxiesRemoved':True,'actualMultiBounceGI':True,'maxBounces':12,'diffuseBounces':6,'glossyBounces':6,'volumeBounces':2,'practicals':'Point source source intensity * 4pi physical power calibration; actual lamp positions retained','exteriorRadianceCalibration':'Exterior daylight strength is an explicitly calibrated boundary, not a measured HDR environment','exposureEV':scene.view_settings.exposure,'toneMap':'AgX Medium High Contrast; Three ACESFilmic differs','nativeWebglPixelEquivalence':False}
+ report['camera']={'sourcePositionYUp':scene_data['view']['position'],'sourceFovDegrees':scene_data['view']['fov'],'sourceMatrix':scene_data['cameraMatrix'],'depthOfField':False}
+-report['scopeLimits']=['Same actual native195 R01 source: 179R08 source statue and continuous carved bowl, 189R02 camera, repaired room and actual exterior maple geometry. Exact source geometry, matrices, UVs, colors and full low reference camera retained; no192 hair candidate.','Actual Scan-the-World Sainsbury Japanese Amida central source under CC BY-NC-SA4.0; raw source face/anatomy retained under positive uniform runtime fit. Different artifact from reference; independent CC BY attendant heads retained.','Exact face likeness, ornament pattern, proportions and photographic fidelity remain unaccepted.','Exported source-frame.rgba is provenance evidence only and is never loaded as a texture or background.']
++report['scopeLimits']=['Same actual native195 R03 source: 179R08 source statue and continuous carved bowl, 189R02 camera, repaired room and actual exterior maple geometry. Exact source geometry, matrices, UVs, colors and full low reference camera retained; no192 hair candidate.','Actual Scan-the-World Sainsbury Japanese Amida central source under CC BY-NC-SA4.0; raw source face/anatomy retained under positive uniform runtime fit. Different artifact from reference; independent CC BY attendant heads retained.','Exact face likeness, ornament pattern, proportions and photographic fidelity remain unaccepted.','Exported source-frame.rgba is provenance evidence only and is never loaded as a texture or background.']
+ report['daylight195PhysicalHypothesis']={'sourcePin':source_export['sourceHash'],'sourceGeometryAndTexturePixelsUnchanged':True,'actualSolarDiscDiameterDegrees':float(os.environ.get('CYCLES_SUN_ANGLE','0.53')),'actualWindowsAndCanopyCastShadows':True,'nativeScatteringShaderImported':False,'physicalAirReplacesNativeGLSL':True,'nativeRectAreaSpotHemisphereProxiesImported':False,'floorCoatRoughnessHypothesis':varnish_coat_roughness,'previousPhysicalR06CoatRoughness':.17,'fixedSamples':256,'adaptiveSampling':False,'purpose':'Test finite solar penumbrae and broken leaf/window light under actual GI plus calibrated floor gloss; a renderer comparison, not native pixel equivalence or final film acceptance.'}
+ report['status']='rendering';(OUT/'report.json').write_text(json.dumps(report,indent=2))
+ report['blendSaved']=False

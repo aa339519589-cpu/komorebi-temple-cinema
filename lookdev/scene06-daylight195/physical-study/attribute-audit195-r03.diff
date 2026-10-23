@@ -1,0 +1,20 @@
+--- reviewed179/audit-export-attributes179-r06.mjs
++++ physical-study/audit-export-attributes195-r03.mjs
+@@ -1,9 +1,9 @@
+ import {readFileSync,writeFileSync} from 'node:fs';
+ import {createHash} from 'node:crypto';
+ import {fileURLToPath} from 'node:url';import {dirname,join} from 'node:path';
+-const here=dirname(fileURLToPath(import.meta.url)),root=join(here,'cycles-r06-export');
++const here=dirname(fileURLToPath(import.meta.url)),root=join(here,'cycles-195-r03-export');
+ const s=JSON.parse(readFileSync(join(root,'scene.json'),'utf8')),exp=JSON.parse(readFileSync(join(root,'export-report.json'),'utf8'));
+-if(exp.status!=='exported-existing-geometry'||exp.sourceHash!=='d4ebd5c9b2855de36771c9b4f24821594cde9d78230c39843869773f04d5cad6')throw Error('Unexpected frozen export');
++if(exp.status!=='exported-existing-geometry'||exp.sourceHash!=='c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118')throw Error('Unexpected frozen export');
+ let verifiedBuffers=0,uniqueVertices=0,uniqueTriangles=0,nonfinite=0,unitOutliers=0,zeroNormals=0,degenerate=0,opposed=0;
+ const records=[],problems=[];const consumers=new Map();s.meshes.forEach((m,i)=>{const a=consumers.get(m.geometry)||[];a.push(m.name||'source-object-'+i);consumers.set(m.geometry,a)});
+ function array(rec){const b=readFileSync(join(root,'assets',rec.file));const sha=createHash('sha256').update(b).digest('hex');if(sha!==exp.exportedAssets[rec.file].sha256)throw Error('Changed buffer '+rec.file);verifiedBuffers++;const c=rec.type==='Float32Array'?Float32Array:rec.type==='Uint32Array'?Uint32Array:rec.type==='Uint16Array'?Uint16Array:null;if(!c)throw Error(rec.type);const a=new c(b.buffer,b.byteOffset,b.byteLength/c.BYTES_PER_ELEMENT);if(a.length!==rec.count)throw Error('Buffer count '+rec.file);return a;}
+@@ -25,4 +25,4 @@
+ const core=records.filter(r=>[210766].includes(r.vertices));
+ const report={status:'exported-attribute-audit',sourceCommit:exp.sourceCommit,sourceHash:exp.sourceHash,geometryCount:records.length,verifiedBufferHashes:verifiedBuffers,uniqueVertices,uniqueTriangles,renderedSourceTriangleCount:s.statistics.triangles,nonfiniteAttributeValues:nonfinite,unitNormalOutliersTolerance1e4:unitOutliers,zeroNormals,sourceDegenerateTrianglesBelowDoubledArea1e14:degenerate,sourceDegenerateTrianglesIncludingInstances:weightedDegenerate,opposedAverageVertexNormals:opposed,coreAnatomicalSurfaces:core,sourceNormalProblemGeometryCount:problems.length,sourceNormalProblems:problems.sort((a,b)=>b.opposedAverageVertexNormals-a.opposedAverageVertexNormals),limits:['Checks exported positions, normals, UV/color counts, finite values, index range and immutable buffer hashes.','Normal/winding angular agreement is a diagnostic on supplied source data; curved folds, repeated poles and separate back faces can need interpretation.','Source buffer triangle counts retain generated pole/degenerate faces; they are not a claim that every source index triple has positive area.',
+ 'This is not a manifold, self-intersection, anatomy or photographic likeness proof.','Imported shears use inverse-transpose normal transformation and winding correction as declared in the actual render reports.'],visualAccepted:false};
+-writeFileSync(join(here,'cycles-r06-export-attribute-audit.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({...report,sourceNormalProblems:problems.slice(0,8)},null,2));
++writeFileSync(join(here,'cycles-195-r03-export-attribute-audit.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({...report,sourceNormalProblems:problems.slice(0,8)},null,2));

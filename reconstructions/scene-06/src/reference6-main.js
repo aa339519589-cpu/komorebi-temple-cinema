@@ -8,7 +8,7 @@ import {createShotFocusPass} from './shot-focus.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {buildReference6Scene,REFERENCE6_FOUNDATION} from './reference6-scene.js';
 import {loadFloorSurface106,loadTempleWoodTexture} from './floor-scan106.js';
-import {createRestorationScatteringPass} from './restoration-lighting.js';
+import {createDaylightScattering195} from './daylight-scattering195.js';
 import {installRestorationRenderDiagnostics} from './restoration-render-diagnostics.js';
 import {loadSculpturalCastAssets} from './sculptural-cast-assets.js';
 
@@ -57,10 +57,7 @@ contactAO.setGBuffer(depthTarget.depthTexture,depthTarget.texture);
 contactAO.updateGtaoMaterial({radius:.18,thickness:.14,distanceExponent:1,distanceFallOff:1,scale:1,samples:16,screenSpaceRadius:false});
 contactAO.updatePdMaterial({radius:3.5,samples:16,depthPhi:2,normalPhi:3,lumaPhi:10});
 contactAO.blendIntensity=.65;contactAO.output=GTAOPass.OUTPUT.Default;composer.addPass(contactAO);
-const scattering=createRestorationScatteringPass(camera,sun,depthTarget.depthTexture,{density:.009,scatteringGain:2.8});
-const inheritedMask='float room=(1.0-smoothstep(11.0,12.2,abs(p.x-6.0)))*smoothstep(-20.5,-19.6,p.z)*(1.0-smoothstep(-2.2,-1.6,p.z));\n          room*=smoothstep(6.03,6.32,p.y)*(1.0-smoothstep(16.8,17.8,p.y));';
-if(scattering.material.fragmentShader.split(inheritedMask).length!==2)throw Error('Pinned scattering mask changed.');
-scattering.material.fragmentShader=scattering.material.fragmentShader.replace(inheritedMask,'float room=(1.0-smoothstep(6.65,6.8,abs(p.x)))*smoothstep(-5.8,-5.55,p.z)*(1.0-smoothstep(9.8,10.0,p.z));\n          room*=smoothstep(.02,.10,p.y)*(1.0-smoothstep(7.05,7.2,p.y));\n');
+const scattering=createDaylightScattering195(camera,sun,depthTarget.depthTexture);
 scattering.material.needsUpdate=true;composer.addPass(scattering);composer.addPass(shotFocus.pass);const lensBloom=createLensBloomPass(width,height);composer.addPass(lensBloom);composer.addPass(new OutputPass());
 let frame=0,activeTarget=[...REFERENCE6_FOUNDATION.camera.target],activeShot=null;
 function renderOpaqueDepth(){

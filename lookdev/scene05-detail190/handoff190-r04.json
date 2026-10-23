@@ -1,0 +1,101 @@
+{
+  "status": "actual-native-review-candidate",
+  "scene": 5,
+  "revision": 190,
+  "round": "R04",
+  "sourceHash": "0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
+  "baselineSourceHash": "c103763d9af6afe69b8db4515cb586f17f1a3e2472674f1f7869145a361f2815",
+  "sourceSnapshot": "lookdev/scene05-detail190/r04-source",
+  "sourceIdentity": "lookdev/scene05-detail190/source190-r04-identity.json",
+  "visualAccepted": false,
+  "parentVisualReviewPending": true,
+  "frames": [
+    {
+      "path": "qa/ten-reference/05/iteration-scene05-detail190-r04-20261023/reference.png",
+      "report": "qa/ten-reference/05/iteration-scene05-detail190-r04-20261023/report.json",
+      "name": "reference",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "rgbaSha256": "a7dd03926003808559542032cc0b3065b7a5f10ee785b53155c69c683fadd8e4",
+      "sourceHash": "0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/05/iteration-scene05-detail190-r04-20261023/detail-native.png",
+      "report": "qa/ten-reference/05/iteration-scene05-detail190-r04-20261023/report.json",
+      "name": "detail-native",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "rgbaSha256": "df704290054c58c0a5558ba992e917129e7afec40dfb8c5726742b8dcbf4e6dd",
+      "sourceHash": "0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/05/iteration-scene05-detail190-r04-low3q-20261023/inspection-view.png",
+      "report": "qa/ten-reference/05/iteration-scene05-detail190-r04-low3q-20261023/report.json",
+      "name": "inspection-view",
+      "width": 1254,
+      "height": 1254,
+      "valid": true,
+      "rgbaSha256": "3597fdde2f714ae0df3ecf21c3c37fea94c383bf308e0641d7279076fcbd7886",
+      "sourceHash": "0f7495a0b3d3e4c727bffea8bcf111379c9041a54692209ed2ae0ac401ff171e",
+      "personallyViewed": true
+    }
+  ],
+  "actualChanges": [
+    "Closed waisted/faceted hip-tail timber follows exact retained beam path/cuts; exposed cheek necks and arrises preserve original lap and flat bearing footprints",
+    "Dedicated dark hip finish also covers real birdsmouthed roof hip; actual seat/cutY unchanged. Fix indexed expansion metadata so authored arclength grain survives merge",
+    "Primary copper uses sixteen fine repousse petals, secondary open sleeves show actual wood cuts without repeated lozenge badges; actual metric cut grain response",
+    "Long grid-framed lantern with full-width real open floral crown, domed cap, shallow closed hood, fitted eave pendants and retained beam-anchor bridles",
+    "Reference-led continuous ceramic medallion ground with depressed orbital hollows, angular brows, radial whisker relief, narrow double rim, round gilded nose, layered curved ledge and turned rolls; broad spherical cheeks/chin/horn loops removed"
+  ],
+  "preserved": [
+    "All175 tier layouts, camera/dolly endpoint, site/roof/waist/window/pier/purlin datums and tail centrelines/cuts",
+    "All measured sky/direct-sun/courtyard light values and canopy source",
+    "All original external scan and HDRI bytes; no new external assets",
+    "Original175 and R01/R02/R03 sources and actual native frames, including R03 low3q"
+  ],
+  "declaredPlacementChange": "R02 closed ceramic carrier moves only main roof mask by local[0,.145,.23] above/ahead of retained1.03 extended terminal tile row; all physical beam/lantern/tier/camera anchors retained",
+  "changedSceneFiles": [
+    "reconstructions/scene-05/asset-dependencies.json",
+    "reconstructions/scene-05/src/architecture.js",
+    "reconstructions/scene-05/src/corner-mask190.js",
+    "reconstructions/scene-05/src/detail190-solids.js",
+    "reconstructions/scene-05/src/lantern190.js",
+    "reconstructions/scene-05/src/rafter-end-copper.js",
+    "reconstructions/scene-05/src/scanned-timber.js",
+    "reconstructions/scene-05/src/scene.js",
+    "reconstructions/scene-05/src/sculpted-joinery.js",
+    "reconstructions/scene-05/src/secondary-copper190.js"
+  ],
+  "evidence": {
+    "solidTemplateAudit": {
+      "path": "lookdev/scene05-detail190/geometry190-r04.json",
+      "templates": 482,
+      "failed": 0,
+      "scope": "Actual solid template usability, not photographic or conservation acceptance"
+    },
+    "indexedPathUv": {
+      "path": "lookdev/scene05-detail190/timber-path-uv190-r04.json",
+      "allPassed": true
+    },
+    "runtimeAnchors": "lookdev/scene05-detail190/runtime-anchors190-r04.json",
+    "assetBytes": "lookdev/scene05-detail190/preserved-anchor-assets190-r04.json",
+    "reviews": [
+      "lookdev/scene05-detail190/review190-r01.json",
+      "lookdev/scene05-detail190/review190-r02.json",
+      "lookdev/scene05-detail190/review190-r03.json",
+      "lookdev/scene05-detail190/review190-r04-full-corner.json"
+    ]
+  },
+  "remainingVisualLimits": [
+    "Authored joinery/ornament is more regular and cleaner than the supplied temple; historic section and wear remain interpreted",
+    "Actual mask medallion and lantern crown improve reference silhouettes, but exact relief/copper patterns do not reproduce the artifact",
+    "Native sky/key/bounce and wood/metal ageing remain approximations; no photographic-fidelity acceptance",
+    "No full film generated in this lane; no parent/shared/other-scene or Git mutation performed"
+  ],
+  "activeOwnRenderers": [],
+  "allNativeJobsFinished": true
+}

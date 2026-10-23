@@ -1,0 +1,91 @@
+{
+  "status": "actual-physical-frame-personally-reviewed-unaccepted",
+  "heldSourceHash": "c2412401f7386f2bf480e06de27120ec958f8139f4466f3cd2d45f0699cdd118",
+  "actualPng": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-full/scene06-daylight195-r03-cycles-full-CC-BY-NC-SA-4.0.png",
+  "actualPngSha256": "953ae537951b390eb87baa43e00588184806b5d17015102a1107099e9d2e8fde",
+  "report": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-full/report.json",
+  "nativeComparison": "qa/ten-reference/06/iteration-scene06-daylight195-r03-personal-nc/reference.png",
+  "suppliedReferenceComparison": "references/hd/4-\u7167\u7247-5.jpg",
+  "previousPhysicalComparison": "lookdev/scene06-nc-adoption179/cycles-r06-physical-full/scene06-nc-adoption179-r06-cycles-full-CC-BY-NC-SA-4.0.png",
+  "comparisonsPersonallyViewed": true,
+  "actualPhysicalSettings": {
+    "resolution": [
+      1254,
+      1254
+    ],
+    "samples": 256,
+    "elapsedSeconds": 238.85378408432007,
+    "sunDiameterDegrees": 0.5300000012305109,
+    "medium": {
+      "type": "Actual volume scatter plus absorption",
+      "boundsYUp": {
+        "x": [
+          -6.79,
+          6.79
+        ],
+        "y": [
+          0.02,
+          7.18
+        ],
+        "z": [
+          -5.79,
+          9.99
+        ]
+      },
+      "scatteringDensityPerMetre": 0.002,
+      "absorptionDensityPerMetre": 0.00016,
+      "anisotropy": 0.2,
+      "emission": 0,
+      "nativeDisplayVolumePlanesImported": false,
+      "requiresActualApertureLightVisibility": true
+    },
+    "coat": {
+      "sourceClearcoatRoughness": 0.17,
+      "cyclesClearcoatRoughness": 0.095,
+      "sourceClearcoatWeight": 0.72,
+      "sourceBaseAlbedoAndRoughnessMapKept": true,
+      "reason": "Native floor GLSL samples room-reflection radiance with a custom small image footprint; Cycles instead uses actual ray-traced clearcoat with an explicitly calibrated physical lobe. This is not native pixel parity."
+    },
+    "nativeAreaSpotHemisphereImported": false
+  },
+  "improvementsObserved": [
+    "Low-contrast room air avoids the former constant-gain row of bright uniform native shafts.",
+    "Sun admitted through real leaf/window occluders produces broken patches on the foreground mats and contiguous floor.",
+    "Gold, column lacquer and recessed altar surfaces have more coherent occluded highlight/indirect gradients than native room-cube/proxy illumination."
+  ],
+  "remainingObservableFailures": [
+    "The foreground wood remains too diffuse/matte compared with the strongly reflecting supplied reference; .095 clearcoat roughness alone did not establish the intended gold/column reflection.",
+    "Large wood-grain response dominates the foreground while the golden architectural reflection stays weak.",
+    "The original source statue face, robe and bowl/altar ornament remain far from the supplied sculpture and detail pattern.",
+    "Fine ornaments still read soft/constructed in the full frame at256samples; numerical sample count is not proof of fine-detail match.",
+    "The room is dark in broad ceiling/upper-wall regions compared with the warm articulated supplied timber; one calibrated sky/sun boundary is not a measured illumination match.",
+    "Native195 suppressed stripes, but the actual remaining window-grid floor bands and mat brightness still need aesthetic review against the intended natural light."
+  ],
+  "futureHypothesesNotApplied": [
+    "Audit physical floor clearcoat normal response and the native varnish normal hook: unchanged exported geometric normals/texture roughness may dominate reflection blur, so another scalar-only roughness change should not be assumed sufficient.",
+    "Assess actual source geometry/lighting hierarchy before any video or head/altar merge."
+  ],
+  "sourceGeometryPreserved": {
+    "allRenderableTriangles": true,
+    "importedTriangles": 18294493,
+    "collapsedOriginalTrianglesExcluded": 24,
+    "rawBodyByteProof": "cycles-195-r03-raw-body-transfer-proof.json",
+    "canopy": {
+      "leaves": 750,
+      "mergedWood": 1,
+      "soil": 1,
+      "sourceGeometryEdited": false,
+      "junctionIntersectionsProven": false
+    }
+  },
+  "physicalRendererIsNativePixelEquivalent": false,
+  "sourcePixelsLoadedAsTextureOrBackground": false,
+  "canonicalGeometryOrSourceEdited": false,
+  "newMovieOrBlendCreated": false,
+  "allSourcesRejectedCandidatesAndActualEvidenceRetained": true,
+  "allNewExportBuffersRetainedAfterPrimaryRetainAllInstruction": true,
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "visualAccepted": false,
+  "filmAccepted": false
+}

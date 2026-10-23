@@ -1,0 +1,115 @@
+{
+  "status": "prepared-awaiting-primary-exact-script-review-and-source-held-pin",
+  "sourceHashProposed": "e4eb8927001e1b396435ca086e9365718a5c1f45f6a4f0df265fb5a2f1aae6b7",
+  "sourceNativeReceipt": "qa/ten-reference/06/iteration-scene06-daylight195-r01-personal-nc/report.json",
+  "noCanonicalEdit": true,
+  "noHairCandidate": true,
+  "noSourcePixelsLoaded": true,
+  "sourceRawBodySha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+  "cameraSha256": "1a523ba662e994ff012985f32701b6e85132ad889101075fbb4683467cb4cf48",
+  "filesSha256": {
+    "render-scene06-cycles195-r01.py": "494fc45c48becc4a70fce6ce90867a6065101936c2aa77e69a9f6a89baa955e7",
+    "bounded-export195-r01.py": "2a70b4b7525af1051b783e9470e25fecdfdf0a663603c499d96e8953d8c4cd4b",
+    "audit-export-attributes195-r01.mjs": "31876e41b61ae9402e7d8c27c1ca9f7f295530af7b2becae654cb06eaaca7420",
+    "license-and-physical195.json": "ac1965b64ac765f47f1bbd0d868c9f8a5511d8dbbafdfea4b16b90d51bacfcf5"
+  },
+  "reviewedBase": {
+    "importerSha256": "7d7549a7f415525cf56d4998b1ba9a423faeac99e43f0f96786be212351310ed",
+    "boundedWrapperSha256": "78653c35a237327df40f5869f357eff7a494c25e6284a92e938cdf697884efa4"
+  },
+  "officialToolsSha256": {
+    "tools/export-reconstructed-scene.mjs": "4599703f7fb7f6f8fac0dd895169e0563b3c7cf78145ec9cf4aceff64c06a3c9",
+    "tools/run-blender-queued.mjs": "56cdb3c5d640e6215bf4afdac81902c60680f9777af1a409537e8121435dc7c1",
+    "tools/gpu-render-slot.mjs": "d4450355384002d8ea4578f9219dbb916bc79db96aee4a18a747261af9dd5cb2"
+  },
+  "parameters": {
+    "resolution": [
+      1254,
+      1254
+    ],
+    "fixedSamples": 256,
+    "adaptiveSampling": false,
+    "device": "METAL",
+    "threads": 4,
+    "solarDiscDiameterDegrees": 0.53,
+    "sunEnergy": 90,
+    "skyStrength": 6,
+    "exposureEV": 0.45,
+    "physicalHazeDensityPerMetre": 0.002,
+    "physicalHazeAnisotropy": 0.2,
+    "floorCoatRoughness": 0.095,
+    "previousPhysicalCoatRoughness": 0.17,
+    "sourceAlbedoRoughnessTexturesAndCoatWeightRetained": true,
+    "nativeRectAreaSpotHemisphereImported": false,
+    "actualExteriorCanopyGeometryRequired": {
+      "leafInstances": 750,
+      "boughMeshes": 6
+    },
+    "physicalScatteringAndAbsorption": true,
+    "blendSaved": false
+  },
+  "diskBounds": {
+    "startFreeGiBAtLeast": 7,
+    "maximumLogicalExportGiB": 3.75,
+    "minimumActualFreeGiBWhileExporting": 3.5,
+    "elapsedTimeTermination": false,
+    "mayTerminateOnlyOwnExportProcessGroupOnActualDiskBound": true
+  },
+  "stepsAfterReviewOnly": [
+    {
+      "cwd": "/Users/mima1234/temple-cinema-live-sync",
+      "argv": [
+        "python3",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/bounded-export195-r01.py"
+      ],
+      "env": {
+        "EXPECTED_SCENE_HASH": "e4eb8927001e1b396435ca086e9365718a5c1f45f6a4f0df265fb5a2f1aae6b7"
+      },
+      "officialFIFO": "wrapper calls unchanged tools/export-reconstructed-scene.mjs",
+      "then": "Verify successful source/asset/disk receipt; do not render failed or mismatched export."
+    },
+    {
+      "cwd": "/Users/mima1234/temple-cinema-live-sync",
+      "argv": [
+        "node",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/audit-export-attributes195-r01.mjs"
+      ],
+      "env": {},
+      "purpose": "Pure CPU immutable exported buffer hash/attribute diagnostic; not visual acceptance."
+    },
+    {
+      "cwd": "/Users/mima1234/temple-cinema-live-sync",
+      "argv": [
+        "node",
+        "tools/run-blender-queued.mjs",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/render-scene06-cycles195-r01.py"
+      ],
+      "env": {
+        "SCENE_PACKAGE": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r01-export",
+        "CYCLES_OUTPUT": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight195/physical-study/cycles-195-r01-full",
+        "CYCLES_DEVICE": "METAL",
+        "CYCLES_THREADS": "4",
+        "CYCLES_SUN_ANGLE": "0.53",
+        "CYCLES_SUN_ENERGY": "90",
+        "CYCLES_SKY_STRENGTH": "6.0",
+        "CYCLES_EXPOSURE": ".45",
+        "CYCLES_HAZE_DENSITY": ".0020",
+        "CYCLES_HAZE_ANISOTROPY": ".20",
+        "CYCLES_VARNISH_COAT_ROUGHNESS": ".095"
+      },
+      "officialFIFO": true,
+      "output": "one actual PNG plus report; no Blend or movie"
+    }
+  ],
+  "retention": "After actual image review and all input/source/asset hashes verified, retain PNG/report/scene/export/source-assets inventory/regeneration source; prune only own new disposable export buffers, with explicit verified receipt. No earlier source, failed candidate, actual PNG or historical evidence may be deleted.",
+  "crossRendererLimits": [
+    "AgX/Principled/realGI/physicalmedium differ from native ACES/PBR/shader hooks.",
+    "Floor .095 is a renderer calibration hypothesis, not a source material edit or measured value.",
+    "Native uniform-air shader is not imported; true participating medium is added inside bounded room only.",
+    "Exterior sky is uniform calibrated radiance, not a measured HDRI.",
+    "Original sculpture face/robe/ornament remain different from supplied photograph; no photographic or film acceptance."
+  ],
+  "exportStarted": false,
+  "renderStarted": false,
+  "visualAccepted": false
+}
