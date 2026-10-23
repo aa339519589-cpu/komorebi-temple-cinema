@@ -1,0 +1,189 @@
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {detailNoise} from './surface-detail.js';
+
+// Rain garden193. The field is a physical triangulated landform. All plants
+// use its triangle height or a downward hit on an actually transformed rock.
+// Independent RNG keeps the existing architecture, paving and rain untouched.
+const TAU=Math.PI*2,UP=new T.Vector3(0,1,0),V=p=>new T.Vector3(...p);
+const rng=s=>()=>((s=Math.imul(s,1664525)+1013904223>>>0)/4294967296);
+const smooth=(x,a,b)=>T.MathUtils.smoothstep(x,a,b);
+const hash=(x,z)=>{const t=Math.sin(x*127.1+z*311.7)*43758.5453;return t-Math.floor(t);};
+function noise(x,z){const ix=Math.floor(x),iz=Math.floor(z),a=x-ix,b=z-iz,u=a*a*(3-2*a),v=b*b*(3-2*b);return T.MathUtils.lerp(T.MathUtils.lerp(hash(ix,iz),hash(ix+1,iz),u),T.MathUtils.lerp(hash(ix,iz+1),hash(ix+1,iz+1),u),v);}
+function fbm(x,z){return .57*noise(x,z)+.28*noise(x*2.03+9,z*2.03-4)+.15*noise(x*4.11-2,z*4.11+8);}
+
+export async function loadShrubs193(){
+ const gltf=await new GLTFLoader().loadAsync('/assets/polyhaven/shrub-02/shrub_02_4k.gltf'),variants=[];
+ gltf.scene.updateMatrixWorld(true);
+ for(const root of gltf.scene.children){
+  const bounds=new T.Box3().setFromObject(root),centre=bounds.getCenter(new T.Vector3()),height=bounds.max.y-bounds.min.y,parts=[];
+  root.traverse(o=>{if(!o.isMesh)return;const geometry=o.geometry.clone().applyMatrix4(o.matrixWorld);geometry.translate(-centre.x,-bounds.min.y,-centre.z);geometry.scale(1/height,1/height,1/height);
+   const material=new T.MeshPhysicalMaterial({name:'natural193-whole-CC0-shrub',map:o.material.map,normalMap:o.material.normalMap,normalScale:new T.Vector2(.58,.58),roughnessMap:o.material.roughnessMap,metalness:0,color:'#c1c5a5',roughness:.86,clearcoat:.10,clearcoatRoughness:.36,alphaTest:.46,side:T.DoubleSide});
+   for(const k of ['map','normalMap','roughnessMap'])if(material[k])material[k].anisotropy=8;
+   parts.push({geometry,material});
+  });
+  variants.push({parts,name:root.name,sourceHeight:height});
+ }
+ return{variants,info:{source:'https://polyhaven.com/a/shrub_02',author:'Rico Cilliers',license:'CC0-1.0',use:'Whole original 3D plants; rigid uniform scale and yaw only; original UVs/normals retained.'}};
+}
+
+class Mesh193{
+ constructor(){this.p=[];this.uv=[];this.col=[];this.ix=[];}
+ vertex(p,uv=[0,0],shade=1){const i=this.p.length/3;this.p.push(...(p.isVector3?p.toArray():p));this.uv.push(...uv);this.col.push(shade,shade,shade);return i;}
+ tube(points,r0,r1,sides=7,steps=8,seed=1){
+  const curve=new T.CatmullRomCurve3(points.map(V)),frames=curve.computeFrenetFrames(steps,false),start=this.p.length/3,length=curve.getLength();
+  for(let j=0;j<=steps;j++){const t=j/steps,c=curve.getPointAt(t),r=T.MathUtils.lerp(r0,r1,t);
+   for(let k=0;k<=sides;k++){const a=k/sides*TAU,rr=r*(1+.055*Math.sin(a*5+seed+t*3)+.025*Math.cos(a*9-seed));this.vertex(c.clone().addScaledVector(frames.normals[j],Math.cos(a)*rr).addScaledVector(frames.binormals[j],Math.sin(a)*rr),[a*r0*.60,t*length*.6],.87+.12*noise(a*3+seed,t*8));}
+  }
+  for(let j=0;j<steps;j++)for(let k=0;k<sides;k++){const a=start+j*(sides+1)+k,b=a+1,c=a+sides+1;this.ix.push(a,b,c,b,c+1,c);}
+  for(const [j,flip]of[[0,true],[steps,false]]){const c=this.vertex(curve.getPointAt(j/steps));for(let k=0;k<sides;k++){const a=start+j*(sides+1)+k;this.ix.push(c,flip?a+1:a,flip?a:a+1);}}
+ }
+ needle(base,direction,length,width,shade){
+  const d=direction.clone().normalize(),a=new T.Vector3().crossVectors(d,Math.abs(d.y)>.9?V([1,0,0]):UP).normalize(),b=d.clone().cross(a).normalize(),ids=[];
+  for(let k=0;k<3;k++){const t=k/3*TAU;ids.push(this.vertex(base.clone().addScaledVector(a,Math.cos(t)*width).addScaledVector(b,Math.sin(t)*width),[k/3,0],shade));}
+  const tip=this.vertex(base.clone().addScaledVector(d,length),[.5,1],shade*1.06);this.ix.push(ids[0],ids[2],ids[1],ids[0],ids[1],tip,ids[1],ids[2],tip,ids[2],ids[0],tip);
+ }
+ leaf(base,dir,length,width,shade){
+  const z=dir.clone().normalize(),x=z.clone().cross(UP).normalize();if(x.lengthSq()<.01)x.set(1,0,0);const y=x.clone().cross(z).normalize(),rows=[],root=this.vertex(base,[.5,0],shade);
+  for(let j=1;j<3;j++){const t=j/3,c=base.clone().addScaledVector(z,t*length).addScaledVector(y,Math.sin(t*Math.PI)*length*.11),w=Math.sin(t*Math.PI)*width,ids=[];for(const side of[-1,0,1])ids.push(this.vertex(c.clone().addScaledVector(x,w*side).addScaledVector(y,Math.abs(side)*length*.035),[(side+1)/2,t],shade));rows.push(ids);}
+  const tip=this.vertex(base.clone().addScaledVector(z,length),[.5,1],shade);
+  for(let k=0;k<2;k++){this.ix.push(root,rows[0][k],rows[0][k+1]);const a=rows[0][k],b=rows[0][k+1],c=rows[1][k],d=rows[1][k+1];this.ix.push(a,c,b,b,c,d,rows[1][k],tip,rows[1][k+1]);}
+ }
+ geometry(name){const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(this.p,3));g.setAttribute('uv',new T.Float32BufferAttribute(this.uv,2));g.setAttribute('color',new T.Float32BufferAttribute(this.col,3));g.setIndex(this.ix);g.computeVertexNormals();g.computeBoundingBox();g.name=name;return g;}
+}
+
+// Real conifer construction: a bent leader, laterals, secondary boughs,
+// individual twiglets and closed triangular needle solids. No canopy hull.
+export function createConifer193(seed=19317){
+ const random=rng(seed),R=(a,b)=>a+(b-a)*random(),wood=new Mesh193(),foliage=new Mesh193(),h=18;
+ const lean=[R(-.7,.7),R(-.5,.5)],trunk=t=>[lean[0]*t*t+.12*Math.sin(t*7+seed)*t,h*t,lean[1]*t*t+.10*Math.sin(t*9)*t];
+ wood.tube(Array.from({length:9},(_,i)=>trunk(i/8)),.31,.025,12,28,seed);
+ for(let k=0;k<32;k++){
+  const t=.24+k/32*.72+R(-.012,.012),origin=V(trunk(t)),a=k*2.399963+R(-.55,.55),reach=(1-t)*5.2+1.0+R(-.3,.8),dir=V([Math.cos(a),0,Math.sin(a)]),lift=R(.15,.65),droop=R(.12,.55);
+  const mid=origin.clone().addScaledVector(dir,reach*.48).add(V([0,-droop,0])),tip=origin.clone().addScaledVector(dir,reach).add(V([0,lift,0]));
+  const main=new T.CatmullRomCurve3([origin,mid,tip]),radius=.11*(1-t)+.013;wood.tube([origin.toArray(),mid.toArray(),tip.toArray()],radius,.006,6,9,seed+k);
+  for(let j=0;j<7;j++)for(const side of[-1,1]){
+   const f=.18+j*.105+R(-.028,.028),root=main.getPoint(f),az=a+side*R(.50,1.17),length=(.65+reach*.33)*(1-f*.42)*R(.70,1.12),out=V([Math.cos(az),R(-.06,.21),Math.sin(az)]).normalize(),end=root.clone().addScaledVector(out,length).add(V([0,R(.06,.30),0]));
+   wood.tube([root.toArray(),end.toArray()],radius*.24,.0024,4,4,seed+j*13+k);
+   for(let q=0;q<5;q++){
+    const u=.20+q*.16,base=root.clone().lerp(end,u),b=az+(q%2?1:-1)*R(.35,.95),len=R(.25,.54)*(1-u*.30),td=V([Math.cos(b),R(.08,.38),Math.sin(b)]).normalize(),finish=base.clone().addScaledVector(td,len);
+    wood.tube([base.toArray(),finish.toArray()],.0035,.0008,3,2,seed+q);
+    for(let n=0;n<9;n++){
+     const v=.06+n*.104,anchor=base.clone().lerp(finish,v),length=R(.065,.115)*(1-v*.18);
+     for(const sign of[-1,1]){const nd=td.clone().multiplyScalar(.28).add(V([Math.cos(b+sign*1.10),R(-.15,.65),Math.sin(b+sign*1.10)])).normalize();foliage.needle(anchor,nd,length,.0030,R(.69,1.10));}
+    }
+   }
+  }
+ }
+ // The upper leader also bears attached twig sprays rather than a bare spike.
+ for(let k=0;k<16;k++){const t=.88+k*.007,a=k*2.4,root=V(trunk(t)),end=root.clone().add(V([Math.cos(a)*.55,.32,Math.sin(a)*.55]));wood.tube([root.toArray(),end.toArray()],.013,.0015,4,3,seed+k);for(let n=0;n<12;n++){const base=root.clone().lerp(end,n/12);for(const sign of[-1,1])foliage.needle(base,V([Math.cos(a+sign),.6,Math.sin(a+sign)]),.09,.003,.85);}}
+ return{wood:wood.geometry('natural193-connected-cedar-wood-'+seed),foliage:foliage.geometry('natural193-closed-individual-needles-'+seed),nominalHeight:h};
+}
+
+function createBroadleaf193(seed=19371,blossom=false){
+ const random=rng(seed),R=(a,b)=>a+(b-a)*random(),wood=new Mesh193(),leaves=new Mesh193(),h=6,leader=[[0,-.025,0],[.08,1.3,.05],[-.12,2.7,.09],[.30,3.9,.15],[.20,4.9,.08],[.45,5.8,.14]];
+ wood.tube(leader,.14,.012,9,22,seed);const curve=new T.CatmullRomCurve3(leader.map(V));
+ for(let k=0;k<22;k++){
+  const t=.28+k*.028,origin=curve.getPoint(t),az=k*2.399+R(-.5,.5),reach=R(1.0,2.55)*(1-t*.28),end=origin.clone().add(V([Math.cos(az)*reach,R(.40,1.10),Math.sin(az)*reach]));
+  const mainPoints=[origin.toArray(),origin.clone().lerp(end,.5).add(V([0,.20,0])).toArray(),end.toArray()],mainCurve=new T.CatmullRomCurve3(mainPoints.map(V));wood.tube(mainPoints,.045*(1-t)+.012,.0035,5,7,seed+k);
+  for(let j=0;j<8;j++){
+   const u=.15+j*.108,root=mainCurve.getPointAt(u),a=az+(j%2?1:-1)*R(.45,1.10),tip=root.clone().add(V([Math.cos(a)*R(.35,.9),R(.12,.55),Math.sin(a)*R(.35,.9)]));wood.tube([root.toArray(),tip.toArray()],.007,.0012,4,3,seed+j);
+   for(let n=0;n<14;n++){
+    const v=.08+n*.063,base=root.clone().lerp(tip,v),b=a+(n%2?1:-1)*R(.65,1.65),direction=V([Math.cos(b),R(-.32,.55),Math.sin(b)]),length=blossom?R(.055,.085):R(.12,.19);
+    leaves.leaf(base,direction,length,length*(blossom?.50:.31),R(.74,1.17));
+    if(blossom){leaves.leaf(base,direction.clone().applyAxisAngle(UP,1.8),length*.9,length*.38,R(.85,1.12));leaves.leaf(base,direction.clone().applyAxisAngle(UP,-1.8),length*.9,length*.38,R(.85,1.12));}
+   }
+  }
+ }
+ return{wood:wood.geometry('natural193-connected-garden-wood-'+seed),foliage:leaves.geometry('natural193-attached-'+(blossom?'cupped-blossom':'broadleaf')+'-'+seed)};
+}
+
+function groundMaterial193(){
+ const ma=new T.MeshStandardMaterial({name:'natural193-eroded-soil-mineral-moss',color:'#67634b',roughness:.98});
+ ma.onBeforeCompile=shader=>{
+  shader.vertexShader='varying vec3 vNatural193;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvNatural193=(modelMatrix*vec4(transformed,1.)).xyz;');
+  shader.fragmentShader='varying vec3 vNatural193;\n'+detailNoise+shader.fragmentShader;
+  shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+   float coarse=sdFbm(vNatural193*.90),soilPatch=sdFbm(vNatural193*4.7),fine=sdFiltered(vNatural193*180.);
+   float slope=1.-abs(normalize(cross(dFdx(vNatural193),dFdy(vNatural193))).y);
+   float moss=smoothstep(.38,.67,coarse+.18*soilPatch-.38*slope);
+   vec3 loam=mix(vec3(.105,.080,.052),vec3(.235,.207,.154),.55*soilPatch+.45*fine);
+   vec3 green=mix(vec3(.068,.095,.034),vec3(.153,.190,.072),.6*soilPatch+.4*fine);
+   diffuseColor.rgb=mix(loam,green,moss)*( .83+.30*fine );`);
+ };
+ ma.customProgramCacheKey=()=> 'natural193-soil-mineral-moss-r01';return ma;
+}
+
+export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pines,hillHeight,forestHeight,reserved,channel,stairEmbankment,layout}){
+ const random=rng(193091),R=(a,b)=>a+(b-a)*random(),info={revision:'scene10-rooted-rain-garden193-r01a',visualAccepted:false,roots:[],rocks:[],forest:[],counts:{},licenses:[{asset:'Pine Sapling Small',license:'CC0-1.0'},{asset:'Shrub 02',license:'CC0-1.0'},{asset:'Periwinkle Plant',license:'CC0-1.0'},{asset:'Rock Moss Set 01',license:'CC0-1.0'}]};
+ const soil=groundMaterial193(),wood=pines.trunkMaterial.clone();wood.name='natural193-rain-dark-connected-bark';wood.vertexColors=true;wood.color.set('#7f8171');wood.roughness=.94;
+ const needle=new T.MeshPhysicalMaterial({name:'natural193-actual-opaque-needle-solids',color:'#35432a',vertexColors:true,roughness:.86,metalness:0,clearcoat:.065,clearcoatRoughness:.42});
+ const leaf=new T.MeshPhysicalMaterial({name:'natural193-cupped-attached-garden-leaves',color:'#3f502c',vertexColors:true,roughness:.78,clearcoat:.16,clearcoatRoughness:.32,side:T.DoubleSide});
+ const blossom=new T.MeshStandardMaterial({name:'natural193-small-cupped-blossoms',color:'#bd8995',vertexColors:true,roughness:.9,side:T.DoubleSide});
+ const wetStones=scannedStones.variants.map(s=>{const ma=s.wet.clone();ma.name='natural193-porous-wet-mineral';ma.color.set('#9b9e8b');ma.roughness=.83;ma.clearcoat=.12;ma.clearcoatRoughness=.32;ma.envMapIntensity=.5;ma.normalScale.set(.82,.82);return ma;});
+ const rawHeight=(x,z)=>{
+  const base=Math.max(hillHeight(x,z),forestHeight(x,z)),n=fbm(x*.30,z*.30),rough=(fbm(x*.95+13,z*.95-4)-.5)*.30;
+  const slope=T.MathUtils.clamp((Math.abs(hillHeight(x+.35,z)-hillHeight(x-.35,z))+Math.abs(hillHeight(x,z+.35)-hillHeight(x,z-.35)))*1.3,0,1);
+  let y=base+(n-.5)*(.16+.34*smooth(-z,18,40))+rough*(.22+.65*slope);
+  const near=smooth(z,-18,-12)*(1-smooth(z,5,7)),axis=2.5+.55*Math.sin((z+5)*.7),distance=Math.abs(x-axis)-(.86+.12*Math.sin(z*1.9));
+  const bank=-.18+smooth(distance,0,1.20)*(.30+.42*fbm(x*.8+4,z*.8));
+  y=Math.max(y,bank*near-.18*(1-near));
+  if(channel(x,z))y=-.20;
+  if(reserved(x,z)){
+   if(z<-2&&z>=-13&&Math.abs(x-(-2.5+.132*(z+3)))<1.18)return hillHeight(x,z)-.025;
+   return -.22;
+  }
+  return y;
+ };
+ const x0=-58,z0=-86,step=.5,nx=232,nz=186,positions=[],uv=[],indices=[],heights=[];
+ for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){const x=x0+i*step,z=z0+j*step,h=rawHeight(x,z);positions.push(x,h,z);heights.push(h);uv.push(x*.7,z*.7);}
+ for(let j=0;j<nz;j++)for(let i=0;i<nx;i++){const a=j*(nx+1)+i;indices.push(a,a+nx+1,a+1,a+1,a+nx+1,a+nx+2);}
+ const terrain=new T.BufferGeometry();terrain.setAttribute('position',new T.Float32BufferAttribute(positions,3));terrain.setAttribute('uv',new T.Float32BufferAttribute(uv,2));terrain.setIndex(indices);terrain.computeVertexNormals();terrain.name='natural193-continuous-erosion-and-creek-bed';emit(terrain,soil);emit(stairEmbankment.geometry,soil);
+ // Match the exact diagonal convention of the rendered indexed field.
+ function heightAt(x,z){const fx=(x-x0)/step,fz=(z-z0)/step,i=Math.max(0,Math.min(nx-1,Math.floor(fx))),j=Math.max(0,Math.min(nz-1,Math.floor(fz))),u=T.MathUtils.clamp(fx-i,0,1),v=T.MathUtils.clamp(fz-j,0,1),a=j*(nx+1)+i,A=heights[a],B=heights[a+1],C=heights[a+nx+1],D=heights[a+nx+2];return u+v<=1?A+(B-A)*u+(C-A)*v:D+(C-D)*(1-u)+(B-D)*(1-v);}
+ const bankMesh=new T.Mesh(stairEmbankment.geometry,soil);bankMesh.updateMatrixWorld(true);const ray=new T.Raycaster(),rockSurfaces=[];
+ const surfaceAt=(x,z,includeRocks=false)=>{let y=heightAt(x,z);ray.set(V([x,45,z]),V([0,-1,0]));const hit=ray.intersectObjects(includeRocks?[bankMesh,...rockSurfaces]:[bankMesh],false)[0];if(hit&&hit.point.y>y)y=hit.point.y;return y;};
+ const lamps=[[-2.8,-3,1.05],[-6,-2.7,.55],[-7.5,-6,.6],[-9,-10,.55],[-2,-7,.50],[4,-10,.55],[10,-1,.5]];
+ function clear(x,z,r=.25){if(reserved(x,z)||channel(x,z))return false;for(const [xx,zz,rr]of lamps)if(Math.hypot(xx-x,zz-z)<rr+r)return false;for(const a of[0,Math.PI/2,Math.PI,Math.PI*1.5])if(reserved(x+Math.cos(a)*r,z+Math.sin(a)*r))return false;return true;}
+ const rock=(x,z,size,variant=Math.floor(R(0,6)),root=null)=>{
+  if(!clear(x,z,size*.60))return null;const scan=scannedStones.variants[variant],rotation=[R(-.14,.14),R(0,TAU),R(-.13,.13)],matrix=new T.Matrix4().makeRotationFromEuler(new T.Euler(...rotation)).scale(V([size,size,size])),p=scan.geometry.attributes.position,pt=new T.Vector3();let min=Infinity,max=-Infinity;
+  for(let i=0;i<p.count;i++){pt.fromBufferAttribute(p,i).applyMatrix4(matrix);min=Math.min(min,pt.y);max=Math.max(max,pt.y);}
+  const ground=root===null?surfaceAt(x,z):root,bottom=ground-size*R(.22,.38),y=bottom-min;emit(scan.geometry,wetStones[variant],x,y,z,size,size,size,rotation,R(.80,1.08));
+  const mesh=new T.Mesh(scan.geometry,wetStones[variant]);mesh.position.set(x,y,z);mesh.scale.setScalar(size);mesh.rotation.set(...rotation);mesh.updateMatrixWorld(true);rockSurfaces.push(mesh);info.rocks.push({position:[x,y,z],size,variant,rotation,bottom,ground,top:y+max,burial:ground-bottom,uniformScale:true});return{mesh,top:y+max};
+ };
+ // Interlocking fragments follow the toe of the planted land and actual walk.
+ for(let k=0;k<155;k++){const z=R(-16,5),x=R(-15,16);if(k%3===0&&z<-9)continue;const h=heightAt(x,z);if(h<-.04||h>5.7)continue;rock(x,z,R(.22,.65));}
+ const chains=[[-4.45,3.4,-4.7,-3.4,16],[4.85,4.15,6.0,-3.9,19],[-1.25,-3.8,.65,-7.1,11],[3.9,-7.9,8.4,-9.5,14]];
+ for(const [ax,az,bx,bz,n]of chains)for(let i=0;i<n;i++){const t=i/(n-1),x=T.MathUtils.lerp(ax,bx,t)+R(-.25,.25),z=T.MathUtils.lerp(az,bz,t)+R(-.20,.20);rock(x,z,R(.29,.65));}
+ for(const [x,z,s,v]of[[4.92,4.12,.70,3],[4.63,3.35,.54,1],[5.51,3.64,.48,4],[-4.25,1.15,.66,2],[-4.65,.52,.52,0],[-.15,-4.35,.52,3],[.7,-5.9,.50,1],[5.1,-3.2,.63,4]])rock(x,z,s,v);
+ // Root every whole licensed botanical on the actual highest supporting face.
+ const plant=(x,z,h,type='shrub',onRocks=true)=>{
+  if(!clear(x,z,h*.24))return false;const y=surfaceAt(x,z,onRocks);if(y<-.055)return false;const library=type==='shrub'?shrubs:groundcover,variant=Math.floor(R(0,library.variants.length)),yaw=R(0,TAU),model=library.variants[variant];
+  for(const part of model.parts)emit(part.geometry,part.material,x,y-.012,z,h,h,h,yaw,R(.84,1.12));info.roots.push({position:[x,y,z],height:h,type,variant,uniformScale:true,contact:'Actual terrain triangle / stair embankment / transformed stone ray hit; root buried 12 mm'});return true;
+ };
+ for(let k=0;k<650;k++){
+  const z=R(-26,4.8),x=R(-21,23),y=heightAt(x,z);if(y<-.02||x>13&&z>-10)continue;
+  const cluster=fbm(x*.22+5,z*.22-2);if(cluster<.39)continue;plant(x,z,R(.35,1.15)*(z<-15?1.30:1),'shrub');
+  if(k%3===0)for(let q=0;q<2;q++)plant(x+R(-.7,.7),z+R(-.7,.7),R(.19,.42),'groundcover');
+ }
+ for(const record of info.rocks){const[x,,z]=record.position;for(let q=0;q<2;q++)plant(x+R(-.35,.35)*record.size,z+R(-.35,.35)*record.size,R(.18,.40),'groundcover');if(random()<.36)plant(x+R(-.3,.3),z+R(-.3,.3),R(.34,.66),'shrub');}
+ // Purposeful dense pockets on the former bare tower slope, rooted independently.
+ for(let k=0;k<165;k++){const x=R(-17,-1.8),z=R(-21,-7.2);plant(x,z,R(.52,1.30),'shrub');if(k%4===0)rock(x+R(-.4,.4),z+R(-.4,.4),R(.25,.48));}
+ const conifers=Array.from({length:5},(_,i)=>createConifer193(19317+i*127));
+ const placeConifer=(x,z,h,variant,yaw)=>{const y=heightAt(x,z),g=conifers[variant%conifers.length],s=h/g.nominalHeight;emit(g.wood,wood,x,y-.045,z,s,s,s,yaw,R(.85,1.06));emit(g.foliage,needle,x,y-.045,z,s,s,s,yaw,R(.85,1.14));info.forest.push({root:[x,y,z],height:h,variant,yaw,kind:'Connected leader/lateral/secondary/twiglet/closed needle geometry',uniformScale:true});};
+ // A broad, nonperiodic mixed-age ridge, several depth layers behind the hall.
+ for(let k=0;k<88;k++){const x=R(-42,39),z=R(-75,-33);if(k%3===0&&x<-20)continue;placeConifer(x,z,R(13.5,24),k%5,R(0,TAU));}
+ for(const [x,z,h]of[[8.7,-43,26],[4.7,-44.7,23.4],[-.4,-44,20.6],[13.8,-49,25.0],[-6.2,-38.5,18.4]])placeConifer(x,z,h,Math.floor(R(0,5)),R(0,TAU));
+ // Real original CC0 young trees make the lower woodland transition.
+ for(let k=0;k<22;k++){const x=R(-27,25),z=R(-41,-29),y=heightAt(x,z),h=R(3.4,7.0),variant=k%3,yaw=R(0,TAU);for(const part of pines.variants[variant].parts)emit(part.geometry,part.material,x,y-.025,z,h,h,h,yaw,R(.88,1.08));info.forest.push({root:[x,y,z],height:h,variant,yaw,kind:'Whole source CC0 sapling, original geometry/UV/normal',uniformScale:true});}
+ const gardenTrees=[[-13,-14,7.1,0],[-17,-23,9.6,1],[-5.7,-28,10.2,2],[19,-16,8.8,3],[19,-2,8.6,0],[-6.1,-8.6,5.1,1],[10.4,-4.8,7.7,2]];
+ const broad=Array.from({length:4},(_,i)=>createBroadleaf193(19371+i*97));
+ for(const [x,z,h,v]of gardenTrees){const y=heightAt(x,z),s=h/6,yaw=R(0,TAU),g=broad[v];emit(g.wood,wood,x,y-.03,z,s,s,s,yaw);emit(g.foliage,leaf,x,y-.03,z,s,s,s,yaw);info.roots.push({position:[x,y,z],height:h,type:'connected-mature-garden-tree',contact:'Actual rendered triangle'});}
+ const flowers=createBroadleaf193(193932,true);
+ for(const [x,z,h]of[[-5.4,-13.9,4.5],[-.8,-13.8,4.0],[-11.2,-6.0,4.7],[1.0,-10.5,4.6]]){const y=heightAt(x,z),s=h/6,yaw=R(0,TAU);emit(flowers.wood,wood,x,y-.025,z,s,s,s,yaw);emit(flowers.foliage,blossom,x,y-.025,z,s,s,s,yaw);info.roots.push({position:[x,y,z],height:h,type:'connected-small-blossom-tree',contact:'Actual rendered triangle'});}
+ info.counts={terrainVertices:positions.length/3,terrainTriangles:indices.length/3,stones:info.rocks.length,rootedPlants:info.roots.length,forestTrees:info.forest.length,coniferVariants:conifers.map(g=>({woodTriangles:g.wood.index.count/3,needleTriangles:g.foliage.index.count/3}))};
+ info.heightField={bounds:[x0,z0,x0+nx*step,z0+nz*step],step,contact:'Exact barycentric rendered grid triangle, not the analytic approximation',creekWaterline:-.07,walkReserved:true};
+ info.preservation='Existing hall/tower183, bridge/closed stair, fixed camera, paving/reflection, rain and their RNG unchanged. Old generic vegetation/independent bank piles retired with deterministic random replay.';
+ info.materials={soil:'Rain-dark loam/mineral and moss patches respond to actual slope and world scale; no photograph',wetStone:'CC0 scan PBR, porous dielectric roughness .83 / clearcoat .12, no blanket scene grading',needles:'Opaque closed needle solids, roughness .86; branch-aligned actual geometry'};
+ return{info,materials:[soil,wood,needle,leaf,blossom,...wetStones],heightAt};
+}

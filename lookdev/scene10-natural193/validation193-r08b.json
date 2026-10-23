@@ -1,0 +1,337 @@
+{
+  "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+  "baselineHash": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07",
+  "checks": {
+    "heldSource": true,
+    "nativeSourcesMatch": true,
+    "fourNative1254Frames": true,
+    "nativeValid": true,
+    "protectedRuntime": true,
+    "protectedSourceFiles": true,
+    "exactGeometryBuilderHash": true,
+    "finiteGeometry": true,
+    "closedNeedlePackets": true,
+    "bankPositiveUniform": true,
+    "bankFootRocksSupportRoots": true,
+    "bankForwardOfPierEnvelope": true,
+    "bankBelowWalk": true,
+    "originalScansRigidUniform": true
+  },
+  "allTechnicalChecksPass": true,
+  "photographicAccepted": false,
+  "scope": "Actual native geometry/material reconstruction checkpoint. Technical checks and root bounds are not photographic fidelity or structural engineering acceptance.",
+  "native": [
+    {
+      "view": "bank",
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-bank/report.json",
+      "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "a84855f8f82ca2ff3b860cfee718a23338092b03cb137cb9925dd25722bff131"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "e5e80368bbd48d1323df2994f19dfd1697465dbec81428b29b38e12293a4c46f"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "view": "low",
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-low/report.json",
+      "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "0ab522905c92186f98b8eb2de57161d8d516aa68b3db8a3591a185b2bfd4609a"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "view": "overhead",
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-overhead/report.json",
+      "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "de525d1155f3ea89208d331d232b4df0473dcd882f2d6d2981e75266cf2d8f49"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "protectedRuntime": {
+    "layout": {
+      "identical": true,
+      "baselineSha256": "0ca9c6247a28519c2bc8ab7d00f2da438e8b90a95dff4cfdb7684ab58c6b0f55",
+      "candidateSha256": "0ca9c6247a28519c2bc8ab7d00f2da438e8b90a95dff4cfdb7684ab58c6b0f55"
+    },
+    "hall132": {
+      "identical": true,
+      "baselineSha256": "07064c9e6ced1c1c2166ccb87dd89ca4c0217432c270f436fa644f2cc856ade4",
+      "candidateSha256": "07064c9e6ced1c1c2166ccb87dd89ca4c0217432c270f436fa644f2cc856ade4"
+    },
+    "towerMass183": {
+      "identical": true,
+      "baselineSha256": "e07d628039c63ee53f36b4f3e32a74927c896cc8f7794dee3f60f1cd5584858d",
+      "candidateSha256": "e07d628039c63ee53f36b4f3e32a74927c896cc8f7794dee3f60f1cd5584858d"
+    },
+    "carvedCloud183": {
+      "identical": true,
+      "baselineSha256": "27f7ef694a09a55cb6ce8ed3714fcf10cda14f848b7f22e1acabffe62c619f1f",
+      "candidateSha256": "27f7ef694a09a55cb6ce8ed3714fcf10cda14f848b7f22e1acabffe62c619f1f"
+    },
+    "mapleCanopy136": {
+      "identical": true,
+      "baselineSha256": "d1847caf39051b84f744b35f1a7947a8f1a18b83fe24c2283a72f5dd7dbee240",
+      "candidateSha256": "d1847caf39051b84f744b35f1a7947a8f1a18b83fe24c2283a72f5dd7dbee240"
+    },
+    "fallenLeaves142": {
+      "identical": true,
+      "baselineSha256": "5566e53e73541c796061ddce60e0c5acddb02ad7792f7814f70236a484066eca",
+      "candidateSha256": "5566e53e73541c796061ddce60e0c5acddb02ad7792f7814f70236a484066eca"
+    },
+    "waterRipples135": {
+      "identical": true,
+      "baselineSha256": "0990cb387af7cadaeadb5dfa7ceb3ef0e9a2cb8921176ac8aadc7eb1645bad9c",
+      "candidateSha256": "0990cb387af7cadaeadb5dfa7ceb3ef0e9a2cb8921176ac8aadc7eb1645bad9c"
+    },
+    "bridgeHallPlan": {
+      "identical": true,
+      "baselineSha256": "e044a01040f118c7c9e85dcefe5d875c760fd4cb268be30194f7591b2aef2a78",
+      "candidateSha256": "e044a01040f118c7c9e85dcefe5d875c760fd4cb268be30194f7591b2aef2a78"
+    },
+    "bridgeEndSupports125": {
+      "identical": true,
+      "baselineSha256": "a6ca6dc70221a5216f338b1f628dc3dc7d8fac87e6787fcea79679784bf9feb5",
+      "candidateSha256": "a6ca6dc70221a5216f338b1f628dc3dc7d8fac87e6787fcea79679784bf9feb5"
+    },
+    "bridgeAbutment125": {
+      "identical": true,
+      "baselineSha256": "8e1d864ded8a0bb60f65961356620eeac426319bd2c1c57734ee38cb74f7a7a4",
+      "candidateSha256": "8e1d864ded8a0bb60f65961356620eeac426319bd2c1c57734ee38cb74f7a7a4"
+    },
+    "pathCurbRecords125": {
+      "identical": true,
+      "baselineSha256": "e884e77053dbea3996988bde0f9daa79a74bb0d9873df3e0e634375794c1e68b",
+      "candidateSha256": "e884e77053dbea3996988bde0f9daa79a74bb0d9873df3e0e634375794c1e68b"
+    },
+    "nearStoneRecords": {
+      "identical": true,
+      "baselineSha256": "e27ebf64e2a198e6b1e2e1ee141e7e22d5f65bc8eb7708f11905c46cbe471287",
+      "candidateSha256": "e27ebf64e2a198e6b1e2e1ee141e7e22d5f65bc8eb7708f11905c46cbe471287"
+    }
+  },
+  "protectedFiles": {
+    "reconstructions/scene-10/src/architecture.js": {
+      "baselineSha256": "bcda54a3db2ee130882e10619a8da88d2d06486f6781a1654ba6bc25f8e0ed68",
+      "currentSha256": "bcda54a3db2ee130882e10619a8da88d2d06486f6781a1654ba6bc25f8e0ed68",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/carpentry-mass183.js": {
+      "baselineSha256": "848176ab8940b7a2d5e0f5e4617650cf1a3a05c829cbc08e2bdf3e3e93916421",
+      "currentSha256": "848176ab8940b7a2d5e0f5e4617650cf1a3a05c829cbc08e2bdf3e3e93916421",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/tower-mass183.js": {
+      "baselineSha256": "f745d03c3c6e668371db5a6c100e8c40cceea93b816621149d3333f28f02d1cf",
+      "currentSha256": "f745d03c3c6e668371db5a6c100e8c40cceea93b816621149d3333f28f02d1cf",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/hall-front132.js": {
+      "baselineSha256": "bf43e8cfce2d4d6771cec72b51d40281822bb52d92ddfdfd53ba7c3a9372e50b",
+      "currentSha256": "bf43e8cfce2d4d6771cec72b51d40281822bb52d92ddfdfd53ba7c3a9372e50b",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/layout125.js": {
+      "baselineSha256": "84ff0952bc72570616cb51ea4cc73dd8897e5d51794d9558e8f876d83ba3d287",
+      "currentSha256": "84ff0952bc72570616cb51ea4cc73dd8897e5d51794d9558e8f876d83ba3d287",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/near-rain-stones.js": {
+      "baselineSha256": "be9fa43c4aaa81eb95dfcd3ce05ed2edf674f6b23a329ecfe95bac4e29c31049",
+      "currentSha256": "be9fa43c4aaa81eb95dfcd3ce05ed2edf674f6b23a329ecfe95bac4e29c31049",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/near-surface-reflection.js": {
+      "baselineSha256": "15ec00bd988ad7142c619491d8a68a101f57804a887b1bc58beb6a5c2c254e63",
+      "currentSha256": "15ec00bd988ad7142c619491d8a68a101f57804a887b1bc58beb6a5c2c254e63",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/paving-mask.js": {
+      "baselineSha256": "b71bb0778f4b13e06264f8cf9a2b457a23adf931134e391dce015b41e49538a9",
+      "currentSha256": "b71bb0778f4b13e06264f8cf9a2b457a23adf931134e391dce015b41e49538a9",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/water-film-ripples135.js": {
+      "baselineSha256": "0d7d6b6650ed368a2c839558007714349b8dcc76993ec882f268ac8392a6f45e",
+      "currentSha256": "0d7d6b6650ed368a2c839558007714349b8dcc76993ec882f268ac8392a6f45e",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/stone-lantern.js": {
+      "baselineSha256": "33dd1c2105585121304d67ed689d6c374f1aab60d7c889f4a544c734a6147931",
+      "currentSha256": "33dd1c2105585121304d67ed689d6c374f1aab60d7c889f4a544c734a6147931",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/rain-frame-maple142.js": {
+      "baselineSha256": "83174f08ec35401cc587990f09e00f7d9816735e8277aef7e927986f0d3eb054",
+      "currentSha256": "83174f08ec35401cc587990f09e00f7d9816735e8277aef7e927986f0d3eb054",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/optics.js": {
+      "baselineSha256": "dbb3a20d30005c67f8796111e33edf29b329069c7d99d54c7ee3b684a7d73299",
+      "currentSha256": "dbb3a20d30005c67f8796111e33edf29b329069c7d99d54c7ee3b684a7d73299",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/dolly-path.js": {
+      "baselineSha256": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c",
+      "currentSha256": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c",
+      "identical": true
+    },
+    "reconstructions/scene-10/src/licensed-cloud183.js": {
+      "baselineSha256": "2099c5c19bfbcce09498ce6977f9e9c2858008529c0cce49a5c8bde890df5d9e",
+      "currentSha256": "2099c5c19bfbcce09498ce6977f9e9c2858008529c0cce49a5c8bde890df5d9e",
+      "identical": true
+    }
+  },
+  "bankBounds": {
+    "minimumFaceClearance": 0.054999999999999716,
+    "minimumBelowDeck": 0.3700603613790474,
+    "rootHeights": [
+      0.35511877728138364,
+      0.2502414174522591,
+      0.28726785275903804,
+      0.17887431226053893,
+      0.11143872396868756
+    ],
+    "toeContacts": [
+      {
+        "root": [
+          6.0829644746474125,
+          0.35511877728138364,
+          -3.263067845794161
+        ],
+        "scale": 1.02,
+        "stoneBottom": -0.05625453958133923,
+        "stoneTop": 0.4595913242377831,
+        "wallFrontZ": -4.266517867537935,
+        "minimumPlantZ": -4.2115178675379354,
+        "faceClearance": 0.054999999999999716,
+        "plantTop": 1.6299396386209526,
+        "walkTop": 2,
+        "verticalWalkClearance": 0.3700603613790474,
+        "source": "Authored mature multi-stem evergreen on positive-uniform original CC0 toe rock; actual complete leaves, all vertices forward of protected pier envelope and below its walk"
+      },
+      {
+        "root": [
+          6.762964474647412,
+          0.2502414174522591,
+          -3.4209179420198996
+        ],
+        "scale": 1.02,
+        "stoneBottom": -0.21655752660311134,
+        "stoneTop": 0.28995737908803554,
+        "wallFrontZ": -4.266517867537935,
+        "minimumPlantZ": -4.2115178675379354,
+        "faceClearance": 0.054999999999999716,
+        "plantTop": 1.4950049796547127,
+        "walkTop": 2,
+        "verticalWalkClearance": 0.5049950203452873,
+        "source": "Authored mature multi-stem evergreen on positive-uniform original CC0 toe rock; actual complete leaves, all vertices forward of protected pier envelope and below its walk"
+      },
+      {
+        "root": [
+          7.442964474647413,
+          0.28726785275903804,
+          -3.3527115411486226
+        ],
+        "scale": 1.02,
+        "stoneBottom": -0.295,
+        "stoneTop": 0.32040846228599545,
+        "wallFrontZ": -4.266517867537935,
+        "minimumPlantZ": -4.2115178675379354,
+        "faceClearance": 0.054999999999999716,
+        "plantTop": 1.5328171519991503,
+        "walkTop": 2,
+        "verticalWalkClearance": 0.46718284800084975,
+        "source": "Authored mature multi-stem evergreen on positive-uniform original CC0 toe rock; actual complete leaves, all vertices forward of protected pier envelope and below its walk"
+      },
+      {
+        "root": [
+          8.122964474647413,
+          0.17887431226053893,
+          -3.263067845794161
+        ],
+        "scale": 1.02,
+        "stoneBottom": -0.295,
+        "stoneTop": 0.2816266530752182,
+        "wallFrontZ": -4.266517867537935,
+        "minimumPlantZ": -4.2115178675379354,
+        "faceClearance": 0.054999999999999716,
+        "plantTop": 1.453695173600108,
+        "walkTop": 2,
+        "verticalWalkClearance": 0.546304826399892,
+        "source": "Authored mature multi-stem evergreen on positive-uniform original CC0 toe rock; actual complete leaves, all vertices forward of protected pier envelope and below its walk"
+      },
+      {
+        "root": [
+          8.802964474647412,
+          0.11143872396868756,
+          -3.4209179420198996
+        ],
+        "scale": 1.02,
+        "stoneBottom": -0.295,
+        "stoneTop": 0.1612736165523529,
+        "wallFrontZ": -4.266517867537935,
+        "minimumPlantZ": -4.2115178675379354,
+        "faceClearance": 0.054999999999999716,
+        "plantTop": 1.3562022861711411,
+        "walkTop": 2,
+        "verticalWalkClearance": 0.6437977138288589,
+        "source": "Authored mature multi-stem evergreen on positive-uniform original CC0 toe rock; actual complete leaves, all vertices forward of protected pier envelope and below its walk"
+      }
+    ]
+  },
+  "geometryAudit": "lookdev/scene10-natural193/geometry-audit-r08b.json",
+  "visualReview": {
+    "full": "Viewed against HD10 and held183. Mature occupied forest replaces skeletal poles; eroded mineral slope and connected rooted banks improve the natural mass. Still visibly CG and not a final match.",
+    "trueBank": "Viewed genuine native subfrustum. Complete mature shrubs bear on source toe rocks; a protected granite stair side remains too broad/plain and leaf radiance still differs from the photograph.",
+    "low": "Viewed actual low camera. Stream-bank fragments, mature shrubs and pier/arch relationship are present; no visible new root floating or route-blocking geometry. Exposed mineral/stone retaining forms remain too regular.",
+    "overhead": "Viewed actual overhead camera. Historic rain walk, bridge, turning platform and stair route remain open. Modeled shore layering/species and the broad outer planted terrain remain approximations."
+  },
+  "limitations": [
+    "Model/species/growth scale and terrain are inferred, not a measured recovery of the photographed garden.",
+    "Positive uniform whole-tree growth preserves all modeled branch/needle geometry; distant tree botanical proportions remain an approximation.",
+    "Global lighting, shrine figure, lantern profiles, roof repetition, rain/reflection scale and remaining granite-bank exposure still differ from HD10.",
+    "No NC assets were added, no other/shared source files were changed, no Git mutations, Blender exports, film replacements, new root dependencies, children or queue bypasses were used."
+  ]
+}

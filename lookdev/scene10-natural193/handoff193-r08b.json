@@ -1,0 +1,264 @@
+{
+  "revision": "scene10-natural193-r08b",
+  "heldSource": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+  "baselineSource": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07",
+  "status": "Actual native checkpoint ready for root review, photographic fidelity unaccepted",
+  "visualAccepted": false,
+  "substantiveChanges": [
+    "Connected 0.25 m actual terrain triangulation with erosion gullies, exposed mineral regions, irregular submerged shore shelves and open creek; exact rendered triangle roots.",
+    "Original whole CC0 stones seated with positive uniform transforms, true rotated bounds and buried bases; fractured mineral stair-bank, interlocking shore/toe fragments and real plant-on-rock ray contacts.",
+    "Mature pine geometry with real aged leaders/boughs, bent cushion spines, laterals, growing shoots and individually closed needle/fascicle ribs; local geometry-only adaptation of authored pine158, no other-scene runtime dependency.",
+    "Original whole CC0 saplings and groundcover, selective rear wild shrubs, actual cupped PBR leaves on connected evergreen anatomy, curved fronds/pinnae and mature stream-bank shrubs. Two rooted mature garden pines interrupt the former bare tower slope.",
+    "Added natural fill beneath the independently supported bridge-head landing is lowered to waterline; all existing deck, piers, closed stair/upper landing, hall/tower183 and fixed camera remain exact.",
+    "Mature bank shrubs sit on actual uniformly scaled toe rocks, physically forward of the protected pier envelope and below deck. Final parent/child woody branch joins use the same actual centreline.",
+    "Bounded porous wet-stone and leaf dielectric response uses existing CC0 albedo/normal/roughness maps and the actual local probe. No global grading, scene photograph, crown hull, billboard or depth card."
+  ],
+  "publicFiles": [
+    "reconstructions/scene-10/src/main.js",
+    "reconstructions/scene-10/src/natural193.js",
+    "reconstructions/scene-10/src/pine-shoot193.js",
+    "reconstructions/scene-10/natural193-provenance.json",
+    "reconstructions/scene-10/asset-dependencies.json",
+    "reconstructions/scene-10/README.md"
+  ],
+  "readOnlyNewDependency": "Existing assets/polyhaven/shrub-02 files are newly declared but unchanged; no shared/other-scene asset bytes were edited. Existing independent CC0 pine/periwinkle/rock/granite/timber inputs stay hashed.",
+  "nativeViews": {
+    "full": "qa/ten-reference/10/iteration-scene10-natural193-r08b-bank/reference.png",
+    "trueBank": "qa/ten-reference/10/iteration-scene10-natural193-r08b-bank/detail-native.png",
+    "trueBankSubfrustum": [
+      700,
+      580,
+      500,
+      1254
+    ],
+    "low": "qa/ten-reference/10/iteration-scene10-natural193-r08b-low/inspection-view.png",
+    "lowPose": {
+      "position": [
+        -1.5,
+        0.55,
+        3.7
+      ],
+      "target": [
+        4.9,
+        1.05,
+        -4.9
+      ],
+      "fov": 63
+    },
+    "overhead": "qa/ten-reference/10/iteration-scene10-natural193-r08b-overhead/inspection-view.png",
+    "overheadPose": {
+      "position": [
+        -3,
+        35,
+        1
+      ],
+      "target": [
+        0,
+        0,
+        -11
+      ],
+      "fov": 65
+    },
+    "allNativePixels": [
+      1254,
+      1254
+    ],
+    "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+    "officialSharedFifo": true,
+    "ownerViewedAllFour": true
+  },
+  "validation": {
+    "path": "lookdev/scene10-natural193/validation193-r08b.json",
+    "allTechnicalChecksPass": true,
+    "geometryAudit": "lookdev/scene10-natural193/geometry-audit-r08b.json",
+    "protectedRuntimeFields": [
+      "layout",
+      "hall132",
+      "towerMass183",
+      "carvedCloud183",
+      "mapleCanopy136",
+      "fallenLeaves142",
+      "waterRipples135",
+      "bridgeHallPlan",
+      "bridgeEndSupports125",
+      "bridgeAbutment125",
+      "pathCurbRecords125",
+      "nearStoneRecords"
+    ],
+    "protectedFileHashesExact": true,
+    "minimumBankFaceClearance": 0.054999999999999716,
+    "minimumBankBelowWalk": 0.3700603613790474,
+    "bankRootHeights": [
+      0.35511877728138364,
+      0.2502414174522591,
+      0.28726785275903804,
+      0.17887431226053893,
+      0.11143872396868756
+    ],
+    "scope": "Finite/closed source needles, positive root fit, exact protected source/runtime and native render integrity. Not photographic/engineering acceptance."
+  },
+  "remainingVisibleFailures": [
+    "Model/species/growth scale and terrain are inferred, not a measured recovery of the photographed garden.",
+    "Positive uniform whole-tree growth preserves all modeled branch/needle geometry; distant tree botanical proportions remain an approximation.",
+    "Global lighting, shrine figure, lantern profiles, roof repetition, rain/reflection scale and remaining granite-bank exposure still differ from HD10.",
+    "Protected granite stair side and some mineral bank faces remain broad/plain in the true-bank and low views.",
+    "Species/crown layering, sparse cherry silhouette, shrub leaf radiance and outer garden transitions still do not reproduce HD10."
+  ],
+  "rejectedAndIntermediateEvidence": [
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r01-bank/report.json",
+      "status": "failed",
+      "sourceHash": "128fe9290aece4f01e0f78f8f428ae832b04a2334de9bdc2a36df3dead0026e2",
+      "visualAccepted": false,
+      "errors": [
+        "THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: natural193-eroded-soil-mineral-moss\nMaterial Type: MeshStandardMaterial\n\nProgram Info Log: Fragment shader is not compiled.\n\u0000\n\nFRAGMENT\n\nERROR: 0:1620: 'patch' : Illegal use of reserved word\nERROR: 0:1620: 'patch' : syntax error\n\u0000\n\n  1615: \tdiffuseColor *= sampledDiffuseColor;\n  1616: #endif\n  1617: #if defined( USE_COLOR ) || defined( USE_COLOR_ALPHA )\n  1618: \tdiffuseColor *= vColor;\n  1619: #endif\n> 1620:    float coarse=sdFbm(vNatural193*.90),patch=sdFbm(vNatural193*4.7),fine=sdFiltered(vNatural193*180.);\n  1621:    float slope=1.-abs(normalize(cross(dFdx(vNatural193),dFdy(vNatural193))).y);\n  1622:    float moss=smoothstep(.38,.67,coarse+.18*patch-.38*slope);\n  1623:    vec3 loam=mix(vec3(.105,.080,.052),vec3(.235,.207,.154),.55*patch+.45*fine);\n  1624:    vec3 green=mix(vec3(.068,.095,.034),vec3(.153,.190,.072),.6*patch+.4*fine);\n  1625:    diffuseColor.rgb=mix(loam,green,moss)*( .83+.30*fine );\n  1626: #ifdef USE_ALPHAMAP"
+      ]
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r01a-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "419babc01964ca3e56d819b9a5b10c0dd4a3ab50994b6e224e86d729475055c3",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r02-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "c6f2eb024b86f3c1c27cee11713d3954dd1a451c7f0abe8f7cb99e74db9c9a50",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r03-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "f301464969c23dab5c94f1c6dc9c2b1da1bbb225233b8b0ea69f2de6793d751d",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r03-low/report.json",
+      "status": "rendered-review",
+      "sourceHash": "f301464969c23dab5c94f1c6dc9c2b1da1bbb225233b8b0ea69f2de6793d751d",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r03-overhead/report.json",
+      "status": "rendered-review",
+      "sourceHash": "f301464969c23dab5c94f1c6dc9c2b1da1bbb225233b8b0ea69f2de6793d751d",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r04-bank/report.json",
+      "status": "failed",
+      "sourceHash": "a114e56fe4c6738d74b63077571205de1758df7eef5452938e6d9bbfef3036b9",
+      "visualAccepted": false,
+      "errors": [
+        "SyntaxError: Unary operator used immediately before exponentiation expression. Parenthesis must be used to disambiguate operator precedence"
+      ]
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r04a-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "fc853a60301ad4185c120f8954fca5531d1d0b9aa1d87b20b95008f6b9a36d52",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r05-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "b9f2ba3658e70a93a3d8f3fec577c4d9bccc46c140ec84caee1128165020838c",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r05-low/report.json",
+      "status": "rendered-review",
+      "sourceHash": "b9f2ba3658e70a93a3d8f3fec577c4d9bccc46c140ec84caee1128165020838c",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r05-overhead/report.json",
+      "status": "rendered-review",
+      "sourceHash": "b9f2ba3658e70a93a3d8f3fec577c4d9bccc46c140ec84caee1128165020838c",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r06-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "918b14b2b944ccb4a0311eb76d496293d42932eae3213a706c7fc9f1e09893d5",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r07-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "957fbb10ba814e1b5a45307a35c32a99544f37be721472c23853829cc9336e92",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "53e147d316e5115d8b76d1f86296d8713ecf012cfed7e68614fc5af7c7bf2f2a",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08a-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "e476a72a7abb6f547917ddb1c049e628d0562951351bd6bbdd939829ba2cf313",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08a-low/report.json",
+      "status": "rendered-review",
+      "sourceHash": "e476a72a7abb6f547917ddb1c049e628d0562951351bd6bbdd939829ba2cf313",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08a-overhead/report.json",
+      "status": "rendered-review",
+      "sourceHash": "e476a72a7abb6f547917ddb1c049e628d0562951351bd6bbdd939829ba2cf313",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-bank/report.json",
+      "status": "rendered-review",
+      "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-low/report.json",
+      "status": "rendered-review",
+      "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+      "visualAccepted": false,
+      "errors": []
+    },
+    {
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-overhead/report.json",
+      "status": "rendered-review",
+      "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
+      "visualAccepted": false,
+      "errors": []
+    }
+  ],
+  "heldSnapshot": "lookdev/scene10-natural193/r08b-held-source",
+  "constraints": {
+    "noGitMutations": true,
+    "noBlenderOrPhysicalExports": true,
+    "noFilmReplacement": true,
+    "noChildren": true,
+    "noNewRootDependencies": true,
+    "noAdHocGpu": true,
+    "noOtherOrSharedSourceEdits": true,
+    "newNaturalAssetLicenses": "CC0-1.0; no NC assets added. Existing architectural CC BY source176 credit retained."
+  }
+}
