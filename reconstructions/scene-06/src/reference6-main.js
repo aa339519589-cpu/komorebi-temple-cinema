@@ -12,6 +12,7 @@ import {createDaylightScattering195} from './daylight-scattering195.js';
 import {installRestorationRenderDiagnostics} from './restoration-render-diagnostics.js';
 import {loadSculpturalCastAssets} from './sculptural-cast-assets.js';
 import {loadAltarCarvings198} from './altar-joinery198.js';
+import {loadPaintedCofferSurface228} from './painted-coffers228.js';
 
 const query=new URLSearchParams(location.search),dimension=(key,fallback)=>{const n=Number(query.get(key));return Number.isFinite(n)&&n>=64?Math.min(2048,Math.round(n)):fallback;};
 const width=dimension('w',960),height=dimension('h',960);
@@ -31,7 +32,7 @@ const composerAA=diagnostics.run('reference6-composer-aa-capability',()=>{
  return Object.freeze({requestedSamples:4,samples,colorFormat:'RGBA16F',depthFormat:'DEPTH_COMPONENT24',colorSamples:Object.freeze(colorSamples),depthSamples:Object.freeze(depthSamples),maxSamples,active:samples>0,mode:samples>0?'multisample-composer':'unsupported-format-no-aa',scope:'Geometry coverage only; no promise to remove normal-map/specular aliasing.'});
 });
 const camera=new T.PerspectiveCamera(REFERENCE6_FOUNDATION.camera.fov,width/height,.06,60);camera.position.fromArray(REFERENCE6_FOUNDATION.camera.position);camera.lookAt(new T.Vector3(...REFERENCE6_FOUNDATION.camera.target));camera.updateMatrixWorld(true);
-const [floorSurface,timberMap,castManifest]=await Promise.all([loadFloorSurface106(),loadTempleWoodTexture(),loadSculpturalCastAssets(),loadAltarCarvings198()]);
+const [floorSurface,timberMap,castManifest]=await Promise.all([loadFloorSurface106(),loadTempleWoodTexture(),loadSculpturalCastAssets(),loadAltarCarvings198(),loadPaintedCofferSurface228()]);
 let room;
 try {room=diagnostics.run('reference6-room-build',()=>buildReference6Scene({reflectionSize:1024,shadowSize:2048,roomCubeSize:128,floorSurface,timberMap,sculptureMetrics:castManifest.mainMetrics}));diagnostics.run('reference6-room-environment-capture',()=>room.initializeEnvironment(renderer));}catch(error){renderer.dispose();throw error;}
 const {scene,sun}=room;

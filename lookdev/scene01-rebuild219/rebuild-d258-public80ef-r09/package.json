@@ -1,0 +1,13 @@
+{
+  "name": "komorebi-v60-source",
+  "private": true,
+  "type": "module",
+  "version": "60.0.0",
+  "engines": {
+    "node": ">=24.2"
+  },
+  "scripts": {
+    "start": "node serve.mjs",
+    "verify": "node verify.mjs"
+  }
+}

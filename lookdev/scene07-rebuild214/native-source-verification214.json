@@ -1,0 +1,229 @@
+{
+  "revision": "scene07-rebuild214-r22",
+  "source": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+  "checks": [
+    {
+      "variant": "r22",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r22/report.json",
+      "source": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "detailCrop": {
+        "pixels": [
+          510,
+          300,
+          690,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "a2f60ab58b318208aa373a5c1f9629e9f694c706a1b34347ca82849a89dd15ce",
+          "pngSha256": "0aca8c76bb6309155f1dbc3b77ac590d92fc11cf8cd8254d6f9d009219501d8c",
+          "samplerMaximum": 14,
+          "fragmentSamplerLimit": 16,
+          "withinSamplerBudget": true
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "2afacefa33999b3f1aad922f69e86802daf9b4d05eb1c8be3606a74ede576214",
+          "pngSha256": "48a454423e11cb6935635d8e33ccbc9d4b8e5b94960b50105569ceca685dbdc9",
+          "samplerMaximum": 14,
+          "fragmentSamplerLimit": 16,
+          "withinSamplerBudget": true
+        }
+      ],
+      "referenceFirstSurfacePicks": [
+        {
+          "pixel": [
+            0.80295,
+            0.2573
+          ],
+          "firstHit": {
+            "point": [
+              9.469788524436844,
+              16.211408835722274,
+              -20.6225347210262
+            ],
+            "geometry": "BufferGeometry",
+            "material": [
+              "scene07-neutral-fired-clay-and-measured-glaze214"
+            ]
+          }
+        },
+        {
+          "pixel": [
+            0.80507,
+            0.26812
+          ],
+          "firstHit": {
+            "point": [
+              9.59811977073215,
+              15.676999413088561,
+              -19.918706258004363
+            ],
+            "geometry": "BufferGeometry",
+            "material": [
+              "scene07-neutral-fired-clay-and-measured-glaze214"
+            ]
+          }
+        },
+        {
+          "pixel": [
+            0.621,
+            0.197
+          ],
+          "firstHit": {
+            "point": [
+              -1.5340300797985442,
+              20.760655501094934,
+              -34.243039386511676
+            ],
+            "geometry": "BufferGeometry",
+            "material": [
+              "scene07-neutral-fired-clay-and-measured-glaze214"
+            ]
+          }
+        },
+        {
+          "pixel": [
+            0.612,
+            0.291
+          ],
+          "firstHit": {
+            "point": [
+              0.302280450242562,
+              14.773575592672378,
+              -21.505053871035003
+            ],
+            "geometry": "BufferGeometry",
+            "material": [
+              "scene07-neutral-fired-clay-and-measured-glaze214"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "variant": "r22-near-shore-low",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r22-near-shore-low/report.json",
+      "source": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "detailCrop": null,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "d771335003a07c05da8b879e9cae45705c8f99aa5cfc3e7fc0109f2521e5d582",
+          "pngSha256": "05306b6efc3da5f5b5e701b0a3c5234c26df253906e9acbcc2ad4d28b3a34d63",
+          "samplerMaximum": 14,
+          "fragmentSamplerLimit": 16,
+          "withinSamplerBudget": true
+        }
+      ]
+    }
+  ],
+  "photographicAcceptance": false,
+  "visualInspection": {
+    "full": true,
+    "genuineHeroSubfrustum": true,
+    "nearShoreLow": true,
+    "knownRoofCrossingsClearedInInspectedViews": true,
+    "remaining": [
+      "Photographic fidelity remains unaccepted; scene still reads as CG.",
+      "Beam/rail articulation and repeated panels remain overly regular.",
+      "Needles, cherry crown density and pond flowers remain visibly procedural.",
+      "The reference has stronger heavy gold material response and richer indirect shade than this native candidate.",
+      "Authored skew roof/site and first-bounce cube capture approximate an inferred building; they are not measured survey or solved multibounce GI."
+    ]
+  },
+  "actualSamplerBudget": {
+    "maximum": 14,
+    "fragmentLimit": 16,
+    "allWithinBudget": true,
+    "source": "Actual linked programs of the official full/hero/low native frames"
+  },
+  "solarPathSourceCheck": {
+    "visibleAnalyticDisk": "0.53 degree; same direction, RGB, integrated source strength as the five shadowed quadrature lights",
+    "globalPMREM": "sky material solarDisk uniform remains0 during PMREM.fromScene, enabled only afterwards",
+    "allEightLocalCaptures": "beginIndirectCapture sets solarDisk0 before all CubeCamera updates, finally endIndirectCapture restores1",
+    "directDiffuseAndSpecular": "One total24 relative-radiance source represented by five shadowed finite angular samples; not five independent fill lights",
+    "actualWaterReflection": "Visible actual disk retained in planar reflection. The former extra analytic water glint is removed.",
+    "measuredHDRLimit": "The independent measured HDR concentrated peak is clamped to9×mean within3.7 degrees before relighting; broad measured sunset radiance remains. This is an authored sky/sun separation, not recovered absolute photometry."
+  },
+  "nonlinearUnitCheck": {
+    "radianceScale": 0.16666666666666666,
+    "allPracticalAndMaterialEmissionScaled": true,
+    "cameraExposure": 6.12,
+    "equivalentExposureAtOldUnits": 1.02,
+    "halfFloatMaximum": 65504,
+    "renderedDiskPeak": 59520.203825718956,
+    "diskBelowHalfFloatCeiling": true,
+    "bloom": false,
+    "colorThresholdVolume": false,
+    "postProcessing": [
+      "RenderPass",
+      "GTAO",
+      "OutputPass"
+    ],
+    "aerialTransportBeforeToneMapping": true,
+    "unitEquivalenceLimit": "Unit rescaling alone is not asserted to prove whole-pipeline pixel equivalence. Actual native frames were checked; solar/sky gains, materials and geometry were intentionally changed."
+  },
+  "retainedSourceSnapshotsVerified": true,
+  "snapshotVerification": "lookdev/scene07-rebuild214/r22-snapshot-verification.json",
+  "preservedR18Source": "9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563",
+  "preservedR11Source": "9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6",
+  "preservedR06Source": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994"
+}

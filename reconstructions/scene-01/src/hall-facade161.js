@@ -42,17 +42,19 @@ export function makeRafterEnd161(){
 
 export function emitUpperBay161(B,S,left,right,z,{back=false}={}){
  const width=right-left,cx=(left+right)/2,inset=.18,span=width-inset*2;
+ //219-R12: primary girts retain their depth; secondary glazing bars are
+ // slimmer, and one taller upper lime field restores the bay hierarchy.
  // A recessed timber window occupies the lower field. Thick framing and
  // narrow lime cells above replace the old three uninterrupted white bands.
  B.box(cx,7.47,z-.12,span,.81,.16,'hall161Recess');
  const cells=width>3.1?3:width>2.15?2:1,cell=span/cells;
  for(let k=0;k<cells;k++){
   const a=left+inset+k*cell,b=a+cell,c=(a+b)/2;
-  for(const [y,h]of[[7.93,.235],[8.64,.32]]){
+  for(const [y,h]of[[7.93,.20],[8.62,.50]]){
    B.box(c,y,z-.055,cell-.105,h,.13,'hall161Plaster',0,.94+.065*noise(k+left,y,161));
    for(const yy of[y-h/2-.018,y+h/2+.018])S.moulding(c,yy,z+.055,cell-.07,.035,.11,'darkwood');
   }
-  const battens=Math.max(5,Math.round((cell-.12)/.085));
+  const battens=Math.max(5,Math.round((cell-.12)/.135));
   for(let j=0;j<=battens;j++){
    const x=a+.06+(cell-.12)*j/battens;
    B.box(x,7.48,z+.015,.025,.64,.13,'wood');
@@ -60,7 +62,7 @@ export function emitUpperBay161(B,S,left,right,z,{back=false}={}){
   for(const yy of[7.26,7.49,7.72])B.box(c,yy,z+.04,cell-.08,.045,.13,'wood');
   for(const x of[a+.025,b-.025])S.moulding(x,8.05,z+.115,.105,2.28,.30,'red');
  }
- for(const [y,h,d]of[[6.95,.25,.44],[7.80,.19,.37],[8.22,.265,.48],[8.96,.20,.44],[9.29,.19,.45]]){
+ for(const [y,h,d]of[[6.95,.25,.44],[7.80,.085,.29],[8.22,.265,.48],[8.96,.085,.31],[9.29,.19,.45]]){
   S.moulding(cx,y,z+.235,width+.04,h,d,'wood');
   // Pegged cheeks sit in the bearing beam rather than floating gold strips.
   for(const x of[left+.24,right-.24])B.box(x,y,z+d/2+.25,.065,h*.54,.024,'darkwood');

@@ -36,10 +36,12 @@ try{
   report.shots.push({reference,file,videoSha256,reusedIdenticalSourceShot:reused,source:receipt.source,frames:receipt.motion.expectedFrames,duration:7,actualWebgl:true,visualAccepted:false});await save();
  }
  const concatFile=resolve(out,'shots.txt');await writeFile(concatFile,report.shots.map(s=>"file '"+s.file.replaceAll("'","'\\''")+"'").join('\n')+'\n');
- const cut=resolve(out,'ten-shots-70s-silent.mp4'),music=resolve(root,'music/PerituneMaterial_Oboro.mp3');
- await run('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',concatFile,'-c','copy','-movflags','+faststart',cut]);
+ const music=resolve(root,'music/PerituneMaterial_Oboro.mp3');
  const master=resolve(out,'temple-ten-scenes-70s.mp4');
- await run('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',cut,'-ss','25','-i',music,'-map','0:v:0','-map','1:a:0','-c:v','copy','-af','loudnorm=I=-20:TP=-2:LRA=9,afade=t=in:d=1.5,afade=t=out:st=67:d=3','-c:a','aac','-b:a','192k','-ar','48000','-t','70','-movflags','+faststart',master]);
+ // Copy the original encoded shot streams directly into the musical70s
+ // master. Avoid a second full-size silent concatenation on the small SSD;
+ // all original seven-second sources and both requested edits are retained.
+ await run('ffmpeg',['-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',concatFile,'-ss','25','-i',music,'-map','0:v:0','-map','1:a:0','-c:v','copy','-af','loudnorm=I=-20:TP=-2:LRA=9,afade=t=in:d=1.5,afade=t=out:st=67:d=3','-c:a','aac','-b:a','192k','-ar','48000','-t','70','-movflags','+faststart',master]);
  // The seven-second source shots are kept intact. Distribute exactly ten
  // seconds of overlap across the nine transitions so the edit is 60 seconds.
  const transitionFrames=fps===30?[33,33,33,33,33,33,33,33,36]:Array.from({length:9},(_,i)=>Math.floor(10*fps/9)+(i<10*fps%9?1:0));

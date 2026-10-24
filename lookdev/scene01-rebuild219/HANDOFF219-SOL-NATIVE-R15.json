@@ -1,0 +1,112 @@
+{
+  "status": "native-four-round-source-and-actual-frames-delivered-photographic-false",
+  "writtenAt": "2026-10-24T00:49:31.715Z",
+  "writeOwnership": "Canonical01 and219 writes released to Root. No active queued GPU/export job remains from this worker.",
+  "currentSourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+  "preferredNativeFrame": {
+    "view": "full",
+    "sourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+    "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-full/report.json",
+    "reportSha256": "f80b9141a3bbe3d65433515c90352be00c3629b6abbaf44a0d66e742e29fb21c",
+    "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-full/reference.png",
+    "pngSha256": "8176ac5b9a881c40b63be2b43b7d8389d480887c779b2f71a040a45bb9e316d5",
+    "bytes": 3348649,
+    "rgbaSha256": "d70844ecf7f472d995587ea9f9e69a61c5b50b22567689c086eff57aa49ee499",
+    "actualNativeResolution": [
+      1254,
+      1254
+    ],
+    "actualCamera": {
+      "position": [
+        0,
+        3.2,
+        17
+      ],
+      "fov": 59
+    },
+    "personallyViewed": true,
+    "photographicAcceptance": false
+  },
+  "preferredTrueLowFrame": {
+    "view": "low",
+    "sourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+    "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-low/report.json",
+    "reportSha256": "0eb2d8f7d49a255bae43016ed54aeea6410470f1614e9d8f30cd8d5f62006de6",
+    "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-low/inspection-view.png",
+    "pngSha256": "9f191d35638f2fda558846fedd21e91d1ea91f92b766c6ec18ced8ca333fca29",
+    "bytes": 2992830,
+    "rgbaSha256": "0bde74a1526fb9f0a057de781a39870300da408323b80358032c987248d229d6",
+    "actualNativeResolution": [
+      1254,
+      1254
+    ],
+    "actualCamera": {
+      "position": [
+        -2.5,
+        1,
+        6.2
+      ],
+      "target": [
+        2,
+        3.4,
+        -6
+      ],
+      "fov": 60,
+      "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+    },
+    "personallyViewed": true,
+    "photographicAcceptance": false
+  },
+  "changedRuntimeFiles": [
+    "reconstructions/scene-01/src/bridge-court208.js",
+    "reconstructions/scene-01/src/hall-facade161.js",
+    "reconstructions/scene-01/src/layout124.js",
+    "reconstructions/scene-01/src/pagoda-mass163.js",
+    "reconstructions/scene-01/src/scene.js"
+  ],
+  "additionalSceneDoc": "reconstructions/scene-01/README.md",
+  "onlyWriteScopes": [
+    "reconstructions/scene-01",
+    "lookdev/scene01-rebuild219",
+    "qa/ten-reference/01/iteration-scene01-rebuild219-r12-* through r15-*"
+  ],
+  "sourceSnapshots": [
+    "lookdev/scene01-rebuild219/r12-source",
+    "lookdev/scene01-rebuild219/r13-source",
+    "lookdev/scene01-rebuild219/r14-source",
+    "lookdev/scene01-rebuild219/r15-source"
+  ],
+  "oldD258Snapshot": "lookdev/scene01-rebuild219/rebuild-d258-public80ef-r09",
+  "oldD258Recomputed": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "oldPhysicalR08ThroughR11Untouched": true,
+  "pruning": {
+    "receipt": "lookdev/scene01-rebuild219/verified-completed-r09-pruning-public80ef.json",
+    "all18426RecordedPayloadPathsByteAndSHAReverified": true,
+    "allHardlinksConfined": true,
+    "removedOnly18425DerivedBufferAndTextureFiles": true,
+    "retainedOriginalSourceFrames": [
+      "source-frame.png",
+      "source-frame.rgba"
+    ],
+    "publicCommit": "80efbe142f4cb8231b3ded0018ca26c12c0d9eb8",
+    "publicMatchingInputs": 128,
+    "exactOriginalUnpublishedMetadataJSONSnapshotExceptions": 1,
+    "originalBinariesCopiedOrDeleted": false,
+    "otherCachesAndSelectedBlendUntouched": true,
+    "freshExportOrRestoreTestRun": false,
+    "freeBefore": 670498816,
+    "freeAfter": 1110249472
+  },
+  "geometryAudit": {
+    "objects": 1950,
+    "triangles": 23400,
+    "bad": 0,
+    "scope": "Closed finite oriented current route solids only; no engineering/photographic certification"
+  },
+  "provenance": "lookdev/scene01-rebuild219/provenance219-r15.json",
+  "allEightActual1254FramesPersonallyViewed": true,
+  "photographicAcceptance": false,
+  "fullFilmOrMotionVerified": false,
+  "noAtmosphereCloudOrLightingWorkMixedIntoThisPhase": true,
+  "freeNowBytes": 749764608
+}

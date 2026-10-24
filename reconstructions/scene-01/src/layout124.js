@@ -114,13 +114,13 @@ export const layout124 = {
       2.1,
       -4.643252888634258
     ],
-    "width": 3.5,
+    "width": 2.6,
     "steps": 9,
     "landingY": 2.1,
     "bearingY": 1.95,
     "topLanding": {
       "forwardOffset": 0.9,
-      "backWidth": 4.5,
+      "backWidth": 3.65,
       "pavingBackZ": 5.64,
       "wallFrontZ": 5.9
     }

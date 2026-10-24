@@ -1,0 +1,86 @@
+{
+  "revision": "scene07-rebuild214-r17",
+  "sourceIdentity": "2af2bba19c8ffdb86a859586114439bef623b14968c7a6e27e47ee9992dd9776",
+  "status": "Actual full, genuine hero, near-shore low and cherry-headland close view inspected; photographic fidelity unaccepted",
+  "visualAccepted": false,
+  "checks": [
+    {
+      "variant": "r17",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r17/report.json",
+      "source": "2af2bba19c8ffdb86a859586114439bef623b14968c7a6e27e47ee9992dd9776",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "rgbaSha256": "5acb3da4532afaf1dec9990ba4b508d2330fbe5db5f73b1f8c0e5ee285044ce7"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "rgbaSha256": "d3a5b370c7e105bc5b263f72abf31d587cbfb4d1456686f31e753e5c03d727ed"
+        }
+      ]
+    },
+    {
+      "variant": "r17-near-shore-low",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r17-near-shore-low/report.json",
+      "source": "2af2bba19c8ffdb86a859586114439bef623b14968c7a6e27e47ee9992dd9776",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "rgbaSha256": "3042818c09cd0dd4acf059a4a8a3ca44dfc84bb9c899bacb37d7ceca76e232e5"
+        }
+      ]
+    },
+    {
+      "variant": "r17-cherry-headland",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r17-cherry-headland/report.json",
+      "source": "2af2bba19c8ffdb86a859586114439bef623b14968c7a6e27e47ee9992dd9776",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "rgbaSha256": "fde7429f73eff5168373b33ecc736823c555520293654961ba9f48aa6f527bd3"
+        }
+      ]
+    }
+  ],
+  "improvements": [
+    "Main cherry occupies the left rear headland, with continuous soil, rooted companions and actual bud umbels",
+    "Low view confirms connected pond water and lowered physical shores under the bridge",
+    "Red pigment, warm cloud response and visible shade structure remain improved relative to R11"
+  ],
+  "unaccepted": [
+    "Upper hall ridge is too low and its vertical rise insufficient; eaves/body sit slightly high",
+    "Flower crown remains inferred and procedural, though the former near-water root layout is corrected",
+    "A broad bright measured-sky region is visible outside the authored cap in the auxiliary view",
+    "Native approximated local radiance is not solved GI or photographic acceptance"
+  ]
+}

@@ -19,3 +19,21 @@ Final actual evidence, all native 1254 × 1254 through the official shared FIFO:
 [Scan-the-World original Amida](https://doi.org/10.5281/zenodo.21353739), [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). [Diana Liu floral carving](https://sketchfab.com/3d-models/wood-carving-93766a4c12eb4c278d23294582034e8c) and [SCANOLOGY_3D dragon/cloud carving](https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff), both CC BY 4.0. Their separate attributions, source hashes and modification limits are retained locally. Existing declared CC0 timber, granite and botanical assets remain unchanged. No supplied reference photograph is sampled by the runtime.
 
 Photographic fidelity remains unaccepted: the roof/column material response and ceramic profile remain stylized; source flower panels still differ from the reference's varied carved motifs; canopy, hillside, stone-lantern and garden silhouettes differ. The shrine is now a real calm Japanese sculpture but not the exact pictured artifact, and its illumination is only an approximation. No Blender authoring, large scene export, film replacement, Git mutation, shared-tool edit or child agent was used in this lane.
+# Current working integration — 212 R22
+
+The canonical namespace now contains the root-reviewed isolated212 R22 source
+`da07ab60fa0208997ac9e94522a3b51dccbef640853d4549b9cf412cd374c86f`.
+The32-file integration and unchanged prior188 R03 source are retained in
+`lookdev/scene04-canonical230/`. This is a working reconstruction; photographic
+fidelity remains unaccepted. The earlier188 receipts below describe that earlier
+source, not this new integration.
+
+R22 reconstructs the front hafu/receiving joints, actual closed carved beam
+surfaces, stone-lantern profiles, paved stone joints/wet surfaces, rooted planting
+and actual curved-leaf background crowns. One independent imagegen grayscale
+cloud/lotus guide authors actual closed shallow geometry; guide RGB is not a
+scene material or photograph plate. Its full prompt, original guide, scalar and
+provenance are in `assets/sculpture212-r11/`. It is an inferred author motif, not
+an authenticated scan of the photographed ornament. Existing asset-specific
+CC BY-NC-SA4.0 and CC BY4.0 terms continue to apply.
+

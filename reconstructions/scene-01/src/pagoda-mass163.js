@@ -9,15 +9,17 @@ export function buildPagodaMass163(B,{roof,finialTorus}){
  const S=createHallSculpture149(B);
  B.m.tower163RafterEnd=makeRafterEnd161();
  const eaves=Array.from({length:5},(_,i)=>5.6+i*L.pagoda.tierPitch);
- const widths=Array.from({length:5},(_,i)=>L.pagoda.bottomRoofWidth+(L.pagoda.topRoofWidth-L.pagoda.bottomRoofWidth)*i/4);
+ //219-R12: each hip roof has its own carried rise and width. The old
+ // low ridge sat below its near eave in this low camera, displacing the finial seat.
+ const widths=[7.12,7.32,7.10,6.83,6.47],rises=[1.64,1.80,1.98,2.12,2.28],curls=[.39,.40,.40,.40,.40];
  const plaster=B.m.plaster.clone();plaster.name='tower163-recessed-warm-lime';plaster.color.setHex(0xb9ab93);plaster.roughness=.94;B.m.tower163Lime=plaster;
  const shadow=B.m.darkwood.clone();shadow.name='tower163-recessed-vent';shadow.color.multiplyScalar(.57);B.m.tower163Shadow=shadow;
  B.with(...L.pagoda.position,L.pagoda.yaw,()=>{
   B.label('pagoda-plinth',()=>{B.box(0,.05,0,5.1,.8,5.1,'stone');B.box(0,.48,0,5.4,.16,5.4,'stoneLight');});
   for(let tier=0;tier<5;tier++){
-   const y=eaves[tier],w=widths[tier],floor=tier?eaves[tier-1]+.40:.60,body=w*.445,half=body/2,shaftTop=y-.92;
+   const y=eaves[tier],w=widths[tier],floor=tier?eaves[tier-1]+.40:.60,body=w*.50,half=body/2,shaftTop=y-.92;
    B.label('pagoda163-'+(tier+1)+'-recessed-column-gallery',()=>{
-    B.box(0,floor-.08,0,body+.79,.20,body+.79,'red');
+    B.box(0,floor-.08,0,body+.63,.20,body+.63,'red');
     B.box(0,floor-.205,0,body+.48,.08,body+.48,'darkwood');
     for(let face=0;face<4;face++)B.with(0,0,0,face*Math.PI/2,()=>{
      // Recessed infill is broken into framed lime cells; it no longer reads
@@ -38,7 +40,13 @@ export function buildPagodaMass163(B,{roof,finialTorus}){
       S.capital(x,shaftTop,half+.14,{scale:.56,depth:1.62,corner:Math.abs(x)===half,headFitting:false});
       // Paired rising cantilevers carry the outer roof purlin from the
       // capital, so a long overhang has weight and a coherent load path.
-      for(const xx of[-.145,.145])B.between([x+xx,shaftTop+.36,half+.35],[x+xx,y-.12,w*.432],.12,.18,'wood');
+      for(const xx of[-.145,.145]){
+       const z0=half+.22,z1=w*.432;
+       B.between([x+xx,shaftTop+.36,z0],[x+xx,y-.12,z1],.12,.18,'wood');
+       // Two seated stepped arms and their end blocks receive the outer
+       // purlin. Their ranks are real solids rather than an unbacked long stick.
+       for(const [rank,retraction]of[[0,.32],[1,.12]]){const yy=y-.59+rank*.25,end=z1-retraction,len=end-z0+.16;B.box(x+xx,yy,(z0+end)/2,.15,.17,len,'wood');B.box(x+xx,yy+.13,end-.08,.20,.10,.25,'redLight');}
+      }
      }
      // Balcony rails sit outside the columns and keep the gallery open.
      for(const yy of[floor+.28,floor+.68])S.moulding(0,yy,half+.52,body+.91,.085,.10,'redLight');
@@ -60,14 +68,14 @@ export function buildPagodaMass163(B,{roof,finialTorus}){
      }
     });
    });
-   roof({w,d:w,eave:y,rise:1.13,curl:.57,ridge:0,name:'pagoda163-'+(tier+1)+'-deep-carried-ceramic-roof',tilePitch:.17,tileRadius:.067,edgeCapRadius:.071,ceramicRoof:true});
+   roof({w,d:w,eave:y,rise:rises[tier],curl:curls[tier],ridge:0,name:'pagoda163-'+(tier+1)+'-deep-carried-ceramic-roof',tilePitch:.17,tileRadius:.067,edgeCapRadius:.071,ceramicRoof:true});
   }
   // Preserve the measured physical finial and its top landmark.
-  B.label('pagoda-finial',()=>{B.with(0,eaves[4]+1.25,0,0,()=>B.with(0,-17.65,0,0,()=>{
+  B.label('pagoda-finial',()=>{B.with(0,eaves[4]+2.39,0,0,()=>B.with(0,-17.65,0,0,()=>{
    const base=17.65;B.cyl(0,base+.08,0,.34,.18,'goldDark');B.emit(B.coneG,'gold',0,base+.40,0,.30,.55,.30);B.cyl(0,19.65,0,.043,4.1,'goldDark');
    for(let k=0;k<16;k++){const yy=base+.78+k*.22,r=.24*(1-k*.037);B.emit(finialTorus,'gold',0,yy,0,r,r,r,[Math.PI/2,0,0]);B.sphere(0,yy,0,.075,.10,.075,'gold');}
    B.sphere(0,21.95,0,.12,.19,.12,'goldLight');B.cyl(0,22.3,0,.024,.5,'gold');
-  }),[1,L.pagoda.finialHeight/4.9,1]);});
+  }),[1,(L.pagoda.finialHeight-1.14)/4.9,1]);});
  },L.pagoda.scale);
- return{revision:'pagoda163-narrow-core-deep-bearing-roofs',roofWidths:widths,referencePhotographSampled:false};
+ return{revision:'pagoda219-r12-independent-raised-hip-ridges-and-carried-eaves',roofWidths:widths,roofRises:rises,roofCurls:curls,finialSeatRise:2.39,finialOverallTopRetained:true,referencePhotographSampled:false};
 }

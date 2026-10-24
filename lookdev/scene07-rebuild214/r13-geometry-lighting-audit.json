@@ -1,0 +1,488 @@
+{
+  "revision": "scene07-rebuild214-r13",
+  "visualAccepted": false,
+  "status": "CPU geometry and radiance preflight complete; actual native validation pending",
+  "site": {
+    "revision": "scene07-lower-water-bank-depth214-r12",
+    "scale": 1.4,
+    "pivot": [
+      10.7,
+      12.8,
+      36
+    ]
+  },
+  "bankReturn": [
+    {
+      "world": [
+        12.66,
+        0.788,
+        -8.24
+      ],
+      "soil": 0.5680000000000001,
+      "walk": 0.7879999999999985
+    },
+    {
+      "world": [
+        17.4,
+        0.7,
+        -3
+      ],
+      "soil": 0.48,
+      "walk": 0.7
+    },
+    {
+      "world": [
+        18.4,
+        0.85,
+        3.5
+      ],
+      "soil": 0.63,
+      "walk": 0.85
+    },
+    {
+      "world": [
+        15,
+        1.1,
+        7.3
+      ],
+      "soil": 0.8800000000000001,
+      "walk": 1.1
+    }
+  ],
+  "terrainBounds": [
+    [
+      -48,
+      -0.3400000035762787,
+      -64
+    ],
+    [
+      36,
+      3.7761776447296143,
+      20
+    ]
+  ],
+  "needlePrototypeNormals": {
+    "variants": 12,
+    "vertices": 23148,
+    "minLength": 0.999999958684259,
+    "maxLength": 1.000000041702914,
+    "meanChangeDegrees": 65.59474922790707,
+    "finite": true,
+    "positionsBitIdenticalToR12": true
+  },
+  "newExternalAssets": false,
+  "skyCPU": {
+    "scope": "Read-only CPU sample of R13 authored world-radiance shader; not an actual native scene capture",
+    "exrSize": [
+      2048,
+      1024
+    ],
+    "cloudSize": [
+      1774,
+      887
+    ],
+    "samples": [
+      {
+        "pixel": [
+          700,
+          60
+        ],
+        "cloudUV": [
+          0.542,
+          0.517
+        ],
+        "originalCloudRGB": [
+          195,
+          175,
+          172
+        ],
+        "base": [
+          1.252,
+          1.334,
+          1.27
+        ],
+        "cases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              0.913,
+              0.665,
+              0.443
+            ],
+            "toneMappedRGB": [
+              224,
+              212,
+              195
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.168,
+              0.808,
+              0.499
+            ],
+            "toneMappedRGB": [
+              232,
+              220,
+              202
+            ]
+          }
+        ],
+        "correctedCases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              0.7261,
+              0.5387,
+              0.4697
+            ],
+            "toneMappedRGB": [
+              216,
+              202,
+              196
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              0.982,
+              0.682,
+              0.526
+            ],
+            "toneMappedRGB": [
+              227,
+              214,
+              203
+            ]
+          }
+        ]
+      },
+      {
+        "pixel": [
+          900,
+          140
+        ],
+        "cloudUV": [
+          0.65,
+          0.433
+        ],
+        "originalCloudRGB": [
+          139,
+          164,
+          191
+        ],
+        "base": [
+          1.379,
+          1.254,
+          0.978
+        ],
+        "cases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0,
+            "radiance": [
+              1.611,
+              1.384,
+              1.029
+            ],
+            "toneMappedRGB": [
+              239,
+              236,
+              229
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0,
+            "radiance": [
+              1.611,
+              1.384,
+              1.029
+            ],
+            "toneMappedRGB": [
+              239,
+              236,
+              229
+            ]
+          }
+        ],
+        "correctedCases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0,
+            "radiance": [
+              0.239,
+              0.329,
+              0.5101
+            ],
+            "toneMappedRGB": [
+              154,
+              172,
+              197
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0,
+            "radiance": [
+              0.239,
+              0.329,
+              0.5101
+            ],
+            "toneMappedRGB": [
+              154,
+              172,
+              197
+            ]
+          }
+        ]
+      },
+      {
+        "pixel": [
+          470,
+          180
+        ],
+        "cloudUV": [
+          0.417,
+          0.395
+        ],
+        "originalCloudRGB": [
+          243,
+          184,
+          101
+        ],
+        "base": [
+          2.098,
+          1.543,
+          0.856
+        ],
+        "cases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.294,
+              0.814,
+              0.381
+            ],
+            "toneMappedRGB": [
+              236,
+              221,
+              192
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.5,
+              0.929,
+              0.426
+            ],
+            "toneMappedRGB": [
+              239,
+              225,
+              198
+            ]
+          }
+        ],
+        "correctedCases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              0.984,
+              0.6742,
+              0.5063
+            ],
+            "toneMappedRGB": [
+              227,
+              213,
+              201
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.1899,
+              0.7895,
+              0.5516
+            ],
+            "toneMappedRGB": [
+              233,
+              219,
+              206
+            ]
+          }
+        ]
+      },
+      {
+        "pixel": [
+          250,
+          270
+        ],
+        "cloudUV": [
+          0.298,
+          0.296
+        ],
+        "originalCloudRGB": [
+          228,
+          192,
+          151
+        ],
+        "base": [
+          2.893,
+          1.508,
+          0.586
+        ],
+        "cases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.71,
+              0.93,
+              0.364
+            ],
+            "toneMappedRGB": [
+              242,
+              226,
+              193
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.917,
+              1.046,
+              0.41
+            ],
+            "toneMappedRGB": [
+              244,
+              229,
+              199
+            ]
+          }
+        ],
+        "correctedCases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.9296,
+              1.1835,
+              0.6913
+            ],
+            "toneMappedRGB": [
+              243,
+              232,
+              218
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              2.1371,
+              1.2997,
+              0.7369
+            ],
+            "toneMappedRGB": [
+              244,
+              235,
+              221
+            ]
+          }
+        ]
+      },
+      {
+        "pixel": [
+          650,
+          350
+        ],
+        "cloudUV": [
+          0.515,
+          0.215
+        ],
+        "originalCloudRGB": [
+          220,
+          182,
+          139
+        ],
+        "base": [
+          2.226,
+          1.574,
+          0.833
+        ],
+        "cases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.246,
+              0.778,
+              0.358
+            ],
+            "toneMappedRGB": [
+              235,
+              219,
+              188
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.477,
+              0.907,
+              0.408
+            ],
+            "toneMappedRGB": [
+              239,
+              225,
+              196
+            ]
+          }
+        ],
+        "correctedCases": [
+          {
+            "transfer": "linearTexture",
+            "opacity": 0.88,
+            "radiance": [
+              0.8698,
+              0.5935,
+              0.441
+            ],
+            "toneMappedRGB": [
+              223,
+              207,
+              194
+            ]
+          },
+          {
+            "transfer": "encodedTexture",
+            "opacity": 0.88,
+            "radiance": [
+              1.1008,
+              0.7229,
+              0.4918
+            ],
+            "toneMappedRGB": [
+              231,
+              216,
+              201
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "source": "a0393986390db7ebbb35a0540f390480c1332a9187b5f9e1dc225d409b003097"
+}

@@ -1,0 +1,49 @@
+{
+  "status": "official-physical-job-finished",
+  "submittedAt": "2026-10-23T23:54:33.978Z",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "freeBeforeBytes": 1225388032,
+  "emergencyFloorBytes": 268435456,
+  "renderScript": "lookdev/scene01-rebuild219/render-physical219-r11.py",
+  "renderScriptSha256": "ad7793e2bd772177b0eae96183df40cf89c1564248e3e43a5a308ab92286cdd3",
+  "settingsSha256": "6c61c309b0917b97dd41fe4cf2cb440635e871405e1b936bdd252a80f58a322c",
+  "verificationSha256": "db03b3980de5c07a7c2eeb0479b70b59f9afdbb9f05829d60d431d7b8d589baa",
+  "driver": "tools/run-blender-queued.mjs",
+  "driverSha256": "56cdb3c5d640e6215bf4afdac81902c60680f9777af1a409537e8121435dc7c1",
+  "storageSamples": [
+    {
+      "at": "2026-10-23T23:54:35.985Z",
+      "freeBytes": 1225342976
+    },
+    {
+      "at": "2026-10-23T23:55:06.015Z",
+      "freeBytes": 1214484480
+    },
+    {
+      "at": "2026-10-23T23:55:36.043Z",
+      "freeBytes": 1209450496
+    },
+    {
+      "at": "2026-10-23T23:56:06.070Z",
+      "freeBytes": 1209131008
+    },
+    {
+      "at": "2026-10-23T23:56:36.098Z",
+      "freeBytes": 1202929664
+    },
+    {
+      "at": "2026-10-23T23:57:06.128Z",
+      "freeBytes": 1202954240
+    },
+    {
+      "at": "2026-10-23T23:57:36.156Z",
+      "freeBytes": 1180573696
+    },
+    {
+      "at": "2026-10-23T23:58:06.187Z",
+      "freeBytes": 1179877376
+    }
+  ],
+  "completedAt": "2026-10-23T23:58:16.635Z",
+  "exitCode": 0
+}

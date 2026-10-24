@@ -1,0 +1,79 @@
+import * as T from 'three';
+import {EXRLoader} from 'three/addons/loaders/EXRLoader.js';
+
+const TAU=Math.PI*2;
+const SKY_ASSET='/reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png';
+
+// Scene07-local thin-leaf model. The added transmitted lobe uses the actual
+// direct-light record AFTER Three has applied its shadow map. It is neither
+// emission nor a constant warm contribution to unoccluded indirect lighting.
+export function installLeafScattering214(material,{strength=.26,power=1.5}={}){
+ const call='RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );';
+ const lobe=`${call}\n if(directLight.visible){float leafThrough214=pow(max(dot(-geometryNormal,directLight.direction),0.0),${power.toFixed(3)});reflectedLight.directDiffuse+=diffuseColor.rgb*directLight.color*leafThrough214*${(strength/Math.PI).toFixed(8)};}`;
+ const chunk=T.ShaderChunk.lights_fragment_begin.replaceAll(call,lobe);
+ material.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_begin>',chunk);};
+ material.customProgramCacheKey=()=>`scene07-shadowed-thin-leaf214:${strength}:${power}`;
+ material.userData.foliageRadiance214={shadowed:true,strength,power,constantIndirectScatter:false};
+ material.needsUpdate=true;
+}
+
+// One world radiance field supplies visible atmosphere, water reflection and
+// PMREM. The previous independent measured-HDR illumination and warm fill
+// lights are replaced. The existing declared generated image contains SKY
+// ONLY; every building, tree, bridge and water surface is scene geometry.
+export async function installWorldRadiance214({renderer,scene,sun}){
+ const [measured,clouds]=await Promise.all([
+  new EXRLoader().setDataType(T.FloatType).loadAsync('/assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr'),
+  new T.TextureLoader().loadAsync(SKY_ASSET)
+ ]);
+ clouds.colorSpace=T.SRGBColorSpace;clouds.wrapS=clouds.wrapT=T.ClampToEdgeWrapping;
+ clouds.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+ const {width,height,data}=measured.image;let peak=0,total=0;
+ for(let i=0;i<data.length;i+=4){const l=.2126*data[i]+.7152*data[i+1]+.0722*data[i+2];peak=Math.max(peak,l);total+=l;}
+ const source=new T.Vector3();let weights=0;
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  const i=(y*width+x)*4,l=.2126*data[i]+.7152*data[i+1]+.0722*data[i+2],w=Math.max(0,l-peak*.78)**2;
+  if(!w)continue;const lat=((y+.5)/height-.5)*Math.PI,lon=((x+.5)/width-.5)*TAU,c=Math.cos(lat);
+  source.addScaledVector(new T.Vector3(c*Math.cos(lon),Math.sin(lat),c*Math.sin(lon)),w);weights+=w;
+ }
+ if(!weights)throw Error('214 sky has no finite solar centroid');source.normalize();
+ // Remove the measured source's concentrated solar spike. The broad sunset
+ // atmosphere remains in the shared sky; the only direct key casts shadows.
+ const limit=total/(width*height)*9,cone=Math.cos(.065);let solarPixelsClamped=0;
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  const lat=((y+.5)/height-.5)*Math.PI,lon=((x+.5)/width-.5)*TAU,c=Math.cos(lat),dot=source.x*c*Math.cos(lon)+source.y*Math.sin(lat)+source.z*c*Math.sin(lon),i=(y*width+x)*4,l=.2126*data[i]+.7152*data[i+1]+.0722*data[i+2];
+  if(dot>cone&&l>limit){const g=limit/l;data[i]*=g;data[i+1]*=g;data[i+2]*=g;solarPixelsClamped++;}
+ }
+ measured.needsUpdate=true;
+ const wanted=sun.position.clone().sub(sun.target.position).normalize(),a=Math.atan2(source.z,source.x),b=Math.atan2(wanted.z,wanted.x);
+ const yaw=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),a-b),pitch=new T.Quaternion().setFromAxisAngle(new T.Vector3(-Math.sin(b),0,Math.cos(b)),Math.asin(wanted.y)-Math.asin(source.y));
+ const rotation=new T.Euler().setFromQuaternion(pitch.multiply(yaw)),inverse=new T.Matrix3().setFromMatrix4(new T.Matrix4().makeRotationFromEuler(rotation).invert());
+ const formerSun=new T.Vector3(-68,19,-41).normalize(),capCenter=Math.atan2(formerSun.z,formerSun.x)+T.MathUtils.degToRad(43);
+ const material=new T.ShaderMaterial({
+  name:'scene07-shared-sky-and-indirect-radiance214',side:T.BackSide,depthWrite:false,depthTest:false,
+  uniforms:{solarDirection:{value:wanted},clouds:{value:clouds},measured:{value:measured},worldToSky:{value:inverse},cap:{value:new T.Vector4(capCenter,T.MathUtils.degToRad(70),T.MathUtils.degToRad(-5),T.MathUtils.degToRad(35))},solarDisk:{value:0}},
+  vertexShader:'varying vec3 ray;void main(){vec4 w=modelMatrix*vec4(position,1.);ray=w.xyz-cameraPosition;vec4 p=projectionMatrix*viewMatrix*w;gl_Position=p.xyww;}',
+  fragmentShader:`varying vec3 ray;uniform sampler2D clouds;uniform sampler2D measured;uniform mat3 worldToSky;uniform vec4 cap;uniform vec3 solarDirection;uniform float solarDisk;
+   void main(){vec3 w=normalize(ray),d=normalize(worldToSky*w);
+    vec2 baseUV=vec2(atan(d.z,d.x)/6.28318530718+.5,asin(clamp(d.y,-1.,1.))/3.14159265359+.5);
+    vec3 base=texture2D(measured,baseUV).rgb*.15;
+    float lon=mod(atan(w.z,w.x)-cap.x+3.14159265359,6.28318530718)-3.14159265359;
+    vec2 uv=vec2(lon/cap.y+.5,(asin(clamp(w.y,-1.,1.))-cap.z)/cap.w),edge=min(uv,1.-uv);
+    float blend=smoothstep(0.,.08,edge.x)*smoothstep(0.,.08,edge.y);
+    vec3 sky=mix(base,texture2D(clouds,clamp(uv,0.,1.)).rgb*1.25,blend);
+    float cosine=clamp(dot(w,solarDirection),-1.,1.),angle=acos(cosine);
+    sky+=vec3(1.,.56,.22)*exp(-angle*angle/.0045)*.65;
+    sky+=solarDisk*vec3(35.,25.,12.)*smoothstep(.999987,.999990,cosine);
+    gl_FragColor=vec4(sky,1.);}`
+ });
+ const geometry=new T.SphereGeometry(250,48,24),mesh=new T.Mesh(geometry,material);
+ mesh.name='scene07-world-atmosphere214';mesh.frustumCulled=false;mesh.renderOrder=-1000;
+ mesh.onBeforeRender=(_r,_s,camera)=>{mesh.position.copy(camera.position);mesh.updateMatrixWorld();};
+ const skyScene=new T.Scene(),captureMesh=new T.Mesh(geometry,material);captureMesh.frustumCulled=false;skyScene.add(captureMesh);
+ const pmrem=new T.PMREMGenerator(renderer),target=pmrem.fromScene(skyScene,0,.1,600,{size:256});pmrem.dispose();
+ scene.environment=target.texture;scene.environmentIntensity=1;scene.environmentRotation.set(0,0,0);
+ material.uniforms.solarDisk.value=1;scene.add(mesh);
+ return{beginIndirectCapture(){material.uniforms.solarDisk.value=0;},endIndirectCapture(){material.uniforms.solarDisk.value=1;},info:{
+  revision:'scene07-unified-world-radiance214-r01',skyAsset:SKY_ASSET,skyAssetProvenance:'reconstructions/scene-07/assets/sky145/provenance.json',measuredAtmosphere:'Poly Haven Qwantani Sunset Pure Sky, CC0',sourceSunCentroid:source.toArray(),targetSunDirection:wanted.toArray(),sourceSolarPeak:peak,solarPixelsClamped,solarRadianceLimit:limit,pmrem:{source:'Actual same world-oriented atmosphere shader with analytic solar disk removed',resolution:256,intensity:1,rotation:[0,0,0]},hemisphereLights:0,unshadowedDirectionalFills:0,constantFoliageScatter:false,referencePixelsSampled:false,visualAccepted:false
+ },dispose(){scene.remove(mesh);geometry.dispose();material.dispose();target.dispose();measured.dispose();clouds.dispose();}};
+}

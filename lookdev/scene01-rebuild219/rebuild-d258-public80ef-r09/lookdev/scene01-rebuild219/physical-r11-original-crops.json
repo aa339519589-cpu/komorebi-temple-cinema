@@ -1,0 +1,44 @@
+{
+  "status": "actual-physical-original-pixel-crops-verified",
+  "createdAt": "2026-10-23T23:58:39.583Z",
+  "cropScriptSha256": "281ae8cb89223cd23a11493cb59f7a95f732e7d9974dc270f95d00f16aa172d1",
+  "scope": "Root-authorized CPU original-pixel crop only. No new camera, GPU job, interpolation, sharpening, generated detail or full-frame edits.",
+  "results": [
+    {
+      "iteration": "r10",
+      "sourceFullPNG": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r10/scene01-d2587-physical-r10.png",
+      "sourceFullSha256": "2c9b68ce36c44bf044011926b22c55e171867bb0d52ad3185e11168afe8a02c9",
+      "output": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r10/stone-lantern219-r10-native-crop.png",
+      "sha256": "91fdf6d41cebf1f45dcd52d883fc2ed8b01d4745eb7a7fcb693e3a7fcf97c5d8",
+      "bytes": 237965,
+      "bounds": {
+        "left": 1040,
+        "top": 560,
+        "width": 214,
+        "height": 570
+      },
+      "noResampling": true,
+      "scale": 1,
+      "allCroppedRGBBytesEqualOriginalPixels": true,
+      "originalColorMetadataChunksPreserved": true
+    },
+    {
+      "iteration": "r11",
+      "sourceFullPNG": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r11/scene01-d2587-physical-r11.png",
+      "sourceFullSha256": "9d574717e8ccd5488f64e9bb51cb400a58848df184b5de79a536aa1930778c99",
+      "output": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r11/stone-lantern219-r11-native-crop.png",
+      "sha256": "f4c768393b17d02c60c75761cb1fb1a5359760a5cd96449de40e71d144bdedf6",
+      "bytes": 244831,
+      "bounds": {
+        "left": 1040,
+        "top": 560,
+        "width": 214,
+        "height": 570
+      },
+      "noResampling": true,
+      "scale": 1,
+      "allCroppedRGBBytesEqualOriginalPixels": true,
+      "originalColorMetadataChunksPreserved": true
+    }
+  ]
+}

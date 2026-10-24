@@ -1,0 +1,26 @@
+{
+  "status": "authorized-CPU-ready-source-export-reused",
+  "writtenAt": "2026-10-23T23:32:11.828370+00:00",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "priorFailurePreserved": true,
+  "reusesAlreadyVerifiedExport": "lookdev/scene01-rebuild219/export-physical-r09",
+  "exportVerification": "lookdev/scene01-rebuild219/export-verification-r09.json",
+  "rootAuthorization": "Root explicitly authorized one R09b physical job reusing verified R09, no fresh export. Same physical model/intensity/direction and aerosol1.2 compatibility value. Actual failure preserved, no third automatic physical job.",
+  "onlyPhysicalLightingParameterAPIChange": "dust_density1.2 -> aerosol_density1.2; no model/direction/energy change",
+  "samples": "96 fixed, no adaptive sampling,480second safety limit",
+  "actualRNAStillToBeConfirmed": true,
+  "files": {
+    "physical-r09b-settings.json": {
+      "bytes": 5818,
+      "sha256": "a5f9b15642e12108f0c0c3af927821ee6146111608a3ef5b5af47f571f06565f"
+    },
+    "render-physical219-r09b.py": {
+      "bytes": 40623,
+      "sha256": "4e732774c46ae365a9b621fa3d7448ca5d6c57b80af1d4410ac51d3af893dfce"
+    },
+    "run-physical219-r09b.mjs": {
+      "bytes": 3578,
+      "sha256": "3cdb5d9d9537f1faa3d094710634764ef666adcbae507330f860bcd225d9a45e"
+    }
+  }
+}

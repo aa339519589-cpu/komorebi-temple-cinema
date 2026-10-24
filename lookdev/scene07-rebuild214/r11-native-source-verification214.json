@@ -1,0 +1,72 @@
+{
+  "revision": "scene07-rebuild214-r11",
+  "source": "9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6",
+  "checks": [
+    {
+      "variant": "r11",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r11/report.json",
+      "source": "9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "8e196ba57c2eab9885269c0c11f41ea0cfd425860c5a592dc0fd99c812d8f8fb"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "db4499acbb568cc6315771885b1a2e212d0aff9fb361f9e03ceec85dff71bc8e"
+        }
+      ]
+    },
+    {
+      "variant": "r11-low-front",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r11-low-front/report.json",
+      "source": "9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "17c16d758e4be0b3c76cf8736e3df3734285bfe9be6adc51009074f505c3c4c3"
+        }
+      ]
+    }
+  ],
+  "photographicAcceptance": false,
+  "visualInspection": {
+    "full": true,
+    "genuineHeroSubfrustum": true,
+    "lowFront": true,
+    "atlasBlackBandsRemoved": true,
+    "remaining": "Stair/causeway rock mass remains too tall and hard, sunset warmth and main roof/tree forms still differ from reference."
+  },
+  "preservedR06Source": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+  "retainedSourceSnapshotsVerified": true
+}

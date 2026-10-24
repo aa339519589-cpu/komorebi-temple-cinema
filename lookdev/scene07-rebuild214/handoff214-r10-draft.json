@@ -1,0 +1,310 @@
+{
+  "revision": "scene07-rebuild214-r10",
+  "visualAccepted": false,
+  "status": "Native full/hero/low queued; actual photographic fidelity remains unaccepted",
+  "sourceIdentity": "15dcbecc80f908bf06608d172f94f4985f8c0debb8b8f98cae5b0985a5c3f888",
+  "previousPublishBoundary": {
+    "revision": "scene07-rebuild214-r06",
+    "sourceIdentity": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+    "snapshot": "lookdev/scene07-rebuild214/r06-publish-snapshot",
+    "review": "lookdev/scene07-rebuild214/r06-publish-snapshot/index.html"
+  },
+  "changedSources": {
+    "foreground-gallery-roof.js": "eacae9ae1ca75e88c420246f2930f77f4165010eb70a8f5ce4d3be033d446e7d",
+    "garden-accents.js": "3a4a3aea6a1b39ac5ca09c9d4a4697a52672a03597b06dbc5218d39dd2089b2c",
+    "garden-botany214.js": "146b49b09c8cfe54b2375e7aa63a5c8135efe7f2163d5e728690049a6fdc9acd",
+    "garden-terrain.js": "9b5dc048a04424d7592f88b311335f33a2e666fda8aba22edf3e1fc13d8acc20",
+    "grand-frame182.js": "9e47b77d9220d91329c28773508f192dbd4a36e78f6c942c227b706e03418582",
+    "hero-pines158.js": "c62662389f4a2f1a37850b2431fc57a6a92ac0dbd882bf41c3a366a2374e9cf4",
+    "layout118-data.js": "100f1223822cc36e40ac85454081ab13c289571d0b5119a3540e8cad9e9cf745",
+    "main.js": "57011be75da10805912a7b44a131446e8fae642939007153eb407e9791573170",
+    "momiji-framing151.js": "fd03a0dd9f055344ec3f663bc6395b1b0499426fff4271847f67248d2b6c4520",
+    "occupied-hall152.js": "971578ca58f1a43eb24d129a4f2bae293e0a1d26e90650578b25bfc56536e48a",
+    "physical-roofs.js": "57cd62fc06f70376a90667fb81bf58a9cccc5881b92aba98ad11aed932828f8c",
+    "reference-layout118.js": "682bcce45a3582c1ca5ff152a616e4665f5c353e9021c08f4384d24ba1b6fd07",
+    "world-radiance214.js": "435ee6f0c49b08a10ce4c0559dce1b897fd34bb28c28d9cb3486f26116395638"
+  },
+  "reference": "references/hd/6-照片-7.jpg",
+  "baseline": "qa/ten-reference/07/iteration-scene07-handcut-approach184-r02/reference.png",
+  "actualFrames": {
+    "full": "qa/ten-reference/07/iteration-scene07-rebuild214-r10/reference.png",
+    "hero": "qa/ten-reference/07/iteration-scene07-rebuild214-r10/detail-native.png",
+    "low": "qa/ten-reference/07/iteration-scene07-rebuild214-r10-low-front/inspection-view.png"
+  },
+  "preservedActualFrames": {
+    "full": "qa/ten-reference/07/iteration-scene07-rebuild214-r06/reference.png",
+    "hero": "qa/ten-reference/07/iteration-scene07-rebuild214-r06/detail-native.png",
+    "low": "qa/ten-reference/07/iteration-scene07-rebuild214-r06-low-front/inspection-view.png",
+    "overhead": "qa/ten-reference/07/iteration-scene07-rebuild214-r06-overhead-route/inspection-view.png"
+  },
+  "implementation": [
+    "Rebuilt the right bridge descent as six risers plus a turned jointed-granite walk; old11-riser route and stale planting coordinates removed.",
+    "Excavated the east inlet, narrowed the stair apron to its actual width/depth, and used -0.34m as the outside support-mask datum; the complete pond is no longer inadvertently floored at zero.",
+    "Solid terrain cores carry staggered uniform scanned rocks; steep soil exposes the same geological scan in world-metric triplanar coordinates.",
+    "A dedicated rock headland outside the true hall plinth supports the right lantern. Removed the formerly buried spare lantern exposed by excavation.",
+    "Authored woody multi-lobed shrubs carry folded individual leaves and five separately folded flower petals; island/shore colonies and three bank tiers are rooted in actual soil or declared island rock envelope.",
+    "Rebuilt the occupied upper gallery with distinct plaster, thick rotated shutters and lattice bays, a shallower porch, flat timber crests and selected small metal caps. Two duplicated corner posts are removed.",
+    "Actual pierced carved cheeks now occur on all front bearing axes, preserving roof/floor support datums.",
+    "One shared world-oriented sky still supplies visible atmosphere, water reflection and PMREM. R10 retains R09 calibrated sky/solar radiance and four actual room-versus-exterior native cube captures. Global exposure remains1.02; no hemisphere or unshadowed fill light is added."
+  ],
+  "changesSinceR06": {
+    "rightApproach": {
+      "before": [
+        11,
+        3.6,
+        1.8
+      ],
+      "after": [
+        8.3,
+        4.38,
+        1.9
+      ],
+      "risersBefore": 11,
+      "risersAfter": 6
+    },
+    "rightWalkTurn": {
+      "before": [
+        15.4,
+        3.55,
+        -0.2
+      ],
+      "after": [
+        12.1,
+        4.22,
+        4.4
+      ]
+    },
+    "rightLantern": {
+      "beforeWorld": [
+        9,
+        2.8,
+        -1.8
+      ],
+      "afterWorld": [
+        9,
+        4.069301988316447,
+        -1.8
+      ],
+      "heightBefore": 5.7,
+      "heightAfter": 4.1,
+      "root": "Actual dedicated earth/rock headland outside hall plinth; rejected R08 position inside plinth is preserved only in failed frames"
+    },
+    "upperGallery": {
+      "frontWallLocalZBefore": 2.35,
+      "frontWallLocalZAfter": 2.75,
+      "porchDepthBefore": 1.6,
+      "porchDepthAfter": 1.2,
+      "bulbousGoldFinialsBefore": 35,
+      "bulbousGoldFinialsAfter": 0
+    },
+    "terrainSamples": [
+      {
+        "worldXZ": [
+          8.8,
+          -0.3
+        ],
+        "before": 4.861878159555124,
+        "after": -0.34
+      },
+      {
+        "worldXZ": [
+          9,
+          -1.8
+        ],
+        "before": 5.330738944601428,
+        "after": 4.069301988316447
+      },
+      {
+        "worldXZ": [
+          2.6,
+          -1.2
+        ],
+        "before": 4.979088826051243,
+        "after": 5.039088826051244
+      },
+      {
+        "worldXZ": [
+          4.876,
+          5.52
+        ],
+        "before": -0.32,
+        "after": -0.3371366529827198
+      },
+      {
+        "worldXZ": [
+          12.6,
+          7.8
+        ],
+        "before": 0.9179819330556075,
+        "after": 1.074209350327066
+      }
+    ],
+    "lighting": {
+      "globalExposureBefore": 1.02,
+      "globalExposureAfter": 1.02,
+      "directSunIntensityBefore": 6.6,
+      "directSunIntensityAfter": 14,
+      "directSunVectorBefore": [
+        -0.58,
+        0.035,
+        -0.81
+      ],
+      "directSunVectorAfter": [
+        -0.58,
+        0.045,
+        -0.81
+      ],
+      "measuredDomeGainBefore": 0.48,
+      "measuredDomeGainAfter": 0.9,
+      "cloudCapGainBefore": 1.25,
+      "cloudCapGainAfter": 1.75,
+      "broadDirectionalAtmosphericScatter": 0.28,
+      "actualHallCubeCapturesBefore": 2,
+      "actualHallCubeCapturesAfter": 4
+    }
+  },
+  "retainedR06AnchorHistory": {
+    "foregroundRoof": {
+      "before": [
+        0.04,
+        8.938616,
+        29.73
+      ],
+      "after": [
+        -0.64,
+        8.938616,
+        29.73
+      ]
+    },
+    "bridgeBefore": [
+      [
+        -7.751062679658208,
+        4.1,
+        -2
+      ],
+      [
+        -5.3963726810815515,
+        4.65,
+        -1.3
+      ],
+      [
+        -2.4798549617700036,
+        5.45,
+        0
+      ],
+      [
+        0.9901721459789012,
+        5.3,
+        1
+      ],
+      [
+        4.4,
+        4.8,
+        2
+      ]
+    ],
+    "bridgeAfter": [
+      [
+        -7.1,
+        4.1,
+        -2.4
+      ],
+      [
+        -4.8,
+        4.66,
+        -1.85
+      ],
+      [
+        -1.2,
+        5.35,
+        -0.85
+      ],
+      [
+        1.9,
+        5.55,
+        0.7
+      ],
+      [
+        5.2,
+        5.35,
+        2
+      ]
+    ],
+    "rightApproachBefore": [
+      11.5,
+      3.1,
+      5.35
+    ],
+    "rightApproachAfter": [
+      11,
+      3.6,
+      1.8
+    ],
+    "gardenTurnBefore": [
+      17.2,
+      2.88,
+      7
+    ],
+    "gardenTurnAfter": [
+      15.4,
+      3.55,
+      -0.2
+    ],
+    "mountainSimilarity": {
+      "scale": 4,
+      "pivot": [
+        10.7,
+        12.8,
+        36
+      ]
+    },
+    "originalReferenceCamera": [
+      10.7,
+      12.8,
+      36
+    ]
+  },
+  "provenance": {
+    "newImageAssets": false,
+    "skyOnlyExistingGeneratedAsset": "reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png",
+    "skyProvenance": "reconstructions/scene-07/assets/sky145/provenance.json",
+    "photographPixelsProjected": false,
+    "referenceOrDepthCards": false,
+    "plaqueInscription": "Reference inscription is unreadable; declared floral relief, no claim of exact lettering.",
+    "newExternalAssets": false,
+    "newAuthoredGeometry": "garden-botany214.js branches/folded leaves/folded corollas; structural gallery/earth/stone placement is original authored source",
+    "stoneTerrainSurface": "Existing CC0 Poly Haven Rock Moss Set01 surface maps, unchanged pixels",
+    "carvedFrontCheeks": "Existing declared CC BY cloud-scroll asset, rigid reused carving copies, not exact reference motif"
+  },
+  "reviewLimits": [
+    "Photographic fidelity is unaccepted; improvements are an actual 3D review candidate.",
+    "Native lighting uses shared authored radiance and fixed local cube approximations, not solved path-traced multi-bounce GI.",
+    "The generated sky cap is declared sky-only imagery; full field energy and broad forward scatter are authored, not measured photometric calibration.",
+    "Water retains an authored ripple/direct-glint approximation in addition to actual reflected scene capture.",
+    "Temple gable/profile, framing mass, tree silhouettes, sunset warmth and blossom distribution still differ from the reference.",
+    "Support depths, geological anatomy, gallery shutters and plant species remain inferred; no measured construction/structural certification."
+  ],
+  "failedCandidates": [
+    {
+      "revision": "scene07-rebuild214-r07",
+      "review": "lookdev/scene07-rebuild214/r07-review.json",
+      "source": "lookdev/scene07-rebuild214/r07-source"
+    },
+    {
+      "revision": "scene07-rebuild214-r08",
+      "review": "lookdev/scene07-rebuild214/r08-review.json",
+      "source": "lookdev/scene07-rebuild214/r08-source"
+    },
+    {
+      "revision": "scene07-rebuild214-r09",
+      "review": "lookdev/scene07-rebuild214/r09-review.json",
+      "source": "lookdev/scene07-rebuild214/r09-source"
+    }
+  ],
+  "validation": {
+    "driver": "tools/render-one-reconstruction.mjs",
+    "sharedFifo": true,
+    "pending": true,
+    "photographicAcceptance": false
+  }
+}

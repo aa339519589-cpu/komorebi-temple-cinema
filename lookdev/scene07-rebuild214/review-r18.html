@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scene07 · 214 R18 原生重建审图</title>
+<style>body{margin:24px;max-width:1540px;background:#14191b;color:#e6e6df;font:15px/1.55 system-ui}h1{font-size:24px;font-weight:550}p{max-width:1120px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}figure{margin:0}img{display:block;width:100%;height:auto}figcaption{padding:9px 0;color:#b8c2bf}a{color:#b7d9ec}.note{border-left:3px solid #b78a51;padding:8px 14px;background:#202624}.hash{font:12px/1.5 ui-monospace,monospace;overflow-wrap:anywhere;color:#9facaa}table{border-collapse:collapse;margin:20px 0;max-width:1120px}th,td{padding:9px 12px;border:1px solid #3d4744;text-align:left}th{font-weight:550;color:#d5c39d}@media(max-width:720px){body{margin:14px}.grid{grid-template-columns:1fr}table{font-size:12px}}</style></head><body>
+<h1>Scene07 · 214 R18 真实 3D 审图候选</h1>
+<p class="note"><strong>摄影相似度未验收，画面仍有明显 CG 感。</strong>最新 full、真实 hero 子视锥与近岸低视角均为官方 FIFO 实际原生 1254 × 1254，同一份 R18 源码。参考照片仅用于比较；加载、有限几何、着色器通过与非空像素均不能代替摄影验收。点击图像可查看原 PNG。</p>
+<p>相对 R11，完整寺院中景按固定 3D 相似变换降低并推远，旧高直池岸改成低岸、水湾和真实承托土体。回岸石步道完整接入东侧陆地，殿基两侧补入有坡脚的土坡和成熟木本灌木。灯笼岛、蕨类、花灌木与 CC0 花草共用一块连续土面；主樱树移至左后岸真实土岬，次枝、花梢、花梗及五瓣伞状花束均为几何。</p>
+<p>一份完整世界天空供应相机、真实水面反射和 PMREM；采用实际太阳颜色与方向、云光学结构、清空隙散射及八个真实空间采光捕获。松针改回毫米尺度，薄叶从同一空间辐亮度的背面接收透射光；红漆/原木/凸边脱漆与清漆各有实际响应。全局曝光保持 1.02。</p>
+<p>R18 又将殿身、主阶上口、佛堂、实际灯与廊内 capture 同降 0.28 世界米，上屋顶起拱由 6.15 改为 7.30 模型米；瓦面、山墙和承托共享同一参数。樱花保留完全相同的表面三角位置与颜色，花瓣共享顶点，连续杯状法线使单棵花瓣缓冲从 80.9 降至 39.3 MB。</p>
+<p><strong>剩余差距：</strong>屋脊/檐口的平面方向仍不完全匹配；梁栏重复、针叶颗粒、樱冠丰满度和池中小花仍显程序化；暖金夕照、阴影过渡与大气散射尚未接近参考。侧向机位仍会看到较亮的测量天空区域。原生采光是实际局部捕获近似，没有声称求解完整多次反弹 GI。</p>
+<p class="hash">R18 source: 9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563<br>保留 R11: 9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6<br>独立 R06 发布边界: 70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994</p>
+<table><thead><tr><th>物理关系</th><th>之前</th><th>R18</th></tr></thead><tbody>
+<tr><td>主殿地板 / 主阶顶，世界米</td><td>7.508 / 7.50</td><td>5.1112 / 5.10</td></tr>
+<tr><td>上屋顶右脊锚点，CPU 投影像素</td><td>(1022.29, 183.57)</td><td>(1023.36, 155.77)</td></tr>
+<tr><td>主樱树根，世界坐标</td><td>(−12, 0.388, 0.6)</td><td>(−18, 0.78, −14.5)</td></tr>
+<tr><td>保留针叶直径，米</td><td>0.007–0.0102</td><td>0.0025–0.0034</td></tr>
+<tr><td>灯笼岛实土 / 灯笼基脚，世界米</td><td>根高另用隐含椭球，缺连续土面</td><td>1.85 / 1.8749</td></tr>
+</tbody></table>
+<div class="grid">
+<figure><a href="../../references/hd/6-照片-7.jpg"><img src="../../references/hd/6-照片-7.jpg" alt="HD07参考照片"></a><figcaption>HD 参考照片 · 仅为比较输入</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18/reference.png"><img src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18/reference.png" alt="R18原生全景"></a><figcaption>R18 · 实际原生 1254 全景，未验收</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r11/reference.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r11/reference.png" alt="R11保留全景"></a><figcaption>R11 · 此批重建前的保留原生全景</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18/detail-native.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18/detail-native.png" alt="R18真正原生hero子视锥"></a><figcaption>R18 · 真正原生 hero 子视锥，没有截图放大</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r12-near-shore-low/inspection-view.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r12-near-shore-low/inspection-view.png" alt="R12相同近岸低视角"></a><figcaption>R12 · 相同实际近岸低视角，白天空/暗叶中间失败候选</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18-near-shore-low/inspection-view.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18-near-shore-low/inspection-view.png" alt="R18相同近岸低视角"></a><figcaption>R18 · 同源近岸低视角，检查桥下连通水面、低岸与主阶接合</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r16/reference.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r16/reference.png" alt="R16樱树近岸错位失败"></a><figcaption>保留 R16 · 主樱树还在错误近岸、单梢花串的失败候选</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r17-cherry-headland/inspection-view.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r17-cherry-headland/inspection-view.png" alt="R17前一源的实际樱树土岬近视角"></a><figcaption>R17 前一份源 · 实际樱树土岬近视角，明确不属于最新 R18 同源三帧</figcaption></figure>
+</div>
+<p>复用已声明的 sky-only 生成天空结构及现有 CC0 / CC BY 资产；未新增场景替代图、照片贴片、下载资产或 Blend / 大导出。R11 与 R12–R18 紧凑源码均逐文件校验保存，失败候选和实际 PNG 保留。</p>
+<p><a href="handoff214-r18.json">完整交接、前后坐标与限制</a> · <a href="r18-native-source-verification214.json">最新同源原生验证</a> · <a href="r18-geometry-lighting-audit.json">R18 几何 / 光照数据</a> · <a href="r18-snapshot-verification.json">源码快照校验</a> · <a href="iteration-review214.json">全部迭代记录</a> · <a href="review-r11.html">R11 保留审图页</a> · <a href="r06-publish-snapshot/index.html">独立 R06 发布冻结边界</a></p>
+</body></html>

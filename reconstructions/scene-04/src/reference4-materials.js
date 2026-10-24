@@ -1,3 +1,4 @@
+import {applyStoneFinish212} from './scene04-stone-finish212.js';
 import {stoneMaterial} from './scene04-surfaces.js';
 import {scannedStoneMaps,scannedStoneRepeatMetres,createNeutralScannedGranite04} from './scene04-scanned-stone.js';
 import * as T from 'three';
@@ -45,21 +46,21 @@ export function getReference4GeneratedMaps(){if(!generatedMaps)throw Error('Gene
 export function createReference4MaterialSet(T, options={}) {
   if(!generatedMaps)throw Error('Generated PBR material detail must load before scene04 construction');
   const palette={
-    cedar:[0x733b1f,.69,0],red:[0x814026,.67,0],endwood:[0x8b532b,.68,0],darkwood:[0x2b160c,.74,0],
+    cedar:[0x60391f,.76,0],red:[0x6f2b13,.64,0],endwood:[0x73451f,.78,0],darkwood:[0x34190d,.78,0],
     gold:[0xd4a74b,.31,.86],oldgold:[0xac7f33,.49,.76],black:[0x20231f,.66,.03],
-    slate:[0x4e565a,.64,0],tileEdge:[0x646a69,.73,0],stone:[0x62676c,.95,0],
+    slate:[0x3b4853,.64,0],tileEdge:[0x596264,.73,0],stone:[0x62676c,.95,0],
     granite:[0x73777b,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
   };
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
     const woodLike=['cedar','red','endwood','darkwood'].includes(key);
-    const m=options.materials?.[key]||(['stone','granite'].includes(key)?stoneMaterial('reference4_'+key,color,{seed:key==='stone'?31:73}):key==='slate'?new T.MeshPhysicalMaterial({name:'kiln-fired-ceramic',color,roughness:.43,metalness:0,envMapIntensity:.50,clearcoat:.16,clearcoatRoughness:.29}):woodLike?new T.MeshPhysicalMaterial({name:'reference4_'+key,color,roughness,metalness,clearcoat:key==='darkwood'?.05:.12,clearcoatRoughness:.42}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
+    const m=options.materials?.[key]||(['stone','granite'].includes(key)?stoneMaterial('reference4_'+key,color,{seed:key==='stone'?31:73}):key==='slate'?new T.MeshPhysicalMaterial({name:'kiln-fired-ceramic',color,roughness:.43,metalness:0,envMapIntensity:.50,clearcoat:.16,clearcoatRoughness:.29}):woodLike?new T.MeshPhysicalMaterial({name:'reference4_'+key,color,roughness,metalness,clearcoat:key==='red'?.10:key==='darkwood'?.015:.045,clearcoatRoughness:key==='darkwood'?.60:.42}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
     mats[key]=m;if(!options.materials?.[key])materials.push(m);
   }
   const wood=scannedCedar164.albedo,woodHeight=scannedCedar164.height,stone=generatedMaps.slate.albedo,stoneHeight=generatedMaps.slate.height;
   const generatedTextureSet=Object.values(generatedMaps).flatMap(m=>[m.albedo,m.height,m.roughness]);textures.push(...generatedTextureSet,...[scannedCedar164.albedo,scannedCedar164.height,scannedCedar164.normal,scannedCedar164.roughness]);
   for(const key of ['red','cedar','endwood','darkwood'])if(materials.includes(mats[key])) {
-    Object.assign(mats[key],{map:wood,normalMap:scannedCedar164.normal,normalScale:new T.Vector2(.30,.30),bumpMap:null,bumpScale:0,roughnessMap:scannedCedar164.roughness});
+    Object.assign(mats[key],{map:wood,normalMap:scannedCedar164.normal,normalScale:new T.Vector2(.52,.52),bumpMap:null,bumpScale:0,roughnessMap:scannedCedar164.roughness});
   }
   for(const key of ['slate'])if(materials.includes(mats[key])) {
     Object.assign(mats[key],{map:stone,bumpMap:stoneHeight,bumpScale:.0028,roughnessMap:generatedMaps.slate.roughness});
@@ -72,7 +73,8 @@ export function createReference4MaterialSet(T, options={}) {
   // The entrance tread caps are warmer limestone-granite than the garden
   // paving. Give the real staircase blocks their own muted ochre-gray response.
   if(!scannedStoneMaps)throw Error('The licensed granite scan must load before stair material construction');
-  const stairGranite=createNeutralScannedGranite04('reference4-neutral-weathered-stair-granite','#69655d',.72);stairGranite.vertexColors=true;materials.push(stairGranite);mats.stairGranite=stairGranite;
+  const stairGranite=createNeutralScannedGranite04('reference4-neutral-weathered-stair-granite','#635e50',1.05);applyStoneFinish212(stairGranite);stairGranite.vertexColors=true;materials.push(stairGranite);mats.stairGranite=stairGranite;
+  const retainingStone=createNeutralScannedGranite04('scene04-212-dark-damp-retaining-granite','#4b4c40',1.05);retainingStone.clearcoat=0;retainingStone.roughness=.98;applyStoneFinish212(retainingStone);materials.push(retainingStone);mats.retainingStone=retainingStone;
   const tiles=mats.slate.clone();tiles.name='reference4_variegated_tiles';tiles.vertexColors=true;
   tiles.onBeforeCompile=mats.slate.onBeforeCompile;tiles.customProgramCacheKey=mats.slate.customProgramCacheKey;
   materials.push(tiles);mats.tiles=tiles;

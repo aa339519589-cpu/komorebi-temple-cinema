@@ -63,8 +63,8 @@ export async function loadCourtyardBotany(){
  for(let k=0;k<pixels.length;k+=4){for(let c=0;c<3;c++){const q=pixels[k+c]/255,v=q<=.04045?q/12.92:Math.pow((q+.055)/1.055,2.4),p=Math.min(.78,v*1.70);gi.data[k+c]=Math.round((p<=.0031308?p*12.92:1.055*Math.pow(p,1/2.4)-.055)*255);}gi.data[k+3]=255;}
  gc.putImageData(gi,0,0);const greenMap=new T.CanvasTexture(greenCanvas);greenMap.colorSpace=T.SRGBColorSpace;greenMap.flipY=map.flipY;greenMap.anisotropy=8;textures.add(greenMap);
  const leafMaterials={};
- for(const [kind,color]of Object.entries({leaf:'#ffffff',leaflight:'#e8edba',azalea:'#e3e4b5'})){
-  const m=sourcePart.material.clone();m.name='scene08-mature-'+kind+'-scanned-blade148';m.color.set(color);m.map=greenMap;m.roughness=.76;m.metalness=0;m.aoMapIntensity=.55;m.normalScale.set(.32,.32);m.onBeforeCompile=sourcePart.material.onBeforeCompile;m.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf';materials.add(m);leafMaterials[kind]=m;
+ for(const [kind,color]of Object.entries({leaf:'#ffffff',leaflight:'#e8edba',azalea:'#e3e4b5',framing:'#ecedcf',creeper:'#dfe9bd'})){
+  const m=sourcePart.material.clone();m.name='scene08-mature-'+kind+'-scanned-blade148';m.color.set(color);m.map=greenMap;m.roughness=kind==='framing'?.48:kind==='creeper'?.66:.76;m.metalness=0;m.aoMapIntensity=.55;m.normalScale.set(.32,.32);m.onBeforeCompile=sourcePart.material.onBeforeCompile;m.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf';materials.add(m);leafMaterials[kind]=m;
  }
  const redCanvas=document.createElement('canvas');redCanvas.width=canvas.width;redCanvas.height=canvas.height;
  const redContext=redCanvas.getContext('2d'),redImage=redContext.createImageData(redCanvas.width,redCanvas.height),pigment=new T.Color('#96391d');
@@ -76,9 +76,18 @@ export async function loadCourtyardBotany(){
  const redMaterial=sourcePart.material.clone();redMaterial.name='scene08-oxide-red-scanned-foliage148';redMaterial.map=redMap;redMaterial.vertexColors=false;redMaterial.color.set('#ffffff');redMaterial.roughness=.65;redMaterial.metalness=0;redMaterial.onBeforeCompile=sourcePart.material.onBeforeCompile;redMaterial.customProgramCacheKey=()=> 'scene08-191-restored-thin-leaf-red';materials.add(redMaterial);leafMaterials.maple=redMaterial;
  let plantNumber=0,leafNumber=0,seed=814815;const R=()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296),rr=(a,b)=>a+(b-a)*R();
  const stats={revision:'scene08-fine-stems-dense-terminal-leaves213-r02',transmissionUsesActualSunAndShadow:true,greenLinearGain:1.70,clonedThinLeafCallbackRestored:true,geometryAndPlacementUnchanged:false,originalScannedBladeAttributesHeld:true,shrubs:0,groundcover:0,scannedBlades:0,bladeVariants:leaves.length,bladeLengths:leaves.map(l=>l.length),bladeAttributes:Object.keys(source.attributes),variants:assets.map(a=>({asset:a.id,variants:a.variants.map(v=>({name:v.name,width:v.width,height:v.height}))})),construction:'Mature rooted multi-stem shrubs, physically forked lateral branches, clumped opposite/whorled scanned blades with measured physical length. Original source attributes retained; red foliage uses an independently pigmented original scan.',referenceSceneImageUsed:false};
- function place({emit,height,x,z,width,flower=false,index=plantNumber++,yaw=rr(0,Math.PI*2),yOffset=0}){
-  const choices=assets[flower?1:0].variants,variant=choices[index%choices.length],s=width/variant.width,y=height(x,z)+yOffset-.012;
-  for(const part of variant.parts)emit(part.geometry,part.material,x,y,z,s,s,s,[0,yaw,0],rr(.92,1.05));stats[flower?'groundcover':'shrubs']++;
+ function place({emit,height,x,z,width,flower=false,index=plantNumber++,yaw=rr(0,Math.PI*2),yOffset=0,heightLimit=Infinity}){
+  const choices=assets[flower?1:0].variants,variant=choices[index%choices.length],s=Math.min(width/variant.width,heightLimit/variant.height),y=height(x,z)+yOffset-.012;
+  for(const part of variant.parts)emit(part.geometry,part.material,x,y,z,s,s,s,[0,yaw,0],rr(.92,1.05));stats[flower?'groundcover':'shrubs']++;return{x,y,z,width:variant.width*s,height:variant.height*s,variant:variant.name,flower};
+ }
+ function groundMat({emit,between,height,x,z,width,index=0}){
+  const radius=width*.50,root=height(x,z),material=leafMaterials.creeper;let count=0;
+  for(let f=0;f<6;f++){const a=f*2.399963+index*.31,L=radius*(.78+.20*Math.sin(f*1.7+index));let previous=[x,root-.012,z];
+   for(let j=1;j<=7;j++){const t=j/7,xx=x+Math.cos(a)*L*t,zz=z+Math.sin(a)*L*t,soil=height(xx,zz),yy=soil+.025+.012*Math.sin(t*Math.PI),node=[xx,yy,zz];between(previous,node,.0011,'bark',true);if(j%2===1)between([xx,soil-.012,zz],node,.0008,'bark',true);
+    for(const side of[-1,1]){const angle=a+side*(.85+.20*Math.sin(j*1.3+f)),tip=[xx+Math.cos(angle)*.016,yy+.010,zz+Math.sin(angle)*.016];between(node,tip,.00065,'bark',true);const blade=leaves[leafNumber++%leaves.length],length=rr(.055,.082),s=length/blade.length,eps=.045,dx=(height(xx+eps,zz)-height(xx-eps,zz))/(2*eps),dz=(height(xx,zz+eps)-height(xx,zz-eps))/(2*eps),soilNormal=new T.Vector3(-dx,1,-dz).normalize(),normal=new T.Vector3(0,1,0).lerp(soilNormal,.72).normalize(),forward=new T.Vector3(Math.cos(angle),0,Math.sin(angle));forward.addScaledVector(normal,-forward.dot(normal)).normalize();const across=new T.Vector3().crossVectors(normal,forward).normalize(),q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(across,normal,forward)).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(1,0,0),-rr(.08,.20))).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),rr(-.24,.24))),e=new T.Euler().setFromQuaternion(q);emit(blade.geometry,material,...tip,s*1.58,s,s,[e.x,e.y,e.z],rr(.80,1.12));count++;stats.scannedBlades++;}
+    previous=node;
+   }
+  }stats.groundcover++;return{x,y:root,z,width,authoredCreepingRunner:true,terrainFollowingNodes:42,actualLeafCount:count,estimatedHeight:.12};
  }
  function foliage({emit,between,start,end,kind,leafLength,nodes=8}){
   const branchRadius=Math.max(.0014,leafLength*.027);between(start,end,branchRadius,'bark',true);
@@ -88,7 +97,7 @@ export async function loadCourtyardBotany(){
    for(let n=0;n<5;n++){
     const angle=a+n*1.256637+rr(-.28,.28),tip=[root[0]+Math.cos(angle)*reach,root[1]+rr(-.016,.028),root[2]+Math.sin(angle)*reach];between(root,tip,branchRadius*.31,'bark',true);
     const blade=leaves[leafNumber++%leaves.length],s=length/blade.length,direction=new T.Vector3(Math.cos(angle),rr(-.17,.64),Math.sin(angle)).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),direction).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),rr(-.75,.75))),e=new T.Euler().setFromQuaternion(q);
-    emit(blade.geometry,material,...tip,s*rr(.98,1.23),s,s,[e.x,e.y,e.z],rr(.69,1.16));stats.scannedBlades++;
+    emit(blade.geometry,material,...tip,s*rr(.98,1.23)*(kind==='framing'?1.42:1),s,s,[e.x,e.y,e.z],rr(.69,1.16));stats.scannedBlades++;
    }
   }
  }
@@ -109,5 +118,5 @@ export async function loadCourtyardBotany(){
    }
   }
  }
- return {stats,place,shrub,dispose(){for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
+ return {stats,place,shrub,foliage,groundMat,dispose(){for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();}};
 }

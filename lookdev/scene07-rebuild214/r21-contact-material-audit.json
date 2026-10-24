@@ -1,0 +1,258 @@
+{
+  "revision": "scene07-rebuild214-r21",
+  "source": "16018796da17346b1125c2be8919626de6b07d316f226b60ef375f32bd0e618a",
+  "status": "Contact-envelope and rehung-ornament preflight; third actual visual round pending",
+  "visualAccepted": false,
+  "roof": {
+    "maximumPreviousCapPenetration": 0.5364231991834512,
+    "spec": {
+      "w": 14.8,
+      "d": 18.7,
+      "e": 10.1,
+      "rise": 6.4,
+      "curl": 0.65,
+      "gabled": true,
+      "ridgeFraction": 0.38,
+      "ridgeSkew": 0.625
+    },
+    "roofParts": 109,
+    "roofAudit": {
+      "revision": "scene07-dense-seated-receivers-and-cast-microreflection214-r21",
+      "label": "roof",
+      "width": 14.8,
+      "depth": 18.7,
+      "eave": 10.1,
+      "peak": 16.5,
+      "tiles": {
+        "cover": 5040,
+        "pan": 5060
+      },
+      "innerCollar": null,
+      "construction": "Closed curved bedding; individual pan/cover courses; fascia, purlins and capped rafters; seated receivers. Lower hall roof is cut at its upper-room footprint and housed in a closed fitted timber curb."
+    },
+    "receiverBoxes": 21,
+    "inverseMaxError": 5.660120718786743e-10,
+    "minPlanJacobian": 0.4717462080328083,
+    "minShaftHeight": 0.6568230234144323,
+    "ceilingClosed": true,
+    "wallMinimumClearance": 0.08451309903243498,
+    "wallWorst": [
+      {
+        "x": -6.56,
+        "z": 2.75,
+        "roofBottom": 10.579513099032434,
+        "wallTop": 10.495,
+        "clearance": 0.08451309903243498
+      },
+      {
+        "x": -4.68,
+        "z": 2.75,
+        "roofBottom": 10.647320119699938,
+        "wallTop": 10.495,
+        "clearance": 0.15232011969993842
+      },
+      {
+        "x": -2.81,
+        "z": 2.75,
+        "roofBottom": 10.738259564833255,
+        "wallTop": 10.495,
+        "clearance": 0.24325956483325584
+      },
+      {
+        "x": 0,
+        "z": 2.75,
+        "roofBottom": 10.918659731999792,
+        "wallTop": 10.495,
+        "clearance": 0.423659731999793
+      }
+    ],
+    "contacts": [
+      {
+        "x": -6.66,
+        "z": -4.55,
+        "previousOuterOnlyRoofBottom": 10.087375644276506,
+        "roofBottom": 9.941823023414432,
+        "oldCapPenetration": 0,
+        "shaftHeight": 0.6568230234144323
+      },
+      {
+        "x": -4.44,
+        "z": -4.55,
+        "previousOuterOnlyRoofBottom": 15.586007039670244,
+        "roofBottom": 14.667083840486793,
+        "oldCapPenetration": 0.5364231991834512,
+        "shaftHeight": 5.382083840486793
+      },
+      {
+        "x": -2.22,
+        "z": -4.55,
+        "previousOuterOnlyRoofBottom": 14.428475054096253,
+        "roofBottom": 14.133962702983643,
+        "oldCapPenetration": 0,
+        "shaftHeight": 4.848962702983643
+      },
+      {
+        "x": 0,
+        "z": -4.55,
+        "previousOuterOnlyRoofBottom": 13.502278309231404,
+        "roofBottom": 13.291537197146562,
+        "oldCapPenetration": 0,
+        "shaftHeight": 4.006537197146562
+      },
+      {
+        "x": 2.22,
+        "z": -4.55,
+        "previousOuterOnlyRoofBottom": 12.895415931841539,
+        "roofBottom": 12.732068611606211,
+        "oldCapPenetration": 0,
+        "shaftHeight": 3.447068611606211
+      },
+      {
+        "x": 4.44,
+        "z": -4.55,
+        "previousOuterOnlyRoofBottom": 12.462965055965833,
+        "roofBottom": 12.33003411307685,
+        "oldCapPenetration": 0,
+        "shaftHeight": 3.0450341130768503
+      },
+      {
+        "x": 6.66,
+        "z": -4.55,
+        "previousOuterOnlyRoofBottom": 10.765807012134012,
+        "roofBottom": 10.511896784581374,
+        "oldCapPenetration": 0,
+        "shaftHeight": 1.226896784581374
+      },
+      {
+        "x": -6.66,
+        "z": 3.4,
+        "previousOuterOnlyRoofBottom": 10.12571124744301,
+        "roofBottom": 9.95809734458294,
+        "oldCapPenetration": 0,
+        "shaftHeight": 0.6730973445829402
+      },
+      {
+        "x": -4.44,
+        "z": 3.4,
+        "previousOuterOnlyRoofBottom": 10.12933185820397,
+        "roofBottom": 10.080087316632977,
+        "oldCapPenetration": 0,
+        "shaftHeight": 0.7950873166329764
+      },
+      {
+        "x": -2.22,
+        "z": 3.4,
+        "previousOuterOnlyRoofBottom": 10.163134758406168,
+        "roofBottom": 10.105641427089807,
+        "oldCapPenetration": 0,
+        "shaftHeight": 0.8206414270898073
+      },
+      {
+        "x": 0,
+        "z": 3.4,
+        "previousOuterOnlyRoofBottom": 10.209038033399723,
+        "roofBottom": 10.143209221631041,
+        "oldCapPenetration": 0,
+        "shaftHeight": 0.8582092216310411
+      },
+      {
+        "x": 2.22,
+        "z": 3.4,
+        "previousOuterOnlyRoofBottom": 10.267117570770921,
+        "roofBottom": 10.19032493110852,
+        "oldCapPenetration": 0,
+        "shaftHeight": 0.9053249311085203
+      },
+      {
+        "x": 4.44,
+        "z": 3.4,
+        "previousOuterOnlyRoofBottom": 10.343292252278804,
+        "roofBottom": 10.251284009453226,
+        "oldCapPenetration": 0,
+        "shaftHeight": 0.9662840094532257
+      },
+      {
+        "x": 6.66,
+        "z": 3.4,
+        "previousOuterOnlyRoofBottom": 10.451135285485915,
+        "roofBottom": 10.336575440201983,
+        "oldCapPenetration": 0,
+        "shaftHeight": 1.051575440201983
+      }
+    ]
+  },
+  "columnCapRepair": {
+    "wholeCapSampleX": [
+      -0.8,
+      -0.57,
+      0,
+      0.57,
+      0.8
+    ],
+    "wholeCapSampleZ": [
+      -0.36,
+      -0.19,
+      0,
+      0.3,
+      0.78,
+      0.94
+    ],
+    "seatFootprintSampleHalf": [
+      0.104,
+      0.147
+    ],
+    "previousWorstCapPenetrationModelMetres": 0.5364231991834512,
+    "previousWorstCapPenetrationWorldMetres": 0.6608733813940119,
+    "allBackAndFrontArmsIncluded": true
+  },
+  "receivers": {
+    "maximumCentrelineStep": 0.15,
+    "footprintSampleHalf": [
+      0.22,
+      0.19
+    ],
+    "splitAtGableHeightJump": 0.55,
+    "atticPostBasesFollowRealTieTop": 10.5
+  },
+  "frontFriezes": {
+    "height": 0.36,
+    "topBelowLowestRoofBy": 0.075,
+    "queryDepthExtension": 0.3
+  },
+  "plaque": {
+    "previous": {
+      "centre": [
+        -0.35,
+        10.18,
+        4.18
+      ],
+      "scale": 1
+    },
+    "after": {
+      "bayX": -0.699,
+      "z": 3.75,
+      "scale": 0.5,
+      "topLimitedToRoof": true,
+      "hangersEndInsideActualCrossTie": true
+    }
+  },
+  "gilt": {
+    "existingAssets": [
+      "reconstructions/scene-07/assets/near-gallery149/cast-metal-rough.png",
+      "reconstructions/scene-07/assets/near-gallery149/cast-metal-height.png"
+    ],
+    "colorSRGB": 13214300,
+    "metalness": 0.93,
+    "roughness": 0.32,
+    "bumpScaleMetres": 0.00018,
+    "clearcoat": 0.05,
+    "emissive": false
+  },
+  "woodReflectanceMaximum": [
+    0.62,
+    0.45,
+    0.27
+  ],
+  "radianceModelAndUnitsUnchangedFromR20": true,
+  "newExternalAssets": false
+}

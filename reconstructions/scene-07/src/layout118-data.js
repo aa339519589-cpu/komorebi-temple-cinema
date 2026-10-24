@@ -203,9 +203,13 @@ export const layout118={
 // points put the arch in front of that landing; heights retain its observed
 // shallow projected rise as closely as the connected 3D layout permits.
 export const garden130BridgeKnots=Object.freeze([
- Object.freeze([-7.751062679658208,4.10,-2.0]),
- Object.freeze([-5.3963726810815515,4.65,-1.30]),
- Object.freeze([-2.4798549617700036,5.45,0.0]),
- Object.freeze([.9901721459789012,5.30,1.0]),
- Object.freeze([4.4,4.80,2.0])
+ Object.freeze([-7.10,4.10,-2.40]),
+ Object.freeze([-4.80,4.66,-1.85]),
+ Object.freeze([-1.20,5.35,-.85]),
+ Object.freeze([1.90,5.55,.70]),
+ Object.freeze([5.20,5.35,2.00])
 ]);
+// R07: the photograph shows a short six-riser bridge descent, followed by
+// a level stone walk that turns behind the pine. The old eleven-riser flight
+// made a 5.8m long diagonal sawtooth and forced a broad artificial garden mound.
+export const approach214=Object.freeze({rightEnd:Object.freeze([8.30,4.38,1.90]),gardenTurn:Object.freeze([12.10,4.22,4.40]),risers:6});

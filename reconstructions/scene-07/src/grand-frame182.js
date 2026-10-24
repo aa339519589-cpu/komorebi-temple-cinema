@@ -27,17 +27,21 @@ export async function createGrandFrame182({emit,box,group,mats}){
   shafts.set(key,g);return g;
  }
  const shoe=new T.CylinderGeometry(.43,.47,.14,40),neck=new T.CylinderGeometry(.34,.31,.10,40),cap=new T.CylinderGeometry(.29,.25,.105,4,1,false,Math.PI/4);
- function frame(x,z,bottom,roofBottom,radius,{front=1,upper=false,roofAt=null}={}){
+ function frame(x,z,bottom,roofBottom,radius,{front=1,upper=false,roofAt=null,roofContains=null,metricX=1}={}){
   const capHeight=upper?.49:.56,head=roofBottom-capHeight,shaftBottom=bottom+.14,shaftTop=head-.075,height=shaftTop-shaftBottom;
   if(height<.25)throw Error('182 frame has no occupied shaft interval');
-  emit(shaft(radius,height),mats.red,x,shaftBottom,z);
-  emit(shoe,mats.terraceStone,x,bottom+.07,z,radius/.31,1,radius/.31);
-  emit(neck,mats.dark,x,shaftBottom+.035,z,radius/.31,.65,radius/.31);
+  emit(shaft(radius,height),mats.red,x,shaftBottom,z,metricX,1,1);
+  emit(shoe,mats.terraceStone,x,bottom+.07,z,radius/.31*metricX,1,radius/.31);
+  emit(neck,mats.dark,x,shaftBottom+.035,z,radius/.31*metricX,.65,radius/.31);
   box(x,head-.025,z,radius*2.35,.15,radius*2.35,'wood');
   const scaleY=capHeight/.56;
   group(x,head,z,front<0?Math.PI:0,1,()=>{
-   const beam=(xx,yy,zz,len,depth,angle=0)=>emit(arm(len,depth),mats.red,xx,yy*scaleY,zz,1,scaleY,1,[0,angle,0]);
-   const bearing=(xx,yy,zz,r=1)=>emit(cap,mats.wood,xx,yy*scaleY,zz,r,scaleY,r);
+   const inside=(xx,zz)=>!roofContains||roofContains(x+front*xx,z+front*zz);
+   const beam=(xx,yy,zz,len,depth,angle=0)=>{
+    if(roofContains){const dx=Math.cos(angle),dz=-Math.sin(angle),sample=Array.from({length:49},(_,i)=>-len/2+i*len/48).filter(t=>inside(xx+dx*t,zz+dz*t));if(sample.length<2)return;const a=sample[0],b=sample.at(-1),mid=(a+b)/2;xx+=dx*mid;zz+=dz*mid;len=b-a;}
+    emit(arm(len,depth),mats.red,xx,yy*scaleY,zz,1,scaleY,1,[0,angle,0]);
+   };
+   const bearing=(xx,yy,zz,r=1)=>{if(inside(xx,zz))emit(cap,mats.wood,xx,yy*scaleY,zz,r,scaleY,r);};
    bearing(0,.05,0);beam(0,.145,0,1.18,.29);
    for(const side of[-1,1]){
     bearing(side*.37,.265,0,.70);beam(side*.37,.355,.295,1.18,.245,Math.PI/2);
@@ -46,15 +50,16 @@ export async function createGrandFrame182({emit,box,group,mats}){
    for(const zz of[-.19,.78]){
     beam(0,.50,zz,1.52,.255);
     for(const xx of[-.57,0,.57]){
-     const target=roofAt?roofAt(x+xx,z+front*zz):roofBottom,low=head+.56*scaleY,h=target-low;
+     if(!inside(xx,zz))continue;
+     const target=roofAt?Math.min(...[-.104,0,.104].flatMap(dx=>[-.147,0,.147].map(dz=>roofAt(x+front*(xx+dx),z+front*(zz+dz))))):roofBottom,low=head+.56*scaleY,h=target-low;
      box(xx,(.535*scaleY)+Math.max(0,h)/2,zz,.205,.05*scaleY+Math.max(0,h),.29,'wood');
     }
    }
    // Four outer axes receive genuine pierced carved cheeks. The central
    // entrance stays open; these are fitted ornaments over real timber seats.
-   if(Math.abs(x)>4.3){const sc=upper?.35:.43;for(const g of carvedParts)emit(g,carvedWood,0,.025,.18,sc,sc/.88,sc);}
+   if(front>0||Math.abs(x)>4.3){const sc=upper?.30:.39;for(const g of carvedParts)emit(g,carvedWood,0,.025,.18,sc,sc/.88,sc);}
   });
   contacts.push({axis:[x,z],floor:bottom,shaftBottom,shaftTop,clearShaftHeight:height,head,roofBottom,capHeight,upper});
  }
- return{frame,info:()=>({revision:'scene07-tall-shafts-compact-roof-seated-bearing182-r02',contacts,construction:'Full entasis shafts on mineral shoes; compact closed curved crossed arms and individual queried roof seats. Selective genuine CC BY pierced carved cheeks; original roof/site/camera anchors retained.',visualAccepted:false})};
+ return{frame,info:()=>({revision:'scene07-seated-bearings-with-full-front-pierced-cheeks214-r09',contacts,construction:'Full entasis shafts on mineral shoes; compact closed curved crossed arms and queried roof seats. Actual CC BY pierced carved cheeks on all front column axes and outer returns; existing roof and column anchors retained for this revision.',visualAccepted:false})};
 }

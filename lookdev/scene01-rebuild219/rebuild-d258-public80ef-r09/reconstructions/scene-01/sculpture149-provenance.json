@@ -1,0 +1,37 @@
+{
+  "revision": "scene01-sculpted-housed-carpentry149-r03",
+  "baseline": "d70aa7853852cb536cbe6d46ecb082f65405f2f254fff0c97c5054a9d4014770",
+  "reference": "references/hd/0-\u7167\u7247-1.jpg",
+  "source": "Original code-authored closed timber/foliage geometry in src/hall-sculpture149.js; Poly Haven CC0 lacquered cherry maps remain as already declared. No new image assets or downloads.",
+  "license": "Repository-authored geometry; existing external assets retain their declared licenses.",
+  "referenceUse": "Visual comparison and approximate detail scale only. No reference image pixels are rendered.",
+  "geometry": {
+    "capitalEnvelopeMetres": {
+      "width": 1.58,
+      "height": 1.22,
+      "depth": 1.4
+    },
+    "capitalAssembly": "Flared daito, opposed half-lapped first cross, four seated second-course arms, four makito, half-lapped receiver pair, cheek keys. Existing capital foot and receiver top retain prior anchors.",
+    "lowerShaft": "Existing stone plinth and radius retained; shaft is trimmed to existing capital foot at local y5.19 rather than penetrating first arms. Radial resolution48.",
+    "relief": "Convex lobed closed leaves, capped stems, cast floral fittings and shaped shoulder carving; no relief texture or full-scene plate.",
+    "portal": "Original frame/opening extents retained; layered timber moldings and solid foliage relief replace thin repeated outlines."
+  },
+  "preserved": [
+    "layout124.js complete",
+    "hall-envelope148.js complete",
+    "all roof surface construction in architecture.js",
+    "bank and bridge supports",
+    "garden.js",
+    "scanned garden assets",
+    "camera and dolly",
+    "all sun/fill/point-light construction and intensities",
+    "foreground hardware",
+    "measured sky"
+  ],
+  "visualAccepted": false,
+  "status": "Candidate requiring native full/detail/oblique inspection",
+  "limitations": [
+    "Carved foliage is an original architectural interpretation, not recovery of exact motifs or inscriptions.",
+    "Existing main roof, garden and light/material photographic gaps remain."
+  ]
+}

@@ -1,8 +1,24 @@
 // Inferred architectural reconstruction from HD07, in the established hall's
 // local metre coordinates. No source image is sampled or projected onto it.
-export const OCCUPIED_HALL_REVISION152='scene07-solid-upper-room-and-outer-gallery152-r01';
-export function buildOccupiedUpperHall152({box,group,column,bracket,carvedPanel,lattice,rail,eaveFrame}){
-  const floor=8.50,ceiling=10.55,front=2.35,back=-4.38,half=6.56;
+import * as T from 'three';
+export const OCCUPIED_HALL_REVISION152='scene07-roof-fitted-solid-ceiling-and-trimmed-upper-ties214-r20';
+export function buildOccupiedUpperHall152({box,group,column,bracket,carvedPanel,lattice,rail,eaveFrame,emit,roofBottomAt=null}){
+  const floor=8.50,ceiling=10.55,front=2.75,back=-4.38,half=6.56;
+  const galleryPosts=new Set();
+  function galleryRail(points,height=.82){
+    for(let i=0;i<points.length;i++){
+      const [x,y,z]=points[i],major=i===0||i===points.length-1||i%4===0,w=major?.16:.105;
+      const key=[x,y,z].map(v=>v.toFixed(5)).join(',');
+      if(!galleryPosts.has(key)){
+        galleryPosts.add(key);box(x,y+height*.48,z,w,height,w,'red');box(x,y+.055,z,w*1.34,.11,w*1.34,'dark');
+        box(x,y+height,z,w*1.27,.055,w*1.27,major?'gold':'red');
+      }
+      if(!i)continue;
+      const [ax,ay,az]=points[i-1],dx=x-ax,dz=z-az,len=Math.hypot(dx,dz),yaw=-Math.atan2(dz,dx);
+      for(const [h,bh,bd]of[[.14,.085,.12],[.43,.085,.10],[height-.035,.12,.15]])box((x+ax)/2,(y+ay)/2+h,(z+az)/2,len,bh,bd,'red',[0,yaw,0]);
+      for(const t of[1/3,2/3])box(ax+dx*t,ay+(y-ay)*t+.43,az+dz*t,.035,.49,.052,'red',[0,yaw,0]);
+    }
+  }
   // Joined perimeter and transverse joists carry a physical boarded floor.
   for(const z of[-4.60,2.35,3.78])box(0,floor-.22,z,14.45,.30,.30,'wood');
   for(let i=0;i<=14;i++)box(-7.0+i, floor-.23,-.42,.16,.29,8.54,'wood');
@@ -17,8 +33,21 @@ export function buildOccupiedUpperHall152({box,group,column,bracket,carvedPanel,
     for(let i=0;i<=7;i++){
       const x=-6.56+i*13.12/7;box(x,9.51,.08,.19,1.93,.27,'red');
       if(i<7){const cx=x+13.12/14,w=13.12/7-.25;
-        box(cx,9.49,-.13,w,.86,.16,'dark');
-        for(let k=0;k<10;k++)box(cx-w/2+(k+.5)*w/10,9.49,.005,.038,.84,.064,'wood');
+        const finish=['plaster','shutter','lattice','open','lattice','shutter','plaster'][i];
+        box(cx,9.49,-.13,w,.86,.16,finish==='plaster'?'plaster':'dark');
+        if(finish==='plaster'){
+          for(const xx of[-w*.35,w*.35])box(cx+xx,9.49,.005,.034,.84,.055,'wood');
+        }else if(finish==='lattice'){
+          for(let k=0;k<9;k++)box(cx-w/2+(k+.5)*w/9,9.49,.005,.033,.84,.060,'wood');
+          for(const yy of[9.23,9.49,9.75])box(cx,yy,.028,w,.026,.045,'wood');
+        }else{
+          // Separate thick shutter leaves rotate about real jambs. Their
+          // recessed shadow gaps break the former uninterrupted black strip.
+          for(const side of[-1,1])group(cx+side*w*.48,9.49,.015,-side*(finish==='open'?.65:.28),1,()=>{
+            box(-side*w*.205,0,0,w*.41,.84,.065,'wood');
+            for(let k=0;k<5;k++)box(-side*w*.205-w*.16+k*w*.08,0,.043,.027,.78,.026,'red');
+          });
+        }
         for(const yy of[9.12,9.49,9.85])box(cx,yy,.043,w,.043,.075,'red');
         carvedPanel(cx,10.27,.17,w-.13,.23);
       }
@@ -39,15 +68,31 @@ export function buildOccupiedUpperHall152({box,group,column,bracket,carvedPanel,
     for(const z of[back,front])box(sign*half,9.50,z,.28,2.02,.28,'red');
   }
   // Solid, darker ceiling and transverse ties create shade below the roof.
-  box(0,ceiling-.045,-.45,13.25,.14,8.0,'dark');
+  if(emit&&roofBottomAt){
+    const p=[],ix=[],nx=32,nz=20,stride=(nx+1)*(nz+1);
+    for(let layer=0;layer<2;layer++)for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){
+      const x=-6.625+i*13.25/nx,z=-4.45+j*8/nz,top=Math.min(ceiling+.025,roofBottomAt(x,z)-.06);p.push(x,top-layer*.14,z);
+    }
+    for(let j=0;j<nz;j++)for(let i=0;i<nx;i++){const a=j*(nx+1)+i,b=a+1,c=a+nx+1,d=c+1;ix.push(a,c,b,b,c,d,a+stride,b+stride,c+stride,b+stride,d+stride,c+stride);}
+    const edge=[...Array.from({length:nx},(_,i)=>i),...Array.from({length:nz},(_,j)=>j*(nx+1)+nx),...Array.from({length:nx},(_,i)=>nz*(nx+1)+nx-i),...Array.from({length:nz},(_,j)=>(nz-j)*(nx+1))];
+    for(let i=0;i<edge.length;i++){const a=edge[i],b=edge[(i+1)%edge.length];ix.push(a,b,a+stride,b,b+stride,a+stride);}
+    const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.computeVertexNormals();g.setAttribute('uv',new T.Float32BufferAttribute(p.flatMap((v,i)=>i%3===0?[v,p[i+2]]:[]),2));g.userData.architectureMember='roof-fitted-closed-upper-ceiling214-r20';emit(g,'dark',0,0,0);
+  }else box(0,ceiling-.045,-.45,13.25,.14,8.0,'dark');
   for(let i=0;i<=7;i++)box(-6.56+i*13.12/7,10.40,-.45,.19,.27,8.0,'wood');
   for(const z of[-4.55,3.4])for(let i=-3;i<=3;i++){
-    if(eaveFrame)eaveFrame(i*2.22,z,8.58,10.43,.24);
+    if(eaveFrame)eaveFrame(i*2.22,z,8.58,10.43,.205);
     else{column(i*2.22,z,8.58,1.85,.24);bracket(i*2.22,10.43,z,.90);}
   }
-  for(const z of[-4.55,3.4])for(const y of[10.02,10.40,10.68])box(0,y,z,14.8,.20,.42,'red');
-  for(let i=-3;i<3;i++)carvedPanel((i+.5)*2.22,10.35,3.64,1.80,.29);
-  rail(Array.from({length:17},(_,i)=>[-7.2+i*.9,floor,3.95]),.82);
-  for(const sign of[-1,1])rail(Array.from({length:9},(_,i)=>[sign*7.2,floor,-4.45+i*1.05]),.82);
-  return{revision:OCCUPIED_HALL_REVISION152,floorY:floor,frontWallZ:front,rearWallZ:back,halfWidth:half,ceilingY:ceiling,frontGalleryDepth:1.60,closedRoom:true,photoEquivalent:false};
+  for(const z of[-4.55,3.4])for(const y of[10.02,10.40,10.68]){
+    if(!roofBottomAt){box(0,y,z,14.8,.20,.42,'red');continue;}
+    const step=.05,N=296,valid=x=>Math.min(roofBottomAt(x,z-.23),roofBottomAt(x,z),roofBottomAt(x,z+.23))>y+.135;let start=null;
+    for(let i=0;i<=N;i++){const x=-7.4+i*step,on=valid(x);if(on&&start===null)start=x;if(start!==null&&(!on||i===N)){const end=on?x:x-step;if(end-start>.10)box((start+end)/2,y,z,end-start,.20,.42,'red');start=null;}}
+  }
+  for(let i=-3;i<3;i++){
+    const x=(i+.5)*2.22,height=.36,top=roofBottomAt?Math.min(...[-.94,0,.94].flatMap(dx=>[-.12,0,.30].map(dz=>roofBottomAt(x+dx,3.64+dz))))-.075:10.35+height/2,y=Math.min(10.35,top-height/2);
+    carvedPanel(x,y,3.64,1.80,height);
+  }
+  galleryRail(Array.from({length:17},(_,i)=>[-7.2+i*.9,floor,3.95]),.82);
+  for(const sign of[-1,1])galleryRail(Array.from({length:9},(_,i)=>[sign*7.2,floor,-4.45+i*1.05]),.82);
+  return{revision:OCCUPIED_HALL_REVISION152,floorY:floor,frontWallZ:front,rearWallZ:back,halfWidth:half,ceilingY:ceiling,roofFittedClosedCeiling:!!roofBottomAt,upperTiesTrimmedToActualRoof:!!roofBottomAt,frontGalleryDepth:1.20,closedRoom:true,galleryRailing:'Flat timber crests, narrow pickets and selected small metal caps; no repeated bulbous gold finials',frontBays:['plaster','shutter','lattice','open','lattice','shutter','plaster'],photoEquivalent:false};
 }

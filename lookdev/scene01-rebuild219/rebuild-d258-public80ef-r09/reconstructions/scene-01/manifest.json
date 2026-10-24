@@ -1,0 +1,41 @@
+{
+  "reference": 1,
+  "entry": "index.html",
+  "revision": "163-solid-formed-ridge-carried-eaves-and-tall-gallery-r04",
+  "source": "references/hd/0-照片-1.jpg",
+  "engine": "Three.js WebGLRenderer",
+  "proceduralOnly": false,
+  "camera": {
+    "position": [
+      0,
+      3.2,
+      17
+    ],
+    "target": [
+      0,
+      6.2,
+      -13
+    ],
+    "fov": 59,
+    "deckY": 1.8,
+    "eyeAboveDeck": 1.4
+  },
+  "api": [
+    "ready",
+    "renderer",
+    "scene",
+    "camera",
+    "renderReference",
+    "renderView",
+    "renderShot",
+    "info",
+    "dispose"
+  ],
+  "visualAcceptance": "Held reconstruction draft; native comparison required, photographic acceptance false.",
+  "externalAssets": true,
+  "architectureProvenance": "layout148-provenance.json",
+  "sculptureProvenance": "sculpture149-provenance.json",
+  "materialProvenance": "material150-provenance.json",
+  "facadeProvenance": "facade161-provenance.json",
+  "massProvenance": "mass163-provenance.json"
+}

@@ -1,0 +1,273 @@
+{
+  "revision": "scene07-rebuild214-r21",
+  "sourceIdentity": "16018796da17346b1125c2be8919626de6b07d316f226b60ef375f32bd0e618a",
+  "status": "Third actual full/hero/low inspected; known cap/plaque crossings cleared, two residual hip-rafter crossings found and retained for R22 repair",
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "countsAsVisualIteration": true,
+  "improvements": [
+    "Whole-cap envelope, full-footprint seats and dense receiving beams remove the large R20 left roof penetration.",
+    "Upper carved friezes and the smaller solid plaque are rehung below the actual eave; raised gold no longer lies on the roof.",
+    "Existing cast roughness/height surface fields give gilt a real small-scale physical reflection response; wood effective albedo is bounded."
+  ],
+  "failures": [
+    "Two red slits beside the right gable are real outer section corners of face1/u1 main rafter, not intentional gable openings.",
+    "Exact original-frame CPU ray hits exceed the analytical roof by0.097984 and0.066850 model metres."
+  ],
+  "diagnosis": [
+    {
+      "pixel": [
+        1006.9,
+        322.65
+      ],
+      "firstHit": {
+        "object": "125:red:BufferGeometry",
+        "face": 19180,
+        "component": {
+          "faceFirst": 19176,
+          "faceLast": 19291,
+          "trace": [
+            "157",
+            "84"
+          ],
+          "rafter": {
+            "face": 1,
+            "u": 1
+          }
+        },
+        "world": [
+          9.471474885009705,
+          16.206939696913356,
+          -20.54581715560769
+        ],
+        "local": [
+          5.650692304690422,
+          11.85628222152058,
+          6.174750068130031
+        ],
+        "roofY": 11.758298259124908,
+        "excess": 0.09798396239567175,
+        "normal": [
+          0.31794314905891685,
+          0.7223675991151989,
+          0.6140824095469947
+        ]
+      }
+    },
+    {
+      "pixel": [
+        1009.5556,
+        336.2222
+      ],
+      "firstHit": {
+        "object": "125:red:BufferGeometry",
+        "face": 19196,
+        "component": {
+          "faceFirst": 19176,
+          "faceLast": 19291,
+          "trace": [
+            "157",
+            "84"
+          ],
+          "rafter": {
+            "face": 1,
+            "u": 1
+          }
+        },
+        "world": [
+          9.598662515144522,
+          15.675389694116532,
+          -19.887200412072435
+        ],
+        "local": [
+          5.855105208052926,
+          11.424829297172511,
+          6.608089511483152
+        ],
+        "roofY": 11.357979115513967,
+        "excess": 0.06685018165854473,
+        "normal": [
+          0.2982215298603383,
+          0.7626373173093346,
+          0.5739758195037317
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "variant": "r21",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r21/report.json",
+      "source": "16018796da17346b1125c2be8919626de6b07d316f226b60ef375f32bd0e618a",
+      "matchesCurrent": false,
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "detailCrop": {
+        "pixels": [
+          510,
+          300,
+          690,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "7e3adb37dbb4cbb8ad2d80f2d71c78641564ccdaa36c787ea779f359d06e18a3",
+          "pngSha256": "89ef5c1d42f1b8685baf61172eeb519d3c5333bca7e9fa5db57785de55f2b7de",
+          "samplerMaximum": 14,
+          "fragmentSamplerLimit": 16,
+          "withinSamplerBudget": true
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "1d045375fbbed759bba03a144935ade6bab494a698f843da04f4c5084b537d8e",
+          "pngSha256": "4b5485cab631a233d06d08fd0179a50c7eec990109a4a2a43321b4abb9812364",
+          "samplerMaximum": 14,
+          "fragmentSamplerLimit": 16,
+          "withinSamplerBudget": true
+        }
+      ],
+      "referenceFirstSurfacePicks": [
+        {
+          "pixel": [
+            0.621,
+            0.197
+          ],
+          "firstHit": {
+            "point": [
+              -1.5340300797985442,
+              20.760655501094934,
+              -34.243039386511676
+            ],
+            "geometry": "BufferGeometry",
+            "material": [
+              "scene07-neutral-fired-clay-and-measured-glaze214"
+            ]
+          }
+        },
+        {
+          "pixel": [
+            0.804,
+            0.263
+          ],
+          "firstHit": {
+            "point": [
+              9.538182580418201,
+              15.9191848298124,
+              -20.084631981368382
+            ],
+            "geometry": "BufferGeometry",
+            "material": [
+              "scene07-neutral-fired-clay-and-measured-glaze214"
+            ]
+          }
+        },
+        {
+          "pixel": [
+            0.612,
+            0.291
+          ],
+          "firstHit": {
+            "point": [
+              0.302280450242562,
+              14.773575592672378,
+              -21.505053871035003
+            ],
+            "geometry": "BufferGeometry",
+            "material": [
+              "scene07-neutral-fired-clay-and-measured-glaze214"
+            ]
+          }
+        },
+        {
+          "pixel": [
+            0.605,
+            0.318
+          ],
+          "firstHit": {
+            "point": [
+              -0.13336108705040967,
+              13.45247627634132,
+              -22.042520160530312
+            ],
+            "geometry": "RoundedBoxGeometry",
+            "material": [
+              "scene07-upper-porch-local-radiance-af081a79-5cd1-4d22-afa3-b0c3ae5c31b6"
+            ]
+          }
+        }
+      ],
+      "matchesOwnRevision": true
+    },
+    {
+      "variant": "r21-near-shore-low",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r21-near-shore-low/report.json",
+      "source": "16018796da17346b1125c2be8919626de6b07d316f226b60ef375f32bd0e618a",
+      "matchesCurrent": false,
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "detailCrop": null,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "f5197e188d34b1b58d2b41107fd39617dddb9b39c58320c47996ff23a71f82a8",
+          "pngSha256": "371d8af58b9455a2a5a11f770c4d2b519f01737a56bb20d42a734f247774b585",
+          "samplerMaximum": 14,
+          "fragmentSamplerLimit": 16,
+          "withinSamplerBudget": true
+        }
+      ],
+      "matchesOwnRevision": true
+    }
+  ]
+}

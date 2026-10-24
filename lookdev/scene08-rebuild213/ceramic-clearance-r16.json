@@ -1,0 +1,114 @@
+{
+  "source": "fdb18436682729c2f5dcbc4d515fbc94abc570dea48ff259c8027d070c3b68d3",
+  "round": "r16",
+  "scope": "Pure CPU actual ceramic wrappers and source roof-authoring block, actual closed ceramic mesh vertices versus actual weather triangles shifted down .14m for the real soffit. No renderer/export.",
+  "counts": {
+    "cover": 2156,
+    "pan": 2100,
+    "verticesInRoof": 883636,
+    "verticesOutsideWeatherFootprint": 7492,
+    "belowSoffitVertices": 23640,
+    "penetratingTileBodies": 984
+  },
+  "minimumSoffitClearanceMetres": -0.6641834689129809,
+  "firstViolations": [
+    {
+      "instance": 28,
+      "type": "cover",
+      "minimumSoffitClearance": -0.01337537363584751,
+      "belowSoffitVertices": 4
+    },
+    {
+      "instance": 29,
+      "type": "cover",
+      "minimumSoffitClearance": -0.014398725559699344,
+      "belowSoffitVertices": 1
+    },
+    {
+      "instance": 518,
+      "type": "cover",
+      "minimumSoffitClearance": -0.023541707189076888,
+      "belowSoffitVertices": 5
+    },
+    {
+      "instance": 519,
+      "type": "cover",
+      "minimumSoffitClearance": -0.02038416316235825,
+      "belowSoffitVertices": 2
+    },
+    {
+      "instance": 574,
+      "type": "pan",
+      "minimumSoffitClearance": -0.06509952453895096,
+      "belowSoffitVertices": 24
+    },
+    {
+      "instance": 575,
+      "type": "pan",
+      "minimumSoffitClearance": -0.06487088145953912,
+      "belowSoffitVertices": 24
+    },
+    {
+      "instance": 576,
+      "type": "pan",
+      "minimumSoffitClearance": -0.06394378187243888,
+      "belowSoffitVertices": 24
+    },
+    {
+      "instance": 577,
+      "type": "pan",
+      "minimumSoffitClearance": -0.04601436325881458,
+      "belowSoffitVertices": 22
+    },
+    {
+      "instance": 578,
+      "type": "pan",
+      "minimumSoffitClearance": -0.046292162405466186,
+      "belowSoffitVertices": 14
+    },
+    {
+      "instance": 579,
+      "type": "pan",
+      "minimumSoffitClearance": -0.025412782969032932,
+      "belowSoffitVertices": 10
+    },
+    {
+      "instance": 580,
+      "type": "pan",
+      "minimumSoffitClearance": -0.018822509192350623,
+      "belowSoffitVertices": 7
+    },
+    {
+      "instance": 581,
+      "type": "pan",
+      "minimumSoffitClearance": -0.006583865802777922,
+      "belowSoffitVertices": 1
+    },
+    {
+      "instance": 588,
+      "type": "pan",
+      "minimumSoffitClearance": -0.15761233689580934,
+      "belowSoffitVertices": 37
+    },
+    {
+      "instance": 589,
+      "type": "pan",
+      "minimumSoffitClearance": -0.13652630573478142,
+      "belowSoffitVertices": 42
+    },
+    {
+      "instance": 590,
+      "type": "pan",
+      "minimumSoffitClearance": -0.1028579926796862,
+      "belowSoffitVertices": 33
+    },
+    {
+      "instance": 591,
+      "type": "pan",
+      "minimumSoffitClearance": -0.0733205071591918,
+      "belowSoffitVertices": 27
+    }
+  ],
+  "allSampledCeramicVerticesAboveSoffit": false,
+  "visualAccepted": false
+}

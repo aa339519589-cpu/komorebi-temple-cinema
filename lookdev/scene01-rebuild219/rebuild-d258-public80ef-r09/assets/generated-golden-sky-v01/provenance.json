@@ -1,0 +1,11 @@
+{
+  "provider": "OpenAI built-in imagegen",
+  "generated": true,
+  "createdFor": "Sky-only environment asset for an independently modeled 3D scene",
+  "sourceImage": "/Users/mima1234/.codex/generated_images/01a143e6-02b8-7ad0-a43a-b0a10a2f9f28/exec-1f44ab3f-f903-4e6a-8211-df7fb5eb1b70.png",
+  "sha256": "482ea8c208dc06a1f8b3001b7cc6904507e3766d0364880e25a8980278922f3c",
+  "referencePhotoPixelsUsed": false,
+  "containsArchitectureOrGarden": false,
+  "prompt": "Use case: photorealistic-natural. Asset type: a sky-only 360 by 180 degree equirectangular environment texture for an independently modeled 3D temple film. Create a seamless 2:1 latitude-longitude panorama, ideally 3072x1536 or 2048x1024. The horizon is exactly at 50 percent image height. Only atmosphere and clouds; absolutely no terrain, mountains, buildings, temples, trees, water, people, objects, text, labels, border, lens flare, or foreground. Fill the lower hemisphere with an unobtrusive soft warm gray atmospheric gradient. In the upper hemisphere show a realistic luminous golden-hour sky: fine scattered small stratocumulus and wispy cirrus, delicate glowing apricot and honey-gold rims, peach shaded undersides, pale blue higher gaps, rich natural cloud detail and photographic tonal depth. The dominant warm low sunlight glow is at longitude 25 percent image width and elevation 11.5 degrees (about 43.6 percent image height), with a concentrated bright amber-white region but NO hard solar disc: the 3D renderer will supply its own sun. Warm cream and saturated peach clouds around that direction; a more subdued dusty blue and rose sky on the opposite half. The warm region should feel radiant and cinematic, with clearly separated small luminous cloud masses, not flat overcast gray, not a uniformly orange wash. Seamless left/right edges and correct equirectangular polar distortion; this is a spherical environment map, not a conventional flat landscape photograph. Create a brand-new photographic sky texture, not a reconstructed scene or a replacement temple frame.",
+  "radiance": "LDR sRGB values decoded to linear and multiplied by 3; artistic radiance proxy, not measured HDR. Renderer supplies independent analytic solar disc."
+}

@@ -4,13 +4,13 @@ import {prism124} from './layout-components124.js';
 
 // Actual bridge/court recovery208. The original reference and low cameras
 // remain. Bridge placement and connected routes are physical 3D construction.
-const G=L.bridge,H=G.halfSpan,S=L.stair,TAU=Math.PI*2;
+const G=L.bridge,H=G.halfSpan,S=L.stair,C=S.width/2+.17,TAU=Math.PI*2;
 const matrix=new T.Matrix4().compose(new T.Vector3(...G.position),new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),G.yaw),new T.Vector3(...G.scale)),inverse=matrix.clone().invert();
 const D=x=>G.deckBaseline+.085+G.archRise*(1-(x/H)**2)+G.slope*x/H;
 const W=(u,v)=>new T.Vector3(u,0,v).applyMatrix4(matrix),UV=(x,z)=>new T.Vector3(x,G.position[1],z).applyMatrix4(inverse);
 const eastY=G.position[1]+D(H),westY=G.position[1]+D(-H),turnY=(eastY+S.landingY)/2,halfDescent=eastY-turnY;
 const hallYaw=L.hall.yaw,axisZ=new T.Vector3(Math.sin(hallYaw),0,Math.cos(hallYaw)),flightTop=new T.Vector3(...S.top).addScaledVector(axisZ,S.topLanding.forwardOffset),foot=new T.Vector3(...S.bottom),forward=foot.clone().sub(flightTop).setY(0).normalize(),across=new T.Vector3(-forward.z,0,forward.x);
-const courtBackL=foot.clone().addScaledVector(across,1.90),courtBackR=foot.clone().addScaledVector(across,-1.90),courtFrontL=courtBackL.clone().addScaledVector(forward,1.95),courtFrontR=courtBackR.clone().addScaledVector(forward,1.95);
+const courtBackL=foot.clone().addScaledVector(across,C),courtBackR=foot.clone().addScaledVector(across,-C),courtFrontL=courtBackL.clone().addScaledVector(forward,1.95),courtFrontR=courtBackR.clone().addScaledVector(forward,1.95);
 const leftA=UV(courtBackL.x,courtBackL.z),leftB=UV(courtFrontL.x,courtFrontL.z),endU=v=>leftA.x+(leftB.x-leftA.x)*(v-leftA.z)/(leftB.z-leftA.z);
 const E=H+1.06,westU=-H-1.15,backV=-3.90,frontV=-2.65;
 export const PLAN208={eastEndY:eastY,westEndY:westY,turnY,stairCourtY:S.landingY,bridgeDeckTop:D(0)+G.position[1],eastLanding:{u:[H,E],v:[-1.10,1.10]},northFlight:{u:[H,E],v:[-2.65,-1.10],risers:3},turnLanding:{u:[H,E],v:[backV,frontV]},eastFlight:{u0:E,v:[backV,frontV],risers:3,receivingEdge:'Actual oblique left boundary of forecourt'},westLanding:{u:[westU,-H],v:[-1.10,1.10]},westFlight:{u:[westU,-H],v:[-4.60,-1.10],risers:10},court:[courtBackL,courtBackR,courtFrontR,courtFrontL].map(p=>[p.x,p.z]),stairFoot:S.bottom,cameraOrDollyChanged:false};
@@ -21,7 +21,7 @@ function region208(u,v,margin=0){
  const vv=T.MathUtils.clamp(v,backV,frontV),eu=endU(vv),eastFlight=outsideRect(u,v,E,eu,backV,frontV);
  return[{distance:east,y:eastY},{distance:north,y:eastY-halfDescent*T.MathUtils.clamp((-v-1.10)/1.55,0,1)},{distance:turn,y:turnY},{distance:eastFlight,y:turnY+(S.landingY-turnY)*T.MathUtils.clamp((u-E)/(eu-E),0,1)},{distance:west,y:westY},{distance:westFlight,y:westY+(1.69-westY)*T.MathUtils.clamp((-v-1.10)/3.50,0,1)}];
 }
-function courtCoordinates(x,z){const q=new T.Vector3(x,0,z).sub(foot),u=q.dot(across),v=q.dot(forward);return{u,v,distance:Math.hypot(Math.max(Math.abs(u)-1.90,0),Math.max(-v,0,v-1.95))};}
+function courtCoordinates(x,z){const q=new T.Vector3(x,0,z).sub(foot),u=q.dot(across),v=q.dot(forward);return{u,v,distance:Math.hypot(Math.max(Math.abs(u)-C,0),Math.max(-v,0,v-1.95))};}
 export function routeClearance208(x,z,margin=.15){
  const p=UV(x,z),regions=region208(p.x,p.z),court=courtCoordinates(x,z);
  return regions.some(q=>q.distance<=margin)||court.distance<=margin;
@@ -132,9 +132,25 @@ function block208(B,poly,lo,hi,mat,name){if(hi>lo){
  g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();B.emit(g,mat);
 }}
 function uvBlock208(B,a,b,c,d,lo,hi,mat,name){block208(B,uvPoly208([[a,c],[b,c],[b,d],[a,d]]),lo,hi,mat,name);}
+//219-R14: each route foundation retains the exact upper walking boundary,
+// but exposes closed laid stones instead of an uninterrupted poured-looking face.
+function foundation219(B,poly,lo,hi,name){
+ const center=poly.reduce((q,p)=>[q[0]+p[0]/poly.length,q[1]+p[1]/poly.length],[0,0]),inset=poly.map(p=>{const d=Math.hypot(center[0]-p[0],center[1]-p[1]);return[p[0]+(center[0]-p[0])*.10/d,p[1]+(center[1]-p[1])*.10/d];});
+ block208(B,inset,lo,hi,'route219Masonry',name+'-closed-inset-bearing-core');
+ const rows=Math.max(1,Math.ceil((hi-lo)/.28)),dy=(hi-lo)/rows;
+ for(let row=0;row<rows;row++)for(let edge=0;edge<poly.length;edge++){
+  const a=poly[edge],b=poly[(edge+1)%poly.length],len=Math.hypot(b[0]-a[0],b[1]-a[1]),pieces=Math.max(1,Math.ceil(len/.54)),cuts=[0];
+  for(let k=0;k<pieces;k++){const t=(k+.5*(row%2))/pieces;if(t>.001&&t<.999)cuts.push(t);}cuts.push(1);cuts.sort((a,b)=>a-b);
+  for(let k=0;k<cuts.length-1;k++){
+   const t0=cuts[k]+.005/len,t1=cuts[k+1]-.005/len;if(t1<=t0)continue;
+   const p=[a[0]+(b[0]-a[0])*t0,a[1]+(b[1]-a[1])*t0],q=[a[0]+(b[0]-a[0])*t1,a[1]+(b[1]-a[1])*t1],mid=[(p[0]+q[0])/2,(p[1]+q[1])/2],distance=Math.hypot(center[0]-mid[0],center[1]-mid[1]),dx=(center[0]-mid[0])*.17/distance,dz=(center[1]-mid[1])*.17/distance;
+   block208(B,[p,q,[q[0]+dx,q[1]+dz],[p[0]+dx,p[1]+dz]],lo+row*dy+.006,lo+(row+1)*dy-.006,'route219Masonry',name+'-individual-staggered-face-stone');
+  }
+ }
+}
 function endLanding208(B,sign){
  const end=sign*H,outer=sign>0?E:westU,top=sign>0?eastY:westY,seat=top-.53,sleeperBottom=seat-.07,mouthTop=seat+.012,inner=end-sign*.26,pocketBack=end+sign*.235;
- const span=(a,b,c,d,lo,hi,mat,name)=>uvBlock208(B,Math.min(a,b),Math.max(a,b),c,d,lo,hi,mat,name);
+ const span=(a,b,c,d,lo,hi,mat,name)=>{const poly=uvPoly208([[Math.min(a,b),c],[Math.max(a,b),c],[Math.max(a,b),d],[Math.min(a,b),d]]);if(mat==='stone'&&hi-lo>.30)foundation219(B,poly,lo,hi,name);else block208(B,poly,lo,hi,mat==='stone'?'route219Masonry':mat,name);};
  // Continuous buried footing, with six individual receiving recesses. The
  // front bearing ledge reaches below the arch, while the full-height
  // landing begins at the same end plane as the timber deck.
@@ -157,30 +173,43 @@ function endLanding208(B,sign){
  span(end,outer,-1.17,1.17,top-.065,top,'stoneLight','structure208-level-end-landing-cap');
 }
 export function buildCourt208(B){
+ //219-R13: reclaimed masonry is a separate rough original stone finish;
+ // retain the existing world-weathering hook rather than cloning it away.
+ const masonry=B.m.stone.clone();masonry.name='route219-weathered-cut-bearing-stone';masonry.roughness=.98;masonry.onBeforeCompile=B.m.stone.onBeforeCompile;masonry.customProgramCacheKey=()=>B.m.stone.customProgramCacheKey()+'-route219-cut-masonry';B.m.route219Masonry=masonry;
  B.label('structure208-bearing-bridge-landings-and-turning-stair-route',()=>{
   endLanding208(B,1);endLanding208(B,-1);
   for(let i=0;i<3;i++){
    const a=-1.10-1.55*i/3,b=-1.10-1.55*(i+1)/3,y=eastY-halfDescent*(i+1)/3;
-   uvBlock208(B,H,E,b,a,.05,y-.055,'stone','structure208-north-flight-bearing-course');uvBlock208(B,H,E,b,a,y-.055,y,'stoneLight','structure208-north-flight-tread');
+   foundation219(B,uvPoly208([[H,b],[E,b],[E,a],[H,a]]),.05,y-.055,'structure208-north-flight-bearing-course');uvBlock208(B,H,E,b,a,y-.055,y,'stoneLight','structure208-north-flight-tread');
   }
-  uvBlock208(B,H,E,backV,frontV,.05,turnY-.055,'stone','structure208-full-width-corner-landing-footing');uvBlock208(B,H,E,backV,frontV,turnY-.055,turnY,'stoneLight','structure208-full-width-corner-turn-landing');
+  foundation219(B,uvPoly208([[H,backV],[E,backV],[E,frontV],[H,frontV]]),.05,turnY-.055,'structure208-full-width-corner-landing-footing');uvBlock208(B,H,E,backV,frontV,turnY-.055,turnY,'stoneLight','structure208-full-width-corner-turn-landing');
   for(let i=0;i<3;i++){
    const t0=i/3,t1=(i+1)/3,poly=uvPoly208([[E+(endU(backV)-E)*t0,backV],[E+(endU(backV)-E)*t1,backV],[E+(endU(frontV)-E)*t1,frontV],[E+(endU(frontV)-E)*t0,frontV]]),y=turnY+(S.landingY-turnY)*t1;
-   block208(B,poly,.05,y-.055,'stone','structure208-angled-flight-bearing-course');block208(B,poly,y-.055,y,'stoneLight','structure208-angled-tread-to-exact-court-boundary');
+   foundation219(B,poly,.05,y-.055,'structure208-angled-flight-bearing-course');block208(B,poly,y-.055,y,'stoneLight','structure208-angled-tread-to-exact-court-boundary');
   }
   for(let i=0;i<10;i++){
    const a=-1.10-3.50*i/10,b=-1.10-3.50*(i+1)/10,y=westY+(1.69-westY)*(i+1)/10;
-   uvBlock208(B,westU,-H,b,a,.05,y-.055,'stone','structure208-west-garden-flight-footing');uvBlock208(B,westU,-H,b,a,y-.055,y,'stoneLight','structure208-west-flight-rooted-into-back-bank');
+   foundation219(B,uvPoly208([[westU,b],[-H,b],[-H,a],[westU,a]]),.05,y-.055,'structure208-west-garden-flight-footing');uvBlock208(B,westU,-H,b,a,y-.055,y,'stoneLight','structure208-west-flight-rooted-into-back-bank');
   }
  });
  B.label('structure208-stair-forecourt-meeting-oblique-flight-foot',()=>{
-  const poly=PLAN208.court;block208(B,poly,.25,2.045,'stone','structure208-solid-forecourt-bearing');
+  const poly=PLAN208.court,atCourt=(u,v)=>foot.clone().addScaledVector(across,-C+2*C*u).addScaledVector(forward,1.95*v),patch=(u0,u1,v0,v1)=>[atCourt(u0,v0),atCourt(u1,v0),atCourt(u1,v1),atCourt(u0,v1)].map(p=>[p.x,p.z]);
+  // A closed inner footing carries the cut flags. Its exposed faces are
+  // actual staggered ashlar courses, meeting the receiving route and bank;
+  // no full-height unjointed grey slab remains on the pond side.
+  block208(B,patch(.035,.965,.035,.965),.25,2.045,'route219Masonry','structure208-inset-solid-forecourt-masonry-core');
+  for(let row=0;row<6;row++){
+   const lo=.25+1.795*row/6+.006,hi=.25+1.795*(row+1)/6-.006,cuts=[0];
+   for(let k=0;k<6;k++){const u=(k+.5*(row%2))/6;if(u>.001&&u<.999)cuts.push(u);}cuts.push(1);cuts.sort((a,b)=>a-b);
+   for(let k=0;k<cuts.length-1;k++){const a=cuts[k]+.0018,b=cuts[k+1]-.0018;block208(B,patch(a,b,.915,1),lo,hi,'route219Masonry','structure208-staggered-pond-facing-forecourt-ashlar');}
+   for(const [a,b]of[[0,.085],[.915,1]])for(let j=0;j<4;j++)block208(B,patch(a,b,j/4+.003,(j+1)/4-.003),lo,hi,'route219Masonry','structure208-coursed-forecourt-side-return');
+  }
   for(let i=0;i<6;i++)for(let j=0;j<4;j++){
-   const at=(u,v)=>foot.clone().addScaledVector(across,-1.90+3.80*u).addScaledVector(forward,1.95*v),u0=i/6+.0010,u1=(i+1)/6-.0010,v0=j/4+.0015,v1=(j+1)/4-.0015,p=[at(u0,v0),at(u1,v0),at(u1,v1),at(u0,v1)].map(q=>[q.x,q.z]);
+   const at=(u,v)=>foot.clone().addScaledVector(across,-C+2*C*u).addScaledVector(forward,1.95*v),u0=i/6+.0010,u1=(i+1)/6-.0010,v0=j/4+.0015,v1=(j+1)/4-.0015,p=[at(u0,v0),at(u1,v0),at(u1,v1),at(u0,v1)].map(q=>[q.x,q.z]);
    block208(B,p,2.045,2.10,'stoneLight','structure208-court-closed-cut-stone-flag');
   }
  });
- B.layout124??={};B.layout124.court208={revision:208,plan:PLAN208,continuousMasonryBelowAllTreads:true,exactHallStairFoot:S.bottom,stoneForecourtWidth:3.80,stoneForecourtDepth:1.95,oldRaisedPavingAndNarrowDisconnectedRouteRemoved:true,visualAccepted:false};
+ B.layout124??={};B.layout124.court208={revision:'219-r15-weathered-cut-stone-connected-route',plan:PLAN208,continuousMasonryBelowAllTreads:true,individualExposedAshlarCourses:6,exactHallStairFoot:S.bottom,stoneForecourtWidth:2*C,stoneForecourtDepth:1.95,oldRaisedPavingAndNarrowDisconnectedRouteRemoved:true,visualAccepted:false};
 }
 
 // Reuse actual source instances for structural views. Full reference, hero,

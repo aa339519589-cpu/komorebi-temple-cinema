@@ -1,0 +1,19 @@
+{
+  "source": "9eb4c94ad9c990d6d1de8fae3c13bb3cf30ca24088e57a1500fe38bd4f17bf54",
+  "actualViewed": [
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r12/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r12/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r12-low3q/inspection-view.png"
+  ],
+  "status": "round3-native-reviewed-target-two-remaining-bare-bank-zones",
+  "improvements": [
+    "Terrain-following runners and leaf pairs replace the low woody weed morphology; lower framing forks meet actual parent curves and all16 grouped scan rocks intersect soil.",
+    "Creek stays narrow and turns away from the near frame; dry mineral faces and wet surface response are more legible."
+  ],
+  "remaining": [
+    "Actual camera rays locate two remaining exposed areas aroundworld[.75,1.63,-3.21] and[2.72,.858,2.09]. Add roots at these locations rather than guessing another broad random layer.",
+    "Shadow regions still lose material/leaf detail relative to the HD reference. Calibrate the actual measured-sky and single-sun illumination, keeping camera exposure held.",
+    "Overall photograph-specific architecture/canopy/lighting acceptance remains false."
+  ],
+  "visualAccepted": false
+}

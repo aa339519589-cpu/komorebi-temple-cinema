@@ -1,0 +1,21 @@
+{
+  "status": "CPU-ready-no-new-GPU-job-submitted",
+  "createdAt": "2026-10-23T23:40:35.163340+00:00",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "reusesVerifiedExport": "export-physical-r09",
+  "onlyPhysicalDifference": "Use RNA r=atan2(D.x,D.y) rather than atan2(D.y,D.x); source sun direction/sky model/energy/geometry/materials/camera unchanged. Add actual-RNA forward direction and projection residual guards before importing geometry.",
+  "files": {
+    "physical-r09c-settings.json": {
+      "bytes": 6853,
+      "sha256": "8b6bbb30fe0489467dd928345976d84d5bcc05c21e69c23914cd4a9fd9f83b38"
+    },
+    "render-physical219-r09c.py": {
+      "bytes": 42950,
+      "sha256": "71cb236f2c3201f0fd43424b6d4fc429679d17a20ef722fbe1ca4b34167111d0"
+    },
+    "run-physical219-r09c.mjs": {
+      "bytes": 3578,
+      "sha256": "77b0c905e4be39ba3d4df0a26041d96b55ac60800ac0783efac8777a8cf8fa28"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "status": "CPU-prepared-not-submitted",
+  "writtenAt": "2026-10-23T23:30:46.377067+00:00",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "priorFailurePreserved": true,
+  "reusesAlreadyVerifiedExport": "lookdev/scene01-rebuild219/export-physical-r09",
+  "exportVerification": "lookdev/scene01-rebuild219/export-verification-r09.json",
+  "repair": {
+    "previousFailedPhysicalAttempt": "physical-r09",
+    "originalExportReused": "lookdev/scene01-rebuild219/export-physical-r09",
+    "freshExport": false,
+    "scope": "Only dust_density API name repaired to aerosol_density from official Blender5.x API and current5.2 API index. Same actual source sun, already selected atmosphere model, density1.2, geometry/textures and96sample1254 one-frame recipe.",
+    "officialSources": [
+      {
+        "url": "https://docs.blender.org/api/current/genindex-A.html",
+        "evidence": "Official API search snapshot labeled5.2 indexes aerosol_density under ShaderNodeTexSky; direct specific5.2 API page403/402."
+      },
+      {
+        "url": "https://docs.blender.org/api/5.1/bpy.types.ShaderNodeTexSky.html",
+        "evidence": "Official5.1 API explicitly documents aerosol_density and the same actual-installed sky_type enum set."
+      },
+      {
+        "url": "https://docs.staging.blender.org/manual/en/latest/render/shader_nodes/textures/sky.html",
+        "evidence": "Official5.2 staging manual search snapshot describes Aerosols; direct open403."
+      }
+    ],
+    "actualR09bRNAConfirmed": false,
+    "physicalAttemptAuthorized": false
+  },
+  "files": {
+    "physical-r09b-settings.json": {
+      "bytes": 5525,
+      "sha256": "79ea0f418791333d066124c77064c5e9c0927b1e0e1480d86d3a0ec6fbd954ed"
+    },
+    "render-physical219-r09b.py": {
+      "bytes": 40343,
+      "sha256": "0d9adcc5d0cae820355865be743834abfde69875aa18f60c5b1676293bf22a6d"
+    },
+    "run-physical219-r09b.mjs": {
+      "bytes": 3435,
+      "sha256": "6e34721b9e840a61b87154c4c6958f6316a206063b500b9b7ecadf7da0ff2ab6"
+    }
+  }
+}

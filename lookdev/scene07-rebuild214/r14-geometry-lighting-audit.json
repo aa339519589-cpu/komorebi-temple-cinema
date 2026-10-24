@@ -1,0 +1,156 @@
+{
+  "revision": "scene07-rebuild214-r14",
+  "source": "7bc17368f7f26ead1c4f6bfb95fcbd5f99ddc58eb51d19dad262966f7314bddf",
+  "status": "CPU geometry/shader preflight; actual native capture pending",
+  "visualAccepted": false,
+  "terrainBounds": {
+    "min": [
+      -48,
+      -0.3400000035762787,
+      -64
+    ],
+    "max": [
+      36,
+      3.7761776447296143,
+      20
+    ]
+  },
+  "bedPoints": [
+    {
+      "local": [
+        -5.65,
+        5.5
+      ],
+      "worldXZ": [
+        -7.409107741991026,
+        -21.496339670531306
+      ],
+      "soil": 3.159265278022548,
+      "route": false
+    },
+    {
+      "local": [
+        -5.65,
+        7
+      ],
+      "worldXZ": [
+        -7.928656056425524,
+        -19.461623584938955
+      ],
+      "soil": 2.0930568206295166,
+      "route": false
+    },
+    {
+      "local": [
+        -5.65,
+        8.5
+      ],
+      "worldXZ": [
+        -8.448204370860022,
+        -17.426907499346605
+      ],
+      "soil": -0.33996230320429865,
+      "route": true
+    },
+    {
+      "local": [
+        -5.65,
+        9.5
+      ],
+      "worldXZ": [
+        -8.794569913816353,
+        -16.070430108951697
+      ],
+      "soil": -0.3399017212267302,
+      "route": true
+    },
+    {
+      "local": [
+        5.65,
+        5.5
+      ],
+      "worldXZ": [
+        7.919086769471374,
+        -17.582409035124755
+      ],
+      "soil": 3.159265278022547,
+      "route": false
+    },
+    {
+      "local": [
+        5.65,
+        7
+      ],
+      "worldXZ": [
+        7.3995384550368755,
+        -15.547692949532404
+      ],
+      "soil": 2.093056820629521,
+      "route": false
+    },
+    {
+      "local": [
+        5.65,
+        8.5
+      ],
+      "worldXZ": [
+        6.879990140602376,
+        -13.512976863940054
+      ],
+      "soil": 0.731911735073437,
+      "route": true
+    },
+    {
+      "local": [
+        5.65,
+        9.5
+      ],
+      "worldXZ": [
+        6.533624597646043,
+        -12.156499473545146
+      ],
+      "soil": 0.8538555494744795,
+      "route": true
+    }
+  ],
+  "needlePrototypes": {
+    "vertices": 23148,
+    "minNormalLength": 0.99999995927364,
+    "maxNormalLength": 1.0000000392902229,
+    "retainedDiameterMetres": [
+      0.0025,
+      0.0034
+    ],
+    "outerDiameterMetres": [
+      0.0016,
+      0.0023
+    ],
+    "previousRetainedDiameterMetres": [
+      0.007,
+      0.0102
+    ]
+  },
+  "garden": {
+    "revision": "scene07-foundation-shoulder-azalea-volumes214-r14",
+    "plants": 102,
+    "floweringPlants": 67,
+    "retainingBankPlants": 36,
+    "hallSlopePlants214": 22,
+    "embeddedIslandStones": 32,
+    "forms": 3,
+    "photographicPixels": false,
+    "canopyHulls": false,
+    "cameraFacing": false,
+    "floweringGeometry": "Five independently folded petals, attached to woody multi-lobed shrub structure",
+    "visualAccepted": false
+  },
+  "skyDomeRadianceGain": 0.8,
+  "globalExposure": 1.02,
+  "leafIndirectTransmission": "Opposite hemisphere of actual same spatial radiance capture, coefficient .44 needles / .46 broadleaf. No emission or fixed warm term.",
+  "aerialPerspective": {
+    "fogDensity": 0.0016,
+    "fogColor": 10793401,
+    "worldDistance": true
+  },
+  "newAssets": false
+}

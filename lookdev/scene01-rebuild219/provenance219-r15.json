@@ -1,0 +1,337 @@
+{
+  "status": "actual-native-reconstruction-rounds-reviewed-not-photographically-accepted",
+  "createdAt": "2026-10-24T00:49:31.713Z",
+  "originalD258StillReconstructible": true,
+  "oldD258RebuildProof": "lookdev/scene01-rebuild219/held-d258-after-r15-rebuild-proof.json",
+  "currentSourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+  "selectedRound": "r15",
+  "rounds": [
+    {
+      "round": "r12",
+      "sourceHash": "56a4000cf7c198b0e663664c6030310e4ab4c6087bc1a8c8eed80de5ce3541d7",
+      "frames": [
+        {
+          "view": "full",
+          "sourceHash": "56a4000cf7c198b0e663664c6030310e4ab4c6087bc1a8c8eed80de5ce3541d7",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r12-full/report.json",
+          "reportSha256": "e68012c1fbb1d408312fddff4360050531477e61144815c4b68d2652b7bee13f",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r12-full/reference.png",
+          "pngSha256": "c7905888ea942630dff0cd375137b19a1f67aa149c55c6b67d75c1218a4879c1",
+          "bytes": 3347092,
+          "rgbaSha256": "021eadb47c2d644f7d0ec8d1e2834e295e5b8c1d8c174bd6518263b00567c959",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              0,
+              3.2,
+              17
+            ],
+            "fov": 59
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        },
+        {
+          "view": "low",
+          "sourceHash": "56a4000cf7c198b0e663664c6030310e4ab4c6087bc1a8c8eed80de5ce3541d7",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r12-low/report.json",
+          "reportSha256": "8216a4d72a1fe870cc2452882abbe40b23b16c32813cb15a39e0d31dd6ce615b",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r12-low/inspection-view.png",
+          "pngSha256": "605b7c71152da63bad59a158f17cbfd593f9b4084fddb42a9b0ce479792c8fc3",
+          "bytes": 3222967,
+          "rgbaSha256": "4c4f852bdf64ca12a89fb2c1e18787b0d1c5f454c25e628925fe98227f9eea43",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              1.6,
+              2.4,
+              11.7
+            ],
+            "target": [
+              2.8,
+              5.4,
+              -8
+            ],
+            "fov": 61,
+            "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        }
+      ]
+    },
+    {
+      "round": "r13",
+      "sourceHash": "e018d66cd1bd5a0a08a535bf59070c989eec88f223e75e83c412ff251cb803de",
+      "frames": [
+        {
+          "view": "full",
+          "sourceHash": "e018d66cd1bd5a0a08a535bf59070c989eec88f223e75e83c412ff251cb803de",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r13-full/report.json",
+          "reportSha256": "fdd2206f1c4bbff8ee36b9902f580585e9569f9498c9c05964be94eac5cdd477",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r13-full/reference.png",
+          "pngSha256": "06ab762a7a29f335d51324da276123f2fd9ab81a597628e3fc4aa25c027a0273",
+          "bytes": 3348140,
+          "rgbaSha256": "fcc8fa8e5caaf956f43b38bcf80f83137a3af23020d6d49afb5a5fe2c5c25b52",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              0,
+              3.2,
+              17
+            ],
+            "fov": 59
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        },
+        {
+          "view": "low",
+          "sourceHash": "e018d66cd1bd5a0a08a535bf59070c989eec88f223e75e83c412ff251cb803de",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r13-low/report.json",
+          "reportSha256": "02c3feb7816b36ad9e6f15c882211137e84aa943213ca495ef497edbe6093a15",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r13-low/inspection-view.png",
+          "pngSha256": "415d0995a665a660bee82e81286316fe6c944176b71956e3f3eeff56757e0e02",
+          "bytes": 2990764,
+          "rgbaSha256": "0b7f4177b10fae5351111cc0fc9dafa2af6b52f00668dd049cbef075d6752393",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              -2.5,
+              1,
+              6.2
+            ],
+            "target": [
+              2,
+              3.4,
+              -6
+            ],
+            "fov": 60,
+            "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        }
+      ]
+    },
+    {
+      "round": "r14",
+      "sourceHash": "6425f1f196235204528e8f8568ad5c88982c55f47cb333be45667dde861c5bef",
+      "frames": [
+        {
+          "view": "full",
+          "sourceHash": "6425f1f196235204528e8f8568ad5c88982c55f47cb333be45667dde861c5bef",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r14-full/report.json",
+          "reportSha256": "014dbc0db5f6555266c1ff25488f85870d09943cc9ffa88094cd8058977aa1de",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r14-full/reference.png",
+          "pngSha256": "0035e3f0538a10263a5186620a2237fa636ee226cd525419bc3cfa5280c205c1",
+          "bytes": 3345821,
+          "rgbaSha256": "71f2c627db41d8bd8a3a71fc185943f7b64122e988f642d0a2639c0066a9b0cf",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              0,
+              3.2,
+              17
+            ],
+            "fov": 59
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        },
+        {
+          "view": "low",
+          "sourceHash": "6425f1f196235204528e8f8568ad5c88982c55f47cb333be45667dde861c5bef",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r14-low/report.json",
+          "reportSha256": "d1a8fd42aea84ad5c2360d14552c8a910ec91eb868e95193f452b47e87cf4062",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r14-low/inspection-view.png",
+          "pngSha256": "c8c0d77ff0fa409e3c35a035d7315009062f7e03896ed43141b1aaa3637e4c72",
+          "bytes": 2980666,
+          "rgbaSha256": "675b7165eeb0b7fa42f22b56f21c2c5c75bb4a67ee5e037a8a86006be16f3a08",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              -2.5,
+              1,
+              6.2
+            ],
+            "target": [
+              2,
+              3.4,
+              -6
+            ],
+            "fov": 60,
+            "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        }
+      ]
+    },
+    {
+      "round": "r15",
+      "sourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+      "frames": [
+        {
+          "view": "full",
+          "sourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-full/report.json",
+          "reportSha256": "f80b9141a3bbe3d65433515c90352be00c3629b6abbaf44a0d66e742e29fb21c",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-full/reference.png",
+          "pngSha256": "8176ac5b9a881c40b63be2b43b7d8389d480887c779b2f71a040a45bb9e316d5",
+          "bytes": 3348649,
+          "rgbaSha256": "d70844ecf7f472d995587ea9f9e69a61c5b50b22567689c086eff57aa49ee499",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              0,
+              3.2,
+              17
+            ],
+            "fov": 59
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        },
+        {
+          "view": "low",
+          "sourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+          "report": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-low/report.json",
+          "reportSha256": "0eb2d8f7d49a255bae43016ed54aeea6410470f1614e9d8f30cd8d5f62006de6",
+          "image": "qa/ten-reference/01/iteration-scene01-rebuild219-r15-low/inspection-view.png",
+          "pngSha256": "9f191d35638f2fda558846fedd21e91d1ea91f92b766c6ec18ced8ca333fca29",
+          "bytes": 2992830,
+          "rgbaSha256": "0bde74a1526fb9f0a057de781a39870300da408323b80358032c987248d229d6",
+          "actualNativeResolution": [
+            1254,
+            1254
+          ],
+          "actualCamera": {
+            "position": [
+              -2.5,
+              1,
+              6.2
+            ],
+            "target": [
+              2,
+              3.4,
+              -6
+            ],
+            "fov": 60,
+            "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+          },
+          "personallyViewed": true,
+          "photographicAcceptance": false
+        }
+      ]
+    }
+  ],
+  "sourceChanges": {
+    "reconstructions/scene-01/src/bridge-court208.js": {
+      "beforeSha256": "7dfa2d94b234749d30dde29af18c6ce223b00e1b4cf5ef4600e682cff10a9c85",
+      "afterSha256": "b74a2e155e4c3a9d1b4dfa0ea2dc6ef3208e9c3511b46f8505c8e5a4e2e25495",
+      "bytes": 23200
+    },
+    "reconstructions/scene-01/src/hall-facade161.js": {
+      "beforeSha256": "24a9f90b7787e25ddb572ec856ba2f1380779c6e9906b5265ecad51c5c5c38a7",
+      "afterSha256": "cb864f84b21e982b6fdaf60a778d249f2b153224ea9f79eb3f90270a03632542",
+      "bytes": 6333
+    },
+    "reconstructions/scene-01/src/layout124.js": {
+      "beforeSha256": "e1bb0fb42fb2c111477ad67071fd4caba9e4a66fcd4630fe76488ea0512aecd4",
+      "afterSha256": "bb2a6f48cb34b0c8ff750b3d8fbfa5a132e98629790b5e44b8c88b997227513a",
+      "bytes": 2540
+    },
+    "reconstructions/scene-01/src/pagoda-mass163.js": {
+      "beforeSha256": "ef88766728258506f25ebfb0e7cb3dc88cf1ac0494e700f97318e53a6b1e3809",
+      "afterSha256": "c0920aa4218d3ce3c2800e9918703ab72bccbef0748b3fc8288f2a8850f6546e",
+      "bytes": 5303
+    },
+    "reconstructions/scene-01/src/scene.js": {
+      "beforeSha256": "b019d0a5e45b9920dfe086775844c0952a9f06c96305be0ec82c16fa4676207a",
+      "afterSha256": "39ff50ab48b88cf91f915ce987635e24693898abbc46b5a981366c42503a02c3",
+      "bytes": 18483
+    }
+  },
+  "geometryChanges": {
+    "r12": "Independent five-tier hip rises/widths/curls, real raised finial bearing seat and shorter shaft with retained top, broader tower cores and paired stepped closed eave receivers; upper hall primary/secondary girt and plaster field hierarchy.",
+    "r13": "Main stair3.5m to2.6m, coupled threshold/oblique receiving court and six staggered courses on a closed inset core.",
+    "r14": "Closed bearing cores and thick individually laid staggered face stones for bridge turning flights and landings. Wet-rock surface proved too dark in actual low view; image retained as poorer finish.",
+    "r15": "Same R14 geometry; source original weathered cut-stone material/hook replaces the inappropriate wet pond-rock surface."
+  },
+  "projectionComparison": {
+    "referenceMeasurement": "Visual HD1254 landmarks, approximate uncertainty8–12px; not survey or full-camera calibration.",
+    "topRidgeBefore": [
+      409.5891,
+      251.3885
+    ],
+    "topRidgeAfter": [
+      410.3159,
+      215.5969
+    ],
+    "finialSeatBefore": [
+      409.6652,
+      247.6425
+    ],
+    "finialSeatAfter": [
+      410.3852,
+      212.1859
+    ],
+    "referenceTopRidgeAndSeatApproximateY": 210,
+    "mainStairFootExteriorBefore": [
+      [
+        755.1,
+        794.03
+      ],
+      [
+        968.6,
+        796.01
+      ]
+    ],
+    "mainStairFootExteriorAfter": [
+      [
+        778.16,
+        794.24
+      ],
+      [
+        944.08,
+        795.78
+      ]
+    ],
+    "mainStairTopAndBottomLevelsUnchanged": true
+  },
+  "actualCPUGeneratedRouteAudit": "lookdev/scene01-rebuild219/route219-r15-geometry-audit.json",
+  "cameraDollyAssetsSkyLightExposureWaterUnchanged": true,
+  "oldPhysicalR11DoesNotValidateNewSource": true,
+  "remainingFailures": [
+    "Main hall eave/portal projected relationships and bay scale still differ from HD reference",
+    "Tower and hall surfaces still too uniformly CG; real roof profile corrections do not establish fidelity",
+    "Canopy/leaf grouping and generic pond rocks remain artificial",
+    "Bridge end mass/soil transitions still look constructed despite actual joined route and stone courses",
+    "Reference golden light/cloud balance and native stone/water/metal response remain unlike reference"
+  ],
+  "photographicAcceptance": false,
+  "newPhotographOrGeneratedReplacementFrameUsed": false,
+  "sharedToolsGitStateAndOtherScenesNotModified": true
+}

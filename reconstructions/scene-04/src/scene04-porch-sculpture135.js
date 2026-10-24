@@ -1,4 +1,9 @@
 import * as T from 'three';
+import {buildVaultBearing212} from './scene04-vault-bearing212.js';
+import {createCarvedBeamMaterial212} from './scene04-carved-bearing212.js';
+import {createSculptedCloudBody212,createCarvedGiltWood212} from './scene04-sculpted-core212.js';
+import {createRainbowBeam212} from './scene04-porch-core212.js';
+import {createHeavyKarahafu212,createCloudTransfer212,cloudTransferEnvelope212,createRaisedScrollVine212} from './scene04-front-frame212.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 const lin=(a,b,n)=>Array.from({length:n+1},(_,i)=>a+(b-a)*i/n);
@@ -60,7 +65,7 @@ function heightSample(u,v){
 }
 // Each active sampled cell has a front, back and boundary walls. Height is
 // actual vertex Z. This is a closed relief volume, never an image plane/albedo.
-function reliefSolid135({width,height,nx,ny,depth=.10,back=.045,uRepeat=1,uPhase=0,u0=0,u1=1,v0=0,v1=1,warp=null,limit=null,skin=false}){
+function reliefSolid135({width,height,nx,ny,depth=.10,back=.045,uRepeat=1,uPhase=0,u0=0,u1=1,v0=0,v1=1,warp=null,limit=null,skin=false,solidCutoff=.21,skinCutoff=.46}){
  const count=(nx+1)*(ny+1),q=new Float32Array(count),active=new Uint8Array(nx*ny),front=[],rear=[],uv=[],index=[],vf=new Int32Array(count).fill(-1),vr=new Int32Array(count).fill(-1);
  const xy=(i,j)=>[(i/nx-.5)*width,(j/ny-.5)*height];
  for(let j=0;j<=ny;j++)for(let i=0;i<=nx;i++){
@@ -70,7 +75,7 @@ function reliefSolid135({width,height,nx,ny,depth=.10,back=.045,uRepeat=1,uPhase
  }
  for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){
   const a=j*(nx+1)+i,mean=(q[a]+q[a+1]+q[a+nx+1]+q[a+nx+2])/4;
-  active[j*nx+i]=mean>(skin?.46:.21)?1:0;
+  active[j*nx+i]=mean>(skin?skinCutoff:solidCutoff)?1:0;
  }
  function vert(k,rearSide){
   const map=rearSide?vr:vf;if(map[k]>=0)return map[k];
@@ -95,21 +100,22 @@ function reliefSolid135({width,height,nx,ny,depth=.10,back=.045,uRepeat=1,uPhase
 export function buildPorchJoinery135(mats,{C,profile,spatial188=null}){
  if(!reliefField)throw Error('Carving135 data not ready');
  const group=new T.Group();group.name='scene04-135-dominant-carved-porch-and-coupled-hafu';
- const materials=[],batches=new Map(),stats={revision:'scene04-mass164-coupled-bearing-r02',pairedHafu:2,hafuVisibleNormalDepthMetres:.585,hafuForeAftRetreatMetres:.54,carvedPanels:0,reliefTriangles:0,deepCorbelSets:0,shaftBearingSets:0,closedRafterBoards:0,visualAccepted:false};
- const finish=(source,name,color,roughness)=>{const m=source.clone();m.name=name;m.color.setHex(color);m.roughness=roughness;m.clearcoat=.12;m.clearcoatRoughness=.37;materials.push(m);return m;};
- const wood=finish(mats.cedar,'scene04-135-carved-aged-cedar',0x643016,.70),red=finish(mats.red,'scene04-135-carved-vermilion-timber',0x743b22,.68),dark=finish(mats.darkwood,'scene04-135-deep-carving-recess',0x241107,.78),gilt=finish(mats.gold,'scene04-135-worn-gilded-carving',0xac8338,.47),oldgilt=finish(mats.oldgold,'scene04-135-recessed-aged-gold',0x9b732e,.47);gilt.metalness=.88;oldgilt.metalness=.85;
- const vaultWood=finish(mats.darkwood,'scene04-135-dark-curved-vault-timber',0x4a220f,.78);
+ const materials=[],batches=new Map(),stats={revision:'scene04-212-upright-roof-seated-carved-receiving-heads-r21',pairedHafu:2,hafuVisibleNormalDepthMetres:.585,hafuForeAftRetreatMetres:.54,carvedPanels:0,reliefTriangles:0,deepCorbelSets:0,shaftBearingSets:0,closedRafterBoards:0,visualAccepted:false};
+ const finish=(source,name,color,roughness)=>{const m=source.clone();m.name=name;m.color.setHex(color);m.roughness=roughness;m.clearcoat=source.metalness>.4?.025:source===mats.red?.09:.045;m.clearcoatRoughness=source.metalness>.4?.60:.42;materials.push(m);return m;};
+ const wood=finish(mats.cedar,'scene04-135-carved-aged-cedar',0x60351a,.77),red=finish(mats.red,'scene04-135-carved-vermilion-timber',0x5e2613,.66),dark=finish(mats.darkwood,'scene04-135-deep-carving-recess',0x241107,.78),gilt=finish(mats.gold,'scene04-135-worn-gilded-carving',0xac8338,.47),oldgilt=finish(mats.oldgold,'scene04-135-recessed-aged-gold',0x9b732e,.47);gilt.metalness=.88;oldgilt.metalness=.85;
+ const vaultWood=finish(mats.darkwood,'scene04-135-dark-curved-vault-timber',0x64381c,.78);
+ const sculptedMaterial=createCarvedGiltWood212();materials.push(sculptedMaterial);
  function put(g,m,x=0,y=0,z=0,rotY=0){if(rotY)g.rotateY(rotY);g.translate(x,y,z);let list=batches.get(m);if(!list){list=[];batches.set(m,list);}list.push(g);}
  function mesh(g,m,name){const o=new T.Mesh(g,m);o.name=name;o.castShadow=o.receiveShadow=true;group.add(o);return o;}
  const box=(w,h,d,x,y,z,m=wood)=>put(new RoundedBoxGeometry(w,h,d,1,Math.min(.0045,Math.min(w,h,d)*.065)),m,x,y,z);
- function relief({name,width,height,x=0,y=0,z=0,depth=.10,back=.045,nx=380,ny=96,uRepeat=1,uPhase=0,u0=0,u1=1,v0=0,v1=1,warp=null,limit=null,gold=true,bodyMaterial=wood}){
-  const replaced=spatial188&&/separated-hafu-strap|central-hafu-carved-pendant|heavy-carved-hafu-end|separated-upper-transfer|separated-lower-nuki|pierced-dense-ranma|occupied-recessed-gold-tympanum|sculpted-transfer-end|gilded-carved-column-nose|real-door-lintel-relief/.test(name);
+ function relief({name,width,height,x=0,y=0,z=0,depth=.10,back=.045,nx=380,ny=96,uRepeat=1,uPhase=0,u0=0,u1=1,v0=0,v1=1,warp=null,limit=null,gold=true,bodyMaterial=wood,solidCutoff=.21,skinCutoff=.46}){
+  const replaced=spatial188&&/sculpted-transfer-end|gilded-carved-column-nose|real-door-lintel-relief/.test(name);
   if(replaced)return;
   // The surviving small field-built details are carved wood. Restrained
   // worn metal now occurs on measured source-carving peaks and real fittings.
-  if(spatial188&&/side-bay-structural-carving|small-vault-lotus-shrine/.test(name))gold=false;
+  if(spatial188&&/side-bay-structural-carving/.test(name))gold=false;
   const transform=(xx,yy,zz)=>{const p=warp?warp(xx,yy,zz):[xx,yy,zz];return[p[0]+x,p[1]+y,p[2]+z];};
-  const args={width,height,nx,ny,depth,back,uRepeat,uPhase,u0,u1,v0,v1,warp:transform,limit};
+  const args={width,height,nx,ny,depth,back,uRepeat,uPhase,u0,u1,v0,v1,warp:transform,limit,solidCutoff,skinCutoff};
   for(const skin of gold?[false,true]:[false]){const g=reliefSolid135({...args,skin});stats.reliefTriangles+=g.index.count/3;mesh(g,skin?gilt:bodyMaterial,name+(skin?'-real-gilt-skin':'-closed-wood-body'));}
   stats.carvedPanels++;
  }
@@ -118,18 +124,18 @@ export function buildPorchJoinery135(mats,{C,profile,spatial188=null}){
  // Deep coupled hafu sections; the weather skin is only the outermost layer.
  // The lower swept body retreats 0.54m, creating true depth and end returns.
  const outer=[[-.025,front-.12],[-.025,front+.045],[-.070,front+.095],[-.100,front+.115],[-.245,front+.105],[-.295,front+.055],[-.325,front-.030],[-.300,front-.16],[-.270,front-.19],[-.105,front-.16]];
- const fascia=sweepSection(at,-profile.half,profile.half,outer,'entrance-saddled-bargeboard');mesh(fascia,wood,'scene04-135-main-flowing-hafu-actual-lamp-support');
- const innerAt=x=>at(x)-.35,innerSection=[[-.06,front-.50],[-.06,front-.35],[-.11,front-.315],[-.180,front-.33],[-.235,front-.39],[-.230,front-.54],[-.160,front-.58],[-.08,front-.56]];
+ const fascia=createHeavyKarahafu212(profile);mesh(fascia,wood,'scene04-135-main-flowing-hafu-actual-lamp-support');
+ const innerAt=x=>at(x)-.32,innerSection=[[-.035,front-.54],[-.035,front-.32],[-.07,front-.27],[-.180,front-.28],[-.245,front-.39],[-.230,front-.62],[-.115,front-.68],[-.045,front-.65]];
  mesh(sweepSection(innerAt,-5.92,5.92,innerSection,'135-inner-coupled-hafu'),wood,'scene04-135-recessed-second-flowing-hafu');
  for(const side of[-1,1]){
   const end=new T.Shape(),x=side*6.05,y=at(x);
   end.moveTo(-1.66,y-.11);end.lineTo(-1.66,y-.28);end.bezierCurveTo(-1.45,y-.39,-1.20,y-.53,-.96,y-.585);end.lineTo(-.96,y-.38);end.bezierCurveTo(-1.20,y-.35,-1.42,y-.20,-1.66,y-.11);end.closePath();
   extrude(end,.32,wood,x-.16,0,0,Math.PI/2,.014);
  }
- const webSection=[[-.230,front-.080],[-.300,front+.040],[-.360,front-.110],[-.440,front-.350],[-.450,front-.510],[-.350,front-.550],[-.310,front-.370],[-.240,front-.170]];
+ const webSection=[[-.360,front-.10],[-.405,front+.015],[-.470,front-.090],[-.540,front-.35],[-.585,front-.58],[-.535,front-.68],[-.435,front-.42],[-.365,front-.20]];
  mesh(sweepSection(at,-6.10,6.10,webSection,'135-continuous-coupled-hafu-underweb'),wood,'scene04-135-real-continuous-hafu-underweb');
  // Metal fillets remain thin applied volumes along the two solid timber faces.
- for(const [fn,drop,zz]of[[at,-.075,front+.116],[at,-.275,front+.086],[innerAt,-.115,front-.31],[innerAt,-.205,front-.36]]){
+ for(const [fn,drop,zz]of[[at,-.110,front+.183],[at,-.285,front+.153],[innerAt,-.070,front-.268],[innerAt,-.180,front-.276]]){
   const section=lin(0,Math.PI*2,8).slice(0,-1).map(a=>[drop+.006*Math.cos(a),zz+.003*Math.sin(a)]);
   mesh(sweepSection(fn,-5.96,5.96,section,'135-fine-seated-hafu-metal-fillet'),oldgilt,'scene04-135-continuous-thin-hafu-gilding');
  }
@@ -137,56 +143,29 @@ export function buildPorchJoinery135(mats,{C,profile,spatial188=null}){
  // relief modules have different mirrored pattern phases and actual shadow.
  for(const [i,cx]of[-5.25,-2.95,0,2.95,5.25].entries()){
   if(cx===0)continue;
-  const width=i===2?.84:.72;
-  relief({name:'scene04-135-separated-hafu-strap-'+i,width,height:.400,x:cx,y:0,z:front+.108,depth:.038,back:.020,nx:180,ny:64,u0:cx<0?.02:.66,u1:cx<0?.34:.98,warp:(x,y,z)=>{const xx=x+cx,slope=(at(xx+.002)-at(xx-.002))/.004,n=1/Math.hypot(1,slope);return[x-y*slope*n,at(xx)-.175+y*n,z];}});
+  const width=.42,head=new T.Shape(),left=at(cx-width/2)-at(cx)-.075,right=at(cx+width/2)-at(cx)-.075;
+  head.moveTo(-width/2,left);head.lineTo(width/2,right);head.lineTo(width/2,-.60);head.quadraticCurveTo(width*.42,-.75,width*.22,-.70);head.quadraticCurveTo(0,-.82,-width*.22,-.70);head.quadraticCurveTo(-width*.42,-.75,-width/2,-.60);head.closePath();extrude(head,.30,wood,cx,at(cx),front-.13,0,.012);
+  relief({name:'scene04-212-upright-carved-hafu-receiving-head-'+i,width:.38,height:.50,x:cx,y:at(cx)-.42,z:front+.180,depth:.040,back:.035,nx:100,ny:160,u0:cx<0?.02:.66,u1:cx<0?.34:.98});
  }
+ // Coved front timber has a real fine carved band and framed metal clamps.
+ relief({name:'scene04-212-coved-hafu-wood-scroll',width:12.05,height:.120,x:0,y:0,z:front+.145,depth:.027,back:.020,nx:1550,ny:42,uRepeat:5,gold:false,warp:(x,y,z)=>{const slope=(at(x+.002)-at(x-.002))/.004,n=1/Math.hypot(1,slope);return[x-y*slope*n,at(x)-.210+y*n,z];}});
+ for(const x of[-5.25,-2.95,2.95,5.25]){for(const y of[at(x)-.17,at(x)-.67])box(.43,.018,.014,x,y,front+.184,oldgilt);for(const side of[-1,1])box(.018,.50,.014,x+side*.215,at(x)-.42,front+.184,oldgilt);}
+ box(.12,.29,.26,0,at(0)-.60,front-.20,oldgilt);
+ mesh(createSculptedCloudBody212({width:1.25,height:.72,depth:.045,frontFloor:.003,back:.030,y:at(0)-1.04,z:front-.050,region:[.36,.02,.64,.98],outline:'ellipse'}),sculptedMaterial,'scene04-212-supported-lower-pierced-pendant-below-karahafu');
  // Broad crown pendant and heavy carved hafu ends replace little toy flowers.
- relief({name:'scene04-135-central-hafu-carved-pendant',width:1.14,height:.75,y:at(0)-.33,z:front+.13,depth:.085,back:.06,nx:280,ny:150,u0:.36,u1:.64,v0:0,v1:1});
  for(const side of[-1,1]){
   relief({name:'scene04-135-heavy-carved-hafu-end-'+side,width:.88,height:.75,x:side*5.86,y:at(side*5.86)-.28,z:front+.10,depth:.095,back:.075,nx:200,ny:120,u0:side<0?.01:.68,u1:side<0?.32:.99});
  }
- const beamBulge=x=>.075*Math.max(0,1-Math.pow(x/3.45,2));
- function shapedBeam(width,height,y,z,bow=.10,m=wood,pockets=[]){
-  const xs=lin(-width/2,width/2,180),p=[],id=[],sections=[];
-  for(const x of xs){
-   const u=2*x/width,top=y+height*.47+bow*(1-u*u)+.035*Math.exp(-Math.pow((Math.abs(u)-.79)/.11,2)),bottom=y-height*.46+.09*Math.pow(Math.abs(u),4)-.045*Math.exp(-Math.pow(u/.45,2))+.020*Math.cos(2*Math.PI*u),zf=z+beamBulge(x);
-   const ring=[[top,z-.80],[top,zf-.018],[top-.018,zf+.004]];
-   for(let row=1;row<24;row++){
-    const t=row/24,yy=(top-.018)*(1-t)+(bottom+.018)*t,original=zf+.004+.031*(1-Math.abs(2*t-1));let recess=0;
-    for(const pocket of pockets){const fx=Math.max(0,Math.min(1,(pocket.w/2-Math.abs(x-pocket.x))/.045)),fy=Math.max(0,Math.min(1,(pocket.h/2-Math.abs(yy-pocket.y))/.035));recess=Math.max(recess,.030*fx*fx*(3-2*fx)*fy*fy*(3-2*fy));}
-    ring.push([yy,original-recess]);
-   }
-   ring.push([bottom+.018,zf+.004],[bottom,zf-.018],[bottom,z-.80]);
-   sections.push(ring);for(const [yy,zz]of ring)p.push(x,yy,zz);
-  }
-  const n=sections[0].length;
-  for(let j=0;j<xs.length-1;j++)for(let i=0;i<n;i++){const k=(i+1)%n,a=j*n+i,b=j*n+k,c=(j+1)*n+i,d=(j+1)*n+k;id.push(a,c,b,b,c,d);}
-  for(const at of[0,xs.length-1]){
-   const tris=T.ShapeUtils.triangulateShape(sections[at].map(q=>new T.Vector2(...q)),[]);
-   for(const [a,b,c]of tris)id.push(at*n+a,at*n+b,at*n+c);
-  }
-  put(closedGeometry(p,id,'135-convex-cloud-ended-rainbow-transfer-beam'),m);
- }
- const upperY=C.capitalTop+.39,lowerY=C.capitalTop-.51,upperZ=.83,lowerZ=.22;
- const sourceRatio=spatial188?spatial188.info().floral.nativeBounds[0]/spatial188.info().floral.nativeBounds[1]:1;
- const pocket=(x,y,w,h)=>({x,y,w:Math.min(w,h*sourceRatio)+.075,h:Math.min(h,w/sourceRatio)+.075});
- shapedBeam(6.90,.62,upperY,upperZ,.11,wood,spatial188?[-2.45,0,2.45].map(x=>pocket(x,upperY+.018,x===0?1.28:.86,.42)):[]);
- shapedBeam(6.90,.57,lowerY,lowerZ,.09,red,spatial188?[pocket(0,lowerY+.015,1.28,.36)]:[]);
- // Dense carved wood/gold occupies both transfer faces and the pierced gap.
- for(const [i,x]of[-2.45,-1.23,0,1.23,2.45].entries()){
-  const width=i===2?1.22:.78,h=i===2?.45:.38,u0=i===2?.34:i<2?.02:.66,u1=i===2?.66:i<2?.34:.98;
-  relief({name:'scene04-135-separated-upper-transfer-carving-'+i,width,height:h,x,y:upperY+.018,z:upperZ+.006,depth:.065,back:.022,nx:i===2?280:190,ny:72,u0,u1,limit:(xx,yy)=>(xx/(width*.50))**2+(yy/(h*.49))**2<1,warp:(xx,yy,zz)=>[xx,yy,zz+beamBulge(x+xx)+.025]});
-  relief({name:'scene04-135-separated-lower-nuki-carving-'+i,width:width*.94,height:h*.87,x,y:lowerY+.015,z:lowerZ+.006,depth:.055,back:.022,nx:i===2?270:180,ny:66,u0,u1,limit:(xx,yy)=>(xx/(width*.47))**2+(yy/(h*.43))**2<1,warp:(xx,yy,zz)=>[xx,yy,zz+beamBulge(x+xx)+.025]});
- }
- relief({name:'scene04-135-pierced-dense-ranma',width:4.60,height:.72,y:(upperY+lowerY)/2+.015,z:.10,depth:.24,back:.075,nx:1140,ny:148,uRepeat:2,uPhase:.5,v0:0,v1:1,limit:(x,y)=>Math.pow(x/2.30,2)+Math.pow(y/.41,2)<1});
- // A carved arched tympanum lives deep behind the paired hafu, with real
- // pierced black interstices and 155mm variable depth rather than blank wood.
- const tymY=upperY+.80;
- relief({name:'scene04-135-occupied-recessed-gold-tympanum',width:4.98,height:1.60,y:tymY,z:-.22,depth:.155,back:.080,nx:900,ny:260,uRepeat:1,v0:0,v1:1,limit:(x,y)=>y+tymY<at(x)-.93});
- // Carved heavy noses at transfer ends rest directly over the column clusters.
- for(const side of[-1,1])for(const [yy,zz]of[[upperY,upperZ],[lowerY,lowerZ]]){
-  relief({name:'scene04-135-sculpted-transfer-end-'+side+'-'+yy,width:.70,height:.60,x:side*3.06,y:yy,z:zz+.015,depth:.105,back:.050,nx:145,ny:88,u0:side<0?0:.69,u1:side<0?.31:1,warp:(xx,yy,zzz)=>[xx,yy,zzz+beamBulge(side*3.06+xx)+.025]});
- }
+ const beamBulge=x=>.085*Math.max(0,1-Math.pow(x/3.475,2))+.015*Math.cos(x/3.475*Math.PI*2);
+ const upperY=C.capitalTop+.29,lowerY=C.capitalTop-.69,upperZ=.88,lowerZ=.37;
+ const upperBeamMaterial=createCarvedBeamMaterial212(wood,'scene04-212-upper-carved-bearing-timber'),lowerBeamMaterial=createCarvedBeamMaterial212(red,'scene04-212-lower-carved-bearing-timber');materials.push(upperBeamMaterial,lowerBeamMaterial);
+ mesh(createRainbowBeam212({width:6.95,height:.56,y:upperY,z:upperZ,depth:.70}),upperBeamMaterial,'scene04-212-actual-carved-upper-bearing-solid');
+ mesh(createRainbowBeam212({width:6.90,height:.70,y:lowerY,z:lowerZ,depth:.72}),lowerBeamMaterial,'scene04-212-actual-carved-lower-bearing-solid');
+ // The ranma is one carved body with real through-holes and rounded bevels.
+ // Only its curved side/bevel surfaces are gilded; no gold image strip.
+ const sculptedCore=createSculptedCloudBody212({width:4.05,height:.42,y:(upperY+lowerY)/2-.12,z:.45,depth:.13,back:.11});mesh(sculptedCore,sculptedMaterial,'scene04-212-primary-sculpted-cloud-lotus-core');stats.primarySculpture=sculptedCore.userData.sculpt212;
+ stats.integratedBearing212={actualCarvedClosedSolids:2,overlaidBeamCarvingBodies:0,conformingMaterialGilding:true,visualAccepted:false};
+
  // A small actual carved tabernacle / lotus at the dark vault crown.
  box(.46,.82,.18,0,upperY+1.02,.40,dark);
  for(const sx of[-1,1])box(.025,.88,.025,sx*.25,upperY+1.02,.505,oldgilt);
@@ -202,11 +181,8 @@ export function buildPorchJoinery135(mats,{C,profile,spatial188=null}){
   for(let j=0;j<nz;j++){const a=j*stride,b=a+stride;quad(a,a+n,b,b+n);const c=a+nx,d=b+nx;quad(c,d,c+n,d+n);}
   const g=closedGeometry(p,id,tag);g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));mesh(g,vaultWood,tag);
  };
- for(let i=0;i<32;i++){const x0=-3.20+i*.20;shell(x0+.007,x0+.193,-2.15,.95,.058,.655,'scene04-135-real-curved-vault-board-'+i);stats.closedRafterBoards++;}
- for(const z of[.94,-.39,-1.73]){
-  const section=[[-.02,z-.080],[-.02,z+.080],[-.14,z+.080],[-.16,z+.035],[-.16,z-.035],[-.14,z-.080]];
-  mesh(sweepSection(x=>profile.canopy(x,z)-.68,-3.20,3.20,section,'135-deep-vault-arch-trimmer'),red,'scene04-135-seated-vault-structural-arch-'+z);
- }
+ for(let i=0;i<44;i++){const x0=-3.20+i*(6.4/44);shell(x0+.006,x0+6.4/44-.006,-2.15,.95,.085,.815,'scene04-135-real-curved-vault-board-'+i);stats.closedRafterBoards++;}
+ const vaultBearing=buildVaultBearing212({profile,C,wood:vaultWood,darkwood:dark});group.add(vaultBearing.group);stats.vaultBearing212=vaultBearing.stats;
  relief({name:'scene04-135-ceramic-crest-raised-lotus',bodyMaterial:oldgilt,width:.30,height:.42,y:at(0)+.645,z:front+.208,depth:.045,back:.012,nx:96,ny:96,u0:.405,u1:.595,v0:0,v1:1});
  for(const sx of[-3.9,0,3.9]){
   const x=sx+C.upperRidgeOffsetX,y=C.ridgeY+.13;
@@ -250,40 +226,38 @@ export function buildPorchJoinery135(mats,{C,profile,spatial188=null}){
  }
  // Dense lower and upper eave corbel clusters replace the two plain ladders.
  for(const side of[-1,1]){
-  for(let i=0;i<6;i++){const x=side*(3.45+i*.49);corbels(x,profile.canopy(x,.50)-.26,-.16,.56);}
-  for(let i=0;i<9;i++){const x=side*(3.22+i*.54);corbels(x,profile.upperRaw(x,C.ridgeZ+4.5)-.24,C.ridgeZ+4.5-.18,.47);}
+  for(let i=0;i<8;i++){const x=side*(3.36+i*.405);corbels(x,profile.canopy(x,.50)-.56,-.10,.75);}
+  for(let i=0;i<11;i++){const x=side*(3.22+i*.432);corbels(x,profile.upperRaw(x,C.ridgeZ+4.5)-.27,C.ridgeZ+4.5-.14,.62);}
  }
  // Short side beams and carved fascia connect the ornament to actual bay axes.
  for(const side of[-1,1])for(const [a,b,drop]of[[C.columnAxes[3],C.columnAxes[4],.72],[C.columnAxes[4],C.columnAxes[5],1.0]]){
   const x=side*(a+b)/2,w=b-a-.12,y=C.capitalTop-drop+.09;
   relief({name:'scene04-135-side-bay-structural-carving-'+x,width:w*.91,height:.38,x,y,z:.285,depth:.045,back:.025,nx:240,ny:52});
  }
+ // Closed carved transoms join each lattice bay to its bearing header.
+ for(const side of[-1,1])for(const[a,b]of[[C.columnAxes[3],C.columnAxes[4]],[C.columnAxes[4],C.columnAxes[5]]]){
+  const x=side*(a+b)/2,w=b-a-.52,y=C.stairTopY+3.67;
+  box(w,1.12,.14,x,y+.27,-.55,dark);
+  for(const yy of[y-.28,y+.26,y+.80])box(w,.095,.16,x,yy,-.44,wood);
+  if(spatial188)spatial188.panel((g,m,xx,yy,zz,sx,sy,sz,rot)=>{const o=mesh(g,m,'scene04-212-full-depth-carved-window-transom');o.position.set(xx,yy,zz);o.scale.set(sx,sy,sz);if(Array.isArray(rot))o.rotation.set(...rot);},{x,y:y-.005,z:-.46,width:w*.91,height:.43,frame:false,backing:false,label:'deep-original-transom-'+x});
+ }
  relief({name:'scene04-135-real-door-lintel-relief',width:4.64,height:.40,y:C.stairTopY+4.61,z:-.352,depth:.047,back:.025,nx:720,ny:62,uRepeat:2});
  if(spatial188){
   const sourceEmit=(g,m,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0)=>{const o=mesh(g,m,'spatial188-actual-source-carving');o.position.set(x,y,z);o.scale.set(sx,sy,sz);if(Array.isArray(rot))o.rotation.set(...rot);else o.rotation.y=rot||0;};
-  for(const x of[-2.45,0,2.45])spatial188.panel(sourceEmit,{x,y:upperY+.018,z:upperZ+beamBulge(x)+.010,width:x===0?1.28:.86,height:.42,frame:false,backing:false,label:'upper-structural-transfer-'+x});
-  spatial188.panel(sourceEmit,{x:0,y:lowerY+.015,z:lowerZ+beamBulge(0)+.010,width:1.28,height:.36,frame:false,backing:false,label:'lower-structural-transfer-centre'});
-  // Real pierced cloud sections bridge the ranma gap. Their five cut loops
-  // are capped independently; no natural source channel is filled or warped.
-  const ranmaCentre=(lowerY+.57*.47+.09+upperY-.31)/2;
-  for(const x of[-1.60,-.53,.53,1.60])spatial188.panel(sourceEmit,{x,y:ranmaCentre,z:.11,width:.75,height:.19,frame:false,label:'fitted-real-ranma-field-'+x});
+  // 212 uses individually sculpted closed relief across the entire transfer
+  // and pierced ranma openings. Source188 carving remains on its own supported
+  // hafu, shoulders and portal; no copied rectangular plaques hide this work.
   for(const side of[-1,1]){
    for(const [yy,zz]of[[upperY,upperZ],[lowerY,lowerZ]]){
     for(const dx of[-.15,.15])box(.024,.34,.019,side*3.06+dx,yy,zz+beamBulge(side*3.06)+.037,oldgilt);
     for(const dy of[-.17,.17])box(.32,.024,.019,side*3.06,yy+dy,zz+beamBulge(side*3.06)+.037,oldgilt);
    }
-   spatial188.panel(sourceEmit,{x:side*1.22,y:upperY+.79,z:-.19,width:1.70,height:.49,frame:false,backing:false,label:'deep-gable-panel-'+side});
-   box(1.44,.58,.12,side*1.22,upperY+.79,-.25,dark);
   }
-  spatial188.cloudPair(sourceEmit,{x:0,y:at(0)-.64,z:front+.13,scale:.52,label:'main-hafu-carved-crown-pendant'});
-  for(const x of[-5.25,-2.95,2.95,5.25]){
-   const angle=Math.atan((at(x+.002)-at(x-.002))/.004);
-   spatial188.panel(sourceEmit,{x,y:at(x)-.18,z:front+.12,width:.66,height:.24,rotation:[0,0,angle],frame:false,backing:false,label:'rigid-seated-hafu-clamp-'+x});
-  }
-  for(const x of C.columnAxes){const cap=Math.abs(x)<3.2?C.capitalTop+.26:Math.abs(x)<5.5?C.capitalTop-.62:C.capitalTop-.94;spatial188.cloudOne(sourceEmit,{x,y:cap-.53,z:.37,scale:.53,side:Math.sign(x),material:Math.abs(x)<3.2?spatial188.materials[1]:spatial188.cloudWood,label:'single-seated-main-column-shoulder-'+x});}
+
+  for(const x of C.columnAxes){const cap=Math.abs(x)<3.2?C.capitalTop+.26:Math.abs(x)<5.5?C.capitalTop-.62:C.capitalTop-.94;spatial188.cloudOne(sourceEmit,{x,y:cap-.53,z:.37,scale:.82,side:Math.sign(x),material:Math.abs(x)<3.2?spatial188.materials[1]:spatial188.cloudWood,label:'single-seated-main-column-shoulder-'+x});}
   spatial188.panel(sourceEmit,{x:0,y:C.stairTopY+4.61,z:-.318,width:1.40,height:.34,label:'front-real-door-lintel'});
   for(const side of[-1,1])spatial188.cloudPair(sourceEmit,{x:side*1.70,y:C.stairTopY+4.44,z:-.318,scale:.23,label:'front-door-lintel-end-'+side});
-  stats.spatial188={sourcePreserved:true,uniformFittingOnly:true,legacyGoldReliefReplaced:true,deepBearingsRetained:true,routedStructuralCarvingSeats:4,sourceSurfaceNonrigidDelta:0};
+  stats.spatial188={sourcePreserved:true,uniformFittingOnly:true,legacyGoldReliefReplaced:'212 retains closed authored transfer/ranma/tympanum relief',deepBearingsRetained:true,routedStructuralCarvingSeats:4,sourceSurfaceNonrigidDelta:0};
  }
  for(const [m,parts]of batches){const all=parts.map(g=>g.index?g.toNonIndexed():g),g=mergeGeometries(all,false);if(!g)throw Error('135 structural batch failed');mesh(g,m,'scene04-135-deep-structural-'+m.name);for(const q of parts)q.dispose();for(const q of all)q.dispose();}
  group.userData.porch135=stats;return{group,materials,stats};

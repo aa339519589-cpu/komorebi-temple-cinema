@@ -1,0 +1,220 @@
+{
+  "revision": "scene07-rebuild214-r06",
+  "visualAccepted": false,
+  "status": "native geometry/lighting review candidate handed off; photographic fidelity unaccepted",
+  "sourceIdentity": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+  "changedSources": {
+    "main.js": "57701c88bb80ab7f700ae3292dca9368ea5705403b3d9c7fa142ae09013f34d8",
+    "world-radiance214.js": "00f9fe6fee4674ca00257ef7f79104bb1ef9051eddfcbd3bb5bc3465127289e3",
+    "layout118-data.js": "4ebbf1c5902c02a612db098656dbe24b10d427fb0b45235597e34359f1372fb2",
+    "garden-terrain.js": "8e7edc4a7cbe41c2239c2e19208a9250c97f374f787fa874e25f591d73d9c37b",
+    "reference-layout118.js": "79be64d7384e4048c6c6386ad352a2876cfa4deb22e358c1b2699c50e9ac84ab",
+    "foreground-gallery-roof.js": "eacae9ae1ca75e88c420246f2930f77f4165010eb70a8f5ce4d3be033d446e7d",
+    "hero-pines158.js": "c62662389f4a2f1a37850b2431fc57a6a92ac0dbd882bf41c3a366a2374e9cf4",
+    "momiji-framing151.js": "fd03a0dd9f055344ec3f663bc6395b1b0499426fff4271847f67248d2b6c4520",
+    "occupied-hall152.js": "3cbe7ffa8a8e1ca9e4b3ddce5f7677889163d9ded2519a19db50ca3e4dbada62",
+    "physical-roofs.js": "fae473b33d37ebac768efdbd6cd0b7a5ad985ee8b8813435ced37c84bf7e92d6"
+  },
+  "reference": "references/hd/6-照片-7.jpg",
+  "baseline": "qa/ten-reference/07/iteration-scene07-handcut-approach184-r02/reference.png",
+  "actualFrames": {
+    "full": "qa/ten-reference/07/iteration-scene07-rebuild214-r06/reference.png",
+    "hero": "qa/ten-reference/07/iteration-scene07-rebuild214-r06/detail-native.png",
+    "low": "qa/ten-reference/07/iteration-scene07-rebuild214-r06-low-front/inspection-view.png",
+    "overhead": "qa/ten-reference/07/iteration-scene07-rebuild214-r06-overhead-route/inspection-view.png"
+  },
+  "implementation": [
+    "One world-oriented sky shader supplies camera, reflected water and solar-separated PMREM; removed unshadowed directional/hemisphere/courtyard fills.",
+    "Directional thin-leaf transmission now uses shadowed Three direct-light records, including hero pines and upper-left maple.",
+    "Actual 128px cube captures at lower porch and upper gallery provide local hall timber/plaster radiance.",
+    "Whole modeled mountain terrain and forest moved to landscape distance with a fixed similarity transform around the original camera location.",
+    "Foreground gallery roof moved left by0.68m to expose water and the veranda finial.",
+    "Bridge arch and right approach changed, terrain cut under every walking route, near-side right stair railing removed, true rubble edge inserted.",
+    "Lower hall shafts reduced from0.31m to0.255m radius and upper shafts0.24m to0.205m; projecting rafter endpoints seated under roof lip.",
+    "Upper pagoda bays have solid plaster and timber infill, and the hall has a thick suspended ornamental plaque.",
+    "Height-aware walking-plane filtering retains growth below the bridge while excluding plants and rocks that cross the stair slabs. Native ray picks traced the offending abutment stones; fitted their bounds below descending treads and removed the overlapping right bearing cap.",
+    "Directional shadow bias is1.9192cm in the enlarged2400m shadow frustum, rather than the accidental24cm intermediate bias."
+  ],
+  "changedAnchors": {
+    "foregroundRoof": {
+      "before": [
+        0.04,
+        8.938616,
+        29.73
+      ],
+      "after": [
+        -0.64,
+        8.938616,
+        29.73
+      ]
+    },
+    "bridgeBefore": [
+      [
+        -7.751062679658208,
+        4.1,
+        -2
+      ],
+      [
+        -5.3963726810815515,
+        4.65,
+        -1.3
+      ],
+      [
+        -2.4798549617700036,
+        5.45,
+        0
+      ],
+      [
+        0.9901721459789012,
+        5.3,
+        1
+      ],
+      [
+        4.4,
+        4.8,
+        2
+      ]
+    ],
+    "bridgeAfter": [
+      [
+        -7.1,
+        4.1,
+        -2.4
+      ],
+      [
+        -4.8,
+        4.66,
+        -1.85
+      ],
+      [
+        -1.2,
+        5.35,
+        -0.85
+      ],
+      [
+        1.9,
+        5.55,
+        0.7
+      ],
+      [
+        5.2,
+        5.35,
+        2
+      ]
+    ],
+    "rightApproachBefore": [
+      11.5,
+      3.1,
+      5.35
+    ],
+    "rightApproachAfter": [
+      11,
+      3.6,
+      1.8
+    ],
+    "gardenTurnBefore": [
+      17.2,
+      2.88,
+      7
+    ],
+    "gardenTurnAfter": [
+      15.4,
+      3.55,
+      -0.2
+    ],
+    "mountainSimilarity": {
+      "scale": 4,
+      "pivot": [
+        10.7,
+        12.8,
+        36
+      ]
+    },
+    "originalReferenceCamera": [
+      10.7,
+      12.8,
+      36
+    ]
+  },
+  "provenance": {
+    "newImageAssets": false,
+    "skyOnlyExistingGeneratedAsset": "reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png",
+    "skyProvenance": "reconstructions/scene-07/assets/sky145/provenance.json",
+    "photographPixelsProjected": false,
+    "referenceOrDepthCards": false,
+    "plaqueInscription": "Reference inscription is unreadable; declared floral relief, no claim of exact lettering."
+  },
+  "reviewLimits": [
+    "Lighting remains a native single-bounce approximation, not path-traced GI.",
+    "Main roof/gable proportions and repetitive timber ornament still differ from the reference.",
+    "Garden planting shapes, blossom distribution and water need further photographic refinement.",
+    "Cloud cap is a declared generated sky-only asset, not measured HDR; full field radiance is authored.",
+    "Old legacy module receipts that say site anchors were retained do not apply to these explicitly recorded214anchor changes.",
+    "Remaining visual gaps: reference sunset is warmer and less evenly filled; hall gable/profile and ornament remain procedural; some steep banks look too bare; blossoms/canopy layering and water are still unlike the reference."
+  ],
+  "validation": {
+    "driver": "tools/render-one-reconstruction.mjs",
+    "sharedFifo": true,
+    "allCurrentFramesNative1254": true,
+    "fullAndGenuineHeroSubfrustum": true,
+    "sourceIdentityConsistent": true,
+    "frameErrors": 0,
+    "scenePathsPickedInOverhead": [
+      {
+        "pixel": [
+          0.66,
+          0.532
+        ],
+        "frontMaterial": [
+          {
+            "name": "scene07-jointed-weathered-path-granite",
+            "type": "MeshStandardMaterial",
+            "opacity": 1
+          }
+        ],
+        "frontPoint": [
+          6.069421541659635,
+          5.031818330287933,
+          1.8895155826757826
+        ]
+      },
+      {
+        "pixel": [
+          0.662,
+          0.585
+        ],
+        "frontMaterial": [
+          {
+            "name": "scene07-jointed-weathered-path-granite",
+            "type": "MeshStandardMaterial",
+            "opacity": 1
+          }
+        ],
+        "frontPoint": [
+          5.490385350646185,
+          5.190909326076511,
+          3.130322287446957
+        ]
+      },
+      {
+        "pixel": [
+          0.875,
+          0.427
+        ],
+        "frontMaterial": [
+          {
+            "name": "scene07-jointed-weathered-path-granite",
+            "type": "MeshStandardMaterial",
+            "opacity": 1
+          }
+        ],
+        "frontPoint": [
+          13.129004841032016,
+          3.574999988079071,
+          1.2721683649862787
+        ]
+      }
+    ],
+    "photographicAcceptance": false
+  }
+}

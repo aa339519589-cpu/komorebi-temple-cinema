@@ -1,0 +1,23 @@
+{
+  "revision": "scene07-rebuild214-r12",
+  "sourceIdentity": "199b41f35359c149f4bf9827c7512b6b59d2386339fdfe5f10d94f06618837ae",
+  "visualAccepted": false,
+  "status": "Actual full, genuine hero and near-shore low inspected; retained failed lighting candidate",
+  "actualFrames": {
+    "full": "qa/ten-reference/07/iteration-scene07-rebuild214-r12/reference.png",
+    "hero": "qa/ten-reference/07/iteration-scene07-rebuild214-r12/detail-native.png",
+    "low": "qa/ten-reference/07/iteration-scene07-rebuild214-r12-near-shore-low/inspection-view.png"
+  },
+  "improvements": [
+    "Real 1.4-scale midground similarity lowers the hall, bridge and approach against fixed water without camera-dependent geometry",
+    "Tall vertical pond rock walls reduced to low supporting shores; connected water under the bridge is visible in the native low view",
+    "Hall red pigment and clearcoat replace a gray-brown tint"
+  ],
+  "failures": [
+    "Visible measured sky radiance saturates toward white and erases clouds",
+    "Tree crowns are overdark and needle geometry reads as granular",
+    "Water is too mirrorlike with repetitive ripples",
+    "Right return walk ends before a convincing mainland connection"
+  ],
+  "photographicAcceptance": false
+}

@@ -1,19 +1,9 @@
 // Authored structural solids for the scene04 porch. Dimensions are a
 // single-view hypothesis; these members remain visible in oblique inspection.
 export function buildMassFrame164(T,{emit,box,between,tube,rosette,mats,materials,profile,C}){
- const grain=mats.cedar.clone();grain.name='scene04-mass164-oiled-enduring-cedar';grain.color.setHex(0x6c361c);grain.roughness=.72;grain.clearcoat=.07;grain.clearcoatRoughness=.48;materials.push(grain);
  const old=mats.oldgold.clone();old.name='scene04-mass164-tarnished-brass-inlay';old.color.setHex(0x95713a);old.roughness=.54;materials.push(old);
  const member=(shape,depth,x,y,z,ma='cedar',yaw=0,bevel=.018)=>{const g=new T.ExtrudeGeometry(shape,{depth,steps:1,bevelEnabled:true,bevelSize:bevel,bevelThickness:bevel*.65,bevelSegments:3,curveSegments:24});g.userData.architectureMember='mass164-closed-bearing-solid';emit(g,ma,x,y,z,1,1,1,[0,yaw,0]);};
- function curvedRib(z,drop,width=6.46,thick=.20,depth=.28){
-  const s=new T.Shape(),n=80;
-  for(let j=0;j<=n;j++){const x=-width/2+width*j/n,y=profile.canopy(x,z)-drop;j?s.lineTo(x,y):s.moveTo(x,y);}
-  for(let j=n;j>=0;j--){const x=-width/2+width*j/n;s.lineTo(x,profile.canopy(x,z)-drop-thick);}s.closePath();
-  member(s,depth,0,0,z-depth/2,grain,0,.012);
- }
- // The broad curved inner arch physically receives the front curved rafters.
- // Smaller arches retreat into the dark vault, with 0.48m of real parallax.
- curvedRib(.90,.53,6.72,.27,.42);
- for(const z of[-.12,-1.12,-2.12])curvedRib(z,.68,6.40,.19,.20);
+ // The three real receiving ribs now belong to scene04-vault-bearing212.
  const arm=new T.Shape();arm.moveTo(-.69,.12);arm.lineTo(.69,.12);arm.bezierCurveTo(.74,.01,.57,-.18,.42,-.15);arm.bezierCurveTo(.29,-.11,.22,-.29,.10,-.26);arm.lineTo(-.10,-.26);arm.bezierCurveTo(-.22,-.29,-.29,-.11,-.42,-.15);arm.bezierCurveTo(-.57,-.18,-.74,.01,-.69,.12);arm.closePath();
  for(const side of[-1,1]){
   const x=side*C.columnAxes[3],bearing=C.capitalTop+.26;
@@ -35,7 +25,7 @@ export function buildMassFrame164(T,{emit,box,between,tube,rosette,mats,material
  const shoulderContacts=[],grid=profile.carrierGridXs;
  const actualCarrier=(x,z)=>{
   let hi=grid.findIndex(v=>v>=x);if(hi<0)hi=grid.length-1;else if(hi<1)hi=1;const lo=grid[hi-1],up=grid[hi],t=(x-lo)/(up-lo);
-  return profile.canopy(lo,z)*(1-t)+profile.canopy(up,z)*t-.43;
+  return profile.canopy(lo,z)*(1-t)+profile.canopy(up,z)*t-(profile.carrierSoffitDrop??.43);
  };
  for(const side of[-1,1])for(const dx of[-.20,.20]){
   const x=side*C.columnAxes[4]+dx,cap=C.capitalTop-.62,width=.23,xs=[x-width/2,...grid.filter(v=>v>x-width/2&&v<x+width/2),x+width/2],positions=[],indices=[],uv=[],rings=[];
@@ -70,18 +60,6 @@ export function buildMassFrame164(T,{emit,box,between,tube,rosette,mats,material
   box(x,top-.71,-1.50,.21,.22,2.02,'darkwood');
   box(x,top-.20,-.62,.39,.19,.53,'endwood');
  }
- // Large round floral lattice centres provide an occupied timber wall plane
- // behind the deep columns, rather than four unbroken black rectangles.
- for(const side of[-1,1])for(const [a,b]of[[C.columnAxes[3],C.columnAxes[4]],[C.columnAxes[4],C.columnAxes[5]]]){
-  const x=side*(a+b)/2,y=C.stairTopY+1.98,z=-.30,r=Math.min(.44,(b-a)*.24);
-  const ring=new T.TorusGeometry(r,.026,8,48);emit(ring,'cedar',x,y,z);
-  emit(new T.TorusGeometry(r*.82,.011,6,48),'oldgold',x,y,z+.016);
-  for(let j=0;j<12;j++){
-   const a=j*Math.PI/6,xx=x+Math.cos(a)*r*.64,yy=y+Math.sin(a)*r*.64;
-   between([x+Math.cos(a)*r*.20,y+Math.sin(a)*r*.20,z+.012],[xx,yy,z+.012],.019,.026,'oldgold');
-   rosette(xx,yy,z+.018,.070,'oldgold');
-  }
-  rosette(x,y,z+.034,.17,'oldgold');
- }
- return{revision:'scene04-mass164-closed-bearing-hierarchy',deepArches:4,pairedColumnReceivers:2,sideBayHeaders:4,upperOverhangTies:16,latticeCentres:4,spatial188ShoulderBraces:shoulderContacts,visualAccepted:false};
+ // Scene04/212 window reveals now contain actual pierced diamond bars and full-depth source carving.
+ return{revision:'scene04-mass164-closed-bearing-hierarchy',deepArches:0,pairedColumnReceivers:2,sideBayHeaders:4,upperOverhangTies:16,latticeCentres:0,spatial188ShoulderBraces:shoulderContacts,visualAccepted:false};
 }

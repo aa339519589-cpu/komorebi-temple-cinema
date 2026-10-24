@@ -3,6 +3,9 @@ import {installCentralScalp199} from './central-sculpture-scalp199.js';
 import {buildWindowCanopy195} from './window-canopy195.js';
 import {createReference6ColumnCollar} from './reference6-column-collar.js';
 import {createReference6CofferRelief} from './reference6-coffer-relief.js';
+import {buildPaintedCoffers228} from './painted-coffers228.js';
+import {configureTimberReflectance228,bindMetricBoxTimber228,isTimberRole228} from './timber-reflectance228.js';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
 import {bindFloorScan106} from './floor-scan106.js';
@@ -62,6 +65,7 @@ export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCub
   mat:new T.MeshStandardMaterial({name:'reference6-woven-straw',color:'#c9b88c',roughness:.91,bumpScale:.00045}),
  };
  if(floorSurface){materials.floor.color.setRGB(...floorSurface.record.materialLinearGain);materials.floor.map=floorSurface.map;}
+ const timber228=configureTimberReflectance228(materials,wood);
 materials.beam.envMapIntensity=.22;materials.rearFrame.envMapIntensity=.16;materials.ceilingWood.envMapIntensity=.20;
  const structuralBeamFaces=[materials.beam,materials.beam,materials.beam,materials.beamUnderside,materials.beam,materials.beam];
  const giltMicro=castGiltMicroSurface();for(const m of[materials.gold,materials.oldgold,materials.buddha]){m.roughnessMap=giltMicro;m.bumpMap=giltMicro;m.bumpScale=.00028;}
@@ -74,7 +78,11 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
  const blockers=[],apertures=[],pillarRoots=[];
  const columnCollar=createReference6ColumnCollar();
  function mesh(g,m,p=[0,0,0],rot=null,parent=architecture){const o=new T.Mesh(g,m);o.position.fromArray(p);if(rot)o.rotation.set(...rot);o.castShadow=true;o.receiveShadow=true;parent.add(o);blockers.push(o);return o;}
- const box=(p,s,m=materials.beam)=>mesh(new T.BoxGeometry(...s),m,p);
+ const box=(p,s,m=materials.beam)=>{
+  const rounded=isTimberRole228(m),radius=Math.min(.009,Math.min(...s)*.10),g=rounded?new RoundedBoxGeometry(...s,2,radius):new T.BoxGeometry(...s);
+  if(rounded){g.parameters={...g.parameters,width:s[0],height:s[1],depth:s[2]};g.userData.timberArris228={radiusMetres:radius,realRoundedGeometry:true,originalOuterDimensions:s};}
+  return mesh(g,bindMetricBoxTimber228(g,m,p),p);
+ };
  const cylinder=(p,r,h,m=materials.column)=>mesh(new T.CylinderGeometry(r,r*1.015,h,48),m,p);
  const floorReflectionState=createFloorReflectionState();
  box([0,-.17,2.1],[13.8,.24,16.2],materials.dark); // top -.05 contacts board undersides
@@ -149,14 +157,9 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
  // timber, not the previous wall-to-wall mechanical ivory flower grid.
  const cofferRelief=createReference6CofferRelief();
  for(let i=0;i<16;i++)box([-1.875+i*.25,7.13,2.1],[.245,.035,16.0],materials.ceilingWood);
- for(const strip of[-5.55,-3.4,3.4,5.55])for(const dx of[-.42,.42])for(let row=0;row<10;row++){
-  const x=strip+dx,z=-4.5+row*1.38;
-  box([x,7.10,z],[.785,.035,1.30],z<0?materials.ceilingLacquer:materials.ivory);
-  for(const xx of[-.385,.385])box([x+xx,7.065,z],[.028,.040,1.30],materials.ceilingLacquer);
-  for(const zz of[-.63,.63])box([x,7.064,z+zz],[.785,.040,.028],materials.ceilingLacquer);
-  mesh(cofferRelief.paint,materials.cofferPaint,[x,7.0825,z]);
-  mesh(cofferRelief.gilt,materials.cofferGilt,[x,7.0825,z]);
- }
+ const coffer228=buildPaintedCoffers228({mesh,box,materials});
+ architecture.userData.coffer228=coffer228;
+ architecture.userData.timber228=timber228;
  // Fine cast mounts on black beam faces and recessed rear fields.
  for(const z of[-4.8,-2.6,1.6,4.8,8.0]){
   box([0,6.98,z+.165],[13.4,.22,.040],materials.ceilingLacquer);

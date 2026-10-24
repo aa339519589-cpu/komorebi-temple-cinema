@@ -1,0 +1,13 @@
+{
+  "revision": "scene07-rebuild214-r10",
+  "sourceIdentity": "15dcbecc80f908bf06608d172f94f4985f8c0debb8b8f98cae5b0985a5c3f888",
+  "visualAccepted": false,
+  "status": "Rejected material interim after full/hero/low actual native inspection",
+  "improvements": [
+    "Pond masks preserve original negative water datum",
+    "Stair apron narrowed and connector has a compact actual core",
+    "Right shoreline has height-fitted rooted shrub tiers; gallery corners have unique posts"
+  ],
+  "blockingDefect": "Large black bands on exposed terrain: a non-tiling scan UV atlas with empty lower third was incorrectly sampled over all world UVs.",
+  "repair": "R11 bounds triplanar sampling to an inspected, CPU-verified empty-black-free source rock patch, preserving original asset pixels and boulder UVs; water direct glint uses actual key-light uniforms."
+}

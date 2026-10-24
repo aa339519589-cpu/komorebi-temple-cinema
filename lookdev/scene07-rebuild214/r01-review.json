@@ -1,0 +1,21 @@
+{
+  "revision": "scene07-rebuild214-r01",
+  "reference": "references/hd/6-\u7167\u7247-7.jpg",
+  "actualFrames": [
+    "qa/ten-reference/07/iteration-scene07-rebuild214-r01/reference.png",
+    "qa/ten-reference/07/iteration-scene07-rebuild214-r01/detail-native.png"
+  ],
+  "visualAccepted": false,
+  "observations": [
+    "Foreground roof moved left and exposes the prominent veranda finial and additional water, closer to reference framing.",
+    "Unoccluded warm fill removal reveals the low radiance of the former off-camera sky and excessive mountain shadow; scene is too dark.",
+    "Receding right approach is buried in the former high bank; connector is too short.",
+    "Hall still has repetitive timber detail and projecting rafter tips."
+  ],
+  "nextRepairs": [
+    "Increase measured full-dome radiance as part of the same visible/captured atmosphere field.",
+    "Move full 3D mountain range and forest to landscape distances around the fixed reference camera pivot; extend sun shadow frustum.",
+    "Cut actual terrain to route planes and restore connector run.",
+    "Reseat projecting roof rafters and improve pagoda plaster/timber construction."
+  ]
+}

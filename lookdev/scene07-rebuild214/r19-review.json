@@ -1,0 +1,25 @@
+{
+  "revision": "scene07-rebuild214-r19",
+  "sourceIdentity": "1b101c92ffd261d68017fbd7b82348ac5630df41b7a5a19d56c52c623caf524e",
+  "visualAccepted": false,
+  "status": "Technical shader failure; no valid native photographic review frame",
+  "failure": "A live parent-material callback already carried aerial transport when called by the polished crest, so the shader declared the same air varyings/functions twice.",
+  "preservedReports": [
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r19/report.json",
+      "status": "failed",
+      "source": "1b101c92ffd261d68017fbd7b82348ac5630df41b7a5a19d56c52c623caf524e",
+      "frames": 0,
+      "errorCount": 1
+    },
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r19-near-shore-low/report.json",
+      "status": "failed",
+      "source": "1b101c92ffd261d68017fbd7b82348ac5630df41b7a5a19d56c52c623caf524e",
+      "frames": 0,
+      "errorCount": 1
+    }
+  ],
+  "repair": "Capture the original parent callback and make air insertion idempotent per shader; official R19b is a new source boundary.",
+  "countsAsVisualIteration": false
+}

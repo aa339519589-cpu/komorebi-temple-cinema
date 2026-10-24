@@ -1,0 +1,191 @@
+{
+  "revision": "scene07-rebuild214-r17",
+  "status": "Canonical frozen, official native FIFO validation in progress",
+  "visualAccepted": false,
+  "sourceIdentity": "2af2bba19c8ffdb86a859586114439bef623b14968c7a6e27e47ee9992dd9776",
+  "sourceSnapshot": "lookdev/scene07-rebuild214/r17-source",
+  "previousReviewedBoundary": {
+    "revision": "r11",
+    "sourceIdentity": "9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6",
+    "sourceSnapshot": "lookdev/scene07-rebuild214/r11-source",
+    "handoff": "lookdev/scene07-rebuild214/handoff214-r11.json"
+  },
+  "previousPublishBoundary": {
+    "revision": "scene07-rebuild214-r06",
+    "sourceIdentity": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+    "snapshot": "lookdev/scene07-rebuild214/r06-publish-snapshot",
+    "review": "lookdev/scene07-rebuild214/r06-publish-snapshot/index.html"
+  },
+  "changedSources": {
+    "flowering-cherry214.js": "bcc7703578ccbddb08a6ed6d1aa4aaf83f4c5869639126cf2aa2389232505fda",
+    "garden-accents.js": "a7370f1aa31a64bb571988026d31955c5b79e5a23a9a670a355147a53ae89bb6",
+    "garden-botany214.js": "d848f906e4eee91cf16fc02667dc5e43a99efafe3a0a3cb3fa4d156f21c99fe0",
+    "garden-terrain.js": "0fa0ef2d51fa12d2a72cf482a72e42248c1ad94034fcd030249040fcb4d96b93",
+    "hero-pines158.js": "dcfbbbed535a831be4c1f5c7c551161f4bbd69a5b332231970f248bf519b7d45",
+    "main.js": "d9ef8745926bb0139471d6b793420518b5eee0b2f5644b817d678d000ad0e8bc",
+    "physical-roofs.js": "11a8b53a9dc06a5a37906b2da37502601f29475ea739a140e03af7c2147e2e04",
+    "reference-layout118.js": "c96e5115c5f49bae16c18e3df76b5a6308f28a45a05daf15a8dcdf4518dd5515",
+    "scanned-planting144.js": "14e68e1cd066eeef28ecfbe755d51aff17eaaba7f71a2ce2fb1583e7c426074b",
+    "scanned-timber.js": "9ec08d0e1a4f7aeab5286934ef83b8bb69ac2c7b0ce1e86510ee1727843d2954",
+    "site-transform214.js": "d55cc0700e6f6add99bb204922b46e3fcab6b38cbd90b979cdb21301a73d19e6",
+    "world-radiance214.js": "47573d1df8862145115670cf82fd4e977ffaa05592d8aab8b25a7e793559e42f"
+  },
+  "reference": "references/hd/6-照片-7.jpg",
+  "actualFrames": {
+    "full": "qa/ten-reference/07/iteration-scene07-rebuild214-r17/reference.png",
+    "hero": "qa/ten-reference/07/iteration-scene07-rebuild214-r17/detail-native.png",
+    "low": "qa/ten-reference/07/iteration-scene07-rebuild214-r17-near-shore-low/inspection-view.png",
+    "cherryHeadland": "qa/ten-reference/07/iteration-scene07-rebuild214-r17-cherry-headland/inspection-view.png"
+  },
+  "nativePending": true,
+  "implementation": [
+    "Static 1.4 metric similarity resites the whole midground temple/bridge/stairs and physical practicals against fixed water and near veranda, replacing the old tall pond rock cliff. It has no runtime camera input.",
+    "A continuous low earth spine and jointed return walk turn to the eastern mainland, with true corner landings, slope beams, deduplicated rail posts and footings.",
+    "Sloping earth beds and mature woody azaleas soften the hall foundation; a low left cherry headland joins the adjacent pine-root island. All new roots use actual modeled soil.",
+    "Lantern-island soil and every procedural/scanned plant now share the same real root surface; the former independent implied plant ellipsoid is removed.",
+    "Pine needles have rounded normals and corrected millimetre calibres; reflected and transmitted irradiance sample opposite hemispheres of the same spatial capture.",
+    "Eight actual native cube captures distinguish lower/upper rooms from porches and low vegetation from exposed crowns in near/far banks.",
+    "Vermilion pigment/cedar grain, metric convex-edge coating loss and separate variable clear lacquer replace uniform gray-brown response. Granite reflectance and neutral clay/glaze responses were re-authored.",
+    "One static complete world sky drives camera, water reflection and PMREM. Rayleigh clear-air gaps, optical cloud structure, measured HDR unobserved bearings, normalized solar Mie scattering and a solar-lit world cloud bank replace the saturated white sky.",
+    "Water uses coherent millimetre wave slopes, matching reflected scene perturbation and actual-sun direct glint; mirror weight and rough reflection are reduced.",
+    "Four whole-volume flowering cherries replace main-bough sphere scatter with closed bearing wood, secondary branches, actual floral spurs, pedicels and cupped five-petal umbels. The main cherry is resited to the left rear bank."
+  ],
+  "changesSinceR11": {
+    "midgroundSite": {
+      "scale": 1.4,
+      "pivot": [
+        10.7,
+        12.8,
+        36
+      ],
+      "hallFloorY": {
+        "before": 7.5,
+        "after": 5.38
+      },
+      "bridgeLeft": {
+        "after": [
+          -14.22,
+          0.62,
+          -17.76
+        ]
+      },
+      "bridgeRight": {
+        "after": [
+          3,
+          2.37,
+          -11.6
+        ]
+      },
+      "rightApproach": {
+        "after": [
+          7.34,
+          1.012,
+          -11.74
+        ]
+      },
+      "returnWalkEnd": {
+        "after": [
+          15,
+          1.1,
+          7.3
+        ]
+      }
+    },
+    "needleDiameterMetres": {
+      "retainedBefore": [
+        0.007,
+        0.0102
+      ],
+      "retainedAfter": [
+        0.0025,
+        0.0034
+      ],
+      "outerAfter": [
+        0.0016,
+        0.0023
+      ]
+    },
+    "mainCherry": {
+      "beforeRootWorld": [
+        -12,
+        0.388,
+        0.6
+      ],
+      "afterRootWorld": [
+        -18,
+        0.78,
+        -14.5
+      ],
+      "previousApproxCrownPixel": [
+        171,
+        661
+      ],
+      "newCpuCrownPixel": [
+        260.394,
+        583.041
+      ]
+    },
+    "islandSoil": {
+      "centreY": 1.85,
+      "lanternFootingY": 1.8749026581769392
+    },
+    "sun": {
+      "intensity": 14,
+      "linearColor": [
+        1,
+        0.47,
+        0.14
+      ],
+      "direction": [
+        -0.5815942996,
+        0.0451236957,
+        -0.8122265218
+      ]
+    },
+    "globalExposure": 1.02
+  },
+  "provenance": {
+    "newExternalAssets": false,
+    "newImageAssets": false,
+    "existingSkyOnlyGeneratedAsset": "reconstructions/scene-07/assets/sky145/sky-cloud-cap-generated-r04.png",
+    "referencePhotographProjected": false,
+    "sceneCards": false,
+    "newGeometry": "Original authored metric earth, paving, botanical branch/petal geometry; existing declared CC0/CC BY source assets retained."
+  },
+  "reviewLimits": [
+    "Photographic fidelity remains unaccepted. Technical native checks and finite mesh data do not constitute a photographic match.",
+    "Native lighting uses shared authored radiance and actual local cube captures; it is an approximation rather than solved multi-bounce GI or measured photometric calibration.",
+    "Sky cloud optical relighting and inferred site/plant anatomy are authored. The supplied sky bitmap contains no scene geometry.",
+    "Water uses planar reflected scene capture plus analytic microfacet/ripple approximation.",
+    "Main hall/gable/roof articulation, lacquer details, needle grain, blossom distribution and temple ornament remain review priorities."
+  ],
+  "retainedSourceSnapshotsVerified": true,
+  "snapshotVerification": "lookdev/scene07-rebuild214/r17-snapshot-verification.json",
+  "intermediates": [
+    {
+      "revision": "r12",
+      "source": "lookdev/scene07-rebuild214/r12-source",
+      "review": "lookdev/scene07-rebuild214/r12-review.json"
+    },
+    {
+      "revision": "r13",
+      "source": "lookdev/scene07-rebuild214/r13-source",
+      "review": "lookdev/scene07-rebuild214/r13-review.json"
+    },
+    {
+      "revision": "r14",
+      "source": "lookdev/scene07-rebuild214/r14-source",
+      "review": "lookdev/scene07-rebuild214/r14-review.json"
+    },
+    {
+      "revision": "r15",
+      "source": "lookdev/scene07-rebuild214/r15-source",
+      "review": "lookdev/scene07-rebuild214/r15-review.json"
+    },
+    {
+      "revision": "r16",
+      "source": "lookdev/scene07-rebuild214/r16-source",
+      "review": "lookdev/scene07-rebuild214/r16-review.json"
+    }
+  ]
+}

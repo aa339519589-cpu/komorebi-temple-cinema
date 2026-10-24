@@ -1,10 +1,12 @@
+import {installLeafScattering214} from './world-radiance214.js';
+import {sitePoint214,MIDGROUND_SITE214} from './site-transform214.js';
 import * as T from 'three';
 
 // Scene07 pine158: independent reference-guided procedural geometry study.
 // Connected swept wood > bent laterals > short, opaque, closed needle pairs.
 // The original eight root positions and the legacy random replay are retained.
 // No photograph pixels, canopy hulls, cards, billboards or camera-facing branches.
-export const HERO_PINES_REVISION = 'scene07-aged-cloud-pines158-r05';
+export const HERO_PINES_REVISION = 'scene07-metric-needle-calibres-and-transmitted-sky214-r14';
 
 const TAU = Math.PI * 2;
 const UP = new T.Vector3(0, 1, 0);
@@ -182,6 +184,18 @@ class WoodMesh158 {
 // sparse slender paired needles form the broken illuminated outer surface.
 // A retained packet is five individually closed tapered ribs with separate
 // pointed ends, not a crown envelope, leaf sphere, hedge ball or alpha plane.
+// Smooth the actual rounded needle cross-sections. The old non-indexed
+// triangles carried one normal per face, making subpixel fascicles glitter
+// like unrelated grains under a low key. Geometry/holes stay unchanged.
+function roundedNeedleNormals214(g){
+ const p=g.attributes.position,n=g.attributes.normal,sums=new Map(),keys=[];
+ for(let i=0;i<p.count;i++){
+  const key=[p.getX(i),p.getY(i),p.getZ(i)].map(v=>Math.round(v*1e6)).join(':');keys.push(key);
+  if(!sums.has(key))sums.set(key,new T.Vector3());sums.get(key).add(new T.Vector3(n.getX(i),n.getY(i),n.getZ(i)));
+ }
+ for(let i=0;i<p.count;i++){const v=sums.get(keys[i]).clone();if(v.lengthSq()<1e-12)continue;v.normalize();n.setXYZ(i,v.x,v.y,v.z);}
+ n.needsUpdate=true;return g;
+}
 export function createPineShoot158(seed) {
   const random=rng(seed),wood=new WoodMesh158(),positions=[],colors=[],innerPositions=[],innerColors=[];
   const variant=Math.round((seed-158701)/73),retained=variant<8;
@@ -207,7 +221,7 @@ export function createPineShoot158(seed) {
       const length=.105+random()*.055;
       for(let rib=0;rib<5;rib++) {
         const offset=(rib-2)*.0045,root=base.clone().addScaledVector(side,offset*.10),d=axis.clone().addScaledVector(side,(rib-2)*.075);d.y+=.04*Math.sin(rib*2.1+packet);
-        const width=.0035+random()*.0016,depth=width*.62;
+        const width=.00125+random()*.00045,depth=width*.62;
         closedRib(root,d,length*(.78+random()*.28),width,depth,.69+random()*.23,packet%5===0);
       }
     }
@@ -225,7 +239,7 @@ export function createPineShoot158(seed) {
         const side=new T.Vector3(-Math.sin(a),.035,Math.cos(a)).normalize(),cross=direction.clone().cross(side).normalize();
         const root=base.clone().addScaledVector(side,pair*.001),middle=root.clone().addScaledVector(direction,length*.52),tip=root.clone().addScaledVector(direction,length);
         middle.y+=.004;tip.y-=.008;
-        const w=.00125+random()*.00085,d=w*.60;
+        const w=.00080+random()*.00035,d=w*.60;
         const ring=[middle.clone().addScaledVector(side,w),middle.clone().addScaledVector(side,-w*.65).addScaledVector(cross,d),middle.clone().addScaledVector(side,-w*.65).addScaledVector(cross,-d)];
         const tone=.79+random()*.27;
         for(let k=0;k<3;k++){const next=(k+1)%3;tri(root,ring[next],ring[k],tone*.82,tone,tone*.95);tri(tip,ring[k],ring[next],tone*1.13,tone*.95,tone);}
@@ -233,9 +247,9 @@ export function createPineShoot158(seed) {
     }
   }
   const needle=new T.BufferGeometry();needle.name='pine158-short-closed-paired-needles-'+seed;
-  needle.setAttribute('position',new T.Float32BufferAttribute(positions,3));needle.setAttribute('color',new T.Float32BufferAttribute(colors,3));needle.computeVertexNormals();needle.computeBoundingBox();
+  needle.setAttribute('position',new T.Float32BufferAttribute(positions,3));needle.setAttribute('color',new T.Float32BufferAttribute(colors,3));needle.computeVertexNormals();roundedNeedleNormals214(needle);needle.computeBoundingBox();
   const interior=new T.BufferGeometry();interior.name='pine158-retained-ribbed-fascicles-'+seed;
-  interior.setAttribute('position',new T.Float32BufferAttribute(innerPositions,3));interior.setAttribute('color',new T.Float32BufferAttribute(innerColors,3));interior.computeVertexNormals();interior.computeBoundingBox();
+  interior.setAttribute('position',new T.Float32BufferAttribute(innerPositions,3));interior.setAttribute('color',new T.Float32BufferAttribute(innerColors,3));interior.computeVertexNormals();roundedNeedleNormals214(interior);interior.computeBoundingBox();
   return {needle,interior,twig:wood.finish('pine158-connected-growing-shoot-'+seed)};
 }
 
@@ -366,12 +380,11 @@ async function installMaterials158(mats,barkAssetBase) {
   mats.heroPineBark148=new T.MeshStandardMaterial({name:'scene07-aged-pine-bark158',color:0xd1c2a8,roughness:.97,map,normalMap,roughnessMap,normalScale:new T.Vector2(.56,.56),vertexColors:true});
   mats.heroPineTwig148=new T.MeshStandardMaterial({name:'scene07-pine-growing-twigs158',color:0x716044,roughness:.96,vertexColors:true});
   mats.heroPineCut148=new T.MeshStandardMaterial({name:'scene07-old-pruning-scars158',color:0x8b795b,roughness:.98,vertexColors:true});
-  mats.heroPineInterior158=new T.MeshStandardMaterial({name:'scene07-retained-opaque-fascicle-interior158',color:0x536f34,roughness:.92,vertexColors:true});
-  mats.heroPineNeedle148=new T.MeshPhysicalMaterial({name:'scene07-short-paired-needles158',color:0x829744,roughness:.74,clearcoat:.025,clearcoatRoughness:.58,side:T.DoubleSide,vertexColors:true});
-  mats.heroPineNeedleTip148=mats.heroPineNeedle148.clone();mats.heroPineNeedleTip148.name='scene07-pine-new-growth158';mats.heroPineNeedleTip148.color.setHex(0xabb653);
-  for(const m of [mats.heroPineNeedle148,mats.heroPineNeedleTip148]) {
-    m.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>','#include <lights_fragment_end>\nvec3 pineSun158=normalize((viewMatrix*vec4(-.58,.035,-.81,0.0)).xyz); float needleThrough158=pow(max(dot(-normal,pineSun158),0.0),2.5); reflectedLight.indirectDiffuse+=diffuseColor.rgb*vec3(1.0,.74,.41)*needleThrough158*.48;');};
-    m.customProgramCacheKey=()=>HERO_PINES_REVISION;m.forceSinglePass=true;
+  mats.heroPineInterior158=new T.MeshStandardMaterial({name:'scene07-retained-individual-needle-fascicles158',color:0x6a7a39,roughness:.98,vertexColors:true});
+  mats.heroPineNeedle148=new T.MeshPhysicalMaterial({name:'scene07-short-paired-needles158',color:0x71823b,roughness:.90,clearcoat:0,specularIntensity:.28,side:T.DoubleSide,vertexColors:true});
+  mats.heroPineNeedleTip148=mats.heroPineNeedle148.clone();mats.heroPineNeedleTip148.name='scene07-pine-new-growth158';mats.heroPineNeedleTip148.color.setHex(0x8c9843);
+  for(const m of [mats.heroPineNeedle148,mats.heroPineNeedleTip148,mats.heroPineInterior158]) {
+    installLeafScattering214(m,{strength:.34,power:1.8,indirectTransmission:.44});m.forceSinglePass=true;
   }
   return ['heroPineBark148','heroPineTwig148','heroPineCut148','heroPineNeedle148','heroPineNeedleTip148','heroPineInterior158'];
 }
@@ -381,8 +394,8 @@ export async function buildHeroPines({emit,mats,hillHeight,group,barkAssetBase})
   const materialKeys=await installMaterials158(mats,barkAssetBase),variants=Array.from({length:12},(_,i)=>createPineShoot158(158701+i*73));
   const stats={revision:HERO_PINES_REVISION,visualAccepted:false,treeCount:0,boughs:0,shelfFans:0,terminalShoots:0,needleTriangles:0,interiorTriangles:0,woodTriangles:0,materialKeys,trees:[],assets:[{name:'Pine Bark',author:'Dimitrios Savva',license:'CC0-1.0',source:'https://polyhaven.com/a/pine_bark',provenance:'reconstructions/scene-07/assets/hero-pines148/pine-bark/provenance.json'}],construction:'continuous aged trunk/fork > sweeping tapered bough > overlapping unequal bent-spine cushions > staggered laterals > bent short shoots > dark closed ribbed retained fascicle packets plus sparse bright closed paired needles; no crown hulls, cards or billboard surfaces'};
   for(const origin of HERO_PINE_ORIGINS) {
-    const tree=buildPineGeometry158(origin),rootY=Math.max(0,hillHeight(origin.x,origin.z*.6-3));
-    group(origin.x,rootY,origin.z,origin.yaw,1,()=>{
+    const tree=buildPineGeometry158(origin),resited=['right-stair','left-stair','back-right','far-left','left-island-small'].includes(origin.id),p=resited?sitePoint214([origin.x,0,origin.z*.6-3]):[origin.x,0,origin.z*.6-3],rootY=Math.max(0,hillHeight(p[0],p[2])),physicalScale=resited?MIDGROUND_SITE214.scale:1;
+    group(p[0],rootY,(p[2]+3)/.6,origin.yaw,physicalScale,()=>{
       emit(tree.bark,'heroPineBark148',0,0,0);emit(tree.cuts,'heroPineCut148',0,0,0);
       for(const item of tree.shoots) {
         const v=variants[item.variant],[x,y,z]=item.p,s=item.scale;
@@ -392,7 +405,7 @@ export async function buildHeroPines({emit,mats,hillHeight,group,barkAssetBase})
       }
     });
     stats.treeCount++;stats.boughs+=tree.stats.primaryBoughs;stats.shelfFans+=tree.stats.foliageCushions;stats.terminalShoots+=tree.shoots.length;stats.woodTriangles+=(tree.bark.index.count+tree.cuts.index.count)/3;
-    stats.trees.push({id:origin.id,originGarden:[origin.x,rootY,origin.z],originWorld:[origin.x,rootY,origin.z*.6-3],nominalHeight:origin.h,spread:origin.spread,yaw:origin.yaw,...tree.stats});
+    stats.trees.push({id:origin.id,originGarden:[p[0],rootY,(p[2]+3)/.6],originWorld:[p[0],rootY,p[2]],nominalHeight:origin.h,physicalScale,spread:origin.spread,yaw:origin.yaw,...tree.stats});
   }
   return stats;
 }

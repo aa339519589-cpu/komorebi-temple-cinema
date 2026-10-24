@@ -1,0 +1,111 @@
+{
+  "expectedSourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "exportDirectory": "lookdev/scene01-rebuild219/export-physical-r09",
+  "outputDirectory": "lookdev/scene01-rebuild219/physical-r10",
+  "exportLimits": {
+    "maxUniqueBytes": 805306368,
+    "minimumFreeBytes": 805306368,
+    "startFreeBytes": 2040109466,
+    "emergencyFloorBytes": 268435456
+  },
+  "render": {
+    "size": 1254,
+    "samples": 96,
+    "timeLimitSeconds": 480,
+    "adaptiveThreshold": 0.025,
+    "adaptiveMinimumSamples": 24,
+    "denoise": true,
+    "device": "METAL",
+    "maxBounces": 10,
+    "diffuseBounces": 6,
+    "glossyBounces": 6,
+    "transmissionBounces": 8,
+    "exposureEV": 0.04264433740849372,
+    "saveBlend": false,
+    "frames": 1,
+    "minimumStartFreeBytes": 1073741824,
+    "adaptiveSampling": false
+  },
+  "lighting": {
+    "boundary": "Same previously selected physical Multiple Scattering atmosphere, single source-aligned solar disc, explicit Blender5.x aerosol field adapter",
+    "worldStrength": "exported environmentIntensity",
+    "sunAngularDiameterRadians": 0.0093,
+    "airDensity": 1.0,
+    "ozoneDensity": 1.0,
+    "nativeFillAreaHemisphereAndPointProxiesImported": false,
+    "surfaceEmission": "Exported emission on actual fixture geometry retained; native leaf ambient emission suppressed as a declared thin-leaf adaptation",
+    "skyType": "MULTIPLE_SCATTERING",
+    "aerosolDensity": 1.2
+  },
+  "geometry": "Exact exported source positions, indices, normals, UV, instance matrices and colors. Orthogonal TRS linked; affine shear and singular transforms baked without changing source triangle count. No new water or substitute garden/architecture mesh.",
+  "materialPorts": {
+    "portablePBR": "Preserve source base color, source and instance color multiplication, metric UV/texture transforms, roughness/metalness maps, normal XY scale, bump, coat and emissive fixtures",
+    "leafAndPetal": "Same blades and original mapped color; energy-conserving Principled/Translucent mixture replaces native view-dependent added radiance. Not GLSL pixel parity.",
+    "water": "Only retained actual Reflector geometry/matrix, if available from the official export. Dielectric IOR1.333, roughness0.07, dark green body, original six world-space wave functions as bump; actual path-traced scene/sky reflection, no photograph or reflected-scene proxy.",
+    "waterfall": "Actual exported ribbon geometry, source color and UV; declared transmissive coverage approximation for nonportable dynamic alpha/foam hook.",
+    "sky": "Native generated-LDR sky shader is not imported. Source-aligned physical atmosphere is an independent boundary approximation.",
+    "otherGLSL": "World-space wood/rock/bark/granite color and micro-normal hooks are not silently claimed portable. Portable original image maps and actual geometric erosion remain; exact omitted hooks enumerated in report."
+  },
+  "acceptance": "One independent physical-lighting diagnostic only; neither native pixel equivalence nor photographic acceptance is claimed.",
+  "storageReview": {
+    "reviewedBy": "Root",
+    "reviewedAt": "2026-10-23T23:21:34.925676+00:00",
+    "previousFailedAttempt": "export-physical-r08",
+    "previousFailedReport": "lookdev/scene01-rebuild219/export-physical-r08/export-report.json",
+    "previousVerifiedPartialStorage": {
+      "uniqueBytes": 395264899,
+      "logicalBytes": 423994377,
+      "files": 18314,
+      "uniqueFiles": 7518,
+      "savedBytes": 28729478,
+      "completeGeometryGroups": 3029,
+      "texturePNGs": 28,
+      "instancePayloads": 6184,
+      "finalManifestReturned": false,
+      "waterBuffersByteVerified": true,
+      "waterFullMatrixReturned": false
+    },
+    "reason": "One new attempt explicitly authorized after actual R08 unique-cap failure. All recorded R08 partial payloads were independently byte/hash verified before only its derived assets were removed. R09 retains exactly the same source geometry, textures and quality with 768MiB unique cap +768MiB per-write free floor and1.9GiB start budget, maintaining256MiB physical emergency monitor. The larger bounded allowance is based on measured partial export volume, not reduced geometry or hidden quality changes. No third automatic attempt.",
+    "freshExportAttemptsAuthorized": 1,
+    "physicalRenderFramesAuthorized": 1
+  },
+  "apiRepair": {
+    "previousFailedPhysicalAttempt": "physical-r09",
+    "originalExportReused": "lookdev/scene01-rebuild219/export-physical-r09",
+    "freshExport": false,
+    "scope": "Only dust_density API name repaired to aerosol_density from official Blender5.x API and current5.2 API index. Same actual source sun, already selected atmosphere model, density1.2, geometry/textures and96sample1254 one-frame recipe.",
+    "officialSources": [
+      {
+        "url": "https://docs.blender.org/api/current/genindex-A.html",
+        "evidence": "Official API search snapshot labeled5.2 indexes aerosol_density under ShaderNodeTexSky; direct specific5.2 API page403/402."
+      },
+      {
+        "url": "https://docs.blender.org/api/5.1/bpy.types.ShaderNodeTexSky.html",
+        "evidence": "Official5.1 API explicitly documents aerosol_density and the same actual-installed sky_type enum set."
+      },
+      {
+        "url": "https://docs.staging.blender.org/manual/en/latest/render/shader_nodes/textures/sky.html",
+        "evidence": "Official5.2 staging manual search snapshot describes Aerosols; direct open403."
+      }
+    ],
+    "actualR09bRNAConfirmed": false,
+    "physicalAttemptAuthorized": true,
+    "authorization": "Root explicitly authorized one R09b physical job reusing verified R09, no fresh export. Same physical model/intensity/direction and aerosol1.2 compatibility value. Actual failure preserved, no third automatic physical job."
+  },
+  "rotationRepair": {
+    "status": "Root-authorized-one-R10-physical-job",
+    "previousWrongDirectionFrame": "physical-r09b/scene01-d2587-physical-r09b.png",
+    "audit": "lookdev/scene01-rebuild219/sky-rotation-v521-audit219-r09b.json",
+    "onlyPhysicalDifference": "Use RNA r=atan2(D.x,D.y) rather than atan2(D.y,D.x); source sun direction/sky model/energy/geometry/materials/camera unchanged. Add actual-RNA forward direction and projection residual guards before importing geometry.",
+    "forwardFormula": "D=(cos(e)*sin(r), cos(e)*cos(r), sin(e))",
+    "directionResidualLimit": 1e-06,
+    "projectionResidualPixelsLimit": 0.002,
+    "officialVersionSources": [
+      "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/scene/shader_nodes.cpp",
+      "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/svm/sky.h",
+      "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/osl/shaders/node_sky_texture.osl"
+    ],
+    "freshExport": false,
+    "rootAuthorization": "One R10 physical job authorized, reusing complete verified R09 export. Only correct atan2(x,y) and add actual sky forward-map/source-camera projection gate; all original geometry/textures/materials/energy/render parameters remain frozen. Preserve lighting-invalid R09b. No new export."
+  }
+}

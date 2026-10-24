@@ -1,5 +1,5 @@
 import * as T from 'three';
-export const REBUILD213_REVISION='scene08-through-arch-stream-inlet213-r09';
+export const REBUILD213_REVISION='scene08-surface-seated-ceramic-timber213-r17';
 
 const hash=(x,y,z=0)=>{const a=Math.sin(x*127.1+y*311.7+z*74.7+213.6)*43758.5453;return a-Math.floor(a);};
 function noise(x,y,z){const a=Math.floor(x),b=Math.floor(y),c=Math.floor(z),f=[x-a,y-b,z-c].map(t=>t*t*(3-2*t)),mix=T.MathUtils.lerp;return mix(mix(mix(hash(a,b,c),hash(a+1,b,c),f[0]),mix(hash(a,b+1,c),hash(a+1,b+1,c),f[0]),f[1]),mix(mix(hash(a,b,c+1),hash(a+1,b,c+1),f[0]),mix(hash(a,b+1,c+1),hash(a+1,b+1,c+1),f[0]),f[1]),f[2]);}

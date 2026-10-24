@@ -1,0 +1,240 @@
+{
+  "revision": "scene07-rebuild214-r22",
+  "kind": "Controlled working-preview boundary; not photographic acceptance",
+  "status": "Actual full / genuine hero / low inspected. Known R20/R21 roof penetrations cleared in these views.",
+  "visualAccepted": false,
+  "sourceIdentity": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+  "canonical": "reconstructions/scene-07",
+  "sourceSnapshot": "lookdev/scene07-rebuild214/r22-source",
+  "identityManifest": "lookdev/scene07-rebuild214/r22-source-identity.json",
+  "changedSinceR18": [
+    {
+      "path": "reconstructions/scene-07/src/garden-terrain.js",
+      "sha256": "259058153107be8896af52237c0372e8fe2c07efadfba0e5985129b42f37848f",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/grand-frame182.js",
+      "sha256": "b14864e0206bad43a5e6c608b2c26d3285410c625b22bf4de4b2a7b6a4f1a0e7",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/main.js",
+      "sha256": "1fab5b287b5ccf1d816c9334608b121c42f10e8d36df9ec5e8fc089dd35711c3",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/occupied-hall152.js",
+      "sha256": "9f26db8bbbded36455851f694f95cfa09c3d5e132c9b40f56b0fb394c1b298ec",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/physical-roofs.js",
+      "sha256": "52e381cd35a8c9cbd5f119852e6b423c6d078982b7ba05fa767e70a23d10be30",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/reference-layout118.js",
+      "sha256": "498d9c4070ebacc4174014e66b5510174341970857866775f6824fd0cc2e5988",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/roof-plan214.js",
+      "sha256": "801a8564fb14cc7c234a043fec2d5edcee37e11bbf9a1e0a33a925aa3ef09288",
+      "added": true
+    },
+    {
+      "path": "reconstructions/scene-07/src/scanned-timber.js",
+      "sha256": "9e33afffb3d5c47a967aeb4209b860f7a55a2887cb330f0868f6e64c706fe48f",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/site-transform214.js",
+      "sha256": "f9730f642ce013303c339e0aa878cf53a05461e223cb0a88440520aa9fe7fa42",
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/solar-atmosphere214.js",
+      "sha256": "4c29a9dc0d0345fa5a7aa7a03f36edc7f2864982c6d48a2259416fea66e45b3e",
+      "added": true
+    },
+    {
+      "path": "reconstructions/scene-07/src/world-radiance214.js",
+      "sha256": "e198cbfb5a12ee9c600d414c0952bca6c45d376f4a9c1a6b8a06b447cd28569e",
+      "added": false
+    }
+  ],
+  "copyBoundary": {
+    "mode": "Root-owned COW of canonical scene plus declared dependencies; do not duplicate original assets here",
+    "canonical": "reconstructions/scene-07",
+    "sourceOnlyOverlay": "lookdev/scene07-rebuild214/r22-source",
+    "overlayTarget": "reconstructions/scene-07/src",
+    "entry": "lookdev/scene07-rebuild214/r22-entry.html",
+    "entryTarget": "reconstructions/scene-07/index.html",
+    "assetDependencyDeclaration": "lookdev/scene07-rebuild214/r22-asset-dependencies.json",
+    "assetDependencyTarget": "reconstructions/scene-07/asset-dependencies.json",
+    "allOtherSceneAssetsUnchangedFromR18": true,
+    "externalDependencies": "Exact paths and SHA256 values in identityManifest; existing asset-dependencies.json still applies",
+    "restoreR18": "Restore all35 JS from r18-source and remove roof-plan214.js / solar-atmosphere214.js. Assets, index and dependency declaration did not change."
+  },
+  "actualFrames": {
+    "full": "qa/ten-reference/07/iteration-scene07-rebuild214-r22/reference.png",
+    "hero": "qa/ten-reference/07/iteration-scene07-rebuild214-r22/detail-native.png",
+    "low": "qa/ten-reference/07/iteration-scene07-rebuild214-r22-near-shore-low/inspection-view.png"
+  },
+  "knownRoofRepair": {
+    "leftCapOldPenetrationModelMetres": 0.5364231991834512,
+    "wholeCapAndBearingFootprintChecked": true,
+    "plaqueUnderEave": true,
+    "rightHipOldRafterPenetrationModelMetres": [
+      0.09798396239567175,
+      0.06685018165854473
+    ],
+    "rightHipRepair": "Complete real rectangular rafter sections seat under adjoining deck surfaces; closed caps retained; main/flying curves24/12segments",
+    "actualReferenceRayPicks": [
+      {
+        "pixel": [
+          0.80295,
+          0.2573
+        ],
+        "firstMaterial": "scene07-neutral-fired-clay-and-measured-glaze214"
+      },
+      {
+        "pixel": [
+          0.80507,
+          0.26812
+        ],
+        "firstMaterial": "scene07-neutral-fired-clay-and-measured-glaze214"
+      }
+    ],
+    "limits": "These inspected views and targeted rays resolve the known penetrations; not an all-mesh collision certificate."
+  },
+  "lightingBoundary": {
+    "sameAsR21": true,
+    "shadowLights": 5,
+    "oneSolarSource": true,
+    "angularDiameterDegrees": 0.53,
+    "physicalIntensity": 24,
+    "renderedIntensity": 4,
+    "radianceUnitScale": 0.16666666666666666,
+    "cameraExposure": 6.12,
+    "equivalentExposureInR18Units": 1.02,
+    "skyAndDirectLinearColor": [
+      1,
+      0.4,
+      0.085
+    ],
+    "visibleDiskExcludedFromGlobalAndAll8LocalIndirectCaptures": true,
+    "waterReflectsActualDisk": true,
+    "extraAnalyticWaterGlint": false,
+    "bloom": false,
+    "worldSpaceAerialTransportBeforeToneMapping": true,
+    "actualMaxSamplers": 14,
+    "actualFragmentSamplerLimit": 16
+  },
+  "observedImprovements": [
+    "Warm direct light and valley air share one solar/sky radiance field; courtyard contrast restored after rejected R19b near haze.",
+    "Upper roof plan/ridge, upper storey width and occupied ceiling share the rebuilt real geometry.",
+    "Cap, full-footprint receiver, frieze and suspended plaque repairs clear earlier roof crossings; right hip edge rafters now sit below actual deck.",
+    "Lowered shores, real rooted vegetation and branching cherry trees remain intact."
+  ],
+  "remaining": [
+    "Photographic fidelity remains unaccepted; scene still reads as CG.",
+    "Beam/rail articulation and repeated panels remain overly regular.",
+    "Needles, cherry crown density and pond flowers remain visibly procedural.",
+    "The reference has stronger heavy gold material response and richer indirect shade than this native candidate.",
+    "Authored skew roof/site and first-bounce cube capture approximate an inferred building; they are not measured survey or solved multibounce GI."
+  ],
+  "native": [
+    {
+      "variant": "r22",
+      "path": "qa/ten-reference/07/iteration-scene07-rebuild214-r22/report.json",
+      "source": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "a2f60ab58b318208aa373a5c1f9629e9f694c706a1b34347ca82849a89dd15ce",
+          "samplerMaximum": 14,
+          "samplerLimit": 16
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "2afacefa33999b3f1aad922f69e86802daf9b4d05eb1c8be3606a74ede576214",
+          "samplerMaximum": 14,
+          "samplerLimit": 16
+        }
+      ]
+    },
+    {
+      "variant": "r22-near-shore-low",
+      "path": "qa/ten-reference/07/iteration-scene07-rebuild214-r22-near-shore-low/report.json",
+      "source": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "d771335003a07c05da8b879e9cae45705c8f99aa5cfc3e7fc0109f2521e5d582",
+          "samplerMaximum": 14,
+          "samplerLimit": 16
+        }
+      ]
+    }
+  ],
+  "preservedBoundaries": {
+    "r18": "9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563",
+    "r21": "16018796da17346b1125c2be8919626de6b07d316f226b60ef375f32bd0e618a"
+  },
+  "sourceWillRemainFrozenUntilRootCOW": true,
+  "snapshotJsFiles": 37
+}

@@ -1,0 +1,226 @@
+{
+  "revision": "scene07-rebuild214-r20",
+  "source": "4aeffa30c9a3ee2c8acaac2d2b18bd89b9a4754f2da4922d0f00add89ce84475",
+  "status": "Actual upper roof/room contact preflight; second visual native round pending",
+  "visualAccepted": false,
+  "geometry": {
+    "spec": {
+      "w": 14.8,
+      "d": 18.7,
+      "e": 10.1,
+      "rise": 6.4,
+      "curl": 0.65,
+      "gabled": true,
+      "ridgeFraction": 0.38,
+      "ridgeSkew": 0.625
+    },
+    "roofParts": 109,
+    "roofAudit": {
+      "revision": "scene07-oblique-ridge-contact-and-measured-ceramic214-r20",
+      "label": "roof",
+      "width": 14.8,
+      "depth": 18.7,
+      "eave": 10.1,
+      "peak": 16.5,
+      "tiles": {
+        "cover": 5040,
+        "pan": 5060
+      },
+      "innerCollar": null,
+      "construction": "Closed curved bedding; individual pan/cover courses; fascia, purlins and capped rafters; seated receivers. Lower hall roof is cut at its upper-room footprint and housed in a closed fitted timber curb."
+    },
+    "receiverBoxes": 0,
+    "inverseMaxError": 5.660120718786743e-10,
+    "minPlanJacobian": 0.4717462080328083,
+    "minShaftHeight": 0.8023756442765055,
+    "ceilingClosed": true,
+    "wallMinimumClearance": 0.08451309903243498,
+    "wallWorst": [
+      {
+        "x": -6.56,
+        "z": 2.75,
+        "roofBottom": 10.579513099032434,
+        "wallTop": 10.495,
+        "clearance": 0.08451309903243498
+      },
+      {
+        "x": -4.68,
+        "z": 2.75,
+        "roofBottom": 10.647320119699938,
+        "wallTop": 10.495,
+        "clearance": 0.15232011969993842
+      },
+      {
+        "x": -2.81,
+        "z": 2.75,
+        "roofBottom": 10.738259564833255,
+        "wallTop": 10.495,
+        "clearance": 0.24325956483325584
+      },
+      {
+        "x": 0,
+        "z": 2.75,
+        "roofBottom": 10.918659731999792,
+        "wallTop": 10.495,
+        "clearance": 0.423659731999793
+      }
+    ],
+    "contacts": [
+      {
+        "x": -6.66,
+        "z": -4.55,
+        "roofBottom": 10.087375644276506,
+        "shaftHeight": 0.8023756442765055
+      },
+      {
+        "x": -4.44,
+        "z": -4.55,
+        "roofBottom": 15.586007039670244,
+        "shaftHeight": 6.301007039670244
+      },
+      {
+        "x": -2.22,
+        "z": -4.55,
+        "roofBottom": 14.428475054096253,
+        "shaftHeight": 5.143475054096253
+      },
+      {
+        "x": 0,
+        "z": -4.55,
+        "roofBottom": 13.502278309231404,
+        "shaftHeight": 4.2172783092314035
+      },
+      {
+        "x": 2.22,
+        "z": -4.55,
+        "roofBottom": 12.895415931841539,
+        "shaftHeight": 3.6104159318415388
+      },
+      {
+        "x": 4.44,
+        "z": -4.55,
+        "roofBottom": 12.462965055965833,
+        "shaftHeight": 3.1779650559658332
+      },
+      {
+        "x": 6.66,
+        "z": -4.55,
+        "roofBottom": 10.765807012134012,
+        "shaftHeight": 1.4808070121340116
+      },
+      {
+        "x": -6.66,
+        "z": 3.4,
+        "roofBottom": 10.12571124744301,
+        "shaftHeight": 0.8407112474430107
+      },
+      {
+        "x": -4.44,
+        "z": 3.4,
+        "roofBottom": 10.12933185820397,
+        "shaftHeight": 0.8443318582039705
+      },
+      {
+        "x": -2.22,
+        "z": 3.4,
+        "roofBottom": 10.163134758406168,
+        "shaftHeight": 0.8781347584061674
+      },
+      {
+        "x": 0,
+        "z": 3.4,
+        "roofBottom": 10.209038033399723,
+        "shaftHeight": 0.9240380333997233
+      },
+      {
+        "x": 2.22,
+        "z": 3.4,
+        "roofBottom": 10.267117570770921,
+        "shaftHeight": 0.9821175707709209
+      },
+      {
+        "x": 4.44,
+        "z": 3.4,
+        "roofBottom": 10.343292252278804,
+        "shaftHeight": 1.0582922522788039
+      },
+      {
+        "x": 6.66,
+        "z": 3.4,
+        "roofBottom": 10.451135285485915,
+        "shaftHeight": 1.1661352854859146
+      }
+    ]
+  },
+  "upperStoreyPlan": {
+    "before": {
+      "scaleX": 1,
+      "offsetX": 0
+    },
+    "after": {
+      "scaleX": 0.9,
+      "offsetX": 0.3
+    },
+    "shaftAndShoeXCompensation": 1.1111111111111112,
+    "lowerRoofOpeningFollowsUpperRoom": true
+  },
+  "solar": {
+    "totalPower": 24,
+    "renderedPower": 4,
+    "angularDiameterDegrees": 0.53,
+    "samples": 5,
+    "linearColor": [
+      1,
+      0.4,
+      0.085
+    ],
+    "directDiskExcludedFromDiffuseIBL": true,
+    "physicalRadianceScale": 0.16666666666666666,
+    "equivalentCameraExposureAtR18Units": 1.02
+  },
+  "aerialPerspective": {
+    "fixedWorldValleyZ": [
+      -55,
+      -210
+    ],
+    "courtyardDensityFraction": 0.055,
+    "heightScaleMetres": 180,
+    "fourPointWorldPathIntegration": true,
+    "source": "Same actual clear-air radiance field as visible sky",
+    "screenSpaceFilter": false
+  },
+  "roomCaptureCorrection": {
+    "previousModelLocalZ": {
+      "room": 4.2,
+      "porch": 6.85
+    },
+    "newHallLocal": {
+      "lowerRoom": [
+        -3,
+        4.4,
+        -1
+      ],
+      "lowerPorch": [
+        0,
+        4.4,
+        2.15
+      ],
+      "upperRoom": [
+        -2.3,
+        9.5,
+        1.2
+      ],
+      "upperPorch": [
+        1.1,
+        9.6,
+        3.55
+      ]
+    },
+    "facadeThresholds": {
+      "lower": 0.6,
+      "upper": 2.6
+    },
+    "eaveTimbersUseActualPorchCapture": true
+  },
+  "newExternalAssets": false
+}

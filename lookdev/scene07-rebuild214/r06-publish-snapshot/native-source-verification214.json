@@ -1,0 +1,136 @@
+{
+  "source": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+  "checks": [
+    {
+      "variant": "r06",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r06/report.json",
+      "source": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false
+        }
+      ]
+    },
+    {
+      "variant": "r06-low-front",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r06-low-front/report.json",
+      "source": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false
+        }
+      ]
+    },
+    {
+      "variant": "r06-overhead-route",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r06-overhead-route/report.json",
+      "source": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "picked": [
+            {
+              "pixel": [
+                0.66,
+                0.532
+              ],
+              "frontMaterial": [
+                {
+                  "name": "scene07-jointed-weathered-path-granite",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "frontPoint": [
+                6.069421541659635,
+                5.031818330287933,
+                1.8895155826757826
+              ]
+            },
+            {
+              "pixel": [
+                0.662,
+                0.585
+              ],
+              "frontMaterial": [
+                {
+                  "name": "scene07-jointed-weathered-path-granite",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "frontPoint": [
+                5.490385350646185,
+                5.190909326076511,
+                3.130322287446957
+              ]
+            },
+            {
+              "pixel": [
+                0.875,
+                0.427
+              ],
+              "frontMaterial": [
+                {
+                  "name": "scene07-jointed-weathered-path-granite",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "frontPoint": [
+                13.129004841032016,
+                3.574999988079071,
+                1.2721683649862787
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "visualAccepted": false
+}

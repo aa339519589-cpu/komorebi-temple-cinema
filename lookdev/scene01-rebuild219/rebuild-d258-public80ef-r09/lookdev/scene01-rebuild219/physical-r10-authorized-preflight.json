@@ -1,0 +1,22 @@
+{
+  "status": "authorized-CPU-ready-no-new-export",
+  "createdAt": "2026-10-23T23:41:53.332147+00:00",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "reusesVerifiedExport": "export-physical-r09",
+  "authorization": "One R10 physical job authorized, reusing complete verified R09 export. Only correct atan2(x,y) and add actual sky forward-map/source-camera projection gate; all original geometry/textures/materials/energy/render parameters remain frozen. Preserve lighting-invalid R09b. No new export.",
+  "onlyPhysicalDifference": "Use RNA r=atan2(D.x,D.y) rather than atan2(D.y,D.x); source sun direction/sky model/energy/geometry/materials/camera unchanged. Add actual-RNA forward direction and projection residual guards before importing geometry.",
+  "files": {
+    "physical-r10-settings.json": {
+      "bytes": 7157,
+      "sha256": "db27ee84703970cc03c3cd30f3ac2509a5673939b65adf740d90a3f73ac2725e"
+    },
+    "render-physical219-r10.py": {
+      "bytes": 42954,
+      "sha256": "72d9509c9c261b09b72e34a2c7785944330598ca361f97e36d99e47a62d39c47"
+    },
+    "run-physical219-r10.mjs": {
+      "bytes": 3572,
+      "sha256": "b8893d664b84a9b0732eef80d648ef3c11a0671145c13d5772bf7b4add733461"
+    }
+  }
+}

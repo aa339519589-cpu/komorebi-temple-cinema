@@ -1,15 +1,22 @@
 import * as T from 'three';
 import {clipRestorationRoofOpening} from './architecture-kernel.js';
+import {roofPlanPoint214,roofPlanRawZ214,createRoofDetailAPI214} from './roof-plan214.js';
 
 // Authored construction geometry. The photograph is never sampled here.
 // Dimensions are in the unscaled building coordinates; roof and frame share
 // the same analytical surface so that the visible bearing members meet it.
-export const PHYSICAL_ROOF_REVISION='scene07-collared-occupied-hall152';
+export const PHYSICAL_ROOF_REVISION='scene07-roof-section-seated-hip-rafters214-r22';
+// Reuse the already-declared independent ceramic surface maps from the
+// near gallery. No new bitmap or download; all building shape stays 3D.
+const ceramicSurface214=await Promise.all(['ceramic-neutral-diff.png','ceramic-micro-normal-gl.png','ceramic-glaze-rough.png','ceramic-glaze-weight.png','cast-metal-rough.png','cast-metal-height.png'].map(name=>new T.TextureLoader().loadAsync(new URL('../assets/near-gallery149/'+name,import.meta.url).href)));
+for(const texture of ceramicSurface214){texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.anisotropy=8;}ceramicSurface214[0].colorSpace=T.SRGBColorSpace;
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const a=Math.sin(x*127.1+y*311.7+97.3)*43758.5453;return a-Math.floor(a);};
 
-export function physicalRoofHeight153({w,d,e,rise,curl=.5,gabled=false,pagoda=false},x,z){
- const hw=w/2,hd=d/2,ridge=pagoda?w*.055:w*(gabled?.30:.24),cut=gabled?.43:0;
+export function physicalRoofHeight153(spec,x,z){
+ const {w,d,e,rise,curl=.5,gabled=false,pagoda=false,ridgeFraction=null}=spec;
+ z=roofPlanRawZ214(spec,x,z);
+ const hw=w/2,hd=d/2,ridge=w*(ridgeFraction??(pagoda?.055:gabled?.30:.24)),cut=gabled?.43:0;
  let t=Math.abs(z)/hd,span=ridge+(hw-ridge)*(gabled?Math.max(0,(t-cut)/(1-cut)):t),u=x/span;
  if(Math.abs(x)>span){t=cut+(1-cut)*(Math.abs(x)-ridge)/(hw-ridge);u=z/(hd*t);}
  return e+rise*Math.pow(Math.max(0,1-t),gabled?1.72:1.49)+curl*Math.pow(t,10)*(.17+.83*Math.pow(Math.abs(u),8))+(gabled?.11:.035)*Math.pow(1-t,8)*Math.pow(Math.abs(u),8);
@@ -25,10 +32,17 @@ export function createRoofMaterials(){
   }
   function tex(data,color=false){const t=new T.DataTexture(data,n,n);t.wrapS=t.wrapT=T.RepeatWrapping;t.needsUpdate=true;if(color)t.colorSpace=T.SRGBColorSpace;return t;}
   const color=tex(albedo,true),roughness=tex(rough),bump=tex(height);
-  const ceramic=new T.MeshPhysicalMaterial({name:'scene07-charcoal-fired-glaze',color:0x6b7b83,map:color,roughness:.48,roughnessMap:roughness,bumpMap:bump,bumpScale:.020,metalness:.012,clearcoat:.36,clearcoatRoughness:.22});
-  const worn=ceramic.clone();worn.name='scene07-worn-ceramic-ridges';worn.color.setHex(0x78807e);worn.roughness=.67;worn.clearcoat=.22;
+  // Combined linear pigment × neutral scan field now gives approximately
+  // 8–12% diffuse reflectance, rather than the previous 6–8% charcoal.
+  // This is aged grey ceramic, with the original physical glazed highlight.
+  const [surface,normal,glazeRough,glazeWeight]=ceramicSurface214;
+  const ceramic=new T.MeshPhysicalMaterial({name:'scene07-neutral-fired-clay-and-measured-glaze214',color:0x7d7b72,map:surface,normalMap:normal,normalScale:new T.Vector2(.12,.12),roughness:.58,roughnessMap:glazeRough,metalness:0,ior:1.52,clearcoat:.52,clearcoatMap:glazeWeight,clearcoatRoughness:.26,clearcoatRoughnessMap:glazeRough,clearcoatNormalMap:normal,clearcoatNormalScale:new T.Vector2(.08,.08)});
+  const worn=ceramic.clone();worn.name='scene07-worn-ceramic-ridges';worn.color.setHex(0x89867a);worn.roughness=.78;worn.clearcoat=.16;worn.clearcoatRoughness=.40;
   const deck=new T.MeshStandardMaterial({name:'scene07-ceramic-bedding',color:0x343733,roughness:.91,bumpMap:bump,bumpScale:.022});
-  return{ceramic,worn,deck,provenance:{source:'Scene-local authored geometry and mathematical PBR maps; no photo or external image sampled.',license:'Original project-authored source, no new third-party dependencies.',revision:PHYSICAL_ROOF_REVISION}};
+  return{ceramic,worn,deck,provenance:{source:'Authored geometry with existing near-gallery149 neutral ceramic, micro normal, glaze roughness and glaze-weight maps. The reference photograph is not sampled.',license:'Existing declared independent CC0 surface; original authored geometry. No new downloads.',existingSurfaceProvenance:'reconstructions/scene-07/assets/near-gallery149/provenance.json',revision:PHYSICAL_ROOF_REVISION}};
+}
+export function createAgedGilt214(){
+ return new T.MeshPhysicalMaterial({name:'scene07-existing-cast-gilt-microreflection214-r21',color:0xc9a25c,metalness:.93,roughness:.32,roughnessMap:ceramicSurface214[4],bumpMap:ceramicSurface214[5],bumpScale:.00018,clearcoat:.05,clearcoatRoughness:.35});
 }
 
 function meshBuilder(){
@@ -42,12 +56,22 @@ function meshBuilder(){
 
 // Closed rectangular/round timber sweeps retain real caps at the eaves. All
 // dimensions are physical sections, rather than screen-space ribbons.
-function timber(points,width,height){
+function timber(points,width,height,ceilingAt=null){
   const b=meshBuilder(),frames=points.map((p,i)=>{
     const c=new T.Vector3(...p),a=new T.Vector3(...points[Math.max(0,i-1)]),z=new T.Vector3(...points[Math.min(points.length-1,i+1)]),t=z.sub(a).normalize(),side=new T.Vector3(t.z,0,-t.x).normalize(),up=new T.Vector3().crossVectors(t,side).normalize();
     return{c,side,up};
   });
-  const ring=f=>[[-1,-1],[1,-1],[1,1],[-1,1]].map(([x,y])=>f.c.clone().addScaledVector(f.side,x*width/2).addScaledVector(f.up,y*height/2).toArray());
+  const ring=f=>{
+    const corners=[[-1,-1],[1,-1],[1,1],[-1,1]].map(([x,y])=>f.c.clone().addScaledVector(f.side,x*width/2).addScaledVector(f.up,y*height/2).toArray());
+    if(ceilingAt){
+      // A hip rafter bears below both adjoining deck faces. Its full solid
+      // section must fit there; an offset of only the centre curve can put
+      // the outer corner above the shallower adjoining roof after skewing.
+      const probes=corners.flatMap((p,i)=>[p,p.map((v,k)=>(v+corners[(i+1)%4][k])*.5)]),drop=Math.max(0,...probes.map(p=>p[1]-ceilingAt(p[0],p[2])));
+      for(const p of corners)p[1]-=drop;
+    }
+    return corners;
+  };
   for(let i=0;i<frames.length-1;i++){const a=ring(frames[i]),c=ring(frames[i+1]);for(let j=0;j<4;j++){const k=(j+1)%4;b.quad(a[k],c[k],c[j],a[j]);}}
   const a=ring(frames[0]),c=ring(frames.at(-1));b.quad(a[3],a[2],a[1],a[0]);b.quad(c[0],c[1],c[2],c[3]);return b.finish();
 }
@@ -57,13 +81,13 @@ function panelPrism(profile,depth,axis='x'){
   if(axis==='x'){const p=g.attributes.position;for(let i=0;i<p.count;i++){const u=p.getX(i),v=p.getY(i),w=p.getZ(i);p.setXYZ(i,w,v,-u);}g.computeVertexNormals();}return g;
 }
 
-export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=false,supports=[],label='roof',innerCollar=null}={}){
+export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=false,supports=[],label='roof',innerCollar=null,ridgeFraction=null,ridgeSkew=0}={}){
   const {emit,box,rod,bracket,materials}=api,hw=w/2,hd=d/2;
-  const ridge=pagoda?w*.055:w*(gabled?.30:.24),cut=gabled?.43:0,exponent=gabled?1.72:1.49;
+  const spec214={w,d,e,rise,curl,gabled,pagoda,ridgeFraction,ridgeSkew},ridge=w*(ridgeFraction??(pagoda?.055:gabled?.30:.24)),cut=gabled?.43:0,exponent=gabled?1.72:1.49;
   const span=t=>ridge+(hw-ridge)*(gabled?Math.max(0,(t-cut)/(1-cut)):t);
   const P=(face,t,u)=>{
     const h=e+rise*Math.pow(Math.max(0,1-t),exponent)+curl*Math.pow(t,10)*(.17+.83*Math.pow(Math.abs(u),8))+(gabled?.11:.035)*Math.pow(1-t,8)*Math.pow(Math.abs(u),8);
-    return face%2?[face===1?span(t):-span(t),h,u*hd*t]:[u*span(t),h,face===0?hd*t:-hd*t];
+    return roofPlanPoint214(spec214,face%2?[face===1?span(t):-span(t),h,u*hd*t]:[u*span(t),h,face===0?hd*t:-hd*t],t);
   };
   const frame=(face,t,u)=>{
     const c=new T.Vector3(...P(face,t,u)),a=new T.Vector3(...P(face,Math.max(cut&&face%2?cut:0,t-.0001),u)),b=new T.Vector3(...P(face,t+.0001,u)),tangent=b.sub(a).normalize(),across=new T.Vector3(...P(face,t,Math.min(1,u+.0001))).sub(new T.Vector3(...P(face,t,Math.max(-1,u-.0001)))).normalize();
@@ -71,9 +95,14 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
   };
   const at=(face,t,u,offset=0)=>{const f=frame(face,t,u);return f.c.addScaledVector(f.up,offset).toArray();};
   const heightAt=(x,z)=>{
+    z=roofPlanRawZ214(spec214,x,z);
     let t=Math.abs(z)/hd,face=z>=0?0:2,u=x/span(t);
     if(Math.abs(x)>span(t)){t=(gabled?cut:0)+(1-(gabled?cut:0))*(Math.abs(x)-ridge)/(hw-ridge);face=x>=0?1:3;u=z/(hd*t);}
     return{p:P(face,t,u),face,t,u};
+  };
+  const rafterCeiling214=(x,z)=>{
+    const hit=heightAt(x,z),normalY=Math.max(.18,frame(hit.face,hit.t,hit.u).up.y);
+    return hit.p[1]-.17/normalY-.025;
   };
   const roofBuckets=new Map();
   const draw=(g,m)=>{m=typeof m==='string'?(materials[m]||m):m;const key=typeof m==='string'?m:m.uuid;if(!roofBuckets.has(key))roofBuckets.set(key,{m,geometries:[]});roofBuckets.get(key).geometries.push(g);};
@@ -138,9 +167,9 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
     }
     const rafters=Math.ceil((face%2?d:w)/.34);
     for(let i=0;i<=rafters;i++){
-      const u=-1+2*i/rafters,start=Math.max(t0,.50),main=Array.from({length:15},(_,j)=>at(face,start+(1.014-start)*j/14,u,-.275));
-      draw(timber(main,.16,.19),'red');
-      const flying=Array.from({length:9},(_,j)=>at(face,.79+.245*j/8,u,-.158));draw(timber(flying,.125,.12),'red');
+      const u=-1+2*i/rafters,start=Math.max(t0,.50),main=Array.from({length:25},(_,j)=>at(face,start+(1.006-start)*j/24,u,-.275));
+      draw(timber(main,.16,.19,rafterCeiling214),'red');
+      const flying=Array.from({length:13},(_,j)=>at(face,.79+.216*j/12,u,-.205));draw(timber(flying,.125,.12,rafterCeiling214),'red');
       const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.107,.106),'gold');
       // A short curved bracket sits beneath every fourth rafter and visibly
       // ties the deep flying eave back into the inner purlin line.
@@ -161,7 +190,9 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
 
   // An annular lower roof meets an occupied upper storey. It has no hidden
   // ridge/ornaments crossing the floor or extending through the upper room.
+  const drawSkin214=draw;
   if(!innerCollar){
+  const detail214=createRoofDetailAPI214(api,spec214),emit=detail214.emit,box=detail214.box,rod=detail214.rod,draw=(g,m)=>drawSkin214(detail214.geometry?detail214.geometry(g):g,m);
   // Ridge bedding, stacked ridge tiles and individual metal cramps.
   box(0,e+rise+.10,0,ridge*2+.20,.21,.35,'dark');
   const ridgeN=Math.max(3,Math.ceil(ridge*2/.28));
@@ -203,8 +234,11 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
   // Seat the roof to its actual old column/bracket grid with continuous
   // receiver beams and short bearing blocks, not decorative floating bands.
   for(const s of supports){
-    const points=s.xs.map(x=>{const q=heightAt(x,s.z);return[x,q.p[1]-.42,s.z];});draw(timber(points,.25,.22),'wood');
-    for(const x of s.xs){const q=heightAt(x,s.z),top=q.p[1]-.42,bottom=s.head;
+    const receivingY=x=>Math.min(...[-.22,0,.22].flatMap(dx=>[-.19,0,.19].map(dz=>heightAt(x+dx,s.z+dz).p[1])))-.42;
+    const minX=Math.min(...s.xs),maxX=Math.max(...s.xs),count=Math.max(2,Math.ceil((maxX-minX)/.15));let points=[];
+    const flush=()=>{if(points.length>1)draw(timber(points,.25,.22),'wood');points=[];};
+    for(let j=0;j<=count;j++){const x=minX+(maxX-minX)*j/count,p=[x,receivingY(x),s.z];if(points.length&&Math.abs(p[1]-points.at(-1)[1])>.55)flush();points.push(p);}flush();
+    for(const x of s.xs){const top=receivingY(x),bottom=s.head;
       const inside=innerCollar&&x>innerCollar.minX&&x<innerCollar.maxX&&s.z>innerCollar.minZ&&s.z<innerCollar.maxZ;
       if(!inside&&top>bottom-.03)box(x,(bottom+top)/2,s.z,.28,Math.max(.08,top-bottom),.30,'red');
       // Transverse receiver contacts the closed main-rafter assembly.

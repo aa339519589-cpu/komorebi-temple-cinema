@@ -1,5 +1,7 @@
 import * as T from 'three';
-import {isGardenRoute} from './garden-terrain.js';
+import {isGardenRoute,gardenWalkHeight214} from './garden-terrain.js';
+import {garden130BridgeKnots,approach214} from './layout118-data.js';
+import {sitePoint214,MIDGROUND_SITE214} from './site-transform214.js';
 
 // Deliberate planted shoulders connect the hall's low retaining course, the
 // bridge banks and the pond. Sprigs and supporting twigs are actual geometry.
@@ -12,18 +14,18 @@ export function buildGardenAccents({emit,rod,mats,scannedStones,shoots,height}){
   [12.2,3.1,1.6,1.5,.85],[14.7,4.3,1.9,1.4,1.10],[10.2,7.0,1.1,1.3,.70],[14.9,8.2,1.7,1.6,.80],
   [-7.4,6.2,1.5,1.2,.75],[-8.4,8.2,1.4,1.0,.65],[-12.7,9.7,1.8,1.4,.75],[15.5,12.4,2.0,1.7,.95],
   [18.2,-4.4,2.0,1.4,1.15],[-18,-1.7,1.8,1.8,.95],[-16.6,5.2,1.8,1.6,1.1]
- ];
+ ].map(([x,z,rx,rz,h])=>{const t=Math.max(0,Math.min(1,(z-4)/4)),w=1-t*t*(3-2*t),p=sitePoint214([x,0,z]),k=1+.4*w;return[x+(p[0]-x)*w,z+(p[2]-z)*w,rx*k,rz*k,h*k];});
  let leafShoots=0,supportTwigs=0,rockCount=0;
  const embeddedStone=(v,x,z,s,shade=.9)=>{
-  const step=.12,y=height(x,z),n=new T.Vector3(-(height(x+step,z)-height(x-step,z))/(2*step),1,-(height(x,z+step)-height(x,z-step))/(2*step)).normalize(),
+  const step=.12,y=height(x,z);if(y<.035)return;const n=new T.Vector3(-(height(x+step,z)-height(x-step,z))/(2*step),1,-(height(x,z+step)-height(x,z-step))/(2*step)).normalize(),
    q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),n).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),rr(0,TAU))),e=new T.Euler().setFromQuaternion(q),p=new T.Vector3(x,y,z).addScaledVector(n,-.30-s*.12);
   emit(v.geometry,y<.65?v.wet:v.dry,p.x,p.y,p.z,s,s,s,[e.x,e.y,e.z],shade);rockCount++;
  };
  for(let k=0;k<colonies.length;k++){
-  const [cx,cz,rx,rz,h]=colonies[k],ground=height(cx,cz),count=Math.ceil(rx*rz*75);
+  const [cx,cz,rx,rz,h]=colonies[k],ground=height(cx,cz),count=Math.ceil(rx*rz*45);if(ground<.06)continue;
   for(let j=0;j<count;j++){
    const a=rr(0,TAU),r=Math.sqrt(R()),x=cx+Math.cos(a)*rx*r,z=cz+Math.sin(a)*rz*r;
-   if(isGardenRoute(x,z,.32))continue;
+   if(isGardenRoute(x,z,.32)||height(x,z)<.06)continue;
    const
     soil=height(x,z),y=Math.max(soil+.018,ground+h*Math.pow(1-r*r,.7)*rr(.45,.90)),scale=rr(.75,1.15);
    emit(shoots[(j+k)%3],j%5?mats.gardenShrub:mats.gardenShrubLit,x,y,z,scale,rr(.65,1.2),scale,[rr(-.16,.16),rr(0,TAU),rr(-.12,.12)],rr(.74,1.13));leafShoots++;
@@ -40,27 +42,47 @@ export function buildGardenAccents({emit,rod,mats,scannedStones,shoots,height}){
  // Plant and stone the actual sloping faces below the descending path.
  // The upper coping remains visible; the earth below is an irregular,
  // rooted rock garden instead of a clean vertical stair block.
- const bankSegments=[[[4.4,2.0],[11.5,5.35]],[[11.5,5.35],[17.2,7.0]]];
+ // Use the live route data. The old accent lane still followed the rejected
+ // R00 approach and put a broad hedge across the newly exposed inlet.
+ const bankSegments=[[garden130BridgeKnots.at(-1),approach214.rightEnd],[approach214.rightEnd,approach214.gardenTurn]].map(pair=>pair.map(p=>{const q=sitePoint214(p);return[q[0],q[2]];}));
  for(let segment=0;segment<bankSegments.length;segment++){
   const [a,b]=bankSegments[segment],dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=-dz/len,nz=dx/len;
-  for(let j=0;j<26;j++)for(const side of[-1,1])for(let row=0;row<3;row++){
-   const t=(j+.35+rr(-.18,.18))/26,off=side*(1.56+row*.57+rr(-.12,.12)),x=a[0]+dx*t+nx*off,z=a[1]+dz*t+nz*off,y=height(x,z),v=scannedStones.variants[(j+row*3+segment)%6],scale=rr(.44,.77);
+  for(let j=0;j<18;j++)for(const side of[-1,1])for(let row=0;row<2;row++){
+   const t=(j+.35+rr(-.18,.18))/18,off=side*(1.48+row*.37+rr(-.12,.12))*MIDGROUND_SITE214.scale,x=a[0]+dx*t+nx*off,z=a[1]+dz*t+nz*off,y=height(x,z),v=scannedStones.variants[(j+row*3+segment)%6],scale=rr(.44,.77);
    if(isGardenRoute(x,z,.22))continue;
    embeddedStone(v,x,z,scale,rr(.80,1.08));
-   for(let k=0;k<7;k++){
+   for(let k=0;k<4;k++){
     const xx=x+rr(-.35,.35),zz=z+rr(-.35,.35),yy=height(xx,zz)+rr(.035,.11),s=rr(.65,1.10);
-    if(isGardenRoute(xx,zz,.22))continue;
+    if(isGardenRoute(xx,zz,.22)||height(xx,zz)<.035)continue;
     emit(shoots[(j+k)%3],k%4?mats.gardenShrub:mats.gardenShrubLit,xx,yy,zz,s,rr(.60,1.15),s,[0,rr(0,TAU),0],rr(.70,1.12));leafShoots++;
    }
   }
  }
- // Layered geology and rooted fine planting on the shelf's receding front
- // face. Every stone follows the actual terrain normal and is partly buried.
- for(let j=0;j<40;j++)for(let row=0;row<4;row++){
-  const x=-.75+j*.255+rr(-.09,.09),z=1.7+.27*Math.max(0,x-3)+row*.49-.62+rr(-.12,.12);
+ // Follow the excavated inlet's actual east shore with low geological
+ // shoulders. The removed shelf's straight diagonal flower wall is gone.
+ for(let j=0;j<35;j++)for(let row=0;row<3;row++){
+  const oz=-2.2+j*.42+rr(-.12,.12),ox=10.85+.42*Math.sin(oz*.73)+.23*Math.sin(oz*2.3+.8)+(row-1)*.43+rr(-.10,.10),w=1-Math.max(0,Math.min(1,(oz-4)/4)),p=sitePoint214([ox,0,oz]),x=ox+(p[0]-ox)*w,z=oz+(p[2]-oz)*w;
   if(isGardenRoute(x,z,.30)&&height(x,z)>3.90)continue;
   const v=scannedStones.variants[(j+row*3)%6],s=rr(.42,.69);embeddedStone(v,x,z,s,rr(.78,1.06));
-  for(let k=0;k<9;k++){const xx=x+rr(-.28,.28),zz=z+rr(-.27,.27),yy=height(xx,zz)+.015,ss=rr(.70,1.12);if(isGardenRoute(xx,zz,.28)&&yy>3.90)continue;emit(shoots[(j+k)%3],k%4?mats.gardenShrub:mats.gardenShrubLit,xx,yy,zz,ss,rr(.62,1.0),ss,[0,rr(0,TAU),0],rr(.78,1.14));leafShoots++;}
+  for(let k=0;k<5;k++){const xx=x+rr(-.28,.28),zz=z+rr(-.27,.27),yy=height(xx,zz)+.015,ss=rr(.55,1.0);if(yy<.04||isGardenRoute(xx,zz,.28))continue;emit(shoots[(j+k)%3],k%4?mats.gardenShrub:mats.gardenShrubLit,xx,yy,zz,ss,rr(.48,.85),ss,[0,rr(0,TAU),0],rr(.78,1.14));leafShoots++;}
+ }
+ // Geological contacts on the new stair apron and lantern headland. These
+ // are height-aware: stones below the arch remain, while their bounds are
+ // fitted under the actual walking plane instead of being erased in plan.
+ const rubble=(x,z,s,id)=>{
+  const y=height(x,z);if(y<.07)return;
+  const v=scannedStones.variants[id%6],step=.12,n=new T.Vector3(-(height(x+step,z)-height(x-step,z))/(2*step),1,-(height(x,z+step)-height(x,z-step))/(2*step)).normalize(),
+   q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),n).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),rr(0,TAU))),e=new T.Euler().setFromQuaternion(q);
+  if(!v.geometry.boundingBox)v.geometry.computeBoundingBox();const bounds=v.geometry.boundingBox.clone().applyMatrix4(new T.Matrix4().makeRotationFromQuaternion(q).scale(new T.Vector3(s,s,s))),walk=gardenWalkHeight214(x,z,s+.15),yy=Math.min(y-.22,Number.isFinite(walk)?walk-.24-bounds.max.y:Infinity);
+  emit(v.geometry,yy<.7?v.wet:v.dry,x,yy,z,s,s,s,[e.x,e.y,e.z],rr(.90,1.10));rockCount++;
+ };
+ const c=Math.cos(-.25),sn=Math.sin(-.25);
+ for(let row=0;row<4;row++)for(let j=0;j<8;j++){
+  const hx=-2.62+j*.75+rr(-.12,.12),hz=8.35+row*.35+rr(-.09,.09),p=sitePoint214([4.6+c*hx+sn*hz,0,-9-sn*hx+c*hz]),x=p[0],z=p[2];
+  if(height(x,z)<.1)continue;rubble(x,z,rr(.48,.67),row*7+j);
+ }
+ for(let row=0;row<7;row++)for(let j=0;j<5;j++){
+  const p=sitePoint214([8.02+j*.47+rr(-.11,.11),0,-4.1+row*.48+rr(-.12,.12)]),x=p[0],z=p[2];rubble(x,z,rr(.51,.79),row*3+j+2);
  }
  // A low rocky weir feeds the genuine open water channel below the arch.
  // Water is a set of narrow curved sheets, never a scene/backdrop plane.
@@ -68,19 +90,22 @@ export function buildGardenAccents({emit,rod,mats,scannedStones,shoots,height}){
  const foam=new T.MeshStandardMaterial({name:'scene07-weir-aerated-foam',color:0xe3e7d4,roughness:.64,transparent:true,opacity:.72,depthWrite:false});
  for(let j=0;j<6;j++){
   const v=scannedStones.variants[(j+2)%6],x=-4.55+j*.60;
-  emit(v.geometry,v.wet,x,.56,-1.60,rr(.48,.66),rr(.84,1.10),rr(.50,.70),[0,rr(-.25,.25),rr(-.09,.09)],.87);
+  emit(v.geometry,v.wet,sitePoint214([x,0,-1.60])[0],.38,sitePoint214([x,0,-1.60])[2],rr(.55,.70),rr(.55,.70),rr(.55,.70),[0,rr(-.25,.25),rr(-.09,.09)],.87);
  }
  for(let k=0;k<15;k++){
-  const x=-4.22+k*.16+rr(-.03,.03),w=rr(.018,.052),top=.95+rr(-.10,.16),p=[],ix=[];
+  const x=-4.22+k*.16+rr(-.03,.03),w=rr(.018,.052),top=.62+rr(-.035,.035),p=[],ix=[];
   for(let j=0;j<=18;j++){
    const t=j/18,y=top*(1-t)+.055,z=-1.32+.28*t+.23*t*t,
     xx=x+.012*Math.sin(t*18+k)+.025*t*t;
-   p.push(xx-w*(1+.10*Math.sin(t*19)),y,z,xx+w*(1+.13*Math.cos(t*21)),y+.008*Math.sin(t*16),z+.012);
+   const q=sitePoint214([xx,0,z]);p.push(q[0]-w*(1+.10*Math.sin(t*19)),y,q[2],q[0]+w*(1+.13*Math.cos(t*21)),y+.008*Math.sin(t*16),q[2]+.012);
    if(j<18){const a=j*2;ix.push(a,a+1,a+2,a+1,a+3,a+2);}
   }
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.computeVertexNormals();emit(g,water,0,0,0);
  }
+ // Actual shallow upstream basin and closed rock bed behind the weir.
+ const weir=sitePoint214([-2.9,0,-1.92]);emit(new T.BoxGeometry(4.95,.42,1.72),mats.rock,weir[0],.12,weir[2]);
+ const upperWater=new T.PlaneGeometry(4.35,1.40,12,4);upperWater.rotateX(-Math.PI/2);emit(upperWater,water,weir[0],.66,weir[2]);
  const bubble=new T.SphereGeometry(1,6,4);
- for(let j=0;j<85;j++){const x=rr(-4.8,-1.1),z=rr(-1.08,-.30),s=rr(.015,.052);emit(bubble,foam,x,.07+rr(0,.025),z,s,rr(.006,.022),s,[0,rr(0,TAU),0],rr(.75,1.15));}
- return {info:{revision:'garden130',colonies:colonies.length,leafShoots,supportTwigs,embeddedRocks:rockCount,weirSheets:15,construction:'Closed terrain, measured-source stone scans, separate folded leaves and supporting branch geometry; no opaque foliage pads or image replacement',visualAccepted:false},dispose(){water.dispose();foam.dispose();}};
+ for(let j=0;j<85;j++){const p=sitePoint214([rr(-4.8,-1.1),0,rr(-1.08,-.30)]),x=p[0],z=p[2],s=rr(.015,.052);emit(bubble,foam,x,.07+rr(0,.025),z,s,rr(.006,.022),s,[0,rr(0,TAU),0],rr(.75,1.15));}
+ return {info:{revision:'scene07-low-bank-woody-groups-and-shallow-weir214-r12',colonies:colonies.length,leafShoots,supportTwigs,embeddedRocks:rockCount,weirSheets:15,construction:'Closed terrain, measured-source stone scans, separate folded leaves and supporting branch geometry; no opaque foliage pads or image replacement',visualAccepted:false},dispose(){water.dispose();foam.dispose();}};
 }

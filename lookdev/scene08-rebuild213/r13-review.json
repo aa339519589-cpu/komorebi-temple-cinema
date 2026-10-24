@@ -1,0 +1,15 @@
+{
+  "source": "dd36486c4ba07b3e1b79ae64bd1e979858958308ed9c82aa54ac901883d93880",
+  "actualViewed": [
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r13/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r13/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r13-low3q/inspection-view.png"
+  ],
+  "status": "round4-native-reviewed-leaf-plane-and-bank-contour-refinement",
+  "findings": [
+    "Narrow creek, grouped rocks and root layers are visible; shadow detail improves through actual measured-sky/sun irradiance.",
+    "The low ground layer still reads edge-on on the visible sloping banks because every blade used a world-up frame. Couple the actual leaf frame partly to the soil normal and use true creek-contour root ribbons.",
+    "Photograph-specific acceptance remains false; technical closure and light intensity are not acceptance."
+  ],
+  "visualAccepted": false
+}

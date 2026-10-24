@@ -1,0 +1,794 @@
+{
+  "revision": "scene08-surface-seated-ceramic-timber213-r17",
+  "source": "3438b5bc01ee0df1fc5ce31c7431bee601425592820dc43702af82acfaf693f3",
+  "workingBaseline": "17fc80c465fd3e5fe692949b6e25e1d2fa805e90d5e2b574419ef9284128a7f5",
+  "R04Boundary": "2627ddf97e4a84700b74242c6b1cd691072061709225e1d69ac29804bde75dd2",
+  "status": "three-substantive-official-material-and-geometry-rounds-reviewed-ceramic-penetration-fixed-photographic-fidelity-false",
+  "visualAccepted": false,
+  "reviewedAt": "2026-10-24T01:23:12.428Z",
+  "before": "r15-before-findings.json",
+  "firstRoundFailure": "r15-review.json",
+  "actualViewed": [
+    "references/hd/7-照片-8.jpg",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r15/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r15/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r17/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r17/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r17-low3q/inspection-view.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r16/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r16/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r16-low3q/inspection-view.png"
+  ],
+  "changes": [
+    "Ten physical non-emissive nonmetallic timber roles distinguish sparse lacquer columns, brown primary beams, warm bracket arms, pale actual cut ends, roof boards, thin brown-red fascia and recessed window parts. The existing independent scan contributes normalized grain once; the material baseColor stays white.",
+    "Actual windows now have crossing 90/110 mm muntins, 220 mm frame depth and a recessed brown solid backing. The connected upper descending gallery uses the same timber role system; its separate 191 occupied portal geometry remains unchanged.",
+    "Three closed continuous fascia courses, real rafter/tail solids and actual cut ends replace the previous thin segmented lines. R17 reduces the overly bright R15 fascia sections and fixes outward weather-face/downward soffit winding and underside UV order on the existing roof shape.",
+    "The existing actual scene-court capture is separated into porch-height and eave-height captures at unit gain, both captured before either is assigned. Single Sun, actual measured sky, camera, exposure and contact AO are held.",
+    "R17 replaces the world-up rigid ceramic frame with a frame derived from the actual roof surface normal and longitudinal tangent. Cover radius and pan width track local row spacing, keeping all original closed tile meshes and all ceramic instances."
+  ],
+  "materialSourceAudit": {
+    "revision": "scene08-outward-soffit-height-resolved-timber213-r16",
+    "normalizedSourceGrainAppliedOnce": true,
+    "baseColorAfterPortableAlbedo": [
+      1,
+      1,
+      1
+    ],
+    "sourceScan": "reconstructions/scene-08/assets/timber/diffuse-2k.jpg",
+    "sourceRoughnessRemap": "0.6784 + 0.30 * source channel, then physical role scalar",
+    "roles": [
+      {
+        "role": "hallLacquer213",
+        "use": "Sparse turned lacquer columns and vertical framing",
+        "pigment": "#a64b2c",
+        "linearPigment": [
+          0.3813260114221238,
+          0.07036009568874305,
+          0.025186859622305935
+        ],
+        "meanPortableAlbedoLinear": [
+          0.37801501427035167,
+          0.06975880461771312,
+          0.02496279107373687
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.76,
+        "normalScale": [
+          0.1,
+          0.1
+        ],
+        "clearcoat": 0.12,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallBeam213",
+        "use": "Dark brown primary beams, tie members and purlins",
+        "pigment": "#805239",
+        "linearPigment": [
+          0.21586050010324417,
+          0.08437621153575764,
+          0.040915196900556984
+        ],
+        "meanPortableAlbedoLinear": [
+          0.21400487111077537,
+          0.08368506132522761,
+          0.04055285469295365
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.88,
+        "normalScale": [
+          0.09,
+          0.09
+        ],
+        "clearcoat": 0.025,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallFascia213",
+        "use": "Thin exposed brown-red fascia courses, distinct from pale cut ends",
+        "pigment": "#6b3926",
+        "linearPigment": [
+          0.14702726648767014,
+          0.040915196900556984,
+          0.019382360952473074
+        ],
+        "meanPortableAlbedoLinear": [
+          0.14588294006633862,
+          0.04055285469295365,
+          0.01925172949273131
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.89,
+        "normalScale": [
+          0.07,
+          0.07
+        ],
+        "clearcoat": 0.02,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallArm213",
+        "use": "Weathered warm timber bracket arms",
+        "pigment": "#95683f",
+        "linearPigment": [
+          0.3005437944049895,
+          0.13843161502267545,
+          0.04970656597728775
+        ],
+        "meanPortableAlbedoLinear": [
+          0.29796101729944763,
+          0.137130302153638,
+          0.049290522753911645
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.85,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "clearcoat": 0.018,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallReceiver213",
+        "use": "Cut timber dou and actual bearing receivers",
+        "pigment": "#aa8552",
+        "linearPigment": [
+          0.4019777798219466,
+          0.23455058215026167,
+          0.08437621153575764
+        ],
+        "meanPortableAlbedoLinear": [
+          0.39836837775565725,
+          0.23250752967349095,
+          0.08368506132522761
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.86,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "clearcoat": 0.01,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallRafter213",
+        "use": "Distinct parallel rafter bodies and flying eave tails",
+        "pigment": "#9c7447",
+        "linearPigment": [
+          0.33245153633549385,
+          0.174647403645279,
+          0.06301001764564068
+        ],
+        "meanPortableAlbedoLinear": [
+          0.32957347559712497,
+          0.17335161648165318,
+          0.062479624542986875
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.83,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "clearcoat": 0.015,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallCut213",
+        "use": "Exposed nonmetallic cut ends on actual profiled timber",
+        "pigment": "#ba9661",
+        "linearPigment": [
+          0.4910208498384856,
+          0.3049873140591091,
+          0.11953842797895521
+        ],
+        "meanPortableAlbedoLinear": [
+          0.4868121772874281,
+          0.3023822848179913,
+          0.11833791990644357
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.86,
+        "normalScale": [
+          0.055,
+          0.055
+        ],
+        "clearcoat": 0,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallSoffit213",
+        "use": "Sheltered solid roof boards",
+        "pigment": "#705038",
+        "linearPigment": [
+          0.16202937562896222,
+          0.08021982030622662,
+          0.03954623527052923
+        ],
+        "meanPortableAlbedoLinear": [
+          0.1606965454529393,
+          0.07955604048729291,
+          0.03920441299473072
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.91,
+        "normalScale": [
+          0.07,
+          0.07
+        ],
+        "clearcoat": 0,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallWindow213",
+        "use": "Projecting window muntins and frame reveals",
+        "pigment": "#a48a60",
+        "linearPigment": [
+          0.3712376804636741,
+          0.2541520943200296,
+          0.11697066774917994
+        ],
+        "meanPortableAlbedoLinear": [
+          0.36813813826378683,
+          0.2519483982770763,
+          0.11578648490618268
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.86,
+        "normalScale": [
+          0.06,
+          0.06
+        ],
+        "clearcoat": 0.015,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallPanel213",
+        "use": "Recessed dark-brown timber window backing",
+        "pigment": "#59432e",
+        "linearPigment": [
+          0.09989872823822872,
+          0.05612849004241121,
+          0.02732089163382382
+        ],
+        "meanPortableAlbedoLinear": [
+          0.09894705722874066,
+          0.055656207239356215,
+          0.02707783930450195
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.94,
+        "normalScale": [
+          0.04,
+          0.04
+        ],
+        "clearcoat": 0,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      }
+    ],
+    "cameraExposureChanged": false,
+    "lightsAdded": 0,
+    "visualAccepted": false
+  },
+  "windowGeometry": {
+    "windows": 11,
+    "verticalMuntins": 101,
+    "horizontalMuntins": 153,
+    "backingSetback": 0.095,
+    "muntinDepths": [
+      0.11,
+      0.09
+    ],
+    "frameDepth": 0.22,
+    "portalGeometryHeld": true,
+    "photographSampled": false,
+    "visualAccepted": false
+  },
+  "eaveGeometry": {
+    "parallelRafterSpacingMetres": 0.24,
+    "rafterSection": [
+      0.07,
+      0.12
+    ],
+    "flyingTailSection": [
+      0.072,
+      0.1
+    ],
+    "actualContinuousFasciaCourses": 3,
+    "fasciaSectionsMetres": [
+      [
+        0.14,
+        0.08
+      ],
+      [
+        0.105,
+        0.055
+      ],
+      [
+        0.095,
+        0.055
+      ]
+    ],
+    "weatherTrianglesOutward": true,
+    "solidUndersideFacingDown": true,
+    "roofAndSupportAnchorsHeld": true
+  },
+  "actualCourtCaptures": {
+    "revision": "scene08-two-height-actual-court-capture213-r16",
+    "position": [
+      -4.887628713653428,
+      6.1000000000000005,
+      -4.911430443303376
+    ],
+    "resolution": 128,
+    "captures": [
+      {
+        "label": "porch",
+        "local": [
+          0.15,
+          6.1000000000000005,
+          3.9
+        ],
+        "position": [
+          -4.887628713653428,
+          6.1000000000000005,
+          -4.911430443303376
+        ],
+        "materials": [
+          "grand-hall-213-hallLacquer213",
+          "grand-hall-213-hallBeam213",
+          "grand-hall-213-hallWindow213",
+          "grand-hall-213-hallPanel213"
+        ],
+        "gain": 1
+      },
+      {
+        "label": "eave",
+        "local": [
+          0.4,
+          8.9,
+          3.95
+        ],
+        "position": [
+          -4.661182636503941,
+          8.9,
+          -4.794288759246809
+        ],
+        "materials": [
+          "grand-hall-213-hallFascia213",
+          "grand-hall-213-hallArm213",
+          "grand-hall-213-hallReceiver213",
+          "grand-hall-213-hallRafter213",
+          "grand-hall-213-hallCut213",
+          "grand-hall-213-hallSoffit213",
+          "grand-hall-213-hallArm213-real-carved197"
+        ],
+        "gain": 1
+      }
+    ],
+    "materials": [
+      "grand-hall-213-hallLacquer213",
+      "grand-hall-213-hallBeam213",
+      "grand-hall-213-hallWindow213",
+      "grand-hall-213-hallPanel213",
+      "grand-hall-213-hallFascia213",
+      "grand-hall-213-hallArm213",
+      "grand-hall-213-hallReceiver213",
+      "grand-hall-213-hallRafter213",
+      "grand-hall-213-hallCut213",
+      "grand-hall-213-hallSoffit213",
+      "grand-hall-213-hallArm213-real-carved197"
+    ],
+    "bothCapturedBeforeAssignment": true,
+    "linearNativeSceneCapture": true,
+    "worldLocked": true,
+    "photographSampled": false,
+    "unoccludedFillLightsAdded": 0,
+    "scope": "Approximate single-bounce irradiance/reflection captured at actual porch/eave heights from modeled timber, openings, held measured sky and one Sun",
+    "visualAccepted": false
+  },
+  "technicalValidation": {
+    "officialFIFO": true,
+    "rounds": 3,
+    "nativeFrames": 9,
+    "allNativeMetal1254": true,
+    "allSourceMatched": true,
+    "allGLErrorsZero": true,
+    "allProgramsLinked": true,
+    "noContextLoss": true,
+    "CPUClosedContinuousMembers": 336,
+    "allEightActualRoofPanelsFaceOutward": true,
+    "CPUReceipt": "timber-audit-r17.json",
+    "scope": "Technical/source evidence only; not a photographic acceptance measure."
+  },
+  "reports": [
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r15/report.json",
+      "source": "ca4650f9d579a15f5b22ee7c02d18d8b39df314265f2d372e65448ce42877275",
+      "sourceCommit": "80efbe142f4cb8231b3ded0018ca26c12c0d9eb8",
+      "status": "rendered-review",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "6fa5a73238da486536352c764e1599b5394ed5253d7537138ce1deb469a836ea"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "637a2b86eb18a3a46b76ea116f9e4ebdaa9ed33131744d99599bf23a6006cff5"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r16/report.json",
+      "source": "fdb18436682729c2f5dcbc4d515fbc94abc570dea48ff259c8027d070c3b68d3",
+      "sourceCommit": "80efbe142f4cb8231b3ded0018ca26c12c0d9eb8",
+      "status": "rendered-review",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "49f1097a1cd185cff1c7c7322de375b0ed4580b2c629d33a053a9939407f456b"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "de9cf419e493c9515a0cf745a1537f1d1a625f61fa2ffc4809acf35b5e2d6970"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r16-low3q/report.json",
+      "source": "fdb18436682729c2f5dcbc4d515fbc94abc570dea48ff259c8027d070c3b68d3",
+      "sourceCommit": "80efbe142f4cb8231b3ded0018ca26c12c0d9eb8",
+      "status": "rendered-review",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "74f054d60bc6ef85cbe8d92437ea64062f92eae0a0757fae9017e96c4394bfdc"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r16-roof-picks/report.json",
+      "source": "fdb18436682729c2f5dcbc4d515fbc94abc570dea48ff259c8027d070c3b68d3",
+      "sourceCommit": "80efbe142f4cb8231b3ded0018ca26c12c0d9eb8",
+      "status": "rendered-review",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "49f1097a1cd185cff1c7c7322de375b0ed4580b2c629d33a053a9939407f456b"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r17/report.json",
+      "source": "3438b5bc01ee0df1fc5ce31c7431bee601425592820dc43702af82acfaf693f3",
+      "sourceCommit": "80efbe142f4cb8231b3ded0018ca26c12c0d9eb8",
+      "status": "rendered-review",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "ad69833ef6a3ff38d947b8b3dc1fb26a5ed0a35ecaafb9d232e2a6576c3ee2d2"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "eb0d8bbeab847196a9a1e8a923b7bfc598f0eb8144d3f3f08a46dd00828ca627"
+        }
+      ]
+    },
+    {
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r17-low3q/report.json",
+      "source": "3438b5bc01ee0df1fc5ce31c7431bee601425592820dc43702af82acfaf693f3",
+      "sourceCommit": "80efbe142f4cb8231b3ded0018ca26c12c0d9eb8",
+      "status": "rendered-review",
+      "backend": "metal",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "1bcca9bf451c9d36cbba12a0efc3a64c3f58f80f2c01a3361218db97a9bd47a7"
+        }
+      ]
+    }
+  ],
+  "sourceIdentity": "r17-source-identity.json",
+  "sourceArchive": "r17-source-scripts.tgz",
+  "boundary": "boundary-r17.json",
+  "visualBoard": "No replacement; root retains control of working review selection",
+  "limitations": [
+    "Pigments and reflectance roles are authored estimates, not measured samples from the photograph.",
+    "Local scene captures approximate one reflected bounce and do not supply path-traced occlusion or full GI.",
+    "The architecture, roof proportions, decorative detail, overall planting morphology and photographic lighting still require comparison; source closure and GL0 do not establish a match."
+  ],
+  "scope": "Only Scene08 src/provenance plus lookdev213 and new QA08. README08, Git writes, shared files, other scenes, Blender/export and new external assets are untouched.",
+  "retainedFailures": [
+    "r15-review.json",
+    "ceramic-clearance-r16.json",
+    "native-roof-rays-r16.json"
+  ],
+  "ceramicRepair": {
+    "oldSource": "fdb18436682729c2f5dcbc4d515fbc94abc570dea48ff259c8027d070c3b68d3",
+    "oldPenetratingBodies": 984,
+    "currentPenetratingBodies": 0,
+    "currentBelowSoffitVertices": 0,
+    "minimumActualSoffitClearanceMetres": 0.12071731525802498,
+    "coverTiles": 2156,
+    "panTiles": 2100,
+    "nativeInstancesUnchanged": 1394880,
+    "nativeTrianglesUnchanged": 95949150,
+    "bluePointHits": [
+      {
+        "pixel": [
+          0.26083677,
+          0.23087841
+        ],
+        "firstMaterial": [
+          "grand-hall-213-hallBeam213"
+        ],
+        "point": [
+          -4.23323421372557,
+          10.196114898940095,
+          -5.137999300121787
+        ]
+      },
+      {
+        "pixel": [
+          0.233969,
+          0.23335852
+        ],
+        "firstMaterial": [
+          "grand-hall-213-hallBeam213"
+        ],
+        "point": [
+          -4.745157777821809,
+          10.217691497725363,
+          -5.28657563634262
+        ]
+      },
+      {
+        "pixel": [
+          0.26621033,
+          0.24451897
+        ],
+        "firstMaterial": [
+          "grand-hall-213-hallRafter213"
+        ],
+        "point": [
+          -5.314130676350757,
+          12.283639036232362,
+          -10.352366082217312
+        ]
+      },
+      {
+        "pixel": [
+          0.23892921,
+          0.24699908
+        ],
+        "firstMaterial": [
+          "grand-hall-213-hallSoffit213"
+        ],
+        "point": [
+          -6.027360906202769,
+          12.39227589348378,
+          -10.72984256760639
+        ]
+      },
+      {
+        "pixel": [
+          0.26083677,
+          0.25815954
+        ],
+        "firstMaterial": [
+          "grand-hall-213-hallSoffit213"
+        ],
+        "point": [
+          -5.48262076063121,
+          12.066348664222124,
+          -10.61170877965207
+        ]
+      },
+      {
+        "pixel": [
+          0.2314889,
+          0.25981294
+        ],
+        "firstMaterial": [
+          "grand-hall-213-hallSoffit213"
+        ],
+        "point": [
+          -6.260655024717637,
+          12.204418574933415,
+          -11.022901563546558
+        ]
+      }
+    ],
+    "receipt": "ceramic-clearance-r17.json",
+    "nativeFailureDiagnosis": "native-roof-rays-r16.json",
+    "allOriginalTemplateGeometryRetained": true
+  },
+  "findingsAfterPersonallyViewingFinalFrames": [
+    "The blue tile strips previously visible below the solid timber soffit are gone in the actual full, true-crop and low view. Six known blue locations now first hit real timber, while the complete native geometry count is held.",
+    "Brown beams, warm timber arms and cut ends are visibly separated from the lacquer columns. The connected upper gallery shares those structural roles and the thicker window grid.",
+    "The roof and bracket proportions still differ substantially from the photograph; the nested carriers remain too regular and angular, fine decorative specificity is missing, and the complete architectural scene remains stylized.",
+    "R14 garden morphology, soil and water differences remain; this material/roof repair does not establish photographic acceptance."
+  ]
+}

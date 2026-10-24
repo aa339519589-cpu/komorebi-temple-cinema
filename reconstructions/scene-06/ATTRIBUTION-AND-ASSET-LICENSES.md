@@ -1,5 +1,20 @@
 # Scene 06 asset-specific attribution and licenses
 
+Ceiling228 uses a new independently generated **flat painted-panel base color**
+on actual closed34mm wooden panels, recessed through-opening frames and real
+retaining clips. The first long-vine design was rejected; the selected compact
+lotus/peony design, full prompts and source hashes are retained in
+`assets/coffer228/provenance.json` and `lookdev/scene06-ceiling228/`. The reference
+ceiling crop supplied motif/palette context; reference RGB is not sampled by the
+runtime, and the bitmap is not a scene frame, reflection or geometry substitute.
+No exact historical-pattern or artifact-scan claim is made. Timber228 derives
+bounded authored albedo roles from the retained generated hinoki material,
+removes the old double pigment multiplication, assigns metric side/end-grain
+UVs, and models real rounded timber arrises. Original timber/image source is
+retained. These are working material/geometry revisions; the combined NC-derived
+scene and imagery retain the existing NC-SA scope and remain photographically
+unaccepted.
+
 Central sculpture: Scan-the-World, *Seated Amida, the Buddha of the Western Paradise at the Sainsbury Centre for Visual Arts, Norwich*, [Zenodo 21353739](https://zenodo.org/records/21353739), [DOI 10.5281/zenodo.21353739](https://doi.org/10.5281/zenodo.21353739), [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 The central original scan, curated paired-hand R09 GLB, normalized SC07 body buffer and source-derived contact outline/bearing retain CC BY-NC-SA 4.0. Prior modifications include plinth separation, reflected actual outer arm/robe/knee surface with narrowly stitched retopology, native index curl and locally stitched fingertip contact, positive uniform viewing normalization and uniform gold PBR. Adoption179 changes no prepared source face/anatomy coordinates, normals or indices. It seats the body using a positive uniform scale and translation; the derived shallow contact bearing uses the actual hem envelope. No endorsement is implied.

@@ -1,0 +1,70 @@
+{
+  "revision": "scene07-rebuild214-r20",
+  "sourceIdentity": "4aeffa30c9a3ee2c8acaac2d2b18bd89b9a4754f2da4922d0f00add89ce84475",
+  "status": "Second actual native full/hero/low visual round inspected; rejected for visible roof penetrations",
+  "visualAccepted": false,
+  "improvements": [
+    "Oblique real ridge and narrower upper room move the roof/galleries closer to the supplied reference",
+    "Fixed far-valley air keeps the nearer courtyard from the R19b washout",
+    "Actual room/porch captures and exterior material-region assignments replace the former outside-courtyard probe placement"
+  ],
+  "failures": [
+    "A back upper-column cap was seated only against its outer arm row; the inner side of the sloping roof is lower and visible red cap parts poke through",
+    "The former upper plaque/frieze elevations were not rehung for the new roof and enter its surface",
+    "Roof receiving beams need dense full-footprint contact checks"
+  ],
+  "checks": [
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r20/report.json",
+      "source": "4aeffa30c9a3ee2c8acaac2d2b18bd89b9a4754f2da4922d0f00add89ce84475",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "maxActiveSamplers": 14,
+          "maxTextureUnits": 16,
+          "allWithinBudget": true,
+          "rgbaSha256": "5185468eb44beba30e0bea44ad976a1dbe9179bb5727a442a5778637872d4246"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "maxActiveSamplers": 14,
+          "maxTextureUnits": 16,
+          "allWithinBudget": true,
+          "rgbaSha256": "e768e56f5f0c8b5f893de1e879cdfb773c24b17a4d1cf06e30e010f2500b6cab"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r20-near-shore-low/report.json",
+      "source": "4aeffa30c9a3ee2c8acaac2d2b18bd89b9a4754f2da4922d0f00add89ce84475",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "maxActiveSamplers": 14,
+          "maxTextureUnits": 16,
+          "allWithinBudget": true,
+          "rgbaSha256": "4f819ac95a783584b0f4bbca6763055c899db6bf60593174f0865049b54ae04b"
+        }
+      ]
+    }
+  ],
+  "countsAsVisualIteration": true,
+  "photographicAcceptance": false
+}

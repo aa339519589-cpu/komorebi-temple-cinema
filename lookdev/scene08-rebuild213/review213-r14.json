@@ -1,0 +1,340 @@
+{
+  "revision": "scene08-rebuild213-r14",
+  "source": "17fc80c465fd3e5fe692949b6e25e1d2fa805e90d5e2b574419ef9284128a7f5",
+  "baseline": "3e8b01a52ab98b25ca2a231b41e246160c62f6025d3e06576aa4314ed0ec305b",
+  "R04Boundary": "2627ddf97e4a84700b74242c6b1cd691072061709225e1d69ac29804bde75dd2",
+  "status": "five-official-native-rounds-reviewed-photographic-fidelity-still-false",
+  "visualAccepted": false,
+  "reviewedAt": "2026-10-24T00:33:24.606Z",
+  "firstOriginalSizeComparison": "compare-r09-native.html",
+  "beforeFindings": "r10-before-findings.json",
+  "actualViewed": [
+    "references/hd/7-照片-8.jpg",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r14/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r14/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r14-low3q/inspection-view.png"
+  ],
+  "mainGeometryChanges": [
+    "One shared narrow curving creek controls actual water and connected soil banks; foreground water bends out to the right instead of occupying the bottom opening.",
+    "Seven rock groups use sixteen existing scanned stones with buried feet; eight rooted woody clumps have 121 closed curved and tapered branch solids.",
+    "266 real creeping runner root mats bridge the near and midground soil. Each uses 42 terrain-following nodes and 84 original scanned leaf instances; R14 leaf frames partly follow actual terrain normals.",
+    "Formerly tall flowering understory is capped at 0.18 m; the foreground has a lower branch tier connected to real parent trunks. Eight small closed stone paving slabs meet the gate footing."
+  ],
+  "materialAndLightingChanges": [
+    "Wet stone roughness and diffuse darkening use a world-space waterline; mineral albedo is lifted while original moss colour separation remains.",
+    "Actual 3 mm creek relief, Fresnel planar reflection and a shadow-receiving physical surface replace emissive fake glint lines. Planar reflection remains an approximation, not full volumetric water.",
+    "One existing sun uses linear RGB [1,0.79,0.52], intensity 5.1; existing measured sky environment intensity is 0.80. Sun direction and camera exposure 1.10 are held; no new ambient or directional fills."
+  ],
+  "nativeCounts": {
+    "closedWoodyBodies": 121,
+    "rootedWoodyClumps": 8,
+    "groupedScanRocks": 16,
+    "creepingRootMats": 266,
+    "actualScanLeafInstancesInMats": 22344,
+    "terrainFollowingNodesPerMat": 42,
+    "maximumBlossomHeight": 0.18,
+    "maximumLowerBranchJointDistanceMetres": 0.0008857749925247693
+  },
+  "visibleCreekWidthMetresForZMinus13To5": {
+    "min": 0.7,
+    "max": 1.04
+  },
+  "validation": {
+    "officialFIFO": true,
+    "sourceMatched": true,
+    "nativeMetal1254": true,
+    "roundCount": 5,
+    "frameCount": 14,
+    "allFramesValid": true,
+    "allGLErrorsZero": true,
+    "allProgramsLinked": true,
+    "noContextLoss": true,
+    "CPUActualGeometry": "depth-audit-r14.json",
+    "scope": "Technical checks support source identity and geometry only; they do not establish a photographic match."
+  },
+  "findingsAfterPersonallyViewingR14": [
+    "The wide near pool is gone. Grouped stone, woody stems and a low creeping layer form a narrower garden channel, and slope-facing leaves now cover more of the previously bare bank.",
+    "The banks still read as smooth constructed mounds in places; leaf clusters and crown shapes remain repetitive and less species-specific than the photograph.",
+    "Reference architecture, decorative carving, roof proportions and luminous warm material response remain substantially different. Those major photo mismatches are not resolved by this garden continuation.",
+    "Foreground foliage is still thinner and more regular than the reference. The creek remains gray-green with a simplified reflection and does not reproduce the reference wet edge sparkle.",
+    "The retained rear inlet arch was inferred during R09 and is not a photograph-verified feature."
+  ],
+  "retainedFailedRounds": [
+    "r10-review.json",
+    "r11-review.json",
+    "r12-review.json",
+    "r13-review.json"
+  ],
+  "rounds": [
+    {
+      "round": "r10",
+      "source": "0814a04b8827ab388d20b682bd5dee5057af3671bae6023358ab36cd9dc07192",
+      "archive": "lookdev/scene08-rebuild213/r10-source-scripts.tgz",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r10/report.json",
+          "source": "0814a04b8827ab388d20b682bd5dee5057af3671bae6023358ab36cd9dc07192",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r10/reference.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "215b80fd888fb5e83683bcc8718f524ac98e17d95280a51895c8e24a58ef736f"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r10/detail-native.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "be8e416d3296b8fb1cc9895472066e9779387020d6960c756ec8ab1403866974"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": "r11",
+      "source": "bed09724ce4c45d8bad892c32ec04f189b5c3feba22290347532c00f3dc3f13c",
+      "archive": "lookdev/scene08-rebuild213/r11-source-scripts.tgz",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r11/report.json",
+          "source": "bed09724ce4c45d8bad892c32ec04f189b5c3feba22290347532c00f3dc3f13c",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r11/reference.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "98eaa7e97dbaf7ab6d85de3a7ffab605b2df3242f4a936972156a688a9ef6a97"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r11/detail-native.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "a5cfa47e4158bf83904f002eb00a1be62e9c20d3321a1835df692ed835136713"
+            }
+          ]
+        },
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r11-low3q/report.json",
+          "source": "bed09724ce4c45d8bad892c32ec04f189b5c3feba22290347532c00f3dc3f13c",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "inspection-view",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r11-low3q/inspection-view.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "df328e63c3552ab58d84ec117bd1775bb7a4fa7f52c9b3a5483f9c0e12469703"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": "r12",
+      "source": "9eb4c94ad9c990d6d1de8fae3c13bb3cf30ca24088e57a1500fe38bd4f17bf54",
+      "archive": "lookdev/scene08-rebuild213/r12-source-scripts.tgz",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r12/report.json",
+          "source": "9eb4c94ad9c990d6d1de8fae3c13bb3cf30ca24088e57a1500fe38bd4f17bf54",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r12/reference.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "ebf47378f2ba7b2fde0566d9fb72115d32c7c57ce78863e8266ef8fbb0100e01"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r12/detail-native.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "0cb2f96d899591e40286b73ea6637a0f5eaf474e459b1e3ed492f399620e6ba9"
+            }
+          ]
+        },
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r12-low3q/report.json",
+          "source": "9eb4c94ad9c990d6d1de8fae3c13bb3cf30ca24088e57a1500fe38bd4f17bf54",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "inspection-view",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r12-low3q/inspection-view.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "19ef2456ccba11de37131a9d8d1c02d6eb83614fc62f38aceca367c17ecd7f99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": "r13",
+      "source": "dd36486c4ba07b3e1b79ae64bd1e979858958308ed9c82aa54ac901883d93880",
+      "archive": "lookdev/scene08-rebuild213/r13-source-scripts.tgz",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r13/report.json",
+          "source": "dd36486c4ba07b3e1b79ae64bd1e979858958308ed9c82aa54ac901883d93880",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r13/reference.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "1a05e3f75211e5009f0ab6e027c00c5a16a9977f76f7f7cbb8b903b2348b5c78"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r13/detail-native.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "896293117c9f0f2d2b032a6447c161f141fc5d1a8f71fcb7d560a09c235efac3"
+            }
+          ]
+        },
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r13-low3q/report.json",
+          "source": "dd36486c4ba07b3e1b79ae64bd1e979858958308ed9c82aa54ac901883d93880",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "inspection-view",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r13-low3q/inspection-view.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "64698c192ee66f0893191c6b8658d1e1d71a8c8a60c989fb5fc3fba7aa6b2ee3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": "r14",
+      "source": "17fc80c465fd3e5fe692949b6e25e1d2fa805e90d5e2b574419ef9284128a7f5",
+      "archive": "lookdev/scene08-rebuild213/r14-source-scripts.tgz",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r14/report.json",
+          "source": "17fc80c465fd3e5fe692949b6e25e1d2fa805e90d5e2b574419ef9284128a7f5",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r14/reference.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "552a28f70d183a6e1f4c795425dc95d2c75f8a02daeef2de05ae5199e6400d4d"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r14/detail-native.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "e8ee85af2db1cbdd3aeed861af6a9bd968bf5fa61bf624535ab1072ff8a0af5e"
+            }
+          ]
+        },
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r14-low3q/report.json",
+          "source": "17fc80c465fd3e5fe692949b6e25e1d2fa805e90d5e2b574419ef9284128a7f5",
+          "status": "rendered-review",
+          "backend": "metal",
+          "nativeScale": 1,
+          "errors": [],
+          "frames": [
+            {
+              "name": "inspection-view",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r14-low3q/inspection-view.png",
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "contextLost": false,
+              "allProgramsLinked": true,
+              "rgbaSha256": "008dc5efcb29eae77abbcc328868a3a43f11f4671bbbe7b9595e5999e4a01626"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceBoundary": "boundary-r14.json",
+  "sourceIdentity": "r14-source-identity.json",
+  "sourceArchive": "r14-source-scripts.tgz",
+  "visualBoard": "No promotion performed; root-current-review.json retained unchanged",
+  "scope": "Scene08 src and lookdev213/new QA08 only. README08 pre-existing changes were not touched or staged. No scene export, Blender invocation, new external assets, or shared-file writes."
+}

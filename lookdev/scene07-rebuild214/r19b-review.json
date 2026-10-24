@@ -1,0 +1,71 @@
+{
+  "revision": "scene07-rebuild214-r19b",
+  "sourceIdentity": "5f98bdeada4378ce0dbef24f3c57179ba15ab86b07d48d5a359bb3c14ee64704",
+  "visualAccepted": false,
+  "status": "First actual native visual round in this continuation: full, genuine hero and near-shore low inspected",
+  "improvements": [
+    "Solar disk, five shadowed direct samples, camera unit conversion, shared sky and water reflection are energy-coupled in source",
+    "Measured ceramic microstructure reads as less uniform blue and more variable neutral gray",
+    "Angular warm air separation is visible next to the tower",
+    "Actual program sampler count tops at14 of16, with no texture-unit warnings in either log"
+  ],
+  "unaccepted": [
+    "Aerosol veil is too strong in the near courtyard, flattening tower/architecture contrast",
+    "Upper roof ridge direction and overly broad upper storey remain a geometric mismatch",
+    "Front facade remains too dull and its room-versus-porch capture locations/material regions need correction"
+  ],
+  "checks": [
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r19b/report.json",
+      "source": "5f98bdeada4378ce0dbef24f3c57179ba15ab86b07d48d5a359bb3c14ee64704",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "maxActiveSamplers": 14,
+          "maxFragmentTextureUnits": 16,
+          "rgbaSha256": "27f8b0fdd4e663832f78c63fc09ac3b3ae5fa6b85e9febc96798cb4dd37af48e"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "maxActiveSamplers": 14,
+          "maxFragmentTextureUnits": 16,
+          "rgbaSha256": "8588a8e1d9c877d7e81c8b73eef8a0d056ed89fd2f314c892a0da4e0ce0977e3"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r19b-near-shore-low/report.json",
+      "source": "5f98bdeada4378ce0dbef24f3c57179ba15ab86b07d48d5a359bb3c14ee64704",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "maxActiveSamplers": 14,
+          "maxFragmentTextureUnits": 16,
+          "rgbaSha256": "a2def88ca1eba12e0980c3188bdde36b991366f4461772a28734dc996770dc96"
+        }
+      ]
+    }
+  ],
+  "countsAsVisualIteration": true,
+  "photographicAcceptance": false
+}

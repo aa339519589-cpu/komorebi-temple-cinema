@@ -1,0 +1,274 @@
+{
+  "visualAccepted": false,
+  "iterations": [
+    {
+      "id": "r01",
+      "status": "rejected",
+      "findings": [
+        "Reframed near roof and route move visible; sky integration too dim",
+        "New route intersected old high bank"
+      ]
+    },
+    {
+      "id": "r02",
+      "status": "rejected",
+      "findings": [
+        "Terrain cut and distant 3D range implemented",
+        "Full-dome radiance too bright and uniform; projecting rafter tips remain"
+      ]
+    },
+    {
+      "id": "r03",
+      "status": "intermediate",
+      "findings": [
+        "Native courtyard probes, reseated rafters and actual plaster bays improve structure/light",
+        "Overhead route view reveals bridge abutment rock protrusions and grass through treads"
+      ]
+    },
+    {
+      "id": "r04",
+      "status": "rejected",
+      "findings": [
+        "Unqualified route mask cleared growth below the bridge as well as walking surfaces",
+        "Native ray picks identify actual stone abutment surfaces above treads"
+      ]
+    },
+    {
+      "id": "r05",
+      "status": "intermediate",
+      "findings": [
+        "Height-aware growth filtering restores below-bridge plants",
+        "Fitted abutments and removed overlapping bearing cap fix tested stair picks",
+        "Shadow bias still represented24cm after range extension; corrected next"
+      ]
+    },
+    {
+      "id": "r06",
+      "status": "native-inspected candidate; photographic fidelity unaccepted",
+      "findings": [
+        "Lowest overlapping walking plane used for final abutment fitting",
+        "Directional shadow bias converted to1.92cm in the expanded2400m frustum",
+        "Full, actual hero, low-front and overhead inspected. Three previously obstructed route pixels now first-hit the granite tread surfaces."
+      ]
+    },
+    {
+      "id": "r07",
+      "status": "rejected",
+      "findings": [
+        "Short stairs / east inlet authored; excavation exposed old narrow landing bearings and a formerly buried spare lantern."
+      ],
+      "review": "lookdev/scene07-rebuild214/r07-review.json"
+    },
+    {
+      "id": "r08",
+      "status": "rejected",
+      "findings": [
+        "Wide rubble supports and four actual spatial captures authored; relocated right lantern intersected solid hall plinth and stair apron remained a bare green plane."
+      ],
+      "review": "lookdev/scene07-rebuild214/r08-review.json"
+    },
+    {
+      "id": "r09",
+      "status": "rejected",
+      "findings": [
+        "Real shutters/plaster and flat upper rail authored; rock apron too large; zero support masks incorrectly raised pond baseline."
+      ],
+      "review": "lookdev/scene07-rebuild214/r09-review.json"
+    },
+    {
+      "id": "r10",
+      "status": "rejected",
+      "findings": [
+        "Compact support and rooted tiers authored; scan UV atlas sampled outside useful surface, producing black terrain bands."
+      ],
+      "review": "lookdev/scene07-rebuild214/r10-review.json"
+    },
+    {
+      "id": "r11",
+      "status": "native-inspected candidate; photographic fidelity unaccepted",
+      "findings": [
+        "Bounded rock-face atlas patch and actual-sun water uniforms remove R10 artifact. Full, genuine hero and low-front are actual1254 native frames with identical source identity.",
+        "71 authored shrubs (34 on retaining bank),47 flowering;75 uniform scanned retaining stones; explicit original/changed anchors and R06 restore boundary.",
+        "Tall rock shoulders, sunset warmth, gable/roof/tree silhouettes remain substantial photographic mismatches."
+      ],
+      "review": "lookdev/scene07-rebuild214/r11-review.json"
+    },
+    {
+      "id": "r12",
+      "status": "Actual full, genuine hero and near-shore low inspected; retained failed lighting candidate",
+      "sourceIdentity": "199b41f35359c149f4bf9827c7512b6b59d2386339fdfe5f10d94f06618837ae",
+      "findings": [
+        "Real 1.4-scale midground similarity lowers the hall, bridge and approach against fixed water without camera-dependent geometry",
+        "Tall vertical pond rock walls reduced to low supporting shores; connected water under the bridge is visible in the native low view",
+        "Hall red pigment and clearcoat replace a gray-brown tint",
+        "Visible measured sky radiance saturates toward white and erases clouds",
+        "Tree crowns are overdark and needle geometry reads as granular",
+        "Water is too mirrorlike with repetitive ripples",
+        "Right return walk ends before a convincing mainland connection"
+      ],
+      "review": "lookdev/scene07-rebuild214/r12-review.json"
+    },
+    {
+      "id": "r13",
+      "status": "Actual full, genuine hero and same-source near-shore low inspected; unaccepted intermediate",
+      "sourceIdentity": "a0393986390db7ebbb35a0540f390480c1332a9187b5f9e1dc225d409b003097",
+      "findings": [
+        "Cloud layers and clear-air blue gaps visible again",
+        "Right return walk is physically continuous into mainland, supported by low earth",
+        "Water has broken coherent reflections rather than uniform mirror plane",
+        "Hall shade and plant interiors remain too black",
+        "Opaque retained needle calibres create granular bright outlines",
+        "Hall plinth still needs connected sloping soil and mature planting",
+        "Distant mountain mass is high-frequency and insufficiently separated by atmosphere"
+      ],
+      "review": "lookdev/scene07-rebuild214/r13-review.json"
+    },
+    {
+      "id": "r14",
+      "status": "Actual full, genuine hero and same-source low inspected",
+      "sourceIdentity": "7bc17368f7f26ead1c4f6bfb95fcbd5f99ddc58eb51d19dad262966f7314bddf",
+      "findings": [
+        "Plant interiors reveal green volume through reverse-hemisphere captured irradiance and calibrated thin needles",
+        "22 mature azaleas root in true sloping hall-foundation shoulders",
+        "Distant mountain terrain has broader forms and atmospheric depth",
+        "Sky and outdoor illumination remain too white/cool for golden reference",
+        "Lacquered wood remains visually too regular",
+        "Island foliage roots still followed a separate implied ellipsoid rather than continuous soil geometry",
+        "Pine foliage and main roof/gable remain visibly procedural"
+      ],
+      "review": "lookdev/scene07-rebuild214/r14-review.json"
+    },
+    {
+      "id": "r15",
+      "status": "Actual full, genuine hero and same-source low inspected",
+      "sourceIdentity": "d1dfc3e977f187277e593f13291dee3ece93aee5870f9e73bcc2b70f898108b8",
+      "findings": [
+        "Clouds and the complete world cloud-bank illumination have warmer gold/ivory structure",
+        "Island plants, ferns and CC0 flowers root in one continuous modeled soil body",
+        "Metric member edges and coating loss break up lacquer reflectance",
+        "Main cherry tree has sparse floating-sphere-like flowers and insufficient connected fine branching",
+        "Main roof/gable and symmetrical temple framing remain visibly procedural",
+        "Native indirect capture approximates local radiance; no photographic acceptance"
+      ],
+      "review": "lookdev/scene07-rebuild214/r15-review.json"
+    },
+    {
+      "id": "r16",
+      "status": "Actual full, genuine hero and same-source near-shore low inspected; flowering-layout candidate rejected",
+      "sourceIdentity": "98a0642bd2527f4db3ce4d7b06bfa1479f61a49354565cdf5394a460ef079dab",
+      "findings": [
+        "Closed continuous bearing tree wood, attached pedicels and individual five-petal corollas replace floating sphere scatter",
+        "Actual single sun color warms the shared sky, water and surfaces",
+        "Main cherry retains the original near-water root and its crown projects too low/left",
+        "Single blooms evenly spaced along a short shoot read as flowering racemes rather than cherry bud umbels",
+        "Temples, roof response and foliage still visibly procedural"
+      ],
+      "review": "lookdev/scene07-rebuild214/r16-review.json"
+    },
+    {
+      "id": "r17",
+      "status": "Actual full, genuine hero, near-shore low and cherry-headland close view inspected; photographic fidelity unaccepted",
+      "sourceIdentity": "2af2bba19c8ffdb86a859586114439bef623b14968c7a6e27e47ee9992dd9776",
+      "findings": [
+        "Main cherry occupies the left rear headland, with continuous soil, rooted companions and actual bud umbels",
+        "Low view confirms connected pond water and lowered physical shores under the bridge",
+        "Red pigment, warm cloud response and visible shade structure remain improved relative to R11",
+        "Upper hall ridge is too low and its vertical rise insufficient; eaves/body sit slightly high",
+        "Flower crown remains inferred and procedural, though the former near-water root layout is corrected",
+        "A broad bright measured-sky region is visible outside the authored cap in the auxiliary view",
+        "Native approximated local radiance is not solved GI or photographic acceptance"
+      ],
+      "review": "lookdev/scene07-rebuild214/r17-review.json"
+    },
+    {
+      "id": "r18",
+      "status": "Actual native full, genuine hero and near-shore low inspected review candidate; photographic fidelity unaccepted",
+      "sourceIdentity": "9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563",
+      "findings": [
+        "Upper hall roof ridge is raised through its actual 3D profile, while its entire body/floor/stair head/sanctuary/practicals/room captures move down together",
+        "Ridge projected anchor changes from y183.57 to y155.77; the head of the main stair and hall floor differ by only1.12cm in the common model",
+        "Tree petals retain bit-identical surface triangles, positions and colors while shared vertices produce continuous cupped lamina normals and reduce per-tree flower buffers from80.9 to39.3MB",
+        "The lowered physical shores, mainland return walk, mature rooted foundation planting, shared lantern-island soil and receded cherry headland remain intact",
+        "Photographic fidelity remains unaccepted; the image still reads as CG.",
+        "Main hall ridge/eave direction and roof plan articulation differ from the reference despite the corrected ridge height.",
+        "Beam/rail repetition, pine needle grain, cherry crown fullness and small pond flowers remain visibly procedural.",
+        "Golden-hour contrast, indirect shade transitions and atmospheric scattering are still weaker than the reference.",
+        "Outside-cap measured-sky brightness remains visible at oblique viewpoints; the broad transition is an approximation, not measured full-world photometry."
+      ],
+      "review": "lookdev/scene07-rebuild214/r18-review.json"
+    },
+    {
+      "id": "r19",
+      "status": "Technical shader failure; no valid native photographic review frame",
+      "sourceIdentity": "1b101c92ffd261d68017fbd7b82348ac5630df41b7a5a19d56c52c623caf524e",
+      "countsAsVisualIteration": false,
+      "findings": [],
+      "review": "lookdev/scene07-rebuild214/r19-review.json"
+    },
+    {
+      "id": "r19b",
+      "status": "First actual native visual round in this continuation: full, genuine hero and near-shore low inspected",
+      "sourceIdentity": "5f98bdeada4378ce0dbef24f3c57179ba15ab86b07d48d5a359bb3c14ee64704",
+      "countsAsVisualIteration": true,
+      "findings": [
+        "Solar disk, five shadowed direct samples, camera unit conversion, shared sky and water reflection are energy-coupled in source",
+        "Measured ceramic microstructure reads as less uniform blue and more variable neutral gray",
+        "Angular warm air separation is visible next to the tower",
+        "Actual program sampler count tops at14 of16, with no texture-unit warnings in either log",
+        "Aerosol veil is too strong in the near courtyard, flattening tower/architecture contrast",
+        "Upper roof ridge direction and overly broad upper storey remain a geometric mismatch",
+        "Front facade remains too dull and its room-versus-porch capture locations/material regions need correction"
+      ],
+      "review": "lookdev/scene07-rebuild214/r19b-review.json"
+    },
+    {
+      "id": "r20",
+      "status": "Second actual native full/hero/low visual round inspected; rejected for visible roof penetrations",
+      "sourceIdentity": "4aeffa30c9a3ee2c8acaac2d2b18bd89b9a4754f2da4922d0f00add89ce84475",
+      "countsAsVisualIteration": true,
+      "findings": [
+        "Oblique real ridge and narrower upper room move the roof/galleries closer to the supplied reference",
+        "Fixed far-valley air keeps the nearer courtyard from the R19b washout",
+        "Actual room/porch captures and exterior material-region assignments replace the former outside-courtyard probe placement",
+        "A back upper-column cap was seated only against its outer arm row; the inner side of the sloping roof is lower and visible red cap parts poke through",
+        "The former upper plaque/frieze elevations were not rehung for the new roof and enter its surface",
+        "Roof receiving beams need dense full-footprint contact checks"
+      ],
+      "review": "lookdev/scene07-rebuild214/r20-review.json"
+    },
+    {
+      "id": "r21",
+      "status": "Third actual full/hero/low inspected; known cap/plaque crossings cleared, two residual hip-rafter crossings found and retained for R22 repair",
+      "sourceIdentity": "16018796da17346b1125c2be8919626de6b07d316f226b60ef375f32bd0e618a",
+      "countsAsVisualIteration": true,
+      "findings": [
+        "Whole-cap envelope, full-footprint seats and dense receiving beams remove the large R20 left roof penetration.",
+        "Upper carved friezes and the smaller solid plaque are rehung below the actual eave; raised gold no longer lies on the roof.",
+        "Existing cast roughness/height surface fields give gilt a real small-scale physical reflection response; wood effective albedo is bounded.",
+        "Two red slits beside the right gable are real outer section corners of face1/u1 main rafter, not intentional gable openings.",
+        "Exact original-frame CPU ray hits exceed the analytical roof by0.097984 and0.066850 model metres."
+      ],
+      "review": "lookdev/scene07-rebuild214/r21-review.json"
+    },
+    {
+      "id": "r22",
+      "status": "Fourth actual native full/hero/low round inspected; known roof penetrations cleared in these views. Working preview only.",
+      "sourceIdentity": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+      "countsAsVisualIteration": true,
+      "findings": [
+        "Warm direct light and valley air share one solar/sky radiance field; courtyard contrast restored after rejected R19b near haze.",
+        "Upper roof plan/ridge, upper storey width and occupied ceiling share the rebuilt real geometry.",
+        "Cap, full-footprint receiver, frieze and suspended plaque repairs clear earlier roof crossings; right hip edge rafters now sit below actual deck.",
+        "Lowered shores, real rooted vegetation and branching cherry trees remain intact.",
+        "Photographic fidelity remains unaccepted; scene still reads as CG.",
+        "Beam/rail articulation and repeated panels remain overly regular.",
+        "Needles, cherry crown density and pond flowers remain visibly procedural.",
+        "The reference has stronger heavy gold material response and richer indirect shade than this native candidate.",
+        "Authored skew roof/site and first-bounce cube capture approximate an inferred building; they are not measured survey or solved multibounce GI."
+      ],
+      "review": "lookdev/scene07-rebuild214/r22-review.json"
+    }
+  ],
+  "currentRevision": "r22",
+  "sourceIdentity": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e"
+}

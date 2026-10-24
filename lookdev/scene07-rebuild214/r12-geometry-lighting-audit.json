@@ -1,0 +1,107 @@
+{
+  "revision": "scene07-rebuild214-r12",
+  "source": "199b41f35359c149f4bf9827c7512b6b59d2386339fdfe5f10d94f06618837ae",
+  "visualAccepted": false,
+  "status": "Geometry/material authoring preflight; native renders pending",
+  "parentSource": "9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6",
+  "site": {
+    "revision": "scene07-lower-water-bank-depth214-r12",
+    "scale": 1.4,
+    "pivot": [
+      10.7,
+      12.8,
+      36
+    ]
+  },
+  "worldRoutes": [
+    {
+      "model": [
+        -7.1,
+        4.1,
+        -2.4
+      ],
+      "world": [
+        -14.219999999999995,
+        0.6199999999999992,
+        -17.759999999999998
+      ],
+      "soil": -0.051999999999997826,
+      "walkingPlane": 0.6199999999999992
+    },
+    {
+      "model": [
+        -1.2,
+        5.35,
+        -0.85
+      ],
+      "world": [
+        -5.959999999999997,
+        2.369999999999999,
+        -15.589999999999996
+      ],
+      "soil": -0.33999995227740215,
+      "walkingPlane": 2.369999999999999
+    },
+    {
+      "model": [
+        5.2,
+        5.35,
+        2
+      ],
+      "world": [
+        3.000000000000001,
+        2.369999999999999,
+        -11.599999999999994
+      ],
+      "soil": 1.6979999999999986,
+      "walkingPlane": 2.369999999999999
+    },
+    {
+      "model": [
+        8.3,
+        4.38,
+        1.9
+      ],
+      "world": [
+        7.340000000000002,
+        1.0119999999999987,
+        -11.740000000000002
+      ],
+      "soil": 0.6059999999999999,
+      "walkingPlane": 1.0119999999999987
+    },
+    {
+      "model": [
+        12.1,
+        4.22,
+        4.4
+      ],
+      "world": [
+        12.66,
+        0.7879999999999985,
+        -8.240000000000002
+      ],
+      "soil": 0.3819999999999997,
+      "walkingPlane": 0.7879999999999985
+    }
+  ],
+  "mainFloorBefore": 7.5,
+  "mainFloorAfter": 5.38,
+  "mainStairLandingBefore": 5.8,
+  "mainStairLandingAfter": 3,
+  "terrainBounds": [
+    [
+      -48,
+      -0.3400000035762787,
+      -64
+    ],
+    [
+      36,
+      3.7761776447296143,
+      20
+    ]
+  ],
+  "finiteTerrain": true,
+  "materialChange": "Bounded opaque vermilion pigment + separate lacquer lobe; neutral clay/glaze; rough foliage with reduced cuticle specular; actual-sun-coupled normalized Mie/optical cloud field; six actual spatial cubes",
+  "newExternalAssets": false
+}

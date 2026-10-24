@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scene07 · 214 R22 原生工作预览</title>
+<style>body{margin:24px;max-width:1540px;background:#14191b;color:#e6e6df;font:15px/1.55 system-ui}h1{font-size:24px;font-weight:550}p{max-width:1160px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}figure{margin:0}img{display:block;width:100%;height:auto}figcaption{padding:9px 0;color:#b8c2bf}a{color:#b7d9ec}.note{border-left:3px solid #b78a51;padding:8px 14px;background:#202624}.hash{font:12px/1.5 ui-monospace,monospace;overflow-wrap:anywhere;color:#9facaa}table{border-collapse:collapse;margin:20px 0;max-width:1160px}th,td{padding:9px 12px;border:1px solid #3d4744;text-align:left}th{font-weight:550;color:#d5c39d}@media(max-width:720px){body{margin:14px}.grid{grid-template-columns:1fr}table{font-size:12px}}</style></head><body>
+<h1>Scene07 · 214 R22 真实 3D 工作预览</h1>
+<p class="note"><strong>摄影相似度未验收，画面仍有明显 CG 感。</strong>本轮已实际审过 R19b、R20、R21、R22 各自的 full、真实 hero 子视锥和低岸视角。此页最新三帧均为官方 FIFO、同一份 R22 源、原生 1254 × 1254。已知穿顶已在这三视角及指定首命中射线中清除；这不等于全场碰撞证明或摄影验收。点击图像查看原 PNG。</p>
+<p>保留 R18 的低岸、桥下连通水面、回岸路、实际土根、分枝樱树和毫米尺度松针。此次重做的是太阳/天空与材质响应、屋顶平面与实体承托：一个 0.53°太阳由五个带真实阴影的方向样本积分，同一方向、颜色与源强驱动世界天空和水面圆盘反射。相机与全部实际灯/发光材质共用 1/6 辐亮度单位；曝光 6.12 等价于旧单位 1.02，单位转换本身不是增亮。</p>
+<p>可见太阳圆盘在全局 PMREM 生成和八个实际局部采光捕获期间关闭，直射的漫反射与镜面由同一五点太阳样本承担；水面保留真实圆盘反射，旧额外解析闪光已移除。世界坐标谷地空气按真实相机到表面的路径积分，近院保留对比，远谷获得分层；在色调映射前处理，没有全屏调色或假射线。独立 HDR 原太阳峰仍是限幅处理，太阳/天空分离和空气系数均为推断标定，不能称为恢复的绝对现场测光。</p>
+<p>上屋顶采用实体斜脊与共享逆映射，瓦面、山墙、脊饰、檐底和承托共同修改；上层廊房收窄，真实屋面开口与封闭吊顶跟随。完整柱头和座垫占地检查替代只看外挑一排的旧算法；连续承接梁加密并在山墙高度跃变处分段，雕花与实心牌匾移回檐下。最后又修正髋部边椽的整个矩形截面，使其位于相邻屋面下缘。</p>
+<p>陶瓦复用既有中性底色、釉面粗糙度/权重和微法线，桥栏手扶顶面有独立清漆反射；鎏金复用已声明的铸面细纹并使用真实金属材质。四个殿内探针现位于实际室内和廊下，另外四个仍区分近远低植与树冠。实际链接程序最大使用 <strong>14 / 16</strong> 个纹理单元，三帧 GL error 均为 0；这些技术数据不能代替摄影判断。</p>
+<p><strong>仍需重建：</strong>梁栏及墙面构件过于重复，针叶颗粒、樱冠密度与池中小花仍显程序化；参考里厚重暖金的材质反射与暗部层次更丰富。当前斜脊、隐蔽布局与空气属于真实 3D 推断形体，原生局部捕获仅近似首次反弹，未声称完整多次反弹 GI。此次交接用于新的 3D 运镜工作预览。</p>
+<p class="hash">R22 source: 0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e<br>保留 R18: 9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563<br>保留 R21 细缝失败边界: 16018796da17346b1125c2be8919626de6b07d316f226b60ef375f32bd0e618a<br>独立 R06 发布边界: 70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994</p>
+<table><thead><tr><th>实际关系</th><th>之前</th><th>R22</th></tr></thead><tbody>
+<tr><td>太阳源强 / 角直径（相对单位）</td><td>14 / 单方向</td><td>24 / 0.53°，五点同源阴影</td></tr>
+<tr><td>上屋顶檐高 / 起拱，模型米</td><td>10.60 / 7.30</td><td>10.10 / 6.40，斜脊 0.625，脊段比例 0.38</td></tr>
+<tr><td>上层真实廊房 X 比例 / 偏移</td><td>1.00 / 0.00</td><td>0.90 / 0.30；圆柱保持真实圆截面</td></tr>
+<tr><td>柱头最大旧穿透，模型米</td><td>0.5364，只检查外挑一排</td><td>整个帽梁与座垫占地检查；旧点首命中陶瓦</td></tr>
+<tr><td>右髋部边椽旧露出，模型米</td><td>0.0980 / 0.0669</td><td>整截面就位；两旧点均先命中陶瓦</td></tr>
+<tr><td>房内 / 廊下捕获</td><td>两个旧点实际在外院</td><td>下房、下廊、上房、上廊均按真实房间重置</td></tr>
+<tr><td>池岸、根植与樱树几何</td><td>R18 已降低并接入真土</td><td>保留；未为捕获减模</td></tr>
+</tbody></table>
+<div class="grid">
+<figure><a href="../../references/hd/6-照片-7.jpg"><img src="../../references/hd/6-照片-7.jpg" alt="HD07参考照片"></a><figcaption>HD 参考照片 · 仅供比较</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r22/reference.png"><img src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r22/reference.png" alt="R22官方原生整图"></a><figcaption>R22 · 最新同源原生整图，摄影未验收</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18/reference.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r18/reference.png" alt="R18保留整图"></a><figcaption>保留 R18 · 此次太阳/材质/斜脊重建前</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r19b/reference.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r19b/reference.png" alt="R19b前院空气过强"></a><figcaption>保留 R19b · 第一次实际轮，前院空气过强的失败候选</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r20/detail-native.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r20/detail-native.png" alt="R20屋顶穿透失败"></a><figcaption>保留 R20 · 实际 hero，柱帽/牌匾穿屋面的失败候选</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r22/detail-native.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r22/detail-native.png" alt="R22真实原生hero"></a><figcaption>R22 · 真实原生 hero 子视锥，检查瓦面、檐底、挂匾与阶岸</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r21/detail-native.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r21/detail-native.png" alt="R21残余椽木细缝"></a><figcaption>保留 R21 · 右髋部仍有两条边椽细缝，随后按实体截面修正</figcaption></figure>
+<figure><a href="../../qa/ten-reference/07/iteration-scene07-rebuild214-r22-near-shore-low/inspection-view.png"><img loading="lazy" src="../../qa/ten-reference/07/iteration-scene07-rebuild214-r22-near-shore-low/inspection-view.png" alt="R22同源低岸视角"></a><figcaption>R22 · 同源低岸视角，实际树根、桥下水面与檐底均保留</figcaption></figure>
+</div>
+<p>没有新增位图、下载资产、场景替代图、照片投影、Blend 或全场导出。R19 着色器失败候选未算视觉轮次；R19b、R20、R21、R22 的真实帧与各自源均保留。R18–R22 源快照共 35 / 36 / 36 / 37 / 37 / 37 个 JS，均逐文件 SHA256 核验。</p>
+<p><a href="working-handoff-r22.json">受控工作预览复制边界</a> · <a href="handoff214-r22.json">完整交接</a> · <a href="r22-native-source-verification214.json">最新同源原生验证</a> · <a href="r22-rafter-contact-audit.json">实体边椽与精确命中数据</a> · <a href="r22-snapshot-verification.json">保留源校验</a> · <a href="r22-review.json">最新审图结论</a> · <a href="iteration-review214.json">全部迭代记录</a> · <a href="review-r18.html">R18 保留审图页</a> · <a href="r06-publish-snapshot/index.html">R06 独立发布边界</a></p>
+</body></html>

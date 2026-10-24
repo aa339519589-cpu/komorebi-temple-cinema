@@ -1,0 +1,115 @@
+{
+  "revision": "scene07-rebuild214-r18",
+  "source": "9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563",
+  "status": "CPU actual upper-roof mesh and shared-petal verification; subsequent native full/hero/low inspected",
+  "visualAccepted": false,
+  "hallDatum": {
+    "modelOffset": -0.2,
+    "worldOffset": -0.27999999999999997,
+    "mainStairHeadWorld": 5.1,
+    "actualHallFloorWorld": 5.1112,
+    "sanctuaryAndFourHallCapturesAndPracticalsMoveTogether": true
+  },
+  "upperRoof": {
+    "riseBefore": 6.15,
+    "riseAfter": 7.3,
+    "sharedSurfaceAndBearingSpec": true,
+    "roofAudit": {
+      "revision": "scene07-taller-seated-irimoya-and-aged-ceramic214-r18",
+      "label": "hall-upper-irimoya-roof",
+      "width": 14.8,
+      "depth": 18.7,
+      "eave": 10.6,
+      "peak": 17.9,
+      "tiles": {
+        "cover": 4628,
+        "pan": 4648
+      },
+      "innerCollar": null,
+      "construction": "Closed curved bedding; individual pan/cover courses; fascia, purlins and capped rafters; seated receivers. Lower hall roof is cut at its upper-room footprint and housed in a closed fitted timber curb."
+    },
+    "finiteMeshes": 11,
+    "finiteReceiverBoxes": 101,
+    "projectedAnchors": {
+      "before": {
+        "rightRidge": [
+          1022.2931943632731,
+          183.56730762969565
+        ],
+        "leftFrontEave": [
+          526.0511073392104,
+          342.6849296613842
+        ]
+      },
+      "after": {
+        "rightRidge": [
+          1023.3642719999898,
+          155.77132619346514
+        ],
+        "leftFrontEave": [
+          526.1205361204068,
+          349.630841693264
+        ]
+      }
+    }
+  },
+  "petals": {
+    "trianglesAndColorsAndPositionsBitIdentical": true,
+    "oldVertices": 2246400,
+    "newVertices": 842400,
+    "oldBufferBytes": 80870400,
+    "newBufferBytes": 39312000,
+    "continuousCuppedLaminaNormals": true
+  },
+  "representativeCherry": {
+    "revision": "scene07-shared-cupped-petal-surfaces-and-cherry-umbels214-r18",
+    "seed": 208394,
+    "height": 8.6,
+    "spread": 3.8,
+    "branches": 19788,
+    "spurs": 936,
+    "flowerCount": 18720,
+    "leafCount": 104,
+    "flowerDiameterMetres": [
+      0.046,
+      0.068
+    ],
+    "flowersPerBud": 4,
+    "budsPerSpur": 5,
+    "flowerVertices": 842400,
+    "flowerTriangles": 748800,
+    "woodBounds": {
+      "min": [
+        -4.853509902954102,
+        -0.04207203909754753,
+        -3.2879209518432617
+      ],
+      "max": [
+        4.023658752441406,
+        7.871132850646973,
+        3.7423672676086426
+      ]
+    },
+    "flowerBounds": {
+      "min": [
+        -4.868988037109375,
+        3.0954060554504395,
+        -3.310589551925659
+      ],
+      "max": [
+        4.03938102722168,
+        7.896294116973877,
+        3.760681390762329
+      ]
+    },
+    "triangles": 1401192,
+    "cameraInput": false,
+    "canopyCards": false,
+    "photographPixels": false,
+    "visualAccepted": false
+  },
+  "globalExposure": 1.02,
+  "newExternalAssets": false,
+  "nativeReviewCompleted": true,
+  "nativeVerification": "lookdev/scene07-rebuild214/native-source-verification214.json"
+}

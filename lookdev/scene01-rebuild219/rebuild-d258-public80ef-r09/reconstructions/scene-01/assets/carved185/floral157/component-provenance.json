@@ -1,0 +1,923 @@
+{
+  "status": "actual-source-component-extracted",
+  "name": "Actual scanned peony and leaf frieze field",
+  "source": "sources/ccby-diana-liu-floral-panel/source-objaverse.glb",
+  "sourceSha256": "b0fba7e24feab9e117f47d4e9b98cf1cfabff47769c06d0455ca79ad8b79650c",
+  "originalSourceTriangles": 2158264,
+  "selectedTriangles": 1633989,
+  "selectedVertices": 1124928,
+  "boundsInInspectionZUp": [
+    [
+      -0.284,
+      -0.012,
+      -0.104
+    ],
+    [
+      0.274,
+      0.013,
+      0.105
+    ]
+  ],
+  "componentOriginInInspectionZUp": [
+    0,
+    0,
+    0
+  ],
+  "sourceToComponentRootYUp": [
+    -0.0009984342531324903,
+    0.000008828937831338042,
+    -0.00005523669096295196,
+    0,
+    0.00002595760070331944,
+    0.0009478367013902577,
+    -0.0003176976400028221,
+    0,
+    0.0000495504302452897,
+    -0.00031863401788636143,
+    -0.0009465818070870054,
+    0,
+    0.18469464014274017,
+    -0.23856768046635043,
+    -0.5075085004139451,
+    1
+  ],
+  "unitStatement": {
+    "original": "Scanner-native coordinates and all original world/node transforms are preserved in the original GLB and source trace. Creator does not supply verified physical dimensions.",
+    "proposal": "The reversible wrapper uses a uniform0.001 native-unit conversion, consistent with millimetres, followed only by a rigid PCA viewing/alignment frame. It is an explicitly unverified metric proposal, not recovered surveyed scale.",
+    "noAnisotropicRescaling": true
+  },
+  "sourceAttributesRetainedAsExactByteSubsets": true,
+  "geometryRemeshed": false,
+  "decimation": false,
+  "UVRebake": false,
+  "textureReencoding": false,
+  "originalMaterialsRetained": true,
+  "originalHasUV": false,
+  "originalHasNormalMap": false,
+  "images": [],
+  "sourceCropBoundaries": "Existing source triangles retained; crop edges can be open and should be embedded in a separate solid carrier. No caps/remesh disguised as original scan.",
+  "trace": [
+    {
+      "sourceNode": 2,
+      "sourceMesh": 0,
+      "sourcePrimitive": 0,
+      "triangles": 63865,
+      "vertices": 42058,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 1,
+          "count": 42058,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "c510e1448186b1736d1007ecaf512b6a3b42622d1d32f144aecdc2b54b0dbf8d"
+        },
+        "POSITION": {
+          "sourceAccessor": 0,
+          "count": 42058,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "67ec669e89b381068c1803cfc2cdca5cdb3cf2300ca974ac92d5532007ba1c96"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 0,
+        "byteLength": 168232,
+        "type": "Uint32Array",
+        "count": 42058,
+        "sha256": "d830f4535d4507f6719a43bb51aa96d9bdfb2d7a530e2ca4410d1bee9e8510ce"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 168232,
+        "byteLength": 255460,
+        "type": "Uint32Array",
+        "count": 63865,
+        "sha256": "8e4dfc42605b873c3ebbf735473a842f3e4da6286ea87d07b1fad9d37820d7ef"
+      }
+    },
+    {
+      "sourceNode": 3,
+      "sourceMesh": 1,
+      "sourcePrimitive": 0,
+      "triangles": 79240,
+      "vertices": 52523,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 4,
+          "count": 52523,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "0d5caef4832d8d7bf6bbd549b7a6413bcebd21841d66028ebe3e3438bcae2b6c"
+        },
+        "POSITION": {
+          "sourceAccessor": 3,
+          "count": 52523,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "c38a3f7bd2984d6b2544c6e7e72dc585b1e9c1f248c024017f0770d47ded21dc"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 423692,
+        "byteLength": 210092,
+        "type": "Uint32Array",
+        "count": 52523,
+        "sha256": "d3ecdc534f0fe3c1a852c45b116342a891af15bbf692e34061cb79ee7a4b344a"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 633784,
+        "byteLength": 316960,
+        "type": "Uint32Array",
+        "count": 79240,
+        "sha256": "20827eb6ad9822a0735375a5ac2c13a98d01a9af6efe0bff43f296f5f7313f4b"
+      }
+    },
+    {
+      "sourceNode": 4,
+      "sourceMesh": 2,
+      "sourcePrimitive": 0,
+      "triangles": 78592,
+      "vertices": 53249,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 7,
+          "count": 53249,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "87e8770549cdbe41ddef870d3e2ecf54e84f7304c7ed1ea6f497b1f83d3df52c"
+        },
+        "POSITION": {
+          "sourceAccessor": 6,
+          "count": 53249,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "c5840a88b6a6e7003afd1f7a0fbf8c1a07fd0c60ad4149690754ed9ff52a5395"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 950744,
+        "byteLength": 212996,
+        "type": "Uint32Array",
+        "count": 53249,
+        "sha256": "2149f55f2fa262e668a8dc71b32b1e9e096869fd8a2337beb5930d2f37246151"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 1163740,
+        "byteLength": 314368,
+        "type": "Uint32Array",
+        "count": 78592,
+        "sha256": "883be1ecd2a25f141a2156465f5e31b748b86f8e151c97fbe4a534cf0804fafb"
+      }
+    },
+    {
+      "sourceNode": 5,
+      "sourceMesh": 3,
+      "sourcePrimitive": 0,
+      "triangles": 79323,
+      "vertices": 54143,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 10,
+          "count": 54143,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "62ed6c944b943fd81faa2154c1a5abc12001975ce8250e010c49f997a4bc5adb"
+        },
+        "POSITION": {
+          "sourceAccessor": 9,
+          "count": 54143,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "cc39d6f857fe598e4b1b0dde2587aecca7fe8b5f8d5e33e8f1578ec447cc9a73"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 1478108,
+        "byteLength": 216572,
+        "type": "Uint32Array",
+        "count": 54143,
+        "sha256": "7b675e8bb3991077bacbdb752c1a040e4e232d397678487fbef77450f60c87ad"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 1694680,
+        "byteLength": 317292,
+        "type": "Uint32Array",
+        "count": 79323,
+        "sha256": "cd1f72ad18fe931034d5d822277faf7adf7e9f265c54a8279593f406b8ecde2a"
+      }
+    },
+    {
+      "sourceNode": 6,
+      "sourceMesh": 4,
+      "sourcePrimitive": 0,
+      "triangles": 110787,
+      "vertices": 65074,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 13,
+          "count": 65074,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "869d160eb4b655a8a4f08f7b48c67bb14a43b74caac5d378a2873d95d8399252"
+        },
+        "POSITION": {
+          "sourceAccessor": 12,
+          "count": 65074,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "8a6c7b07fee1d482ba088af91478b5c5d635d5b9468d25fd73672e7709788e26"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 2011972,
+        "byteLength": 260296,
+        "type": "Uint32Array",
+        "count": 65074,
+        "sha256": "0a711acf9223b71e1b3df4980ceffc03649b96a128de2fdb0254eef586f715ff"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 2272268,
+        "byteLength": 443148,
+        "type": "Uint32Array",
+        "count": 110787,
+        "sha256": "9eefc6838c47d82880c1ecf5fbefb73b66d38dc46da643dc726574c48af1a48e"
+      }
+    },
+    {
+      "sourceNode": 7,
+      "sourceMesh": 5,
+      "sourcePrimitive": 0,
+      "triangles": 73089,
+      "vertices": 45310,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 16,
+          "count": 45310,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "ff57ee6d6efdb8ec6f808066561273f0aaf4c04383208d77f6436e36c561d3ef"
+        },
+        "POSITION": {
+          "sourceAccessor": 15,
+          "count": 45310,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "cdcabbd9407b35eb0dc4d8300efaad674444d261c225f78c7dec3a2000a529a0"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 2715416,
+        "byteLength": 181240,
+        "type": "Uint32Array",
+        "count": 45310,
+        "sha256": "70c81442efce9973a3ca32d98750d1a6ab0d8c72401b760cfdadd43eb70d717c"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 2896656,
+        "byteLength": 292356,
+        "type": "Uint32Array",
+        "count": 73089,
+        "sha256": "1fae8f7acf93a2409f110ac3a02194eb646f7b463e47f44624f57429e17a9ec8"
+      }
+    },
+    {
+      "sourceNode": 8,
+      "sourceMesh": 6,
+      "sourcePrimitive": 0,
+      "triangles": 93406,
+      "vertices": 57614,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 19,
+          "count": 57614,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "cd4df01a37340cac811a13540727ae93a0ad36df9a25c6a6a6d79c9fa84e6208"
+        },
+        "POSITION": {
+          "sourceAccessor": 18,
+          "count": 57614,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "5c5c7d131c54f5a644b1c5ebcf2a33aaed43cf8c16d8fa9f90e2b328e976ce16"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 3189012,
+        "byteLength": 230456,
+        "type": "Uint32Array",
+        "count": 57614,
+        "sha256": "83a4da8a0d557f43ab71151bb327366e87a0442172504ca4484117b877ee7719"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 3419468,
+        "byteLength": 373624,
+        "type": "Uint32Array",
+        "count": 93406,
+        "sha256": "d8158724844c9c3b22ff4c37cbc855510d8840a8624c2bd2714dc5e56245b1fe"
+      }
+    },
+    {
+      "sourceNode": 9,
+      "sourceMesh": 7,
+      "sourcePrimitive": 0,
+      "triangles": 70318,
+      "vertices": 44005,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 22,
+          "count": 44005,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "e243fec9954f84be55892f9e65f98c0090bd8a91eed56d02b9e40e93f2819eb8"
+        },
+        "POSITION": {
+          "sourceAccessor": 21,
+          "count": 44005,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "fed35019436091cc6fe02d690caea5cd3c252bdfa288cd774a8fb889c8128938"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 3793092,
+        "byteLength": 176020,
+        "type": "Uint32Array",
+        "count": 44005,
+        "sha256": "b1afea0bd79f536df26596c23f6f47895e11411cebb3b087cad20c12a819210e"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 3969112,
+        "byteLength": 281272,
+        "type": "Uint32Array",
+        "count": 70318,
+        "sha256": "a5b0f758331c4606f7f760e2554eaf97565ac2621e673093d559d8f364c38e0c"
+      }
+    },
+    {
+      "sourceNode": 10,
+      "sourceMesh": 8,
+      "sourcePrimitive": 0,
+      "triangles": 74034,
+      "vertices": 47321,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 25,
+          "count": 47321,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "39d1370553437daf7e48b89660eb88f6f4bbdd7ddf40dcc4c7f8c7d28e37c6ce"
+        },
+        "POSITION": {
+          "sourceAccessor": 24,
+          "count": 47321,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "4e7fb8e68259d472992b2846858e1c2192d4a1d12176b779116a212bf3cf600a"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 4250384,
+        "byteLength": 189284,
+        "type": "Uint32Array",
+        "count": 47321,
+        "sha256": "2d0634c655f45b3fecb46b2d74b33ddc2bb74182635eba254a05025ff28ab645"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 4439668,
+        "byteLength": 296136,
+        "type": "Uint32Array",
+        "count": 74034,
+        "sha256": "efcdfb5bb88ec23097e6b1598bea41b1b96efaeb710cf81830f10232d9bd7b00"
+      }
+    },
+    {
+      "sourceNode": 11,
+      "sourceMesh": 9,
+      "sourcePrimitive": 0,
+      "triangles": 85187,
+      "vertices": 52607,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 28,
+          "count": 52607,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "47e472de82dbb2a8d5d6868cd043b23c876a06198d8df8c272bafc2ca11114cd"
+        },
+        "POSITION": {
+          "sourceAccessor": 27,
+          "count": 52607,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "8c1244341a244ab272925eb0d3826acadc771fc3c2aa93693097abb8ee55e571"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 4735804,
+        "byteLength": 210428,
+        "type": "Uint32Array",
+        "count": 52607,
+        "sha256": "c70f27a5c5aeb755495eb1fbb19d14fe9995c07a50e23ad4180c1f4c2d231eb7"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 4946232,
+        "byteLength": 340748,
+        "type": "Uint32Array",
+        "count": 85187,
+        "sha256": "48eb402467a5e42af2fcfc0d90698234581cbfa70fccf5ba3b9f5960b1d7bdc8"
+      }
+    },
+    {
+      "sourceNode": 12,
+      "sourceMesh": 10,
+      "sourcePrimitive": 0,
+      "triangles": 82694,
+      "vertices": 52470,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 31,
+          "count": 52470,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "f9cd0b5b68f2f9ad18fca0a26628def7f73e0564a9a126cc9246d647c682efee"
+        },
+        "POSITION": {
+          "sourceAccessor": 30,
+          "count": 52470,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "c0ed82942ff450c1e4d5cc0ba0ad39473f546dd7a8a26382d8e0f501409ad12a"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 5286980,
+        "byteLength": 209880,
+        "type": "Uint32Array",
+        "count": 52470,
+        "sha256": "8d0f7ecdec4384118db21f95026acd40402a147c31e08e351f6b6ebbf5d9aa60"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 5496860,
+        "byteLength": 330776,
+        "type": "Uint32Array",
+        "count": 82694,
+        "sha256": "a4a890e59a811a349c88253a5cd522e30361ba46f68ea002f0e47c9d9d5ef6a2"
+      }
+    },
+    {
+      "sourceNode": 13,
+      "sourceMesh": 11,
+      "sourcePrimitive": 0,
+      "triangles": 67562,
+      "vertices": 41000,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 34,
+          "count": 41000,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "deff5f40f15e0e80bd5bab352a2320cd79765b4da08ce385a3e05db9a584d9ff"
+        },
+        "POSITION": {
+          "sourceAccessor": 33,
+          "count": 41000,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "6c435a35d6ed23c6caa188db6311cd03b59bbf5c2baca13e703d6f70ce47d8d0"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 5827636,
+        "byteLength": 164000,
+        "type": "Uint32Array",
+        "count": 41000,
+        "sha256": "3c1332866f146f41433a4a0955a7c245d45a1098aca289ca45e9c925ded3ff0e"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 5991636,
+        "byteLength": 270248,
+        "type": "Uint32Array",
+        "count": 67562,
+        "sha256": "c88a711061d44172e458e922c3f1b0f1d885f2906b6a70c2c36110a19a7f48ed"
+      }
+    },
+    {
+      "sourceNode": 14,
+      "sourceMesh": 12,
+      "sourcePrimitive": 0,
+      "triangles": 85170,
+      "vertices": 52456,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 37,
+          "count": 52456,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "1bdac0c8ab3f3f510893524157d7ae5cb53974bd5571d9ce74b9fdc5a08f3c19"
+        },
+        "POSITION": {
+          "sourceAccessor": 36,
+          "count": 52456,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "5340082ddad62a0f97ef67279ffc2dbba61669532bfccb8df95fe44a439a0012"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 6261884,
+        "byteLength": 209824,
+        "type": "Uint32Array",
+        "count": 52456,
+        "sha256": "63364d4b05064236c9c227a2faf0929187f6db2ef2698d17cc4ceb87024159d1"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 6471708,
+        "byteLength": 340680,
+        "type": "Uint32Array",
+        "count": 85170,
+        "sha256": "ad12903843d61ac3ad9317ef10829a19afc56f886fc09fa92fdf0ce4fdb1d367"
+      }
+    },
+    {
+      "sourceNode": 15,
+      "sourceMesh": 13,
+      "sourcePrimitive": 0,
+      "triangles": 66779,
+      "vertices": 42038,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 40,
+          "count": 42038,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "506581d20274a20a53206754218dc855498d996ad8ad3a9a7ed61205bc57e086"
+        },
+        "POSITION": {
+          "sourceAccessor": 39,
+          "count": 42038,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "85caab40f2e0fec3388a01f2093a7fbcebe477cc3e6a4efd92b6a87bf73e08d8"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 6812388,
+        "byteLength": 168152,
+        "type": "Uint32Array",
+        "count": 42038,
+        "sha256": "a7b59ace2d0091db8f64141ac3d4012c7a58ea8af79819bff39c8f5273e1cd03"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 6980540,
+        "byteLength": 267116,
+        "type": "Uint32Array",
+        "count": 66779,
+        "sha256": "65d6e09fa5e611fcef3372399c7dec41ab1c823961ab215020d401451841d9ed"
+      }
+    },
+    {
+      "sourceNode": 16,
+      "sourceMesh": 14,
+      "sourcePrimitive": 0,
+      "triangles": 71100,
+      "vertices": 45920,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 43,
+          "count": 45920,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "4d3e47f5b6c0d55a447e7bc5418a9458fb3c9d9b5b0f0210b59aa476f11c0ec5"
+        },
+        "POSITION": {
+          "sourceAccessor": 42,
+          "count": 45920,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "8720bc60d9a16eb4263344cd7a1b2158ea3111c45f070e6f88da848688345a71"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 7247656,
+        "byteLength": 183680,
+        "type": "Uint32Array",
+        "count": 45920,
+        "sha256": "9233a41ee709a89a349af0616a51d52e9d74bcf2a7b8a7492762429992464651"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 7431336,
+        "byteLength": 284400,
+        "type": "Uint32Array",
+        "count": 71100,
+        "sha256": "08bd4a2c689cfb7b3ae761d4f99f56df8c6296b73c926a96519cb6498dc4b6bf"
+      }
+    },
+    {
+      "sourceNode": 17,
+      "sourceMesh": 15,
+      "sourcePrimitive": 0,
+      "triangles": 73100,
+      "vertices": 47261,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 46,
+          "count": 47261,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "32a58ed480803a4d6cc6eb57f18ae152cd41e7dacb99355c741ef662494c9498"
+        },
+        "POSITION": {
+          "sourceAccessor": 45,
+          "count": 47261,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "fce36c25c6597c9dd1afa31917aace1c63e4dc97f52d6b973d29f87badf578ad"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 7715736,
+        "byteLength": 189044,
+        "type": "Uint32Array",
+        "count": 47261,
+        "sha256": "1009f739be5ed62fd9f259b953563744e2a3605d5ef66f2952050bfa2d02ead5"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 7904780,
+        "byteLength": 292400,
+        "type": "Uint32Array",
+        "count": 73100,
+        "sha256": "5987e8c42b7715da6e4c13c9dfe93e6ad39ea9443ba99fea2a62f64297b956c2"
+      }
+    },
+    {
+      "sourceNode": 18,
+      "sourceMesh": 16,
+      "sourcePrimitive": 0,
+      "triangles": 75404,
+      "vertices": 49118,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 49,
+          "count": 49118,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "4bf060c998b358754d9dd532e66bde567cf6d144e28d89d516bd00cfa51e3a55"
+        },
+        "POSITION": {
+          "sourceAccessor": 48,
+          "count": 49118,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "3f8acde8d48978e61c5e9f12281118af16631d8360f300ae2ddfc212222f7cd7"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 8197180,
+        "byteLength": 196472,
+        "type": "Uint32Array",
+        "count": 49118,
+        "sha256": "eec3550889d34fc1ecee2c778f2a9e1c793848d5c4ab873fc03e0bc61f413c3e"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 8393652,
+        "byteLength": 301616,
+        "type": "Uint32Array",
+        "count": 75404,
+        "sha256": "552785b48bce2ef32bfa2097b71c4c4f92e611e499b15511849012dd6222ff2c"
+      }
+    },
+    {
+      "sourceNode": 19,
+      "sourceMesh": 17,
+      "sourcePrimitive": 0,
+      "triangles": 70740,
+      "vertices": 49274,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 52,
+          "count": 49274,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "4e36270d01c4c43ac1d48f2dc272a85e6a00dd85dff30dcc5873072ad19fa306"
+        },
+        "POSITION": {
+          "sourceAccessor": 51,
+          "count": 49274,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "fa6bfd9560d3b97eaefcb96037ff045036ad86e86bfa47d3842ac553999b4597"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 8695268,
+        "byteLength": 197096,
+        "type": "Uint32Array",
+        "count": 49274,
+        "sha256": "79dce282cb1c9d482747d0988858c653fa9be15684b8c525a6f947ac95cbe1c6"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 8892364,
+        "byteLength": 282960,
+        "type": "Uint32Array",
+        "count": 70740,
+        "sha256": "af594ad9e37e3134ef414f2f163e099ca804adb886fb4668c5f92c0a740bc0c5"
+      }
+    },
+    {
+      "sourceNode": 20,
+      "sourceMesh": 18,
+      "sourcePrimitive": 0,
+      "triangles": 56664,
+      "vertices": 42284,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 55,
+          "count": 42284,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "a4c447fe0da5795ddc6fd39b2bd28ecedec5a713a51d1c6204dd36ec5f36f7e9"
+        },
+        "POSITION": {
+          "sourceAccessor": 54,
+          "count": 42284,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "c1b9d7761dd30d973f7abab762d31a2a51838af162ea303518f6bff984663db9"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 9175324,
+        "byteLength": 169136,
+        "type": "Uint32Array",
+        "count": 42284,
+        "sha256": "0cde82f70ad854eb14573a4bf12147ba0a6d0e4a5a3c893f6af6413975bf9059"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 9344460,
+        "byteLength": 226656,
+        "type": "Uint32Array",
+        "count": 56664,
+        "sha256": "60b9aadce8a7f7f2388d549af1e5988533bf27b1a183a55bfca326e8e80b0ef3"
+      }
+    },
+    {
+      "sourceNode": 21,
+      "sourceMesh": 19,
+      "sourcePrimitive": 0,
+      "triangles": 66298,
+      "vertices": 54555,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 58,
+          "count": 54555,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "c1b5bae3bc81c2a1d1c65735d76eca4bba6b3e19ea47d6dc0d79162a3f48ce62"
+        },
+        "POSITION": {
+          "sourceAccessor": 57,
+          "count": 54555,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "a38d200ae581721617a275b391585a8a249f885efe2c9cdc638eaa3e3306b73d"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 9571116,
+        "byteLength": 218220,
+        "type": "Uint32Array",
+        "count": 54555,
+        "sha256": "1938ec95532176b0cbd30dd2c5fb95ce5ebe2336023d4ccbc12ddf3557f416a6"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 9789336,
+        "byteLength": 265192,
+        "type": "Uint32Array",
+        "count": 66298,
+        "sha256": "970b67468a6109f2ec93e3e53224064593cc8b9e834be1f72fe91e0ac0db3cc2"
+      }
+    },
+    {
+      "sourceNode": 22,
+      "sourceMesh": 20,
+      "sourcePrimitive": 0,
+      "triangles": 43014,
+      "vertices": 47938,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 61,
+          "count": 47938,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "22c9e54395a3e66b99d3ab2fb8d5130725d9fbde7887dce2463819657e4a0744"
+        },
+        "POSITION": {
+          "sourceAccessor": 60,
+          "count": 47938,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "a251f5fe69ed784aa5fa0628245df06817d77d8efb9f514d7d1cf9e0bfa18782"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 10054528,
+        "byteLength": 191752,
+        "type": "Uint32Array",
+        "count": 47938,
+        "sha256": "67b1b20c45c5aa017be445b86d54629a6f0c54d6cdd64ef3d73506289552d2bc"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 10246280,
+        "byteLength": 172056,
+        "type": "Uint32Array",
+        "count": 43014,
+        "sha256": "0febfd4e5dcd87701613d9ea648c72b12d82065f813e8078c24bc0d0233ecb3b"
+      }
+    },
+    {
+      "sourceNode": 23,
+      "sourceMesh": 21,
+      "sourcePrimitive": 0,
+      "triangles": 37994,
+      "vertices": 45125,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 64,
+          "count": 45125,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "883d4590dcddd6687f4bcab1386fb5ad6d08f517737928391ec0be03b393bfbb"
+        },
+        "POSITION": {
+          "sourceAccessor": 63,
+          "count": 45125,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "9d0c3a865cdbbb2c28a333a8b5c5280cd3688acce9033241603a6a37fd7add87"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 10418336,
+        "byteLength": 180500,
+        "type": "Uint32Array",
+        "count": 45125,
+        "sha256": "c5f06183d8f909bf6e8412003d7e68637a1670f0f2efed8038c859ba473e9991"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 10598836,
+        "byteLength": 151976,
+        "type": "Uint32Array",
+        "count": 37994,
+        "sha256": "f8f505e0de3cf3b200afbbbdd66f9a3a2c41d8dbbacfbf7ae4b0a2d536c3ae00"
+      }
+    },
+    {
+      "sourceNode": 24,
+      "sourceMesh": 22,
+      "sourcePrimitive": 0,
+      "triangles": 29629,
+      "vertices": 41585,
+      "attributes": {
+        "NORMAL": {
+          "sourceAccessor": 67,
+          "count": 41585,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "c86bd3f4f03281bc42d9f9f3665e2998afe5bc33a4f204a4a1cd021c8bf787ab"
+        },
+        "POSITION": {
+          "sourceAccessor": 66,
+          "count": 41585,
+          "byteIdenticalSourceSubset": true,
+          "sha256": "98a962cacc60adb82e0de1606d801a24638052158bb1db0b97a56a4fe541f172"
+        }
+      },
+      "sourceVertexIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 10750812,
+        "byteLength": 166340,
+        "type": "Uint32Array",
+        "count": 41585,
+        "sha256": "0ab92393be1946baf7c6e9564e9d40264a299c783f2f1750922a8977da3f6c8b"
+      },
+      "sourceTriangleIds": {
+        "file": "source-face-trace.bin",
+        "byteOffset": 10917152,
+        "byteLength": 118516,
+        "type": "Uint32Array",
+        "count": 29629,
+        "sha256": "bb7250fd0e9545490e6caac1e22ce7664d244df328fe24fb4619f47e469ede37"
+      }
+    }
+  ],
+  "files": {
+    "component.gltf": {
+      "bytes": 44763,
+      "sha256": "ac61b7f1ace82721271c6d99e5cbda62dacb1f20b7376c61ec1104029763c06b"
+    },
+    "component.bin": {
+      "bytes": 46606140,
+      "sha256": "4b6f16a2aa6efd0bbde92b26547d569c334c5f6516d621284b25c8b02bdb59b5"
+    }
+  },
+  "canonicalIntegration": false
+}

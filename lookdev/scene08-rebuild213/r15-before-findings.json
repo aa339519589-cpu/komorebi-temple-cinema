@@ -1,0 +1,13 @@
+{
+  "baseline": "17fc80c465fd3e5fe692949b6e25e1d2fa805e90d5e2b574419ef9284128a7f5",
+  "reference": "references/hd/7-照片-8.jpg",
+  "actual": "qa/ten-reference/08/iteration-scene08-rebuild213-r14/reference.png",
+  "nativeImagesPersonallyViewed": true,
+  "findings": [
+    "Dark-red structural role collapse: R14 hall paints red #8c3a22 and redlight #934329 on most beams, bracket arms and underside; wood #59301f is also very dark. Reference separates dark brown members, warmer exposed timber faces, vermilion verticals and limited gilt.",
+    "Surface chain is already a normalized grain CanvasTexture followed by white material baseColor. No material AO texture exists on timber; the held camera contact pass can multiply cavities down to 0.622 but cannot explain a whole-hall red hue. R15 therefore changes real material roles rather than camera exposure/AO or scene-wide lighting.",
+    "Window grid was mainly 28mm coplanar strips; eave rafters and two thin segmented fascia lines do not convey the reference nested timber thickness. R15 reconstructs thicker crossing muntins, recessed backing, larger rafter/tail solids and three actual continuous fascia courses."
+  ],
+  "sunAndSkyAndExposureHeld": true,
+  "visualAccepted": false
+}

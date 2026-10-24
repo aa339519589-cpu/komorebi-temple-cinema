@@ -1,0 +1,118 @@
+{
+  "revision": "scene07-rebuild214-r18",
+  "source": "9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563",
+  "checks": [
+    {
+      "variant": "r18",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r18/report.json",
+      "source": "9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "detailCrop": {
+        "pixels": [
+          510,
+          300,
+          690,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "061e5f77e785a070f0fdabca888df02e5b419f1d1eef28ac2b5966f3c4ee8c01",
+          "pngSha256": "4c2a6681f758de251fe5e64ae576e1a39f79b3360e69712a0f1ce38f0b675231"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "89665bb70add1970d694511287abfa42dfc7d4b09dc29845e2fc9e3033e2b754",
+          "pngSha256": "3e8bbdfe1d0ea69b538cecc513c2bc75f8ca4113b179aa802dcccb0973abcc40"
+        }
+      ]
+    },
+    {
+      "variant": "r18-near-shore-low",
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r18-near-shore-low/report.json",
+      "source": "9cff75d82122d3cac20d45f09e60b0633baca1dcfc8cdaa9ab2e3fb387f2e563",
+      "matchesCurrent": true,
+      "status": "rendered-review",
+      "errors": [],
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "sampling": {
+        "nativeWidth": 1254,
+        "nativeHeight": 1254,
+        "outputWidth": 1254,
+        "outputHeight": 1254,
+        "scale": 1,
+        "downsampling": "none"
+      },
+      "detailCrop": null,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "linked": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "73c397e63eb00cc220f124ec6add75e6809bd7d02480aed63250670e06ee5a64",
+          "pngSha256": "79f7658459f8fc1a79022dfc42e2a0ba5ecfb64c0db44dfe0032ed64d9c4ce79"
+        }
+      ]
+    }
+  ],
+  "photographicAcceptance": false,
+  "visualInspection": {
+    "full": true,
+    "genuineHeroSubfrustum": true,
+    "nearShoreLow": true,
+    "previousR17CherryHeadlandClose": true,
+    "previousR17CloseIsDifferentSource": true,
+    "remaining": [
+      "Photographic fidelity remains unaccepted; the image still reads as CG.",
+      "Main hall ridge/eave direction and roof plan articulation differ from the reference despite the corrected ridge height.",
+      "Beam/rail repetition, pine needle grain, cherry crown fullness and small pond flowers remain visibly procedural.",
+      "Golden-hour contrast, indirect shade transitions and atmospheric scattering are still weaker than the reference.",
+      "Outside-cap measured-sky brightness remains visible at oblique viewpoints; the broad transition is an approximation, not measured full-world photometry."
+    ]
+  },
+  "retainedSourceSnapshotsVerified": true,
+  "snapshotVerification": "lookdev/scene07-rebuild214/r18-snapshot-verification.json",
+  "preservedR11Source": "9b890d3f87a71298f82841e11d03c4b8ff911ebeb8149ca5e379c175c620b6a6",
+  "preservedR06Source": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994"
+}

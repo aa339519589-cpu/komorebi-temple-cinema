@@ -1,3 +1,4 @@
+import {installLeafScattering214} from './world-radiance214.js';
 import * as T from 'three';
 
 export const MOMIJI_REVISION151 = 'scene07-mature-cupped-momiji151-r02';
@@ -186,12 +187,7 @@ function materialSet151(sunDirection, sunColor) {
   const lightDirection = V(sunDirection).normalize(), solarColor = new T.Color(sunColor);
   const leaf = new T.MeshPhysicalMaterial({name: 'momiji151-opaque-thin-cupped-lamina', color: 0xffffff, roughness: .68, metalness: 0, clearcoat: .035, clearcoatRoughness: .53, side: T.DoubleSide, vertexColors: true});
   leaf.forceSinglePass = true;
-  leaf.onBeforeCompile = shader => {
-    shader.uniforms.momijiSunDirection151 = {value: lightDirection}; shader.uniforms.momijiSunColor151 = {value: solarColor};
-    shader.fragmentShader = 'uniform vec3 momijiSunDirection151; uniform vec3 momijiSunColor151;\n' + shader.fragmentShader;
-    shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_end>', '#include <lights_fragment_end>\n vec3 ms151=normalize((viewMatrix*vec4(momijiSunDirection151,0.)).xyz); float mt151=pow(max(dot(-normal,ms151),0.),1.35); reflectedLight.indirectDiffuse+=diffuseColor.rgb*momijiSunColor151*mt151*.64;');
-  };
-  leaf.customProgramCacheKey = () => 'momiji151-thin-pigment-under-actual-sun-r02';
+  installLeafScattering214(leaf,{strength:.38,power:1.35});
   const wood = new T.MeshStandardMaterial({name: 'momiji151-mature-branch-and-twig', color: 0xffffff, roughness: .93, vertexColors: true});
   const vein = new T.MeshStandardMaterial({name: 'momiji151-palmar-minor-veins', color: 0xffffff, roughness: .82, vertexColors: true, side: T.DoubleSide});
   return {leaf, wood, vein};

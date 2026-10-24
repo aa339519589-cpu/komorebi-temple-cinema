@@ -1,0 +1,145 @@
+{
+  "revision": "scene07-rebuild214-r09",
+  "sourceIdentity": "ea6643606570b457bda7e7c7c18c0962bffb3120486dcf8f463687fcdc95a790",
+  "parentRevision": "scene07-rebuild214-r06",
+  "parentSource": "70005eada267162e740045177501d23745d84d9dfcaa19ee22f21d1d508e9994",
+  "publishBoundary": "lookdev/scene07-rebuild214/r06-publish-snapshot",
+  "changedSources": {
+    "garden-accents.js": "b7d16dd2e5f5d704a1cee1fad863732d8a94204f4f004fa60f9093f887482947",
+    "garden-botany214.js": "fed707350518805a4b7ec7ebbff96f035718148a550e73c75afba455e23b3e60",
+    "garden-terrain.js": "5a05e8542947a56de275ad015d8480392d270ef7db7339ac60ccdb9b0191db91",
+    "grand-frame182.js": "9e47b77d9220d91329c28773508f192dbd4a36e78f6c942c227b706e03418582",
+    "layout118-data.js": "100f1223822cc36e40ac85454081ab13c289571d0b5119a3540e8cad9e9cf745",
+    "main.js": "57011be75da10805912a7b44a131446e8fae642939007153eb407e9791573170",
+    "occupied-hall152.js": "86dfeb6ce14b35a7cc317fd69efd005a9c4352652572fef46aa03c554661fa06",
+    "physical-roofs.js": "57cd62fc06f70376a90667fb81bf58a9cccc5881b92aba98ad11aed932828f8c",
+    "reference-layout118.js": "751bf9fd7bfd60dee92cf3d753e602e47378b740001c65b520da888f4d64e5bd",
+    "world-radiance214.js": "435ee6f0c49b08a10ce4c0559dce1b897fd34bb28c28d9cb3486f26116395638"
+  },
+  "anchorChanges": {
+    "rightApproach": {
+      "before": [
+        11,
+        3.6,
+        1.8
+      ],
+      "after": [
+        8.3,
+        4.38,
+        1.9
+      ],
+      "risersBefore": 11,
+      "risersAfter": 6
+    },
+    "rightWalkTurn": {
+      "before": [
+        15.4,
+        3.55,
+        -0.2
+      ],
+      "after": [
+        12.1,
+        4.22,
+        4.4
+      ]
+    },
+    "rightLantern": {
+      "beforeWorld": [
+        9,
+        2.8,
+        -1.8
+      ],
+      "beforeHeight": 5.7,
+      "rejectedR08World": [
+        9,
+        4.123942510615184,
+        -4.4
+      ],
+      "afterWorld": [
+        9,
+        4.069301988316447,
+        -1.8
+      ],
+      "afterHeight": 4.1,
+      "rootSupport": "Dedicated rock headland outside actual hall plinth"
+    },
+    "upperEnclosure": {
+      "frontWallZBefore": 2.35,
+      "frontWallZAfter": 2.75,
+      "galleryDepthBefore": 1.6,
+      "galleryDepthAfter": 1.2
+    }
+  },
+  "terrainSamples": [
+    {
+      "worldXZ": [
+        8.8,
+        -0.3
+      ],
+      "height": -0.05812184044487649
+    },
+    {
+      "worldXZ": [
+        9,
+        -1.8
+      ],
+      "height": 4.069301988316447
+    },
+    {
+      "worldXZ": [
+        2.6,
+        -1.2
+      ],
+      "height": 5.039088826051244
+    },
+    {
+      "worldXZ": [
+        4.876,
+        5.52
+      ],
+      "height": 0
+    },
+    {
+      "worldXZ": [
+        12.6,
+        7.8
+      ],
+      "height": 1.074209350327066
+    }
+  ],
+  "lighting": {
+    "exposureUnchanged": 1.02,
+    "directSunIntensity": {
+      "before": 6.6,
+      "after": 14
+    },
+    "directSunVector": {
+      "before": [
+        -0.58,
+        0.035,
+        -0.81
+      ],
+      "after": [
+        -0.58,
+        0.045,
+        -0.81
+      ]
+    },
+    "sharedMeasuredDome": {
+      "before": 0.48,
+      "after": 0.9
+    },
+    "sharedCloudCap": {
+      "before": 1.25,
+      "after": 1.75
+    },
+    "sameFieldForBackgroundReflectionPMREM": true,
+    "unshadowedFillLights": 0,
+    "hallActualCubeCaptures": 4
+  },
+  "newExternalAssets": false,
+  "actual3DGeneratedFlowers": true,
+  "photographicPixelsProjected": false,
+  "visualAccepted": false,
+  "status": "R09 native full/hero/low queued; do not treat as accepted photographic match"
+}
